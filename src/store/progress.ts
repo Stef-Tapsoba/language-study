@@ -62,3 +62,19 @@ export function markLessonComplete(langId: string, lessonId: string): void {
 export function resetProgress(): void {
     localStorage.removeItem(KEY)
 }
+
+/** Returns all langIds that have an explicit level set (i.e. the user has started them). */
+export function getStartedLanguages(): string[] {
+    return Object.keys(loadProgress().levels)
+}
+
+/** Resets level + completed lessons for a single language only. */
+export function resetLanguageProgress(langId: string): void {
+    const p = loadProgress()
+    const levels           = { ...p.levels }
+    const completedLessons = { ...p.completedLessons }
+    delete levels[langId]
+    delete completedLessons[langId]
+    const selectedLanguage = p.selectedLanguage === langId ? null : p.selectedLanguage
+    save({ selectedLanguage, levels, completedLessons })
+}
