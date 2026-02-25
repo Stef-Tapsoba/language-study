@@ -1,0 +1,356 @@
+// data/spanish/index.ts
+import { LanguageModule } from "../../types"
+
+const module: LanguageModule = {
+    grammar: [
+        {
+            id: "es-g-a1-1",
+            level: "A1",
+            title: "Subject Pronouns",
+            explanation: "Spanish subject pronouns identify who is performing the action. Unlike English, they are often omitted because verb endings already indicate the subject. Use them for emphasis or clarity.",
+            examples: [
+                { native: "Yo hablo español.", translation: "I speak Spanish." },
+                { native: "Tú eres estudiante.", translation: "You are a student." },
+                { native: "Él/Ella trabaja aquí.", translation: "He/She works here." },
+                { native: "Nosotros vivimos en Madrid.", translation: "We live in Madrid." }
+            ]
+        },
+        {
+            id: "es-g-a1-2",
+            level: "A1",
+            title: "Ser vs Estar (To Be)",
+            explanation: "Spanish has two verbs meaning 'to be'. SER is used for permanent traits (identity, origin, profession). ESTAR is used for temporary states (location, condition, emotion).",
+            examples: [
+                { native: "Soy médico.", translation: "I am a doctor. (profession — ser)" },
+                { native: "Estoy cansado.", translation: "I am tired. (temporary state — estar)" },
+                { native: "Madrid es la capital.", translation: "Madrid is the capital. (permanent — ser)" },
+                { native: "El café está caliente.", translation: "The coffee is hot. (condition — estar)" }
+            ]
+        },
+        {
+            id: "es-g-a1-3",
+            level: "A1",
+            title: "Present Tense: Regular -ar Verbs",
+            explanation: "Regular -ar verbs are the most common in Spanish. Remove -ar from the infinitive and add the ending that matches the subject: -o, -as, -a, -amos, -áis, -an.",
+            examples: [
+                { native: "Yo hablo.", translation: "I speak." },
+                { native: "Tú hablas.", translation: "You speak." },
+                { native: "Él habla.", translation: "He speaks." },
+                { native: "Nosotros hablamos.", translation: "We speak." },
+                { native: "Ellos hablan.", translation: "They speak." }
+            ]
+        },
+        {
+            id: "es-g-a1-4",
+            level: "A1",
+            title: "Articles: el, la, los, las, un, una",
+            explanation: "Spanish nouns have grammatical gender (masculine or feminine). The definite articles are el (m. sg.), la (f. sg.), los (m. pl.), las (f. pl.). Indefinite articles: un, una, unos, unas.",
+            examples: [
+                { native: "el libro", translation: "the book (masc.)" },
+                { native: "la casa", translation: "the house (fem.)" },
+                { native: "los libros", translation: "the books (masc. pl.)" },
+                { native: "una mesa", translation: "a table (fem.)" }
+            ]
+        },
+        {
+            id: "es-g-a1-5",
+            level: "A1",
+            title: "Questions and Negation",
+            explanation: "To make a yes/no question, invert the subject and verb, or simply raise your intonation. Negation is formed by placing 'no' before the verb. Spanish questions use both an opening and closing question mark.",
+            examples: [
+                { native: "¿Hablas español?", translation: "Do you speak Spanish?" },
+                { native: "¿Dónde vives?", translation: "Where do you live?" },
+                { native: "No hablo inglés.", translation: "I don't speak English." },
+                { native: "No es verdad.", translation: "It's not true." }
+            ]
+        },
+        {
+            id: "es-g-a1-6",
+            level: "A1",
+            title: "Numbers and Telling Time",
+            explanation: "Spanish numbers 1-10: uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, diez. To tell time: ¿Qué hora es? → Son las tres. (It's three o'clock.)",
+            examples: [
+                { native: "Son las tres.", translation: "It's three o'clock." },
+                { native: "Es la una.", translation: "It's one o'clock." },
+                { native: "Son las dos y media.", translation: "It's half past two." },
+                { native: "Tengo veinte años.", translation: "I am twenty years old." }
+            ]
+        },
+        {
+            id: "es-g-a2-1",
+            level: "A2",
+            title: "Preterite Tense (Indefinido)",
+            explanation: "The preterite expresses completed past actions at a specific time. Regular -ar verbs take: -é, -aste, -ó, -amos, -asteis, -aron. Common irregular verbs (ir/ser share forms): fui, fuiste, fue…",
+            examples: [
+                { native: "Ayer comí pizza.", translation: "Yesterday I ate pizza." },
+                { native: "Fui al mercado.", translation: "I went to the market." },
+                { native: "Ella habló con el profesor.", translation: "She spoke with the teacher." }
+            ]
+        },
+        {
+            id: "es-g-a2-2",
+            level: "A2",
+            title: "Reflexive Verbs",
+            explanation: "Reflexive verbs indicate the subject acts on itself. They are conjugated with reflexive pronouns (me, te, se, nos, os, se) placed before the verb.",
+            examples: [
+                { native: "Me llamo Carlos.", translation: "My name is Carlos. (I call myself Carlos.)" },
+                { native: "Me levanto a las siete.", translation: "I get up at seven." },
+                { native: "Nos acostamos tarde.", translation: "We go to bed late." }
+            ]
+        },
+        {
+            id: "es-g-a2-3",
+            level: "A2",
+            title: "Gustar and Similar Verbs",
+            explanation: "Gustar means 'to be pleasing to'. The subject is what is liked, not the person. Use me/te/le/nos/os/les + gusta (singular) or gustan (plural).",
+            examples: [
+                { native: "Me gusta el café.", translation: "I like coffee. (Coffee is pleasing to me.)" },
+                { native: "Te gustan los libros.", translation: "You like books." },
+                { native: "Le encanta bailar.", translation: "He/She loves to dance." }
+            ]
+        },
+        {
+            id: "es-g-b1-1",
+            level: "B1",
+            title: "Subjunctive Mood: Present",
+            explanation: "The subjunctive is used to express wishes, doubts, emotions, and hypothetical situations. It is triggered by certain phrases like quiero que, espero que, es importante que.",
+            examples: [
+                { native: "Quiero que vengas.", translation: "I want you to come." },
+                { native: "Es importante que estudies.", translation: "It's important that you study." },
+                { native: "Espero que todo vaya bien.", translation: "I hope everything goes well." }
+            ]
+        },
+        {
+            id: "es-g-b1-2",
+            level: "B1",
+            title: "Imperfect Tense (Imperfecto)",
+            explanation: "The imperfect describes ongoing or habitual past actions, background situations, and states. It contrasts with the preterite which is for completed events.",
+            examples: [
+                { native: "Cuando era niño, jugaba al fútbol.", translation: "When I was a child, I used to play football." },
+                { native: "Llovía mucho en noviembre.", translation: "It rained a lot in November." },
+                { native: "Siempre comíamos juntos.", translation: "We always used to eat together." }
+            ]
+        }
+    ],
+
+    vocab: [
+        { id: "es-v-a1-1",  level: "A1", word: "Hola",          translation: "Hello",           category: "Greetings",  example: { native: "¡Hola! ¿Cómo estás?",          translation: "Hello! How are you?" } },
+        { id: "es-v-a1-2",  level: "A1", word: "Gracias",       translation: "Thank you",        category: "Greetings",  example: { native: "Muchas gracias.",               translation: "Thank you very much." } },
+        { id: "es-v-a1-3",  level: "A1", word: "Por favor",     translation: "Please",           category: "Greetings",  example: { native: "Un café, por favor.",           translation: "A coffee, please." } },
+        { id: "es-v-a1-4",  level: "A1", word: "Sí / No",       translation: "Yes / No",         category: "Basics",     example: { native: "Sí, claro. No, gracias.",      translation: "Yes, of course. No, thank you." } },
+        { id: "es-v-a1-5",  level: "A1", word: "Perdón",        translation: "Sorry / Excuse me", category: "Greetings", example: { native: "Perdón, ¿dónde está el baño?", translation: "Excuse me, where is the bathroom?" } },
+        { id: "es-v-a1-6",  level: "A1", word: "Agua",          translation: "Water",            category: "Food",       example: { native: "Quiero agua, por favor.",      translation: "I want water, please." } },
+        { id: "es-v-a1-7",  level: "A1", word: "Comida",        translation: "Food",             category: "Food",       example: { native: "La comida está deliciosa.",    translation: "The food is delicious." } },
+        { id: "es-v-a1-8",  level: "A1", word: "Amigo/Amiga",   translation: "Friend",           category: "People",     example: { native: "Ella es mi mejor amiga.",      translation: "She is my best friend." } },
+        { id: "es-v-a1-9",  level: "A1", word: "Casa",          translation: "House / Home",     category: "Places",     example: { native: "Mi casa es pequeña.",          translation: "My house is small." } },
+        { id: "es-v-a1-10", level: "A1", word: "Trabajo",       translation: "Work / Job",       category: "Daily life", example: { native: "Voy al trabajo en autobús.",   translation: "I go to work by bus." } },
+        { id: "es-v-a2-1",  level: "A2", word: "Supermercado",  translation: "Supermarket",      category: "Places",     example: { native: "Fui al supermercado ayer.",    translation: "I went to the supermarket yesterday." } },
+        { id: "es-v-a2-2",  level: "A2", word: "Reunión",       translation: "Meeting",          category: "Work",       example: { native: "Tengo una reunión a las diez.", translation: "I have a meeting at ten." } },
+        { id: "es-v-a2-3",  level: "A2", word: "Tiempo",        translation: "Time / Weather",   category: "Daily life", example: { native: "¿Qué tiempo hace hoy?",        translation: "What's the weather like today?" } },
+        { id: "es-v-a2-4",  level: "A2", word: "Viaje",         translation: "Trip / Journey",   category: "Travel",     example: { native: "El viaje fue largo.",           translation: "The trip was long." } },
+        { id: "es-v-a2-5",  level: "A2", word: "Dinero",        translation: "Money",            category: "Daily life", example: { native: "No tengo dinero.",              translation: "I don't have money." } },
+        { id: "es-v-a2-6",  level: "A2", word: "Semana",        translation: "Week",             category: "Time",       example: { native: "La semana pasada fui al cine.", translation: "Last week I went to the cinema." } },
+        { id: "es-v-a2-7",  level: "A2", word: "Ciudad",        translation: "City",             category: "Places",     example: { native: "Barcelona es una ciudad preciosa.", translation: "Barcelona is a beautiful city." } },
+        { id: "es-v-a2-8",  level: "A2", word: "Idioma",        translation: "Language",         category: "Learning",   example: { native: "Aprendo un nuevo idioma.",     translation: "I am learning a new language." } },
+        { id: "es-v-a2-9",  level: "A2", word: "Problema",      translation: "Problem",          category: "Basics",     example: { native: "No hay problema.",             translation: "No problem." } },
+        { id: "es-v-a2-10", level: "A2", word: "Derecha/Izquierda", translation: "Right / Left", category: "Directions", example: { native: "Gira a la derecha.",           translation: "Turn right." } }
+    ],
+
+    verbs: [
+        {
+            id: "es-vb-a1-1",
+            level: "A1",
+            infinitive: "hablar",
+            meaning: "to speak",
+            conjugations: [{
+                tense: "Present",
+                forms: [
+                    { pronoun: "yo",        form: "hablo" },
+                    { pronoun: "tú",        form: "hablas" },
+                    { pronoun: "él/ella",   form: "habla" },
+                    { pronoun: "nosotros",  form: "hablamos" },
+                    { pronoun: "vosotros",  form: "habláis" },
+                    { pronoun: "ellos",     form: "hablan" }
+                ]
+            }]
+        },
+        {
+            id: "es-vb-a1-2",
+            level: "A1",
+            infinitive: "ser",
+            meaning: "to be (permanent)",
+            conjugations: [{
+                tense: "Present",
+                forms: [
+                    { pronoun: "yo",        form: "soy" },
+                    { pronoun: "tú",        form: "eres" },
+                    { pronoun: "él/ella",   form: "es" },
+                    { pronoun: "nosotros",  form: "somos" },
+                    { pronoun: "vosotros",  form: "sois" },
+                    { pronoun: "ellos",     form: "son" }
+                ]
+            }]
+        },
+        {
+            id: "es-vb-a1-3",
+            level: "A1",
+            infinitive: "estar",
+            meaning: "to be (temporary)",
+            conjugations: [{
+                tense: "Present",
+                forms: [
+                    { pronoun: "yo",        form: "estoy" },
+                    { pronoun: "tú",        form: "estás" },
+                    { pronoun: "él/ella",   form: "está" },
+                    { pronoun: "nosotros",  form: "estamos" },
+                    { pronoun: "vosotros",  form: "estáis" },
+                    { pronoun: "ellos",     form: "están" }
+                ]
+            }]
+        },
+        {
+            id: "es-vb-a1-4",
+            level: "A1",
+            infinitive: "tener",
+            meaning: "to have",
+            conjugations: [{
+                tense: "Present",
+                forms: [
+                    { pronoun: "yo",        form: "tengo" },
+                    { pronoun: "tú",        form: "tienes" },
+                    { pronoun: "él/ella",   form: "tiene" },
+                    { pronoun: "nosotros",  form: "tenemos" },
+                    { pronoun: "vosotros",  form: "tenéis" },
+                    { pronoun: "ellos",     form: "tienen" }
+                ]
+            }]
+        },
+        {
+            id: "es-vb-a2-1",
+            level: "A2",
+            infinitive: "ir",
+            meaning: "to go",
+            conjugations: [
+                {
+                    tense: "Present",
+                    forms: [
+                        { pronoun: "yo",        form: "voy" },
+                        { pronoun: "tú",        form: "vas" },
+                        { pronoun: "él/ella",   form: "va" },
+                        { pronoun: "nosotros",  form: "vamos" },
+                        { pronoun: "vosotros",  form: "vais" },
+                        { pronoun: "ellos",     form: "van" }
+                    ]
+                },
+                {
+                    tense: "Preterite",
+                    forms: [
+                        { pronoun: "yo",        form: "fui" },
+                        { pronoun: "tú",        form: "fuiste" },
+                        { pronoun: "él/ella",   form: "fue" },
+                        { pronoun: "nosotros",  form: "fuimos" },
+                        { pronoun: "vosotros",  form: "fuisteis" },
+                        { pronoun: "ellos",     form: "fueron" }
+                    ]
+                }
+            ]
+        },
+        {
+            id: "es-vb-a2-2",
+            level: "A2",
+            infinitive: "comer",
+            meaning: "to eat",
+            conjugations: [
+                {
+                    tense: "Present",
+                    forms: [
+                        { pronoun: "yo",        form: "como" },
+                        { pronoun: "tú",        form: "comes" },
+                        { pronoun: "él/ella",   form: "come" },
+                        { pronoun: "nosotros",  form: "comemos" },
+                        { pronoun: "vosotros",  form: "coméis" },
+                        { pronoun: "ellos",     form: "comen" }
+                    ]
+                },
+                {
+                    tense: "Preterite",
+                    forms: [
+                        { pronoun: "yo",        form: "comí" },
+                        { pronoun: "tú",        form: "comiste" },
+                        { pronoun: "él/ella",   form: "comió" },
+                        { pronoun: "nosotros",  form: "comimos" },
+                        { pronoun: "vosotros",  form: "comisteis" },
+                        { pronoun: "ellos",     form: "comieron" }
+                    ]
+                }
+            ]
+        },
+        {
+            id: "es-vb-a2-3",
+            level: "A2",
+            infinitive: "hacer",
+            meaning: "to do / to make",
+            conjugations: [{
+                tense: "Present",
+                forms: [
+                    { pronoun: "yo",        form: "hago" },
+                    { pronoun: "tú",        form: "haces" },
+                    { pronoun: "él/ella",   form: "hace" },
+                    { pronoun: "nosotros",  form: "hacemos" },
+                    { pronoun: "vosotros",  form: "hacéis" },
+                    { pronoun: "ellos",     form: "hacen" }
+                ]
+            }]
+        },
+        {
+            id: "es-vb-a2-4",
+            level: "A2",
+            infinitive: "poder",
+            meaning: "to be able to / can",
+            conjugations: [{
+                tense: "Present",
+                forms: [
+                    { pronoun: "yo",        form: "puedo" },
+                    { pronoun: "tú",        form: "puedes" },
+                    { pronoun: "él/ella",   form: "puede" },
+                    { pronoun: "nosotros",  form: "podemos" },
+                    { pronoun: "vosotros",  form: "podéis" },
+                    { pronoun: "ellos",     form: "pueden" }
+                ]
+            }]
+        }
+    ],
+
+    placementQuestions: [
+        { id: "es-p-a1-1", level: "A1", prompt: "What does '¿Cómo estás?' mean?", options: ["What is your name?", "How are you?", "Where are you from?", "How old are you?"], answer: "How are you?" },
+        { id: "es-p-a1-2", level: "A1", prompt: "Which verb means 'to be' for permanent traits?", options: ["estar", "tener", "ser", "hacer"], answer: "ser" },
+        { id: "es-p-a2-1", level: "A2", prompt: "Complete: 'Ayer yo ___ (comer) una pizza.'", options: ["como", "comí", "comía", "comeré"], answer: "comí" },
+        { id: "es-p-a2-2", level: "A2", prompt: "How do you say 'I like music' using gustar?", options: ["Yo gusto música.", "Me gusta la música.", "Me gustan la música.", "Gusta me música."], answer: "Me gusta la música." },
+        { id: "es-p-b1-1", level: "B1", prompt: "Which tense describes habitual past actions?", options: ["Preterite", "Present", "Imperfect", "Future"], answer: "Imperfect" },
+        { id: "es-p-b1-2", level: "B1", prompt: "Complete: 'Quiero que tú ___ (venir) a la fiesta.'", options: ["vienes", "vengas", "vendrás", "ven"], answer: "vengas" },
+        { id: "es-p-b2-1", level: "B2", prompt: "What does 'sin embargo' mean?", options: ["therefore", "however", "although", "in addition"], answer: "however" },
+        { id: "es-p-b2-2", level: "B2", prompt: "Which mood expresses hypothetical situations in the past?", options: ["Subjuntivo presente", "Condicional simple", "Condicional compuesto", "Indicativo"], answer: "Condicional compuesto" },
+        { id: "es-p-c1-1", level: "C1", prompt: "Complete: 'Si hubiera sabido, ___ (venir) antes.'", options: ["habría venido", "vendría", "hubiera venido", "vengo"], answer: "habría venido" },
+        { id: "es-p-c1-2", level: "C1", prompt: "What is the passive voice of 'Construyeron el puente'?", options: ["El puente construyeron.", "El puente fue construido.", "El puente se construyó.", "both B and C are correct"], answer: "both B and C are correct" }
+    ],
+
+    levelQuestions: [
+        { id: "es-lt-a1-1",  level: "A1", prompt: "What does 'gracias' mean?", options: ["Please", "Hello", "Thank you", "Goodbye"], answer: "Thank you" },
+        { id: "es-lt-a1-2",  level: "A1", prompt: "Which is the correct article for 'libro' (book)?", options: ["la", "los", "el", "las"], answer: "el" },
+        { id: "es-lt-a1-3",  level: "A1", prompt: "How do you say 'I am a student' in Spanish?", options: ["Soy estudiante.", "Estoy estudiante.", "Tengo estudiante.", "Hablo estudiante."], answer: "Soy estudiante." },
+        { id: "es-lt-a1-4",  level: "A1", prompt: "What is 'water' in Spanish?", options: ["leche", "jugo", "agua", "café"], answer: "agua" },
+        { id: "es-lt-a1-5",  level: "A1", prompt: "How do you say 'I speak' (first person)?", options: ["hablas", "habla", "hablo", "hablamos"], answer: "hablo" },
+        { id: "es-lt-a1-6",  level: "A1", prompt: "Which verb is used for temporary states?", options: ["ser", "tener", "ir", "estar"], answer: "estar" },
+        { id: "es-lt-a1-7",  level: "A1", prompt: "What does '¿Dónde?' mean?", options: ["When?", "Who?", "Where?", "Why?"], answer: "Where?" },
+        { id: "es-lt-a1-8",  level: "A1", prompt: "How do you say 'No, thank you'?", options: ["No, gracias.", "No, por favor.", "Sí, gracias.", "No hay."], answer: "No, gracias." },
+        { id: "es-lt-a1-9",  level: "A1", prompt: "What is the plural of 'el libro'?", options: ["la libro", "los libros", "las libros", "el libros"], answer: "los libros" },
+        { id: "es-lt-a1-10", level: "A1", prompt: "How do you form a question in Spanish?", options: ["Add 'es' at the end", "Put '¿' at the start and '?' at the end", "Add 'que' at the start", "Change the verb to subjunctive"], answer: "Put '¿' at the start and '?' at the end" },
+        { id: "es-lt-a1-11", level: "A1", prompt: "What does 'amigo' mean?", options: ["Enemy", "Family", "Friend", "Teacher"], answer: "Friend" },
+        { id: "es-lt-a1-12", level: "A1", prompt: "I ___ (tener) veinte años. Which form is correct?", options: ["tiene", "tengo", "tienes", "tenemos"], answer: "tengo" },
+        { id: "es-lt-a1-13", level: "A1", prompt: "What does 'perdón' mean?", options: ["Thank you", "Sorry / Excuse me", "Goodbye", "Please"], answer: "Sorry / Excuse me" },
+        { id: "es-lt-a1-14", level: "A1", prompt: "How do you say 'She works here'?", options: ["Ella trabaja aquí.", "Ella trabajo aquí.", "Ella trabajas aquí.", "Ella trabajamos aquí."], answer: "Ella trabaja aquí." },
+        { id: "es-lt-a1-15", level: "A1", prompt: "Which is correct for 'the houses' (fem. pl.)?", options: ["el casa", "los casas", "las casas", "la casas"], answer: "las casas" }
+    ]
+}
+
+export default module
