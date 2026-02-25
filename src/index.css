@@ -8,3 +8,22 @@
         -webkit-font-smoothing: antialiased;
     }
 }
+
+/* Flashcard 3-D flip */
+.card-scene {
+    perspective: 1000px;
+}
+.card-inner {
+    transform-style: preserve-3d;
+    transition: transform 0.45s ease;
+}
+.card-inner.flipped {
+    transform: rotateY(180deg);
+}
+.card-face {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+.card-back {
+    transform: rotateY(180deg);
+}
