@@ -1,0 +1,49 @@
+{
+    "compilerOptions": {
+        "target": "ES2020",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "lib": [
+            "ES2020",
+            "DOM",
+            "DOM.Iterable"
+        ],
+        "jsx": "react-jsx",
+        "types": [
+            "vite/client"
+        ],
+        "strict": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowImportingTsExtensions": true,
+        "noEmit": true,
+        "baseUrl": ".",
+        "paths": {
+            "@myorg/auth-core": [
+                "../packages/auth-core/src"
+            ],
+            "@myorg/api-client": [
+                "../packages/api-client/src"
+            ],
+            "@myorg/validation": [
+                "../packages/validation/src"
+            ],
+            "@myorg/theme-tokens": [
+                "../packages/theme-tokens/src"
+            ],
+            "@myorg/storage": [
+                "../packages/storage/src"
+            ],
+            "@myorg/event-bus": [
+                "../packages/event-bus/src"
+            ]
+        }
+    },
+    "include": [
+        "src"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}
