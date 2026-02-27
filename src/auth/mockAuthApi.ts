@@ -57,8 +57,12 @@ export const mockAuthApi: AuthApi = {
 }
 
 // ---------------------------------------------------------------------------
-// Registration helper (not part of AuthApi — called from RegisterPage)
+// Helpers (not part of AuthApi)
 // ---------------------------------------------------------------------------
+export function getUserById(id: string): Pick<StoredUser, "email" | "displayName"> | null {
+    return loadUsers().find(u => u.id === id) ?? null
+}
+
 export function registerUser(email: string, displayName: string, password: string): StoredUser {
     const users = loadUsers()
     if (users.some(u => u.email.toLowerCase() === email.toLowerCase())) {

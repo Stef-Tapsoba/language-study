@@ -2,17 +2,20 @@
 import { useState, FormEvent } from "react"
 import { Link, useNavigate, useLocation } from "react-router-dom"
 import { useAuth } from "../auth/AuthContext"
+import { getSelectedLanguage } from "../store/progress"
 
 export function LoginPage() {
     const { login } = useAuth()
     const navigate = useNavigate()
     const location = useLocation()
-    const from = (location.state as { from?: { pathname: string } })?.from?.pathname ?? "/languages"
+    const lastLang = getSelectedLanguage()
+    const defaultDest = lastLang ? `/learn/${lastLang}` : "/languages"
+    const from = (location.state as { from?: { pathname: string } })?.from?.pathname ?? defaultDest
 
-    const [email, setEmail] = useState("")
+    const [email, setEmail]       = useState("")
     const [password, setPassword] = useState("")
-    const [error, setError] = useState<string | null>(null)
-    const [loading, setLoading] = useState(false)
+    const [error, setError]       = useState<string | null>(null)
+    const [loading, setLoading]   = useState(false)
 
     async function handleSubmit(e: FormEvent) {
         e.preventDefault()
