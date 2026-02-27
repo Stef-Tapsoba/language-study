@@ -3,8 +3,10 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import { AuthProvider } from "./auth/AuthContext"
 import { ProtectedRoute } from "./auth/ProtectedRoute"
 
+import { LandingPage } from "./pages/LandingPage"
 import { LoginPage } from "./pages/LoginPage"
 import { RegisterPage } from "./pages/RegisterPage"
+import { HomePage } from "./pages/HomePage"
 import { LanguageSelectPage } from "./pages/LanguageSelectPage"
 import { DashboardPage } from "./pages/DashboardPage"
 import { PlacementPage } from "./pages/PlacementPage"
@@ -23,17 +25,21 @@ export default function App() {
             <BrowserRouter>
                 <Routes>
                     {/* Public */}
+                    <Route path="/" element={<LandingPage />} />
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/register" element={<RegisterPage />} />
 
-                    {/* Root → languages */}
-                    <Route path="/" element={<Navigate to="/languages" replace />} />
+                    {/* Authenticated home */}
+                    <Route path="/home" element={
+                        <ProtectedRoute><HomePage /></ProtectedRoute>
+                    } />
 
-                    {/* Protected */}
+                    {/* Language selection (add / switch) */}
                     <Route path="/languages" element={
                         <ProtectedRoute><LanguageSelectPage /></ProtectedRoute>
                     } />
 
+                    {/* Per-language routes */}
                     <Route path="/learn/:langId" element={
                         <ProtectedRoute><DashboardPage /></ProtectedRoute>
                     } />
@@ -62,12 +68,13 @@ export default function App() {
                         <ProtectedRoute><GrammarDrillPage /></ProtectedRoute>
                     } />
 
+                    {/* Profile */}
                     <Route path="/profile" element={
                         <ProtectedRoute><ProfilePage /></ProtectedRoute>
                     } />
 
                     {/* Fallback */}
-                    <Route path="*" element={<Navigate to="/languages" replace />} />
+                    <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>

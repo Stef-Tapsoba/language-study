@@ -1,12 +1,13 @@
 // pages/LanguageSelectPage.tsx
 import { useNavigate } from "react-router-dom"
 import { LANGUAGES } from "../data/languages"
-import { setSelectedLanguage } from "../store/progress"
-import { useAuth } from "../auth/AuthContext"
+import { setSelectedLanguage, getSelectedLanguage } from "../store/progress"
+import { NavBar } from "../components/NavBar"
 
 export function LanguageSelectPage() {
-    const { logout } = useAuth()
     const navigate = useNavigate()
+    const existingLang = getSelectedLanguage()
+    const isReturning = Boolean(existingLang)
 
     function pick(langId: string) {
         setSelectedLanguage(langId)
@@ -15,18 +16,20 @@ export function LanguageSelectPage() {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <header className="bg-white border-b border-gray-200">
-                <div className="max-w-3xl mx-auto px-4 h-14 flex items-center justify-between">
-                    <span className="font-semibold text-gray-900">Language Study</span>
-                    <button onClick={logout} className="text-sm text-gray-500 hover:text-gray-800">
-                        Sign out
-                    </button>
-                </div>
-            </header>
+            <NavBar
+                title={isReturning ? "Add a language" : "Language Study"}
+                backTo={isReturning ? "back" : undefined}
+            />
 
             <main className="max-w-3xl mx-auto px-4 py-10">
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">Choose a language</h2>
-                <p className="text-gray-500 mb-8">Select a language to start or continue learning.</p>
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                    {isReturning ? "Add a language" : "Choose a language to learn"}
+                </h2>
+                <p className="text-gray-500 mb-8">
+                    {isReturning
+                        ? "Pick another language to start learning alongside your current ones."
+                        : "Select a language to get started."}
+                </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {LANGUAGES.map(lang => (

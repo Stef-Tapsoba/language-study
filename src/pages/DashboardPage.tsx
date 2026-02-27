@@ -66,7 +66,7 @@ export function DashboardPage() {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <NavBar title={`${language.flag} ${language.name}`} level={level} backTo="/languages" />
+            <NavBar title={`${language.flag} ${language.name}`} level={level} backTo="/home" />
 
             <main className="max-w-3xl mx-auto px-4 py-8">
                 {/* Level header */}

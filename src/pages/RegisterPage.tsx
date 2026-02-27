@@ -24,7 +24,7 @@ export function RegisterPage() {
         try {
             registerUser(email, name, password)
             await login(email, password)
-            navigate("/languages", { replace: true })
+            navigate("/home", { replace: true })
         } catch (err) {
             setError(err instanceof Error ? err.message : "Registration failed.")
         } finally {
