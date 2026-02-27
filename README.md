@@ -11,8 +11,12 @@ A bare-bones language-learning prototype — think Duolingo without the gamifica
 - **Placement test** — 10-question adaptive quiz that suggests a CEFR starting level, or pick manually
 - **Grammar** — expandable lesson cards with explanations and examples; mark lessons complete
 - **Vocabulary** — word cards with example sentences; filter by all / todo / done
-- **Verbs** — collapsible conjugation tables grouped by tense
-- **Level test** — 15 questions; pass 12/15 to advance to the next CEFR level
+- **Verbs** — collapsible conjugation tables grouped by tense; romanized column for Japanese/Korean
+- **Flashcard drill** — flip cards with Got it / Not yet split; missed cards reviewed in a second round
+- **Verb drill** — fill-in-the-blank conjugation quiz generated from the current level's verb pool
+- **Grammar drill** — pick the native sentence matching an English prompt
+- **Level test** — 15 questions; pass 12/15 (80%) to advance to the next CEFR level
+- **Profile page** — per-language progress overview with level badge and reset option
 - **Progress persistence** — level and completed lessons stored in `localStorage`
 - **Responsive** — single-column on mobile, expands on tablet/desktop
 
@@ -20,13 +24,29 @@ A bare-bones language-learning prototype — think Duolingo without the gamifica
 
 ## CEFR Levels
 
-| Badge | Level | Label |
-|---|---|---|
-| 🟢 A1 | Beginner | Core greetings, basic sentences |
-| 🔵 A2 | Elementary | Past tense, everyday vocab |
-| 🟣 B1 | Intermediate | Subjunctive intro, reflexives |
-| 🟠 B2 | Upper Intermediate | *(content coming soon)* |
-| 🔴 C1 | Advanced | *(content coming soon)* |
+| Badge | Level | Label | Content status |
+|---|---|---|---|
+| 🟢 A1 | Beginner | Core greetings, basic sentences | ✅ Full content |
+| 🔵 A2 | Elementary | Past tense, everyday vocab | ✅ Full content |
+| 🟣 B1 | Intermediate | Subjunctive, conditional, connectors | ✅ Full content |
+| 🟠 B2 | Upper Intermediate | *(coming soon)* | Scaffolded |
+| 🔴 C1 | Advanced | *(coming soon)* | Scaffolded |
+
+---
+
+## Content depth
+
+Each language has grammar lessons, vocab items, verbs with full conjugation tables, 10 placement questions (2 per CEFR level), and 15 level-test questions per level.
+
+| Language | A1 | A2 | B1 |
+|---|---|---|---|
+| Spanish | 6 grammar, 10 vocab, 4 verbs | 5 grammar, 10 vocab, 4 verbs | 5 grammar, 10 vocab, 4 verbs |
+| French | 5 grammar, 12 vocab, 5 verbs | 5 grammar, 12 vocab, 5 verbs | 5 grammar, 10 vocab, 4 verbs |
+| Italian | 4 grammar, 10 vocab, 4 verbs | 4 grammar, 10 vocab, 4 verbs | 5 grammar, 10 vocab, 4 verbs |
+| Japanese | 4 grammar, 10 vocab, 4 verbs | 4 grammar, 10 vocab, 4 verbs | 4 grammar, 10 vocab, 4 verbs |
+| Korean | 4 grammar, 10 vocab, 4 verbs | 4 grammar, 10 vocab, 4 verbs | 4 grammar, 10 vocab, 4 verbs |
+
+Japanese and Korean include `romanized` fields on all content (words, examples, conjugation forms).
 
 ---
 
@@ -62,7 +82,7 @@ language-study/
 └── src/
     ├── main.tsx            ← React root
     ├── App.tsx             ← Router + AuthProvider
-    ├── index.css           ← Tailwind directives
+    ├── index.css           ← Tailwind directives + 3D flip classes
     ├── types/
     │   └── index.ts        ← CEFRLevel, Language, GrammarLesson, VocabItem, Verb, …
     ├── auth/
@@ -85,15 +105,21 @@ language-study/
     │   ├── QuizCard.tsx        ← Multiple-choice card with answer reveal
     │   └── ProgressBar.tsx     ← Animated progress bar with optional label
     └── pages/
+        ├── LandingPage.tsx         ← Public marketing page at /
         ├── LoginPage.tsx
         ├── RegisterPage.tsx
+        ├── HomePage.tsx            ← Authenticated home (new-user vs returning)
         ├── LanguageSelectPage.tsx
         ├── DashboardPage.tsx       ← Per-language hub with section cards
         ├── PlacementPage.tsx       ← Placement quiz or manual level picker
         ├── GrammarPage.tsx
         ├── VocabPage.tsx           ← all / todo / done filter
         ├── VerbsPage.tsx
-        └── LevelTestPage.tsx       ← 15 Qs, 12/15 to advance
+        ├── LevelTestPage.tsx       ← 15 Qs, 12/15 to advance
+        ├── FlashcardsPage.tsx      ← Flip-card active recall drill
+        ├── VerbDrillPage.tsx       ← Conjugation fill-in quiz
+        ├── GrammarDrillPage.tsx    ← Native-sentence matching quiz
+        └── ProfilePage.tsx         ← Progress overview + reset
 ```
 
 ---
@@ -102,9 +128,10 @@ language-study/
 
 | Path | Page | Auth |
 |---|---|---|
+| `/` | LandingPage | public |
 | `/login` | LoginPage | public |
 | `/register` | RegisterPage | public |
-| `/` | → `/languages` redirect | — |
+| `/home` | HomePage | ✅ |
 | `/languages` | LanguageSelectPage | ✅ |
 | `/learn/:langId` | DashboardPage | ✅ |
 | `/learn/:langId/placement` | PlacementPage | ✅ |
@@ -112,6 +139,10 @@ language-study/
 | `/learn/:langId/vocab` | VocabPage | ✅ |
 | `/learn/:langId/verbs` | VerbsPage | ✅ |
 | `/learn/:langId/level-test` | LevelTestPage | ✅ |
+| `/learn/:langId/flashcards` | FlashcardsPage | ✅ |
+| `/learn/:langId/verb-drill` | VerbDrillPage | ✅ |
+| `/learn/:langId/grammar-drill` | GrammarDrillPage | ✅ |
+| `/profile` | ProfilePage | ✅ |
 
 ---
 
@@ -123,6 +154,9 @@ This app is the first consumer of the local `../packages/` monorepo. Vite aliase
 |---|---|
 | `@myorg/auth-core` | `AuthService` — session management, auto-refresh, events |
 | `@myorg/storage` | `LocalStorageAdapter` — concrete storage for `AuthService` |
+| `@myorg/validation` | Login / register form validation |
+| `@myorg/theme-tokens` | CSS custom property design tokens |
+| `@myorg/event-bus` | `EventBus<AppEvents>` — redirect to `/login` on `auth:expired` |
 
 ---
 
@@ -135,8 +169,8 @@ interface LanguageModule {
     grammar:            GrammarLesson[]
     vocab:              VocabItem[]
     verbs:              Verb[]
-    placementQuestions: QuizQuestion[]   // 10 total, 2 per CEFR level
-    levelQuestions:     QuizQuestion[]   // 15 per level for the level test
+    placementQuestions: PlacementQuestion[]  // 10 total, 2 per CEFR level
+    levelQuestions:     PlacementQuestion[]  // 15 per level for the level test
 }
 ```
 
@@ -156,10 +190,11 @@ Japanese and Korean include optional `romanized` fields on examples, words, and 
 
 ## Happy path
 
-1. Open `/register` → create an account
+1. Open `/` (landing page) → click **Get Started** → register an account
 2. Pick a language (e.g. Spanish)
 3. Take the placement test → confirm or change the suggested level
 4. Open **Grammar** → read lessons, mark them complete
 5. Open **Vocabulary** → learn words, filter by todo/done
 6. Open **Verbs** → review conjugation tables
-7. Open **Level Test** → answer 15 questions; pass 12/15 to advance
+7. Try a **Flashcard**, **Verb Drill**, or **Grammar Drill** from the Dashboard
+8. Open **Level Test** → answer 15 questions; pass 12/15 to advance
