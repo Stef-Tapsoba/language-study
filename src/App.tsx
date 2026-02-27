@@ -12,6 +12,10 @@ import { GrammarPage } from "./pages/GrammarPage"
 import { VocabPage } from "./pages/VocabPage"
 import { VerbsPage } from "./pages/VerbsPage"
 import { LevelTestPage } from "./pages/LevelTestPage"
+import { ProfilePage } from "./pages/ProfilePage"
+import { FlashcardsPage } from "./pages/FlashcardsPage"
+import { VerbDrillPage } from "./pages/VerbDrillPage"
+import { GrammarDrillPage } from "./pages/GrammarDrillPage"
 
 export default function App() {
     return (
@@ -47,6 +51,19 @@ export default function App() {
                     } />
                     <Route path="/learn/:langId/level-test" element={
                         <ProtectedRoute><LevelTestPage /></ProtectedRoute>
+                    } />
+                    <Route path="/learn/:langId/flashcards" element={
+                        <ProtectedRoute><FlashcardsPage /></ProtectedRoute>
+                    } />
+                    <Route path="/learn/:langId/verb-drill" element={
+                        <ProtectedRoute><VerbDrillPage /></ProtectedRoute>
+                    } />
+                    <Route path="/learn/:langId/grammar-drill" element={
+                        <ProtectedRoute><GrammarDrillPage /></ProtectedRoute>
+                    } />
+
+                    <Route path="/profile" element={
+                        <ProtectedRoute><ProfilePage /></ProtectedRoute>
                     } />
 
                     {/* Fallback */}
