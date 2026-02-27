@@ -27,8 +27,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         })
 
         const unsubExpired = authService.events.on("expired", () => setSession(null))
-        const unsubLogout  = authService.events.on("logout",  () => setSession(null))
-        const unsubLogin   = authService.events.on("login", () => {
+        const unsubLogout = authService.events.on("logout", () => setSession(null))
+        const unsubLogin = authService.events.on("login", () => {
             authService.getSession().then(setSession)
         })
 
