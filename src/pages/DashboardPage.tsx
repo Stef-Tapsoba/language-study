@@ -119,6 +119,29 @@ export function DashboardPage() {
                     />
                 </div>
 
+                {/* Practice */}
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Practice</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                    <SectionCard
+                        emoji="🃏"
+                        title="Flashcards"
+                        description="Flip cards to drill vocabulary"
+                        to={`/learn/${langId}/flashcards`}
+                    />
+                    <SectionCard
+                        emoji="🔡"
+                        title="Verb Drill"
+                        description="Pick the right conjugation"
+                        to={`/learn/${langId}/verb-drill`}
+                    />
+                    <SectionCard
+                        emoji="✏️"
+                        title="Grammar Drill"
+                        description="Match sentences by meaning"
+                        to={`/learn/${langId}/grammar-drill`}
+                    />
+                </div>
+
                 {/* Level test */}
                 {canAdvance && (
                     <>
