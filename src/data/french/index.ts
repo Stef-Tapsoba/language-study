@@ -69,22 +69,59 @@ const module: LanguageModule = {
             id: "fr-g-a2-1",
             level: "A2",
             title: "Passé Composé",
-            explanation: "The passé composé is the most common past tense, used for completed actions. It's formed with avoir or être + past participle.",
+            explanation: "The passé composé is the most common past tense, used for completed actions. It's formed with avoir or être + past participle. Verbs of motion and reflexive verbs use être.",
             examples: [
                 { native: "J'ai mangé une pomme.", translation: "I ate an apple." },
                 { native: "Elle est arrivée en retard.", translation: "She arrived late." },
-                { native: "Nous avons vu un film.", translation: "We watched a film." }
+                { native: "Nous avons vu un film.", translation: "We watched a film." },
+                { native: "Ils sont partis ce matin.", translation: "They left this morning." }
             ]
         },
         {
             id: "fr-g-a2-2",
             level: "A2",
             title: "Adjective Agreement",
-            explanation: "French adjectives must agree in gender and number with the noun they describe. Most adjectives add -e for feminine and -s for plural.",
+            explanation: "French adjectives must agree in gender and number with the noun they describe. Most adjectives add -e for feminine and -s for plural. Some are irregular.",
             examples: [
                 { native: "un grand homme", translation: "a tall man" },
                 { native: "une grande femme", translation: "a tall woman" },
-                { native: "de grands enfants", translation: "tall children" }
+                { native: "de grands enfants", translation: "tall children" },
+                { native: "une belle maison", translation: "a beautiful house" }
+            ]
+        },
+        {
+            id: "fr-g-a2-3",
+            level: "A2",
+            title: "L'Imparfait (Imperfect Tense)",
+            explanation: "The imparfait is used for habitual or ongoing past actions, descriptions, and background situations. It is formed by taking the nous form of the present tense, removing -ons, and adding the imperfect endings.",
+            examples: [
+                { native: "Quand j'étais enfant, je jouais au foot.", translation: "When I was a child, I used to play football." },
+                { native: "Il faisait beau tous les jours.", translation: "The weather was nice every day." },
+                { native: "Elle travaillait dans un hôpital.", translation: "She used to work in a hospital." }
+            ]
+        },
+        {
+            id: "fr-g-a2-4",
+            level: "A2",
+            title: "Le Futur Proche (Near Future)",
+            explanation: "The futur proche expresses planned or imminent future actions. It is formed with the present tense of aller + infinitive. It is far more common than the simple future in everyday speech.",
+            examples: [
+                { native: "Je vais manger ce soir.", translation: "I'm going to eat tonight." },
+                { native: "Tu vas partir bientôt?", translation: "Are you going to leave soon?" },
+                { native: "Nous allons visiter Paris.", translation: "We are going to visit Paris." },
+                { native: "Il va pleuvoir demain.", translation: "It's going to rain tomorrow." }
+            ]
+        },
+        {
+            id: "fr-g-a2-5",
+            level: "A2",
+            title: "Direct Object Pronouns",
+            explanation: "Direct object pronouns replace the noun that directly receives the action. They are: me (me), te (you), le/la (him/her/it), nous (us), vous (you), les (them). They go before the conjugated verb.",
+            examples: [
+                { native: "Je le vois tous les jours.", translation: "I see him every day." },
+                { native: "Tu la connais?", translation: "Do you know her?" },
+                { native: "Il nous aide beaucoup.", translation: "He helps us a lot." },
+                { native: "Je vais les appeler.", translation: "I'm going to call them." }
             ]
         },
         {
@@ -96,24 +133,92 @@ const module: LanguageModule = {
                 { native: "Il faut que tu viennes.", translation: "You must come." },
                 { native: "Je veux qu'il soit heureux.", translation: "I want him to be happy." }
             ]
-        }
+        },
+        {
+            id: "fr-g-b1-2",
+            level: "B1",
+            title: "Le Conditionnel Présent",
+            explanation: "The present conditional expresses what would happen. Formation: infinitive + conditional endings (-ais, -ais, -ait, -ions, -iez, -aient). Irregular stems mirror the future (aller→ir-, avoir→aur-, être→ser-, faire→fer-).",
+            examples: [
+                { native: "Je voudrais un café, s'il vous plaît.", translation: "I would like a coffee, please." },
+                { native: "Avec plus d'argent, je voyagerais partout.", translation: "With more money, I would travel everywhere." },
+                { native: "Tu devrais étudier davantage.", translation: "You should study more." },
+                { native: "Elle a dit qu'elle viendrait demain.", translation: "She said she would come tomorrow." }
+            ]
+        },
+        {
+            id: "fr-g-b1-3",
+            level: "B1",
+            title: "Imparfait vs. Passé Composé",
+            explanation: "The imparfait describes ongoing/habitual past states and background actions; the passé composé describes completed events. Often they appear together: imparfait for the context, passé composé for what interrupted it.",
+            examples: [
+                { native: "Je lisais quand le téléphone a sonné.", translation: "I was reading when the phone rang." },
+                { native: "Quand j'étais enfant, je jouais au foot.", translation: "When I was a child, I used to play football." },
+                { native: "Il faisait beau quand nous sommes sortis.", translation: "The weather was nice when we went out." },
+                { native: "Elle habitait à Paris mais elle a déménagé.", translation: "She used to live in Paris but she moved." }
+            ]
+        },
+        {
+            id: "fr-g-b1-4",
+            level: "B1",
+            title: "Les Pronoms Relatifs (qui, que, dont, où)",
+            explanation: "Relative pronouns link clauses. Qui = subject (who/that), que = object (whom/that), dont = of which/whose, où = where/when.",
+            examples: [
+                { native: "C'est l'homme qui parle vite.", translation: "He's the man who speaks fast." },
+                { native: "Le livre que je lis est passionnant.", translation: "The book that I'm reading is fascinating." },
+                { native: "C'est le pays dont je rêve.", translation: "It's the country I dream of." },
+                { native: "La ville où je suis né est belle.", translation: "The city where I was born is beautiful." }
+            ]
+        },
+        {
+            id: "fr-g-b1-5",
+            level: "B1",
+            title: "Le Plus-que-parfait",
+            explanation: "The pluperfect expresses an action that had occurred before another past action. It uses avoir/être in the imparfait + past participle: j'avais mangé (I had eaten), elle était partie (she had left).",
+            examples: [
+                { native: "Quand je suis arrivé, il avait déjà mangé.", translation: "When I arrived, he had already eaten." },
+                { native: "Elle était sortie avant la pluie.", translation: "She had gone out before the rain." },
+                { native: "Nous avions fini le travail quand il est venu.", translation: "We had finished the work when he came." },
+                { native: "Tu n'avais jamais voyagé avant cela.", translation: "You had never traveled before that." }
+            ]
+        },
     ],
 
     vocab: [
-        { id: "fr-v-a1-1",  level: "A1", word: "Bonjour",         translation: "Hello / Good morning",  category: "Greetings", example: { native: "Bonjour, comment allez-vous?", translation: "Hello, how are you?" } },
-        { id: "fr-v-a1-2",  level: "A1", word: "Au revoir",       translation: "Goodbye",                category: "Greetings", example: { native: "Au revoir, à demain!", translation: "Goodbye, see you tomorrow!" } },
-        { id: "fr-v-a1-3",  level: "A1", word: "Merci",           translation: "Thank you",              category: "Greetings", example: { native: "Merci beaucoup.", translation: "Thank you very much." } },
-        { id: "fr-v-a1-4",  level: "A1", word: "S'il vous plaît", translation: "Please (formal)",        category: "Greetings", example: { native: "Un café, s'il vous plaît.", translation: "A coffee, please." } },
-        { id: "fr-v-a1-5",  level: "A1", word: "Maison",          translation: "House",                  category: "Places",    example: { native: "Ma maison est petite.", translation: "My house is small." } },
-        { id: "fr-v-a1-6",  level: "A1", word: "Eau",             translation: "Water",                  category: "Food",      example: { native: "Je voudrais de l'eau.", translation: "I would like some water." } },
-        { id: "fr-v-a1-7",  level: "A1", word: "Pain",            translation: "Bread",                  category: "Food",      example: { native: "Le pain est frais.", translation: "The bread is fresh." } },
-        { id: "fr-v-a1-8",  level: "A1", word: "Ami / Amie",      translation: "Friend",                 category: "People",    example: { native: "C'est mon ami.", translation: "He is my friend." } },
+        { id: "fr-v-a1-1",  level: "A1", word: "Bonjour",         translation: "Hello / Good morning",  category: "Greetings",  example: { native: "Bonjour, comment allez-vous?", translation: "Hello, how are you?" } },
+        { id: "fr-v-a1-2",  level: "A1", word: "Au revoir",       translation: "Goodbye",                category: "Greetings",  example: { native: "Au revoir, à demain!", translation: "Goodbye, see you tomorrow!" } },
+        { id: "fr-v-a1-3",  level: "A1", word: "Merci",           translation: "Thank you",              category: "Greetings",  example: { native: "Merci beaucoup.", translation: "Thank you very much." } },
+        { id: "fr-v-a1-4",  level: "A1", word: "S'il vous plaît", translation: "Please (formal)",        category: "Greetings",  example: { native: "Un café, s'il vous plaît.", translation: "A coffee, please." } },
+        { id: "fr-v-a1-5",  level: "A1", word: "Maison",          translation: "House",                  category: "Places",     example: { native: "Ma maison est petite.", translation: "My house is small." } },
+        { id: "fr-v-a1-6",  level: "A1", word: "Eau",             translation: "Water",                  category: "Food",       example: { native: "Je voudrais de l'eau.", translation: "I would like some water." } },
+        { id: "fr-v-a1-7",  level: "A1", word: "Pain",            translation: "Bread",                  category: "Food",       example: { native: "Le pain est frais.", translation: "The bread is fresh." } },
+        { id: "fr-v-a1-8",  level: "A1", word: "Ami / Amie",      translation: "Friend",                 category: "People",     example: { native: "C'est mon ami.", translation: "He is my friend." } },
         { id: "fr-v-a1-9",  level: "A1", word: "Travail",         translation: "Work / Job",             category: "Daily life", example: { native: "Mon travail est intéressant.", translation: "My job is interesting." } },
-        { id: "fr-v-a1-10", level: "A1", word: "Ville",           translation: "City / Town",            category: "Places",    example: { native: "Paris est une grande ville.", translation: "Paris is a big city." } },
-        { id: "fr-v-a1-11", level: "A1", word: "Famille",         translation: "Family",                 category: "People",    example: { native: "Ma famille est grande.", translation: "My family is big." } },
-        { id: "fr-v-a1-12", level: "A1", word: "Jour",            translation: "Day",                    category: "Time",      example: { native: "Bonne journée!", translation: "Have a good day!" } },
-        { id: "fr-v-a2-1",  level: "A2", word: "Cependant",       translation: "However",                category: "Connectors", example: { native: "C'est cher; cependant, c'est beau.", translation: "It's expensive; however, it's beautiful." } },
-        { id: "fr-v-a2-2",  level: "A2", word: "Pourtant",        translation: "Yet / Nevertheless",     category: "Connectors", example: { native: "Il est fatigué, pourtant il travaille.", translation: "He is tired, yet he works." } }
+        { id: "fr-v-a1-10", level: "A1", word: "Ville",           translation: "City / Town",            category: "Places",     example: { native: "Paris est une grande ville.", translation: "Paris is a big city." } },
+        { id: "fr-v-a1-11", level: "A1", word: "Famille",         translation: "Family",                 category: "People",     example: { native: "Ma famille est grande.", translation: "My family is big." } },
+        { id: "fr-v-a1-12", level: "A1", word: "Jour",            translation: "Day",                    category: "Time",       example: { native: "Bonne journée!", translation: "Have a good day!" } },
+        { id: "fr-v-a2-1",  level: "A2", word: "Voyage",          translation: "Trip / Journey",         category: "Travel",     example: { native: "Le voyage était long.", translation: "The trip was long." } },
+        { id: "fr-v-a2-2",  level: "A2", word: "Semaine",         translation: "Week",                   category: "Time",       example: { native: "La semaine dernière, j'ai travaillé beaucoup.", translation: "Last week I worked a lot." } },
+        { id: "fr-v-a2-3",  level: "A2", word: "Argent",          translation: "Money / Silver",         category: "Daily life", example: { native: "Je n'ai pas beaucoup d'argent.", translation: "I don't have much money." } },
+        { id: "fr-v-a2-4",  level: "A2", word: "Restaurant",      translation: "Restaurant",             category: "Places",     example: { native: "On va au restaurant ce soir?", translation: "Shall we go to the restaurant tonight?" } },
+        { id: "fr-v-a2-5",  level: "A2", word: "Droite / Gauche", translation: "Right / Left",           category: "Directions", example: { native: "Tournez à gauche.", translation: "Turn left." } },
+        { id: "fr-v-a2-6",  level: "A2", word: "Temps",           translation: "Time / Weather",         category: "Daily life", example: { native: "Quel temps fait-il aujourd'hui?", translation: "What's the weather like today?" } },
+        { id: "fr-v-a2-7",  level: "A2", word: "Problème",        translation: "Problem",                category: "Basics",     example: { native: "Il n'y a pas de problème.", translation: "There's no problem." } },
+        { id: "fr-v-a2-8",  level: "A2", word: "Langue",          translation: "Language / Tongue",      category: "Learning",   example: { native: "J'apprends une nouvelle langue.", translation: "I am learning a new language." } },
+        { id: "fr-v-a2-9",  level: "A2", word: "Magasin",         translation: "Shop / Store",           category: "Places",     example: { native: "Le magasin est fermé le dimanche.", translation: "The shop is closed on Sunday." } },
+        { id: "fr-v-a2-10", level: "A2", word: "Cependant",       translation: "However",                category: "Connectors", example: { native: "C'est cher; cependant, c'est beau.", translation: "It's expensive; however, it's beautiful." } },
+        { id: "fr-v-a2-11", level: "A2", word: "Pourtant",        translation: "Yet / Nevertheless",     category: "Connectors", example: { native: "Il est fatigué, pourtant il travaille.", translation: "He is tired, yet he works." } },
+        { id: "fr-v-a2-12", level: "A2", word: "Réunion",         translation: "Meeting",                category: "Work",       example: { native: "J'ai une réunion à dix heures.", translation: "I have a meeting at ten o'clock." } },
+        { id: "fr-v-b1-1",  level: "B1", word: "De plus",          translation: "Furthermore / Moreover",  category: "Connectors",  example: { native: "De plus, il faut penser aux coûts.",         translation: "Furthermore, we need to think about costs." } },
+        { id: "fr-v-b1-2",  level: "B1", word: "En revanche",      translation: "On the other hand",       category: "Connectors",  example: { native: "C'est cher, en revanche c'est de qualité.",  translation: "It's expensive, on the other hand it's quality." } },
+        { id: "fr-v-b1-3",  level: "B1", word: "Environ",          translation: "About / Around",          category: "Quantities",  example: { native: "Il y a environ cinquante personnes.",        translation: "There are about fifty people." } },
+        { id: "fr-v-b1-4",  level: "B1", word: "L'environnement",  translation: "Environment",             category: "Society",     example: { native: "Il faut protéger l'environnement.",          translation: "We must protect the environment." } },
+        { id: "fr-v-b1-5",  level: "B1", word: "La société",       translation: "Society",                 category: "Society",     example: { native: "La société change rapidement.",              translation: "Society is changing rapidly." } },
+        { id: "fr-v-b1-6",  level: "B1", word: "Actuellement",     translation: "Currently / At present",  category: "Time",        example: { native: "Actuellement je travaille à Lyon.",          translation: "Currently I work in Lyon." } },
+        { id: "fr-v-b1-7",  level: "B1", word: "Le défi",          translation: "Challenge",               category: "Society",     example: { native: "C'est un grand défi pour nous.",             translation: "It's a big challenge for us." } },
+        { id: "fr-v-b1-8",  level: "B1", word: "L'opinion",        translation: "Opinion",                 category: "Discussion",  example: { native: "À mon opinion, c'est une bonne idée.",       translation: "In my opinion, it's a good idea." } },
+        { id: "fr-v-b1-9",  level: "B1", word: "Selon",            translation: "According to",            category: "Discussion",  example: { native: "Selon les experts, le climat change.",       translation: "According to experts, the climate is changing." } },
+        { id: "fr-v-b1-10", level: "B1", word: "Par contre",       translation: "However / On the contrary", category: "Connectors", example: { native: "J'aime le café, par contre je déteste le thé.", translation: "I like coffee, however I hate tea." } },
     ],
 
     verbs: [
@@ -201,7 +306,225 @@ const module: LanguageModule = {
                     { pronoun: "ils/elles", form: "parlent" }
                 ]
             }]
-        }
+        },
+        {
+            id: "fr-vb-a2-1",
+            level: "A2",
+            infinitive: "vouloir",
+            meaning: "to want",
+            conjugations: [{
+                tense: "Present",
+                forms: [
+                    { pronoun: "je",        form: "veux" },
+                    { pronoun: "tu",        form: "veux" },
+                    { pronoun: "il/elle",   form: "veut" },
+                    { pronoun: "nous",      form: "voulons" },
+                    { pronoun: "vous",      form: "voulez" },
+                    { pronoun: "ils/elles", form: "veulent" }
+                ]
+            }]
+        },
+        {
+            id: "fr-vb-a2-2",
+            level: "A2",
+            infinitive: "pouvoir",
+            meaning: "to be able to / can",
+            conjugations: [{
+                tense: "Present",
+                forms: [
+                    { pronoun: "je",        form: "peux" },
+                    { pronoun: "tu",        form: "peux" },
+                    { pronoun: "il/elle",   form: "peut" },
+                    { pronoun: "nous",      form: "pouvons" },
+                    { pronoun: "vous",      form: "pouvez" },
+                    { pronoun: "ils/elles", form: "peuvent" }
+                ]
+            }]
+        },
+        {
+            id: "fr-vb-a2-3",
+            level: "A2",
+            infinitive: "venir",
+            meaning: "to come",
+            conjugations: [{
+                tense: "Present",
+                forms: [
+                    { pronoun: "je",        form: "viens" },
+                    { pronoun: "tu",        form: "viens" },
+                    { pronoun: "il/elle",   form: "vient" },
+                    { pronoun: "nous",      form: "venons" },
+                    { pronoun: "vous",      form: "venez" },
+                    { pronoun: "ils/elles", form: "viennent" }
+                ]
+            }]
+        },
+        {
+            id: "fr-vb-a2-4",
+            level: "A2",
+            infinitive: "manger",
+            meaning: "to eat",
+            conjugations: [
+                {
+                    tense: "Present",
+                    forms: [
+                        { pronoun: "je",        form: "mange" },
+                        { pronoun: "tu",        form: "manges" },
+                        { pronoun: "il/elle",   form: "mange" },
+                        { pronoun: "nous",      form: "mangeons" },
+                        { pronoun: "vous",      form: "mangez" },
+                        { pronoun: "ils/elles", form: "mangent" }
+                    ]
+                },
+                {
+                    tense: "Passé Composé",
+                    forms: [
+                        { pronoun: "j'",        form: "ai mangé" },
+                        { pronoun: "tu",        form: "as mangé" },
+                        { pronoun: "il/elle",   form: "a mangé" },
+                        { pronoun: "nous",      form: "avons mangé" },
+                        { pronoun: "vous",      form: "avez mangé" },
+                        { pronoun: "ils/elles", form: "ont mangé" }
+                    ]
+                }
+            ]
+        },
+        {
+            id: "fr-vb-a2-5",
+            level: "A2",
+            infinitive: "prendre",
+            meaning: "to take",
+            conjugations: [{
+                tense: "Present",
+                forms: [
+                    { pronoun: "je",        form: "prends" },
+                    { pronoun: "tu",        form: "prends" },
+                    { pronoun: "il/elle",   form: "prend" },
+                    { pronoun: "nous",      form: "prenons" },
+                    { pronoun: "vous",      form: "prenez" },
+                    { pronoun: "ils/elles", form: "prennent" }
+                ]
+            }]
+        },
+        {
+            id: "fr-vb-b1-1",
+            level: "B1",
+            infinitive: "savoir",
+            meaning: "to know (facts/how to)",
+            conjugations: [
+                {
+                    tense: "Présent",
+                    forms: [
+                        { pronoun: "je",    form: "sais" },
+                        { pronoun: "tu",    form: "sais" },
+                        { pronoun: "il/elle", form: "sait" },
+                        { pronoun: "nous",  form: "savons" },
+                        { pronoun: "vous",  form: "savez" },
+                        { pronoun: "ils/elles", form: "savent" }
+                    ]
+                },
+                {
+                    tense: "Conditionnel",
+                    forms: [
+                        { pronoun: "je",    form: "saurais" },
+                        { pronoun: "tu",    form: "saurais" },
+                        { pronoun: "il/elle", form: "saurait" },
+                        { pronoun: "nous",  form: "saurions" },
+                        { pronoun: "vous",  form: "sauriez" },
+                        { pronoun: "ils/elles", form: "sauraient" }
+                    ]
+                }
+            ]
+        },
+        {
+            id: "fr-vb-b1-2",
+            level: "B1",
+            infinitive: "devoir",
+            meaning: "to have to / must",
+            conjugations: [
+                {
+                    tense: "Présent",
+                    forms: [
+                        { pronoun: "je",    form: "dois" },
+                        { pronoun: "tu",    form: "dois" },
+                        { pronoun: "il/elle", form: "doit" },
+                        { pronoun: "nous",  form: "devons" },
+                        { pronoun: "vous",  form: "devez" },
+                        { pronoun: "ils/elles", form: "doivent" }
+                    ]
+                },
+                {
+                    tense: "Conditionnel",
+                    forms: [
+                        { pronoun: "je",    form: "devrais" },
+                        { pronoun: "tu",    form: "devrais" },
+                        { pronoun: "il/elle", form: "devrait" },
+                        { pronoun: "nous",  form: "devrions" },
+                        { pronoun: "vous",  form: "devriez" },
+                        { pronoun: "ils/elles", form: "devraient" }
+                    ]
+                }
+            ]
+        },
+        {
+            id: "fr-vb-b1-3",
+            level: "B1",
+            infinitive: "mettre",
+            meaning: "to put / to place",
+            conjugations: [
+                {
+                    tense: "Présent",
+                    forms: [
+                        { pronoun: "je",    form: "mets" },
+                        { pronoun: "tu",    form: "mets" },
+                        { pronoun: "il/elle", form: "met" },
+                        { pronoun: "nous",  form: "mettons" },
+                        { pronoun: "vous",  form: "mettez" },
+                        { pronoun: "ils/elles", form: "mettent" }
+                    ]
+                },
+                {
+                    tense: "Passé Composé",
+                    forms: [
+                        { pronoun: "je",    form: "ai mis" },
+                        { pronoun: "tu",    form: "as mis" },
+                        { pronoun: "il/elle", form: "a mis" },
+                        { pronoun: "nous",  form: "avons mis" },
+                        { pronoun: "vous",  form: "avez mis" },
+                        { pronoun: "ils/elles", form: "ont mis" }
+                    ]
+                }
+            ]
+        },
+        {
+            id: "fr-vb-b1-4",
+            level: "B1",
+            infinitive: "croire",
+            meaning: "to believe / to think",
+            conjugations: [
+                {
+                    tense: "Présent",
+                    forms: [
+                        { pronoun: "je",    form: "crois" },
+                        { pronoun: "tu",    form: "crois" },
+                        { pronoun: "il/elle", form: "croit" },
+                        { pronoun: "nous",  form: "croyons" },
+                        { pronoun: "vous",  form: "croyez" },
+                        { pronoun: "ils/elles", form: "croient" }
+                    ]
+                },
+                {
+                    tense: "Passé Composé",
+                    forms: [
+                        { pronoun: "je",    form: "ai cru" },
+                        { pronoun: "tu",    form: "as cru" },
+                        { pronoun: "il/elle", form: "a cru" },
+                        { pronoun: "nous",  form: "avons cru" },
+                        { pronoun: "vous",  form: "avez cru" },
+                        { pronoun: "ils/elles", form: "ont cru" }
+                    ]
+                }
+            ]
+        },
     ],
 
     placementQuestions: [
@@ -232,7 +555,37 @@ const module: LanguageModule = {
         { id: "fr-lt-a1-12", level: "A1", prompt: "How do you say 'Good morning'?", options: ["Bonsoir", "Bonne nuit", "Bonjour", "Salut"], answer: "Bonjour" },
         { id: "fr-lt-a1-13", level: "A1", prompt: "Complete: 'Elle ___ (faire) du sport.'", options: ["fait", "fais", "faites", "font"], answer: "fait" },
         { id: "fr-lt-a1-14", level: "A1", prompt: "Article before a vowel: '___ ami'", options: ["Le", "La", "L'", "Les"], answer: "L'" },
-        { id: "fr-lt-a1-15", level: "A1", prompt: "What does 'travail' mean?", options: ["Travel", "Work", "Train", "Dream"], answer: "Work" }
+        { id: "fr-lt-a1-15", level: "A1", prompt: "What does 'travail' mean?", options: ["Travel", "Work", "Train", "Dream"], answer: "Work" },
+        { id: "fr-lt-a2-1",  level: "A2", prompt: "Complete (passé composé): 'Hier, nous ___ (manger) au restaurant.'", options: ["mangeons", "mangions", "avons mangé", "avions mangé"], answer: "avons mangé" },
+        { id: "fr-lt-a2-2",  level: "A2", prompt: "How do you say 'She used to work in Paris'?", options: ["Elle a travaillé à Paris.", "Elle travaille à Paris.", "Elle travaillait à Paris.", "Elle va travailler à Paris."], answer: "Elle travaillait à Paris." },
+        { id: "fr-lt-a2-3",  level: "A2", prompt: "How do you say 'We are going to visit the museum'?", options: ["Nous visitons le musée.", "Nous allons visiter le musée.", "Nous avons visité le musée.", "Nous visitions le musée."], answer: "Nous allons visiter le musée." },
+        { id: "fr-lt-a2-4",  level: "A2", prompt: "Complete: 'Il ___ (vouloir) un café.'", options: ["veux", "voulez", "veut", "voulons"], answer: "veut" },
+        { id: "fr-lt-a2-5",  level: "A2", prompt: "Feminine form of 'beau' (beautiful)?", options: ["beaux", "belle", "beau", "belles"], answer: "belle" },
+        { id: "fr-lt-a2-6",  level: "A2", prompt: "Replace 'Je vois Marie' with a pronoun: 'Je ___ vois.'", options: ["lui", "leur", "la", "le"], answer: "la" },
+        { id: "fr-lt-a2-7",  level: "A2", prompt: "What does 'voyage' mean?", options: ["Work", "Language", "Trip / Journey", "Week"], answer: "Trip / Journey" },
+        { id: "fr-lt-a2-8",  level: "A2", prompt: "Complete (passé composé with être): 'Elles ___ (partir) tôt.'", options: ["ont parti", "sont parties", "ont parties", "sont partis"], answer: "sont parties" },
+        { id: "fr-lt-a2-9",  level: "A2", prompt: "What does 'argent' mean?", options: ["Gold", "Money", "Time", "Food"], answer: "Money" },
+        { id: "fr-lt-a2-10", level: "A2", prompt: "Complete: 'Nous ___ (pouvoir) venir à huit heures.'", options: ["peux", "peut", "pouvons", "peuvent"], answer: "pouvons" },
+        { id: "fr-lt-a2-11", level: "A2", prompt: "How do you say 'Turn right'?", options: ["Tournez à gauche.", "Allez tout droit.", "Tournez à droite.", "Revenez en arrière."], answer: "Tournez à droite." },
+        { id: "fr-lt-a2-12", level: "A2", prompt: "Complete: 'Tu ___ (venir) à la fête ce soir?'", options: ["venez", "vient", "viens", "viendrez"], answer: "viens" },
+        { id: "fr-lt-a2-13", level: "A2", prompt: "What does 'magasin' mean?", options: ["Magazine", "Restaurant", "Shop", "Museum"], answer: "Shop" },
+        { id: "fr-lt-a2-14", level: "A2", prompt: "Complete (imparfait): 'Quand il était jeune, il ___ (jouer) au tennis.'", options: ["joue", "a joué", "jouait", "jouera"], answer: "jouait" },
+        { id: "fr-lt-a2-15", level: "A2", prompt: "What does 'prendre' mean?", options: ["To give", "To take", "To buy", "To leave"], answer: "To take" },
+        { id: "fr-lt-b1-1",  level: "B1", prompt: "Complete (subjonctif): 'Il faut que tu ___ (finir) ce travail.'", options: ["finis", "finisses", "finiras", "finissais"], answer: "finisses" },
+        { id: "fr-lt-b1-2",  level: "B1", prompt: "Complete (conditionnel): 'Avec plus de temps, je ___ (voyager) plus.'", options: ["voyage", "voyagerai", "voyagerais", "voyageais"], answer: "voyagerais" },
+        { id: "fr-lt-b1-3",  level: "B1", prompt: "Which pronoun relatif means 'of which / whose'?", options: ["qui", "que", "dont", "où"], answer: "dont" },
+        { id: "fr-lt-b1-4",  level: "B1", prompt: "Complete (imparfait vs passé composé): 'Je ___ (lire) quand il est arrivé.'", options: ["lisais", "ai lu", "lirai", "lirais"], answer: "lisais" },
+        { id: "fr-lt-b1-5",  level: "B1", prompt: "What does 'actuellement' mean?", options: ["Actually", "Currently", "Eventually", "Previously"], answer: "Currently" },
+        { id: "fr-lt-b1-6",  level: "B1", prompt: "Complete (plus-que-parfait): 'Quand je suis arrivé, il ___ (partir) déjà.'", options: ["est parti", "partait", "était parti", "partira"], answer: "était parti" },
+        { id: "fr-lt-b1-7",  level: "B1", prompt: "What does 'en revanche' mean?", options: ["in return", "on the other hand", "furthermore", "therefore"], answer: "on the other hand" },
+        { id: "fr-lt-b1-8",  level: "B1", prompt: "Complete: 'C'est le livre ___ j'ai lu la semaine dernière.'", options: ["qui", "que", "dont", "où"], answer: "que" },
+        { id: "fr-lt-b1-9",  level: "B1", prompt: "Conditionnel of 'devoir' (tu): 'Tu ___ étudier plus.'", options: ["dois", "devais", "devrais", "devras"], answer: "devrais" },
+        { id: "fr-lt-b1-10", level: "B1", prompt: "What does 'selon' mean?", options: ["Suddenly", "According to", "However", "Around"], answer: "According to" },
+        { id: "fr-lt-b1-11", level: "B1", prompt: "Complete: 'La ville ___ j'habite est magnifique.'", options: ["qui", "que", "dont", "où"], answer: "où" },
+        { id: "fr-lt-b1-12", level: "B1", prompt: "Passé composé of 'mettre' (nous): 'Nous ___ la table.'", options: ["mettions", "avons mis", "mettrons", "aurions mis"], answer: "avons mis" },
+        { id: "fr-lt-b1-13", level: "B1", prompt: "What does 'le défi' mean?", options: ["Environment", "Society", "Challenge", "Opinion"], answer: "Challenge" },
+        { id: "fr-lt-b1-14", level: "B1", prompt: "Complete (subjonctif): 'Je veux qu'elle ___ (venir).'", options: ["vient", "viendra", "vienne", "venait"], answer: "vienne" },
+        { id: "fr-lt-b1-15", level: "B1", prompt: "Which connector means 'furthermore'?", options: ["par contre", "en revanche", "de plus", "selon"], answer: "de plus" },
     ]
 }
 

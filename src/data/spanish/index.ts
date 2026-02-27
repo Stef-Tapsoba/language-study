@@ -110,6 +110,30 @@ const module: LanguageModule = {
             ]
         },
         {
+            id: "es-g-a2-4",
+            level: "A2",
+            title: "Direct Object Pronouns",
+            explanation: "Direct object pronouns replace the noun receiving the action. They are: me (me), te (you), lo/la (him/her/it), nos (us), os (you pl.), los/las (them). They go before the conjugated verb or attached to an infinitive.",
+            examples: [
+                { native: "Lo veo todos los días.", translation: "I see him every day." },
+                { native: "¿La llamas tú?", translation: "Are you calling her?" },
+                { native: "Quiero verla.", translation: "I want to see her." },
+                { native: "Nos ayudan mucho.", translation: "They help us a lot." }
+            ]
+        },
+        {
+            id: "es-g-a2-5",
+            level: "A2",
+            title: "Immediate Future: ir + a + infinitive",
+            explanation: "To talk about plans or near-future events, use the present tense of ir + a + infinitive. This is the most common way to express future intentions in spoken Spanish.",
+            examples: [
+                { native: "Voy a comer pizza esta noche.", translation: "I'm going to eat pizza tonight." },
+                { native: "¿Vas a estudiar mañana?", translation: "Are you going to study tomorrow?" },
+                { native: "Ella va a trabajar el fin de semana.", translation: "She is going to work on the weekend." },
+                { native: "Vamos a hablar con el médico.", translation: "We are going to talk to the doctor." }
+            ]
+        },
+        {
             id: "es-g-b1-1",
             level: "B1",
             title: "Subjunctive Mood: Present",
@@ -130,7 +154,43 @@ const module: LanguageModule = {
                 { native: "Llovía mucho en noviembre.", translation: "It rained a lot in November." },
                 { native: "Siempre comíamos juntos.", translation: "We always used to eat together." }
             ]
-        }
+        },
+        {
+            id: "es-g-b1-3",
+            level: "B1",
+            title: "Future Simple (Futuro Simple)",
+            explanation: "The simple future expresses what will happen. Regular verbs add endings to the infinitive: -é, -ás, -á, -emos, -éis, -án. Some verbs have irregular stems (tener→tendr-, poder→podr-, venir→vendr-).",
+            examples: [
+                { native: "Mañana hablaré con mi jefe.", translation: "Tomorrow I will speak with my boss." },
+                { native: "¿Vendrás a la fiesta esta noche?", translation: "Will you come to the party tonight?" },
+                { native: "Ellos tendrán que trabajar el sábado.", translation: "They will have to work on Saturday." },
+                { native: "El año que viene viviremos en Madrid.", translation: "Next year we will live in Madrid." }
+            ]
+        },
+        {
+            id: "es-g-b1-4",
+            level: "B1",
+            title: "Conditional Simple (Condicional Simple)",
+            explanation: "The conditional expresses what would happen under certain conditions. It uses the same irregular stems as the future, but with endings: -ía, -ías, -ía, -íamos, -íais, -ían.",
+            examples: [
+                { native: "Con más dinero, viajaría por el mundo.", translation: "With more money, I would travel the world." },
+                { native: "¿Podrías ayudarme con esto?", translation: "Could you help me with this?" },
+                { native: "Ella dijo que vendría mañana.", translation: "She said she would come tomorrow." },
+                { native: "En tu lugar, estudiaría más.", translation: "In your place, I would study more." }
+            ]
+        },
+        {
+            id: "es-g-b1-5",
+            level: "B1",
+            title: "Por vs. Para",
+            explanation: "Both mean 'for' or 'by' but have distinct uses. Por: cause/reason, duration, exchange, means of transport/communication. Para: purpose/goal, recipient, deadline, destination, opinion.",
+            examples: [
+                { native: "Estudié por tres horas.", translation: "I studied for three hours. (duration → por)" },
+                { native: "Este regalo es para ti.", translation: "This gift is for you. (recipient → para)" },
+                { native: "Lo compré por veinte euros.", translation: "I bought it for twenty euros. (exchange → por)" },
+                { native: "Salgo para Madrid mañana.", translation: "I'm leaving for Madrid tomorrow. (destination → para)" }
+            ]
+        },
     ],
 
     vocab: [
@@ -153,7 +213,17 @@ const module: LanguageModule = {
         { id: "es-v-a2-7", level: "A2", word: "Ciudad", translation: "City", category: "Places", example: { native: "Barcelona es una ciudad preciosa.", translation: "Barcelona is a beautiful city." } },
         { id: "es-v-a2-8", level: "A2", word: "Idioma", translation: "Language", category: "Learning", example: { native: "Aprendo un nuevo idioma.", translation: "I am learning a new language." } },
         { id: "es-v-a2-9", level: "A2", word: "Problema", translation: "Problem", category: "Basics", example: { native: "No hay problema.", translation: "No problem." } },
-        { id: "es-v-a2-10", level: "A2", word: "Derecha/Izquierda", translation: "Right / Left", category: "Directions", example: { native: "Gira a la derecha.", translation: "Turn right." } }
+        { id: "es-v-a2-10", level: "A2", word: "Derecha/Izquierda", translation: "Right / Left", category: "Directions", example: { native: "Gira a la derecha.", translation: "Turn right." } },
+        { id: "es-v-b1-1", level: "B1", word: "Además", translation: "Furthermore / Also", category: "Connectors", example: { native: "Además, hay que considerar el costo.", translation: "Furthermore, the cost must be considered." } },
+        { id: "es-v-b1-2", level: "B1", word: "Sin embargo", translation: "However / Nevertheless", category: "Connectors", example: { native: "Es caro; sin embargo, vale la pena.", translation: "It's expensive; however, it's worth it." } },
+        { id: "es-v-b1-3", level: "B1", word: "Por lo tanto", translation: "Therefore / So", category: "Connectors", example: { native: "Llovía; por lo tanto, nos quedamos.", translation: "It was raining; therefore, we stayed." } },
+        { id: "es-v-b1-4", level: "B1", word: "Aunque", translation: "Although / Even though", category: "Connectors", example: { native: "Aunque estoy cansado, sigo trabajando.", translation: "Although I'm tired, I keep working." } },
+        { id: "es-v-b1-5", level: "B1", word: "Mientras", translation: "While / Whereas", category: "Connectors", example: { native: "Escucho música mientras estudio.", translation: "I listen to music while I study." } },
+        { id: "es-v-b1-6", level: "B1", word: "Ambiente", translation: "Environment / Atmosphere", category: "Society", example: { native: "El ambiente en la oficina es muy bueno.", translation: "The atmosphere in the office is very good." } },
+        { id: "es-v-b1-7", level: "B1", word: "Desarrollo", translation: "Development / Growth", category: "Society", example: { native: "El desarrollo sostenible es clave.", translation: "Sustainable development is key." } },
+        { id: "es-v-b1-8", level: "B1", word: "Sociedad", translation: "Society", category: "Society", example: { native: "La sociedad ha cambiado mucho.", translation: "Society has changed a lot." } },
+        { id: "es-v-b1-9", level: "B1", word: "Actualmente", translation: "Currently / Nowadays", category: "Time", example: { native: "Actualmente trabajo desde casa.", translation: "Currently I work from home." } },
+        { id: "es-v-b1-10", level: "B1", word: "De repente", translation: "Suddenly", category: "Time", example: { native: "De repente empezó a llover.", translation: "Suddenly it started to rain." } },
     ],
 
     verbs: [
@@ -318,7 +388,127 @@ const module: LanguageModule = {
                     { pronoun: "ellos", form: "pueden" }
                 ]
             }]
-        }
+        },
+        {
+            id: "es-vb-b1-1",
+            level: "B1",
+            infinitive: "querer",
+            meaning: "to want / to love",
+            conjugations: [
+                {
+                    tense: "Present",
+                    forms: [
+                        { pronoun: "yo", form: "quiero" },
+                        { pronoun: "tú", form: "quieres" },
+                        { pronoun: "él/ella", form: "quiere" },
+                        { pronoun: "nosotros", form: "queremos" },
+                        { pronoun: "vosotros", form: "queréis" },
+                        { pronoun: "ellos", form: "quieren" }
+                    ]
+                },
+                {
+                    tense: "Preterite",
+                    forms: [
+                        { pronoun: "yo", form: "quise" },
+                        { pronoun: "tú", form: "quisiste" },
+                        { pronoun: "él/ella", form: "quiso" },
+                        { pronoun: "nosotros", form: "quisimos" },
+                        { pronoun: "vosotros", form: "quisisteis" },
+                        { pronoun: "ellos", form: "quisieron" }
+                    ]
+                }
+            ]
+        },
+        {
+            id: "es-vb-b1-2",
+            level: "B1",
+            infinitive: "saber",
+            meaning: "to know (facts/how to)",
+            conjugations: [
+                {
+                    tense: "Present",
+                    forms: [
+                        { pronoun: "yo", form: "sé" },
+                        { pronoun: "tú", form: "sabes" },
+                        { pronoun: "él/ella", form: "sabe" },
+                        { pronoun: "nosotros", form: "sabemos" },
+                        { pronoun: "vosotros", form: "sabéis" },
+                        { pronoun: "ellos", form: "saben" }
+                    ]
+                },
+                {
+                    tense: "Preterite",
+                    forms: [
+                        { pronoun: "yo", form: "supe" },
+                        { pronoun: "tú", form: "supiste" },
+                        { pronoun: "él/ella", form: "supo" },
+                        { pronoun: "nosotros", form: "supimos" },
+                        { pronoun: "vosotros", form: "supisteis" },
+                        { pronoun: "ellos", form: "supieron" }
+                    ]
+                }
+            ]
+        },
+        {
+            id: "es-vb-b1-3",
+            level: "B1",
+            infinitive: "volver",
+            meaning: "to return / to come back",
+            conjugations: [
+                {
+                    tense: "Present",
+                    forms: [
+                        { pronoun: "yo", form: "vuelvo" },
+                        { pronoun: "tú", form: "vuelves" },
+                        { pronoun: "él/ella", form: "vuelve" },
+                        { pronoun: "nosotros", form: "volvemos" },
+                        { pronoun: "vosotros", form: "volvéis" },
+                        { pronoun: "ellos", form: "vuelven" }
+                    ]
+                },
+                {
+                    tense: "Preterite",
+                    forms: [
+                        { pronoun: "yo", form: "volví" },
+                        { pronoun: "tú", form: "volviste" },
+                        { pronoun: "él/ella", form: "volvió" },
+                        { pronoun: "nosotros", form: "volvimos" },
+                        { pronoun: "vosotros", form: "volvisteis" },
+                        { pronoun: "ellos", form: "volvieron" }
+                    ]
+                }
+            ]
+        },
+        {
+            id: "es-vb-b1-4",
+            level: "B1",
+            infinitive: "salir",
+            meaning: "to go out / to leave",
+            conjugations: [
+                {
+                    tense: "Present",
+                    forms: [
+                        { pronoun: "yo", form: "salgo" },
+                        { pronoun: "tú", form: "sales" },
+                        { pronoun: "él/ella", form: "sale" },
+                        { pronoun: "nosotros", form: "salimos" },
+                        { pronoun: "vosotros", form: "salís" },
+                        { pronoun: "ellos", form: "salen" }
+                    ]
+                },
+                {
+                    tense: "Future",
+                    forms: [
+                        { pronoun: "yo", form: "saldré" },
+                        { pronoun: "tú", form: "saldrás" },
+                        { pronoun: "él/ella", form: "saldrá" },
+                        { pronoun: "nosotros", form: "saldremos" },
+                        { pronoun: "vosotros", form: "saldréis" },
+                        { pronoun: "ellos", form: "saldrán" }
+                    ]
+                }
+            ]
+        },
     ],
 
     placementQuestions: [
@@ -349,7 +539,37 @@ const module: LanguageModule = {
         { id: "es-lt-a1-12", level: "A1", prompt: "I ___ (tener) veinte años. Which form is correct?", options: ["tiene", "tengo", "tienes", "tenemos"], answer: "tengo" },
         { id: "es-lt-a1-13", level: "A1", prompt: "What does 'perdón' mean?", options: ["Thank you", "Sorry / Excuse me", "Goodbye", "Please"], answer: "Sorry / Excuse me" },
         { id: "es-lt-a1-14", level: "A1", prompt: "How do you say 'She works here'?", options: ["Ella trabaja aquí.", "Ella trabajo aquí.", "Ella trabajas aquí.", "Ella trabajamos aquí."], answer: "Ella trabaja aquí." },
-        { id: "es-lt-a1-15", level: "A1", prompt: "Which is correct for 'the houses' (fem. pl.)?", options: ["el casa", "los casas", "las casas", "la casas"], answer: "las casas" }
+        { id: "es-lt-a1-15", level: "A1", prompt: "Which is correct for 'the houses' (fem. pl.)?", options: ["el casa", "los casas", "las casas", "la casas"], answer: "las casas" },
+        { id: "es-lt-a2-1", level: "A2", prompt: "Complete (preterite): 'Ayer yo ___ (hablar) con María.'", options: ["hablo", "hablé", "hablaba", "hablaré"], answer: "hablé" },
+        { id: "es-lt-a2-2", level: "A2", prompt: "How do you say 'I used to eat' (habitual past)?", options: ["comí", "como", "comía", "comeré"], answer: "comía" },
+        { id: "es-lt-a2-3", level: "A2", prompt: "Complete: 'Me ___ los libros.' (gustar)", options: ["gusta", "gustan", "gusto", "gustas"], answer: "gustan" },
+        { id: "es-lt-a2-4", level: "A2", prompt: "How do you say 'She's going to travel tomorrow'?", options: ["Ella viaja mañana.", "Ella va a viajar mañana.", "Ella viajó mañana.", "Ella viajará mañana."], answer: "Ella va a viajar mañana." },
+        { id: "es-lt-a2-5", level: "A2", prompt: "Complete: 'Me llamo Ana.' This is an example of:", options: ["Irregular verb", "Reflexive verb", "Gustar construction", "Passive voice"], answer: "Reflexive verb" },
+        { id: "es-lt-a2-6", level: "A2", prompt: "What does 'supermercado' mean?", options: ["Superstore", "Supermarket", "Department store", "Pharmacy"], answer: "Supermarket" },
+        { id: "es-lt-a2-7", level: "A2", prompt: "Choose the correct direct object pronoun: 'Veo a Juan todos los días. ___ veo todos los días.'", options: ["Le", "La", "Lo", "Lui"], answer: "Lo" },
+        { id: "es-lt-a2-8", level: "A2", prompt: "Complete (preterite): 'Ella ___ al mercado.' (ir)", options: ["va", "fue", "iba", "irá"], answer: "fue" },
+        { id: "es-lt-a2-9", level: "A2", prompt: "What does 'viaje' mean?", options: ["Time", "City", "Trip / Journey", "Language"], answer: "Trip / Journey" },
+        { id: "es-lt-a2-10", level: "A2", prompt: "Complete (reflexive): 'Nosotros ___ a las siete.' (levantarse)", options: ["levantamos", "nos levantamos", "se levantan", "me levanto"], answer: "nos levantamos" },
+        { id: "es-lt-a2-11", level: "A2", prompt: "How do you say 'Turn left'?", options: ["Gira a la derecha.", "Gira al frente.", "Gira a la izquierda.", "Gira atrás."], answer: "Gira a la izquierda." },
+        { id: "es-lt-a2-12", level: "A2", prompt: "Complete: 'Me ___ bailar.' (encantar)", options: ["encanta", "encantan", "encanto", "encantas"], answer: "encanta" },
+        { id: "es-lt-a2-13", level: "A2", prompt: "What does 'semana' mean?", options: ["Day", "Month", "Year", "Week"], answer: "Week" },
+        { id: "es-lt-a2-14", level: "A2", prompt: "Complete (preterite irregular): 'Ella ___ la cena.' (hacer)", options: ["hice", "hacía", "hizo", "hace"], answer: "hizo" },
+        { id: "es-lt-a2-15", level: "A2", prompt: "What is 'derecha' in English?", options: ["Left", "Straight", "Right", "Back"], answer: "Right" },
+        { id: "es-lt-b1-1", level: "B1", prompt: "Complete (imperfecto): 'Cuando era niño, ___ (jugar) al fútbol.'", options: ["jugué", "jugaba", "jugaré", "jugaría"], answer: "jugaba" },
+        { id: "es-lt-b1-2", level: "B1", prompt: "Complete (subjuntivo): 'Quiero que ella ___ (estudiar) más.'", options: ["estudia", "estudie", "estudiará", "estudiaría"], answer: "estudie" },
+        { id: "es-lt-b1-3", level: "B1", prompt: "What does 'sin embargo' mean?", options: ["therefore", "although", "however", "furthermore"], answer: "however" },
+        { id: "es-lt-b1-4", level: "B1", prompt: "Complete (futuro): 'Mañana yo ___ (hablar) con el jefe.'", options: ["hablo", "hablé", "hablaré", "hablaría"], answer: "hablaré" },
+        { id: "es-lt-b1-5", level: "B1", prompt: "Complete (condicional): 'Con más tiempo, ___ (viajar) más.'", options: ["viajo", "viajé", "viajaré", "viajaría"], answer: "viajaría" },
+        { id: "es-lt-b1-6", level: "B1", prompt: "Choose 'por' or 'para': 'Este regalo es ___ mi madre.'", options: ["por", "para", "por or para (both correct)", "neither"], answer: "para" },
+        { id: "es-lt-b1-7", level: "B1", prompt: "What does 'actualmente' mean?", options: ["Actually", "Currently", "Eventually", "Previously"], answer: "Currently" },
+        { id: "es-lt-b1-8", level: "B1", prompt: "Complete: 'Estudiamos ___ tres horas.' (duration)", options: ["para", "por", "en", "de"], answer: "por" },
+        { id: "es-lt-b1-9", level: "B1", prompt: "What does 'desarrollo' mean?", options: ["Environment", "Development", "Society", "Challenge"], answer: "Development" },
+        { id: "es-lt-b1-10", level: "B1", prompt: "Complete: 'Ella dijo que ___ (venir) mañana.' (reported speech → condicional)", options: ["viene", "vino", "vendrá", "vendría"], answer: "vendría" },
+        { id: "es-lt-b1-11", level: "B1", prompt: "Which connector means 'although'?", options: ["además", "sin embargo", "aunque", "por lo tanto"], answer: "aunque" },
+        { id: "es-lt-b1-12", level: "B1", prompt: "Complete (futuro irregular): 'Ellos ___ (tener) que esperar.'", options: ["tenerán", "tendrán", "tenrán", "tengerán"], answer: "tendrán" },
+        { id: "es-lt-b1-13", level: "B1", prompt: "What does 'de repente' mean?", options: ["slowly", "certainly", "suddenly", "frequently"], answer: "suddenly" },
+        { id: "es-lt-b1-14", level: "B1", prompt: "Preterite of 'querer' (yo): 'Yo ___ hablar con ella.'", options: ["quiero", "quería", "quise", "querré"], answer: "quise" },
+        { id: "es-lt-b1-15", level: "B1", prompt: "What is the subjunctive trigger phrase?", options: ["Creo que", "Sé que", "Es verdad que", "Espero que"], answer: "Espero que" },
     ]
 }
 
