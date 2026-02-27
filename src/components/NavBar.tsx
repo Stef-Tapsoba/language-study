@@ -7,7 +7,10 @@ import { CEFRLevel } from "../types"
 interface NavBarProps {
     title?: string
     level?: CEFRLevel
-    /** If provided, renders a back button that navigates to this path */
+    /**
+     * If provided, renders a back button.
+     * Pass a path string to navigate to that route, or "back" to go to the previous page.
+     */
     backTo?: string
 }
 
@@ -15,12 +18,17 @@ export function NavBar({ title = "Language Study", level, backTo }: NavBarProps)
     const { logout } = useAuth()
     const navigate = useNavigate()
 
+    function handleBack() {
+        if (backTo === "back") navigate(-1)
+        else if (backTo) navigate(backTo)
+    }
+
     return (
         <nav className="bg-white border-b border-gray-200 sticky top-0 z-10">
             <div className="max-w-3xl mx-auto px-4 h-14 flex items-center gap-3">
                 {backTo && (
                     <button
-                        onClick={() => navigate(backTo)}
+                        onClick={handleBack}
                         className="p-1 -ml-1 mr-1 text-gray-500 hover:text-gray-800 rounded"
                         aria-label="Go back"
                     >
