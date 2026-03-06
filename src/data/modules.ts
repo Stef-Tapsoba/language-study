@@ -6,12 +6,20 @@ import italian from "./italian"
 import japanese from "./japanese"
 import korean from "./korean"
 
+// Ensure `units` always exists. Languages not yet migrated to the modular
+// structure don't have the field yet, so we default it to [] here rather
+// than editing each large monolithic file.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function norm(raw: any): LanguageModule {
+    return { units: [], ...raw }
+}
+
 const MODULES: Record<string, LanguageModule> = {
-    es: spanish,
-    fr: french,
-    it: italian,
-    ja: japanese,
-    ko: korean,
+    es: norm(spanish),
+    fr: norm(french),
+    it: norm(italian),
+    ja: norm(japanese),
+    ko: norm(korean),
 }
 
 export function getModule(langId: string): LanguageModule | null {
