@@ -8,20 +8,35 @@ import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { VocabItem } from "../types"
 
+const FLIP_MS = 450
+
 function shuffle<T>(arr: T[]): T[] {
     return [...arr].sort(() => Math.random() - 0.5)
 }
 
 type Result = "correct" | "incorrect"
 
-function FlipCard({ item, flipped, onClick }: {
+function dotColor(i: number, index: number, results: Result[]): string {
+    if (i < index) {
+        return results[i] === "correct" ? "bg-green-400" : "bg-red-300"
+    }
+    if (i === index) return "bg-indigo-300"
+    return "bg-gray-200"
+}
+
+function FlipCard({ item, flipped, onClick }: Readonly<{
     item: VocabItem
     flipped: boolean
     onClick: () => void
-}) {
+}>) {
     return (
-        <div className="card-scene w-full max-w-sm mx-auto" style={{ height: 220 }} onClick={onClick}>
-            <div className={`card-inner relative w-full h-full cursor-pointer ${flipped ? "flipped" : ""}`}>
+        <button
+            type="button"
+            className="card-scene w-full max-w-sm mx-auto block"
+            style={{ height: 220 }}
+            onClick={onClick}
+        >
+            <div className={`card-inner relative w-full h-full ${flipped ? "flipped" : ""}`}>
                 {/* Front */}
                 <div className="card-face absolute inset-0 bg-white rounded-2xl border-2 border-gray-200
                                 flex flex-col items-center justify-center gap-2 p-6 shadow-md">
@@ -45,7 +60,7 @@ function FlipCard({ item, flipped, onClick }: {
                     </div>
                 </div>
             </div>
-        </div>
+        </button>
     )
 }
 
@@ -59,6 +74,7 @@ export function FlashcardsPage() {
 
     const [index, setIndex] = useState(0)
     const [flipped, setFlipped] = useState(false)
+    const [transitioning, setTransitioning] = useState(false)
     const [results, setResults] = useState<Result[]>([])
     const [done, setDone] = useState(false)
     const [reviewMode, setReviewMode] = useState(false)
@@ -83,12 +99,16 @@ export function FlashcardsPage() {
     function handleResult(r: Result) {
         const newResults = [...results, r]
         setResults(newResults)
-        if (index + 1 >= deck.length) {
-            setDone(true)
-        } else {
-            setIndex(i => i + 1)
-            setFlipped(false)
-        }
+        setFlipped(false)
+        setTransitioning(true)
+        setTimeout(() => {
+            setTransitioning(false)
+            if (index + 1 >= deck.length) {
+                setDone(true)
+            } else {
+                setIndex(i => i + 1)
+            }
+        }, FLIP_MS)
     }
 
     function startReview() {
@@ -145,7 +165,7 @@ export function FlashcardsPage() {
                                 className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
                                            rounded-xl py-2.5 text-sm transition-colors"
                             >
-                                Review {incorrect} missed card{incorrect !== 1 ? "s" : ""}
+                                Review {incorrect} missed card{incorrect === 1 ? "" : "s"}
                             </button>
                         )}
                         <button
@@ -176,11 +196,8 @@ export function FlashcardsPage() {
                     <LevelBadge level={level} />
                 </div>
                 <div className="w-full flex gap-1">
-                    {deck.map((_, i) => (
-                        <div key={i} className={`h-1.5 flex-1 rounded-full ${i < index
-                                ? results[i] === "correct" ? "bg-green-400" : "bg-red-300"
-                                : i === index ? "bg-indigo-300" : "bg-gray-200"
-                            }`} />
+                    {deck.map((v, i) => (
+                        <div key={v.id} className={`h-1.5 flex-1 rounded-full ${dotColor(i, index, results)}`} />
                     ))}
                 </div>
 
@@ -191,16 +208,18 @@ export function FlashcardsPage() {
                 {flipped ? (
                     <div className="flex gap-3 w-full max-w-sm">
                         <button
+                            disabled={transitioning}
                             onClick={() => handleResult("incorrect")}
                             className="flex-1 border-2 border-red-300 text-red-600 font-semibold
-                                       rounded-xl py-3 hover:bg-red-50 transition-colors"
+                                       rounded-xl py-3 hover:bg-red-50 transition-colors disabled:opacity-50"
                         >
                             ✗ Not yet
                         </button>
                         <button
+                            disabled={transitioning}
                             onClick={() => handleResult("correct")}
                             className="flex-1 border-2 border-green-400 text-green-700 font-semibold
-                                       rounded-xl py-3 hover:bg-green-50 transition-colors"
+                                       rounded-xl py-3 hover:bg-green-50 transition-colors disabled:opacity-50"
                         >
                             ✓ Got it
                         </button>
