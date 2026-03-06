@@ -8,7 +8,8 @@ const KEY = "ls:progress"
 const DEFAULT: UserProgress = {
     selectedLanguage: null,
     levels: {},
-    completedLessons: {}
+    completedLessons: {},
+    masteredUnits: {}
 }
 
 export function loadProgress(): UserProgress {
@@ -68,13 +69,57 @@ export function getStartedLanguages(): string[] {
     return Object.keys(loadProgress().levels)
 }
 
-/** Resets level + completed lessons for a single language only. */
+/** Resets level + completed lessons + mastered units for a single language only. */
 export function resetLanguageProgress(langId: string): void {
     const p = loadProgress()
     const levels = { ...p.levels }
     const completedLessons = { ...p.completedLessons }
+    const masteredUnits = { ...p.masteredUnits }
     delete levels[langId]
     delete completedLessons[langId]
+    delete masteredUnits[langId]
     const selectedLanguage = p.selectedLanguage === langId ? null : p.selectedLanguage
-    save({ selectedLanguage, levels, completedLessons })
+    save({ selectedLanguage, levels, completedLessons, masteredUnits })
+}
+
+// ---------------------------------------------------------------------------
+// Unit mastery helpers
+// ---------------------------------------------------------------------------
+
+/** Returns the list of mastered unit IDs for the given language. */
+export function getMasteredUnits(langId: string): string[] {
+    return loadProgress().masteredUnits[langId] ?? []
+}
+
+/** Marks a unit as mastered (completed or tested-out). Idempotent. */
+export function masterUnit(langId: string, unitId: string): void {
+    const p = loadProgress()
+    const existing = p.masteredUnits[langId] ?? []
+    if (!existing.includes(unitId)) {
+        save({
+            ...p,
+            masteredUnits: {
+                ...p.masteredUnits,
+                [langId]: [...existing, unitId]
+            }
+        })
+    }
+}
+
+/**
+ * Returns true if the unit is available to study.
+ * The first unit (order === 1) is always unlocked.
+ * Any subsequent unit is unlocked once the previous unit is mastered.
+ */
+export function isUnitUnlocked(
+    langId: string,
+    unitId: string,
+    allUnits: { id: string; order: number }[]
+): boolean {
+    const unit = allUnits.find(u => u.id === unitId)
+    if (!unit) return false
+    if (unit.order === 1) return true
+    const prev = allUnits.find(u => u.order === unit.order - 1)
+    if (!prev) return true
+    return getMasteredUnits(langId).includes(prev.id)
 }
