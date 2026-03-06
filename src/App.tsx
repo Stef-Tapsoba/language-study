@@ -18,6 +18,7 @@ import { ProfilePage } from "./pages/ProfilePage"
 import { FlashcardsPage } from "./pages/FlashcardsPage"
 import { VerbDrillPage } from "./pages/VerbDrillPage"
 import { GrammarDrillPage } from "./pages/GrammarDrillPage"
+import { UnitPage } from "./pages/UnitPage"
 
 export default function App() {
     return (
@@ -66,6 +67,9 @@ export default function App() {
                     } />
                     <Route path="/learn/:langId/grammar-drill" element={
                         <ProtectedRoute><GrammarDrillPage /></ProtectedRoute>
+                    } />
+                    <Route path="/learn/:langId/units/:unitId" element={
+                        <ProtectedRoute><UnitPage /></ProtectedRoute>
                     } />
 
                     {/* Profile */}
