@@ -9,6 +9,7 @@ import {
     getStartedLanguages,
     getCurrentLevel,
     getCompletedLessons,
+    getMasteredUnits,
     resetLanguageProgress,
     setSelectedLanguage,
 } from "../store/progress"
@@ -84,9 +85,16 @@ export function ProfilePage() {
                                 const vocabItems = mod.vocab.filter(v => v.level === level)
                                 const verbItems = mod.verbs.filter(v => v.level === level)
 
-                                const grammarDone = grammarItems.filter(g => completed.includes(g.id)).length
-                                const vocabDone = vocabItems.filter(v => completed.includes(v.id)).length
-                                const verbDone = verbItems.filter(v => completed.includes(v.id)).length
+                                const masteredUnitItems = new Set(
+                                    (mod.units ?? [])
+                                        .filter(u => getMasteredUnits(lang.id).includes(u.id))
+                                        .flatMap(u => [...u.grammarIds, ...u.vocabIds, ...u.verbIds])
+                                )
+                                const isDone = (id: string) => completed.includes(id) || masteredUnitItems.has(id)
+
+                                const grammarDone = grammarItems.filter(g => isDone(g.id)).length
+                                const vocabDone = vocabItems.filter(v => isDone(v.id)).length
+                                const verbDone = verbItems.filter(v => isDone(v.id)).length
 
                                 return (
                                     <div key={lang.id + tick}

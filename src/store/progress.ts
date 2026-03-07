@@ -24,6 +24,18 @@ function save(p: UserProgress): void {
     localStorage.setItem(KEY, JSON.stringify(p))
 }
 
+/**
+ * Called on every authenticated page load. If the stored progress belongs to a
+ * different user, wipes it and starts fresh for the new user. Idempotent.
+ */
+export function initUserSession(userId: string): void {
+    const p = loadProgress()
+    if (p.userId !== userId) {
+        // Different user (or no userId stored) — reset progress for this user
+        save({ ...DEFAULT, userId })
+    }
+}
+
 export function getSelectedLanguage(): string | null {
     return loadProgress().selectedLanguage
 }

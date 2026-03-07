@@ -1,7 +1,7 @@
 // pages/LanguageSelectPage.tsx
 import { useNavigate } from "react-router-dom"
 import { LANGUAGES } from "../data/languages"
-import { setSelectedLanguage, getSelectedLanguage } from "../store/progress"
+import { setSelectedLanguage, getSelectedLanguage, getStartedLanguages } from "../store/progress"
 import { NavBar } from "../components/NavBar"
 
 export function LanguageSelectPage() {
@@ -11,7 +11,8 @@ export function LanguageSelectPage() {
 
     function pick(langId: string) {
         setSelectedLanguage(langId)
-        navigate(`/learn/${langId}`)
+        const alreadyStarted = getStartedLanguages().includes(langId)
+        navigate(alreadyStarted ? `/learn/${langId}` : `/learn/${langId}/placement`)
     }
 
     return (

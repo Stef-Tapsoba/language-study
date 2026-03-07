@@ -344,14 +344,12 @@ export function UnitPage() {
     const vocab = useMemo(() => mod?.vocab.filter(v => unit?.vocabIds.includes(v.id)) ?? [], [mod, unit])
     const verbs = useMemo(() => mod?.verbs.filter(v => unit?.verbIds.includes(v.id)) ?? [], [mod, unit])
 
-    const tabs = useMemo<{ id: Tab; label: string; count?: number }[]>(() => {
-        const t: { id: Tab; label: string; count?: number }[] = []
-        if (grammar.length > 0) t.push({ id: "grammar", label: "Grammar", count: grammar.length })
-        if (vocab.length > 0) t.push({ id: "vocab", label: "Vocabulary", count: vocab.length })
-        if (verbs.length > 0) t.push({ id: "verbs", label: "Verbs", count: verbs.length })
-        t.push({ id: "test", label: "Test Out" })
-        return t
-    }, [grammar, vocab, verbs])
+    const tabs = useMemo<{ id: Tab; label: string; count?: number }[]>(() => [
+        ...(grammar.length > 0 ? [{ id: "grammar" as Tab, label: "Grammar", count: grammar.length }] : []),
+        ...(vocab.length > 0 ? [{ id: "vocab" as Tab, label: "Vocabulary", count: vocab.length }] : []),
+        { id: "verbs" as Tab, label: "Verbs", count: verbs.length > 0 ? verbs.length : undefined },
+        { id: "test" as Tab, label: "Test Out" },
+    ], [grammar, vocab, verbs])
 
     function firstTab(): Tab {
         if (grammar.length > 0) return "grammar"
@@ -473,11 +471,19 @@ export function UnitPage() {
                 )}
 
                 {activeTab === "verbs" && (
-                    <div className="flex flex-col gap-3">
-                        {verbs.map(verb => (
-                            <VerbCard key={verb.id} verb={verb} />
-                        ))}
-                    </div>
+                    verbs.length > 0 ? (
+                        <div className="flex flex-col gap-3">
+                            {verbs.map(verb => (
+                                <VerbCard key={verb.id} verb={verb} />
+                            ))}
+                        </div>
+                    ) : (
+                        <div className="text-center py-16 text-gray-400">
+                            <p className="text-4xl mb-3">🔤</p>
+                            <p className="font-medium text-gray-500">No verbs in this unit.</p>
+                            <p className="text-sm mt-1">Verbs are introduced in a later unit.</p>
+                        </div>
+                    )
                 )}
 
                 {activeTab === "test" && (

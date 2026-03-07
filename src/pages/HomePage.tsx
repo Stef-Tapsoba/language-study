@@ -11,8 +11,10 @@ import {
     getStartedLanguages,
     getCurrentLevel,
     getCompletedLessons,
+    getMasteredUnits,
     setSelectedLanguage,
     getSelectedLanguage,
+    initUserSession,
 } from "../store/progress"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
@@ -90,13 +92,21 @@ function ReturningHome({ displayName, startedIds }: {
     const level = getCurrentLevel(selectedLangId)
     const completed = getCompletedLessons(selectedLangId)
 
+    // Items from mastered units count as complete even if not individually marked
+    const masteredUnitItems = new Set(
+        (mod?.units ?? [])
+            .filter(u => getMasteredUnits(selectedLangId).includes(u.id))
+            .flatMap(u => [...u.grammarIds, ...u.vocabIds, ...u.verbIds])
+    )
+    const isDone = (id: string) => completed.includes(id) || masteredUnitItems.has(id)
+
     const grammarItems = mod?.grammar.filter(g => g.level === level) ?? []
     const vocabItems = mod?.vocab.filter(v => v.level === level) ?? []
     const verbItems = mod?.verbs.filter(v => v.level === level) ?? []
 
-    const grammarPct = grammarItems.length ? (grammarItems.filter(g => completed.includes(g.id)).length / grammarItems.length) * 100 : 0
-    const vocabPct = vocabItems.length ? (vocabItems.filter(v => completed.includes(v.id)).length / vocabItems.length) * 100 : 0
-    const verbPct = verbItems.length ? (verbItems.filter(v => completed.includes(v.id)).length / verbItems.length) * 100 : 0
+    const grammarPct = grammarItems.length ? (grammarItems.filter(g => isDone(g.id)).length / grammarItems.length) * 100 : 0
+    const vocabPct = vocabItems.length ? (vocabItems.filter(v => isDone(v.id)).length / vocabItems.length) * 100 : 0
+    const verbPct = verbItems.length ? (verbItems.filter(v => isDone(v.id)).length / verbItems.length) * 100 : 0
 
     function switchTo(langId: string) {
         setSelectedLanguage(langId)
@@ -130,15 +140,15 @@ function ReturningHome({ displayName, startedIds }: {
 
                     <div className="flex flex-col gap-2 mb-5">
                         <ProgressBar
-                            label={`Grammar  ${grammarItems.filter(g => completed.includes(g.id)).length}/${grammarItems.length}`}
+                            label={`Grammar  ${grammarItems.filter(g => isDone(g.id)).length}/${grammarItems.length}`}
                             value={grammarPct}
                         />
                         <ProgressBar
-                            label={`Vocabulary  ${vocabItems.filter(v => completed.includes(v.id)).length}/${vocabItems.length}`}
+                            label={`Vocabulary  ${vocabItems.filter(v => isDone(v.id)).length}/${vocabItems.length}`}
                             value={vocabPct}
                         />
                         <ProgressBar
-                            label={`Verbs  ${verbItems.filter(v => completed.includes(v.id)).length}/${verbItems.length}`}
+                            label={`Verbs  ${verbItems.filter(v => isDone(v.id)).length}/${verbItems.length}`}
                             value={verbPct}
                         />
                     </div>
@@ -226,13 +236,16 @@ export function HomePage() {
     const { session } = useAuth()
     const navigate = useNavigate()
 
+    // Reset progress if a different user has logged in
+    if (session) initUserSession(session.userId)
+
     const userInfo = session ? getUserById(session.userId) : null
     const displayName = userInfo?.displayName?.split(" ")[0] ?? "there"
     const startedIds = getStartedLanguages()
 
     function handlePick(langId: string) {
         setSelectedLanguage(langId)
-        navigate(`/learn/${langId}`)
+        navigate(`/learn/${langId}/placement`)
     }
 
     if (startedIds.length === 0) {
