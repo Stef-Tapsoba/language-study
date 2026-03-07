@@ -250,5 +250,25 @@ export const a1Units: LessonUnit[] = [
             { id: "ja-uq-a1-14-5", level: "A1", prompt: "How do you ask 'What do you want to do?'", options: ["何をしましたか？", "何がしたいですか？", "何をしますか？", "何をしていますか？"], answer: "何がしたいですか？" },
             { id: "ja-uq-a1-14-6", level: "A1", prompt: "たい can be used to express which person's desires directly?", options: ["Any person", "Third person only", "First person (speaker) only", "Second person only"], answer: "First person (speaker) only" }
         ]
+    },
+    {
+        id: "ja-a1-u15",
+        level: "A1",
+        order: 15,
+        title: "Beginner Kanji",
+        description: "Learn 15 essential kanji you've already seen in A1 — 日, 水, 山, 本, 人, 学, 生, 先, 語, 上, 下, 中, 大, 小, 手",
+        grammarIds: ["ja-g-a1-14"],
+        vocabIds: [],
+        verbIds: [],
+        testQuestions: [
+            { id: "ja-uq-a1-15-1", level: "A1", prompt: "What does the kanji 日 mean?", options: ["Water", "Mountain", "Sun / Day", "Person"], answer: "Sun / Day" },
+            { id: "ja-uq-a1-15-2", level: "A1", prompt: "What does 日本 (にほん) mean?", options: ["Japanese language", "Japanese person", "Japan", "Japanese food"], answer: "Japan" },
+            { id: "ja-uq-a1-15-3", level: "A1", prompt: "What does 先生 (せんせい) mean?", options: ["Student", "University", "Teacher", "Language"], answer: "Teacher" },
+            { id: "ja-uq-a1-15-4", level: "A1", prompt: "Which kanji means 'study / learning'?", options: ["生", "先", "学", "語"], answer: "学" },
+            { id: "ja-uq-a1-15-5", level: "A1", prompt: "What does 大学 (だいがく) mean?", options: ["Big person", "University", "Teacher", "Study group"], answer: "University" },
+            { id: "ja-uq-a1-15-6", level: "A1", prompt: "Which kanji means 'above / up'?", options: ["下", "中", "小", "上"], answer: "上" },
+            { id: "ja-uq-a1-15-7", level: "A1", prompt: "What does 学生 (がくせい) mean?", options: ["Teacher", "School", "Student", "Language"], answer: "Student" },
+            { id: "ja-uq-a1-15-8", level: "A1", prompt: "What is the kun'yomi reading of 水?", options: ["すい", "みず", "みな", "こう"], answer: "みず" }
+        ]
     }
 ]

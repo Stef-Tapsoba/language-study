@@ -169,5 +169,18 @@ export const a1Grammar: GrammarLesson[] = [
             { native: "何がしたいですか？", romanized: "Nani ga shitai desu ka?", translation: "What do you want to do?" },
             { native: "今日は何もしたくないです。", romanized: "Kyou wa nanimo shitakunai desu.", translation: "I don't want to do anything today." }
         ]
+    },
+    {
+        id: "ja-g-a1-14",
+        level: "A1",
+        title: "Beginner Kanji: 15 Essential Characters",
+        explanation: "Japanese uses kanji — characters borrowed from Chinese — alongside hiragana and katakana. You have already seen many kanji in examples. This lesson teaches 15 high-frequency kanji you will recognise from A1 content. Most kanji have two readings: kun'yomi (native Japanese reading) and on'yomi (Chinese-origin reading). Compounds usually use on'yomi; standalone words often use kun'yomi. Group 1 — Nature & objects: 日 (にち/ひ — day/sun), 水 (みず — water), 山 (やま/さん — mountain), 本 (ほん/もと — book/origin), 手 (て — hand). Group 2 — People & study: 人 (ひと/じん — person), 学 (がく — study), 生 (せい/なま — life/birth), 先 (せん — before/ahead), 語 (ご — language). Group 3 — Directions: 上 (うえ/じょう — above/up), 下 (した/か — below/down), 中 (なか/ちゅう — inside/middle). Group 4 — Size: 大 (おお/だい — big), 小 (ちい/しょう — small). Key compounds you already know: 日本 (にほん — Japan), 日本語 (にほんご — Japanese language), 日本人 (にほんじん — Japanese person), 大学 (だいがく — university), 学生 (がくせい — student), 先生 (せんせい — teacher).",
+        examples: [
+            { native: "日・水・山・本・手", romanized: "nichi/hi ・ mizu ・ yama/san ・ hon/moto ・ te", translation: "Sun/day, water, mountain, book/origin, hand" },
+            { native: "人・学・生・先・語", romanized: "hito/jin ・ gaku ・ sei/nama ・ sen ・ go", translation: "Person, study, life/birth, before, language" },
+            { native: "上・下・中・大・小", romanized: "ue/jou ・ shita/ka ・ naka/chuu ・ oo/dai ・ chii/shou", translation: "Above, below, middle, big, small" },
+            { native: "日本・日本語・日本人", romanized: "Nihon ・ Nihongo ・ Nihonjin", translation: "Japan, Japanese language, Japanese person" },
+            { native: "大学・学生・先生", romanized: "daigaku ・ gakusei ・ sensei", translation: "University, student, teacher" }
+        ]
     }
 ]
