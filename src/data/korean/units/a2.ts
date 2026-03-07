@@ -1,5 +1,3 @@
-// Korean A2 lesson units
-// data/korean/units/a2.ts
 import { LessonUnit } from "../../../types"
 
 export const a2Units: LessonUnit[] = [
@@ -10,7 +8,7 @@ export const a2Units: LessonUnit[] = [
         title: "Wants & Desires: ~고 싶다",
         description: "Express what you want to do",
         grammarIds: ["ko-g-a2-1"],
-        vocabIds: ["ko-v-a2-6", "ko-v-a2-7"],
+        vocabIds: ["ko-v-a2-084", "ko-v-a2-085"],
         verbIds: [],
         testQuestions: [
             {
@@ -52,7 +50,7 @@ export const a2Units: LessonUnit[] = [
         title: "Ability: ~(으)ㄹ 수 있다/없다",
         description: "Say what you can and cannot do",
         grammarIds: ["ko-g-a2-2"],
-        vocabIds: ["ko-v-a2-1", "ko-v-a2-3", "ko-v-a2-4"],
+        vocabIds: ["ko-v-a2-079", "ko-v-a2-081", "ko-v-a2-082"],
         verbIds: ["ko-vb-a2-2"],
         testQuestions: [
             {
@@ -94,7 +92,7 @@ export const a2Units: LessonUnit[] = [
         title: "Future Plans: ~(으)ㄹ 거예요",
         description: "Talk about future intentions and plans",
         grammarIds: ["ko-g-a2-3"],
-        vocabIds: ["ko-v-a2-8", "ko-v-a2-9", "ko-v-a2-10"],
+        vocabIds: ["ko-v-a2-086", "ko-v-a2-087", "ko-v-a2-088"],
         verbIds: ["ko-vb-a2-1"],
         testQuestions: [
             {
@@ -136,7 +134,7 @@ export const a2Units: LessonUnit[] = [
         title: "Ongoing Actions: ~고 있다",
         description: "Describe actions in progress right now",
         grammarIds: ["ko-g-a2-4"],
-        vocabIds: ["ko-v-a2-2", "ko-v-a2-5"],
+        vocabIds: ["ko-v-a2-080", "ko-v-a2-083"],
         verbIds: ["ko-vb-a2-3", "ko-vb-a2-4"],
         testQuestions: [
             {

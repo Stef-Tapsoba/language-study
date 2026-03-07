@@ -24,6 +24,12 @@ import { b1Units } from "./units/b1"
 import { placementQuestions } from "./questions/placement"
 import { levelTestQuestions } from "./questions/level-tests"
 
+import { a1Reading } from "./reading/a1"
+import { a2Reading } from "./reading/a2"
+
+import { a1Listening } from "./listening/a1"
+import { a2Listening } from "./listening/a2"
+
 const module: LanguageModule = {
     grammar: [
         ...a1Grammar,
@@ -46,7 +52,9 @@ const module: LanguageModule = {
         ...b1Units
     ],
     placementQuestions,
-    levelQuestions: levelTestQuestions
+    levelQuestions: levelTestQuestions,
+    readingPassages: [...a1Reading, ...a2Reading],
+    listeningExercises: [...a1Listening, ...a2Listening]
 }
 
 export default module

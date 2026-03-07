@@ -8,7 +8,7 @@ export const a2Units: LessonUnit[] = [
         title: "て-form & Progressive",
         description: "Learn the て-form conjugation rules and use ている for ongoing actions",
         grammarIds: ["ja-g-a2-1"],
-        vocabIds: ["ja-v-a2-1", "ja-v-a2-2"],
+        vocabIds: ["ja-v-a2-009", "ja-v-a2-010"],
         verbIds: ["ja-vb-a2-1", "ja-vb-a2-2", "ja-vb-a2-3", "ja-vb-a2-4"],
         testQuestions: [
             { id: "ja-uq-a2-1-1", level: "A2", prompt: "What is the て-form of 食べる (taberu)?", options: ["食べた", "食べに", "食べて", "食べで"], answer: "食べて" },
@@ -25,7 +25,7 @@ export const a2Units: LessonUnit[] = [
         title: "Ability: ことができる",
         description: "Express ability and inability using the ことができる / ことができない pattern",
         grammarIds: ["ja-g-a2-2"],
-        vocabIds: ["ja-v-a2-3", "ja-v-a2-4", "ja-v-a2-5"],
+        vocabIds: ["ja-v-a2-011", "ja-v-a2-012", "ja-v-a2-013"],
         verbIds: ["ja-vb-a2-1", "ja-vb-a2-2"],
         testQuestions: [
             { id: "ja-uq-a2-2-1", level: "A2", prompt: "How do you say 'I can speak Japanese'?", options: ["日本語を話します。", "日本語を話したいです。", "日本語を話すことができます。", "日本語を話しています。"], answer: "日本語を話すことができます。" },
@@ -42,7 +42,7 @@ export const a2Units: LessonUnit[] = [
         title: "Intentions: つもりです",
         description: "Express firm plans and intentions using つもりです",
         grammarIds: ["ja-g-a2-3"],
-        vocabIds: ["ja-v-a2-6", "ja-v-a2-7", "ja-v-a2-8", "ja-v-a2-9", "ja-v-a2-10"],
+        vocabIds: ["ja-v-a2-014", "ja-v-a2-015", "ja-v-a2-016", "ja-v-a2-017", "ja-v-a2-018"],
         verbIds: ["ja-vb-a2-3", "ja-vb-a2-4"],
         testQuestions: [
             { id: "ja-uq-a2-3-1", level: "A2", prompt: "How do you say 'I intend to go to Japan next year'?", options: ["来年、日本に行きたいです。", "来年、日本に行くつもりです。", "来年、日本に行きました。", "来年、日本に行けます。"], answer: "来年、日本に行くつもりです。" },
@@ -59,7 +59,7 @@ export const a2Units: LessonUnit[] = [
         title: "Past Experience: たことがある",
         description: "Talk about life experiences — what you have or have never done — using たことがある",
         grammarIds: ["ja-g-a2-4"],
-        vocabIds: ["ja-v-a2-1", "ja-v-a2-3", "ja-v-a2-9", "ja-v-a2-10"],
+        vocabIds: ["ja-v-a2-009", "ja-v-a2-011", "ja-v-a2-017", "ja-v-a2-018"],
         verbIds: ["ja-vb-a2-1", "ja-vb-a2-2"],
         testQuestions: [
             { id: "ja-uq-a2-4-1", level: "A2", prompt: "How do you say 'I have eaten sushi before'?", options: ["すしを食べます。", "すしを食べたことがあります。", "すしを食べています。", "すしを食べるつもりです。"], answer: "すしを食べたことがあります。" },

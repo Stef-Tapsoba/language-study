@@ -15,6 +15,16 @@ export interface Language {
 }
 
 // ---------------------------------------------------------------------------
+// Localized text — supports immersion progression across CEFR levels
+// native: always English (the learner's language for this prototype)
+// target: the language being studied — optional, falls back to native when absent
+// ---------------------------------------------------------------------------
+export interface LocalizedText {
+    native: string
+    target?: string
+}
+
+// ---------------------------------------------------------------------------
 // Example type — appears in grammar, vocab, and verb data
 // ---------------------------------------------------------------------------
 export interface Example {
@@ -30,7 +40,7 @@ export interface GrammarLesson {
     id: string
     level: CEFRLevel
     title: string
-    explanation: string
+    explanation: string | LocalizedText
     examples: Example[]
 }
 
@@ -90,7 +100,7 @@ export interface LessonUnit {
     level: CEFRLevel
     order: number             // 1, 2, 3... sequential within the level
     title: string             // displayed in dashboard
-    description: string       // one-line summary
+    description: string | LocalizedText  // one-line summary
     grammarIds: string[]      // references GrammarLesson.id
     vocabIds: string[]        // references VocabItem.id
     verbIds: string[]         // references Verb.id

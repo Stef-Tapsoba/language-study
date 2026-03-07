@@ -1,4 +1,3 @@
-// src/data/french/units/a2.ts
 import { LessonUnit } from "../../../types"
 
 // 4 A2 unit stubs. Content TBD.
@@ -11,7 +10,7 @@ export const a2Units: LessonUnit[] = [
         title: "Talking About the Past",
         description: "Master the passé composé for completed past actions with avoir and être.",
         grammarIds: ["fr-g-a2-1"],
-        vocabIds: ["fr-v-a2-1", "fr-v-a2-2", "fr-v-a2-3"],
+        vocabIds: ["fr-v-a2-001", "fr-v-a2-002", "fr-v-a2-003"],
         verbIds: ["fr-vb-a2-1", "fr-vb-a2-2"],
         testQuestions: [
             { id: "fr-uq-a2-1-1", level: "A2", prompt: "Complete (passé composé): 'Hier, nous ___ au restaurant.' (manger)", options: ["mangeons", "mangions", "avons mangé", "avions mangé"], answer: "avons mangé" },
@@ -28,7 +27,7 @@ export const a2Units: LessonUnit[] = [
         title: "Describing the Past",
         description: "Use the imparfait to describe habitual past actions, background states, and ongoing situations.",
         grammarIds: ["fr-g-a2-2"],
-        vocabIds: ["fr-v-a2-4", "fr-v-a2-5", "fr-v-a2-6", "fr-v-a2-7"],
+        vocabIds: ["fr-v-a2-004", "fr-v-a2-005", "fr-v-a2-006", "fr-v-a2-007"],
         verbIds: ["fr-vb-a2-3"],
         testQuestions: [
             { id: "fr-uq-a2-2-1", level: "A2", prompt: "How do you say 'She used to work in Paris'?", options: ["Elle a travaillé à Paris.", "Elle travaillait à Paris.", "Elle travaille à Paris.", "Elle va travailler à Paris."], answer: "Elle travaillait à Paris." },
@@ -45,7 +44,7 @@ export const a2Units: LessonUnit[] = [
         title: "Object Pronouns & Partitive Articles",
         description: "Learn to replace nouns with direct object pronouns and express quantities with partitive articles.",
         grammarIds: ["fr-g-a2-3", "fr-g-a2-4"],
-        vocabIds: ["fr-v-a2-8", "fr-v-a2-9", "fr-v-a2-10"],
+        vocabIds: ["fr-v-a2-008", "fr-v-a2-009", "fr-v-a2-010"],
         verbIds: [],
         testQuestions: [
             { id: "fr-uq-a2-3-1", level: "A2", prompt: "Replace 'Je vois Marie' with a pronoun: 'Je ___ vois.'", options: ["lui", "leur", "la", "le"], answer: "la" },

@@ -8,7 +8,7 @@ export const a2Units: LessonUnit[] = [
         title: "Talking About the Past",
         description: "Form the passato prossimo with avere and essere to describe completed past actions.",
         grammarIds: ["it-g-a2-1"],
-        vocabIds: ["it-v-a2-1", "it-v-a2-4", "it-v-a2-5"],
+        vocabIds: ["it-v-a2-001", "it-v-a2-004", "it-v-a2-005"],
         verbIds: ["it-vb-a2-2"],
         testQuestions: [
             { id: "it-uq-a2-1-1", level: "A2", prompt: "Complete (passato prossimo): 'Ieri lei ___ la pizza.' (mangiare)", options: ["mangiava", "mangia", "ha mangiato", "mangiò"], answer: "ha mangiato" },
@@ -25,7 +25,7 @@ export const a2Units: LessonUnit[] = [
         title: "Describing the Past",
         description: "Use the imperfetto to describe habitual past actions and ongoing states.",
         grammarIds: ["it-g-a2-2"],
-        vocabIds: ["it-v-a2-6", "it-v-a2-7", "it-v-a2-8"],
+        vocabIds: ["it-v-a2-006", "it-v-a2-007", "it-v-a2-008"],
         verbIds: ["it-vb-a2-1"],
         testQuestions: [
             { id: "it-uq-a2-2-1", level: "A2", prompt: "How do you say 'I used to eat pizza every week'?", options: ["Ho mangiato la pizza ogni settimana.", "Mangiavo la pizza ogni settimana.", "Mangio la pizza ogni settimana.", "Mangerò la pizza ogni settimana."], answer: "Mangiavo la pizza ogni settimana." },
@@ -42,7 +42,7 @@ export const a2Units: LessonUnit[] = [
         title: "Reflexive Verbs & Daily Routines",
         description: "Use reflexive verbs to describe daily routines: svegliarsi, alzarsi, vestirsi, and more.",
         grammarIds: ["it-g-a2-3"],
-        vocabIds: ["it-v-a2-9", "it-v-a2-10"],
+        vocabIds: ["it-v-a2-009", "it-v-a2-010"],
         verbIds: [],
         testQuestions: [
             { id: "it-uq-a2-3-1", level: "A2", prompt: "Complete (reflexive): 'Io ___ alle sette.' (svegliarsi)", options: ["sveglia", "si sveglio", "mi sveglio", "ti sveglio"], answer: "mi sveglio" },
@@ -59,7 +59,7 @@ export const a2Units: LessonUnit[] = [
         title: "The Simple Future",
         description: "Express future plans and predictions using the futuro semplice.",
         grammarIds: ["it-g-a2-4"],
-        vocabIds: ["it-v-a2-1", "it-v-a2-2", "it-v-a2-3"],
+        vocabIds: ["it-v-a2-001", "it-v-a2-002", "it-v-a2-003"],
         verbIds: ["it-vb-a2-1"],
         testQuestions: [
             { id: "it-uq-a2-4-1", level: "A2", prompt: "Complete (futuro): 'Domani loro ___.' (partire)", options: ["partono", "partiranno", "sono partiti", "partivano"], answer: "partiranno" },

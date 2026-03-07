@@ -1,4 +1,3 @@
-// src/data/french/questions/level-tests.ts
 import { QuizQuestion } from "../../../types"
 
 export const levelQuestions: QuizQuestion[] = [

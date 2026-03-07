@@ -1,6 +1,8 @@
 // pages/GrammarDrillPage.tsx
-// Format: show the English translation → pick the correct native sentence.
-// Distractors are drawn from other examples in the current level.
+//
+// A1/A2: Show the English meaning → pick the correct target-language sentence.
+// B1+:   Show the target-language sentence → pick the correct English meaning.
+//        This shifts the exercise from production-cued to comprehension-cued.
 import { useState, useMemo } from "react"
 import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
@@ -8,11 +10,12 @@ import { getModule } from "../data/modules"
 import { getCurrentLevel } from "../store/progress"
 import { NavBar } from "../components/NavBar"
 import { QuizCard } from "../components/QuizCard"
+import { getUI, fmt } from "../i18n"
 
 interface DrillQuestion {
-    translation: string
-    correct: string
-    options: string[]
+    prompt: string    // displayed in the amber banner
+    correct: string   // correct answer
+    options: string[] // all 4 choices
 }
 
 function shuffle<T>(arr: T[]): T[] {
@@ -22,23 +25,34 @@ function shuffle<T>(arr: T[]): T[] {
 function buildQuestions(mod: ReturnType<typeof getModule>, level: string): DrillQuestion[] {
     if (!mod) return []
 
-    // Collect all examples from current-level grammar lessons
     const examples = mod.grammar
         .filter(g => g.level === level)
         .flatMap(g => g.examples)
-        .filter((ex, i, arr) =>
-            // deduplicate by native text
-            arr.findIndex(e => e.native === ex.native) === i
-        )
+        .filter((ex, i, arr) => arr.findIndex(e => e.native === ex.native) === i)
 
     if (examples.length < 4) return []
 
-    const allNative = examples.map(e => e.native)
+    const isFlipped = level !== "A1" && level !== "A2"  // B1+ → target → English
 
+    if (isFlipped) {
+        // B1+: target sentence prompt → pick English meaning
+        const allTranslations = examples.map(e => e.translation)
+        return shuffle(examples).slice(0, 10).map(ex => {
+            const distractors = shuffle(allTranslations.filter(t => t !== ex.translation)).slice(0, 3)
+            return {
+                prompt: ex.native,
+                correct: ex.translation,
+                options: shuffle([ex.translation, ...distractors]),
+            }
+        })
+    }
+
+    // A1/A2: English prompt → pick target sentence
+    const allNative = examples.map(e => e.native)
     return shuffle(examples).slice(0, 10).map(ex => {
         const distractors = shuffle(allNative.filter(n => n !== ex.native)).slice(0, 3)
         return {
-            translation: ex.translation,
+            prompt: ex.translation,
             correct: ex.native,
             options: shuffle([ex.native, ...distractors]),
         }
@@ -50,6 +64,8 @@ export function GrammarDrillPage() {
     const language = getLanguage(langId)
     const mod = getModule(langId)
     const level = getCurrentLevel(langId)
+    const ui = getUI(langId, level)
+    const isFlipped = level !== "A1" && level !== "A2"
 
     const questions = useMemo(() => buildQuestions(mod, level), [langId, level])
 
@@ -64,7 +80,7 @@ export function GrammarDrillPage() {
     if (questions.length === 0) {
         return (
             <div className="min-h-screen bg-gray-50">
-                <NavBar title="Grammar Drill" level={level} backTo={`/learn/${langId}`} />
+                <NavBar title={ui.sectionGrammarDrill} level={level} backTo={`/learn/${langId}`} />
                 <div className="flex flex-col items-center justify-center py-24 text-gray-400">
                     <p className="text-4xl mb-3">🚧</p>
                     <p className="font-medium">Not enough grammar examples at {level} yet</p>
@@ -99,22 +115,22 @@ export function GrammarDrillPage() {
         const pct = Math.round((score / questions.length) * 100)
         return (
             <div className="min-h-screen bg-gray-50">
-                <NavBar title="Grammar Drill" level={level} backTo={`/learn/${langId}`} />
+                <NavBar title={ui.sectionGrammarDrill} level={level} backTo={`/learn/${langId}`} />
                 <main className="max-w-sm mx-auto px-4 py-12 flex flex-col items-center gap-6 text-center">
                     <div className="text-5xl">{pct >= 70 ? "🏆" : "💪"}</div>
-                    <h2 className="text-2xl font-bold text-gray-900">Drill complete!</h2>
+                    <h2 className="text-2xl font-bold text-gray-900">{ui.drillComplete}</h2>
                     <div className="bg-white rounded-2xl border border-gray-200 p-5 w-full flex justify-around">
                         <div>
                             <p className="text-3xl font-bold text-green-600">{score}</p>
-                            <p className="text-xs text-gray-500 mt-1">Correct</p>
+                            <p className="text-xs text-gray-500 mt-1">{ui.scoreCorrect}</p>
                         </div>
                         <div>
                             <p className="text-3xl font-bold text-red-500">{questions.length - score}</p>
-                            <p className="text-xs text-gray-500 mt-1">Wrong</p>
+                            <p className="text-xs text-gray-500 mt-1">{ui.scoreWrong}</p>
                         </div>
                         <div>
                             <p className="text-3xl font-bold text-indigo-600">{pct}%</p>
-                            <p className="text-xs text-gray-500 mt-1">Score</p>
+                            <p className="text-xs text-gray-500 mt-1">{ui.scoreLabel}</p>
                         </div>
                     </div>
                     <button
@@ -122,7 +138,7 @@ export function GrammarDrillPage() {
                         className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
                                    rounded-xl py-2.5 text-sm transition-colors"
                     >
-                        Try again
+                        {ui.tryAgain}
                     </button>
                 </main>
             </div>
@@ -133,32 +149,33 @@ export function GrammarDrillPage() {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <NavBar title="Grammar Drill" level={level} backTo={`/learn/${langId}`} />
+            <NavBar title={ui.sectionGrammarDrill} level={level} backTo={`/learn/${langId}`} />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col items-center gap-6">
                 <div className="w-full flex items-center justify-between text-sm text-gray-500">
-                    <span>Question {index + 1} of {questions.length}</span>
-                    <span className="font-medium">Score: {score}</span>
+                    <span>{fmt(ui.questionOf, { n: index + 1, total: questions.length })}</span>
+                    <span className="font-medium">{ui.scoreLabel}: {score}</span>
                 </div>
 
                 {/* Progress strip */}
                 <div className="w-full flex gap-1">
-                    {questions.map((_, i) => (
-                        <div key={i} className={`h-1.5 flex-1 rounded-full transition-colors ${i < index ? "bg-indigo-500" :
-                                i === index ? "bg-indigo-300" : "bg-gray-200"
-                            }`} />
-                    ))}
+                    {questions.map((q, i) => {
+                        let dotCls = "bg-gray-200"
+                        if (i < index) dotCls = "bg-indigo-500"
+                        else if (i === index) dotCls = "bg-indigo-300"
+                        return <div key={q.prompt} className={`h-1.5 flex-1 rounded-full transition-colors ${dotCls}`} />
+                    })}
                 </div>
 
                 {/* Instruction banner */}
                 <div className="w-full bg-amber-50 border border-amber-200 rounded-2xl px-5 py-3 text-center">
                     <p className="text-xs text-amber-600 font-medium uppercase tracking-wide mb-1">
-                        Pick the correct translation
+                        {isFlipped ? ui.grammarDrillInstructionB1 : ui.grammarDrillInstruction}
                     </p>
-                    <p className="text-lg font-semibold text-amber-900">{q.translation}</p>
+                    <p className="text-lg font-semibold text-amber-900">{q.prompt}</p>
                 </div>
 
                 <QuizCard
-                    question="Which sentence matches the meaning above?"
+                    question={isFlipped ? ui.grammarDrillQuestionB1 : ui.grammarDrillQuestion}
                     options={q.options}
                     selected={selected}
                     correct={revealed ? q.correct : null}
@@ -171,7 +188,7 @@ export function GrammarDrillPage() {
                         className="w-full max-w-xl bg-indigo-600 hover:bg-indigo-700 text-white
                                    font-semibold rounded-xl py-3 transition-colors"
                     >
-                        {index + 1 >= questions.length ? "See results" : "Next"}
+                        {index + 1 >= questions.length ? ui.seeResults : ui.nextQuestion}
                     </button>
                 )}
             </main>

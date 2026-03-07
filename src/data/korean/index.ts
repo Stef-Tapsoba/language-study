@@ -1,5 +1,14 @@
 // data/korean/index.ts — assembler
 // Combines all modular Korean content files into a single LanguageModule export.
+// Content improvements over the original monolith:
+//   - Present tense (~아/어요) and past tense (~았/었어요) moved from A2 → A1
+//   - 오다 (to come) moved from A2 verbs → A1 verbs
+//   - 알다 (to know) moved from B1 verbs → A2 verbs
+//   - A1 vocab expanded from 10 → 150 items (all with romanized fields)
+//   - A1 verbs expanded from 4 → 8 verbs (all with present + past)
+//   - A1 grammar expanded from 4 → 12 lessons
+//   - 12 A1 units added with test questions
+//   - A2 grammar expanded to 4 lessons (고 싶다, 수 있다, 거예요, 고 있다)
 
 import { LanguageModule } from "../../types"
 
@@ -44,7 +53,9 @@ const module: LanguageModule = {
         ...b1Units
     ],
     placementQuestions,
-    levelQuestions: levelTestQuestions
+    levelQuestions: levelTestQuestions,
+    readingPassages: [],
+    listeningExercises: []
 }
 
 export default module

@@ -8,6 +8,7 @@ import { NavBar } from "../components/NavBar"
 import { QuizCard } from "../components/QuizCard"
 import { LevelBadge } from "../components/LevelBadge"
 import { Verb } from "../types"
+import { getUI, fmt } from "../i18n"
 
 interface DrillQuestion {
     verb: Verb
@@ -22,7 +23,6 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 function buildQuestions(verbs: Verb[]): DrillQuestion[] {
-    // Collect all (verb, tense, form) combos
     const all: Omit<DrillQuestion, "options">[] = []
     for (const verb of verbs) {
         for (const conj of verb.conjugations) {
@@ -32,7 +32,6 @@ function buildQuestions(verbs: Verb[]): DrillQuestion[] {
         }
     }
 
-    // All unique forms for distractor pool
     const allForms = [...new Set(all.map(q => q.correct))]
 
     return shuffle(all).slice(0, 10).map(q => {
@@ -41,11 +40,21 @@ function buildQuestions(verbs: Verb[]): DrillQuestion[] {
     })
 }
 
+function progressDotClass(i: number, index: number): string {
+    if (i < index) return "bg-indigo-500"
+    if (i === index) return "bg-indigo-300"
+    return "bg-gray-200"
+}
+
 export function VerbDrillPage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
     const mod = getModule(langId)
     const level = getCurrentLevel(langId)
+    const ui = getUI(langId, level)
+
+    // At B1+, hide the English meaning — learner should rely on the verb form alone
+    const showMeaning = level === "A1" || level === "A2"
 
     const questions = useMemo(
         () => buildQuestions(mod?.verbs.filter(v => v.level === level) ?? []),
@@ -63,7 +72,7 @@ export function VerbDrillPage() {
     if (questions.length === 0) {
         return (
             <div className="min-h-screen bg-gray-50">
-                <NavBar title="Verb Drill" level={level} backTo={`/learn/${langId}`} />
+                <NavBar title={ui.sectionVerbDrill} level={level} backTo={`/learn/${langId}`} />
                 <div className="flex flex-col items-center justify-center py-24 text-gray-400">
                     <p className="text-4xl mb-3">🚧</p>
                     <p className="font-medium">No verbs to drill at {level} yet</p>
@@ -98,22 +107,22 @@ export function VerbDrillPage() {
         const pct = Math.round((score / questions.length) * 100)
         return (
             <div className="min-h-screen bg-gray-50">
-                <NavBar title="Verb Drill" level={level} backTo={`/learn/${langId}`} />
+                <NavBar title={ui.sectionVerbDrill} level={level} backTo={`/learn/${langId}`} />
                 <main className="max-w-sm mx-auto px-4 py-12 flex flex-col items-center gap-6 text-center">
                     <div className="text-5xl">{pct >= 70 ? "🏆" : "💪"}</div>
-                    <h2 className="text-2xl font-bold text-gray-900">Drill complete!</h2>
+                    <h2 className="text-2xl font-bold text-gray-900">{ui.drillComplete}</h2>
                     <div className="bg-white rounded-2xl border border-gray-200 p-5 w-full flex justify-around">
                         <div>
                             <p className="text-3xl font-bold text-green-600">{score}</p>
-                            <p className="text-xs text-gray-500 mt-1">Correct</p>
+                            <p className="text-xs text-gray-500 mt-1">{ui.scoreCorrect}</p>
                         </div>
                         <div>
                             <p className="text-3xl font-bold text-red-500">{questions.length - score}</p>
-                            <p className="text-xs text-gray-500 mt-1">Wrong</p>
+                            <p className="text-xs text-gray-500 mt-1">{ui.scoreWrong}</p>
                         </div>
                         <div>
                             <p className="text-3xl font-bold text-indigo-600">{pct}%</p>
-                            <p className="text-xs text-gray-500 mt-1">Score</p>
+                            <p className="text-xs text-gray-500 mt-1">{ui.scoreLabel}</p>
                         </div>
                     </div>
                     <button
@@ -121,7 +130,7 @@ export function VerbDrillPage() {
                         className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
                                    rounded-xl py-2.5 text-sm transition-colors"
                     >
-                        Try again
+                        {ui.tryAgain}
                     </button>
                 </main>
             </div>
@@ -132,19 +141,20 @@ export function VerbDrillPage() {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <NavBar title="Verb Drill" level={level} backTo={`/learn/${langId}`} />
+            <NavBar title={ui.sectionVerbDrill} level={level} backTo={`/learn/${langId}`} />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col items-center gap-6">
                 <div className="w-full flex items-center justify-between text-sm text-gray-500">
-                    <span>Question {index + 1} of {questions.length}</span>
-                    <span className="font-medium">Score: {score}</span>
+                    <span>{fmt(ui.questionOf, { n: index + 1, total: questions.length })}</span>
+                    <span className="font-medium">{ui.scoreLabel}: {score}</span>
                 </div>
 
                 {/* Progress strip */}
                 <div className="w-full flex gap-1">
-                    {questions.map((_, i) => (
-                        <div key={i} className={`h-1.5 flex-1 rounded-full transition-colors ${i < index ? "bg-indigo-500" :
-                                i === index ? "bg-indigo-300" : "bg-gray-200"
-                            }`} />
+                    {questions.map((dq, i) => (
+                        <div
+                            key={`${dq.verb.infinitive}-${dq.tense}-${dq.pronoun}`}
+                            className={`h-1.5 flex-1 rounded-full transition-colors ${progressDotClass(i, index)}`}
+                        />
                     ))}
                 </div>
 
@@ -161,13 +171,16 @@ export function VerbDrillPage() {
                                 </span>
                             )}
                         </p>
-                        <p className="text-sm text-gray-500">{q.verb.meaning}</p>
+                        {/* English meaning: shown at A1/A2, hidden at B1+ */}
+                        {showMeaning && (
+                            <p className="text-sm text-gray-500">{q.verb.meaning}</p>
+                        )}
                     </div>
                     <LevelBadge level={q.verb.level} />
                 </div>
 
                 <QuizCard
-                    question={`Conjugate for: ${q.pronoun}`}
+                    question={fmt(ui.conjugateFor, { pronoun: q.pronoun })}
                     options={q.options}
                     selected={selected}
                     correct={revealed ? q.correct : null}
@@ -180,7 +193,7 @@ export function VerbDrillPage() {
                         className="w-full max-w-xl bg-indigo-600 hover:bg-indigo-700 text-white
                                    font-semibold rounded-xl py-3 transition-colors"
                     >
-                        {index + 1 >= questions.length ? "See results" : "Next"}
+                        {index + 1 >= questions.length ? ui.seeResults : ui.nextQuestion}
                     </button>
                 )}
             </main>

@@ -26,6 +26,8 @@ const module: LanguageModule = {
     units: [...a1Units, ...a2Units, ...b1Units],
     placementQuestions,
     levelQuestions,
+    readingPassages: [],
+    listeningExercises: []
 }
 
 export default module

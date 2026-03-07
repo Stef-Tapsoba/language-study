@@ -1,5 +1,3 @@
-// Korean A2 verbs
-// data/korean/verbs/a2.ts
 import { Verb } from "../../../types"
 
 // A2 verbs — expanded action verbs including seeing, speaking, writing, knowing.
