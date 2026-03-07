@@ -7,16 +7,20 @@ import { getCurrentLevel, getCompletedLessons, markLessonComplete, getMasteredUn
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { QuizCard } from "../components/QuizCard"
-import { GrammarLesson, LessonUnit, VocabItem, Verb } from "../types"
+import { SpeakButton } from "../components/SpeakButton"
+import { LocalizedExplanation } from "../components/LocalizedExplanation"
+import { GrammarLesson, LessonUnit, VocabItem, Verb, CEFRLevel } from "../types"
+import { getUI, fmt, UIStrings } from "../i18n"
+import { resolvePrimary } from "../utils/localizedText"
 
 type Tab = "grammar" | "vocab" | "verbs" | "test"
 
 // ---------------------------------------------------------------------------
 // GrammarAccordion
 // ---------------------------------------------------------------------------
-function GrammarAccordion({
-    lesson, done, langId, onComplete,
-}: { lesson: GrammarLesson; done: boolean; langId: string; onComplete: () => void }) {
+function GrammarAccordion({ lesson, done, langId, level, ui, onComplete }: Readonly<{
+    lesson: GrammarLesson; done: boolean; langId: string; level: CEFRLevel; ui: UIStrings; onComplete: () => void
+}>) {
     const [open, setOpen] = useState(false)
     return (
         <div className={`bg-white border rounded-2xl overflow-hidden ${done ? "border-green-300" : "border-gray-200"}`}>
@@ -34,11 +38,14 @@ function GrammarAccordion({
             </button>
             {open && (
                 <div className="px-5 pb-5 border-t border-gray-100">
-                    <p className="text-sm text-gray-700 mt-4 leading-relaxed">{lesson.explanation}</p>
+                    <LocalizedExplanation text={lesson.explanation} level={level} langId={langId} className="mt-4" />
                     <div className="mt-4 flex flex-col gap-3">
-                        {lesson.examples.map((ex, i) => (
-                            <div key={i} className="bg-gray-50 rounded-xl p-3">
-                                <p className="font-medium text-gray-900">{ex.native}</p>
+                        {lesson.examples.map((ex) => (
+                            <div key={ex.native} className="bg-gray-50 rounded-xl p-3">
+                                <div className="flex items-start gap-1">
+                                    <p className="flex-1 font-medium text-gray-900">{ex.native}</p>
+                                    <SpeakButton text={ex.native} langId={langId} />
+                                </div>
                                 {ex.romanized && <p className="text-xs text-indigo-500 mt-0.5">{ex.romanized}</p>}
                                 <p className="text-sm text-gray-500 mt-0.5">{ex.translation}</p>
                             </div>
@@ -49,7 +56,7 @@ function GrammarAccordion({
                             onClick={() => { markLessonComplete(langId, lesson.id); onComplete() }}
                             className="mt-4 w-full bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl py-2 text-sm transition-colors"
                         >
-                            Mark as complete
+                            {ui.markComplete}
                         </button>
                     )}
                 </div>
@@ -61,29 +68,29 @@ function GrammarAccordion({
 // ---------------------------------------------------------------------------
 // VocabRow
 // ---------------------------------------------------------------------------
-function VocabRow({
-    item, done, langId, onComplete,
-}: { item: VocabItem; done: boolean; langId: string; onComplete: () => void }) {
+function VocabRow({ item, done, langId, ui, onComplete }: Readonly<{
+    item: VocabItem; done: boolean; langId: string; ui: UIStrings; onComplete: () => void
+}>) {
     const [open, setOpen] = useState(false)
     return (
-        <div
-            className={`bg-white border rounded-2xl overflow-hidden cursor-pointer
-                ${done ? "border-green-300" : "border-gray-200 hover:border-indigo-300"}`}
-            onClick={() => setOpen(o => !o)}
-        >
-            <div className="px-4 py-3 flex items-center gap-3">
+        <div className={`bg-white border rounded-2xl overflow-hidden ${done ? "border-green-300" : "border-gray-200 hover:border-indigo-300"}`}>
+            <button
+                onClick={() => setOpen(o => !o)}
+                className="w-full px-4 py-3 flex items-center gap-3 text-left"
+            >
                 <span className={`text-base ${done ? "text-green-500" : "text-gray-300"}`}>{done ? "✓" : "○"}</span>
                 <div className="flex-1 min-w-0">
                     <span className="font-semibold text-gray-900">{item.word}</span>
                     {item.romanized && <span className="ml-2 text-xs text-indigo-500">{item.romanized}</span>}
                 </div>
+                <SpeakButton text={item.word} langId={langId} />
                 <span className="text-sm text-gray-500 shrink-0">{item.translation}</span>
                 <span className="text-xs bg-gray-100 text-gray-500 rounded-full px-2 py-0.5 shrink-0 hidden sm:block">
                     {item.category}
                 </span>
-            </div>
+            </button>
             {open && (
-                <div className="px-4 pb-4 border-t border-gray-100 pt-3" onClick={e => e.stopPropagation()}>
+                <div className="px-4 pb-4 border-t border-gray-100 pt-3">
                     <div className="bg-gray-50 rounded-xl p-3 mb-3">
                         <p className="text-sm font-medium text-gray-800">{item.example.native}</p>
                         {item.example.romanized && <p className="text-xs text-indigo-500 mt-0.5">{item.example.romanized}</p>}
@@ -94,7 +101,7 @@ function VocabRow({
                             onClick={() => { markLessonComplete(langId, item.id); onComplete() }}
                             className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl py-2 text-sm transition-colors"
                         >
-                            Mark as learned
+                            {ui.markLearned}
                         </button>
                     )}
                 </div>
@@ -106,7 +113,7 @@ function VocabRow({
 // ---------------------------------------------------------------------------
 // VerbCard
 // ---------------------------------------------------------------------------
-function VerbCard({ verb }: { verb: Verb }) {
+function VerbCard({ verb, langId }: Readonly<{ verb: Verb; langId: string }>) {
     const [open, setOpen] = useState(false)
     return (
         <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden">
@@ -119,6 +126,7 @@ function VerbCard({ verb }: { verb: Verb }) {
                     {verb.romanized && <span className="ml-2 text-xs text-indigo-500">{verb.romanized}</span>}
                     <span className="ml-2 text-sm text-gray-500">— {verb.meaning}</span>
                 </div>
+                <SpeakButton text={verb.infinitive} langId={langId} />
                 <svg xmlns="http://www.w3.org/2000/svg"
                     className={`w-4 h-4 text-gray-400 transition-transform shrink-0 ${open ? "rotate-180" : ""}`}
                     fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -131,8 +139,8 @@ function VerbCard({ verb }: { verb: Verb }) {
                         <div key={conj.tense} className="mt-4">
                             <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">{conj.tense}</p>
                             <div className="rounded-xl border border-gray-100 overflow-hidden">
-                                {conj.forms.map((f, i) => (
-                                    <div key={i} className={`flex items-center px-4 py-2.5 text-sm ${i % 2 === 0 ? "bg-white" : "bg-gray-50"}`}>
+                                {conj.forms.map((f) => (
+                                    <div key={f.pronoun} className="flex items-center px-4 py-2.5 text-sm odd:bg-white even:bg-gray-50">
                                         <span className="text-gray-500 w-28 shrink-0">{f.pronoun}</span>
                                         <span className="font-medium text-gray-900">{f.form}</span>
                                         {f.romanized && <span className="ml-2 text-xs text-indigo-400">{f.romanized}</span>}
@@ -152,10 +160,11 @@ function VerbCard({ verb }: { verb: Verb }) {
 // ---------------------------------------------------------------------------
 type QuizPhase = "start" | "playing" | "done"
 
-function TestOutTab({ unit, langId, isMastered, onMastered, onBack }: Readonly<{
+function TestOutTab({ unit, langId, isMastered, ui, onMastered, onBack }: Readonly<{
     unit: LessonUnit
     langId: string
     isMastered: boolean
+    ui: UIStrings
     onMastered: () => void
     onBack: () => void
 }>) {
@@ -213,22 +222,22 @@ function TestOutTab({ unit, langId, isMastered, onMastered, onBack }: Readonly<{
                 {isMastered && (
                     <div className="w-full bg-green-50 border border-green-200 rounded-2xl px-4 py-3 flex items-center gap-2 text-green-700">
                         <span className="text-lg">✓</span>
-                        <span className="text-sm font-medium">You've already completed this unit!</span>
+                        <span className="text-sm font-medium">{ui.alreadyCompleted}</span>
                     </div>
                 )}
                 <div className="text-5xl">📝</div>
                 <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-1">Test Out</h3>
+                    <h3 className="text-lg font-bold text-gray-900 mb-1">{ui.testOutTitle}</h3>
                     <p className="text-sm text-gray-500">
                         {questions.length} question{questions.length === 1 ? "" : "s"} &nbsp;·&nbsp;
-                        Pass {passThreshold}/{questions.length} to complete this unit
+                        {fmt(ui.levelTestDesc, { pass: passThreshold, total: questions.length, next: "" }).split(" to ")[0]}
                     </p>
                 </div>
                 <button
                     onClick={() => setPhase("playing")}
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-3 text-sm transition-colors"
                 >
-                    {isMastered ? "Retake test" : "Start test"}
+                    {isMastered ? ui.retakeTest : ui.startTest}
                 </button>
             </div>
         )
@@ -240,10 +249,10 @@ function TestOutTab({ unit, langId, isMastered, onMastered, onBack }: Readonly<{
             <div className="flex flex-col items-center gap-6 py-8 max-w-sm mx-auto text-center">
                 <div className="text-5xl">{passed ? "🏆" : "📚"}</div>
                 <h3 className="text-xl font-bold text-gray-900">
-                    {passed ? "Unit complete!" : "Keep studying!"}
+                    {passed ? ui.unitComplete : ui.keepStudying}
                 </h3>
                 <p className="text-gray-600">
-                    You answered <strong>{score}</strong> of <strong>{questions.length}</strong> correctly.{" "}
+                    {fmt(ui.youAnswered, { score, total: questions.length })}{" "}
                     ({Math.round((score / questions.length) * 100)}%)
                 </p>
                 <div className="w-full bg-white border border-gray-200 rounded-2xl p-5 flex flex-col gap-3">
@@ -252,7 +261,7 @@ function TestOutTab({ unit, langId, isMastered, onMastered, onBack }: Readonly<{
                             onClick={handleComplete}
                             className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl py-2.5 text-sm transition-colors"
                         >
-                            Mark unit complete &amp; continue
+                            {ui.markUnitComplete}
                         </button>
                     )}
                     {passed && isMastered && (
@@ -260,7 +269,7 @@ function TestOutTab({ unit, langId, isMastered, onMastered, onBack }: Readonly<{
                             onClick={onBack}
                             className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-2.5 text-sm transition-colors"
                         >
-                            Back to dashboard
+                            {ui.backToDashboard}
                         </button>
                     )}
                     {!passed && (
@@ -272,13 +281,13 @@ function TestOutTab({ unit, langId, isMastered, onMastered, onBack }: Readonly<{
                                 onClick={handleReset}
                                 className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-2.5 text-sm transition-colors"
                             >
-                                Try again
+                                {ui.tryAgain}
                             </button>
                             <button
                                 onClick={onBack}
                                 className="w-full border border-gray-200 text-gray-600 font-semibold rounded-xl py-2.5 text-sm transition-colors hover:bg-gray-50"
                             >
-                                Back to dashboard
+                                {ui.backToDashboard}
                             </button>
                         </>
                     )}
@@ -292,8 +301,8 @@ function TestOutTab({ unit, langId, isMastered, onMastered, onBack }: Readonly<{
     return (
         <div className="flex flex-col items-center gap-5 max-w-xl mx-auto">
             <div className="w-full flex items-center justify-between text-sm text-gray-500">
-                <span>Question {qIdx + 1} of {questions.length}</span>
-                <span className="font-medium">Score: {score}</span>
+                <span>{fmt(ui.questionOf, { n: qIdx + 1, total: questions.length })}</span>
+                <span className="font-medium">{ui.scoreLabel}: {score}</span>
             </div>
             <div className="w-full flex gap-1">
                 {questions.map((q, i) => {
@@ -316,7 +325,7 @@ function TestOutTab({ unit, langId, isMastered, onMastered, onBack }: Readonly<{
                     onClick={handleNext}
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-3 transition-colors"
                 >
-                    {qIdx + 1 >= questions.length ? "See results" : "Next question"}
+                    {qIdx + 1 >= questions.length ? ui.seeResults : ui.nextQuestion}
                 </button>
             )}
         </div>
@@ -333,6 +342,7 @@ export function UnitPage() {
     const language = getLanguage(langId)
     const mod = getModule(langId)
     const level = getCurrentLevel(langId)
+    const ui = getUI(langId, level)
 
     const [completed, setCompleted] = useState(() => getCompletedLessons(langId))
     const [mastered, setMastered] = useState(() => getMasteredUnits(langId))
@@ -345,11 +355,11 @@ export function UnitPage() {
     const verbs = useMemo(() => mod?.verbs.filter(v => unit?.verbIds.includes(v.id)) ?? [], [mod, unit])
 
     const tabs = useMemo<{ id: Tab; label: string; count?: number }[]>(() => [
-        ...(grammar.length > 0 ? [{ id: "grammar" as Tab, label: "Grammar", count: grammar.length }] : []),
-        ...(vocab.length > 0 ? [{ id: "vocab" as Tab, label: "Vocabulary", count: vocab.length }] : []),
-        { id: "verbs" as Tab, label: "Verbs", count: verbs.length > 0 ? verbs.length : undefined },
-        { id: "test" as Tab, label: "Test Out" },
-    ], [grammar, vocab, verbs])
+        ...(grammar.length > 0 ? [{ id: "grammar" as Tab, label: ui.unitTabGrammar, count: grammar.length }] : []),
+        ...(vocab.length > 0 ? [{ id: "vocab" as Tab, label: ui.unitTabVocab, count: vocab.length }] : []),
+        { id: "verbs" as Tab, label: ui.unitTabVerbs, count: verbs.length > 0 ? verbs.length : undefined },
+        { id: "test" as Tab, label: ui.unitTabTest },
+    ], [grammar, vocab, verbs, ui])
 
     function firstTab(): Tab {
         if (grammar.length > 0) return "grammar"
@@ -387,7 +397,7 @@ export function UnitPage() {
                         onClick={() => navigate(`/learn/${langId}`)}
                         className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl px-6 py-2.5 text-sm transition-colors"
                     >
-                        Back to dashboard
+                        {ui.backToDashboard}
                     </button>
                 </main>
             </div>
@@ -415,7 +425,7 @@ export function UnitPage() {
                                 )}
                             </div>
                             <h1 className="text-xl font-bold text-gray-900">{unit.title}</h1>
-                            <p className="text-sm text-gray-500 mt-1">{unit.description}</p>
+                            <p className="text-sm text-gray-500 mt-1">{resolvePrimary(unit.description, level)}</p>
                         </div>
                     </div>
                 </div>
@@ -427,8 +437,8 @@ export function UnitPage() {
                             key={tab.id}
                             onClick={() => setActiveTab(tab.id)}
                             className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all ${activeTab === tab.id
-                                    ? "bg-white text-gray-900 shadow-sm"
-                                    : "text-gray-500 hover:text-gray-700"
+                                ? "bg-white text-gray-900 shadow-sm"
+                                : "text-gray-500 hover:text-gray-700"
                                 }`}
                         >
                             {tab.label}
@@ -450,6 +460,8 @@ export function UnitPage() {
                                 lesson={lesson}
                                 done={completed.includes(lesson.id)}
                                 langId={langId}
+                                level={level}
+                                ui={ui}
                                 onComplete={() => setCompleted(getCompletedLessons(langId))}
                             />
                         ))}
@@ -464,6 +476,7 @@ export function UnitPage() {
                                 item={item}
                                 done={completed.includes(item.id)}
                                 langId={langId}
+                                ui={ui}
                                 onComplete={() => setCompleted(getCompletedLessons(langId))}
                             />
                         ))}
@@ -474,7 +487,7 @@ export function UnitPage() {
                     verbs.length > 0 ? (
                         <div className="flex flex-col gap-3">
                             {verbs.map(verb => (
-                                <VerbCard key={verb.id} verb={verb} />
+                                <VerbCard key={verb.id} verb={verb} langId={langId} />
                             ))}
                         </div>
                     ) : (
@@ -491,6 +504,7 @@ export function UnitPage() {
                         unit={unit}
                         langId={langId}
                         isMastered={isMastered}
+                        ui={ui}
                         onMastered={() => setMastered(getMasteredUnits(langId))}
                         onBack={() => navigate(`/learn/${langId}`)}
                     />

@@ -108,6 +108,39 @@ export interface LessonUnit {
 }
 
 // ---------------------------------------------------------------------------
+// Reading (CE — Compréhension Écrite)
+// ---------------------------------------------------------------------------
+export type PassageCategory = "everyday" | "culture" | "history" | "literature" | "dialogue"
+
+export interface VocabGloss {
+    word: string          // target language word as it appears in the passage
+    translation: string   // English gloss
+    romanized?: string    // for Japanese/Korean
+}
+
+export interface ReadingPassage {
+    id: string
+    level: CEFRLevel
+    category: PassageCategory
+    title: string
+    body: LocalizedText   // target = target-language passage; native = English translation
+    vocabGloss: VocabGloss[]
+    questions: QuizQuestion[]
+}
+
+// ---------------------------------------------------------------------------
+// Listening (CO — Compréhension Orale)
+// ---------------------------------------------------------------------------
+export interface ListeningExercise {
+    id: string
+    level: CEFRLevel
+    title: string
+    script: string        // target language — spoken via TTS
+    translation: string   // English — toggle reference
+    questions: QuizQuestion[]
+}
+
+// ---------------------------------------------------------------------------
 // Language module — what each data/*/index.ts assembles and exports
 // ---------------------------------------------------------------------------
 export interface LanguageModule {
@@ -117,6 +150,8 @@ export interface LanguageModule {
     units?: LessonUnit[]                 // optional until all languages are migrated
     placementQuestions: QuizQuestion[]   // 2 per level → 10 total
     levelQuestions: QuizQuestion[]       // 15 per level for the level advancement test
+    readingPassages?: ReadingPassage[]
+    listeningExercises?: ListeningExercise[]
 }
 
 // ---------------------------------------------------------------------------

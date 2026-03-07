@@ -7,7 +7,9 @@ import { getCurrentLevel, getCompletedLessons, getMasteredUnits, isUnitUnlocked 
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { ProgressBar } from "../components/ProgressBar"
-import { CEFR_LEVELS, LessonUnit } from "../types"
+import { CEFR_LEVELS, CEFRLevel, LessonUnit } from "../types"
+import { resolvePrimary } from "../utils/localizedText"
+import { getUI, fmt, UIStrings } from "../i18n"
 
 type DashTab = "path" | "study" | "practice" | "test"
 
@@ -34,8 +36,8 @@ function SectionCard({ emoji, title, description, to, progress }: {
 // ---------------------------------------------------------------------------
 // UnitRow — one row in the Learning Path list
 // ---------------------------------------------------------------------------
-function UnitRow({ unit, langId, mastered, allUnits }: {
-    unit: LessonUnit; langId: string; mastered: string[]; allUnits: LessonUnit[]
+function UnitRow({ unit, langId, level, mastered, allUnits }: {
+    unit: LessonUnit; langId: string; level: CEFRLevel; mastered: string[]; allUnits: LessonUnit[]
 }) {
     const isMastered = mastered.includes(unit.id)
     const unlocked = isUnitUnlocked(langId, unit.id, allUnits)
@@ -57,7 +59,7 @@ function UnitRow({ unit, langId, mastered, allUnits }: {
                 <p className={`font-semibold truncate ${unlocked ? "text-gray-900" : "text-gray-400"}`}>
                     {unit.title}
                 </p>
-                <p className="text-xs text-gray-400 truncate mt-0.5">{unit.description}</p>
+                <p className="text-xs text-gray-400 truncate mt-0.5">{resolvePrimary(unit.description, level)}</p>
             </div>
             {isMastered ? (
                 <span className="shrink-0 text-green-500 text-lg">✓</span>
@@ -77,6 +79,16 @@ function UnitRow({ unit, langId, mastered, allUnits }: {
     return <Link to={`/learn/${langId}/units/${unit.id}`} className="block">{inner}</Link>
 }
 
+function levelName(level: CEFRLevel, ui: UIStrings): string {
+    switch (level) {
+        case "A1": return ui.levelBeginner
+        case "A2": return ui.levelElementary
+        case "B1": return ui.levelIntermediate
+        case "B2": return ui.levelUpperIntermediate
+        case "C1": return ui.levelAdvanced
+    }
+}
+
 // ---------------------------------------------------------------------------
 // DashboardPage
 // ---------------------------------------------------------------------------
@@ -86,6 +98,7 @@ export function DashboardPage() {
     const language = getLanguage(langId)
     const mod = getModule(langId)
     const level = getCurrentLevel(langId)
+    const ui = getUI(langId, level)
     const completed = getCompletedLessons(langId)
     const mastered = getMasteredUnits(langId)
 
@@ -104,25 +117,30 @@ export function DashboardPage() {
     const grammarItems = mod.grammar.filter(g => g.level === level)
     const vocabItems = mod.vocab.filter(v => v.level === level)
     const verbItems = mod.verbs.filter(v => v.level === level)
+    const readingItems = (mod.readingPassages ?? []).filter(r => r.level === level)
+    const listeningItems = (mod.listeningExercises ?? []).filter(l => l.level === level)
 
     const grammarDone = grammarItems.filter(g => completed.includes(g.id)).length
     const vocabDone = vocabItems.filter(v => completed.includes(v.id)).length
     const verbDone = verbItems.filter(v => completed.includes(v.id)).length
+    const readingDone = readingItems.filter(r => completed.includes(r.id)).length
+    const listeningDone = listeningItems.filter(l => completed.includes(l.id)).length
 
     const grammarPct = grammarItems.length ? (grammarDone / grammarItems.length) * 100 : 0
     const vocabPct = vocabItems.length ? (vocabDone / vocabItems.length) * 100 : 0
     const verbPct = verbItems.length ? (verbDone / verbItems.length) * 100 : 0
+    const readingPct = readingItems.length ? (readingDone / readingItems.length) * 100 : 0
+    const listeningPct = listeningItems.length ? (listeningDone / listeningItems.length) * 100 : 0
 
     const levelIndex = CEFR_LEVELS.indexOf(level)
     const canAdvance = levelIndex < CEFR_LEVELS.length - 1
     const masteredCount = levelUnits.filter(u => mastered.includes(u.id)).length
 
-    // Tab definitions
     const tabs: { id: DashTab; label: string; badge?: string }[] = [
-        { id: "path", label: "Path", badge: levelUnits.length > 0 ? `${masteredCount}/${levelUnits.length}` : undefined },
-        { id: "study", label: "Study" },
-        { id: "practice", label: "Practice" },
-        { id: "test", label: "Test" },
+        { id: "path", label: ui.tabPath, badge: levelUnits.length > 0 ? `${masteredCount}/${levelUnits.length}` : undefined },
+        { id: "study", label: ui.tabStudy },
+        { id: "practice", label: ui.tabPractice },
+        { id: "test", label: ui.tabTest },
     ]
 
     return (
@@ -134,23 +152,17 @@ export function DashboardPage() {
                 <div className="bg-white rounded-2xl border border-gray-200 p-4 mb-5 flex items-center gap-4">
                     <div className="text-4xl">{language.flag}</div>
                     <div className="flex-1">
-                        <p className="text-xs text-gray-400 mb-0.5">Current level</p>
+                        <p className="text-xs text-gray-400 mb-0.5">{ui.currentLevel}</p>
                         <div className="flex items-center gap-2">
                             <LevelBadge level={level} />
-                            <span className="text-gray-700 text-sm">
-                                {level === "A1" && "Beginner"}
-                                {level === "A2" && "Elementary"}
-                                {level === "B1" && "Intermediate"}
-                                {level === "B2" && "Upper Intermediate"}
-                                {level === "C1" && "Advanced"}
-                            </span>
+                            <span className="text-gray-700 text-sm">{levelName(level, ui)}</span>
                         </div>
                     </div>
                     <button
                         onClick={() => navigate(`/learn/${langId}/placement`)}
                         className="text-xs text-indigo-600 hover:underline shrink-0"
                     >
-                        Change level
+                        {ui.changeLevel}
                     </button>
                 </div>
 
@@ -161,8 +173,8 @@ export function DashboardPage() {
                             key={t.id}
                             onClick={() => setTab(t.id)}
                             className={`flex-1 py-2 px-2 rounded-lg text-sm font-medium transition-all flex items-center justify-center gap-1.5 ${tab === t.id
-                                    ? "bg-white text-gray-900 shadow-sm"
-                                    : "text-gray-500 hover:text-gray-700"
+                                ? "bg-white text-gray-900 shadow-sm"
+                                : "text-gray-500 hover:text-gray-700"
                                 }`}
                         >
                             {t.label}
@@ -185,6 +197,7 @@ export function DashboardPage() {
                                     key={unit.id}
                                     unit={unit}
                                     langId={langId}
+                                    level={level}
                                     mastered={mastered}
                                     allUnits={levelUnits}
                                 />
@@ -204,24 +217,44 @@ export function DashboardPage() {
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <SectionCard
                             emoji="📖"
-                            title="Grammar"
+                            title={ui.sectionGrammar}
                             description={`${grammarItems.length} lessons at ${level}`}
                             to={`/learn/${langId}/grammar`}
                             progress={grammarPct}
                         />
                         <SectionCard
                             emoji="📝"
-                            title="Vocabulary"
+                            title={ui.sectionVocab}
                             description={`${vocabItems.length} words at ${level}`}
                             to={`/learn/${langId}/vocab`}
                             progress={vocabPct}
                         />
                         <SectionCard
                             emoji="🔤"
-                            title="Verbs"
+                            title={ui.sectionVerbs}
                             description={`${verbItems.length} verbs at ${level}`}
                             to={`/learn/${langId}/verbs`}
                             progress={verbPct}
+                        />
+                        <SectionCard
+                            emoji="📗"
+                            title={ui.sectionReading}
+                            description={ui.sectionReadingDesc}
+                            to={`/learn/${langId}/reading`}
+                            progress={readingPct}
+                        />
+                        <SectionCard
+                            emoji="🎧"
+                            title={ui.sectionListening}
+                            description={ui.sectionListeningDesc}
+                            to={`/learn/${langId}/listening`}
+                            progress={listeningPct}
+                        />
+                        <SectionCard
+                            emoji="🌍"
+                            title={ui.sectionCulture}
+                            description={ui.sectionCultureDesc}
+                            to={`/learn/${langId}/culture`}
                         />
                     </div>
                 )}
@@ -231,20 +264,20 @@ export function DashboardPage() {
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <SectionCard
                             emoji="🃏"
-                            title="Flashcards"
-                            description="Flip cards to drill vocabulary"
+                            title={ui.sectionFlashcards}
+                            description={ui.sectionFlashcardsDesc}
                             to={`/learn/${langId}/flashcards`}
                         />
                         <SectionCard
                             emoji="🔡"
-                            title="Verb Drill"
-                            description="Pick the right conjugation"
+                            title={ui.sectionVerbDrill}
+                            description={ui.sectionVerbDrillDesc}
                             to={`/learn/${langId}/verb-drill`}
                         />
                         <SectionCard
                             emoji="✏️"
-                            title="Grammar Drill"
-                            description="Match sentences by meaning"
+                            title={ui.sectionGrammarDrill}
+                            description={ui.sectionGrammarDrillDesc}
                             to={`/learn/${langId}/grammar-drill`}
                         />
                     </div>
@@ -259,9 +292,9 @@ export function DashboardPage() {
                                        flex items-center justify-between gap-4 hover:bg-indigo-100 transition-colors text-left"
                         >
                             <div>
-                                <p className="font-semibold text-indigo-900">Level Test</p>
+                                <p className="font-semibold text-indigo-900">{ui.levelTestTitle}</p>
                                 <p className="text-sm text-indigo-700 mt-0.5">
-                                    Pass 12 / 15 questions to advance to {CEFR_LEVELS[levelIndex + 1]}
+                                    {fmt(ui.levelTestDesc, { pass: 12, total: 15, next: CEFR_LEVELS[levelIndex + 1] })}
                                 </p>
                             </div>
                             <span className="text-3xl shrink-0">🎯</span>
