@@ -192,3 +192,150 @@ Goal: add full B1-level content (grammar, vocab, verbs, level-test questions) ac
 - `src/data/italian/index.ts` — added 4 B1 grammar (Condizionale Presente, Pronomi Relativi che/cui/il quale, Trapassato Prossimo, Futuro Semplice uso avanzato; one stub already existed), 10 B1 vocab (inoltre, tuttavia, quindi, circa, l'ambiente, la società, attualmente, la sfida, secondo, sebbene), 4 B1 verbs with Presente+Condizionale/Passato Prossimo (sapere, dovere, mettere, credere), 15 B1 level-test questions
 - `src/data/japanese/index.ts` — added 4 B1 grammar (〜なければならない, 〜てもいい / 〜てはいけない, 〜ようになる, 〜たり〜たりする), 10 B1 vocab with romaji (環境, 社会, 健康, 自由, 機会, 問題, 難しい, 大切, 生活, 意見), 4 B1 verbs with Present/Past polite + て-form (知る, 思う, 使う, 読む), 15 B1 level-test questions
 - `src/data/korean/index.ts` — added 4 B1 grammar (~(으)면 conditional, ~아/어서 causal/sequential, ~지만 contrast, ~기 때문에 formal reason), 10 B1 vocab with romanized (환경, 사회, 건강, 자유, 기회, 문제, 어렵다, 중요하다, 생활, 의견), 4 B1 verbs with Present/Past polite + conditional (알다, 생각하다, 사용하다, 읽다), 15 B1 level-test questions
+
+---
+
+## 15. Content Restructure — Modular File Architecture
+
+Goal: replace monolithic `index.ts` per language with a modular folder structure, fix A1 content gaps, expand vocab/verbs to realistic targets, and introduce the `LessonUnit` type for ordered unit-based progression.
+
+### New data structure
+Each language `src/data/<lang>/` now contains:
+```
+grammar/a1.ts  a2.ts  b1.ts
+vocab/a1.ts    a2.ts  b1.ts
+verbs/a1.ts    a2.ts  b1.ts
+units/a1.ts    a2.ts  b1.ts
+questions/placement.ts  level-tests.ts
+index.ts   ← pure assembler (imports and re-exports all sub-files)
+```
+
+### New types added (`src/types/index.ts`)
+- `LocalizedText { native: string; target?: string }` — bilingual text container; `native` is always English
+- `GrammarLesson.explanation: string | LocalizedText` — backward-compatible union
+- `LessonUnit.description: string | LocalizedText` — same
+- `LessonUnit` — groups grammar/vocab/verb IDs by topic; has `order`, `testQuestions`, and `level`
+- `LanguageModule.units?: LessonUnit[]` — optional for non-migrated languages during transition
+- `UserProgress.masteredUnits: Record<string, string[]>` — tracks mastered unit IDs per language
+
+### New progress store functions (`src/store/progress.ts`)
+- `getMasteredUnits(langId)` — returns mastered unit ID array
+- `masterUnit(langId, unitId)` — marks a unit mastered
+- `isUnitUnlocked(langId, unitId, allUnits)` — unit N unlocks when N-1 is mastered; unit 1 always unlocked
+- `resetLanguageProgress()` updated to also clear masteredUnits
+
+### Per-language restructure results
+
+| Language | A1 grammar | A1 vocab | A1 verbs | A1 units | A2 units | B1 units |
+|---|---|---|---|---|---|---|
+| Spanish | 12 → 12 | 10 → 158 | 4 → 7 | 14 full | 7 full | 5 full |
+| French | 13 | 10 → 173 | 4 → 7 | 15 full | 4 full | 5 full |
+| Italian | 13 | 10 → 152 | 4 → 7 | 15 full | 4 full | 5 full |
+| Japanese | 13+1* | 10 → 150 | 4 → 8 | 14+1* full | 4 full | 4 full |
+| Korean | 12 | 10 → 150 | 4 → 8 | 12 full | 4 full | 4 full |
+
+*see section 19 for Japanese kanji unit
+
+### Key A1 content fixes applied
+- Korean: present (-아요/-어요) and past (-았/었어요) tense moved from A2 → A1 (critical fix)
+- Japanese: に/で particles and 〜たい moved from A2 → A1
+- Spanish: `ir` verb and `ir a + inf` (futur proche equivalent) moved to A1 bridge
+- French: `futur proche` added as A1 bridge unit (unit 15)
+- Italian: `futuro prossimo` added as A1 bridge unit
+- All languages: vouloir/volere/querer/wollen-equivalent and pouvoir/potere moved to A1 verbs
+
+### A2/B1 vocab expansion
+All languages expanded from 10 placeholder items to ~80–88 items at A2 and ~66–80 items at B1, with full `romanized` fields for Japanese and Korean.
+
+**Files created:** all `grammar/`, `vocab/`, `verbs/`, `units/`, `questions/` sub-files for all 5 languages; old monolithic `index.ts` files replaced by pure assemblers.
+
+---
+
+## 16. Unit-Based Progression UI
+
+Goal: expose the `LessonUnit` system through a dedicated Unit page and integrate it into the Dashboard Learning Path tab.
+
+**Files created:**
+- `src/pages/UnitPage.tsx` — full unit study page with four tabs:
+  - **Grammar** — collapsible accordion per lesson (GrammarAccordion); "Mark as complete" per lesson
+  - **Vocab** — expandable row per item (VocabRow) with example sentence; "Mark as learned" per item
+  - **Verbs** — conjugation tables (VerbCard) per verb in the unit
+  - **Test** — TestOutTab; 80% pass threshold unlocks/masters the unit; retake always available
+  - Unit header shows order badge, level badge, mastered state; locked units show a lock screen
+
+**Files updated:**
+- `src/pages/DashboardPage.tsx` — added **Path** tab (first tab when units exist); renders ordered `UnitRow` list with lock/unlock/mastered states; unlocked units navigate to `/learn/:langId/units/:unitId`; uses `resolvePrimary()` for bilingual unit descriptions
+- `src/App.tsx` — added `/learn/:langId/units/:unitId` protected route
+
+---
+
+## 17. Audio — Web Speech API
+
+Goal: let learners hear correct pronunciation for every target-language string in the app.
+
+**Files created:**
+- `src/components/SpeakButton.tsx` — small icon button; calls `window.speechSynthesis` with a `SpeechSynthesisUtterance` at 0.9× rate; cancels any in-progress speech before starting; turns indigo while speaking; language map: `es→es-ES`, `fr→fr-FR`, `it→it-IT`, `ja→ja-JP`, `ko→ko-KR`
+
+**Files updated:**
+- `src/pages/UnitPage.tsx`:
+  - `VocabRow` — SpeakButton next to each word in the header
+  - `GrammarAccordion` — SpeakButton next to each example sentence's native text
+  - `VerbCard` — SpeakButton next to verb infinitive
+
+---
+
+## 18. Immersion Progression System
+
+Goal: grammar explanations and unit descriptions progressively shift from English to the target language as the learner advances through CEFR levels.
+
+### Display logic
+| Level | Grammar explanation | Unit description | UI shell |
+|---|---|---|---|
+| A1 | English only | English | English |
+| A2 | English + target below (bilingual, native primary) | English | Target language |
+| B1 | Target + collapsible English (bilingual, target primary) | Target | Target language |
+| B2+ | Target only | Target | Target language |
+
+### Files created
+- `src/utils/localizedText.ts` — pure utility:
+  - `toLocalized(text)` — normalises `string | LocalizedText` to `LocalizedText`
+  - `resolveDisplay(text, level): TextDisplay` — returns `{ mode, text/primary/secondary }` union
+  - `resolvePrimary(text, level): string` — returns the primary display string only
+- `src/components/LocalizedExplanation.tsx` — level-aware renderer:
+  - A1/no target: `<p>{text}</p>`
+  - A2: English `<p>` + indigo italic target `<p>` below with left border
+  - B1: target `<p>` + "Show/Hide English" toggle button + collapsible English `<p>`
+  - B2+: target `<p>` only
+  - `langId` prop passed to `getUI()` so Show/Hide labels honour the i18n system
+- `src/i18n/strings.ts` — `UIStrings` interface (~40 keys covering tabs, buttons, test flow, level names)
+- `src/i18n/en.ts` — English strings (always used at A1)
+- `src/i18n/es.ts`, `fr.ts`, `it.ts`, `ja.ts`, `ko.ts` — full target-language translations
+- `src/i18n/index.ts` — `getUI(langId, level): UIStrings` (A1→English, A2+→target); `fmt(template, vars)` for `{placeholder}` interpolation
+
+### Files updated
+- `src/types/index.ts` — `LocalizedText`, union fields on `GrammarLesson.explanation` and `LessonUnit.description`
+- `src/pages/UnitPage.tsx` — `getUI()` called at page level; `ui` prop threaded to GrammarAccordion, VocabRow, TestOutTab; all hardcoded button/label strings replaced with `ui.*`; tab labels from `ui.unitTab*`; `resolvePrimary()` used for unit description header
+- `src/pages/DashboardPage.tsx` — `getUI()` called at page level; tab labels, level name, section card titles, level test description all use `ui.*` and `fmt()`
+- `src/data/spanish/grammar/a2.ts`, `b1.ts` — all 12 lessons converted to `{ native, target }` (Spanish target explanations)
+- `src/data/french/grammar/a2.ts`, `b1.ts` — all 9 lessons converted (French target explanations)
+- `src/data/italian/grammar/a2.ts`, `b1.ts` — all 9 lessons converted (Italian target explanations)
+- `src/data/japanese/grammar/a2.ts`, `b1.ts` — all 8 lessons converted; **A2 target explanations written in hiragana/katakana only** (no kanji); B1 uses kanji freely
+- `src/data/korean/grammar/a2.ts`, `b1.ts` — all 8 lessons converted (Korean target explanations)
+
+---
+
+## 19. Japanese Kanji Scaffolding
+
+Goal: properly sequence kanji learning so A2 immersion is accessible — A1 ends with script recognition, A2 explanations are readable with A1 skills, B1 introduces kanji freely.
+
+**Files updated:**
+- `src/data/japanese/grammar/a1.ts` — added lesson `ja-g-a1-14` "Beginner Kanji: 15 Essential Characters": teaches 日・水・山・本・手 / 人・学・生・先・語 / 上・下・中・大・小 using compounds the learner already knows (日本, 日本語, 大学, 学生, 先生); kun'yomi vs on'yomi explained
+- `src/data/japanese/units/a1.ts` — added unit 15 "Beginner Kanji" (order 15, references `ja-g-a1-14`); 8 test questions on character recognition and compound reading
+- `src/data/japanese/grammar/a2.ts` — all 4 `target` explanation fields rewritten in hiragana/katakana only (no kanji); katakana used only for loanwords (フォーマル, グループ, ルール); verb forms shown as たべる/いく rather than 食べる/行く so learners read patterns without kanji dependency
+
+### Kanji progression design
+| Level | Kanji in explanations | Notes |
+|---|---|---|
+| A1 | Recognised only (15 taught in final unit) | Numbers already taught in grammar lesson 6 |
+| A2 | None in `target` explanations; present in example sentences | Examples always use real Japanese |
+| B1 | Used freely | Learner has had kanji exposure via examples throughout A2 |

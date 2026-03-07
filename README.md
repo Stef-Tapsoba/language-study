@@ -198,3 +198,9 @@ Japanese and Korean include optional `romanized` fields on examples, words, and 
 6. Open **Verbs** → review conjugation tables
 7. Try a **Flashcard**, **Verb Drill**, or **Grammar Drill** from the Dashboard
 8. Open **Level Test** → answer 15 questions; pass 12/15 to advance
+
+---
+
+## See also
+
+- [IMPLEMENTATION_PROGRESS.md](./IMPLEMENTATION_PROGRESS.md) — feature-by-feature change log with files modified
