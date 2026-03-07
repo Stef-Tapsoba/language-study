@@ -43,8 +43,9 @@ export function LoginPage() {
                     )}
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
                         <input
+                            id="email"
                             type="email"
                             value={email}
                             onChange={e => setEmail(e.target.value)}
@@ -55,8 +56,9 @@ export function LoginPage() {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                        <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">Password</label>
                         <input
+                            id="password"
                             type="password"
                             value={password}
                             onChange={e => setPassword(e.target.value)}
@@ -80,6 +82,9 @@ export function LoginPage() {
                     <Link to="/register" className="text-indigo-600 hover:underline font-medium">
                         Create one
                     </Link>
+                </p>
+                <p className="text-center text-sm text-gray-400 mt-2">
+                    <Link to="/" className="hover:text-gray-600">← Back to home</Link>
                 </p>
             </div>
         </div>
