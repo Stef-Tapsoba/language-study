@@ -1,0 +1,55 @@
+// src/data/french/questions/level-tests.ts
+import { QuizQuestion } from "../../../types"
+
+export const levelQuestions: QuizQuestion[] = [
+    // --- A1 (15 questions) ---
+    { id: "fr-lt-a1-1", level: "A1", prompt: "What is 'goodbye' in French?", options: ["Bonjour", "Merci", "Au revoir", "Bonsoir"], answer: "Au revoir" },
+    { id: "fr-lt-a1-2", level: "A1", prompt: "What does 'maison' mean?", options: ["Car", "City", "House", "School"], answer: "House" },
+    { id: "fr-lt-a1-3", level: "A1", prompt: "Which article fits? '___ livre est intéressant.'", options: ["La", "Le", "Les", "L'"], answer: "Le" },
+    { id: "fr-lt-a1-4", level: "A1", prompt: "How do you say 'We are'?", options: ["Ils sont", "Vous êtes", "Nous sommes", "Je suis"], answer: "Nous sommes" },
+    { id: "fr-lt-a1-5", level: "A1", prompt: "Complete: 'Tu ___ (parler) bien.'", options: ["parle", "parles", "parlons", "parlent"], answer: "parles" },
+    { id: "fr-lt-a1-6", level: "A1", prompt: "What is 'water' in French?", options: ["Pain", "Lait", "Eau", "Jus"], answer: "Eau" },
+    { id: "fr-lt-a1-7", level: "A1", prompt: "Which verb means 'to have'?", options: ["Être", "Aller", "Avoir", "Faire"], answer: "Avoir" },
+    { id: "fr-lt-a1-8", level: "A1", prompt: "How do you say 'They go'?", options: ["Ils vont", "Ils vais", "Ils va", "Ils allons"], answer: "Ils vont" },
+    { id: "fr-lt-a1-9", level: "A1", prompt: "How do you negate 'Je parle anglais'?", options: ["Je non parle anglais.", "Je ne parle pas anglais.", "Je parle pas anglais.", "Je parle anglais pas."], answer: "Je ne parle pas anglais." },
+    { id: "fr-lt-a1-10", level: "A1", prompt: "What is the plural of 'le chat'?", options: ["la chats", "les chats", "les chat", "le chats"], answer: "les chats" },
+    { id: "fr-lt-a1-11", level: "A1", prompt: "What does 'ami' mean?", options: ["Enemy", "Teacher", "Friend", "Brother"], answer: "Friend" },
+    { id: "fr-lt-a1-12", level: "A1", prompt: "How do you say 'Good morning'?", options: ["Bonsoir", "Bonne nuit", "Bonjour", "Salut"], answer: "Bonjour" },
+    { id: "fr-lt-a1-13", level: "A1", prompt: "Complete: 'Elle ___ (faire) du sport.'", options: ["fait", "fais", "faites", "font"], answer: "fait" },
+    { id: "fr-lt-a1-14", level: "A1", prompt: "What is the futur proche of 'We are going to visit Paris'?", options: ["Nous visitons Paris.", "Nous allons visiter Paris.", "Nous avons visité Paris.", "Nous visitions Paris."], answer: "Nous allons visiter Paris." },
+    { id: "fr-lt-a1-15", level: "A1", prompt: "What does 'travail' mean?", options: ["Travel", "Work", "Train", "Dream"], answer: "Work" },
+
+    // --- A2 (15 questions) ---
+    { id: "fr-lt-a2-1", level: "A2", prompt: "Complete (passé composé): 'Hier, nous ___ (manger) au restaurant.'", options: ["mangeons", "mangions", "avons mangé", "avions mangé"], answer: "avons mangé" },
+    { id: "fr-lt-a2-2", level: "A2", prompt: "How do you say 'She used to work in Paris'?", options: ["Elle a travaillé à Paris.", "Elle travaille à Paris.", "Elle travaillait à Paris.", "Elle va travailler à Paris."], answer: "Elle travaillait à Paris." },
+    { id: "fr-lt-a2-3", level: "A2", prompt: "How do you say 'We are going to visit the museum'?", options: ["Nous visitons le musée.", "Nous allons visiter le musée.", "Nous avons visité le musée.", "Nous visitions le musée."], answer: "Nous allons visiter le musée." },
+    { id: "fr-lt-a2-4", level: "A2", prompt: "Complete: 'Il ___ (vouloir) un café.'", options: ["veux", "voulez", "veut", "voulons"], answer: "veut" },
+    { id: "fr-lt-a2-5", level: "A2", prompt: "Feminine form of 'beau' (beautiful)?", options: ["beaux", "belle", "beau", "belles"], answer: "belle" },
+    { id: "fr-lt-a2-6", level: "A2", prompt: "Replace 'Je vois Marie' with a pronoun: 'Je ___ vois.'", options: ["lui", "leur", "la", "le"], answer: "la" },
+    { id: "fr-lt-a2-7", level: "A2", prompt: "What does 'voyage' mean?", options: ["Work", "Language", "Trip / Journey", "Week"], answer: "Trip / Journey" },
+    { id: "fr-lt-a2-8", level: "A2", prompt: "Complete (passé composé with être): 'Elles ___ (partir) tôt.'", options: ["ont parti", "sont parties", "ont parties", "sont partis"], answer: "sont parties" },
+    { id: "fr-lt-a2-9", level: "A2", prompt: "What is the partitive article before a vowel?", options: ["du", "de la", "de l'", "des"], answer: "de l'" },
+    { id: "fr-lt-a2-10", level: "A2", prompt: "Complete: 'Nous ___ (pouvoir) venir à huit heures.'", options: ["peux", "peut", "pouvons", "peuvent"], answer: "pouvons" },
+    { id: "fr-lt-a2-11", level: "A2", prompt: "How do you say 'Turn right'?", options: ["Tournez à gauche.", "Allez tout droit.", "Tournez à droite.", "Revenez en arrière."], answer: "Tournez à droite." },
+    { id: "fr-lt-a2-12", level: "A2", prompt: "Complete: 'Tu ___ (venir) à la fête ce soir?'", options: ["venez", "vient", "viens", "viendrez"], answer: "viens" },
+    { id: "fr-lt-a2-13", level: "A2", prompt: "After negation, 'du pain' becomes?", options: ["pas du pain", "de pain", "du pain pas", "pas de pain"], answer: "pas de pain" },
+    { id: "fr-lt-a2-14", level: "A2", prompt: "Complete (imparfait): 'Quand il était jeune, il ___ (jouer) au tennis.'", options: ["joue", "a joué", "jouait", "jouera"], answer: "jouait" },
+    { id: "fr-lt-a2-15", level: "A2", prompt: "What does 'prendre' mean?", options: ["To give", "To take", "To buy", "To leave"], answer: "To take" },
+
+    // --- B1 (15 questions) ---
+    { id: "fr-lt-b1-1", level: "B1", prompt: "Complete (subjonctif): 'Il faut que tu ___ (finir) ce travail.'", options: ["finis", "finisses", "finiras", "finissais"], answer: "finisses" },
+    { id: "fr-lt-b1-2", level: "B1", prompt: "Complete (conditionnel): 'Avec plus de temps, je ___ (voyager) plus.'", options: ["voyage", "voyagerai", "voyagerais", "voyageais"], answer: "voyagerais" },
+    { id: "fr-lt-b1-3", level: "B1", prompt: "Which pronoun relatif means 'of which / whose'?", options: ["qui", "que", "dont", "où"], answer: "dont" },
+    { id: "fr-lt-b1-4", level: "B1", prompt: "Complete (imparfait vs passé composé): 'Je ___ (lire) quand il est arrivé.'", options: ["lisais", "ai lu", "lirai", "lirais"], answer: "lisais" },
+    { id: "fr-lt-b1-5", level: "B1", prompt: "What does 'actuellement' mean?", options: ["Actually", "Currently", "Eventually", "Previously"], answer: "Currently" },
+    { id: "fr-lt-b1-6", level: "B1", prompt: "Complete (plus-que-parfait): 'Quand je suis arrivé, il ___ (partir) déjà.'", options: ["est parti", "partait", "était parti", "partira"], answer: "était parti" },
+    { id: "fr-lt-b1-7", level: "B1", prompt: "What does 'en revanche' mean?", options: ["in return", "on the other hand", "furthermore", "therefore"], answer: "on the other hand" },
+    { id: "fr-lt-b1-8", level: "B1", prompt: "Complete: 'C'est le livre ___ j'ai lu la semaine dernière.'", options: ["qui", "que", "dont", "où"], answer: "que" },
+    { id: "fr-lt-b1-9", level: "B1", prompt: "Conditionnel of 'devoir' (tu): 'Tu ___ étudier plus.'", options: ["dois", "devais", "devrais", "devras"], answer: "devrais" },
+    { id: "fr-lt-b1-10", level: "B1", prompt: "What does 'selon' mean?", options: ["Suddenly", "According to", "However", "Around"], answer: "According to" },
+    { id: "fr-lt-b1-11", level: "B1", prompt: "Complete: 'La ville ___ j'habite est magnifique.'", options: ["qui", "que", "dont", "où"], answer: "où" },
+    { id: "fr-lt-b1-12", level: "B1", prompt: "Passé composé of 'mettre' (nous): 'Nous ___ la table.'", options: ["mettions", "avons mis", "mettrons", "aurions mis"], answer: "avons mis" },
+    { id: "fr-lt-b1-13", level: "B1", prompt: "What does 'le défi' mean?", options: ["Environment", "Society", "Challenge", "Opinion"], answer: "Challenge" },
+    { id: "fr-lt-b1-14", level: "B1", prompt: "Complete (subjonctif): 'Je veux qu'elle ___ (venir).'", options: ["vient", "viendra", "vienne", "venait"], answer: "vienne" },
+    { id: "fr-lt-b1-15", level: "B1", prompt: "Which connector means 'furthermore'?", options: ["par contre", "en revanche", "de plus", "selon"], answer: "de plus" },
+]
