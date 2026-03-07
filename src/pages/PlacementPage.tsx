@@ -128,8 +128,8 @@ export function PlacementPage() {
                                 <div
                                     key={i}
                                     className={`h-1.5 flex-1 rounded-full transition-colors ${i < current ? "bg-indigo-500" :
-                                            i === current ? "bg-indigo-300" :
-                                                "bg-gray-200"
+                                        i === current ? "bg-indigo-300" :
+                                            "bg-gray-200"
                                         }`}
                                 />
                             ))}
