@@ -19,6 +19,8 @@ import { FlashcardsPage } from "./pages/FlashcardsPage"
 import { VerbDrillPage } from "./pages/VerbDrillPage"
 import { GrammarDrillPage } from "./pages/GrammarDrillPage"
 import { UnitPage } from "./pages/UnitPage"
+import { ReadingPage } from "./pages/ReadingPage"
+import { ListeningPage } from "./pages/ListeningPage"
 
 export default function App() {
     return (
@@ -70,6 +72,15 @@ export default function App() {
                     } />
                     <Route path="/learn/:langId/units/:unitId" element={
                         <ProtectedRoute><UnitPage /></ProtectedRoute>
+                    } />
+                    <Route path="/learn/:langId/reading" element={
+                        <ProtectedRoute><ReadingPage /></ProtectedRoute>
+                    } />
+                    <Route path="/learn/:langId/listening" element={
+                        <ProtectedRoute><ListeningPage /></ProtectedRoute>
+                    } />
+                    <Route path="/learn/:langId/culture" element={
+                        <ProtectedRoute><ReadingPage category="culture" /></ProtectedRoute>
                     } />
 
                     {/* Profile */}
