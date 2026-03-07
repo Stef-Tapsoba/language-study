@@ -1,12 +1,18 @@
 # language-study — Implementation Plan
 
+*Last updated: March 4, 2026*
+
 ## Context
-Building a bare-bones language-learning prototype (think Duolingo without gamification) to share with friends for feedback. It is the first real consumer of the `packages/` monorepo. Auth, validation, storage, theming, and the event bus all come from there.
+
+Building a structured, cognitively-designed language-learning app for adults — not gamified, not streak-obsessed. Built for durable mastery. The full architectural vision is documented in `Language_Study_App_Architecture_Blueprint.md`.
+
+This document tracks the current stack, types, file structure, routes, and feature plans.
 
 **User choices:**
 - Languages: Spanish, French, Italian, Japanese, Korean
-- Backend: 100% localStorage for prototype 1
+- Backend: 100% localStorage for prototype; real backend deferred
 - Levels: CEFR — A1 → A2 → B1 → B2 → C1
+- Native language: English only (locked for prototype + early production)
 
 ---
 
@@ -50,55 +56,88 @@ language-study/
 ├── postcss.config.js
 └── src/
     ├── main.tsx
-    ├── App.tsx                     ← router + context providers
+    ├── App.tsx                         ← router + context providers
     ├── types/
-    │   └── index.ts                ← CEFRLevel, Language, GrammarLesson, VocabItem, Verb, PlacementQuestion
+    │   └── index.ts                    ← all shared interfaces (see Key Types below)
     ├── auth/
-    │   ├── AuthContext.tsx         ← React context wrapping AuthService
+    │   ├── AuthContext.tsx
     │   ├── ProtectedRoute.tsx
-    │   └── mockAuthApi.ts          ← implements AuthApi (localStorage users store)
+    │   └── mockAuthApi.ts
     ├── store/
-    │   └── progress.ts             ← read/write user progress in localStorage
+    │   └── progress.ts                 ← localStorage progress (incl. masteredUnits)
+    ├── i18n/                           ← PLANNED: UI shell string translations
+    │   ├── en.ts                       ← default English strings
+    │   ├── es.ts                       ← Spanish UI strings (A2+ shell)
+    │   ├── fr.ts
+    │   ├── it.ts
+    │   ├── ja.ts
+    │   └── ko.ts
     ├── data/
-    │   ├── languages.ts            ← language registry (id, name, flag, script type)
-    │   ├── spanish/index.ts        ← grammar, vocab, verbs, placement Qs, level-test Qs
-    │   ├── french/index.ts
-    │   ├── italian/index.ts
-    │   ├── japanese/index.ts       ← includes romanized fields
-    │   └── korean/index.ts         ← includes romanized fields
+    │   ├── languages.ts                ← language registry (id, name, flag, script)
+    │   ├── spanish/                    ← ✅ DONE — fully restructured
+    │   │   ├── index.ts                ← pure assembler
+    │   │   ├── grammar/a1.ts, a2.ts, b1.ts
+    │   │   ├── vocab/a1.ts, a2.ts, b1.ts
+    │   │   ├── verbs/a1.ts, a2.ts, b1.ts
+    │   │   ├── units/a1.ts, a2.ts, b1.ts
+    │   │   └── questions/placement.ts, level-tests.ts
+    │   ├── french/                     ← PENDING restructure
+    │   ├── italian/                    ← PENDING restructure
+    │   ├── japanese/                   ← PENDING restructure (+ romanized fields)
+    │   └── korean/                     ← ✅ DONE — fully restructured (+ romanized fields)
     ├── components/
     │   ├── NavBar.tsx
-    │   ├── LevelBadge.tsx          ← coloured CEFR badge
-    │   ├── QuizCard.tsx            ← multiple-choice question card
-    │   └── ProgressBar.tsx
+    │   ├── LevelBadge.tsx
+    │   ├── QuizCard.tsx
+    │   ├── ProgressBar.tsx
+    │   └── LocalizedText.tsx           ← PLANNED: renders LocalizedText by CEFR level
     └── pages/
         ├── LoginPage.tsx
         ├── RegisterPage.tsx
         ├── LanguageSelectPage.tsx
-        ├── DashboardPage.tsx       ← per-language hub
-        ├── PlacementPage.tsx       ← 10-question quiz or manual level picker
+        ├── DashboardPage.tsx           ← per-language hub (unit list with lock states)
+        ├── PlacementPage.tsx
+        ├── UnitPage.tsx                ← grammar/vocab/verbs tabs + mini-test
         ├── GrammarPage.tsx
         ├── VocabPage.tsx
         ├── VerbsPage.tsx
-        └── LevelTestPage.tsx       ← 15 questions, 80% to advance
+        └── LevelTestPage.tsx
+```
+
+Future pages (see Architecture Vision):
+```
+        ├── ReadingPage.tsx             ← CE module
+        ├── ListeningPage.tsx           ← CO module
+        ├── SpeakingPage.tsx            ← EO module
+        └── WritingPage.tsx             ← EE module
 ```
 
 ---
 
 ## Routes
 
+Current:
 ```
 /login
 /register
-/                       → redirect to /languages
-/languages              → pick a language          [protected]
-/learn/:langId          → dashboard                [protected]
+/                           → redirect to /languages
+/languages                  → pick a language                   [protected]
+/learn/:langId              → dashboard                         [protected]
 /learn/:langId/placement
+/learn/:langId/unit/:unitId → unit page (grammar/vocab/test)    [protected]
 /learn/:langId/grammar
 /learn/:langId/vocab
 /learn/:langId/verbs
 /learn/:langId/level-test
 /profile
+```
+
+Planned (skill modules):
+```
+/learn/:langId/reading/:passageId
+/learn/:langId/listening/:trackId
+/learn/:langId/speaking/:promptId
+/learn/:langId/writing/:taskId
 ```
 
 ---
@@ -108,34 +147,89 @@ language-study/
 ```typescript
 type CEFRLevel = "A1" | "A2" | "B1" | "B2" | "C1"
 
-interface Language { id: string; name: string; flag: string; script: "latin" | "hiragana-kanji" | "hangul" }
+interface Language {
+  id: string
+  name: string
+  flag: string
+  script: "latin" | "hiragana-kanji" | "hangul"
+}
+
+// Used for any text that participates in the immersion progression.
+// native = always English (locked for prototype + early production).
+// target is optional — falls back to native if not yet written.
+interface LocalizedText {
+  native: string    // English
+  target?: string   // the language being studied
+}
 
 interface GrammarLesson {
-    id: string; level: CEFRLevel; title: string; explanation: string
-    examples: { native: string; romanized?: string; translation: string }[]
+  id: string
+  level: CEFRLevel
+  title: string
+  explanation: LocalizedText                              // ← was plain string
+  examples: { native: string; romanized?: string; translation: string }[]
+  tip?: LocalizedText
 }
 
 interface VocabItem {
-    id: string; level: CEFRLevel; word: string; romanized?: string
-    translation: string; category: string
-    example: { native: string; romanized?: string; translation: string }
+  id: string
+  level: CEFRLevel
+  word: string
+  romanized?: string
+  translation: string
+  category: string
+  example: { native: string; romanized?: string; translation: string }
 }
 
 interface Verb {
-    id: string; level: CEFRLevel; infinitive: string; romanized?: string; meaning: string
-    conjugations: { tense: string; forms: { pronoun: string; form: string; romanized?: string }[] }[]
+  id: string
+  level: CEFRLevel
+  infinitive: string
+  romanized?: string
+  meaning: string
+  conjugations: {
+    tense: string
+    forms: { pronoun: string; form: string; romanized?: string }[]
+  }[]
 }
 
-interface PlacementQuestion {
-    id: string; level: CEFRLevel   // which level this question discriminates
-    prompt: string; options: string[]; answer: string
+interface QuizQuestion {
+  id: string
+  level: CEFRLevel
+  prompt: string
+  options: string[]
+  answer: string
+}
+
+// Groups grammar/vocab/verbs into a sequential curriculum unit within a level.
+interface LessonUnit {
+  id: string                  // e.g. "es-a1-u1"
+  level: CEFRLevel
+  order: number               // sequential within the level
+  title: string
+  description: LocalizedText  // ← LocalizedText (not plain string)
+  grammarIds: string[]
+  vocabIds: string[]
+  verbIds: string[]
+  testQuestions: QuizQuestion[]  // 5–8 questions to test out of this unit
+}
+
+interface LanguageModule {
+  grammar: GrammarLesson[]
+  vocab: VocabItem[]
+  verbs: Verb[]
+  units?: LessonUnit[]            // optional during migration; all languages will have it
+  placementQuestions: QuizQuestion[]
+  levelQuestions: QuizQuestion[]
 }
 
 // Progress (persisted in localStorage)
 interface UserProgress {
-    selectedLanguage: string | null
-    levels: Record<string, CEFRLevel>           // langId → current level
-    completedLessons: Record<string, string[]>  // langId → lesson ids
+  userId: string
+  language: string
+  level: CEFRLevel
+  completedLessons: string[]      // grammar/vocab lesson ids
+  masteredUnits: string[]         // unit ids: completed or tested-out
 }
 ```
 
@@ -154,8 +248,16 @@ interface UserProgress {
 ## Placement Test Logic
 
 - 10 questions, 2 per level (A1, A2, B1, B2, C1-preview)
-- Score table: 0-2 → A1, 3-4 → A1, 5-6 → A2, 7-8 → B1, 9-10 → B2
+- Score table: 0–4 → A1, 5–6 → A2, 7–8 → B1, 9–10 → B2
 - After scoring, user sees the suggestion and can confirm or manually pick any level
+
+## Unit Progression Logic
+
+- Unit 1 is always unlocked
+- Unit N+1 unlocks when unit N is mastered
+- Mastery = pass the unit mini-test (5–8 questions, threshold TBD) OR complete all content in the unit
+- Test-out: user can take the mini-test at any time without working through the unit
+- Mastered units remain accessible after test-out
 
 ## Level Test Logic
 
@@ -166,19 +268,99 @@ interface UserProgress {
 
 ---
 
-## Content per Language (prototype depth)
+## Immersion Progression System
 
-Each language module exports `{ grammar, vocab, verbs, placementQuestions, levelQuestions }`.
+The app's interface language gradually shifts from English toward the target language as the user advances. This is designed to build cognitive resilience without overwhelming beginners.
 
-| Language | A1 content | A2 content |
-|---|---|---|
-| Spanish | 6 grammar, 15 vocab, 6 verbs | 5 grammar, 12 vocab, 5 verbs |
-| French | 5 grammar, 12 vocab, 5 verbs | 4 grammar, 10 vocab, 4 verbs |
-| Italian | 4 grammar, 10 vocab, 4 verbs | 3 grammar, 8 vocab, 3 verbs |
-| Japanese | 4 grammar, 10 vocab, 4 verbs (all with romaji) | 3 grammar, 8 vocab, 3 verbs |
-| Korean | 4 grammar, 10 vocab, 4 verbs (all with romanization) | 3 grammar, 8 vocab, 3 verbs |
+### What changes at each level
 
-B1+ content is scaffolded (data arrays exist but are empty — displayed as "coming soon").
+| Layer | A1 | A2 | B1 | B2+ |
+|---|---|---|---|---|
+| Grammar explanations | English only | Both (English primary) | Both (target primary) | Target only |
+| Unit/lesson descriptions | English | Both | Target | Target |
+| Activity instructions | English | Target | Target | Target |
+| UI shell (nav, buttons) | English | Target | Target | Target |
+| Feedback messages | English | Target | Target | Target |
+| Example sentences | Target always | Target always | Target always | Target always |
+| Vocab: target word | Target always | Target always | Target always | Target always |
+| Vocab: English gloss | Always shown | Always shown | On hover/toggle | Hidden |
+| System/error messages | English always | English always | English always | English always |
+
+### Display logic
+
+```ts
+type ImmersionView = 'native-only' | 'bilingual-native' | 'bilingual-target' | 'target-only'
+
+function getImmersionView(level: CEFRLevel): ImmersionView {
+  switch (level) {
+    case 'A1': return 'native-only'
+    case 'A2': return 'bilingual-native'
+    case 'B1': return 'bilingual-target'
+    default:   return 'target-only'      // B2, C1
+  }
+}
+```
+
+The `<LocalizedText>` component consumes this and renders accordingly:
+- `native-only` → show `text.native`
+- `bilingual-native` → show `text.native` large, `text.target` below in muted style
+- `bilingual-target` → show `text.target` large, `text.native` as collapsible toggle
+- `target-only` → show `text.target`
+
+If `text.target` is undefined, always fall back to `text.native` (safe for incremental authoring).
+
+### UI shell strings
+
+`src/i18n/en.ts` defines the shape. Each target language file (`es.ts`, `fr.ts`, etc.) must match it. At A1 the app uses `en.ts`; at A2+ it switches to the active language's translation file.
+
+---
+
+## Content Depth (Current State)
+
+See `CONTENT_RESTRUCTURE_PLAN.md` for the full per-language curriculum breakdown.
+
+| Language | Structure | A1 Grammar | A1 Vocab | A1 Verbs | A1 Units |
+|---|---|---|---|---|---|
+| Spanish | ✅ Restructured | 12 | 158 | 7 | 14 |
+| Korean | ✅ Restructured | 12 | 150 | 8 | 12 |
+| French | ⏳ Pending | ~5 (old) | ~12 (old) | ~5 (old) | — |
+| Italian | ⏳ Pending | ~4 (old) | ~10 (old) | ~4 (old) | — |
+| Japanese | ⏳ Pending | ~4 (old) | ~10 (old) | ~4 (old) | — |
+
+Target for all languages: ~150 vocab items, 8–10 verbs, 12–16 ordered units at A1.
+
+---
+
+## Architecture Vision (Skill Modules)
+
+The blueprint (`Language_Study_App_Architecture_Blueprint.md`) defines four skill modules beyond grammar/vocab. These are planned for future phases. AI/ML features from the blueprint are deferred indefinitely.
+
+### CE — Reading (`ReadingPassage`)
+Articles, cultural essays, dialogue texts with inline vocab highlighting and comprehension questions. Tied to units (vocab from unit N appears in a reading passage).
+
+### CO — Listening (`ListeningTrack`)
+Structured dialogues with comprehension and inference questions. Audio optional — can start as formatted transcripts. Field `audioUrl?: string` populated when audio exists.
+
+### EO — Speaking (`SpeakingPrompt`)
+Structured oral prompts (repetition, scenario, reaction, debate) with model answers. Self-assessed — no AI scoring needed. User speaks aloud, reveals model answer, self-marks.
+
+### EE — Writing (`WritingTask`)
+Constrained writing prompts with scaffolding (sentence starters, word banks) and model answers. Self-assessed against model. Rule-based hints for common errors at lower levels.
+
+### Cultural Immersion
+History timelines, regional/dialect notes, cultural essays — tagged `cultural: true` on `ReadingPassage` and `ListeningTrack`. Browseable as a standalone section and referenced from unit prompts.
+
+### Pattern Discovery
+Alternative entry to grammar lessons: present examples → user hypothesises the rule → delayed reveal. Toggle between "Discovery mode" and "Direct explanation mode" on any grammar lesson.
+
+### Phased delivery
+```
+Phase 1 (current)  — Core engine: unit progression, all 5 languages restructured
+Phase 2            — CE + CO: reading passages + listening tracks per language/level
+Phase 3            — Cognitive reinforcement: spaced retrieval quizzes, weekly free recall
+Phase 4            — EO + EE: speaking prompts + writing tasks (self-assessed)
+Phase 5            — Pattern Discovery + Immersion Progression (LocalizedText + i18n shell)
+```
 
 ---
 
@@ -188,31 +370,6 @@ B1+ content is scaffolded (data arrays exist but are empty — displayed as "com
 - Tailwind config extended to read the CSS variables as theme values where appropriate
 - Responsive breakpoints: `sm` (480px) = phone landscape, `md` (768px) = tablet, `lg` (1024px) = desktop
 - All pages are single-column on mobile, can expand on md+
-
----
-
-## Files to Create (in order)
-
-1. `package.json` — deps + scripts
-2. `vite.config.ts` — aliases to `../packages/*/src`
-3. `tsconfig.json` — paths matching vite aliases
-4. `tailwind.config.ts` + `postcss.config.js`
-5. `index.html`
-6. `src/types/index.ts`
-7. `src/auth/mockAuthApi.ts`
-8. `src/auth/AuthContext.tsx`
-9. `src/auth/ProtectedRoute.tsx`
-10. `src/store/progress.ts`
-11. `src/data/languages.ts`
-12. `src/data/spanish/index.ts` (full content)
-13. `src/data/french/index.ts`
-14. `src/data/italian/index.ts`
-15. `src/data/japanese/index.ts`
-16. `src/data/korean/index.ts`
-17. `src/components/*` (4 components)
-18. `src/pages/*` (9 pages)
-19. `src/App.tsx`
-20. `src/main.tsx`
 
 ---
 
@@ -226,8 +383,8 @@ npm run dev     # → http://localhost:5173
 
 Happy path:
 1. Register → Login → Pick Spanish → Placement test → Dashboard
-2. Open Grammar section → see A1 lessons
-3. Open Vocab section → see A1 words
-4. Open Verbs section → see conjugation tables
+2. Dashboard shows ordered A1 unit list with lock/complete states
+3. Open Unit 1 → tabs for grammar / vocab / verbs / test
+4. Pass unit test → Unit 2 unlocks
 5. Take Level Test → pass or fail
 6. Works on mobile viewport (DevTools → iPhone 14 size)
