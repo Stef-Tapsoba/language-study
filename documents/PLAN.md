@@ -1,6 +1,6 @@
 # language-study — Implementation Plan
 
-*Last updated: March 4, 2026*
+*Last updated: March 6, 2026*
 
 ## Context
 
@@ -65,49 +65,62 @@ language-study/
     │   └── mockAuthApi.ts
     ├── store/
     │   └── progress.ts                 ← localStorage progress (incl. masteredUnits)
-    ├── i18n/                           ← PLANNED: UI shell string translations
+    ├── i18n/                           ← UI shell string translations (✅ implemented)
+    │   ├── strings.ts                  ← UIStrings interface (~65 keys)
     │   ├── en.ts                       ← default English strings
-    │   ├── es.ts                       ← Spanish UI strings (A2+ shell)
-    │   ├── fr.ts
-    │   ├── it.ts
-    │   ├── ja.ts
-    │   └── ko.ts
+    │   ├── es.ts, fr.ts, it.ts, ja.ts, ko.ts  ← target language UI strings
+    │   └── index.ts                    ← getUI(langId, level) + fmt()
+    ├── utils/
+    │   └── localizedText.ts            ← toLocalized(), resolveDisplay(), resolvePrimary()
     ├── data/
-    │   ├── languages.ts                ← language registry (id, name, flag, script)
-    │   ├── spanish/                    ← ✅ DONE — fully restructured
+    │   ├── languages.ts                ← language registry (id, name, nativeName, script)
+    │   ├── modules.ts                  ← getModule(langId) registry
+    │   ├── spanish/                    ← ✅ fully restructured + reading/listening content
     │   │   ├── index.ts                ← pure assembler
     │   │   ├── grammar/a1.ts, a2.ts, b1.ts
     │   │   ├── vocab/a1.ts, a2.ts, b1.ts
     │   │   ├── verbs/a1.ts, a2.ts, b1.ts
     │   │   ├── units/a1.ts, a2.ts, b1.ts
+    │   │   ├── reading/a1.ts, a2.ts   ← 5 + 4 ReadingPassage items
+    │   │   ├── listening/a1.ts, a2.ts ← 4 + 4 ListeningExercise items
     │   │   └── questions/placement.ts, level-tests.ts
-    │   ├── french/                     ← PENDING restructure
-    │   ├── italian/                    ← PENDING restructure
-    │   ├── japanese/                   ← PENDING restructure (+ romanized fields)
-    │   └── korean/                     ← ✅ DONE — fully restructured (+ romanized fields)
+    │   ├── french/                     ← ✅ fully restructured (empty reading/listening)
+    │   ├── italian/                    ← ✅ fully restructured (empty reading/listening)
+    │   ├── japanese/                   ← ✅ fully restructured (+ romanized fields; empty reading/listening)
+    │   └── korean/                     ← ✅ fully restructured (+ romanized fields; empty reading/listening)
     ├── components/
-    │   ├── NavBar.tsx
+    │   ├── NavBar.tsx                  ← showLanguagePicker prop
+    │   ├── LanguagePicker.tsx          ← dropdown with all started languages
+    │   ├── Flag.tsx                    ← CDN flag image (no emoji)
     │   ├── LevelBadge.tsx
     │   ├── QuizCard.tsx
     │   ├── ProgressBar.tsx
-    │   └── LocalizedText.tsx           ← PLANNED: renders LocalizedText by CEFR level
+    │   ├── LocalizedExplanation.tsx    ← renders LocalizedText by CEFR level
+    │   ├── SpeakButton.tsx             ← Web Speech API one-shot speaker
+    │   └── ListeningPlayer.tsx         ← TTS player with play/stop/speed
     └── pages/
+        ├── LandingPage.tsx
         ├── LoginPage.tsx
         ├── RegisterPage.tsx
+        ├── HomePage.tsx                ← returning user dashboard + language picker
         ├── LanguageSelectPage.tsx
-        ├── DashboardPage.tsx           ← per-language hub (unit list with lock states)
+        ├── DashboardPage.tsx           ← 4 tabs: Path / Study / Practice / Test
         ├── PlacementPage.tsx
         ├── UnitPage.tsx                ← grammar/vocab/verbs tabs + mini-test
         ├── GrammarPage.tsx
         ├── VocabPage.tsx
         ├── VerbsPage.tsx
-        └── LevelTestPage.tsx
+        ├── FlashcardsPage.tsx
+        ├── VerbDrillPage.tsx
+        ├── GrammarDrillPage.tsx
+        ├── ReadingPage.tsx             ← CE module (browse + read; culture= filter)
+        ├── ListeningPage.tsx           ← CO module (browse + listen)
+        ├── LevelTestPage.tsx
+        └── ProfilePage.tsx             ← stats + language danger zone (reset/remove)
 ```
 
-Future pages (see Architecture Vision):
+Planned (future):
 ```
-        ├── ReadingPage.tsx             ← CE module
-        ├── ListeningPage.tsx           ← CO module
         ├── SpeakingPage.tsx            ← EO module
         └── WritingPage.tsx             ← EE module
 ```
@@ -118,26 +131,30 @@ Future pages (see Architecture Vision):
 
 Current:
 ```
-/login
-/register
-/                           → redirect to /languages
-/languages                  → pick a language                   [protected]
-/learn/:langId              → dashboard                         [protected]
+/                           → LandingPage (public)
+/login, /register
+/home                       → HomePage (authenticated)          [protected]
+/languages                  → LanguageSelectPage                [protected]
+/learn/:langId              → DashboardPage                     [protected]
 /learn/:langId/placement
-/learn/:langId/unit/:unitId → unit page (grammar/vocab/test)    [protected]
+/learn/:langId/units/:unitId → UnitPage                         [protected]
 /learn/:langId/grammar
 /learn/:langId/vocab
 /learn/:langId/verbs
+/learn/:langId/flashcards
+/learn/:langId/verb-drill
+/learn/:langId/grammar-drill
+/learn/:langId/reading       → ReadingPage                      [protected]
+/learn/:langId/listening     → ListeningPage                    [protected]
+/learn/:langId/culture       → ReadingPage category="culture"   [protected]
 /learn/:langId/level-test
 /profile
 ```
 
-Planned (skill modules):
+Planned (future skill modules):
 ```
-/learn/:langId/reading/:passageId
-/learn/:langId/listening/:trackId
-/learn/:langId/speaking/:promptId
-/learn/:langId/writing/:taskId
+/learn/:langId/speaking
+/learn/:langId/writing
 ```
 
 ---
@@ -214,22 +231,51 @@ interface LessonUnit {
   testQuestions: QuizQuestion[]  // 5–8 questions to test out of this unit
 }
 
+export type PassageCategory = "everyday" | "culture" | "history" | "literature" | "dialogue"
+
+interface VocabGloss {
+  word: string          // target-language word as it appears in the passage
+  translation: string   // English gloss
+  romanized?: string
+}
+
+interface ReadingPassage {
+  id: string
+  level: CEFRLevel
+  category: PassageCategory
+  title: string
+  body: LocalizedText   // target = target-language passage; native = English translation
+  vocabGloss: VocabGloss[]
+  questions: QuizQuestion[]
+}
+
+interface ListeningExercise {
+  id: string
+  level: CEFRLevel
+  title: string
+  script: string        // target language — spoken via TTS
+  translation: string   // English — toggle reference
+  questions: QuizQuestion[]
+}
+
 interface LanguageModule {
   grammar: GrammarLesson[]
   vocab: VocabItem[]
   verbs: Verb[]
-  units?: LessonUnit[]            // optional during migration; all languages will have it
+  units?: LessonUnit[]            // optional; all 5 languages have it
   placementQuestions: QuizQuestion[]
   levelQuestions: QuizQuestion[]
+  readingPassages?: ReadingPassage[]
+  listeningExercises?: ListeningExercise[]
 }
 
 // Progress (persisted in localStorage)
 interface UserProgress {
   userId: string
-  language: string
-  level: CEFRLevel
-  completedLessons: string[]      // grammar/vocab lesson ids
-  masteredUnits: string[]         // unit ids: completed or tested-out
+  selectedLanguage: string | null
+  levels: Record<string, CEFRLevel>
+  completedLessons: Record<string, string[]>
+  masteredUnits: Record<string, string[]>
 }
 ```
 
@@ -319,15 +365,15 @@ If `text.target` is undefined, always fall back to `text.native` (safe for incre
 
 See `CONTENT_RESTRUCTURE_PLAN.md` for the full per-language curriculum breakdown.
 
-| Language | Structure | A1 Grammar | A1 Vocab | A1 Verbs | A1 Units |
-|---|---|---|---|---|---|
-| Spanish | ✅ Restructured | 12 | 158 | 7 | 14 |
-| Korean | ✅ Restructured | 12 | 150 | 8 | 12 |
-| French | ⏳ Pending | ~5 (old) | ~12 (old) | ~5 (old) | — |
-| Italian | ⏳ Pending | ~4 (old) | ~10 (old) | ~4 (old) | — |
-| Japanese | ⏳ Pending | ~4 (old) | ~10 (old) | ~4 (old) | — |
+| Language | A1 Grammar | A1 Vocab | A1 Verbs | A1 Units | Reading | Listening |
+|---|---|---|---|---|---|---|
+| Spanish | 12 | 158 | 7 | 14 | ✅ A1+A2 (9 passages) | ✅ A1+A2 (8 exercises) |
+| Korean | 12 | 150 | 8 | 12 | — | — |
+| French | 13 | 173 | 7 | 15 | — | — |
+| Italian | 13 | 152 | 7 | 15 | — | — |
+| Japanese | 14 | 150 | 8 | 15 | — | — |
 
-Target for all languages: ~150 vocab items, 8–10 verbs, 12–16 ordered units at A1.
+All 5 languages are fully restructured with complete A1/A2/B1 content. Reading/Listening content for non-Spanish languages is the main remaining gap.
 
 ---
 
@@ -355,11 +401,13 @@ Alternative entry to grammar lessons: present examples → user hypothesises the
 
 ### Phased delivery
 ```
-Phase 1 (current)  — Core engine: unit progression, all 5 languages restructured
-Phase 2            — CE + CO: reading passages + listening tracks per language/level
-Phase 3            — Cognitive reinforcement: spaced retrieval quizzes, weekly free recall
-Phase 4            — EO + EE: speaking prompts + writing tasks (self-assessed)
-Phase 5            — Pattern Discovery + Immersion Progression (LocalizedText + i18n shell)
+✅ Phase 1  — Core engine: unit progression, all 5 languages restructured, immersion progression
+✅ Phase 2  — CE + CO: ReadingPage + ListeningPage + Spanish proof-of-concept content
+             NavBar LanguagePicker, ProfilePage redesign, Flag CDN images, tab persistence
+Phase 3     — CE + CO content for French/Italian/Japanese/Korean
+             Cognitive reinforcement: spaced retrieval quizzes, weekly free recall
+Phase 4     — EO + EE: speaking prompts + writing tasks (self-assessed)
+Phase 5     — Pattern Discovery mode
 ```
 
 ---

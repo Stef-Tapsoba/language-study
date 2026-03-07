@@ -151,6 +151,34 @@ These languages share a similar grammatical foundation and learning structure.
 
 ---
 
+## Register and Speech Styles
+
+At A1, learners are introduced to the **concept** that speech changes depending on who you are talking to. The formal/polite register is the default — learners are not expected to switch yet, but they need to understand why the language sounds different in different situations.
+
+### Romance Languages
+The formal/informal distinction is introduced through the **second-person pronoun**:
+- **French**: *vous* (formal/plural) vs *tu* (informal singular)
+- **Spanish**: *usted* (formal) vs *tú* (informal)
+- **Italian**: *Lei* (formal, capitalised) vs *tu* (informal)
+
+**Rule at A1**: Use the formal form by default. Switch to informal only when the other person explicitly invites it (*on se tutoie?* / *¿nos tuteamos?* / *diamoci del tu*) or the context is clearly casual (close family, children).
+
+| Formal (default) | Informal |
+|---|---|
+| Strangers, service staff, teachers, doctors, elders, authority figures | Close friends, family, children, peers who signal informality |
+
+### Japanese
+Only the **polite register (です/ます form)** is active at A1. This is appropriate in almost all non-intimate situations: shops, classrooms, first meetings, colleagues, service encounters. Plain form exists and appears in reading, but is not productive yet.
+
+**Rule at A1**: Always use です/ます. Using plain form with a stranger or superior is a social error. You cannot go wrong with polite form while you are learning.
+
+### Korean
+The **-요 ending (해요체)** is the universal polite form at A1. This is safe in almost all situations: strangers, shopkeepers, teachers, anyone you have just met, anyone older than you. Learners are introduced to the concept that Korean speech levels change significantly based on relationship and age — but only the -요 form is active at A1.
+
+**Rule at A1**: Use -요 endings with everyone. 반말 (informal speech without -요) is introduced for awareness only — do not use it until A2.
+
+---
+
 ## Comparative Overview
 
 | Feature | Romance Languages | Japanese | Korean |
