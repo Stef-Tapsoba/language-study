@@ -1,10 +1,11 @@
 // pages/DashboardPage.tsx
 import { useState } from "react"
-import { useParams, useNavigate, Link } from "react-router-dom"
+import { useParams, useNavigate, useSearchParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { getCurrentLevel, getCompletedLessons, getMasteredUnits, isUnitUnlocked } from "../store/progress"
 import { NavBar } from "../components/NavBar"
+import { Flag } from "../components/Flag"
 import { LevelBadge } from "../components/LevelBadge"
 import { ProgressBar } from "../components/ProgressBar"
 import { CEFR_LEVELS, CEFRLevel, LessonUnit } from "../types"
@@ -102,9 +103,15 @@ export function DashboardPage() {
     const completed = getCompletedLessons(langId)
     const mastered = getMasteredUnits(langId)
 
+    const [searchParams, setSearchParams] = useSearchParams()
     const levelUnits = (mod?.units ?? []).filter(u => u.level === level)
     const defaultTab: DashTab = levelUnits.length > 0 ? "path" : "study"
-    const [tab, setTab] = useState<DashTab>(defaultTab)
+    const [tab, setTab] = useState<DashTab>((searchParams.get("tab") as DashTab | null) ?? defaultTab)
+
+    function switchTab(t: DashTab) {
+        setTab(t)
+        setSearchParams({ tab: t }, { replace: true })
+    }
 
     if (!language || !mod) {
         return (
@@ -145,12 +152,12 @@ export function DashboardPage() {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <NavBar title={`${language.flag} ${language.name}`} level={level} backTo="/home" />
+            <NavBar title={language.name} level={level} backTo="/home" />
 
             <main className="max-w-3xl mx-auto px-4 py-6">
                 {/* Level header */}
                 <div className="bg-white rounded-2xl border border-gray-200 p-4 mb-5 flex items-center gap-4">
-                    <div className="text-4xl">{language.flag}</div>
+                    <Flag langId={langId} size="lg" />
                     <div className="flex-1">
                         <p className="text-xs text-gray-400 mb-0.5">{ui.currentLevel}</p>
                         <div className="flex items-center gap-2">
@@ -171,10 +178,10 @@ export function DashboardPage() {
                     {tabs.map(t => (
                         <button
                             key={t.id}
-                            onClick={() => setTab(t.id)}
+                            onClick={() => switchTab(t.id)}
                             className={`flex-1 py-2 px-2 rounded-lg text-sm font-medium transition-all flex items-center justify-center gap-1.5 ${tab === t.id
-                                ? "bg-white text-gray-900 shadow-sm"
-                                : "text-gray-500 hover:text-gray-700"
+                                    ? "bg-white text-gray-900 shadow-sm"
+                                    : "text-gray-500 hover:text-gray-700"
                                 }`}
                         >
                             {t.label}
@@ -214,7 +221,7 @@ export function DashboardPage() {
 
                 {/* ── STUDY ────────────────────────────────────────────── */}
                 {tab === "study" && (
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                         <SectionCard
                             emoji="📖"
                             title={ui.sectionGrammar}
@@ -261,7 +268,7 @@ export function DashboardPage() {
 
                 {/* ── PRACTICE ─────────────────────────────────────────── */}
                 {tab === "practice" && (
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                         <SectionCard
                             emoji="🃏"
                             title={ui.sectionFlashcards}

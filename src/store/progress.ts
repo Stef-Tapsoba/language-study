@@ -81,8 +81,23 @@ export function getStartedLanguages(): string[] {
     return Object.keys(loadProgress().levels)
 }
 
-/** Resets level + completed lessons + mastered units for a single language only. */
+/** Resets progress for a language back to A1 but keeps it in the course list. */
 export function resetLanguageProgress(langId: string): void {
+    const p = loadProgress()
+    const completedLessons = { ...p.completedLessons }
+    const masteredUnits = { ...p.masteredUnits }
+    delete completedLessons[langId]
+    delete masteredUnits[langId]
+    save({
+        ...p,
+        levels: { ...p.levels, [langId]: "A1" },
+        completedLessons,
+        masteredUnits,
+    })
+}
+
+/** Removes a language completely — level, progress, and mastered units all gone. */
+export function removeLanguage(langId: string): void {
     const p = loadProgress()
     const levels = { ...p.levels }
     const completedLessons = { ...p.completedLessons }
@@ -91,7 +106,7 @@ export function resetLanguageProgress(langId: string): void {
     delete completedLessons[langId]
     delete masteredUnits[langId]
     const selectedLanguage = p.selectedLanguage === langId ? null : p.selectedLanguage
-    save({ selectedLanguage, levels, completedLessons, masteredUnits })
+    save({ ...p, selectedLanguage, levels, completedLessons, masteredUnits })
 }
 
 // ---------------------------------------------------------------------------

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { LANGUAGES } from "../data/languages"
 import { setSelectedLanguage, getSelectedLanguage, getStartedLanguages } from "../store/progress"
 import { NavBar } from "../components/NavBar"
+import { Flag } from "../components/Flag"
 
 export function LanguageSelectPage() {
     const navigate = useNavigate()
@@ -40,7 +41,7 @@ export function LanguageSelectPage() {
                             className="bg-white border border-gray-200 rounded-2xl p-5 flex items-center gap-4
                                        hover:border-indigo-400 hover:shadow-md transition-all text-left"
                         >
-                            <span className="text-4xl">{lang.flag}</span>
+                            <Flag langId={lang.id} size="lg" />
                             <div>
                                 <p className="font-semibold text-gray-900 text-lg">{lang.name}</p>
                                 <p className="text-sm text-gray-500">{lang.nativeName}</p>

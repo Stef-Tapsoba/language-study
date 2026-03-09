@@ -1,8 +1,8 @@
 // pages/HomePage.tsx
 // Authenticated home page — two branches:
 //   • New user (no languages started)  → welcome + language picker
-//   • Returning user (has languages)   → personal dashboard
-import { useNavigate, Link } from "react-router-dom"
+//   • Returning user (has languages)   → personal dashboard w/ language switcher in nav
+import { useNavigate } from "react-router-dom"
 import { useAuth } from "../auth/AuthContext"
 import { getUserById } from "../auth/mockAuthApi"
 import { LANGUAGES } from "../data/languages"
@@ -17,6 +17,7 @@ import {
     initUserSession,
 } from "../store/progress"
 import { NavBar } from "../components/NavBar"
+import { Flag } from "../components/Flag"
 import { LevelBadge } from "../components/LevelBadge"
 import { ProgressBar } from "../components/ProgressBar"
 
@@ -24,10 +25,10 @@ import { ProgressBar } from "../components/ProgressBar"
 
 function greeting(name: string): string {
     const h = new Date().getHours()
-    const time =
-        h >= 5 && h < 12 ? "Good morning" :
-            h >= 12 && h < 18 ? "Good afternoon" :
-                h >= 18 && h < 22 ? "Good evening" : "Welcome back"
+    let time = "Welcome back"
+    if (h >= 5 && h < 12) time = "Good morning"
+    else if (h >= 12 && h < 18) time = "Good afternoon"
+    else if (h >= 18 && h < 22) time = "Good evening"
     return `${time}, ${name}!`
 }
 
@@ -38,10 +39,10 @@ const LEVEL_DESC: Record<string, string> = {
 
 // ─── New-user branch ─────────────────────────────────────────────────────────
 
-function NewUserWelcome({ displayName, onPick }: {
+function NewUserWelcome({ displayName, onPick }: Readonly<{
     displayName: string
     onPick: (langId: string) => void
-}) {
+}>) {
     return (
         <div className="min-h-screen bg-gray-50">
             <NavBar title="Language Study" />
@@ -64,7 +65,7 @@ function NewUserWelcome({ displayName, onPick }: {
                             className="bg-white border border-gray-200 rounded-2xl p-5 flex items-center
                                        gap-4 hover:border-indigo-400 hover:shadow-md transition-all text-left"
                         >
-                            <span className="text-4xl">{lang.flag}</span>
+                            <Flag langId={lang.id} size="lg" />
                             <div>
                                 <p className="font-semibold text-gray-900 text-lg">{lang.name}</p>
                                 <p className="text-sm text-gray-500">{lang.nativeName}</p>
@@ -79,14 +80,13 @@ function NewUserWelcome({ displayName, onPick }: {
 
 // ─── Returning-user branch ───────────────────────────────────────────────────
 
-function ReturningHome({ displayName, startedIds }: {
+function ReturningHome({ displayName, startedIds }: Readonly<{
     displayName: string
     startedIds: string[]
-}) {
+}>) {
     const navigate = useNavigate()
     const selectedLangId = getSelectedLanguage() ?? startedIds[0]
     const currentLang = LANGUAGES.find(l => l.id === selectedLangId)
-    const otherLangs = LANGUAGES.filter(l => startedIds.includes(l.id) && l.id !== selectedLangId)
 
     const mod = getModule(selectedLangId)
     const level = getCurrentLevel(selectedLangId)
@@ -103,21 +103,20 @@ function ReturningHome({ displayName, startedIds }: {
     const grammarItems = mod?.grammar.filter(g => g.level === level) ?? []
     const vocabItems = mod?.vocab.filter(v => v.level === level) ?? []
     const verbItems = mod?.verbs.filter(v => v.level === level) ?? []
+    const readingItems = (mod?.readingPassages ?? []).filter(r => r.level === level)
+    const listeningItems = (mod?.listeningExercises ?? []).filter(l => l.level === level)
 
     const grammarPct = grammarItems.length ? (grammarItems.filter(g => isDone(g.id)).length / grammarItems.length) * 100 : 0
     const vocabPct = vocabItems.length ? (vocabItems.filter(v => isDone(v.id)).length / vocabItems.length) * 100 : 0
     const verbPct = verbItems.length ? (verbItems.filter(v => isDone(v.id)).length / verbItems.length) * 100 : 0
-
-    function switchTo(langId: string) {
-        setSelectedLanguage(langId)
-        navigate(`/learn/${langId}`)
-    }
+    const readingPct = readingItems.length ? (readingItems.filter(r => completed.includes(r.id)).length / readingItems.length) * 100 : 0
+    const listeningPct = listeningItems.length ? (listeningItems.filter(l => completed.includes(l.id)).length / listeningItems.length) * 100 : 0
 
     if (!currentLang || !mod) return null
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <NavBar title="Language Study" />
+            <NavBar title="Language Study" showLanguagePicker />
 
             <main className="max-w-2xl mx-auto px-4 py-8 flex flex-col gap-6">
                 {/* Greeting */}
@@ -126,31 +125,16 @@ function ReturningHome({ displayName, startedIds }: {
                     <p className="text-gray-500 text-sm mt-0.5">Pick up where you left off.</p>
                 </div>
 
-                {/* ── Primary: Continue learning card ── */}
+                {/* ── Continue learning card ── */}
                 <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
                     <div className="flex items-center gap-3 mb-4">
-                        <span className="text-3xl">{currentLang.flag}</span>
+                        <Flag langId={currentLang.id} size="md" />
                         <div className="flex-1">
                             <p className="font-semibold text-gray-900">{currentLang.name}</p>
                             <p className="text-xs text-gray-400">{currentLang.nativeName}</p>
                         </div>
                         <LevelBadge level={level} />
                         <span className="text-xs text-gray-400 hidden sm:block">{LEVEL_DESC[level]}</span>
-                    </div>
-
-                    <div className="flex flex-col gap-2 mb-5">
-                        <ProgressBar
-                            label={`Grammar  ${grammarItems.filter(g => isDone(g.id)).length}/${grammarItems.length}`}
-                            value={grammarPct}
-                        />
-                        <ProgressBar
-                            label={`Vocabulary  ${vocabItems.filter(v => isDone(v.id)).length}/${vocabItems.length}`}
-                            value={vocabPct}
-                        />
-                        <ProgressBar
-                            label={`Verbs  ${verbItems.filter(v => isDone(v.id)).length}/${verbItems.length}`}
-                            value={verbPct}
-                        />
                     </div>
 
                     <button
@@ -160,6 +144,37 @@ function ReturningHome({ displayName, startedIds }: {
                     >
                         Continue learning →
                     </button>
+                </div>
+
+                {/* ── Progress breakdown ── */}
+                <div className="bg-white rounded-2xl border border-gray-200 p-5">
+                    <h2 className="text-sm font-semibold text-gray-700 mb-4">Progress at {level}</h2>
+                    <div className="flex flex-col gap-3">
+                        <ProgressBar
+                            label={`📖 Grammar  ${grammarItems.filter(g => isDone(g.id)).length}/${grammarItems.length}`}
+                            value={grammarPct}
+                        />
+                        <ProgressBar
+                            label={`📝 Vocabulary  ${vocabItems.filter(v => isDone(v.id)).length}/${vocabItems.length}`}
+                            value={vocabPct}
+                        />
+                        <ProgressBar
+                            label={`🔤 Verbs  ${verbItems.filter(v => isDone(v.id)).length}/${verbItems.length}`}
+                            value={verbPct}
+                        />
+                        {readingItems.length > 0 && (
+                            <ProgressBar
+                                label={`📗 Reading  ${readingItems.filter(r => completed.includes(r.id)).length}/${readingItems.length}`}
+                                value={readingPct}
+                            />
+                        )}
+                        {listeningItems.length > 0 && (
+                            <ProgressBar
+                                label={`🎧 Listening  ${listeningItems.filter(l => completed.includes(l.id)).length}/${listeningItems.length}`}
+                                value={listeningPct}
+                            />
+                        )}
+                    </div>
                 </div>
 
                 {/* ── Quick practice ── */}
@@ -186,45 +201,6 @@ function ReturningHome({ displayName, startedIds }: {
                         ))}
                     </div>
                 </div>
-
-                {/* ── Other languages ── */}
-                {otherLangs.length > 0 && (
-                    <div>
-                        <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
-                            Your other languages
-                        </h2>
-                        <div className="flex flex-col gap-2">
-                            {otherLangs.map(lang => {
-                                const lvl = getCurrentLevel(lang.id)
-                                return (
-                                    <div key={lang.id}
-                                        className="bg-white border border-gray-200 rounded-2xl px-4 py-3
-                                                   flex items-center gap-3">
-                                        <span className="text-2xl">{lang.flag}</span>
-                                        <span className="flex-1 font-medium text-gray-800 text-sm">
-                                            {lang.name}
-                                        </span>
-                                        <LevelBadge level={lvl} />
-                                        <button
-                                            onClick={() => switchTo(lang.id)}
-                                            className="text-xs text-indigo-600 hover:underline ml-2"
-                                        >
-                                            Switch →
-                                        </button>
-                                    </div>
-                                )
-                            })}
-                        </div>
-                    </div>
-                )}
-
-                {/* ── Add a language ── */}
-                <Link
-                    to="/languages"
-                    className="text-center text-sm text-indigo-600 hover:underline py-2"
-                >
-                    + Add another language
-                </Link>
             </main>
         </div>
     )

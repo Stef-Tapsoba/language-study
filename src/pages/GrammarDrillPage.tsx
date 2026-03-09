@@ -25,20 +25,23 @@ function shuffle<T>(arr: T[]): T[] {
 function buildQuestions(mod: ReturnType<typeof getModule>, level: string): DrillQuestion[] {
     if (!mod) return []
 
-    const examples = mod.grammar
+    // Tag each example with its lesson id so we can prefer same-lesson distractors
+    const tagged = mod.grammar
         .filter(g => g.level === level)
-        .flatMap(g => g.examples)
+        .flatMap(g => g.examples.map(ex => ({ ...ex, lessonId: g.id })))
         .filter((ex, i, arr) => arr.findIndex(e => e.native === ex.native) === i)
 
-    if (examples.length < 4) return []
+    if (tagged.length < 4) return []
 
     const isFlipped = level !== "A1" && level !== "A2"  // B1+ → target → English
 
     if (isFlipped) {
         // B1+: target sentence prompt → pick English meaning
-        const allTranslations = examples.map(e => e.translation)
-        return shuffle(examples).slice(0, 10).map(ex => {
-            const distractors = shuffle(allTranslations.filter(t => t !== ex.translation)).slice(0, 3)
+        return shuffle(tagged).slice(0, 10).map(ex => {
+            const sameLesson = tagged.filter(e => e.lessonId === ex.lessonId && e.translation !== ex.translation).map(e => e.translation)
+            const allOthers = tagged.filter(e => e.translation !== ex.translation).map(e => e.translation)
+            const pool = sameLesson.length >= 3 ? sameLesson : allOthers
+            const distractors = shuffle(pool).slice(0, 3)
             return {
                 prompt: ex.native,
                 correct: ex.translation,
@@ -48,9 +51,11 @@ function buildQuestions(mod: ReturnType<typeof getModule>, level: string): Drill
     }
 
     // A1/A2: English prompt → pick target sentence
-    const allNative = examples.map(e => e.native)
-    return shuffle(examples).slice(0, 10).map(ex => {
-        const distractors = shuffle(allNative.filter(n => n !== ex.native)).slice(0, 3)
+    return shuffle(tagged).slice(0, 10).map(ex => {
+        const sameLesson = tagged.filter(e => e.lessonId === ex.lessonId && e.native !== ex.native).map(e => e.native)
+        const allOthers = tagged.filter(e => e.native !== ex.native).map(e => e.native)
+        const pool = sameLesson.length >= 3 ? sameLesson : allOthers
+        const distractors = shuffle(pool).slice(0, 3)
         return {
             prompt: ex.translation,
             correct: ex.native,
@@ -80,7 +85,7 @@ export function GrammarDrillPage() {
     if (questions.length === 0) {
         return (
             <div className="min-h-screen bg-gray-50">
-                <NavBar title={ui.sectionGrammarDrill} level={level} backTo={`/learn/${langId}`} />
+                <NavBar title={ui.sectionGrammarDrill} level={level} backTo="back" />
                 <div className="flex flex-col items-center justify-center py-24 text-gray-400">
                     <p className="text-4xl mb-3">🚧</p>
                     <p className="font-medium">Not enough grammar examples at {level} yet</p>
@@ -115,7 +120,7 @@ export function GrammarDrillPage() {
         const pct = Math.round((score / questions.length) * 100)
         return (
             <div className="min-h-screen bg-gray-50">
-                <NavBar title={ui.sectionGrammarDrill} level={level} backTo={`/learn/${langId}`} />
+                <NavBar title={ui.sectionGrammarDrill} level={level} backTo="back" />
                 <main className="max-w-sm mx-auto px-4 py-12 flex flex-col items-center gap-6 text-center">
                     <div className="text-5xl">{pct >= 70 ? "🏆" : "💪"}</div>
                     <h2 className="text-2xl font-bold text-gray-900">{ui.drillComplete}</h2>
@@ -149,7 +154,7 @@ export function GrammarDrillPage() {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <NavBar title={ui.sectionGrammarDrill} level={level} backTo={`/learn/${langId}`} />
+            <NavBar title={ui.sectionGrammarDrill} level={level} backTo="back" />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col items-center gap-6">
                 <div className="w-full flex items-center justify-between text-sm text-gray-500">
                     <span>{fmt(ui.questionOf, { n: index + 1, total: questions.length })}</span>

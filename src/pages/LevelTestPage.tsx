@@ -117,7 +117,7 @@ export function LevelTestPage() {
     if (questions.length === 0) {
         return (
             <div className="min-h-screen bg-gray-50">
-                <NavBar title={ui.levelTestTitle} level={level} backTo={`/learn/${langId}`} />
+                <NavBar title={ui.levelTestTitle} level={level} backTo="back" />
                 <main className="max-w-xl mx-auto px-4 py-16 text-center text-gray-400">
                     <p className="text-4xl mb-3">🚧</p>
                     <p className="font-medium">Level test coming soon for {level}</p>
@@ -159,7 +159,7 @@ export function LevelTestPage() {
 
         return (
             <div className="min-h-screen bg-gray-50">
-                <NavBar title={ui.levelTestTitle} level={level} backTo={`/learn/${langId}`} />
+                <NavBar title={ui.levelTestTitle} level={level} backTo="back" />
                 <main className="max-w-xl mx-auto px-4 py-12 flex flex-col items-center gap-6 text-center">
                     <div className="text-5xl">{passed ? "🏆" : "📚"}</div>
                     <h2 className="text-2xl font-bold text-gray-900">
@@ -187,7 +187,7 @@ export function LevelTestPage() {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <NavBar title={ui.levelTestTitle} level={level} backTo={`/learn/${langId}`} />
+            <NavBar title={ui.levelTestTitle} level={level} backTo="back" />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col items-center gap-6">
                 <div className="w-full flex items-center justify-between text-sm text-gray-500">
                     <span>{fmt(ui.questionOf, { n: current + 1, total: questions.length })}</span>

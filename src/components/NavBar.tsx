@@ -1,7 +1,7 @@
 // components/NavBar.tsx
 import { useNavigate, Link } from "react-router-dom"
-import { useAuth } from "../auth/AuthContext"
 import { LevelBadge } from "./LevelBadge"
+import { LanguagePicker } from "./LanguagePicker"
 import { CEFRLevel } from "../types"
 
 interface NavBarProps {
@@ -12,20 +12,19 @@ interface NavBarProps {
      * Pass a path string to navigate to that route, or "back" to go to the previous page.
      */
     backTo?: string
+    /** If provided, overrides backTo — calls this function instead of navigating. */
+    onBack?: () => void
+    /** Renders the language switcher pill between title and profile icon. */
+    showLanguagePicker?: boolean
 }
 
-export function NavBar({ title = "Language Study", level, backTo }: NavBarProps) {
-    const { logout } = useAuth()
+export function NavBar({ title = "Language Study", level, backTo, onBack, showLanguagePicker }: Readonly<NavBarProps>) {
     const navigate = useNavigate()
 
     function handleBack() {
+        if (onBack) { onBack(); return }
         if (backTo === "back") navigate(-1)
         else if (backTo) navigate(backTo)
-    }
-
-    async function handleLogout() {
-        await logout()
-        navigate("/", { replace: true })
     }
 
     return (
@@ -47,6 +46,8 @@ export function NavBar({ title = "Language Study", level, backTo }: NavBarProps)
 
                 <span className="font-semibold text-gray-900 flex-1 truncate">{title}</span>
 
+                {showLanguagePicker && <LanguagePicker />}
+
                 {level && <LevelBadge level={level} />}
 
                 <Link
@@ -63,12 +64,6 @@ export function NavBar({ title = "Language Study", level, backTo }: NavBarProps)
                     </svg>
                 </Link>
 
-                <button
-                    onClick={handleLogout}
-                    className="text-sm text-gray-500 hover:text-gray-800 shrink-0"
-                >
-                    Sign out
-                </button>
             </div>
         </nav>
     )

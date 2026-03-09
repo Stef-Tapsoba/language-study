@@ -102,7 +102,7 @@ function ExerciseListen({ exercise, langId, level, completed, onBack, ui }: Read
     }
 
     return (
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 pb-24">
             {/* Header */}
             <div className="flex items-start justify-between gap-2">
                 <h2 className="text-xl font-bold text-gray-900">{exercise.title}</h2>
@@ -201,25 +201,21 @@ function ExerciseListen({ exercise, langId, level, completed, onBack, ui }: Read
                 )
             )}
 
-            {/* Mark as listened */}
-            <button
-                onClick={markedListened ? undefined : handleMarkListened}
-                disabled={markedListened}
-                className={`w-full font-semibold rounded-xl py-2.5 text-sm transition-colors border ${markedListened
-                    ? "border-green-300 text-green-700 bg-green-50 cursor-default"
-                    : "border-gray-200 text-gray-700 hover:border-indigo-400"
-                    }`}
-            >
-                {markedListened ? `✓ ${ui.listeningComplete}` : ui.markAsListened}
-            </button>
-
-            {/* Back */}
-            <button
-                onClick={onBack}
-                className="text-sm text-indigo-600 hover:underline text-center"
-            >
-                ← {ui.backToDashboard}
-            </button>
+            {/* Sticky bottom bar — mark as listened */}
+            <div className="fixed bottom-0 left-0 right-0 z-20 bg-white border-t border-gray-200 px-4 py-3 safe-area-inset-bottom">
+                <div className="max-w-xl mx-auto">
+                    <button
+                        onClick={markedListened ? undefined : handleMarkListened}
+                        disabled={markedListened}
+                        className={`w-full font-semibold rounded-xl py-3 text-sm transition-colors border ${markedListened
+                                ? "border-green-300 text-green-700 bg-green-50 cursor-default"
+                                : "border-indigo-600 bg-indigo-600 text-white hover:bg-indigo-700"
+                            }`}
+                    >
+                        {markedListened ? `✓ ${ui.listeningComplete}` : ui.markAsListened}
+                    </button>
+                </div>
+            </div>
         </div>
     )
 }
@@ -244,7 +240,7 @@ export function ListeningPage() {
     if (exercises.length === 0) {
         return (
             <div className="min-h-screen bg-gray-50">
-                <NavBar title={ui.sectionListening} level={level} backTo={`/learn/${langId}`} />
+                <NavBar title={ui.sectionListening} level={level} backTo="back" />
                 <div className="flex flex-col items-center justify-center py-24 text-gray-400">
                     <p className="text-4xl mb-3">🚧</p>
                     <p className="font-medium">{fmt(ui.noExercisesYet, { level })}</p>
@@ -253,9 +249,16 @@ export function ListeningPage() {
         )
     }
 
+    const handleBack = selectedExercise ? () => setSelectedExercise(null) : undefined
+
     return (
         <div className="min-h-screen bg-gray-50">
-            <NavBar title={ui.sectionListening} level={level} backTo={`/learn/${langId}`} />
+            <NavBar
+                title={selectedExercise ? selectedExercise.title : ui.sectionListening}
+                level={level}
+                backTo="back"
+                onBack={handleBack}
+            />
             <main className="max-w-xl mx-auto px-4 py-8">
                 {selectedExercise ? (
                     <ExerciseListen

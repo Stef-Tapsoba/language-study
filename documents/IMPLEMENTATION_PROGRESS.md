@@ -339,3 +339,126 @@ Goal: properly sequence kanji learning so A2 immersion is accessible — A1 ends
 | A1 | Recognised only (15 taught in final unit) | Numbers already taught in grammar lesson 6 |
 | A2 | None in `target` explanations; present in example sentences | Examples always use real Japanese |
 | B1 | Used freely | Learner has had kanji exposure via examples throughout A2 |
+
+---
+
+## 20. Smarter Quiz Distractors & Tense Label Prominence
+
+Goal: make drill distractors pedagogically meaningful and surface the tense context visually.
+
+**Files updated:**
+- `src/pages/VerbDrillPage.tsx`:
+  - Tense label changed from faded uppercase text to an indigo pill badge (`bg-indigo-100 text-indigo-700`) so learners see the tense context prominently before answering
+  - Distractor selection now prefers same-tense distractors: forms are bucketed by tense in a `Map<string, string[]>`; same-tense pool used when ≥ 3 alternatives available; falls back to all-verb-forms pool otherwise; wrong answers therefore look like plausible conjugations of the same tense rather than random forms
+- `src/pages/GrammarDrillPage.tsx`:
+  - Grammar examples tagged with `lessonId` via `flatMap(g => g.examples.map(ex => ({ ...ex, lessonId: g.id })))`
+  - Same-lesson distractors preferred (≥ 3 available); falls back to all same-level examples; wrong options now contrast within the same grammatical pattern rather than across unrelated topics
+
+---
+
+## 21. NavBar LanguagePicker & Home Page Redesign
+
+Goal: replicate a Duolingo-style in-nav language switcher; enrich the returning-user home page.
+
+**Files created:**
+- `src/components/LanguagePicker.tsx` — self-contained dropdown:
+  - Trigger: flag image + language name + chevron, sits between title and profile icon in the NavBar
+  - Dropdown: horizontally scrollable row of per-language cards (flag, name, level badge, mini progress bar, % complete, ✓ Active indicator); "Add a course" dashed card navigates to `/languages`
+  - Outside-click closes via `useRef` + `useEffect` mousedown listener
+  - `overallPct()` helper calculates completion % across grammar + vocab + verbs + reading + listening at the current level
+
+**Files updated:**
+- `src/components/NavBar.tsx` — added `showLanguagePicker?: boolean` prop; renders `<LanguagePicker />` between title area and profile icon; removed Sign Out button entirely (moved to ProfilePage)
+- `src/pages/HomePage.tsx` — `ReturningHome` uses `<NavBar showLanguagePicker />`; body now shows: time-of-day greeting, "Continue learning" card (flag, level, name, button), 5-row progress breakdown (grammar/vocab/verbs/reading/listening — reading and listening only shown when content exists), Quick Practice strip (Flashcards, Verb Drill, Grammar Drill); removed "Your other languages" and "Add another language" sections
+
+---
+
+## 22. Profile Page Redesign (Design 3)
+
+Goal: add the ability to fully remove a language, show richer stats, and keep destructive actions behind progressive disclosure.
+
+**Files updated:**
+- `src/store/progress.ts`:
+  - `resetLanguageProgress()` — fixed semantics: now keeps the language in the `levels` map at "A1" (clears `completedLessons` and `masteredUnits` only); previously it deleted the language entirely (same effect as remove)
+  - `removeLanguage(langId)` — **new** function: fully deletes from `levels`, `completedLessons`, and `masteredUnits`; clears `selectedLanguage` if it matched the removed language
+- `src/pages/ProfilePage.tsx` — full rewrite:
+  - **User card** — initials avatar, display name, email
+  - **Stats strip** — 3 tiles: total items learned (grammar + vocab + verbs completed), languages count, highest CEFR level reached
+  - **`LangCard` component** — per started language: flag + name + level badge, overall progress bar, 5-bar breakdown (grammar / vocab / verbs / reading / listening), collapsible "Manage course" danger zone (orange Reset + red Remove buttons in `bg-red-50` panel)
+  - **Account section** at bottom with Sign Out button
+
+---
+
+## 23. Flag Images (CDN)
+
+Goal: fix flag rendering on Windows where OS emoji fonts do not support regional indicator sequences.
+
+**Files created:**
+- `src/components/Flag.tsx` — maps `langId` to ISO 3166-1 alpha-2 country code (`es→es`, `fr→fr`, `it→it`, `ja→jp`, `ko→kr`); renders `<img>` from `https://flagcdn.com/w{width}/{code}.png` with `srcSet` for 2× HiDPI; sizes: `sm` (20 px), `md` (28 px), `lg` (40 px); no new npm dependencies
+
+**Files updated (flag emoji → `<Flag />` component):**
+- `src/pages/LanguageSelectPage.tsx`, `DashboardPage.tsx`, `PlacementPage.tsx`, `HomePage.tsx`, `ProfilePage.tsx`, `components/LanguagePicker.tsx`
+- NavBar titles and level headers that previously included flag emoji strings were cleaned up to plain language names
+
+---
+
+## 24. Back Navigation Tab Persistence
+
+Goal: pressing the back button from any Study/Practice sub-page returns to the correct dashboard tab.
+
+**Problem:** `DashboardPage` uses React state for the active tab, which resets on every remount. Sub-pages used `backTo=\`/learn/${langId}\`` — navigating to the URL with no tab param — so the dashboard always defaulted to "Path".
+
+**Solution:**
+- `src/pages/DashboardPage.tsx` — active tab synced to URL via `useSearchParams`; initial tab read from `?tab=` param; `switchTab(t)` calls both `setTab(t)` and `setSearchParams({ tab: t }, { replace: true })`
+- All sub-pages changed to `backTo="back"` so `navigate(-1)` pops the previous URL (which includes `?tab=study` or `?tab=practice`) rather than navigating to a fresh dashboard URL
+
+**Files updated:** `src/pages/GrammarPage.tsx`, `VocabPage.tsx`, `VerbsPage.tsx`, `ListeningPage.tsx`, `FlashcardsPage.tsx`, `VerbDrillPage.tsx`, `GrammarDrillPage.tsx`, `UnitPage.tsx`, `LevelTestPage.tsx`, `PlacementPage.tsx`, `ReadingPage.tsx`
+
+---
+
+## 25. CE + CO Modules — Reading, Listening, Culture
+
+Goal: implement the CE (Compréhension Écrite) and CO (Compréhension Orale) skill modules with real Spanish proof-of-concept content; expose them in the Dashboard Study tab and add a Culture filter route.
+
+### New types (`src/types/index.ts`)
+- `PassageCategory` union — `"everyday" | "culture" | "history" | "literature" | "dialogue"`
+- `VocabGloss { word, translation, romanized? }` — in-passage word gloss
+- `ReadingPassage { id, level, category, title, body: LocalizedText, vocabGloss, questions }`
+- `ListeningExercise { id, level, title, script, translation, questions }`
+- `LanguageModule.readingPassages?` and `listeningExercises?` — optional arrays (non-Spanish languages get empty arrays)
+
+### New Spanish content
+- `src/data/spanish/reading/a1.ts` — 5 passages: Mi familia, Un día normal, En el café, Los saludos en España, La comida española (80–120 words each, 4–7 vocab glosses, 3 comprehension questions)
+- `src/data/spanish/reading/a2.ts` — 4 passages: Las fiestas de España, Los conquistadores, El transporte en Madrid, Una carta de amor (150–200 words, 5–7 glosses, 4 questions)
+- `src/data/spanish/listening/a1.ts` — 4 exercises: Buenos días, ¿Cuánto cuesta?, Mi familia, En el restaurante (3–6 sentences, 3 questions each)
+- `src/data/spanish/listening/a2.ts` — 4 exercises: El fin de semana, Una receta fácil, Las vacaciones, Noticias del barrio
+- `src/data/spanish/index.ts` — updated assembler imports all reading/listening files
+
+Other 4 languages: `readingPassages: []` and `listeningExercises: []` in their `index.ts` assemblers — pages show a "🚧 No passages yet" empty state.
+
+### New components
+- `src/components/ListeningPlayer.tsx` — TTS player wrapping `window.speechSynthesis`; Play/Stop toggle + Slow (0.7×) / Normal (1.0×) speed toggle; `onEnded` callback auto-opens comprehension quiz; returns `null` when `speechSynthesis` unavailable
+
+### New pages
+- `src/pages/ReadingPage.tsx`:
+  - **Browse view**: passage list filtered by level; optional `category` prop pre-filters for Culture route; category colour badges; completion checkmarks
+  - **Read view**: passage body (target language); English translation toggle (A1 shown by default, A2 behind toggle, B1+ hidden); vocab gloss panel (collapsible); comprehension quiz via `QuizCard`; sticky "Mark as read" button → `markLessonComplete`
+- `src/pages/ListeningPage.tsx`:
+  - **Browse view**: exercise list with level badges and completion checkmarks
+  - **Listen view**: `ListeningPlayer`; transcript toggle (A1 shown, A2 hidden, B1+ not shown); English translation toggle (A1/A2 only); comprehension quiz; sticky "Mark as listened" button
+
+### Routes (`src/App.tsx`)
+- `/learn/:langId/reading` → `<ReadingPage />`
+- `/learn/:langId/listening` → `<ListeningPage />`
+- `/learn/:langId/culture` → `<ReadingPage category="culture" />`
+
+### Dashboard Study tab (`src/pages/DashboardPage.tsx`)
+Expanded from 3 to 6 cards in a 2×3 grid:
+- Row 1: Grammar, Vocabulary, Verbs (unchanged, progress bars)
+- Row 2: Reading (progress bar), Listening (progress bar), Culture (no progress bar — subset of Reading)
+
+### i18n — new keys across all 6 language files
+`sectionReading`, `sectionReadingDesc`, `sectionListening`, `sectionListeningDesc`, `sectionCulture`, `sectionCultureDesc`, `showEnglish`, `hideEnglish`, `showTranscript`, `hideTranscript`, `playAudio`, `stopAudio`, `slowSpeed`, `normalSpeed`, `checkUnderstanding`, `markAsRead`, `passageComplete`, `markAsListened`, `listeningComplete`, `noPassagesYet`, `noExercisesYet`, `showQuestions`, `vocabGlossTitle`, `categoryBadge*` (5 keys)
+
+### Bug fix
+- `src/pages/GrammarPage.tsx` — `lesson.explanation` is typed as `string | LocalizedText` but was rendered directly in JSX; fixed by importing `resolvePrimary` and rendering `resolvePrimary(lesson.explanation, level)` instead

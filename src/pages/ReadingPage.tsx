@@ -130,7 +130,7 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
     const bodyText = passage.body.target ?? passage.body.native
 
     return (
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 pb-24">
             {/* Header */}
             <div className="flex items-start justify-between gap-2">
                 <div>
@@ -233,25 +233,21 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
                 </div>
             )}
 
-            {/* Mark as read */}
-            <button
-                onClick={markedRead ? undefined : handleMarkRead}
-                disabled={markedRead}
-                className={`w-full font-semibold rounded-xl py-2.5 text-sm transition-colors border ${markedRead
-                    ? "border-green-300 text-green-700 bg-green-50 cursor-default"
-                    : "border-gray-200 text-gray-700 hover:border-indigo-400"
-                    }`}
-            >
-                {markedRead ? `✓ ${ui.passageComplete}` : ui.markAsRead}
-            </button>
-
-            {/* Back button */}
-            <button
-                onClick={onBack}
-                className="text-sm text-indigo-600 hover:underline text-center"
-            >
-                ← {ui.backToDashboard}
-            </button>
+            {/* Sticky bottom bar — mark as read */}
+            <div className="fixed bottom-0 left-0 right-0 z-20 bg-white border-t border-gray-200 px-4 py-3 safe-area-inset-bottom">
+                <div className="max-w-xl mx-auto">
+                    <button
+                        onClick={markedRead ? undefined : handleMarkRead}
+                        disabled={markedRead}
+                        className={`w-full font-semibold rounded-xl py-3 text-sm transition-colors border ${markedRead
+                                ? "border-green-300 text-green-700 bg-green-50 cursor-default"
+                                : "border-indigo-600 bg-indigo-600 text-white hover:bg-indigo-700"
+                            }`}
+                    >
+                        {markedRead ? `✓ ${ui.passageComplete}` : ui.markAsRead}
+                    </button>
+                </div>
+            </div>
         </div>
     )
 }
@@ -278,7 +274,7 @@ export function ReadingPage({ category }: Readonly<ReadingPageProps>) {
     const completed = getCompletedLessons(langId)
 
     const navTitle = category === "culture" ? ui.sectionCulture : ui.sectionReading
-    const backTo = `/learn/${langId}`
+    const backTo = "back"
 
     if (passages.length === 0) {
         return (
@@ -292,9 +288,16 @@ export function ReadingPage({ category }: Readonly<ReadingPageProps>) {
         )
     }
 
+    const handleBack = selectedPassage ? () => setSelectedPassage(null) : undefined
+
     return (
         <div className="min-h-screen bg-gray-50">
-            <NavBar title={navTitle} level={level} backTo={backTo} />
+            <NavBar
+                title={selectedPassage ? selectedPassage.title : navTitle}
+                level={level}
+                backTo={backTo}
+                onBack={handleBack}
+            />
             <main className="max-w-xl mx-auto px-4 py-8">
                 {selectedPassage ? (
                     <PassageRead

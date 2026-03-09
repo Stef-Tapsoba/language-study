@@ -6,17 +6,20 @@ import { getModule } from "../data/modules"
 import { getCurrentLevel, getCompletedLessons, markLessonComplete } from "../store/progress"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
-import { GrammarLesson } from "../types"
+import { GrammarLesson, CEFRLevel } from "../types"
+import { resolvePrimary } from "../utils/localizedText"
 
 function LessonCard({
     lesson,
     done,
     langId,
+    level,
     onComplete,
 }: {
     lesson: GrammarLesson
     done: boolean
     langId: string
+    level: CEFRLevel
     onComplete: () => void
 }) {
     const [open, setOpen] = useState(false)
@@ -45,7 +48,7 @@ function LessonCard({
             {/* Body */}
             {open && (
                 <div className="px-5 pb-5 border-t border-gray-100">
-                    <p className="text-sm text-gray-700 mt-4 leading-relaxed">{lesson.explanation}</p>
+                    <p className="text-sm text-gray-700 mt-4 leading-relaxed">{resolvePrimary(lesson.explanation, level)}</p>
 
                     <div className="mt-4 flex flex-col gap-3">
                         {lesson.examples.map((ex, i) => (
@@ -91,7 +94,7 @@ export function GrammarPage() {
             <NavBar
                 title="Grammar"
                 level={level}
-                backTo={`/learn/${langId}`}
+                backTo="back"
             />
             <main className="max-w-3xl mx-auto px-4 py-6">
                 <div className="flex items-center gap-2 mb-6">
@@ -115,6 +118,7 @@ export function GrammarPage() {
                                 lesson={lesson}
                                 done={completed.includes(lesson.id)}
                                 langId={langId}
+                                level={level}
                                 onComplete={() => setCompleted(getCompletedLessons(langId))}
                             />
                         ))}

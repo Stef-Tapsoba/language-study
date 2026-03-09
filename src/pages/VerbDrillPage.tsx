@@ -32,10 +32,21 @@ function buildQuestions(verbs: Verb[]): DrillQuestion[] {
         }
     }
 
+    // Group forms by tense for smarter distractor selection
+    const formsByTense = new Map<string, string[]>()
+    for (const q of all) {
+        const bucket = formsByTense.get(q.tense) ?? []
+        if (!bucket.includes(q.correct)) bucket.push(q.correct)
+        formsByTense.set(q.tense, bucket)
+    }
+
     const allForms = [...new Set(all.map(q => q.correct))]
 
     return shuffle(all).slice(0, 10).map(q => {
-        const distractors = shuffle(allForms.filter(f => f !== q.correct)).slice(0, 3)
+        // Prefer same-tense distractors so wrong answers look plausibly similar
+        const sameTense = (formsByTense.get(q.tense) ?? []).filter(f => f !== q.correct)
+        const pool = sameTense.length >= 3 ? sameTense : allForms.filter(f => f !== q.correct)
+        const distractors = shuffle(pool).slice(0, 3)
         return { ...q, options: shuffle([q.correct, ...distractors]) }
     })
 }
@@ -72,7 +83,7 @@ export function VerbDrillPage() {
     if (questions.length === 0) {
         return (
             <div className="min-h-screen bg-gray-50">
-                <NavBar title={ui.sectionVerbDrill} level={level} backTo={`/learn/${langId}`} />
+                <NavBar title={ui.sectionVerbDrill} level={level} backTo="back" />
                 <div className="flex flex-col items-center justify-center py-24 text-gray-400">
                     <p className="text-4xl mb-3">🚧</p>
                     <p className="font-medium">No verbs to drill at {level} yet</p>
@@ -107,7 +118,7 @@ export function VerbDrillPage() {
         const pct = Math.round((score / questions.length) * 100)
         return (
             <div className="min-h-screen bg-gray-50">
-                <NavBar title={ui.sectionVerbDrill} level={level} backTo={`/learn/${langId}`} />
+                <NavBar title={ui.sectionVerbDrill} level={level} backTo="back" />
                 <main className="max-w-sm mx-auto px-4 py-12 flex flex-col items-center gap-6 text-center">
                     <div className="text-5xl">{pct >= 70 ? "🏆" : "💪"}</div>
                     <h2 className="text-2xl font-bold text-gray-900">{ui.drillComplete}</h2>
@@ -141,7 +152,7 @@ export function VerbDrillPage() {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <NavBar title={ui.sectionVerbDrill} level={level} backTo={`/learn/${langId}`} />
+            <NavBar title={ui.sectionVerbDrill} level={level} backTo="back" />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col items-center gap-6">
                 <div className="w-full flex items-center justify-between text-sm text-gray-500">
                     <span>{fmt(ui.questionOf, { n: index + 1, total: questions.length })}</span>
@@ -162,7 +173,7 @@ export function VerbDrillPage() {
                 <div className="w-full bg-white rounded-2xl border border-gray-200 px-5 py-3 flex
                                 items-center gap-3">
                     <div className="flex-1">
-                        <p className="text-xs text-gray-400 uppercase tracking-wide mb-0.5">{q.tense}</p>
+                        <span className="inline-block text-xs font-semibold px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-700 mb-1">{q.tense}</span>
                         <p className="font-semibold text-gray-900">
                             {q.verb.infinitive}
                             {q.verb.romanized && (
