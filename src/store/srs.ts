@@ -7,6 +7,9 @@ import { SRSCardState } from "../types"
 
 const SRS_KEY = "ls:srs"
 
+/** Max new (never-seen) cards introduced per session. */
+export const NEW_CARDS_PER_DAY = 10
+
 const DEFAULT_STATE: SRSCardState = {
     nextReviewDate: 0,
     interval: 1,
@@ -63,10 +66,10 @@ export function getDueCards(
         }
     }
 
-    return { due, newCards }
+    return { due, newCards: newCards.slice(0, NEW_CARDS_PER_DAY) }
 }
 
-/** Count of cards available to study — due cards plus unseen new cards. */
+/** Count of cards available to study — due cards plus capped new cards. */
 export function getDueCount(langId: string, allVocabIds: string[]): number {
     const { due, newCards } = getDueCards(langId, allVocabIds)
     return due.length + newCards.length
