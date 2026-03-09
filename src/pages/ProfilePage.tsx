@@ -96,6 +96,8 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
     function handleRemove() {
         if (!confirm(`Remove ${lang!.name} from your courses? This cannot be undone.`)) return
         removeLanguage(langId)
+        resetSRS(langId)
+        resetStats(langId)
         onChanged()
     }
 
