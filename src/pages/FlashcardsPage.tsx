@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { getCurrentLevel } from "../store/progress"
+import { getDueCards, updateCard, getNextDueDate } from "../store/srs"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { VocabItem } from "../types"
@@ -28,6 +29,65 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 type Result = "correct" | "incorrect"
+
+function ResultsScreen({ correct, incorrect, pct, newCardsScheduled, reviewMode, ui, onReview, onRestart }: Readonly<{
+    correct: number
+    incorrect: number
+    pct: number
+    newCardsScheduled: number
+    reviewMode: boolean
+    ui: UIStrings
+    onReview: () => void
+    onRestart: () => void
+}>) {
+    return (
+        <main className="max-w-sm mx-auto px-4 py-12 flex flex-col items-center gap-6 text-center">
+            <div className="text-5xl">{pct >= 80 ? "🎉" : "💪"}</div>
+            <h2 className="text-2xl font-bold text-gray-900">
+                {reviewMode ? ui.reviewComplete : ui.roundComplete}
+            </h2>
+            <div className="bg-white rounded-2xl border border-gray-200 p-5 w-full flex justify-around">
+                <div>
+                    <p className="text-3xl font-bold text-green-600">{correct}</p>
+                    <p className="text-xs text-gray-500 mt-1">{ui.scoreCorrect}</p>
+                </div>
+                <div>
+                    <p className="text-3xl font-bold text-red-500">{incorrect}</p>
+                    <p className="text-xs text-gray-500 mt-1">{ui.scoreWrong}</p>
+                </div>
+                <div>
+                    <p className="text-3xl font-bold text-indigo-600">{pct}%</p>
+                    <p className="text-xs text-gray-500 mt-1">{ui.scoreLabel}</p>
+                </div>
+            </div>
+
+            {newCardsScheduled > 0 && (
+                <p className="text-sm text-indigo-600">
+                    {newCardsScheduled} new card{newCardsScheduled === 1 ? "" : "s"} added to your schedule
+                </p>
+            )}
+
+            <div className="flex flex-col gap-3 w-full">
+                {incorrect > 0 && (
+                    <button
+                        onClick={onReview}
+                        className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
+                                   rounded-xl py-2.5 text-sm transition-colors"
+                    >
+                        {fmt(ui.reviewMissed, { n: incorrect })}
+                    </button>
+                )}
+                <button
+                    onClick={onRestart}
+                    className="w-full border border-gray-200 text-gray-700 hover:border-indigo-400
+                               font-semibold rounded-xl py-2.5 text-sm transition-colors"
+                >
+                    {ui.startOver}
+                </button>
+            </div>
+        </main>
+    )
+}
 
 function dotColor(i: number, index: number, results: Result[]): string {
     if (i < index) {
@@ -107,7 +167,33 @@ export function FlashcardsPage() {
     const ui = getUI(langId, level)
     const translationMode = getTranslationMode(level)
 
-    const cards = useMemo(() => shuffle(mod?.vocab.filter(v => v.level === level) ?? []), [langId, level])
+    // sessionKey increments on restart to force SRS deck recalculation
+    const [sessionKey, setSessionKey] = useState(0)
+    const [studyAll, setStudyAll] = useState(false)
+
+    const allVocab = useMemo(
+        () => mod?.vocab.filter(v => v.level === level) ?? [],
+        [langId, level]
+    )
+
+    // SRS deck: due cards first, then unseen new cards
+    const { due, newCards: newCardIds } = useMemo(
+        () => getDueCards(langId, allVocab.map(v => v.id)),
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [langId, allVocab, sessionKey]
+    )
+
+    const srsDeck = useMemo(() => {
+        const dueItems = due
+            .map(id => allVocab.find(v => v.id === id))
+            .filter((v): v is VocabItem => !!v)
+        const newItems = newCardIds
+            .map(id => allVocab.find(v => v.id === id))
+            .filter((v): v is VocabItem => !!v)
+        return [...dueItems, ...newItems]
+    }, [due, newCardIds, allVocab])
+
+    const shuffleDeck = useMemo(() => shuffle(allVocab), [allVocab, sessionKey]) // eslint-disable-line react-hooks/exhaustive-deps
 
     const [index, setIndex] = useState(0)
     const [flipped, setFlipped] = useState(false)
@@ -120,9 +206,15 @@ export function FlashcardsPage() {
 
     if (!language || !mod) return null
 
-    const deck = reviewMode ? reviewCards : cards
+    function activeDeck(): VocabItem[] {
+        if (reviewMode) return reviewCards
+        if (studyAll) return shuffleDeck
+        return srsDeck
+    }
+    const deck = activeDeck()
 
-    if (cards.length === 0) {
+    // No vocabulary at this level yet
+    if (allVocab.length === 0) {
         return (
             <div className="min-h-screen bg-gray-50">
                 <NavBar title={ui.sectionFlashcards} level={level} backTo="back" />
@@ -134,7 +226,41 @@ export function FlashcardsPage() {
         )
     }
 
+    // All caught up — no cards due and not in studyAll mode
+    if (srsDeck.length === 0 && !studyAll && !reviewMode) {
+        const nextMs = getNextDueDate(langId)
+        const nextStr = nextMs
+            ? new Date(nextMs).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" })
+            : null
+
+        return (
+            <div className="min-h-screen bg-gray-50">
+                <NavBar title={ui.sectionFlashcards} level={level} backTo="back" />
+                <main className="max-w-sm mx-auto px-4 py-16 flex flex-col items-center gap-5 text-center">
+                    <p className="text-5xl">✅</p>
+                    <h2 className="text-2xl font-bold text-gray-900">All caught up!</h2>
+                    <p className="text-gray-500 text-sm">No cards due today.</p>
+                    {nextStr && (
+                        <p className="text-gray-400 text-xs">Next review: {nextStr}</p>
+                    )}
+                    <button
+                        onClick={() => setStudyAll(true)}
+                        className="mt-4 w-full border border-gray-200 text-gray-600 hover:border-indigo-400
+                                   font-semibold rounded-xl py-3 text-sm transition-colors"
+                    >
+                        Study all {allVocab.length} cards anyway
+                    </button>
+                </main>
+            </div>
+        )
+    }
+
     function handleResult(r: Result) {
+        // Persist SRS rating (skip in review mode and studyAll mode)
+        if (!reviewMode && !studyAll) {
+            updateCard(langId, deck[index].id, r === "correct" ? 4 : 1)
+        }
+
         const newResults = [...results, r]
         setResults(newResults)
         setFlipped(false)
@@ -162,6 +288,8 @@ export function FlashcardsPage() {
     }
 
     function restart() {
+        setSessionKey(k => k + 1)
+        setStudyAll(false)
         setIndex(0)
         setResults([])
         setFlipped(false)
@@ -175,49 +303,21 @@ export function FlashcardsPage() {
         const correct = results.filter(r => r === "correct").length
         const incorrect = results.filter(r => r === "incorrect").length
         const pct = Math.round((correct / deck.length) * 100)
+        const newCardsScheduled = reviewMode || studyAll ? 0 : newCardIds.length
 
         return (
             <div className="min-h-screen bg-gray-50">
                 <NavBar title={ui.sectionFlashcards} level={level} backTo="back" />
-                <main className="max-w-sm mx-auto px-4 py-12 flex flex-col items-center gap-6 text-center">
-                    <div className="text-5xl">{pct >= 80 ? "🎉" : "💪"}</div>
-                    <h2 className="text-2xl font-bold text-gray-900">
-                        {reviewMode ? ui.reviewComplete : ui.roundComplete}
-                    </h2>
-                    <div className="bg-white rounded-2xl border border-gray-200 p-5 w-full flex justify-around">
-                        <div>
-                            <p className="text-3xl font-bold text-green-600">{correct}</p>
-                            <p className="text-xs text-gray-500 mt-1">{ui.scoreCorrect}</p>
-                        </div>
-                        <div>
-                            <p className="text-3xl font-bold text-red-500">{incorrect}</p>
-                            <p className="text-xs text-gray-500 mt-1">{ui.scoreWrong}</p>
-                        </div>
-                        <div>
-                            <p className="text-3xl font-bold text-indigo-600">{pct}%</p>
-                            <p className="text-xs text-gray-500 mt-1">{ui.scoreLabel}</p>
-                        </div>
-                    </div>
-
-                    <div className="flex flex-col gap-3 w-full">
-                        {incorrect > 0 && (
-                            <button
-                                onClick={startReview}
-                                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
-                                           rounded-xl py-2.5 text-sm transition-colors"
-                            >
-                                {fmt(ui.reviewMissed, { n: incorrect })}
-                            </button>
-                        )}
-                        <button
-                            onClick={restart}
-                            className="w-full border border-gray-200 text-gray-700 hover:border-indigo-400
-                                       font-semibold rounded-xl py-2.5 text-sm transition-colors"
-                        >
-                            {ui.startOver}
-                        </button>
-                    </div>
-                </main>
+                <ResultsScreen
+                    correct={correct}
+                    incorrect={incorrect}
+                    pct={pct}
+                    newCardsScheduled={newCardsScheduled}
+                    reviewMode={reviewMode}
+                    ui={ui}
+                    onReview={startReview}
+                    onRestart={restart}
+                />
             </div>
         )
     }
@@ -246,7 +346,7 @@ export function FlashcardsPage() {
                 <FlipCard
                     item={card}
                     flipped={flipped}
-                    onClick={() => !flipped && setFlipped(true)}
+                    onClick={flipped ? undefined : () => setFlipped(true)}
                     translationMode={translationMode}
                     translationShown={translationShown}
                     ui={ui}

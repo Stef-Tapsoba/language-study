@@ -4,6 +4,16 @@ export type CEFRLevel = "A1" | "A2" | "B1" | "B2" | "C1"
 
 export const CEFR_LEVELS: CEFRLevel[] = ["A1", "A2", "B1", "B2", "C1"]
 
+// ---------------------------------------------------------------------------
+// Spaced Repetition (SM-2) — per-card scheduling state
+// ---------------------------------------------------------------------------
+export interface SRSCardState {
+    nextReviewDate: number  // ms timestamp; 0 = new card (always due)
+    interval: number        // days until next review
+    easeFactor: number      // SM-2 ease factor, starts at 2.5
+    repetitions: number     // consecutive successful reviews
+}
+
 export type ScriptType = "latin" | "hiragana-kanji" | "hangul"
 
 export interface Language {
