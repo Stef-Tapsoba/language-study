@@ -1,13 +1,6 @@
 // components/SpeakButton.tsx
 import { useState } from "react"
-
-const LANG_MAP: Record<string, string> = {
-    es: "es-ES",
-    fr: "fr-FR",
-    it: "it-IT",
-    ja: "ja-JP",
-    ko: "ko-KR",
-}
+import { TTS_LANG_MAP } from "../utils/tts"
 
 interface SpeakButtonProps {
     text: string
@@ -24,7 +17,7 @@ export function SpeakButton({ text, langId, className = "" }: SpeakButtonProps) 
         e.stopPropagation()
         window.speechSynthesis.cancel()
         const utt = new SpeechSynthesisUtterance(text)
-        utt.lang = LANG_MAP[langId] ?? langId
+        utt.lang = TTS_LANG_MAP[langId] ?? langId
         utt.rate = 0.9
         utt.onstart = () => setSpeaking(true)
         utt.onend = () => setSpeaking(false)

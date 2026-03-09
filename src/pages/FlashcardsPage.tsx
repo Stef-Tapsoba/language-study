@@ -1,5 +1,5 @@
 // pages/FlashcardsPage.tsx
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
@@ -7,8 +7,10 @@ import { getCurrentLevel } from "../store/progress"
 import { getDueCards, updateCard, getNextDueDate } from "../store/srs"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
+import { SpeakButton } from "../components/SpeakButton"
 import { VocabItem } from "../types"
 import { getUI, fmt, UIStrings } from "../i18n"
+import { speak } from "../utils/tts"
 
 const FLIP_MS = 450
 
@@ -97,13 +99,14 @@ function dotColor(i: number, index: number, results: Result[]): string {
     return "bg-gray-200"
 }
 
-function FlipCard({ item, flipped, onClick, translationMode, translationShown, ui }: Readonly<{
+function FlipCard({ item, flipped, onClick, translationMode, translationShown, ui, langId }: Readonly<{
     item: VocabItem
     flipped: boolean
-    onClick: () => void
+    onClick: (() => void) | undefined
     translationMode: TranslationMode
     translationShown: boolean
     ui: UIStrings
+    langId: string
 }>) {
     return (
         <button
@@ -116,7 +119,10 @@ function FlipCard({ item, flipped, onClick, translationMode, translationShown, u
                 {/* Front */}
                 <div className="card-face absolute inset-0 bg-white rounded-2xl border-2 border-gray-200
                                 flex flex-col items-center justify-center gap-2 p-6 shadow-md">
-                    <p className="text-3xl font-bold text-gray-900 text-center">{item.word}</p>
+                    <div className="flex items-center justify-center gap-2">
+                        <p className="text-3xl font-bold text-gray-900 text-center">{item.word}</p>
+                        <SpeakButton text={item.word} langId={langId} />
+                    </div>
                     {item.romanized && (
                         <p className="text-sm text-indigo-500">{item.romanized}</p>
                     )}
@@ -133,7 +139,7 @@ function FlipCard({ item, flipped, onClick, translationMode, translationShown, u
                     )}
 
                     {/* Example sentence — always shown */}
-                    <div className="bg-white rounded-xl px-4 py-2 text-center">
+                    <div className="bg-white rounded-xl px-4 py-2 text-center relative">
                         <p className="text-sm text-gray-700">{item.example.native}</p>
                         {item.example.romanized && (
                             <p className="text-xs text-indigo-400 mt-0.5">{item.example.romanized}</p>
@@ -142,6 +148,7 @@ function FlipCard({ item, flipped, onClick, translationMode, translationShown, u
                         {translationMode !== "hidden" && (
                             <p className="text-xs text-gray-400 mt-0.5">{item.example.translation}</p>
                         )}
+                        <SpeakButton text={item.example.native} langId={langId} className="absolute top-1 right-1" />
                     </div>
 
                     {/* B1: translation secondary, below example */}
@@ -204,14 +211,28 @@ export function FlashcardsPage() {
     const [reviewCards, setReviewCards] = useState<VocabItem[]>([])
     const [translationShown, setTranslationShown] = useState(false)
 
-    if (!language || !mod) return null
-
-    function activeDeck(): VocabItem[] {
+    const deck = useMemo(() => {
         if (reviewMode) return reviewCards
         if (studyAll) return shuffleDeck
         return srsDeck
-    }
-    const deck = activeDeck()
+    }, [reviewMode, reviewCards, studyAll, shuffleDeck, srsDeck])
+
+    // Auto-play word when a new card appears
+    useEffect(() => {
+        if (deck.length === 0) return
+        speak(deck[index].word, langId)
+    }, [index, deck]) // eslint-disable-line react-hooks/exhaustive-deps
+
+    // Auto-play example sentence when the card is flipped
+    useEffect(() => {
+        if (!flipped || deck.length === 0) return
+        speak(deck[index].example.native, langId)
+    }, [flipped]) // eslint-disable-line react-hooks/exhaustive-deps
+
+    // Cancel any ongoing speech when leaving the page
+    useEffect(() => () => { globalThis.speechSynthesis?.cancel() }, [])
+
+    if (!language || !mod) return null
 
     // No vocabulary at this level yet
     if (allVocab.length === 0) {
@@ -350,6 +371,7 @@ export function FlashcardsPage() {
                     translationMode={translationMode}
                     translationShown={translationShown}
                     ui={ui}
+                    langId={langId}
                 />
 
                 {/* B2+ translation toggle — shown after flip */}
