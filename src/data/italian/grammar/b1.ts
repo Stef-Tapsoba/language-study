@@ -73,5 +73,20 @@ export const b1Grammar: GrammarLesson[] = [
             { native: "Dove sarà la mia chiave? (probability)", translation: "Where could my key be? (I wonder where it is)" },
             { native: "Se avrò tempo, verrò da te.", translation: "If I have time, I'll come to see you." }
         ]
+    },
+    {
+        id: "it-g-b1-6",
+        level: "B1",
+        title: "Il Passato Remoto",
+        explanation: {
+            native: "The passato remoto describes completed actions set in a distant or historical past. Regular formation: -are verbs → -ai, -asti, -ò, -ammo, -aste, -arono (e.g. parlai). -ere verbs → -ei/-etti, -esti, -é/-ette, -emmo, -este, -erono/-ettero (e.g. credei). -ire verbs → -ii, -isti, -ì, -immo, -iste, -irono (e.g. partii). Many common verbs are irregular (essere → fui, avere → ebbi, fare → feci). In Northern Italy the passato prossimo is used for all past; the passato remoto is more common in the South and in writing.",
+            target: "Il passato remoto descrive azioni concluse in un passato lontano o storico. Coniugazione regolare: verbi in -are → -ai, -asti, -ò, -ammo, -aste, -arono (es. parlai). Verbi in -ere → -ei/-etti, -esti, -é/-ette, -emmo, -este, -erono/-ettero (es. credei). Verbi in -ire → -ii, -isti, -ì, -immo, -iste, -irono (es. partii). Molti verbi comuni sono irregolari (essere → fui, avere → ebbi, fare → feci). Al Nord si usa il passato prossimo per il passato in generale; al Sud e nella scrittura il passato remoto è più diffuso."
+        },
+        examples: [
+            { native: "Dante nacque a Firenze nel 1265.", translation: "Dante was born in Florence in 1265." },
+            { native: "Cristoforo Colombo scoprì l'America nel 1492.", translation: "Christopher Columbus discovered America in 1492." },
+            { native: "Ieri sera mangiai una pizza deliziosa.", translation: "Last night I ate a delicious pizza. (Southern/written style)" },
+            { native: "I Romani costruirono strade in tutta Europa.", translation: "The Romans built roads all over Europe." },
+        ]
     }
 ]
