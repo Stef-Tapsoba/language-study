@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom"
 import { LevelBadge } from "./LevelBadge"
 import { LanguagePicker } from "./LanguagePicker"
 import { CEFRLevel } from "../types"
+import { getGlobalStreak } from "../store/stats"
 
 interface NavBarProps {
     title?: string
@@ -20,6 +21,7 @@ interface NavBarProps {
 
 export function NavBar({ title = "Language Study", level, backTo, onBack, showLanguagePicker }: Readonly<NavBarProps>) {
     const navigate = useNavigate()
+    const streak = getGlobalStreak()
 
     function handleBack() {
         if (onBack) { onBack(); return }
@@ -49,6 +51,12 @@ export function NavBar({ title = "Language Study", level, backTo, onBack, showLa
                 {showLanguagePicker && <LanguagePicker />}
 
                 {level && <LevelBadge level={level} />}
+
+                {streak > 0 && (
+                    <span className="text-xs font-semibold text-orange-500 bg-orange-50 rounded-full px-2 py-0.5 shrink-0">
+                        🔥 {streak}d
+                    </span>
+                )}
 
                 <Link
                     to="/profile"

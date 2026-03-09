@@ -14,6 +14,7 @@ import {
     removeLanguage,
 } from "../store/progress"
 import { resetSRS } from "../store/srs"
+import { getGlobalStreak, resetStats } from "../store/stats"
 import { NavBar } from "../components/NavBar"
 import { Flag } from "../components/Flag"
 import { LevelBadge } from "../components/LevelBadge"
@@ -87,6 +88,7 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
         if (!confirm(`Reset all progress for ${lang!.name}? Your level will return to A1.`)) return
         resetLanguageProgress(langId)
         resetSRS(langId)
+        resetStats(langId)
         setManageOpen(false)
         onChanged()
     }
@@ -209,6 +211,7 @@ export function ProfilePage() {
         const lvl = getCurrentLevel(id)
         return order.indexOf(lvl) > order.indexOf(best) ? lvl : best
     }, "A1")
+    const streak = getGlobalStreak()
 
     function onChanged() { setTick(t => t + 1) }
 
@@ -237,11 +240,12 @@ export function ProfilePage() {
 
                 {/* ── Stats strip ── */}
                 {startedIds.length > 0 && (
-                    <div className="grid grid-cols-3 gap-3">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                         {[
                             { value: totalDone, label: "items learned" },
                             { value: startedIds.length, label: "languages" },
                             { value: highestLevel, label: "top level" },
+                            { value: streak > 0 ? `${streak}d` : "—", label: "streak 🔥" },
                         ].map(({ value, label }) => (
                             <div key={label} className="bg-white rounded-2xl border border-gray-200 p-4 text-center">
                                 <p className="text-2xl font-bold text-indigo-600">{value}</p>
