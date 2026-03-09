@@ -1,6 +1,6 @@
 # language-study — Implementation Plan
 
-*Last updated: March 6, 2026*
+*Last updated: March 9, 2026 — v2.0.0*
 
 ## Context
 
@@ -64,13 +64,16 @@ language-study/
     │   ├── ProtectedRoute.tsx
     │   └── mockAuthApi.ts
     ├── store/
-    │   └── progress.ts                 ← localStorage progress (incl. masteredUnits)
+    │   ├── progress.ts                 ← localStorage progress (incl. masteredUnits)
+    │   ├── srs.ts                      ← SM-2 card state + scheduling (ls:srs)
+    │   └── stats.ts                    ← Daily review history + global streak (ls:stats)
     ├── i18n/                           ← UI shell string translations (✅ implemented)
     │   ├── strings.ts                  ← UIStrings interface (~65 keys)
     │   ├── en.ts                       ← default English strings
     │   ├── es.ts, fr.ts, it.ts, ja.ts, ko.ts  ← target language UI strings
     │   └── index.ts                    ← getUI(langId, level) + fmt()
     ├── utils/
+    │   ├── tts.ts                      ← speak() + TTS_LANG_MAP (Web Speech API)
     │   └── localizedText.ts            ← toLocalized(), resolveDisplay(), resolvePrimary()
     ├── data/
     │   ├── languages.ts                ← language registry (id, name, nativeName, script)
@@ -104,7 +107,7 @@ language-study/
         ├── RegisterPage.tsx
         ├── HomePage.tsx                ← returning user dashboard + language picker
         ├── LanguageSelectPage.tsx
-        ├── DashboardPage.tsx           ← 4 tabs: Path / Study / Practice / Test
+        ├── DashboardPage.tsx           ← 5 tabs: Path / Study / Practice / Test / Stats
         ├── PlacementPage.tsx
         ├── UnitPage.tsx                ← grammar/vocab/verbs tabs + mini-test
         ├── GrammarPage.tsx
@@ -367,13 +370,13 @@ See `CONTENT_RESTRUCTURE_PLAN.md` for the full per-language curriculum breakdown
 
 | Language | A1 Grammar | A1 Vocab | A1 Verbs | A1 Units | Reading | Listening |
 |---|---|---|---|---|---|---|
-| Spanish | 12 | 158 | 7 | 14 | ✅ A1+A2 (9 passages) | ✅ A1+A2 (8 exercises) |
-| Korean | 12 | 150 | 8 | 12 | — | — |
-| French | 13 | 173 | 7 | 15 | — | — |
-| Italian | 13 | 152 | 7 | 15 | — | — |
-| Japanese | 14 | 150 | 8 | 15 | — | — |
+| Spanish | 12 | 158 | 7 | 14 | ✅ A1+A2 | ✅ A1+A2 |
+| Korean | 12 | 150 | 8 | 12 | ✅ A1+A2 | ✅ A1+A2 |
+| French | 13 | 173 | 7 | 15 | ✅ A1+A2 | ✅ A1+A2 |
+| Italian | 13 | 152 | 7 | 15 | ✅ A1+A2 | ✅ A1+A2 |
+| Japanese | 14 | 150 | 8 | 15 | ✅ A1+A2 | ✅ A1+A2 |
 
-All 5 languages are fully restructured with complete A1/A2/B1 content. Reading/Listening content for non-Spanish languages is the main remaining gap.
+All 5 languages are fully restructured with complete A1/A2/B1 content and A1/A2 reading/listening passages.
 
 ---
 
@@ -404,10 +407,13 @@ Alternative entry to grammar lessons: present examples → user hypothesises the
 ✅ Phase 1  — Core engine: unit progression, all 5 languages restructured, immersion progression
 ✅ Phase 2  — CE + CO: ReadingPage + ListeningPage + Spanish proof-of-concept content
              NavBar LanguagePicker, ProfilePage redesign, Flag CDN images, tab persistence
-Phase 3     — CE + CO content for French/Italian/Japanese/Korean
-             Cognitive reinforcement: spaced retrieval quizzes, weekly free recall
+✅ v2.0.0   — SRS/SM-2 flashcards, TTS (Web Speech API), study statistics + global streak,
+             CE+CO content for all 5 languages, standardised file headers
+Phase 3     — Cognitive reinforcement: spaced retrieval quizzes, weekly free recall
+             Typing/active-recall exercises
 Phase 4     — EO + EE: speaking prompts + writing tasks (self-assessed)
 Phase 5     — Pattern Discovery mode
+Phase 6     — Real backend (Postgres + API); progress export; dark mode
 ```
 
 ---

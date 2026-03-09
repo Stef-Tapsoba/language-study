@@ -1,6 +1,6 @@
-# language-study
+# language-study — v2.0.0
 
-A bare-bones language-learning prototype — think Duolingo without the gamification. Built with React + TypeScript + Tailwind CSS, backed entirely by `localStorage` for the prototype phase. Consumes shared packages from `../packages/`.
+A structured language-learning prototype — think Duolingo without the gamification. Built for durable mastery with spaced repetition, progressive immersion, and study analytics. React + TypeScript + Tailwind CSS, backed entirely by `localStorage`. Consumes shared packages from `../packages/`.
 
 ---
 
@@ -9,15 +9,22 @@ A bare-bones language-learning prototype — think Duolingo without the gamifica
 - **Auth** — register / sign in with email and password (mock, localStorage-backed)
 - **Language selection** — Spanish, French, Italian, Japanese, Korean
 - **Placement test** — 10-question adaptive quiz that suggests a CEFR starting level, or pick manually
-- **Grammar** — expandable lesson cards with explanations and examples; mark lessons complete
+- **Unit-based progression** — ordered lesson units per level; each unit groups grammar + vocab + verbs + a mini-test; later units unlock as earlier ones are mastered
+- **Grammar** — expandable lesson cards; immersion-aware explanations shift from English → bilingual → target-only as level advances
 - **Vocabulary** — word cards with example sentences; filter by all / todo / done
 - **Verbs** — collapsible conjugation tables grouped by tense; romanized column for Japanese/Korean
-- **Flashcard drill** — flip cards with Got it / Not yet split; missed cards reviewed in a second round
-- **Verb drill** — fill-in-the-blank conjugation quiz generated from the current level's verb pool
-- **Grammar drill** — pick the native sentence matching an English prompt
+- **Reading (CE)** — graded passages with vocab glosses and comprehension questions (Spanish A1/A2; all languages scaffolded)
+- **Listening (CO)** — TTS-driven exercises with transcript and comprehension questions (Spanish A1/A2; all languages scaffolded)
+- **Flashcards (SRS)** — 3D flip cards with SM-2 spaced-repetition scheduling; 10 new cards/day; due-count badge on dashboard; auto-play TTS on card appear + flip
+- **Verb drill** — fill-in-the-blank conjugation quiz with same-tense distractors
+- **Grammar drill** — pick the native sentence matching an English prompt with same-lesson distractors
 - **Level test** — 15 questions; pass 12/15 (80%) to advance to the next CEFR level
-- **Profile page** — per-language progress overview with level badge and reset option
-- **Progress persistence** — level and completed lessons stored in `localStorage`
+- **Study statistics** — global streak chip in NavBar; 14-day review bar chart per language; accuracy tracking
+- **TTS** — Web Speech API speaker buttons on vocab, verbs, flashcards, reading, and listening pages
+- **LanguagePicker** — in-nav language switcher with per-language level badge and progress
+- **Profile page** — per-language progress breakdown, global streak, reset/remove per language
+- **Immersion progression** — UI shell, grammar explanations, and unit descriptions switch to the target language at A2+
+- **Progress persistence** — level, completed lessons, mastered units, SRS card state, and review history all stored in `localStorage`
 - **Responsive** — single-column on mobile, expands on tablet/desktop
 
 ---
@@ -36,15 +43,15 @@ A bare-bones language-learning prototype — think Duolingo without the gamifica
 
 ## Content depth
 
-Each language has grammar lessons, vocab items, verbs with full conjugation tables, 10 placement questions (2 per CEFR level), and 15 level-test questions per level.
+Each language has grammar lessons, vocab items, verbs with full conjugation tables, placement questions, and level-test questions at A1/A2/B1.
 
-| Language | A1 | A2 | B1 |
-|---|---|---|---|
-| Spanish | 6 grammar, 10 vocab, 4 verbs | 5 grammar, 10 vocab, 4 verbs | 5 grammar, 10 vocab, 4 verbs |
-| French | 5 grammar, 12 vocab, 5 verbs | 5 grammar, 12 vocab, 5 verbs | 5 grammar, 10 vocab, 4 verbs |
-| Italian | 4 grammar, 10 vocab, 4 verbs | 4 grammar, 10 vocab, 4 verbs | 5 grammar, 10 vocab, 4 verbs |
-| Japanese | 4 grammar, 10 vocab, 4 verbs | 4 grammar, 10 vocab, 4 verbs | 4 grammar, 10 vocab, 4 verbs |
-| Korean | 4 grammar, 10 vocab, 4 verbs | 4 grammar, 10 vocab, 4 verbs | 4 grammar, 10 vocab, 4 verbs |
+| Language | A1 vocab | A1 verbs | A1 units | Reading | Listening |
+|---|---|---|---|---|---|
+| Spanish | 158 | 7 | 14 | ✅ A1+A2 | ✅ A1+A2 |
+| French | 173 | 7 | 15 | ✅ A1+A2 | ✅ A1+A2 |
+| Italian | 152 | 7 | 15 | ✅ A1+A2 | ✅ A1+A2 |
+| Japanese | 150 | 8 | 15 | ✅ A1+A2 | ✅ A1+A2 |
+| Korean | 150 | 8 | 12 | ✅ A1+A2 | ✅ A1+A2 |
 
 Japanese and Korean include `romanized` fields on all content (words, examples, conjugation forms).
 
@@ -73,53 +80,19 @@ npm run preview    # serve the dist/ build locally
 
 ```
 language-study/
-├── index.html
-├── package.json
 ├── vite.config.ts          ← @myorg/* aliases → ../packages/*/src
-├── tsconfig.json
-├── tailwind.config.ts
-├── postcss.config.js
 └── src/
-    ├── main.tsx            ← React root
-    ├── App.tsx             ← Router + AuthProvider
-    ├── index.css           ← Tailwind directives + 3D flip classes
-    ├── types/
-    │   └── index.ts        ← CEFRLevel, Language, GrammarLesson, VocabItem, Verb, …
-    ├── auth/
-    │   ├── AuthContext.tsx     ← AuthService wired to LocalStorageAdapter
-    │   ├── ProtectedRoute.tsx  ← Redirects to /login if no session
-    │   └── mockAuthApi.ts      ← AuthApi backed by ls:users in localStorage
-    ├── store/
-    │   └── progress.ts         ← Read/write UserProgress (level, completed lessons)
+    ├── types/              ← shared TypeScript types (CEFRLevel, Language, VocabItem, …)
+    ├── auth/               ← AuthContext, ProtectedRoute, mockAuthApi
+    ├── store/              ← localStorage state: progress, srs, stats
+    ├── utils/              ← tts.ts (Web Speech API), localizedText.ts (immersion helpers)
+    ├── i18n/               ← UI strings for en + 5 target languages; getUI(langId, level)
     ├── data/
-    │   ├── languages.ts        ← Language registry (id, name, flag, script)
-    │   ├── modules.ts          ← getModule(langId) → LanguageModule
-    │   ├── spanish/index.ts
-    │   ├── french/index.ts
-    │   ├── italian/index.ts
-    │   ├── japanese/index.ts   ← includes romanized fields
-    │   └── korean/index.ts     ← includes romanized fields
-    ├── components/
-    │   ├── NavBar.tsx          ← Sticky top nav with back button + sign out
-    │   ├── LevelBadge.tsx      ← Colour-coded CEFR badge
-    │   ├── QuizCard.tsx        ← Multiple-choice card with answer reveal
-    │   └── ProgressBar.tsx     ← Animated progress bar with optional label
-    └── pages/
-        ├── LandingPage.tsx         ← Public marketing page at /
-        ├── LoginPage.tsx
-        ├── RegisterPage.tsx
-        ├── HomePage.tsx            ← Authenticated home (new-user vs returning)
-        ├── LanguageSelectPage.tsx
-        ├── DashboardPage.tsx       ← Per-language hub with section cards
-        ├── PlacementPage.tsx       ← Placement quiz or manual level picker
-        ├── GrammarPage.tsx
-        ├── VocabPage.tsx           ← all / todo / done filter
-        ├── VerbsPage.tsx
-        ├── LevelTestPage.tsx       ← 15 Qs, 12/15 to advance
-        ├── FlashcardsPage.tsx      ← Flip-card active recall drill
-        ├── VerbDrillPage.tsx       ← Conjugation fill-in quiz
-        ├── GrammarDrillPage.tsx    ← Native-sentence matching quiz
-        └── ProfilePage.tsx         ← Progress overview + reset
+    │   ├── languages.ts    ← language registry
+    │   ├── modules.ts      ← getModule(langId) → LanguageModule
+    │   └── <lang>/         ← grammar/, vocab/, verbs/, units/, reading/, listening/, questions/
+    ├── components/         ← NavBar, LanguagePicker, Flag, LevelBadge, QuizCard, SpeakButton, …
+    └── pages/              ← one file per route (Dashboard, Flashcards, VerbDrill, …)
 ```
 
 ---
@@ -135,20 +108,48 @@ language-study/
 | `/languages` | LanguageSelectPage | ✅ |
 | `/learn/:langId` | DashboardPage | ✅ |
 | `/learn/:langId/placement` | PlacementPage | ✅ |
+| `/learn/:langId/units/:unitId` | UnitPage | ✅ |
 | `/learn/:langId/grammar` | GrammarPage | ✅ |
 | `/learn/:langId/vocab` | VocabPage | ✅ |
 | `/learn/:langId/verbs` | VerbsPage | ✅ |
-| `/learn/:langId/level-test` | LevelTestPage | ✅ |
 | `/learn/:langId/flashcards` | FlashcardsPage | ✅ |
 | `/learn/:langId/verb-drill` | VerbDrillPage | ✅ |
 | `/learn/:langId/grammar-drill` | GrammarDrillPage | ✅ |
+| `/learn/:langId/reading` | ReadingPage | ✅ |
+| `/learn/:langId/listening` | ListeningPage | ✅ |
+| `/learn/:langId/culture` | ReadingPage (category="culture") | ✅ |
+| `/learn/:langId/level-test` | LevelTestPage | ✅ |
 | `/profile` | ProfilePage | ✅ |
 
 ---
 
-## Packages used
+## localStorage keys
 
-This app is the first consumer of the local `../packages/` monorepo. Vite aliases resolve them directly from source — no build step required.
+| Key | Contents |
+|---|---|
+| `ls:users` | `StoredUser[]` — registered accounts |
+| `ls:session` | current `Session` (managed by `AuthService`) |
+| `ls:progress` | `UserProgress` — levels, completed lessons, mastered units |
+| `ls:srs` | `Record<langId, Record<vocabId, SRSCardState>>` — SM-2 card state |
+| `ls:stats` | `Record<langId, Record<dateStr, { reviewed, correct }>>` — daily review history |
+
+---
+
+## Happy path
+
+1. Open `/` → **Get Started** → register an account
+2. Pick a language (e.g. Spanish)
+3. Take the placement test → confirm or change the suggested level
+4. Open the **Path** tab → work through units in order (grammar → vocab → verbs → mini-test)
+5. Or use the **Study** tab to browse Grammar / Vocabulary / Verbs / Reading / Listening directly
+6. Open **Practice → Flashcards** — SRS deck auto-plays pronunciation; rate cards as Got it / Not yet
+7. Try **Verb Drill** or **Grammar Drill** from the Practice tab
+8. Open **Level Test** → pass 12/15 to advance to the next CEFR level
+9. Check **Stats** tab → 14-day review bar chart and accuracy; streak shown in NavBar
+
+---
+
+## Packages used
 
 | Package | Used for |
 |---|---|
@@ -160,47 +161,7 @@ This app is the first consumer of the local `../packages/` monorepo. Vite aliase
 
 ---
 
-## Data model
-
-Each language module (`src/data/<lang>/index.ts`) exports a `LanguageModule`:
-
-```typescript
-interface LanguageModule {
-    grammar:            GrammarLesson[]
-    vocab:              VocabItem[]
-    verbs:              Verb[]
-    placementQuestions: PlacementQuestion[]  // 10 total, 2 per CEFR level
-    levelQuestions:     PlacementQuestion[]  // 15 per level for the level test
-}
-```
-
-Japanese and Korean include optional `romanized` fields on examples, words, and conjugation forms.
-
----
-
-## localStorage keys
-
-| Key | Contents |
-|---|---|
-| `ls:users` | `StoredUser[]` — registered accounts |
-| `ls:session` | current `Session` (managed by `AuthService`) |
-| `ls:progress` | `UserProgress` — selected language, levels, completed lessons |
-
----
-
-## Happy path
-
-1. Open `/` (landing page) → click **Get Started** → register an account
-2. Pick a language (e.g. Spanish)
-3. Take the placement test → confirm or change the suggested level
-4. Open **Grammar** → read lessons, mark them complete
-5. Open **Vocabulary** → learn words, filter by todo/done
-6. Open **Verbs** → review conjugation tables
-7. Try a **Flashcard**, **Verb Drill**, or **Grammar Drill** from the Dashboard
-8. Open **Level Test** → answer 15 questions; pass 12/15 to advance
-
----
-
 ## See also
 
-- [IMPLEMENTATION_PROGRESS.md](./IMPLEMENTATION_PROGRESS.md) — feature-by-feature change log with files modified
+- [IMPLEMENTATION_PROGRESS.md](./documents/IMPLEMENTATION_PROGRESS.md) — feature-by-feature change log
+- [PLAN.md](./documents/PLAN.md) — architecture decisions, types, and future plans

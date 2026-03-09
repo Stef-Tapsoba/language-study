@@ -462,3 +462,128 @@ Expanded from 3 to 6 cards in a 2×3 grid:
 
 ### Bug fix
 - `src/pages/GrammarPage.tsx` — `lesson.explanation` is typed as `string | LocalizedText` but was rendered directly in JSX; fixed by importing `resolvePrimary` and rendering `resolvePrimary(lesson.explanation, level)` instead
+
+---
+
+## 26. Reading & Listening Content — French, Italian, Japanese, Korean
+
+Goal: bring all four remaining languages to parity with Spanish for CE/CO modules at A1/A2.
+
+**Files created per language:**
+- `src/data/french/reading/a1.ts`, `a2.ts` — graded passages with vocab glosses + comprehension questions
+- `src/data/french/listening/a1.ts`, `a2.ts` — TTS-ready scripts with translation + questions
+- `src/data/italian/reading/a1.ts`, `a2.ts`
+- `src/data/italian/listening/a1.ts`, `a2.ts`
+- `src/data/japanese/reading/a1.ts`, `a2.ts` — all passages include romanized fields
+- `src/data/japanese/listening/a1.ts`, `a2.ts`
+- `src/data/korean/reading/a1.ts`, `a2.ts` — all passages include romanized (Revised Romanization)
+- `src/data/korean/listening/a1.ts`, `a2.ts`
+
+**Files updated:**
+- `src/data/french/index.ts`, `italian/index.ts`, `japanese/index.ts`, `korean/index.ts` — assemblers updated to import and spread new reading/listening arrays
+
+---
+
+## 27. Spaced Repetition (SRS/SM-2) for Flashcards
+
+Goal: replace random shuffle with a proper spaced-repetition schedule so the flashcard deck prioritises due and new cards.
+
+**Files created:**
+- `src/store/srs.ts` — SM-2 algorithm:
+  - `SRSCardState { nextReviewDate, interval, easeFactor, repetitions }`; persisted in `localStorage["ls:srs"]`
+  - `getDueCards(langId, allVocabIds)` — returns `{ due: string[], newCards: string[] }`; `newCards` capped at `NEW_CARDS_PER_DAY = 10`
+  - `getDueCount(langId, allVocabIds)` — returns `due.length + newCards.length`; used for dashboard badge
+  - `updateCard(langId, vocabId, rating)` — updates SM-2 state (rating 1 = incorrect, 4 = correct)
+  - `getNextDueDate(langId)` — earliest next review timestamp; shown on the "all caught up" screen
+  - `resetSRS(langId)` — deletes all card state for a language
+
+**Files updated:**
+- `src/pages/FlashcardsPage.tsx`:
+  - `deck` selection: SRS deck (due + capped new) by default; "Study all" fallback; review-mode uses missed cards only
+  - `handleResult` — calls `updateCard()` with rating 4 (correct) or 1 (incorrect); skipped in review-mode and study-all
+  - "All caught up" screen shown when SRS deck is empty with next-review date and "Study all anyway" button
+  - `newCardsScheduled` shown in results screen when new cards were introduced
+  - `sessionKey` increments on restart to force SRS deck recalculation
+- `src/pages/DashboardPage.tsx` — `getDueCount()` feeds `badge` prop on the Flashcards `SectionCard`
+- `src/pages/ProfilePage.tsx` — `handleReset` calls `resetSRS(langId)`; `handleRemove` also calls `resetSRS(langId)`
+
+---
+
+## 28. Text-to-Speech (TTS) via Web Speech API
+
+Goal: let learners hear correct pronunciation throughout the app — auto-played on flashcards, manually triggered everywhere else.
+
+**Files created:**
+- `src/utils/tts.ts` — shared helpers:
+  - `TTS_LANG_MAP: Record<string, string>` — maps `langId` to BCP-47 locale (`es→es-ES`, `fr→fr-FR`, `it→it-IT`, `ja→ja-JP`, `ko→ko-KR`)
+  - `speak(text, langId, rate?)` — fires `window.speechSynthesis`; cancels any in-progress speech first; no-ops silently when API unavailable
+
+**Files updated:**
+- `src/components/SpeakButton.tsx` — removed inline `LANG_MAP`; now imports `TTS_LANG_MAP` from `utils/tts`
+- `src/pages/FlashcardsPage.tsx`:
+  - `deck` refactored from inline function to `useMemo` (required for hooks-before-returns ordering)
+  - `useEffect` auto-plays word when `[index, deck]` changes
+  - `useEffect` auto-plays example sentence when `[flipped]` changes
+  - `useEffect` cleanup cancels speech on unmount (`globalThis.speechSynthesis?.cancel()`)
+  - `FlipCard` gets `langId` prop; `SpeakButton` added to word (front face) and example (back face)
+- `src/pages/VocabPage.tsx` — `SpeakButton` added next to word in card header and on example sentence box
+- `src/pages/VerbsPage.tsx` — `SpeakButton` added next to verb infinitive in `VerbCard` header; `langId` prop threaded down from `VerbsPage` to `VerbCard`
+
+---
+
+## 29. Study Statistics
+
+Goal: track flashcard review history and expose a global streak and per-language bar chart.
+
+**Design decisions:**
+- Streak is **global** (any language reviewed that day keeps it alive); not reset when a single language is reset
+- Bar chart is **per-language** (Dashboard Stats tab)
+- Only flashcard ratings are counted (not grammar/verb drills)
+
+**Files created:**
+- `src/store/stats.ts`:
+  - Shape: `Record<langId, Record<dateStr, { reviewed: number; correct: number }>>`; persisted in `localStorage["ls:stats"]`
+  - `recordReview(langId, correct)` — increments today's bucket
+  - `getHistory(langId, days)` — returns last N days padded with zeros (oldest first)
+  - `getGlobalStreak()` — walks back from today across all languages; stops at first day with no activity in any language
+  - `getTotalReviews(langId)` — all-time review count for a language
+  - `resetStats(langId)` — clears per-language history; global streak unaffected since it aggregates all remaining languages
+
+**Files updated:**
+- `src/pages/FlashcardsPage.tsx` — `handleResult` calls `recordReview(langId, r === "correct")` for every rating (SRS, review-mode, and study-all)
+- `src/components/NavBar.tsx` — calls `getGlobalStreak()` on each render; renders `🔥 Nd` chip between level badge and profile icon when streak > 0
+- `src/pages/DashboardPage.tsx`:
+  - `DashTab` type extended to include `"stats"`
+  - New `StatsTab` component: 2-chip summary row (reviews 14d, accuracy 14d) + CSS-only 14-day bar chart with Monday labels; "Complete a flashcard session" empty state
+  - `StatChip` helper component for numeric summary tiles
+  - "Stats" added to the tab array
+- `src/pages/ProfilePage.tsx`:
+  - Stats strip expanded from 3 to 4 chips (2×2 mobile / 4-wide desktop); 4th chip shows `Nd` streak or `—`
+  - `handleReset` calls `resetStats(langId)` (clears bar chart data; global streak intact)
+  - `handleRemove` calls `resetSRS(langId)` and `resetStats(langId)` (previously omitted)
+
+---
+
+## 30. File Header Standardisation
+
+Goal: every source file opens with a single-line comment showing its path relative to `src/` and a short description of its purpose.
+
+**Format:** `// path/relative/to/src — short description`
+
+**Files updated:** all 31 non-data code files (`App.tsx`, `main.tsx`, all `auth/`, `store/`, `utils/`, `i18n/`, `data/` meta, `pages/`, and `components/` files). Language content data files (`data/spanish/`, etc.) left unchanged — path already self-documents them.
+
+**Changes applied per file:**
+- Path-only headers → description added
+- Two-line headers (path + description on separate lines) → collapsed to single line
+- `src/` prefix on path → stripped (e.g. `// src/store/stats.ts` → `// store/stats.ts`)
+
+---
+
+## 31. v2.0.0 Release
+
+**Files updated:**
+- `package.json` — version bumped `0.1.0` → `2.0.0`
+
+**v2 features shipped:** SRS/SM-2 flashcards, TTS (Web Speech API), study statistics + global streak, reading/listening content for all 5 languages, standardised file headers.
+
+**Deferred to v3:** typing/active-recall exercises, real backend (Postgres + API), progress export (JSON), keyboard shortcuts in drills, dark mode, B2+ content expansion.
