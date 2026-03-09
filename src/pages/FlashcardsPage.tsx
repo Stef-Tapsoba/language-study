@@ -1,4 +1,4 @@
-// pages/FlashcardsPage.tsx
+// pages/FlashcardsPage.tsx — SRS flashcard session with SM-2 scheduling, 3-D flip, and TTS auto-play
 import { useState, useMemo, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"

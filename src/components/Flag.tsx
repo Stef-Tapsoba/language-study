@@ -1,6 +1,4 @@
-// components/Flag.tsx
-// Renders a real flag image instead of emoji (emoji flags don't render on Windows).
-// Uses flagcdn.com which serves optimised PNG flags by ISO 3166-1 alpha-2 code.
+// components/Flag.tsx — Country flag image component (avoids emoji flags which don't render on Windows)
 
 const LANG_TO_COUNTRY: Record<string, string> = {
     es: "es",  // Spain

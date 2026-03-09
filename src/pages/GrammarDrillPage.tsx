@@ -1,4 +1,4 @@
-// pages/GrammarDrillPage.tsx
+// pages/GrammarDrillPage.tsx — Multiple-choice grammar practice drill
 //
 // A1/A2: Show the English meaning → pick the correct target-language sentence.
 // B1+:   Show the target-language sentence → pick the correct English meaning.

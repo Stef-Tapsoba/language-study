@@ -1,4 +1,4 @@
-// pages/ListeningPage.tsx
+// pages/ListeningPage.tsx — Listening exercise browser with TTS playback
 import { useState } from "react"
 import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"

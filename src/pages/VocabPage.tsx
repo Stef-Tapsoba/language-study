@@ -1,4 +1,4 @@
-// pages/VocabPage.tsx
+// pages/VocabPage.tsx — Vocabulary browser with mark-as-learned toggling and todo/done filter
 import { useState } from "react"
 import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"

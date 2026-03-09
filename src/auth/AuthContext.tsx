@@ -1,4 +1,4 @@
-// auth/AuthContext.tsx
+// auth/AuthContext.tsx — Auth session context and useAuth hook
 import React, { createContext, useContext, useEffect, useState } from "react"
 import { AuthService, Session } from "@myorg/auth-core"
 import { LocalStorageAdapter } from "@myorg/storage"

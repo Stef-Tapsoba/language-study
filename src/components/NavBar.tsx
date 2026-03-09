@@ -1,4 +1,4 @@
-// components/NavBar.tsx
+// components/NavBar.tsx — Sticky top navigation bar with back button, level badge, streak chip, and profile link
 import { useNavigate, Link } from "react-router-dom"
 import { LevelBadge } from "./LevelBadge"
 import { LanguagePicker } from "./LanguagePicker"

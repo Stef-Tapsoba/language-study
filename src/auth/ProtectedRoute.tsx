@@ -1,4 +1,4 @@
-// auth/ProtectedRoute.tsx
+// auth/ProtectedRoute.tsx — Route guard that redirects unauthenticated users to /
 import { Navigate, useLocation } from "react-router-dom"
 import { useAuth } from "./AuthContext"
 

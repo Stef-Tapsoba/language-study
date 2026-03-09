@@ -1,4 +1,4 @@
-// components/ProgressBar.tsx
+// components/ProgressBar.tsx — Labelled horizontal progress bar
 interface ProgressBarProps {
     value: number      // 0–100
     className?: string

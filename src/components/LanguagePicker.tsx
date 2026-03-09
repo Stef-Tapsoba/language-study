@@ -1,5 +1,4 @@
-// components/LanguagePicker.tsx
-// Flag button in the NavBar that opens a Duolingo-style horizontal language switcher.
+// components/LanguagePicker.tsx — NavBar flag button that opens a horizontal language-switcher popover
 import { useState, useRef, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { LANGUAGES } from "../data/languages"

@@ -1,4 +1,4 @@
-// src/store/srs.ts — Spaced Repetition System (SM-2 algorithm)
+// store/srs.ts — SM-2 spaced-repetition card state and scheduling (localStorage "ls:srs")
 //
 // Storage shape: Record<langId, Record<vocabId, SRSCardState>>
 // localStorage key: "ls:srs"

@@ -1,4 +1,4 @@
-// src/utils/tts.ts — Web Speech API helpers
+// utils/tts.ts — Web Speech API helpers: speak() and TTS_LANG_MAP
 
 export const TTS_LANG_MAP: Record<string, string> = {
     es: "es-ES",

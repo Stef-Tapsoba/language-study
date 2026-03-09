@@ -1,4 +1,4 @@
-// data/languages.ts
+// data/languages.ts — Static list of supported language metadata (id, name, nativeName, flag)
 import { Language } from "../types"
 
 export const LANGUAGES: Language[] = [

@@ -1,4 +1,4 @@
-// pages/UnitPage.tsx
+// pages/UnitPage.tsx — Guided lesson unit with grammar, vocab, and verb card activities
 import { useState, useMemo } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { getLanguage } from "../data/languages"

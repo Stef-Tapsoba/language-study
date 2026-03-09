@@ -1,4 +1,4 @@
-// pages/PlacementPage.tsx
+// pages/PlacementPage.tsx — CEFR placement quiz to determine the user's starting level
 import { useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { getLanguage } from "../data/languages"

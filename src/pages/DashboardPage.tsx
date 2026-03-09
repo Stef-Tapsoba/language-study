@@ -1,4 +1,4 @@
-// pages/DashboardPage.tsx
+// pages/DashboardPage.tsx — Per-language dashboard with tabbed navigation (Path, Study, Practice, Test, Stats)
 import { useState } from "react"
 import { useParams, useNavigate, useSearchParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"

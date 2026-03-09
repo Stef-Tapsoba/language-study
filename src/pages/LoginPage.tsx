@@ -1,4 +1,4 @@
-// pages/LoginPage.tsx
+// pages/LoginPage.tsx — Email/password login form
 import { useState, FormEvent } from "react"
 import { Link, useNavigate, useLocation } from "react-router-dom"
 import { useAuth } from "../auth/AuthContext"

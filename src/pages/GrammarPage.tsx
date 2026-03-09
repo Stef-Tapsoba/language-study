@@ -1,4 +1,4 @@
-// pages/GrammarPage.tsx
+// pages/GrammarPage.tsx — Grammar lesson browser for the current CEFR level
 import { useState } from "react"
 import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"

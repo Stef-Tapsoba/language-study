@@ -1,4 +1,4 @@
-// pages/VerbDrillPage.tsx
+// pages/VerbDrillPage.tsx — Conjugation fill-in-the-blank drill
 import { useState, useMemo } from "react"
 import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"

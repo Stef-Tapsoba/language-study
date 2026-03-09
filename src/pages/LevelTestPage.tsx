@@ -1,4 +1,4 @@
-// pages/LevelTestPage.tsx
+// pages/LevelTestPage.tsx — CEFR level-advancement test (pass threshold: 12/15)
 import { useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { getLanguage } from "../data/languages"

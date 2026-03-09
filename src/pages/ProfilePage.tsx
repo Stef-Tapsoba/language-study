@@ -1,4 +1,4 @@
-// pages/ProfilePage.tsx
+// pages/ProfilePage.tsx — User profile, per-language progress stats, and account management
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "../auth/AuthContext"

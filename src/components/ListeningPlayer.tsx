@@ -1,5 +1,4 @@
-// components/ListeningPlayer.tsx
-// Full TTS player for listening exercises — play/stop + slow/normal rate.
+// components/ListeningPlayer.tsx — TTS audio player for listening exercises with play/stop and slow/normal rate
 import { useState } from "react"
 import { UIStrings } from "../i18n"
 

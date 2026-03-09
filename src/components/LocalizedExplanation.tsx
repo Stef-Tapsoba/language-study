@@ -1,5 +1,4 @@
-// components/LocalizedExplanation.tsx
-// Renders a grammar explanation (or unit description) with level-aware immersion logic.
+// components/LocalizedExplanation.tsx — Grammar explanation renderer with CEFR-level-aware immersion logic
 //
 // A1  → English only
 // A2  → English + target language below (bilingual, native primary)

@@ -1,5 +1,4 @@
-// store/progress.ts
-// User progress is stored in localStorage under "ls:progress".
+// store/progress.ts — CEFR level, completed lessons, and mastered units (localStorage "ls:progress")
 
 import { CEFRLevel, UserProgress } from "../types"
 

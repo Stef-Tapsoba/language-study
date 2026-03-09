@@ -1,4 +1,4 @@
-// App.tsx
+// App.tsx — Route definitions and top-level app wrapper
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import { AuthProvider } from "./auth/AuthContext"
 import { ProtectedRoute } from "./auth/ProtectedRoute"

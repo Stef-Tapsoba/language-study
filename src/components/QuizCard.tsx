@@ -1,4 +1,4 @@
-// components/QuizCard.tsx
+// components/QuizCard.tsx — Multiple-choice question card with per-option correct/incorrect feedback
 interface QuizCardProps {
     question: string
     options: string[]

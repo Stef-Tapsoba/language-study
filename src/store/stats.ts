@@ -1,4 +1,4 @@
-// src/store/stats.ts — Study history and global streak
+// store/stats.ts — Daily review history and global streak (localStorage "ls:stats")
 
 type DayStats = { reviewed: number; correct: number }
 type StatsStore = Record<string, Record<string, DayStats>>

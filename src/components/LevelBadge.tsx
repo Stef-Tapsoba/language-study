@@ -1,4 +1,4 @@
-// components/LevelBadge.tsx
+// components/LevelBadge.tsx — Coloured CEFR level pill badge (A1–C1)
 import { CEFRLevel } from "../types"
 
 const colours: Record<CEFRLevel, string> = {

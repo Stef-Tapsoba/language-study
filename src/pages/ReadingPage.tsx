@@ -1,4 +1,4 @@
-// pages/ReadingPage.tsx
+// pages/ReadingPage.tsx — Reading passage browser with comprehension questions
 import { useState } from "react"
 import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"

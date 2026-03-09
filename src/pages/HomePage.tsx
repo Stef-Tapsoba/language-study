@@ -1,7 +1,4 @@
-// pages/HomePage.tsx
-// Authenticated home page — two branches:
-//   • New user (no languages started)  → welcome + language picker
-//   • Returning user (has languages)   → personal dashboard w/ language switcher in nav
+// pages/HomePage.tsx — Authenticated home: new-user language-select branch vs returning-user language list
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "../auth/AuthContext"
 import { getUserById } from "../auth/mockAuthApi"

@@ -1,4 +1,4 @@
-// pages/LanguageSelectPage.tsx
+// pages/LanguageSelectPage.tsx — Language selection screen for new users
 import { useNavigate } from "react-router-dom"
 import { LANGUAGES } from "../data/languages"
 import { setSelectedLanguage, getSelectedLanguage, getStartedLanguages } from "../store/progress"

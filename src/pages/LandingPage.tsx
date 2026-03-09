@@ -1,5 +1,4 @@
-// pages/LandingPage.tsx
-// Public marketing page. Authenticated users are redirected to /home.
+// pages/LandingPage.tsx — Public marketing/landing page; authenticated users are redirected to /home
 import { Link, Navigate } from "react-router-dom"
 import { useAuth } from "../auth/AuthContext"
 

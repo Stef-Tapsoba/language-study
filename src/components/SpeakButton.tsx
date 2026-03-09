@@ -1,4 +1,4 @@
-// components/SpeakButton.tsx
+// components/SpeakButton.tsx — Inline speaker icon button that plays text via Web Speech API
 import { useState } from "react"
 import { TTS_LANG_MAP } from "../utils/tts"
 

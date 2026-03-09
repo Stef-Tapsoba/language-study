@@ -1,4 +1,4 @@
-// pages/VerbsPage.tsx
+// pages/VerbsPage.tsx — Verb conjugation reference with collapsible tense tables
 import { useParams } from "react-router-dom"
 import { useState } from "react"
 import { getLanguage } from "../data/languages"
