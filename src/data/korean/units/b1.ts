@@ -10,7 +10,7 @@ export const b1Units: LessonUnit[] = [
         title: "Conditionals: ~(으)면",
         description: "Express 'if' and 'when' conditions",
         grammarIds: ["ko-g-b1-1"],
-        vocabIds: ["ko-v-b1-3", "ko-v-b1-8"],
+        vocabIds: ["ko-v-b1-003", "ko-v-b1-008", "ko-v-b1-035", "ko-v-b1-036", "ko-v-b1-037", "ko-v-b1-038"],
         verbIds: ["ko-vb-b1-1"],
         testQuestions: [
             {
@@ -52,7 +52,7 @@ export const b1Units: LessonUnit[] = [
         title: "Because & So: ~아/어서",
         description: "Link cause and effect or sequential actions",
         grammarIds: ["ko-g-b1-2"],
-        vocabIds: ["ko-v-b1-6", "ko-v-b1-7"],
+        vocabIds: ["ko-v-b1-006", "ko-v-b1-007", "ko-v-b1-018", "ko-v-b1-019", "ko-v-b1-020", "ko-v-b1-021"],
         verbIds: ["ko-vb-b1-3"],
         testQuestions: [
             {
@@ -94,7 +94,7 @@ export const b1Units: LessonUnit[] = [
         title: "Contrast: ~지만",
         description: "Connect two contrasting ideas with 'but'",
         grammarIds: ["ko-g-b1-3"],
-        vocabIds: ["ko-v-b1-1", "ko-v-b1-2"],
+        vocabIds: ["ko-v-b1-001", "ko-v-b1-002", "ko-v-b1-010", "ko-v-b1-012", "ko-v-b1-013", "ko-v-b1-014"],
         verbIds: ["ko-vb-b1-2"],
         testQuestions: [
             {
@@ -136,7 +136,7 @@ export const b1Units: LessonUnit[] = [
         title: "Formal Reason: ~기 때문에",
         description: "Give formal explanations and reasons",
         grammarIds: ["ko-g-b1-4"],
-        vocabIds: ["ko-v-b1-4", "ko-v-b1-5", "ko-v-b1-9", "ko-v-b1-10"],
+        vocabIds: ["ko-v-b1-004", "ko-v-b1-005", "ko-v-b1-009", "ko-v-b1-010", "ko-v-b1-045", "ko-v-b1-050", "ko-v-b1-055", "ko-v-b1-060"],
         verbIds: ["ko-vb-b1-4"],
         testQuestions: [
             {
