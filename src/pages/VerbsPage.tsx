@@ -6,9 +6,10 @@ import { getModule } from "../data/modules"
 import { getCurrentLevel } from "../store/progress"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
+import { SpeakButton } from "../components/SpeakButton"
 import { Verb } from "../types"
 
-function VerbCard({ verb }: { verb: Verb }) {
+function VerbCard({ verb, langId }: Readonly<{ verb: Verb; langId: string }>) {
     const [open, setOpen] = useState(false)
 
     return (
@@ -17,12 +18,13 @@ function VerbCard({ verb }: { verb: Verb }) {
                 onClick={() => setOpen(o => !o)}
                 className="w-full px-5 py-4 flex items-center gap-3 text-left"
             >
-                <div className="flex-1">
+                <div className="flex-1 flex items-center gap-1.5">
                     <span className="font-semibold text-gray-900">{verb.infinitive}</span>
                     {verb.romanized && (
-                        <span className="ml-2 text-xs text-indigo-500">{verb.romanized}</span>
+                        <span className="text-xs text-indigo-500">{verb.romanized}</span>
                     )}
-                    <span className="ml-2 text-sm text-gray-500">— {verb.meaning}</span>
+                    <SpeakButton text={verb.infinitive} langId={langId} />
+                    <span className="text-sm text-gray-500">— {verb.meaning}</span>
                 </div>
                 <LevelBadge level={verb.level} />
                 <svg
@@ -93,7 +95,7 @@ export function VerbsPage() {
                 ) : (
                     <div className="flex flex-col gap-3">
                         {verbs.map(verb => (
-                            <VerbCard key={verb.id} verb={verb} />
+                            <VerbCard key={verb.id} verb={verb} langId={langId} />
                         ))}
                     </div>
                 )}
