@@ -8,7 +8,7 @@ export const b1Units: LessonUnit[] = [
         title: "The Subjunctive",
         description: "Use the congiuntivo presente after verbs of opinion, desire, and doubt.",
         grammarIds: ["it-g-b1-1"],
-        vocabIds: ["it-v-b1-5", "it-v-b1-6"],
+        vocabIds: ["it-v-b1-005", "it-v-b1-006", "it-v-b1-017", "it-v-b1-018", "it-v-b1-045", "it-v-b1-046"],
         verbIds: ["it-vb-b1-4"],
         testQuestions: [
             { id: "it-uq-b1-1-1", level: "B1", prompt: "Complete (congiuntivo): 'Voglio che lui ___ subito.' (venire)", options: ["viene", "venga", "venisse", "verrà"], answer: "venga" },
@@ -25,7 +25,7 @@ export const b1Units: LessonUnit[] = [
         title: "The Conditional",
         description: "Use the condizionale presente to express hypothetical situations and polite requests.",
         grammarIds: ["it-g-b1-2"],
-        vocabIds: ["it-v-b1-8", "it-v-b1-9"],
+        vocabIds: ["it-v-b1-008", "it-v-b1-009", "it-v-b1-031", "it-v-b1-032", "it-v-b1-047", "it-v-b1-048"],
         verbIds: ["it-vb-b1-1", "it-vb-b1-2"],
         testQuestions: [
             { id: "it-uq-b1-2-1", level: "B1", prompt: "Complete (condizionale): 'Con più tempo, io ___ di più.' (viaggiare)", options: ["viaggio", "viaggerò", "viaggerei", "viaggiavo"], answer: "viaggerei" },
@@ -42,7 +42,7 @@ export const b1Units: LessonUnit[] = [
         title: "Relative Pronouns",
         description: "Connect clauses using che, cui, and il quale / la quale.",
         grammarIds: ["it-g-b1-3"],
-        vocabIds: ["it-v-b1-1", "it-v-b1-2", "it-v-b1-3"],
+        vocabIds: ["it-v-b1-001", "it-v-b1-002", "it-v-b1-003", "it-v-b1-011", "it-v-b1-012", "it-v-b1-013", "it-v-b1-014"],
         verbIds: [],
         testQuestions: [
             { id: "it-uq-b1-3-1", level: "B1", prompt: "Complete: 'La città ___ vivo è Roma.'", options: ["che", "cui", "in cui", "il quale"], answer: "in cui" },
@@ -58,8 +58,8 @@ export const b1Units: LessonUnit[] = [
         order: 4,
         title: "The Remote Past",
         description: "Use the passato remoto for historical events and narratives set in a distant past.",
-        grammarIds: [],
-        vocabIds: ["it-v-b1-4", "it-v-b1-7"],
+        grammarIds: ["it-g-b1-6"],
+        vocabIds: ["it-v-b1-004", "it-v-b1-007", "it-v-b1-024", "it-v-b1-025", "it-v-b1-058", "it-v-b1-059"],
         verbIds: ["it-vb-b1-3"],
         testQuestions: [
             { id: "it-uq-b1-4-1", level: "B1", prompt: "The passato remoto of 'parlare' (io) is:", options: ["parlavo", "ho parlato", "parlai", "parlerei"], answer: "parlai" },
@@ -76,7 +76,7 @@ export const b1Units: LessonUnit[] = [
         title: "The Pluperfect",
         description: "Express actions that had already occurred before another past event using the trapassato prossimo.",
         grammarIds: ["it-g-b1-4"],
-        vocabIds: ["it-v-b1-10"],
+        vocabIds: ["it-v-b1-010", "it-v-b1-065", "it-v-b1-066", "it-v-b1-067", "it-v-b1-068", "it-v-b1-069", "it-v-b1-070"],
         verbIds: ["it-vb-b1-1", "it-vb-b1-4"],
         testQuestions: [
             { id: "it-uq-b1-5-1", level: "B1", prompt: "Complete (trapassato prossimo): 'Quando sono arrivato, lui ___ già.' (mangiare)", options: ["ha mangiato", "mangiava", "aveva mangiato", "mangerà"], answer: "aveva mangiato" },
