@@ -6,6 +6,7 @@ import { getModule } from "../data/modules"
 import { getCurrentLevel, getCompletedLessons, markLessonComplete } from "../store/progress"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
+import { SpeakButton } from "../components/SpeakButton"
 import { VocabItem } from "../types"
 
 function VocabCard({
@@ -31,11 +32,12 @@ function VocabCard({
                 <span className={`text-base ${done ? "text-green-500" : "text-gray-300"}`}>
                     {done ? "✓" : "○"}
                 </span>
-                <div className="flex-1 min-w-0">
+                <div className="flex-1 min-w-0 flex items-center gap-1.5">
                     <span className="font-semibold text-gray-900">{item.word}</span>
                     {item.romanized && (
-                        <span className="ml-2 text-xs text-indigo-500">{item.romanized}</span>
+                        <span className="text-xs text-indigo-500">{item.romanized}</span>
                     )}
+                    <SpeakButton text={item.word} langId={langId} />
                 </div>
                 <span className="text-sm text-gray-500 shrink-0">{item.translation}</span>
                 <span className="text-xs bg-gray-100 text-gray-500 rounded-full px-2 py-0.5 shrink-0 hidden sm:block">
@@ -45,12 +47,13 @@ function VocabCard({
 
             {open && (
                 <div className="px-4 pb-4 border-t border-gray-100 pt-3" onClick={e => e.stopPropagation()}>
-                    <div className="bg-gray-50 rounded-xl p-3 mb-3">
+                    <div className="bg-gray-50 rounded-xl p-3 mb-3 relative">
                         <p className="text-sm font-medium text-gray-800">{item.example.native}</p>
                         {item.example.romanized && (
                             <p className="text-xs text-indigo-500 mt-0.5">{item.example.romanized}</p>
                         )}
                         <p className="text-xs text-gray-500 mt-1">{item.example.translation}</p>
+                        <SpeakButton text={item.example.native} langId={langId} className="absolute top-1.5 right-1.5" />
                     </div>
                     {!done && (
                         <button
