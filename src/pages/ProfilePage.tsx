@@ -13,6 +13,7 @@ import {
     resetLanguageProgress,
     removeLanguage,
 } from "../store/progress"
+import { resetSRS } from "../store/srs"
 import { NavBar } from "../components/NavBar"
 import { Flag } from "../components/Flag"
 import { LevelBadge } from "../components/LevelBadge"
@@ -85,6 +86,7 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
     function handleReset() {
         if (!confirm(`Reset all progress for ${lang!.name}? Your level will return to A1.`)) return
         resetLanguageProgress(langId)
+        resetSRS(langId)
         setManageOpen(false)
         onChanged()
     }
