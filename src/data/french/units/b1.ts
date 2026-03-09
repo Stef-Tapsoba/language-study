@@ -11,7 +11,7 @@ export const b1Units: LessonUnit[] = [
         title: "Expressing Obligation & Hypothesis",
         description: "Use devoir and the conditionnel to express what must happen and what would happen.",
         grammarIds: ["fr-g-b1-2"],
-        vocabIds: ["fr-v-b1-1", "fr-v-b1-2", "fr-v-b1-3"],
+        vocabIds: ["fr-v-b1-001", "fr-v-b1-002", "fr-v-b1-003", "fr-v-b1-011", "fr-v-b1-012", "fr-v-b1-013", "fr-v-b1-045", "fr-v-b1-046"],
         verbIds: ["fr-vb-b1-2"],
         testQuestions: [
             { id: "fr-uq-b1-1-1", level: "B1", prompt: "Complete (conditionnel): 'Avec plus de temps, je ___ plus.' (voyager)", options: ["voyage", "voyagerai", "voyagerais", "voyageais"], answer: "voyagerais" },
@@ -28,7 +28,7 @@ export const b1Units: LessonUnit[] = [
         title: "The Subjunctive",
         description: "Use the subjonctif after expressions of doubt, emotion, desire, and necessity.",
         grammarIds: ["fr-g-b1-1"],
-        vocabIds: ["fr-v-b1-4", "fr-v-b1-5", "fr-v-b1-6"],
+        vocabIds: ["fr-v-b1-004", "fr-v-b1-005", "fr-v-b1-006", "fr-v-b1-038", "fr-v-b1-039", "fr-v-b1-040", "fr-v-b1-041", "fr-v-b1-042"],
         verbIds: [],
         testQuestions: [
             { id: "fr-uq-b1-2-1", level: "B1", prompt: "Complete (subjonctif): 'Il faut que tu ___ (venir).'", options: ["viens", "viendras", "viennes", "venais"], answer: "viennes" },
@@ -45,7 +45,7 @@ export const b1Units: LessonUnit[] = [
         title: "Past Tenses in Context",
         description: "Use imparfait and passé composé together correctly — background vs. events.",
         grammarIds: ["fr-g-b1-3"],
-        vocabIds: ["fr-v-b1-7", "fr-v-b1-8", "fr-v-b1-9"],
+        vocabIds: ["fr-v-b1-007", "fr-v-b1-008", "fr-v-b1-009", "fr-v-b1-025", "fr-v-b1-026", "fr-v-b1-027", "fr-v-b1-028"],
         verbIds: ["fr-vb-b1-1"],
         testQuestions: [
             { id: "fr-uq-b1-3-1", level: "B1", prompt: "Complete: 'Je ___ (lire) quand il est arrivé.' (background action)", options: ["lisais", "ai lu", "lirai", "lirais"], answer: "lisais" },
@@ -62,7 +62,7 @@ export const b1Units: LessonUnit[] = [
         title: "Relative Pronouns",
         description: "Use qui, que, dont, and où to link clauses and speak in more complex sentences.",
         grammarIds: ["fr-g-b1-4"],
-        vocabIds: ["fr-v-b1-10"],
+        vocabIds: ["fr-v-b1-010", "fr-v-b1-018", "fr-v-b1-019", "fr-v-b1-020", "fr-v-b1-021", "fr-v-b1-022", "fr-v-b1-023", "fr-v-b1-024"],
         verbIds: ["fr-vb-b1-3"],
         testQuestions: [
             { id: "fr-uq-b1-4-1", level: "B1", prompt: "Which pronom relatif replaces the subject?", options: ["que", "dont", "où", "qui"], answer: "qui" },
@@ -79,7 +79,7 @@ export const b1Units: LessonUnit[] = [
         title: "The Pluperfect & Advanced Narration",
         description: "Use the plus-que-parfait to describe actions that had occurred before other past events.",
         grammarIds: ["fr-g-b1-5"],
-        vocabIds: [],
+        vocabIds: ["fr-v-b1-014", "fr-v-b1-015", "fr-v-b1-016", "fr-v-b1-052", "fr-v-b1-053", "fr-v-b1-059", "fr-v-b1-060"],
         verbIds: ["fr-vb-b1-4"],
         testQuestions: [
             { id: "fr-uq-b1-5-1", level: "B1", prompt: "How is the plus-que-parfait formed?", options: ["Present of avoir/être + past participle", "Imparfait of avoir/être + past participle", "Future of avoir/être + past participle", "Conditionnel + past participle"], answer: "Imparfait of avoir/être + past participle" },
