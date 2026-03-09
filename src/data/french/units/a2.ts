@@ -60,8 +60,8 @@ export const a2Units: LessonUnit[] = [
         order: 4,
         title: "Describing & Comparing",
         description: "Use adjective agreement confidently and begin comparing people and things.",
-        grammarIds: [],
-        vocabIds: [],
+        grammarIds: ["fr-g-a2-5"],
+        vocabIds: ["fr-v-a2-008", "fr-v-a2-009", "fr-v-a2-010", "fr-v-a2-071", "fr-v-a2-072", "fr-v-a2-073", "fr-v-a2-074", "fr-v-a2-075"],
         verbIds: [],
         testQuestions: [
             { id: "fr-uq-a2-4-1", level: "A2", prompt: "Feminine form of 'nouveau'?", options: ["nouvelles", "nouveaux", "nouvelle", "nouveau"], answer: "nouvelle" },

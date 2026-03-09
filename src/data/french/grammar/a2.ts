@@ -64,4 +64,20 @@ export const a2Grammar: GrammarLesson[] = [
             { native: "Je ne bois pas de café.", translation: "I don't drink coffee. (de after negation)" },
         ]
     },
+    {
+        id: "fr-g-a2-5",
+        level: "A2",
+        title: "Adjective Agreement & Comparatives",
+        explanation: {
+            native: "French adjectives must agree in gender and number with the noun they modify. Most add -e for feminine and -s for plural (grand → grande, grands, grandes). Some are irregular: beau/belle, nouveau/nouvelle, vieux/vieille. To compare, use plus ... que (more than), moins ... que (less than), aussi ... que (as ... as). The superlative uses le/la/les plus + adjective.",
+            target: "Les adjectifs français doivent s'accorder en genre et en nombre avec le nom qu'ils qualifient. La plupart prennent -e au féminin et -s au pluriel (grand → grande, grands, grandes). Certains sont irréguliers : beau/belle, nouveau/nouvelle, vieux/vieille. Pour comparer, on utilise plus... que, moins... que, aussi... que. Le superlatif se forme avec le/la/les plus + adjectif."
+        },
+        examples: [
+            { native: "Il est grand. Elle est grande.", translation: "He is tall. She is tall." },
+            { native: "Ce livre est nouveau. Cette idée est nouvelle.", translation: "This book is new. This idea is new." },
+            { native: "Paris est plus grand que Lyon.", translation: "Paris is bigger than Lyon." },
+            { native: "Elle est aussi intelligente que lui.", translation: "She is as intelligent as him." },
+            { native: "C'est le plus beau quartier de la ville.", translation: "It's the most beautiful neighbourhood in the city." },
+        ]
+    },
 ]
