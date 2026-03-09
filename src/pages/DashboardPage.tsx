@@ -4,6 +4,7 @@ import { useParams, useNavigate, useSearchParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { getCurrentLevel, getCompletedLessons, getMasteredUnits, isUnitUnlocked } from "../store/progress"
+import { getDueCount } from "../store/srs"
 import { NavBar } from "../components/NavBar"
 import { Flag } from "../components/Flag"
 import { LevelBadge } from "../components/LevelBadge"
@@ -17,8 +18,8 @@ type DashTab = "path" | "study" | "practice" | "test"
 // ---------------------------------------------------------------------------
 // SectionCard — navigates to a sub-route
 // ---------------------------------------------------------------------------
-function SectionCard({ emoji, title, description, to, progress }: {
-    emoji: string; title: string; description: string; to: string; progress?: number
+function SectionCard({ emoji, title, description, to, progress, badge }: {
+    emoji: string; title: string; description: string; to: string; progress?: number; badge?: number
 }) {
     return (
         <Link
@@ -26,7 +27,14 @@ function SectionCard({ emoji, title, description, to, progress }: {
             className="bg-white border border-gray-200 rounded-2xl p-5 hover:border-indigo-400
                        hover:shadow-md transition-all flex flex-col gap-2"
         >
-            <span className="text-3xl">{emoji}</span>
+            <div className="flex items-start justify-between">
+                <span className="text-3xl">{emoji}</span>
+                {badge !== undefined && (
+                    <span className="bg-red-500 text-white text-xs font-bold rounded-full px-1.5 py-0.5 leading-none">
+                        {badge}
+                    </span>
+                )}
+            </div>
             <p className="font-semibold text-gray-900">{title}</p>
             <p className="text-sm text-gray-500">{description}</p>
             {progress !== undefined && <ProgressBar value={progress} className="mt-1" />}
@@ -120,6 +128,8 @@ export function DashboardPage() {
             </div>
         )
     }
+
+    const dueCount = getDueCount(langId, mod.vocab.filter(v => v.level === level).map(v => v.id))
 
     const grammarItems = mod.grammar.filter(g => g.level === level)
     const vocabItems = mod.vocab.filter(v => v.level === level)
@@ -274,6 +284,7 @@ export function DashboardPage() {
                             title={ui.sectionFlashcards}
                             description={ui.sectionFlashcardsDesc}
                             to={`/learn/${langId}/flashcards`}
+                            badge={dueCount > 0 ? dueCount : undefined}
                         />
                         <SectionCard
                             emoji="🔡"
