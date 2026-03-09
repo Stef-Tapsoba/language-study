@@ -8,7 +8,7 @@ export const b1Units: LessonUnit[] = [
         title: "Must and May: なければならない & てもいい",
         description: "Express obligation (must/have to) and permission (may/it's okay to)",
         grammarIds: ["ja-g-b1-1", "ja-g-b1-2"],
-        vocabIds: ["ja-v-b1-6", "ja-v-b1-8"],
+        vocabIds: ["ja-v-b1-006", "ja-v-b1-008", "ja-v-b1-038", "ja-v-b1-039", "ja-v-b1-040", "ja-v-b1-041"],
         verbIds: ["ja-vb-b1-1", "ja-vb-b1-2"],
         testQuestions: [
             { id: "ja-uq-b1-1-1", level: "B1", prompt: "Which form expresses 'must do'?", options: ["〜てもいい", "〜なければならない", "〜てはいけない", "〜ようになる"], answer: "〜なければならない" },
@@ -25,7 +25,7 @@ export const b1Units: LessonUnit[] = [
         title: "Change Over Time: ようになる",
         description: "Express gradual change in ability or habits using ようになる",
         grammarIds: ["ja-g-b1-3"],
-        vocabIds: ["ja-v-b1-3", "ja-v-b1-9"],
+        vocabIds: ["ja-v-b1-003", "ja-v-b1-009", "ja-v-b1-011", "ja-v-b1-015", "ja-v-b1-016", "ja-v-b1-017"],
         verbIds: ["ja-vb-b1-1", "ja-vb-b1-3"],
         testQuestions: [
             { id: "ja-uq-b1-2-1", level: "B1", prompt: "Which grammar pattern expresses 'I've come to be able to do X'?", options: ["〜たり〜たりする", "〜てもいい", "〜ようになる", "〜なければならない"], answer: "〜ようになる" },
@@ -42,7 +42,7 @@ export const b1Units: LessonUnit[] = [
         title: "Listing Actions: 〜たり〜たりする",
         description: "List representative actions from a larger set using the たり pattern",
         grammarIds: ["ja-g-b1-4"],
-        vocabIds: ["ja-v-b1-4", "ja-v-b1-7"],
+        vocabIds: ["ja-v-b1-004", "ja-v-b1-007", "ja-v-b1-020", "ja-v-b1-021", "ja-v-b1-022", "ja-v-b1-023"],
         verbIds: ["ja-vb-b1-2", "ja-vb-b1-4"],
         testQuestions: [
             { id: "ja-uq-b1-3-1", level: "B1", prompt: "The 〜たり〜たりする pattern is used to:", options: ["express prohibition", "list representative actions (among others)", "express ability", "express obligation"], answer: "list representative actions (among others)" },
@@ -59,7 +59,7 @@ export const b1Units: LessonUnit[] = [
         title: "B1 Vocabulary: Society & Abstract Concepts",
         description: "Build vocabulary for discussing society, health, and abstract ideas at B1 level",
         grammarIds: [],
-        vocabIds: ["ja-v-b1-1", "ja-v-b1-2", "ja-v-b1-3", "ja-v-b1-4", "ja-v-b1-5", "ja-v-b1-6", "ja-v-b1-7", "ja-v-b1-8", "ja-v-b1-9", "ja-v-b1-10"],
+        vocabIds: ["ja-v-b1-001", "ja-v-b1-002", "ja-v-b1-003", "ja-v-b1-004", "ja-v-b1-005", "ja-v-b1-006", "ja-v-b1-007", "ja-v-b1-008", "ja-v-b1-009", "ja-v-b1-010", "ja-v-b1-045", "ja-v-b1-050", "ja-v-b1-055", "ja-v-b1-060"],
         verbIds: ["ja-vb-b1-1", "ja-vb-b1-2", "ja-vb-b1-3", "ja-vb-b1-4"],
         testQuestions: [
             { id: "ja-uq-b1-4-1", level: "B1", prompt: "What does 環境 (かんきょう) mean?", options: ["Society", "Health", "Environment", "Freedom"], answer: "Environment" },
