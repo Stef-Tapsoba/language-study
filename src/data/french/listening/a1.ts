@@ -1,0 +1,125 @@
+// src/data/french/listening/a1.ts
+import { ListeningExercise } from "../../../types"
+
+export const a1Listening: ListeningExercise[] = [
+    {
+        id: "fr-l-a1-1",
+        level: "A1",
+        title: "Bonjour ! — dialogue de rencontre",
+        script: "Bonjour ! Je m'appelle Luc. Comment tu t'appelles ? Je m'appelle Claire. Enchanté, Claire ! Enchantée, Luc. Tu habites à Paris ? Oui, j'habite à Paris. Et toi ? Moi aussi, j'habite à Paris. Quel âge as-tu ? J'ai vingt-deux ans. Et toi ? J'ai vingt-cinq ans.",
+        translation: "Hello! My name is Luc. What's your name? My name is Claire. Nice to meet you, Claire! Nice to meet you, Luc. Do you live in Paris? Yes, I live in Paris. And you? Me too, I live in Paris. How old are you? I'm twenty-two years old. And you? I'm twenty-five years old.",
+        questions: [
+            {
+                id: "fr-l-a1-1-q1",
+                level: "A1",
+                prompt: "Comment s'appelle la femme ?",
+                options: ["Claire", "Luc", "Marie", "Sophie"],
+                answer: "Claire"
+            },
+            {
+                id: "fr-l-a1-1-q2",
+                level: "A1",
+                prompt: "Où habite Claire ?",
+                options: ["À Paris", "À Lyon", "À Nice", "À Bordeaux"],
+                answer: "À Paris"
+            },
+            {
+                id: "fr-l-a1-1-q3",
+                level: "A1",
+                prompt: "Quel âge a Luc ?",
+                options: ["Vingt-cinq ans", "Vingt-deux ans", "Vingt ans", "Trente ans"],
+                answer: "Vingt-cinq ans"
+            }
+        ]
+    },
+    {
+        id: "fr-l-a1-2",
+        level: "A1",
+        title: "Au marché — les prix",
+        script: "Bonjour madame ! Bonjour ! Combien coûtent les pommes ? Les pommes coûtent deux euros le kilo. Et les bananes ? Un euro quatre-vingts le kilo. Je voudrais un kilo de pommes et deux kilos de bananes, s'il vous plaît. Très bien. Ça fait cinq euros soixante. Voilà six euros. Merci. Et voilà quarante centimes de monnaie. Bonne journée !",
+        translation: "Good morning madam! Good morning! How much do the apples cost? The apples cost two euros a kilo. And the bananas? One euro eighty a kilo. I'd like a kilo of apples and two kilos of bananas, please. Very good. That's five euros sixty. Here's six euros. Thank you. And here's forty cents change. Have a good day!",
+        questions: [
+            {
+                id: "fr-l-a1-2-q1",
+                level: "A1",
+                prompt: "Combien coûtent les pommes ?",
+                options: ["Deux euros le kilo", "Un euro le kilo", "Un euro quatre-vingts le kilo", "Trois euros le kilo"],
+                answer: "Deux euros le kilo"
+            },
+            {
+                id: "fr-l-a1-2-q2",
+                level: "A1",
+                prompt: "Combien la personne paie-t-elle en tout ?",
+                options: ["Cinq euros soixante", "Six euros", "Quatre euros", "Cinq euros"],
+                answer: "Cinq euros soixante"
+            },
+            {
+                id: "fr-l-a1-2-q3",
+                level: "A1",
+                prompt: "Quelle monnaie reçoit la personne ?",
+                options: ["Quarante centimes", "Cinquante centimes", "Un euro", "Vingt centimes"],
+                answer: "Quarante centimes"
+            }
+        ]
+    },
+    {
+        id: "fr-l-a1-3",
+        level: "A1",
+        title: "Quelle heure est-il ? — la journée",
+        script: "Maman, quelle heure est-il ? Il est sept heures et demie. C'est l'heure de se lever ! D'accord. Quand est le petit-déjeuner ? Le petit-déjeuner est à huit heures moins le quart. Et l'école commence à quelle heure ? L'école commence à huit heures et demie. Alors j'ai une heure. Non, tu as quarante-cinq minutes ! Dépêche-toi !",
+        translation: "Mum, what time is it? It's half past seven. Time to get up! OK. When is breakfast? Breakfast is at a quarter to eight. And what time does school start? School starts at half past eight. So I have an hour. No, you have forty-five minutes! Hurry up!",
+        questions: [
+            {
+                id: "fr-l-a1-3-q1",
+                level: "A1",
+                prompt: "Quelle heure est-il au début de la conversation ?",
+                options: ["Sept heures et demie", "Huit heures", "Sept heures", "Huit heures et demie"],
+                answer: "Sept heures et demie"
+            },
+            {
+                id: "fr-l-a1-3-q2",
+                level: "A1",
+                prompt: "À quelle heure commence l'école ?",
+                options: ["À huit heures et demie", "À sept heures et demie", "À huit heures", "À neuf heures"],
+                answer: "À huit heures et demie"
+            },
+            {
+                id: "fr-l-a1-3-q3",
+                level: "A1",
+                prompt: "Combien de temps a l'enfant avant l'école ?",
+                options: ["Quarante-cinq minutes", "Une heure", "Trente minutes", "Une heure et demie"],
+                answer: "Quarante-cinq minutes"
+            }
+        ]
+    },
+    {
+        id: "fr-l-a1-4",
+        level: "A1",
+        title: "Dans la classe — présentation",
+        script: "Bonjour à tous ! Je m'appelle Monsieur Dupont. Je suis votre professeur de français. Vous êtes en première année. Dans cette classe, nous allons apprendre le vocabulaire de base, la grammaire et la prononciation. Est-ce que tout le monde comprend ? Oui, monsieur ! Parfait. Maintenant, présentez-vous à votre voisin. Dites votre nom, votre âge et votre nationalité.",
+        translation: "Good morning everyone! My name is Monsieur Dupont. I am your French teacher. You are in first year. In this class, we are going to learn basic vocabulary, grammar and pronunciation. Does everyone understand? Yes, sir! Perfect. Now, introduce yourself to your neighbour. Say your name, your age and your nationality.",
+        questions: [
+            {
+                id: "fr-l-a1-4-q1",
+                level: "A1",
+                prompt: "Comment s'appelle le professeur ?",
+                options: ["Monsieur Dupont", "Monsieur Martin", "Madame Dubois", "Monsieur Lambert"],
+                answer: "Monsieur Dupont"
+            },
+            {
+                id: "fr-l-a1-4-q2",
+                level: "A1",
+                prompt: "Que vont-ils apprendre dans ce cours ?",
+                options: ["Le vocabulaire, la grammaire et la prononciation", "L'histoire de France", "Les mathématiques", "La littérature"],
+                answer: "Le vocabulaire, la grammaire et la prononciation"
+            },
+            {
+                id: "fr-l-a1-4-q3",
+                level: "A1",
+                prompt: "Que doivent faire les élèves à la fin ?",
+                options: ["Se présenter à leur voisin", "Écrire leur nom", "Lire un texte", "Faire leurs devoirs"],
+                answer: "Se présenter à leur voisin"
+            }
+        ]
+    }
+]
