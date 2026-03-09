@@ -66,10 +66,10 @@ export function getDueCards(
     return { due, newCards }
 }
 
-/** Count of cards due today — for the dashboard badge. */
+/** Count of cards available to study — due cards plus unseen new cards. */
 export function getDueCount(langId: string, allVocabIds: string[]): number {
-    const { due } = getDueCards(langId, allVocabIds)
-    return due.length
+    const { due, newCards } = getDueCards(langId, allVocabIds)
+    return due.length + newCards.length
 }
 
 /**
