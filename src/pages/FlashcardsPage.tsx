@@ -12,6 +12,7 @@ import { SpeakButton } from "../components/SpeakButton"
 import { VocabItem } from "../types"
 import { getUI, fmt, UIStrings } from "../i18n"
 import { speak } from "../utils/tts"
+import { answerMatches } from "../utils/answerMatch"
 
 const FLIP_MS = 450
 
@@ -100,7 +101,8 @@ function dotColor(i: number, index: number, results: Result[]): string {
     return "bg-gray-200"
 }
 
-function FlipCard({ item, flipped, onClick, translationMode, translationShown, ui, langId }: Readonly<{
+function FlipCard({ item, flipped, onClick, translationMode, translationShown, ui, langId,
+    typedMode, typedAnswer, onTypedChange, onTypedSubmit, typedResult }: Readonly<{
     item: VocabItem
     flipped: boolean
     onClick: (() => void) | undefined
@@ -108,13 +110,22 @@ function FlipCard({ item, flipped, onClick, translationMode, translationShown, u
     translationShown: boolean
     ui: UIStrings
     langId: string
+    typedMode: boolean
+    typedAnswer: string
+    onTypedChange: (v: string) => void
+    onTypedSubmit: () => void
+    typedResult: "correct" | "wrong" | null
 }>) {
     return (
-        <button
-            type="button"
-            className="card-scene w-full max-w-sm mx-auto block"
+        <div
+            className="card-scene w-full max-w-sm mx-auto"
             style={{ height: 220 }}
-            onClick={onClick}
+            role={(!typedMode && !flipped) ? "button" : undefined}
+            tabIndex={(!typedMode && !flipped) ? 0 : undefined}
+            onClick={(!typedMode && !flipped) ? onClick : undefined}
+            onKeyDown={(!typedMode && !flipped && onClick)
+                ? (e) => { if (e.key === "Enter" || e.key === " ") onClick() }
+                : undefined}
         >
             <div className={`card-inner relative w-full h-full ${flipped ? "flipped" : ""}`}>
                 {/* Front */}
@@ -127,12 +138,39 @@ function FlipCard({ item, flipped, onClick, translationMode, translationShown, u
                     {item.romanized && (
                         <p className="text-sm text-indigo-500">{item.romanized}</p>
                     )}
-                    <p className="text-xs text-gray-400 mt-2">{ui.tapToReveal}</p>
+                    {typedMode && !flipped ? (
+                        <form
+                            onSubmit={e => { e.preventDefault(); onTypedSubmit() }}
+                            className="w-full flex flex-col gap-2 mt-1"
+                        >
+                            <input
+                                autoFocus
+                                value={typedAnswer}
+                                onChange={e => onTypedChange(e.target.value)}
+                                placeholder="Type translation…"
+                                className="border border-gray-300 rounded-lg px-3 py-2 text-sm w-full text-center
+                                           focus:outline-none focus:border-indigo-400"
+                            />
+                            <button
+                                type="submit"
+                                className="text-xs text-indigo-600 hover:underline"
+                            >
+                                Submit
+                            </button>
+                        </form>
+                    ) : (
+                        <p className="text-xs text-gray-400 mt-2">{ui.tapToReveal}</p>
+                    )}
                 </div>
 
                 {/* Back */}
                 <div className="card-back card-face absolute inset-0 bg-indigo-50 rounded-2xl border-2
                                 border-indigo-300 flex flex-col items-center justify-center gap-3 p-6 shadow-md">
+
+                    {/* Typed mode result indicator */}
+                    {typedMode && typedResult && (
+                        <div className="text-2xl">{typedResult === "correct" ? "✅" : "❌"}</div>
+                    )}
 
                     {/* A1/A2: translation prominent at top */}
                     {translationMode === "primary" && (
@@ -163,7 +201,7 @@ function FlipCard({ item, flipped, onClick, translationMode, translationShown, u
                     )}
                 </div>
             </div>
-        </button>
+        </div>
     )
 }
 
@@ -178,6 +216,8 @@ export function FlashcardsPage() {
     // sessionKey increments on restart to force SRS deck recalculation
     const [sessionKey, setSessionKey] = useState(0)
     const [studyAll, setStudyAll] = useState(false)
+    const [started, setStarted] = useState(false)
+    const [typedMode, setTypedMode] = useState(false)
 
     const allVocab = useMemo(
         () => mod?.vocab.filter(v => v.level === level) ?? [],
@@ -211,6 +251,8 @@ export function FlashcardsPage() {
     const [reviewMode, setReviewMode] = useState(false)
     const [reviewCards, setReviewCards] = useState<VocabItem[]>([])
     const [translationShown, setTranslationShown] = useState(false)
+    const [typedAnswer, setTypedAnswer] = useState("")
+    const [typedResult, setTypedResult] = useState<"correct" | "wrong" | null>(null)
 
     const deck = useMemo(() => {
         if (reviewMode) return reviewCards
@@ -265,9 +307,17 @@ export function FlashcardsPage() {
                     {nextStr && (
                         <p className="text-gray-400 text-xs">Next review: {nextStr}</p>
                     )}
+                    <label className="flex items-center gap-2 text-sm text-gray-700 mt-2">
+                        <input
+                            type="checkbox"
+                            checked={typedMode}
+                            onChange={e => setTypedMode(e.target.checked)}
+                        />
+                        <span>Type answers (active recall)</span>
+                    </label>
                     <button
-                        onClick={() => setStudyAll(true)}
-                        className="mt-4 w-full border border-gray-200 text-gray-600 hover:border-indigo-400
+                        onClick={() => { setStudyAll(true); setStarted(true) }}
+                        className="mt-2 w-full border border-gray-200 text-gray-600 hover:border-indigo-400
                                    font-semibold rounded-xl py-3 text-sm transition-colors"
                     >
                         Study all {allVocab.length} cards anyway
@@ -275,6 +325,42 @@ export function FlashcardsPage() {
                 </main>
             </div>
         )
+    }
+
+    // Start screen — shown before first card of a new session
+    if (!started) {
+        return (
+            <div className="min-h-screen bg-gray-50">
+                <NavBar title={ui.sectionFlashcards} level={level} backTo="back" />
+                <main className="max-w-sm mx-auto px-4 py-16 flex flex-col items-center gap-5 text-center">
+                    <p className="text-5xl">🃏</p>
+                    <h2 className="text-xl font-bold text-gray-900">{srsDeck.length} cards ready</h2>
+                    <p className="text-sm text-gray-500">{due.length} due · {newCardIds.length} new</p>
+                    <label className="flex items-center gap-2 text-sm text-gray-700">
+                        <input
+                            type="checkbox"
+                            checked={typedMode}
+                            onChange={e => setTypedMode(e.target.checked)}
+                        />
+                        <span>Type answers (active recall)</span>
+                    </label>
+                    <button
+                        onClick={() => setStarted(true)}
+                        className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
+                                   rounded-xl py-3 text-sm transition-colors"
+                    >
+                        Start
+                    </button>
+                </main>
+            </div>
+        )
+    }
+
+    // Shared reset for both restart() and startReview()
+    function resetSession() {
+        setIndex(0); setResults([]); setFlipped(false)
+        setTranslationShown(false); setDone(false); setReviewMode(false)
+        setTypedAnswer(""); setTypedResult(null)
     }
 
     function handleResult(r: Result) {
@@ -299,26 +385,25 @@ export function FlashcardsPage() {
         }, FLIP_MS)
     }
 
+    function handleTypedSubmit() {
+        const card = deck[index]
+        const match = answerMatches(typedAnswer, card.translation)
+        setTypedResult(match ? "correct" : "wrong")
+        setFlipped(true)
+    }
+
     function startReview() {
         const missed = deck.filter((_, i) => results[i] === "incorrect")
         setReviewCards(missed)
-        setIndex(0)
-        setResults([])
-        setFlipped(false)
-        setTranslationShown(false)
-        setDone(false)
         setReviewMode(true)
+        resetSession()
     }
 
     function restart() {
         setSessionKey(k => k + 1)
         setStudyAll(false)
-        setIndex(0)
-        setResults([])
-        setFlipped(false)
-        setTranslationShown(false)
-        setDone(false)
-        setReviewMode(false)
+        setStarted(false)
+        resetSession()
     }
 
     // Results screen
@@ -374,6 +459,11 @@ export function FlashcardsPage() {
                     translationShown={translationShown}
                     ui={ui}
                     langId={langId}
+                    typedMode={typedMode}
+                    typedAnswer={typedAnswer}
+                    onTypedChange={setTypedAnswer}
+                    onTypedSubmit={handleTypedSubmit}
+                    typedResult={typedResult}
                 />
 
                 {/* B2+ translation toggle — shown after flip */}
@@ -387,7 +477,7 @@ export function FlashcardsPage() {
                 )}
 
                 {/* Self-rating buttons — only after flip */}
-                {flipped ? (
+                {flipped && (
                     <div className="flex gap-3 w-full max-w-sm">
                         <button
                             disabled={transitioning}
@@ -406,7 +496,8 @@ export function FlashcardsPage() {
                             ✓ {ui.gotIt}
                         </button>
                     </div>
-                ) : (
+                )}
+                {!flipped && !typedMode && (
                     <p className="text-sm text-gray-400">{ui.tapToReveal}</p>
                 )}
             </main>

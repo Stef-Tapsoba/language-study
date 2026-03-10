@@ -1,5 +1,5 @@
 // pages/VerbDrillPage.tsx — Conjugation fill-in-the-blank drill
-import { useState, useMemo } from "react"
+import { useMemo } from "react"
 import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
@@ -7,6 +7,8 @@ import { getCurrentLevel } from "../store/progress"
 import { NavBar } from "../components/NavBar"
 import { QuizCard } from "../components/QuizCard"
 import { LevelBadge } from "../components/LevelBadge"
+import { DrillDoneScreen } from "../components/DrillDoneScreen"
+import { useDrill } from "../hooks/useDrill"
 import { Verb } from "../types"
 import { getUI, fmt } from "../i18n"
 
@@ -72,11 +74,7 @@ export function VerbDrillPage() {
         [langId, level]
     )
 
-    const [index, setIndex] = useState(0)
-    const [selected, setSelected] = useState<string | null>(null)
-    const [revealed, setRevealed] = useState(false)
-    const [score, setScore] = useState(0)
-    const [done, setDone] = useState(false)
+    const drill = useDrill(questions)
 
     if (!language || !mod) return null
 
@@ -92,71 +90,28 @@ export function VerbDrillPage() {
         )
     }
 
-    function handleSelect(opt: string) {
-        setSelected(opt)
-        setRevealed(true)
-    }
-
-    function handleNext() {
-        const newScore = score + (selected === questions[index].correct ? 1 : 0)
-        if (index + 1 >= questions.length) {
-            setScore(newScore)
-            setDone(true)
-        } else {
-            setScore(newScore)
-            setIndex(i => i + 1)
-            setSelected(null)
-            setRevealed(false)
-        }
-    }
-
-    function restart() {
-        setIndex(0); setScore(0); setSelected(null); setRevealed(false); setDone(false)
-    }
-
-    if (done) {
-        const pct = Math.round((score / questions.length) * 100)
+    if (drill.done) {
         return (
-            <div className="min-h-screen bg-gray-50">
-                <NavBar title={ui.sectionVerbDrill} level={level} backTo="back" />
-                <main className="max-w-sm mx-auto px-4 py-12 flex flex-col items-center gap-6 text-center">
-                    <div className="text-5xl">{pct >= 70 ? "🏆" : "💪"}</div>
-                    <h2 className="text-2xl font-bold text-gray-900">{ui.drillComplete}</h2>
-                    <div className="bg-white rounded-2xl border border-gray-200 p-5 w-full flex justify-around">
-                        <div>
-                            <p className="text-3xl font-bold text-green-600">{score}</p>
-                            <p className="text-xs text-gray-500 mt-1">{ui.scoreCorrect}</p>
-                        </div>
-                        <div>
-                            <p className="text-3xl font-bold text-red-500">{questions.length - score}</p>
-                            <p className="text-xs text-gray-500 mt-1">{ui.scoreWrong}</p>
-                        </div>
-                        <div>
-                            <p className="text-3xl font-bold text-indigo-600">{pct}%</p>
-                            <p className="text-xs text-gray-500 mt-1">{ui.scoreLabel}</p>
-                        </div>
-                    </div>
-                    <button
-                        onClick={restart}
-                        className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
-                                   rounded-xl py-2.5 text-sm transition-colors"
-                    >
-                        {ui.tryAgain}
-                    </button>
-                </main>
-            </div>
+            <DrillDoneScreen
+                score={drill.score}
+                total={questions.length}
+                level={level}
+                navTitle={ui.sectionVerbDrill}
+                ui={ui}
+                onRestart={drill.restart}
+            />
         )
     }
 
-    const q = questions[index]
+    const q = questions[drill.index]
 
     return (
         <div className="min-h-screen bg-gray-50">
             <NavBar title={ui.sectionVerbDrill} level={level} backTo="back" />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col items-center gap-6">
                 <div className="w-full flex items-center justify-between text-sm text-gray-500">
-                    <span>{fmt(ui.questionOf, { n: index + 1, total: questions.length })}</span>
-                    <span className="font-medium">{ui.scoreLabel}: {score}</span>
+                    <span>{fmt(ui.questionOf, { n: drill.index + 1, total: questions.length })}</span>
+                    <span className="font-medium">{ui.scoreLabel}: {drill.score}</span>
                 </div>
 
                 {/* Progress strip */}
@@ -164,7 +119,7 @@ export function VerbDrillPage() {
                     {questions.map((dq, i) => (
                         <div
                             key={`${dq.verb.infinitive}-${dq.tense}-${dq.pronoun}`}
-                            className={`h-1.5 flex-1 rounded-full transition-colors ${progressDotClass(i, index)}`}
+                            className={`h-1.5 flex-1 rounded-full transition-colors ${progressDotClass(i, drill.index)}`}
                         />
                     ))}
                 </div>
@@ -193,18 +148,20 @@ export function VerbDrillPage() {
                 <QuizCard
                     question={fmt(ui.conjugateFor, { pronoun: q.pronoun })}
                     options={q.options}
-                    selected={selected}
-                    correct={revealed ? q.correct : null}
-                    onSelect={handleSelect}
+                    selected={drill.selected}
+                    correct={drill.revealed ? q.correct : null}
+                    onSelect={drill.handleSelect}
                 />
 
-                {revealed && (
+                <p className="hidden sm:block text-xs text-gray-400">1–4 to select · Enter to continue</p>
+
+                {drill.revealed && (
                     <button
-                        onClick={handleNext}
+                        onClick={drill.handleNext}
                         className="w-full max-w-xl bg-indigo-600 hover:bg-indigo-700 text-white
                                    font-semibold rounded-xl py-3 transition-colors"
                     >
-                        {index + 1 >= questions.length ? ui.seeResults : ui.nextQuestion}
+                        {drill.index + 1 >= questions.length ? ui.seeResults : ui.nextQuestion}
                     </button>
                 )}
             </main>
