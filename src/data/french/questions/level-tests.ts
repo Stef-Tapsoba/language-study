@@ -74,4 +74,28 @@ export const levelQuestions: QuizQuestion[] = [
     { id: "fr-lt-b2-13", level: "B2", prompt: "What does 'néanmoins' mean?", options: ["furthermore", "therefore", "nevertheless", "although"], answer: "nevertheless" },
     { id: "fr-lt-b2-14", level: "B2", prompt: "What does 'la souveraineté' mean?", options: ["sovereignty", "society", "solidarity", "security"], answer: "sovereignty" },
     { id: "fr-lt-b2-15", level: "B2", prompt: "What does 'en conséquence' mean?", options: ["on the contrary", "as a result / consequently", "in comparison", "in addition"], answer: "as a result / consequently" },
+
+    // --- C1 (15 questions) ---
+    // Subjonctif Imparfait (3)
+    { id: "fr-lt-c1-1", level: "C1", prompt: "Complete (literary register): 'Il fallait que tu ___ (être) présent lors de cette audience solennelle.'", options: ["sois", "fusses", "serais", "fus"], answer: "fusses", hint: "Subjonctif imparfait of être (tu): fusse/fusses/fût…" },
+    { id: "fr-lt-c1-2", level: "C1", prompt: "Complete (literary register): 'Bien qu'il ___ (avoir) conscience du danger, il n'hésita pas.'", options: ["ait eu", "avait eu", "eût", "aurait eu"], answer: "eût", hint: "Subjonctif imparfait of avoir (il/elle): eût" },
+    { id: "fr-lt-c1-3", level: "C1", prompt: "Which is the correct subjonctif imparfait of 'faire' (ils/elles)?", options: ["fissent", "feraient", "firent", "fassent"], answer: "fissent" },
+    // Passé Simple (2)
+    { id: "fr-lt-c1-4", level: "C1", prompt: "What is the passé simple of 'être' for 'nous'?", options: ["étions", "fûmes", "fusmes", "sommes"], answer: "fûmes" },
+    { id: "fr-lt-c1-5", level: "C1", prompt: "Identify the correct passé simple form: 'Elle ___ (voir) immédiatement la supercherie.'", options: ["voyait", "a vu", "vit", "verrait"], answer: "vit" },
+    // Discours Indirect Avancé (2)
+    { id: "fr-lt-c1-6", level: "C1", prompt: "Report: 'J'ai terminé le rapport hier.' → Il a annoncé qu'il ___ le rapport la veille.", options: ["avait terminé", "a terminé", "terminait", "aurait terminé"], answer: "avait terminé" },
+    { id: "fr-lt-c1-7", level: "C1", prompt: "Which is correct reported speech for 'Qu'est-ce que tu penses ?' → Elle a demandé ___.", options: ["ce que tu pensais", "ce que pensais-tu", "qu'est-ce que tu pensais", "ce que tu penses"], answer: "ce que tu pensais" },
+    // Nominalisations et Impersonnel (2)
+    { id: "fr-lt-c1-8", level: "C1", prompt: "Complete: '___ que les résultats présentent une valeur scientifique considérable.'", options: ["Il faut", "Il est à noter", "Il est dommage", "Il s'oppose"], answer: "Il est à noter" },
+    { id: "fr-lt-c1-9", level: "C1", prompt: "What mood does 'le fait que' require in formal French?", options: ["Indicatif", "Subjonctif", "Conditionnel", "Infinitif"], answer: "Subjonctif" },
+    // Idioms (2)
+    { id: "fr-lt-c1-10", level: "C1", prompt: "What does 'avoir beau travailler' mean?", options: ["to be good at working", "to work in vain / despite efforts", "to look forward to working", "to pretend to work"], answer: "to work in vain / despite efforts" },
+    { id: "fr-lt-c1-11", level: "C1", prompt: "Complete: '___ constater que la situation s'est considérablement améliorée.'", options: ["Force est de", "Il convient de", "Il faut", "Il est dommage de"], answer: "Force est de" },
+    // C1 Vocabulary (2)
+    { id: "fr-lt-c1-12", level: "C1", prompt: "What does 'l'épistémologie' mean?", options: ["epistemology / theory of knowledge", "etymology", "epidemiology", "epistle writing"], answer: "epistemology / theory of knowledge" },
+    { id: "fr-lt-c1-13", level: "C1", prompt: "What does 'la dissonance cognitive' mean?", options: ["cognitive dissonance", "cognitive decline", "cognitive empathy", "cognitive bias"], answer: "cognitive dissonance" },
+    // Complex subjunctive sequence / literary register (2)
+    { id: "fr-lt-c1-14", level: "C1", prompt: "Complete this literary sentence: 'Elle souhaitait que la cérémonie se déroulât dans le plus grand calme.' — What tense is 'se déroulât'?", options: ["Subjonctif présent", "Subjonctif imparfait", "Conditionnel présent", "Passé simple"], answer: "Subjonctif imparfait" },
+    { id: "fr-lt-c1-15", level: "C1", prompt: "Which sentence belongs to a high literary register?", options: ["Il voulait qu'elle vienne.", "Il souhaitait qu'elle vînt.", "Il pensait qu'elle viendrait.", "Il savait qu'elle venait."], answer: "Il souhaitait qu'elle vînt." },
 ]

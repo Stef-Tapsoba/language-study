@@ -83,5 +83,35 @@ export const levelTestQuestions: QuizQuestion[] = [
     // B2 vocabulary (3)
     { id: "ko-lt-b2-13", level: "B2", prompt: "What does '불평등' mean?", options: ["Corruption", "Inequality", "Democracy", "Sovereignty"], answer: "Inequality" },
     { id: "ko-lt-b2-14", level: "B2", prompt: "What does '생태계' mean?", options: ["Biodiversity", "Renewable energy", "Ecosystem", "Deforestation"], answer: "Ecosystem" },
-    { id: "ko-lt-b2-15", level: "B2", prompt: "What does '후회' mean?", options: ["Empathy", "Nostalgia", "Resilience", "Regret"], answer: "Regret" }
+    { id: "ko-lt-b2-15", level: "B2", prompt: "What does '후회' mean?", options: ["Empathy", "Nostalgia", "Resilience", "Regret"], answer: "Regret" },
+
+    // ── C1 (15 questions) ────────────────────────────────────────────────────
+    // Formal written structures (3)
+    { id: "ko-lt-c1-1", level: "C1", prompt: "Which formal written connector means 'since / therefore' and is used in official documents and academic writing?", options: ["-(으)므로", "-아/어서", "-기 때문에", "-더라도"], answer: "-(으)므로" },
+    { id: "ko-lt-c1-2", level: "C1", prompt: "What does '-는바' express in formal written Korean?", options: ["Given that / in that (introduces a premise before a conclusion)", "Even if / although (concessive)", "As soon as", "The more...the more"], answer: "Given that / in that (introduces a premise before a conclusion)" },
+    { id: "ko-lt-c1-3", level: "C1", prompt: "In which register is '-(으)ㄹ지언정' primarily found?", options: ["Formal literary and written Korean only", "Casual everyday speech", "Children's educational materials", "Modern internet slang"], answer: "Formal literary and written Korean only" },
+
+    // Advanced modality (2)
+    { id: "ko-lt-c1-4", level: "C1", prompt: "What does '-(으)ㄹ 만하다' express?", options: ["Worth doing / deserves to be done", "Far from doing / let alone", "For someone in that category (surprisingly)", "Even if (hypothetical concession)"], answer: "Worth doing / deserves to be done" },
+    { id: "ko-lt-c1-5", level: "C1", prompt: "Complete: '쉬___ 더 바빠졌다.' (Far from resting, I became even busier)", options: ["기는커녕", "기는 해도", "기는 하지만", "기 위해서"], answer: "기는커녕" },
+
+    // Discourse cohesion (2)
+    { id: "ko-lt-c1-6", level: "C1", prompt: "Which academic discourse connector means 'in other words / that is'?", options: ["즉", "나아가", "이에 따라", "오히려"], answer: "즉" },
+    { id: "ko-lt-c1-7", level: "C1", prompt: "Which connector introduces an additional or stronger further point in academic writing?", options: ["나아가", "반면에", "이에 따라", "즉"], answer: "나아가" },
+
+    // Classical forms (2)
+    { id: "ko-lt-c1-8", level: "C1", prompt: "What does the literary ending '-노라' convey in classical Korean?", options: ["A literary first-person assertion or strong declaration", "A classical exclamation of admiration", "An archaic connective meaning 'since'", "A formal copula for citation"], answer: "A literary first-person assertion or strong declaration" },
+    { id: "ko-lt-c1-9", level: "C1", prompt: "Complete the classical sentence: '아, 아름답___!' (literary exclamatory ending)", options: ["도다", "노라", "이라", "지니"], answer: "도다" },
+
+    // 사자성어 meanings (2)
+    { id: "ko-lt-c1-10", level: "C1", prompt: "What does '일석이조 (一石二鳥)' mean?", options: ["Killing two birds with one stone", "Reaping what you sow", "Heart-to-heart understanding without words", "Unfortunate coincidental timing"], answer: "Killing two birds with one stone" },
+    { id: "ko-lt-c1-11", level: "C1", prompt: "Which 사자성어 describes 'reaping what one sows' or suffering the consequences of one's own actions?", options: ["자업자득 (自業自得)", "이심전심 (以心傳心)", "오비이락 (烏飛梨落)", "금상첨화 (錦上添花)"], answer: "자업자득 (自業自得)" },
+
+    // C1 vocabulary (2)
+    { id: "ko-lt-c1-12", level: "C1", prompt: "What does '인식론' mean?", options: ["Epistemology", "Ontology", "Metaphysics", "Utilitarianism"], answer: "Epistemology" },
+    { id: "ko-lt-c1-13", level: "C1", prompt: "What does '인지부조화' mean?", options: ["Cognitive dissonance", "Confirmation bias", "Metacognition", "Self-efficacy"], answer: "Cognitive dissonance" },
+
+    // Honorific verb forms (2)
+    { id: "ko-lt-c1-14", level: "C1", prompt: "Which verb is the correct humble form to use when asking a question to a superior?", options: ["여쭙다", "묻다", "물어보다", "질문하다"], answer: "여쭙다" },
+    { id: "ko-lt-c1-15", level: "C1", prompt: "What does '처음 뵙겠습니다' mean and which verb does it use?", options: ["Nice to meet you (humble verb 뵙다)", "I will give you something (honorific verb 드리다)", "I will ask you (humble verb 여쭙다)", "Goodbye (farewell expression)"], answer: "Nice to meet you (humble verb 뵙다)" }
 ]

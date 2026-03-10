@@ -480,5 +480,164 @@ export const levelQuestions: QuizQuestion[] = [
         options: ["Ideology", "Paradigm", "Ethics / Morality", "Abstraction"],
         answer: "Ethics / Morality",
         hint: "倫理 (rinri) = ethics or moral philosophy — commonly used in academic and professional contexts."
+    },
+
+    // -----------------------------------------------------------------------
+    // C1 (15 questions)
+    // -----------------------------------------------------------------------
+    {
+        id: "ja-lt-c1-1",
+        level: "C1",
+        prompt: "Which formal connector means 'due to' and appears in official notices such as construction announcements?",
+        options: ["に際して", "に伴い", "につき", "をもって"],
+        answer: "につき",
+        hint: "につき (ni tsuki) = due to / regarding: 「工事につき、ご不便をおかけします」."
+    },
+    {
+        id: "ja-lt-c1-2",
+        level: "C1",
+        prompt: "Which formal connector means 'on the occasion of' and is used in speeches and formal announcements?",
+        options: ["に基づき", "に際して", "に伴い", "につき"],
+        answer: "に際して",
+        hint: "に際して (ni saishite) = on the occasion of: 「入社に際して、研修を行います」."
+    },
+    {
+        id: "ja-lt-c1-3",
+        level: "C1",
+        prompt: "「本日___、当店は閉店いたします。」Which connector indicates 'as of this date'?",
+        options: ["につき", "に際して", "をもちまして", "に伴い"],
+        answer: "をもちまして",
+        hint: "をもって / をもちまして marks a point in time: 'as of today' — used in formal closings."
+    },
+    {
+        id: "ja-lt-c1-4",
+        level: "C1",
+        prompt: "What does the 四字熟語 一石二鳥 (issekinichō) mean?",
+        options: [
+            "Fall seven times, rise eight",
+            "Killing two birds with one stone",
+            "Once-in-a-lifetime encounter",
+            "Reaping what you sow"
+        ],
+        answer: "Killing two birds with one stone",
+        hint: "一石 = one stone, 二鳥 = two birds — achieving two goals with a single action."
+    },
+    {
+        id: "ja-lt-c1-5",
+        level: "C1",
+        prompt: "Which 四字熟語 means 'heart-to-heart communication / understanding without words'?",
+        options: ["自業自得", "一期一会", "以心伝心", "七転八起"],
+        answer: "以心伝心",
+        hint: "以心伝心 (ishin-denshin): transmitting from heart to heart — mutual understanding without explicit words."
+    },
+    {
+        id: "ja-lt-c1-6",
+        level: "C1",
+        prompt: "「この政策は問題があるのではないでしょうか」— how does this sentence function?",
+        options: [
+            "A direct accusation that the policy is wrong",
+            "A polite, indirect suggestion that the policy may have problems",
+            "A formal declaration that the policy must change",
+            "An expression of personal regret about the policy"
+        ],
+        answer: "A polite, indirect suggestion that the policy may have problems",
+        hint: "～ではないでしょうか softens a statement into a rhetorical question, inviting agreement politely."
+    },
+    {
+        id: "ja-lt-c1-7",
+        level: "C1",
+        prompt: "Which hedged expression means 'one cannot help but say / one must admit that'?",
+        options: ["～かと思われます", "～ではないでしょうか", "～と言わざるを得ない", "～とも言えます"],
+        answer: "～と言わざるを得ない",
+        hint: "～と言わざるを得ない: 'cannot refrain from saying' — a strong but still indirect assertion."
+    },
+    {
+        id: "ja-lt-c1-8",
+        level: "C1",
+        prompt: "「社長___、責任が重くなる」— which advanced conditional expresses 'when it comes to being at that level'?",
+        options: ["ならではの", "とあれば", "ともなると", "にしたら"],
+        answer: "ともなると",
+        hint: "～ともなると: 'when you reach the level of / once one becomes' — status brings expected responsibilities."
+    },
+    {
+        id: "ja-lt-c1-9",
+        level: "C1",
+        prompt: "What does ～ならではの express in 「日本ならではの文化」?",
+        options: [
+            "Culture that exists despite Japan",
+            "Culture that is imitated from Japan",
+            "Culture unique to / characteristic of Japan",
+            "Culture that Japan has borrowed"
+        ],
+        answer: "Culture unique to / characteristic of Japan",
+        hint: "～ならではの: 'unique to / that can only exist with' — uniquely characteristic of that context."
+    },
+    {
+        id: "ja-lt-c1-10",
+        level: "C1",
+        prompt: "In which register is である most commonly used as a copula?",
+        options: [
+            "Casual spoken Japanese among friends",
+            "Academic writing, formal essays, and official documents",
+            "Children's storybooks and elementary education",
+            "Social media and text messages"
+        ],
+        answer: "Academic writing, formal essays, and official documents",
+        hint: "である is the literary/formal copula — the stylistic backbone of academic and official Japanese writing."
+    },
+    {
+        id: "ja-lt-c1-11",
+        level: "C1",
+        prompt: "「昔はよく海で泳いだものだ」— what nuance does ものだ add here?",
+        options: [
+            "That swimming is naturally expected behaviour",
+            "A nostalgic recollection of a past habitual action",
+            "That one should swim in the sea",
+            "An explanatory reason for a current situation"
+        ],
+        answer: "A nostalgic recollection of a past habitual action",
+        hint: "〜たものだ expresses nostalgia: 'we used to X back then' — a fondly remembered past habit."
+    },
+    {
+        id: "ja-lt-c1-12",
+        level: "C1",
+        prompt: "What does 自業自得 (jigō-jitoku) mean?",
+        options: [
+            "Fall seven times, rise eight",
+            "You reap what you sow / brought it on yourself",
+            "Adapting flexibly to circumstances",
+            "Speaking with one voice"
+        ],
+        answer: "You reap what you sow / brought it on yourself",
+        hint: "自業自得: one's own deed (自業) brings one's own result (自得) — the consequences of your actions return to you."
+    },
+    {
+        id: "ja-lt-c1-13",
+        level: "C1",
+        prompt: "Which formal connector means 'based on / in accordance with' regulations or evidence?",
+        options: ["をもって", "に際して", "に基づき", "につき"],
+        answer: "に基づき",
+        hint: "に基づき (ni motozuki) = based on / grounded in: 「規則に基づき、処分いたします」."
+    },
+    {
+        id: "ja-lt-c1-14",
+        level: "C1",
+        prompt: "Which is the correct polite humble form when asking someone to do something for you using いただく?",
+        options: [
+            "～ていただきます",
+            "～ていただけますか",
+            "～させていただく",
+            "～ていただかない"
+        ],
+        answer: "～ていただけますか",
+        hint: "～ていただけますか: 'Could you please do X for me?' — a polite humble request using the potential form."
+    },
+    {
+        id: "ja-lt-c1-15",
+        level: "C1",
+        prompt: "In formal keigo, which verb is the respectful (尊敬語) form of 言う (to say)?",
+        options: ["まいる", "いたす", "申す", "おっしゃる"],
+        answer: "おっしゃる",
+        hint: "おっしゃる (ossharu) is the sonkeigo (respectful) form of 言う — used to elevate someone else's speech."
     }
 ]
