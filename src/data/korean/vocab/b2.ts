@@ -1,0 +1,425 @@
+// Korean B2 vocabulary
+// data/korean/vocab/b2.ts
+import { VocabItem } from "../../../types"
+
+export const b2Vocab: VocabItem[] = [
+    // ── Politics & Society (10) ────────────────────────────────────────────────
+    {
+        id: "ko-v-b2-001", level: "B2", word: "민주주의", romanized: "minjujuui",
+        translation: "democracy", category: "politics & society",
+        example: { native: "민주주의는 시민의 참여로 유지됩니다.", romanized: "Minjujuuineun simineui chamyeoro yujidoemnida.", translation: "Democracy is maintained through citizens' participation." }
+    },
+    {
+        id: "ko-v-b2-002", level: "B2", word: "시민권", romanized: "siminkkwon",
+        translation: "civil rights / citizenship", category: "politics & society",
+        example: { native: "모든 국민은 시민권을 보장받아야 합니다.", romanized: "Modeun gungmineun siminkkwoneul bojangbadaya hamnida.", translation: "All citizens must have their civil rights guaranteed." }
+    },
+    {
+        id: "ko-v-b2-003", level: "B2", word: "불평등", romanized: "bulpyeongdeung",
+        translation: "inequality", category: "politics & society",
+        example: { native: "사회적 불평등을 해소하는 것이 중요해요.", romanized: "Sahoejok bulpyeongdeongeul haesohaneun geosi jungyohaeyo.", translation: "It is important to resolve social inequality." }
+    },
+    {
+        id: "ko-v-b2-004", level: "B2", word: "시위", romanized: "siwi",
+        translation: "protest / demonstration", category: "politics & society",
+        example: { native: "시민들이 광장에서 시위를 벌였어요.", romanized: "Siminduri gwangjangeso siwireul beoryeosseoyo.", translation: "Citizens held a protest in the square." }
+    },
+    {
+        id: "ko-v-b2-005", level: "B2", word: "법률", romanized: "beopnyul",
+        translation: "law / legislation", category: "politics & society",
+        example: { native: "새로운 법률이 국회에서 통과되었어요.", romanized: "Saeroun beopnyuri gukhoeso tongkwadoeeosseoyo.", translation: "A new law was passed in the National Assembly." }
+    },
+    {
+        id: "ko-v-b2-006", level: "B2", word: "선거운동", romanized: "seongeorundong",
+        translation: "election campaign", category: "politics & society",
+        example: { native: "후보자들이 선거운동을 시작했어요.", romanized: "Hubojaduri seongeorundong-eul sijakhaesseoyo.", translation: "Candidates started their election campaigns." }
+    },
+    {
+        id: "ko-v-b2-007", level: "B2", word: "참정권", romanized: "chamjeonggwon",
+        translation: "right to vote / suffrage", category: "politics & society",
+        example: { native: "참정권은 민주주의의 핵심 권리입니다.", romanized: "Chamjeonggwoneun minjujuuieui haeksim gwonnimnida.", translation: "The right to vote is a core right of democracy." }
+    },
+    {
+        id: "ko-v-b2-008", level: "B2", word: "국회의원", romanized: "gukhoeuiwon",
+        translation: "member of the National Assembly", category: "politics & society",
+        example: { native: "우리 지역 국회의원이 연설을 했어요.", romanized: "Uri jiyeok gukhoeuiwoni yeonseoreul haesseoyo.", translation: "Our local member of the National Assembly gave a speech." }
+    },
+    {
+        id: "ko-v-b2-009", level: "B2", word: "주권", romanized: "jugwon",
+        translation: "sovereignty", category: "politics & society",
+        example: { native: "국가의 주권은 국민에게 있습니다.", romanized: "Gukgaeui jugwoneun gungminege isseumnida.", translation: "State sovereignty lies with the people." }
+    },
+    {
+        id: "ko-v-b2-010", level: "B2", word: "부패", romanized: "bupae",
+        translation: "corruption", category: "politics & society",
+        example: { native: "정부의 부패를 근절해야 한다는 목소리가 높아요.", romanized: "Jeongbuui bupaereul geunjeolhaeya handaneun moksori-ga nopayo.", translation: "Voices calling for an end to government corruption are growing." }
+    },
+
+    // ── Economy & Finance (10) ─────────────────────────────────────────────────
+    {
+        id: "ko-v-b2-011", level: "B2", word: "인플레이션", romanized: "inpeullaeisyeon",
+        translation: "inflation", category: "economy & finance",
+        example: { native: "인플레이션으로 물가가 계속 오르고 있어요.", romanized: "Inpeullaeisyeoneumo mulgaga gyesok oreugo isseoyo.", translation: "Prices keep rising due to inflation." }
+    },
+    {
+        id: "ko-v-b2-012", level: "B2", word: "예산", romanized: "yesan",
+        translation: "budget", category: "economy & finance",
+        example: { native: "정부는 내년도 예산을 확정했습니다.", romanized: "Jeongbuneun naenyeondo yesaneul hwagjeonhaessseumnida.", translation: "The government finalized next year's budget." }
+    },
+    {
+        id: "ko-v-b2-013", level: "B2", word: "부채", romanized: "buchae",
+        translation: "debt", category: "economy & finance",
+        example: { native: "가계 부채가 증가하고 있어 우려됩니다.", romanized: "Gagye buchaega jeunggahago isseo uryeodoemnida.", translation: "Household debt is increasing, which is worrying." }
+    },
+    {
+        id: "ko-v-b2-014", level: "B2", word: "투자", romanized: "tuja",
+        translation: "investment", category: "economy & finance",
+        example: { native: "외국 기업의 투자가 늘고 있어요.", romanized: "Oeguk gieobeui tujaga neulgo isseoyo.", translation: "Foreign corporate investment is increasing." }
+    },
+    {
+        id: "ko-v-b2-015", level: "B2", word: "시장", romanized: "sijang",
+        translation: "market (economic)", category: "economy & finance",
+        example: { native: "글로벌 시장에서 경쟁이 치열해요.", romanized: "Geullobeol sijangeso gyeongjaengi chiyeolhaeyo.", translation: "Competition in the global market is fierce." }
+    },
+    {
+        id: "ko-v-b2-016", level: "B2", word: "수출", romanized: "suchul",
+        translation: "export", category: "economy & finance",
+        example: { native: "한국의 반도체 수출이 증가했습니다.", romanized: "Hangugui bandoche sucuri jeunggahaessseumnida.", translation: "South Korea's semiconductor exports increased." }
+    },
+    {
+        id: "ko-v-b2-017", level: "B2", word: "소비자", romanized: "sobija",
+        translation: "consumer", category: "economy & finance",
+        example: { native: "소비자 물가 지수가 상승했어요.", romanized: "Sobija mulga jisuга sangseuenghaesseoyo.", translation: "The consumer price index rose." }
+    },
+    {
+        id: "ko-v-b2-018", level: "B2", word: "노동조합", romanized: "nodong-johap",
+        translation: "labor union", category: "economy & finance",
+        example: { native: "노동조합이 임금 인상을 요구했어요.", romanized: "Nodong-johabi imgeum insangeul yoguhaesseoyo.", translation: "The labor union demanded a wage increase." }
+    },
+    {
+        id: "ko-v-b2-019", level: "B2", word: "경기침체", romanized: "gyeonggi-chimche",
+        translation: "economic recession", category: "economy & finance",
+        example: { native: "경기침체로 실업률이 높아졌어요.", romanized: "Gyeonggi-chimchero sireomnyuri nopajyeosseoyo.", translation: "The unemployment rate rose due to the economic recession." }
+    },
+    {
+        id: "ko-v-b2-020", level: "B2", word: "민영화", romanized: "minyeonghwa",
+        translation: "privatization", category: "economy & finance",
+        example: { native: "국영 기업의 민영화는 논쟁이 많습니다.", romanized: "Gungyeong gieobeui minyeonghwaneun nonjaengi manssemnida.", translation: "The privatization of state-owned enterprises is highly controversial." }
+    },
+
+    // ── Environment & Climate (8) ──────────────────────────────────────────────
+    {
+        id: "ko-v-b2-021", level: "B2", word: "지구온난화", romanized: "jigu-onnan-hwa",
+        translation: "global warming", category: "environment & climate",
+        example: { native: "지구온난화를 막기 위해 탄소 배출을 줄여야 해요.", romanized: "Jigu-onnan-hwaleul makgi wihe tanso baeureul juryeoha haeyo.", translation: "We need to reduce carbon emissions to prevent global warming." }
+    },
+    {
+        id: "ko-v-b2-022", level: "B2", word: "배기가스", romanized: "baegi-gaseu",
+        translation: "exhaust gas / emissions", category: "environment & climate",
+        example: { native: "자동차 배기가스가 대기 오염의 주요 원인이에요.", romanized: "Jadongcha baegi-gaseuga daegi oyeomeui juyo woninieyeo.", translation: "Car exhaust emissions are a major cause of air pollution." }
+    },
+    {
+        id: "ko-v-b2-023", level: "B2", word: "생물다양성", romanized: "saengmul-dayangseong",
+        translation: "biodiversity", category: "environment & climate",
+        example: { native: "산림 파괴는 생물다양성을 위협합니다.", romanized: "Sallim pagwaeneun saengmul-dayangseong-eul wiheophamnida.", translation: "Deforestation threatens biodiversity." }
+    },
+    {
+        id: "ko-v-b2-024", level: "B2", word: "산림파괴", romanized: "sallim-pagwae",
+        translation: "deforestation", category: "environment & climate",
+        example: { native: "산림파괴는 기후변화를 가속화시킵니다.", romanized: "Sallim-pagwaeneun gihu-byeonhwareul gasokwasikipnida.", translation: "Deforestation accelerates climate change." }
+    },
+    {
+        id: "ko-v-b2-025", level: "B2", word: "가뭄", romanized: "gamum",
+        translation: "drought", category: "environment & climate",
+        example: { native: "심각한 가뭄으로 농작물 피해가 컸어요.", romanized: "Simgakhan gameumeuro nongjakmul pihaega keosseoyo.", translation: "Severe drought caused significant damage to crops." }
+    },
+    {
+        id: "ko-v-b2-026", level: "B2", word: "재생에너지", romanized: "jaesaeng-eneoji",
+        translation: "renewable energy", category: "environment & climate",
+        example: { native: "정부는 재생에너지 확대 정책을 발표했습니다.", romanized: "Jeongbuneun jaesaeng-eneoji hwakdae jeongchaekeul balpyohaessseumnida.", translation: "The government announced a policy to expand renewable energy." }
+    },
+    {
+        id: "ko-v-b2-027", level: "B2", word: "오염", romanized: "oyeom",
+        translation: "pollution / contamination", category: "environment & climate",
+        example: { native: "강의 오염 수준이 위험한 수준에 달했어요.", romanized: "Gang-ui oyeom sujuni wiheomhan sujune dalhaesseoyo.", translation: "The river's pollution level has reached a dangerous level." }
+    },
+    {
+        id: "ko-v-b2-028", level: "B2", word: "생태계", romanized: "saengtagye",
+        translation: "ecosystem", category: "environment & climate",
+        example: { native: "해양 생태계가 플라스틱 쓰레기로 파괴되고 있어요.", romanized: "Haeyang saengtagye-ga peullaseutik sseuregiro pagwaedoego isseoyo.", translation: "The marine ecosystem is being destroyed by plastic waste." }
+    },
+
+    // ── Science & Technology (8) ───────────────────────────────────────────────
+    {
+        id: "ko-v-b2-029", level: "B2", word: "인공지능", romanized: "ingong-jineung",
+        translation: "artificial intelligence (AI)", category: "science & technology",
+        example: { native: "인공지능이 의료 분야에서 혁신을 이끌고 있어요.", romanized: "Ingong-jineungi uiryo bunyaeso hyeoksinul ikkeugo isseoyo.", translation: "Artificial intelligence is leading innovation in the medical field." }
+    },
+    {
+        id: "ko-v-b2-030", level: "B2", word: "알고리즘", romanized: "algollijeum",
+        translation: "algorithm", category: "science & technology",
+        example: { native: "검색 알고리즘이 우리의 정보 소비에 영향을 줘요.", romanized: "Geomsaek algolijeum-i uriui jeongbo sobie yeonghyangeul jwoyo.", translation: "Search algorithms influence how we consume information." }
+    },
+    {
+        id: "ko-v-b2-031", level: "B2", word: "혁신", romanized: "hyeoksin",
+        translation: "innovation", category: "science & technology",
+        example: { native: "기술 혁신이 산업 구조를 바꾸고 있습니다.", romanized: "Gisul hyeoksin-i saneop gujoреul bakkugo isseumnida.", translation: "Technological innovation is transforming industrial structures." }
+    },
+    {
+        id: "ko-v-b2-032", level: "B2", word: "나노기술", romanized: "nano-gisul",
+        translation: "nanotechnology", category: "science & technology",
+        example: { native: "나노기술은 의학과 소재 개발에 활용됩니다.", romanized: "Nano-gisureun uihakgwa sojae gaebare hwargyongdoemnida.", translation: "Nanotechnology is used in medicine and material development." }
+    },
+    {
+        id: "ko-v-b2-033", level: "B2", word: "연구", romanized: "yeongu",
+        translation: "research / study", category: "science & technology",
+        example: { native: "이 연구는 암 치료에 중요한 발견을 담고 있어요.", romanized: "I yeongeuneun am chiryo-e jungyohan balgyeoneul damgo isseoyo.", translation: "This research contains an important discovery for cancer treatment." }
+    },
+    {
+        id: "ko-v-b2-034", level: "B2", word: "실험실", romanized: "silheomsil",
+        translation: "laboratory", category: "science & technology",
+        example: { native: "과학자들이 실험실에서 새로운 물질을 발견했어요.", romanized: "Gwahakjaduri silheomsil-eseo saeroun mulssireul balgyeonhaesseoyo.", translation: "Scientists discovered a new substance in the laboratory." }
+    },
+    {
+        id: "ko-v-b2-035", level: "B2", word: "가설", romanized: "gaseol",
+        translation: "hypothesis", category: "science & technology",
+        example: { native: "연구팀이 새로운 가설을 제시했습니다.", romanized: "Yeongutimi saeroun gasereul jessihaessseumnida.", translation: "The research team presented a new hypothesis." }
+    },
+    {
+        id: "ko-v-b2-036", level: "B2", word: "발견", romanized: "balgyeon",
+        translation: "discovery / finding", category: "science & technology",
+        example: { native: "이 발견은 과학계에 큰 파장을 일으켰어요.", romanized: "I balgyeoneun gwahakgye-e keun pajang-eul ireukkyeosseoyo.", translation: "This discovery caused a great stir in the scientific community." }
+    },
+
+    // ── Arts & Literature (8) ──────────────────────────────────────────────────
+    {
+        id: "ko-v-b2-037", level: "B2", word: "서사", romanized: "seosa",
+        translation: "narrative / epic", category: "arts & literature",
+        example: { native: "이 소설의 서사는 매우 복잡하고 흥미로워요.", romanized: "I soseoreui seosaneun maeu bokjaphago heungmirowoyo.", translation: "The narrative of this novel is very complex and interesting." }
+    },
+    {
+        id: "ko-v-b2-038", level: "B2", word: "비유", romanized: "biyu",
+        translation: "metaphor / analogy", category: "arts & literature",
+        example: { native: "시인은 자연을 삶의 비유로 자주 사용해요.", romanized: "Siineun jayeoneul salmeui biyuro jaju sayonghaeyo.", translation: "Poets often use nature as a metaphor for life." }
+    },
+    {
+        id: "ko-v-b2-039", level: "B2", word: "주인공", romanized: "juingong",
+        translation: "protagonist / main character", category: "arts & literature",
+        example: { native: "이 소설의 주인공은 복잡한 내면을 가진 인물이에요.", romanized: "I soseoreui juingong-eun bokjaphan naemyeoneul gajin inmuriyeyo.", translation: "The protagonist of this novel is a character with a complex inner world." }
+    },
+    {
+        id: "ko-v-b2-040", level: "B2", word: "문학 장르", romanized: "munhak-jangreu",
+        translation: "literary genre", category: "arts & literature",
+        example: { native: "추리소설은 가장 인기 있는 문학 장르 중 하나예요.", romanized: "Churisoseoreun gajang ingi inneun munhak-jangreu jung hanayeyo.", translation: "Detective fiction is one of the most popular literary genres." }
+    },
+    {
+        id: "ko-v-b2-041", level: "B2", word: "비평", romanized: "bipyeong",
+        translation: "criticism / critique", category: "arts & literature",
+        example: { native: "문학 비평가들이 그 작품을 높이 평가했어요.", romanized: "Munhak bipyeonggaduri geu jakpumeul nopi pyeonggahaesseoyo.", translation: "Literary critics gave the work a high evaluation." }
+    },
+    {
+        id: "ko-v-b2-042", level: "B2", word: "전위", romanized: "jeon'wi",
+        translation: "avant-garde", category: "arts & literature",
+        example: { native: "그의 작품은 전위적 예술 운동의 일부였어요.", romanized: "Geuui jakpumeun jeon'wijeok yesul undong-ui ilbuyeosseoyo.", translation: "His work was part of the avant-garde art movement." }
+    },
+    {
+        id: "ko-v-b2-043", level: "B2", word: "해석", romanized: "haesok",
+        translation: "interpretation / analysis", category: "arts & literature",
+        example: { native: "이 시의 해석은 독자마다 다를 수 있어요.", romanized: "I si-ui haesok-eun dokjamada dareul su isseoyo.", translation: "The interpretation of this poem can vary from reader to reader." }
+    },
+    {
+        id: "ko-v-b2-044", level: "B2", word: "출판사", romanized: "chulpansa",
+        translation: "publisher / publishing house", category: "arts & literature",
+        example: { native: "유명 출판사에서 그의 첫 번째 소설을 출판했어요.", romanized: "Yumyeong chulpansa-eseo geuui cheot beonjjae soseoreul chulpanhaesseoyo.", translation: "A famous publishing house published his first novel." }
+    },
+
+    // ── Health & Medicine (8) ──────────────────────────────────────────────────
+    {
+        id: "ko-v-b2-045", level: "B2", word: "진단", romanized: "jindan",
+        translation: "diagnosis", category: "health & medicine",
+        example: { native: "의사가 정확한 진단을 내리는 데 시간이 걸렸어요.", romanized: "Uisaga jeongwakhan jindaneul naerineun de sigani geollyeosseoyo.", translation: "It took time for the doctor to make an accurate diagnosis." }
+    },
+    {
+        id: "ko-v-b2-046", level: "B2", word: "치료", romanized: "chiryo",
+        translation: "treatment / therapy", category: "health & medicine",
+        example: { native: "새로운 치료법이 개발되어 환자들에게 희망을 주고 있어요.", romanized: "Saeroun chiryobeopi gaebaldoeo hwanjaduleg-e huimangeul jugo isseoyo.", translation: "A new treatment has been developed, giving hope to patients." }
+    },
+    {
+        id: "ko-v-b2-047", level: "B2", word: "만성", romanized: "manseong",
+        translation: "chronic", category: "health & medicine",
+        example: { native: "만성 질환은 장기적인 관리가 필요해요.", romanized: "Manseong jilhwaneun janggijeogín gwalliga piryohaeyo.", translation: "Chronic diseases require long-term management." }
+    },
+    {
+        id: "ko-v-b2-048", level: "B2", word: "증상", romanized: "jeungsang",
+        translation: "symptom", category: "health & medicine",
+        example: { native: "초기 증상을 무시하면 병이 악화될 수 있어요.", romanized: "Chogi jeungsangeul musihamyeon byeongi akwadoel su isseoyo.", translation: "Ignoring early symptoms can worsen the disease." }
+    },
+    {
+        id: "ko-v-b2-049", level: "B2", word: "예방접종", romanized: "yebang-jeopjong",
+        translation: "vaccination / immunization", category: "health & medicine",
+        example: { native: "독감 예방접종을 매년 받는 것이 좋아요.", romanized: "Dokgam yebang-jeopjongeul maenyeon badneun geosi joayo.", translation: "It is good to get a flu vaccination every year." }
+    },
+    {
+        id: "ko-v-b2-050", level: "B2", word: "유행병", romanized: "yuhaengbyeong",
+        translation: "epidemic / pandemic", category: "health & medicine",
+        example: { native: "전 세계적인 유행병은 의료 체계를 시험에 들게 했어요.", romanized: "Jeon segyejeogín yuhaengbyeongeun uiryo chegyereul siheom-e deulge haesseoyo.", translation: "A worldwide epidemic put the healthcare system to the test." }
+    },
+    {
+        id: "ko-v-b2-051", level: "B2", word: "정신 건강", romanized: "jeongsin-geongang",
+        translation: "mental health", category: "health & medicine",
+        example: { native: "정신 건강도 신체 건강만큼 중요해요.", romanized: "Jeongsin-geongang-do sinche geongang-mankeum jungyohaeyo.", translation: "Mental health is just as important as physical health." }
+    },
+    {
+        id: "ko-v-b2-052", level: "B2", word: "행복감", romanized: "haengbokkam",
+        translation: "sense of well-being / happiness", category: "health & medicine",
+        example: { native: "규칙적인 운동이 행복감을 높여 준다고 알려져 있어요.", romanized: "Gyuchikjeogin undong-i haengbokkameul nopyeo jundago allyeojyeo isseoyo.", translation: "Regular exercise is known to enhance the sense of well-being." }
+    },
+
+    // ── Law & Rights (8) ──────────────────────────────────────────────────────
+    {
+        id: "ko-v-b2-053", level: "B2", word: "인권", romanized: "inkwon",
+        translation: "human rights", category: "law & rights",
+        example: { native: "인권 침해에 맞서 싸우는 것이 중요합니다.", romanized: "Inkwon chimhae-e matseo ssauneun geosi jungyohamnida.", translation: "It is important to fight against human rights violations." }
+    },
+    {
+        id: "ko-v-b2-054", level: "B2", word: "법적", romanized: "beopjeok",
+        translation: "legal / juridical", category: "law & rights",
+        example: { native: "법적 절차에 따라 문제를 해결해야 해요.", romanized: "Beopjeok jeolcha-e ttara munjereul haegyeolhaeya haeyo.", translation: "You need to resolve the issue following legal procedures." }
+    },
+    {
+        id: "ko-v-b2-055", level: "B2", word: "법원", romanized: "beopwon",
+        translation: "court (of law)", category: "law & rights",
+        example: { native: "법원은 공정한 판결을 내려야 합니다.", romanized: "Beopwoneun gongjeonhan pangyeoreul naeryeoha hamnida.", translation: "Courts must deliver fair judgments." }
+    },
+    {
+        id: "ko-v-b2-056", level: "B2", word: "피고인", romanized: "pigoin",
+        translation: "defendant / accused", category: "law & rights",
+        example: { native: "피고인은 재판에서 자신을 변호할 권리가 있어요.", romanized: "Pigoin-eun jaepan-eseo jasineul byeonhohal gwonri-ga isseoyo.", translation: "The defendant has the right to defend themselves in court." }
+    },
+    {
+        id: "ko-v-b2-057", level: "B2", word: "판결", romanized: "pangyeol",
+        translation: "verdict / judgment", category: "law & rights",
+        example: { native: "법원의 판결에 불복하여 항소를 제기했어요.", romanized: "Beopwoneui pangyeore bulbokhayeo hangso-reul jegihaeisseoyo.", translation: "They appealed against the court's verdict." }
+    },
+    {
+        id: "ko-v-b2-058", level: "B2", word: "법적 구제", romanized: "beopjeok-guje",
+        translation: "legal remedy", category: "law & rights",
+        example: { native: "피해자는 법적 구제를 요청할 수 있습니다.", romanized: "Pihaejaneun beopjeok-gujereul yocheonghal su isseumnida.", translation: "The victim may request a legal remedy." }
+    },
+    {
+        id: "ko-v-b2-059", level: "B2", word: "평등", romanized: "pyeongdeung",
+        translation: "equality", category: "law & rights",
+        example: { native: "모든 사람은 법 앞에서 평등합니다.", romanized: "Modeun sarameun beop ap-eseo pyeongdeunghamnida.", translation: "All people are equal before the law." }
+    },
+    {
+        id: "ko-v-b2-060", level: "B2", word: "차별", romanized: "chabyeol",
+        translation: "discrimination", category: "law & rights",
+        example: { native: "직장 내 차별은 법으로 금지되어 있어요.", romanized: "Jikjang nae chabyeoreun beobeuro geumjidoeo isseoyo.", translation: "Workplace discrimination is prohibited by law." }
+    },
+
+    // ── Abstract & Philosophical (8) ───────────────────────────────────────────
+    {
+        id: "ko-v-b2-061", level: "B2", word: "윤리", romanized: "yulli",
+        translation: "ethics / morality", category: "abstract & philosophical",
+        example: { native: "인공지능 개발에는 윤리적 고려가 필요해요.", romanized: "Ingong-jineung gaebare-neun yullijeok goryeo-ga piryohaeyo.", translation: "Ethical consideration is needed in the development of AI." }
+    },
+    {
+        id: "ko-v-b2-062", level: "B2", word: "주관적", romanized: "juganjeok",
+        translation: "subjective", category: "abstract & philosophical",
+        example: { native: "예술 작품에 대한 평가는 주관적일 수 있어요.", romanized: "Yesul jakpume daehan pyeongganneun juganjeogil su isseoyo.", translation: "Evaluations of artworks can be subjective." }
+    },
+    {
+        id: "ko-v-b2-063", level: "B2", word: "인식", romanized: "insik",
+        translation: "perception / awareness / cognition", category: "abstract & philosophical",
+        example: { native: "환경 문제에 대한 사회적 인식이 높아지고 있어요.", romanized: "Hwangyeong munje-e daehan sahoejok insiği nopajigo isseoyo.", translation: "Social awareness of environmental issues is growing." }
+    },
+    {
+        id: "ko-v-b2-064", level: "B2", word: "이데올로기", romanized: "ideoollogi",
+        translation: "ideology", category: "abstract & philosophical",
+        example: { native: "정치적 이데올로기가 정책 결정에 영향을 줍니다.", romanized: "Jeongchijeok ideoolloğiga jeongchaek gyeoljeong-e yeonghyangeul jumnida.", translation: "Political ideology influences policy decisions." }
+    },
+    {
+        id: "ko-v-b2-065", level: "B2", word: "패러다임", romanized: "paerodaim",
+        translation: "paradigm", category: "abstract & philosophical",
+        example: { native: "디지털 혁명은 산업의 패러다임을 바꿔 놓았어요.", romanized: "Dijiteol hyeongmyeong-eun saneop-ui paerodarmeul bakkwo notasseoyo.", translation: "The digital revolution changed the industrial paradigm." }
+    },
+    {
+        id: "ko-v-b2-066", level: "B2", word: "원칙", romanized: "wonchik",
+        translation: "principle", category: "abstract & philosophical",
+        example: { native: "그 회사는 투명성의 원칙을 지킵니다.", romanized: "Geu hoesaneun tumyeongseong-ui wonchigeul jikipnida.", translation: "The company adheres to the principle of transparency." }
+    },
+    {
+        id: "ko-v-b2-067", level: "B2", word: "추상", romanized: "chusang",
+        translation: "abstraction / abstract (concept)", category: "abstract & philosophical",
+        example: { native: "자유는 매우 추상적인 개념이에요.", romanized: "Jayuneun maeu chusangjeogín gaenyeomieyeo.", translation: "Freedom is a very abstract concept." }
+    },
+    {
+        id: "ko-v-b2-068", level: "B2", word: "딜레마", romanized: "dilllema",
+        translation: "dilemma", category: "abstract & philosophical",
+        example: { native: "그는 도덕적 딜레마에 빠졌어요.", romanized: "Geuneun dodeokjeok dillema-e ppajyeosseoyo.", translation: "He fell into a moral dilemma." }
+    },
+
+    // ── Formal Academic Connectors (6) ─────────────────────────────────────────
+    {
+        id: "ko-v-b2-069", level: "B2", word: "따라서", romanized: "ttaraseo",
+        translation: "therefore / consequently", category: "formal academic connectors",
+        example: { native: "데이터가 부족합니다. 따라서 결론을 내리기 어렵습니다.", romanized: "Deiteo-ga bujokamnida. Ttaraseo gyeolloneul naerigi eoryeopseumnida.", translation: "The data is insufficient. Therefore, it is difficult to draw conclusions." }
+    },
+    {
+        id: "ko-v-b2-070", level: "B2", word: "그럼에도 불구하고", romanized: "geureomedo-bulgugago",
+        translation: "nevertheless / in spite of that", category: "formal academic connectors",
+        example: { native: "많은 어려움이 있었습니다. 그럼에도 불구하고 목표를 달성했어요.", romanized: "Maneun eoryeoumi isseossseumnida. Geureomedo bulgugago mokpyoreul dalseonghaesseoyo.", translation: "There were many difficulties. Nevertheless, they achieved their goal." }
+    },
+    {
+        id: "ko-v-b2-071", level: "B2", word: "주목할 점은", romanized: "jumokhal-jeomeun",
+        translation: "it is noteworthy that / notably", category: "formal academic connectors",
+        example: { native: "주목할 점은 두 집단 간의 차이가 매우 크다는 것입니다.", romanized: "Jumokhal jeomeun du jipdan gan-eui chai-ga maeu keudaneun geosimnida.", translation: "It is noteworthy that the difference between the two groups is very large." }
+    },
+    {
+        id: "ko-v-b2-072", level: "B2", word: "에 관하여", romanized: "e-gwanhayeo",
+        translation: "regarding / concerning", category: "formal academic connectors",
+        example: { native: "이 보고서는 기후변화에 관하여 심층적으로 다루고 있습니다.", romanized: "I bogoseoneun gihu-byeonhwa-e gwanhayeo simseujeogíneuro darugo isseumnida.", translation: "This report deals in depth with regard to climate change." }
+    },
+    {
+        id: "ko-v-b2-073", level: "B2", word: "비록...지라도", romanized: "birog...jirado",
+        translation: "even though / although (concessive)", category: "formal academic connectors",
+        example: { native: "비록 결과가 좋지 않았을지라도 최선을 다했습니다.", romanized: "Birog gyeolgwa-ga jochi anasseuljirado choeseoneul dahaessseumnida.", translation: "Even though the result was not good, we did our best." }
+    },
+    {
+        id: "ko-v-b2-074", level: "B2", word: "마찬가지로", romanized: "machang-ajiro",
+        translation: "likewise / similarly", category: "formal academic connectors",
+        example: { native: "첫 번째 실험과 마찬가지로 두 번째 실험도 실패했어요.", romanized: "Cheot beonjjae silheomgwa machan-gajiro du beonjjae silheomdo silpaehaesseoyo.", translation: "Similarly to the first experiment, the second experiment also failed." }
+    },
+
+    // ── Complex Emotions (6) ───────────────────────────────────────────────────
+    {
+        id: "ko-v-b2-075", level: "B2", word: "후회", romanized: "huhoe",
+        translation: "regret", category: "complex emotions",
+        example: { native: "그 결정을 후회하지 않아요.", romanized: "Geu gyeoljeong-eul huhoehai anayo.", translation: "I don't regret that decision." }
+    },
+    {
+        id: "ko-v-b2-076", level: "B2", word: "회복력", romanized: "hoebongnyeok",
+        translation: "resilience", category: "complex emotions",
+        example: { native: "그녀는 뛰어난 회복력으로 어려움을 극복했어요.", romanized: "Geunyeoneun ttwieoran hoebongnyeogeuro eoryeoumul geukbokhaesseoyo.", translation: "She overcame difficulties with outstanding resilience." }
+    },
+    {
+        id: "ko-v-b2-077", level: "B2", word: "공감", romanized: "gonggam",
+        translation: "empathy", category: "complex emotions",
+        example: { native: "공감 능력은 좋은 인간 관계의 기초예요.", romanized: "Gonggam neungnyeogeun joeun ingan gwangye-ui gicho-yeyo.", translation: "The ability to empathize is the foundation of good human relationships." }
+    },
+    {
+        id: "ko-v-b2-078", level: "B2", word: "향수", romanized: "hyangsu",
+        translation: "nostalgia", category: "complex emotions",
+        example: { native: "고향의 냄새를 맡으면 향수가 느껴져요.", romanized: "Gohyang-ui naemse-reul matgeumyeon hyangsu-ga neukkyeojyeoyo.", translation: "When I smell the scent of my hometown, I feel nostalgia." }
+    },
+    {
+        id: "ko-v-b2-079", level: "B2", word: "복잡한 감정", romanized: "bokjapan-gamjeong",
+        translation: "mixed / complex feelings", category: "complex emotions",
+        example: { native: "졸업식에서 복잡한 감정을 느꼈어요.", romanized: "Joreopsik-eseo bokjapan gamjeong-eul neukkyeosseoyo.", translation: "I felt mixed emotions at the graduation ceremony." }
+    },
+    {
+        id: "ko-v-b2-080", level: "B2", word: "좌절", romanized: "jwajol",
+        translation: "frustration / setback", category: "complex emotions",
+        example: { native: "반복되는 좌절에도 포기하지 않는 것이 중요해요.", romanized: "Banbokdoeneun jwajol-edo pogihaji anneun geosi jungyohaeyo.", translation: "It is important not to give up despite repeated frustration." }
+    }
+]
