@@ -74,4 +74,28 @@ export const levelQuestions: QuizQuestion[] = [
     { id: "it-lt-b2-13", level: "B2", prompt: "What does 'di conseguenza' mean?", options: ["However", "Similarly", "Consequently / as a result", "With regard to"], answer: "Consequently / as a result" },
     { id: "it-lt-b2-14", level: "B2", prompt: "What does 'la resilienza' mean?", options: ["Frustration", "Nostalgia", "Empathy", "Resilience"], answer: "Resilience" },
     { id: "it-lt-b2-15", level: "B2", prompt: "What does 'il paradigma' mean?", options: ["Dilemma", "Ideology", "Paradigm", "Abstraction"], answer: "Paradigm" },
+
+    // --- C1 (15 questions) ---
+    // Congiuntivo Trapassato (3)
+    { id: "it-lt-c1-1", level: "C1", prompt: "Complete (congiuntivo trapassato): 'Se ___ di più, avrei superato l'esame.' (studiare — io)", options: ["studiavo", "avessi studiato", "studio", "avrei studiato"], answer: "avessi studiato" },
+    { id: "it-lt-c1-2", level: "C1", prompt: "Complete (congiuntivo trapassato): 'Magari ___ a casa ieri sera!' (restare — io)", options: ["restavo", "sono rimasto", "fossi rimasto", "sarei rimasto"], answer: "fossi rimasto" },
+    { id: "it-lt-c1-3", level: "C1", prompt: "Complete: 'Non sapevo che tu ___ già il contratto.' (firmare)", options: ["firmassi", "avessi firmato", "abbia firmato", "firmavi"], answer: "avessi firmato" },
+    // Periodo Ipotetico di 3° tipo (2)
+    { id: "it-lt-c1-4", level: "C1", prompt: "Which combination is correct for a 3rd conditional (3° tipo) in Italian?", options: ["se + congiuntivo imperfetto, condizionale presente", "se + congiuntivo trapassato, condizionale passato", "se + indicativo imperfetto, condizionale passato", "se + congiuntivo presente, futuro anteriore"], answer: "se + congiuntivo trapassato, condizionale passato" },
+    { id: "it-lt-c1-5", level: "C1", prompt: "Complete (3° tipo): 'Se avesse avuto più tempo, ___ il progetto.' (finire — lui)", options: ["finisce", "finiva", "avrebbe finito", "finirebbe"], answer: "avrebbe finito" },
+    // Stile Formale / Nominalisations (2)
+    { id: "it-lt-c1-6", level: "C1", prompt: "Which formal phrase means 'with regard to' / 'concerning' in Italian?", options: ["a seguito di", "in merito a", "in virtù di", "tenuto conto di"], answer: "in merito a" },
+    { id: "it-lt-c1-7", level: "C1", prompt: "What does the formal phrase 'a seguito di' mean?", options: ["with regard to", "for the purposes of", "following / as a result of", "regardless of"], answer: "following / as a result of" },
+    // Costruzioni Impersonali (2)
+    { id: "it-lt-c1-8", level: "C1", prompt: "Complete (costruzione impersonale): 'Si ritiene che il progetto ___ valido.' (essere)", options: ["è", "era", "sia", "fosse"], answer: "sia" },
+    { id: "it-lt-c1-9", level: "C1", prompt: "Which phrase is a formal journalistic attribution structure in Italian?", options: ["secondo me", "si dice sempre", "stando a quanto riferisce", "come tutti sanno"], answer: "stando a quanto riferisce" },
+    // Passato Remoto forms (2)
+    { id: "it-lt-c1-10", level: "C1", prompt: "What is the passato remoto of 'essere' (loro)?", options: ["erano", "siano stati", "furono", "fossero"], answer: "furono" },
+    { id: "it-lt-c1-11", level: "C1", prompt: "What is the passato remoto of 'venire' (lui/lei)?", options: ["veniva", "è venuto", "venisse", "venne"], answer: "venne" },
+    // C1 Vocabulary (2)
+    { id: "it-lt-c1-12", level: "C1", prompt: "What does 'l'epistemologia' mean?", options: ["The study of society", "The study of knowledge and its foundations", "The study of language", "The study of morality"], answer: "The study of knowledge and its foundations" },
+    { id: "it-lt-c1-13", level: "C1", prompt: "What does 'la dissonanza cognitiva' mean?", options: ["A type of memory disorder", "The mental discomfort of holding contradictory beliefs", "A form of linguistic ambiguity", "A bias towards optimistic thinking"], answer: "The mental discomfort of holding contradictory beliefs" },
+    // Complex counterfactual / literary register (2)
+    { id: "it-lt-c1-14", level: "C1", prompt: "Complete the mixed conditional: 'Se ___ medicina, sarei un medico adesso.' (studiare — io)", options: ["studiavo", "studiassi", "avessi studiato", "studio"], answer: "avessi studiato" },
+    { id: "it-lt-c1-15", level: "C1", prompt: "Which register characterises 'Dante scrisse la Divina Commedia nel XIV secolo'?", options: ["Informal spoken Italian", "Southern regional dialect", "Literary / formal written Italian using passato remoto", "Journalistic impersonal style"], answer: "Literary / formal written Italian using passato remoto" },
 ]
