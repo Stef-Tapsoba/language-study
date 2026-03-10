@@ -51,4 +51,27 @@ export const levelQuestions: QuizQuestion[] = [
     { id: "it-lt-b1-13", level: "B1", prompt: "What does 'secondo' mean?", options: ["Suddenly", "According to", "However", "Around"], answer: "According to" },
     { id: "it-lt-b1-14", level: "B1", prompt: "Presente of 'sapere' (io): 'Io ___ parlare italiano.'", options: ["sai", "sa", "so", "sappi"], answer: "so" },
     { id: "it-lt-b1-15", level: "B1", prompt: "What does 'sebbene' mean?", options: ["Therefore", "Furthermore", "However", "Although / even though"], answer: "Although / even though" },
+
+    // --- B2 (15 questions) ---
+    // Congiuntivo Imperfetto (3)
+    { id: "it-lt-b2-1", level: "B2", prompt: "Complete (congiuntivo imperfetto): 'Magari ___ più soldi!' (avere — io)", options: ["ho", "abbia", "avessi", "avevo"], answer: "avessi" },
+    { id: "it-lt-b2-2", level: "B2", prompt: "Complete: 'Si comporta come se ___ il capo.' (essere — lui)", options: ["è", "sia", "fosse", "sarà"], answer: "fosse" },
+    { id: "it-lt-b2-3", level: "B2", prompt: "What is the congiuntivo imperfetto of 'essere' for 'noi'?", options: ["siamo", "fossimo", "fussimo", "siamo stati"], answer: "fossimo" },
+    // Forma Passiva (2)
+    { id: "it-lt-b2-4", level: "B2", prompt: "Transform to passive: 'Il direttore firma il contratto.' →", options: ["Il contratto firma il direttore.", "Il contratto è firmato dal direttore.", "Il contratto viene firmare.", "Il direttore è firmato."], answer: "Il contratto è firmato dal direttore." },
+    { id: "it-lt-b2-5", level: "B2", prompt: "Which auxiliary can replace 'essere' in simple tenses for a dynamic passive?", options: ["avere", "stare", "venire", "andare"], answer: "venire" },
+    // Pronomi Relativi (2)
+    { id: "it-lt-b2-6", level: "B2", prompt: "Complete: 'La scrittrice ___ romanzi ho letto vive a Roma.'", options: ["che", "cui", "i cui", "la quale"], answer: "i cui" },
+    { id: "it-lt-b2-7", level: "B2", prompt: "Complete (formal): '___ lavora con dedizione ottiene buoni risultati.'", options: ["Colui", "Chi", "Cui", "Il quale"], answer: "Chi" },
+    // Discorso Indiretto (2)
+    { id: "it-lt-b2-8", level: "B2", prompt: "Transform to reported speech: 'Parto domani.' → Ha detto che ___", options: ["partirà il giorno dopo", "sarebbe partito il giorno dopo", "parte domani", "partiva il giorno dopo"], answer: "sarebbe partito il giorno dopo" },
+    { id: "it-lt-b2-9", level: "B2", prompt: "How do you report a yes/no question in Italian indirect speech?", options: ["ha detto che", "ha chiesto se", "ha chiesto quale", "ha chiesto perché"], answer: "ha chiesto se" },
+    // Periodo Ipotetico di 2° tipo (3)
+    { id: "it-lt-b2-10", level: "B2", prompt: "Complete (2° tipo): 'Se ___ a Milano, verrei a trovarti.' (essere — io)", options: ["sono", "sarò", "fossi", "sarei"], answer: "fossi" },
+    { id: "it-lt-b2-11", level: "B2", prompt: "Complete (2° tipo): 'Se potessi scegliere, ___ in campagna.' (vivere — io)", options: ["vivo", "vivrò", "vivessi", "vivrei"], answer: "vivrei" },
+    { id: "it-lt-b2-12", level: "B2", prompt: "Which combination is correct for a 2nd conditional (2° tipo) in Italian?", options: ["se + presente, futuro", "se + congiuntivo imperfetto, condizionale presente", "se + imperfetto, condizionale passato", "se + congiuntivo presente, futuro"], answer: "se + congiuntivo imperfetto, condizionale presente" },
+    // B2 Vocabulary (3)
+    { id: "it-lt-b2-13", level: "B2", prompt: "What does 'di conseguenza' mean?", options: ["However", "Similarly", "Consequently / as a result", "With regard to"], answer: "Consequently / as a result" },
+    { id: "it-lt-b2-14", level: "B2", prompt: "What does 'la resilienza' mean?", options: ["Frustration", "Nostalgia", "Empathy", "Resilience"], answer: "Resilience" },
+    { id: "it-lt-b2-15", level: "B2", prompt: "What does 'il paradigma' mean?", options: ["Dilemma", "Ideology", "Paradigm", "Abstraction"], answer: "Paradigm" },
 ]

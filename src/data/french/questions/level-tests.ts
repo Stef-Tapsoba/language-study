@@ -51,4 +51,27 @@ export const levelQuestions: QuizQuestion[] = [
     { id: "fr-lt-b1-13", level: "B1", prompt: "What does 'le défi' mean?", options: ["Environment", "Society", "Challenge", "Opinion"], answer: "Challenge" },
     { id: "fr-lt-b1-14", level: "B1", prompt: "Complete (subjonctif): 'Je veux qu'elle ___ (venir).'", options: ["vient", "viendra", "vienne", "venait"], answer: "vienne" },
     { id: "fr-lt-b1-15", level: "B1", prompt: "Which connector means 'furthermore'?", options: ["par contre", "en revanche", "de plus", "selon"], answer: "de plus" },
+
+    // --- B2 (15 questions) ---
+    // Subjonctif Passé (3)
+    { id: "fr-lt-b2-1", level: "B2", prompt: "Complete using subjonctif passé: 'Bien qu'il ___ (finir) ses études, il cherche encore un emploi.'", options: ["a fini", "finisse", "ait fini", "avait fini"], answer: "ait fini" },
+    { id: "fr-lt-b2-2", level: "B2", prompt: "Complete: 'Je suis ravi qu'elle ___ (venir) à la conférence.'", options: ["est venue", "soit venue", "venait", "vienne"], answer: "soit venue" },
+    { id: "fr-lt-b2-3", level: "B2", prompt: "Which sentence correctly uses the subjonctif passé?", options: ["Il est dommage qu'elle a démissionné.", "Il est dommage qu'elle soit démissionnée.", "Il est dommage qu'elle soit partie.", "Il est dommage qu'elle partait."], answer: "Il est dommage qu'elle soit partie." },
+    // Voix Passive (2)
+    { id: "fr-lt-b2-4", level: "B2", prompt: "Transform to passive: 'Le président a signé le décret.'", options: ["Le décret a signé par le président.", "Le décret a été signé par le président.", "Le décret était signé par le président.", "Le décret est signé du président."], answer: "Le décret a été signé par le président." },
+    { id: "fr-lt-b2-5", level: "B2", prompt: "Which sentence is correctly formed in the passive voice?", options: ["Ce rapport a été rédigé par nos experts.", "Ce rapport a rédigé par nos experts.", "Ce rapport était rédigé nos experts.", "Ce rapport a été rédigé de nos experts."], answer: "Ce rapport a été rédigé par nos experts." },
+    // Pronoms Relatifs (2)
+    { id: "fr-lt-b2-6", level: "B2", prompt: "Complete: 'C'est l'organisation pour ___ il travaille depuis dix ans.' (thing + pour)", options: ["qui", "laquelle", "dont", "que"], answer: "laquelle" },
+    { id: "fr-lt-b2-7", level: "B2", prompt: "Complete: 'Le chercheur ___ les travaux sont reconnus a reçu un prix.' (possession)", options: ["que", "qui", "dont", "lequel"], answer: "dont" },
+    // Discours Indirect (2)
+    { id: "fr-lt-b2-8", level: "B2", prompt: "Report: 'Je partirai demain.' → Elle a dit qu'elle ___ le lendemain.", options: ["partira", "partirait", "est partie", "partait"], answer: "partirait" },
+    { id: "fr-lt-b2-9", level: "B2", prompt: "Report: 'Est-ce que tu as terminé ?' → Il a demandé si ___.", options: ["tu as terminé", "j'avais terminé", "tu avais terminé", "j'ai terminé"], answer: "j'avais terminé" },
+    // Conditionnel Passé (3)
+    { id: "fr-lt-b2-10", level: "B2", prompt: "Complete: 'Si nous avions su, nous ___ agi différemment.' (conditionnel passé)", options: ["aurions", "avons", "serions", "aurions pu"], answer: "aurions" },
+    { id: "fr-lt-b2-11", level: "B2", prompt: "What is the conditionnel passé of 'partir' (elle)?", options: ["aurait parti", "serait partie", "était partie", "sera partie"], answer: "serait partie" },
+    { id: "fr-lt-b2-12", level: "B2", prompt: "Which sentence expresses a regret using the conditionnel passé?", options: ["J'aurais dû étudier davantage.", "J'aurais étudier davantage.", "Je devrais étudier davantage.", "J'avais dû étudier davantage."], answer: "J'aurais dû étudier davantage." },
+    // B2 Vocabulary (3)
+    { id: "fr-lt-b2-13", level: "B2", prompt: "What does 'néanmoins' mean?", options: ["furthermore", "therefore", "nevertheless", "although"], answer: "nevertheless" },
+    { id: "fr-lt-b2-14", level: "B2", prompt: "What does 'la souveraineté' mean?", options: ["sovereignty", "society", "solidarity", "security"], answer: "sovereignty" },
+    { id: "fr-lt-b2-15", level: "B2", prompt: "What does 'en conséquence' mean?", options: ["on the contrary", "as a result / consequently", "in comparison", "in addition"], answer: "as a result / consequently" },
 ]

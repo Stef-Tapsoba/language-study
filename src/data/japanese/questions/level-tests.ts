@@ -326,5 +326,159 @@ export const levelQuestions: QuizQuestion[] = [
         prompt: "What does 機会 (きかい) mean?",
         options: ["Machine", "Opportunity / Chance", "Environment", "Society"],
         answer: "Opportunity / Chance"
+    },
+
+    // -----------------------------------------------------------------------
+    // B2 (15 questions)
+    // -----------------------------------------------------------------------
+    {
+        id: "ja-lt-b2-1",
+        level: "B2",
+        prompt: "What is the passive form of 食べる (taberu — to eat)?",
+        options: ["食べさせる", "食べられる", "食べさせられる", "食べられた"],
+        answer: "食べられる",
+        hint: "Group 2 verbs: stem + られる forms the passive."
+    },
+    {
+        id: "ja-lt-b2-2",
+        level: "B2",
+        prompt: "Which sentence uses the 'suffering passive' (迷惑の受身)?",
+        options: [
+            "その映画は世界中で見られている。",
+            "弟に日記を読まれてしまった。",
+            "先生に褒められた。",
+            "この本は多くの人に読まれている。"
+        ],
+        answer: "弟に日記を読まれてしまった。",
+        hint: "The suffering passive expresses negative impact: my brother read my diary (and I was bothered)."
+    },
+    {
+        id: "ja-lt-b2-3",
+        level: "B2",
+        prompt: "What does the causative-passive form させられる express?",
+        options: [
+            "To allow someone to do something",
+            "To be made to do something against one's will",
+            "To make someone do something",
+            "To be able to do something"
+        ],
+        answer: "To be made to do something against one's will",
+        hint: "Causative-passive = causative + passive: you were made (by someone) to do the action."
+    },
+    {
+        id: "ja-lt-b2-4",
+        level: "B2",
+        prompt: "Which is the respectful (尊敬語) form of 言う (to say)?",
+        options: ["まいる", "いたす", "申す", "おっしゃる"],
+        answer: "おっしゃる",
+        hint: "おっしゃる is sonkeigo (respectful) for 言う; 申す is kenjōgo (humble)."
+    },
+    {
+        id: "ja-lt-b2-5",
+        level: "B2",
+        prompt: "Which is the humble (謙譲語) form of 行く / 来る?",
+        options: ["いらっしゃる", "まいる", "くださる", "なさる"],
+        answer: "まいる",
+        hint: "まいる is kenjōgo (humble speech), used for your own actions of going or coming."
+    },
+    {
+        id: "ja-lt-b2-6",
+        level: "B2",
+        prompt: "How do you say 'I will do it' using humble keigo (謙譲語)?",
+        options: ["なさいます。", "いたします。", "おっしゃいます。", "くださいます。"],
+        answer: "いたします。",
+        hint: "いたす is the humble form of する — used to lower your own action."
+    },
+    {
+        id: "ja-lt-b2-7",
+        level: "B2",
+        prompt: "Which conditional expresses an automatic/inevitable result (like natural laws)?",
+        options: ["〜たら", "〜ば", "〜なら", "〜と"],
+        answer: "〜と",
+        hint: "〜と is used for automatic, inevitable, or habitual results: 春になると桜が咲く."
+    },
+    {
+        id: "ja-lt-b2-8",
+        level: "B2",
+        prompt: "「東京に行くなら、浅草を見てください」— which conditional is used and why?",
+        options: [
+            "〜たら: sequential condition",
+            "〜なら: based on information the listener provided",
+            "〜ば: hypothetical general truth",
+            "〜と: automatic result"
+        ],
+        answer: "〜なら: based on information the listener provided",
+        hint: "〜なら is used when the speaker builds on what the listener has said or implied."
+    },
+    {
+        id: "ja-lt-b2-9",
+        level: "B2",
+        prompt: "Which sentence correctly expresses 'I should have woken up earlier'?",
+        options: [
+            "もっと早く起きたかった。",
+            "もっと早く起きればよかった。",
+            "もっと早く起きなければよかった。",
+            "もっと早く起きておいた。"
+        ],
+        answer: "もっと早く起きればよかった。",
+        hint: "〜ばよかった = should have done X (regret about a past omission)."
+    },
+    {
+        id: "ja-lt-b2-10",
+        level: "B2",
+        prompt: "What does 〜ておけばよかった express?",
+        options: [
+            "I should have done X continuously in the past",
+            "I should have done X in advance / as preparation",
+            "I should not have done X",
+            "I wish I could do X in the future"
+        ],
+        answer: "I should have done X in advance / as preparation",
+        hint: "〜ておく means to do something in advance; combined with ばよかった = should have prepared by doing X."
+    },
+    {
+        id: "ja-lt-b2-11",
+        level: "B2",
+        prompt: "Which nominaliser is preferred when describing directly perceived events (seen, heard)?",
+        options: ["こと", "の", "という", "こと or の equally"],
+        answer: "の",
+        hint: "の is used for things directly perceived: 彼女が歌うのを聞いた (I heard her singing)."
+    },
+    {
+        id: "ja-lt-b2-12",
+        level: "B2",
+        prompt: "What function does 〜という serve in 「「持続可能性」という概念」?",
+        options: [
+            "Quoting direct speech",
+            "Labelling / naming something",
+            "Expressing a condition",
+            "Nominalising a verb phrase"
+        ],
+        answer: "Labelling / naming something",
+        hint: "〜という = called / known as: the concept called 'sustainability'."
+    },
+    {
+        id: "ja-lt-b2-13",
+        level: "B2",
+        prompt: "What does 民主主義 (みんしゅしゅぎ) mean?",
+        options: ["Sovereignty", "Democracy", "Ideology", "Human rights"],
+        answer: "Democracy",
+        hint: "民主 (minshu) = people's rule; 主義 (shugi) = -ism / principle = democracy."
+    },
+    {
+        id: "ja-lt-b2-14",
+        level: "B2",
+        prompt: "What does 再生可能エネルギー (さいせいかのうエネルギー) mean?",
+        options: ["Nuclear energy", "Fossil fuel energy", "Renewable energy", "Solar energy only"],
+        answer: "Renewable energy",
+        hint: "再生可能 = renewable/regenerable; エネルギー = energy."
+    },
+    {
+        id: "ja-lt-b2-15",
+        level: "B2",
+        prompt: "What does 倫理 (りんり) mean?",
+        options: ["Ideology", "Paradigm", "Ethics / Morality", "Abstraction"],
+        answer: "Ethics / Morality",
+        hint: "倫理 (rinri) = ethics or moral philosophy — commonly used in academic and professional contexts."
     }
 ]
