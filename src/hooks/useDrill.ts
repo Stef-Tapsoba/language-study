@@ -1,12 +1,18 @@
 // hooks/useDrill.ts — shared state machine for verb and grammar drill pages
 import { useState, useEffect } from "react"
 
+export interface MissedEntry<Q> {
+    question: Q
+    yourAnswer: string
+}
+
 export function useDrill<Q extends { correct: string; options: string[] }>(questions: Q[]) {
     const [index, setIndex] = useState(0)
     const [selected, setSelected] = useState<string | null>(null)
     const [revealed, setRevealed] = useState(false)
     const [score, setScore] = useState(0)
     const [done, setDone] = useState(false)
+    const [missed, setMissed] = useState<MissedEntry<Q>[]>([])
 
     function handleSelect(opt: string) {
         if (revealed) return
@@ -15,7 +21,12 @@ export function useDrill<Q extends { correct: string; options: string[] }>(quest
     }
 
     function handleNext() {
-        const newScore = score + (selected === questions[index].correct ? 1 : 0)
+        const q = questions[index]
+        const isCorrect = selected === q.correct
+        const newScore = score + (isCorrect ? 1 : 0)
+        if (!isCorrect && selected !== null) {
+            setMissed(prev => [...prev, { question: q, yourAnswer: selected }])
+        }
         if (index + 1 >= questions.length) {
             setScore(newScore)
             setDone(true)
@@ -28,7 +39,7 @@ export function useDrill<Q extends { correct: string; options: string[] }>(quest
     }
 
     function restart() {
-        setIndex(0); setSelected(null); setRevealed(false); setScore(0); setDone(false)
+        setIndex(0); setSelected(null); setRevealed(false); setScore(0); setDone(false); setMissed([])
     }
 
     // Keyboard shortcuts: 1–4 to select an option, Enter/Space to advance
@@ -43,7 +54,11 @@ export function useDrill<Q extends { correct: string; options: string[] }>(quest
                 if (opt !== undefined) { setSelected(opt); setRevealed(true) }
             } else if ((e.key === "Enter" || e.key === " ") && revealed) {
                 e.preventDefault()
-                const newScore = score + (selected === q.correct ? 1 : 0)
+                const isCorrect = selected === q.correct
+                const newScore = score + (isCorrect ? 1 : 0)
+                if (!isCorrect && selected !== null) {
+                    setMissed(prev => [...prev, { question: q, yourAnswer: selected }])
+                }
                 if (index + 1 >= questions.length) {
                     setScore(newScore); setDone(true)
                 } else {
@@ -55,5 +70,5 @@ export function useDrill<Q extends { correct: string; options: string[] }>(quest
         return () => window.removeEventListener("keydown", onKey)
     }, [index, revealed, done, score, selected, questions])
 
-    return { index, selected, revealed, score, done, handleSelect, handleNext, restart }
+    return { index, selected, revealed, score, done, missed, handleSelect, handleNext, restart }
 }

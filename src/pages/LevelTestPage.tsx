@@ -7,7 +7,7 @@ import { getCurrentLevel, setCurrentLevel } from "../store/progress"
 import { NavBar } from "../components/NavBar"
 import { QuizCard } from "../components/QuizCard"
 import { LevelBadge } from "../components/LevelBadge"
-import { CEFR_LEVELS, CEFRLevel } from "../types"
+import { CEFR_LEVELS, CEFRLevel, QuizQuestion } from "../types"
 import { getUI, fmt, UIStrings } from "../i18n"
 
 const PASS_THRESHOLD = 12  // out of 15
@@ -109,6 +109,8 @@ export function LevelTestPage() {
     const [revealed, setRevealed] = useState(false)
     const [score, setScore] = useState(0)
     const [done, setDone] = useState(false)
+    const [missed, setMissed] = useState<QuizQuestion[]>([])
+    const [reviewOpen, setReviewOpen] = useState(false)
 
     if (!language || !mod) return null
 
@@ -132,7 +134,12 @@ export function LevelTestPage() {
     }
 
     function handleNext() {
-        const newScore = score + (selected === questions[current].answer ? 1 : 0)
+        const q = questions[current]
+        const isCorrect = selected === q.answer
+        const newScore = score + (isCorrect ? 1 : 0)
+        if (!isCorrect && selected !== null) {
+            setMissed(prev => [...prev, q])
+        }
         if (current + 1 >= questions.length) {
             setScore(newScore)
             setDone(true)
@@ -146,7 +153,7 @@ export function LevelTestPage() {
 
     function handleRetry() {
         setCurrent(0); setScore(0)
-        setSelected(null); setRevealed(false); setDone(false)
+        setSelected(null); setRevealed(false); setDone(false); setMissed([]); setReviewOpen(false)
     }
 
     if (done) {
@@ -178,6 +185,27 @@ export function LevelTestPage() {
                             onRetry={handleRetry}
                         />
                     </div>
+                    {missed.length > 0 && (
+                        <div className="w-full bg-white rounded-2xl border border-gray-200 overflow-hidden text-left">
+                            <button
+                                onClick={() => setReviewOpen(o => !o)}
+                                className="w-full flex items-center justify-between px-5 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
+                            >
+                                <span>Review mistakes ({missed.length})</span>
+                                <span className="text-gray-400">{reviewOpen ? "▲" : "▼"}</span>
+                            </button>
+                            {reviewOpen && (
+                                <div className="flex flex-col divide-y divide-gray-100">
+                                    {missed.map(q => (
+                                        <div key={q.id} className="px-5 py-3">
+                                            <p className="text-xs text-gray-500 mb-1">{q.prompt}</p>
+                                            <p className="text-sm font-medium text-green-700">✓ {q.answer}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    )}
                 </main>
             </div>
         )

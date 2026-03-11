@@ -21,6 +21,8 @@ import { GrammarDrillPage } from "./pages/GrammarDrillPage"
 import { UnitPage } from "./pages/UnitPage"
 import { ReadingPage } from "./pages/ReadingPage"
 import { ListeningPage } from "./pages/ListeningPage"
+import { CulturePage } from "./pages/CulturePage"
+import { GrammarLessonPage } from "./pages/GrammarLessonPage"
 
 export default function App() {
     return (
@@ -80,7 +82,10 @@ export default function App() {
                         <ProtectedRoute><ListeningPage /></ProtectedRoute>
                     } />
                     <Route path="/learn/:langId/culture" element={
-                        <ProtectedRoute><ReadingPage category="culture" /></ProtectedRoute>
+                        <ProtectedRoute><CulturePage /></ProtectedRoute>
+                    } />
+                    <Route path="/learn/:langId/grammar/:lessonId" element={
+                        <ProtectedRoute><GrammarLessonPage /></ProtectedRoute>
                     } />
 
                     {/* Profile */}

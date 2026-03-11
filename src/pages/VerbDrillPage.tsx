@@ -99,6 +99,11 @@ export function VerbDrillPage() {
                 navTitle={ui.sectionVerbDrill}
                 ui={ui}
                 onRestart={drill.restart}
+                missed={drill.missed.map(m => ({
+                    prompt: `${m.question.verb.infinitive} — ${m.question.tense} — ${m.question.pronoun}`,
+                    correct: m.question.correct,
+                    yourAnswer: m.yourAnswer,
+                }))}
             />
         )
     }
