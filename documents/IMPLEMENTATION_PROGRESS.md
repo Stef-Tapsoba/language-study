@@ -586,4 +586,107 @@ Goal: every source file opens with a single-line comment showing its path relati
 
 **v2 features shipped:** SRS/SM-2 flashcards, TTS (Web Speech API), study statistics + global streak, reading/listening content for all 5 languages, standardised file headers.
 
-**Deferred to v3:** typing/active-recall exercises, real backend (Postgres + API), progress export (JSON), keyboard shortcuts in drills, dark mode, B2+ content expansion.
+---
+
+## 32. B2 Content — All 5 Languages
+
+Goal: fill full B2 (Upper Intermediate) content across all five languages.
+
+**Per language (30 new files total, 6 per language × 5 languages):**
+- `src/data/<lang>/grammar/b2.ts` — 5 grammar lessons per language
+- `src/data/<lang>/vocab/b2.ts` — 80 vocab items per language
+- `src/data/<lang>/verbs/b2.ts` — 3 verbs with 2–3 tenses each
+- `src/data/<lang>/units/b2.ts` — 5 units × 6 embedded questions
+- `src/data/<lang>/reading/b2.ts` — 4 reading passages (category: everyday/culture/history/literature)
+- `src/data/<lang>/listening/b2.ts` — 4 listening exercises
+
+**Per language (3 files updated, 3 per language × 5 languages):**
+- `src/data/<lang>/questions/level-tests.ts` — added 15 B2 level-test questions per language
+- `src/data/<lang>/index.ts` — assembler updated to spread B2 arrays into grammar/vocab/verbs/units/readingPassages/listeningExercises
+
+Placement questions for B2 already existed in all 5 languages (no changes needed).
+
+**B2 grammar topics per language:**
+- Spanish: Imperfecto de Subjuntivo, Condicional Compuesto, Por/Para avanzado, Construcciones Pasivas, Se impersonal y pasivo
+- French: Subjonctif Présent, Conditionnel Passé, Pronoms Relatifs Avancés, Voix Passive, Discours Indirect
+- Italian: Congiuntivo Presente/Passato, Condizionale Passato, Pronomi Relativi, Forma Passiva, Discorso Indiretto
+- Japanese: Causative-passive (~させられる), Advanced conditionals (~たら/~ば/~なら contrast), Formal requests (~ていただけますか), Humble/respectful patterns advanced, Nominalisation (~こと/~の)
+- Korean: Advanced honorifics (-(으)시-), Indirect speech (~다고 하다), -아/어지다 change-of-state, Formal connectors (-(으)므로, -는데), Passive voice (이/히/리/기)
+
+---
+
+## 33. C1 Content — All 5 Languages
+
+Goal: fill full C1 (Advanced) content across all five languages.
+
+**Per language (30 new files total):** same structure as B2 — grammar/b2 → grammar/c1, etc.
+
+**Per language (2 files updated, 2 per language × 5 languages):**
+- `src/data/<lang>/questions/level-tests.ts` — added 15 C1 level-test questions per language
+- `src/data/<lang>/index.ts` — assembler updated to spread C1 arrays
+
+Placement questions for C1 already existed in all 5 languages (no changes needed).
+
+**C1 grammar topics per language:**
+- Spanish: Subjuntivo Pluscuamperfecto, Condicional Compuesto (Type-3), Construcciones Impersonales Avanzadas, Registro Formal y Nominalizaciones, Expresiones Idiomáticas
+- French: Subjonctif Imparfait (literary), Passé Simple (literary), Discours Indirect Avancé, Constructions Impersonnelles et Nominalisations, Expressions Idiomatiques et Registre Académique
+- Italian: Congiuntivo Trapassato, Periodo Ipotetico di 3° tipo, Stile Nominale e Registro Formale, Costruzioni Impersonali Avanzate, Passato Remoto (literary)
+- Japanese: Formal/Literary Connectors (につき, に際して, をもって), 四字熟語, Indirect/Hedged Expressions, Advanced Conditionals (~ともなると, ~ならではの), Formal/Literary Copula (である, ものだ)
+- Korean: Formal Written Structures (-(으)므로, -는바), Advanced Modality (-(으)ㄹ 만하다, -기는커녕), Discourse Cohesion (즉, 나아가), Classical/Literary Forms (-노라, -이라), 사자성어 & 속담
+
+---
+
+## 34. v2.1.0 — Culture Page, Grammar Detail, Wrong Answer Review
+
+Goal: three non-breaking UX improvements + version bump.
+
+### Feature 1 — Dedicated Culture Page
+
+**Files created:**
+- `src/pages/CulturePage.tsx` — replaces the generic `ReadingPage category="culture"` route with a dedicated "Cultural Insights" layout; amber-themed colour scheme; language hero banner (flag + name + "Cultural Insights" subtitle); shows culture-category reading passages with comprehension questions; reuses existing culture-category reading data
+
+**Files updated:**
+- `src/App.tsx` — `/learn/:langId/culture` now renders `<CulturePage />` instead of `<ReadingPage category="culture" />`
+
+### Feature 2 — Grammar Lesson Detail Page
+
+**Files created:**
+- `src/pages/GrammarLessonPage.tsx` — full lesson detail view at `/learn/:langId/grammar/:lessonId`; shows lesson title + LevelBadge, explanation (via `resolvePrimary` — immersion-aware), all examples with `SpeakButton` and romanized where applicable, "Mark as complete" button
+
+**Files updated:**
+- `src/pages/GrammarPage.tsx`:
+  - `LessonCard` component changed from an inline-expand accordion to a `<Link>` pointing to the detail page
+  - Removed inline body (explanation, examples, mark-complete button) — these now live on `GrammarLessonPage`
+  - Removed unused imports (`markLessonComplete`, `resolvePrimary`, `useState` expand state)
+- `src/App.tsx` — added route `/learn/:langId/grammar/:lessonId` → `GrammarLessonPage`
+
+### Feature 3 — Wrong Answer Review
+
+**`src/hooks/useDrill.ts`:**
+- Added `MissedEntry<Q>` interface — `{ question: Q; yourAnswer: string }`
+- Added `missed: MissedEntry<Q>[]` state
+- `handleNext()` — pushes to `missed` when selected is incorrect
+- Keyboard handler — same logic on Enter/Space advance
+- `restart()` — resets `missed` to `[]`
+- Return value now includes `missed`
+
+**`src/components/DrillDoneScreen.tsx`:**
+- Added `MissedReviewItem` interface — `{ prompt: string; correct: string; yourAnswer: string }`
+- Added optional `missed?: MissedReviewItem[]` prop (defaults to `[]`)
+- Added collapsible "Review mistakes (N)" section below the score card; each item shows: prompt in gray, correct answer in green, wrong answer in red
+
+**`src/pages/VerbDrillPage.tsx`:**
+- Passes `missed` from `useDrill` to `DrillDoneScreen`; maps `MissedEntry<DrillQuestion>` → `MissedReviewItem` using `${verb.infinitive} — ${tense} — ${pronoun}` as the prompt
+
+**`src/pages/GrammarDrillPage.tsx`:**
+- Same pattern; maps `MissedEntry<DrillQuestion>` → `MissedReviewItem` using `m.question.prompt`
+
+**`src/pages/LevelTestPage.tsx`:**
+- Added `missed: QuizQuestion[]` state and `reviewOpen: boolean` state
+- `handleNext()` — pushes `questions[current]` to `missed` when incorrect
+- `handleRetry()` — resets `missed` and `reviewOpen`
+- Added `QuizQuestion` to imports
+- Result screen has same collapsible "Review mistakes" section; shows prompt + correct answer per missed question
+
+### Version bump
+- `package.json` — `"version": "2.0.0"` → `"2.1.0"`

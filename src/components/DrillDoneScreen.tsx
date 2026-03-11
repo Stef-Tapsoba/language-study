@@ -1,7 +1,14 @@
 // components/DrillDoneScreen.tsx — shared session-complete screen for verb and grammar drills
+import { useState } from "react"
 import { NavBar } from "./NavBar"
 import { CEFRLevel } from "../types"
 import { UIStrings } from "../i18n"
+
+export interface MissedReviewItem {
+    prompt: string
+    correct: string
+    yourAnswer: string
+}
 
 interface DrillDoneScreenProps {
     score: number
@@ -10,10 +17,13 @@ interface DrillDoneScreenProps {
     navTitle: string
     ui: UIStrings
     onRestart: () => void
+    missed?: MissedReviewItem[]
 }
 
-export function DrillDoneScreen({ score, total, level, navTitle, ui, onRestart }: Readonly<DrillDoneScreenProps>) {
+export function DrillDoneScreen({ score, total, level, navTitle, ui, onRestart, missed = [] }: Readonly<DrillDoneScreenProps>) {
     const pct = Math.round((score / total) * 100)
+    const [reviewOpen, setReviewOpen] = useState(false)
+
     return (
         <div className="min-h-screen bg-gray-50">
             <NavBar title={navTitle} level={level} backTo="back" />
@@ -34,6 +44,30 @@ export function DrillDoneScreen({ score, total, level, navTitle, ui, onRestart }
                         <p className="text-xs text-gray-500 mt-1">{ui.scoreLabel}</p>
                     </div>
                 </div>
+
+                {missed.length > 0 && (
+                    <div className="w-full bg-white rounded-2xl border border-gray-200 overflow-hidden text-left">
+                        <button
+                            onClick={() => setReviewOpen(o => !o)}
+                            className="w-full flex items-center justify-between px-5 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
+                        >
+                            <span>Review mistakes ({missed.length})</span>
+                            <span className="text-gray-400">{reviewOpen ? "▲" : "▼"}</span>
+                        </button>
+                        {reviewOpen && (
+                            <div className="flex flex-col divide-y divide-gray-100">
+                                {missed.map((item) => (
+                                    <div key={`${item.prompt}-${item.correct}`} className="px-5 py-3">
+                                        <p className="text-xs text-gray-500 mb-1">{item.prompt}</p>
+                                        <p className="text-sm font-medium text-green-700">✓ {item.correct}</p>
+                                        <p className="text-sm text-red-500">✗ {item.yourAnswer}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                )}
+
                 <button
                     onClick={onRestart}
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold

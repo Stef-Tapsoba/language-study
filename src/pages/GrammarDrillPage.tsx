@@ -101,6 +101,11 @@ export function GrammarDrillPage() {
                 navTitle={ui.sectionGrammarDrill}
                 ui={ui}
                 onRestart={drill.restart}
+                missed={drill.missed.map(m => ({
+                    prompt: m.question.prompt,
+                    correct: m.question.correct,
+                    yourAnswer: m.yourAnswer,
+                }))}
             />
         )
     }

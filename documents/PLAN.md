@@ -1,6 +1,6 @@
 # language-study — Implementation Plan
 
-*Last updated: March 9, 2026 — v2.0.0*
+*Last updated: March 11, 2026 — v2.1.0*
 
 ## Context
 
@@ -78,19 +78,19 @@ language-study/
     ├── data/
     │   ├── languages.ts                ← language registry (id, name, nativeName, script)
     │   ├── modules.ts                  ← getModule(langId) registry
-    │   ├── spanish/                    ← ✅ fully restructured + reading/listening content
+    │   ├── spanish/                    ← ✅ full A1–C1 content + reading/listening at A1/A2/B2/C1
     │   │   ├── index.ts                ← pure assembler
-    │   │   ├── grammar/a1.ts, a2.ts, b1.ts
-    │   │   ├── vocab/a1.ts, a2.ts, b1.ts
-    │   │   ├── verbs/a1.ts, a2.ts, b1.ts
-    │   │   ├── units/a1.ts, a2.ts, b1.ts
-    │   │   ├── reading/a1.ts, a2.ts   ← 5 + 4 ReadingPassage items
-    │   │   ├── listening/a1.ts, a2.ts ← 4 + 4 ListeningExercise items
+    │   │   ├── grammar/a1.ts, a2.ts, b1.ts, b2.ts, c1.ts
+    │   │   ├── vocab/a1.ts, a2.ts, b1.ts, b2.ts, c1.ts
+    │   │   ├── verbs/a1.ts, a2.ts, b1.ts, b2.ts, c1.ts
+    │   │   ├── units/a1.ts, a2.ts, b1.ts, b2.ts, c1.ts
+    │   │   ├── reading/a1.ts, a2.ts, b2.ts, c1.ts
+    │   │   ├── listening/a1.ts, a2.ts, b2.ts, c1.ts
     │   │   └── questions/placement.ts, level-tests.ts
-    │   ├── french/                     ← ✅ fully restructured (empty reading/listening)
-    │   ├── italian/                    ← ✅ fully restructured (empty reading/listening)
-    │   ├── japanese/                   ← ✅ fully restructured (+ romanized fields; empty reading/listening)
-    │   └── korean/                     ← ✅ fully restructured (+ romanized fields; empty reading/listening)
+    │   ├── french/                     ← ✅ full A1–C1 content (same file structure)
+    │   ├── italian/                    ← ✅ full A1–C1 content (same file structure)
+    │   ├── japanese/                   ← ✅ full A1–C1 content (+ romanized fields throughout)
+    │   └── korean/                     ← ✅ full A1–C1 content (+ romanized fields throughout)
     ├── components/
     │   ├── NavBar.tsx                  ← showLanguagePicker prop
     │   ├── LanguagePicker.tsx          ← dropdown with all started languages
@@ -117,6 +117,8 @@ language-study/
         ├── VerbDrillPage.tsx
         ├── GrammarDrillPage.tsx
         ├── ReadingPage.tsx             ← CE module (browse + read; culture= filter)
+        ├── CulturePage.tsx             ← dedicated cultural insights page (amber theme)
+        ├── GrammarLessonPage.tsx       ← full lesson detail (/grammar/:lessonId)
         ├── ListeningPage.tsx           ← CO module (browse + listen)
         ├── LevelTestPage.tsx
         └── ProfilePage.tsx             ← stats + language danger zone (reset/remove)
@@ -142,6 +144,7 @@ Current:
 /learn/:langId/placement
 /learn/:langId/units/:unitId → UnitPage                         [protected]
 /learn/:langId/grammar
+/learn/:langId/grammar/:lessonId → GrammarLessonPage
 /learn/:langId/vocab
 /learn/:langId/verbs
 /learn/:langId/flashcards
@@ -149,7 +152,7 @@ Current:
 /learn/:langId/grammar-drill
 /learn/:langId/reading       → ReadingPage                      [protected]
 /learn/:langId/listening     → ListeningPage                    [protected]
-/learn/:langId/culture       → ReadingPage category="culture"   [protected]
+/learn/:langId/culture       → CulturePage                      [protected]
 /learn/:langId/level-test
 /profile
 ```
@@ -368,15 +371,15 @@ If `text.target` is undefined, always fall back to `text.native` (safe for incre
 
 See `CONTENT_RESTRUCTURE_PLAN.md` for the full per-language curriculum breakdown.
 
-| Language | A1 Grammar | A1 Vocab | A1 Verbs | A1 Units | Reading | Listening |
+| Language | Levels | A1 Grammar | A1 Vocab | A1 Units | Reading | Listening |
 |---|---|---|---|---|---|---|
-| Spanish | 12 | 158 | 7 | 14 | ✅ A1+A2 | ✅ A1+A2 |
-| Korean | 12 | 150 | 8 | 12 | ✅ A1+A2 | ✅ A1+A2 |
-| French | 13 | 173 | 7 | 15 | ✅ A1+A2 | ✅ A1+A2 |
-| Italian | 13 | 152 | 7 | 15 | ✅ A1+A2 | ✅ A1+A2 |
-| Japanese | 14 | 150 | 8 | 15 | ✅ A1+A2 | ✅ A1+A2 |
+| Spanish | A1–C1 | 12 | 158 | 14 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 |
+| Korean | A1–C1 | 12 | 150 | 12 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 |
+| French | A1–C1 | 13 | 173 | 15 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 |
+| Italian | A1–C1 | 13 | 152 | 15 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 |
+| Japanese | A1–C1 | 14 | 150 | 15 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 |
 
-All 5 languages are fully restructured with complete A1/A2/B1 content and A1/A2 reading/listening passages.
+All 5 languages have full content at every CEFR level (A1 → C1). Reading and listening passages exist at A1, A2, B2, and C1 (B1 reading/listening is roadmap).
 
 ---
 
@@ -409,7 +412,11 @@ Alternative entry to grammar lessons: present examples → user hypothesises the
              NavBar LanguagePicker, ProfilePage redesign, Flag CDN images, tab persistence
 ✅ v2.0.0   — SRS/SM-2 flashcards, TTS (Web Speech API), study statistics + global streak,
              CE+CO content for all 5 languages, standardised file headers
-Phase 3     — Cognitive reinforcement: spaced retrieval quizzes, weekly free recall
+✅ v2.1.0   — B2+C1 full content for all 5 languages; Culture page (dedicated CulturePage),
+             Grammar lesson detail page (/grammar/:lessonId), Wrong answer review in
+             drills and level test
+Phase 3     — B1 reading/listening passages for all 5 languages
+             Cognitive reinforcement: spaced retrieval quizzes, weekly free recall
              Typing/active-recall exercises
 Phase 4     — EO + EE: speaking prompts + writing tasks (self-assessed)
 Phase 5     — Pattern Discovery mode

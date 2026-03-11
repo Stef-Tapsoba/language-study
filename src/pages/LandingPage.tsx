@@ -1,6 +1,7 @@
 // pages/LandingPage.tsx — Public marketing/landing page; authenticated users are redirected to /home
 import { Link, Navigate } from "react-router-dom"
 import { useAuth } from "../auth/AuthContext"
+import { Flag } from "../components/Flag"
 
 const HOW_IT_WORKS = [
     {
@@ -24,11 +25,11 @@ const HOW_IT_WORKS = [
 ]
 
 const LANGUAGES = [
-    { flag: "🇪🇸", name: "Spanish" },
-    { flag: "🇫🇷", name: "French" },
-    { flag: "🇮🇹", name: "Italian" },
-    { flag: "🇯🇵", name: "Japanese" },
-    { flag: "🇰🇷", name: "Korean" },
+    { id: "es", name: "Spanish" },
+    { id: "fr", name: "French" },
+    { id: "it", name: "Italian" },
+    { id: "ja", name: "Japanese" },
+    { id: "ko", name: "Korean" },
 ]
 
 export function LandingPage() {
@@ -63,9 +64,9 @@ export function LandingPage() {
 
             {/* ── Hero ── */}
             <section className="max-w-4xl mx-auto px-4 pt-20 pb-16 text-center">
-                <div className="flex justify-center gap-3 text-4xl mb-8">
+                <div className="flex justify-center gap-3 mb-8">
                     {LANGUAGES.map(l => (
-                        <span key={l.name} title={l.name}>{l.flag}</span>
+                        <Flag key={l.id} langId={l.id} size="lg" />
                     ))}
                 </div>
                 <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 leading-tight">
