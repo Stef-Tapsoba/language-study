@@ -22,6 +22,7 @@ import { UnitPage } from "./pages/UnitPage"
 import { ReadingPage } from "./pages/ReadingPage"
 import { ListeningPage } from "./pages/ListeningPage"
 import { CulturePage } from "./pages/CulturePage"
+import { CategoryReadingPage } from "./pages/CategoryReadingPage"
 import { GrammarLessonPage } from "./pages/GrammarLessonPage"
 
 export default function App() {
@@ -83,6 +84,9 @@ export default function App() {
                     } />
                     <Route path="/learn/:langId/culture" element={
                         <ProtectedRoute><CulturePage /></ProtectedRoute>
+                    } />
+                    <Route path="/learn/:langId/reading/:category" element={
+                        <ProtectedRoute><CategoryReadingPage /></ProtectedRoute>
                     } />
                     <Route path="/learn/:langId/grammar/:lessonId" element={
                         <ProtectedRoute><GrammarLessonPage /></ProtectedRoute>

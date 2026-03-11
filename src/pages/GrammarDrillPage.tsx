@@ -4,7 +4,7 @@
 // B1+:   Show the target-language sentence → pick the correct English meaning.
 //        This shifts the exercise from production-cued to comprehension-cued.
 import { useMemo } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { getCurrentLevel } from "../store/progress"
@@ -18,6 +18,8 @@ interface DrillQuestion {
     prompt: string    // displayed in the amber banner
     correct: string   // correct answer
     options: string[] // all 4 choices
+    lessonId: string
+    lessonTitle: string
 }
 
 function shuffle<T>(arr: T[]): T[] {
@@ -37,6 +39,8 @@ function buildQuestions(mod: ReturnType<typeof getModule>, level: string): Drill
 
     const isFlipped = level !== "A1" && level !== "A2"  // B1+ → target → English
 
+    const lessonTitleMap = Object.fromEntries(mod.grammar.filter(g => g.level === level).map(g => [g.id, g.title]))
+
     if (isFlipped) {
         // B1+: target sentence prompt → pick English meaning
         return shuffle(tagged).slice(0, 10).map(ex => {
@@ -48,6 +52,8 @@ function buildQuestions(mod: ReturnType<typeof getModule>, level: string): Drill
                 prompt: ex.native,
                 correct: ex.translation,
                 options: shuffle([ex.translation, ...distractors]),
+                lessonId: ex.lessonId,
+                lessonTitle: lessonTitleMap[ex.lessonId] ?? "",
             }
         })
     }
@@ -62,6 +68,8 @@ function buildQuestions(mod: ReturnType<typeof getModule>, level: string): Drill
             prompt: ex.translation,
             correct: ex.native,
             options: shuffle([ex.native, ...distractors]),
+            lessonId: ex.lessonId,
+            lessonTitle: lessonTitleMap[ex.lessonId] ?? "",
         }
     })
 }
@@ -150,13 +158,26 @@ export function GrammarDrillPage() {
                 <p className="hidden sm:block text-xs text-gray-400">1–4 to select · Enter to continue</p>
 
                 {drill.revealed && (
-                    <button
-                        onClick={drill.handleNext}
-                        className="w-full max-w-xl bg-indigo-600 hover:bg-indigo-700 text-white
-                                   font-semibold rounded-xl py-3 transition-colors"
-                    >
-                        {drill.index + 1 >= questions.length ? ui.seeResults : ui.nextQuestion}
-                    </button>
+                    <>
+                        {q.lessonTitle && (
+                            <p className="text-xs text-center text-gray-500">
+                                📖{" "}
+                                <Link
+                                    to={`/learn/${langId}/grammar/${q.lessonId}`}
+                                    className="text-indigo-600 hover:underline"
+                                >
+                                    {q.lessonTitle}
+                                </Link>
+                            </p>
+                        )}
+                        <button
+                            onClick={drill.handleNext}
+                            className="w-full max-w-xl bg-indigo-600 hover:bg-indigo-700 text-white
+                                       font-semibold rounded-xl py-3 transition-colors"
+                        >
+                            {drill.index + 1 >= questions.length ? ui.seeResults : ui.nextQuestion}
+                        </button>
+                    </>
                 )}
             </main>
         </div>

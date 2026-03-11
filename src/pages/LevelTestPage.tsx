@@ -104,6 +104,7 @@ export function LevelTestPage() {
     const level = getCurrentLevel(langId)
     const ui = getUI(langId, level)
 
+    const [started, setStarted] = useState(false)
     const [current, setCurrent] = useState(0)
     const [selected, setSelected] = useState<string | null>(null)
     const [revealed, setRevealed] = useState(false)
@@ -115,6 +116,9 @@ export function LevelTestPage() {
     if (!language || !mod) return null
 
     const questions = mod.levelQuestions.filter(q => q.level === level)
+
+    const levelIndex = CEFR_LEVELS.indexOf(level)
+    const nextLevel: CEFRLevel | null = levelIndex < CEFR_LEVELS.length - 1 ? CEFR_LEVELS[levelIndex + 1] : null
 
     if (questions.length === 0) {
         return (
@@ -152,18 +156,37 @@ export function LevelTestPage() {
     }
 
     function handleRetry() {
-        setCurrent(0); setScore(0)
+        setCurrent(0); setScore(0); setStarted(false)
         setSelected(null); setRevealed(false); setDone(false); setMissed([]); setReviewOpen(false)
+    }
+
+    if (!started) {
+        return (
+            <div className="min-h-screen bg-gray-50">
+                <NavBar title={ui.levelTestTitle} level={level} backTo="back" />
+                <main className="max-w-xl mx-auto px-4 py-16 flex flex-col items-center gap-5 text-center">
+                    <p className="text-5xl">📝</p>
+                    <LevelBadge level={level} />
+                    <h2 className="text-xl font-bold text-gray-900">{ui.levelTestTitle}</h2>
+                    {nextLevel && (
+                        <p className="text-sm text-gray-500">
+                            {fmt(ui.levelTestDesc, { pass: PASS_THRESHOLD, total: questions.length, next: nextLevel })}
+                        </p>
+                    )}
+                    <button
+                        onClick={() => setStarted(true)}
+                        className="w-full max-w-xs bg-indigo-600 hover:bg-indigo-700 text-white
+                                   font-semibold rounded-xl py-3 text-sm transition-colors"
+                    >
+                        {ui.startTest}
+                    </button>
+                </main>
+            </div>
+        )
     }
 
     if (done) {
         const passed = score >= PASS_THRESHOLD
-        const levelIndex = CEFR_LEVELS.indexOf(level)
-        const nextLevel: CEFRLevel | null =
-            passed && levelIndex < CEFR_LEVELS.length - 1
-                ? CEFR_LEVELS[levelIndex + 1]
-                : null
-
         return (
             <div className="min-h-screen bg-gray-50">
                 <NavBar title={ui.levelTestTitle} level={level} backTo="back" />
@@ -179,7 +202,7 @@ export function LevelTestPage() {
                     <div className="bg-white rounded-2xl border border-gray-200 p-5 w-full">
                         <ResultsActions
                             passed={passed}
-                            nextLevel={nextLevel}
+                            nextLevel={passed ? nextLevel : null}
                             langId={langId}
                             ui={ui}
                             onRetry={handleRetry}
