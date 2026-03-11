@@ -34,12 +34,13 @@ function shuffle<T>(arr: T[]): T[] {
 
 type Result = "correct" | "incorrect"
 
-function ResultsScreen({ correct, incorrect, pct, newCardsScheduled, reviewMode, ui, onReview, onRestart }: Readonly<{
+function ResultsScreen({ correct, incorrect, pct, newCardsScheduled, reviewMode, missed, ui, onReview, onRestart }: Readonly<{
     correct: number
     incorrect: number
     pct: number
     newCardsScheduled: number
     reviewMode: boolean
+    missed: VocabItem[]
     ui: UIStrings
     onReview: () => void
     onRestart: () => void
@@ -89,7 +90,35 @@ function ResultsScreen({ correct, incorrect, pct, newCardsScheduled, reviewMode,
                     {ui.startOver}
                 </button>
             </div>
+
+            <MissedWordReview missed={missed} />
         </main>
+    )
+}
+
+function MissedWordReview({ missed }: Readonly<{ missed: VocabItem[] }>) {
+    const [open, setOpen] = useState(false)
+    if (missed.length === 0) return null
+    return (
+        <div className="w-full bg-white rounded-2xl border border-gray-200 overflow-hidden">
+            <button
+                onClick={() => setOpen(o => !o)}
+                className="w-full flex items-center justify-between px-5 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
+            >
+                <span>Review missed words ({missed.length})</span>
+                <span className="text-gray-400">{open ? "▲" : "▼"}</span>
+            </button>
+            {open && (
+                <div className="flex flex-col divide-y divide-gray-100">
+                    {missed.map(item => (
+                        <div key={item.id} className="px-5 py-3 flex items-center justify-between gap-4">
+                            <span className="text-sm font-semibold text-gray-900">{item.word}</span>
+                            <span className="text-sm text-green-700">{item.translation}</span>
+                        </div>
+                    ))}
+                </div>
+            )}
+        </div>
     )
 }
 
@@ -413,6 +442,8 @@ export function FlashcardsPage() {
         const pct = Math.round((correct / deck.length) * 100)
         const newCardsScheduled = reviewMode || studyAll ? 0 : newCardIds.length
 
+        const missedItems = deck.filter((_, i) => results[i] === "incorrect")
+
         return (
             <div className="min-h-screen bg-gray-50">
                 <NavBar title={ui.sectionFlashcards} level={level} backTo="back" />
@@ -422,6 +453,7 @@ export function FlashcardsPage() {
                     pct={pct}
                     newCardsScheduled={newCardsScheduled}
                     reviewMode={reviewMode}
+                    missed={missedItems}
                     ui={ui}
                     onReview={startReview}
                     onRestart={restart}

@@ -1,69 +1,144 @@
-// pages/ReadingPage.tsx — Reading category hub + passage browser
+// pages/CategoryReadingPage.tsx — Dedicated reading page for non-culture passage categories
 import { useState } from "react"
-import { useParams, Link } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { getCurrentLevel, markLessonComplete, getCompletedLessons } from "../store/progress"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { QuizCard } from "../components/QuizCard"
+import { Flag } from "../components/Flag"
 import { ReadingPassage, PassageCategory } from "../types"
 import { getUI, fmt } from "../i18n"
 
-// Category badge colour map
-const CATEGORY_COLORS: Record<PassageCategory, string> = {
-    everyday: "bg-blue-100 text-blue-700",
-    culture: "bg-amber-100 text-amber-700",
-    history: "bg-stone-100 text-stone-700",
-    literature: "bg-purple-100 text-purple-700",
-    dialogue: "bg-teal-100 text-teal-700",
+// ---------------------------------------------------------------------------
+// Theme config per category
+// ---------------------------------------------------------------------------
+interface CategoryTheme {
+    icon: string
+    description: string
+    heroBg: string
+    heroTitle: string
+    heroSub: string
+    border: string
+    badgeBg: string
+    badgeText: string
+    btnBg: string
+    vocabBg: string
+    vocabWord: string
+    vocabRom: string
 }
 
-function categoryLabel(cat: PassageCategory, ui: ReturnType<typeof getUI>): string {
-    const map: Record<PassageCategory, string> = {
+const THEMES: Record<string, CategoryTheme> = {
+    everyday: {
+        icon: "🗓️",
+        description: "Daily life, routines, and practical conversations",
+        heroBg: "bg-blue-50 border-b border-blue-200",
+        heroTitle: "text-blue-900",
+        heroSub: "text-blue-700",
+        border: "border-blue-200 hover:border-blue-400",
+        badgeBg: "bg-blue-100",
+        badgeText: "text-blue-700",
+        btnBg: "bg-blue-600 hover:bg-blue-700",
+        vocabBg: "bg-blue-50",
+        vocabWord: "text-blue-900",
+        vocabRom: "text-blue-400",
+    },
+    history: {
+        icon: "🏛️",
+        description: "Historical events, figures, and cultural heritage",
+        heroBg: "bg-stone-50 border-b border-stone-200",
+        heroTitle: "text-stone-900",
+        heroSub: "text-stone-700",
+        border: "border-stone-200 hover:border-stone-400",
+        badgeBg: "bg-stone-100",
+        badgeText: "text-stone-700",
+        btnBg: "bg-stone-600 hover:bg-stone-700",
+        vocabBg: "bg-stone-50",
+        vocabWord: "text-stone-900",
+        vocabRom: "text-stone-400",
+    },
+    dialogue: {
+        icon: "💬",
+        description: "Conversations, exchanges, and spoken interactions",
+        heroBg: "bg-teal-50 border-b border-teal-200",
+        heroTitle: "text-teal-900",
+        heroSub: "text-teal-700",
+        border: "border-teal-200 hover:border-teal-400",
+        badgeBg: "bg-teal-100",
+        badgeText: "text-teal-700",
+        btnBg: "bg-teal-600 hover:bg-teal-700",
+        vocabBg: "bg-teal-50",
+        vocabWord: "text-teal-900",
+        vocabRom: "text-teal-400",
+    },
+    literature: {
+        icon: "📚",
+        description: "Literary texts, poetry, and classic writing",
+        heroBg: "bg-purple-50 border-b border-purple-200",
+        heroTitle: "text-purple-900",
+        heroSub: "text-purple-700",
+        border: "border-purple-200 hover:border-purple-400",
+        badgeBg: "bg-purple-100",
+        badgeText: "text-purple-700",
+        btnBg: "bg-purple-600 hover:bg-purple-700",
+        vocabBg: "bg-purple-50",
+        vocabWord: "text-purple-900",
+        vocabRom: "text-purple-400",
+    },
+}
+
+const VALID_CATEGORIES = ["everyday", "history", "dialogue", "literature"] as const
+type CategoryPageCategory = (typeof VALID_CATEGORIES)[number]
+
+function isCategoryPageCategory(cat: string): cat is CategoryPageCategory {
+    return (VALID_CATEGORIES as readonly string[]).includes(cat)
+}
+
+function getCategoryLabel(category: CategoryPageCategory, ui: ReturnType<typeof getUI>): string {
+    const map: Record<CategoryPageCategory, string> = {
         everyday: ui.categoryBadgeEveryday,
-        culture: ui.categoryBadgeCulture,
         history: ui.categoryBadgeHistory,
-        literature: ui.categoryBadgeLiterature,
         dialogue: ui.categoryBadgeDialogue,
+        literature: ui.categoryBadgeLiterature,
     }
-    return map[cat]
-}
-
-// How English translation appears, by level (same logic as flashcards)
-type TranslationMode = "shown" | "toggle" | "hidden"
-
-function getTranslationMode(level: string): TranslationMode {
-    if (level === "A1") return "shown"
-    if (level === "A2") return "toggle"
-    return "hidden"
+    return map[category]
 }
 
 // ---------------------------------------------------------------------------
-// PassageBrowse — list of passage cards
+// CategoryBrowse — themed passage list
 // ---------------------------------------------------------------------------
-function PassageBrowse({ passages, completed, onSelect, category, ui }: Readonly<{
+function CategoryBrowse({ passages, completed, onSelect, label, theme, ui }: Readonly<{
     passages: ReadingPassage[]
     completed: string[]
     onSelect: (p: ReadingPassage) => void
-    category?: PassageCategory
+    label: string
+    theme: CategoryTheme
     ui: ReturnType<typeof getUI>
 }>) {
-    const filtered = category ? passages.filter(p => p.category === category) : passages
+    if (passages.length === 0) {
+        return (
+            <div className="text-center py-16 text-gray-400">
+                <p className="text-4xl mb-3">{theme.icon}</p>
+                <p className="font-medium">No {label.toLowerCase()} passages at this level yet</p>
+            </div>
+        )
+    }
+
     return (
         <div className="flex flex-col gap-3">
-            {filtered.map(p => (
+            {passages.map(p => (
                 <button
                     key={p.id}
                     onClick={() => onSelect(p)}
-                    className="w-full text-left bg-white rounded-2xl border border-gray-200 p-4
-                               hover:border-indigo-300 hover:shadow-sm transition-all"
+                    className={`w-full text-left bg-white rounded-2xl border p-4
+                                hover:shadow-sm transition-all ${theme.border}`}
                 >
                     <div className="flex items-start justify-between gap-2">
                         <div className="flex-1">
                             <div className="flex items-center gap-2 mb-1">
-                                <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${CATEGORY_COLORS[p.category]}`}>
-                                    {categoryLabel(p.category, ui)}
+                                <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${theme.badgeBg} ${theme.badgeText}`}>
+                                    {label}
                                 </span>
                                 {completed.includes(p.id) && (
                                     <span className="text-xs text-green-600 font-medium">✓</span>
@@ -83,18 +158,19 @@ function PassageBrowse({ passages, completed, onSelect, category, ui }: Readonly
 }
 
 // ---------------------------------------------------------------------------
-// PassageRead — read a single passage
+// CategoryRead — full passage reading view
 // ---------------------------------------------------------------------------
-function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly<{
+function CategoryRead({ passage, langId, level, label, completed, theme, ui }: Readonly<{
     passage: ReadingPassage
     langId: string
     level: string
+    label: string
     completed: string[]
-    onBack: () => void
+    theme: CategoryTheme
     ui: ReturnType<typeof getUI>
 }>) {
-    const translationMode = getTranslationMode(level)
-    const [translationShown, setTranslationShown] = useState(translationMode === "shown")
+    const showTranslation = level === "A1" || level === "A2"
+    const [translationShown, setTranslationShown] = useState(level === "A1")
     const [vocabShown, setVocabShown] = useState(true)
     const [quizOpen, setQuizOpen] = useState(false)
     const [quizIndex, setQuizIndex] = useState(0)
@@ -109,21 +185,14 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
         setMarkedRead(true)
     }
 
-    function handleSelect(opt: string) {
-        setSelected(opt)
-        setRevealed(true)
-    }
+    function handleSelect(opt: string) { setSelected(opt); setRevealed(true) }
 
     function handleNext() {
         const newScore = quizScore + (selected === passage.questions[quizIndex].answer ? 1 : 0)
         if (quizIndex + 1 >= passage.questions.length) {
-            setQuizScore(newScore)
-            setQuizDone(true)
+            setQuizScore(newScore); setQuizDone(true)
         } else {
-            setQuizScore(newScore)
-            setQuizIndex(i => i + 1)
-            setSelected(null)
-            setRevealed(false)
+            setQuizScore(newScore); setQuizIndex(i => i + 1); setSelected(null); setRevealed(false)
         }
     }
 
@@ -131,11 +200,10 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
 
     return (
         <div className="flex flex-col gap-5 pb-24">
-            {/* Header */}
             <div className="flex items-start justify-between gap-2">
                 <div>
-                    <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${CATEGORY_COLORS[passage.category]}`}>
-                        {categoryLabel(passage.category, ui)}
+                    <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${theme.badgeBg} ${theme.badgeText}`}>
+                        {label}
                     </span>
                     <h2 className="text-xl font-bold text-gray-900 mt-1">{passage.title}</h2>
                 </div>
@@ -145,9 +213,7 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
             {/* Body */}
             <div className="bg-white rounded-2xl border border-gray-200 p-5">
                 <p className="text-base text-gray-900 leading-relaxed whitespace-pre-line">{bodyText}</p>
-
-                {/* English translation — A1: shown (collapsible), A2: behind toggle, B1+: absent */}
-                {translationMode !== "hidden" && (
+                {showTranslation && (
                     <div className="mt-4 pt-4 border-t border-gray-100">
                         <button
                             onClick={() => setTranslationShown(v => !v)}
@@ -164,7 +230,7 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
                 )}
             </div>
 
-            {/* Vocab gloss — A1/A2: always shown (collapsible), B1+: collapsible hidden by default */}
+            {/* Vocab gloss */}
             {passage.vocabGloss.length > 0 && (
                 <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden">
                     <button
@@ -177,11 +243,9 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
                     {vocabShown && (
                         <div className="px-5 pb-4 grid grid-cols-2 gap-2">
                             {passage.vocabGloss.map(g => (
-                                <div key={g.word} className="bg-indigo-50 rounded-xl px-3 py-2">
-                                    <p className="text-sm font-semibold text-indigo-900">{g.word}</p>
-                                    {g.romanized && (
-                                        <p className="text-xs text-indigo-400">{g.romanized}</p>
-                                    )}
+                                <div key={g.word} className={`${theme.vocabBg} rounded-xl px-3 py-2`}>
+                                    <p className={`text-sm font-semibold ${theme.vocabWord}`}>{g.word}</p>
+                                    {g.romanized && <p className={`text-xs ${theme.vocabRom}`}>{g.romanized}</p>}
                                     <p className="text-xs text-gray-600">{g.translation}</p>
                                 </div>
                             ))}
@@ -194,16 +258,13 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
             {!quizOpen ? (
                 <button
                     onClick={() => setQuizOpen(true)}
-                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
-                               rounded-xl py-2.5 text-sm transition-colors"
+                    className={`w-full text-white font-semibold rounded-xl py-2.5 text-sm transition-colors ${theme.btnBg}`}
                 >
                     {ui.checkUnderstanding}
                 </button>
             ) : quizDone ? (
                 <div className="bg-white rounded-2xl border border-gray-200 p-5 text-center">
-                    <div className="text-3xl mb-2">
-                        {quizScore === passage.questions.length ? "🎉" : "💪"}
-                    </div>
+                    <div className="text-3xl mb-2">{quizScore === passage.questions.length ? "🎉" : "💪"}</div>
                     <p className="font-semibold text-gray-900">
                         {fmt(ui.youAnswered, { score: quizScore, total: passage.questions.length })}
                     </p>
@@ -233,16 +294,16 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
                 </div>
             )}
 
-            {/* Sticky bottom bar — mark as read */}
-            <div className="fixed bottom-0 left-0 right-0 z-20 bg-white border-t border-gray-200 px-4 py-3 safe-area-inset-bottom">
+            {/* Sticky mark-as-read bar */}
+            <div className="fixed bottom-0 left-0 right-0 z-20 bg-white border-t border-gray-200 px-4 py-3">
                 <div className="max-w-xl mx-auto">
                     <button
                         onClick={markedRead ? undefined : handleMarkRead}
                         disabled={markedRead}
                         className={`w-full font-semibold rounded-xl py-3 text-sm transition-colors border ${markedRead
-                                ? "border-green-300 text-green-700 bg-green-50 cursor-default"
-                                : "border-indigo-600 bg-indigo-600 text-white hover:bg-indigo-700"
-                            }`}
+                            ? "border-green-300 text-green-700 bg-green-50 cursor-default"
+                            : `border-transparent text-white ${theme.btnBg}`
+                        }`}
                     >
                         {markedRead ? `✓ ${ui.passageComplete}` : ui.markAsRead}
                     </button>
@@ -253,74 +314,71 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
 }
 
 // ---------------------------------------------------------------------------
-// Category hub config
+// CategoryReadingPage
 // ---------------------------------------------------------------------------
-interface CategoryConfig {
-    category: PassageCategory
-    icon: string
-    href: (langId: string) => string
-}
-
-const CATEGORY_HUB: CategoryConfig[] = [
-    { category: "everyday",   icon: "🗓️", href: id => `/learn/${id}/reading/everyday` },
-    { category: "culture",    icon: "🌍", href: id => `/learn/${id}/culture` },
-    { category: "dialogue",   icon: "💬", href: id => `/learn/${id}/reading/dialogue` },
-    { category: "history",    icon: "🏛️", href: id => `/learn/${id}/reading/history` },
-    { category: "literature", icon: "📚", href: id => `/learn/${id}/reading/literature` },
-]
-
-// ---------------------------------------------------------------------------
-// ReadingPage — category hub
-// ---------------------------------------------------------------------------
-export function ReadingPage() {
-    const { langId = "" } = useParams()
+export function CategoryReadingPage() {
+    const { langId = "", category = "" } = useParams()
     const language = getLanguage(langId)
     const mod = getModule(langId)
     const level = getCurrentLevel(langId)
     const ui = getUI(langId, level)
 
-    if (!language || !mod) return null
+    const [selectedPassage, setSelectedPassage] = useState<ReadingPassage | null>(null)
 
-    const passages = (mod.readingPassages ?? []).filter(p => p.level === level)
+    if (!language || !mod) return null
+    if (!isCategoryPageCategory(category)) return null
+
+    const theme = THEMES[category]
+    const label = getCategoryLabel(category, ui)
+
+    const passages = (mod.readingPassages ?? [])
+        .filter(p => p.level === level && p.category === (category as PassageCategory))
     const completed = getCompletedLessons(langId)
+
+    const handleBack = selectedPassage ? () => setSelectedPassage(null) : undefined
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <NavBar title={ui.sectionReading} level={level} backTo="back" />
-            <main className="max-w-xl mx-auto px-4 py-6 flex flex-col gap-3">
-                {CATEGORY_HUB.map(({ category, icon, href }) => {
-                    const count = passages.filter(p => p.category === category).length
-                    if (count === 0) return null
-                    const done = passages.filter(p => p.category === category && completed.includes(p.id)).length
-                    return (
-                        <Link
-                            key={category}
-                            to={href(langId)}
-                            className={`bg-white rounded-2xl border p-4 flex items-center gap-4
-                                        hover:shadow-sm transition-all ${CATEGORY_COLORS[category].replace("text-", "border-").split(" ")[0].replace("bg-", "border-")} border-gray-200 hover:border-indigo-300`}
-                        >
-                            <span className="text-3xl">{icon}</span>
-                            <div className="flex-1">
-                                <div className="flex items-center gap-2 mb-0.5">
-                                    <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${CATEGORY_COLORS[category]}`}>
-                                        {categoryLabel(category, ui)}
-                                    </span>
-                                </div>
-                                <p className="text-xs text-gray-400">
-                                    {done}/{count} complete
-                                </p>
-                            </div>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </Link>
-                    )
-                })}
-                {passages.length === 0 && (
-                    <div className="text-center py-16 text-gray-400">
-                        <p className="text-4xl mb-3">🚧</p>
-                        <p className="font-medium">{fmt(ui.noPassagesYet, { level })}</p>
+            <NavBar
+                title={selectedPassage ? selectedPassage.title : label}
+                level={level}
+                backTo="back"
+                onBack={handleBack}
+            />
+
+            {/* Hero banner — only on browse view */}
+            {!selectedPassage && (
+                <div className={`px-4 py-5 ${theme.heroBg}`}>
+                    <div className="max-w-xl mx-auto flex items-center gap-3">
+                        <Flag langId={langId} size="lg" />
+                        <div>
+                            <p className={`font-bold ${theme.heroTitle}`}>{language.name} · {label}</p>
+                            <p className={`text-xs mt-0.5 ${theme.heroSub}`}>{theme.description}</p>
+                        </div>
                     </div>
+                </div>
+            )}
+
+            <main className="max-w-xl mx-auto px-4 py-6">
+                {selectedPassage ? (
+                    <CategoryRead
+                        passage={selectedPassage}
+                        langId={langId}
+                        level={level}
+                        label={label}
+                        completed={completed}
+                        theme={theme}
+                        ui={ui}
+                    />
+                ) : (
+                    <CategoryBrowse
+                        passages={passages}
+                        completed={completed}
+                        onSelect={setSelectedPassage}
+                        label={label}
+                        theme={theme}
+                        ui={ui}
+                    />
                 )}
             </main>
         </div>
