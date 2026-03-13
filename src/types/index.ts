@@ -203,7 +203,7 @@ export interface CultureEpisode {
     region: CultureRegion
     title: LocalizedText
     subtitle: string           // English tagline shown on browse card
-    video: {
+    video?: {
         youtubeId: string
         title: string
         channelName: string
