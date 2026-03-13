@@ -5,6 +5,7 @@ import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { getCurrentLevel, getCompletedLessons, getMasteredUnits, isUnitUnlocked } from "../store/progress"
 import { getDueCount } from "../store/srs"
+import { getHistory } from "../store/stats"
 import { NavBar } from "../components/NavBar"
 import { StatsTab } from "../components/StatsTab"
 import { Flag } from "../components/Flag"
@@ -12,7 +13,7 @@ import { LevelBadge } from "../components/LevelBadge"
 import { ProgressBar } from "../components/ProgressBar"
 import { CEFR_LEVELS, CEFRLevel, LessonUnit } from "../types"
 import { resolvePrimary } from "../utils/localizedText"
-import { getUI, fmt, UIStrings } from "../i18n"
+import { getUI, UIStrings } from "../i18n"
 
 type DashTab = "path" | "study" | "practice" | "test" | "stats"
 
@@ -24,9 +25,9 @@ function calcProgress(items: { id: string }[], completed: string[]) {
 // ---------------------------------------------------------------------------
 // SectionCard — used by Practice tab
 // ---------------------------------------------------------------------------
-function SectionCard({ emoji, title, description, to, progress, badge }: {
+function SectionCard({ emoji, title, description, to, progress, badge }: Readonly<{
     emoji: string; title: string; description: string; to: string; progress?: number; badge?: number
-}) {
+}>) {
     return (
         <Link
             to={to}
@@ -93,39 +94,53 @@ function StudyCard({ section, emoji, title, countDesc, done, total, to }: Readon
 // ---------------------------------------------------------------------------
 // UnitRow — one row in the Learning Path list
 // ---------------------------------------------------------------------------
-function UnitRow({ unit, langId, level, mastered, allUnits }: {
-    unit: LessonUnit; langId: string; level: CEFRLevel; mastered: string[]; allUnits: LessonUnit[]
-}) {
+function UnitRow({ unit, langId, level, mastered, allUnits, completed }: Readonly<{
+    unit: LessonUnit; langId: string; level: CEFRLevel
+    mastered: string[]; allUnits: LessonUnit[]; completed: string[]
+}>) {
     const isMastered = mastered.includes(unit.id)
     const unlocked = isUnitUnlocked(langId, unit.id, allUnits)
 
-    let rowCls = "flex items-center gap-4 px-5 py-4 rounded-2xl border transition-all "
-    rowCls += isMastered ? "bg-green-50 border-green-200 hover:border-green-400" :
-        unlocked ? "bg-white border-gray-200 hover:border-indigo-400 hover:shadow-sm" :
-            "bg-gray-50 border-gray-100 opacity-60 cursor-default"
+    let rowState = "border-gray-100 border-l-4 border-l-gray-200 bg-gray-50 opacity-50 cursor-default"
+    if (isMastered) rowState = "border-green-200 border-l-4 border-l-green-500 bg-green-50/40 hover:border-green-300"
+    else if (unlocked) rowState = "border-gray-200 border-l-4 border-l-violet-500 bg-white hover:shadow-sm"
+    const rowCls = `flex items-start gap-4 px-5 py-4 rounded-2xl border-y border-r transition-all ${rowState}`
 
-    let badgeCls = "shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold "
-    badgeCls += isMastered ? "bg-green-200 text-green-800" :
-        unlocked ? "bg-indigo-100 text-indigo-700" :
-            "bg-gray-200 text-gray-400"
+    let badgeState = "bg-gray-200 text-gray-400"
+    if (isMastered) badgeState = "bg-green-500 text-white"
+    else if (unlocked) badgeState = "bg-violet-600 text-white"
+    const badgeCls = `shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mt-0.5 ${badgeState}`
+
+    // Content pills shown on unlocked units
+    const pills = [
+        ...(unit.grammarIds.length > 0 ? [{ label: "Grammar", done: unit.grammarIds.every(id => completed.includes(id)), cls: "bg-green-100 text-green-700" }] : []),
+        ...(unit.vocabIds.length > 0 ? [{ label: "Vocab", done: unit.vocabIds.every(id => completed.includes(id)), cls: "bg-amber-100 text-amber-700" }] : []),
+        ...(unit.verbIds.length > 0 ? [{ label: "Verbs", done: unit.verbIds.every(id => completed.includes(id)), cls: "bg-red-100 text-red-600" }] : []),
+        { label: "Test", done: isMastered, cls: "bg-violet-100 text-violet-700" },
+    ]
 
     const inner = (
         <div className={rowCls}>
-            <span className={badgeCls}>{unit.order}</span>
+            <span className={badgeCls}>
+                {isMastered ? "✓" : unit.order}
+            </span>
             <div className="flex-1 min-w-0">
                 <p className={`font-semibold truncate ${unlocked ? "text-gray-900" : "text-gray-400"}`}>
                     {unit.title}
                 </p>
                 <p className="text-xs text-gray-400 truncate mt-0.5">{resolvePrimary(unit.description, level)}</p>
+                {unlocked && (
+                    <div className="flex flex-wrap gap-1.5 mt-2">
+                        {pills.map(p => (
+                            <span key={p.label} className={`text-xs font-medium rounded-full px-2 py-0.5 ${p.cls} ${p.done ? "opacity-60" : ""}`}>
+                                {p.done ? `${p.label} ✓` : p.label}
+                            </span>
+                        ))}
+                    </div>
+                )}
             </div>
-            {isMastered ? (
-                <span className="shrink-0 text-green-500 text-lg">✓</span>
-            ) : unlocked ? (
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-indigo-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-            ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            {!unlocked && (
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-300 shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
             )}
@@ -245,18 +260,30 @@ export function DashboardPage() {
                 {/* ── PATH ─────────────────────────────────────────────── */}
                 {tab === "path" && (
                     levelUnits.length > 0 ? (
-                        <div className="flex flex-col gap-2">
-                            {levelUnits.map(unit => (
-                                <UnitRow
-                                    key={unit.id}
-                                    unit={unit}
-                                    langId={langId}
-                                    level={level}
-                                    mastered={mastered}
-                                    allUnits={levelUnits}
-                                />
-                            ))}
-                        </div>
+                        <>
+                            {/* Level progress bar */}
+                            <div className="flex items-center gap-3 mb-4">
+                                <span className="text-xs text-gray-500 shrink-0">{level} progress</span>
+                                <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                                    <div className="h-full bg-violet-500 rounded-full transition-all"
+                                        style={{ width: `${levelUnits.length ? masteredCount / levelUnits.length * 100 : 0}%` }} />
+                                </div>
+                                <span className="text-xs text-gray-500 shrink-0">{masteredCount} of {levelUnits.length}</span>
+                            </div>
+                            <div className="flex flex-col gap-2">
+                                {levelUnits.map(unit => (
+                                    <UnitRow
+                                        key={unit.id}
+                                        unit={unit}
+                                        langId={langId}
+                                        level={level}
+                                        mastered={mastered}
+                                        allUnits={levelUnits}
+                                        completed={completed}
+                                    />
+                                ))}
+                            </div>
+                        </>
                     ) : (
                         <div className="text-center py-16 text-gray-400">
                             <p className="text-4xl mb-3">🚧</p>
@@ -349,21 +376,59 @@ export function DashboardPage() {
 
                 {/* ── TEST ─────────────────────────────────────────────── */}
                 {tab === "test" && (
-                    canAdvance ? (
-                        <button
-                            onClick={() => navigate(`/learn/${langId}/level-test`)}
-                            className="w-full bg-indigo-50 border border-indigo-200 rounded-2xl p-5
-                                       flex items-center justify-between gap-4 hover:bg-indigo-100 transition-colors text-left"
-                        >
-                            <div>
-                                <p className="font-semibold text-indigo-900">{ui.levelTestTitle}</p>
-                                <p className="text-sm text-indigo-700 mt-0.5">
-                                    {fmt(ui.levelTestDesc, { pass: 12, total: 15, next: CEFR_LEVELS[levelIndex + 1] })}
-                                </p>
+                    canAdvance ? (() => {
+                        const nextLevel = CEFR_LEVELS[levelIndex + 1]
+                        const history14 = getHistory(langId, 14)
+                        const reviewed14 = history14.reduce((s, d) => s + d.reviewed, 0)
+                        const correct14 = history14.reduce((s, d) => s + d.correct, 0)
+                        const srsAcc = reviewed14 ? Math.round(correct14 / reviewed14 * 100) : 0
+                        return (
+                            <div className="flex flex-col gap-4">
+                                {/* Hero */}
+                                <div className="bg-gradient-to-br from-violet-600 to-violet-800 rounded-2xl p-6 text-white">
+                                    <p className="text-sm font-medium text-violet-200 mb-1">{level} → {nextLevel}</p>
+                                    <h2 className="text-2xl font-bold mb-0.5">Level test</h2>
+                                    <p className="text-violet-200 text-sm">15 questions · pass 12 to advance</p>
+                                </div>
+                                {/* Readiness */}
+                                <div className="bg-white rounded-2xl border border-gray-200 p-5">
+                                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-4">Readiness</p>
+                                    <div className="flex flex-col gap-3">
+                                        {[
+                                            { label: "Grammar covered", done: grammar.done, total: grammar.total, color: "bg-green-500" },
+                                            { label: "Vocabulary learned", done: vocab.done, total: vocab.total, color: "bg-amber-400" },
+                                            { label: "Flashcard accuracy", done: srsAcc, total: 100, color: "bg-violet-500", suffix: "%" },
+                                        ].map(r => (
+                                            <div key={r.label} className="flex items-center gap-3">
+                                                <span className="text-sm text-gray-600 flex-1">{r.label}</span>
+                                                <div className="w-28 h-2 bg-gray-100 rounded-full overflow-hidden">
+                                                    <div className={`h-full ${r.color} rounded-full`}
+                                                        style={{ width: `${r.total ? r.done / r.total * 100 : 0}%` }} />
+                                                </div>
+                                                <span className="text-xs text-gray-500 w-14 text-right shrink-0">
+                                                    {r.suffix ? `${r.done}${r.suffix}` : `${r.done}/${r.total}`}
+                                                </span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <button
+                                        onClick={() => navigate(`/learn/${langId}/level-test`)}
+                                        className="mt-5 w-full bg-violet-600 hover:bg-violet-700 text-white font-semibold rounded-xl py-3 text-sm transition-colors"
+                                    >
+                                        Start level test →
+                                    </button>
+                                </div>
+                                {/* Tip */}
+                                <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 flex gap-3">
+                                    <span className="text-amber-500 shrink-0">💡</span>
+                                    <p className="text-sm text-amber-800">
+                                        You can take the test at any time — but covering more units first improves your chances.
+                                        You need 12/15 (80%) to advance to {nextLevel}.
+                                    </p>
+                                </div>
                             </div>
-                            <span className="text-3xl shrink-0">🎯</span>
-                        </button>
-                    ) : (
+                        )
+                    })() : (
                         <div className="text-center py-16 text-gray-400">
                             <p className="text-4xl mb-3">🏆</p>
                             <p className="font-medium">You've reached the highest level!</p>

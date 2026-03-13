@@ -13,9 +13,9 @@ import {
     getSelectedLanguage,
     initUserSession,
 } from "../store/progress"
+import { getGlobalStreak, getTotalReviews } from "../store/stats"
 import { NavBar } from "../components/NavBar"
 import { Flag } from "../components/Flag"
-import { LevelBadge } from "../components/LevelBadge"
 import { ProgressBar } from "../components/ProgressBar"
 
 // ─── helpers ────────────────────────────────────────────────────────────────
@@ -122,22 +122,44 @@ function ReturningHome({ displayName, startedIds }: Readonly<{
                     <p className="text-gray-500 text-sm mt-0.5">Pick up where you left off.</p>
                 </div>
 
-                {/* ── Continue learning card ── */}
-                <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
-                    <div className="flex items-center gap-3 mb-4">
+                {/* ── Continue learning hero ── */}
+                <div
+                    className="rounded-2xl p-5 shadow-sm text-white"
+                    style={{ background: "linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%)" }}
+                >
+                    <div className="flex items-center gap-3 mb-5">
                         <Flag langId={currentLang.id} size="md" />
                         <div className="flex-1">
-                            <p className="font-semibold text-gray-900">{currentLang.name}</p>
-                            <p className="text-xs text-gray-400">{currentLang.nativeName}</p>
+                            <p className="font-semibold text-white">{currentLang.name}</p>
+                            <p className="text-xs text-violet-200">{currentLang.nativeName}</p>
                         </div>
-                        <LevelBadge level={level} />
-                        <span className="text-xs text-gray-400 hidden sm:block">{LEVEL_DESC[level]}</span>
+                        <span className="text-xs font-semibold bg-white/20 text-white px-2.5 py-1 rounded-full">
+                            {level} · {LEVEL_DESC[level]}
+                        </span>
+                    </div>
+
+                    {/* Stats row */}
+                    <div className="grid grid-cols-3 gap-2 mb-5">
+                        <div className="bg-white/15 rounded-xl p-3 text-center">
+                            <p className="text-lg font-bold text-white">{getTotalReviews(selectedLangId)}</p>
+                            <p className="text-xs text-violet-200">cards reviewed</p>
+                        </div>
+                        <div className="bg-white/15 rounded-xl p-3 text-center">
+                            <p className="text-lg font-bold text-white">{getGlobalStreak()}🔥</p>
+                            <p className="text-xs text-violet-200">day streak</p>
+                        </div>
+                        <div className="bg-white/15 rounded-xl p-3 text-center">
+                            <p className="text-lg font-bold text-white">{startedIds.length}</p>
+                            <p className="text-xs text-violet-200">
+                                {startedIds.length === 1 ? "language" : "languages"}
+                            </p>
+                        </div>
                     </div>
 
                     <button
                         onClick={() => navigate(`/learn/${selectedLangId}`)}
-                        className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
-                                   rounded-xl py-3 text-sm transition-colors"
+                        className="w-full bg-white text-violet-700 font-semibold rounded-xl py-3 text-sm
+                                   hover:bg-violet-50 transition-colors"
                     >
                         Continue learning →
                     </button>
@@ -181,18 +203,20 @@ function ReturningHome({ displayName, startedIds }: Readonly<{
                     </h2>
                     <div className="grid grid-cols-3 gap-3">
                         {[
-                            { emoji: "🃏", label: "Flashcards", path: `/learn/${selectedLangId}/flashcards` },
-                            { emoji: "🔡", label: "Verb Drill", path: `/learn/${selectedLangId}/verb-drill` },
-                            { emoji: "✏️", label: "Grammar Drill", path: `/learn/${selectedLangId}/grammar-drill` },
-                        ].map(({ emoji, label, path }) => (
+                            { emoji: "🃏", label: "Flashcards",    path: `/learn/${selectedLangId}/flashcards`,    bg: "bg-violet-100" },
+                            { emoji: "🔡", label: "Verb Drill",    path: `/learn/${selectedLangId}/verb-drill`,    bg: "bg-red-100"    },
+                            { emoji: "✏️", label: "Grammar Drill", path: `/learn/${selectedLangId}/grammar-drill`, bg: "bg-green-100"  },
+                        ].map(({ emoji, label, path, bg }) => (
                             <button
                                 key={label}
                                 onClick={() => navigate(path)}
                                 className="bg-white border border-gray-200 rounded-2xl p-4 flex flex-col
-                                           items-center gap-2 hover:border-indigo-400 hover:shadow-sm
+                                           items-center gap-2 hover:border-violet-300 hover:shadow-sm
                                            transition-all text-center"
                             >
-                                <span className="text-2xl">{emoji}</span>
+                                <span className={`text-2xl w-12 h-12 flex items-center justify-center rounded-xl ${bg}`}>
+                                    {emoji}
+                                </span>
                                 <p className="text-xs font-medium text-gray-700">{label}</p>
                             </button>
                         ))}

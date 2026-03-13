@@ -368,6 +368,7 @@ export function UnitPage() {
         return "test"
     }
     const [activeTab, setActiveTab] = useState<Tab>(firstTab)
+    const [vocabFilter, setVocabFilter] = useState<"all" | "todo" | "done">("all")
 
     if (!language || !mod || !unit) {
         return (
@@ -468,20 +469,49 @@ export function UnitPage() {
                     </div>
                 )}
 
-                {activeTab === "vocab" && (
-                    <div className="flex flex-col gap-2">
-                        {vocab.map(item => (
-                            <VocabRow
-                                key={item.id}
-                                item={item}
-                                done={completed.includes(item.id)}
-                                langId={langId}
-                                ui={ui}
-                                onComplete={() => setCompleted(getCompletedLessons(langId))}
-                            />
-                        ))}
-                    </div>
-                )}
+                {activeTab === "vocab" && (() => {
+                    const vocabDone = vocab.filter(v => completed.includes(v.id)).length
+                    let filtered = vocab
+                    if (vocabFilter === "done") filtered = vocab.filter(v => completed.includes(v.id))
+                    else if (vocabFilter === "todo") filtered = vocab.filter(v => !completed.includes(v.id))
+                    return (
+                        <div className="flex flex-col gap-3">
+                            {/* Progress + filter */}
+                            <div className="flex items-center justify-between gap-3">
+                                <div className="flex-1 flex items-center gap-2">
+                                    <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                                        <div className="h-full bg-amber-400 rounded-full transition-all"
+                                            style={{ width: `${vocab.length ? vocabDone / vocab.length * 100 : 0}%` }} />
+                                    </div>
+                                    <span className="text-xs text-gray-400 shrink-0">{vocabDone}/{vocab.length}</span>
+                                </div>
+                                <div className="flex gap-1">
+                                    {(["all", "todo", "done"] as const).map(f => (
+                                        <button key={f} onClick={() => setVocabFilter(f)}
+                                            className={`text-xs px-2.5 py-1 rounded-full font-medium transition-colors ${vocabFilter === f ? "bg-amber-100 text-amber-700" : "text-gray-400 hover:text-gray-600"}`}>
+                                            {f === "all" ? `All ${vocab.length}` : null}
+                                            {f === "todo" ? `To do ${vocab.length - vocabDone}` : null}
+                                            {f === "done" ? `Done ${vocabDone}` : null}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                            {/* List */}
+                            <div className="flex flex-col gap-2">
+                                {filtered.map(item => (
+                                    <VocabRow
+                                        key={item.id}
+                                        item={item}
+                                        done={completed.includes(item.id)}
+                                        langId={langId}
+                                        ui={ui}
+                                        onComplete={() => setCompleted(getCompletedLessons(langId))}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    )
+                })()}
 
                 {activeTab === "verbs" && (
                     verbs.length > 0 ? (
