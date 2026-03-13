@@ -41,15 +41,21 @@ import { levelTestQuestions } from "./questions/level-tests"
 
 import { a1Reading } from "./reading/a1"
 import { a2Reading } from "./reading/a2"
+import { b1Reading } from "./reading/b1"
 import { b2Reading } from "./reading/b2"
 import { c1Reading } from "./reading/c1"
 
 import { a1Listening } from "./listening/a1"
 import { a2Listening } from "./listening/a2"
+import { b1Listening } from "./listening/b1"
 import { b2Listening } from "./listening/b2"
 import { c1Listening } from "./listening/c1"
 
 import { koA1Culture } from "./culture/a1"
+import { koA2Culture } from "./culture/a2"
+import { koB1Culture } from "./culture/b1"
+import { koB2Culture } from "./culture/b2"
+import { koC1Culture } from "./culture/c1"
 
 const module: LanguageModule = {
     grammar: [
@@ -82,9 +88,9 @@ const module: LanguageModule = {
     ],
     placementQuestions,
     levelQuestions: levelTestQuestions,
-    readingPassages: [...a1Reading, ...a2Reading, ...b2Reading, ...c1Reading],
-    listeningExercises: [...a1Listening, ...a2Listening, ...b2Listening, ...c1Listening],
-    cultureEpisodes: [...koA1Culture]
+    readingPassages: [...a1Reading, ...a2Reading, ...b1Reading, ...b2Reading, ...c1Reading],
+    listeningExercises: [...a1Listening, ...a2Listening, ...b1Listening, ...b2Listening, ...c1Listening],
+    cultureEpisodes: [...koA1Culture, ...koA2Culture, ...koB1Culture, ...koB2Culture, ...koC1Culture]
 }
 
 export default module
