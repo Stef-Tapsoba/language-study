@@ -17,8 +17,6 @@ import { resetSRS } from "../store/srs"
 import { getGlobalStreak, resetStats } from "../store/stats"
 import { NavBar } from "../components/NavBar"
 import { Flag } from "../components/Flag"
-import { LevelBadge } from "../components/LevelBadge"
-import { ProgressBar } from "../components/ProgressBar"
 
 const LEVEL_LABEL: Record<string, string> = {
     A1: "Beginner", A2: "Elementary",
@@ -112,26 +110,40 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
                         <p className="font-semibold text-gray-900">{lang.name}</p>
                         <p className="text-xs text-gray-400">{lang.nativeName}</p>
                     </div>
-                    <LevelBadge level={level} />
-                    <span className="text-xs text-gray-400 hidden sm:block">{LEVEL_LABEL[level]}</span>
+                    <span className="text-xs font-semibold bg-violet-100 text-violet-700 px-2.5 py-1 rounded-full">
+                        {level} · {LEVEL_LABEL[level]}
+                    </span>
                 </div>
 
-                {/* Overall */}
-                <div className="mb-1">
-                    <ProgressBar label={`Overall  ${s.overallPct}%`} value={s.overallPct} />
+                {/* Overall bar */}
+                <div className="flex items-center gap-2 mb-4">
+                    <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                        <div className="h-full bg-violet-500 rounded-full transition-all"
+                            style={{ width: `${s.overallPct}%` }} />
+                    </div>
+                    <span className="text-xs font-semibold text-violet-600 w-10 text-right shrink-0">
+                        {s.overallPct}%
+                    </span>
                 </div>
 
-                {/* 5-bar breakdown */}
-                <div className="flex flex-col gap-2 mt-3 pt-3 border-t border-gray-100">
-                    <ProgressBar label={`📖 Grammar     ${s.grammarDone}/${s.grammarTotal}`} value={s.grammarTotal ? s.grammarDone / s.grammarTotal * 100 : 0} />
-                    <ProgressBar label={`📝 Vocabulary  ${s.vocabDone}/${s.vocabTotal}`} value={s.vocabTotal ? s.vocabDone / s.vocabTotal * 100 : 0} />
-                    <ProgressBar label={`🔤 Verbs       ${s.verbDone}/${s.verbTotal}`} value={s.verbTotal ? s.verbDone / s.verbTotal * 100 : 0} />
-                    {s.readingTotal > 0 && (
-                        <ProgressBar label={`📗 Reading     ${s.readingDone}/${s.readingTotal}`} value={s.readingDone / s.readingTotal * 100} />
-                    )}
-                    {s.listeningTotal > 0 && (
-                        <ProgressBar label={`🎧 Listening   ${s.listeningDone}/${s.listeningTotal}`} value={s.listeningDone / s.listeningTotal * 100} />
-                    )}
+                {/* Colored breakdown bars */}
+                <div className="flex flex-col gap-2 pt-3 border-t border-gray-100">
+                    {[
+                        { label: "Grammar",    done: s.grammarDone,   total: s.grammarTotal,   color: "bg-green-500" },
+                        { label: "Vocabulary", done: s.vocabDone,     total: s.vocabTotal,     color: "bg-amber-400" },
+                        { label: "Verbs",      done: s.verbDone,      total: s.verbTotal,      color: "bg-red-400"   },
+                        ...(s.readingTotal   > 0 ? [{ label: "Reading",   done: s.readingDone,   total: s.readingTotal,   color: "bg-blue-500"  }] : []),
+                        ...(s.listeningTotal > 0 ? [{ label: "Listening", done: s.listeningDone, total: s.listeningTotal, color: "bg-slate-400" }] : []),
+                    ].map(({ label, done, total, color }) => (
+                        <div key={label} className="flex items-center gap-3">
+                            <span className="text-xs text-gray-500 w-20 shrink-0">{label}</span>
+                            <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                                <div className={`h-full ${color} rounded-full transition-all`}
+                                    style={{ width: `${total ? done / total * 100 : 0}%` }} />
+                            </div>
+                            <span className="text-xs text-gray-400 w-10 text-right shrink-0">{done}/{total}</span>
+                        </div>
+                    ))}
                 </div>
             </div>
 
@@ -228,34 +240,44 @@ export function ProfilePage() {
 
             <main className="max-w-2xl mx-auto px-4 py-8 flex flex-col gap-6">
 
-                {/* ── User card ── */}
-                <div className="bg-white rounded-2xl border border-gray-200 p-6 flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-full bg-indigo-600 flex items-center justify-center
-                                    text-white text-xl font-bold shrink-0">
-                        {initials}
+                {/* ── User hero ── */}
+                <div
+                    className="rounded-2xl p-6 shadow-sm text-white"
+                    style={{ background: "linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%)" }}
+                >
+                    <div className="flex items-center gap-4">
+                        <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center
+                                        text-white text-xl font-bold shrink-0">
+                            {initials}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                            <p className="font-semibold text-white text-lg truncate">{displayName}</p>
+                            <p className="text-sm text-violet-200 truncate">{email}</p>
+                        </div>
                     </div>
-                    <div className="flex-1 min-w-0">
-                        <p className="font-semibold text-gray-900 text-lg truncate">{displayName}</p>
-                        <p className="text-sm text-gray-500 truncate">{email}</p>
-                    </div>
-                </div>
 
-                {/* ── Stats strip ── */}
-                {startedIds.length > 0 && (
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                        {[
-                            { value: totalDone, label: "items learned" },
-                            { value: startedIds.length, label: "languages" },
-                            { value: highestLevel, label: "top level" },
-                            { value: streak > 0 ? `${streak}d` : "—", label: "streak 🔥" },
-                        ].map(({ value, label }) => (
-                            <div key={label} className="bg-white rounded-2xl border border-gray-200 p-4 text-center">
-                                <p className="text-2xl font-bold text-indigo-600">{value}</p>
-                                <p className="text-xs text-gray-500 mt-1">{label}</p>
+                    {/* Stats row */}
+                    {startedIds.length > 0 && (
+                        <div className="grid grid-cols-4 gap-2 mt-5">
+                            <div className="bg-white/15 rounded-xl p-3 text-center">
+                                <p className="text-lg font-bold text-white">{totalDone}</p>
+                                <p className="text-xs text-violet-200">learned</p>
                             </div>
-                        ))}
-                    </div>
-                )}
+                            <div className="bg-white/15 rounded-xl p-3 text-center">
+                                <p className="text-lg font-bold text-white">{startedIds.length}</p>
+                                <p className="text-xs text-violet-200">languages</p>
+                            </div>
+                            <div className="bg-white/15 rounded-xl p-3 text-center">
+                                <p className="text-lg font-bold text-white">{highestLevel}</p>
+                                <p className="text-xs text-violet-200">top level</p>
+                            </div>
+                            <div className="bg-white/15 rounded-xl p-3 text-center">
+                                <p className="text-lg font-bold text-white">{streak > 0 ? `${streak}🔥` : "—"}</p>
+                                <p className="text-xs text-violet-200">streak</p>
+                            </div>
+                        </div>
+                    )}
+                </div>
 
                 {/* ── Language cards ── */}
                 {startedIds.length > 0 && (
