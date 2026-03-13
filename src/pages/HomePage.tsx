@@ -149,10 +149,10 @@ function ReturningHome({ displayName, startedIds }: Readonly<{
                             <p className="text-xs text-violet-200">day streak</p>
                         </div>
                         <div className="bg-white/15 rounded-xl p-3 text-center">
-                            <p className="text-lg font-bold text-white">{startedIds.length}</p>
-                            <p className="text-xs text-violet-200">
-                                {startedIds.length === 1 ? "language" : "languages"}
+                            <p className="text-lg font-bold text-white">
+                                {[...grammarItems, ...vocabItems, ...verbItems].filter(x => isDone(x.id)).length}
                             </p>
+                            <p className="text-xs text-violet-200">items learned</p>
                         </div>
                     </div>
 
