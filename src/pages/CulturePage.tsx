@@ -200,7 +200,7 @@ function CultureVocabPanel({ vocab }: { vocab: CultureEpisode["cultureVocab"] })
 // ---------------------------------------------------------------------------
 // Did you know
 // ---------------------------------------------------------------------------
-function DidYouKnow({ content }: { content: CultureEpisode["didYouKnow"] }) {
+function DidYouKnow({ content }: Readonly<{ content: NonNullable<CultureEpisode["didYouKnow"]> }>) {
     const [showTarget, setShowTarget] = useState(false)
 
     return (
@@ -414,7 +414,7 @@ function CultureEpisodeView({
             <CultureVocabPanel vocab={episode.cultureVocab} />
 
             {/* Did you know */}
-            <DidYouKnow content={episode.didYouKnow} />
+            {episode.didYouKnow && <DidYouKnow content={episode.didYouKnow} />}
 
             {/* Questions (MCQ + open reflection) */}
             <QuizSection episode={episode} langId={langId} ui={ui} />

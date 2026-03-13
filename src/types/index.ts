@@ -214,7 +214,7 @@ export interface CultureEpisode {
     body: LocalizedText
     cultureVocab: CultureVocabItem[]
     questions: CultureQuestion[]
-    didYouKnow: LocalizedText
+    didYouKnow?: LocalizedText
     relatedIds?: string[]
 }
 
