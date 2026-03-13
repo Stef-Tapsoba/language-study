@@ -2,6 +2,18 @@ import { GrammarLesson } from "../../../types"
 
 export const a1Grammar: GrammarLesson[] = [
     {
+        id: "ja-g-a1-0",
+        level: "A1",
+        title: "How Japanese Works — The Big Picture",
+        explanation: "Japanese is built differently from European languages in four key ways. Understanding these upfront will make everything else click faster.\n\n1. THREE SCRIPTS — Japanese uses three writing systems simultaneously. Hiragana (ひらがな) is the phonetic alphabet for Japanese words and grammar. Katakana (カタカナ) is used for foreign loanwords and emphasis. Kanji (漢字) are Chinese-origin characters used for content words. A typical sentence mixes all three: 私はコーヒーを飲みます (I drink coffee) uses kanji 私/飲, hiragana は/を/ます, and katakana コーヒー.\n\n2. WORD ORDER IS SOV — the verb always comes last. 'I coffee drink.' not 'I drink coffee.' This never changes, even in questions.\n\n3. PARTICLES DO THE GRAMMAR — small hiragana characters attach to nouns to show their role. は marks the topic. を marks the object. に marks destination or time. で marks where an action happens. Because particles carry meaning, word order can shift without confusion.\n\n4. POLITENESS LEVELS — Japanese verbs change form based on social context. You will learn ます/です form (polite, formal), which is safe for all everyday situations with people you don't know well. Casual plain form comes later.",
+        examples: [
+            { native: "私はコーヒーを飲みます。", romanized: "Watashi wa koohii wo nomimasu.", translation: "I drink coffee. (私=I, は=topic, コーヒー=coffee, を=object, 飲みます=drink)" },
+            { native: "Subject は Object を Verb ます。", romanized: "S wa O wo V masu.", translation: "Basic SOV sentence — verb always last" },
+            { native: "これは 本 です。", romanized: "Kore wa hon desu.", translation: "This is a book. (polite — です/ます style)" },
+            { native: "どこに 行きますか？", romanized: "Doko ni ikimasu ka?", translation: "Where are you going? (question word stays in place, か at the end)" },
+        ]
+    },
+    {
         id: "ja-g-a1-1",
         level: "A1",
         title: "Hiragana Part 1: あ-row through な-row",

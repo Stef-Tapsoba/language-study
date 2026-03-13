@@ -169,5 +169,33 @@ export const a1Grammar: GrammarLesson[] = [
             { native: "Andiamo a vedere un film stasera.", translation: "We are going to watch a film tonight." },
             { native: "Vai a studiare adesso?", translation: "Are you going to study now?" }
         ]
-    }
+    },
+    {
+        id: "it-g-a1-14",
+        level: "A1",
+        title: "Core Prepositions: di, a, in, da, con, su, per",
+        explanation: "Italian prepositions are small words that connect nouns to the rest of the sentence. The most important ones at A1:\n\ndi — of, from (origin, possession): Sono di Roma. Il libro di Maria.\na — to, at (destination/location with cities): Vado a Milano. Sono a casa.\nin — in, to (with countries, rooms, transport): Sono in Italia. Vado in treno.\nda — from, since, at someone's place: Vengo da Napoli. Vado da Marco.\ncon — with: Vivo con la mia famiglia.\nsu — on, about: Il libro è sul tavolo. (su + il = sul)\nper — for, in order to: Questo è per te. Studio per imparare.\n\nCRITICAL: Like French, Italian prepositions contract with definite articles.\na + il = al | a + la = alla | a + i = ai | a + gli = agli | a + le = alle | a + l' = all'\ndi + il = del | di + la = della | di + i = dei | di + gli = degli | di + le = delle\nsu + il = sul | su + la = sulla | su + i = sui | su + gli = sugli | su + le = sulle\nIn and con do NOT contract.",
+        examples: [
+            { native: "Vado al cinema.", translation: "I'm going to the cinema. (a + il = al)" },
+            { native: "Sono di Milano.", translation: "I'm from Milan. (origin)" },
+            { native: "Abito in Italia.", translation: "I live in Italy. (in + country)" },
+            { native: "Il libro è sulla scrivania.", translation: "The book is on the desk. (su + la = sulla)" },
+            { native: "Vengo da Roma.", translation: "I come from Rome." },
+            { native: "Studio l'italiano per parlare con gli italiani.", translation: "I study Italian to speak with Italians." },
+        ]
+    },
+    {
+        id: "it-g-a1-15",
+        level: "A1",
+        title: "Numbers & Telling Time",
+        explanation: "Italian numbers 1–20 must be memorised as they are irregular. From 20 onwards, they follow a pattern — but watch out for these rules:\n• Numbers ending in -a or -o drop the final vowel before uno or otto: ventuno (21), ventotto (28), trentuno (31)\n• 'Cento' (100) is invariable — never 'un cento'\n• Millions take 'un': un milione\n\nTo tell the time: use 'Sono le' + number for all times except one o'clock, which uses 'È l'una'. Noon is 'È mezzogiorno', midnight is 'È mezzanotte'.\n\nKey number words: uno(1), due(2), tre(3), quattro(4), cinque(5), sei(6), sette(7), otto(8), nove(9), dieci(10), undici(11), dodici(12), tredici(13), quattordici(14), quindici(15), sedici(16), diciassette(17), diciotto(18), diciannove(19), venti(20).",
+        examples: [
+            { native: "Sono le tre.", translation: "It's three o'clock." },
+            { native: "È l'una e mezza.", translation: "It's half past one." },
+            { native: "Sono le otto e un quarto.", translation: "It's quarter past eight." },
+            { native: "Ho ventidue anni.", translation: "I am twenty-two years old." },
+            { native: "Il negozio apre alle nove.", translation: "The shop opens at nine." },
+            { native: "Sono le undici meno un quarto.", translation: "It's quarter to eleven." },
+        ]
+    },
 ]
