@@ -22,7 +22,7 @@ function calcProgress(items: { id: string }[], completed: string[]) {
 }
 
 // ---------------------------------------------------------------------------
-// SectionCard — navigates to a sub-route
+// SectionCard — used by Practice tab
 // ---------------------------------------------------------------------------
 function SectionCard({ emoji, title, description, to, progress, badge }: {
     emoji: string; title: string; description: string; to: string; progress?: number; badge?: number
@@ -44,6 +44,48 @@ function SectionCard({ emoji, title, description, to, progress, badge }: {
             <p className="font-semibold text-gray-900">{title}</p>
             <p className="text-sm text-gray-500">{description}</p>
             {progress !== undefined && <ProgressBar value={progress} className="mt-1" />}
+        </Link>
+    )
+}
+
+// ---------------------------------------------------------------------------
+// StudyCard — color-coded cards for the Study tab
+// ---------------------------------------------------------------------------
+type StudySection = "grammar" | "vocab" | "verbs" | "reading" | "listening" | "culture"
+
+const STUDY_COLORS: Record<StudySection, { bar: string; iconBg: string; prog: string }> = {
+    grammar:   { bar: "bg-green-500",  iconBg: "bg-green-100",  prog: "bg-green-500"  },
+    vocab:     { bar: "bg-amber-400",  iconBg: "bg-amber-100",  prog: "bg-amber-400"  },
+    verbs:     { bar: "bg-red-400",    iconBg: "bg-red-100",    prog: "bg-red-400"    },
+    reading:   { bar: "bg-blue-500",   iconBg: "bg-blue-100",   prog: "bg-blue-500"   },
+    listening: { bar: "bg-slate-400",  iconBg: "bg-slate-100",  prog: "bg-slate-400"  },
+    culture:   { bar: "bg-teal-500",   iconBg: "bg-teal-100",   prog: "bg-teal-500"   },
+}
+
+function StudyCard({ section, emoji, title, countDesc, done, total, to }: Readonly<{
+    section: StudySection; emoji: string; title: string; countDesc: string
+    done?: number; total?: number; to: string
+}>) {
+    const c = STUDY_COLORS[section]
+    const pct = (done !== undefined && total) ? done / total * 100 : 0
+    return (
+        <Link to={to} className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-md hover:border-gray-300 transition-all flex flex-col">
+            <div className={`h-1.5 ${c.bar}`} />
+            <div className="p-4 flex flex-col gap-2 flex-1">
+                <div className={`w-9 h-9 rounded-xl ${c.iconBg} flex items-center justify-center text-xl leading-none`}>
+                    {emoji}
+                </div>
+                <p className="font-semibold text-gray-900 text-sm">{title}</p>
+                <p className="text-xs text-gray-500 flex-1">{countDesc}</p>
+                {done !== undefined && total !== undefined && total > 0 && (
+                    <div className="mt-1">
+                        <p className="text-xs text-gray-400 mb-1">{done} of {total} complete</p>
+                        <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                            <div className={`h-full ${c.prog} rounded-full transition-all`} style={{ width: `${pct}%` }} />
+                        </div>
+                    </div>
+                )}
+            </div>
         </Link>
     )
 }
@@ -227,45 +269,51 @@ export function DashboardPage() {
                 {/* ── STUDY ────────────────────────────────────────────── */}
                 {tab === "study" && (
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                        <SectionCard
+                        <StudyCard
+                            section="grammar"
                             emoji="📖"
                             title={ui.sectionGrammar}
-                            description={`${grammar.total} lessons at ${level}`}
+                            countDesc={`${grammar.total} lessons at ${level}`}
+                            done={grammar.done} total={grammar.total}
                             to={`/learn/${langId}/grammar`}
-                            progress={grammar.pct}
                         />
-                        <SectionCard
+                        <StudyCard
+                            section="vocab"
                             emoji="📝"
                             title={ui.sectionVocab}
-                            description={`${vocab.total} words at ${level}`}
+                            countDesc={`${vocab.total} words at ${level}`}
+                            done={vocab.done} total={vocab.total}
                             to={`/learn/${langId}/vocab`}
-                            progress={vocab.pct}
                         />
-                        <SectionCard
-                            emoji="🔤"
+                        <StudyCard
+                            section="verbs"
+                            emoji="⚡"
                             title={ui.sectionVerbs}
-                            description={`${verbs.total} verbs at ${level}`}
+                            countDesc={`${verbs.total} verbs at ${level}`}
+                            done={verbs.done} total={verbs.total}
                             to={`/learn/${langId}/verbs`}
-                            progress={verbs.pct}
                         />
-                        <SectionCard
+                        <StudyCard
+                            section="reading"
                             emoji="📗"
                             title={ui.sectionReading}
-                            description={ui.sectionReadingDesc}
+                            countDesc={`${reading.total} passages at ${level}`}
+                            done={reading.done} total={reading.total}
                             to={`/learn/${langId}/reading`}
-                            progress={reading.pct}
                         />
-                        <SectionCard
+                        <StudyCard
+                            section="listening"
                             emoji="🎧"
                             title={ui.sectionListening}
-                            description={ui.sectionListeningDesc}
+                            countDesc={`${listening.total} exercises at ${level}`}
+                            done={listening.done} total={listening.total}
                             to={`/learn/${langId}/listening`}
-                            progress={listening.pct}
                         />
-                        <SectionCard
+                        <StudyCard
+                            section="culture"
                             emoji="🌍"
                             title={ui.sectionCulture}
-                            description={ui.sectionCultureDesc}
+                            countDesc={ui.sectionCultureDesc}
                             to={`/learn/${langId}/culture`}
                         />
                     </div>
