@@ -7,7 +7,7 @@ import { getCurrentLevel, markLessonComplete, getCompletedLessons } from "../sto
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { QuizCard } from "../components/QuizCard"
-import { CultureEpisode } from "../types"
+import { CultureEpisode, CEFR_LEVELS } from "../types"
 import { getUI, fmt } from "../i18n"
 import { Flag } from "../components/Flag"
 
@@ -53,7 +53,7 @@ function QuestionTypePill({ type }: { type: "comprehension" | "reflection" | "co
 // ---------------------------------------------------------------------------
 // YouTube embed
 // ---------------------------------------------------------------------------
-function VideoEmbed({ video }: { video: CultureEpisode["video"] }) {
+function VideoEmbed({ video }: Readonly<{ video: NonNullable<CultureEpisode["video"]> }>) {
     const [playing, setPlaying] = useState(false)
 
     const src = `https://www.youtube.com/embed/${video.youtubeId}?autoplay=1${video.startSeconds ? `&start=${video.startSeconds}` : ""
@@ -383,7 +383,7 @@ function CultureEpisodeView({
             </div>
 
             {/* Video */}
-            <VideoEmbed video={episode.video} />
+            {episode.video && <VideoEmbed video={episode.video} />}
 
             {/* Photo essay */}
             {episode.photos.length > 0 && (
@@ -473,19 +473,27 @@ function CultureBrowse({
                                    hover:border-amber-400 hover:shadow-sm transition-all"
                     >
                         {/* Video thumbnail strip */}
-                        <div className="relative h-28 bg-gray-900 overflow-hidden">
-                            <img
-                                src={`https://img.youtube.com/vi/${ep.video.youtubeId}/mqdefault.jpg`}
-                                alt={ep.title.native}
-                                className="w-full h-full object-cover opacity-80"
-                            />
-                            {/* Play chip */}
-                            <div className="absolute bottom-2 left-2 flex items-center gap-1.5 bg-black/60 rounded-full px-2.5 py-1">
-                                <svg viewBox="0 0 24 24" fill="white" className="w-3 h-3">
-                                    <path d="M8 5v14l11-7z" />
-                                </svg>
-                                <span className="text-white text-xs font-medium">{ep.video.channelName}</span>
-                            </div>
+                        <div className="relative h-28 bg-amber-50 overflow-hidden">
+                            {ep.video ? (
+                                <img
+                                    src={`https://img.youtube.com/vi/${ep.video.youtubeId}/mqdefault.jpg`}
+                                    alt={ep.title.native}
+                                    className="w-full h-full object-cover opacity-80"
+                                />
+                            ) : (
+                                <div className="w-full h-full flex items-center justify-center">
+                                    <span className="text-4xl">{CATEGORY_META[ep.category]?.emoji ?? "🌍"}</span>
+                                </div>
+                            )}
+                            {/* Play chip — only when video exists */}
+                            {ep.video && (
+                                <div className="absolute bottom-2 left-2 flex items-center gap-1.5 bg-black/60 rounded-full px-2.5 py-1">
+                                    <svg viewBox="0 0 24 24" fill="white" className="w-3 h-3">
+                                        <path d="M8 5v14l11-7z" />
+                                    </svg>
+                                    <span className="text-white text-xs font-medium">{ep.video.channelName}</span>
+                                </div>
+                            )}
                             {isDone && (
                                 <div className="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold
                                                 rounded-full w-6 h-6 flex items-center justify-center">
@@ -539,7 +547,7 @@ export function CulturePage() {
 
     // mod.cultureEpisodes is the new field — falls back to empty array
     const episodes: CultureEpisode[] = (mod.cultureEpisodes ?? [])
-        .filter((ep: CultureEpisode) => ep.level === level)
+        .filter((ep: CultureEpisode) => CEFR_LEVELS.indexOf(ep.level) <= CEFR_LEVELS.indexOf(level))
 
     const completed = getCompletedLessons(langId)
     const handleBack = selectedEpisode ? () => setSelectedEpisode(null) : undefined
