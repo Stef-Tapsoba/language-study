@@ -36,6 +36,15 @@
             ],
             "@myorg/event-bus": [
                 "../packages/event-bus/src"
+            ],
+            "@myorg/quiz-engine": [
+                "../packages/quiz-engine/src"
+            ],
+            "@myorg/tts": [
+                "../packages/tts/src"
+            ],
+            "@myorg/srs": [
+                "../packages/srs/src"
             ]
         }
     },

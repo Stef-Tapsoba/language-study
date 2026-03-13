@@ -15,7 +15,10 @@ export default defineConfig({
             "@myorg/validation":   pkg("validation"),
             "@myorg/theme-tokens": pkg("theme-tokens"),
             "@myorg/storage":      pkg("storage"),
-            "@myorg/event-bus":    pkg("event-bus")
+            "@myorg/event-bus":    pkg("event-bus"),
+            "@myorg/quiz-engine":  pkg("quiz-engine"),
+            "@myorg/tts":          pkg("tts"),
+            "@myorg/srs":          pkg("srs")
         }
     }
 })

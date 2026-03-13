@@ -1,4 +1,8 @@
-// utils/tts.ts — Web Speech API helpers: speak() and TTS_LANG_MAP
+// utils/tts.ts — app-level TTS wrapper around @myorg/tts
+// Maps internal langIds (es, fr, it, ja, ko) to BCP-47 tags before delegating.
+import { speak as ttsspeak } from "@myorg/tts"
+
+export { cancel, isSpeaking } from "@myorg/tts"
 
 export const TTS_LANG_MAP: Record<string, string> = {
     es: "es-ES",
@@ -8,12 +12,7 @@ export const TTS_LANG_MAP: Record<string, string> = {
     ko: "ko-KR",
 }
 
-/** Speak text via Web Speech API. No-ops silently if unsupported. */
+/** Speak text for a given language. Accepts either a langId ("es") or a BCP-47 tag ("es-ES"). */
 export function speak(text: string, langId: string, rate = 0.9): void {
-    if (!("speechSynthesis" in window)) return
-    window.speechSynthesis.cancel()
-    const utt = new SpeechSynthesisUtterance(text)
-    utt.lang = TTS_LANG_MAP[langId] ?? langId
-    utt.rate = rate
-    window.speechSynthesis.speak(utt)
+    ttsspeak(text, TTS_LANG_MAP[langId] ?? langId, rate)
 }
