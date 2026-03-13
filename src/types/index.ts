@@ -151,6 +151,74 @@ export interface ListeningExercise {
 }
 
 // ---------------------------------------------------------------------------
+// Culture episodes — richer format than ReadingPassage; includes video,
+// photos, cultural vocab notes, and reflection/comparison question types
+// ---------------------------------------------------------------------------
+
+export type CultureCategory =
+    | "food"
+    | "customs"
+    | "history"
+    | "geography"
+    | "arts"
+    | "daily-life"
+    | "festivals"
+    | "language-note"
+
+export type CultureRegion =
+    | "spain" | "mexico" | "colombia" | "argentina" | "peru"
+    | "latin-america" | "all-spanish"
+    | "france" | "quebec" | "west-africa" | "belgium" | "all-french"
+    | "north-italy" | "south-italy" | "sicily" | "rome" | "all-italian"
+    | "tokyo" | "kyoto" | "osaka" | "rural-japan" | "all-japanese"
+    | "seoul" | "busan" | "jeju" | "all-korean"
+
+export interface CulturePhoto {
+    url: string
+    caption: LocalizedText
+    credit?: string
+}
+
+export interface CultureVocabItem {
+    word: string
+    romanized?: string
+    translation: string
+    culturalNote?: string
+}
+
+export interface CultureQuestion {
+    id: string
+    type: "comprehension" | "reflection" | "comparison"
+    prompt: LocalizedText
+    // only set for comprehension questions:
+    options?: string[]
+    answer?: string
+}
+
+export interface CultureEpisode {
+    id: string
+    language: string
+    level: CEFRLevel
+    category: CultureCategory
+    region: CultureRegion
+    title: LocalizedText
+    subtitle: string           // English tagline shown on browse card
+    video: {
+        youtubeId: string
+        title: string
+        channelName: string
+        startSeconds?: number
+        captionLang?: string
+    }
+    photos: CulturePhoto[]
+    body: LocalizedText
+    cultureVocab: CultureVocabItem[]
+    questions: CultureQuestion[]
+    didYouKnow: LocalizedText
+    relatedIds?: string[]
+}
+
+// ---------------------------------------------------------------------------
 // Language module — what each data/*/index.ts assembles and exports
 // ---------------------------------------------------------------------------
 export interface LanguageModule {
@@ -162,6 +230,7 @@ export interface LanguageModule {
     levelQuestions: QuizQuestion[]       // 15 per level for the level advancement test
     readingPassages?: ReadingPassage[]
     listeningExercises?: ListeningExercise[]
+    cultureEpisodes?: CultureEpisode[]
 }
 
 // ---------------------------------------------------------------------------

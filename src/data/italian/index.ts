@@ -37,6 +37,8 @@ import { a2Listening } from "./listening/a2"
 import { b2Listening } from "./listening/b2"
 import { c1Listening } from "./listening/c1"
 
+import { itA1Culture } from "./culture/a1"
+
 const module: LanguageModule = {
     grammar: [...a1Grammar, ...a2Grammar, ...b1Grammar, ...b2Grammar, ...c1Grammar],
     vocab: [...a1Vocab, ...a2Vocab, ...b1Vocab, ...b2Vocab, ...c1Vocab],
@@ -45,7 +47,8 @@ const module: LanguageModule = {
     placementQuestions,
     levelQuestions,
     readingPassages: [...a1Reading, ...a2Reading, ...b2Reading, ...c1Reading],
-    listeningExercises: [...a1Listening, ...a2Listening, ...b2Listening, ...c1Listening]
+    listeningExercises: [...a1Listening, ...a2Listening, ...b2Listening, ...c1Listening],
+    cultureEpisodes: [...itA1Culture]
 }
 
 export default module

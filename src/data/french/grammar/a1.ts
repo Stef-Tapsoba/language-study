@@ -173,4 +173,46 @@ export const a1Grammar: GrammarLesson[] = [
             { native: "Elles vont étudier ensemble.", translation: "They are going to study together." },
         ]
     },
+    {
+        id: "fr-g-a1-14",
+        level: "A1",
+        title: "Contractions: au, du, aux, des",
+        explanation: "When the prepositions à (to/at) and de (of/from) meet the definite articles le and les, they must contract. This is not optional — 'à le' and 'de le' do not exist in French.\n\nà + le → au | à + les → aux\nde + le → du | de + les → des\n\nNote: à la, de la, à l', and de l' do NOT contract — they stay as they are.",
+        examples: [
+            { native: "Je vais au marché.", translation: "I'm going to the market. (à + le = au)" },
+            { native: "Elle parle aux étudiants.", translation: "She is speaking to the students. (à + les = aux)" },
+            { native: "C'est le livre du professeur.", translation: "It's the teacher's book. (de + le = du)" },
+            { native: "Il vient des États-Unis.", translation: "He comes from the United States. (de + les = des)" },
+            { native: "Je vais à la boulangerie.", translation: "I'm going to the bakery. (à + la — no contraction)" },
+            { native: "Elle revient de l'école.", translation: "She's coming back from school. (de + l' — no contraction)" },
+        ]
+    },
+    {
+        id: "fr-g-a1-15",
+        level: "A1",
+        title: "Present Tense: Regular -ir Verbs",
+        explanation: "Regular -ir verbs are the second major verb group in French. Remove -ir and add: -is, -is, -it, -issons, -issez, -issent. Notice the -iss- that appears in the plural forms — this is the key marker of regular -ir verbs and distinguishes them from irregular -ir verbs like partir or sortir (which do not take -iss-).",
+        examples: [
+            { native: "Je finis.", translation: "I finish." },
+            { native: "Tu choisis.", translation: "You choose." },
+            { native: "Elle réussit.", translation: "She succeeds." },
+            { native: "Nous finissons.", translation: "We finish. (-iss- in plural)" },
+            { native: "Vous choisissez.", translation: "You choose. (-iss- in plural)" },
+            { native: "Ils grandissent.", translation: "They grow. (grandir = to grow)" },
+        ]
+    },
+    {
+        id: "fr-g-a1-16",
+        level: "A1",
+        title: "Present Tense: Regular -re Verbs",
+        explanation: "Regular -re verbs are the third major verb group. Remove -re and add: -s, -s, (nothing), -ons, -ez, -ent. The il/elle form gets no ending at all — just the bare stem. Common -re verbs include vendre (to sell), attendre (to wait), répondre (to answer), entendre (to hear), perdre (to lose).",
+        examples: [
+            { native: "Je vends.", translation: "I sell." },
+            { native: "Tu attends.", translation: "You wait." },
+            { native: "Il répond.", translation: "He answers. (no ending — just the stem)" },
+            { native: "Nous entendons.", translation: "We hear." },
+            { native: "Vous perdez.", translation: "You lose." },
+            { native: "Ils vendent.", translation: "They sell." },
+        ]
+    }
 ]

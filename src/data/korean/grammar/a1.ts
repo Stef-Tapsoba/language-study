@@ -1,4 +1,4 @@
-// Korean A1 grammar lessons
+// Korean A1 grammar lessons — revised
 // data/korean/grammar/a1.ts
 import { GrammarLesson } from "../../../types"
 
@@ -6,148 +6,157 @@ export const a1Grammar: GrammarLesson[] = [
     {
         id: "ko-g-a1-1",
         level: "A1",
-        title: "Hangul: The Korean Alphabet",
-        explanation: "Hangul (한글) is the Korean writing system, created in 1443 by King Sejong. It has 14 basic consonants (자음) and 10 basic vowels (모음) that combine into syllable blocks. Unlike Chinese or Japanese kanji, Hangul is fully phonetic and can be learned in a few hours.",
+        title: "How Korean Works — The Big Picture",
+        explanation: "Before anything else, three things set Korean apart from English.\n\n1. WORD ORDER IS SOV — the verb always comes last. 'I rice eat.' not 'I eat rice.' This never changes.\n\n2. PARTICLES DO THE GRAMMAR — small syllables attach to nouns to show their role (subject, object, location). Because particles carry meaning, word order can shift for emphasis without confusion.\n\n3. SPEECH LEVELS MATTER — Korean verbs change form depending on how polite you need to be. At A1, you will learn 해요체 (haeyoche), the polite informal level. It is appropriate with strangers, shopkeepers, and most everyday situations. Formal and casual speech come later.",
         examples: [
-            { native: "ㅏ ㅑ ㅓ ㅕ ㅗ ㅛ ㅜ ㅠ ㅡ ㅣ", romanized: "a ya eo yeo o yo u yu eu i", translation: "The 10 basic vowels" },
-            { native: "ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅅ ㅇ ㅈ ㅎ", romanized: "g n d r/l m b s (silent)/ng j h", translation: "10 of the 14 basic consonants" },
-            { native: "한글", romanized: "Hangeul", translation: "Hangul (the Korean alphabet)" },
-            { native: "가나다라마바사", romanized: "ga na da ra ma ba sa", translation: "Syllables ga, na, da, ra, ma, ba, sa" }
+            { native: "저는 밥을 먹어요.", romanized: "Jeoneun babeul meogeoyo.", translation: "I eat rice. (저=I, 는=topic particle, 밥=rice, 을=object particle, 먹어요=eat)" },
+            { native: "Subject + Object + Verb", romanized: "S + O + V", translation: "Korean sentence order — the verb always comes last" },
+            { native: "저는 학생이에요.", romanized: "Jeoneun haksaengieyo.", translation: "I am a student. (polite informal — 해요체)" },
+            { native: "저는 학생이야.", romanized: "Jeoneun haksaengiya.", translation: "I am a student. (casual — 반말, for close friends only)" },
         ]
     },
     {
         id: "ko-g-a1-2",
         level: "A1",
-        title: "Basic Sentence: X은/는 Y이에요/예요",
-        explanation: "Korean follows Subject-Object-Verb order. The topic particle 은 (after consonant) or 는 (after vowel) marks what the sentence is about. 이에요 (after consonant) or 예요 (after vowel) means 'is/am/are' in polite informal speech (해요체).",
+        title: "Hangul: Reading Korean",
+        explanation: "Hangul (한글) is the Korean alphabet, created in 1443. It has 14 basic consonants and 10 basic vowels that combine into syllable blocks — each block represents one syllable. The key insight: you don't write letters in a row (like English), you stack them into square blocks. Every syllable block has at least one consonant and one vowel. If a syllable starts with a vowel sound, use the silent placeholder consonant ㅇ.\n\nBasic vowels: ㅏ(a) ㅓ(eo) ㅗ(o) ㅜ(u) ㅡ(eu) ㅣ(i)\nKey consonants: ㄱ(g/k) ㄴ(n) ㄷ(d/t) ㄹ(r/l) ㅁ(m) ㅂ(b/p) ㅅ(s) ㅇ(silent/ng) ㅈ(j) ㅎ(h)",
         examples: [
-            { native: "저는 학생이에요.", romanized: "Jeoneun haksaengieyo.", translation: "I am a student." },
-            { native: "이것은 책이에요.", romanized: "Igeoseun chaegieyo.", translation: "This is a book." },
-            { native: "저는 한국 사람이에요.", romanized: "Jeoneun hanguk saramieyo.", translation: "I am Korean." },
-            { native: "이름은 민준이에요.", romanized: "Ireumeun minjunieyo.", translation: "The name is Minjun." }
+            { native: "가 = ㄱ + ㅏ", romanized: "ga", translation: "Consonant ㄱ + vowel ㅏ = syllable block 가" },
+            { native: "나 = ㄴ + ㅏ", romanized: "na", translation: "Consonant ㄴ + vowel ㅏ = syllable block 나" },
+            { native: "안 = ㅇ + ㅏ + ㄴ", romanized: "an", translation: "Silent ㅇ + ㅏ + final consonant ㄴ = 안" },
+            { native: "한글", romanized: "Hangeul", translation: "한(han) + 글(geul) — two syllable blocks" },
+            { native: "사람", romanized: "saram", translation: "사(sa) + 람(ram) — person" },
         ]
     },
     {
         id: "ko-g-a1-3",
         level: "A1",
-        title: "Greetings and Polite Expressions",
-        explanation: "Korean has several speech levels. The most common for everyday use with strangers and acquaintances is polite informal (해요체). The formal polite style (합쇼체/하십시오체) is used in formal situations. Learn both forms for greetings.",
+        title: "Basic Sentence: X은/는 Y이에요/예요",
+        explanation: "The simplest Korean sentence: [Topic]은/는 [Noun]이에요/예요 — '[Topic] is [Noun].'\n\nThe topic particle 은/는 marks what the sentence is about:\n• 은 after a consonant-ending syllable\n• 는 after a vowel-ending syllable\n\n이에요/예요 means 'is/am/are' in polite speech:\n• 이에요 after a consonant-ending noun\n• 예요 after a vowel-ending noun",
         examples: [
-            { native: "안녕하세요.", romanized: "Annyeonghaseyo.", translation: "Hello. (polite)" },
-            { native: "감사합니다. / 고마워요.", romanized: "Gamsahamnida. / Gomawoyo.", translation: "Thank you. (formal) / (polite informal)" },
-            { native: "괜찮아요.", romanized: "Gwaenchanayo.", translation: "It's okay / I'm fine." },
-            { native: "죄송합니다. / 미안해요.", romanized: "Joesonghamnida. / Mianhaeyo.", translation: "I'm sorry. (formal) / (polite informal)" },
-            { native: "처음 뵙겠습니다.", romanized: "Cheoeum boepgesseumnida.", translation: "Nice to meet you. (formal)" }
+            { native: "저는 학생이에요.", romanized: "Jeoneun haksaengieyo.", translation: "I am a student. (학생 ends in consonant → 이에요)" },
+            { native: "저는 선생님이에요.", romanized: "Jeoneun seonsaengnimieeyo.", translation: "I am a teacher." },
+            { native: "이것은 책이에요.", romanized: "Igeoseun chaegieyo.", translation: "This is a book." },
+            { native: "저는 영국 사람이에요.", romanized: "Jeoneun yeongguk saramieyo.", translation: "I am British." },
+            { native: "이름은 민준이에요.", romanized: "Ireumeun minjunieyo.", translation: "My name is Minjun." },
         ]
     },
     {
         id: "ko-g-a1-4",
         level: "A1",
-        title: "Numbers: Sino-Korean (일, 이, 삼...)",
-        explanation: "Korean has two counting systems. Sino-Korean numbers (한자어 수) are borrowed from Chinese and are used for dates, money, phone numbers, minutes, floors of a building, and counting from 100+.",
+        title: "Greetings & Everyday Expressions",
+        explanation: "These are the expressions you'll use from day one. They are all in 해요체 (polite informal) — the right register for strangers, shopkeepers, and most daily situations. Notice that Korean has separate greetings depending on whether you are arriving or leaving, and whether you or the other person is the one leaving.",
         examples: [
-            { native: "일(1), 이(2), 삼(3), 사(4), 오(5)", romanized: "il, i, sam, sa, o", translation: "1, 2, 3, 4, 5" },
-            { native: "육(6), 칠(7), 팔(8), 구(9), 십(10)", romanized: "yuk, chil, pal, gu, sip", translation: "6, 7, 8, 9, 10" },
-            { native: "백(100), 천(1,000), 만(10,000)", romanized: "baek, cheon, man", translation: "100, 1,000, 10,000" },
-            { native: "지금 몇 시예요? — 두 시 삼십 분이에요.", romanized: "Jigeum myeot siyeyo? — Du si samsip bunieyo.", translation: "What time is it now? — It is 2:30." }
+            { native: "안녕하세요.", romanized: "Annyeonghaseyo.", translation: "Hello. / Good morning/afternoon/evening." },
+            { native: "안녕히 계세요.", romanized: "Annyeonghi gyeseyo.", translation: "Goodbye. (said by the person leaving — 'stay well')" },
+            { native: "안녕히 가세요.", romanized: "Annyeonghi gaseyo.", translation: "Goodbye. (said by the person staying — 'go well')" },
+            { native: "감사합니다. / 고마워요.", romanized: "Gamsahamnida. / Gomawoyo.", translation: "Thank you. (formal) / Thank you. (polite informal)" },
+            { native: "괜찮아요.", romanized: "Gwaenchanayo.", translation: "It's okay. / I'm fine. / No problem." },
+            { native: "죄송합니다. / 미안해요.", romanized: "Joesonghamnida. / Mianhaeyo.", translation: "I'm sorry. (formal) / I'm sorry. (polite informal)" },
         ]
     },
     {
         id: "ko-g-a1-5",
         level: "A1",
-        title: "Subject Particle 이/가",
-        explanation: "The subject particle marks the grammatical subject of a sentence — the new information or focus of the sentence. Use 이 (i) after a consonant-ending word and 가 (ga) after a vowel-ending word. Compare with 은/는 (topic) which marks known or contrasting information.",
+        title: "Topic Particle 은/는 vs Subject Particle 이/가",
+        explanation: "This is one of the trickiest distinctions in Korean for English speakers.\n\n은/는 (topic) marks what the sentence is *about* — often something already known or being contrasted. Think of it as 'as for X...' or 'speaking of X...'\n\n이/가 (subject) marks the grammatical subject — often new information, a specific focus, or the answer to 'who/what?'\n\nIn practice: 저는 (I, as for me) is used for general statements about yourself. 제가 (I, specifically me) is used when you are the answer to a question or the focus.",
         examples: [
-            { native: "학생이 와요.", romanized: "Haksaengi wayo.", translation: "A student is coming. (focus on student)" },
-            { native: "친구가 있어요.", romanized: "Chinguga isseoyo.", translation: "I have a friend. / A friend exists." },
-            { native: "누가 선생님이에요?", romanized: "Nuga seonsaengnimi yeyo?", translation: "Who is the teacher?" },
-            { native: "뭐가 맛있어요?", romanized: "Mwoga massisseoyo?", translation: "What is delicious?" }
+            { native: "저는 학생이에요.", romanized: "Jeoneun haksaengieyo.", translation: "I am a student. (general statement about myself)" },
+            { native: "누가 학생이에요? — 제가 학생이에요.", romanized: "Nuga haksaengieyo? — Jega haksaengieyo.", translation: "Who is a student? — I am (the student). (focus → 이/가)" },
+            { native: "친구가 왔어요.", romanized: "Chinguga wasseoyo.", translation: "A friend came. (new information — 이/가)" },
+            { native: "친구는 왔어요.", romanized: "Chinguneun wasseoyo.", translation: "The friend (we were talking about) came. (known topic — 은/는)" },
         ]
     },
     {
         id: "ko-g-a1-6",
         level: "A1",
         title: "Object Particle 을/를",
-        explanation: "The object particle marks the direct object of an action verb — the thing being acted upon. Use 을 (eul) after a consonant-ending word and 를 (reul) after a vowel-ending word. In spoken Korean, object particles are often dropped but are important to understand.",
+        explanation: "The object particle marks the direct object of an action verb — the thing being acted on.\n• 을 after a consonant-ending syllable\n• 를 after a vowel-ending syllable\n\nIn spoken Korean, object particles are frequently dropped. But understanding them helps you read, and producing them makes your speech sound more natural and precise.",
         examples: [
-            { native: "밥을 먹어요.", romanized: "Babeul meogeoyo.", translation: "I eat rice. (밥 = rice, ends in consonant → 을)" },
-            { native: "물을 마셔요.", romanized: "Mureul masyeoyo.", translation: "I drink water. (물 = water, ends in consonant → 을)" },
+            { native: "밥을 먹어요.", romanized: "Babeul meogeoyo.", translation: "I eat rice. (밥 ends in consonant → 을)" },
+            { native: "물을 마셔요.", romanized: "Mureul masyeoyo.", translation: "I drink water. (물 ends in consonant → 을)" },
+            { native: "한국어를 공부해요.", romanized: "Hangugeoreul gongbuhaeyo.", translation: "I study Korean. (한국어 ends in vowel → 를)" },
             { native: "음악을 들어요.", romanized: "Eumaguel deureoyo.", translation: "I listen to music." },
-            { native: "한국어를 공부해요.", romanized: "Hangugeoreul gongbuhaeyo.", translation: "I study Korean. (한국어 = Korean language, ends in vowel → 를)" }
+            { native: "친구를 만나요.", romanized: "Chingureul mannayo.", translation: "I meet a friend." },
         ]
     },
     {
         id: "ko-g-a1-7",
         level: "A1",
         title: "Location Particles 에 and 에서",
-        explanation: "에 (e) marks a destination or static location ('to', 'at', 'in'). 에서 (eseo) marks where an action takes place ('at', 'in', 'from'). Use 에 with verbs like 가다 (go), 오다 (come), 있다 (be/exist). Use 에서 with action verbs like 먹다 (eat), 공부하다 (study), 일하다 (work).",
+        explanation: "Both particles relate to place, but they work differently:\n\n에 — destination or static existence. Use with 가다 (go), 오다 (come), 있다 (exist/be at).\n에서 — where an action happens. Use with action verbs like 먹다 (eat), 공부하다 (study), 일하다 (work).\n\nMemory tip: 에서 has 서 (서다 = to stand) — you are standing somewhere doing something.",
         examples: [
             { native: "학교에 가요.", romanized: "Hakgyoe gayo.", translation: "I go to school. (에 = destination)" },
             { native: "집에 있어요.", romanized: "Jibe isseoyo.", translation: "I am at home. (에 = static location)" },
-            { native: "카페에서 공부해요.", romanized: "Kapee seo gongbuhaeyo.", translation: "I study at the café. (에서 = where action happens)" },
-            { native: "한국에서 왔어요.", romanized: "Hangugeso wasseoyo.", translation: "I came from Korea. (에서 = from)" }
+            { native: "카페에서 공부해요.", romanized: "Kapeeseo gongbuhaeyo.", translation: "I study at the café. (에서 = where action happens)" },
+            { native: "어디에서 일해요?", romanized: "Eodieseo ilhaeyo?", translation: "Where do you work?" },
+            { native: "한국에서 왔어요.", romanized: "Hangugeso wasseoyo.", translation: "I came from Korea. (에서 = from)" },
         ]
     },
     {
         id: "ko-g-a1-8",
         level: "A1",
-        title: "Present Tense: ~아/어요",
-        explanation: "Korean verbs end in 다 in dictionary form. For polite present tense (해요체), remove 다 and add 아요 or 어요 based on vowel harmony. If the last stem vowel is ㅏ or ㅗ, add 아요. All other vowels use 어요. 하다 verbs become 해요. Some forms contract: 가 + 아요 → 가요.",
+        title: "Present Tense: ~아요/어요",
+        explanation: "To conjugate a verb in polite present tense (해요체), take the dictionary form (ends in 다), remove 다, and add 아요 or 어요.\n\nThe rule — vowel harmony:\n• If the last vowel in the stem is ㅏ or ㅗ → add 아요\n• All other vowels → add 어요\n• 하다 verbs → always become 해요\n\nMany forms contract naturally in speech. 가 + 아요 → 가요 (not 가아요). This is normal — Korean prefers smooth pronunciation.",
         examples: [
-            { native: "먹다 → 먹어요", romanized: "meokda → meogeoyo", translation: "to eat → I eat / you eat (polite)" },
-            { native: "가다 → 가요", romanized: "gada → gayo", translation: "to go → I go (가 + 아요 → 가요, contracted)" },
-            { native: "마시다 → 마셔요", romanized: "masida → masyeoyo", translation: "to drink → I drink (마시 + 어요 → 마셔요, contracted)" },
-            { native: "공부하다 → 공부해요", romanized: "gongbuhada → gongbuhaeyo", translation: "to study → I study (하다 → 해요)" }
+            { native: "먹다 → 먹어요", romanized: "meokda → meogeoyo", translation: "eat (stem 먹, last vowel ㅓ → 어요)" },
+            { native: "가다 → 가요", romanized: "gada → gayo", translation: "go (stem 가, last vowel ㅏ → 아요, contracts to 가요)" },
+            { native: "오다 → 와요", romanized: "oda → wayo", translation: "come (stem 오, last vowel ㅗ → 아요, contracts to 와요)" },
+            { native: "공부하다 → 공부해요", romanized: "gongbuhada → gongbuhaeyo", translation: "study (하다 → 해요)" },
+            { native: "마시다 → 마셔요", romanized: "masida → masyeoyo", translation: "drink (stem 마시, 이+어요 contracts to 여요)" },
         ]
     },
     {
         id: "ko-g-a1-9",
         level: "A1",
-        title: "Past Tense: ~았/었어요",
-        explanation: "To form the past tense in polite speech, add 았어요 if the last stem vowel is ㅏ or ㅗ, and 었어요 for all other vowels. 하다 verbs become 했어요. Many forms contract in natural speech.",
+        title: "Past Tense: ~았어요/었어요",
+        explanation: "Past tense in polite speech follows the same vowel harmony rule as present tense, but you add 았어요 or 었어요 to the stem.\n\n• Last vowel ㅏ or ㅗ → 았어요\n• All other vowels → 었어요\n• 하다 verbs → 했어요\n\nMany forms contract just as they do in present tense.",
         examples: [
-            { native: "먹다 → 먹었어요", romanized: "meokda → meogeosseoyo", translation: "to eat → ate" },
-            { native: "가다 → 갔어요", romanized: "gada → gasseoyo", translation: "to go → went (가 + 았어요 → 갔어요)" },
-            { native: "공부하다 → 공부했어요", romanized: "gongbuhada → gongbuhaesseoyo", translation: "to study → studied" },
-            { native: "어제 친구를 만났어요.", romanized: "Eoje chingureul mannasseoyo.", translation: "I met a friend yesterday." }
+            { native: "먹다 → 먹었어요", romanized: "meokda → meogeosseoyo", translation: "ate (먹 + 었어요)" },
+            { native: "가다 → 갔어요", romanized: "gada → gasseoyo", translation: "went (가 + 았어요 → 갔어요, contracted)" },
+            { native: "오다 → 왔어요", romanized: "oda → wasseoyo", translation: "came (오 + 았어요 → 왔어요, contracted)" },
+            { native: "공부하다 → 공부했어요", romanized: "gongbuhada → gongbuhaesseoyo", translation: "studied" },
+            { native: "어제 친구를 만났어요.", romanized: "Eoje chingureul mannasseoyo.", translation: "I met a friend yesterday." },
         ]
     },
     {
         id: "ko-g-a1-10",
         level: "A1",
         title: "Negation: 안 and 못",
-        explanation: "Place 안 (an) directly before a verb or adjective to negate it ('not', 'don't'). Use 못 (mot) before action verbs to express inability ('cannot', 'unable to'). For 하다 compound verbs, insert 안/못 between the noun and 하다: 공부 안 해요 (don't study) or 공부 못 해요 (can't study).",
+        explanation: "Korean has two main negation words, placed directly before the verb:\n\n안 (an) — 'don't' / 'not'. General negation for any verb or adjective.\n못 (mot) — 'can't'. Inability only — use with action verbs.\n\nFor 하다 compound verbs, insert 안 or 못 between the noun and 하다:\n공부하다 → 공부 안 해요 (don't study) / 공부 못 해요 (can't study)",
         examples: [
             { native: "안 가요.", romanized: "An gayo.", translation: "I don't go. / I'm not going." },
             { native: "안 먹어요.", romanized: "An meogeoyo.", translation: "I don't eat it." },
             { native: "못 해요.", romanized: "Mot haeyo.", translation: "I can't do it." },
-            { native: "공부 안 해요.", romanized: "Gongbu an haeyo.", translation: "I don't study. (noun + 안 + 해요)" }
+            { native: "한국어를 못 해요.", romanized: "Hangugeoreul mot haeyo.", translation: "I can't speak Korean." },
+            { native: "공부 안 해요.", romanized: "Gongbu an haeyo.", translation: "I don't study." },
         ]
     },
     {
         id: "ko-g-a1-11",
         level: "A1",
-        title: "Numbers: Native Korean (하나, 둘, 셋...)",
-        explanation: "Native Korean numbers (순우리말 수) are used for counting objects with counters, telling hours (o'clock), and ages. The numbers 하나(1), 둘(2), 셋(3), 넷(4) shorten to 한, 두, 세, 네 when used before a counter.",
+        title: "Korean Numbers — Two Systems",
+        explanation: "Korean has two completely separate counting systems and you need both. They are used in different contexts — mixing them is a common beginner mistake.\n\nSino-Korean (from Chinese): used for dates, money, phone numbers, minutes, floor numbers, and any number over 99.\n\nNative Korean: used for counting objects (with counters), telling hours, and ages up to 99. The numbers 하나(1), 둘(2), 셋(3), 넷(4) shorten to 한, 두, 세, 네 when followed by a counter word.",
         examples: [
-            { native: "하나(1), 둘(2), 셋(3), 넷(4), 다섯(5)", romanized: "hana, dul, set, net, daseot", translation: "1, 2, 3, 4, 5" },
-            { native: "여섯(6), 일곱(7), 여덟(8), 아홉(9), 열(10)", romanized: "yeoseot, ilgop, yeodeol, ahop, yeol", translation: "6, 7, 8, 9, 10" },
-            { native: "사과 두 개", romanized: "sagwa du gae", translation: "two apples (두 = 둘 shortened before counter 개)" },
-            { native: "지금 세 시예요.", romanized: "Jigeum se siyeyo.", translation: "It's three o'clock now. (세 = 셋 shortened before 시)" }
+            { native: "Sino: 일 이 삼 사 오 육 칠 팔 구 십", romanized: "il i sam sa o yuk chil pal gu sip", translation: "1 2 3 4 5 6 7 8 9 10 (use for money, dates, minutes)" },
+            { native: "Native: 하나 둘 셋 넷 다섯 여섯 일곱 여덟 아홉 열", romanized: "hana dul set net daseot yeoseot ilgop yeodeol ahop yeol", translation: "1 2 3 4 5 6 7 8 9 10 (use for objects, hours, age)" },
+            { native: "사과 두 개 / 커피 세 잔", romanized: "sagwa du gae / keopi se jan", translation: "two apples / three coffees (native numbers, shortened before counters)" },
+            { native: "지금 세 시 삼십 분이에요.", romanized: "Jigeum se si samsip bunieyo.", translation: "It's 3:30 now. (hours = native 세, minutes = Sino 삼십)" },
+            { native: "저는 스물두 살이에요.", romanized: "Jeoneun seumuldu sarieyo.", translation: "I am 22 years old. (age = native Korean)" },
         ]
     },
     {
         id: "ko-g-a1-12",
         level: "A1",
         title: "Question Words: 뭐, 어디, 언제, 왜, 어떻게, 누구",
-        explanation: "Korean question words stay in their natural sentence position — unlike English, they are not moved to the front. The sentence ends with a rising intonation or a question verb form.",
+        explanation: "Korean question words stay in their natural sentence position — they do not move to the front like in English. The sentence structure stays the same (SOV); only the intonation or verb ending signals a question.\n\n뭐/무엇 = what | 어디 = where | 언제 = when | 왜 = why | 어떻게 = how | 누구 = who\n\nNote: 누구 (who) becomes 누가 when followed by the subject particle 가.",
         examples: [
-            { native: "이게 뭐예요?", romanized: "Ige mwoyeyo?", translation: "What is this? (뭐 = what)" },
-            { native: "어디에 가요?", romanized: "Eodie gayo?", translation: "Where are you going? (어디 = where)" },
-            { native: "언제 왔어요?", romanized: "Eonje wasseoyo?", translation: "When did you come? (언제 = when)" },
-            { native: "왜 안 먹어요?", romanized: "Wae an meogeoyo?", translation: "Why aren't you eating? (왜 = why)" },
-            { native: "어떻게 해요?", romanized: "Eotteoke haeyo?", translation: "How do you do it? (어떻게 = how)" },
-            { native: "누가 왔어요?", romanized: "Nuga wasseoyo?", translation: "Who came? (누구 → 누가 with subject particle)" }
+            { native: "이게 뭐예요?", romanized: "Ige mwoyeyo?", translation: "What is this? (뭐 in subject position)" },
+            { native: "어디에 가요?", romanized: "Eodie gayo?", translation: "Where are you going?" },
+            { native: "언제 왔어요?", romanized: "Eonje wasseoyo?", translation: "When did you come?" },
+            { native: "왜 안 먹어요?", romanized: "Wae an meogeoyo?", translation: "Why aren't you eating?" },
+            { native: "어떻게 가요?", romanized: "Eotteoke gayo?", translation: "How do you get there?" },
+            { native: "누가 왔어요?", romanized: "Nuga wasseoyo?", translation: "Who came? (누구 + 가 subject particle → 누가)" },
         ]
-    }
+    },
 ]

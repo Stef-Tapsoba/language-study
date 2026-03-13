@@ -9,7 +9,7 @@ export const a1Units: LessonUnit[] = [
         order: 1,
         title: "Hangul & First Greetings",
         description: "Learn the Korean alphabet and say hello",
-        grammarIds: ["ko-g-a1-1"],
+        grammarIds: ["ko-g-a1-1", "ko-g-a1-2"],
         vocabIds: [
             "ko-v-a1-1", "ko-v-a1-2", "ko-v-a1-3", "ko-v-a1-4", "ko-v-a1-5",
             "ko-v-a1-6", "ko-v-a1-7", "ko-v-a1-8", "ko-v-a1-9", "ko-v-a1-10",
@@ -61,7 +61,7 @@ export const a1Units: LessonUnit[] = [
         order: 2,
         title: "Introductions: X은/는 Y이에요",
         description: "Introduce yourself and say what things are",
-        grammarIds: ["ko-g-a1-2", "ko-g-a1-3"],
+        grammarIds: ["ko-g-a1-3", "ko-g-a1-4"],
         vocabIds: [
             "ko-v-a1-16", "ko-v-a1-17", "ko-v-a1-18", "ko-v-a1-19", "ko-v-a1-20",
             "ko-v-a1-21", "ko-v-a1-22", "ko-v-a1-23", "ko-v-a1-24", "ko-v-a1-25"
@@ -112,7 +112,7 @@ export const a1Units: LessonUnit[] = [
         order: 3,
         title: "Sino-Korean Numbers",
         description: "Count with Sino-Korean numbers for dates and times",
-        grammarIds: ["ko-g-a1-4"],
+        grammarIds: ["ko-g-a1-11"],
         vocabIds: [
             "ko-v-a1-46", "ko-v-a1-47", "ko-v-a1-48", "ko-v-a1-49", "ko-v-a1-50",
             "ko-v-a1-51", "ko-v-a1-52", "ko-v-a1-53", "ko-v-a1-54", "ko-v-a1-55",
