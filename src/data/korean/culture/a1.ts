@@ -21,9 +21,9 @@ export const koA1Culture: CultureEpisode[] = [
         subtitle: "Nunchi is the Korean art of sensing what others feel without being told — and it's considered one of the most important social skills.",
 
         video: {
-            youtubeId: "GnFuJTgJnxU",
-            title: "Nunchi — Korea's Secret Social Intelligence",
-            channelName: "Asian Boss",
+            youtubeId: "sAyKo6iF9E0",
+            title: "Nunchi (눈치) in Korea: The Social Skill You Need",
+            channelName: "Cookie Korea | Real Korean starts here",
             captionLang: "ko"
         },
 
@@ -146,9 +146,9 @@ When learning Korean, learning only the language is not enough. You also need to
         subtitle: "Korean food culture is built around the idea that eating is always a communal act — and banchan changes everything.",
 
         video: {
-            youtubeId: "NtHuS2D4Wis",
-            title: "Korean Food Culture — More Than Just Kimchi",
-            channelName: "Korea Tourism Organization",
+            youtubeId: "uRMhMGQqYro",
+            title: "Intro to Korean Side Dishes (Banchan)",
+            channelName: "Adam Witt",
             captionLang: "ko"
         },
 

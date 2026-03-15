@@ -17,10 +17,11 @@ export const frA1Culture: CultureEpisode[] = [
         subtitle: "Why the French baguette is a protected monument — and what happens if the bakery is closed.",
 
         video: {
-            youtubeId: "Z2K5n5_-sYo",
-            title: "Why the French Baguette is a National Treasure",
+            youtubeId: "KURH-UeAN8A",
+            title: "Why The French Eat 30 Million Baguettes A Day - Traditional French Baguette",
             channelName: "DW Food",
-            captionLang: "fr"
+            startSeconds: 15,   // skip cold open
+            captionLang: "en"
         },
 
         photos: [
@@ -148,9 +149,9 @@ Eating bread in the street is normal in France. Many French people eat their bag
         subtitle: "More people speak French in Africa than in France — and the African variety is evolving into something new.",
 
         video: {
-            youtubeId: "aLMaRMDntoQ",
-            title: "French in Africa — A Language Transformed",
-            channelName: "TV5Monde",
+            youtubeId: "rTq2DMDhgUE",
+            title: "How Did French Language Spread In Africa?",
+            channelName: "African Roots And Routes",
             captionLang: "fr"
         },
 

@@ -17,9 +17,9 @@ export const itA1Culture: CultureEpisode[] = [
         subtitle: "In Italy, coffee is a ritual with unwritten rules — and ordering it wrong will tell everyone you're a tourist.",
 
         video: {
-            youtubeId: "Q_IXHLZGVik",
-            title: "Italian Coffee Culture Explained",
-            channelName: "Gustorotondo Italian Food",
+            youtubeId: "C64LaSfpDvU",
+            title: "How to Order Espresso Like An Italian",
+            channelName: "NowThis Impact",
             captionLang: "it"
         },
 
@@ -143,9 +143,9 @@ Northern and Southern Italy have different traditions. In Naples, coffee is an a
         subtitle: "Italy only unified as one country in 1861 — and the north-south divide still shapes everything from politics to pasta shapes.",
 
         video: {
-            youtubeId: "gPnb0GbWcck",
-            title: "Why Italy's North-South Divide Still Matters",
-            channelName: "Kurzgesagt-style explainer",
+            youtubeId: "",
+            title: "",
+            channelName: "",
             captionLang: "it"
         },
 

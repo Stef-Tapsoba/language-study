@@ -15,9 +15,9 @@ export const a1Culture: CultureEpisode[] = [
         subtitle: "Why Spanish people eat lunch at 3pm — and why it makes perfect sense.",
 
         video: {
-            youtubeId: "WvOiCeWiAr8",
-            title: "Why Spain Eats So Late",
-            channelName: "DW Documentary",
+            youtubeId: "aDzFhv6dQ4Q",
+            title: "Why Spain eats late because of Fascism",
+            channelName: "Next Time In History",
             captionLang: "es"
         },
 
@@ -179,9 +179,10 @@ The Spanish timetable has an interesting history. Spain is on Central European t
         subtitle: "The beating heart of Mexican daily life — and why a supermarket could never replace it.",
 
         video: {
-            youtubeId: "R2zKCsX2XB0",
-            title: "Mexico City's Incredible Markets",
-            channelName: "Touropia",
+            youtubeId: "eO3meuvxMxE",
+            title: "Mexico City’s Markets",
+            channelName: "The Culinary Institute of America",
+            startSeconds: 41,
             captionLang: "es"
         },
 

@@ -21,9 +21,9 @@ export const jaA1Culture: CultureEpisode[] = [
         subtitle: "Bowing in Japan is a language of its own — the angle, duration, and context all carry precise meaning.",
 
         video: {
-            youtubeId: "qJ3HP8ZDQFA",
-            title: "Japanese Bowing Culture Explained",
-            channelName: "Paolo fromTOKYO",
+            youtubeId: "boQmX6feIn0",
+            title: "The Subtle Art of Japanese Bowing",
+            channelName: "That Japanese Man Yuta",
             captionLang: "ja"
         },
 
@@ -148,9 +148,9 @@ If a foreigner bows incorrectly, Japanese people rarely mind. The act of trying 
         subtitle: "The words said before and after a Japanese meal carry the entire philosophy of the culture's relationship with food and life.",
 
         video: {
-            youtubeId: "kNnDEEHKjAU",
-            title: "Japanese Food Rituals — Itadakimasu",
-            channelName: "Abroad in Japan",
+            youtubeId: "4bVUe8lPbeo",
+            title: "Japanese Table Manners: What are Itadakimasu & Gochisousama?",
+            channelName: "Tokyo Spark",
             captionLang: "ja"
         },
 
