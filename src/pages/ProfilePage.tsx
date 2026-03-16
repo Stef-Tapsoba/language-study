@@ -204,6 +204,25 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
     )
 }
 
+// ─── Export ──────────────────────────────────────────────────────────────────
+
+function exportProgress(): void {
+    const data = {
+        exportedAt: new Date().toISOString(),
+        appVersion: "2.1.0",
+        progress: JSON.parse(localStorage.getItem("ls:progress") ?? "{}"),
+        srs: JSON.parse(localStorage.getItem("ls:srs") ?? "{}"),
+        stats: JSON.parse(localStorage.getItem("ls:stats") ?? "{}"),
+    }
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement("a")
+    a.href = url
+    a.download = `language-study-backup-${new Date().toISOString().slice(0, 10)}.json`
+    a.click()
+    URL.revokeObjectURL(url)
+}
+
 // ─── Page ────────────────────────────────────────────────────────────────────
 
 export function ProfilePage() {
@@ -292,6 +311,40 @@ export function ProfilePage() {
                         </div>
                     </div>
                 )}
+
+                {/* ── Data & backup ── */}
+                <div>
+                    <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
+                        Data & backup
+                    </h2>
+                    <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden">
+                        {/* Warning */}
+                        <div className="flex gap-3 px-5 py-4 bg-amber-50 border-b border-amber-100">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-amber-500 shrink-0 mt-0.5"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round"
+                                    d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                            </svg>
+                            <p className="text-sm text-amber-800">
+                                Your progress is saved on this device only. Clearing your browser
+                                data or switching devices will lose it. Export a backup to keep it safe.
+                            </p>
+                        </div>
+                        {/* Export button */}
+                        <button
+                            onClick={exportProgress}
+                            className="w-full flex items-center justify-between px-5 py-4 text-sm
+                                       text-gray-700 hover:bg-gray-50 transition-colors"
+                        >
+                            <span className="font-medium">Export progress backup</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-400" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round"
+                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
 
                 {/* ── Account ── */}
                 <div>
