@@ -1,7 +1,9 @@
 // App.tsx — Route definitions and top-level app wrapper
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
+import { useState, useEffect } from "react"
+import { BrowserRouter, Routes, Route, Navigate, Outlet, useParams } from "react-router-dom"
 import { AuthProvider } from "./auth/AuthContext"
 import { ProtectedRoute } from "./auth/ProtectedRoute"
+import { getModule, loadModule } from "./data/modules"
 
 import { LandingPage } from "./pages/LandingPage"
 import { LoginPage } from "./pages/LoginPage"
@@ -25,6 +27,27 @@ import { CulturePage } from "./pages/CulturePage"
 import { CategoryReadingPage } from "./pages/CategoryReadingPage"
 import { GrammarLessonPage } from "./pages/GrammarLessonPage"
 
+// Ensures the language data chunk is loaded before any /learn/:langId page renders.
+// getModule() is synchronous and reads from cache — this gate means it never returns null
+// for the active language.
+function LanguageLoader() {
+    const { langId } = useParams<{ langId: string }>()
+    const [ready, setReady] = useState(() => Boolean(langId && getModule(langId)))
+
+    useEffect(() => {
+        if (!langId || getModule(langId)) { setReady(true); return }
+        loadModule(langId).then(() => setReady(true))
+    }, [langId])
+
+    if (!ready) return (
+        <div className="flex items-center justify-center min-h-screen">
+            <div className="w-8 h-8 border-4 border-violet-500 border-t-transparent rounded-full animate-spin" />
+        </div>
+    )
+
+    return <Outlet />
+}
+
 export default function App() {
     return (
         <AuthProvider>
@@ -45,52 +68,26 @@ export default function App() {
                         <ProtectedRoute><LanguageSelectPage /></ProtectedRoute>
                     } />
 
-                    {/* Per-language routes */}
+                    {/* Per-language routes — protected once, module loaded before any child renders */}
                     <Route path="/learn/:langId" element={
-                        <ProtectedRoute><DashboardPage /></ProtectedRoute>
-                    } />
-                    <Route path="/learn/:langId/placement" element={
-                        <ProtectedRoute><PlacementPage /></ProtectedRoute>
-                    } />
-                    <Route path="/learn/:langId/grammar" element={
-                        <ProtectedRoute><GrammarPage /></ProtectedRoute>
-                    } />
-                    <Route path="/learn/:langId/vocab" element={
-                        <ProtectedRoute><VocabPage /></ProtectedRoute>
-                    } />
-                    <Route path="/learn/:langId/verbs" element={
-                        <ProtectedRoute><VerbsPage /></ProtectedRoute>
-                    } />
-                    <Route path="/learn/:langId/level-test" element={
-                        <ProtectedRoute><LevelTestPage /></ProtectedRoute>
-                    } />
-                    <Route path="/learn/:langId/flashcards" element={
-                        <ProtectedRoute><FlashcardsPage /></ProtectedRoute>
-                    } />
-                    <Route path="/learn/:langId/verb-drill" element={
-                        <ProtectedRoute><VerbDrillPage /></ProtectedRoute>
-                    } />
-                    <Route path="/learn/:langId/grammar-drill" element={
-                        <ProtectedRoute><GrammarDrillPage /></ProtectedRoute>
-                    } />
-                    <Route path="/learn/:langId/units/:unitId" element={
-                        <ProtectedRoute><UnitPage /></ProtectedRoute>
-                    } />
-                    <Route path="/learn/:langId/reading" element={
-                        <ProtectedRoute><ReadingPage /></ProtectedRoute>
-                    } />
-                    <Route path="/learn/:langId/listening" element={
-                        <ProtectedRoute><ListeningPage /></ProtectedRoute>
-                    } />
-                    <Route path="/learn/:langId/culture" element={
-                        <ProtectedRoute><CulturePage /></ProtectedRoute>
-                    } />
-                    <Route path="/learn/:langId/reading/:category" element={
-                        <ProtectedRoute><CategoryReadingPage /></ProtectedRoute>
-                    } />
-                    <Route path="/learn/:langId/grammar/:lessonId" element={
-                        <ProtectedRoute><GrammarLessonPage /></ProtectedRoute>
-                    } />
+                        <ProtectedRoute><LanguageLoader /></ProtectedRoute>
+                    }>
+                        <Route index element={<DashboardPage />} />
+                        <Route path="placement" element={<PlacementPage />} />
+                        <Route path="grammar" element={<GrammarPage />} />
+                        <Route path="grammar/:lessonId" element={<GrammarLessonPage />} />
+                        <Route path="vocab" element={<VocabPage />} />
+                        <Route path="verbs" element={<VerbsPage />} />
+                        <Route path="level-test" element={<LevelTestPage />} />
+                        <Route path="flashcards" element={<FlashcardsPage />} />
+                        <Route path="verb-drill" element={<VerbDrillPage />} />
+                        <Route path="grammar-drill" element={<GrammarDrillPage />} />
+                        <Route path="units/:unitId" element={<UnitPage />} />
+                        <Route path="reading" element={<ReadingPage />} />
+                        <Route path="reading/:category" element={<CategoryReadingPage />} />
+                        <Route path="listening" element={<ListeningPage />} />
+                        <Route path="culture" element={<CulturePage />} />
+                    </Route>
 
                     {/* Profile */}
                     <Route path="/profile" element={

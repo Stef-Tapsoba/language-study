@@ -2,6 +2,7 @@
 import { useNavigate } from "react-router-dom"
 import { LANGUAGES } from "../data/languages"
 import { setSelectedLanguage, getSelectedLanguage, getStartedLanguages } from "../store/progress"
+import { loadModule } from "../data/modules"
 import { NavBar } from "../components/NavBar"
 import { Flag } from "../components/Flag"
 
@@ -12,6 +13,7 @@ export function LanguageSelectPage() {
 
     function pick(langId: string) {
         setSelectedLanguage(langId)
+        loadModule(langId) // pre-fetch chunk before navigation
         const alreadyStarted = getStartedLanguages().includes(langId)
         navigate(alreadyStarted ? `/learn/${langId}` : `/learn/${langId}/placement`)
     }

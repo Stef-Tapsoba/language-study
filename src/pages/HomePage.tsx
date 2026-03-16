@@ -1,9 +1,10 @@
 // pages/HomePage.tsx — Authenticated home: new-user language-select branch vs returning-user language list
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "../auth/AuthContext"
 import { getUserById } from "../auth/mockAuthApi"
 import { LANGUAGES } from "../data/languages"
-import { getModule } from "../data/modules"
+import { getModule, loadModule } from "../data/modules"
 import {
     getStartedLanguages,
     getCurrentLevel,
@@ -85,7 +86,12 @@ function ReturningHome({ displayName, startedIds }: Readonly<{
     const selectedLangId = getSelectedLanguage() ?? startedIds[0]
     const currentLang = LANGUAGES.find(l => l.id === selectedLangId)
 
-    const mod = getModule(selectedLangId)
+    const [mod, setMod] = useState<ReturnType<typeof getModule>>(
+        () => selectedLangId ? getModule(selectedLangId) : null
+    )
+    useEffect(() => {
+        if (selectedLangId) loadModule(selectedLangId).then(() => setMod(getModule(selectedLangId)))
+    }, [selectedLangId])
     const level = getCurrentLevel(selectedLangId)
     const completed = getCompletedLessons(selectedLangId)
 

@@ -1,10 +1,10 @@
 // pages/ProfilePage.tsx — User profile, per-language progress stats, and account management
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "../auth/AuthContext"
 import { getUserById } from "../auth/mockAuthApi"
 import { LANGUAGES } from "../data/languages"
-import { getModule } from "../data/modules"
+import { getModule, loadModule } from "../data/modules"
 import {
     getStartedLanguages,
     getCurrentLevel,
@@ -236,6 +236,11 @@ export function ProfilePage() {
     const initials = displayName.split(" ").map((w: string) => w[0]).join("").slice(0, 2).toUpperCase()
 
     const startedIds = getStartedLanguages()
+
+    // Load any unloaded language modules so computeStats returns real numbers
+    useEffect(() => {
+        Promise.all(startedIds.map(loadModule)).then(() => setTick(t => t + 1))
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     // Global stats across all languages
     const totalDone = startedIds.reduce((sum, id) => sum + computeStats(id).totalDone, 0)
