@@ -176,4 +176,11 @@ export const a1Vocab: VocabItem[] = [
     { id: "ja-v-a1-148", level: "A1", word: "日本語", romanized: "nihongo", translation: "Japanese language", category: "Countries & Languages", example: { native: "日本語を勉強しています。", romanized: "Nihongo wo benkyou shite imasu.", translation: "I am studying Japanese." } },
     { id: "ja-v-a1-149", level: "A1", word: "英語", romanized: "eigo", translation: "English language", category: "Countries & Languages", example: { native: "英語が話せますか？", romanized: "Eigo ga hanasemasu ka?", translation: "Can you speak English?" } },
     { id: "ja-v-a1-150", level: "A1", word: "名前", romanized: "namae", translation: "Name", category: "Basics", example: { native: "お名前は何ですか？", romanized: "Onamae wa nan desu ka?", translation: "What is your name?" } },
+
+    // --- Likes & Dislikes (5) ---
+    { id: "ja-v-a1-151", level: "A1", word: "好き", romanized: "suki", translation: "like / fond of (na-adjective)", category: "Adjectives", example: { native: "ねこが好きです。", romanized: "Neko ga suki desu.", translation: "I like cats." } },
+    { id: "ja-v-a1-152", level: "A1", word: "嫌い", romanized: "kirai", translation: "dislike / hate (na-adjective)", category: "Adjectives", example: { native: "からい食べ物が嫌いです。", romanized: "Karai tabemono ga kirai desu.", translation: "I dislike spicy food." } },
+    { id: "ja-v-a1-153", level: "A1", word: "大好き", romanized: "daisuki", translation: "love / really like", category: "Adjectives", example: { native: "日本語が大好きです！", romanized: "Nihongo ga daisuki desu!", translation: "I love Japanese!" } },
+    { id: "ja-v-a1-154", level: "A1", word: "音楽", romanized: "ongaku", translation: "music", category: "Hobbies", example: { native: "音楽を聴くのが好きです。", romanized: "Ongaku wo kiku no ga suki desu.", translation: "I like listening to music." } },
+    { id: "ja-v-a1-155", level: "A1", word: "スポーツ", romanized: "supootsu", translation: "sport(s)", category: "Hobbies", example: { native: "スポーツが好きですか？", romanized: "Supootsu ga suki desu ka?", translation: "Do you like sport?" } },
 ]

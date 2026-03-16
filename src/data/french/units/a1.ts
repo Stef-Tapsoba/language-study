@@ -12,7 +12,7 @@ export const a1Units: LessonUnit[] = [
         order: 1,
         title: "Greetings & Politeness",
         description: "Learn essential French greetings, farewells, and polite expressions for everyday situations.",
-        grammarIds: [],
+        grammarIds: ["fr-g-a1-18"],
         vocabIds: [
             "fr-v-a1-1", "fr-v-a1-2", "fr-v-a1-3", "fr-v-a1-4", "fr-v-a1-5",
             "fr-v-a1-6", "fr-v-a1-7", "fr-v-a1-8", "fr-v-a1-9", "fr-v-a1-10",
@@ -75,8 +75,8 @@ export const a1Units: LessonUnit[] = [
         level: "A1",
         order: 4,
         title: "Articles & Noun Gender",
-        description: "Learn definite articles (le/la/l'/les) and how French nouns have grammatical gender.",
-        grammarIds: ["fr-g-a1-3"],
+        description: "Learn definite articles (le/la/l'/les), grammatical gender, and the essential contractions au, du, aux, des.",
+        grammarIds: ["fr-g-a1-3", "fr-g-a1-14"],
         vocabIds: [
             "fr-v-a1-63", "fr-v-a1-64", "fr-v-a1-65", "fr-v-a1-66", "fr-v-a1-67",
             "fr-v-a1-80", "fr-v-a1-81", "fr-v-a1-82", "fr-v-a1-83", "fr-v-a1-84"
@@ -85,10 +85,10 @@ export const a1Units: LessonUnit[] = [
         testQuestions: [
             { id: "fr-uq-a1-4-1", level: "A1", prompt: "Which article is used with a feminine noun?", options: ["le", "les", "un", "la"], answer: "la" },
             { id: "fr-uq-a1-4-2", level: "A1", prompt: "What happens to le/la before a vowel?", options: ["they become les", "they become l'", "they stay the same", "they become un"], answer: "they become l'" },
-            { id: "fr-uq-a1-4-3", level: "A1", prompt: "What is the article for 'l'ami'?", options: ["le", "la", "l'", "les"], answer: "l'" },
-            { id: "fr-uq-a1-4-4", level: "A1", prompt: "What is the plural definite article for all genders?", options: ["des", "les", "aux", "de"], answer: "les" },
-            { id: "fr-uq-a1-4-5", level: "A1", prompt: "What does 'le pain' mean?", options: ["the water", "the milk", "the bread", "the meal"], answer: "the bread" },
-            { id: "fr-uq-a1-4-6", level: "A1", prompt: "What does 'l'eau' mean?", options: ["the coffee", "the water", "the juice", "the milk"], answer: "the water" },
+            { id: "fr-uq-a1-4-3", level: "A1", prompt: "What is 'à + le'?", options: ["al", "du", "au", "aux"], answer: "au" },
+            { id: "fr-uq-a1-4-4", level: "A1", prompt: "What is 'de + les'?", options: ["du", "des", "de les", "dels"], answer: "des" },
+            { id: "fr-uq-a1-4-5", level: "A1", prompt: "Complete: 'Je vais ___ marché.' (le marché)", options: ["à le", "au", "du", "de le"], answer: "au" },
+            { id: "fr-uq-a1-4-6", level: "A1", prompt: "Complete: 'C'est le livre ___ professeur.' (le professeur)", options: ["de le", "du", "des", "au"], answer: "du" },
         ]
     },
     {
@@ -102,7 +102,7 @@ export const a1Units: LessonUnit[] = [
             "fr-v-a1-114", "fr-v-a1-115", "fr-v-a1-116", "fr-v-a1-117", "fr-v-a1-118",
             "fr-v-a1-119", "fr-v-a1-147", "fr-v-a1-148", "fr-v-a1-149"
         ],
-        verbIds: ["fr-vb-a1-5"],
+        verbIds: ["fr-vb-a1-5", "fr-vb-a1-13"],
         testQuestions: [
             { id: "fr-uq-a1-5-1", level: "A1", prompt: "Complete: 'Nous ___ français.' (parler)", options: ["parle", "parles", "parlons", "parlent"], answer: "parlons" },
             { id: "fr-uq-a1-5-2", level: "A1", prompt: "Complete: 'Ils ___ à Paris.' (habiter)", options: ["habitons", "habitez", "habite", "habitent"], answer: "habitent" },
@@ -123,7 +123,7 @@ export const a1Units: LessonUnit[] = [
             "fr-v-a1-129", "fr-v-a1-130", "fr-v-a1-131", "fr-v-a1-132",
             "fr-v-a1-133", "fr-v-a1-134", "fr-v-a1-135", "fr-v-a1-136"
         ],
-        verbIds: ["fr-vb-a1-3"],
+        verbIds: ["fr-vb-a1-3", "fr-vb-a1-10"],
         testQuestions: [
             { id: "fr-uq-a1-6-1", level: "A1", prompt: "Complete: 'Je ___ au marché.'", options: ["vas", "vont", "vais", "allons"], answer: "vais" },
             { id: "fr-uq-a1-6-2", level: "A1", prompt: "Complete: 'Ils ___ au cinéma.'", options: ["allons", "allez", "vont", "va"], answer: "vont" },
@@ -144,7 +144,7 @@ export const a1Units: LessonUnit[] = [
             "fr-v-a1-68", "fr-v-a1-69", "fr-v-a1-70", "fr-v-a1-71",
             "fr-v-a1-72", "fr-v-a1-73", "fr-v-a1-74", "fr-v-a1-87"
         ],
-        verbIds: ["fr-vb-a1-4"],
+        verbIds: ["fr-vb-a1-4", "fr-vb-a1-8"],
         testQuestions: [
             { id: "fr-uq-a1-7-1", level: "A1", prompt: "Complete: 'Nous ___ les courses.'", options: ["faites", "font", "faisons", "fait"], answer: "faisons" },
             { id: "fr-uq-a1-7-2", level: "A1", prompt: "The vous form of faire is unusual. What is it?", options: ["faisez", "faites", "font", "fais"], answer: "faites" },
@@ -222,22 +222,30 @@ export const a1Units: LessonUnit[] = [
         id: "fr-a1-u11",
         level: "A1",
         order: 11,
-        title: "Numbers & Telling Time",
-        description: "Learn numbers 0–100 and how to tell the time in French.",
+        title: "Numbers, Time & Calendar",
+        description: "Learn numbers 0–100, how to tell the time, and vocabulary for days, months, and seasons.",
         grammarIds: ["fr-g-a1-12"],
         vocabIds: [
+            // Numbers
             "fr-v-a1-13", "fr-v-a1-14", "fr-v-a1-15", "fr-v-a1-16", "fr-v-a1-17",
             "fr-v-a1-18", "fr-v-a1-19", "fr-v-a1-20", "fr-v-a1-21", "fr-v-a1-22",
-            "fr-v-a1-23", "fr-v-a1-24", "fr-v-a1-25", "fr-v-a1-26", "fr-v-a1-27"
+            "fr-v-a1-23", "fr-v-a1-24", "fr-v-a1-25", "fr-v-a1-26", "fr-v-a1-27",
+            // Days of the week
+            "fr-v-a1-28", "fr-v-a1-29", "fr-v-a1-30", "fr-v-a1-31",
+            "fr-v-a1-32", "fr-v-a1-33", "fr-v-a1-34",
+            // Months (3 representative entries — full set if you add the missing months)
+            "fr-v-a1-35", "fr-v-a1-36", "fr-v-a1-37",
+            // Seasons
+            "fr-v-a1-38", "fr-v-a1-39", "fr-v-a1-40", "fr-v-a1-41",
         ],
         verbIds: [],
         testQuestions: [
-            { id: "fr-uq-a1-11-1", level: "A1", prompt: "How do you say 'It is two o'clock'?", options: ["Il est deux heures.", "Il fait deux heures.", "C'est deux heures.", "Il a deux heures."], answer: "Il est deux heures." },
+            { id: "fr-uq-a1-11-1", level: "A1", prompt: "How do you say 'It is half past three'?", options: ["Il est trois heures et quart.", "Il est trois heures et demie.", "Il est trois heures moins le quart.", "Il est trois heures."], answer: "Il est trois heures et demie." },
             { id: "fr-uq-a1-11-2", level: "A1", prompt: "What is 70 in French?", options: ["soixante", "quatre-vingts", "soixante-dix", "septante"], answer: "soixante-dix" },
-            { id: "fr-uq-a1-11-3", level: "A1", prompt: "How do you say 'half past three'?", options: ["Il est trois heures et quart.", "Il est trois heures et demie.", "Il est trois heures moins le quart.", "Il est trois heures."], answer: "Il est trois heures et demie." },
-            { id: "fr-uq-a1-11-4", level: "A1", prompt: "What is 80 in French?", options: ["soixante-dix", "quatre-vingt-dix", "quatre-vingts", "huitante"], answer: "quatre-vingts" },
-            { id: "fr-uq-a1-11-5", level: "A1", prompt: "How do you say 'I am twenty years old'?", options: ["J'ai vingt ans.", "Je suis vingt ans.", "J'ai vingt années.", "Je fais vingt ans."], answer: "J'ai vingt ans." },
-            { id: "fr-uq-a1-11-6", level: "A1", prompt: "What is 'cent'?", options: ["ten", "fifty", "one hundred", "sixty"], answer: "one hundred" },
+            { id: "fr-uq-a1-11-3", level: "A1", prompt: "What is 80 in French?", options: ["soixante-dix", "quatre-vingt-dix", "quatre-vingts", "huitante"], answer: "quatre-vingts" },
+            { id: "fr-uq-a1-11-4", level: "A1", prompt: "What day comes after mardi?", options: ["lundi", "jeudi", "mercredi", "vendredi"], answer: "mercredi" },
+            { id: "fr-uq-a1-11-5", level: "A1", prompt: "What season is 'l'hiver'?", options: ["spring", "summer", "autumn", "winter"], answer: "winter" },
+            { id: "fr-uq-a1-11-6", level: "A1", prompt: "How do you say 'I am twenty years old'?", options: ["J'ai vingt ans.", "Je suis vingt ans.", "J'ai vingt années.", "Je fais vingt ans."], answer: "J'ai vingt ans." },
         ]
     },
     {
@@ -275,7 +283,7 @@ export const a1Units: LessonUnit[] = [
             "fr-v-a1-73", "fr-v-a1-74", "fr-v-a1-75", "fr-v-a1-83", "fr-v-a1-84",
             "fr-v-a1-85", "fr-v-a1-86", "fr-v-a1-87"
         ],
-        verbIds: ["fr-vb-a1-6"],
+        verbIds: ["fr-vb-a1-6", "fr-vb-a1-7", "fr-vb-a1-8", "fr-vb-a1-9", "fr-vb-a1-11"],
         testQuestions: [
             { id: "fr-uq-a1-13-1", level: "A1", prompt: "How do you ask for the bill?", options: ["La carte, s'il vous plaît.", "L'addition, s'il vous plaît.", "Le menu, s'il vous plaît.", "Commander, s'il vous plaît."], answer: "L'addition, s'il vous plaît." },
             { id: "fr-uq-a1-13-2", level: "A1", prompt: "What does 'le fromage' mean?", options: ["fish", "meat", "bread", "cheese"], answer: "cheese" },
@@ -297,7 +305,7 @@ export const a1Units: LessonUnit[] = [
             "fr-v-a1-119", "fr-v-a1-120", "fr-v-a1-121", "fr-v-a1-122", "fr-v-a1-123",
             "fr-v-a1-124", "fr-v-a1-125", "fr-v-a1-126", "fr-v-a1-127", "fr-v-a1-128"
         ],
-        verbIds: [],
+        verbIds: ["fr-vb-a1-13"],
         testQuestions: [
             { id: "fr-uq-a1-14-1", level: "A1", prompt: "What does 'la gare' mean?", options: ["the garage", "the airport", "the train station", "the bus stop"], answer: "the train station" },
             { id: "fr-uq-a1-14-2", level: "A1", prompt: "What does 'le centre-ville' mean?", options: ["city hall", "shopping centre", "town centre", "downtown park"], answer: "town centre" },
@@ -310,7 +318,7 @@ export const a1Units: LessonUnit[] = [
     {
         id: "fr-a1-u15",
         level: "A1",
-        order: 15,
+        order: 17,
         title: "Bridge: Le Futur Proche",
         description: "Learn to talk about planned future actions using aller + infinitive — the most common future structure in French.",
         grammarIds: ["fr-g-a1-13"],
@@ -318,7 +326,7 @@ export const a1Units: LessonUnit[] = [
             "fr-v-a1-42", "fr-v-a1-43", "fr-v-a1-44", "fr-v-a1-45", "fr-v-a1-46", "fr-v-a1-47",
             "fr-v-a1-156", "fr-v-a1-157", "fr-v-a1-158"
         ],
-        verbIds: [],
+        verbIds: ["fr-vb-a1-12"],
         testQuestions: [
             { id: "fr-uq-a1-15-1", level: "A1", prompt: "How is the futur proche formed?", options: ["Present of avoir + infinitive", "Present of être + infinitive", "Present of aller + infinitive", "Present of faire + infinitive"], answer: "Present of aller + infinitive" },
             { id: "fr-uq-a1-15-2", level: "A1", prompt: "Complete: 'Je ___ manger ce soir.' (futur proche)", options: ["vais", "suis", "fais", "ai"], answer: "vais" },
@@ -326,6 +334,41 @@ export const a1Units: LessonUnit[] = [
             { id: "fr-uq-a1-15-4", level: "A1", prompt: "What does 'demain' mean?", options: ["yesterday", "now", "tomorrow", "soon"], answer: "tomorrow" },
             { id: "fr-uq-a1-15-5", level: "A1", prompt: "Complete: 'Il ___ pleuvoir demain.' (futur proche)", options: ["fait", "va", "est", "a"], answer: "va" },
             { id: "fr-uq-a1-15-6", level: "A1", prompt: "What does 'bientôt' mean?", options: ["already", "soon", "now", "still"], answer: "soon" },
+        ]
+    },
+    {
+        id: "fr-a1-u16",
+        level: "A1",
+        order: 16,
+        title: "Likes & Dislikes",
+        description: "Learn to say what you like, dislike, and prefer — one of the most essential skills in everyday French conversation.",
+        grammarIds: ["fr-g-a1-17"],
+        vocabIds: [
+            // Activities and things to like/dislike — drawn from existing vocab
+            "fr-v-a1-65",  // le café
+            "fr-v-a1-66",  // le thé
+            "fr-v-a1-75",  // le fromage
+            "fr-v-a1-76",  // la viande
+            "fr-v-a1-78",  // les légumes
+            "fr-v-a1-79",  // les fruits
+            "fr-v-a1-82",  // la nourriture
+            "fr-v-a1-83",  // le restaurant
+            "fr-v-a1-152", // souvent
+            "fr-v-a1-153", // toujours
+            "fr-v-a1-154", // jamais
+            "fr-v-a1-166", // facile
+            "fr-v-a1-167", // difficile
+            "fr-v-a1-170", // content/contente
+            "fr-v-a1-172", // sympa
+        ],
+        verbIds: ["fr-vb-a1-6"],
+        testQuestions: [
+            { id: "fr-uq-a1-16-1", level: "A1", prompt: "How do you say 'I like French'?", options: ["J'aime bien un français.", "J'aime le français.", "J'aime de français.", "J'aime français."], answer: "J'aime le français." },
+            { id: "fr-uq-a1-16-2", level: "A1", prompt: "How do you say 'She doesn't like sport'?", options: ["Elle n'aime pas le sport.", "Elle aime ne pas sport.", "Elle aime pas de sport.", "Elle n'aime pas de sport."], answer: "Elle n'aime pas le sport." },
+            { id: "fr-uq-a1-16-3", level: "A1", prompt: "Which sentence correctly expresses a preference?", options: ["Je préfère un thé au café.", "Je préfère le thé au café.", "Je préfère thé de café.", "Je préfère de thé au café."], answer: "Je préfère le thé au café." },
+            { id: "fr-uq-a1-16-4", level: "A1", prompt: "What does 'J'aime bien' express compared to 'J'aime'?", options: ["Stronger like", "Slightly softer like", "Dislike", "Indifference"], answer: "Slightly softer like" },
+            { id: "fr-uq-a1-16-5", level: "A1", prompt: "How do you ask 'Do you like coffee?' (informal)?", options: ["Vous aimez le café?", "Tu aimes le café?", "Tu aimes un café?", "Tu aimes de café?"], answer: "Tu aimes le café?" },
+            { id: "fr-uq-a1-16-6", level: "A1", prompt: "Complete: 'Il ___ les légumes.' (détester)", options: ["déteste", "détestes", "détestez", "détestent"], answer: "déteste" },
         ]
     },
 ]

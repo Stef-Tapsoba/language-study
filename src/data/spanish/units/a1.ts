@@ -14,7 +14,7 @@ export const a1Units: LessonUnit[] = [
         order: 1,
         title: "Greetings & First Words",
         description: "Learn essential greetings, farewells, and polite phrases. Understand subject pronouns.",
-        grammarIds: ["es-g-a1-1", "es-g-a1-5"],
+        grammarIds: ["es-g-a1-1", "es-g-a1-5", "es-g-a1-13"],
         vocabIds: [
             "es-v-a1-1", "es-v-a1-2", "es-v-a1-3", "es-v-a1-4", "es-v-a1-5",
             "es-v-a1-6", "es-v-a1-7", "es-v-a1-8", "es-v-a1-9", "es-v-a1-10",
@@ -64,7 +64,7 @@ export const a1Units: LessonUnit[] = [
             "es-v-a1-35", "es-v-a1-36", "es-v-a1-37", "es-v-a1-38", "es-v-a1-39",
             "es-v-a1-40", "es-v-a1-41"
         ],
-        verbIds: ["es-vb-a1-1"],
+        verbIds: ["es-vb-a1-1", "es-vb-a1-11", "es-vb-a1-12"],
         testQuestions: [
             { id: "es-uq-a1-3-1", level: "A1", prompt: "What is the 'yo' form of 'hablar'?", options: ["habla", "hablas", "hablo", "hablamos"], answer: "hablo" },
             { id: "es-uq-a1-3-2", level: "A1", prompt: "What ending do regular -ar verbs add for 'ellos/ellas'?", options: ["-o", "-as", "-a", "-an"], answer: "-an" },
@@ -105,7 +105,7 @@ export const a1Units: LessonUnit[] = [
             "es-v-a1-52", "es-v-a1-53", "es-v-a1-54", "es-v-a1-55", "es-v-a1-56",
             "es-v-a1-57", "es-v-a1-58", "es-v-a1-59", "es-v-a1-60", "es-v-a1-61"
         ],
-        verbIds: [],
+        verbIds: ["es-vb-a1-8", "es-vb-a1-9"],
         testQuestions: [
             { id: "es-uq-a1-5-1", level: "A1", prompt: "What is the 'yo' form of 'comer' (-er verb)?", options: ["come", "comes", "como", "comemos"], answer: "como" },
             { id: "es-uq-a1-5-2", level: "A1", prompt: "What ending do regular -er verbs add for 'tú'?", options: ["-o", "-es", "-e", "-emos"], answer: "-es" },
@@ -125,7 +125,7 @@ export const a1Units: LessonUnit[] = [
             "es-v-a1-151", "es-v-a1-152", "es-v-a1-153", "es-v-a1-154",
             "es-v-a1-155", "es-v-a1-156", "es-v-a1-157", "es-v-a1-158"
         ],
-        verbIds: [],
+        verbIds: ["es-vb-a1-10"],
         testQuestions: [
             { id: "es-uq-a1-6-1", level: "A1", prompt: "What is the 'yo' form of 'vivir' (-ir verb)?", options: ["vive", "vives", "vivo", "vivimos"], answer: "vivo" },
             { id: "es-uq-a1-6-2", level: "A1", prompt: "What ending do regular -ir verbs add for 'él/ella'?", options: ["-o", "-es", "-e", "-imos"], answer: "-e" },
@@ -212,7 +212,7 @@ export const a1Units: LessonUnit[] = [
             "es-v-a1-120", "es-v-a1-121", "es-v-a1-122", "es-v-a1-123", "es-v-a1-124",
             "es-v-a1-125"
         ],
-        verbIds: ["es-vb-a1-7"],
+        verbIds: ["es-vb-a1-7", "es-vb-a1-8", "es-vb-a1-9", "es-vb-a1-13"],
         testQuestions: [
             { id: "es-uq-a1-10-1", level: "A1", prompt: "What is the 'yo' form of 'querer'?", options: ["quere", "quieres", "quiero", "queremos"], answer: "quiero" },
             { id: "es-uq-a1-10-2", level: "A1", prompt: "How do you order 'a coffee, please'?", options: ["Un café, gracias.", "Quiero un café, por favor.", "Me gusta un café.", "Hay un café."], answer: "Quiero un café, por favor." },
@@ -277,7 +277,7 @@ export const a1Units: LessonUnit[] = [
             "es-v-a1-40", "es-v-a1-41", "es-v-a1-42", "es-v-a1-43", "es-v-a1-44",
             "es-v-a1-45", "es-v-a1-46", "es-v-a1-47", "es-v-a1-48", "es-v-a1-49"
         ],
-        verbIds: [],
+        verbIds: ["es-vb-a1-8", "es-vb-a1-9", "es-vb-a1-13"],
         testQuestions: [
             { id: "es-uq-a1-13-1", level: "A1", prompt: "Complete: 'Mi hermano ___ alto y delgado.' (permanent trait)", options: ["está", "tiene", "es", "va"], answer: "es" },
             { id: "es-uq-a1-13-2", level: "A1", prompt: "What does 'estoy cansado' mean?", options: ["I am a tired person.", "I am tired. (right now)", "I have tiredness.", "I feel tired always."], answer: "I am tired. (right now)" },

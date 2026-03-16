@@ -8,8 +8,8 @@ export const a1Units: LessonUnit[] = [
         level: "A1",
         order: 1,
         title: "Hangul & First Greetings",
-        description: "Learn the Korean alphabet and say hello",
-        grammarIds: ["ko-g-a1-1", "ko-g-a1-2"],
+        description: "Learn the Korean alphabet and say hello.",
+        grammarIds: ["ko-g-a1-1"],
         vocabIds: [
             "ko-v-a1-1", "ko-v-a1-2", "ko-v-a1-3", "ko-v-a1-4", "ko-v-a1-5",
             "ko-v-a1-6", "ko-v-a1-7", "ko-v-a1-8", "ko-v-a1-9", "ko-v-a1-10",
@@ -41,11 +41,17 @@ export const a1Units: LessonUnit[] = [
                 options: ["No", "Maybe", "Yes", "Please"],
                 answer: "Yes"
             },
+            // ← REPLACED: was "Which year was Hangul created?" (history, not language)
             {
                 id: "ko-u1-q5", level: "A1",
-                prompt: "Which year was Hangul created?",
-                options: ["1243", "1343", "1443", "1543"],
-                answer: "1443"
+                prompt: "How does Hangul work? Each character represents...",
+                options: [
+                    "A single letter like the Roman alphabet",
+                    "A whole word",
+                    "A syllable block made of consonants and vowels",
+                    "A meaning like Chinese characters"
+                ],
+                answer: "A syllable block made of consonants and vowels"
             },
             {
                 id: "ko-u1-q6", level: "A1",
@@ -61,7 +67,7 @@ export const a1Units: LessonUnit[] = [
         order: 2,
         title: "Introductions: X은/는 Y이에요",
         description: "Introduce yourself and say what things are",
-        grammarIds: ["ko-g-a1-3", "ko-g-a1-4"],
+        grammarIds: ["ko-g-a1-3", "ko-g-a1-4", "ko-g-a1-14"],
         vocabIds: [
             "ko-v-a1-16", "ko-v-a1-17", "ko-v-a1-18", "ko-v-a1-19", "ko-v-a1-20",
             "ko-v-a1-21", "ko-v-a1-22", "ko-v-a1-23", "ko-v-a1-24", "ko-v-a1-25"
@@ -216,7 +222,7 @@ export const a1Units: LessonUnit[] = [
             "ko-v-a1-131", "ko-v-a1-132", "ko-v-a1-133", "ko-v-a1-134", "ko-v-a1-135",
             "ko-v-a1-136", "ko-v-a1-137", "ko-v-a1-138", "ko-v-a1-139", "ko-v-a1-140"
         ],
-        verbIds: [],
+        verbIds: ["ko-vb-a1-10", "ko-vb-a1-11"],
         testQuestions: [
             {
                 id: "ko-u5-q1", level: "A1",
@@ -321,7 +327,7 @@ export const a1Units: LessonUnit[] = [
             "ko-v-a1-86", "ko-v-a1-87", "ko-v-a1-88", "ko-v-a1-89", "ko-v-a1-90",
             "ko-v-a1-91", "ko-v-a1-92", "ko-v-a1-93", "ko-v-a1-94", "ko-v-a1-95"
         ],
-        verbIds: ["ko-vb-a1-2", "ko-vb-a1-7"],
+        verbIds: ["ko-vb-a1-2", "ko-vb-a1-7", "ko-vb-a1-9"],
         testQuestions: [
             {
                 id: "ko-u7-q1", level: "A1",
@@ -366,8 +372,8 @@ export const a1Units: LessonUnit[] = [
         level: "A1",
         order: 8,
         title: "Doing Things: 하다 & 좋아하다",
-        description: "Use 하다 compounds and express what you like",
-        grammarIds: [],
+        description: "Use 하다 compounds and express what you like using 좋아하다.",
+        grammarIds: ["ko-g-a1-8"],
         vocabIds: [
             "ko-v-a1-96", "ko-v-a1-97", "ko-v-a1-98", "ko-v-a1-99", "ko-v-a1-100",
             "ko-v-a1-101", "ko-v-a1-102", "ko-v-a1-103", "ko-v-a1-104", "ko-v-a1-105"
@@ -388,7 +394,7 @@ export const a1Units: LessonUnit[] = [
             },
             {
                 id: "ko-u8-q3", level: "A1",
-                prompt: "How do you say 'I do exercise / I exercise'?",
+                prompt: "How do you say 'I exercise'?",
                 options: ["운동이에요.", "운동을 좋아해요.", "운동해요.", "운동 있어요."],
                 answer: "운동해요."
             },
@@ -400,9 +406,15 @@ export const a1Units: LessonUnit[] = [
             },
             {
                 id: "ko-u8-q5", level: "A1",
-                prompt: "To say '공부 안 해요' means:",
+                prompt: "'공부 안 해요' means:",
                 options: ["I study", "I don't study", "I can't study", "I want to study"],
                 answer: "I don't study"
+            },
+            {
+                id: "ko-u8-q6", level: "A1",
+                prompt: "What particle does 좋아하다 take to mark the thing you like?",
+                options: ["이/가", "은/는", "에서", "을/를"],
+                answer: "을/를"
             }
         ]
     },
@@ -417,7 +429,7 @@ export const a1Units: LessonUnit[] = [
             "ko-v-a1-141", "ko-v-a1-142", "ko-v-a1-143", "ko-v-a1-144",
             "ko-v-a1-145", "ko-v-a1-146"
         ],
-        verbIds: ["ko-vb-a1-1", "ko-vb-a1-2", "ko-vb-a1-3", "ko-vb-a1-4", "ko-vb-a1-7"],
+        verbIds: ["ko-vb-a1-1", "ko-vb-a1-2", "ko-vb-a1-3", "ko-vb-a1-4", "ko-vb-a1-7", "ko-vb-a1-12", "ko-vb-a1-13", "ko-vb-a1-14"],
         testQuestions: [
             {
                 id: "ko-u9-q1", level: "A1",
@@ -514,14 +526,15 @@ export const a1Units: LessonUnit[] = [
         level: "A1",
         order: 11,
         title: "Descriptions: Colors & Adjectives",
-        description: "Describe things with colors and common adjectives",
-        grammarIds: [],
+        description: "Describe things with colors and common adjectives — and learn how adjective conjugation works, including the ㅂ-irregular.",
+        grammarIds: ["ko-g-a1-13"],
         vocabIds: [
             "ko-v-a1-106", "ko-v-a1-107", "ko-v-a1-108", "ko-v-a1-109",
             "ko-v-a1-110", "ko-v-a1-111", "ko-v-a1-112", "ko-v-a1-113",
             "ko-v-a1-121", "ko-v-a1-122", "ko-v-a1-123", "ko-v-a1-124",
             "ko-v-a1-125", "ko-v-a1-126", "ko-v-a1-127", "ko-v-a1-128",
-            "ko-v-a1-129", "ko-v-a1-130"
+            "ko-v-a1-129", "ko-v-a1-130",
+            "ko-v-a1-145", "ko-v-a1-146",  // 덥다/춥다 — ㅂ-irregular examples
         ],
         verbIds: ["ko-vb-a1-5", "ko-vb-a1-6"],
         testQuestions: [
@@ -539,21 +552,27 @@ export const a1Units: LessonUnit[] = [
             },
             {
                 id: "ko-u11-q3", level: "A1",
-                prompt: "How do you say 'I have a bag' / 'There is a bag'?",
-                options: ["가방이 없어요.", "가방이 있어요.", "가방을 있어요.", "가방이 많아요."],
-                answer: "가방이 있어요."
+                prompt: "How does 춥다 (cold) conjugate in polite present?",
+                options: ["춥어요", "추어요", "추워요", "춥아요"],
+                answer: "추워요"
             },
             {
                 id: "ko-u11-q4", level: "A1",
-                prompt: "What does '맛있다' mean?",
-                options: ["Pretty", "Interesting", "Delicious", "Big"],
-                answer: "Delicious"
+                prompt: "How does 예쁘다 (pretty) conjugate in polite present?",
+                options: ["예쁘어요", "예뻐요", "예쁘아요", "예쁘요"],
+                answer: "예뻐요"
             },
             {
                 id: "ko-u11-q5", level: "A1",
                 prompt: "What does '파란색' mean?",
                 options: ["White", "Black", "Purple", "Blue"],
                 answer: "Blue"
+            },
+            {
+                id: "ko-u11-q6", level: "A1",
+                prompt: "How do you say 'The weather is not good'?",
+                options: ["날씨가 좋아요.", "날씨가 없어요.", "날씨가 안 좋아요.", "날씨가 못 좋아요."],
+                answer: "날씨가 안 좋아요."
             }
         ]
     },
@@ -562,10 +581,35 @@ export const a1Units: LessonUnit[] = [
         level: "A1",
         order: 12,
         title: "A1 Review: Putting It Together",
-        description: "Review all A1 grammar, vocabulary, and verbs",
+        description: "Review all A1 grammar, vocabulary, and verbs through integrated sentences.",
         grammarIds: [],
-        vocabIds: [],
-        verbIds: [],
+        vocabIds: [
+            // A representative sample across all A1 vocab categories
+            "ko-v-a1-1",   // 안녕하세요
+            "ko-v-a1-16",  // 저
+            "ko-v-a1-26",  // 가족
+            "ko-v-a1-46",  // 오늘
+            "ko-v-a1-47",  // 내일
+            "ko-v-a1-48",  // 어제
+            "ko-v-a1-62",  // 밥
+            "ko-v-a1-68",  // 커피
+            "ko-v-a1-76",  // 집
+            "ko-v-a1-77",  // 학교
+            "ko-v-a1-83",  // 카페
+            "ko-v-a1-123", // 좋다
+            "ko-v-a1-128", // 맛있다
+            "ko-v-a1-131", // 공부
+            "ko-v-a1-139", // 친구
+            "ko-v-a1-141", // 날씨
+        ],
+        verbIds: [
+            "ko-vb-a1-1",  // 먹다
+            "ko-vb-a1-2",  // 가다
+            "ko-vb-a1-3",  // 마시다
+            "ko-vb-a1-4",  // 하다
+            "ko-vb-a1-7",  // 오다
+            "ko-vb-a1-8",  // 좋아하다
+        ],
         testQuestions: [
             {
                 id: "ko-u12-q1", level: "A1",
@@ -587,21 +631,22 @@ export const a1Units: LessonUnit[] = [
             },
             {
                 id: "ko-u12-q4", level: "A1",
-                prompt: "How do you say 'It is snowing'? (note: 눈 = snow)",
+                prompt: "How do you say 'It is snowing'? (눈 = snow)",
                 options: ["눈이 와요.", "눈이 있어요.", "눈이 가요.", "눈이 많아요."],
                 answer: "눈이 와요."
             },
             {
                 id: "ko-u12-q5", level: "A1",
-                prompt: "Which particle is used with action verbs to mark the location?",
+                prompt: "Which particle is used to mark where an action takes place?",
                 options: ["에", "에서", "을/를", "은/는"],
                 answer: "에서"
             },
+            // ← REPLACED: was 고 싶다 (A2 grammar — not taught at A1)
             {
                 id: "ko-u12-q6", level: "A1",
-                prompt: "How do you ask 'What do you want to eat?' (A2 preview: 고 싶다)",
-                options: ["뭐 먹어요?", "뭘 먹을 거예요?", "뭘 먹고 싶어요?", "뭐 먹었어요?"],
-                answer: "뭘 먹고 싶어요?"
+                prompt: "How do you say 'I study at the café'?",
+                options: ["카페에 공부해요.", "카페에서 공부해요.", "카페를 공부해요.", "카페가 공부해요."],
+                answer: "카페에서 공부해요."
             }
         ]
     }

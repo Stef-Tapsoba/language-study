@@ -178,4 +178,17 @@ export const a1Vocab: VocabItem[] = [
     { id: "it-v-a1-150", level: "A1", word: "a volte", translation: "sometimes", category: "Time", example: { native: "A volte cucino a casa.", translation: "Sometimes I cook at home." } },
     { id: "it-v-a1-151", level: "A1", word: "la mattina", translation: "morning", category: "Time", example: { native: "La mattina faccio sport.", translation: "In the morning I exercise." } },
     { id: "it-v-a1-152", level: "A1", word: "la sera", translation: "evening", category: "Time", example: { native: "La sera leggo un libro.", translation: "In the evening I read a book." } },
+
+    // --- Numbers 21-100 + time expressions (11 items) ---
+    { id: "it-v-a1-153", level: "A1", word: "ventuno / ventidue", translation: "twenty-one / twenty-two", category: "Numbers", example: { native: "Ho ventuno anni.", translation: "I am twenty-one years old." } },
+    { id: "it-v-a1-154", level: "A1", word: "trenta", translation: "thirty", category: "Numbers", example: { native: "Il trenta per cento.", translation: "Thirty percent." } },
+    { id: "it-v-a1-155", level: "A1", word: "quaranta", translation: "forty", category: "Numbers", example: { native: "Ho quaranta euro.", translation: "I have forty euros." } },
+    { id: "it-v-a1-156", level: "A1", word: "cinquanta", translation: "fifty", category: "Numbers", example: { native: "Costa cinquanta euro.", translation: "It costs fifty euros." } },
+    { id: "it-v-a1-157", level: "A1", word: "sessanta", translation: "sixty", category: "Numbers", example: { native: "Sessanta minuti in un'ora.", translation: "Sixty minutes in an hour." } },
+    { id: "it-v-a1-158", level: "A1", word: "settanta", translation: "seventy", category: "Numbers", example: { native: "Mio nonno ha settant'anni.", translation: "My grandfather is seventy years old." } },
+    { id: "it-v-a1-159", level: "A1", word: "ottanta", translation: "eighty", category: "Numbers", example: { native: "Ottanta chilometri all'ora.", translation: "Eighty kilometres per hour." } },
+    { id: "it-v-a1-160", level: "A1", word: "novanta", translation: "ninety", category: "Numbers", example: { native: "Novanta euro è troppo.", translation: "Ninety euros is too much." } },
+    { id: "it-v-a1-161", level: "A1", word: "cento", translation: "one hundred", category: "Numbers", example: { native: "Cento per cento.", translation: "One hundred percent." } },
+    { id: "it-v-a1-162", level: "A1", word: "mezzogiorno / mezzanotte", translation: "noon / midnight", category: "Numbers", example: { native: "Ci vediamo a mezzogiorno.", translation: "We'll meet at noon." } },
+    { id: "it-v-a1-163", level: "A1", word: "e mezza / e un quarto", translation: "half past / quarter past", category: "Numbers", example: { native: "Sono le tre e mezza.", translation: "It's half past three." } },
 ]

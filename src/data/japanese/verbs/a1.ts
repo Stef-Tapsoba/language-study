@@ -184,5 +184,143 @@ export const a1Verbs: Verb[] = [
                 ]
             }
         ]
-    }
+    },
+    {
+        id: "ja-vb-a1-9",
+        level: "A1",
+        infinitive: "読む",
+        romanized: "yomu",
+        meaning: "to read",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "読みます", romanized: "yomimasu" },
+                    { pronoun: "Negative", form: "読みません", romanized: "yomimasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "読みました", romanized: "yomimashita" },
+                    { pronoun: "Negative", form: "読みませんでした", romanized: "yomimasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-10",
+        level: "A1",
+        infinitive: "聞く",
+        romanized: "kiku",
+        meaning: "to listen / to hear / to ask",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "聞きます", romanized: "kikimasu" },
+                    { pronoun: "Negative", form: "聞きません", romanized: "kikimasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "聞きました", romanized: "kikimashita" },
+                    { pronoun: "Negative", form: "聞きませんでした", romanized: "kikimasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-11",
+        level: "A1",
+        infinitive: "買う",
+        romanized: "kau",
+        meaning: "to buy",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "買います", romanized: "kaimasu" },
+                    { pronoun: "Negative", form: "買いません", romanized: "kaimasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "買いました", romanized: "kaimashita" },
+                    { pronoun: "Negative", form: "買いませんでした", romanized: "kaimasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-12",
+        level: "A1",
+        infinitive: "起きる",
+        romanized: "okiru",
+        meaning: "to wake up / to get up",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "起きます", romanized: "okimasu" },
+                    { pronoun: "Negative", form: "起きません", romanized: "okimasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "起きました", romanized: "okimashita" },
+                    { pronoun: "Negative", form: "起きませんでした", romanized: "okimasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-13",
+        level: "A1",
+        infinitive: "寝る",
+        romanized: "neru",
+        meaning: "to sleep / to go to bed",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "寝ます", romanized: "nemasu" },
+                    { pronoun: "Negative", form: "寝ません", romanized: "nemasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "寝ました", romanized: "nemashita" },
+                    { pronoun: "Negative", form: "寝ませんでした", romanized: "nemasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-14",
+        level: "A1",
+        infinitive: "帰る",
+        romanized: "kaeru",
+        meaning: "to return home / to go back",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "帰ります", romanized: "kaerimasu" },
+                    { pronoun: "Negative", form: "帰りません", romanized: "kaerimasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "帰りました", romanized: "kaerimashita" },
+                    { pronoun: "Negative", form: "帰りませんでした", romanized: "kaerimasen deshita" }
+                ]
+            }
+        ]
+    },
 ]

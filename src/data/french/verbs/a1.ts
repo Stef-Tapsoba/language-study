@@ -124,4 +124,106 @@ export const a1Verbs: Verb[] = [
             ]
         }]
     },
+    {
+        id: "fr-vb-a1-8",
+        level: "A1",
+        infinitive: "manger",
+        meaning: "to eat",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "mange" },
+                { pronoun: "tu", form: "manges" },
+                { pronoun: "il/elle", form: "mange" },
+                { pronoun: "nous", form: "mangeons" },
+                { pronoun: "vous", form: "mangez" },
+                { pronoun: "ils/elles", form: "mangent" }
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-9",
+        level: "A1",
+        infinitive: "boire",
+        meaning: "to drink",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "bois" },
+                { pronoun: "tu", form: "bois" },
+                { pronoun: "il/elle", form: "boit" },
+                { pronoun: "nous", form: "buvons" },
+                { pronoun: "vous", form: "buvez" },
+                { pronoun: "ils/elles", form: "boivent" }
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-10",
+        level: "A1",
+        infinitive: "venir",
+        meaning: "to come",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "viens" },
+                { pronoun: "tu", form: "viens" },
+                { pronoun: "il/elle", form: "vient" },
+                { pronoun: "nous", form: "venons" },
+                { pronoun: "vous", form: "venez" },
+                { pronoun: "ils/elles", form: "viennent" }
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-11",
+        level: "A1",
+        infinitive: "prendre",
+        meaning: "to take / to have (food or transport)",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "prends" },
+                { pronoun: "tu", form: "prends" },
+                { pronoun: "il/elle", form: "prend" },
+                { pronoun: "nous", form: "prenons" },
+                { pronoun: "vous", form: "prenez" },
+                { pronoun: "ils/elles", form: "prennent" }
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-12",
+        level: "A1",
+        infinitive: "lire",
+        meaning: "to read",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "lis" },
+                { pronoun: "tu", form: "lis" },
+                { pronoun: "il/elle", form: "lit" },
+                { pronoun: "nous", form: "lisons" },
+                { pronoun: "vous", form: "lisez" },
+                { pronoun: "ils/elles", form: "lisent" }
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-13",
+        level: "A1",
+        infinitive: "habiter",
+        meaning: "to live (somewhere) / to reside",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "habite" },
+                { pronoun: "tu", form: "habites" },
+                { pronoun: "il/elle", form: "habite" },
+                { pronoun: "nous", form: "habitons" },
+                { pronoun: "vous", form: "habitez" },
+                { pronoun: "ils/elles", form: "habitent" }
+            ]
+        }]
+    },
 ]

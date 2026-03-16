@@ -190,5 +190,143 @@ export const a1Verbs: Verb[] = [
                 ]
             }
         ]
-    }
+    },
+    {
+        id: "ko-vb-a1-9",
+        level: "A1",
+        infinitive: "살다",
+        romanized: "salda",
+        meaning: "to live (somewhere)",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "살아요", romanized: "sarayo" },
+                    { pronoun: "Negative", form: "안 살아요", romanized: "an sarayo" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "살았어요", romanized: "sarasseoyo" },
+                    { pronoun: "Negative", form: "안 살았어요", romanized: "an sarasseoyo" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ko-vb-a1-10",
+        level: "A1",
+        infinitive: "공부하다",
+        romanized: "gongbuhada",
+        meaning: "to study",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "공부해요", romanized: "gongbuhaeyo" },
+                    { pronoun: "Negative", form: "공부 안 해요", romanized: "gongbu an haeyo" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "공부했어요", romanized: "gongbuhaesseoyo" },
+                    { pronoun: "Negative", form: "공부 안 했어요", romanized: "gongbu an haesseoyo" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ko-vb-a1-11",
+        level: "A1",
+        infinitive: "일하다",
+        romanized: "ilhada",
+        meaning: "to work",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "일해요", romanized: "ilhaeyo" },
+                    { pronoun: "Negative", form: "일 안 해요", romanized: "il an haeyo" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "일했어요", romanized: "ilhaesseoyo" },
+                    { pronoun: "Negative", form: "일 안 했어요", romanized: "il an haesseoyo" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ko-vb-a1-12",
+        level: "A1",
+        infinitive: "만나다",
+        romanized: "mannada",
+        meaning: "to meet",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "만나요", romanized: "mannayo" },
+                    { pronoun: "Negative", form: "안 만나요", romanized: "an mannayo" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "만났어요", romanized: "mannasseoyo" },
+                    { pronoun: "Negative", form: "안 만났어요", romanized: "an mannasseoyo" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ko-vb-a1-13",
+        level: "A1",
+        infinitive: "사다",
+        romanized: "sada",
+        meaning: "to buy",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "사요", romanized: "sayo" },
+                    { pronoun: "Negative", form: "안 사요", romanized: "an sayo" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "샀어요", romanized: "sasseoyo" },
+                    { pronoun: "Negative", form: "안 샀어요", romanized: "an sasseoyo" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ko-vb-a1-14",
+        level: "A1",
+        infinitive: "읽다",
+        romanized: "ikda",
+        meaning: "to read",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "읽어요", romanized: "ilgeoyo" },
+                    { pronoun: "Negative", form: "안 읽어요", romanized: "an ilgeoyo" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "읽었어요", romanized: "ilgeosseoyo" },
+                    { pronoun: "Negative", form: "안 읽었어요", romanized: "an ilgeosseoyo" }
+                ]
+            }
+        ]
+    },
 ]

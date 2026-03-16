@@ -133,5 +133,107 @@ export const a1Verbs: Verb[] = [
                 ]
             }
         ]
-    }
+    },
+    {
+        id: "it-vb-a1-8",
+        level: "A1",
+        infinitive: "mangiare",
+        meaning: "to eat",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "io", form: "mangio" },
+                { pronoun: "tu", form: "mangi" },
+                { pronoun: "lui/lei", form: "mangia" },
+                { pronoun: "noi", form: "mangiamo" },
+                { pronoun: "voi", form: "mangiate" },
+                { pronoun: "loro", form: "mangiano" }
+            ]
+        }]
+    },
+    {
+        id: "it-vb-a1-9",
+        level: "A1",
+        infinitive: "bere",
+        meaning: "to drink",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "io", form: "bevo" },
+                { pronoun: "tu", form: "bevi" },
+                { pronoun: "lui/lei", form: "beve" },
+                { pronoun: "noi", form: "beviamo" },
+                { pronoun: "voi", form: "bevete" },
+                { pronoun: "loro", form: "bevono" }
+            ]
+        }]
+    },
+    {
+        id: "it-vb-a1-10",
+        level: "A1",
+        infinitive: "venire",
+        meaning: "to come",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "io", form: "vengo" },
+                { pronoun: "tu", form: "vieni" },
+                { pronoun: "lui/lei", form: "viene" },
+                { pronoun: "noi", form: "veniamo" },
+                { pronoun: "voi", form: "venite" },
+                { pronoun: "loro", form: "vengono" }
+            ]
+        }]
+    },
+    {
+        id: "it-vb-a1-11",
+        level: "A1",
+        infinitive: "abitare",
+        meaning: "to live (somewhere) / to reside",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "io", form: "abito" },
+                { pronoun: "tu", form: "abiti" },
+                { pronoun: "lui/lei", form: "abita" },
+                { pronoun: "noi", form: "abitiamo" },
+                { pronoun: "voi", form: "abitate" },
+                { pronoun: "loro", form: "abitano" }
+            ]
+        }]
+    },
+    {
+        id: "it-vb-a1-12",
+        level: "A1",
+        infinitive: "leggere",
+        meaning: "to read",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "io", form: "leggo" },
+                { pronoun: "tu", form: "leggi" },
+                { pronoun: "lui/lei", form: "legge" },
+                { pronoun: "noi", form: "leggiamo" },
+                { pronoun: "voi", form: "leggete" },
+                { pronoun: "loro", form: "leggono" }
+            ]
+        }]
+    },
+    {
+        id: "it-vb-a1-13",
+        level: "A1",
+        infinitive: "studiare",
+        meaning: "to study",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "io", form: "studio" },
+                { pronoun: "tu", form: "studi" },
+                { pronoun: "lui/lei", form: "studia" },
+                { pronoun: "noi", form: "studiamo" },
+                { pronoun: "voi", form: "studiate" },
+                { pronoun: "loro", form: "studiano" }
+            ]
+        }]
+    },
 ]

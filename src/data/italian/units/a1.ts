@@ -7,7 +7,7 @@ export const a1Units: LessonUnit[] = [
         order: 1,
         title: "Greetings & Basic Phrases",
         description: "Learn essential greetings and how to say hello, goodbye, please and thank you.",
-        grammarIds: ["it-g-a1-1", "it-g-a1-2"],
+        grammarIds: ["it-g-a1-1", "it-g-a1-2", "it-g-a1-17"],
         vocabIds: ["it-v-a1-1", "it-v-a1-2", "it-v-a1-3", "it-v-a1-4", "it-v-a1-5", "it-v-a1-6", "it-v-a1-7", "it-v-a1-8", "it-v-a1-9", "it-v-a1-10", "it-v-a1-11", "it-v-a1-12"],
         verbIds: ["it-vb-a1-1"],
         testQuestions: [
@@ -63,7 +63,7 @@ export const a1Units: LessonUnit[] = [
         description: "Conjugate regular -are verbs in the present tense using parlare as a model.",
         grammarIds: ["it-g-a1-6"],
         vocabIds: ["it-v-a1-141", "it-v-a1-142", "it-v-a1-143", "it-v-a1-144", "it-v-a1-145", "it-v-a1-146", "it-v-a1-147", "it-v-a1-148", "it-v-a1-149", "it-v-a1-150"],
-        verbIds: ["it-vb-a1-3"],
+        verbIds: ["it-vb-a1-3", "it-vb-a1-11", "it-vb-a1-13"],
         testQuestions: [
             { id: "it-uq-a1-4-1", level: "A1", prompt: "Complete: 'Tu ___ italiano.' (parlare)", options: ["parlo", "parla", "parli", "parliamo"], answer: "parli" },
             { id: "it-uq-a1-4-2", level: "A1", prompt: "Complete: 'Noi ___ a Roma.' (abitare)", options: ["abiti", "abita", "abitiamo", "abitano"], answer: "abitiamo" },
@@ -77,18 +77,21 @@ export const a1Units: LessonUnit[] = [
         id: "it-a1-u5",
         level: "A1",
         order: 5,
-        title: "Irregular Verbs: Andare & Fare",
-        description: "Learn the irregular verbs andare (to go) and fare (to do/make) and their common uses.",
-        grammarIds: ["it-g-a1-8", "it-g-a1-9"],
-        vocabIds: ["it-v-a1-108", "it-v-a1-109", "it-v-a1-110", "it-v-a1-111", "it-v-a1-112", "it-v-a1-113", "it-v-a1-114", "it-v-a1-117", "it-v-a1-118"],
+        title: "Irregular Verbs: Andare & Fare + Prepositions",
+        description: "Learn andare (to go) and fare (to do/make), and the core prepositions and contractions needed to say where you're going.",
+        grammarIds: ["it-g-a1-8", "it-g-a1-9", "it-g-a1-14"],
+        vocabIds: [
+            "it-v-a1-108", "it-v-a1-109", "it-v-a1-110", "it-v-a1-111",
+            "it-v-a1-112", "it-v-a1-113", "it-v-a1-114", "it-v-a1-117", "it-v-a1-118"
+        ],
         verbIds: ["it-vb-a1-4", "it-vb-a1-5"],
         testQuestions: [
             { id: "it-uq-a1-5-1", level: "A1", prompt: "Complete: 'Io ___ a scuola.' (andare)", options: ["vai", "va", "vado", "andiamo"], answer: "vado" },
             { id: "it-uq-a1-5-2", level: "A1", prompt: "Complete: 'Loro ___ al cinema.' (andare)", options: ["vado", "va", "andate", "vanno"], answer: "vanno" },
             { id: "it-uq-a1-5-3", level: "A1", prompt: "Complete: 'Io ___ colazione alle sette.' (fare)", options: ["fai", "fa", "faccio", "fanno"], answer: "faccio" },
-            { id: "it-uq-a1-5-4", level: "A1", prompt: "What does 'la stazione' mean?", options: ["Airport", "Hospital", "Station", "School"], answer: "Station" },
-            { id: "it-uq-a1-5-5", level: "A1", prompt: "Complete: 'Noi ___ una passeggiata.' (fare)", options: ["faccio", "fate", "facciamo", "fanno"], answer: "facciamo" },
-            { id: "it-uq-a1-5-6", level: "A1", prompt: "What does 'l'ufficio' mean?", options: ["Hospital", "Library", "Museum", "Office"], answer: "Office" }
+            { id: "it-uq-a1-5-4", level: "A1", prompt: "What is 'a + il'?", options: ["del", "al", "alla", "nel"], answer: "al" },
+            { id: "it-uq-a1-5-5", level: "A1", prompt: "Complete: 'Vado ___ Italia.' (in a country)", options: ["a", "al", "in", "da"], answer: "in" },
+            { id: "it-uq-a1-5-6", level: "A1", prompt: "Complete: 'Il libro è ___ tavolo.' (su + il)", options: ["sulla", "sul", "sullo", "sui"], answer: "sul" },
         ]
     },
     {
@@ -117,7 +120,7 @@ export const a1Units: LessonUnit[] = [
         description: "Learn to conjugate regular -ere verbs (scrivere) and -ire verbs (dormire / finire).",
         grammarIds: ["it-g-a1-7"],
         vocabIds: ["it-v-a1-82", "it-v-a1-83", "it-v-a1-84", "it-v-a1-85", "it-v-a1-86", "it-v-a1-87", "it-v-a1-88"],
-        verbIds: [],
+        verbIds: ["it-vb-a1-9", "it-vb-a1-12"],
         testQuestions: [
             { id: "it-uq-a1-7-1", level: "A1", prompt: "Complete: 'Io ___ una lettera.' (scrivere)", options: ["scrivi", "scrivo", "scrive", "scriviamo"], answer: "scrivo" },
             { id: "it-uq-a1-7-2", level: "A1", prompt: "Complete: 'Tu ___ il libro.' (leggere)", options: ["leggo", "leggi", "legge", "leggono"], answer: "leggi" },
@@ -131,18 +134,33 @@ export const a1Units: LessonUnit[] = [
         id: "it-a1-u8",
         level: "A1",
         order: 8,
-        title: "Numbers & Dates",
-        description: "Count from 1 to 20, say the days of the week, and talk about months and seasons.",
-        grammarIds: [],
-        vocabIds: ["it-v-a1-13", "it-v-a1-14", "it-v-a1-15", "it-v-a1-16", "it-v-a1-17", "it-v-a1-18", "it-v-a1-19", "it-v-a1-20", "it-v-a1-21", "it-v-a1-22", "it-v-a1-32", "it-v-a1-33", "it-v-a1-34", "it-v-a1-35", "it-v-a1-36", "it-v-a1-37", "it-v-a1-38", "it-v-a1-39", "it-v-a1-40", "it-v-a1-46"],
+        title: "Numbers, Time & Dates",
+        description: "Count from 1 to 100, tell the time, and talk about days, months, and seasons.",
+        grammarIds: ["it-g-a1-15"],
+        vocabIds: [
+            // 1–20 (existing)
+            "it-v-a1-13", "it-v-a1-14", "it-v-a1-15", "it-v-a1-16", "it-v-a1-17",
+            "it-v-a1-18", "it-v-a1-19", "it-v-a1-20", "it-v-a1-21", "it-v-a1-22",
+            "it-v-a1-32",
+            // Days (existing)
+            "it-v-a1-33", "it-v-a1-34", "it-v-a1-35", "it-v-a1-36",
+            "it-v-a1-37", "it-v-a1-38", "it-v-a1-39",
+            // Months + seasons (existing)
+            "it-v-a1-40", "it-v-a1-41", "it-v-a1-42", "it-v-a1-43",
+            "it-v-a1-44", "it-v-a1-45", "it-v-a1-46",
+            // Numbers 21–100 + time expressions (new)
+            "it-v-a1-153", "it-v-a1-154", "it-v-a1-155", "it-v-a1-156",
+            "it-v-a1-157", "it-v-a1-158", "it-v-a1-159", "it-v-a1-160",
+            "it-v-a1-161", "it-v-a1-162", "it-v-a1-163",
+        ],
         verbIds: ["it-vb-a1-2"],
         testQuestions: [
             { id: "it-uq-a1-8-1", level: "A1", prompt: "What is 'fifteen' in Italian?", options: ["Dodici", "Sedici", "Quindici", "Tredici"], answer: "Quindici" },
             { id: "it-uq-a1-8-2", level: "A1", prompt: "What day comes after 'lunedì'?", options: ["Mercoledì", "Domenica", "Giovedì", "Martedì"], answer: "Martedì" },
-            { id: "it-uq-a1-8-3", level: "A1", prompt: "Complete: 'Io ___ vent'anni.' (avere)", options: ["ha", "ho", "hai", "hanno"], answer: "ho" },
-            { id: "it-uq-a1-8-4", level: "A1", prompt: "How do you say 'twenty' in Italian?", options: ["Dieci", "Dodici", "Venti", "Diciotto"], answer: "Venti" },
+            { id: "it-uq-a1-8-3", level: "A1", prompt: "How do you say 'It's three o'clock'?", options: ["È le tre.", "Sono le tre.", "Sono tre.", "È tre ore."], answer: "Sono le tre." },
+            { id: "it-uq-a1-8-4", level: "A1", prompt: "How do you say 'It's half past eight'?", options: ["Sono le otto e un quarto.", "Sono le otto meno mezza.", "Sono le otto e mezza.", "Sono le otto e trenta."], answer: "Sono le otto e mezza." },
             { id: "it-uq-a1-8-5", level: "A1", prompt: "Which month is 'agosto'?", options: ["June", "July", "August", "September"], answer: "August" },
-            { id: "it-uq-a1-8-6", level: "A1", prompt: "What does 'domenica' mean?", options: ["Saturday", "Friday", "Monday", "Sunday"], answer: "Sunday" }
+            { id: "it-uq-a1-8-6", level: "A1", prompt: "How do you say 'I am twenty-two years old'?", options: ["Ho venti-due anni.", "Ho ventadue anni.", "Ho ventidue anni.", "Sono ventidue anni."], answer: "Ho ventidue anni." },
         ]
     },
     {
@@ -207,7 +225,7 @@ export const a1Units: LessonUnit[] = [
         description: "Order food and drinks and talk about what you eat using key food vocabulary.",
         grammarIds: [],
         vocabIds: ["it-v-a1-61", "it-v-a1-62", "it-v-a1-63", "it-v-a1-64", "it-v-a1-65", "it-v-a1-66", "it-v-a1-67", "it-v-a1-68", "it-v-a1-69", "it-v-a1-72", "it-v-a1-73", "it-v-a1-74", "it-v-a1-75", "it-v-a1-76", "it-v-a1-77"],
-        verbIds: ["it-vb-a1-6", "it-vb-a1-7"],
+        verbIds: ["it-vb-a1-6", "it-vb-a1-7", "it-vb-a1-8", "it-vb-a1-9"],
         testQuestions: [
             { id: "it-uq-a1-12-1", level: "A1", prompt: "How do you say 'a coffee, please' in Italian?", options: ["Un tè, per favore.", "Un caffè, grazie.", "Un caffè, per favore.", "Il caffè, prego."], answer: "Un caffè, per favore." },
             { id: "it-uq-a1-12-2", level: "A1", prompt: "What does 'il pesce' mean?", options: ["Meat", "Chicken", "Fish", "Bread"], answer: "Fish" },
@@ -254,9 +272,42 @@ export const a1Units: LessonUnit[] = [
         ]
     },
     {
+        id: "it-a1-u16",
+        level: "A1",
+        order: 16,
+        title: "Likes & Dislikes",
+        description: "Learn to say what you like, dislike, and prefer using piacere — Italian's back-to-front 'like' verb.",
+        grammarIds: ["it-g-a1-16"],
+        vocabIds: [
+            // Things to like/dislike — draw from existing food, places, activities
+            "it-v-a1-64",  // il caffè
+            "it-v-a1-65",  // il vino
+            "it-v-a1-66",  // la pizza
+            "it-v-a1-67",  // la pasta
+            "it-v-a1-70",  // la frutta
+            "it-v-a1-71",  // la verdura
+            "it-v-a1-110", // la città
+            "it-v-a1-117", // il parco
+            "it-v-a1-122", // la spiaggia
+            "it-v-a1-147", // sempre
+            "it-v-a1-148", // mai
+            "it-v-a1-149", // spesso
+            "it-v-a1-150", // a volte
+        ],
+        verbIds: ["it-vb-a1-6"],
+        testQuestions: [
+            { id: "it-uq-a1-16-1", level: "A1", prompt: "How do you say 'I like pizza'?", options: ["Io piace la pizza.", "Mi piace la pizza.", "Mi piacciono la pizza.", "Piaccio la pizza."], answer: "Mi piace la pizza." },
+            { id: "it-uq-a1-16-2", level: "A1", prompt: "How do you say 'I like cats' (plural)?", options: ["Mi piace i gatti.", "Mi piacciono i gatti.", "Mi piaciono i gatti.", "Ti piacciono i gatti."], answer: "Mi piacciono i gatti." },
+            { id: "it-uq-a1-16-3", level: "A1", prompt: "How do you say 'I don't like fish'?", options: ["Non mi piace il pesce.", "Mi non piace il pesce.", "Non mi piacciono il pesce.", "Mi piace non il pesce."], answer: "Non mi piace il pesce." },
+            { id: "it-uq-a1-16-4", level: "A1", prompt: "How do you say 'I prefer red wine'?", options: ["Preferisco il vino rosso.", "Preferisce il vino rosso.", "Preferisco vino rosso.", "Mi piace preferire il vino rosso."], answer: "Preferisco il vino rosso." },
+            { id: "it-uq-a1-16-5", level: "A1", prompt: "How do you say 'Do you like Italian music?' (informal)", options: ["Le piace la musica italiana?", "Ti piace la musica italiana?", "Ti piacciono la musica italiana?", "Gli piace la musica italiana?"], answer: "Ti piace la musica italiana?" },
+            { id: "it-uq-a1-16-6", level: "A1", prompt: "Complete: 'Mi piace ___.' (to study Italian)", options: ["studiare l'italiano", "lo studio italiano", "studio l'italiano", "studente italiano"], answer: "studiare l'italiano" },
+        ]
+    },
+    {
         id: "it-a1-u15",
         level: "A1",
-        order: 15,
+        order: 17,
         title: "The Near Future",
         description: "Express future plans and imminent events using stare per + infinitive and andare a + infinitive.",
         grammarIds: ["it-g-a1-13"],
@@ -264,11 +315,11 @@ export const a1Units: LessonUnit[] = [
         verbIds: ["it-vb-a1-4", "it-vb-a1-1"],
         testQuestions: [
             { id: "it-uq-a1-15-1", level: "A1", prompt: "How do you say 'I am about to go out'?", options: ["Vado a uscire.", "Sto per uscire.", "Uscirò presto.", "Sto uscendo."], answer: "Sto per uscire." },
-            { id: "it-uq-a1-15-2", level: "A1", prompt: "Complete: 'Vado ___ mangiare.' (structure: going to eat)", options: ["per", "di", "a", "in"], answer: "a" },
+            { id: "it-uq-a1-15-2", level: "A1", prompt: "Complete: 'Vado ___ mangiare.'", options: ["per", "di", "a", "in"], answer: "a" },
             { id: "it-uq-a1-15-3", level: "A1", prompt: "How do you say 'It is about to rain'?", options: ["Piove sempre.", "Sta per piovere.", "Va a piovere.", "Pioverà."], answer: "Sta per piovere." },
             { id: "it-uq-a1-15-4", level: "A1", prompt: "What does 'domani' mean?", options: ["Today", "Yesterday", "Now", "Tomorrow"], answer: "Tomorrow" },
             { id: "it-uq-a1-15-5", level: "A1", prompt: "Which structure means something is ABOUT TO happen right now?", options: ["andare a + inf.", "stare per + inf.", "volere + inf.", "potere + inf."], answer: "stare per + inf." },
-            { id: "it-uq-a1-15-6", level: "A1", prompt: "Translate: 'We are going to watch a film tonight.'", options: ["Guardiamo un film stasera.", "Abbiamo guardato un film stasera.", "Andiamo a vedere un film stasera.", "Stiamo per vedere un film."], answer: "Andiamo a vedere un film stasera." }
+            { id: "it-uq-a1-15-6", level: "A1", prompt: "Translate: 'We are going to watch a film tonight.'", options: ["Guardiamo un film stasera.", "Abbiamo guardato un film stasera.", "Andiamo a vedere un film stasera.", "Stiamo per vedere un film."], answer: "Andiamo a vedere un film stasera." },
         ]
     }
 ]

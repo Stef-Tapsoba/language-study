@@ -194,5 +194,121 @@ export const a1Grammar: GrammarLesson[] = [
             { native: "日本・日本語・日本人", romanized: "Nihon ・ Nihongo ・ Nihonjin", translation: "Japan, Japanese language, Japanese person" },
             { native: "大学・学生・先生", romanized: "daigaku ・ gakusei ・ sensei", translation: "University, student, teacher" }
         ]
-    }
+    },
+    {
+        id: "ja-g-a1-15",
+        level: "A1",
+        title: "Likes & Dislikes: 好き / 嫌い",
+        explanation: `好き (suki) and 嫌い (kirai) express liking and disliking in Japanese. They are na-adjectives — they use な when placed before a noun, and they follow the XはYが好きです pattern.
+
+STRUCTURE:
+  [Person] は [Thing] が 好き です。= [Person] likes [Thing].
+  [Person] は [Thing] が 嫌い です。= [Person] dislikes [Thing].
+
+KEY POINT — が not を:
+Japanese uses が (not を) to mark the thing you like. This is different from English where "like" takes a direct object. Don't say ×コーヒーを好きです — say ○コーヒーが好きです.
+
+DEGREES:
+  大好き (daisuki) = love / really like
+  好き (suki) = like
+  あまり好きじゃない (amari suki ja nai) = don't really like
+  嫌い (kirai) = dislike
+  大嫌い (daikirai) = really dislike / hate
+
+QUESTIONS:
+  〜が好きですか？ = Do you like ~?
+  どんな〜が好きですか？ = What kind of ~ do you like?
+
+NOTE: 好き and 嫌い can also describe activities when followed by の or combined with verb nominalisation — but at A1, just use them with nouns.`,
+        examples: [
+            { native: "コーヒーが好きです。", romanized: "Koohii ga suki desu.", translation: "I like coffee. (が marks the thing liked)" },
+            { native: "さかなが嫌いです。", romanized: "Sakana ga kirai desu.", translation: "I dislike fish." },
+            { native: "すしが大好きです！", romanized: "Sushi ga daisuki desu!", translation: "I love sushi!" },
+            { native: "やさいはあまり好きじゃないです。", romanized: "Yasai wa amari suki ja nai desu.", translation: "I don't really like vegetables." },
+            { native: "どんな音楽が好きですか？", romanized: "Donna ongaku ga suki desu ka?", translation: "What kind of music do you like?" },
+            { native: "スポーツが好きですか？", romanized: "Supootsu ga suki desu ka?", translation: "Do you like sport?" },
+            { native: "日本語の勉強が好きです。", romanized: "Nihongo no benkyou ga suki desu.", translation: "I like studying Japanese." },
+        ]
+    },
+    {
+        id: "ja-g-a1-16",
+        level: "A1",
+        title: "Counters: Counting Things in Japanese",
+        explanation: `In Japanese, you cannot simply say 'two cats' or 'three cups'. You must use a counter word that matches the type of object. This is one of the most distinctive features of Japanese grammar.
+
+STRUCTURE: Number + Counter + の + Noun (or just Number + Counter before a verb)
+  りんごが三つあります。 (There are three apples.)
+  コーヒーを一杯ください。(One cup of coffee, please.)
+
+THE FIVE ESSENTIAL A1 COUNTERS:
+
+つ — generic objects (1–9, native Japanese numbers only):
+  ひとつ(1) ふたつ(2) みっつ(3) よっつ(4) いつつ(5)
+  むっつ(6) ななつ(7) やっつ(8) ここのつ(9)
+  Use this when you don't know the right counter — it works for most physical objects.
+  りんごを三つ食べました。(I ate three apples.)
+
+人(にん) — people:
+  一人(ひとり/hitori) 二人(ふたり/futari) 三人(さんにん) 四人(よにん)...
+  Note: 1 and 2 people use native Japanese readings (hitori, futari), not Sino-Japanese.
+  家族は四人です。(My family has four people.)
+
+本(ほん) — long thin things (bottles, pens, trees, trains, phone calls):
+  一本(いっぽん) 二本(にほん) 三本(さんぼん)
+  水を一本ください。(One bottle of water, please.)
+
+枚(まい) — flat thin things (paper, tickets, plates, shirts, photographs):
+  一枚(いちまい) 二枚(にまい) 三枚(さんまい)
+  チケットを二枚ください。(Two tickets, please.)
+
+杯(はい) — cups and glasses of liquid:
+  一杯(いっぱい) 二杯(にはい) 三杯(さんばい)
+  コーヒーを一杯飲みました。(I drank one cup of coffee.)
+
+SAFE FALLBACK: When unsure, use つ for objects and 人 for people. Native speakers will understand even if it's not perfect.`,
+        examples: [
+            { native: "りんごが三つあります。", romanized: "Ringo ga mittsu arimasu.", translation: "There are three apples. (つ = generic objects)" },
+            { native: "家族は四人です。", romanized: "Kazoku wa yo-nin desu.", translation: "My family has four people. (人 = people)" },
+            { native: "水を一本ください。", romanized: "Mizu wo ippon kudasai.", translation: "One bottle of water, please. (本 = long thin objects)" },
+            { native: "チケットを二枚ください。", romanized: "Chiketto wo ni-mai kudasai.", translation: "Two tickets, please. (枚 = flat thin objects)" },
+            { native: "コーヒーを一杯飲みました。", romanized: "Koohii wo ippai nomimashita.", translation: "I drank a cup of coffee. (杯 = cups/glasses)" },
+        ]
+    },
+    {
+        id: "ja-g-a1-17",
+        level: "A1",
+        title: "が vs は — Subject vs Topic",
+        explanation: `The difference between は (topic) and が (subject) is one of the most confusing things in Japanese for beginners. Both can appear where English uses the subject, but they carry different meaning.
+
+は (WA) — THE TOPIC PARTICLE
+は marks what the sentence is about — the topic. It can introduce something already known, set up a contrast, or signal 'as for X...'.
+  わたしは がくせいです。(I am a student.) — 'As for me, I am a student.'
+  きょうは さむいです。(Today is cold.) — 'As for today, it's cold.'
+  は can also imply contrast: コーヒーは すきです。(I like coffee [but maybe not tea].)
+
+が (GA) — THE SUBJECT PARTICLE
+が marks the grammatical subject — the new information, the focus, or the answer to a 'who/what' question.
+  だれが きましたか？ → たなかさんが きました。(Who came? → Tanaka came.) — が identifies who.
+  なにが おいしいですか？ → すしが おいしいです。(What is delicious? → Sushi is delicious.)
+  が is used after question words and to answer them.
+
+PREFERENCE AND ABILITY — が is always used with these patterns:
+  〜が すきです (like) / 〜が きらいです (dislike)
+  〜が わかります (understand) / 〜が できます (can do)
+  コーヒーが すきです。(I like coffee.) — always が, never を or は here.
+
+QUICK GUIDE:
+  は → this is what we're talking about (topic, contrast, known info)
+  が → this is WHO or WHAT (new info, answering a question, focus)
+  Both can translate to English 'I/he/she/it' — context decides which to use.
+
+AT A1: When in doubt, use は for general statements. Use が when answering 'who?' or 'what?', and always use が with すき/きらい/わかる.`,
+        examples: [
+            { native: "わたしは がくせいです。", romanized: "Watashi wa gakusei desu.", translation: "I am a student. (は = topic, general statement)" },
+            { native: "だれが きましたか？ → たなかさんが きました。", romanized: "Dare ga kimashita ka? → Tanaka-san ga kimashita.", translation: "Who came? → Tanaka came. (が = answers 'who')" },
+            { native: "コーヒーが すきです。", romanized: "Koohii ga suki desu.", translation: "I like coffee. (が always used with すき)" },
+            { native: "きょうは さむいですが、あしたは あついです。", romanized: "Kyou wa samui desu ga, ashita wa atsui desu.", translation: "Today is cold, but tomorrow is hot. (は for contrast)" },
+            { native: "なにが おいしいですか？", romanized: "Nani ga oishii desu ka?", translation: "What is delicious? (が with question word)" },
+        ]
+    },
 ]

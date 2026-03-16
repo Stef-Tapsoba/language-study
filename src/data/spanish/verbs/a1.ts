@@ -125,5 +125,107 @@ export const a1Verbs: Verb[] = [
                 { pronoun: "ellos", form: "quieren" }
             ]
         }]
+    },
+    {
+        id: "es-vb-a1-8",
+        level: "A1",
+        infinitive: "comer",
+        meaning: "to eat",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "yo", form: "como" },
+                { pronoun: "tú", form: "comes" },
+                { pronoun: "él/ella", form: "come" },
+                { pronoun: "nosotros", form: "comemos" },
+                { pronoun: "vosotros", form: "coméis" },
+                { pronoun: "ellos", form: "comen" }
+            ]
+        }]
+    },
+    {
+        id: "es-vb-a1-9",
+        level: "A1",
+        infinitive: "beber",
+        meaning: "to drink",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "yo", form: "bebo" },
+                { pronoun: "tú", form: "bebes" },
+                { pronoun: "él/ella", form: "bebe" },
+                { pronoun: "nosotros", form: "bebemos" },
+                { pronoun: "vosotros", form: "bebéis" },
+                { pronoun: "ellos", form: "beben" }
+            ]
+        }]
+    },
+    {
+        id: "es-vb-a1-10",
+        level: "A1",
+        infinitive: "vivir",
+        meaning: "to live",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "yo", form: "vivo" },
+                { pronoun: "tú", form: "vives" },
+                { pronoun: "él/ella", form: "vive" },
+                { pronoun: "nosotros", form: "vivimos" },
+                { pronoun: "vosotros", form: "vivís" },
+                { pronoun: "ellos", form: "viven" }
+            ]
+        }]
+    },
+    {
+        id: "es-vb-a1-11",
+        level: "A1",
+        infinitive: "trabajar",
+        meaning: "to work",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "yo", form: "trabajo" },
+                { pronoun: "tú", form: "trabajas" },
+                { pronoun: "él/ella", form: "trabaja" },
+                { pronoun: "nosotros", form: "trabajamos" },
+                { pronoun: "vosotros", form: "trabajáis" },
+                { pronoun: "ellos", form: "trabajan" }
+            ]
+        }]
+    },
+    {
+        id: "es-vb-a1-12",
+        level: "A1",
+        infinitive: "llamar",
+        meaning: "to call",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "yo", form: "llamo" },
+                { pronoun: "tú", form: "llamas" },
+                { pronoun: "él/ella", form: "llama" },
+                { pronoun: "nosotros", form: "llamamos" },
+                { pronoun: "vosotros", form: "llamáis" },
+                { pronoun: "ellos", form: "llaman" }
+            ]
+        }]
+    },
+    {
+        id: "es-vb-a1-13",
+        level: "A1",
+        infinitive: "poder",
+        meaning: "to be able to / can",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "yo", form: "puedo" },
+                { pronoun: "tú", form: "puedes" },
+                { pronoun: "él/ella", form: "puede" },
+                { pronoun: "nosotros", form: "podemos" },
+                { pronoun: "vosotros", form: "podéis" },
+                { pronoun: "ellos", form: "pueden" }
+            ]
+        }]
     }
 ]

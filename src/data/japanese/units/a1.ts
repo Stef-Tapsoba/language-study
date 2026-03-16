@@ -5,18 +5,18 @@ export const a1Units: LessonUnit[] = [
         id: "ja-a1-u1",
         level: "A1",
         order: 1,
-        title: "Hiragana Part 1",
-        description: "Learn the first 25 hiragana characters: あ-row through な-row",
-        grammarIds: ["ja-g-a1-1"],
+        title: "How Japanese Works & Hiragana Part 1",
+        description: "Get the big picture of how Japanese is built — scripts, word order, particles, politeness — then start hiragana: あ-row through な-row.",
+        grammarIds: ["ja-g-a1-0", "ja-g-a1-1"],
         vocabIds: ["ja-v-a1-1", "ja-v-a1-2", "ja-v-a1-7", "ja-v-a1-8"],
         verbIds: [],
         testQuestions: [
-            { id: "ja-uq-a1-1-1", level: "A1", prompt: "Which hiragana represents the sound 'ka'?", options: ["か", "き", "く", "こ"], answer: "か" },
-            { id: "ja-uq-a1-1-2", level: "A1", prompt: "What sound does 'し' make?", options: ["si", "shi", "chi", "su"], answer: "shi" },
-            { id: "ja-uq-a1-1-3", level: "A1", prompt: "What sound does 'つ' make?", options: ["tu", "ti", "tsu", "chi"], answer: "tsu" },
-            { id: "ja-uq-a1-1-4", level: "A1", prompt: "Which hiragana represents 'ni'?", options: ["な", "に", "ぬ", "ね"], answer: "に" },
-            { id: "ja-uq-a1-1-5", level: "A1", prompt: "Which row does 'さしすせそ' belong to?", options: ["a-row", "ka-row", "sa-row", "ta-row"], answer: "sa-row" },
-            { id: "ja-uq-a1-1-6", level: "A1", prompt: "How do you write 'a i u e o' in hiragana?", options: ["あいうえお", "かきくけこ", "さしすせそ", "たちつてと"], answer: "あいうえお" }
+            { id: "ja-uq-a1-1-1", level: "A1", prompt: "What is the basic word order in Japanese?", options: ["SVO (Subject-Verb-Object)", "VSO (Verb-Subject-Object)", "SOV (Subject-Object-Verb)", "OVS (Object-Verb-Subject)"], answer: "SOV (Subject-Object-Verb)" },
+            { id: "ja-uq-a1-1-2", level: "A1", prompt: "Which writing system is used for foreign loanwords?", options: ["Hiragana", "Kanji", "Romaji", "Katakana"], answer: "Katakana" },
+            { id: "ja-uq-a1-1-3", level: "A1", prompt: "Which hiragana represents the sound 'ka'?", options: ["か", "き", "く", "こ"], answer: "か" },
+            { id: "ja-uq-a1-1-4", level: "A1", prompt: "What sound does 'し' make?", options: ["si", "shi", "chi", "su"], answer: "shi" },
+            { id: "ja-uq-a1-1-5", level: "A1", prompt: "What sound does 'つ' make?", options: ["tu", "ti", "tsu", "chi"], answer: "tsu" },
+            { id: "ja-uq-a1-1-6", level: "A1", prompt: "In Japanese, what do particles like は, を, and に do?", options: ["They are verb endings", "They mark the role of nouns in a sentence", "They are question words", "They show tense"], answer: "They mark the role of nouns in a sentence" },
         ]
     },
     {
@@ -24,7 +24,7 @@ export const a1Units: LessonUnit[] = [
         level: "A1",
         order: 2,
         title: "Hiragana Part 2 & Basic Phrases",
-        description: "Complete hiragana: は-row through わ-row + ん; learn basic expressions",
+        description: "Complete hiragana: は-row through わ-row + ん; learn basic expressions.",
         grammarIds: ["ja-g-a1-2", "ja-g-a1-5"],
         vocabIds: ["ja-v-a1-1", "ja-v-a1-2", "ja-v-a1-3", "ja-v-a1-4", "ja-v-a1-5", "ja-v-a1-9", "ja-v-a1-10", "ja-v-a1-11", "ja-v-a1-12"],
         verbIds: [],
@@ -32,9 +32,10 @@ export const a1Units: LessonUnit[] = [
             { id: "ja-uq-a1-2-1", level: "A1", prompt: "What sound does 'ふ' make?", options: ["hu", "fu", "pu", "bu"], answer: "fu" },
             { id: "ja-uq-a1-2-2", level: "A1", prompt: "Which character represents the nasal 'n' sound at the end of a syllable?", options: ["の", "ぬ", "ん", "な"], answer: "ん" },
             { id: "ja-uq-a1-2-3", level: "A1", prompt: "How do you say 'Good morning' (formal) in Japanese?", options: ["こんにちは", "こんばんは", "おはようございます", "さようなら"], answer: "おはようございます" },
-            { id: "ja-uq-a1-2-4", level: "A1", prompt: "What is を (wo) primarily used for in a sentence?", options: ["Topic particle", "Subject particle", "Object particle", "Location particle"], answer: "Object particle" },
+            // ← REPLACED: was a を particle question (not taught until u10)
+            { id: "ja-uq-a1-2-4", level: "A1", prompt: "When は is used as a particle, how is it pronounced?", options: ["ha", "wa", "ba", "pa"], answer: "wa" },
             { id: "ja-uq-a1-2-5", level: "A1", prompt: "How do you say 'I'm sorry' (apology) in Japanese?", options: ["すみません", "ありがとう", "ごめんなさい", "どうぞ"], answer: "ごめんなさい" },
-            { id: "ja-uq-a1-2-6", level: "A1", prompt: "What does 'はじめまして' mean?", options: ["Thank you", "Excuse me", "Nice to meet you", "Goodbye"], answer: "Nice to meet you" }
+            { id: "ja-uq-a1-2-6", level: "A1", prompt: "What does 'はじめまして' mean?", options: ["Thank you", "Excuse me", "Nice to meet you", "Goodbye"], answer: "Nice to meet you" },
         ]
     },
     {
@@ -79,7 +80,7 @@ export const a1Units: LessonUnit[] = [
         order: 5,
         title: "Greetings & Daily Expressions",
         description: "Master common Japanese greetings and essential polite phrases",
-        grammarIds: ["ja-g-a1-5"],
+        grammarIds: ["ja-g-a1-5", "ja-g-a1-17"],
         vocabIds: ["ja-v-a1-1", "ja-v-a1-2", "ja-v-a1-3", "ja-v-a1-4", "ja-v-a1-5", "ja-v-a1-6", "ja-v-a1-7", "ja-v-a1-8", "ja-v-a1-9", "ja-v-a1-10", "ja-v-a1-11", "ja-v-a1-12"],
         verbIds: [],
         testQuestions: [
@@ -96,7 +97,7 @@ export const a1Units: LessonUnit[] = [
         order: 6,
         title: "Numbers 1–100",
         description: "Learn Sino-Japanese numbers from 1 to 100 and how to form compound numbers",
-        grammarIds: ["ja-g-a1-6"],
+        grammarIds: ["ja-g-a1-6", "ja-g-a1-16"],
         vocabIds: ["ja-v-a1-13", "ja-v-a1-14", "ja-v-a1-15", "ja-v-a1-16", "ja-v-a1-17", "ja-v-a1-18", "ja-v-a1-19", "ja-v-a1-20", "ja-v-a1-21", "ja-v-a1-22", "ja-v-a1-23", "ja-v-a1-24", "ja-v-a1-25", "ja-v-a1-26", "ja-v-a1-27"],
         verbIds: [],
         testQuestions: [
@@ -116,7 +117,7 @@ export const a1Units: LessonUnit[] = [
         description: "Learn to conjugate verbs in polite present/future form using ます",
         grammarIds: ["ja-g-a1-7"],
         vocabIds: ["ja-v-a1-58", "ja-v-a1-60", "ja-v-a1-104", "ja-v-a1-143", "ja-v-a1-144", "ja-v-a1-145", "ja-v-a1-146", "ja-v-a1-148"],
-        verbIds: ["ja-vb-a1-1", "ja-vb-a1-2", "ja-vb-a1-3", "ja-vb-a1-4"],
+        verbIds: ["ja-vb-a1-1", "ja-vb-a1-2", "ja-vb-a1-3", "ja-vb-a1-4", "ja-vb-a1-9", "ja-vb-a1-10", "ja-vb-a1-11"],
         testQuestions: [
             { id: "ja-uq-a1-7-1", level: "A1", prompt: "What is the polite present form of 食べる (taberu)?", options: ["食べた", "食べます", "食べません", "食べて"], answer: "食べます" },
             { id: "ja-uq-a1-7-2", level: "A1", prompt: "What is the polite present form of 行く (iku)?", options: ["行きます", "行く", "行って", "行きた"], answer: "行きます" },
@@ -134,7 +135,7 @@ export const a1Units: LessonUnit[] = [
         description: "Express past actions using ました (affirmative) and ませんでした (negative)",
         grammarIds: ["ja-g-a1-8"],
         vocabIds: ["ja-v-a1-35", "ja-v-a1-36", "ja-v-a1-37", "ja-v-a1-38", "ja-v-a1-70", "ja-v-a1-104"],
-        verbIds: ["ja-vb-a1-5", "ja-vb-a1-6"],
+        verbIds: ["ja-vb-a1-5", "ja-vb-a1-6", "ja-vb-a1-12", "ja-vb-a1-13", "ja-vb-a1-14"],
         testQuestions: [
             { id: "ja-uq-a1-8-1", level: "A1", prompt: "How do you say 'I ate sushi yesterday'?", options: ["昨日、すしを食べます。", "昨日、すしを食べました。", "昨日、すしを食べません。", "昨日、すしを食べた。"], answer: "昨日、すしを食べました。" },
             { id: "ja-uq-a1-8-2", level: "A1", prompt: "How do you form the polite past negative?", options: ["ます → まして", "ます → ませんでした", "ます → ました", "ます → ません"], answer: "ます → ませんでした" },
@@ -187,7 +188,7 @@ export const a1Units: LessonUnit[] = [
         description: "Use に for destinations with movement verbs, locations of existence, and time expressions",
         grammarIds: ["ja-g-a1-11"],
         vocabIds: ["ja-v-a1-104", "ja-v-a1-105", "ja-v-a1-106", "ja-v-a1-107", "ja-v-a1-108", "ja-v-a1-111", "ja-v-a1-112", "ja-v-a1-113", "ja-v-a1-115", "ja-v-a1-116", "ja-v-a1-28", "ja-v-a1-38"],
-        verbIds: ["ja-vb-a1-3", "ja-vb-a1-5"],
+        verbIds: ["ja-vb-a1-3", "ja-vb-a1-5", "ja-vb-a1-12", "ja-vb-a1-14"],
         testQuestions: [
             { id: "ja-uq-a1-11-1", level: "A1", prompt: "Which particle marks the destination of movement?", options: ["を", "は", "に", "で"], answer: "に" },
             { id: "ja-uq-a1-11-2", level: "A1", prompt: "How do you say 'I go to school'?", options: ["学校で行きます。", "学校を行きます。", "学校が行きます。", "学校に行きます。"], answer: "学校に行きます。" },
@@ -223,7 +224,7 @@ export const a1Units: LessonUnit[] = [
         description: "Build vocabulary for food, drink, shopping, adjectives and describing things",
         grammarIds: [],
         vocabIds: ["ja-v-a1-58", "ja-v-a1-59", "ja-v-a1-60", "ja-v-a1-61", "ja-v-a1-64", "ja-v-a1-65", "ja-v-a1-66", "ja-v-a1-67", "ja-v-a1-68", "ja-v-a1-70", "ja-v-a1-72", "ja-v-a1-129", "ja-v-a1-130", "ja-v-a1-131", "ja-v-a1-132", "ja-v-a1-133", "ja-v-a1-134", "ja-v-a1-137", "ja-v-a1-138"],
-        verbIds: ["ja-vb-a1-1", "ja-vb-a1-2"],
+        verbIds: ["ja-vb-a1-1", "ja-vb-a1-2", "ja-vb-a1-9", "ja-vb-a1-11"],
         testQuestions: [
             { id: "ja-uq-a1-13-1", level: "A1", prompt: "What does 'おいしい' mean?", options: ["Cheap", "Big", "Delicious", "New"], answer: "Delicious" },
             { id: "ja-uq-a1-13-2", level: "A1", prompt: "What is 'meat' in Japanese?", options: ["さかな", "やさい", "にく", "くだもの"], answer: "にく" },
@@ -236,9 +237,9 @@ export const a1Units: LessonUnit[] = [
     {
         id: "ja-a1-u14",
         level: "A1",
-        order: 14,
+        order: 15,  // was 14
         title: "Wanting To Do: 〜たい (A1 Bridge)",
-        description: "Express desires using たい — the bridge between A1 and A2 grammar",
+        description: "Express desires using たい — the bridge between A1 and A2 grammar.",
         grammarIds: ["ja-g-a1-13"],
         vocabIds: ["ja-v-a1-60", "ja-v-a1-70", "ja-v-a1-71", "ja-v-a1-104", "ja-v-a1-106", "ja-v-a1-110", "ja-v-a1-112", "ja-v-a1-147"],
         verbIds: ["ja-vb-a1-1", "ja-vb-a1-2", "ja-vb-a1-3", "ja-vb-a1-4", "ja-vb-a1-6"],
@@ -248,15 +249,49 @@ export const a1Units: LessonUnit[] = [
             { id: "ja-uq-a1-14-3", level: "A1", prompt: "How do you say 'I want to go to Japan'?", options: ["日本に行きます。", "日本に行きたいです。", "日本に行きました。", "日本に行きません。"], answer: "日本に行きたいです。" },
             { id: "ja-uq-a1-14-4", level: "A1", prompt: "What is the negative form of たいです?", options: ["たくないです", "たいじゃないです", "たいません", "たいでした"], answer: "たくないです" },
             { id: "ja-uq-a1-14-5", level: "A1", prompt: "How do you ask 'What do you want to do?'", options: ["何をしましたか？", "何がしたいですか？", "何をしますか？", "何をしていますか？"], answer: "何がしたいですか？" },
-            { id: "ja-uq-a1-14-6", level: "A1", prompt: "たい can be used to express which person's desires directly?", options: ["Any person", "Third person only", "First person (speaker) only", "Second person only"], answer: "First person (speaker) only" }
+            { id: "ja-uq-a1-14-6", level: "A1", prompt: "たい can be used to express which person's desires directly?", options: ["Any person", "Third person only", "First person (speaker) only", "Second person only"], answer: "First person (speaker) only" },
+        ]
+    },
+    {
+        id: "ja-a1-u16",
+        level: "A1",
+        order: 16,
+        title: "Likes & Dislikes: 好き / 嫌い",
+        description: "Learn to say what you like, love, and dislike — and finally understand the が pattern you've been seeing in examples throughout the course.",
+        grammarIds: ["ja-g-a1-15"],
+        vocabIds: [
+            // The suki/kirai words themselves
+            "ja-v-a1-151", // 好き
+            "ja-v-a1-152", // 嫌い
+            "ja-v-a1-153", // 大好き
+            "ja-v-a1-154", // 音楽
+            "ja-v-a1-155", // スポーツ
+            // Things to like/dislike — draw from existing vocab
+            "ja-v-a1-62",  // コーヒー
+            "ja-v-a1-64",  // 肉
+            "ja-v-a1-65",  // 魚
+            "ja-v-a1-66",  // 野菜
+            "ja-v-a1-67",  // 果物
+            "ja-v-a1-70",  // 寿司
+            "ja-v-a1-138", // おいしい
+            "ja-v-a1-148", // 日本語
+        ],
+        verbIds: [],
+        testQuestions: [
+            { id: "ja-uq-a1-16-1", level: "A1", prompt: "How do you say 'I like coffee'?", options: ["コーヒーを好きです。", "コーヒーが好きです。", "コーヒーは好きです。", "コーヒーに好きです。"], answer: "コーヒーが好きです。" },
+            { id: "ja-uq-a1-16-2", level: "A1", prompt: "How do you say 'I dislike fish'?", options: ["さかなが好きです。", "さかなを嫌いです。", "さかなが嫌いです。", "さかなは嫌いです。"], answer: "さかなが嫌いです。" },
+            { id: "ja-uq-a1-16-3", level: "A1", prompt: "What particle marks the thing you like in Japanese?", options: ["を", "は", "に", "が"], answer: "が" },
+            { id: "ja-uq-a1-16-4", level: "A1", prompt: "How do you say 'I love sushi'?", options: ["すしが好きです。", "すしが大好きです。", "すしが嫌いです。", "すしをとても好きです。"], answer: "すしが大好きです。" },
+            { id: "ja-uq-a1-16-5", level: "A1", prompt: "How do you ask 'Do you like sport?'", options: ["スポーツをしますか？", "スポーツが好きですか？", "スポーツは好きですか？", "スポーツが嫌いですか？"], answer: "スポーツが好きですか？" },
+            { id: "ja-uq-a1-16-6", level: "A1", prompt: "What does 大好き (daisuki) express?", options: ["Slight liking", "Dislike", "Neutral feeling", "Strong liking / love"], answer: "Strong liking / love" },
         ]
     },
     {
         id: "ja-a1-u15",
         level: "A1",
-        order: 15,
+        order: 17,  // was 15
         title: "Beginner Kanji",
-        description: "Learn 15 essential kanji you've already seen in A1 — 日, 水, 山, 本, 人, 学, 生, 先, 語, 上, 下, 中, 大, 小, 手",
+        description: "Learn 15 essential kanji you've already seen in A1 — 日, 水, 山, 本, 人, 学, 生, 先, 語, 上, 下, 中, 大, 小, 手.",
         grammarIds: ["ja-g-a1-14"],
         vocabIds: [],
         verbIds: [],
@@ -268,7 +303,7 @@ export const a1Units: LessonUnit[] = [
             { id: "ja-uq-a1-15-5", level: "A1", prompt: "What does 大学 (だいがく) mean?", options: ["Big person", "University", "Teacher", "Study group"], answer: "University" },
             { id: "ja-uq-a1-15-6", level: "A1", prompt: "Which kanji means 'above / up'?", options: ["下", "中", "小", "上"], answer: "上" },
             { id: "ja-uq-a1-15-7", level: "A1", prompt: "What does 学生 (がくせい) mean?", options: ["Teacher", "School", "Student", "Language"], answer: "Student" },
-            { id: "ja-uq-a1-15-8", level: "A1", prompt: "What is the kun'yomi reading of 水?", options: ["すい", "みず", "みな", "こう"], answer: "みず" }
+            { id: "ja-uq-a1-15-8", level: "A1", prompt: "What is the kun'yomi reading of 水?", options: ["すい", "みず", "みな", "こう"], answer: "みず" },
         ]
     }
 ]

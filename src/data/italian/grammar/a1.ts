@@ -198,4 +198,77 @@ export const a1Grammar: GrammarLesson[] = [
             { native: "Sono le undici meno un quarto.", translation: "It's quarter to eleven." },
         ]
     },
+    {
+        id: "it-g-a1-16",
+        level: "A1",
+        title: "Likes & Dislikes: piacere, preferire, odiare",
+        explanation: `Italian expresses 'to like' using piacere — but it works differently from English. The subject of piacere is the THING being liked, not the person. The person is an indirect object.
+
+  mi piace    = I like (lit. 'it pleases me') — singular thing
+  mi piacciono = I like (lit. 'they please me') — plural things
+  ti piace / ti piacciono = you like...
+  gli/le piace / piacciono = he/she likes...
+
+So you say:
+  ✓ Mi piace il caffè.     (Coffee pleases me = I like coffee)
+  ✓ Mi piacciono i gatti.  (Cats please me = I like cats)
+  ✗ Never: "Io piaccio il caffè"
+
+To say you DON'T like something: Non mi piace / Non mi piacciono.
+To express preference: preferire (regular -ire type 2, takes -isc-):
+  Preferisco il tè al caffè. (I prefer tea to coffee.)
+To express strong dislike: odiare (regular -are):
+  Odio alzarmi presto. (I hate getting up early.)
+
+Quick tip: piacere + infinitive = liking an activity:
+  Mi piace leggere. (I like reading.) ← always singular, use piace not piacciono`,
+        examples: [
+            { native: "Mi piace la pizza.", translation: "I like pizza. (singular → piace)" },
+            { native: "Mi piacciono i gatti.", translation: "I like cats. (plural → piacciono)" },
+            { native: "Non mi piace il pesce.", translation: "I don't like fish." },
+            { native: "Ti piace la musica italiana?", translation: "Do you like Italian music?" },
+            { native: "Preferisco il vino rosso.", translation: "I prefer red wine." },
+            { native: "Mi piace studiare l'italiano.", translation: "I like studying Italian. (+ infinitive)" },
+            { native: "Gli piacciono i film d'azione.", translation: "He likes action films." },
+        ]
+    },
+    {
+        id: "it-g-a1-17",
+        level: "A1",
+        title: "Italian Pronunciation — Key Rules",
+        explanation: `Italian is highly phonetic — almost every letter is pronounced and spelling reflects pronunciation closely. The main challenges are the c/g rules before different vowels, double consonants, and stress patterns.
+
+THE C/G RULE — the most important rule in Italian pronunciation
+
+C before a, o, u → hard k sound: cane, cosa, cuore, amico
+C before e, i → ch sound (like English 'ch' in 'church'): cena, cinema, piacere
+CH (before e, i) → hard k sound: che, chi, perché (the h restores the hard sound)
+
+G before a, o, u → hard g sound: gatto, governo, gusto
+G before e, i → soft j sound (like English 's' in 'measure'): gelato, giro, gentile
+GH (before e, i) → hard g sound: ghetto, spaghetti (the h restores the hard sound)
+GL before i → like the 'lli' in 'million': figlio, aglio, gli
+GN → like the 'ny' in 'canyon': gnocchi, bagno, signore
+
+SC before e, i → sh sound: scena, sciare, pesce
+SC before a, o, u → sk sound: scarpa, scuola, disco
+
+DOUBLE CONSONANTS
+Double consonants are pronounced with noticeably more length than single ones. This distinction changes meaning:
+  pala (shovel) vs palla (ball)
+  nono (ninth) vs nonno (grandfather)
+  casa (house) vs cassa (cash register)
+
+STRESS
+Most Italian words are stressed on the second-to-last syllable: par-LA-re, stu-DEN-te, be-LLO.
+Some are stressed on the third-to-last: MED-i-co, SIM-pa-ti-co, TE-le-fo-no.
+Words with a written accent are always stressed on that syllable: città, caffè, perché.`,
+        examples: [
+            { native: "cane (KA-ne) / cena (CHA-na)", translation: "C before a = hard k / C before e = ch sound" },
+            { native: "perché (per-KE) / che (KE)", translation: "CH before e/i always restores the hard k sound" },
+            { native: "gelato (je-LA-to) / gatto (GA-to)", translation: "G before e = soft j / G before a = hard g" },
+            { native: "nono (ninth) vs nonno (grandfather)", translation: "Double consonants matter — they change meaning" },
+            { native: "MED-i-co / stu-DEN-te / cit-TÀ", translation: "Stress patterns — accent marks show exceptions" },
+        ]
+    },
 ]

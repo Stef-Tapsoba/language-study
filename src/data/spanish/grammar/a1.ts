@@ -155,4 +155,48 @@ export const a1Grammar: GrammarLesson[] = [
             { native: "Vamos a visitar a los abuelos.", translation: "We are going to visit the grandparents." },
         ]
     },
+    {
+        id: "es-g-a1-13",
+        level: "A1",
+        title: "Spanish Pronunciation — Key Rules",
+        explanation: `Spanish is one of the most phonetic languages in the world: you read what you write and write what you say. There are very few silent letters. A few rules cover almost every situation.
+
+THE ALPHABET & SPECIAL CHARACTERS
+The Spanish alphabet has 27 letters. Three are unique to Spanish:
+  ñ (eñe)   — a different sound from n: mañana, señor, niño
+  ll         — historically a separate letter; now sounds like y in most regions
+  rr         — a strong trilled r: perro (dog) vs pero (but)
+
+KEY PRONUNCIATION RULES
+
+The letter H is always silent: hola, hablar, hotel → the h is never pronounced.
+
+The letters B and V sound identical in Spanish — both like a soft English b: bien, voy.
+
+The letter J sounds like a strong English h: Jorge, jardín, viaje.
+
+G before e or i sounds like the Spanish j (strong h): general, gigante.
+G before a, o, u sounds like English g: gato, gordo, agua.
+
+The letter C:
+  Before a, o, u → hard k sound: cama, cosa, Cuba
+  Before e, i    → in Spain: th sound (cena, ciudad)
+                 → in Latin America: s sound (same words)
+
+The letter Z:
+  In Spain → th sound: zapato, zona
+  In Latin America → s sound: same words
+
+STRESS RULES
+Words ending in a vowel, n, or s: stress falls on the second-to-last syllable (casa, hablan, comes).
+Words ending in any other consonant: stress falls on the last syllable (hablar, ciudad).
+Written accents (á, é, í, ó, ú) always override these rules: café, médico, está.`,
+        examples: [
+            { native: "hola, hotel, hablar", translation: "H is always silent — never pronounced" },
+            { native: "pero (but) vs perro (dog)", translation: "Single r vs double rr — a key distinction" },
+            { native: "general, Jorge", translation: "G/J before e/i → strong h sound" },
+            { native: "cena (Spain: 'thena' / Latin America: 'sena')", translation: "C before e/i — regional difference" },
+            { native: "médico, está, café", translation: "Written accent overrides the default stress rule" },
+        ]
+    },
 ]

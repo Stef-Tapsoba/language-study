@@ -214,5 +214,61 @@ export const a1Grammar: GrammarLesson[] = [
             { native: "Vous perdez.", translation: "You lose." },
             { native: "Ils vendent.", translation: "They sell." },
         ]
-    }
+    },
+    {
+        id: "fr-g-a1-17",
+        level: "A1",
+        title: "Likes & Dislikes: aimer, préférer, détester",
+        explanation: "To express what you like or dislike, use aimer (to like/love), préférer (to prefer), or détester (to hate/strongly dislike). All three are regular -er verbs in conjugation.\n\nKey rule: when these verbs are followed by a noun, use the definite article (le/la/les) — not the indefinite. This trips up many learners:\n✓ J'aime le café.  ✗ J'aime un café.\n\nTo soften 'aimer', add bien: J'aime bien = I quite like (less intense than J'aime).\nTo ask about preferences, use: Tu aimes...? / Vous aimez...? / Qu'est-ce que tu préfères?",
+        examples: [
+            { native: "J'aime le français.", translation: "I like French." },
+            { native: "Tu aimes le café?", translation: "Do you like coffee?" },
+            { native: "Elle n'aime pas le sport.", translation: "She doesn't like sport." },
+            { native: "Nous aimons bien ce restaurant.", translation: "We quite like this restaurant." },
+            { native: "Je préfère le thé au café.", translation: "I prefer tea to coffee." },
+            { native: "Il déteste les légumes.", translation: "He hates vegetables." },
+            { native: "Qu'est-ce que tu aimes faire?", translation: "What do you like to do?" },
+        ]
+    },
+    {
+        id: "fr-g-a1-18",
+        level: "A1",
+        title: "French Pronunciation — Key Rules",
+        explanation: `French is famously difficult to pronounce because the written and spoken forms are very different. Many letters are silent, vowels have unusual sounds, and words run together in speech. These rules cover the most important patterns.
+
+SILENT FINAL CONSONANTS
+Most final consonants in French are silent. This is why most -er verb endings (parle, parles, parlent) sound identical:
+  pas, est, beaucoup, vous parlez, ils parlent → final consonant silent
+  Exceptions you must memorise: avec (with), chef, parc, fils
+
+THE SILENT E
+The letter e at the end of a word is almost always silent:
+  table, livre, femme, rouge → final e not pronounced
+  But e in the middle of a word is usually pronounced as a schwa (like the 'u' in 'about')
+
+NASAL VOWELS — French has four nasal vowels (sounds made through the nose):
+  an/en → like the English 'on' said nasally: France, enfant, manger
+  in/ain → like the English 'an' said nasally: vin, main, bien
+  on → like the English 'own' said nasally: bon, maison, ton
+  un → like the English 'un' said nasally: un, lundi, brun
+  When the vowel is followed by mm or nn, or comes before a vowel, it is NOT nasal: bonne, amine
+
+LIAISON — linking words together
+When a word ending in a normally silent consonant is followed by a word starting with a vowel, the consonant is pronounced and links to the next word:
+  vous_avez (voo-za-vay), les_amis (lay-za-mee), nous_habitons (noo-za-bi-ton)
+  This is mandatory in many contexts and completely changes how speech sounds.
+
+ACCENTS
+é (e accent aigu) → the closed e sound, like the 'ay' in 'say': café, étudiant
+è (e accent grave) → the open e sound, like the 'e' in 'bet': très, après
+ê (e circumflex) → similar to è but held slightly longer: être, fête
+The accent on â, î, ô, û mostly distinguishes words from each other rather than changing sound significantly.`,
+        examples: [
+            { native: "ils parlent, vous mangez", translation: "Final -ent and -ez are silent — these sound like 'parl' and 'mang-ay'" },
+            { native: "un enfant en France", translation: "Three nasal vowels in a row: un (nasal), en (nasal), an (nasal)" },
+            { native: "vous_avez / les_amis", translation: "Liaison: the s in 'vous' and 'les' is pronounced before a vowel" },
+            { native: "é → café / è → très", translation: "Accent marks change the vowel sound, not just the spelling" },
+            { native: "bonne (bon-ne, not nasal) vs bon (nasal)", translation: "Double n before a vowel breaks the nasal sound" },
+        ]
+    },
 ]
