@@ -105,4 +105,34 @@ export const a2Vocab: VocabItem[] = [
     { id: "it-v-a2-082", level: "A2", word: "il primo piatto", translation: "first course", category: "food & restaurants", example: { native: "Per primo piatto prendo la pasta.", translation: "For the first course I'll have pasta." } },
     { id: "it-v-a2-083", level: "A2", word: "il secondo piatto", translation: "second course / main", category: "food & restaurants", example: { native: "Il secondo piatto è carne o pesce.", translation: "The main course is meat or fish." } },
     { id: "it-v-a2-084", level: "A2", word: "il dolce", translation: "dessert / sweet", category: "food & restaurants", example: { native: "Come dolce abbiamo il tiramisù.", translation: "For dessert we have tiramisu." } },
+
+    // Unit 5 — everyday situations
+    { id: "it-v-a2-085", level: "A2", word: "l'appuntamento", translation: "appointment", category: "health & body", example: { native: "Ho un appuntamento dal dentista alle tre.", translation: "I have a dentist's appointment at three." } },
+    { id: "it-v-a2-086", level: "A2", word: "sempre dritto", translation: "straight ahead", category: "travel & transport", example: { native: "Vada sempre dritto fino al semaforo.", translation: "Go straight ahead until the traffic light." } },
+    { id: "it-v-a2-087", level: "A2", word: "girare a sinistra / a destra", translation: "to turn left / right", category: "travel & transport", example: { native: "Giri a destra alla piazza.", translation: "Turn right at the square." } },
+    { id: "it-v-a2-088", level: "A2", word: "la farmacia", translation: "pharmacy", category: "health & body", example: { native: "C'è una farmacia qui vicino?", translation: "Is there a pharmacy near here?" } },
+    { id: "it-v-a2-089", level: "A2", word: "la ricetta", translation: "prescription / recipe", category: "health & body", example: { native: "Ho bisogno di una ricetta medica.", translation: "I need a medical prescription." } },
+    { id: "it-v-a2-090", level: "A2", word: "il semaforo", translation: "traffic light", category: "travel & transport", example: { native: "Al semaforo, svolta a sinistra.", translation: "At the traffic light, turn left." } },
+
+    // Unit 6 — opinions and preferences
+    { id: "it-v-a2-091", level: "A2", word: "secondo me", translation: "in my opinion", category: "social interactions", example: { native: "Secondo me, questa è la soluzione migliore.", translation: "In my opinion, this is the best solution." } },
+    { id: "it-v-a2-092", level: "A2", word: "preferisco", translation: "I prefer", category: "social interactions", example: { native: "Preferisco il mare alla montagna.", translation: "I prefer the sea to the mountains." } },
+    { id: "it-v-a2-093", level: "A2", word: "sono d'accordo", translation: "I agree", category: "social interactions", example: { native: "Sono d'accordo con te.", translation: "I agree with you." } },
+    { id: "it-v-a2-094", level: "A2", word: "non sono d'accordo", translation: "I disagree", category: "social interactions", example: { native: "Mi dispiace, ma non sono d'accordo.", translation: "I'm sorry, but I disagree." } },
+    { id: "it-v-a2-095", level: "A2", word: "penso che", translation: "I think that", category: "social interactions", example: { native: "Penso che questo film sia noioso.", translation: "I think this film is boring." } },
+
+    // Unit 7 — social writing
+    { id: "it-v-a2-096", level: "A2", word: "caro / cara", translation: "dear (letter opening)", category: "social interactions", example: { native: "Cara Giulia, come stai?", translation: "Dear Giulia, how are you?" } },
+    { id: "it-v-a2-097", level: "A2", word: "un abbraccio", translation: "a hug (letter closing)", category: "social interactions", example: { native: "A presto! Un abbraccio, Marco.", translation: "See you soon! A hug, Marco." } },
+    { id: "it-v-a2-098", level: "A2", word: "mi manchi", translation: "I miss you", category: "emotions", example: { native: "Mi manchi tanto da quando sei partito.", translation: "I miss you so much since you left." } },
+    { id: "it-v-a2-099", level: "A2", word: "auguri", translation: "congratulations / best wishes", category: "social interactions", example: { native: "Auguri per il tuo compleanno!", translation: "Happy birthday! / Best wishes!" } },
+    { id: "it-v-a2-100", level: "A2", word: "mi dispiace", translation: "I'm sorry", category: "social interactions", example: { native: "Mi dispiace tanto per quello che è successo.", translation: "I'm so sorry for what happened." } },
+    { id: "it-v-a2-101", level: "A2", word: "a presto", translation: "see you soon", category: "social interactions", example: { native: "È stato bello vederti. A presto!", translation: "It was lovely to see you. See you soon!" } },
+
+    // ── Gap Fix: narrative time expressions (Unit 8) ──────────────────────────
+    { id: "it-v-a2-102", level: "A2", word: "d'improvviso / all'improvviso", translation: "suddenly", category: "time expressions", example: { native: "D'improvviso, è iniziato a piovere.", translation: "Suddenly, it started to rain." } },
+    { id: "it-v-a2-103", level: "A2", word: "mentre", translation: "while", category: "time expressions", example: { native: "Mentre mangiavo, ha suonato il telefono.", translation: "While I was eating, the phone rang." } },
+    { id: "it-v-a2-104", level: "A2", word: "poi / dopo", translation: "then / afterwards", category: "time expressions", example: { native: "Ho mangiato e poi sono uscito.", translation: "I ate and then went out." } },
+    { id: "it-v-a2-105", level: "A2", word: "alla fine", translation: "in the end / finally", category: "time expressions", example: { native: "Alla fine, abbiamo trovato un taxi.", translation: "In the end, we found a taxi." } },
+    { id: "it-v-a2-106", level: "A2", word: "in quel momento", translation: "at that moment", category: "time expressions", example: { native: "In quel momento, non sapevo cosa fare.", translation: "At that moment, I didn't know what to do." } },
 ]

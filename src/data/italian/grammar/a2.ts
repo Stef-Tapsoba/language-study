@@ -60,5 +60,69 @@ export const a2Grammar: GrammarLesson[] = [
             { native: "Partiranno la settimana prossima.", translation: "They will leave next week." },
             { native: "Sarà bello!", translation: "It will be wonderful!" }
         ]
-    }
+    },
+    {
+        id: "it-g-a2-5",
+        level: "A2",
+        title: "Modal Verbs: dovere, potere, volere",
+        explanation: {
+            native: "The three essential modal verbs are: dovere (must / to have to), potere (can / to be able to), volere (to want). All three are irregular in the present tense and are followed by an infinitive. They unlock a huge range of everyday communication — expressing obligation, permission, ability, and desires. Dovere: devo, devi, deve, dobbiamo, dovete, devono. Potere: posso, puoi, può, possiamo, potete, possono. Volere: voglio, vuoi, vuole, vogliamo, volete, vogliono.",
+            target: "I tre verbi modali essenziali sono: dovere (must/avere da), potere (can/essere in grado di), volere (want/volere). Tutti e tre sono irregolari al presente e sono seguiti da un infinito. Sblocano un'ampia gamma di comunicazione quotidiana — esprimono obbligo, permesso, capacità e desideri. Dovere: devo, devi, deve, dobbiamo, dovete, devono. Potere: posso, puoi, può, possiamo, potete, possono. Volere: voglio, vuoi, vuole, vogliamo, volete, vogliono."
+        },
+        examples: [
+            { native: "Devo studiare stasera.", translation: "I have to study tonight." },
+            { native: "Puoi aiutarmi, per favore?", translation: "Can you help me, please?" },
+            { native: "Voglio un caffè, grazie.", translation: "I want a coffee, thank you." },
+            { native: "Non possiamo uscire adesso.", translation: "We can't go out now." },
+            { native: "Dovete finire il lavoro entro domani.", translation: "You have to finish the work by tomorrow." },
+        ]
+    },
+    {
+        id: "it-g-a2-6",
+        level: "A2",
+        title: "Comparatives and Superlatives",
+        explanation: {
+            native: "To compare in Italian: più ... di/che (more ... than), meno ... di/che (less ... than), tanto ... quanto (as ... as). Use di before nouns/pronouns, and che before adjectives, verbs, or prepositions. The relative superlative uses il/la/i/le più + adjective. Irregular forms: buono → migliore (better), cattivo → peggiore (worse). Absolute superlative (extremely): drop final vowel + add -issimo/a.",
+            target: "Per comparare in italiano: più ... di/che (more ... than), meno ... di/che (less ... than), tanto ... quanto (as ... as). Si usa di davanti a nomi/pronomi, e che davanti ad aggettivi, verbi o preposizioni. Il superlativo relativo si forma con il/la/i/le più + aggettivo. Forme irregolari: buono → migliore (meglio), cattivo → peggiore (peggio). Superlativo assoluto (extremely): eliminare la vocale finale + aggiungere -issimo/a."
+        },
+        examples: [
+            { native: "Roma è più grande di Firenze.", translation: "Rome is bigger than Florence." },
+            { native: "Questo libro è meno interessante di quello.", translation: "This book is less interesting than that one." },
+            { native: "Parla tanto velocemente quanto lui.", translation: "She speaks as quickly as he does." },
+            { native: "È il miglior ristorante della città.", translation: "It's the best restaurant in the city." },
+            { native: "Questo film è bellissimo.", translation: "This film is absolutely beautiful." },
+        ]
+    },
+    {
+        id: "it-g-a2-7",
+        level: "A2",
+        title: "Relative Clauses: che and chi",
+        explanation: {
+            native: "Relative clauses join two ideas about the same noun. Che (that / who / which) is the most versatile relative pronoun — it can refer to people or things and works as both subject and object. Chi means 'the one who / those who / whoever' and always refers to people. Unlike English, che cannot be dropped in Italian.",
+            target: "Le proposizioni relative collegano due idee sullo stesso nome. Che (that/who/which) è il pronome relativo più versatile — può riferirsi a persone o cose e funziona sia come soggetto che come complemento. Chi significa 'colui/colei che / coloro che / chiunque' e si riferisce sempre a persone. A differenza dell'inglese, che non può essere omesso in italiano."
+        },
+        examples: [
+            { native: "Il ragazzo che gioca è mio fratello.", translation: "The boy who is playing is my brother. (subject)" },
+            { native: "Il film che ho visto era noioso.", translation: "The film (that) I saw was boring. (object)" },
+            { native: "Chi studia passa l'esame.", translation: "Those who study pass the exam." },
+            { native: "La persona che cercavo non c'era.", translation: "The person I was looking for wasn't there." },
+            { native: "Questo è tutto quello che so.", translation: "This is all (that) I know." },
+        ]
+    },
+    {
+        id: "it-g-a2-8",
+        level: "A2",
+        title: "Demonstratives: questo and quello",
+        explanation: {
+            native: "Questo (this) refers to something near the speaker. Quello (that) refers to something farther away. Both agree in gender and number with the noun: questo, questa, questi, queste / quello, quella, quei, quelle (and the special forms quel, quell', quegli before certain consonants and vowels). Questo/quello can also be used as pronouns (without a noun following).",
+            target: "Questo (this) si riferisce a qualcosa vicino a chi parla. Quello (that) si riferisce a qualcosa di più lontano. Entrambi concordano in genere e numero con il nome: questo, questa, questi, queste / quello, quella, quei, quelle (e le forme speciali quel, quell', quegli davanti a certe consonanti e vocali). Questo/quello possono essere usati anche come pronomi (senza nome seguente)."
+        },
+        examples: [
+            { native: "Questo caffè è troppo caldo.", translation: "This coffee is too hot." },
+            { native: "Quella ragazza è molto brava.", translation: "That girl is very good." },
+            { native: "Questi libri sono miei.", translation: "These books are mine." },
+            { native: "Voglio quello, non questo.", translation: "I want that one, not this one." },
+            { native: "Quell'uomo è il direttore.", translation: "That man is the director. (vowel → quell')" },
+        ]
+    },
 ]

@@ -433,7 +433,246 @@ export const esUnitsA2: LessonUnit[] = [
                 hint: "Near the listener, masculine singular → ese."
             }
         ]
-    }
+    },
+    {
+        id: "es-a2-u8",
+        level: "A2",
+        order: 8,
+        title: "Describing the Past — Imperfect",
+        description: "Use the imperfecto to describe habitual past actions, background situations, and states that were ongoing. Learn when to use it versus the preterite.",
+        grammarIds: ["es-g-a2-8"],
+        vocabIds: ["es-v-a2-081", "es-v-a2-082", "es-v-a2-083", "es-v-a2-084", "es-v-a2-085"],
+        verbIds: ["es-vb-a2-7"],
+        testQuestions: [
+            {
+                id: "es-a2-u8-q1", level: "A2",
+                prompt: "How do you say 'When I was a child, I used to play in the park'?",
+                options: ["Cuando era niño, jugué en el parque.", "Cuando era niño, jugaba en el parque.", "Cuando fui niño, jugaba en el parque.", "Cuando era niño, jugaré en el parque."],
+                answer: "Cuando era niño, jugaba en el parque.",
+                hint: "Habitual past → imperfecto. Era (ser) + jugaba (jugar) both in imperfecto."
+            },
+            {
+                id: "es-a2-u8-q2", level: "A2",
+                prompt: "What is the imperfecto of 'comer' for 'tú'?",
+                options: ["comiste", "comes", "comías", "comerás"],
+                answer: "comías",
+                hint: "-er/-ir imperfecto endings: -ía, -ías, -ía, -íamos, -íais, -ían."
+            },
+            {
+                id: "es-a2-u8-q3", level: "A2",
+                prompt: "Which sentence uses the imperfecto correctly for background description?",
+                options: ["Llovió mucho ese día.", "Hacía frío cuando salí.", "Salí de casa ayer.", "Fui al médico el lunes."],
+                answer: "Hacía frío cuando salí.",
+                hint: "Background/setting (ongoing state) → imperfecto. Completed single event → preterite."
+            },
+            {
+                id: "es-a2-u8-q4", level: "A2",
+                prompt: "Complete: 'Antes, yo ___ mucho.' (trabajar — habitual past)",
+                options: ["trabajé", "trabajo", "trabajaba", "trabajaré"],
+                answer: "trabajaba",
+                hint: "'Antes' signals a habitual past habit → imperfecto."
+            },
+            {
+                id: "es-a2-u8-q5", level: "A2",
+                prompt: "Which verb is irregular in the imperfecto?",
+                options: ["hablar", "comer", "ser", "vivir"],
+                answer: "ser",
+                hint: "Only ser, ir, and ver are irregular in the imperfecto."
+            },
+            {
+                id: "es-a2-u8-q6", level: "A2",
+                prompt: "What is the imperfecto of 'ir' for 'nosotros'?",
+                options: ["fuimos", "vamos", "íbamos", "iremos"],
+                answer: "íbamos",
+                hint: "Ir is irregular in the imperfecto: iba, ibas, iba, íbamos, ibais, iban."
+            },
+        ]
+    },
+    {
+        id: "es-a2-u9",
+        level: "A2",
+        order: 9,
+        title: "Everyday Situations & Future Plans",
+        description: "Handle real-life situations — shopping, health appointments, giving directions — using modal verbs poder, querer, and deber. Express plans with the futur próximo (ir + a + infinitive).",
+        grammarIds: ["es-g-a2-9", "es-g-a2-10"],
+        vocabIds: ["es-v-a2-086", "es-v-a2-087", "es-v-a2-088", "es-v-a2-089", "es-v-a2-090", "es-v-a2-091"],
+        verbIds: ["es-vb-a2-8"],
+        testQuestions: [
+            {
+                id: "es-a2-u9-q1", level: "A2",
+                prompt: "How do you say 'I need to see a doctor'?",
+                options: ["Quiero ver a un médico.", "Debo ver a un médico.", "Puedo ver a un médico.", "Sé ver a un médico."],
+                answer: "Debo ver a un médico.",
+                hint: "Deber = must / have to (obligation)."
+            },
+            {
+                id: "es-a2-u9-q2", level: "A2",
+                prompt: "Translate: 'We are going to travel to Mexico next summer.'",
+                options: ["Viajamos a México el próximo verano.", "Viajamos a México el próximo verano.", "Vamos a viajar a México el próximo verano.", "Viajamos a México el próximo verano."],
+                answer: "Vamos a viajar a México el próximo verano.",
+                hint: "Future intention → ir (present) + a + infinitive."
+            },
+            {
+                id: "es-a2-u9-q3", level: "A2",
+                prompt: "Complete: '¿___ hablar más despacio, por favor?' (can you)",
+                options: ["Debes", "Quieres", "Puedes", "Vas a"],
+                answer: "Puedes",
+                hint: "Poder = can / to be able to — used for requests and ability."
+            },
+            {
+                id: "es-a2-u9-q4", level: "A2",
+                prompt: "How do you say 'straight ahead' in directions?",
+                options: ["a la derecha", "todo recto", "a la izquierda", "al final"],
+                answer: "todo recto",
+                hint: "Todo recto (Spain) / derecho (Latin America) = straight ahead."
+            },
+            {
+                id: "es-a2-u9-q5", level: "A2",
+                prompt: "What does 'la cita' mean?",
+                options: ["a quotation", "an appointment", "a city", "a question"],
+                answer: "an appointment",
+                hint: "La cita = appointment (also: quote/date depending on context)."
+            },
+            {
+                id: "es-a2-u9-q6", level: "A2",
+                prompt: "Which sentence is in the futur próximo?",
+                options: ["Voy al mercado mañana.", "Fui al mercado ayer.", "Voy a ir al mercado mañana.", "Iré al mercado mañana."],
+                answer: "Voy a ir al mercado mañana.",
+                hint: "Futur próximo = ir (present) + a + infinitive."
+            },
+        ]
+    },
+    {
+        id: "es-a2-u10",
+        level: "A2",
+        order: 10,
+        title: "Opinions, Relative Clauses & Personal Messages",
+        description: "Express and justify opinions, use relative clauses with que and quien, and write short personal messages, invitations, and social notes in Spanish.",
+        grammarIds: ["es-g-a2-11"],
+        vocabIds: ["es-v-a2-092", "es-v-a2-093", "es-v-a2-094", "es-v-a2-095", "es-v-a2-096", "es-v-a2-097", "es-v-a2-098"],
+        verbIds: [],
+        testQuestions: [
+            {
+                id: "es-a2-u10-q1", level: "A2",
+                prompt: "Complete with a relative pronoun: 'La película ___ vimos fue muy buena.'",
+                options: ["quien", "que", "cual", "donde"],
+                answer: "que",
+                hint: "Que is the most common relative pronoun in Spanish — used for both people and things."
+            },
+            {
+                id: "es-a2-u10-q2", level: "A2",
+                prompt: "How do you say 'In my opinion, this restaurant is the best'?",
+                options: ["Me gusta este restaurante.", "En mi opinión, este restaurante es el mejor.", "Creo que este restaurante tiene comida.", "A mi, el restaurante."],
+                answer: "En mi opinión, este restaurante es el mejor.",
+                hint: "En mi opinión = in my opinion. Para mí / A mi parecer also work."
+            },
+            {
+                id: "es-a2-u10-q3", level: "A2",
+                prompt: "How do you express agreement informally?",
+                options: ["Estoy de acuerdo.", "No me importa.", "No lo sé.", "Me parece mal."],
+                answer: "Estoy de acuerdo.",
+                hint: "Estoy de acuerdo = I agree."
+            },
+            {
+                id: "es-a2-u10-q4", level: "A2",
+                prompt: "What is the appropriate opening for an informal message to a friend?",
+                options: ["Estimado señor:", "A quien corresponda:", "Querido/a [nombre]:", "De mi consideración:"],
+                answer: "Querido/a [nombre]:",
+                hint: "Querido/a = Dear (informal). Estimado/a is formal."
+            },
+            {
+                id: "es-a2-u10-q5", level: "A2",
+                prompt: "What does 'un abrazo' mean at the end of a message?",
+                options: ["best wishes", "yours sincerely", "a hug", "see you"],
+                answer: "a hug",
+                hint: "Un abrazo = a hug — the most common informal letter/message closing."
+            },
+            {
+                id: "es-a2-u10-q6", level: "A2",
+                prompt: "Translate: 'The person who helped me was very kind.'",
+                options: ["La persona que me ayudó fue muy amable.", "La persona quien me ayuda es muy amable.", "La persona que ayudé fue muy amable.", "La persona cuya me ayudó fue muy amable."],
+                answer: "La persona que me ayudó fue muy amable.",
+                hint: "Que is used for people and things in relative clauses."
+            },
+        ]
+    },
+    {
+        id: "es-a2-u11",
+        level: "A2",
+        order: 11,
+        title: "Narrating the Past — Preterite vs Imperfect",
+        description: "Combine the pretérito indefinido and imperfecto to tell a full story. Practice choosing between them in the same sentence: completed events (preterite) vs background states, descriptions, and habits (imperfect).",
+        grammarIds: ["es-g-a2-1", "es-g-a2-8"],
+        vocabIds: [
+            "es-v-a2-083", "es-v-a2-084", "es-v-a2-085",
+            "es-v-a2-099", "es-v-a2-100", "es-v-a2-101", "es-v-a2-102", "es-v-a2-103"
+        ],
+        verbIds: ["es-vb-a2-7"],
+        testQuestions: [
+            {
+                id: "es-a2-u11-q1", level: "A2",
+                prompt: "Which tense fits? 'Cuando era niño, ___ al parque todos los días.' (ir — habitual)",
+                options: ["fui", "iba", "voy", "iré"],
+                answer: "iba",
+                hint: "'Todos los días' signals a repeated past habit → imperfecto."
+            },
+            {
+                id: "es-a2-u11-q2", level: "A2",
+                prompt: "Which tense fits? 'Ayer, ella ___ su pasaporte.' (perder — single event)",
+                options: ["perdía", "pierde", "perdió", "ha perdido"],
+                answer: "perdió",
+                hint: "'Ayer' + a single completed event → pretérito indefinido."
+            },
+            {
+                id: "es-a2-u11-q3", level: "A2",
+                prompt: "Complete: '___ (hacer) mucho frío cuando ___ (llegar) al aeropuerto.'",
+                options: [
+                    "Hizo / llegaba",
+                    "Hacía / llegué",
+                    "Hacía / llegaba",
+                    "Hizo / llegué"
+                ],
+                answer: "Hacía / llegué",
+                hint: "Background state (cold weather) → imperfecto. Completed arrival → preterite."
+            },
+            {
+                id: "es-a2-u11-q4", level: "A2",
+                prompt: "Complete the story: 'Mientras yo ___ (leer), mi hermano ___ (llamar) por teléfono.'",
+                options: [
+                    "leía / llamó",
+                    "leí / llamaba",
+                    "leía / llamaba",
+                    "leí / llamó"
+                ],
+                answer: "leía / llamó",
+                hint: "Ongoing background action (reading) → imperfecto. Interrupting event (called) → preterite."
+            },
+            {
+                id: "es-a2-u11-q5", level: "A2",
+                prompt: "Which sentence is correct?",
+                options: [
+                    "De repente, llovía mucho.",
+                    "De repente, llovió mucho.",
+                    "Siempre, llovió mucho.",
+                    "Antes, llovió mucho."
+                ],
+                answer: "De repente, llovió mucho.",
+                hint: "'De repente' (suddenly) signals a sudden completed event → preterite."
+            },
+            {
+                id: "es-a2-u11-q6", level: "A2",
+                prompt: "Complete: 'Antes ___ (vivir) en Madrid, pero el año pasado ___ (mudarse) a Barcelona.'",
+                options: [
+                    "vivía / me mudé",
+                    "viví / me mudaba",
+                    "vivía / me mudaba",
+                    "viví / me mudé"
+                ],
+                answer: "vivía / me mudé",
+                hint: "Habitual past state (used to live) → imperfecto. Single completed change → preterite."
+            },
+        ]
+    },
 ]
 
 // Alias for backward compatibility with index.ts assembler

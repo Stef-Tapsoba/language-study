@@ -60,5 +60,53 @@ export const a2Grammar: GrammarLesson[] = [
             { native: "음악을 듣고 있어요.", romanized: "Eumaguel deutgo isseoyo.", translation: "I am listening to music." },
             { native: "그 영화를 보고 있어요.", romanized: "Geu yeonghwareul bogo isseoyo.", translation: "I am watching that movie." }
         ]
-    }
+    },
+    {
+        id: "ko-g-a2-5",
+        level: "A2",
+        title: "-아/어서: Cause and Sequential Connection",
+        explanation: {
+            native: "The connector -아/어서 has two closely related uses: (1) cause or reason — 'because / so'; (2) sequential action — 'and then'. The critical grammar rule: tense is NEVER marked on the first clause. Only the final verb of the sentence carries tense. To attach -아/어서: if the last vowel of the stem is ㅏ or ㅗ, add 아서; for all other vowels, add 어서; 하다 verbs → 해서. Note: -아/어서 cannot be followed by imperative or propositive endings — use -(으)니까 instead for those contexts.",
+            target: "-아/어서는 두 가지로 쓰입니다: ①이유/원인('〜서'): 배가 고파서 먹었어요. ②순차 행동('그러고 나서'): 집에 가서 쉬었어요. 중요한 문법 규칙: 첫 번째 절에는 절대 시제 표시를 하지 않습니다. 시제는 마지막 동사에만 표시합니다. 결합 방법: 어간의 마지막 모음이 ㅏ나 ㅗ면 '아서', 나머지 모음에는 '어서', 하다 동사는 '해서'. 주의: -아/어서 뒤에는 명령형이나 청유형이 올 수 없습니다 — 그 경우에는 -(으)니까를 씁니다."
+        },
+        examples: [
+            { native: "배가 고파서 밥을 먹었어요.", romanized: "Baega gopaseo babeul meogeosseoyo.", translation: "I was hungry so I ate. (cause)" },
+            { native: "집에 가서 쉬었어요.", romanized: "Jibe gaseo swiosseoyo.", translation: "I went home and then rested. (sequence)" },
+            { native: "피곤해서 일찍 잤어요.", romanized: "Pigonhaeseo iljjik jasseoyo.", translation: "I was tired so I went to sleep early." },
+            { native: "지하철을 타서 회사에 갔어요.", romanized: "Jihacheoreul taseo hoesae gasseoyo.", translation: "I took the subway and then went to the office." },
+            { native: "날씨가 좋아서 기분이 좋아요.", romanized: "Nalssiga joaseo gibuni joayo.", translation: "The weather is nice so I'm in a good mood." },
+        ]
+    },
+    {
+        id: "ko-g-a2-6",
+        level: "A2",
+        title: "Comparisons: 더 / 덜 / 가장 / 보다",
+        explanation: {
+            native: "Korean comparisons use: 보다 (than) to mark the thing being compared against; 더 (more) to indicate the higher degree; 덜 (less) for the lower degree; 가장 or 제일 (most/best/least) for superlatives. Word order: [standard]보다 [subject] 더/덜 [adjective]. Superlative: [subject]이/가 가장/제일 [adjective]. To express preference: A보다 B를 더 좋아해요 (I like B more than A). To ask for a preference between two things: A하고 B 중에 뭐가 더 좋아요?",
+            target: "비교 표현: 보다(than) — 비교 기준에 붙임; 더(more) — 높은 정도; 덜(less) — 낮은 정도; 가장/제일(most) — 최상급. 어순: [기준]보다 [주어]가 더/덜 [형용사]. 최상급: [주어]이/가 가장/제일 [형용사]. 선호 표현: A보다 B를 더 좋아해요. 둘 중 선호 묻기: A하고 B 중에 뭐가 더 좋아요?"
+        },
+        examples: [
+            { native: "오늘이 어제보다 더 더워요.", romanized: "Oneuri eojeboda deo deowoyo.", translation: "Today is hotter than yesterday." },
+            { native: "이게 저것보다 덜 비싸요.", romanized: "Ige jeogeotboda deol bissayo.", translation: "This is less expensive than that." },
+            { native: "서울이 제일 큰 도시예요.", romanized: "Seouli jeil keun dosiyeyo.", translation: "Seoul is the biggest city." },
+            { native: "차보다 커피를 더 좋아해요.", romanized: "Chaboda keopireul deo joahaeyo.", translation: "I like coffee more than tea." },
+            { native: "한국 음식하고 일본 음식 중에 뭐가 더 좋아요?", romanized: "Hanguk eumsikago ilbon eumsik junge mwoga deo joayo?", translation: "Which do you prefer, Korean food or Japanese food?" },
+        ]
+    },
+    {
+        id: "ko-g-a2-7",
+        level: "A2",
+        title: "Opinions: -(으)ㄴ/는 것 같아요 & 생각해요",
+        explanation: {
+            native: "To express a personal opinion or soft guess, use -(으)ㄴ/는 것 같아요 (I think / it seems). For present adjectives: adj stem + -(으)ㄴ 것 같아요. For present action verbs: verb stem + -는 것 같아요. For past: -은/는 것 같아요 after 았/었. To state an opinion more directly, use: 제 생각에는 ~ (in my opinion) or ~(이)라고 생각해요 (I think that ~). The distinction: 것 같아요 is softer and implies inference or politeness; 생각해요 is a more direct statement of opinion.",
+            target: "개인적인 의견이나 추측을 부드럽게 표현할 때 '-(으)ㄴ/는 것 같아요'를 씁니다. 현재 형용사: 형용사 어간 + -(으)ㄴ 것 같아요. 현재 동사: 동사 어간 + -는 것 같아요. 과거: 았/었 + 을 것 같아요. 더 직접적인 의견 표현: '제 생각에는 ~' 또는 '~(이)라고 생각해요'. 차이: 것 같아요는 더 부드럽고 추론이나 공손함을 나타내고; 생각해요는 더 직접적인 의견 표명입니다."
+        },
+        examples: [
+            { native: "이 영화가 재미있는 것 같아요.", romanized: "I yeongwaga jaemiinneun geot gatayo.", translation: "I think this movie is interesting." },
+            { native: "오늘 비가 올 것 같아요.", romanized: "Oneul biga ol geot gatayo.", translation: "I think it will rain today." },
+            { native: "제 생각에는 이게 더 좋은 방법이에요.", romanized: "Je saenggake neun ige deo joeun bangbobieyo.", translation: "In my opinion, this is the better method." },
+            { native: "그 사람이 친절한 것 같아요.", romanized: "Geu sarami chinjeolhan geot gatayo.", translation: "I think that person is kind." },
+            { native: "저는 한국어가 어렵다고 생각해요.", romanized: "Jeoneun hangugeo ga eoryeopda go saenggakhaeyo.", translation: "I think Korean is difficult." },
+        ]
+    },
 ]

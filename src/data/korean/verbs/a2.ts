@@ -96,5 +96,65 @@ export const a2Verbs: Verb[] = [
                 ]
             }
         ]
-    }
+    },
+    {
+        id: "ko-vb-a2-5",
+        level: "A2",
+        infinitive: "피곤하다",
+        meaning: "to be tired",
+        conjugations: [
+            {
+                tense: "Present Polite (해요체)",
+                forms: [
+                    { pronoun: "polite", form: "피곤해요" },
+                    { pronoun: "informal (반말)", form: "피곤해" },
+                    { pronoun: "negative polite", form: "피곤하지 않아요" },
+                ]
+            },
+            {
+                tense: "Past Polite",
+                forms: [
+                    { pronoun: "polite past", form: "피곤했어요" },
+                    { pronoun: "informal past", form: "피곤했어" },
+                ]
+            },
+            {
+                tense: "-아/어서 form (cause)",
+                forms: [
+                    { pronoun: "connective", form: "피곤해서" },
+                    { pronoun: "example", form: "피곤해서 잤어요 (I was tired so I slept)" },
+                ]
+            }
+        ]
+    },
+    {
+        id: "ko-vb-a2-6",
+        level: "A2",
+        infinitive: "생각하다",
+        meaning: "to think / to believe",
+        conjugations: [
+            {
+                tense: "Present Polite (해요체)",
+                forms: [
+                    { pronoun: "polite", form: "생각해요" },
+                    { pronoun: "informal (반말)", form: "생각해" },
+                    { pronoun: "negative polite", form: "생각하지 않아요" },
+                ]
+            },
+            {
+                tense: "Past Polite",
+                forms: [
+                    { pronoun: "polite past", form: "생각했어요" },
+                    { pronoun: "informal past", form: "생각했어" },
+                ]
+            },
+            {
+                tense: "Opinion pattern",
+                forms: [
+                    { pronoun: "I think that ~", form: "~(이)라고 생각해요" },
+                    { pronoun: "In my opinion", form: "제 생각에는 ~" },
+                ]
+            }
+        ]
+    },
 ]

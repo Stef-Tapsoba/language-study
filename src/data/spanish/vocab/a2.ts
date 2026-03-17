@@ -108,7 +108,38 @@ export const esVocabA2: VocabItem[] = [
     { id: "es-v-a2-077", level: "A2", word: "peor", translation: "worse / worst", category: "Comparatives", example: { native: "El tráfico hoy está peor que ayer.", translation: "The traffic today is worse than yesterday." } },
     { id: "es-v-a2-078", level: "A2", word: "igual de", translation: "just as / equally", category: "Comparatives", example: { native: "Es igual de difícil que antes.", translation: "It is just as difficult as before." } },
     { id: "es-v-a2-079", level: "A2", word: "este / esta", translation: "this (near speaker)", category: "Demonstratives", example: { native: "Este café está delicioso.", translation: "This coffee is delicious." } },
-    { id: "es-v-a2-080", level: "A2", word: "aquel / aquella", translation: "that (far away)", category: "Demonstratives", example: { native: "Aquella casa es muy antigua.", translation: "That house over there is very old." } }
+    { id: "es-v-a2-080", level: "A2", word: "aquel / aquella", translation: "that (far away)", category: "Demonstratives", example: { native: "Aquella casa es muy antigua.", translation: "That house over there is very old." } },
+
+    // ── Unit 8: Imperfect — habitual past vocabulary ──────────────────────────
+    { id: "es-v-a2-081", level: "A2", word: "antes", translation: "before / in the past", category: "time expressions", example: { native: "Antes vivía en el campo.", translation: "Before, I used to live in the countryside." } },
+    { id: "es-v-a2-082", level: "A2", word: "de niño/a", translation: "as a child / when I was young", category: "time expressions", example: { native: "De niño, jugaba mucho al fútbol.", translation: "As a child, I used to play a lot of football." } },
+    { id: "es-v-a2-083", level: "A2", word: "cada día / todos los días", translation: "every day", category: "time expressions", example: { native: "Comía en casa cada día.", translation: "I used to eat at home every day." } },
+    { id: "es-v-a2-084", level: "A2", word: "siempre", translation: "always", category: "time expressions", example: { native: "Siempre llegaba tarde al trabajo.", translation: "He always used to arrive late to work." } },
+    { id: "es-v-a2-085", level: "A2", word: "mientras", translation: "while / meanwhile", category: "time expressions", example: { native: "Mientras comía, leía el periódico.", translation: "While eating, I used to read the newspaper." } },
+
+    // ── Unit 9: Everyday Situations — appointments, directions ───────────────
+    { id: "es-v-a2-086", level: "A2", word: "la cita", translation: "appointment", category: "health & body", example: { native: "Tengo una cita con el médico mañana.", translation: "I have a doctor's appointment tomorrow." } },
+    { id: "es-v-a2-087", level: "A2", word: "todo recto", translation: "straight ahead", category: "travel & transport", example: { native: "Siga todo recto hasta el semáforo.", translation: "Go straight ahead until the traffic light." } },
+    { id: "es-v-a2-088", level: "A2", word: "girar / doblar a la izquierda", translation: "to turn left", category: "travel & transport", example: { native: "Gire a la izquierda en la próxima calle.", translation: "Turn left at the next street." } },
+    { id: "es-v-a2-089", level: "A2", word: "la farmacia", translation: "pharmacy / chemist", category: "health & body", example: { native: "¿Hay una farmacia cerca de aquí?", translation: "Is there a pharmacy near here?" } },
+    { id: "es-v-a2-090", level: "A2", word: "la receta", translation: "prescription / recipe", category: "health & body", example: { native: "El médico me dio una receta.", translation: "The doctor gave me a prescription." } },
+    { id: "es-v-a2-091", level: "A2", word: "el semáforo", translation: "traffic light", category: "travel & transport", example: { native: "Para en el semáforo.", translation: "Stop at the traffic light." } },
+
+    // ── Unit 10: Opinions, Relative Clauses & Social Writing ─────────────────
+    { id: "es-v-a2-092", level: "A2", word: "en mi opinión", translation: "in my opinion", category: "social interactions", example: { native: "En mi opinión, este restaurante es el mejor.", translation: "In my opinion, this restaurant is the best." } },
+    { id: "es-v-a2-093", level: "A2", word: "creo que", translation: "I think that / I believe that", category: "social interactions", example: { native: "Creo que tienes razón.", translation: "I think you're right." } },
+    { id: "es-v-a2-094", level: "A2", word: "estoy de acuerdo", translation: "I agree", category: "social interactions", example: { native: "Estoy totalmente de acuerdo contigo.", translation: "I completely agree with you." } },
+    { id: "es-v-a2-095", level: "A2", word: "no estoy de acuerdo", translation: "I disagree", category: "social interactions", example: { native: "Lo siento, no estoy de acuerdo.", translation: "I'm sorry, I disagree." } },
+    { id: "es-v-a2-096", level: "A2", word: "querido/a", translation: "dear (letter opening)", category: "social interactions", example: { native: "Querida Ana, ¿cómo estás?", translation: "Dear Ana, how are you?" } },
+    { id: "es-v-a2-097", level: "A2", word: "un abrazo", translation: "a hug (letter closing)", category: "social interactions", example: { native: "Hasta pronto. Un abrazo, Miguel.", translation: "See you soon. A hug, Miguel." } },
+    { id: "es-v-a2-098", level: "A2", word: "felicidades", translation: "congratulations / happy birthday", category: "social interactions", example: { native: "¡Felicidades por tu nuevo trabajo!", translation: "Congratulations on your new job!" } },
+
+    // ── Gap Fix: narrative time expressions (Unit 11) ─────────────────────────
+    { id: "es-v-a2-099", level: "A2", word: "de repente", translation: "suddenly", category: "time expressions", example: { native: "De repente, empezó a llover.", translation: "Suddenly, it started to rain." } },
+    { id: "es-v-a2-100", level: "A2", word: "mientras", translation: "while", category: "time expressions", example: { native: "Mientras comía, sonó el teléfono.", translation: "While I was eating, the phone rang." } },
+    { id: "es-v-a2-101", level: "A2", word: "luego / después", translation: "then / afterwards", category: "time expressions", example: { native: "Comí y luego salí a dar un paseo.", translation: "I ate and then went for a walk." } },
+    { id: "es-v-a2-102", level: "A2", word: "al final", translation: "in the end / finally", category: "time expressions", example: { native: "Al final, encontramos un taxi.", translation: "In the end, we found a taxi." } },
+    { id: "es-v-a2-103", level: "A2", word: "en aquel momento", translation: "at that moment", category: "time expressions", example: { native: "En aquel momento, no sabía qué hacer.", translation: "At that moment, I didn't know what to do." } },
 ]
 
 // Alias for backward compatibility with index.ts assembler

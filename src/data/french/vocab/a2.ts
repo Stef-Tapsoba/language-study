@@ -108,6 +108,36 @@ export const frVocabA2: VocabItem[] = [
     { id: "fr-v-a2-083", level: "A2", word: "la réservation", translation: "reservation", category: "food & restaurants", example: { native: "J'ai fait une réservation pour quatre personnes.", translation: "I made a reservation for four people." } },
     { id: "fr-v-a2-084", level: "A2", word: "sans gluten", translation: "gluten-free", category: "food & restaurants", example: { native: "Avez-vous des plats sans gluten ?", translation: "Do you have any gluten-free dishes?" } },
     { id: "fr-v-a2-085", level: "A2", word: "délicieux / délicieuse", translation: "delicious", category: "food & restaurants", example: { native: "Ce dessert est absolument délicieux.", translation: "This dessert is absolutely delicious." } },
+
+    // ── Unit 5: Everyday Situations — directions & appointments ──────────────
+    { id: "fr-v-a2-086", level: "A2", word: "le rendez-vous", translation: "appointment / meeting", category: "health & body", example: { native: "J'ai un rendez-vous chez le médecin à quatorze heures.", translation: "I have a doctor's appointment at 2 p.m." } },
+    { id: "fr-v-a2-087", level: "A2", word: "tout droit", translation: "straight ahead", category: "travel & transport", example: { native: "Continuez tout droit jusqu'au feu rouge.", translation: "Continue straight ahead until the traffic light." } },
+    { id: "fr-v-a2-088", level: "A2", word: "tourner à gauche / à droite", translation: "to turn left / right", category: "travel & transport", example: { native: "Tournez à gauche après la boulangerie.", translation: "Turn left after the bakery." } },
+    { id: "fr-v-a2-089", level: "A2", word: "la pharmacie", translation: "pharmacy / chemist", category: "health & body", example: { native: "Il y a une pharmacie au coin de la rue.", translation: "There is a pharmacy on the corner of the street." } },
+    { id: "fr-v-a2-090", level: "A2", word: "l'ordonnance", translation: "prescription", category: "health & body", example: { native: "Le médecin m'a donné une ordonnance.", translation: "The doctor gave me a prescription." } },
+
+    // ── Unit 6: Plans, Preferences & Opinions ────────────────────────────────
+    { id: "fr-v-a2-091", level: "A2", word: "à mon avis", translation: "in my opinion", category: "social interactions", example: { native: "À mon avis, ce film est trop long.", translation: "In my opinion, this film is too long." } },
+    { id: "fr-v-a2-092", level: "A2", word: "je préfère", translation: "I prefer", category: "social interactions", example: { native: "Je préfère le thé au café.", translation: "I prefer tea to coffee." } },
+    { id: "fr-v-a2-093", level: "A2", word: "je suis d'accord", translation: "I agree", category: "social interactions", example: { native: "Je suis d'accord avec toi.", translation: "I agree with you." } },
+    { id: "fr-v-a2-094", level: "A2", word: "je ne suis pas d'accord", translation: "I disagree", category: "social interactions", example: { native: "Désolé, je ne suis pas d'accord.", translation: "Sorry, I disagree." } },
+    { id: "fr-v-a2-095", level: "A2", word: "je trouve que", translation: "I think that / I find that", category: "social interactions", example: { native: "Je trouve que cette idée est bonne.", translation: "I think this idea is good." } },
+
+    // ── Unit 7: Personal Messages & Social Language ───────────────────────────
+    { id: "fr-v-a2-096", level: "A2", word: "cher / chère", translation: "dear (in letters)", category: "social interactions", example: { native: "Chère Sophie, comment tu vas ?", translation: "Dear Sophie, how are you?" } },
+    { id: "fr-v-a2-097", level: "A2", word: "je t'embrasse", translation: "hugs / love (letter closing)", category: "social interactions", example: { native: "À bientôt ! Je t'embrasse.", translation: "See you soon! Hugs." } },
+    { id: "fr-v-a2-098", level: "A2", word: "tu me manques", translation: "I miss you", category: "emotions", example: { native: "Tu me manques beaucoup depuis ton départ.", translation: "I've missed you a lot since you left." } },
+    { id: "fr-v-a2-099", level: "A2", word: "félicitations", translation: "congratulations", category: "social interactions", example: { native: "Félicitations pour ton mariage !", translation: "Congratulations on your wedding!" } },
+    { id: "fr-v-a2-100", level: "A2", word: "bon anniversaire", translation: "happy birthday", category: "social interactions", example: { native: "Bon anniversaire ! Je t'envoie mes meilleurs vœux.", translation: "Happy birthday! I'm sending you my best wishes." } },
+    { id: "fr-v-a2-101", level: "A2", word: "désolé(e)", translation: "sorry / I'm sorry", category: "social interactions", example: { native: "Je suis vraiment désolée d'être en retard.", translation: "I'm really sorry for being late." } },
+    { id: "fr-v-a2-102", level: "A2", word: "avec plaisir", translation: "with pleasure / gladly", category: "social interactions", example: { native: "— Tu peux m'aider ? — Avec plaisir !", translation: "— Can you help me? — Gladly!" } },
+    { id: "fr-v-a2-103", level: "A2", word: "à bientôt", translation: "see you soon", category: "social interactions", example: { native: "C'était super de te voir. À bientôt !", translation: "It was great to see you. See you soon!" } },
+
+    // ── Gap Fix: narrative connectors (Unit 8) ────────────────────────────────
+    { id: "fr-v-a2-104", level: "A2", word: "soudain / tout à coup", translation: "suddenly", category: "time expressions", example: { native: "Tout à coup, il a commencé à pleuvoir.", translation: "Suddenly, it started to rain." } },
+    { id: "fr-v-a2-105", level: "A2", word: "pendant que", translation: "while / during", category: "time expressions", example: { native: "Pendant qu'elle lisait, il cuisinait.", translation: "While she was reading, he was cooking." } },
+    { id: "fr-v-a2-106", level: "A2", word: "ensuite", translation: "then / next", category: "time expressions", example: { native: "J'ai mangé, ensuite je suis sorti.", translation: "I ate, then I went out." } },
+    { id: "fr-v-a2-107", level: "A2", word: "finalement", translation: "finally / eventually", category: "time expressions", example: { native: "Finalement, nous avons trouvé un taxi.", translation: "Finally, we found a taxi." } },
 ]
 
 // Re-export under legacy name so existing imports keep working

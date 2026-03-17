@@ -690,3 +690,150 @@ Goal: three non-breaking UX improvements + version bump.
 
 ### Version bump
 - `package.json` — `"version": "2.0.0"` → `"2.1.0"`
+
+---
+
+## 35 — Package wiring: @myorg/quiz-engine, @myorg/tts, @myorg/srs
+
+**Commit:** `b5c9d54`
+
+Wired three new monorepo packages into the language-study app so shared logic lives in publishable packages rather than app source.
+
+### Packages added
+- **`@myorg/quiz-engine`** (`../packages/quiz-engine/src`) — `useDrill` hook and `DrillDoneScreen` component moved here
+- **`@myorg/tts`** (`../packages/tts/src`) — TTS engine and `SpeakButton` component
+- **`@myorg/srs`** (`../packages/srs/src`) — SM-2 spaced-repetition algorithm
+
+### Files modified
+- **`vite.config.ts`** — added three `resolve.alias` entries pointing to each package's `src/` directory
+- **`tsconfig.json`** — added matching `paths` entries so TypeScript resolves the same aliases
+- **`src/hooks/useDrill.ts`** — replaced with a 3-line re-export from `@myorg/quiz-engine`
+- **`src/utils/tts.ts`** — delegates core engine to `@myorg/tts` while keeping the app-specific `TTS_LANG_MAP`
+
+### Infrastructure note
+TypeScript resolution required a symlink: `packages/node_modules → language-study/node_modules`. Without it, `@myorg/quiz-engine`'s `react` import couldn't resolve because module resolution walks up from the package source directory, not from the app root.
+
+---
+
+## 36 — A1 content expansion (all 5 languages)
+
+**Commit:** `a4ac8bc`
+
+Expanded A1 content across every language to give learners a fuller foundation before advancing to A2.
+
+### Content added per language (total across all 5)
+- **Grammar:** 10 new lessons (2 per language) — e.g., reflexive verbs (ES), adjective agreement (FR/IT), particles は/が distinction (JA), subject markers 은/는/이/가 (KO)
+- **Verbs:** 30 new A1 verbs (6 per language) — high-frequency verbs covering daily actions
+- **Vocab:** Additional sets for FR, IT, JA — home objects, food/drink, daily routine
+- **Units:** New "Likes & Dislikes" units for FR, IT, JA with fully wired lesson references; all 5 languages had unit lesson arrays audited and corrected
+
+### Files modified
+- `src/data/spanish/grammar/a1.ts`, `verbs/a1.ts`
+- `src/data/french/grammar/a1.ts`, `verbs/a1.ts`, `vocab/a1.ts`, `units/a1.ts`
+- `src/data/italian/grammar/a1.ts`, `verbs/a1.ts`, `vocab/a1.ts`, `units/a1.ts`
+- `src/data/japanese/grammar/a1.ts`, `verbs/a1.ts`, `vocab/a1.ts`, `units/a1.ts`
+- `src/data/korean/grammar/a1.ts`, `verbs/a1.ts`, `units/a1.ts`
+
+---
+
+## 37 — Progress export and device-only storage warning
+
+**Commit:** `2201d53`
+
+Added a JSON backup export feature and a clear storage warning to the Profile page.
+
+### Export function (`src/pages/ProfilePage.tsx`)
+```ts
+function exportProgress(): void {
+    const data = {
+        exportedAt: new Date().toISOString(),
+        appVersion: "2.2.0",
+        progress: JSON.parse(localStorage.getItem("ls:progress") ?? "{}"),
+        srs:      JSON.parse(localStorage.getItem("ls:srs")      ?? "{}"),
+        stats:    JSON.parse(localStorage.getItem("ls:stats")    ?? "{}"),
+    }
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" })
+    const url  = URL.createObjectURL(blob)
+    const a    = document.createElement("a")
+    a.href = url
+    a.download = `language-study-backup-${new Date().toISOString().slice(0, 10)}.json`
+    a.click()
+    URL.revokeObjectURL(url)
+}
+```
+
+### UI additions
+- **Amber warning banner** — explains that progress is stored only on this device and is not backed up to a server
+- **"Export progress (JSON)" button** — triggers the download; placed in a new "Data & backup" section between the language cards and the Account section
+- **Module pre-fetch** — `ProfilePage` now calls `loadModule()` for every started language so progress percentages render immediately on load
+
+---
+
+## 38 — Lazy-load language data chunks
+
+**Commit:** `a888814`
+
+Reduced the initial bundle from ~2.27 MB (single chunk) to ~334 KB by switching from static to dynamic language imports.
+
+### Problem
+`src/data/modules.ts` previously imported all five language index files statically at the top level. Vite bundled every language's grammar, vocab, verbs, units, reading, listening, and culture data into the main chunk — 2.27 MB before gzip, triggering Vite's chunk-size warning.
+
+### Solution
+
+**`src/data/modules.ts` — rewritten:**
+```ts
+const loaders: Record<string, () => Promise<{ default: unknown }>> = {
+    es: () => import("./spanish"),
+    fr: () => import("./french"),
+    it: () => import("./italian"),
+    ja: () => import("./japanese"),
+    ko: () => import("./korean"),
+}
+const cache: Record<string, LanguageModule> = {}
+
+export function getModule(langId: string): LanguageModule | null {
+    return cache[langId] ?? null  // sync, used by all pages
+}
+
+export async function loadModule(langId: string): Promise<void> {
+    if (cache[langId] || !loaders[langId]) return
+    const m = await loaders[langId]()
+    cache[langId] = norm(m.default)
+}
+```
+
+**`src/App.tsx` — `LanguageLoader` layout component:**
+
+All `/learn/:langId/*` routes are nested under a single `<ProtectedRoute><LanguageLoader /></ProtectedRoute>`. `LanguageLoader` calls `loadModule(langId)` and shows a spinner until the chunk resolves, then renders `<Outlet />`. This guarantees that `getModule()` never returns `null` for the active language inside any child route.
+
+**Pre-fetch in navigation paths:**
+- `src/pages/LanguageSelectPage.tsx` — calls `loadModule(langId)` immediately on language pick, before `navigate()`, so the chunk starts loading during the navigation transition
+- `src/pages/HomePage.tsx` — calls `loadModule(selectedLangId)` in a `useEffect` and stores the result in component state so the home page stats render correctly
+- `src/pages/ProfilePage.tsx` — calls `Promise.all(startedIds.map(loadModule))` on mount so progress percentages for all languages render without a manual refresh
+
+### Result
+| Chunk | Size | Gzipped |
+|-------|------|---------|
+| Main bundle | 334 KB | 93 KB |
+| Spanish (`es`) | ~390 KB | ~115 KB |
+| French (`fr`) | ~390 KB | ~118 KB |
+| Italian (`it`) | ~388 KB | ~116 KB |
+| Japanese (`ja`) | ~395 KB | ~146 KB |
+| Korean (`ko`) | ~392 KB | ~138 KB |
+
+No Vite chunk-size warnings. Only the active language's chunk loads at runtime.
+
+---
+
+## 39 — Netlify SPA redirect rule
+
+**Commit:** `94c3298`
+
+Added `public/_redirects` so Netlify serves `index.html` for all routes, enabling client-side navigation on hard refresh or direct URL access.
+
+### File created: `public/_redirects`
+```
+/* /index.html 200
+```
+
+Vite copies everything in `public/` into `dist/` at build time. When the user uploads the `dist/` folder to Netlify, the `_redirects` file is included automatically — no additional Netlify dashboard configuration required.

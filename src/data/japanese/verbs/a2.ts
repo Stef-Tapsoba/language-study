@@ -116,5 +116,68 @@ export const a2Verbs: Verb[] = [
                 ]
             }
         ]
-    }
+    },
+    {
+        id: "ja-vb-a2-5",
+        level: "A2",
+        infinitive: "あげる",
+        meaning: "to give (away from speaker)",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "plain", form: "あげる" },
+                    { pronoun: "polite", form: "あげます" },
+                    { pronoun: "negative polite", form: "あげません" },
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "plain past", form: "あげた" },
+                    { pronoun: "polite past", form: "あげました" },
+                    { pronoun: "negative past", form: "あげませんでした" },
+                ]
+            },
+            {
+                tense: "て-form",
+                forms: [
+                    { pronoun: "て-form", form: "あげて" },
+                    { pronoun: "progressive", form: "あげています" },
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a2-6",
+        level: "A2",
+        infinitive: "待つ",
+        meaning: "to wait",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "polite", form: "待ちます" },
+                    { pronoun: "negative polite", form: "待ちません" },
+                    { pronoun: "plain", form: "待つ" },
+                ]
+            },
+            {
+                tense: "て-form & Requests",
+                forms: [
+                    { pronoun: "て-form", form: "待って" },
+                    { pronoun: "〜てください", form: "待ってください" },
+                    { pronoun: "〜てくれませんか", form: "待ってくれませんか？" },
+                    { pronoun: "〜ていただけませんか", form: "待っていただけませんか？" },
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "polite past", form: "待ちました" },
+                    { pronoun: "negative past", form: "待ちませんでした" },
+                ]
+            }
+        ]
+    },
 ]

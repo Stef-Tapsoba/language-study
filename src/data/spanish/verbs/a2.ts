@@ -185,7 +185,67 @@ export const esVerbsA2: Verb[] = [
                 ]
             }
         ]
-    }
+    },
+    {
+        id: "es-vb-a2-7",
+        level: "A2",
+        infinitive: "hablar",
+        meaning: "to speak / to talk",
+        conjugations: [
+            {
+                tense: "Imperfecto",
+                forms: [
+                    { pronoun: "yo", form: "hablaba" },
+                    { pronoun: "tú", form: "hablabas" },
+                    { pronoun: "él/ella", form: "hablaba" },
+                    { pronoun: "nosotros", form: "hablábamos" },
+                    { pronoun: "vosotros", form: "hablabais" },
+                    { pronoun: "ellos/ellas", form: "hablaban" },
+                ]
+            },
+            {
+                tense: "Pretérito Indefinido",
+                forms: [
+                    { pronoun: "yo", form: "hablé" },
+                    { pronoun: "tú", form: "hablaste" },
+                    { pronoun: "él/ella", form: "habló" },
+                    { pronoun: "nosotros", form: "hablamos" },
+                    { pronoun: "vosotros", form: "hablasteis" },
+                    { pronoun: "ellos/ellas", form: "hablaron" },
+                ]
+            }
+        ]
+    },
+    {
+        id: "es-vb-a2-8",
+        level: "A2",
+        infinitive: "poder",
+        meaning: "to be able to / can",
+        conjugations: [
+            {
+                tense: "Present",
+                forms: [
+                    { pronoun: "yo", form: "puedo" },
+                    { pronoun: "tú", form: "puedes" },
+                    { pronoun: "él/ella", form: "puede" },
+                    { pronoun: "nosotros", form: "podemos" },
+                    { pronoun: "vosotros", form: "podéis" },
+                    { pronoun: "ellos/ellas", form: "pueden" },
+                ]
+            },
+            {
+                tense: "Pretérito Indefinido",
+                forms: [
+                    { pronoun: "yo", form: "pude" },
+                    { pronoun: "tú", form: "pudiste" },
+                    { pronoun: "él/ella", form: "pudo" },
+                    { pronoun: "nosotros", form: "pudimos" },
+                    { pronoun: "vosotros", form: "pudisteis" },
+                    { pronoun: "ellos/ellas", form: "pudieron" },
+                ]
+            }
+        ]
+    },
 ]
 
 // Alias for backward compatibility with index.ts assembler

@@ -116,7 +116,71 @@ export const esGrammarA2: GrammarLesson[] = [
             { native: "Aquella montaña es muy alta.", translation: "That mountain over there is very tall." },
             { native: "¿Cuánto cuesta ese bolso?", translation: "How much does that bag cost?" }
         ]
-    }
+    },
+    {
+        id: "es-g-a2-8",
+        level: "A2",
+        title: "Imperfect Tense (Imperfecto)",
+        explanation: {
+            native: "The imperfecto describes habitual or repeated past actions, ongoing background states, and descriptions of how things 'used to be'. Regular -ar verbs add -aba, -abas, -aba, -ábamos, -abais, -aban. Regular -er/-ir verbs add -ía, -ías, -ía, -íamos, -íais, -ían. Only three verbs are irregular: ser (era...), ir (iba...), ver (veía...). Use imperfecto for background/states; use preterite for completed events.",
+            target: "El imperfecto describe acciones pasadas habituales o repetidas, estados de fondo continuos y descripciones de cómo eran las cosas. Los verbos regulares en -ar toman -aba, -abas, -aba, -ábamos, -abais, -aban. Los verbos regulares en -er/-ir toman -ía, -ías, -ía, -íamos, -íais, -ían. Solo tres verbos son irregulares: ser (era...), ir (iba...), ver (veía...). Usa el imperfecto para el fondo/estados; usa el pretérito para eventos completados."
+        },
+        examples: [
+            { native: "Cuando era niño, jugaba al fútbol todos los días.", translation: "When I was a child, I used to play football every day." },
+            { native: "Vivíamos en Madrid cuando nació mi hermana.", translation: "We were living in Madrid when my sister was born." },
+            { native: "Hacía mucho frío aquella mañana.", translation: "It was very cold that morning." },
+            { native: "Antes, yo trabajaba en un banco.", translation: "I used to work in a bank." },
+            { native: "¿Qué hacías cuando te llamé?", translation: "What were you doing when I called you?" },
+        ]
+    },
+    {
+        id: "es-g-a2-9",
+        level: "A2",
+        title: "Modal Verbs: poder, querer, deber",
+        explanation: {
+            native: "The three core modal verbs are: poder (to be able to / can), querer (to want), deber (must / should / to have to). All three are stem-changing in the present tense and are followed by an infinitive. Poder: puedo, puedes, puede, podemos, podéis, pueden. Querer: quiero, quieres, quiere, queremos, queréis, quieren. Deber: debo, debes, debe, debemos, debéis, deben (regular).",
+            target: "Los tres verbos modales principales son: poder (can/ser capaz de), querer (want/querer), deber (must/tener que). Los tres son verbos de cambio radical en el presente y van seguidos de infinitivo. Poder: puedo, puedes, puede, podemos, podéis, pueden. Querer: quiero, quieres, quiere, queremos, queréis, quieren. Deber: debo, debes, debe, debemos, debéis, deben (regular)."
+        },
+        examples: [
+            { native: "¿Puedes repetir eso, por favor?", translation: "Can you repeat that, please?" },
+            { native: "Quiero aprender español bien.", translation: "I want to learn Spanish well." },
+            { native: "Debemos llegar antes de las ocho.", translation: "We must arrive before eight." },
+            { native: "No puedo dormir.", translation: "I can't sleep." },
+            { native: "¿Qué quieres comer esta noche?", translation: "What do you want to eat tonight?" },
+        ]
+    },
+    {
+        id: "es-g-a2-10",
+        level: "A2",
+        title: "Near Future: ir + a + Infinitive",
+        explanation: {
+            native: "The most common way to express future plans and intentions in Spanish is the perifrase ir + a + infinitive — equivalent to 'going to' in English. Use the present tense of ir followed by a and then the infinitive. It is used more than the simple future tense in everyday speech. To make it negative, place no before the conjugated form of ir.",
+            target: "La forma más común de expresar planes e intenciones de futuro en español es la perífrasis ir + a + infinitivo — equivalente al 'going to' inglés. Se usa el presente de ir seguido de a y el infinitivo. Es más frecuente que el futuro simple en el habla cotidiana. Para negarlo, se coloca no antes de la forma conjugada de ir."
+        },
+        examples: [
+            { native: "Voy a estudiar esta tarde.", translation: "I'm going to study this afternoon." },
+            { native: "¿Vas a venir a la fiesta?", translation: "Are you going to come to the party?" },
+            { native: "No vamos a llegar a tiempo.", translation: "We're not going to arrive on time." },
+            { native: "Ella va a empezar un nuevo trabajo la semana que viene.", translation: "She's going to start a new job next week." },
+            { native: "¿Qué van a hacer este fin de semana?", translation: "What are they going to do this weekend?" },
+        ]
+    },
+    {
+        id: "es-g-a2-11",
+        level: "A2",
+        title: "Relative Clauses: que and quien",
+        explanation: {
+            native: "Relative clauses add information about a noun. Que is the most common relative pronoun and is used for both people and things. Quien(es) is used only for people, typically after a preposition (la persona con quien hablé). Unlike English, que cannot be omitted in Spanish. No comma before que when the clause is essential to the meaning (defining clause).",
+            target: "Las oraciones de relativo añaden información sobre un nombre. Que es el pronombre relativo más común y se usa tanto para personas como para cosas. Quien(es) se usa solo para personas, generalmente tras una preposición (la persona con quien hablé). A diferencia del inglés, que no puede omitirse en español. No se pone coma antes de que cuando la oración es esencial para el significado (oración especificativa)."
+        },
+        examples: [
+            { native: "El libro que compré es muy interesante.", translation: "The book (that) I bought is very interesting." },
+            { native: "La chica que vive al lado es simpática.", translation: "The girl who lives next door is nice." },
+            { native: "El amigo con quien viajé se llama Carlos.", translation: "The friend with whom I travelled is called Carlos." },
+            { native: "¿Conoces al médico que me atendió?", translation: "Do you know the doctor who treated me?" },
+            { native: "Eso es todo lo que sé.", translation: "That's all (that) I know." },
+        ]
+    },
 ]
 
 // Alias for backward compatibility with index.ts assembler

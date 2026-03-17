@@ -57,5 +57,35 @@ export const a2Verbs: Verb[] = [
                 ]
             }
         ]
-    }
+    },
+    {
+        id: "it-vb-a2-4",
+        level: "A2",
+        infinitive: "potere",
+        meaning: "to be able to / can",
+        conjugations: [
+            {
+                tense: "Present",
+                forms: [
+                    { pronoun: "io", form: "posso" },
+                    { pronoun: "tu", form: "puoi" },
+                    { pronoun: "lui/lei", form: "può" },
+                    { pronoun: "noi", form: "possiamo" },
+                    { pronoun: "voi", form: "potete" },
+                    { pronoun: "loro", form: "possono" },
+                ]
+            },
+            {
+                tense: "Passato Prossimo",
+                forms: [
+                    { pronoun: "io", form: "ho potuto" },
+                    { pronoun: "tu", form: "hai potuto" },
+                    { pronoun: "lui/lei", form: "ha potuto" },
+                    { pronoun: "noi", form: "abbiamo potuto" },
+                    { pronoun: "voi", form: "avete potuto" },
+                    { pronoun: "loro", form: "hanno potuto" },
+                ]
+            }
+        ]
+    },
 ]

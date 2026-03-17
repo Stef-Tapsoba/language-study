@@ -1,5 +1,7 @@
 import { GrammarLesson } from "../../../types"
 
+// A2 grammar — full set. Lessons 1–5 unchanged. Lessons 6–9 added.
+
 export const a2Grammar: GrammarLesson[] = [
     {
         id: "fr-g-a2-1",
@@ -78,6 +80,89 @@ export const a2Grammar: GrammarLesson[] = [
             { native: "Paris est plus grand que Lyon.", translation: "Paris is bigger than Lyon." },
             { native: "Elle est aussi intelligente que lui.", translation: "She is as intelligent as him." },
             { native: "C'est le plus beau quartier de la ville.", translation: "It's the most beautiful neighbourhood in the city." },
+        ]
+    },
+
+    // ── NEW LESSONS ───────────────────────────────────────────────────────────
+
+    {
+        id: "fr-g-a2-6",
+        level: "A2",
+        title: "Modal Verbs: pouvoir, vouloir, devoir",
+        explanation: {
+            native: "The three essential modal verbs are: pouvoir (can / to be able to), vouloir (to want), devoir (must / to have to). All three are irregular in the present tense and are followed by an infinitive. They are used constantly in everyday situations — asking permission, expressing wishes, and stating obligations. Pouvoir: peux, peux, peut, pouvons, pouvez, peuvent. Vouloir: veux, veux, veut, voulons, voulez, veulent. Devoir: dois, dois, doit, devons, devez, doivent.",
+            target: "Les trois verbes modaux essentiels sont : pouvoir (can/être capable de), vouloir (want), devoir (must/avoir à). Tous les trois sont irréguliers au présent et sont suivis d'un infinitif. Ils sont utilisés en permanence dans les situations quotidiennes — pour demander la permission, exprimer des désirs et indiquer des obligations. Pouvoir : peux, peux, peut, pouvons, pouvez, peuvent. Vouloir : veux, veux, veut, voulons, voulez, veulent. Devoir : dois, dois, doit, devons, devez, doivent."
+        },
+        examples: [
+            { native: "Je peux t'aider.", translation: "I can help you." },
+            { native: "Est-ce que tu veux du café ?", translation: "Do you want some coffee?" },
+            { native: "Il doit partir à six heures.", translation: "He has to leave at six." },
+            { native: "Vous pouvez entrer.", translation: "You may come in." },
+            { native: "Nous devons finir avant demain.", translation: "We must finish before tomorrow." },
+        ]
+    },
+    {
+        id: "fr-g-a2-7",
+        level: "A2",
+        title: "Futur Proche (Near Future)",
+        explanation: {
+            native: "The futur proche expresses plans, intentions, and predictions about the near future. It is formed with aller (present tense) + infinitive. It is much more common in spoken French than the future simple. To make it negative, put ne...pas around aller: Je ne vais pas sortir ce soir.",
+            target: "Le futur proche exprime des projets, des intentions et des prédictions sur l'avenir proche. Il se forme avec aller (au présent) + infinitif. Il est bien plus courant à l'oral que le futur simple. Pour le mettre à la forme négative, on encadre aller avec ne...pas : Je ne vais pas sortir ce soir."
+        },
+        examples: [
+            { native: "Je vais appeler ma mère ce soir.", translation: "I'm going to call my mother tonight." },
+            { native: "Ils vont voyager en Espagne l'été prochain.", translation: "They're going to travel to Spain next summer." },
+            { native: "Tu vas finir tes devoirs ?", translation: "Are you going to finish your homework?" },
+            { native: "Elle ne va pas venir à la fête.", translation: "She's not going to come to the party." },
+            { native: "Nous allons manger au restaurant demain.", translation: "We're going to eat at the restaurant tomorrow." },
+        ]
+    },
+    {
+        id: "fr-g-a2-8",
+        level: "A2",
+        title: "Relative Clauses: qui and que",
+        explanation: {
+            native: "Relative clauses connect two ideas about the same noun. Qui replaces the subject of the relative clause (the thing or person doing the action). Que replaces the direct object (the thing or person receiving the action). A simple test: if a subject follows, use qui; if a subject is already present, use que. Que contracts to qu' before a vowel.",
+            target: "Les propositions relatives relient deux idées sur le même nom. Qui remplace le sujet de la proposition relative (la chose ou la personne qui fait l'action). Que remplace l'objet direct (la chose ou la personne qui reçoit l'action). Test simple : si un sujet suit, utilisez qui ; si un sujet est déjà présent, utilisez que. Que se contracte en qu' devant une voyelle."
+        },
+        examples: [
+            { native: "La fille qui parle est ma sœur.", translation: "The girl who is speaking is my sister. (qui = subject)" },
+            { native: "Le livre que tu lis est très bon.", translation: "The book (that) you are reading is very good. (que = object)" },
+            { native: "J'ai un ami qui habite à Lyon.", translation: "I have a friend who lives in Lyon." },
+            { native: "C'est le film qu'on a vu hier.", translation: "It's the film (that) we saw yesterday." },
+            { native: "La personne que j'aime le plus, c'est ma mère.", translation: "The person I love the most is my mother." },
+        ]
+    },
+    {
+        id: "fr-g-a2-9",
+        level: "A2",
+        title: "Demonstrative Adjectives: ce, cet, cette, ces",
+        explanation: {
+            native: "Demonstrative adjectives mean 'this', 'that', 'these', or 'those' — they point to specific nouns. Use ce before masculine singular nouns starting with a consonant, cet before masculine singular nouns starting with a vowel or silent h, cette before all feminine singular nouns, and ces before all plural nouns (both genders).",
+            target: "Les adjectifs démonstratifs signifient 'this', 'that', 'these' ou 'those' — ils désignent des noms spécifiques. On utilise ce devant les noms masculins singuliers commençant par une consonne, cet devant les noms masculins singuliers commençant par une voyelle ou un h muet, cette devant tous les noms féminins singuliers, et ces devant tous les noms pluriels (les deux genres)."
+        },
+        examples: [
+            { native: "Ce garçon est très sympa.", translation: "This boy is very nice. (masc. consonant)" },
+            { native: "Cet homme parle français.", translation: "This man speaks French. (masc. vowel)" },
+            { native: "Cette idée est brillante.", translation: "This idea is brilliant. (feminine)" },
+            { native: "Ces photos sont magnifiques.", translation: "These photos are magnificent. (plural)" },
+            { native: "Je n'aime pas ce quartier.", translation: "I don't like this neighbourhood." },
+        ]
+    },
+    {
+        id: "fr-g-a2-10",
+        level: "A2",
+        title: "Reflexive Verbs & Passé Composé with Être",
+        explanation: {
+            native: "Reflexive verbs describe actions done to oneself (se lever, se laver, s'habiller). In the present tense, the reflexive pronoun (me, te, se, nous, vous, se) goes before the verb and matches the subject. In the passé composé, reflexive verbs ALWAYS use être as the auxiliary — never avoir. The past participle must agree in gender and number with the subject. Negative: ne goes before the reflexive pronoun, pas after the verb (Je ne me suis pas levé). Key reflexive verbs at A2: se lever, se coucher, se laver, se brosser les dents, s'habiller, se réveiller, se souvenir.",
+            target: "Les verbes pronominaux décrivent des actions que l'on fait sur soi-même (se lever, se laver, s'habiller). Au présent, le pronom réfléchi (me, te, se, nous, vous, se) se place avant le verbe et s'accorde avec le sujet. Au passé composé, les verbes pronominaux utilisent TOUJOURS être comme auxiliaire — jamais avoir. Le participe passé s'accorde en genre et en nombre avec le sujet. Négatif : ne se place avant le pronom réfléchi, pas après le verbe (Je ne me suis pas levé). Verbes pronominaux clés à l'A2 : se lever, se coucher, se laver, se brosser les dents, s'habiller, se réveiller, se souvenir."
+        },
+        examples: [
+            { native: "Je me lève à sept heures.", translation: "I get up at seven. (present)" },
+            { native: "Elle s'est levée tard ce matin.", translation: "She got up late this morning. (passé composé, feminine agreement)" },
+            { native: "Nous nous sommes couchés tôt.", translation: "We went to bed early. (passé composé, plural agreement)" },
+            { native: "Il ne s'est pas rasé aujourd'hui.", translation: "He didn't shave today. (negative passé composé)" },
+            { native: "À quelle heure tu t'es réveillé(e) ?", translation: "What time did you wake up?" },
         ]
     },
 ]

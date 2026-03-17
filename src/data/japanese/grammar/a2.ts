@@ -64,5 +64,69 @@ export const a2Grammar: GrammarLesson[] = [
             { native: "この映画を見たことがあります。", romanized: "Kono eiga wo mita koto ga arimasu.", translation: "I have seen this movie before." },
             { native: "スカイダイビングをしたことがありません。", romanized: "Sukaidaibingu wo shita koto ga arimasen.", translation: "I have never gone skydiving." }
         ]
-    }
+    },
+    {
+        id: "ja-g-a2-5",
+        level: "A2",
+        title: "〜てもいいです / 〜てはいけません: Permission & Prohibition",
+        explanation: {
+            native: "To ask for permission, use: て-form + もいいですか？ (Is it okay to...?). To grant permission, say: て-form + もいいです (You may...). To express prohibition, use: て-form + はいけません (You must not...). The polite negative of permission is: て-form + はいけません or てはだめです (slightly less formal). These patterns are essential for everyday situations — shops, offices, public spaces, and social settings.",
+            target: "きょかを もとめるときは「てけい＋もいいですか？」を つかいます（〜してもいいですか？）。きょかを あたえるときは「てけい＋もいいです」。きんしを あらわすときは「てけい＋はいけません」（〜してはいけません）。ていねいな ひていは「てはいけません」または「てはだめです」（すこし カジュアル）。これらの ひょうげんは みせ・オフィス・こうきょう・しゃかいてきな ばめんで ひつようです。"
+        },
+        examples: [
+            { native: "ここで写真を撮ってもいいですか？", romanized: "Koko de shashin wo totte mo ii desu ka?", translation: "May I take photos here?" },
+            { native: "はい、撮ってもいいですよ。", romanized: "Hai, totte mo ii desu yo.", translation: "Yes, you may take photos." },
+            { native: "ここでタバコを吸ってはいけません。", romanized: "Koko de tabako wo sutte wa ikemasen.", translation: "You must not smoke here." },
+            { native: "この部屋に入ってもいいですか？", romanized: "Kono heya ni haitte mo ii desu ka?", translation: "May I enter this room?" },
+            { native: "授業中に電話を使ってはいけません。", romanized: "Jugyouchuu ni denwa wo tsukatte wa ikemasen.", translation: "You must not use your phone during class." },
+        ]
+    },
+    {
+        id: "ja-g-a2-6",
+        level: "A2",
+        title: "Giving & Receiving: あげる・もらう・くれる",
+        explanation: {
+            native: "Japanese has three distinct verbs for giving and receiving, chosen based on the direction of the action relative to the speaker. あげる: the speaker (or someone) gives to someone else (away from the speaker). もらう: the speaker (or someone) receives from someone else. くれる: someone gives to the speaker or the speaker's in-group. The key distinction is the speaker's perspective — くれる always involves the speaker as the recipient. Use に to mark the receiver with あげる and くれる; use に or から to mark the giver with もらう.",
+            target: "にほんごには あげる・もらう・くれる という さんつの どうしが あり、はなしてとの かんけいによって つかいわけます。あげる：はなして（または だれか）が たにんに あたえる（はなしてから はなれる）。もらう：はなして（または だれか）が たにんから うけとる。くれる：だれかが はなして または はなしての グループに あたえる。おもな ちがいは はなしての かんてん — くれるは かならず はなしてが うけとる。あげる・くれるの うけとる ひとには に、もらうの あたえる ひとには に または から を つかいます。"
+        },
+        examples: [
+            { native: "友達にプレゼントをあげました。", romanized: "Tomodachi ni purezento wo agemashita.", translation: "I gave a present to my friend. (I → friend)" },
+            { native: "母からお金をもらいました。", romanized: "Haha kara okane wo moraimashita.", translation: "I received money from my mother. (mother → me)" },
+            { native: "田中さんが私に本をくれました。", romanized: "Tanaka-san ga watashi ni hon wo kuremashita.", translation: "Tanaka-san gave me a book. (someone → me)" },
+            { native: "誰にあげましたか？", romanized: "Dare ni agemashita ka?", translation: "Who did you give it to?" },
+            { native: "先生に花をもらいました。", romanized: "Sensei ni hana wo moraimashita.", translation: "I received flowers from my teacher." },
+        ]
+    },
+    {
+        id: "ja-g-a2-7",
+        level: "A2",
+        title: "〜と思います / 〜のほうが好きです: Opinions & Preferences",
+        explanation: {
+            native: "To express a personal opinion, use: plain form verb/adjective + と思います (I think that...). The plain form is used inside the clause before と, not the polite ます/です form. To express a preference between two things, use: A より B のほうが好きです (I like B better than A). The particle より marks the thing being compared against. To ask for a preference: どちらのほうが好きですか？ (Which do you prefer?)",
+            target: "いけんを あらわすときは「ふつうけい＋とおもいます」を つかいます（〜だとおもいます）。とのまえは ていねいけい（ます・です）でなく、ふつうけい（じしょけい・たけい・ないけい）を つかいます。ふたつの ものを くらべて すきなほうを いうときは「Aより Bのほうが すきです」。よりは くらべる たいしょうに つきます。どちらのほうが すきですか？＝which do you prefer?"
+        },
+        examples: [
+            { native: "このレストランはおいしいと思います。", romanized: "Kono resutoran wa oishii to omoimasu.", translation: "I think this restaurant is delicious." },
+            { native: "明日は雨が降ると思います。", romanized: "Ashita wa ame ga furu to omoimasu.", translation: "I think it will rain tomorrow." },
+            { native: "犬より猫のほうが好きです。", romanized: "Inu yori neko no hou ga suki desu.", translation: "I like cats better than dogs." },
+            { native: "夏より冬のほうが好きです。", romanized: "Natsu yori fuyu no hou ga suki desu.", translation: "I prefer winter to summer." },
+            { native: "どちらのほうが好きですか？", romanized: "Dochira no hou ga suki desu ka?", translation: "Which do you prefer?" },
+        ]
+    },
+    {
+        id: "ja-g-a2-8",
+        level: "A2",
+        title: "Polite Requests: 〜てください / 〜てくれませんか / 〜ていただけませんか",
+        explanation: {
+            native: "Japanese has a graduated system for making requests, from direct to very polite. て-form + ください is the standard polite request ('please do ~'). て-form + くれませんか is softer — a question asking if someone would do something for you ('would you ~?'). て-form + いただけませんか is the most polite form, used with strangers, superiors, or in formal situations ('would you be so kind as to ~?'). The negative request (please don't) uses: ないで + ください. Choosing the right level matters — ください with a superior can sound abrupt; いただけませんか with a close friend sounds strange.",
+            target: "にほんごには ていねいさの ちがう たのみかたが あります。てけい＋ください：ていねいな たのみ（〜してください）。てけい＋くれませんか：もっと やわらかい たのみかた、「〜してくれませんか？」。てけい＋いただけませんか：もっとも ていねいな かたち、めうえの ひとや はじめての ひとに つかいます。ひていの たのみ（〜しないで）：ないけい＋ください。えらびかたが たいせつです — てうえの ひとに ただ ください だと ぶっきらぼうに きこえることも あります。"
+        },
+        examples: [
+            { native: "もう一度言ってください。", romanized: "Mou ichido itte kudasai.", translation: "Please say it again. (standard polite request)" },
+            { native: "ちょっと待ってくれませんか？", romanized: "Chotto matte kuremasen ka?", translation: "Could you wait a moment? (softer request)" },
+            { native: "ここにサインしていただけませんか？", romanized: "Koko ni sain shite itadakemasen ka?", translation: "Would you be so kind as to sign here? (very polite — formal context)" },
+            { native: "ここで写真を撮らないでください。", romanized: "Koko de shashin wo toranai de kudasai.", translation: "Please don't take photos here. (negative request)" },
+            { native: "窓を開けてくれませんか？", romanized: "Mado wo akete kuremasen ka?", translation: "Would you open the window?" },
+        ]
+    },
 ]
