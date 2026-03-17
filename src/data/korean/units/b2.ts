@@ -242,5 +242,59 @@ export const b2Units: LessonUnit[] = [
                 answer: "Empathy"
             }
         ]
+    },
+    {
+        id: "ko-b2-u6",
+        level: "B2",
+        order: 6,
+        title: "Inevitability & Concession: ~ㄹ 수밖에 없다 / ~(으)ㄹ지라도",
+        description: "Express that something cannot be avoided using ~ㄹ 수밖에 없다, and learn the formal concessive structure ~(으)ㄹ지라도 (even if). These patterns are essential for formal argumentation and the B2 essay register.",
+        grammarIds: ["ko-g-b2-6"],
+        vocabIds: ["ko-v-b2-081", "ko-v-b2-082", "ko-v-b2-083", "ko-v-b2-084", "ko-v-b2-085"],
+        verbIds: ["ko-vb-b2-4"],
+        testQuestions: [
+            { id: "ko-b2-u6-q1", level: "B2", prompt: "What does ~ㄹ 수밖에 없다 express?", options: ["possibility", "desire", "inevitability — have no choice but to", "regret"], answer: "inevitability — have no choice but to", hint: "수밖에 없다 = literally 'there is no way other than'. Expresses inevitability or the only option available." },
+            { id: "ko-b2-u6-q2", level: "B2", prompt: "Complete: '다른 방법이 없으니까 이 방법을 사용할 ___.'", options: ["수 있어요", "수밖에 없어요", "수 없어요", "필요가 있어요"], answer: "수밖에 없어요", hint: "다른 방법이 없다 → 이 방법을 쓸 수밖에 없다 = there's no other way, so we have no choice but to use this." },
+            { id: "ko-b2-u6-q3", level: "B2", prompt: "What does ~(으)ㄹ지라도 express?", options: ["cause and result", "even if / even though (formal concessive)", "as soon as", "the more…the more"], answer: "even if / even though (formal concessive)", hint: "~(으)ㄹ지라도 = even if (formal/written). More literary than ~더라도. 어렵더라도 vs 어려울지라도." },
+            { id: "ko-b2-u6-q4", level: "B2", prompt: "Complete: '결과가 나쁠___ 최선을 다해야 합니다.'", options: ["지라도", "서", "기 때문에", "으면"], answer: "지라도", hint: "~(으)ㄹ지라도 = even if the result is bad (formal concession)." },
+            { id: "ko-b2-u6-q5", level: "B2", prompt: "What does '-(으)므로' signal and what makes it different from -아/어서?", options: ["Identical to -아/어서", "Formal written 'therefore' — used in essays and reports, not conversation", "Informal cause only", "Sequential action only"], answer: "Formal written 'therefore' — used in essays and reports, not conversation", hint: "-(으)므로 is formal written Korean. Using it in casual conversation sounds stiff — use -아/어서 or -니까 instead." },
+            { id: "ko-b2-u6-q6", level: "B2", prompt: "How do you say 'I have no choice but to accept this offer'?", options: ["이 제안을 받아야 해요.", "이 제안을 받고 싶어요.", "이 제안을 받을 수밖에 없어요.", "이 제안을 받기로 해요."], answer: "이 제안을 받을 수밖에 없어요.", hint: "수밖에 없다 = no choice but to. 받다 → 받을 수밖에 없다." },
+        ]
+    },
+    {
+        id: "ko-b2-u7",
+        level: "B2",
+        order: 7,
+        title: "Honorific Nouns & Full Honorific System",
+        description: "Complete the honorific system by mastering honorific nouns and object-level honorifics — not just sentence-final endings. Authentic B2 Korean requires consistent honorification throughout a sentence, not just at the verb.",
+        grammarIds: ["ko-g-b2-7"],
+        vocabIds: ["ko-v-b2-086", "ko-v-b2-087", "ko-v-b2-088", "ko-v-b2-089"],
+        verbIds: [],
+        testQuestions: [
+            { id: "ko-b2-u7-q1", level: "B2", prompt: "What is the honorific form of 이름 (name)?", options: ["이름님", "성함", "이름씨", "이름요"], answer: "성함", hint: "성함 is the honorific noun for 이름 (name). You ask for someone's 성함, not 이름, in polite contexts." },
+            { id: "ko-b2-u7-q2", level: "B2", prompt: "What is the honorific form of 집 (house/home)?", options: ["집님", "댁", "집요", "집선생"], answer: "댁", hint: "댁 is the honorific noun for 집. 어느 댁에서 오셨어요? = Where do you live? (formal)" },
+            { id: "ko-b2-u7-q3", level: "B2", prompt: "What is the honorific form of 나이 (age)?", options: ["나이님", "연세", "나이요", "나이분"], answer: "연세", hint: "연세 is the honorific noun for 나이 (age). 연세가 어떻게 되세요? = How old are you? (respectful)" },
+            { id: "ko-b2-u7-q4", level: "B2", prompt: "Complete correctly: '선생님, ___ 드세요.' (eat — honorific verb)", options: ["먹어요", "드시다 → 드세요", "잡수시다 → 잡수세요", "Both 드세요 and 잡수세요 are correct"], answer: "Both 드세요 and 잡수세요 are correct", hint: "Both 드시다 and 잡수시다 are honorific forms of 먹다/마시다. 드세요 is more common; 잡수세요 is slightly more formal." },
+            { id: "ko-b2-u7-q5", level: "B2", prompt: "What is the honorific form of 말 (words / speech)?", options: ["말씀", "말님", "말요", "말어"], answer: "말씀", hint: "말씀 is the honorific noun for 말. It can also be used humbly for one's own speech: 말씀 드리겠습니다 = I will speak / tell you." },
+            { id: "ko-b2-u7-q6", level: "B2", prompt: "What mistake do B2 learners commonly make with honorifics?", options: ["Using -요 endings", "Using -습니다 instead of -아요", "Correctly using the sentence-final honorific verb but forgetting to use honorific nouns and object-level forms", "Overusing 반말"], answer: "Correctly using the sentence-final honorific verb but forgetting to use honorific nouns and object-level forms", hint: "The B2 guide explicitly flags this: full honorific production requires consistency throughout the sentence — nouns, verbs, and speech level all together." },
+        ]
+    },
+    {
+        id: "ko-b2-u8",
+        level: "B2",
+        order: 8,
+        title: "Formal Written Register & Academic Discourse",
+        description: "Build the formal written Korean register needed for academic essays, business documents, and formal presentations. Master the Sino-Korean connector system, discourse markers, and the written style that diverges significantly from spoken Korean.",
+        grammarIds: ["ko-g-b2-8"],
+        vocabIds: ["ko-v-b2-090", "ko-v-b2-091", "ko-v-b2-092"],
+        verbIds: [],
+        testQuestions: [
+            { id: "ko-b2-u8-q1", level: "B2", prompt: "What does '따라서' signal in formal writing?", options: ["however / contrast", "therefore / consequently", "in addition", "for example"], answer: "therefore / consequently", hint: "따라서 = therefore / accordingly. Core formal discourse marker in essays and reports." },
+            { id: "ko-b2-u8-q2", level: "B2", prompt: "What is the formal written register called that uses -ㅂ니다/-습니다 throughout?", options: ["반말", "해요체", "합쇼체", "해체"], answer: "합쇼체", hint: "합쇼체 (-ㅂ니다/-습니다) is the formal polite register for presentations, job interviews, official settings." },
+            { id: "ko-b2-u8-q3", level: "B2", prompt: "Which is the formal Sino-Korean academic connector for 'on the other hand'?", options: ["그런데", "반면에", "그리고", "그래서"], answer: "반면에", hint: "반면에 = on the other hand / whereas. Used in formal written argumentation and academic essays." },
+            { id: "ko-b2-u8-q4", level: "B2", prompt: "What does '즉' mean in formal discourse?", options: ["therefore", "however", "in other words / that is", "in addition"], answer: "in other words / that is", hint: "즉 = namely / in other words / that is. Used to reformulate or clarify a previous statement in formal writing." },
+            { id: "ko-b2-u8-q5", level: "B2", prompt: "Which construction is the formal written equivalent of the spoken 해서 (because)?", options: ["-기 때문에 / -(으)므로", "-고", "-지만", "-아/어요"], answer: "-기 때문에 / -(으)므로", hint: "-기 때문에 and -(으)므로 are the formal written causal connectors. -(으)므로 is more formal, used in official documents and academic writing." },
+            { id: "ko-b2-u8-q6", level: "B2", prompt: "What does '나아가' mean in formal writing?", options: ["looking back / retrospectively", "furthermore / going further", "as a result", "despite this"], answer: "furthermore / going further", hint: "나아가 = furthermore / going one step further. Used to add a stronger or additional point in formal argumentation." },
+        ]
     }
 ]

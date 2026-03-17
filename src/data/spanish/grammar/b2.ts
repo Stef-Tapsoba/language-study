@@ -77,5 +77,48 @@ export const b2Grammar: GrammarLesson[] = [
             { native: "¿Qué harías si pudieras cambiar algo en tu vida?", translation: "What would you do if you could change something in your life?" },
             { native: "Si el gobierno invirtiera más en educación, los resultados mejorarían.", translation: "If the government invested more in education, results would improve." }
         ]
-    }
+    },
+    {
+        id: "es-g-b2-6",
+        level: "B2",
+        title: "Condicional Mixto & Hipótesis",
+        explanation: {
+            native: "The mixed conditional combines a past si-clause with a present-tense result: Si + pluperfect subjunctive → conditional simple. It expresses 'if X had happened, Y would be different now'. Example: Si hubiera estudiado medicina, sería médico ahora. Concessive patterns at B2: por mucho que + subjuntivo (no matter how much); a no ser que + subjuntivo (unless); con tal de que + subjuntivo (provided that). Journalistic conditional: conditional perfect to report unconfirmed information — El gobierno habría aprobado el decreto = The government is reported to have passed the decree.",
+            target: "El condicional mixto combina una prótasis en el pasado con una apódosis en el presente: Si + pluscuamperfecto de subjuntivo → condicional simple. Expresa 'si X hubiera pasado, Y sería diferente ahora'. Ejemplo: Si hubiera estudiado medicina, sería médico ahora. Patrones concesivos en B2: por mucho que + subjuntivo; a no ser que + subjuntivo; con tal de que + subjuntivo. Condicional periodístico: condicional compuesto para información no confirmada — El gobierno habría aprobado el decreto."
+        },
+        examples: [
+            { native: "Si hubiera ahorrado más de joven, tendría más seguridad económica ahora.", translation: "If I had saved more when young, I would have more financial security now." },
+            { native: "Por mucho que lo intentes, no lo convencerás.", translation: "No matter how hard you try, you won't convince him." },
+            { native: "El CEO habría presentado su dimisión ayer.", translation: "The CEO is reported to have submitted his resignation yesterday. (journalistic)" },
+        ]
+    },
+    {
+        id: "es-g-b2-7",
+        level: "B2",
+        title: "Subjuntivo en Concesión & Ser/Estar Avanzado",
+        explanation: {
+            native: "Aunque + indicativo concedes a known fact ('even though, and I know it's true'). Aunque + subjuntivo frames it as hypothetical or unknown ('even if, whether or not it's true'). Full ser/estar distinctions at B2: events use ser for time/location (la conferencia es a las tres); adjectives with ser = permanent characteristic; adjectives with estar = current state — and the meaning can change: es aburrido (he's boring) vs está aburrido (he's bored). Purpose clauses always take subjuntivo: para que, a fin de que, de modo que (when expressing purpose).",
+            target: "Aunque + indicativo concede un hecho conocido ('aunque, y sé que es verdad'). Aunque + subjuntivo lo presenta como hipotético o desconocido ('aunque, sea o no sea verdad'). Distinciones avanzadas ser/estar en B2: eventos usan ser para hora/lugar; adjetivos con ser = característica permanente; adjetivos con estar = estado actual — y el significado puede cambiar: es aburrido (es un aburrido) vs está aburrido (ahora tiene aburrimiento). Las oraciones de finalidad siempre van con subjuntivo: para que, a fin de que, de modo que."
+        },
+        examples: [
+            { native: "Aunque esté cansado, terminaré el informe. (hypothetical)", translation: "Even if I'm tired, I'll finish the report. (he may or may not be tired)" },
+            { native: "Aunque está cansado, terminará el informe. (fact)", translation: "Even though he is tired, he will finish the report. (he definitely is tired)" },
+            { native: "La reunión es en la sala de conferencias a las tres. (event → ser)", translation: "The meeting is in the conference room at three." },
+            { native: "Hablo despacio para que todos me entiendan.", translation: "I speak slowly so that everyone understands me. (para que + subjuntivo)" },
+        ]
+    },
+    {
+        id: "es-g-b2-8",
+        level: "B2",
+        title: "Registro Formal & Expresiones Idiomáticas",
+        explanation: {
+            native: "Formal written Spanish uses: dado que / habida cuenta de / en virtud de (formal 'because/given'); no obstante / sin embargo / empero (formal 'however'); por consiguiente / en consecuencia (formal 'therefore'); cabe señalar / cabe destacar (it is worth noting). Informal/colloquial register: tío/tía (dude/mate), mola (it's cool), flipar (to be amazed), pillar (to understand/get). Key B2 idioms: no hay mal que por bien no venga (every cloud has a silver lining), dar en el clavo (hit the nail on the head), estar en las nubes (to be daydreaming), no dar palo al agua (not lift a finger).",
+            target: "El español formal escrito usa: dado que / habida cuenta de / en virtud de; no obstante / sin embargo / empero; por consiguiente / en consecuencia; cabe señalar / cabe destacar. Registro informal: tío/tía, mola, flipar, pillar. Modismos B2 clave: no hay mal que por bien no venga, dar en el clavo, estar en las nubes, no dar palo al agua."
+        },
+        examples: [
+            { native: "Habida cuenta de los resultados, se impone una revisión de la estrategia.", translation: "Given the results, a review of the strategy is necessary. (formal)" },
+            { native: "No obstante las dificultades, el proyecto avanzó.", translation: "Nevertheless the difficulties, the project moved forward." },
+            { native: "Al final, no hay mal que por bien no venga — el accidente nos hizo más prudentes.", translation: "In the end, every cloud has a silver lining — the accident made us more careful." },
+        ]
+    },
 ]

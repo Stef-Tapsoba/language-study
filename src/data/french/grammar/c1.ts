@@ -77,4 +77,20 @@ export const c1Grammar: GrammarLesson[] = [
             { native: "Il n'empêche que les critiques formulées à l'encontre de ce projet méritent d'être prises au sérieux.", translation: "The fact remains that the criticisms levelled at this project deserve to be taken seriously." },
         ]
     },
+    {
+        id: "fr-g-c1-6",
+        level: "C1",
+        title: "Variation de Registre & Stylistique",
+        explanation: {
+            native: "At C1, register is not a set of rules but a creative tool. Key C1 register skills: (1) Nominalisations for formal compression — parce qu'il était absent → en raison de son absence; bien qu'il soit compétent → malgré sa compétence. (2) Impersonal constructions — il appert que (it appears that), il ressort de (it emerges from), force est de constater que (one must acknowledge that). (3) Deliberate register switch for rhetorical effect — using tu with a stranger for irony or warmth. (4) Formal alternatives to common conjunctions: parce que → car / en raison de / du fait que / vu que; mais → cependant / néanmoins / toutefois / or; donc → par conséquent / c'est pourquoi / ainsi. (5) Journalistic modulation: le conditionnel passé for unconfirmed information.",
+            target: "À C1, le registre n'est plus un ensemble de règles mais un outil créatif. Compétences stylistiques clés : (1) Nominalisations pour la compression formelle — parce qu'il était absent → en raison de son absence. (2) Constructions impersonnelles — il appert que, il ressort de, force est de constater que. (3) Changement de registre délibéré à des fins rhétoriques — tutoyer un inconnu pour l'ironie ou la complicité. (4) Alternatives formelles aux conjonctions courantes : parce que → car / en raison de / du fait que ; mais → cependant / néanmoins / toutefois / or ; donc → par conséquent / c'est pourquoi / ainsi. (5) Modulation journalistique : le conditionnel passé pour l'information non confirmée."
+        },
+        examples: [
+            { native: "Il appert de ces données que la tendance est à la hausse.", translation: "It appears from this data that the trend is upward. (formal legal/academic)" },
+            { native: "Force est de constater que la politique actuelle n'a pas atteint ses objectifs.", translation: "One is forced to acknowledge that current policy has not met its objectives." },
+            { native: "En raison de la complexité de la situation, toute décision hâtive serait imprudente.", translation: "Due to the complexity of the situation, any hasty decision would be unwise. (nominalisation)" },
+            { native: "Le budget aurait été revu à la baisse lors de la dernière réunion.", translation: "The budget is reportedly said to have been reduced at the last meeting. (journalistic conditional)" },
+            { native: "Certes, l'argument est recevable ; il n'en demeure pas moins que les preuves font défaut.", translation: "Admittedly, the argument is valid; it remains no less true that evidence is lacking." },
+        ]
+    },
 ]

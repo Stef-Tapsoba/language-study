@@ -77,5 +77,20 @@ export const c1Grammar: GrammarLesson[] = [
             { native: "A grandes rasgos, el proyecto consiste en renovar la infraestructura digital.", translation: "In broad strokes, the project consists of renovating the digital infrastructure." },
             { native: "Tras horas de negociación, ambas partes lograron llegar a un acuerdo.", translation: "After hours of negotiation, both parties managed to reach an agreement." }
         ]
+    },
+    {
+        id: "es-g-c1-6",
+        level: "C1",
+        title: "Sistema Completo del Subjuntivo & Registro C1",
+        explanation: {
+            native: "The complete C1 subjunctive system covers all four tenses in sequence-of-tenses: present triggers → present or perfect subjunctive; past triggers → imperfect or pluperfect subjunctive. Ojalá: + present subjunctive (possible wish), + imperfect subjunctive (unlikely present wish), + pluperfect subjunctive (unfulfilled past wish). C1 formal constructions: cabe señalar/destacar/mencionar que (it is worth noting); en aras de (for the sake of); es sabido que / se sostiene que (impersonal attribution); a tenor de (in light of); por lo que atañe a (as regards). Register mastery: deliberate switch for rhetorical effect — using tú with a stranger signals familiarity, warmth, or irony depending on tone.",
+            target: "El sistema completo del subjuntivo en C1 cubre los cuatro tiempos en correlación: desencadenantes presentes → subjuntivo presente o perfecto; desencadenantes pasados → subjuntivo imperfecto o pluscuamperfecto. Ojalá: + subjuntivo presente (deseo posible), + subjuntivo imperfecto (deseo improbable en el presente), + subjuntivo pluscuamperfecto (deseo incumplido en el pasado). Construcciones formales C1: cabe señalar/destacar/mencionar que; en aras de; es sabido que / se sostiene que; a tenor de; por lo que atañe a. Dominio del registro: cambio deliberado con efecto retórico."
+        },
+        examples: [
+            { native: "Ojalá hubiera podido asistir a la conferencia. (unfulfilled past wish)", translation: "I wish I had been able to attend the conference." },
+            { native: "Cabe señalar que los datos presentan ciertas limitaciones metodológicas.", translation: "It is worth noting that the data present certain methodological limitations." },
+            { native: "En aras de la brevedad, omitiremos los detalles técnicos.", translation: "For the sake of brevity, we will omit the technical details." },
+            { native: "A tenor de lo expuesto, podemos concluir que la hipótesis inicial era correcta.", translation: "In light of the above, we can conclude that the initial hypothesis was correct." },
+        ]
     }
 ]

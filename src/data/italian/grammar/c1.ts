@@ -75,5 +75,20 @@ export const c1Grammar: GrammarLesson[] = [
             { native: "Napoleone invase il territorio italiano nel 1796 e cambiò per sempre gli equilibri politici della penisola.", translation: "Napoleon invaded Italian territory in 1796 and permanently changed the political balance of the peninsula." },
             { native: "La Repubblica italiana fu proclamata il 2 giugno 1946, in seguito al referendum istituzionale.", translation: "The Italian Republic was proclaimed on 2 June 1946, following the institutional referendum." }
         ]
+    },
+    {
+        id: "it-g-c1-6",
+        level: "C1",
+        title: "Il Sistema Completo del Congiuntivo & Stile C1",
+        explanation: {
+            native: "The four congiuntivo tenses in sequence: (1) Present main verb + simultaneous subordinate → congiuntivo presente. (2) Present main verb + prior completed action → congiuntivo passato. (3) Past main verb + simultaneous subordinate → congiuntivo imperfetto. (4) Past main verb + action preceding that past moment → congiuntivo trapassato. C1 formal constructions: si ritiene che / è noto che / si sostiene che (impersonal attribution); stando a quanto riferisce (journalistic attribution); a seguito di / in virtù di / vista la (formal clauses); given that compression. Register mastery: deliberate switching, nominalisation, and passive impersonal for academic writing.",
+            target: "I quattro tempi del congiuntivo in correlazione: (1) Verbo principale al presente + azione contemporanea → congiuntivo presente. (2) Verbo principale al presente + azione anteriore → congiuntivo passato. (3) Verbo principale al passato + azione contemporanea → congiuntivo imperfetto. (4) Verbo principale al passato + azione anteriore a quel momento passato → congiuntivo trapassato. Costruzioni formali C1: si ritiene che, è noto che, si sostiene che; stando a quanto riferisce; a seguito di, in virtù di, vista la. Padronanza del registro: alternanza deliberata, nominalizzazione, impersonale passivo per la scrittura accademica."
+        },
+        examples: [
+            { native: "Speravo che fosse già arrivato quando siamo partiti.", translation: "I hoped he had already arrived when we left. (past main → trapassato for prior action)" },
+            { native: "Si ritiene che il cambiamento climatico rappresenti una delle sfide più urgenti del nostro tempo.", translation: "It is believed that climate change represents one of the most urgent challenges of our time." },
+            { native: "Stando a quanto riferisce il quotidiano, il vertice si svolgerà a Ginevra.", translation: "According to what the newspaper reports, the summit will take place in Geneva." },
+            { native: "Vista la complessità della situazione, ogni decisione affrettata sarebbe imprudente.", translation: "Given the complexity of the situation, any hasty decision would be unwise." },
+        ]
     }
 ]

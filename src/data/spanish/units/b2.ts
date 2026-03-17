@@ -347,5 +347,59 @@ export const b2Units: LessonUnit[] = [
                 hint: "Un dilema moral = a moral dilemma — a situation requiring a difficult decision."
             }
         ]
-    }
+    },
+    {
+        id: "es-b2-u6",
+        level: "B2",
+        order: 6,
+        title: "Mixed Conditionals & Hypothetical Reasoning",
+        description: "Master the mixed conditional (past cause → present consequence) and the full Type-3 conditional. Move beyond drilling tense formulas to fluid hypothetical reasoning in debate, storytelling, and nuanced argumentation.",
+        grammarIds: ["es-g-b2-6"],
+        vocabIds: ["es-v-b2-081", "es-v-b2-082", "es-v-b2-083", "es-v-b2-084", "es-v-b2-085"],
+        verbIds: ["es-vb-b2-4"],
+        testQuestions: [
+            { id: "es-b2-u6-q1", level: "B2", prompt: "Identify: 'Si hubiera estudiado medicina, sería médico ahora.'", options: ["Type 1 — real", "Type 2 — hypothetical present", "Type 3 — past regret", "Mixed — past condition, present result"], answer: "Mixed — past condition, present result", hint: "Si + pluperfect subjunctive → conditional simple (not perfect) = mixed conditional." },
+            { id: "es-b2-u6-q2", level: "B2", prompt: "Complete the mixed conditional: 'Si ___ (ahorrar) más de joven, tendría más dinero ahora.'", options: ["ahorrara", "hubiera ahorrado", "habría ahorrado", "ahorré"], answer: "hubiera ahorrado", hint: "Mixed: si + pluperfect subjunctive (past clause) → conditional simple (present result)." },
+            { id: "es-b2-u6-q3", level: "B2", prompt: "What does the conditional perfect (habría + participio) express in journalism?", options: ["A confirmed fact", "A definite future event", "An alleged or reported but unconfirmed event", "A past habit"], answer: "An alleged or reported but unconfirmed event", hint: "El presidente habría firmado el acuerdo = The president is reported to have signed. Journalistic conditional." },
+            { id: "es-b2-u6-q4", level: "B2", prompt: "Complete: 'Si no ___ (llover) tanto este año, habría habido mejor cosecha.'", options: ["lloviera", "hubiera llovido", "había llovido", "llovía"], answer: "hubiera llovido", hint: "Type 3: si + pluperfect subjunctive → conditional perfect (habría habido)." },
+            { id: "es-b2-u6-q5", level: "B2", prompt: "What does 'a no ser que' mean?", options: ["as long as", "unless", "provided that", "in case"], answer: "unless", hint: "A no ser que + subjuntivo = unless. Synonym of a menos que." },
+            { id: "es-b2-u6-q6", level: "B2", prompt: "What does 'por mucho que' introduce?", options: ["A cause", "A concession — no matter how much", "A condition", "A consequence"], answer: "A concession — no matter how much", hint: "Por mucho que + subjuntivo = no matter how much. Por más que estudie, no aprueba." },
+        ]
+    },
+    {
+        id: "es-b2-u7",
+        level: "B2",
+        order: 7,
+        title: "Full Subjunctive Triggers & Ser vs Estar",
+        description: "Consolidate all present subjunctive triggers — concession, purpose, doubt, emotion — and master the full ser/estar distinction including abstract and stative uses that define B2 Spanish.",
+        grammarIds: ["es-g-b2-7"],
+        vocabIds: ["es-v-b2-086", "es-v-b2-087", "es-v-b2-088", "es-v-b2-089"],
+        verbIds: [],
+        testQuestions: [
+            { id: "es-b2-u7-q1", level: "B2", prompt: "Complete: 'Aunque ___ difícil, lo intentaré.' (concession — fact, speaker knows it IS difficult)", options: ["es", "sea", "está", "esté"], answer: "es", hint: "Aunque + indicativo = conceding a known fact. Aunque + subjuntivo = hypothetical/uncertain concession." },
+            { id: "es-b2-u7-q2", level: "B2", prompt: "Complete: 'Aunque ___ difícil, lo intentaría.' (hypothetical — might be difficult)", options: ["es", "sea", "está", "esté"], answer: "sea", hint: "Aunque + subjuntivo signals that the speaker doesn't know or is treating it hypothetically." },
+            { id: "es-b2-u7-q3", level: "B2", prompt: "Complete: 'La conferencia ___ (ser/estar) en Madrid.' (location of an event)", options: ["es", "está", "sea", "esté"], answer: "es", hint: "Events and their location/time use ser: La fiesta es en mi casa. Estar for physical position of objects/people." },
+            { id: "es-b2-u7-q4", level: "B2", prompt: "What is the difference: 'Es aburrido' vs 'Está aburrido'?", options: ["Both mean 'he is bored'", "Es aburrido = he IS boring (characteristic); está aburrido = he IS bored (current state)", "Es aburrido = event; está aburrido = description", "No difference"], answer: "Es aburrido = he IS boring (characteristic); está aburrido = he IS bored (current state)", hint: "Ser = characteristic/identity. Estar = current state/condition. The adjective's meaning shifts." },
+            { id: "es-b2-u7-q5", level: "B2", prompt: "Complete: 'Te lo digo para que ___ (saber) la verdad.'", options: ["sabes", "sepas", "supieras", "sabías"], answer: "sepas", hint: "Para que = so that (purpose) → always triggers subjuntivo." },
+            { id: "es-b2-u7-q6", level: "B2", prompt: "What does 'dado que' mean?", options: ["instead of", "given that / since (premise)", "unless", "so that"], answer: "given that / since (premise)", hint: "Dado que + indicativo introduces a factual premise: Dado que el presupuesto es limitado…" },
+        ]
+    },
+    {
+        id: "es-b2-u8",
+        level: "B2",
+        order: 8,
+        title: "Registro & Expresiones Idiomáticas",
+        description: "Navigate formal written Spanish versus colloquial speech, and build fluency with key idiomatic expressions — the fixed chunks that distinguish natural B2 Spanish from translated Spanish.",
+        grammarIds: ["es-g-b2-8"],
+        vocabIds: ["es-v-b2-090", "es-v-b2-091", "es-v-b2-092"],
+        verbIds: [],
+        testQuestions: [
+            { id: "es-b2-u8-q1", level: "B2", prompt: "What does 'no obstante' mean?", options: ["in addition", "nevertheless / however (formal)", "as a result", "in other words"], answer: "nevertheless / however (formal)", hint: "No obstante is the formal written equivalent of sin embargo." },
+            { id: "es-b2-u8-q2", level: "B2", prompt: "What does 'dar en el clavo' mean?", options: ["to drive in a nail", "to hit the nail on the head / get it exactly right", "to miss the point", "to start a project"], answer: "to hit the nail on the head / get it exactly right", hint: "Dar en el clavo = acertar plenamente — to identify exactly what is correct." },
+            { id: "es-b2-u8-q3", level: "B2", prompt: "Which is the formal written alternative to 'porque'?", options: ["como / dado que / en virtud de", "pues bien / entonces", "cuando / mientras", "aunque / sin embargo"], answer: "como / dado que / en virtud de", hint: "Porque = neutral. Dado que / en virtud de / habida cuenta de = formal written alternatives." },
+            { id: "es-b2-u8-q4", level: "B2", prompt: "What does 'estar en las nubes' mean?", options: ["to be in the clouds (weather)", "to be daydreaming / absent-minded", "to be very happy", "to be ambitious"], answer: "to be daydreaming / absent-minded", hint: "Estar en las nubes = to have one's head in the clouds / be miles away. Listed in the B2 guide." },
+            { id: "es-b2-u8-q5", level: "B2", prompt: "What does 'habida cuenta de' mean in formal writing?", options: ["bearing in mind / taking into account", "according to", "despite", "as soon as"], answer: "bearing in mind / taking into account", hint: "Habida cuenta de = teniendo en cuenta = given / bearing in mind. Formal written register." },
+            { id: "es-b2-u8-q6", level: "B2", prompt: "What does 'no hay mal que por bien no venga' mean?", options: ["every cloud has a silver lining", "bad luck comes in threes", "the grass is always greener", "too many cooks spoil the broth"], answer: "every cloud has a silver lining", hint: "No hay mal que por bien no venga = there's no bad without good / every cloud has a silver lining." },
+        ]
+    },
 ]

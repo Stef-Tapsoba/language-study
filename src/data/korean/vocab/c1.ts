@@ -421,5 +421,9 @@ export const c1Vocab: VocabItem[] = [
         id: "ko-v-c1-080", level: "C1", word: "눈치코치", romanized: "nunchi-kochi",
         translation: "sharp social awareness / keen ability to read a situation (emphatic form of 눈치)", category: "cultural reference",
         example: { native: "그는 눈치코치가 있어서 분위기를 파악하고 재빠르게 적응합니다.", romanized: "Geuneun nunchi-kochiga isseoseo bunwiGireul paakago jaeppareuge jeogeunghamnida.", translation: "He has keen social awareness and quickly grasps the atmosphere and adapts." }
-    }
+    },
+    { id: "ko-v-c1-081", level: "C1", word: "-는바", romanized: "-neunba", translation: "given that / in that (formal written connector)", category: "formal academic discourse", example: { native: "예산이 부족한바, 이를 검토할 회의를 소집합니다.", romanized: "Yesani bujokhan ba, ireuil geomt o hal hoeuireul sojip hamnida.", translation: "Given that the budget is insufficient, a meeting to review this is convened." } },
+    { id: "ko-v-c1-082", level: "C1", word: "-(으)ㄹ 만하다", romanized: "-(eu)l manhada", translation: "worth doing / deserves to be done", category: "advanced modality", example: { native: "이 영화는 충분히 볼 만합니다.", romanized: "I yeonghwa neun chungbunhi bol manhamniida.", translation: "This film is definitely worth watching." } },
+    { id: "ko-v-c1-083", level: "C1", word: "-기는커녕", romanized: "-gineun keonyeong", translation: "far from doing ~ / let alone", category: "advanced modality", example: { native: "쉬기는커녕 더 피곤해졌어요.", romanized: "Swigi neun keonyeong deo pigonhaejyeosseoyo.", translation: "Far from resting, I got even more tired." } },
+    { id: "ko-v-c1-084", level: "C1", word: "자업자득 (自業自得)", romanized: "ja eop jadeuk", translation: "reaping what one sows / you get what you deserve", category: "idioms & four-character compounds", example: { native: "노력을 안 했으니 실패한 건 자업자득이야.", romanized: "Noryeogeul an haesseunikka silpaehan geon jaeop jadeugi ya.", translation: "Since you didn't put in the effort, failing is exactly what you deserve." } }
 ]

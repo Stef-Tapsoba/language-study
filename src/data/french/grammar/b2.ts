@@ -77,4 +77,50 @@ export const b2Grammar: GrammarLesson[] = [
             { native: "Elle serait partie plus tôt si elle avait eu le choix.", translation: "She would have left earlier if she had had the choice." },
         ]
     },
+    {
+        id: "fr-g-b2-6",
+        level: "B2",
+        title: "Conditionnels Mixtes & Usage Journalistique",
+        explanation: {
+            native: "The mixed conditional combines a past si-clause with a present result: Si + plus-que-parfait → conditionnel présent. This expresses 'if X had happened in the past, Y would be different now'. Example: Si tu avais étudié la médecine, tu serais médecin aujourd'hui. The past conditional (conditionnel passé) also has a journalistic use: stating unconfirmed information as alleged — Le ministre aurait démissionné = The minister is reported to have resigned. Avoir beau + infinitif means 'to do something in vain despite': Il a beau travailler dur, il n'avance pas (No matter how hard he works, he makes no progress).",
+            target: "Le conditionnel mixte combine une proposition de condition au passé avec un résultat au présent : Si + plus-que-parfait → conditionnel présent. Il exprime « si X s'était passé dans le passé, Y serait différent maintenant ». Exemple : Si tu avais étudié la médecine, tu serais médecin aujourd'hui. Le conditionnel passé a aussi un usage journalistique : il exprime une information non confirmée présentée comme alléguée — Le ministre aurait démissionné. Avoir beau + infinitif signifie « faire quelque chose en vain malgré les efforts » : Il a beau travailler dur, il n'avance pas."
+        },
+        examples: [
+            { native: "Si elle avait pris ce poste, elle serait directrice maintenant.", translation: "If she had taken that job, she would be director now. (mixed conditional)" },
+            { native: "Si nous avions investi plus tôt, nous aurions de meilleures ressources aujourd'hui.", translation: "If we had invested earlier, we would have better resources today." },
+            { native: "Le président aurait signé l'accord en secret.", translation: "The president is reported to have secretly signed the agreement. (journalistic conditional)" },
+            { native: "Il a beau s'entraîner, il ne progresse plus.", translation: "No matter how much he trains, he's no longer improving." },
+        ]
+    },
+    {
+        id: "fr-g-b2-7",
+        level: "B2",
+        title: "Connecteurs de Discours Avancés",
+        explanation: {
+            native: "B2 discourse requires connectors that go beyond simple contrast and addition. Concession: malgré + noun, quoique/bien que + subjonctif, avoir beau + infinitif. Consequence: en conséquence, par conséquent, c'est pourquoi, ainsi. Condition/premise: étant donné que, dans la mesure où, vu que, eu égard à. Reformulation: c'est-à-dire, autrement dit, en d'autres termes. Topic shift: quant à, en ce qui concerne, pour ce qui est de. Logical pivot: or (introduces a logical next step in formal syllogism — no accent, never means 'gold'). Particular case: en l'occurrence, notamment.",
+            target: "Le discours B2 requiert des connecteurs qui vont au-delà du simple contraste et de l'addition. Concession : malgré + nom, quoique/bien que + subjonctif, avoir beau + infinitif. Conséquence : en conséquence, par conséquent, c'est pourquoi, ainsi. Condition/prémisse : étant donné que, dans la mesure où, vu que, eu égard à. Reformulation : c'est-à-dire, autrement dit, en d'autres termes. Changement de thème : quant à, en ce qui concerne, pour ce qui est de. Pivot logique : or (introduit une étape logique dans un syllogisme formel — sans accent, ne signifie jamais « or »). Cas particulier : en l'occurrence, notamment."
+        },
+        examples: [
+            { native: "Étant donné que les ressources sont limitées, nous devons établir des priorités.", translation: "Given that resources are limited, we must set priorities." },
+            { native: "Il a beau être talentueux, il manque de rigueur.", translation: "No matter how talented he is, he lacks rigour. (concession)" },
+            { native: "Quant à la question budgétaire, elle reste entière.", translation: "As for the budget question, it remains unresolved. (topic shift)" },
+            { native: "Tous les hommes sont mortels. Or, Socrate est un homme. Donc, Socrate est mortel.", translation: "All men are mortal. Now, Socrates is a man. Therefore, Socrates is mortal. (logical pivot)" },
+            { native: "En l'occurrence, c'est la deuxième option qui s'avère la plus viable.", translation: "In this particular case, it is the second option that proves most viable." },
+        ]
+    },
+    {
+        id: "fr-g-b2-8",
+        level: "B2",
+        title: "Registres & Expressions Idiomatiques",
+        explanation: {
+            native: "French has distinct registers that go well beyond the tu/vous distinction. Formal written: longer sentences, more subjunctive, passive constructions, formal connectors (car, en raison de, lequel), nominalisations. Neutral spoken: everyday vocabulary, active voice, simpler sentence structure. Colloquial/familiar: contracted negation (j'sais pas), slang (boulot, fric, bouquin), argot. At B2, learners navigate all three deliberately. Key idioms: coûter les yeux de la tête (cost a fortune), avoir le vent en poupe (be doing well), mettre les pieds dans le plat (say something blunt), casser les pieds à quelqu'un (annoy someone intensely), avoir le cafard (feel down/blue). A key B2 formal skill: nominalisation — replacing parce qu'il était fatigué with en raison de sa fatigue to compress clauses in writing.",
+            target: "Le français possède des registres distincts qui vont bien au-delà de la distinction tu/vous. Registre formel écrit : phrases plus longues, plus de subjonctif, constructions passives, connecteurs formels (car, en raison de, lequel), nominalisations. Registre parlé neutre : vocabulaire courant, voix active, structure phrastique plus simple. Registre familier/argotique : négation contractée (j'sais pas), argot (boulot, fric, bouquin). À B2, l'apprenant navigue délibérément entre ces trois registres. Idiomes clés : coûter les yeux de la tête, avoir le vent en poupe, mettre les pieds dans le plat, casser les pieds à quelqu'un, avoir le cafard. Compétence formelle clé : la nominalisation — transformer des propositions en groupes nominaux pour comprimer l'écrit."
+        },
+        examples: [
+            { native: "Ce projet coûte les yeux de la tête. → Ce projet représente un investissement considérable.", translation: "This project costs a fortune. → (formal equivalent)" },
+            { native: "Notre entreprise a le vent en poupe depuis la fusion.", translation: "Our company is doing very well since the merger." },
+            { native: "En raison de sa démission soudaine, le comité s'est réuni en urgence.", translation: "Due to his sudden resignation, the committee met urgently. (nominalisation of 'parce qu'il a démissionné soudainement')" },
+            { native: "Il m'a cassé les pieds avec ses plaintes incessantes.", translation: "He drove me crazy with his incessant complaints." },
+        ]
+    },
 ]

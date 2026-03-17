@@ -124,5 +124,39 @@ export const b2Verbs: Verb[] = [
                 ]
             }
         ]
+    },
+    {
+        id: "ko-vb-b2-4",
+        level: "B2",
+        infinitive: "드리다",
+        meaning: "to give (humble) / to do for a superior",
+        conjugations: [
+            {
+                tense: "Honorific Present / Formal",
+                forms: [
+                    { pronoun: "polite", form: "드려요" },
+                    { pronoun: "formal", form: "드립니다" },
+                    { pronoun: "past polite", form: "드렸어요" },
+                    { pronoun: "formal past", form: "드렸습니다" },
+                ]
+            },
+            {
+                tense: "Humble Verb Compounds",
+                forms: [
+                    { pronoun: "말씀 드리다", form: "말씀 드립니다 (I will tell you)" },
+                    { pronoun: "보여 드리다", form: "보여 드릴게요 (I will show you)" },
+                    { pronoun: "도와 드리다", form: "도와 드릴 수 있어요 (I can help you)" },
+                ]
+            },
+            {
+                tense: "Honorific Noun Pairs",
+                forms: [
+                    { pronoun: "이름 → 성함", form: "성함이 어떻게 되세요?" },
+                    { pronoun: "나이 → 연세", form: "연세가 어떻게 되세요?" },
+                    { pronoun: "집 → 댁", form: "댁이 어디세요?" },
+                    { pronoun: "말 → 말씀", form: "말씀이 있으십니다" },
+                ]
+            }
+        ]
     }
 ]

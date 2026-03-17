@@ -90,5 +90,23 @@ export const c1Units: LessonUnit[] = [
             { id: "it-c1-u5-q5", level: "C1", prompt: "What does 'il Risorgimento' refer to?", options: ["The Italian Renaissance", "The Italian unification movement of the 19th century", "The postwar economic boom", "The years of political terrorism"], answer: "The Italian unification movement of the 19th century" },
             { id: "it-c1-u5-q6", level: "C1", prompt: "What does 'gli anni di piombo' refer to?", options: ["The Roman era", "The Fascist period", "A period of political violence and terrorism in Italy (1970s–80s)", "The years of the economic miracle"], answer: "A period of political violence and terrorism in Italy (1970s–80s)" }
         ]
+    },
+    {
+        id: "it-c1-u6",
+        level: "C1",
+        order: 6,
+        title: "Il Sistema Completo del Congiuntivo & Registro C1",
+        description: "Consolidate all four congiuntivo tenses in full sequence-of-tenses, achieve C1 register mastery with formal impersonal constructions, and deploy nominalisation and clause compression in written Italian.",
+        grammarIds: ["it-g-c1-6"],
+        vocabIds: ["it-v-c1-081", "it-v-c1-082", "it-v-c1-083", "it-v-c1-084"],
+        verbIds: [],
+        testQuestions: [
+            { id: "it-c1-u6-q1", level: "C1", prompt: "Complete with the correct congiuntivo tense: 'Non credevo che lei ___ (arrivare) il giorno prima.'", options: ["arrivasse", "sia arrivata", "fosse arrivata", "arrivò"], answer: "fosse arrivata", hint: "Past reporting verb → past context. Action completed before that moment → congiuntivo trapassato." },
+            { id: "it-c1-u6-q2", level: "C1", prompt: "What does 'stando a quanto riferisce' signal in formal Italian?", options: ["a personal opinion", "according to what is reported (journalistic attribution)", "a contrast", "a result"], answer: "according to what is reported (journalistic attribution)", hint: "Stando a quanto riferisce = according to what [source] reports. Key C1 journalistic/formal attribution." },
+            { id: "it-c1-u6-q3", level: "C1", prompt: "Which construction is a formal impersonal alternative to 'molti pensano che'?", options: ["Si ritiene che / è noto che / si sostiene che", "Tutti pensano che", "La gente dice che", "Sicuramente"], answer: "Si ritiene che / è noto che / si sostiene che", hint: "Impersonal constructions: si ritiene, si sostiene, è noto, risulta — avoid personal attribution in academic writing." },
+            { id: "it-c1-u6-q4", level: "C1", prompt: "Which is the formal nominalised form of 'siccome è complesso'?", options: ["vista la complessità", "ma è complesso", "quindi è complesso", "nonostante sia complesso"], answer: "vista la complessità", hint: "Nominalisation: siccome è complesso → vista la complessità / data la sua complessità. C1 formal compression." },
+            { id: "it-c1-u6-q5", level: "C1", prompt: "What does 'a seguito di' mean?", options: ["with regard to", "following / as a result of (formal)", "for the sake of", "in spite of"], answer: "following / as a result of (formal)", hint: "A seguito di = following / in the wake of. Formal written Italian." },
+            { id: "it-c1-u6-q6", level: "C1", prompt: "In the full congiuntivo sequence: after a present main verb expressing doubt, which tense follows for a simultaneous action?", options: ["Congiuntivo imperfetto", "Congiuntivo trapassato", "Congiuntivo presente", "Condizionale"], answer: "Congiuntivo presente", hint: "Present main verb + simultaneous subordinate → congiuntivo presente. Present + prior action → congiuntivo passato." },
+        ]
     }
 ]

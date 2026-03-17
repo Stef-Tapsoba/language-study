@@ -75,5 +75,48 @@ export const b2Grammar: GrammarLesson[] = [
             { native: "Parleresti con il direttore se ne avessi l'opportunità?", translation: "Would you talk to the director if you had the opportunity?" },
             { native: "Se potessi scegliere, vivrei in Toscana.", translation: "If I could choose, I would live in Tuscany." }
         ]
+    },
+    {
+        id: "it-g-b2-6",
+        level: "B2",
+        title: "Periodo Ipotetico Misto & Condizionale Giornalistico",
+        explanation: {
+            native: "The mixed conditional (periodo ipotetico misto) combines a past hypothetical condition with a present result: Se + congiuntivo trapassato → condizionale presente. Example: Se avessi studiato medicina, sarei medico adesso. This contrasts with the 3° tipo (past → past: Se avesse studiato, sarebbe diventato medico). The journalistic conditional: condizionale passato is used in newspapers and broadcasts to report unconfirmed information — Il ministro avrebbe rassegnato le dimissioni = The minister is reported to have resigned.",
+            target: "Il periodo ipotetico misto combina una condizione ipotetica nel passato con una conseguenza nel presente: Se + congiuntivo trapassato → condizionale presente. Esempio: Se avessi studiato medicina, sarei medico adesso. Questo contrasta con il 3° tipo (passato → passato). Il condizionale giornalistico: il condizionale passato nei giornali e nelle trasmissioni indica un'informazione non confermata — Il ministro avrebbe rassegnato le dimissioni."
+        },
+        examples: [
+            { native: "Se avessi imparato prima l'italiano, ora sarei più fluente.", translation: "If I had learned Italian earlier, I would be more fluent now. (mixed)" },
+            { native: "Per quanto si impegni, non riesce a convincerli.", translation: "No matter how hard he tries, he can't convince them. (concessive)" },
+            { native: "Il premier avrebbe incontrato il presidente in segreto.", translation: "The prime minister reportedly met the president in secret. (journalistic conditional)" },
+        ]
+    },
+    {
+        id: "it-g-b2-7",
+        level: "B2",
+        title: "Congiuntivo Concessivo & Connettivi B2",
+        explanation: {
+            native: "Concessive conjunctions requiring the congiuntivo: sebbene, benché, nonostante (che), quantunque, per quanto, malgrado (che). The tense follows sequence rules: present main verb → congiuntivo presente; past main verb → congiuntivo imperfetto. Purpose: affinché, perché (so that), a condizione che + congiuntivo. Key B2 formal connectors: di conseguenza, in quanto, dal momento che, poiché (because/since — formal); tuttavia, ciononostante (however); stante + noun (given); in merito a (with regard to). The construction a meno che non + congiuntivo always requires non even when the meaning is positive.",
+            target: "Congiunzioni concessive che richiedono il congiuntivo: sebbene, benché, nonostante (che), quantunque, per quanto, malgrado (che). Il tempo segue le regole di correlazione: verbo principale al presente → congiuntivo presente; verbo principale al passato → congiuntivo imperfetto. Finalità: affinché, perché (finalità), a condizione che + congiuntivo. Connettivi formali B2 chiave: di conseguenza, in quanto, dal momento che, poiché; tuttavia, ciononostante; stante + nome; in merito a. A meno che non + congiuntivo richiede sempre il non anche con significato positivo."
+        },
+        examples: [
+            { native: "Sebbene il progetto sia ambizioso, è realizzabile.", translation: "Although the project is ambitious, it is achievable." },
+            { native: "Parlerò lentamente affinché tutti capiscano.", translation: "I will speak slowly so that everyone understands." },
+            { native: "Verrò, a meno che non piova. (note: non is compulsory)", translation: "I'll come, unless it rains." },
+            { native: "In merito alla questione finanziaria, si rimanda alla relazione allegata.", translation: "With regard to the financial question, reference is made to the attached report." },
+        ]
+    },
+    {
+        id: "it-g-b2-8",
+        level: "B2",
+        title: "Registro & Idiomi B2",
+        explanation: {
+            native: "Italian has a significant divergence between formal written and informal spoken registers. Formal written: poiché/in quanto (because), nonostante/malgrado (despite), in merito a (regarding), a seguito di (following), stante (given), tuttavia (however). Nominalisation compresses clauses: anche se è difficile → nonostante la difficoltà. Informal: dai! (come on!), figurati (don't worry / you're welcome), cavarsela (to manage), in bocca al lupo (good luck). Key idioms: non ci piove (no doubt about it), avere un diavolo per capello (to be furious), cavarsela (to cope), non avere peli sulla lingua (to speak one's mind).",
+            target: "L'italiano ha una notevole divergenza tra il registro scritto formale e il parlato informale. Scritto formale: poiché/in quanto, nonostante/malgrado, in merito a, a seguito di, stante, tuttavia. La nominalizzazione comprime le proposizioni: anche se è difficile → nonostante la difficoltà. Informale: dai!, figurati, cavarsela, in bocca al lupo. Idiomi chiave: non ci piove, avere un diavolo per capello, cavarsela, non avere peli sulla lingua."
+        },
+        examples: [
+            { native: "Non avere peli sulla lingua, e digli esattamente quello che pensi.", translation: "Don't hold back, and tell him exactly what you think. (idiom: don't have hairs on your tongue)" },
+            { native: "Nonostante le difficoltà, il progetto è andato avanti.", translation: "Despite the difficulties, the project went ahead. (nominalisation)" },
+            { native: "Se la cava benissimo in situazioni difficili.", translation: "She manages very well in difficult situations." },
+        ]
     }
 ]

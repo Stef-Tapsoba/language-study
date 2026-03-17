@@ -75,5 +75,49 @@ export const b2Grammar: GrammarLesson[] = [
             { native: "「持続可能性」という概念が注目されている。", romanized: "\"Jizoku kanousei\" to iu gainen ga chuumoku sarete iru.", translation: "The concept called 'sustainability' is attracting attention." },
             { native: "明日の会議が中止になるということを聞きました。", romanized: "Ashita no kaigi ga chuushi ni naru to iu koto wo kikimashita.", translation: "I heard that tomorrow's meeting will be cancelled." }
         ]
-    }
+    },
+    {
+        id: "ja-g-b2-6",
+        level: "B2",
+        title: "Formal Written Structures: 〜において・〜によって・〜に関して",
+        explanation: {
+            native: "Formal written Japanese uses specific structures that sound unnatural in casual conversation. 〜において = in / at / in the context of (formal equivalent of で for situations and places in academic/professional text). 〜によって = by / due to / depending on / through (formal agent or means marker in passive and causative sentences, and for expressing variation). 〜に関して / 〜に関する = regarding / concerning / related to (more precise than 〜について in formal contexts). 〜をめぐって = regarding / surrounding (a contested or debated issue). 〜に際して = upon / on the occasion of (formal: at the moment of an important event). 〜に基づいて = based on (formal: acting on the basis of evidence or rules).",
+            target: "フォーマルな書き言葉の日本語には、日常会話では不自然に聞こえる特有の表現があります。〜において：フォーマルな場所・状況を示す（アカデミック・ビジネス文書での「で」の書き言葉的表現）。〜によって：動作主・手段・原因を示す（受動文・使役文での書き言葉的な格助詞、また「〜によって異なる」のように変動を示す）。〜に関して／〜に関する：「〜について」よりも格式張った「〜に関して」「〜に関する」。〜をめぐって：論争・議論となっている事柄を「〜をめぐって」で示す。〜に際して：重要な出来事の際の「〜に際して」（格式ある「upon/on the occasion of」）。〜に基づいて：根拠・規則を「〜に基づいて」で示す（フォーマル）。"
+        },
+        examples: [
+            { native: "この実験において、予想外の結果が得られた。", romanized: "Kono jikken ni oite, yosogai no kekka ga rareta.", translation: "In this experiment, unexpected results were obtained." },
+            { native: "環境破壊によって、多くの生物が絶滅の危機にある。", romanized: "Kankyō hakai ni yotte, ooku no seibutsu ga zetsumetsu no kiki ni aru.", translation: "Due to environmental destruction, many species are at risk of extinction." },
+            { native: "この問題に関して、さらなる調査が必要だ。", romanized: "Kono mondai ni kanshite, saranaru chōsa ga hitsuyō da.", translation: "Regarding this problem, further investigation is necessary." },
+            { native: "領土問題をめぐって両国間に緊張が生じている。", romanized: "Ryōdo mondai wo megutte ryōkoku-kan ni kinchō ga shōjite iru.", translation: "Tension has arisen between the two countries surrounding the territorial dispute." },
+        ]
+    },
+    {
+        id: "ja-g-b2-7",
+        level: "B2",
+        title: "Tendency & Uncertainty: 〜がちだ / 〜っぽい / 〜かねない / 〜かねる / 〜気味",
+        explanation: {
+            native: "Five key B2 patterns for expressing nuance about tendencies and possibilities. 〜がちだ: attached to verb stem or noun, expresses habitual tendency (often undesirable). 忘れがちだ = tend to forget. 〜っぽい: attached to noun or adjective stem, means '-ish / having the quality of'. 子どもっぽい = childish. 〜かねない: attached to ます-stem, expresses negative possibility that something undesirable might occur. 事故になりかねない = might well lead to an accident. 〜かねる (polite: かねます): attached to ます-stem, expresses inability to bring oneself to do something — used as a formal polite refusal. お引き受けしかねます = I'm afraid I cannot take this on. 〜気味: lighter than がちだ, attached to noun/verb stem, expresses 'a slight touch of'. 疲れ気味 = feeling a little tired.",
+            target: "B2の5つのニュアンス表現。〜がちだ：動詞語幹または名詞に付いて、習慣的な傾向（多くは否定的）を示す。忘れがちだ＝つい忘れてしまう傾向がある。〜っぽい：名詞や形容詞語幹に付いて、「〜のような・〜らしい」を意味する。子どもっぽい＝子どもくさい。〜かねない：ます形の語幹に付いて、好ましくないことが起こりうる可能性を示す。事故になりかねない＝事故になるかもしれない。〜かねる（丁寧：かねます）：ます形の語幹に付いて、気が進まない・できない（丁寧な断り）。お引き受けしかねます＝残念ながら引き受けることができません。〜気味：がちだより軽い表現で、名詞や動詞語幹に付いて「少し〜な感じ」を示す。疲れ気味＝少し疲れている感じ。"
+        },
+        examples: [
+            { native: "彼は約束を忘れがちだ。", romanized: "Kare wa yakusoku wo wasure-gachi da.", translation: "He tends to forget promises." },
+            { native: "あの発言は誤解されかねない。", romanized: "Ano hatsugen wa gokai sare-kane-nai.", translation: "That comment might well be misunderstood." },
+            { native: "その件はお引き受けしかねます。", romanized: "Sono ken wa o-hiki-uke shi-kanemasu.", translation: "I'm afraid I cannot take that matter on. (formal polite refusal)" },
+            { native: "最近、少し疲れ気味です。", romanized: "Saikin, sukoshi tsukare-gimi desu.", translation: "Recently, I've been feeling a little tired." },
+        ]
+    },
+    {
+        id: "ja-g-b2-8",
+        level: "B2",
+        title: "Register Mastery: Formal Written vs Casual Spoken",
+        explanation: {
+            native: "The register gap in Japanese is wider than in most European languages. Formal written Japanese (書き言葉) uses: である (copula instead of です/だ); plain form verbs without ます; formal nouns (困難 for 難しいこと; 実施する for やる; 把握する for 分かる); formal connectors (しかしながら, したがって, なお); formal structures (において, によって, に際して). Casual spoken Japanese: particle dropping (行く → 行く?), contraction (食べている → 食べてる), shortened negation (〜ない → 〜ない in speech is fine, but 〜ません in formal). Register mismatch — using formal written structures in casual conversation or vice versa — is immediately noticed by native speakers and is a key B2 awareness point.",
+            target: "日本語のレジスターの差は多くのヨーロッパ言語より大きい。書き言葉の特徴：である（です/だの代わり）、ます形を使わない動詞、フォーマルな名詞（困難・実施する・把握する）、フォーマルな接続詞（しかしながら・したがって・なお）、フォーマルな構造（において・によって・に際して）。話し言葉の特徴：助詞省略、縮約形（食べている→食べてる）、口語短縮（〜じゃないですか）。レジスターの不一致—書き言葉の表現を日常会話で使うこと、またはその逆—は母語話者に即座に気づかれ、B2の重要な意識ポイントとなっている。"
+        },
+        examples: [
+            { native: "【書き言葉】この政策は有効であると考えられる。", romanized: "Kono seisaku wa yūkō de aru to kangaerareru.", translation: "Formal written: This policy can be considered effective. (である, passive-potential)" },
+            { native: "【話し言葉】この政策、効果あると思いますよ。", romanized: "Kono seisaku, kōka aru to omoimasu yo.", translation: "Spoken: I think this policy is effective. (particle drop, casual noun form)" },
+            { native: "お世話になっております。（メール定型開頭）", romanized: "Osewa ni natte orimasu.", translation: "Thank you for your ongoing support. (fixed formal email opening)" },
+        ]
+    },
 ]

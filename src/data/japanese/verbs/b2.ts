@@ -113,5 +113,37 @@ export const b2Verbs: Verb[] = [
                 ]
             }
         ]
+    },
+    {
+        id: "ja-vb-b2-4",
+        level: "B2",
+        infinitive: "する",
+        meaning: "to do",
+        conjugations: [
+            {
+                tense: "Formal Written Forms",
+                forms: [
+                    { pronoun: "formal copula", form: "〜である (written, not conversational)" },
+                    { pronoun: "formal past", form: "〜であった" },
+                    { pronoun: "formal negative", form: "〜でない / 〜ではない" },
+                ]
+            },
+            {
+                tense: "Keigo (Humble — kenjōgo)",
+                forms: [
+                    { pronoun: "humble present", form: "いたします" },
+                    { pronoun: "humble past", form: "いたしました" },
+                    { pronoun: "humble negative", form: "いたしません" },
+                ]
+            },
+            {
+                tense: "Formal Connective Patterns",
+                forms: [
+                    { pronoun: "〜において", form: "この会議において実施する" },
+                    { pronoun: "〜によって", form: "努力によって達成する" },
+                    { pronoun: "〜に際して", form: "開幕に際してご挨拶する" },
+                ]
+            }
+        ]
     }
 ]

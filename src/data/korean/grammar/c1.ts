@@ -77,5 +77,20 @@ export const c1Grammar: GrammarLesson[] = [
             { native: "우리는 말하지 않아도 이심전심으로 통한다.", translation: "We understand each other without words — a true heart-to-heart connection." },
             { native: "세 살 버릇 여든까지 간다는 말처럼, 어릴 때 독서 습관을 들이는 것이 중요하다.", translation: "As the saying goes, habits from age three last until eighty — it is important to build a reading habit from a young age." }
         ]
+    },
+    {
+        id: "ko-g-c1-6",
+        level: "C1",
+        title: "Seamless Honorific Switching & C1 Formal Mastery",
+        explanation: {
+            native: "C1 Korean requires seamless, spontaneous honorific switching as the social context shifts within a single interaction. Full C1 honorific production means: (1) Consistent use of honorific nouns AND honorific/humble verbs throughout, not just at sentence endings. (2) Appropriate -께 (to a respected person) vs -에게 (neutral). (3) Humble verb production: 여쭙다 (ask humbly), 드리다 (give humbly), 말씀 드리다 (tell humbly), 뵙다 (meet humbly), 보여 드리다. (4) Real-time register switching: 합쇼체 in presentations → 해요체 in Q&A → 반말 with close colleagues — all within the same event, without awkward transitions. C1 also includes: advanced written structures (-는바 for given that/in that; -(으)ㄹ 만하다 for worth doing; 기는커녕 for far from); 사자성어 in appropriate contexts; full academic written style.",
+            target: "C1 한국어는 단일 상호작용 내에서 사회적 맥락이 바뀔 때 자연스럽고 즉각적인 경어 전환을 요구합니다. 완전한 C1 경어 생산이란: (1) 문장 종결뿐 아니라, 높임 명사와 높임/낮춤 동사를 전체적으로 일관되게 사용하는 것. (2) -께(존칭 대상)와 -에게(중립)의 적절한 구분. (3) 낮춤 동사 생산: 여쭙다, 드리다, 말씀 드리다, 뵙다, 보여 드리다. (4) 실시간 격식 전환: 발표 시 합쇼체 → Q&A 시 해요체 → 친한 동료와 반말 — 모두 같은 자리에서, 어색한 전환 없이. C1에는 또한 포함됩니다: 고급 문어 구조(-는바, -(으)ㄹ 만하다, 기는커녕), 적절한 맥락에서의 사자성어 사용, 완전한 학술 문어 스타일."
+        },
+        examples: [
+            { native: "선생님께 말씀 드리고 싶은 것이 있습니다.", romanized: "Seonsaengnimkke malsseum deurego sip eun geosi itseumnida.", translation: "There is something I would like to tell you, teacher. (humble chain: 께 + 말씀 드리다)" },
+            { native: "그것은 충분히 고려할 만한 의견입니다.", romanized: "Geugeot eun chungbunhi goryeohal manhan euigyeon imnida.", translation: "That is an opinion worth considering sufficiently. (-(으)ㄹ 만하다 = worth doing)" },
+            { native: "쉬기는커녕 더 바빠졌습니다.", romanized: "Swigi neun keonyeong deo bappajyeotseumnida.", translation: "Far from resting, things got even busier. (-기는커녕 = far from)" },
+            { native: "이에 따라, 예산을 재검토할 필요가 있는바, 이를 위한 회의를 소집하고자 합니다.", romanized: "Ie ttara, yesaneul jaegeomt ohaeya hal piryo ga inneun ba, ireuil wihan hoeireul sojib hago ja hamnida.", translation: "Accordingly, given that there is a need to re-examine the budget, we intend to convene a meeting for this purpose. (-는바 formal written; -고자 하다 formal intention)" },
+        ]
     }
 ]

@@ -123,5 +123,43 @@ export const b2Verbs: Verb[] = [
                 ]
             }
         ]
+    },
+    {
+        id: "it-vb-b2-4",
+        level: "B2",
+        infinitive: "essere",
+        meaning: "to be",
+        conjugations: [
+            {
+                tense: "Congiuntivo Trapassato",
+                forms: [
+                    { pronoun: "io", form: "fossi stato/a" },
+                    { pronoun: "tu", form: "fossi stato/a" },
+                    { pronoun: "lui/lei", form: "fosse stato/a" },
+                    { pronoun: "noi", form: "fossimo stati/e" },
+                    { pronoun: "voi", form: "foste stati/e" },
+                    { pronoun: "loro", form: "fossero stati/e" },
+                ]
+            },
+            {
+                tense: "Condizionale Passato",
+                forms: [
+                    { pronoun: "io", form: "sarei stato/a" },
+                    { pronoun: "tu", form: "saresti stato/a" },
+                    { pronoun: "lui/lei", form: "sarebbe stato/a" },
+                    { pronoun: "noi", form: "saremmo stati/e" },
+                    { pronoun: "voi", form: "sareste stati/e" },
+                    { pronoun: "loro", form: "sarebbero stati/e" },
+                ]
+            },
+            {
+                tense: "Periodo Ipotetico Misto",
+                forms: [
+                    { pronoun: "se clause", form: "Se fossi stato più attento…" },
+                    { pronoun: "present result", form: "…sarei in una posizione migliore ora. (cond. presente)" },
+                    { pronoun: "past result", form: "…non sarebbe successo. (cond. passato)" },
+                ]
+            }
+        ]
     }
 ]

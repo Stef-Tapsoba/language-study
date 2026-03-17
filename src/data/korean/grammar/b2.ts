@@ -77,5 +77,47 @@ export const b2Grammar: GrammarLesson[] = [
             { native: "그 말을 하지 않았더라면 이렇게 되지 않았을 거예요.", translation: "If only I hadn't said that, things wouldn't have turned out this way." },
             { native: "일찍 출발했으면 늦지 않았을 텐데.", translation: "If only we had left earlier, we wouldn't have been late." }
         ]
+    },
+    {
+        id: "ko-g-b2-6",
+        level: "B2",
+        title: "-(으)ㄹ 수밖에 없다 & ~(으)ㄹ지라도",
+        explanation: {
+            native: "-(으)ㄹ 수밖에 없다: expresses inevitability — 'have no choice but to' / 'there is nothing to do but'. Formed from: verb stem + -(으)ㄹ 수밖에 없다. The negative form is rarely used. This pattern is more emphatic than -아/어야 하다 — it implies all other options have been exhausted. ~(으)ㄹ지라도: a formal/literary concessive meaning 'even if / even though'. More formal than -더라도 and -아/어도. Used in essays, formal speeches, and literary contexts. Also note: -(으)므로 is the formal written causal connector (therefore / since), used in academic writing and official documents — distinct from conversational -아/어서 and -니까.",
+            target: "-(으)ㄹ 수밖에 없다：불가피함을 나타냅니다 — '〜할 수밖에 없다' / '다른 방법이 없다'. 형태: 동사 어간 + -(으)ㄹ 수밖에 없다. 부정형은 잘 쓰이지 않습니다. -아/어야 하다보다 더 강조적인 표현으로, 다른 모든 선택지가 소진되었음을 내포합니다. ~(으)ㄹ지라도：격식체/문어체의 양보 표현으로 '〜할지라도'를 의미합니다. -더라도나 -아/어도보다 더 격식적입니다. 에세이, 공식 연설, 문학적 맥락에서 사용됩니다. 또한：-(으)므로는 격식체 문어의 인과 접속사('따라서/〜이므로')로, 학술적 글쓰기와 공식 문서에 사용됩니다 — 구어체 -아/어서, -니까와 구별됩니다."
+        },
+        examples: [
+            { native: "이 계획은 수정할 수밖에 없습니다.", romanized: "I gyehoek eun sujeong hal su bakke eopseumnida.", translation: "There is no choice but to revise this plan." },
+            { native: "결과가 나쁠지라도, 최선을 다해야 합니다.", romanized: "Gyeolgwaga nappeul jirido, choeseoneul dahaeya hamnida.", translation: "Even if the result is bad, we must do our best." },
+            { native: "예산이 부족하므로, 계획을 수정해야 합니다.", romanized: "Yesani bujokhameueo, gyehoekeul sujeonghaeya hamnida.", translation: "Since/because the budget is insufficient, the plan must be revised. (formal -(으)므로)" },
+        ]
+    },
+    {
+        id: "ko-g-b2-7",
+        level: "B2",
+        title: "Honorific Nouns & Full Sentence Honorification",
+        explanation: {
+            native: "Full Korean honorifics require consistent honorification throughout an entire sentence — not just the final verb. Honorific nouns (존칭어): 이름 → 성함 (name); 집/댁 → 댁 (home); 나이 → 연세 (age); 밥/음식 → 진지 (meal); 말 → 말씀 (words/speech); 병 → 병환 (illness). Honorific verbs: 먹다/마시다 → 드시다/잡수시다; 있다 → 계시다; 자다 → 주무시다; 죽다 → 돌아가시다. Key humble verbs (자기낮춤): 주다 → 드리다; 묻다 → 여쭙다; 보다 (show) → 보여 드리다; 말하다 → 말씀 드리다. Object honorific: when the object of the verb is a senior person, Korean adds -께 (to someone respected) instead of -에게.",
+            target: "한국어의 완전한 경어법은 문장 전체에 일관된 높임을 요구합니다 — 문장 종결 동사만이 아닙니다. 높임 명사(존칭어): 이름→성함, 집→댁, 나이→연세, 밥/음식→진지, 말→말씀, 병→병환. 높임 동사: 먹다/마시다→드시다/잡수시다, 있다→계시다, 자다→주무시다, 죽다→돌아가시다. 낮춤 동사(자기낮춤): 주다→드리다, 묻다→여쭙다, 보다(보여주다)→보여 드리다, 말하다→말씀 드리다. 목적어 높임: 동사의 목적어가 어른일 때, 한국어는 -에게 대신 -께를 사용합니다."
+        },
+        examples: [
+            { native: "선생님, 성함이 어떻게 되세요?", romanized: "Seonsaengnim, seonghami eotteoke doeseyo?", translation: "Teacher, what is your name? (성함 = honorific noun for 이름)" },
+            { native: "할머니께서 진지를 드십니다.", romanized: "Halmeonigeseo jinjireul deuisimnida.", translation: "Grandmother is eating her meal. (진지 = honorific for meal; 드시다 = honorific eat; -께서 = honorific subject marker)" },
+            { native: "선생님께 여쭤봐도 될까요?", romanized: "Seonsaengnimkke yeojwobwado doelkkayo?", translation: "May I ask the teacher? (께 = to a respected person; 여쭙다 = humble ask)" },
+        ]
+    },
+    {
+        id: "ko-g-b2-8",
+        level: "B2",
+        title: "Formal Written Register & Academic Discourse Markers",
+        explanation: {
+            native: "Formal written Korean diverges significantly from spoken Korean. Key features of formal written style: (1) Use of 합쇼체 (-ㅂ니다/-습니다) throughout. (2) Sino-Korean academic connectors: 따라서 (therefore), 반면에 (on the other hand), 즉 (in other words/namely), 나아가 (furthermore), 이에 따라 (accordingly), 그러나 (however — formal). (3) Formal causal connectors: -(으)므로 (therefore/since — academic), -기 때문에 (because — formal/objective). (4) Impersonal constructions: 〜것으로 보인다 (it appears that), 〜할 필요가 있다 (it is necessary to), 〜을 알 수 있다 (it can be understood that). (5) Nominalisation in formal writing: -(으)ㅁ as a formal nominaliser (more written-register than -기 or -는 것).",
+            target: "문어체 한국어는 구어체와 상당히 다릅니다. 격식 문어체의 주요 특징: (1) 합쇼체(-ㅂ니다/-습니다)의 일관된 사용. (2) 한자어 학술 접속사: 따라서, 반면에, 즉, 나아가, 이에 따라, 그러나. (3) 격식 인과 접속사: -(으)므로(학술체), -기 때문에(격식/객관). (4) 비인칭 구문: 〜것으로 보인다, 〜할 필요가 있다, 〜을 알 수 있다. (5) 격식 문어의 명사화: -(으)ㅁ (-기나 -는 것보다 격식적인 명사화소)."
+        },
+        examples: [
+            { native: "데이터가 불충분하므로 결론을 내리기 어렵다.", romanized: "Deitaga bulchungbunhameueo gyeollon eul naerigi eoryeopda.", translation: "Since the data is insufficient, it is difficult to draw a conclusion. (-(으)므로 + formal)" },
+            { native: "반면에, 긍정적인 결과도 나타났다.", romanized: "Banmyeone, geungjeongjeok in gyeolgwado natannatda.", translation: "On the other hand, positive results also appeared." },
+            { native: "이 현상은 복잡한 사회적 요인에 기인함을 알 수 있다.", romanized: "I hyeonsang eun bokjap an sahoejeogyoin e giin ham eul al su itda.", translation: "It can be understood that this phenomenon is attributable to complex social factors. (formal -(으)ㅁ nominalisation)" },
+        ]
     }
 ]

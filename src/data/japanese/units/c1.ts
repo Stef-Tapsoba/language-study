@@ -340,5 +340,23 @@ export const c1Units: LessonUnit[] = [
                 hint: "～させていただきます: 'Allow me to / I will humbly do X' — the humble permission form common in business."
             }
         ]
-    }
+    },
+    {
+        id: "ja-c1-u6",
+        level: "C1",
+        order: 6,
+        title: "Keigo Full Production & C1 Consolidation",
+        description: "Achieve full productive keigo — deploying sonkeigo and kenjōgo spontaneously and accurately under conversational pressure. Consolidate formal written structures and literary forms in a single integrated unit.",
+        grammarIds: ["ja-g-c1-6"],
+        vocabIds: ["ja-v-c1-081", "ja-v-c1-082", "ja-v-c1-083", "ja-v-c1-084"],
+        verbIds: [],
+        testQuestions: [
+            { id: "ja-c1-u6-q1", level: "C1", prompt: "A customer is speaking to you. How do you say 'Please wait a moment' in full sonkeigo?", options: ["ちょっと待ってください。", "少々お待ちください。", "少々お待ちになってください。", "少々お待ちくださいませ。"], answer: "少々お待ちくださいませ。", hint: "Full sonkeigo in service: お待ちくださいませ. Adding ませ elevates the politeness further — used in formal service contexts." },
+            { id: "ja-c1-u6-q2", level: "C1", prompt: "Which is the correct kenjōgo (humble) expression for 'I received this from the president'?", options: ["社長にもらいました。", "社長からいただきました。", "社長にもらってあげました。", "社長にもらわれました。"], answer: "社長からいただきました。", hint: "いただく is the humble form of もらう when receiving from a superior. From → から." },
+            { id: "ja-c1-u6-q3", level: "C1", prompt: "Complete in kenjōgo: 'I will go to your office tomorrow.' → '明日、御社に___。'", options: ["行きます", "まいります", "いらっしゃいます", "おいでになります"], answer: "まいります", hint: "まいる is the humble (謙譲語) form of 行く/来る — lowering your own action of going." },
+            { id: "ja-c1-u6-q4", level: "C1", prompt: "What does the literary form である signal versus です?", options: ["It's more casual than です", "It is a formal/written copula used in academic writing, essays, and literature — not conversational", "It's a regional dialect form", "It signals past tense"], answer: "It is a formal/written copula used in academic writing, essays, and literature — not conversational", hint: "である is the written-register copula. Used in academic papers, news, formal reports — never in conversation." },
+            { id: "ja-c1-u6-q5", level: "C1", prompt: "What does 〜につき mean in formal notices?", options: ["at / in (location)", "due to / on account of (formal notice language)", "regarding (discussion)", "despite"], answer: "due to / on account of (formal notice language)", hint: "〜につき = due to / because of (in formal notices). 工事中につき通行止め = Closed due to construction." },
+            { id: "ja-c1-u6-q6", level: "C1", prompt: "What is the C1 production standard for keigo?", options: ["Recognition only — no production required", "Accurate production in scripted situations only", "Spontaneous, accurate production under conversational pressure without hesitation", "Only written keigo is expected at C1"], answer: "Spontaneous, accurate production under conversational pressure without hesitation", hint: "C1 keigo: stable, spontaneous production even when the conversation is fast, emotional, or topic-heavy. This is the defining C1 milestone." },
+        ]
+    },
 ]

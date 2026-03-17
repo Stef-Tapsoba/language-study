@@ -360,5 +360,59 @@ export const b2Units: LessonUnit[] = [
                 hint: "ジレンマ is the katakana borrowing of English 'dilemma' — a difficult choice between two options."
             }
         ]
-    }
+    },
+    {
+        id: "ja-b2-u6",
+        level: "B2",
+        order: 6,
+        title: "Formal Written Japanese: ~において・~によって・~に関して",
+        description: "Master the formal written structures that define academic and professional Japanese. These patterns appear in newspapers, reports, and business communication — and sound unnatural in casual speech.",
+        grammarIds: ["ja-g-b2-6"],
+        vocabIds: ["ja-v-b2-081", "ja-v-b2-082", "ja-v-b2-083", "ja-v-b2-084", "ja-v-b2-085"],
+        verbIds: ["ja-vb-b2-4"],
+        testQuestions: [
+            { id: "ja-b2-u6-q1", level: "B2", prompt: "Which formal structure means 'in the context of / at (a place or situation)'?", options: ["〜によって", "〜において", "〜に関して", "〜をめぐって"], answer: "〜において", hint: "〜において = in / at / in the context of. 会議において = at the meeting. Written and formal." },
+            { id: "ja-b2-u6-q2", level: "B2", prompt: "Complete: 'この問題_____、さらなる議論が必要だ。' (regarding this issue)", options: ["において", "によって", "に関して", "をめぐって"], answer: "に関して", hint: "〜に関して = regarding / concerning. More specific than について — used in formal discourse." },
+            { id: "ja-b2-u6-q3", level: "B2", prompt: "Complete: '被害は台風_____もたらされた。' (caused by the typhoon)", options: ["において", "によって", "に関して", "にとって"], answer: "によって", hint: "〜によって = by / due to / through (agent or means). Passive agent marker in formal writing." },
+            { id: "ja-b2-u6-q4", level: "B2", prompt: "What does '〜をめぐって' mean?", options: ["regarding / surrounding (a contested issue)", "by means of", "at the location of", "concerning the topic"], answer: "regarding / surrounding (a contested issue)", hint: "〜をめぐって implies debate or controversy around an issue: 領土問題をめぐって = concerning the territorial dispute." },
+            { id: "ja-b2-u6-q5", level: "B2", prompt: "Which sentence uses the most natural formal written register?", options: ["この研究は大切です。", "この研究において重要な知見が得られた。", "この研究はすごく大事だと思います。", "この研究、けっこう大事じゃないですか。"], answer: "この研究において重要な知見が得られた。", hint: "Formal written: において + passive + written-register vocabulary (知見 = findings). No ます ending needed in formal prose." },
+            { id: "ja-b2-u6-q6", level: "B2", prompt: "What does '〜に際して' mean?", options: ["despite / in spite of", "on the occasion of / upon (doing)", "in comparison with", "prior to"], answer: "on the occasion of / upon (doing)", hint: "〜に際して = on the occasion of / when (formal). 卒業に際して = upon graduation." },
+        ]
+    },
+    {
+        id: "ja-b2-u7",
+        level: "B2",
+        order: 7,
+        title: "Tendency & Uncertainty: 〜がちだ・〜っぽい・〜かねない・〜かねる",
+        description: "Express habitual tendencies, impressionistic qualities, and formal doubt or inability. These patterns appear throughout authentic Japanese speech and writing at B2 level.",
+        grammarIds: ["ja-g-b2-7"],
+        vocabIds: ["ja-v-b2-086", "ja-v-b2-087", "ja-v-b2-088", "ja-v-b2-089"],
+        verbIds: [],
+        testQuestions: [
+            { id: "ja-b2-u7-q1", level: "B2", prompt: "What does 〜がちだ express?", options: ["an unexpected result", "a habitual tendency (often negative)", "an ability", "a desire"], answer: "a habitual tendency (often negative)", hint: "〜がちだ = tend to / prone to. 忘れがちだ = tend to forget. Usually describes an undesirable pattern." },
+            { id: "ja-b2-u7-q2", level: "B2", prompt: "Complete: '彼女は子どもっぽい_____。' What does 〜っぽい add?", options: ["it expresses ability", "it means 'somewhat like / rather / having the quality of'", "it expresses regret", "it means 'used to'"], answer: "it means 'somewhat like / rather / having the quality of'", hint: "〜っぽい = -ish / rather / somewhat like. 子どもっぽい = childish/childlike." },
+            { id: "ja-b2-u7-q3", level: "B2", prompt: "What does 〜かねない mean?", options: ["cannot bring oneself to do", "might well (negative possibility — could lead to a bad result)", "has never done", "is unlikely to"], answer: "might well (negative possibility — could lead to a bad result)", hint: "〜かねない = might well (do something undesirable). 事故になりかねない = it might well lead to an accident." },
+            { id: "ja-b2-u7-q4", level: "B2", prompt: "What does 〜かねる mean?", options: ["might well happen", "cannot bring oneself to do / find it difficult to do (polite refusal)", "tend to do habitually", "seems like"], answer: "cannot bring oneself to do / find it difficult to do (polite refusal)", hint: "〜かねます (polite) = I'm afraid I cannot. Formal polite refusal. お引き受けしかねます = I'm afraid I cannot take this on." },
+            { id: "ja-b2-u7-q5", level: "B2", prompt: "Complete: 'このままでは、事態が悪化し___。'", options: ["がちだ", "かねない", "っぽい", "かねる"], answer: "かねない", hint: "〜かねない for negative possibility that could happen: the situation might well worsen." },
+            { id: "ja-b2-u7-q6", level: "B2", prompt: "What does 〜気味だ mean?", options: ["tend to habitually", "slightly / a little (often with mild negative nuance)", "seems like", "might well"], answer: "slightly / a little (often with mild negative nuance)", hint: "〜気味 = slightly / a touch of. 疲れ気味 = feeling a bit tired. Softer than がち." },
+        ]
+    },
+    {
+        id: "ja-b2-u8",
+        level: "B2",
+        order: 8,
+        title: "Register Mastery: Formal Written vs Casual Spoken",
+        description: "Distinguish formal written Japanese from casual speech. Recognise register mismatch, use formal-only structures appropriately, and build awareness of the written/spoken divergence that defines B2 Japanese.",
+        grammarIds: ["ja-g-b2-8"],
+        vocabIds: ["ja-v-b2-090", "ja-v-b2-091", "ja-v-b2-092"],
+        verbIds: [],
+        testQuestions: [
+            { id: "ja-b2-u8-q1", level: "B2", prompt: "Which sentence belongs to the formal written register?", options: ["ちょっと難しいですよ。", "難しいと思います。", "困難であると言える。", "難しいじゃないですか。"], answer: "困難であると言える。", hint: "Formal written: 困難 (difficulty — formal noun), である (literary copula), と言える (it can be said that)." },
+            { id: "ja-b2-u8-q2", level: "B2", prompt: "What does 〜ている contract to in casual fast speech?", options: ["〜てる", "〜てん", "〜てい", "〜てき"], answer: "〜てる", hint: "食べている → 食べてる in casual speech. Particle dropping and contraction are features of natural casual Japanese." },
+            { id: "ja-b2-u8-q3", level: "B2", prompt: "Which is a formal written equivalent of 〜だから?", options: ["〜ので", "〜だって", "〜し", "〜から (spoken)"], answer: "〜ので", hint: "〜ので is more formal and objective than 〜から. Used in written Japanese and polite formal speech." },
+            { id: "ja-b2-u8-q4", level: "B2", prompt: "What register mismatch would occur if someone used において in casual conversation?", options: ["No mismatch — it's neutral", "It would sound overly stiff and unnatural — used in formal writing only", "It's slang", "It's only for negative sentences"], answer: "It would sound overly stiff and unnatural — used in formal writing only", hint: "Formal written structures (において, によって, に際して) sound unnatural in casual speech — a key B2 register awareness point." },
+            { id: "ja-b2-u8-q5", level: "B2", prompt: "What does お世話になっております mean and when is it used?", options: ["I'm always in your debt — casual opening", "Thank you for your ongoing support — standard formal email/business opening", "Nice to meet you — first meeting only", "I appreciate your help — only after receiving a favour"], answer: "Thank you for your ongoing support — standard formal email/business opening", hint: "お世話になっております is a fixed formal phrase — the standard opening of virtually any Japanese business email." },
+            { id: "ja-b2-u8-q6", level: "B2", prompt: "What does 一石二鳥 mean and what is its register?", options: ["kill two birds with one stone — can be used casually or formally", "a very difficult situation — formal only", "a sudden improvement — informal", "an unexpected coincidence — neutral"], answer: "kill two birds with one stone — can be used casually or formally", hint: "一石二鳥 (いっせきにちょう) = kill two birds with one stone. Four-character idiom used in both speech and writing at B2." },
+        ]
+    },
 ]

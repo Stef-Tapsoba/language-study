@@ -80,5 +80,20 @@ export const c1Grammar: GrammarLesson[] = [
             { native: "教師たる者、生徒の手本となるべきである。", romanized: "Kyōshi taru mono, seito no tehon to naru beki de aru.", translation: "One who is a teacher should serve as a role model for students." },
             { native: "問題の根本は、制度そのものにあるのではないでしょうか。", romanized: "Mondai no konpon wa, seido sono mono ni aru no dewa nai deshō ka.", translation: "Don't you think the root of the problem lies in the system itself?" }
         ]
-    }
+    },
+    {
+        id: "ja-g-c1-6",
+        level: "C1",
+        title: "Keigo Full Production & C1 Formal Mastery",
+        explanation: {
+            native: "C1 keigo production means accurate, spontaneous use of both sonkeigo and kenjōgo under conversational pressure. Key sonkeigo (respectful) verbs: いらっしゃる (to be/go/come), おっしゃる (to say), なさる (to do), くださる (to give — to me), ご覧になる (to look/see). Key kenjōgo (humble) verbs: まいる (to go/come), いたす (to do), 申す (to say), いただく (to receive/eat/drink), 拝見する (to look/see — humble). C1 formal structures: 〜につき (due to — notices), 〜に際して (upon — formal events), 〜をもって (by means of / effective from — formal declarations), 〜ならではの (unique to — literary/formal). The literary copula である is used in all formal written prose; ものだ expresses general truths and nostalgic recall in literary contexts.",
+            target: "C1の敬語運用とは、会話の圧力がかかっても正確かつ自然に尊敬語と謙譲語の両方を使える能力です。尊敬語の主要動詞：いらっしゃる（いる・行く・来る）、おっしゃる（言う）、なさる（する）、くださる（くれる）、ご覧になる（見る）。謙譲語の主要動詞：まいる（行く・来る）、いたす（する）、申す（言う）、いただく（もらう・食べる・飲む）、拝見する（見る）。C1フォーマル構文：〜につき（〜のため—告示）、〜に際して（〜の折に—格式ある場面）、〜をもって（〜によって/〜付きで—格式ある宣言）、〜ならではの（〜独特の—文語・フォーマル）。書き言葉の連語である「である」は全ての格式ある書き言葉散文に用いられ、ものだは文学的文脈における一般的真実と郷愁的回想を表します。"
+        },
+        examples: [
+            { native: "社長はもうおいでになりましたか？", romanized: "Shachou wa mou oide ni narimashita ka?", translation: "Has the president already arrived? (sonkeigo — おいでになる = respectful form of いる/来る)" },
+            { native: "明日、御社にまいります。", romanized: "Ashita, onsha ni mairimasu.", translation: "I will come to your company tomorrow. (kenjōgo — まいる lowers speaker)" },
+            { native: "改装工事につき、ご不便をおかけします。", romanized: "Kaisou-kouji ni tsuki, go-fuben wo o-kake shimasu.", translation: "We apologise for the inconvenience due to renovation work. (〜につき in formal notice)" },
+            { native: "これをもって会議を終了いたします。", romanized: "Kore wo motte kaigi wo shūryō itashimasu.", translation: "With this, I hereby conclude the meeting. (〜をもって in formal declaration)" },
+        ]
+    },
 ]

@@ -242,5 +242,23 @@ export const c1Units: LessonUnit[] = [
                 answer: "가는 말이 고와야 오는 말이 곱다"
             }
         ]
+    },
+    {
+        id: "ko-c1-u6",
+        level: "C1",
+        order: 6,
+        title: "Honorific Production Under Pressure & C1 Mastery",
+        description: "Achieve seamless, spontaneous honorific switching throughout a conversation as the social dynamic changes. Consolidate full speech level control, formal written structures, and the cultural depth that defines C1 Korean.",
+        grammarIds: ["ko-g-c1-6"],
+        vocabIds: ["ko-v-c1-081", "ko-v-c1-082", "ko-v-c1-083", "ko-v-c1-084"],
+        verbIds: [],
+        testQuestions: [
+            { id: "ko-c1-u6-q1", level: "C1", prompt: "You are in a formal job interview. A senior person asks: '앉아요?' How should you interpret and respond?", options: ["They are being rude — refuse to sit", "They are using 해요체 to be friendly — sit and respond in 합쇼체 to maintain formal register", "They want you to stand", "Switch to 반말 in return"], answer: "They are being 해요체 to be friendly — sit and respond in 합쇼체 to maintain formal register", hint: "C1 honorific awareness: recognise that the interviewer may relax register; maintain your formal 합쇼체 regardless until invited to relax." },
+            { id: "ko-c1-u6-q2", level: "C1", prompt: "Complete with the correct humble verb: 'I will tell you the details' → '자세한 내용을 ___ 드리겠습니다.'", options: ["말해", "말씀", "말씀 드리겠습니다 (already complete)", "이야기"], answer: "말씀 드리겠습니다 (already complete)", hint: "말씀 드리다 = to tell/speak (humble). The full phrase 말씀 드리겠습니다 = I will tell you (humble + polite future)." },
+            { id: "ko-c1-u6-q3", level: "C1", prompt: "What does 여쭙다 mean and when is it used?", options: ["to ask (humble) — used when asking a superior", "to answer (humble)", "to listen (honorific)", "to give (humble)"], answer: "to ask (humble) — used when asking a superior", hint: "여쭙다 (여쭤요 / 여쭙겠습니다) = humble form of 묻다/질문하다. Used when asking someone of higher status." },
+            { id: "ko-c1-u6-q4", level: "C1", prompt: "What does '-(으)므로' signal and how does it differ from -아/어서?", options: ["Identical meaning and register", "-(으)므로 is formal written / academic; -아/어서 is conversational. Using -(으)므로 in casual speech sounds unnatural.", "-(으)므로 is casual; -아/어서 is formal", "Only -(으)므로 can express cause"], answer: "-(으)므로 is formal written / academic; -아/어서 is conversational. Using -(으)므로 in casual speech sounds unnatural.", hint: "Register-sensitive connector choice is a C1 skill: -(으)므로 belongs in essays and official reports, not everyday conversation." },
+            { id: "ko-c1-u6-q5", level: "C1", prompt: "What does '자업자득 (自業自得)' mean?", options: ["killing two birds with one stone", "reaping what one sows / you get what you deserve", "a blessing in disguise", "the more you know, the more you worry"], answer: "reaping what one sows / you get what you deserve", hint: "자업자득 = 自業自得 = you brought it upon yourself. A 사자성어 used in formal and semi-formal contexts." },
+            { id: "ko-c1-u6-q6", level: "C1", prompt: "At C1, what is the benchmark for Korean honorific mastery?", options: ["Using -요 on sentence-final verbs", "Using -습니다 in all situations", "Seamless speech level switching throughout an entire interaction as social roles shift — without hesitation or backsliding", "Knowing all honorific nouns by heart"], answer: "Seamless speech level switching throughout an entire interaction as social roles shift — without hesitation or backsliding", hint: "C1 Korean: fluid, real-time register adjustment as social dynamics change within a single conversation. This is the defining C1 milestone." },
+        ]
     }
 ]

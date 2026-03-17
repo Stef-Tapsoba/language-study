@@ -92,4 +92,22 @@ export const c1Units: LessonUnit[] = [
             { id: "fr-c1-u5-q6", level: "C1", prompt: "Complete: 'Il n'empêche ___ les critiques formulées méritent d'être prises en compte.'", options: ["de", "que", "à", "pour"], answer: "que" },
         ]
     },
+    {
+        id: "fr-c1-u6",
+        level: "C1",
+        order: 6,
+        title: "Variation de Registre & Style Authentique",
+        description: "Master deliberate register variation — knowing not just what is correct, but what is stylistically appropriate. Distinguish formal written, journalistic, conversational, and literary registers and deploy them for rhetorical effect.",
+        grammarIds: ["fr-g-c1-6"],
+        vocabIds: ["fr-v-c1-081", "fr-v-c1-082", "fr-v-c1-083", "fr-v-c1-084"],
+        verbIds: [],
+        testQuestions: [
+            { id: "fr-c1-u6-q1", level: "C1", prompt: "Which register does 'nonobstant' belong to?", options: ["colloquial", "journalistic", "formal legal/literary — 'notwithstanding'", "regional slang"], answer: "formal legal/literary — 'notwithstanding'", hint: "Nonobstant is archaic/legal for malgré. C1 learners recognise and use it in appropriate formal contexts." },
+            { id: "fr-c1-u6-q2", level: "C1", prompt: "What stylistic effect does switching from 'vous' to 'tu' mid-conversation achieve?", options: ["It's a grammatical error", "It signals warmth, aggression, or irony depending on tone and context", "It's only used with children", "It marks a formal register upgrade"], answer: "It signals warmth, aggression, or irony depending on tone and context", hint: "C1 register mastery: deliberate register switch as a rhetorical tool — warmth, intimacy, or pointed sarcasm." },
+            { id: "fr-c1-u6-q3", level: "C1", prompt: "What does 'il appert que' mean in legal/administrative French?", options: ["it is apparent that / it appears that (formal)", "it is important that", "it is required that", "it goes without saying that"], answer: "it is apparent that / it appears that (formal)", hint: "Il appert que is a formal legal construction meaning 'it appears from the evidence that'." },
+            { id: "fr-c1-u6-q4", level: "C1", prompt: "Which is the most compressed/formal written equivalent of 'parce qu'il était fatigué'?", options: ["car il était fatigué", "en raison de sa fatigue", "vu sa fatigue", "sa fatigue l'a causé"], answer: "en raison de sa fatigue", hint: "Nominalisation compresses clauses: parce qu'il était fatigué → en raison de sa fatigue. Core C1 formal writing skill." },
+            { id: "fr-c1-u6-q5", level: "C1", prompt: "What does the ironic use of 'c'est malin' actually mean?", options: ["That was clever (sincere compliment)", "That was not clever at all (ironic criticism)", "That is a good plan", "That is understandable"], answer: "That was not clever at all (ironic criticism)", hint: "C'est malin (literally: how clever) used ironically = what a stupid thing to do. C1 irony recognition." },
+            { id: "fr-c1-u6-q6", level: "C1", prompt: "What does 'force est de constater que' signal in formal writing?", options: ["a hypothesis", "an obligatory acknowledgment of an undeniable fact", "a personal opinion", "a contrast"], answer: "an obligatory acknowledgment of an undeniable fact", hint: "Force est de constater que = one is forced to acknowledge that. Journalistic/academic formal structure." },
+        ]
+    },
 ]

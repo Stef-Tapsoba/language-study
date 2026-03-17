@@ -90,5 +90,59 @@ export const b2Units: LessonUnit[] = [
             { id: "it-b2-u5-q5", level: "B2", prompt: "Complete: 'Se il governo ___ le tasse, i cittadini sarebbero più contenti.' (ridurre)", options: ["riduce", "ridurrà", "riducesse", "ridurrebbe"], answer: "riducesse" },
             { id: "it-b2-u5-q6", level: "B2", prompt: "What does 'nonostante' mean?", options: ["Consequently", "Despite / notwithstanding", "Similarly", "With regard to"], answer: "Despite / notwithstanding" }
         ]
+    },
+    {
+        id: "it-b2-u6",
+        level: "B2",
+        order: 6,
+        title: "Periodo Ipotetico Misto & Ipotesi Avanzate",
+        description: "Master the mixed conditional — past condition, present consequence — and consolidate all three types of Italian conditional sentence. Build fluency with concessive subjunctive patterns.",
+        grammarIds: ["it-g-b2-6"],
+        vocabIds: ["it-v-b2-081", "it-v-b2-082", "it-v-b2-083", "it-v-b2-084", "it-v-b2-085"],
+        verbIds: ["it-vb-b2-4"],
+        testQuestions: [
+            { id: "it-b2-u6-q1", level: "B2", prompt: "Identify: 'Se avessi studiato medicina, sarei medico adesso.'", options: ["1° tipo — reale", "2° tipo — ipotetico presente", "3° tipo — rimpianto passato", "Misto — condizione passata, conseguenza presente"], answer: "Misto — condizione passata, conseguenza presente", hint: "Se + congiuntivo trapassato → condizionale presente = periodo ipotetico misto." },
+            { id: "it-b2-u6-q2", level: "B2", prompt: "Complete: 'Se ___ (partire) prima, sarei qui adesso.'", options: ["partissi", "fossi partito", "sarei partito", "partivo"], answer: "fossi partito", hint: "Mixed: se + congiuntivo trapassato (past clause) → condizionale presente (now)." },
+            { id: "it-b2-u6-q3", level: "B2", prompt: "What does 'per quanto' introduce?", options: ["a result", "a concession — however much / no matter how", "a condition", "a purpose"], answer: "a concession — however much / no matter how", hint: "Per quanto + congiuntivo = however much / no matter how. Per quanto studi, non riesce." },
+            { id: "it-b2-u6-q4", level: "B2", prompt: "Complete: 'Nonostante ___ tardi, continuò a lavorare.' (essere)", options: ["fosse", "è", "sia", "era"], answer: "fosse", hint: "Nonostante + congiuntivo imperfetto after a past context." },
+            { id: "it-b2-u6-q5", level: "B2", prompt: "What does 'a condizione che' mean?", options: ["unless", "provided that / on condition that", "despite", "in order that"], answer: "provided that / on condition that", hint: "A condizione che + congiuntivo = provided that / on condition that." },
+            { id: "it-b2-u6-q6", level: "B2", prompt: "Journalistic conditional: what does 'Il ministro avrebbe rassegnato le dimissioni' mean?", options: ["The minister definitely resigned", "The minister is reported to have resigned (unconfirmed)", "The minister will resign", "The minister used to resign"], answer: "The minister is reported to have resigned (unconfirmed)", hint: "Condizionale passato in journalism = alleged information. Equivalent to 'reportedly' in English." },
+        ]
+    },
+    {
+        id: "it-b2-u7",
+        level: "B2",
+        order: 7,
+        title: "Congiuntivo Concessivo & Connettivi Avanzati",
+        description: "Use the full range of concessive subjunctive triggers, master B2 discourse connectors, and build the argumentative framework needed for formal written and spoken Italian.",
+        grammarIds: ["it-g-b2-7"],
+        vocabIds: ["it-v-b2-086", "it-v-b2-087", "it-v-b2-088", "it-v-b2-089"],
+        verbIds: [],
+        testQuestions: [
+            { id: "it-b2-u7-q1", level: "B2", prompt: "Complete: 'Sebbene ___ stanco, continuò.' (essere — present context)", options: ["è", "era", "sia", "fosse"], answer: "sia", hint: "Sebbene/benché/nonostante always require congiuntivo. Present context → congiuntivo presente." },
+            { id: "it-b2-u7-q2", level: "B2", prompt: "Which connector means 'however / nevertheless' in formal Italian?", options: ["quindi", "tuttavia / ciononostante", "inoltre", "pertanto"], answer: "tuttavia / ciononostante", hint: "Tuttavia and ciononostante = however / nevertheless. More formal than ma." },
+            { id: "it-b2-u7-q3", level: "B2", prompt: "What does 'a meno che non' introduce?", options: ["a result", "a purpose", "an exception — unless", "a concession"], answer: "an exception — unless", hint: "A meno che non + congiuntivo = unless. The non is compulsory even in affirmative meaning." },
+            { id: "it-b2-u7-q4", level: "B2", prompt: "Complete: 'Lo faccio affinché tu ___ (capire) la situazione.'", options: ["capisci", "capirai", "capisca", "capiva"], answer: "capisca", hint: "Affinché (so that / in order that) always triggers congiuntivo." },
+            { id: "it-b2-u7-q5", level: "B2", prompt: "What does 'di conseguenza' mean?", options: ["in contrast", "on the other hand", "as a consequence / therefore", "in addition"], answer: "as a consequence / therefore", hint: "Di conseguenza = consequently / as a result. Formal written alternative to quindi." },
+            { id: "it-b2-u7-q6", level: "B2", prompt: "What does 'stante la situazione' mean?", options: ["while standing", "given the situation (formal)", "despite the situation", "before the situation"], answer: "given the situation (formal)", hint: "Stante + noun = given / in view of. Stante il problema = given the problem (formal)." },
+        ]
+    },
+    {
+        id: "it-b2-u8",
+        level: "B2",
+        order: 8,
+        title: "Registro & Espressioni Idiomatiche",
+        description: "Navigate formal written Italian versus colloquial spoken language. Master key idiomatic expressions, understand register divergence, and use the fixed collocations that characterise authentic B2 Italian.",
+        grammarIds: ["it-g-b2-8"],
+        vocabIds: ["it-v-b2-090", "it-v-b2-091", "it-v-b2-092"],
+        verbIds: [],
+        testQuestions: [
+            { id: "it-b2-u8-q1", level: "B2", prompt: "What does 'non ci piove' mean?", options: ["it's not raining", "there's absolutely no doubt about it", "it doesn't matter", "it's uncertain"], answer: "there's absolutely no doubt about it", hint: "Non ci piove is a fixed idiom: 'there's no doubt about it' — cannot be guessed from its literal meaning." },
+            { id: "it-b2-u8-q2", level: "B2", prompt: "Which is the formal written alternative to 'perché'?", options: ["in quanto / poiché / dal momento che", "ma / però / eppure", "quindi / perciò", "mentre / quando"], answer: "in quanto / poiché / dal momento che", hint: "Perché = neutral. Poiché / in quanto / dal momento che = formal written alternatives." },
+            { id: "it-b2-u8-q3", level: "B2", prompt: "What does 'avere un diavolo per capello' mean?", options: ["to be very proud", "to be furious / hopping mad", "to be confused", "to have a bad day"], answer: "to be furious / hopping mad", hint: "Avere un diavolo per capello = literally 'to have a devil in every hair' — to be very angry." },
+            { id: "it-b2-u8-q4", level: "B2", prompt: "In formal Italian writing, which structure compresses 'anche se è difficile'?", options: ["malgrado la difficoltà / nonostante la difficoltà", "però è difficile", "è difficile quindi", "perché è difficile"], answer: "malgrado la difficoltà / nonostante la difficoltà", hint: "Nominalisation: anche se è difficile → nonostante/malgrado la difficoltà. Core B2 formal writing." },
+            { id: "it-b2-u8-q5", level: "B2", prompt: "What does 'in merito a' mean?", options: ["on merit", "with regard to / concerning (formal)", "because of", "in addition to"], answer: "with regard to / concerning (formal)", hint: "In merito a = riguardo a = with regard to. Formal register — used in business and official writing." },
+            { id: "it-b2-u8-q6", level: "B2", prompt: "What does 'cavarsela' mean?", options: ["to hide oneself", "to manage / to get by / to cope", "to escape", "to find something"], answer: "to manage / to get by / to cope", hint: "Cavarsela = to manage / get by. Se la cava = he/she manages. Colloquial but very frequent." },
+        ]
     }
 ]

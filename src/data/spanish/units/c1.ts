@@ -337,5 +337,23 @@ export const c1Units: LessonUnit[] = [
                 hint: "No hay mal que por bien no venga — even bad things have positive consequences in the end."
             }
         ]
+    },
+    {
+        id: "es-c1-u6",
+        level: "C1",
+        order: 6,
+        title: "Full Subjunctive System & Register Mastery",
+        description: "Consolidate the complete subjunctive system — all triggers, all tenses — and achieve C1 register mastery: deliberate stylistic variation, formal impersonal constructions, and the rhetorical use of register shifts.",
+        grammarIds: ["es-g-c1-6"],
+        vocabIds: ["es-v-c1-081", "es-v-c1-082", "es-v-c1-083", "es-v-c1-084"],
+        verbIds: [],
+        testQuestions: [
+            { id: "es-c1-u6-q1", level: "C1", prompt: "Complete with the correct subjunctive tense: 'No creo que ella ___ (venir) cuando era niña.'", options: ["venga", "viniera", "haya venido", "hubiera venido"], answer: "viniera", hint: "Past subjunctive after a past reporting verb. No creo → vincular → viniera (imperfecto subjuntivo)." },
+            { id: "es-c1-u6-q2", level: "C1", prompt: "What does 'cabe señalar que' signal in formal writing?", options: ["a personal opinion", "a conclusion", "a point worth noting / it should be noted that", "a hypothesis"], answer: "a point worth noting / it should be noted that", hint: "Cabe señalar que = it is worth noting that. Key C1 academic discourse connector." },
+            { id: "es-c1-u6-q3", level: "C1", prompt: "Complete: 'Ojalá ___ (poder) verte antes de mi partida.' (unlikely wish about the past)", options: ["pueda", "pudiera", "haya podido", "hubiera podido"], answer: "hubiera podido", hint: "Ojalá + pluperfect subjunctive = unfulfilled past wish (regret)." },
+            { id: "es-c1-u6-q4", level: "C1", prompt: "What does 'en aras de' mean?", options: ["in spite of", "for the sake of / in the interest of", "as a result of", "regarding"], answer: "for the sake of / in the interest of", hint: "En aras de la claridad = for the sake of clarity. Formal academic construction." },
+            { id: "es-c1-u6-q5", level: "C1", prompt: "Which construction is a formal impersonal alternative to 'mucha gente dice que'?", options: ["Es sabido que / se afirma que", "Todo el mundo dice que", "La gente suele decir que", "Como dice la gente"], answer: "Es sabido que / se afirma que", hint: "Impersonal constructions: es sabido que, se sostiene que, cabe afirmar que — used in academic/formal writing." },
+            { id: "es-c1-u6-q6", level: "C1", prompt: "What rhetorical effect does switching from usted to tú have mid-conversation?", options: ["It's always a grammatical error", "It signals warmth, familiarity, or deliberate irony depending on context", "It only marks regional dialect", "It means the speaker is angry"], answer: "It signals warmth, familiarity, or deliberate irony depending on context", hint: "C1 register mastery: deliberate switch as a rhetorical tool — building rapport, showing irony, or asserting dominance." },
+        ]
     }
 ]

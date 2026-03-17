@@ -125,5 +125,43 @@ export const b2Verbs: Verb[] = [
                 ]
             }
         ]
+    },
+    {
+        id: "es-vb-b2-4",
+        level: "B2",
+        infinitive: "ser",
+        meaning: "to be (identity/characteristic)",
+        conjugations: [
+            {
+                tense: "Pluperfect Subjunctive",
+                forms: [
+                    { pronoun: "yo", form: "hubiera/hubiese sido" },
+                    { pronoun: "tú", form: "hubieras/hubieses sido" },
+                    { pronoun: "él/ella", form: "hubiera/hubiese sido" },
+                    { pronoun: "nosotros", form: "hubiéramos/hubiésemos sido" },
+                    { pronoun: "vosotros", form: "hubierais/hubieseis sido" },
+                    { pronoun: "ellos/ellas", form: "hubieran/hubiesen sido" },
+                ]
+            },
+            {
+                tense: "Conditional Perfect",
+                forms: [
+                    { pronoun: "yo", form: "habría sido" },
+                    { pronoun: "tú", form: "habrías sido" },
+                    { pronoun: "él/ella", form: "habría sido" },
+                    { pronoun: "nosotros", form: "habríamos sido" },
+                    { pronoun: "vosotros", form: "habríais sido" },
+                    { pronoun: "ellos/ellas", form: "habrían sido" },
+                ]
+            },
+            {
+                tense: "Mixed Conditional (ser)",
+                forms: [
+                    { pronoun: "past clause", form: "Si hubiera sido más cuidadoso…" },
+                    { pronoun: "present result", form: "…sería diferente ahora. (cond. simple)" },
+                    { pronoun: "past result", form: "…habría sido diferente. (cond. perfecto)" },
+                ]
+            }
+        ]
     }
 ]

@@ -125,4 +125,42 @@ export const b2Verbs: Verb[] = [
             },
         ]
     },
+    {
+        id: "fr-vb-b2-4",
+        level: "B2",
+        infinitive: "savoir",
+        meaning: "to know (how to do / facts)",
+        conjugations: [
+            {
+                tense: "Conditionnel Passé",
+                forms: [
+                    { pronoun: "je", form: "aurais su" },
+                    { pronoun: "tu", form: "aurais su" },
+                    { pronoun: "il/elle", form: "aurait su" },
+                    { pronoun: "nous", form: "aurions su" },
+                    { pronoun: "vous", form: "auriez su" },
+                    { pronoun: "ils/elles", form: "auraient su" },
+                ]
+            },
+            {
+                tense: "Subjonctif Passé",
+                forms: [
+                    { pronoun: "que je", form: "aie su" },
+                    { pronoun: "que tu", form: "aies su" },
+                    { pronoun: "qu'il/elle", form: "ait su" },
+                    { pronoun: "que nous", form: "ayons su" },
+                    { pronoun: "que vous", form: "ayez su" },
+                    { pronoun: "qu'ils/elles", form: "aient su" },
+                ]
+            },
+            {
+                tense: "Mixed Conditional Pattern",
+                forms: [
+                    { pronoun: "si + PQP", form: "Si j'avais su…" },
+                    { pronoun: "→ cond. présent", form: "…je serais médecin aujourd'hui." },
+                    { pronoun: "→ cond. passé", form: "…je n'aurais pas accepté." },
+                ]
+            }
+        ]
+    },
 ]

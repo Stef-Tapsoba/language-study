@@ -92,4 +92,58 @@ export const b2Units: LessonUnit[] = [
             { id: "fr-b2-u5-q6", level: "B2", prompt: "What does 'le dilemme' mean?", options: ["difficulty", "dilemma", "dialogue", "decision"], answer: "dilemma" },
         ]
     },
+    {
+        id: "fr-b2-u6",
+        level: "B2",
+        order: 6,
+        title: "Conditionnels Mixtes & Hypothèses Passées",
+        description: "Master the mixed conditional — past condition with present consequence — and consolidate all three conditional types. Move from mechanical si-clause rules to nuanced hypothetical reasoning in argumentation and storytelling.",
+        grammarIds: ["fr-g-b2-6"],
+        vocabIds: ["fr-v-b2-081", "fr-v-b2-082", "fr-v-b2-083", "fr-v-b2-084", "fr-v-b2-085"],
+        verbIds: ["fr-vb-b2-4"],
+        testQuestions: [
+            { id: "fr-b2-u6-q1", level: "B2", prompt: "Identify this conditional type: 'Si tu avais étudié la médecine, tu serais médecin aujourd'hui.'", options: ["Type 1 — real condition", "Type 2 — hypothetical present", "Type 3 — past regret", "Mixed — past condition, present consequence"], answer: "Mixed — past condition, present consequence", hint: "Si + plus-que-parfait → conditionnel présent = mixed conditional. Past cause, present result." },
+            { id: "fr-b2-u6-q2", level: "B2", prompt: "Complete the mixed conditional: 'Si elle ___ (partir) à temps, elle ne serait pas en retard maintenant.'", options: ["partait", "partirait", "était partie", "soit partie"], answer: "était partie", hint: "Past condition → plus-que-parfait in the si-clause. Present result → conditionnel présent." },
+            { id: "fr-b2-u6-q3", level: "B2", prompt: "What does 'avoir beau + infinitif' mean?", options: ["to have the right to", "to do something in vain despite efforts", "to look good doing", "to be willing to"], answer: "to do something in vain despite efforts", hint: "Avoir beau faire = do in vain / despite doing. Il a beau travailler dur, il n'avance pas." },
+            { id: "fr-b2-u6-q4", level: "B2", prompt: "Complete: 'Si nous ___ (investir) plus tôt, nous aurions aujourd'hui un meilleur portefeuille.'", options: ["investissons", "investissions", "aurions investi", "avions investi"], answer: "avions investi", hint: "Mixed conditional: si + plus-que-parfait (past clause) → conditionnel présent (now result)." },
+            { id: "fr-b2-u6-q5", level: "B2", prompt: "What does 'dans la mesure où' mean?", options: ["in the direction of", "insofar as / to the extent that", "at the moment when", "in spite of"], answer: "insofar as / to the extent that", hint: "Dans la mesure où introduces a condition or limitation in formal argumentation." },
+            { id: "fr-b2-u6-q6", level: "B2", prompt: "Which sentence expresses journalistic conditional (unconfirmed information)?", options: ["Le président a signé l'accord hier.", "Le président aurait signé l'accord hier.", "Le président signait l'accord hier.", "Le président va signer l'accord."], answer: "Le président aurait signé l'accord hier.", hint: "Conditionnel passé in journalism = alleged / reported but unconfirmed: 'would reportedly have'." },
+        ]
+    },
+    {
+        id: "fr-b2-u7",
+        level: "B2",
+        order: 7,
+        title: "Connecteurs de Discours & Argumentation",
+        description: "Build fluent, structured arguments using B2-level discourse connectors. Move beyond simple opposition (mais, cependant) to concession, consequence, reformulation, and emphasis — the tools of formal written and spoken French.",
+        grammarIds: ["fr-g-b2-7"],
+        vocabIds: ["fr-v-b2-086", "fr-v-b2-087", "fr-v-b2-088", "fr-v-b2-089", "fr-v-b2-090"],
+        verbIds: [],
+        testQuestions: [
+            { id: "fr-b2-u7-q1", level: "B2", prompt: "Which connector expresses 'given that / since (as a premise)'?", options: ["néanmoins", "étant donné que", "en revanche", "quant à"], answer: "étant donné que", hint: "Étant donné que introduces an accepted premise. More formal than puisque." },
+            { id: "fr-b2-u7-q2", level: "B2", prompt: "What does 'quant à' introduce?", options: ["a consequence", "a concession", "a topic shift — as for / regarding", "a contrast"], answer: "a topic shift — as for / regarding", hint: "Quant à = as for / regarding. Used to introduce a new topic or angle in an argument." },
+            { id: "fr-b2-u7-q3", level: "B2", prompt: "Which connector signals reformulation ('in other words')?", options: ["néanmoins", "c'est-à-dire / autrement dit", "en conséquence", "or"], answer: "c'est-à-dire / autrement dit", hint: "C'est-à-dire and autrement dit both mean 'in other words' / 'that is to say'." },
+            { id: "fr-b2-u7-q4", level: "B2", prompt: "What does 'or' (conjunction) do in French formal writing?", options: ["It means 'or' (alternative)", "It introduces a logical pivot — 'now, as it happens'", "It means 'therefore'", "It means 'however'"], answer: "It introduces a logical pivot — 'now, as it happens'", hint: "Or (no accent) = now / but (syllogistic pivot). Tous les hommes sont mortels. Or Socrate est un homme. Donc…" },
+            { id: "fr-b2-u7-q5", level: "B2", prompt: "What does 'en l'occurrence' mean?", options: ["in recurrence", "in this particular case / as it happens", "in consequence", "in competition"], answer: "in this particular case / as it happens", hint: "En l'occurrence = in this particular instance. Formal and precise." },
+            { id: "fr-b2-u7-q6", level: "B2", prompt: "Complete formally: '___ les difficultés rencontrées, le projet a abouti.'", options: ["Malgré", "Grâce à", "À cause de", "Selon"], answer: "Malgré", hint: "Malgré + noun = despite. Bien que + subjonctif = although (with clause)." },
+        ]
+    },
+    {
+        id: "fr-b2-u8",
+        level: "B2",
+        order: 8,
+        title: "Registres & Expressions Idiomatiques",
+        description: "Navigate the full register spectrum — from formal written French to colloquial spoken language. Master key idiomatic expressions, fixed collocations, and stylistic variation that characterise authentic B2 French.",
+        grammarIds: ["fr-g-b2-8"],
+        vocabIds: ["fr-v-b2-091", "fr-v-b2-092", "fr-v-b2-081", "fr-v-b2-082", "fr-v-b2-086"],
+        verbIds: [],
+        testQuestions: [
+            { id: "fr-b2-u8-q1", level: "B2", prompt: "What register does 'boulot' (work) belong to?", options: ["formal written", "journalistic", "colloquial/familiar", "archaic"], answer: "colloquial/familiar", hint: "Boulot = colloquial for travail. Register awareness: travail (neutral) → boulot (familiar) → labeur (literary/formal)." },
+            { id: "fr-b2-u8-q2", level: "B2", prompt: "What does 'mettre les pieds dans le plat' mean?", options: ["to put your feet up", "to put your foot in it / say something blunt or tactless", "to start a project", "to travel far"], answer: "to put your foot in it / say something blunt or tactless", hint: "Mettre les pieds dans le plat = to blunder, say something embarrassing or too direct." },
+            { id: "fr-b2-u8-q3", level: "B2", prompt: "Which is the formal written equivalent of 'utiliser'?", options: ["bosser", "se servir de / avoir recours à", "mettre en place", "s'y prendre"], answer: "se servir de / avoir recours à", hint: "Register ladder: utiliser (neutral) → avoir recours à / se servir de (formal) → bosser avec (very casual)." },
+            { id: "fr-b2-u8-q4", level: "B2", prompt: "What does 'coûter les yeux de la tête' mean?", options: ["to be priceless", "to cost an arm and a leg / be extremely expensive", "to be worthless", "to be a good investment"], answer: "to cost an arm and a leg / be extremely expensive", hint: "Coûter les yeux de la tête = to cost a fortune. A key B2 idiom listed in the guide." },
+            { id: "fr-b2-u8-q5", level: "B2", prompt: "In formal written French, which structure replaces 'parce que' for a more formal tone?", options: ["car / en raison de / du fait que", "mais / pourtant", "donc / ainsi", "alors / ensuite"], answer: "car / en raison de / du fait que", hint: "Parce que is neutral-spoken. Car is formal-written (no comma needed). En raison de + noun is even more formal." },
+            { id: "fr-b2-u8-q6", level: "B2", prompt: "What does 'avoir le vent en poupe' mean?", options: ["to be in trouble", "to be sailing into the wind", "to be doing very well / to have the wind in your sails", "to be undecided"], answer: "to be doing very well / to have the wind in your sails", hint: "Avoir le vent en poupe = to be on a winning streak. Idiomatic — can't be guessed from the parts." },
+        ]
+    },
 ]
