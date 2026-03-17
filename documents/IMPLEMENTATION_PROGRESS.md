@@ -837,3 +837,75 @@ Added `public/_redirects` so Netlify serves `index.html` for all routes, enablin
 ```
 
 Vite copies everything in `public/` into `dist/` at build time. When the user uploads the `dist/` folder to Netlify, the `_redirects` file is included automatically — no additional Netlify dashboard configuration required.
+
+---
+
+## 40 — B1 content expansion (all 5 languages)
+
+**Commit:** `a78e684`
+
+Full B1-level content across all five languages — grammar, vocab, verbs, and ordered lesson units — replacing the earlier stubs that covered only tense drilling.
+
+### Content added per language
+
+| Category | Per language | Total (5 langs) |
+|----------|-------------|-----------------|
+| Grammar lessons | 3–5 new lessons | ~20 lessons |
+| Lesson units | 3–5 new units (incl. consolidation) | ~22 units |
+| Vocab items | 14 new items | 70 items |
+| Verbs | 2 new entries | 10 entries |
+
+### Grammar topics added (examples)
+- **ES:** Si-clauses (all 3 types), Estilo Indirecto, Discourse Markers & Collocations
+- **FR:** Si-clauses, Passive Voice, Double Object Pronouns, Discourse Markers, Le Discours Indirect
+- **IT:** Periodo Ipotetico, Discorso Indiretto, Discourse Markers & Collocations
+- **JA:** Conditionals (ば/たら/と), 〜んです, Passive 〜られる, Clause Linking (ので/のに/けど)
+- **KO:** Reported Speech (~다고), Obligation/Attempt (~야 하다/~어 보다), Nominalisation, Connector Register
+
+### Additional fixes (applied in same commit)
+- **FR:** Added `fr-g-b1-10` (Le Discours Indirect), `fr-b1-u10` unit with 6 test questions, `fr-vb-b1-7` (dire with reported speech conjugations)
+- **ES:** Replaced shallow `es-b1-u1` "Habitual Past" stub with "Complex Past Narration" unit (preterite / imperfect / pluperfect interaction); added REVIEW comment on `es-g-b1-2`
+- **JA/KO:** Full replacement of `b1Verbs` arrays — old stubs with only Present/Past/Te-form replaced with 4 richer verbs each demonstrating B1-specific patterns (conditionals, passive, ~んです, reported speech, nominalisation, clause linking)
+
+### Files modified
+- `src/data/{es,fr,it,ja,ko}/units/b1.ts` — new/replaced units
+- `src/data/{es,fr,it,ja,ko}/grammar/b1.ts` — new grammar lessons
+- `src/data/{es,fr,it,ja,ko}/vocab/b1.ts` — 14 new vocab items each
+- `src/data/{es,fr,it,ja,ko}/verbs/b1.ts` — new/replaced verb entries
+
+---
+
+## 41 — B2/C1 content expansion (all 5 languages)
+
+**Commit:** `d38d7ad`
+
+Additional B2 and C1 content across all five languages — units, grammar lessons, vocab items, and one verb entry per language at B2.
+
+### Content added per language
+
+| Category | B2 | C1 |
+|----------|----|----|
+| Lesson units | 3 new units | 1 new unit |
+| Grammar lessons | 3 new lessons | 1 new lesson |
+| Vocab items | 12 new items | 4 new items |
+| Verbs | 1 new entry | — |
+
+### Grammar topics added
+- **ES B2:** Mixed conditionals (si + pluperfect subj. → cond. simple), concessive subjunctive / ser vs estar advanced, formal register & idioms; **ES C1:** Full subjunctive system (all 4 tenses) + C1 academic discourse (cabe señalar, en aras de, a tenor de)
+- **FR B2:** Mixed conditionals, advanced discourse connectors, formal register & French idioms; **FR C1:** Stylistic register variation + C1 formal constructions
+- **IT B2:** Periodo ipotetico misto, congiuntivo concessivo + B2 connectors, register & idioms; **IT C1:** Full congiuntivo system + C1 style
+- **JA B2:** Formal written Japanese patterns, tendency/uncertainty grammar (~がち, ~かねる, ~に違いない), register mastery; **JA C1:** Keigo full production under pressure
+- **KO B2:** Inevitability & concession (~(으)ㄹ 수밖에 없다, ~더라도), honorific nouns, formal written register; **KO C1:** Seamless honorific switching & C1 formal mastery
+
+### Vocab highlights
+- **ES:** `por mucho que`, `habida cuenta de`, `no obstante`, `en aras de`, `a tenor de`, `dar en el clavo`, `estar en las nubes`, `no hay mal que por bien no venga`
+- **FR:** `quoi que`, `nonobstant`, `avoir beau`, `en dépit de`, `il va sans dire`, `savoir-faire`
+- **IT:** `ciononostante`, `a prescindere da`, `fare il punto su`, `vale a dire`, `di buon grado`
+- **JA:** `〜に越したことはない`, `〜をものともせず`, `忖度`, `腑に落ちない`
+- **KO:** `는바`, `〜(으)ㄹ 만하다`, `기는커녕`, `자업자득`
+
+### Files modified
+- `src/data/{es,fr,it,ja,ko}/units/b2.ts` and `units/c1.ts`
+- `src/data/{es,fr,it,ja,ko}/grammar/b2.ts` and `grammar/c1.ts`
+- `src/data/{es,fr,it,ja,ko}/vocab/b2.ts` and `vocab/c1.ts`
+- `src/data/{es,fr,it,ja,ko}/verbs/b2.ts`

@@ -371,13 +371,13 @@ If `text.target` is undefined, always fall back to `text.native` (safe for incre
 
 See `CONTENT_RESTRUCTURE_PLAN.md` for the full per-language curriculum breakdown.
 
-| Language | Levels | A1 Grammar | A1 Vocab | A1 Units | Reading | Listening |
+| Language | Levels | B1 Units | B2 Units | C1 Units | Reading | Listening |
 |---|---|---|---|---|---|---|
-| Spanish | A1–C1 | 12 | 158 | 14 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 |
-| Korean | A1–C1 | 12 | 150 | 12 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 |
-| French | A1–C1 | 13 | 173 | 15 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 |
-| Italian | A1–C1 | 13 | 152 | 15 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 |
-| Japanese | A1–C1 | 14 | 150 | 15 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 |
+| Spanish | A1–C1 | 9 | 8 | 6 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 |
+| French | A1–C1 | 10 | 8 | 6 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 |
+| Italian | A1–C1 | 8 | 8 | 6 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 |
+| Japanese | A1–C1 | 9 | 8 | 6 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 |
+| Korean | A1–C1 | 8 | 8 | 6 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 |
 
 All 5 languages have full content at every CEFR level (A1 → C1). Reading and listening passages exist at A1, A2, B2, and C1 (B1 reading/listening is roadmap).
 
@@ -415,6 +415,11 @@ Alternative entry to grammar lessons: present examples → user hypothesises the
 ✅ v2.1.0   — B2+C1 full content for all 5 languages; Culture page (dedicated CulturePage),
              Grammar lesson detail page (/grammar/:lessonId), Wrong answer review in
              drills and level test
+✅ v2.2.0   — A2 content expansion + gap fixes; A1 content expansion; JSON progress export;
+             lazy-load language data chunks; Netlify SPA redirect rule;
+             B1 full content expansion (grammar/vocab/verbs/units across all 5 languages);
+             B2+C1 additional content expansion (mixed conditionals, register mastery,
+             advanced discourse connectors, C1 academic constructions)
 Phase 3     — B1 reading/listening passages for all 5 languages
              Cognitive reinforcement: spaced retrieval quizzes, weekly free recall
              Typing/active-recall exercises
