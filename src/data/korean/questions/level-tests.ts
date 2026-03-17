@@ -113,5 +113,158 @@ export const levelTestQuestions: QuizQuestion[] = [
 
     // Honorific verb forms (2)
     { id: "ko-lt-c1-14", level: "C1", prompt: "Which verb is the correct humble form to use when asking a question to a superior?", options: ["여쭙다", "묻다", "물어보다", "질문하다"], answer: "여쭙다" },
-    { id: "ko-lt-c1-15", level: "C1", prompt: "What does '처음 뵙겠습니다' mean and which verb does it use?", options: ["Nice to meet you (humble verb 뵙다)", "I will give you something (honorific verb 드리다)", "I will ask you (humble verb 여쭙다)", "Goodbye (farewell expression)"], answer: "Nice to meet you (humble verb 뵙다)" }
+    { id: "ko-lt-c1-15", level: "C1", prompt: "What does '처음 뵙겠습니다' mean and which verb does it use?", options: ["Nice to meet you (humble verb 뵙다)", "I will give you something (honorific verb 드리다)", "I will ask you (humble verb 여쭙다)", "Goodbye (farewell expression)"], answer: "Nice to meet you (humble verb 뵙다)" },
+
+    // ── A2 additions ─────────────────────────────────────────────────────────
+    {
+        id: "ko-lt-a2-16", level: "A2",
+        prompt: "Complete: '배가 고파___ 밥을 먹었어요.' (I was hungry so I ate)",
+        options: ["지만", "서", "고", "면"],
+        answer: "서",
+        hint: "고프다 → 고파서 (because/so). -아/어서 expresses cause. Note: tense only on the final verb."
+    },
+    {
+        id: "ko-lt-a2-17", level: "A2",
+        prompt: "How do you say 'This bag is more expensive than that bag'?",
+        options: ["이 가방은 저 가방보다 더 비싸요.", "이 가방은 저 가방이 더 비싸요.", "이 가방보다 저 가방은 더 비싸요.", "이 가방은 저 가방에서 더 비싸요."],
+        answer: "이 가방은 저 가방보다 더 비싸요.",
+        hint: "[standard]보다 [subject] 더 [adjective]. 보다 marks the comparison point."
+    },
+    {
+        id: "ko-lt-a2-18", level: "A2",
+        prompt: "What does '것 같아요' add to a sentence?",
+        options: ["It expresses obligation", "It expresses a soft opinion or inference — I think / it seems", "It expresses ability", "It expresses a past experience"],
+        answer: "It expresses a soft opinion or inference — I think / it seems",
+        hint: "〜것 같아요 = I think / it seems. A polite, hedged opinion expression."
+    },
+    {
+        id: "ko-lt-a2-19", level: "A2",
+        prompt: "How do you say 'I went to the pharmacy to buy medicine'?",
+        options: ["약국에 약을 사서 갔어요.", "약국에 약을 사러 갔어요.", "약국에 약이 사고 갔어요.", "약국에서 약을 사러 갔어요."],
+        answer: "약국에 약을 사러 갔어요.",
+        hint: "Purpose with movement: ~(으)러 가다. 사다 → 사러 갔어요 (went in order to buy)."
+    },
+    {
+        id: "ko-lt-a2-20", level: "A2",
+        prompt: "What does '생일 축하해요' mean?",
+        options: ["Happy New Year", "Congratulations on your graduation", "Happy birthday", "I miss you"],
+        answer: "Happy birthday",
+        hint: "생일 = birthday, 축하하다 = to congratulate/celebrate. Together: Happy birthday!"
+    },
+
+    // ── B1 additions ─────────────────────────────────────────────────────────
+    {
+        id: "ko-lt-b1-16", level: "B1",
+        prompt: "Transform to reported speech: '바빠요.' → He said he was busy. → 바쁘___ 했어요.",
+        options: ["다고", "라고", "냐고", "자고"],
+        answer: "다고",
+        hint: "Statements use ~(ㄴ/는)다고 하다. 바쁘다 → 바쁘다고 했어요."
+    },
+    {
+        id: "ko-lt-b1-17", level: "B1",
+        prompt: "How do you say 'I have to submit this report today'?",
+        options: ["이 보고서를 오늘 제출하고 싶어요.", "이 보고서를 오늘 제출할 수 있어요.", "이 보고서를 오늘 제출해야 해요.", "이 보고서를 오늘 제출해 봐요."],
+        answer: "이 보고서를 오늘 제출해야 해요.",
+        hint: "~아/어야 하다 = must / have to. 제출하다 → 제출해야 해요."
+    },
+    {
+        id: "ko-lt-b1-18", level: "B1",
+        prompt: "How do you say 'Learning Korean is interesting'? (nominalisation as subject)",
+        options: ["한국어가 재미있어요.", "한국어를 배우는 것이 재미있어요.", "한국어를 배우기 재미있어요.", "한국어 배우는 재미있어요."],
+        answer: "한국어를 배우는 것이 재미있어요.",
+        hint: "~는 것 = the act of / nominalised verb as subject. 배우는 것이 = learning is."
+    },
+    {
+        id: "ko-lt-b1-19", level: "B1",
+        prompt: "Which connector is more appropriate in a formal essay for 'because'?",
+        options: ["~아/어서", "-기 때문에", "-고", "-지만"],
+        answer: "-기 때문에",
+        hint: "-기 때문에 is formal and objective. ~아/어서 is conversational. Using 아/어서 in a formal essay sounds too casual."
+    },
+    {
+        id: "ko-lt-b1-20", level: "B1",
+        prompt: "Complete: '운동하___ 시작했어요.' (I started exercising)",
+        options: ["기", "는 것을", "아서", "러"],
+        answer: "기",
+        hint: "~기 시작하다 = to start doing. 운동하기 시작했어요 = started exercising."
+    },
+
+    // ── B2 additions ─────────────────────────────────────────────────────────
+    {
+        id: "ko-lt-b2-16", level: "B2",
+        prompt: "How do you say 'I have no choice but to accept this'?",
+        options: ["이것을 받아야 해요.", "이것을 받고 싶어요.", "이것을 받을 수밖에 없어요.", "이것을 받을 수 있어요."],
+        answer: "이것을 받을 수밖에 없어요.",
+        hint: "수밖에 없다 = there is no choice but to. 받다 → 받을 수밖에 없어요."
+    },
+    {
+        id: "ko-lt-b2-17", level: "B2",
+        prompt: "What is the honorific noun for 나이 (age)?",
+        options: ["나이님", "연세", "나이어른", "나이분"],
+        answer: "연세",
+        hint: "연세 is the honorific noun for 나이. 연세가 어떻게 되세요? = How old are you? (respectful)"
+    },
+    {
+        id: "ko-lt-b2-18", level: "B2",
+        prompt: "Complete: '결과가 나쁠___ 최선을 다해야 합니다.' (even if the result is bad — formal)",
+        options: ["지만", "서", "지라도", "면"],
+        answer: "지라도",
+        hint: "~(으)ㄹ지라도 = even if (formal/literary concessive). More formal than ~더라도."
+    },
+    {
+        id: "ko-lt-b2-19", level: "B2",
+        prompt: "What does '반면에' signal in formal writing?",
+        options: ["therefore", "on the other hand / whereas", "furthermore", "in other words"],
+        answer: "on the other hand / whereas",
+        hint: "반면에 = on the other hand / whereas. Formal written contrast marker used in essays and reports."
+    },
+    {
+        id: "ko-lt-b2-20", level: "B2",
+        prompt: "Which particle marks the recipient of a humble verb when giving to a superior?",
+        options: ["에게", "한테", "께", "로"],
+        answer: "께",
+        hint: "께 = to a respected person (honorific dative). 선생님께 드렸어요 = I gave it to the teacher (respectfully)."
+    },
+
+    // ── C1 additions ─────────────────────────────────────────────────────────
+    {
+        id: "ko-lt-c1-16", level: "C1",
+        prompt: "What does -(으)ㄹ 만하다 express?",
+        options: ["far from doing / let alone", "worth doing / deserves to be done", "inevitable / no choice but", "even if / hypothetical concession"],
+        answer: "worth doing / deserves to be done",
+        hint: "-(으)ㄹ 만하다 = worth doing. 볼 만해요 = it's worth watching / it deserves to be seen."
+    },
+    {
+        id: "ko-lt-c1-17", level: "C1",
+        prompt: "Complete: '쉬___ 더 바빠졌어요.' (Far from resting, I got busier)",
+        options: ["기는커녕", "기 때문에", "기 전에", "기 위해서"],
+        answer: "기는커녕",
+        hint: "-기는커녕 = far from doing ~ / let alone. 쉬기는커녕 = far from resting."
+    },
+    {
+        id: "ko-lt-c1-18", level: "C1",
+        prompt: "How do you ask 'What is your name?' using the correct humble verb to ask a superior?",
+        options: ["이름이 뭐예요?", "성함이 어떻게 되세요?", "이름을 여쭤봐도 될까요?", "성함을 여쭤봐도 될까요?"],
+        answer: "성함을 여쭤봐도 될까요?",
+        hint: "Full C1 honorific: 성함 (honorific noun for 이름) + 여쭙다 (humble verb for 묻다). Both required."
+    },
+    {
+        id: "ko-lt-c1-19", level: "C1",
+        prompt: "What does '-는바' express in formal written Korean?",
+        options: ["sequential action", "given that / in that (introduces a premise before a conclusion)", "even if / concession", "as soon as"],
+        answer: "given that / in that (introduces a premise before a conclusion)",
+        hint: "-는바 = given that / in that. Used in formal documents and academic writing to introduce a premise."
+    },
+    {
+        id: "ko-lt-c1-20", level: "C1",
+        prompt: "What is the C1 benchmark for Korean honorific mastery?",
+        options: [
+            "Using -요 on all sentence-final verbs",
+            "Using -습니다 in all situations",
+            "Seamless speech level switching throughout an interaction as social roles shift, without hesitation",
+            "Memorising all honorific nouns"
+        ],
+        answer: "Seamless speech level switching throughout an interaction as social roles shift, without hesitation",
+        hint: "C1 Korean: fluid, real-time register adjustment as social dynamics shift within one conversation — the defining C1 milestone."
+    },
 ]

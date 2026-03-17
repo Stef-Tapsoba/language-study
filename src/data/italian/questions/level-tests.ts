@@ -98,4 +98,167 @@ export const levelQuestions: QuizQuestion[] = [
     // Complex counterfactual / literary register (2)
     { id: "it-lt-c1-14", level: "C1", prompt: "Complete the mixed conditional: 'Se ___ medicina, sarei un medico adesso.' (studiare — io)", options: ["studiavo", "studiassi", "avessi studiato", "studio"], answer: "avessi studiato" },
     { id: "it-lt-c1-15", level: "C1", prompt: "Which register characterises 'Dante scrisse la Divina Commedia nel XIV secolo'?", options: ["Informal spoken Italian", "Southern regional dialect", "Literary / formal written Italian using passato remoto", "Journalistic impersonal style"], answer: "Literary / formal written Italian using passato remoto" },
+
+    // --- A2 additions (it-lt-a2-16 → it-lt-a2-20) ---
+    {
+        id: "it-lt-a2-16", level: "A2",
+        prompt: "Complete (reflexive, passato prossimo): 'Stamattina lei ___ alle sette.' (svegliarsi)",
+        options: ["ha svegliato", "si è svegliata", "si svegliava", "si sveglia"],
+        answer: "si è svegliata",
+        hint: "Reflexive verbs use essere in the passato prossimo. Past participle agrees with subject (lei → svegliata)."
+    },
+    {
+        id: "it-lt-a2-17", level: "A2",
+        prompt: "Which demonstrative fits? '___ uomo (near me, before vowel) è il direttore.'",
+        options: ["Questo", "Quest'", "Quello", "Quel"],
+        answer: "Quest'",
+        hint: "Questo before a vowel → quest'. Quest'uomo = this man."
+    },
+    {
+        id: "it-lt-a2-18", level: "A2",
+        prompt: "Complete (modal verb): 'Non ___ venire alla riunione — sono malato.' (can/be able to)",
+        options: ["devo", "voglio", "posso", "so"],
+        answer: "posso",
+        hint: "Potere = can / to be able to. Non posso = I can't."
+    },
+    {
+        id: "it-lt-a2-19", level: "A2",
+        prompt: "Complete: 'Il libro ___ sto leggendo è interessante.' (relative pronoun)",
+        options: ["chi", "che", "cui", "quale"],
+        answer: "che",
+        hint: "Che is the most common Italian relative pronoun — used for people and things as subject or object."
+    },
+    {
+        id: "it-lt-a2-20", level: "A2",
+        prompt: "How do you say 'I prefer coffee to tea' in Italian?",
+        options: ["Mi piace il caffè e il tè.", "Preferisco il caffè al tè.", "Voglio il caffè invece del tè.", "Il caffè è migliore del tè per me."],
+        answer: "Preferisco il caffè al tè.",
+        hint: "Preferire + [thing] + a + [other thing]. Al = a + il (contraction)."
+    },
+
+    // --- B1 additions (it-lt-b1-16 → it-lt-b1-20) ---
+    {
+        id: "it-lt-b1-16", level: "B1",
+        prompt: "Complete the real se-clause: 'Se ___ (studiare) di più, passerò l'esame.'",
+        options: ["studiassi", "studierei", "studio", "studierò"],
+        answer: "studio",
+        hint: "Real condition: se + presente indicativo → futuro/presente. Se-clause takes present indicative."
+    },
+    {
+        id: "it-lt-b1-17", level: "B1",
+        prompt: "Transform to passive: 'Il governo ha approvato la legge.' →",
+        options: [
+            "La legge ha approvato il governo.",
+            "La legge è stata approvata dal governo.",
+            "La legge era approvata dal governo.",
+            "La legge viene approvare."
+        ],
+        answer: "La legge è stata approvata dal governo.",
+        hint: "Passive passato prossimo: è stata + past participle + dal + agent. Agreement: legge → approvata."
+    },
+    {
+        id: "it-lt-b1-18", level: "B1",
+        prompt: "Transform to reported speech: 'Partirò domani.' → Ha detto che ___.",
+        options: ["partirà l'indomani", "partiva l'indomani", "sarebbe partito l'indomani", "parte domani"],
+        answer: "sarebbe partito l'indomani",
+        hint: "Futuro → condizionale composto in reported speech. Domani → l'indomani."
+    },
+    {
+        id: "it-lt-b1-19", level: "B1",
+        prompt: "What does 'rendersi conto di' mean?",
+        options: ["to report on", "to realise / become aware of", "to count on", "to account for"],
+        answer: "to realise / become aware of",
+        hint: "Rendersi conto di = to realise. A key Italian collocation — not capire or scoprire in this specific sense."
+    },
+    {
+        id: "it-lt-b1-20", level: "B1",
+        prompt: "Complete: 'Parla lentamente affinché tutti ___ capire.' (so that everyone can understand)",
+        options: ["possono", "possano", "potranno", "potrebbero"],
+        answer: "possano",
+        hint: "Affinché (so that / in order that) always triggers congiuntivo presente."
+    },
+
+    // --- B2 additions (it-lt-b2-16 → it-lt-b2-20) ---
+    {
+        id: "it-lt-b2-16", level: "B2",
+        prompt: "Identify: 'Se avessi studiato medicina, sarei medico adesso.'",
+        options: [
+            "1° tipo — reale",
+            "2° tipo — ipotetico presente",
+            "3° tipo — rimpianto",
+            "Misto — condizione passata, conseguenza presente"
+        ],
+        answer: "Misto — condizione passata, conseguenza presente",
+        hint: "Se + congiuntivo trapassato → condizionale presente = periodo ipotetico misto."
+    },
+    {
+        id: "it-lt-b2-17", level: "B2",
+        prompt: "Complete: 'Sebbene ___ stanco, continuò a lavorare.' (essere — present context)",
+        options: ["è", "era", "sia", "fosse"],
+        answer: "sia",
+        hint: "Sebbene always requires congiuntivo. Present context → congiuntivo presente."
+    },
+    {
+        id: "it-lt-b2-18", level: "B2",
+        prompt: "What does 'non ci piove' mean?",
+        options: ["it is not raining", "there is absolutely no doubt about it", "it is not flooding", "it doesn't matter"],
+        answer: "there is absolutely no doubt about it",
+        hint: "Non ci piove is a fixed Italian idiom — 'there's no doubt about it'. Cannot be guessed from its literal meaning."
+    },
+    {
+        id: "it-lt-b2-19", level: "B2",
+        prompt: "Which is the formal written equivalent of 'perché ci sono problemi'?",
+        options: ["ma ci sono problemi", "in quanto vi sono problemi / dal momento che vi sono problemi", "quindi ci sono problemi", "tuttavia ci sono problemi"],
+        answer: "in quanto vi sono problemi / dal momento che vi sono problemi",
+        hint: "Perché = neutral. In quanto / dal momento che / poiché = formal written equivalents."
+    },
+    {
+        id: "it-lt-b2-20", level: "B2",
+        prompt: "Complete: 'Lo faccio affinché tu ___ (capire) la situazione.'",
+        options: ["capisci", "capirai", "capisca", "capiva"],
+        answer: "capisca",
+        hint: "Affinché = so that (purpose) → sempre + congiuntivo. Present context → congiuntivo presente."
+    },
+
+    // --- C1 additions (it-lt-c1-16 → it-lt-c1-20) ---
+    {
+        id: "it-lt-c1-16", level: "C1",
+        prompt: "Complete with the correct congiuntivo sequence: 'Non credevo che lei ___ già partita quando siamo arrivati.'",
+        options: ["sia", "fosse", "è", "era"],
+        answer: "fosse",
+        hint: "Past main verb (credevo) + action prior to that past moment → congiuntivo trapassato (fosse partita)."
+    },
+    {
+        id: "it-lt-c1-17", level: "C1",
+        prompt: "What does 'stando a quanto riferisce' signal in formal Italian?",
+        options: ["a personal opinion", "according to what is reported (journalistic attribution)", "a contrast", "a necessary conclusion"],
+        answer: "according to what is reported (journalistic attribution)",
+        hint: "Stando a quanto riferisce [source] = according to what [source] reports. Standard formal/journalistic attribution."
+    },
+    {
+        id: "it-lt-c1-18", level: "C1",
+        prompt: "Which construction is the formal impersonal alternative to 'molti pensano che'?",
+        options: ["Tutti pensano che", "Si ritiene che / è noto che", "La gente dice che", "Sicuramente si pensa che"],
+        answer: "Si ritiene che / è noto che",
+        hint: "Si ritiene che / è noto che / si sostiene che — impersonal constructions for formal academic writing."
+    },
+    {
+        id: "it-lt-c1-19", level: "C1",
+        prompt: "What is the formal nominalised equivalent of 'anche se il progetto è complesso'?",
+        options: ["però il progetto è complesso", "nonostante la complessità del progetto", "quindi il progetto è complesso", "dato che il progetto è complesso"],
+        answer: "nonostante la complessità del progetto",
+        hint: "Nominalisation: anche se è complesso → nonostante la complessità (del progetto). C1 formal compression."
+    },
+    {
+        id: "it-lt-c1-20", level: "C1",
+        prompt: "Which register uses 'in virtù di' and 'a seguito di' as connectors?",
+        options: [
+            "Casual spoken Italian",
+            "Regional southern Italian only",
+            "Formal written Italian — legal, administrative, and journalistic",
+            "Literary 19th-century Italian only"
+        ],
+        answer: "Formal written Italian — legal, administrative, and journalistic",
+        hint: "In virtù di (by virtue of) and a seguito di (following / as a result of) are formal written connectors — out of place in conversation."
+    },
 ]

@@ -99,5 +99,191 @@ export const levelTestQuestions: QuizQuestion[] = [
     { id: "es-lt-c1-12", level: "C1", prompt: "What does 'disonancia cognitiva' mean?", options: ["cognitive dissonance — the discomfort of holding contradictory beliefs simultaneously", "cognitive empathy — understanding another's perspective intellectually", "confirmation bias — seeking information that confirms existing beliefs", "metacognition — reflecting on one's own thought processes"], answer: "cognitive dissonance — the discomfort of holding contradictory beliefs simultaneously", hint: "Disonancia cognitiva: e.g. smoking despite knowing the risks — holding conflicting beliefs." },
     { id: "es-lt-c1-13", level: "C1", prompt: "What does 'jurisprudencia' mean?", options: ["jurisprudence / case law — the body of legal decisions that set precedent", "legislation — laws enacted by parliament", "jurisdiction — the authority to apply the law", "judicial review — examining the constitutionality of laws"], answer: "jurisprudence / case law — the body of legal decisions that set precedent", hint: "La jurisprudencia del Tribunal Constitucional sienta precedente en derechos fundamentales." },
     { id: "es-lt-c1-14", level: "C1", prompt: "Conditional perfect of 'hacer' (ellos)?", options: ["habrían hecho", "hubieran hecho", "harían hecho", "habrán hecho"], answer: "habrían hecho", hint: "Conditional perfect = habría/habrías… habrían + past participle. Hacer → hecho (irregular)." },
-    { id: "es-lt-c1-15", level: "C1", prompt: "Which sentence correctly uses pluperfect subjunctive + conditional perfect in a mixed sequence?", options: ["Si hubiésemos salido antes, no habríamos perdido el tren.", "Si saliéramos antes, no habríamos perdido el tren.", "Si hubiésemos salido antes, no perderíamos el tren.", "Si hubimos salido antes, no habríamos perdido el tren."], answer: "Si hubiésemos salido antes, no habríamos perdido el tren.", hint: "Type-3 (impossible past): si + pluperfect subjunctive (hubiésemos salido) + conditional perfect (habríamos perdido)." }
+    { id: "es-lt-c1-15", level: "C1", prompt: "Which sentence correctly uses pluperfect subjunctive + conditional perfect in a mixed sequence?", options: ["Si hubiésemos salido antes, no habríamos perdido el tren.", "Si saliéramos antes, no habríamos perdido el tren.", "Si hubiésemos salido antes, no perderíamos el tren.", "Si hubimos salido antes, no habríamos perdido el tren."], answer: "Si hubiésemos salido antes, no habríamos perdido el tren.", hint: "Type-3 (impossible past): si + pluperfect subjunctive (hubiésemos salido) + conditional perfect (habríamos perdido)." },
+
+    // -----------------------------------------------------------------------
+    // A2 — additions (es-lt-a2-16 through -20)
+    // -----------------------------------------------------------------------
+    {
+        id: "es-lt-a2-16", level: "A2",
+        prompt: "Complete (reflexive, preterite): 'Esta mañana yo ___ a las seis.' (levantarse)",
+        options: ["levantaba", "me levanté", "me levanto", "me levantaré"],
+        answer: "me levanté",
+        hint: "Reflexive preterite: pronoun + preterite form. Yo → me levanté."
+    },
+    {
+        id: "es-lt-a2-17", level: "A2",
+        prompt: "Which demonstrative fits? '___ zapatos (near me, masculine plural) son muy cómodos.'",
+        options: ["Este", "Esta", "Estos", "Esos"],
+        answer: "Estos",
+        hint: "Estos = these (near speaker, masculine plural)."
+    },
+    {
+        id: "es-lt-a2-18", level: "A2",
+        prompt: "Complete (near future): 'Nosotros ___ viajar a México el verano que viene.'",
+        options: ["viajamos", "viajamos a", "vamos a", "iremos a"],
+        answer: "vamos a",
+        hint: "Near future = ir (present) + a + infinitive. Nosotros vamos a viajar."
+    },
+    {
+        id: "es-lt-a2-19", level: "A2",
+        prompt: "Complete: 'La chica ___ conocí en el curso habla cuatro idiomas.' (relative pronoun)",
+        options: ["quien", "que", "cual", "donde"],
+        answer: "que",
+        hint: "Que is the most common relative pronoun in Spanish — used for people and things as direct object."
+    },
+    {
+        id: "es-lt-a2-20", level: "A2",
+        prompt: "How do you say 'I have to see a doctor'?",
+        options: ["Quiero ver a un médico.", "Puedo ver a un médico.", "Debo ver a un médico.", "Voy a ver a un médico."],
+        answer: "Debo ver a un médico.",
+        hint: "Deber = must / have to (obligation). Debo + infinitivo."
+    },
+
+    // -----------------------------------------------------------------------
+    // B1 — additions (es-lt-b1-16 through -20)
+    // -----------------------------------------------------------------------
+    {
+        id: "es-lt-b1-16", level: "B1",
+        prompt: "Complete (real si-clause): 'Si ___ (hacer) buen tiempo mañana, iremos a la playa.'",
+        options: ["haría", "hará", "hace", "hiciera"],
+        answer: "hace",
+        hint: "Real condition: si + presente → futuro/presente. Si-clause takes present indicative."
+    },
+    {
+        id: "es-lt-b1-17", level: "B1",
+        prompt: "Complete the narrative: 'Cuando ___ (llegar) a casa, me di cuenta de que ___ (olvidar) las llaves.'",
+        options: ["llegué / había olvidado", "llegaba / olvidé", "llegué / olvidé", "llegaba / había olvidado"],
+        answer: "llegué / había olvidado",
+        hint: "Completed arrival → preterite. The forgotten keys happened before → pluperfect (había olvidado)."
+    },
+    {
+        id: "es-lt-b1-18", level: "B1",
+        prompt: "What does 'echar de menos' mean?",
+        options: ["to run short of", "to miss (someone/something)", "to lack resources", "to throw away"],
+        answer: "to miss (someone/something)",
+        hint: "Echar de menos = to miss. A key collocation — cannot be translated word-for-word."
+    },
+    {
+        id: "es-lt-b1-19", level: "B1",
+        prompt: "How do you express polite disagreement while acknowledging the other view?",
+        options: [
+            "Estás completamente equivocado.",
+            "Entiendo tu punto, sin embargo yo creo que…",
+            "No, eso es falso.",
+            "Me da igual."
+        ],
+        answer: "Entiendo tu punto, sin embargo yo creo que…",
+        hint: "B1 debate skill: acknowledge then contrast. Sin embargo pivots to the counterpoint politely."
+    },
+    {
+        id: "es-lt-b1-20", level: "B1",
+        prompt: "Transform the command to reported speech: '¡Ven aquí!' → Me dijo que ___.",
+        options: ["vengo aquí", "vendría aquí", "viniera aquí", "venga aquí"],
+        answer: "viniera aquí",
+        hint: "Imperative in reported speech → imperfecto de subjuntivo. Ven → viniera."
+    },
+
+    // -----------------------------------------------------------------------
+    // B2 — additions (es-lt-b2-16 through -20)
+    // -----------------------------------------------------------------------
+    {
+        id: "es-lt-b2-16", level: "B2",
+        prompt: "Identify: 'Si hubiera aprendido chino de niña, sería traductora ahora.'",
+        options: [
+            "Type 1 — real",
+            "Type 2 — hypothetical present",
+            "Type 3 — past regret only",
+            "Mixed — past condition, present result"
+        ],
+        answer: "Mixed — past condition, present result",
+        hint: "Si + pluscuamperfecto subjuntivo → condicional simple (sería, not habría sido) = mixed conditional."
+    },
+    {
+        id: "es-lt-b2-17", level: "B2",
+        prompt: "What is the difference between 'Es aburrida' and 'Está aburrida'?",
+        options: [
+            "Both mean the same thing",
+            "Es aburrida = she is a boring person (characteristic); Está aburrida = she is bored now (state)",
+            "Es aburrida = event; Está aburrida = description",
+            "Está is always more formal"
+        ],
+        answer: "Es aburrida = she is a boring person (characteristic); Está aburrida = she is bored now (state)",
+        hint: "Ser = identity/characteristic. Estar = current state. Many adjectives shift meaning between the two."
+    },
+    {
+        id: "es-lt-b2-18", level: "B2",
+        prompt: "Complete: 'Aunque ___ difícil, lo intentaré.' — The speaker does NOT know if it's difficult.",
+        options: ["es", "sea", "está", "estará"],
+        answer: "sea",
+        hint: "Aunque + subjuntivo = even if (hypothetical/unknown). Aunque + indicativo = even though (known fact)."
+    },
+    {
+        id: "es-lt-b2-19", level: "B2",
+        prompt: "What does 'habida cuenta de' mean in formal writing?",
+        options: ["despite", "bearing in mind / given (formal)", "instead of", "as a result"],
+        answer: "bearing in mind / given (formal)",
+        hint: "Habida cuenta de = teniendo en cuenta = bearing in mind / given. Formal written register."
+    },
+    {
+        id: "es-lt-b2-20", level: "B2",
+        prompt: "What does 'estar en las nubes' mean?",
+        options: ["to be very happy", "to be daydreaming / absent-minded", "to be ambitious", "to be in trouble"],
+        answer: "to be daydreaming / absent-minded",
+        hint: "Estar en las nubes = to have one's head in the clouds / be daydreaming. Key B2 idiom."
+    },
+
+    // -----------------------------------------------------------------------
+    // C1 — additions (es-lt-c1-16 through -20)
+    // -----------------------------------------------------------------------
+    {
+        id: "es-lt-c1-16", level: "C1",
+        prompt: "Complete with the correct subjunctive tense: 'Dudaba de que ella ___ (entender) el problema en ese momento.'",
+        options: ["entienda", "entendiera", "haya entendido", "hubiera entendido"],
+        answer: "entendiera",
+        hint: "Past reporting verb (dudaba) + simultaneous action → imperfecto de subjuntivo."
+    },
+    {
+        id: "es-lt-c1-17", level: "C1",
+        prompt: "What does 'a tenor de lo expuesto' mean in academic writing?",
+        options: [
+            "despite what has been said",
+            "in light of / in accordance with what has been presented",
+            "instead of the above",
+            "as a consequence of the argument"
+        ],
+        answer: "in light of / in accordance with what has been presented",
+        hint: "A tenor de = in light of / in accordance with. Formal academic/legal connector."
+    },
+    {
+        id: "es-lt-c1-18", level: "C1",
+        prompt: "Which construction turns 'mucha gente cree que' into a formal impersonal structure?",
+        options: ["Todo el mundo cree que", "Es creído que", "Se sostiene que / es sabido que", "Generalmente se cree que solo"],
+        answer: "Se sostiene que / es sabido que",
+        hint: "Se sostiene que / es sabido que = it is argued / it is well known that. Impersonal academic attribution."
+    },
+    {
+        id: "es-lt-c1-19", level: "C1",
+        prompt: "What does 'en aras de la transparencia' mean?",
+        options: [
+            "in spite of transparency",
+            "for the sake of transparency",
+            "in the area of transparency",
+            "concerning transparency"
+        ],
+        answer: "for the sake of transparency",
+        hint: "En aras de = for the sake of / in the interest of. Formal academic phrase."
+    },
+    {
+        id: "es-lt-c1-20", level: "C1",
+        prompt: "What is the sequence-of-tenses rule when the main verb is in the past and expresses doubt about a prior event?",
+        options: [
+            "Main verb past + subjuntivo presente",
+            "Main verb past + subjuntivo imperfecto for simultaneous, pluscuamperfecto for prior",
+            "Main verb past + indicativo always",
+            "No subjuntivo needed in past contexts"
+        ],
+        answer: "Main verb past + subjuntivo imperfecto for simultaneous, pluscuamperfecto for prior",
+        hint: "Sequence of tenses: past main + simultaneous → imperfecto subjuntivo; past main + prior action → pluscuamperfecto subjuntivo."
+    },
 ]

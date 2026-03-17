@@ -639,5 +639,181 @@ export const levelQuestions: QuizQuestion[] = [
         options: ["まいる", "いたす", "申す", "おっしゃる"],
         answer: "おっしゃる",
         hint: "おっしゃる (ossharu) is the sonkeigo (respectful) form of 言う — used to elevate someone else's speech."
-    }
+    },
+
+    // -----------------------------------------------------------------------
+    // A2 additions (ja-lt-a2-16 to ja-lt-a2-20)
+    // -----------------------------------------------------------------------
+    {
+        id: "ja-lt-a2-16", level: "A2",
+        prompt: "How do you say 'Please speak more slowly'? (polite request — standard form)",
+        options: ["もっとゆっくり話してください。", "もっとゆっくり話しなさい。", "もっとゆっくり話してもいいですか。", "もっとゆっくり話さないでください。"],
+        answer: "もっとゆっくり話してください。",
+        hint: "て-form + ください = standard polite request. 話す → 話して + ください."
+    },
+    {
+        id: "ja-lt-a2-17", level: "A2",
+        prompt: "Complete: 'この電話を使って___いいですか？' (May I use this phone?)",
+        options: ["は", "も", "が", "を"],
+        answer: "も",
+        hint: "〜てもいいですか = May I ~? The も is essential — 使ってもいいですか."
+    },
+    {
+        id: "ja-lt-a2-18", level: "A2",
+        prompt: "Which verb means 'I gave a present to my friend'? (speaker gives, friend receives)",
+        options: ["友達にプレゼントをもらいました。", "友達にプレゼントをくれました。", "友達にプレゼントをあげました。", "友達からプレゼントをあげました。"],
+        answer: "友達にプレゼントをあげました。",
+        hint: "あげる = the speaker gives to someone else (away from speaker). に marks the recipient."
+    },
+    {
+        id: "ja-lt-a2-19", level: "A2",
+        prompt: "How do you say 'I think this restaurant is delicious'?",
+        options: ["このレストランはおいしいです。", "このレストランはおいしいと思います。", "このレストランがおいしいでしょう。", "このレストランはおいしいと言います。"],
+        answer: "このレストランはおいしいと思います。",
+        hint: "〜と思います = I think (that) ~. The clause before と uses plain form (おいしい, not です)."
+    },
+    {
+        id: "ja-lt-a2-20", level: "A2",
+        prompt: "What does 'いぬよりねこのほうが好きです' mean?",
+        options: ["I like dogs more than cats.", "I like cats more than dogs.", "I like both cats and dogs.", "I don't like cats or dogs."],
+        answer: "I like cats more than dogs.",
+        hint: "[A]より[B]のほうが好きです = I prefer B to A. より marks the thing being compared against."
+    },
+
+    // -----------------------------------------------------------------------
+    // B1 additions (ja-lt-b1-16 to ja-lt-b1-20)
+    // -----------------------------------------------------------------------
+    {
+        id: "ja-lt-b1-16", level: "B1",
+        prompt: "Which conditional is best for: 'When spring comes, flowers bloom.' (natural/automatic consequence)",
+        options: ["〜ば", "〜たら", "〜と", "〜なら"],
+        answer: "〜と",
+        hint: "〜と expresses automatic/natural consequence. Cannot be followed by requests or commands."
+    },
+    {
+        id: "ja-lt-b1-17", level: "B1",
+        prompt: "What nuance does 〜んです add to '電車が遅れたんです'?",
+        options: [
+            "It makes the statement past tense",
+            "It signals an explanation or background context — 'the thing is, the train was delayed'",
+            "It expresses surprise",
+            "It makes the sentence more formal"
+        ],
+        answer: "It signals an explanation or background context — 'the thing is, the train was delayed'",
+        hint: "〜んです frames a statement as providing explanatory context — 'the reason is…' / 'the thing is…'"
+    },
+    {
+        id: "ja-lt-b1-18", level: "B1",
+        prompt: "Complete: 'あんなに練習した___, 試合に負けた。' (despite practicing so much)",
+        options: ["から", "ので", "のに", "けど"],
+        answer: "のに",
+        hint: "〜のに = unexpected / disappointing contrast (despite). Carries frustration — result contradicts expectation."
+    },
+    {
+        id: "ja-lt-b1-19", level: "B1",
+        prompt: "What is the passive form of 読む (yomu — Group 1)?",
+        options: ["読まれる", "読められる", "読むられる", "読れる"],
+        answer: "読まれる",
+        hint: "Group 1 passive: change u→a + れる. 読む → 読ま → 読まれる."
+    },
+    {
+        id: "ja-lt-b1-20", level: "B1",
+        prompt: "Which connector is more formal/objective for 'because' in written Japanese?",
+        options: ["〜から", "〜ので", "〜けど", "〜のに"],
+        answer: "〜ので",
+        hint: "〜ので is more formal and objective than 〜から. Preferred in written Japanese and polite speech."
+    },
+
+    // -----------------------------------------------------------------------
+    // B2 additions (ja-lt-b2-16 to ja-lt-b2-20)
+    // -----------------------------------------------------------------------
+    {
+        id: "ja-lt-b2-16", level: "B2",
+        prompt: "Which formal written structure means 'in the context of' in academic Japanese?",
+        options: ["〜について", "〜において", "〜に関して", "〜によって"],
+        answer: "〜において",
+        hint: "〜において = in / at / in the context of (formal). Sounds unnatural in casual conversation."
+    },
+    {
+        id: "ja-lt-b2-17", level: "B2",
+        prompt: "What does 〜がちだ express?",
+        options: ["an unexpected result", "a habitual tendency (often undesirable)", "a past ability", "a desire"],
+        answer: "a habitual tendency (often undesirable)",
+        hint: "〜がちだ = tend to / prone to. 忘れがちだ = tend to forget. Usually implies a recurring unwanted pattern."
+    },
+    {
+        id: "ja-lt-b2-18", level: "B2",
+        prompt: "What does 〜かねます express when a business replies お引き受けしかねます?",
+        options: [
+            "We are unable to take this on (formal polite refusal)",
+            "We might well be able to take this on",
+            "We are delighted to take this on",
+            "We tend to take this on"
+        ],
+        answer: "We are unable to take this on (formal polite refusal)",
+        hint: "〜かねます = cannot bring oneself to / I'm afraid I cannot. Formal polite refusal pattern."
+    },
+    {
+        id: "ja-lt-b2-19", level: "B2",
+        prompt: "Complete: '環境問題_____、さらなる国際協力が必要だ。' (regarding the environmental issue)",
+        options: ["において", "によって", "に関して", "をもって"],
+        answer: "に関して",
+        hint: "〜に関して = regarding / concerning. More precise than 〜について in formal contexts."
+    },
+    {
+        id: "ja-lt-b2-20", level: "B2",
+        prompt: "Which sentence is in the correct formal written register?",
+        options: [
+            "この問題、けっこう大事じゃないですか。",
+            "この問題において重要な知見が得られた。",
+            "この問題はすごく大事だと思います。",
+            "この問題、大事だと思いますよ。"
+        ],
+        answer: "この問題において重要な知見が得られた。",
+        hint: "Formal written: において (formal location/context marker) + passive + 知見 (formal noun for findings). No ます ending in formal prose."
+    },
+
+    // -----------------------------------------------------------------------
+    // C1 additions (ja-lt-c1-16 to ja-lt-c1-20)
+    // -----------------------------------------------------------------------
+    {
+        id: "ja-lt-c1-16", level: "C1",
+        prompt: "Complete in kenjōgo: 'I will go to your office tomorrow.' → '明日、御社に___。'",
+        options: ["行きます", "まいります", "いらっしゃいます", "おいでになります"],
+        answer: "まいります",
+        hint: "まいる = humble (謙譲語) form of 行く/来る. Lowers the speaker's own action."
+    },
+    {
+        id: "ja-lt-c1-17", level: "C1",
+        prompt: "What does 〜につき express in formal notices?",
+        options: ["despite / in spite of", "due to / on account of", "regarding / concerning", "upon the occasion of"],
+        answer: "due to / on account of",
+        hint: "〜につき = due to / because of. 工事中につき = due to ongoing construction. Used in formal notices and signs."
+    },
+    {
+        id: "ja-lt-c1-18", level: "C1",
+        prompt: "Complete in full keigo: 'The department head said so.' → '部長が___。'",
+        options: ["言いました", "話しました", "おっしゃいました", "申しました"],
+        answer: "おっしゃいました",
+        hint: "おっしゃる is the sonkeigo (respectful) form of 言う — elevates the department head's action of speaking."
+    },
+    {
+        id: "ja-lt-c1-19", level: "C1",
+        prompt: "What does 〜ならではの express?",
+        options: ["unique to / characteristic of only ~", "depending on ~", "instead of ~", "because of ~"],
+        answer: "unique to / characteristic of only ~",
+        hint: "〜ならではの = unique to / something only X can offer. 日本ならではの文化 = culture unique to Japan."
+    },
+    {
+        id: "ja-lt-c1-20", level: "C1",
+        prompt: "What is the C1 keigo production standard?",
+        options: [
+            "Recognition of keigo forms when reading",
+            "Accurate production in scripted, prepared situations only",
+            "Spontaneous, accurate production of sonkeigo and kenjōgo under conversational pressure",
+            "Using です/ます consistently"
+        ],
+        answer: "Spontaneous, accurate production of sonkeigo and kenjōgo under conversational pressure",
+        hint: "C1 keigo: stable, spontaneous production even when the conversation is fast, emotional, or topic-heavy — the defining C1 milestone."
+    },
 ]

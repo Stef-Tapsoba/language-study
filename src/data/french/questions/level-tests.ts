@@ -98,4 +98,197 @@ export const levelQuestions: QuizQuestion[] = [
     // Complex subjunctive sequence / literary register (2)
     { id: "fr-lt-c1-14", level: "C1", prompt: "Complete this literary sentence: 'Elle souhaitait que la cérémonie se déroulât dans le plus grand calme.' — What tense is 'se déroulât'?", options: ["Subjonctif présent", "Subjonctif imparfait", "Conditionnel présent", "Passé simple"], answer: "Subjonctif imparfait" },
     { id: "fr-lt-c1-15", level: "C1", prompt: "Which sentence belongs to a high literary register?", options: ["Il voulait qu'elle vienne.", "Il souhaitait qu'elle vînt.", "Il pensait qu'elle viendrait.", "Il savait qu'elle venait."], answer: "Il souhaitait qu'elle vînt." },
+
+    // --- A2 additions (fr-lt-a2-16 through -20) ---
+    {
+        id: "fr-lt-a2-16", level: "A2",
+        prompt: "Complete (reflexive verb, passé composé): 'Ce matin, elle ___ à sept heures.' (se lever)",
+        options: ["a levé", "s'est levée", "se levait", "se lève"],
+        answer: "s'est levée",
+        hint: "Reflexive verbs always use être in the passé composé. Past participle agrees with the subject (elle → levée)."
+    },
+    {
+        id: "fr-lt-a2-17", level: "A2",
+        prompt: "Which demonstrative fits? '___ homme parle très vite.' (masculine, starts with vowel)",
+        options: ["Ce", "Cet", "Cette", "Ces"],
+        answer: "Cet",
+        hint: "Cet is used before masculine nouns starting with a vowel or silent h."
+    },
+    {
+        id: "fr-lt-a2-18", level: "A2",
+        prompt: "Complete (futur proche): 'Nous ___ manger au restaurant ce soir.'",
+        options: ["mangeons", "avons mangé", "allons", "irons"],
+        answer: "allons",
+        hint: "Futur proche = aller (present) + infinitive. Nous allons manger."
+    },
+    {
+        id: "fr-lt-a2-19", level: "A2",
+        prompt: "Complete the relative clause: 'Le film ___ nous avons vu était excellent.'",
+        options: ["qui", "que", "dont", "où"],
+        answer: "que",
+        hint: "Que replaces the direct object (we watched the film). A subject already follows → que."
+    },
+    {
+        id: "fr-lt-a2-20", level: "A2",
+        prompt: "How do you say 'I have to go to the doctor'?",
+        options: ["Je veux aller chez le médecin.", "Je dois aller chez le médecin.", "Je peux aller chez le médecin.", "Je vais aller chez le médecin."],
+        answer: "Je dois aller chez le médecin.",
+        hint: "Devoir = must / have to. Je dois + infinitif."
+    },
+
+    // --- B1 additions (fr-lt-b1-16 through -20) ---
+    {
+        id: "fr-lt-b1-16", level: "B1",
+        prompt: "Complete the real si-clause: 'Si tu ___ (étudier), tu réussiras.'",
+        options: ["étudierais", "études", "étudies", "étudiais"],
+        answer: "étudies",
+        hint: "Real condition: si + présent → futur. The si-clause takes the présent."
+    },
+    {
+        id: "fr-lt-b1-17", level: "B1",
+        prompt: "Transform to passive: 'La commission a approuvé le rapport.' →",
+        options: [
+            "Le rapport a approuvé la commission.",
+            "Le rapport a été approuvé par la commission.",
+            "Le rapport était approuvé par la commission.",
+            "Le rapport est approuvé de la commission."
+        ],
+        answer: "Le rapport a été approuvé par la commission.",
+        hint: "Passive: être (conjugated in the same tense) + past participle + par + agent."
+    },
+    {
+        id: "fr-lt-b1-18", level: "B1",
+        prompt: "Transform to reported speech: 'Je viendrai demain.' → Il a dit qu'il ___ le lendemain.",
+        options: ["viendra", "venait", "viendrait", "est venu"],
+        answer: "viendrait",
+        hint: "Futur → conditionnel in reported speech. 'Demain' → 'le lendemain'."
+    },
+    {
+        id: "fr-lt-b1-19", level: "B1",
+        prompt: "Replace both objects: 'Je donne le livre à Paul.' → 'Je ___ ___ donne.'",
+        options: ["lui le", "le lui", "la lui", "lui la"],
+        answer: "le lui",
+        hint: "Direct object pronouns (le/la/les) come before indirect (lui/leur). Je le lui donne."
+    },
+    {
+        id: "fr-lt-b1-20", level: "B1",
+        prompt: "What does 'il est indéniable que' mean?",
+        options: ["it is possible that", "it is undeniable that", "it is necessary that", "it is unlikely that"],
+        answer: "it is undeniable that",
+        hint: "Il est indéniable que = it is undeniable that — a strong B1 assertion phrase for argumentation."
+    },
+
+    // --- B2 additions (fr-lt-b2-16 through -20) ---
+    {
+        id: "fr-lt-b2-16", level: "B2",
+        prompt: "Identify the conditional type: 'Si tu avais suivi mes conseils, tu serais en meilleure position aujourd'hui.'",
+        options: [
+            "Type 1 — real condition",
+            "Type 2 — hypothetical present",
+            "Type 3 — past regret",
+            "Mixed — past condition, present consequence"
+        ],
+        answer: "Mixed — past condition, present consequence",
+        hint: "Si + plus-que-parfait → conditionnel présent = mixed conditional (past cause, present result now)."
+    },
+    {
+        id: "fr-lt-b2-17", level: "B2",
+        prompt: "What does 'étant donné que' introduce in formal argumentation?",
+        options: ["a contrast", "an accepted premise / given that", "a conclusion", "a concession"],
+        answer: "an accepted premise / given that",
+        hint: "Étant donné que = given that / since — introduces a factual premise in formal writing."
+    },
+    {
+        id: "fr-lt-b2-18", level: "B2",
+        prompt: "What does 'or' (no accent) do in formal French writing?",
+        options: [
+            "It means 'or' (alternative choice)",
+            "It introduces a logical pivot — 'now, as it happens'",
+            "It means 'therefore'",
+            "It marks concession"
+        ],
+        answer: "It introduces a logical pivot — 'now, as it happens'",
+        hint: "Or (no accent) ≠ ou (or). Or = logical 'now / but' — used in syllogisms and formal arguments."
+    },
+    {
+        id: "fr-lt-b2-19", level: "B2",
+        prompt: "What does 'coûter les yeux de la tête' mean?",
+        options: [
+            "to cost nothing",
+            "to cost a fortune / an arm and a leg",
+            "to be priceless",
+            "to be overpriced but worth it"
+        ],
+        answer: "to cost a fortune / an arm and a leg",
+        hint: "Coûter les yeux de la tête — a key B2 idiom. Cannot be guessed from its parts."
+    },
+    {
+        id: "fr-lt-b2-20", level: "B2",
+        prompt: "Which is the formal written equivalent of 'parce qu'il était absent'?",
+        options: [
+            "mais il était absent",
+            "en raison de son absence",
+            "si bien qu'il était absent",
+            "donc il était absent"
+        ],
+        answer: "en raison de son absence",
+        hint: "Nominalisation: parce qu'il était absent → en raison de son absence. Core B2 formal writing skill."
+    },
+
+    // --- C1 additions (fr-lt-c1-16 through -20) ---
+    {
+        id: "fr-lt-c1-16", level: "C1",
+        prompt: "What does 'il ressort de cette analyse que' mean in formal writing?",
+        options: [
+            "it is doubted that",
+            "it emerges from this analysis that",
+            "it is possible that",
+            "it is required by this analysis that"
+        ],
+        answer: "it emerges from this analysis that",
+        hint: "Il ressort de = it emerges from / it follows from. Formal academic/journalistic attribution structure."
+    },
+    {
+        id: "fr-lt-c1-17", level: "C1",
+        prompt: "What stylistic function does the conditionnel passé serve in 'Le ministre aurait rencontré son homologue en secret'?",
+        options: [
+            "It expresses a past regret",
+            "It reports unconfirmed / alleged information (journalistic conditional)",
+            "It describes a habitual past action",
+            "It forms a type-3 hypothetical"
+        ],
+        answer: "It reports unconfirmed / alleged information (journalistic conditional)",
+        hint: "Journalistic conditional: conditionnel passé signals 'reportedly / allegedly'. Used throughout French news media."
+    },
+    {
+        id: "fr-lt-c1-18", level: "C1",
+        prompt: "Which is the formal nominalised equivalent of 'bien qu'il soit compétent'?",
+        options: [
+            "même s'il est compétent",
+            "malgré sa compétence",
+            "puisqu'il est compétent",
+            "du fait de sa compétence"
+        ],
+        answer: "malgré sa compétence",
+        hint: "Bien qu'il soit compétent → malgré sa compétence. Clause compression via nominalisation — C1 formal writing."
+    },
+    {
+        id: "fr-lt-c1-19", level: "C1",
+        prompt: "Complete: 'Force ___ constater que cette politique a échoué.'",
+        options: ["est de", "il faut", "est à", "on doit"],
+        answer: "est de",
+        hint: "Force est de constater que = one must acknowledge that. Fixed formal/journalistic construction."
+    },
+    {
+        id: "fr-lt-c1-20", level: "C1",
+        prompt: "What rhetorical effect does deliberately switching from 'vous' to 'tu' with a stranger achieve at C1?",
+        options: [
+            "It is always a grammatical error",
+            "It can signal warmth, challenge, or irony depending on tone and context",
+            "It only marks a regional dialect",
+            "It signals anger exclusively"
+        ],
+        answer: "It can signal warmth, challenge, or irony depending on tone and context",
+        hint: "C1 register mastery: deliberate tu/vous switch as a rhetorical tool — warmth, aggression, or irony by design."
+    },
 ]
