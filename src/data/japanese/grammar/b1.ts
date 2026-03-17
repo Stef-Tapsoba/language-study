@@ -60,5 +60,69 @@ export const b1Grammar: GrammarLesson[] = [
             { native: "雨が降ったり止んだりしている。", romanized: "Ame ga futtari yandari shite iru.", translation: "It keeps raining and stopping." },
             { native: "勉強したり遊んだりする。", romanized: "Benkyou shitari asondari suru.", translation: "I study, play, and do other things." }
         ]
-    }
+    },
+    {
+        id: "ja-g-b1-5",
+        level: "B1",
+        title: "Conditionals: 〜ば / 〜たら / 〜と",
+        explanation: {
+            native: "Japanese has three main conditional forms with distinct nuances. 〜と: automatic/natural consequence — 'whenever X, Y always follows'. Used for natural laws, directions, habitual results. Cannot be followed by requests, commands, or volitional forms. 〜たら: specific conditional moment — 'if/when X happens (at that point)'. The most versatile conditional; can follow any result. 〜ば: hypothetical or general condition — often carries a nuance of unfulfilled conditions or formal register. Forms: Group 1: change u→e + ば (書く→書けば); Group 2: replace る with れば (食べる→食べれば); する→すれば; くる→くれば.",
+            target: "にほんごには みっつの おもな じょうけんけいが あります。〜と：じどうてき／しぜんな けっか「Xになると、いつも Yになる」。しぜんの ほうそく、あんない、しゅうかんてきな けっかに つかいます。めいれい・いらい・いしけいの あとには つかえません。〜たら：とくていの じょうけんの じてん「Xに なったとき」。もっとも はんようせいが たかく、どんな けっかにも つかえます。〜ば：かせつてきまたは いっぱんてきな じょうけん。みたされていない じょうけんや フォーマルな ばめんに よく つかわれます。かつようけい：グループ１：う→えばに かえる（かく→かけば）；グループ２：るを とって れば（たべる→たべれば）；する→すれば；くる→くれば。"
+        },
+        examples: [
+            { native: "春になると、花が咲きます。", romanized: "Haru ni naru to, hana ga sakimasu.", translation: "When spring comes, flowers bloom. (と — automatic)" },
+            { native: "駅に着いたら、電話してください。", romanized: "Eki ni tsuitara, denwa shite kudasai.", translation: "When you arrive at the station, please call. (たら — specific moment)" },
+            { native: "もっと早く来れば、会えたのに。", romanized: "Motto hayaku kureba, aeta noni.", translation: "If you had come earlier, we could have met. (ば — unfulfilled)" },
+            { native: "右に曲がると、駅が見えます。", romanized: "Migi ni magaru to, eki ga miemasu.", translation: "If you turn right, you'll see the station. (と — directions)" },
+            { native: "時間があれば、一緒に行きましょう。", romanized: "Jikan ga areba, issho ni ikimashou.", translation: "If we have time, let's go together. (ば — general condition)" },
+        ]
+    },
+    {
+        id: "ja-g-b1-6",
+        level: "B1",
+        title: "〜んです / 〜のです: Explanatory Tone",
+        explanation: {
+            native: "〜んです (spoken) / 〜のです (written/formal) adds an explanatory nuance to a statement — 'the thing is…', 'it's that…', 'the reason is…'. It signals that the speaker is giving background context, explaining a situation, or seeking an explanation. Formation: plain form verb/adjective + んです. For な-adjectives and nouns in the present: + なんです. Use in statements: I'm giving you context. Use in questions (〜んですか？): I'm asking you to explain. Overusing plain です/ます without んです can sound cold, blunt, or as if you're stating bare facts rather than having a conversation.",
+            target: "〜んです（はなしことば）／〜のです（かきことば・フォーマル）は、「じつは〜」「〜ということなんです」という せつめいてきな ニュアンスを くわえます。はなしてが はいけいじょうほうを ていきょうしたり、じょうきょうを せつめいしたり、せつめいを もとめたり するときに つかいます。かつようほう：どうしの ふつうけい／けいようし＋んです。な-けいようしと めいしの げんざい：＋なんです。ぶんで つかう：「じょうきょうを せつめいしている」ニュアンス。「〜んですか？」の ぎもんぶん：せつめいを もとめる。んです をつかわずに ただの です／ます だけ だと、かいわ というより たんじゅんな じじつ きじゅつに きこえ、ぶっきらぼうな いんしょうに なることも あります。"
+        },
+        examples: [
+            { native: "実は、風邪をひいているんです。", romanized: "Jitsu wa, kaze wo hiite iru ndesu.", translation: "The truth is, I have a cold. (explaining a situation)" },
+            { native: "どうしたんですか？", romanized: "Dou shita ndesu ka?", translation: "What happened? / What's the matter? (asking for explanation)" },
+            { native: "電車が遅れたんです。だから、遅刻しました。", romanized: "Densha ga okureta ndesu. Dakara, chikoku shimashita.", translation: "The train was delayed (that's why). So I was late." },
+            { native: "もう帰るんですか？", romanized: "Mou kaeru ndesu ka?", translation: "Are you leaving already? (mild surprise, seeking explanation)" },
+            { native: "明日は大切な会議なんです。", romanized: "Ashita wa taisetsu na kaigi nandesu.", translation: "Tomorrow is an important meeting, you see. (providing context)" },
+        ]
+    },
+    {
+        id: "ja-g-b1-7",
+        level: "B1",
+        title: "Passive Voice: 〜られる (受身形)",
+        explanation: {
+            native: "The Japanese passive (受身 / ukemi) is formed by: Group 1 (u-verbs): change u→a + れる (書く→書かれる, 飲む→飲まれる). Group 2 (ru-verbs): remove る + られる (食べる→食べられる). Irregular: する→される, くる→こられる. The agent (doer) is marked by に. Japanese has a unique 'suffering passive' (迷惑の受身): the speaker is negatively affected by someone else's action, even if the verb would normally be intransitive. Example: 雨に降られた (I was rained on = inconvenienced by rain). The passive is also widely used in formal writing and news to focus on the event rather than the agent.",
+            target: "にほんごの うけみけい（受身）は つぎのように つくります：グループ１（うどうし）：う→あ＋れる（かく→かかれる、のむ→のまれる）。グループ２（るどうし）：るを とって＋られる（たべる→たべられる）。ふきそく：する→される、くる→こられる。どうさの ぬしは に で しめします。にほんごには とくゆうの「めいわくの うけみ」があります：じしどうしでも、はなしてが たにんの こうい によって ふりえきを うけるときに つかいます。れい：あめに ふられた（雨に降られた）＝あめに やられた・めいわくだった、という ニュアンス。また、うけみは フォーマルな ぶんしょうや ニュースで、どうさ じたいに しょうてんを あてるときにも よく つかわれます。"
+        },
+        examples: [
+            { native: "この小説は村上春樹に書かれた。", romanized: "Kono shousetsu wa Murakami Haruki ni kakareta.", translation: "This novel was written by Haruki Murakami." },
+            { native: "財布を盗まれた。", romanized: "Saifu wo nusumareta.", translation: "My wallet was stolen. (suffering passive)" },
+            { native: "雨に降られて、服がぬれた。", romanized: "Ame ni furarete, fuku ga nureta.", translation: "I got rained on and my clothes got wet. (suffering passive — intransitive)" },
+            { native: "先生にほめられた。", romanized: "Sensei ni homerareta.", translation: "I was praised by the teacher." },
+            { native: "この法律は2000年に制定された。", romanized: "Kono houritsu wa 2000-nen ni seitei sareta.", translation: "This law was enacted in 2000. (formal/news register)" },
+        ]
+    },
+    {
+        id: "ja-g-b1-8",
+        level: "B1",
+        title: "Clause Linking: 〜ので / 〜のに / 〜けど",
+        explanation: {
+            native: "Three essential B1 connectors with distinct nuances. 〜ので: formal/objective cause — 'because (as a matter of fact)'. More formal than 〜から; preferred in written Japanese and polite registers. Formation: plain form + ので. 〜のに: unexpected or disappointing contrast — 'even though / despite'. Carries frustration or surprise that the result contradicts the condition. Cannot be used for commands or requests. 〜けど (also けれど, けれども): soft 'but' / 'though'. Less blunt than でも; commonly trails off in conversation as a softening device, implying something without completing the thought.",
+            target: "B1の たいせつな さんつの せつぞくし：〜ので：フォーマル／きゃっかんてきな げんいん「（じじつとして）〜から」。〜からより ていねいで、かきことばや ていねいな ばめんで よく つかわれます。かつよう：ふつうけい＋ので。〜のに：よそうがい・がっかりする たいひ「〜なのに（それでも）」。けっかが じょうけんに はんする おどろきや くやしさを ふくみます。めいれいや いらいとは いっしょに つかえません。〜けど（けれど・けれども）：やわらかい「でも」「〜だけど」。でも ほど ちょくせつでなく、かいわで よく みじかく きれて ニュアンスを のこす つかいかたが あります。"
+        },
+        examples: [
+            { native: "明日試験があるので、早く寝ます。", romanized: "Ashita shiken ga aru node, hayaku nemasu.", translation: "Because there's an exam tomorrow, I'll go to bed early. (ので — formal cause)" },
+            { native: "あんなに練習したのに、負けてしまった。", romanized: "Anna ni renshuu shita noni, makete shimatta.", translation: "Even though I practiced so much, I ended up losing. (のに — disappointment)" },
+            { native: "このカフェは高いけど、雰囲気がいいです。", romanized: "Kono kafe wa takai kedo, funiki ga ii desu.", translation: "This café is expensive, but the atmosphere is nice. (けど — soft contrast)" },
+            { native: "もう少し安ければいいんですけど…", romanized: "Mou sukoshi yasukereba ii ndesu kedo...", translation: "It would be nice if it were a bit cheaper, though… (trailing けど — softened hint)" },
+            { native: "道が混んでいたので、遅れました。", romanized: "Michi ga konde ita node, okuremashita.", translation: "The road was congested, so I was late. (ので — objective explanation)" },
+        ]
+    },
 ]

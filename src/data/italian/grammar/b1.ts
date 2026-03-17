@@ -88,5 +88,53 @@ export const b1Grammar: GrammarLesson[] = [
             { native: "Ieri sera mangiai una pizza deliziosa.", translation: "Last night I ate a delicious pizza. (Southern/written style)" },
             { native: "I Romani costruirono strade in tutta Europa.", translation: "The Romans built roads all over Europe." },
         ]
-    }
+    },
+    {
+        id: "it-g-b1-7",
+        level: "B1",
+        title: "Il Periodo Ipotetico (Se-Clauses)",
+        explanation: {
+            native: "Italian conditional sentences use se (if) and follow three patterns. Realtà (real/possible): se + presente indicativo → futuro semplice or imperativo. Possibilità (hypothetical, possible but uncertain): se + congiuntivo imperfetto → condizionale presente. Impossibilità passata (past regret): se + congiuntivo trapassato → condizionale composto. The condizionale never goes directly in the se-clause. A meno che (unless) is always followed by non + congiuntivo even when the meaning is positive.",
+            target: "Le frasi condizionali italiane usano se (if) e seguono tre schemi. Realtà (reale/possibile): se + presente indicativo → futuro semplice o imperativo. Possibilità (ipotetica): se + congiuntivo imperfetto → condizionale presente. Impossibilità passata (rimpianto): se + congiuntivo trapassato → condizionale composto. Il condizionale non va mai direttamente nella frase con se. A meno che (unless) è sempre seguito da non + congiuntivo anche quando il significato è positivo."
+        },
+        examples: [
+            { native: "Se studi, passerai l'esame.", translation: "If you study, you'll pass. (real)" },
+            { native: "Se avessi più tempo, viaggerei di più.", translation: "If I had more time, I'd travel more. (hypothetical)" },
+            { native: "Se fossi te, non lo farei.", translation: "If I were you, I wouldn't do it." },
+            { native: "Se fosse partito prima, avrebbe preso il treno.", translation: "If he had left earlier, he would have caught the train. (past regret)" },
+            { native: "Vengo, a meno che non piova.", translation: "I'll come, unless it rains." },
+        ]
+    },
+    {
+        id: "it-g-b1-8",
+        level: "B1",
+        title: "Il Discorso Indiretto (Reported Speech)",
+        explanation: {
+            native: "Italian reported speech shifts tenses back when the main reporting verb is past. Key shifts: presente → imperfetto; futuro → condizionale composto; passato prossimo → trapassato prossimo; imperativo → di + infinito. Time references shift: oggi → quel giorno, domani → l'indomani, ieri → il giorno prima, qui → lì. Yes/no questions use se; content questions keep their question word (dove, come, quando). Main reporting verbs: dire che, chiedere se/cosa, spiegare che, aggiungere che, negare di.",
+            target: "Il discorso indiretto italiano cambia i tempi verbali quando il verbo reggente è al passato. Cambiamenti principali: presente → imperfetto; futuro → condizionale composto; passato prossimo → trapassato prossimo; imperativo → di + infinito. I riferimenti di tempo cambiano: oggi → quel giorno, domani → l'indomani, ieri → il giorno prima, qui → lì. Le domande sì/no usano se; le domande aperte mantengono la parola interrogativa (dove, come, quando). Verbi reggenti: dire che, chiedere se/cosa, spiegare che, aggiungere che, negare di."
+        },
+        examples: [
+            { native: "'Sono stanco.' → Ha detto che era stanco.", translation: "'I'm tired.' → He said he was tired." },
+            { native: "'Hai fame?' → Mi ha chiesto se avevo fame.", translation: "'Are you hungry?' → She asked me if I was hungry." },
+            { native: "'Verrò domani.' → Ha detto che sarebbe venuto l'indomani.", translation: "'I'll come tomorrow.' → He said he'd come the next day." },
+            { native: "'Mangia più lentamente!' → Gli ha detto di mangiare più lentamente.", translation: "'Eat more slowly!' → She told him to eat more slowly." },
+            { native: "'Non so dove sia.' → Ha spiegato che non sapeva dove fosse.", translation: "'I don't know where it is.' → She explained she didn't know where it was." },
+        ]
+    },
+    {
+        id: "it-g-b1-9",
+        level: "B1",
+        title: "Discourse Markers & Key Collocations",
+        explanation: {
+            native: "Discourse markers in Italian signal logical relationships between ideas. Adding: inoltre, per di più, d'altronde. Contrasting: tuttavia, però, nonostante, al contrario. Conceding: è vero che…, ma; certo…, però; pur + gerundio. Concluding: in conclusione, in sintesi, quindi, pertanto. Key collocations (must be learned as fixed chunks): prendere una decisione (make a decision), rendersi conto di (realise), tenere conto di (take into account), non ci piove (there's no doubt — colloquial), fare bella figura (make a good impression).",
+            target: "I connettivi del discorso in italiano segnalano le relazioni logiche tra le idee. Aggiunta: inoltre, per di più, d'altronde. Contrasto: tuttavia, però, nonostante, al contrario. Concessione: è vero che…, ma; certo…, però; pur + gerundio. Conclusione: in conclusione, in sintesi, quindi, pertanto. Collocazioni chiave (da memorizzare come unità fisse): prendere una decisione, rendersi conto di, tenere conto di, non ci piove, fare bella figura."
+        },
+        examples: [
+            { native: "Da una parte è economico; dall'altra, la qualità lascia a desiderare.", translation: "On one hand it's cheap; on the other, the quality leaves something to be desired." },
+            { native: "È vero che ci sono vantaggi, ma i rischi sono reali.", translation: "It's true there are advantages, but the risks are real." },
+            { native: "Mi sono reso conto di aver sbagliato.", translation: "I realised I had made a mistake. (rendersi conto di)" },
+            { native: "Bisogna tenere conto di tutti i fattori prima di prendere una decisione.", translation: "We must take all factors into account before making a decision." },
+            { native: "In conclusione, ritengo che questa sia la soluzione migliore.", translation: "In conclusion, I believe this is the best solution." },
+        ]
+    },
 ]

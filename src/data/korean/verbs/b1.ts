@@ -13,23 +13,36 @@ export const b1Verbs: Verb[] = [
         meaning: "to think",
         conjugations: [
             {
-                tense: "Present (Polite)",
+                tense: "Present & Past (Polite)",
                 forms: [
-                    { pronoun: "Affirmative", form: "생각해요", romanized: "saenggakhaeyo" },
-                    { pronoun: "Negative", form: "생각 안 해요", romanized: "saenggak an haeyo" }
+                    { pronoun: "polite", form: "생각해요", romanized: "saenggakhaeyo" },
+                    { pronoun: "formal", form: "생각합니다", romanized: "saenggakamnida" },
+                    { pronoun: "past polite", form: "생각했어요", romanized: "saenggakhaesseoyo" },
+                    { pronoun: "negative", form: "생각 안 해요", romanized: "saenggak an haeyo" },
                 ]
             },
             {
-                tense: "Past (Polite)",
+                tense: "Connectors",
                 forms: [
-                    { pronoun: "Affirmative", form: "생각했어요", romanized: "saenggakhaesseoyo" },
-                    { pronoun: "Negative", form: "생각 안 했어요", romanized: "saenggak an haesseoyo" }
+                    { pronoun: "-(으)면 (if)", form: "생각하면", romanized: "saenggakhamyeon" },
+                    { pronoun: "-아/어서 (because)", form: "생각해서", romanized: "saenggakhaeseo" },
+                    { pronoun: "-기 때문에 (formal because)", form: "생각하기 때문에", romanized: "saenggakhagi ttaemune" },
+                    { pronoun: "-지만 (but)", form: "생각하지만", romanized: "saenggakhajiman" },
                 ]
             },
             {
-                tense: "Conditional (~으면)",
+                tense: "Reported Speech",
                 forms: [
-                    { pronoun: "if/when", form: "생각하면", romanized: "saenggakhamyeon" }
+                    { pronoun: "statement", form: "생각한다고 해요", romanized: "saenggakhanda go haeyo" },
+                    { pronoun: "past statement", form: "생각했다고 해요", romanized: "saenggakhaetdago haeyo" },
+                    { pronoun: "opinion expr.", form: "~(이)라고 생각해요", romanized: "~(i)rago saenggakhaeyo" },
+                ]
+            },
+            {
+                tense: "Nominalisation",
+                forms: [
+                    { pronoun: "~기 form", form: "생각하기", romanized: "saenggakhagi" },
+                    { pronoun: "~는 것", form: "생각하는 것", romanized: "saenggakhaneun geot" },
                 ]
             }
         ]
@@ -37,28 +50,42 @@ export const b1Verbs: Verb[] = [
     {
         id: "ko-vb-b1-2",
         level: "B1",
-        infinitive: "사용하다",
-        romanized: "sayonghada",
-        meaning: "to use",
+        infinitive: "먹다",
+        romanized: "meokda",
+        meaning: "to eat",
         conjugations: [
             {
-                tense: "Present (Polite)",
+                tense: "Present & Past (Polite)",
                 forms: [
-                    { pronoun: "Affirmative", form: "사용해요", romanized: "sayonghaeyo" },
-                    { pronoun: "Negative", form: "사용 안 해요", romanized: "sayong an haeyo" }
+                    { pronoun: "polite", form: "먹어요", romanized: "meogeoyo" },
+                    { pronoun: "formal", form: "먹습니다", romanized: "meokseumnida" },
+                    { pronoun: "past polite", form: "먹었어요", romanized: "meogeosseoyo" },
+                    { pronoun: "informal (반말)", form: "먹어", romanized: "meogeo" },
                 ]
             },
             {
-                tense: "Past (Polite)",
+                tense: "Obligation & Attempt",
                 forms: [
-                    { pronoun: "Affirmative", form: "사용했어요", romanized: "sayonghaesseoyo" },
-                    { pronoun: "Negative", form: "사용 안 했어요", romanized: "sayong an haesseoyo" }
+                    { pronoun: "must eat", form: "먹어야 해요", romanized: "meogeoya haeyo" },
+                    { pronoun: "try eating", form: "먹어 봐요", romanized: "meogeo bwayo" },
+                    { pronoun: "don't have to", form: "안 먹어도 돼요", romanized: "an meogeodo dwaeyo" },
                 ]
             },
             {
-                tense: "Conditional (~으면)",
+                tense: "Reported Speech",
                 forms: [
-                    { pronoun: "if/when", form: "사용하면", romanized: "sayonghamyeon" }
+                    { pronoun: "statement (eats)", form: "먹는다고 해요", romanized: "meongneundago haeyo" },
+                    { pronoun: "statement (ate)", form: "먹었다고 해요", romanized: "meogeotdago haeyo" },
+                    { pronoun: "command (eat!)", form: "먹으라고 해요", romanized: "meogeurago haeyo" },
+                    { pronoun: "suggestion (let's eat)", form: "먹자고 해요", romanized: "meokjago haeyo" },
+                ]
+            },
+            {
+                tense: "Nominalisation",
+                forms: [
+                    { pronoun: "~기", form: "먹기", romanized: "meokgi" },
+                    { pronoun: "~는 것", form: "먹는 것", romanized: "meongneun geot" },
+                    { pronoun: "example", form: "먹는 것이 좋아요 (I like eating)", romanized: "meongneun geosi joayo" },
                 ]
             }
         ]
@@ -66,28 +93,42 @@ export const b1Verbs: Verb[] = [
     {
         id: "ko-vb-b1-3",
         level: "B1",
-        infinitive: "읽다",
-        romanized: "ikda",
-        meaning: "to read",
+        infinitive: "가다",
+        romanized: "gada",
+        meaning: "to go",
         conjugations: [
             {
-                tense: "Present (Polite)",
+                tense: "Present & Past (Polite)",
                 forms: [
-                    { pronoun: "Affirmative", form: "읽어요", romanized: "ilgeoyo" },
-                    { pronoun: "Negative", form: "안 읽어요", romanized: "an ilgeoyo" }
+                    { pronoun: "polite", form: "가요", romanized: "gayo" },
+                    { pronoun: "formal", form: "갑니다", romanized: "gamnida" },
+                    { pronoun: "past polite", form: "갔어요", romanized: "gasseoyo" },
+                    { pronoun: "informal", form: "가", romanized: "ga" },
                 ]
             },
             {
-                tense: "Past (Polite)",
+                tense: "Connectors",
                 forms: [
-                    { pronoun: "Affirmative", form: "읽었어요", romanized: "ilgeosseoyo" },
-                    { pronoun: "Negative", form: "안 읽었어요", romanized: "an ilgeosseoyo" }
+                    { pronoun: "-(으)면 (if)", form: "가면", romanized: "gamyeon" },
+                    { pronoun: "-아/어서 (so/because)", form: "가서", romanized: "gaseo" },
+                    { pronoun: "-기 때문에 (formal)", form: "가기 때문에", romanized: "gagi ttaemune" },
+                    { pronoun: "-지만 (but)", form: "가지만", romanized: "gajiman" },
                 ]
             },
             {
-                tense: "Conditional (~으면)",
+                tense: "Purpose & Attempt",
                 forms: [
-                    { pronoun: "if/when", form: "읽으면", romanized: "ilgeumyeon" }
+                    { pronoun: "~(으)러 가다", form: "가러 가다", romanized: "gareo gada" },
+                    { pronoun: "try going", form: "가 봐요", romanized: "ga bwayo" },
+                    { pronoun: "must go", form: "가야 해요", romanized: "gaya haeyo" },
+                ]
+            },
+            {
+                tense: "Reported Speech",
+                forms: [
+                    { pronoun: "statement (goes)", form: "간다고 해요", romanized: "gandago haeyo" },
+                    { pronoun: "statement (went)", form: "갔다고 해요", romanized: "gatdago haeyo" },
+                    { pronoun: "suggestion (let's go)", form: "가자고 해요", romanized: "gajago haeyo" },
                 ]
             }
         ]
@@ -95,30 +136,46 @@ export const b1Verbs: Verb[] = [
     {
         id: "ko-vb-b1-4",
         level: "B1",
-        infinitive: "시작하다",
-        romanized: "sijakhada",
-        meaning: "to start / to begin",
+        infinitive: "하다",
+        romanized: "hada",
+        meaning: "to do",
         conjugations: [
             {
-                tense: "Present (Polite)",
+                tense: "Present & Past (Polite)",
                 forms: [
-                    { pronoun: "Affirmative", form: "시작해요", romanized: "sijakhaeyo" },
-                    { pronoun: "Negative", form: "시작 안 해요", romanized: "sijak an haeyo" }
+                    { pronoun: "polite", form: "해요", romanized: "haeyo" },
+                    { pronoun: "formal", form: "합니다", romanized: "hamnida" },
+                    { pronoun: "past polite", form: "했어요", romanized: "haesseoyo" },
+                    { pronoun: "informal", form: "해", romanized: "hae" },
                 ]
             },
             {
-                tense: "Past (Polite)",
+                tense: "Obligation & Attempt",
                 forms: [
-                    { pronoun: "Affirmative", form: "시작했어요", romanized: "sijakhaesseoyo" },
-                    { pronoun: "Negative", form: "시작 안 했어요", romanized: "sijak an haesseoyo" }
+                    { pronoun: "must do", form: "해야 해요", romanized: "haeya haeyo" },
+                    { pronoun: "must do (formal)", form: "해야 됩니다", romanized: "haeya doemnida" },
+                    { pronoun: "try doing", form: "해 봐요", romanized: "hae bwayo" },
+                    { pronoun: "don't have to", form: "안 해도 돼요", romanized: "an haedo dwaeyo" },
                 ]
             },
             {
-                tense: "Conditional (~으면)",
+                tense: "Reported Speech",
                 forms: [
-                    { pronoun: "if/when", form: "시작하면", romanized: "sijaghamyeon" }
+                    { pronoun: "statement (does)", form: "한다고 해요", romanized: "handago haeyo" },
+                    { pronoun: "statement (did)", form: "했다고 해요", romanized: "haetdago haeyo" },
+                    { pronoun: "command (do it!)", form: "하라고 해요", romanized: "harago haeyo" },
+                    { pronoun: "question (doing?)", form: "하냐고 해요", romanized: "hanyago haeyo" },
+                ]
+            },
+            {
+                tense: "Nominalisation & Connectors",
+                forms: [
+                    { pronoun: "~기", form: "하기", romanized: "hagi" },
+                    { pronoun: "~는 것", form: "하는 것", romanized: "haneun geot" },
+                    { pronoun: "-아/어서", form: "해서", romanized: "haeseo" },
+                    { pronoun: "-기 때문에", form: "하기 때문에", romanized: "hagi ttaemune" },
                 ]
             }
         ]
-    }
+    },
 ]

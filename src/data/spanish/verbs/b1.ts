@@ -95,5 +95,65 @@ export const b1Verbs: Verb[] = [
                 ]
             }
         ]
-    }
+    },
+    {
+        id: "es-vb-b1-4",
+        level: "B1",
+        infinitive: "poder",
+        meaning: "to be able to / can",
+        conjugations: [
+            {
+                tense: "Condicional Simple",
+                forms: [
+                    { pronoun: "yo", form: "podría" },
+                    { pronoun: "tú", form: "podrías" },
+                    { pronoun: "él/ella", form: "podría" },
+                    { pronoun: "nosotros", form: "podríamos" },
+                    { pronoun: "vosotros", form: "podríais" },
+                    { pronoun: "ellos/ellas", form: "podrían" },
+                ]
+            },
+            {
+                tense: "Imperfecto de Subjuntivo",
+                forms: [
+                    { pronoun: "yo", form: "pudiera" },
+                    { pronoun: "tú", form: "pudieras" },
+                    { pronoun: "él/ella", form: "pudiera" },
+                    { pronoun: "nosotros", form: "pudiéramos" },
+                    { pronoun: "vosotros", form: "pudierais" },
+                    { pronoun: "ellos/ellas", form: "pudieran" },
+                ]
+            }
+        ]
+    },
+    {
+        id: "es-vb-b1-5",
+        level: "B1",
+        infinitive: "decir",
+        meaning: "to say / to tell",
+        conjugations: [
+            {
+                tense: "Pretérito Indefinido",
+                forms: [
+                    { pronoun: "yo", form: "dije" },
+                    { pronoun: "tú", form: "dijiste" },
+                    { pronoun: "él/ella", form: "dijo" },
+                    { pronoun: "nosotros", form: "dijimos" },
+                    { pronoun: "vosotros", form: "dijisteis" },
+                    { pronoun: "ellos/ellas", form: "dijeron" },
+                ]
+            },
+            {
+                tense: "Condicional Simple",
+                forms: [
+                    { pronoun: "yo", form: "diría" },
+                    { pronoun: "tú", form: "dirías" },
+                    { pronoun: "él/ella", form: "diría" },
+                    { pronoun: "nosotros", form: "diríamos" },
+                    { pronoun: "vosotros", form: "diríais" },
+                    { pronoun: "ellos/ellas", form: "dirían" },
+                ]
+            }
+        ]
+    },
 ]

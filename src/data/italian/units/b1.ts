@@ -85,5 +85,59 @@ export const b1Units: LessonUnit[] = [
             { id: "it-uq-b1-5-4", level: "B1", prompt: "Complete: 'Era ___ prima della pioggia.' (uscire — lei)", options: ["usciva", "è uscita", "uscita", "uscirà"], answer: "uscita" },
             { id: "it-uq-b1-5-5", level: "B1", prompt: "What does 'sebbene' mean?", options: ["Therefore", "Furthermore", "However", "Although / Even though"], answer: "Although / Even though" }
         ]
-    }
+    },
+    {
+        id: "it-b1-u6",
+        level: "B1",
+        order: 6,
+        title: "Si-Clauses — Real & Hypothetical Conditions",
+        description: "Build conditional sentences with se-clauses. Real conditions (se + presente → futuro/imperativo) vs hypothetical (se + congiuntivo imperfetto → condizionale). Essential for expressing hypotheses, polite suggestions, and debating positions in Italian.",
+        grammarIds: ["it-g-b1-7"],
+        vocabIds: ["it-v-b1-081", "it-v-b1-082", "it-v-b1-083", "it-v-b1-084", "it-v-b1-085"],
+        verbIds: ["it-vb-b1-5"],
+        testQuestions: [
+            { id: "it-uq-b1-6-1", level: "B1", prompt: "Complete (real condition): 'Se ___ (studiare, tu) di più, supererai l'esame.'", options: ["studieresti", "studi", "studiassi", "studiavi"], answer: "studi", hint: "Real condition: se + presente → futuro. The se-clause takes presente indicativo." },
+            { id: "it-uq-b1-6-2", level: "B1", prompt: "Complete (hypothetical): 'Se ___ (avere, io) più tempo, viaggerei di più.'", options: ["ho", "avrò", "avessi", "avrei"], answer: "avessi", hint: "Hypothetical: se + congiuntivo imperfetto → condizionale presente." },
+            { id: "it-uq-b1-6-3", level: "B1", prompt: "Which tense NEVER follows 'se' in a conditional clause?", options: ["presente", "congiuntivo imperfetto", "condizionale", "futuro"], answer: "condizionale", hint: "The condizionale goes in the result clause, never after se." },
+            { id: "it-uq-b1-6-4", level: "B1", prompt: "Translate: 'If I were you, I wouldn't do it.'", options: ["Se sono te, non lo faccio.", "Se fossi te, non lo farei.", "Se ero te, non lo farei.", "Se fossi te, non lo faccio."], answer: "Se fossi te, non lo farei.", hint: "Se + congiuntivo imperfetto (fossi) → condizionale (farei)." },
+            { id: "it-uq-b1-6-5", level: "B1", prompt: "Complete the past hypothetical: 'Se ___ (partire) prima, avresti preso il treno.'", options: ["sei partito", "partivi", "fossi partito", "partiresti"], answer: "fossi partito", hint: "Past regret: se + congiuntivo trapassato → condizionale composto." },
+            { id: "it-uq-b1-6-6", level: "B1", prompt: "What does 'a meno che' mean?", options: ["unless", "in case", "provided that", "as long as"], answer: "unless", hint: "A meno che + non + congiuntivo = unless. Always used with non even in the affirmative." },
+        ]
+    },
+    {
+        id: "it-b1-u7",
+        level: "B1",
+        order: 7,
+        title: "Reported Speech — Discorso Indiretto",
+        description: "Report what someone said, asked, or thought in Italian. Master the tense back-shifts, the change of time references, and the key reporting verbs: dire, chiedere, spiegare, aggiungere.",
+        grammarIds: ["it-g-b1-8"],
+        vocabIds: ["it-v-b1-086", "it-v-b1-087", "it-v-b1-088", "it-v-b1-089"],
+        verbIds: ["it-vb-b1-6"],
+        testQuestions: [
+            { id: "it-uq-b1-7-1", level: "B1", prompt: "Transform: 'Sono stanco.' → Ha detto che ___.", options: ["è stanco", "era stanco", "fu stanco", "sarà stanco"], answer: "era stanco", hint: "Presente → imperfetto in reported speech when reporting verb is in the past." },
+            { id: "it-uq-b1-7-2", level: "B1", prompt: "Transform: 'Hai fame?' → Mi ha chiesto se ___.", options: ["ho fame", "avevo fame", "avessi fame", "avrò fame"], answer: "avevo fame", hint: "Yes/no questions in reported speech: se + imperfetto indicativo." },
+            { id: "it-uq-b1-7-3", level: "B1", prompt: "Transform: 'Verrò domani.' → Ha detto che ___.", options: ["verrà l'indomani", "veniva l'indomani", "sarebbe venuto l'indomani", "verrà domani"], answer: "sarebbe venuto l'indomani", hint: "Futuro → condizionale composto in reported speech. 'Domani' → 'l'indomani'." },
+            { id: "it-uq-b1-7-4", level: "B1", prompt: "Transform: 'Mangia più lentamente!' → Gli ha detto di ___.", options: ["mangiare più lentamente", "mangi più lentamente", "mangiasse più lentamente", "mangerà più lentamente"], answer: "mangiare più lentamente", hint: "Imperatives in Italian reported speech → di + infinito." },
+            { id: "it-uq-b1-7-5", level: "B1", prompt: "What does 'aggiungere' mean in a reporting context?", options: ["to deny", "to ask", "to add", "to explain"], answer: "to add", hint: "Ha aggiunto che… = He/she added that… — useful for reporting additional points." },
+            { id: "it-uq-b1-7-6", level: "B1", prompt: "Which time reference shifts in reported speech?", options: ["oggi → quel giorno", "qui → lì", "domani → l'indomani", "All of the above"], answer: "All of the above", hint: "All time and place references shift: oggi → quel giorno, qui → lì, domani → l'indomani." },
+        ]
+    },
+    {
+        id: "it-b1-u8",
+        level: "B1",
+        order: 8,
+        title: "Opinion, Debate & Key Collocations",
+        description: "Structure arguments using Italian discourse markers, express nuanced agreement and disagreement, and master the collocations that distinguish natural Italian from direct translation. Covers rendersi conto, prendere una decisione, and more.",
+        grammarIds: ["it-g-b1-9"],
+        vocabIds: ["it-v-b1-090", "it-v-b1-091", "it-v-b1-092", "it-v-b1-093", "it-v-b1-094"],
+        verbIds: [],
+        testQuestions: [
+            { id: "it-uq-b1-8-1", level: "B1", prompt: "What does 'rendersi conto di' mean?", options: ["to render useless", "to realise / become aware of", "to count on", "to report on"], answer: "to realise / become aware of", hint: "Rendersi conto di = to realise. The correct collocation — not capire or scoprire in this sense." },
+            { id: "it-uq-b1-8-2", level: "B1", prompt: "How do you say 'on the one hand… on the other hand'?", options: ["di più… di meno", "da una parte… dall'altra", "in primo luogo… in secondo luogo", "prima… poi"], answer: "da una parte… dall'altra", hint: "Da una parte / dall'altra (parte) = on the one hand / on the other." },
+            { id: "it-uq-b1-8-3", level: "B1", prompt: "Which phrase introduces a concession ('admittedly, but…')?", options: ["tuttavia", "è vero che…, ma", "in conclusione", "pertanto"], answer: "è vero che…, ma", hint: "È vero che… ma / certo… però = concede a point before countering it." },
+            { id: "it-uq-b1-8-4", level: "B1", prompt: "What does 'non ci piove' mean as a colloquial expression?", options: ["it's not raining", "there's no doubt about it", "it doesn't matter", "it's not true"], answer: "there's no doubt about it", hint: "Non ci piove is a fixed Italian idiom meaning 'there's no doubt about it' — listed in the B1 guide." },
+            { id: "it-uq-b1-8-5", level: "B1", prompt: "Complete the collocation: '___ una decisione' (to make a decision)", options: ["fare", "avere", "prendere", "mettere"], answer: "prendere", hint: "Prendere una decisione = to make a decision. Always prendere, not fare." },
+            { id: "it-uq-b1-8-6", level: "B1", prompt: "Which phrase signals a conclusion in Italian?", options: ["da una parte", "tuttavia", "in conclusione / in sintesi", "d'altronde"], answer: "in conclusione / in sintesi", hint: "In conclusione or in sintesi = in conclusion / in summary." },
+        ]
+    },
 ]

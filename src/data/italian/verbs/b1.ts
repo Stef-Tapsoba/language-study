@@ -120,5 +120,65 @@ export const b1Verbs: Verb[] = [
                 ]
             }
         ]
-    }
+    },
+    {
+        id: "it-vb-b1-5",
+        level: "B1",
+        infinitive: "essere",
+        meaning: "to be",
+        conjugations: [
+            {
+                tense: "Congiuntivo Imperfetto",
+                forms: [
+                    { pronoun: "io", form: "fossi" },
+                    { pronoun: "tu", form: "fossi" },
+                    { pronoun: "lui/lei", form: "fosse" },
+                    { pronoun: "noi", form: "fossimo" },
+                    { pronoun: "voi", form: "foste" },
+                    { pronoun: "loro", form: "fossero" },
+                ]
+            },
+            {
+                tense: "Condizionale Presente",
+                forms: [
+                    { pronoun: "io", form: "sarei" },
+                    { pronoun: "tu", form: "saresti" },
+                    { pronoun: "lui/lei", form: "sarebbe" },
+                    { pronoun: "noi", form: "saremmo" },
+                    { pronoun: "voi", form: "sareste" },
+                    { pronoun: "loro", form: "sarebbero" },
+                ]
+            }
+        ]
+    },
+    {
+        id: "it-vb-b1-6",
+        level: "B1",
+        infinitive: "dire",
+        meaning: "to say / to tell",
+        conjugations: [
+            {
+                tense: "Passato Prossimo",
+                forms: [
+                    { pronoun: "io", form: "ho detto" },
+                    { pronoun: "tu", form: "hai detto" },
+                    { pronoun: "lui/lei", form: "ha detto" },
+                    { pronoun: "noi", form: "abbiamo detto" },
+                    { pronoun: "voi", form: "avete detto" },
+                    { pronoun: "loro", form: "hanno detto" },
+                ]
+            },
+            {
+                tense: "Condizionale Presente",
+                forms: [
+                    { pronoun: "io", form: "direi" },
+                    { pronoun: "tu", form: "diresti" },
+                    { pronoun: "lui/lei", form: "direbbe" },
+                    { pronoun: "noi", form: "diremmo" },
+                    { pronoun: "voi", form: "direste" },
+                    { pronoun: "loro", form: "direbbero" },
+                ]
+            }
+        ]
+    },
 ]

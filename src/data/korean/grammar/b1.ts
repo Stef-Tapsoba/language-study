@@ -60,5 +60,69 @@ export const b1Grammar: GrammarLesson[] = [
             { native: "일 때문에 바빠요.", romanized: "Il ttaemune bappayo.", translation: "I'm busy because of work." },
             { native: "건강 때문에 운동해요.", romanized: "Geongang ttaemune undonghaeyo.", translation: "I exercise because of my health." }
         ]
-    }
+    },
+    {
+        id: "ko-g-b1-5",
+        level: "B1",
+        title: "Reported Speech: ~다고 하다 / ~라고 하다",
+        explanation: {
+            native: "Korean reported speech uses different endings based on what type of speech is being reported. Statements: verb/adjective stem + ~(ㄴ/는)다고 하다. For action verbs (present): ~ㄴ/는다고; for descriptive verbs: ~다고; for nouns: ~(이)라고. Questions: stem + ~냐고 하다 (or ~는지 묻다 for content questions). Commands: stem + ~(으)라고 하다. Proposals/suggestions: stem + ~자고 하다. When reporting past speech, 하다 shifts to 했어요. Key phrases: ~다고 들었어요 (I heard that), ~다고 하더라고요 (I heard/noticed that — hearsay evidential).",
+            target: "한국어 간접화법은 말의 종류에 따라 다른 어미를 씁니다. 평서문: 동사/형용사 어간 + ~(ㄴ/는)다고 하다. 동작동사(현재): ~ㄴ/는다고; 상태동사: ~다고; 명사: ~(이)라고. 의문문: 어간 + ~냐고 하다 (또는 내용 질문은 ~는지 묻다). 명령문: 어간 + ~(으)라고 하다. 청유문: 어간 + ~자고 하다. 과거의 말을 전할 때는 '하다'를 '했어요'로 바꿉니다. 주요 표현: ~다고 들었어요, ~다고 하더라고요."
+        },
+        examples: [
+            { native: "'바빠요.' → 바쁘다고 했어요.", romanized: "'Bappayo.' → Bappeudago haesseoyo.", translation: "'I'm busy.' → He said he was busy." },
+            { native: "'내일 와요?' → 내일 오냐고 물었어요.", romanized: "'Naeil wayo?' → Naeil onyago mureosseoyo.", translation: "'Are you coming tomorrow?' → She asked if I was coming tomorrow." },
+            { native: "'빨리 오세요!' → 빨리 오라고 했어요.", romanized: "'Ppalli oseyo!' → Ppalli orado haesseoyo.", translation: "'Come quickly!' → He told me to come quickly." },
+            { native: "'같이 가요!' → 같이 가자고 했어요.", romanized: "'Gachi gayo!' → Gachi gajago haesseoyo.", translation: "'Let's go together!' → She suggested going together." },
+            { native: "비가 온다고 들었어요.", romanized: "Biga ondago deureosseoyo.", translation: "I heard (that) it's going to rain." },
+        ]
+    },
+    {
+        id: "ko-g-b1-6",
+        level: "B1",
+        title: "Obligation & Attempt: ~아/어야 하다 / ~아/어 보다",
+        explanation: {
+            native: "~아/어야 하다/되다 expresses obligation or necessity — 'must / have to'. 야 하다 and 야 되다 are largely interchangeable; 야 되다 is slightly softer. Attachment: if the last vowel is ㅏ/ㅗ, add 아야; otherwise add 어야; 하다 verbs → 해야. Negative: ~지 않아도 되다 / 안 ~아/어도 되다 = 'don't have to'. ~아/어 보다 expresses attempt or experience — 'try doing / have tried doing'. It can express encouragement (먹어 봐요 = try eating), past experience (가 봤어요 = I've been there), or possibility testing. Formation: 아/어 + 보다, following the same vowel harmony rules.",
+            target: "~아/어야 하다/되다는 의무나 필요를 나타냅니다. '야 하다'와 '야 되다'는 거의 같은 의미이지만 '야 되다'가 조금 더 부드럽습니다. 결합: 마지막 모음이 ㅏ/ㅗ이면 '아야', 그 외에는 '어야', 하다 동사는 '해야'. 부정: ~지 않아도 되다 / 안 ~아/어도 되다 = ~하지 않아도 된다. ~아/어 보다는 시도나 경험을 나타냅니다. 권유(먹어 봐요), 과거 경험(가 봤어요), 가능성 테스트 등에 쓰입니다. 결합: 같은 모음조화 규칙을 따릅니다."
+        },
+        examples: [
+            { native: "오늘 일찍 자야 해요.", romanized: "Oneul iljjik jaya haeyo.", translation: "I have to go to sleep early tonight." },
+            { native: "걱정 안 해도 돼요.", romanized: "Geokjeong an haedo dwaeyo.", translation: "You don't have to worry." },
+            { native: "이 음식 한번 먹어 봐요.", romanized: "I eumsik hanbeon meogeo bwayo.", translation: "Try eating this food once." },
+            { native: "서울에 가 본 적이 있어요?", romanized: "Seoure ga bon jeogi isseoyo?", translation: "Have you ever been to Seoul?" },
+            { native: "더 열심히 해야 될 것 같아요.", romanized: "Deo yeolsimhi haeya doel geot gatayo.", translation: "I think I'll have to try harder." },
+        ]
+    },
+    {
+        id: "ko-g-b1-7",
+        level: "B1",
+        title: "Purpose & Nominalisation: ~(으)러 가다 / ~기 / ~는 것",
+        explanation: {
+            native: "~(으)러 가다/오다 expresses purpose of movement — 'to go/come in order to do'. Attach ~러 after a vowel-ending stem; ~으러 after a consonant-ending stem. Only used with movement verbs (가다, 오다, 다니다). Nominalisation converts a verb into a noun-like form. ~기 is used with specific verbs and adjectives: 좋아하다, 싫어하다, 쉽다, 어렵다, 시작하다, 끝나다. Also in set patterns: ~기 전에 (before doing), ~기 때문에 (because of doing). ~는 것 (present) / ~ㄴ 것 (past adjective) is more versatile and can be used as subject or object in most sentences. ~는 것이 중요해요 = It is important to...",
+            target: "~(으)러 가다/오다는 이동의 목적을 나타냅니다. 모음으로 끝나는 어간 뒤에는 '러', 자음으로 끝나는 어간 뒤에는 '으러'를 붙입니다. 이동동사(가다, 오다, 다니다)에만 사용합니다. 명사화는 동사를 명사처럼 만들어 줍니다. ~기는 특정 동사·형용사와 함께 씁니다: 좋아하다, 싫어하다, 쉽다, 어렵다, 시작하다, 끝나다. 또한 고정 표현에도 씁니다: ~기 전에, ~기 때문에. ~는 것(현재)/~ㄴ 것(과거형 형용사)은 더 광범위하게 주어나 목적어로 쓸 수 있습니다. ~는 것이 중요해요 = ~하는 것이 중요하다."
+        },
+        examples: [
+            { native: "밥 먹으러 식당에 갔어요.", romanized: "Bap meogeureo sikdange gasseoyo.", translation: "I went to the restaurant to eat. (~으러)" },
+            { native: "운동하기가 싫어요.", romanized: "Undonghagiga sireoyo.", translation: "I hate exercising. (~기 with 싫어하다)" },
+            { native: "한국어를 배우는 것이 재미있어요.", romanized: "Hangugeoreul baeuneun geosi jaemiisseoyo.", translation: "Learning Korean is fun. (~는 것 as subject)" },
+            { native: "숙제를 끝내기 전에 게임을 할 수 없어요.", romanized: "Sukjereul kkeunnaegi jeone geimeul hal su eopseoyo.", translation: "You can't play games before finishing your homework. (~기 전에)" },
+            { native: "책을 읽는 것을 좋아해요.", romanized: "Chaegeul ingneun geoseul joahaeyo.", translation: "I like reading books. (~는 것 as object)" },
+        ]
+    },
+    {
+        id: "ko-g-b1-8",
+        level: "B1",
+        title: "Connector Register: ~아/어서 vs ~기 때문에 & Discourse Markers",
+        explanation: {
+            native: "~아/어서 and ~기 때문에 both mean 'because', but register differs sharply. ~아/어서 is casual, conversational, and sequential — used in everyday speech. ~기 때문에 is formal, objective, and written — used in essays, presentations, and news. Using ~기 때문에 in casual conversation sounds stiff; using ~아/어서 in a formal report sounds unprofessional. B1 discourse markers: adding (게다가, 또한); contrasting (그러나, 반면에); conceding (물론…하지만); concluding (따라서, 결론적으로, 그러므로). Key fixed expressions: 결정을 내리다 (make a decision), 어쩔 수 없다 (can't be helped), 별로예요 (not great).",
+            target: "~아/어서와 ~기 때문에는 둘 다 '때문에'를 뜻하지만 격식 차이가 큽니다. ~아/어서는 구어체이고 일상적이며 순차적입니다. ~기 때문에는 격식체이고 객관적이며 문어체입니다. 격식적인 글에서 ~아/어서를 쓰면 비공식적으로 들리고, 일상 대화에서 ~기 때문에를 쓰면 딱딱하게 들립니다. B1 담화 표지: 추가(게다가, 또한); 대조(그러나, 반면에); 양보(물론…하지만); 결론(따라서, 결론적으로, 그러므로). 주요 고정 표현: 결정을 내리다, 어쩔 수 없다, 별로예요."
+        },
+        examples: [
+            { native: "피곤해서 집에 있었어요. (casual)", romanized: "Pigonhaeseo jibe isseosseoyo.", translation: "I was tired so I stayed home. (~아/어서 — casual spoken)" },
+            { native: "환경오염이 심각하기 때문에 대책이 필요합니다. (formal)", romanized: "Hwangyeongoreum i simgakagi ttaemune daechaegi piryohamnida.", translation: "Because environmental pollution is serious, countermeasures are necessary. (~기 때문에 — formal written)" },
+            { native: "게다가, 비용도 줄일 수 있습니다.", romanized: "Gedaga, biyongdo jureul su isseumnida.", translation: "Furthermore, costs can also be reduced." },
+            { native: "결론적으로, 이 방법이 가장 효과적입니다.", romanized: "Gyeollonjeok euro, i bangbopi gajang hyogwajeogimnida.", translation: "In conclusion, this method is the most effective." },
+            { native: "어쩔 수 없어요. 그냥 받아들여야 해요.", romanized: "Eojjeol su eopseoyo. Geunyang badadeulryeoya haeyo.", translation: "It can't be helped. We just have to accept it." },
+        ]
+    },
 ]

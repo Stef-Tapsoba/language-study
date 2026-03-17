@@ -18,6 +18,7 @@ export const b1Grammar: GrammarLesson[] = [
             { native: "Ojalá haga buen tiempo.", translation: "Hopefully the weather will be good." }
         ]
     },
+    // REVIEW ONLY — imperfect introduced at A2 (es-g-a2-8)
     {
         id: "es-g-b1-2",
         level: "B1",
@@ -77,5 +78,53 @@ export const b1Grammar: GrammarLesson[] = [
             { native: "Lo compré por veinte euros.", translation: "I bought it for twenty euros. (exchange → por)" },
             { native: "Salgo para Madrid mañana.", translation: "I'm leaving for Madrid tomorrow. (destination → para)" }
         ]
-    }
+    },
+    {
+        id: "es-g-b1-6",
+        level: "B1",
+        title: "Si-Clauses: Real & Hypothetical Conditions",
+        explanation: {
+            native: "Spanish conditional sentences use si (if) to introduce the condition. Real/open conditions: si + presente de indicativo → futuro simple (or imperativo) in the main clause. Hypothetical conditions (unlikely or contrary to current reality): si + imperfecto de subjuntivo → condicional simple. Past hypothetical (regret): si + pluscuamperfecto de subjuntivo → condicional compuesto. Critical rule: condicional and futuro simple NEVER appear directly after si.",
+            target: "Las oraciones condicionales en español usan si para introducir la condición. Condición real: si + presente de indicativo → futuro simple (o imperativo). Condición hipotética (poco probable): si + imperfecto de subjuntivo → condicional simple. Hipotética pasada (lamento): si + pluscuamperfecto de subjuntivo → condicional compuesto. Regla clave: el condicional y el futuro simple NUNCA van directamente después de si."
+        },
+        examples: [
+            { native: "Si estudias, aprobarás.", translation: "If you study, you'll pass. (real)" },
+            { native: "Si tuviera dinero, viajaría por el mundo.", translation: "If I had money, I'd travel the world. (hypothetical)" },
+            { native: "Si fuera tú, no lo haría.", translation: "If I were you, I wouldn't do it." },
+            { native: "Si hubiera llegado antes, lo habría visto.", translation: "If I had arrived earlier, I would have seen it. (past regret)" },
+            { native: "Si hace buen tiempo, salimos.", translation: "If the weather is good, we'll go out. (real)" },
+        ]
+    },
+    {
+        id: "es-g-b1-7",
+        level: "B1",
+        title: "Reported Speech (Estilo Indirecto)",
+        explanation: {
+            native: "Reported speech (estilo indirecto) shifts the tense of the original statement back when the reporting verb is in the past. Key shifts: presente → imperfecto; futuro → condicional; pretérito → pluscuamperfecto; imperativo → imperfecto de subjuntivo. Time and place references also shift: hoy → ese día, mañana → al día siguiente, aquí → allí. Yes/no questions use si; content questions keep their question word. Main reporting verbs: decir que, afirmar que, explicar que, preguntar si/qué/cuándo, añadir que.",
+            target: "El estilo indirecto traslada el tiempo verbal del enunciado original cuando el verbo introductor está en pasado. Cambios clave: presente → imperfecto; futuro → condicional; pretérito → pluscuamperfecto; imperativo → imperfecto de subjuntivo. Las referencias de tiempo y lugar también cambian: hoy → ese día, mañana → al día siguiente, aquí → allí. Las preguntas de sí/no usan si; las preguntas de contenido conservan su palabra interrogativa. Verbos introductores: decir que, afirmar que, explicar que, preguntar si/qué/cuándo, añadir que."
+        },
+        examples: [
+            { native: "'Estoy cansado.' → Dijo que estaba cansado.", translation: "'I am tired.' → He said he was tired." },
+            { native: "'¿Tienes hambre?' → Me preguntó si tenía hambre.", translation: "'Are you hungry?' → She asked me if I was hungry." },
+            { native: "'Vendré mañana.' → Dijo que vendría al día siguiente.", translation: "'I'll come tomorrow.' → He said he'd come the next day." },
+            { native: "'¡Come más despacio!' → Le dijo que comiera más despacio.", translation: "'Eat more slowly!' → She told him to eat more slowly." },
+            { native: "'No sé dónde está.' → Explicó que no sabía dónde estaba.", translation: "'I don't know where it is.' → She explained she didn't know where it was." },
+        ]
+    },
+    {
+        id: "es-g-b1-8",
+        level: "B1",
+        title: "Discourse Markers & Collocations",
+        explanation: {
+            native: "Discourse markers signal the logical relationships between ideas. Adding: además, asimismo, por otro lado. Contrasting: sin embargo, no obstante, en cambio, a pesar de. Conceding: si bien, es cierto que…, pero; aunque + indicativo (fact) / subjuntivo (hypothesis). Concluding: en conclusión, en definitiva, en resumen, por tanto. Key collocations at B1 (must be learned as fixed chunks): tomar una decisión (make a decision), darse cuenta de (realise), tener en cuenta (bear in mind), echar de menos (miss someone), llevarse bien con (get on well with).",
+            target: "Los marcadores del discurso señalan las relaciones lógicas entre ideas. Adición: además, asimismo, por otro lado. Contraste: sin embargo, no obstante, en cambio, a pesar de. Concesión: si bien, es cierto que…, pero; aunque + indicativo (hecho) / subjuntivo (hipótesis). Conclusión: en conclusión, en definitiva, en resumen, por tanto. Colocaciones clave en B1 (deben aprenderse como unidades fijas): tomar una decisión, darse cuenta de, tener en cuenta, echar de menos, llevarse bien con."
+        },
+        examples: [
+            { native: "Por un lado, es más barato; por otro lado, la calidad es menor.", translation: "On the one hand it's cheaper; on the other, the quality is lower." },
+            { native: "Aunque entiendo tu punto, no estoy de acuerdo.", translation: "Although I understand your point, I disagree." },
+            { native: "Hay que tener en cuenta todos los factores antes de tomar una decisión.", translation: "We must bear all factors in mind before making a decision." },
+            { native: "Echo mucho de menos a mi familia cuando estoy en el extranjero.", translation: "I miss my family a lot when I'm abroad." },
+            { native: "En definitiva, creo que esta solución es la más viable.", translation: "Ultimately, I think this solution is the most viable." },
+        ]
+    },
 ]

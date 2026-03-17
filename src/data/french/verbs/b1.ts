@@ -122,4 +122,124 @@ export const b1Verbs: Verb[] = [
             }
         ]
     },
+    {
+        id: "fr-vb-b1-5",
+        level: "B1",
+        infinitive: "devoir",
+        meaning: "to have to / must",
+        conjugations: [
+            {
+                tense: "Conditionnel Présent",
+                forms: [
+                    { pronoun: "je", form: "devrais" },
+                    { pronoun: "tu", form: "devrais" },
+                    { pronoun: "il/elle", form: "devrait" },
+                    { pronoun: "nous", form: "devrions" },
+                    { pronoun: "vous", form: "devriez" },
+                    { pronoun: "ils/elles", form: "devraient" },
+                ]
+            },
+            {
+                tense: "Subjonctif Présent",
+                forms: [
+                    { pronoun: "que je", form: "doive" },
+                    { pronoun: "que tu", form: "doives" },
+                    { pronoun: "qu'il/elle", form: "doive" },
+                    { pronoun: "que nous", form: "devions" },
+                    { pronoun: "que vous", form: "deviez" },
+                    { pronoun: "qu'ils/elles", form: "doivent" },
+                ]
+            }
+        ]
+    },
+    {
+        id: "fr-vb-b1-6",
+        level: "B1",
+        infinitive: "être",
+        meaning: "to be",
+        conjugations: [
+            {
+                tense: "Conditionnel Présent",
+                forms: [
+                    { pronoun: "je", form: "serais" },
+                    { pronoun: "tu", form: "serais" },
+                    { pronoun: "il/elle", form: "serait" },
+                    { pronoun: "nous", form: "serions" },
+                    { pronoun: "vous", form: "seriez" },
+                    { pronoun: "ils/elles", form: "seraient" },
+                ]
+            },
+            {
+                tense: "Subjonctif Présent",
+                forms: [
+                    { pronoun: "que je", form: "sois" },
+                    { pronoun: "que tu", form: "sois" },
+                    { pronoun: "qu'il/elle", form: "soit" },
+                    { pronoun: "que nous", form: "soyons" },
+                    { pronoun: "que vous", form: "soyez" },
+                    { pronoun: "qu'ils/elles", form: "soient" },
+                ]
+            },
+            {
+                tense: "Plus-que-parfait",
+                forms: [
+                    { pronoun: "j'", form: "avais été" },
+                    { pronoun: "tu", form: "avais été" },
+                    { pronoun: "il/elle", form: "avait été" },
+                    { pronoun: "nous", form: "avions été" },
+                    { pronoun: "vous", form: "aviez été" },
+                    { pronoun: "ils/elles", form: "avaient été" },
+                ]
+            }
+        ]
+    },
+    {
+        id: "fr-vb-b1-7",
+        level: "B1",
+        infinitive: "dire",
+        meaning: "to say / to tell",
+        conjugations: [
+            {
+                tense: "Présent",
+                forms: [
+                    { pronoun: "je", form: "dis" },
+                    { pronoun: "tu", form: "dis" },
+                    { pronoun: "il/elle", form: "dit" },
+                    { pronoun: "nous", form: "disons" },
+                    { pronoun: "vous", form: "dites" },
+                    { pronoun: "ils/elles", form: "disent" },
+                ]
+            },
+            {
+                tense: "Passé Composé",
+                forms: [
+                    { pronoun: "je", form: "ai dit" },
+                    { pronoun: "tu", form: "as dit" },
+                    { pronoun: "il/elle", form: "a dit" },
+                    { pronoun: "nous", form: "avons dit" },
+                    { pronoun: "vous", form: "avez dit" },
+                    { pronoun: "ils/elles", form: "ont dit" },
+                ]
+            },
+            {
+                tense: "Conditionnel Présent",
+                forms: [
+                    { pronoun: "je", form: "dirais" },
+                    { pronoun: "tu", form: "dirais" },
+                    { pronoun: "il/elle", form: "dirait" },
+                    { pronoun: "nous", form: "dirions" },
+                    { pronoun: "vous", form: "diriez" },
+                    { pronoun: "ils/elles", form: "diraient" },
+                ]
+            },
+            {
+                tense: "Reported Speech Patterns",
+                forms: [
+                    { pronoun: "statement", form: "Il a dit qu'il était… (que + imparfait)" },
+                    { pronoun: "yes/no Q", form: "Il a demandé si elle venait…" },
+                    { pronoun: "command", form: "Il m'a dit de partir. (de + infinitif)" },
+                ]
+            }
+        ]
+    },
 ]
