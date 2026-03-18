@@ -234,17 +234,17 @@ export const a1Units: LessonUnit[] = [
         level: "A1",
         order: 12,
         title: "My Family & Home",
-        description: "Talk about family members and describe your home using family vocabulary.",
-        grammarIds: [],
+        description: "Talk about family members using possessive adjectives. Describe your home and family.",
+        grammarIds: ["it-g-a1-23"],
         vocabIds: ["it-v-a1-47", "it-v-a1-48", "it-v-a1-49", "it-v-a1-50", "it-v-a1-51", "it-v-a1-52", "it-v-a1-53", "it-v-a1-54", "it-v-a1-55", "it-v-a1-56", "it-v-a1-57", "it-v-a1-58", "it-v-a1-59", "it-v-a1-60"],
         verbIds: ["it-vb-a1-1", "it-vb-a1-2"],
         testQuestions: [
             { id: "it-uq-a1-11-1", level: "A1", prompt: "What does 'il nonno' mean?", options: ["Uncle", "Father", "Grandfather", "Cousin"], answer: "Grandfather" },
             { id: "it-uq-a1-11-2", level: "A1", prompt: "What does 'la moglie' mean?", options: ["Daughter", "Mother", "Sister", "Wife"], answer: "Wife" },
-            { id: "it-uq-a1-11-3", level: "A1", prompt: "Complete: 'Mia madre ___ insegnante.' (essere)", options: ["sono", "siamo", "sei", "è"], answer: "è" },
+            { id: "it-uq-a1-11-3", level: "A1", prompt: "Which is correct for 'my father' in Italian?", options: ["il mio padre", "mio padre", "la mio padre", "il mia padre"], answer: "mio padre" },
             { id: "it-uq-a1-11-4", level: "A1", prompt: "What does 'la zia' mean?", options: ["Grandmother", "Cousin", "Aunt", "Sister"], answer: "Aunt" },
-            { id: "it-uq-a1-11-5", level: "A1", prompt: "Complete: 'Mio padre ___ due figli.' (avere)", options: ["ho", "hai", "ha", "hanno"], answer: "ha" },
-            { id: "it-uq-a1-11-6", level: "A1", prompt: "What does 'il marito' mean?", options: ["Brother", "Son", "Father", "Husband"], answer: "Husband" }
+            { id: "it-uq-a1-11-5", level: "A1", prompt: "Which is correct for 'my parents'?", options: ["miei genitori", "i miei genitori", "il mio genitori", "la mia genitori"], answer: "i miei genitori" },
+            { id: "it-uq-a1-11-6", level: "A1", prompt: "Complete: '___ sorella è medica.' (his/her — fem. sg.)", options: ["il suo", "la sua", "sua", "suo"], answer: "sua" }
         ]
     },
     {

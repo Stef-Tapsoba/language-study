@@ -642,4 +642,42 @@ USEFUL PHRASES
             { native: "È a dieci minuti a piedi.", translation: "It's ten minutes on foot." }
         ]
     },
+    {
+        id: "it-g-a1-23",
+        level: "A1",
+        title: "Possessive Adjectives",
+        explanation: `Possessive adjectives in Italian agree in gender and number with the noun they describe — not with the owner. They are almost always preceded by a definite article.
+
+POSSESSIVE ADJECTIVES
+
+  Owner        Masc. Sg.   Fem. Sg.    Masc. Pl.   Fem. Pl.
+  io           mio          mia         miei         mie
+  tu           tuo          tua         tuoi         tue
+  lui / lei    suo          sua         suoi         sue
+  noi          nostro       nostra      nostri       nostre
+  voi          vostro       vostra      vostri       vostre
+  loro         loro         loro        loro         loro    ← invariable
+
+WITH THE DEFINITE ARTICLE — always use il/la/i/le before the possessive:
+  il mio libro        my book
+  la mia macchina     my car
+  i tuoi amici        your friends
+  le sue scarpe       his/her shoes
+
+FAMILY MEMBER EXCEPTION — NO article with singular, unmodified family members:
+  mio padre      (my father)      NOT il mio padre
+  mia sorella    (my sister)      NOT la mia sorella
+  tuo fratello   (your brother)
+  Article returns in three cases:
+  → plurals:    i miei genitori        (my parents)
+  → adjective:  il mio caro padre      (my dear father)
+  → loro:       la loro sorella        (their sister — always takes article)`,
+        examples: [
+            { native: "il mio libro", translation: "my book (masc. sg.)", speakText: "il mio libro" },
+            { native: "la mia macchina", translation: "my car (fem. sg.)", speakText: "la mia macchina" },
+            { native: "mio padre / mia madre", translation: "my father / my mother — no article for singular family", speakText: "mio padre, mia madre" },
+            { native: "i miei genitori", translation: "my parents — article returns for plural family" },
+            { native: "la loro sorella", translation: "their sister — 'loro' always takes the article" },
+        ]
+    },
 ]
