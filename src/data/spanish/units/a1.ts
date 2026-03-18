@@ -105,7 +105,7 @@ export const a1Units: LessonUnit[] = [
             "es-v-a1-52", "es-v-a1-53", "es-v-a1-54", "es-v-a1-55", "es-v-a1-56",
             "es-v-a1-57", "es-v-a1-58", "es-v-a1-59", "es-v-a1-60", "es-v-a1-61"
         ],
-        verbIds: ["es-vb-a1-8", "es-vb-a1-9"],
+        verbIds: ["es-vb-a1-8", "es-vb-a1-9", "es-vb-a1-14"],
         testQuestions: [
             { id: "es-uq-a1-5-1", level: "A1", prompt: "What is the 'yo' form of 'comer' (-er verb)?", options: ["come", "comes", "como", "comemos"], answer: "como" },
             { id: "es-uq-a1-5-2", level: "A1", prompt: "What ending do regular -er verbs add for 'tú'?", options: ["-o", "-es", "-e", "-emos"], answer: "-es" },
@@ -125,7 +125,7 @@ export const a1Units: LessonUnit[] = [
             "es-v-a1-151", "es-v-a1-152", "es-v-a1-153", "es-v-a1-154",
             "es-v-a1-155", "es-v-a1-156", "es-v-a1-157", "es-v-a1-158"
         ],
-        verbIds: ["es-vb-a1-10"],
+        verbIds: ["es-vb-a1-10", "es-vb-a1-15"],
         testQuestions: [
             { id: "es-uq-a1-6-1", level: "A1", prompt: "What is the 'yo' form of 'vivir' (-ir verb)?", options: ["vive", "vives", "vivo", "vivimos"], answer: "vivo" },
             { id: "es-uq-a1-6-2", level: "A1", prompt: "What ending do regular -ir verbs add for 'él/ella'?", options: ["-o", "-es", "-e", "-imos"], answer: "-e" },
@@ -160,8 +160,8 @@ export const a1Units: LessonUnit[] = [
         level: "A1",
         order: 8,
         title: "Months, Seasons & Weather",
-        description: "Learn the months and seasons. Use hacer to describe weather conditions.",
-        grammarIds: [],
+        description: "Learn the months, seasons, and weather. Understand the hacer + weather expression construction.",
+        grammarIds: ["es-g-a1-14"],
         vocabIds: [
             "es-v-a1-77", "es-v-a1-78", "es-v-a1-79", "es-v-a1-80", "es-v-a1-81",
             "es-v-a1-82", "es-v-a1-83", "es-v-a1-84", "es-v-a1-85", "es-v-a1-86",
@@ -182,8 +182,8 @@ export const a1Units: LessonUnit[] = [
         level: "A1",
         order: 9,
         title: "Family",
-        description: "Describe your family members. Practise ser and tener in the context of family relationships.",
-        grammarIds: [],
+        description: "Describe your family members. Learn possessive adjectives and practise ser and tener in the context of family relationships.",
+        grammarIds: ["es-g-a1-15"],
         vocabIds: [
             "es-v-a1-93", "es-v-a1-94", "es-v-a1-95", "es-v-a1-96", "es-v-a1-97",
             "es-v-a1-98", "es-v-a1-99", "es-v-a1-100", "es-v-a1-101", "es-v-a1-102",
@@ -192,10 +192,11 @@ export const a1Units: LessonUnit[] = [
         verbIds: [],
         testQuestions: [
             { id: "es-uq-a1-9-1", level: "A1", prompt: "What does 'hermano' mean?", options: ["sister", "father", "brother", "son"], answer: "brother" },
-            { id: "es-uq-a1-9-2", level: "A1", prompt: "How do you say 'my mother' in Spanish?", options: ["mi padre", "mi madre", "mi hermana", "mi abuela"], answer: "mi madre" },
+            { id: "es-uq-a1-9-2", level: "A1", prompt: "Complete: '___ padres son de Madrid.' (our)", options: ["mi", "tu", "su", "nuestros"], answer: "nuestros" },
             { id: "es-uq-a1-9-3", level: "A1", prompt: "What is the plural of 'hijo'?", options: ["hija", "hijos", "hijas", "hijoas"], answer: "hijos" },
             { id: "es-uq-a1-9-4", level: "A1", prompt: "What does 'abuelo' mean?", options: ["uncle", "father", "grandfather", "husband"], answer: "grandfather" },
-            { id: "es-uq-a1-9-5", level: "A1", prompt: "Complete: 'Yo tengo dos ___ (sisters).'", options: ["hermanos", "hermanas", "hermano", "hermana"], answer: "hermanas" }
+            { id: "es-uq-a1-9-5", level: "A1", prompt: "Complete: 'Yo tengo dos ___ (sisters).'", options: ["hermanos", "hermanas", "hermano", "hermana"], answer: "hermanas" },
+            { id: "es-uq-a1-9-6", level: "A1", prompt: "How do you say 'my keys' (plural)?", options: ["mi llaves", "mis llaves", "su llaves", "sus llaves"], answer: "mis llaves" }
         ]
     },
     {
@@ -203,8 +204,8 @@ export const a1Units: LessonUnit[] = [
         level: "A1",
         order: 10,
         title: "Food, Drink & Ordering",
-        description: "Name common foods and drinks. Use querer to order at a café or restaurant.",
-        grammarIds: [],
+        description: "Name common foods and drinks. Learn the stem-changing verb querer (e→ie) and use it to order at a café or restaurant.",
+        grammarIds: ["es-g-a1-16"],
         vocabIds: [
             "es-v-a1-105", "es-v-a1-106", "es-v-a1-107", "es-v-a1-108", "es-v-a1-109",
             "es-v-a1-110", "es-v-a1-111", "es-v-a1-112", "es-v-a1-113", "es-v-a1-114",
@@ -248,8 +249,8 @@ export const a1Units: LessonUnit[] = [
         level: "A1",
         order: 12,
         title: "Directions & Transport",
-        description: "Give and follow directions. Name common modes of transport.",
-        grammarIds: [],
+        description: "Give and follow directions using location prepositions. Name common modes of transport.",
+        grammarIds: ["es-g-a1-17"],
         vocabIds: [
             "es-v-a1-138", "es-v-a1-139", "es-v-a1-140", "es-v-a1-141", "es-v-a1-142",
             "es-v-a1-143", "es-v-a1-144", "es-v-a1-145", "es-v-a1-146", "es-v-a1-147",
@@ -257,11 +258,12 @@ export const a1Units: LessonUnit[] = [
         ],
         verbIds: [],
         testQuestions: [
-            { id: "es-uq-a1-12-1", level: "A1", prompt: "How do you say 'Turn right'?", options: ["Gira todo recto.", "Gira a la izquierda.", "Gira a la derecha.", "Para aquí."], answer: "Gira a la derecha." },
+            { id: "es-uq-a1-12-1", level: "A1", prompt: "What does 'a la derecha' mean?", options: ["to the left", "straight ahead", "to the right", "behind"], answer: "to the right" },
             { id: "es-uq-a1-12-2", level: "A1", prompt: "What does 'todo recto' mean?", options: ["turn right", "stop here", "straight ahead", "turn left"], answer: "straight ahead" },
             { id: "es-uq-a1-12-3", level: "A1", prompt: "What is the Spanish word for 'bus'?", options: ["tren", "avión", "autobús", "barco"], answer: "autobús" },
             { id: "es-uq-a1-12-4", level: "A1", prompt: "How do you ask 'Where is the station?'", options: ["¿Cuándo es la estación?", "¿Dónde está la estación?", "¿Cómo es la estación?", "¿Qué es la estación?"], answer: "¿Dónde está la estación?" },
-            { id: "es-uq-a1-12-5", level: "A1", prompt: "What does 'a la izquierda' mean?", options: ["to the right", "to the left", "straight ahead", "behind"], answer: "to the left" }
+            { id: "es-uq-a1-12-5", level: "A1", prompt: "What does 'a la izquierda' mean?", options: ["to the right", "to the left", "straight ahead", "behind"], answer: "to the left" },
+            { id: "es-uq-a1-12-6", level: "A1", prompt: "How do you say 'The pharmacy is next to the bank'?", options: ["La farmacia está lejos del banco.", "La farmacia está enfrente del banco.", "La farmacia está al lado del banco.", "La farmacia está detrás del banco."], answer: "La farmacia está al lado del banco." }
         ]
     },
     {

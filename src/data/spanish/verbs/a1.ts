@@ -227,5 +227,39 @@ export const a1Verbs: Verb[] = [
                 { pronoun: "ellos", form: "pueden" }
             ]
         }]
+    },
+    {
+        id: "es-vb-a1-14",
+        level: "A1",
+        infinitive: "leer",
+        meaning: "to read",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "yo", form: "leo" },
+                { pronoun: "tú", form: "lees" },
+                { pronoun: "él/ella", form: "lee" },
+                { pronoun: "nosotros", form: "leemos" },
+                { pronoun: "vosotros", form: "leéis" },
+                { pronoun: "ellos", form: "leen" }
+            ]
+        }]
+    },
+    {
+        id: "es-vb-a1-15",
+        level: "A1",
+        infinitive: "escribir",
+        meaning: "to write",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "yo", form: "escribo" },
+                { pronoun: "tú", form: "escribes" },
+                { pronoun: "él/ella", form: "escribe" },
+                { pronoun: "nosotros", form: "escribimos" },
+                { pronoun: "vosotros", form: "escribís" },
+                { pronoun: "ellos", form: "escriben" }
+            ]
+        }]
     }
 ]
