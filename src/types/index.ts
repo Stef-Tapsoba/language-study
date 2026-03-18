@@ -41,6 +41,7 @@ export interface Example {
     native: string
     romanized?: string   // for Japanese / Korean
     translation: string
+    speakText?: string   // override what TTS speaks — use when native contains annotations, paired forms, or non-speakable text
 }
 
 // ---------------------------------------------------------------------------

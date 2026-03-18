@@ -18,7 +18,15 @@ export const a1Grammar: GrammarLesson[] = [
         id: "it-g-a1-2",
         level: "A1",
         title: "Essere (to be)",
-        explanation: "Essere is one of the two key verbs meaning 'to be'. It is used for identity, nationality, profession, origin, and time. It is also the auxiliary for verbs of motion in the passato prossimo. Full conjugation: io sono, tu sei, lui/lei è, noi siamo, voi siete, loro sono.",
+        explanation: `Essere is one of the two key verbs meaning 'to be'. It is used for identity, nationality, profession, origin, and time.
+
+Conjugation (present tense):
+  io      → sono   (I am)
+  tu      → sei    (you are)
+  lui/lei → è      (he/she is)
+  noi     → siamo  (we are)
+  voi     → siete  (you all are)
+  loro    → sono   (they are)`,
         examples: [
             { native: "Sono italiano.", translation: "I am Italian." },
             { native: "Tu sei studentessa?", translation: "Are you a student?" },
@@ -31,7 +39,21 @@ export const a1Grammar: GrammarLesson[] = [
         id: "it-g-a1-3",
         level: "A1",
         title: "Avere (to have)",
-        explanation: "Avere means 'to have' and is used to express possession, age, and many idiomatic expressions. Full conjugation: io ho, tu hai, lui/lei ha, noi abbiamo, voi avete, loro hanno. Note the irregular forms: io ho (not 'avo'), and the 'h' is always silent. Key expressions: avere fame (to be hungry), avere sete (to be thirsty), avere N anni (to be N years old).",
+        explanation: `Avere means 'to have' and is used for possession, age, and many expressions. The 'h' is always silent.
+
+Conjugation (present tense):
+  io      → ho       (I have)
+  tu      → hai      (you have)
+  lui/lei → ha       (he/she has)
+  noi     → abbiamo  (we have)
+  voi     → avete    (you all have)
+  loro    → hanno    (they have)
+
+Common expressions:
+  avere fame         → to be hungry
+  avere sete         → to be thirsty
+  avere N anni       → to be N years old
+  avere freddo/caldo → to be cold/hot`,
         examples: [
             { native: "Ho un cane.", translation: "I have a dog." },
             { native: "Quanti anni hai?", translation: "How old are you?" },
@@ -44,7 +66,23 @@ export const a1Grammar: GrammarLesson[] = [
         id: "it-g-a1-4",
         level: "A1",
         title: "Definite Articles",
-        explanation: "Italian definite articles (the equivalent of 'the') change based on the gender, number, and first letter of the following noun. Masculine singular: 'il' (before most consonants), 'lo' (before s+consonant, z, gn, ps, x), 'l'' (before vowels). Feminine singular: 'la' (before consonants), 'l'' (before vowels). Masculine plural: 'i' (after il), 'gli' (after lo/l'). Feminine plural: 'le'.",
+        explanation: `Italian definite articles (= 'the') change based on gender, number, and the first letter of the following noun.
+
+MASCULINE SINGULAR
+  il  — before most consonants:           il libro, il cane, il padre
+  lo  — before s+consonant, z, gn, ps, x: lo studente, lo zio, lo zaino
+  l'  — before any vowel:                 l'amico, l'uomo
+
+MASCULINE PLURAL
+  i   — plural of il:                     i libri, i cani
+  gli — plural of lo and l':              gli studenti, gli amici
+
+FEMININE SINGULAR
+  la  — before consonants:                la casa, la madre
+  l'  — before vowels:                    l'amica, l'ora
+
+FEMININE PLURAL
+  le  — plural of both la and l':         le case, le amiche`,
         examples: [
             { native: "il libro", translation: "the book (masc., starts with l)" },
             { native: "lo studente", translation: "the student (masc., starts with st-)" },
@@ -57,7 +95,18 @@ export const a1Grammar: GrammarLesson[] = [
         id: "it-g-a1-5",
         level: "A1",
         title: "Indefinite Articles",
-        explanation: "Indefinite articles (a/an) also change based on gender and first letter. Masculine: 'un' (before most consonants and vowels), 'uno' (before s+consonant, z, gn, ps, x). Feminine: 'una' (before consonants), 'un'' (before vowels). There is no plural indefinite article in Italian (use 'dei/degli/delle' for 'some').",
+        explanation: `Indefinite articles (= 'a' / 'an') change based on gender and the first letter of the following noun.
+
+MASCULINE
+  un   — before most consonants and vowels:  un libro, un amico
+  uno  — before s+consonant, z, gn, ps, x:  uno studente, uno zaino
+
+FEMININE
+  una  — before consonants:                  una casa, una pizza
+  un'  — before vowels:                      un'amica, un'ora
+
+For 'some' (plural), use dei / degli / delle:
+  dei libri (some books) | degli amici (some friends) | delle case (some houses)`,
         examples: [
             { native: "un libro", translation: "a book (masc.)" },
             { native: "uno studente", translation: "a student (masc., starts with st-)" },
@@ -70,7 +119,16 @@ export const a1Grammar: GrammarLesson[] = [
         id: "it-g-a1-6",
         level: "A1",
         title: "Regular -are Verb Conjugation",
-        explanation: "Regular -are verbs are the most common in Italian. To conjugate, remove the -are ending and add: -o (io), -i (tu), -a (lui/lei), -iamo (noi), -ate (voi), -ano (loro). Common -are verbs: parlare (to speak), lavorare (to work), abitare (to live), ascoltare (to listen), comprare (to buy), camminare (to walk), mangiare (to eat — with slight spelling adjustment).",
+        explanation: `Regular -are verbs are the most common in Italian. Remove the -are ending and add these endings:
+
+  io      → -o    (parlo — I speak)
+  tu      → -i    (parli — you speak)
+  lui/lei → -a    (parla — he/she speaks)
+  noi     → -iamo (parliamo — we speak)
+  voi     → -ate  (parlate — you all speak)
+  loro    → -ano  (parlano — they speak)
+
+Common -are verbs: parlare (speak), lavorare (work), abitare (live), ascoltare (listen), comprare (buy), camminare (walk), mangiare (eat).`,
         examples: [
             { native: "Io parlo.", translation: "I speak." },
             { native: "Tu lavori a Milano?", translation: "Do you work in Milan?" },
@@ -83,7 +141,19 @@ export const a1Grammar: GrammarLesson[] = [
         id: "it-g-a1-7",
         level: "A1",
         title: "Regular -ere and -ire Verb Conjugation",
-        explanation: "Regular -ere verbs: remove -ere, add -o, -i, -e, -iamo, -ete, -ono. Common -ere verbs: scrivere (to write), leggere (to read), vedere (to see), ricevere (to receive). Regular -ire verbs split into two patterns: Type 1 (dormire): -o, -i, -e, -iamo, -ite, -ono. Type 2 (finire, capire): insert -isc- before the ending for io/tu/lui/loro: finisco, finisci, finisce, finiamo, finite, finiscono.",
+        explanation: `Regular -ere verbs: remove -ere and add:
+  io → -o | tu → -i | lui/lei → -e | noi → -iamo | voi → -ete | loro → -ono
+  Example — scrivere (to write): scrivo, scrivi, scrive, scriviamo, scrivete, scrivono
+
+Regular -ire verbs have TWO patterns:
+
+Type 1 (dormire — to sleep): -o, -i, -e, -iamo, -ite, -ono
+  dormo, dormi, dorme, dormiamo, dormite, dormono
+
+Type 2 (finire — to finish, capire — to understand): add -isc- before the ending for io / tu / lui / loro:
+  finisco, finisci, finisce, finiamo, finite, finiscono
+
+Other Type 2 verbs: preferire (prefer), pulire (clean), costruire (build).`,
         examples: [
             { native: "Scrivo una lettera.", translation: "I write a letter." },
             { native: "Leggi il giornale?", translation: "Do you read the newspaper?" },
@@ -96,7 +166,18 @@ export const a1Grammar: GrammarLesson[] = [
         id: "it-g-a1-8",
         level: "A1",
         title: "Andare (to go)",
-        explanation: "Andare is an essential irregular verb meaning 'to go'. Its present tense is highly irregular: io vado, tu vai, lui/lei va, noi andiamo, voi andate, loro vanno. Notice that the noi and voi forms follow a regular-looking pattern (andiamo, andate), while the other forms are irregular. Andare is used with 'a' + place: andare a scuola, andare al cinema.",
+        explanation: `Andare means 'to go'. Its present tense is highly irregular — memorise it!
+
+Conjugation (present tense):
+  io      → vado    (I go)
+  tu      → vai     (you go)
+  lui/lei → va      (he/she goes)
+  noi     → andiamo (we go)
+  voi     → andate  (you all go)
+  loro    → vanno   (they go)
+
+Note: noi/voi follow a regular-looking pattern; the other forms are irregular.
+Usage: andare + a + place → andare a scuola, andare al cinema, andare in Italia.`,
         examples: [
             { native: "Vado a scuola ogni giorno.", translation: "I go to school every day." },
             { native: "Vai al supermercato?", translation: "Are you going to the supermarket?" },
@@ -109,7 +190,23 @@ export const a1Grammar: GrammarLesson[] = [
         id: "it-g-a1-9",
         level: "A1",
         title: "Fare (to do / to make)",
-        explanation: "Fare is another highly irregular and extremely useful verb. Present tense: io faccio, tu fai, lui/lei fa, noi facciamo, voi fate, loro fanno. Fare is used in many fixed expressions: fare colazione (to have breakfast), fare sport (to play sports/exercise), fare una domanda (to ask a question), fare la spesa (to do the grocery shopping), fare una passeggiata (to take a walk), fare il bagno (to take a bath).",
+        explanation: `Fare means 'to do' or 'to make'. It is highly irregular — memorise it!
+
+Conjugation (present tense):
+  io      → faccio   (I do/make)
+  tu      → fai      (you do/make)
+  lui/lei → fa       (he/she does/makes)
+  noi     → facciamo (we do/make)
+  voi     → fate     (you all do/make)
+  loro    → fanno    (they do/make)
+
+Common expressions with fare:
+  fare colazione       → to have breakfast
+  fare sport           → to play sports / exercise
+  fare una domanda     → to ask a question
+  fare la spesa        → to do the grocery shopping
+  fare una passeggiata → to take a walk
+  fare il bagno        → to take a bath`,
         examples: [
             { native: "Faccio colazione alle sette.", translation: "I have breakfast at seven." },
             { native: "Cosa fai nel tempo libero?", translation: "What do you do in your free time?" },
@@ -135,7 +232,20 @@ export const a1Grammar: GrammarLesson[] = [
         id: "it-g-a1-11",
         level: "A1",
         title: "Question Formation",
-        explanation: "In Italian, questions are often formed simply by raising intonation at the end of a statement. The word order does not need to change. Common question words: chi (who), cosa/che cosa (what), dove (where), quando (when), come (how), perché (why), quanto (how much/many), quale (which). These words come at the beginning of the question.",
+        explanation: `Yes/no questions are formed by raising your intonation — no word reordering needed.
+  Statement: Parli italiano.  → You speak Italian.
+  Question:  Parli italiano?  → Do you speak Italian? (same words, rising tone)
+
+QUESTION WORDS — always at the start of the sentence:
+  chi           → who         Chi è lui?            (Who is he?)
+  cosa / che cosa → what      Cosa vuoi?            (What do you want?)
+  dove          → where       Dove abiti?           (Where do you live?)
+  quando        → when        Quando arrivi?        (When do you arrive?)
+  come          → how         Come stai?            (How are you?)
+  perché        → why         Perché studi?         (Why do you study?)
+  quanto/a      → how much    Quanto costa?         (How much does it cost?)
+  quanti/e      → how many    Quanti anni hai?      (How old are you?)
+  quale/i       → which       Quale preferisci?     (Which do you prefer?)`,
         examples: [
             { native: "Parli italiano? (rising intonation)", translation: "Do you speak Italian?" },
             { native: "Come ti chiami?", translation: "What is your name? (lit. How do you call yourself?)" },
@@ -148,7 +258,23 @@ export const a1Grammar: GrammarLesson[] = [
         id: "it-g-a1-12",
         level: "A1",
         title: "Adjective Agreement",
-        explanation: "Italian adjectives must agree in gender (masculine/feminine) and number (singular/plural) with the noun they describe. Most adjectives end in -o (masc. sg.), -a (fem. sg.), -i (masc. pl.), -e (fem. pl.). Some adjectives end in -e for both genders (singular) and -i for both (plural). Adjectives usually follow the noun, except BANGS adjectives (Beauty, Age, Numbering, Goodness/badness, Size): bello, vecchio, primo, buono, grande often come before.",
+        explanation: `Italian adjectives must agree with the noun in gender and number.
+
+-o / -a / -i / -e pattern (most adjectives):
+  Masc. singular: -o  →  un libro rosso       (a red book)
+  Fem. singular:  -a  →  una casa rossa        (a red house)
+  Masc. plural:   -i  →  i libri rossi         (the red books)
+  Fem. plural:    -e  →  le case rosse         (the red houses)
+
+-e / -i pattern (adjectives ending in -e, same for both genders):
+  Singular: -e  →  un libro interessante / una storia interessante
+  Plural:   -i  →  libri interessanti / storie interessanti
+
+POSITION
+• Adjectives usually come AFTER the noun: un ragazzo alto, una pizza buona
+• These common ones usually come BEFORE: bello, vecchio, grande, buono, cattivo, primo
+• Position can change meaning:
+    un grande uomo = a great man  |  un uomo grande = a big/tall man`,
         examples: [
             { native: "un libro interessante / una storia interessante", translation: "an interesting book / an interesting story" },
             { native: "Il ragazzo alto / La ragazza alta", translation: "The tall boy / The tall girl" },
@@ -161,7 +287,23 @@ export const a1Grammar: GrammarLesson[] = [
         id: "it-g-a1-13",
         level: "A1",
         title: "The Near Future (A1 Bridge)",
-        explanation: "Italian has two ways to express the near future at A1 level, before learning the futuro semplice. (1) Stare per + infinitive: expresses something that is about to happen very soon. (2) Andare a + infinitive: expresses a plan or intention (similar to English 'going to'). Both structures are widely used in spoken Italian and are very natural for beginners.",
+        explanation: `Italian has two structures for the near future — no need for the futuro semplice yet.
+
+STARE PER + INFINITIVE — something about to happen RIGHT NOW:
+  Sto per uscire.           = I am about to go out.
+  Sta per piovere.          = It is about to rain.
+  Stiamo per mangiare.      = We are about to eat.
+
+ANDARE A + INFINITIVE — a plan or intention (= English 'going to'):
+  Vado a mangiare.                  = I am going to eat.
+  Andiamo a vedere un film stasera. = We're going to watch a film tonight.
+  Vai a studiare adesso?            = Are you going to study now?
+
+KEY DIFFERENCE
+  Sto per partire.  → leaving any minute now (imminent)
+  Vado a partire.   → I plan to leave (not necessarily right now)
+
+Useful time words: adesso (now), subito (right away), presto (soon), dopo (later), domani (tomorrow), stasera (tonight)`,
         examples: [
             { native: "Sto per uscire.", translation: "I am about to go out." },
             { native: "Sta per piovere.", translation: "It is about to rain." },
@@ -174,7 +316,25 @@ export const a1Grammar: GrammarLesson[] = [
         id: "it-g-a1-14",
         level: "A1",
         title: "Core Prepositions: di, a, in, da, con, su, per",
-        explanation: "Italian prepositions are small words that connect nouns to the rest of the sentence. The most important ones at A1:\n\ndi — of, from (origin, possession): Sono di Roma. Il libro di Maria.\na — to, at (destination/location with cities): Vado a Milano. Sono a casa.\nin — in, to (with countries, rooms, transport): Sono in Italia. Vado in treno.\nda — from, since, at someone's place: Vengo da Napoli. Vado da Marco.\ncon — with: Vivo con la mia famiglia.\nsu — on, about: Il libro è sul tavolo. (su + il = sul)\nper — for, in order to: Questo è per te. Studio per imparare.\n\nCRITICAL: Like French, Italian prepositions contract with definite articles.\na + il = al | a + la = alla | a + i = ai | a + gli = agli | a + le = alle | a + l' = all'\ndi + il = del | di + la = della | di + i = dei | di + gli = degli | di + le = delle\nsu + il = sul | su + la = sulla | su + i = sui | su + gli = sugli | su + le = sulle\nIn and con do NOT contract.",
+        explanation: `Italian prepositions connect nouns to the rest of the sentence. The key ones at A1:
+
+  di  — of, from (origin, possession):  Sono di Roma. Il libro di Maria.
+  a   — to, at (cities, home, school):  Vado a Milano. Sono a casa.
+  in  — in, to (countries, rooms):      Sono in Italia. Vado in treno.
+  da  — from, since, at someone's:      Vengo da Napoli. Vado da Marco.
+  con — with:                           Vivo con la mia famiglia.
+  su  — on, about:                      Il libro è sul tavolo.
+  per — for, in order to:               Questo è per te. Studio per imparare.
+
+CONTRACTIONS — a, di, su merge with definite articles:
+
+  a  + il/lo/la/l'/i/gli/le  =  al / allo / alla / all' / ai / agli / alle
+  di + il/lo/la/l'/i/gli/le  =  del / dello / della / dell' / dei / degli / delle
+  su + il/lo/la/l'/i/gli/le  =  sul / sullo / sulla / sull' / sui / sugli / sulle
+
+Note: in and con do NOT contract.
+
+Quick examples: al cinema (a + il), dalla stazione (da + la), sul tavolo (su + il)`,
         examples: [
             { native: "Vado al cinema.", translation: "I'm going to the cinema. (a + il = al)" },
             { native: "Sono di Milano.", translation: "I'm from Milan. (origin)" },
@@ -188,7 +348,31 @@ export const a1Grammar: GrammarLesson[] = [
         id: "it-g-a1-15",
         level: "A1",
         title: "Numbers & Telling Time",
-        explanation: "Italian numbers 1–20 must be memorised as they are irregular. From 20 onwards, they follow a pattern — but watch out for these rules:\n• Numbers ending in -a or -o drop the final vowel before uno or otto: ventuno (21), ventotto (28), trentuno (31)\n• 'Cento' (100) is invariable — never 'un cento'\n• Millions take 'un': un milione\n\nTo tell the time: use 'Sono le' + number for all times except one o'clock, which uses 'È l'una'. Noon is 'È mezzogiorno', midnight is 'È mezzanotte'.\n\nKey number words: uno(1), due(2), tre(3), quattro(4), cinque(5), sei(6), sette(7), otto(8), nove(9), dieci(10), undici(11), dodici(12), tredici(13), quattordici(14), quindici(15), sedici(16), diciassette(17), diciotto(18), diciannove(19), venti(20).",
+        explanation: `Numbers 1-20 must be memorised — they are all irregular. Learn them by heart!
+
+   1  uno          11  undici
+   2  due          12  dodici
+   3  tre          13  tredici
+   4  quattro      14  quattordici
+   5  cinque       15  quindici
+   6  sei          16  sedici
+   7  sette        17  diciassette
+   8  otto         18  diciotto
+   9  nove         19  diciannove
+  10  dieci        20  venti
+
+TELLING THE TIME
+Use 'Sono le' + number for most times:
+  Sono le tre.              = It's three o'clock.
+  Sono le otto e mezza.     = It's half past eight.
+  Sono le undici e un quarto. = It's quarter past eleven.
+
+Exceptions — singular forms use 'è' not 'sono':
+  È l'una.       = It's one o'clock.
+  È mezzogiorno. = It's noon.
+  È mezzanotte.  = It's midnight.
+
+Useful time phrases: e mezza (half past), e un quarto (quarter past), meno un quarto (quarter to)`,
         examples: [
             { native: "Sono le tre.", translation: "It's three o'clock." },
             { native: "È l'una e mezza.", translation: "It's half past one." },
@@ -264,11 +448,198 @@ Most Italian words are stressed on the second-to-last syllable: par-LA-re, stu-D
 Some are stressed on the third-to-last: MED-i-co, SIM-pa-ti-co, TE-le-fo-no.
 Words with a written accent are always stressed on that syllable: città, caffè, perché.`,
         examples: [
-            { native: "cane (KA-ne) / cena (CHA-na)", translation: "C before a = hard k / C before e = ch sound" },
-            { native: "perché (per-KE) / che (KE)", translation: "CH before e/i always restores the hard k sound" },
-            { native: "gelato (je-LA-to) / gatto (GA-to)", translation: "G before e = soft j / G before a = hard g" },
-            { native: "nono (ninth) vs nonno (grandfather)", translation: "Double consonants matter — they change meaning" },
-            { native: "MED-i-co / stu-DEN-te / cit-TÀ", translation: "Stress patterns — accent marks show exceptions" },
+            { native: "cane (KA-ne) / cena (CHA-na)", speakText: "cane, cena", translation: "C before a = hard k / C before e = ch sound" },
+            { native: "perché (per-KE) / che (KE)", speakText: "perché, che", translation: "CH before e/i always restores the hard k sound" },
+            { native: "gelato (je-LA-to) / gatto (GA-to)", speakText: "gelato, gatto", translation: "G before e = soft j / G before a = hard g" },
+            { native: "nono vs nonno", speakText: "nono, nonno", translation: "Double consonants matter — they change meaning" },
+            { native: "medico, studente, città", translation: "Stress patterns — accent marks show exceptions" },
+        ]
+    },
+    {
+        id: "it-g-a1-18",
+        level: "A1",
+        title: "Numbers 20-100",
+        explanation: `From 20 onwards, Italian numbers follow a regular pattern. Learn the tens:
+
+  venti    20    trenta   30    quaranta  40    cinquanta  50
+  sessanta 60    settanta 70    ottanta   80    novanta    90    cento    100
+
+BUILDING COMPOUND NUMBERS
+Attach the unit directly to the ten (no space, no hyphen):
+  trenta + due  = trentadue (32)
+  quaranta + sei = quarantasei (46)
+  settanta + tre = settantatré (73)
+
+SPELLING RULES — important!
+• Drop the final vowel of the ten before uno and otto:
+    ventuno (21) ✓    NOT ventiuno
+    ventotto (28) ✓   NOT ventiotto
+    trentuno (31) ✓   trentotto (38) ✓
+• Tre at the end takes a written accent:
+    ventitré (23), trentatré (33), quarantatré (43)...
+
+HUNDREDS & THOUSANDS
+  cento = 100 (never 'un cento')
+  duecento = 200 | trecento = 300 | quattrocento = 400...
+  mille = 1,000 | duemila = 2,000 (mila is the plural of mille)`,
+        examples: [
+            { native: "Trenta euro, per favore.", translation: "Thirty euros, please." },
+            { native: "Ho quarantadue anni.", translation: "I am forty-two years old." },
+            { native: "Costa cinquantotto euro.", translation: "It costs fifty-eight euros." },
+            { native: "Cento per cento italiano.", translation: "One hundred percent Italian." },
+            { native: "Ventuno studenti in classe.", translation: "Twenty-one students in class." },
+        ]
+    },
+    {
+        id: "it-g-a1-19",
+        level: "A1",
+        title: "Modal Verbs: volere & potere",
+        explanation: `Volere (to want) and potere (to be able to / can) are modal verbs — they are followed directly by an infinitive. No preposition needed between the modal and the infinitive.
+
+Structure: subject + modal verb + infinitive (+ rest of sentence)
+  Voglio mangiare una pizza.   = I want to eat a pizza.
+  Puoi parlare italiano?       = Can you speak Italian?
+  Non possiamo venire stasera. = We can't come tonight.
+
+VOLERE — to want (to do something):
+  io      → voglio   (I want)
+  tu      → vuoi     (you want)
+  lui/lei → vuole    (he/she wants)
+  noi     → vogliamo (we want)
+  voi     → volete   (you all want)
+  loro    → vogliono (they want)
+
+POTERE — to be able to / can:
+  io      → posso    (I can)
+  tu      → puoi     (you can)
+  lui/lei → può      (he/she can)
+  noi     → possiamo (we can)
+  voi     → potete   (you all can)
+  loro    → possono  (they can)
+
+Important: always use the infinitive after these verbs.
+  ✓ Voglio cucinare.   (I want to cook.)
+  ✗ Voglio cucino.     (WRONG)`,
+        examples: [
+            { native: "Voglio imparare l'italiano.", translation: "I want to learn Italian." },
+            { native: "Puoi aiutarmi?", translation: "Can you help me?" },
+            { native: "Non posso venire domani.", translation: "I can't come tomorrow." },
+            { native: "Vuole cucinare stasera.", translation: "She wants to cook tonight." },
+            { native: "Possiamo parlare italiano insieme.", translation: "We can speak Italian together." },
+        ]
+    },
+    {
+        id: "it-g-a1-20",
+        level: "A1",
+        title: "Ordering Food & Drinks",
+        explanation: `AT THE RESTAURANT — key phrases for ordering
+
+GETTING ATTENTION / ASKING
+  Scusi!                   → Excuse me! (to call the waiter)
+  Avete un tavolo per due? → Do you have a table for two?
+  Posso vedere il menù?    → Can I see the menu?
+  Cosa mi consiglia?       → What do you recommend?
+
+ORDERING
+  Vorrei...                → I would like... (polite, most common)
+  Prendo...                → I'll have... (lit. 'I take')
+  Per me...                → For me...
+  Da bere, vorrei...       → To drink, I would like...
+
+  Vorrei una pizza margherita.     = I would like a margherita pizza.
+  Prendo il risotto, grazie.       = I'll have the risotto, thanks.
+  Per me un'acqua minerale.        = A mineral water for me.
+
+ASKING FOR MORE / ENDING
+  Altro?                   → Anything else? (waiter asks)
+  No, grazie, va bene così. → No thanks, that's fine.
+  Il conto, per favore.    → The bill, please.
+  È incluso il servizio?   → Is the service included?`,
+        examples: [
+            { native: "Vorrei una pizza e un'acqua, per favore.", translation: "I would like a pizza and a water, please." },
+            { native: "Prendo il risotto.", translation: "I'll have the risotto." },
+            { native: "Cosa mi consiglia?", translation: "What do you recommend?" },
+            { native: "Il conto, per favore.", translation: "The bill, please." },
+            { native: "Avete un tavolo per tre?", translation: "Do you have a table for three?" }
+        ]
+    },
+    {
+        id: "it-g-a1-21",
+        level: "A1",
+        title: "Professions & Talking About Work",
+        explanation: `SAYING WHAT YOU DO
+Use essere + profession — no article before the profession (unlike English):
+  Sono medico.          = I am a doctor.       (NOT: Sono un medico.)
+  È insegnante.         = She is a teacher.
+  Siamo studenti.       = We are students.
+
+Exception: with an adjective, the article returns:
+  È un buon medico.     = He is a good doctor.
+
+ASKING ABOUT WORK
+  Cosa fai?             → What do you do?
+  Che lavoro fai?       → What work do you do?
+  Dove lavori?          → Where do you work?
+  In cosa lavori?       → What field do you work in?
+
+TALKING ABOUT WHERE YOU WORK
+Use lavorare + in / a + place:
+  Lavoro in un ospedale.    = I work in a hospital.
+  Lavoro a scuola.          = I work at school.
+  Lavoro in ufficio.        = I work in an office.
+
+COMMON PROFESSIONS
+  il medico / la dottoressa    → doctor
+  l'insegnante                 → teacher (masc. & fem.)
+  l'avvocato                   → lawyer
+  il cuoco / la cuoca          → cook / chef
+  il cameriere / la cameriera  → waiter / waitress
+  l'ingegnere                  → engineer
+  l'attore / l'attrice         → actor / actress`,
+        examples: [
+            { native: "Sono insegnante. Lavoro a scuola.", translation: "I am a teacher. I work at school." },
+            { native: "Che lavoro fai?", translation: "What do you do for work?" },
+            { native: "Mia madre è medico.", translation: "My mother is a doctor." },
+            { native: "Lavoro in un ristorante come cameriere.", translation: "I work in a restaurant as a waiter." },
+            { native: "È un bravo avvocato.", translation: "He is a good lawyer. (adjective → article returns)" }
+        ]
+    },
+    {
+        id: "it-g-a1-22",
+        level: "A1",
+        title: "Giving & Understanding Directions",
+        explanation: `KEY DIRECTION VERBS
+  girare      → to turn          Gira a destra.     (Turn right.)
+  andare      → to go            Vai dritto.        (Go straight.)
+  continuare  → to continue      Continua dritto.   (Keep going straight.)
+  attraversare → to cross        Attraversa la piazza. (Cross the square.)
+  prendere    → to take (a road) Prendi la prima a sinistra. (Take the first left.)
+
+DIRECTION WORDS
+  a destra        → to the right / on the right
+  a sinistra      → to the left / on the left
+  dritto / sempre dritto → straight ahead
+  in fondo        → at the end (of the road / street)
+  all'angolo      → at the corner
+  di fronte a     → opposite / in front of
+  vicino a        → near / next to
+  lontano da      → far from
+
+USEFUL PHRASES
+  Scusi, dov'è...?              → Excuse me, where is...?
+  Come arrivo a...?             → How do I get to...?
+  È lontano?                    → Is it far?
+  È qui vicino.                 → It is nearby.
+  Sono a piedi. / Sono in macchina. → I'm on foot. / I'm by car.
+  Prenda la prima strada a destra.  → Take the first street on the right.
+  È a cinque minuti a piedi.        → It's five minutes on foot.`,
+        examples: [
+            { native: "Gira a sinistra al semaforo.", translation: "Turn left at the traffic light." },
+            { native: "Vai sempre dritto.", translation: "Go straight ahead." },
+            { native: "Prendi la seconda strada a destra.", translation: "Take the second street on the right." },
+            { native: "La banca è di fronte alla chiesa.", translation: "The bank is opposite the church." },
+            { native: "Scusi, dov'è la stazione?", translation: "Excuse me, where is the train station?" },
+            { native: "È a dieci minuti a piedi.", translation: "It's ten minutes on foot." }
         ]
     },
 ]

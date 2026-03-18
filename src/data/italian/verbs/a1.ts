@@ -236,4 +236,225 @@ export const a1Verbs: Verb[] = [
             ]
         }]
     },
+    {
+        id: "it-vb-a1-14",
+        level: "A1",
+        infinitive: "lavorare",
+        meaning: "to work",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "io", form: "lavoro" },
+                { pronoun: "tu", form: "lavori" },
+                { pronoun: "lui/lei", form: "lavora" },
+                { pronoun: "noi", form: "lavoriamo" },
+                { pronoun: "voi", form: "lavorate" },
+                { pronoun: "loro", form: "lavorano" }
+            ]
+        }]
+    },
+    {
+        id: "it-vb-a1-15",
+        level: "A1",
+        infinitive: "ascoltare",
+        meaning: "to listen (to)",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "io", form: "ascolto" },
+                { pronoun: "tu", form: "ascolti" },
+                { pronoun: "lui/lei", form: "ascolta" },
+                { pronoun: "noi", form: "ascoltiamo" },
+                { pronoun: "voi", form: "ascoltate" },
+                { pronoun: "loro", form: "ascoltano" }
+            ]
+        }]
+    },
+    {
+        id: "it-vb-a1-16",
+        level: "A1",
+        infinitive: "comprare",
+        meaning: "to buy",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "io", form: "compro" },
+                { pronoun: "tu", form: "compri" },
+                { pronoun: "lui/lei", form: "compra" },
+                { pronoun: "noi", form: "compriamo" },
+                { pronoun: "voi", form: "comprate" },
+                { pronoun: "loro", form: "comprano" }
+            ]
+        }]
+    },
+    {
+        id: "it-vb-a1-17",
+        level: "A1",
+        infinitive: "camminare",
+        meaning: "to walk",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "io", form: "cammino" },
+                { pronoun: "tu", form: "cammini" },
+                { pronoun: "lui/lei", form: "cammina" },
+                { pronoun: "noi", form: "camminiamo" },
+                { pronoun: "voi", form: "camminate" },
+                { pronoun: "loro", form: "camminano" }
+            ]
+        }]
+    },
+    {
+        id: "it-vb-a1-18",
+        level: "A1",
+        infinitive: "cucinare",
+        meaning: "to cook",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "io", form: "cucino" },
+                { pronoun: "tu", form: "cucini" },
+                { pronoun: "lui/lei", form: "cucina" },
+                { pronoun: "noi", form: "cuciniamo" },
+                { pronoun: "voi", form: "cucinate" },
+                { pronoun: "loro", form: "cucinano" }
+            ]
+        }]
+    },
+    {
+        id: "it-vb-a1-19",
+        level: "A1",
+        infinitive: "pulire",
+        meaning: "to clean",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "io", form: "pulisco" },
+                { pronoun: "tu", form: "pulisci" },
+                { pronoun: "lui/lei", form: "pulisce" },
+                { pronoun: "noi", form: "puliamo" },
+                { pronoun: "voi", form: "pulite" },
+                { pronoun: "loro", form: "puliscono" }
+            ]
+        }]
+    },
+    {
+        id: "it-vb-a1-20",
+        level: "A1",
+        infinitive: "guidare",
+        meaning: "to drive",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "io", form: "guido" },
+                { pronoun: "tu", form: "guidi" },
+                { pronoun: "lui/lei", form: "guida" },
+                { pronoun: "noi", form: "guidiamo" },
+                { pronoun: "voi", form: "guidate" },
+                { pronoun: "loro", form: "guidano" }
+            ]
+        }]
+    },
+    {
+        id: "it-vb-a1-21",
+        level: "A1",
+        infinitive: "nuotare",
+        meaning: "to swim",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "io", form: "nuoto" },
+                { pronoun: "tu", form: "nuoti" },
+                { pronoun: "lui/lei", form: "nuota" },
+                { pronoun: "noi", form: "nuotiamo" },
+                { pronoun: "voi", form: "nuotate" },
+                { pronoun: "loro", form: "nuotano" }
+            ]
+        }]
+    },
+    {
+        id: "it-vb-a1-22",
+        level: "A1",
+        infinitive: "girare",
+        meaning: "to turn",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "io", form: "giro" },
+                { pronoun: "tu", form: "giri" },
+                { pronoun: "lui/lei", form: "gira" },
+                { pronoun: "noi", form: "giriamo" },
+                { pronoun: "voi", form: "girate" },
+                { pronoun: "loro", form: "girano" }
+            ]
+        }]
+    },
+    {
+        id: "it-vb-a1-23",
+        level: "A1",
+        infinitive: "prendere",
+        meaning: "to take / to have (food/transport)",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "io", form: "prendo" },
+                { pronoun: "tu", form: "prendi" },
+                { pronoun: "lui/lei", form: "prende" },
+                { pronoun: "noi", form: "prendiamo" },
+                { pronoun: "voi", form: "prendete" },
+                { pronoun: "loro", form: "prendono" }
+            ]
+        }]
+    },
+    {
+        id: "it-vb-a1-24",
+        level: "A1",
+        infinitive: "preferire",
+        meaning: "to prefer",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "io", form: "preferisco" },
+                { pronoun: "tu", form: "preferisci" },
+                { pronoun: "lui/lei", form: "preferisce" },
+                { pronoun: "noi", form: "preferiamo" },
+                { pronoun: "voi", form: "preferite" },
+                { pronoun: "loro", form: "preferiscono" }
+            ]
+        }]
+    },
+    {
+        id: "it-vb-a1-25",
+        level: "A1",
+        infinitive: "odiare",
+        meaning: "to hate",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "io", form: "odio" },
+                { pronoun: "tu", form: "odi" },
+                { pronoun: "lui/lei", form: "odia" },
+                { pronoun: "noi", form: "odiamo" },
+                { pronoun: "voi", form: "odiate" },
+                { pronoun: "loro", form: "odiano" }
+            ]
+        }]
+    },
+    {
+        id: "it-vb-a1-26",
+        level: "A1",
+        infinitive: "piacere",
+        meaning: "to please / to like (back-to-front verb — the thing liked is the subject)",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "mi/ti/gli/le", form: "piace" },
+                { pronoun: "mi/ti/gli/le", form: "piacciono" },
+                { pronoun: "ci/vi/loro", form: "piace" },
+                { pronoun: "ci/vi/loro", form: "piacciono" },
+                { pronoun: "piace +", form: "singular noun or infinitive" },
+                { pronoun: "piacciono +", form: "plural noun" }
+            ]
+        }]
+    },
 ]

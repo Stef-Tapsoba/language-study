@@ -63,7 +63,7 @@ export const a1Units: LessonUnit[] = [
         description: "Conjugate regular -are verbs in the present tense using parlare as a model.",
         grammarIds: ["it-g-a1-6"],
         vocabIds: ["it-v-a1-141", "it-v-a1-142", "it-v-a1-143", "it-v-a1-144", "it-v-a1-145", "it-v-a1-146", "it-v-a1-147", "it-v-a1-148", "it-v-a1-149", "it-v-a1-150"],
-        verbIds: ["it-vb-a1-3", "it-vb-a1-11", "it-vb-a1-13"],
+        verbIds: ["it-vb-a1-3", "it-vb-a1-11", "it-vb-a1-13", "it-vb-a1-14", "it-vb-a1-15", "it-vb-a1-16", "it-vb-a1-17"],
         testQuestions: [
             { id: "it-uq-a1-4-1", level: "A1", prompt: "Complete: 'Tu ___ italiano.' (parlare)", options: ["parlo", "parla", "parli", "parliamo"], answer: "parli" },
             { id: "it-uq-a1-4-2", level: "A1", prompt: "Complete: 'Noi ___ a Roma.' (abitare)", options: ["abiti", "abita", "abitiamo", "abitano"], answer: "abitiamo" },
@@ -134,24 +134,23 @@ export const a1Units: LessonUnit[] = [
         id: "it-a1-u8",
         level: "A1",
         order: 8,
-        title: "Numbers, Time & Dates",
-        description: "Count from 1 to 100, tell the time, and talk about days, months, and seasons.",
+        title: "Numbers 1-20 & Telling Time",
+        description: "Memorise the numbers 1-20, tell the time, and learn days, months, and seasons.",
         grammarIds: ["it-g-a1-15"],
         vocabIds: [
-            // 1–20 (existing)
+            // Numbers 1-10
             "it-v-a1-13", "it-v-a1-14", "it-v-a1-15", "it-v-a1-16", "it-v-a1-17",
             "it-v-a1-18", "it-v-a1-19", "it-v-a1-20", "it-v-a1-21", "it-v-a1-22",
+            // Numbers 11-19
+            "it-v-a1-23", "it-v-a1-24", "it-v-a1-25", "it-v-a1-26", "it-v-a1-27",
+            "it-v-a1-28", "it-v-a1-29", "it-v-a1-30", "it-v-a1-31",
+            // venti (20)
             "it-v-a1-32",
-            // Days (existing)
+            // Time expressions
+            "it-v-a1-162", "it-v-a1-163",
+            // Days of the week
             "it-v-a1-33", "it-v-a1-34", "it-v-a1-35", "it-v-a1-36",
             "it-v-a1-37", "it-v-a1-38", "it-v-a1-39",
-            // Months + seasons (existing)
-            "it-v-a1-40", "it-v-a1-41", "it-v-a1-42", "it-v-a1-43",
-            "it-v-a1-44", "it-v-a1-45", "it-v-a1-46",
-            // Numbers 21–100 + time expressions (new)
-            "it-v-a1-153", "it-v-a1-154", "it-v-a1-155", "it-v-a1-156",
-            "it-v-a1-157", "it-v-a1-158", "it-v-a1-159", "it-v-a1-160",
-            "it-v-a1-161", "it-v-a1-162", "it-v-a1-163",
         ],
         verbIds: ["it-vb-a1-2"],
         testQuestions: [
@@ -159,32 +158,63 @@ export const a1Units: LessonUnit[] = [
             { id: "it-uq-a1-8-2", level: "A1", prompt: "What day comes after 'lunedì'?", options: ["Mercoledì", "Domenica", "Giovedì", "Martedì"], answer: "Martedì" },
             { id: "it-uq-a1-8-3", level: "A1", prompt: "How do you say 'It's three o'clock'?", options: ["È le tre.", "Sono le tre.", "Sono tre.", "È tre ore."], answer: "Sono le tre." },
             { id: "it-uq-a1-8-4", level: "A1", prompt: "How do you say 'It's half past eight'?", options: ["Sono le otto e un quarto.", "Sono le otto meno mezza.", "Sono le otto e mezza.", "Sono le otto e trenta."], answer: "Sono le otto e mezza." },
-            { id: "it-uq-a1-8-5", level: "A1", prompt: "Which month is 'agosto'?", options: ["June", "July", "August", "September"], answer: "August" },
-            { id: "it-uq-a1-8-6", level: "A1", prompt: "How do you say 'I am twenty-two years old'?", options: ["Ho venti-due anni.", "Ho ventadue anni.", "Ho ventidue anni.", "Sono ventidue anni."], answer: "Ho ventidue anni." },
+            { id: "it-uq-a1-8-5", level: "A1", prompt: "How do you say 'It's one o'clock'?", options: ["Sono le una.", "È l'una.", "Sono l'una.", "È le una."], answer: "È l'una." },
+            { id: "it-uq-a1-8-6", level: "A1", prompt: "What is 'seventeen' in Italian?", options: ["Sedici", "Diciannove", "Diciotto", "Diciassette"], answer: "Diciassette" },
+        ]
+    },
+    {
+        id: "it-a1-u18",
+        level: "A1",
+        order: 9,
+        title: "Numbers 20-100, Months & Seasons",
+        description: "Learn the tens from 20 to 100, master compound number spelling rules, and learn months and seasons.",
+        grammarIds: ["it-g-a1-18"],
+        vocabIds: [
+            // Tens 20-100
+            "it-v-a1-153", "it-v-a1-154", "it-v-a1-155", "it-v-a1-156",
+            "it-v-a1-157", "it-v-a1-158", "it-v-a1-159", "it-v-a1-160",
+            "it-v-a1-161",
+            // Months + seasons
+            "it-v-a1-40", "it-v-a1-41", "it-v-a1-42", "it-v-a1-43",
+            "it-v-a1-44", "it-v-a1-45", "it-v-a1-46",
+        ],
+        verbIds: [],
+        testQuestions: [
+            { id: "it-uq-a1-18-1", level: "A1", prompt: "What is 'thirty' in Italian?", options: ["Venti", "Trenta", "Quaranta", "Cento"], answer: "Trenta" },
+            { id: "it-uq-a1-18-2", level: "A1", prompt: "How do you say 'fifty euros'?", options: ["Cinquecento euro", "Cinque euro", "Cinquanta euro", "Cinquantuno euro"], answer: "Cinquanta euro" },
+            { id: "it-uq-a1-18-3", level: "A1", prompt: "How do you correctly write 'twenty-one'?", options: ["Ventiuno", "Ventuno", "Ventiun", "Ventune"], answer: "Ventuno" },
+            { id: "it-uq-a1-18-4", level: "A1", prompt: "How do you say 'I am forty-two years old'?", options: ["Ho quarantadue anni.", "Ho quaranta due anni.", "Ho quaranta-due anni.", "Ho quarantadue anno."], answer: "Ho quarantadue anni." },
+            { id: "it-uq-a1-18-5", level: "A1", prompt: "Which month is 'agosto'?", options: ["June", "July", "August", "September"], answer: "August" },
+            { id: "it-uq-a1-18-6", level: "A1", prompt: "Which is correct for 'twenty-three'?", options: ["Ventitre", "Ventitré", "Venti tre", "Ventitrei"], answer: "Ventitré" },
         ]
     },
     {
         id: "it-a1-u9",
         level: "A1",
-        order: 9,
+        order: 10,
         title: "Saying What You Want & Can",
-        description: "Use volere and potere to express desires and abilities. Practice with food and drink vocabulary.",
-        grammarIds: [],
-        vocabIds: ["it-v-a1-61", "it-v-a1-62", "it-v-a1-63", "it-v-a1-64", "it-v-a1-65", "it-v-a1-66", "it-v-a1-67", "it-v-a1-70", "it-v-a1-71"],
-        verbIds: ["it-vb-a1-6", "it-vb-a1-7"],
+        description: "Learn the volere/potere + infinitive structure. Express desires, abilities, and talk about everyday activities.",
+        grammarIds: ["it-g-a1-19"],
+        vocabIds: [
+            // Food & drink — common objects of volere
+            "it-v-a1-61", "it-v-a1-62", "it-v-a1-64", "it-v-a1-66", "it-v-a1-67",
+            // Frequency adverbs — useful for "I can sometimes cook", "I always want..."
+            "it-v-a1-147", "it-v-a1-148", "it-v-a1-149", "it-v-a1-150",
+        ],
+        verbIds: ["it-vb-a1-6", "it-vb-a1-7", "it-vb-a1-18", "it-vb-a1-19", "it-vb-a1-20", "it-vb-a1-21"],
         testQuestions: [
             { id: "it-uq-a1-9-1", level: "A1", prompt: "Complete: 'Io ___ un caffè.' (volere)", options: ["vuole", "vuoi", "voglio", "vogliono"], answer: "voglio" },
             { id: "it-uq-a1-9-2", level: "A1", prompt: "Complete: 'Noi ___ venire.' (potere)", options: ["posso", "puoi", "possiamo", "possono"], answer: "possiamo" },
             { id: "it-uq-a1-9-3", level: "A1", prompt: "Complete: 'Puoi ___ italiano?' (parlare)", options: ["parlate", "parlano", "parli", "parlare"], answer: "parlare" },
-            { id: "it-uq-a1-9-4", level: "A1", prompt: "What does 'la frutta' mean?", options: ["Vegetables", "Fruit", "Bread", "Meat"], answer: "Fruit" },
+            { id: "it-uq-a1-9-4", level: "A1", prompt: "Complete: 'Voglio ___ stasera.' (cucinare)", options: ["cucino", "cucinare", "cucina", "cucinando"], answer: "cucinare" },
             { id: "it-uq-a1-9-5", level: "A1", prompt: "Complete: 'Loro ___ la pizza.' (volere)", options: ["vuoi", "vuole", "vogliamo", "vogliono"], answer: "vogliono" },
-            { id: "it-uq-a1-9-6", level: "A1", prompt: "What does 'il vino' mean?", options: ["Beer", "Juice", "Water", "Wine"], answer: "Wine" }
+            { id: "it-uq-a1-9-6", level: "A1", prompt: "What does 'spesso' mean?", options: ["Always", "Never", "Sometimes", "Often"], answer: "Often" }
         ]
     },
     {
         id: "it-a1-u10",
         level: "A1",
-        order: 10,
+        order: 11,
         title: "Asking Questions",
         description: "Form questions using intonation and question words: chi, cosa, dove, quando, come, perché.",
         grammarIds: ["it-g-a1-10", "it-g-a1-11"],
@@ -202,7 +232,7 @@ export const a1Units: LessonUnit[] = [
     {
         id: "it-a1-u11",
         level: "A1",
-        order: 11,
+        order: 12,
         title: "My Family & Home",
         description: "Talk about family members and describe your home using family vocabulary.",
         grammarIds: [],
@@ -220,10 +250,10 @@ export const a1Units: LessonUnit[] = [
     {
         id: "it-a1-u12",
         level: "A1",
-        order: 12,
+        order: 13,
         title: "Food & Restaurants",
         description: "Order food and drinks and talk about what you eat using key food vocabulary.",
-        grammarIds: [],
+        grammarIds: ["it-g-a1-20"],
         vocabIds: ["it-v-a1-61", "it-v-a1-62", "it-v-a1-63", "it-v-a1-64", "it-v-a1-65", "it-v-a1-66", "it-v-a1-67", "it-v-a1-68", "it-v-a1-69", "it-v-a1-72", "it-v-a1-73", "it-v-a1-74", "it-v-a1-75", "it-v-a1-76", "it-v-a1-77"],
         verbIds: ["it-vb-a1-6", "it-vb-a1-7", "it-vb-a1-8", "it-vb-a1-9"],
         testQuestions: [
@@ -238,10 +268,10 @@ export const a1Units: LessonUnit[] = [
     {
         id: "it-a1-u13",
         level: "A1",
-        order: 13,
+        order: 14,
         title: "Professions & Daily Life",
         description: "Talk about jobs, daily routines, and the human body.",
-        grammarIds: [],
+        grammarIds: ["it-g-a1-21"],
         vocabIds: ["it-v-a1-131", "it-v-a1-132", "it-v-a1-133", "it-v-a1-134", "it-v-a1-135", "it-v-a1-136", "it-v-a1-137", "it-v-a1-138", "it-v-a1-139", "it-v-a1-140", "it-v-a1-82", "it-v-a1-83", "it-v-a1-84"],
         verbIds: ["it-vb-a1-1", "it-vb-a1-2", "it-vb-a1-5"],
         testQuestions: [
@@ -256,12 +286,12 @@ export const a1Units: LessonUnit[] = [
     {
         id: "it-a1-u14",
         level: "A1",
-        order: 14,
+        order: 15,
         title: "Places & Directions",
         description: "Ask for and give directions using places vocabulary and the verb andare.",
-        grammarIds: [],
+        grammarIds: ["it-g-a1-22"],
         vocabIds: ["it-v-a1-108", "it-v-a1-109", "it-v-a1-110", "it-v-a1-114", "it-v-a1-115", "it-v-a1-116", "it-v-a1-117", "it-v-a1-119", "it-v-a1-121", "it-v-a1-122", "it-v-a1-123", "it-v-a1-124", "it-v-a1-125", "it-v-a1-126", "it-v-a1-127"],
-        verbIds: ["it-vb-a1-4"],
+        verbIds: ["it-vb-a1-4", "it-vb-a1-22", "it-vb-a1-23"],
         testQuestions: [
             { id: "it-uq-a1-14-1", level: "A1", prompt: "How do you say 'Turn left'?", options: ["Vai dritto.", "Gira a destra.", "Gira a sinistra.", "Torna indietro."], answer: "Gira a sinistra." },
             { id: "it-uq-a1-14-2", level: "A1", prompt: "Complete: 'Vado ___ museo.' (article + 'il')", options: ["al", "del", "nel", "col"], answer: "al" },
@@ -294,7 +324,7 @@ export const a1Units: LessonUnit[] = [
             "it-v-a1-149", // spesso
             "it-v-a1-150", // a volte
         ],
-        verbIds: ["it-vb-a1-6"],
+        verbIds: ["it-vb-a1-24", "it-vb-a1-25", "it-vb-a1-26"],
         testQuestions: [
             { id: "it-uq-a1-16-1", level: "A1", prompt: "How do you say 'I like pizza'?", options: ["Io piace la pizza.", "Mi piace la pizza.", "Mi piacciono la pizza.", "Piaccio la pizza."], answer: "Mi piace la pizza." },
             { id: "it-uq-a1-16-2", level: "A1", prompt: "How do you say 'I like cats' (plural)?", options: ["Mi piace i gatti.", "Mi piacciono i gatti.", "Mi piaciono i gatti.", "Ti piacciono i gatti."], answer: "Mi piacciono i gatti." },

@@ -56,7 +56,7 @@ export function GrammarLessonPage() {
                 {/* Explanation */}
                 <div className="bg-white rounded-2xl border border-gray-200 p-5">
                     <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2">Explanation</h2>
-                    <p className="text-gray-800 leading-relaxed">{explanation}</p>
+                    <p className="text-gray-800 leading-relaxed whitespace-pre-wrap">{explanation}</p>
                 </div>
 
                 {/* Examples */}
@@ -69,7 +69,7 @@ export function GrammarLessonPage() {
                                     <div className="flex-1">
                                         <div className="flex items-center gap-2">
                                             <p className="font-semibold text-gray-900">{ex.native}</p>
-                                            <SpeakButton text={ex.native} langId={langId} />
+                                            <SpeakButton text={ex.speakText ?? ex.native} langId={langId} />
                                         </div>
                                         {ex.romanized && (
                                             <p className="text-xs text-indigo-500 mt-0.5">{ex.romanized}</p>
