@@ -1,20 +1,29 @@
-// Spanish A1 units.
 // data/spanish/units/a1.ts
 import { LessonUnit } from "../../../types"
 
-// 14 ordered A1 units for Spanish.
-// Units build on each other: each unit introduces new grammar/vocab/verbs
-// and includes 5–6 test-out questions drawn from that unit's content.
-// Unit N+1 unlocks when unit N is mastered.
+// 17 ordered A1 units for Spanish.
+//
+// CHANGES FROM PREVIOUS VERSION (v1 had 16 units):
+// U7  — Numbers 1-20, Telling Time & Days (was: combined Numbers 1-100 + Time)
+//        Grammar: es-g-a1-6 (covers 0-20 + telling time)
+//        Vocab: es-v-a1-159–es-v-a1-179 (new number items) + days es-v-a1-62–68
+//               + time expressions es-v-a1-69–76
+// U8  — NEW: Numbers 20-100, Months & Seasons
+//        Grammar: es-g-a1-20 (new lesson for tens + compound number rules)
+//        Vocab: es-v-a1-180–188 (tens + 100) + months/seasons es-v-a1-77–92
+// U9  — Negation (was U8). Vocab updated to es-v-a1-189–193.
+// U10 — Question Formation (was U9). Vocab updated to es-v-a1-194–200.
+// U11 — Months, Seasons & Weather (was U10) — now only weather, months/seasons moved to U8
+// U12–U17 — renumbered from old U11–U16, content unchanged.
 
 export const a1Units: LessonUnit[] = [
     {
         id: "es-a1-u1",
         level: "A1",
         order: 1,
-        title: "Greetings & First Words",
-        description: "Learn essential greetings, farewells, and polite phrases. Understand subject pronouns.",
-        grammarIds: ["es-g-a1-1", "es-g-a1-5", "es-g-a1-13"],
+        title: "Greetings, Pronunciation & Subject Pronouns",
+        description: "Your first steps in Spanish: learn essential greetings and polite phrases, understand how Spanish pronunciation works, and meet the subject pronouns — including the tú/usted distinction that shapes every conversation.",
+        grammarIds: ["es-g-a1-13", "es-g-a1-1"],
         vocabIds: [
             "es-v-a1-1", "es-v-a1-2", "es-v-a1-3", "es-v-a1-4", "es-v-a1-5",
             "es-v-a1-6", "es-v-a1-7", "es-v-a1-8", "es-v-a1-9", "es-v-a1-10",
@@ -25,7 +34,7 @@ export const a1Units: LessonUnit[] = [
             { id: "es-uq-a1-1-1", level: "A1", prompt: "What does '¡Hola!' mean?", options: ["Goodbye", "Hello", "Please", "Thank you"], answer: "Hello" },
             { id: "es-uq-a1-1-2", level: "A1", prompt: "How do you say 'Thank you' in Spanish?", options: ["Gracias", "Por favor", "Perdón", "Buenos días"], answer: "Gracias" },
             { id: "es-uq-a1-1-3", level: "A1", prompt: "Which subject pronoun means 'we'?", options: ["Yo", "Tú", "Nosotros", "Ellos"], answer: "Nosotros" },
-            { id: "es-uq-a1-1-4", level: "A1", prompt: "How do you say 'How are you?' (informal)?", options: ["¿Cómo te llamas?", "¿Cómo estás?", "¿De dónde eres?", "¿Cuántos años tienes?"], answer: "¿Cómo estás?" },
+            { id: "es-uq-a1-1-4", level: "A1", prompt: "When do you use 'usted' instead of 'tú'?", options: ["With close friends only", "With strangers, elders, or in formal situations", "Only in writing", "Only in Latin America"], answer: "With strangers, elders, or in formal situations", hint: "Tú = informal (friends, family). Usted = formal (strangers, elders, professional contexts). Usted conjugates like él/ella." },
             { id: "es-uq-a1-1-5", level: "A1", prompt: "What does '¡Hasta luego!' mean?", options: ["Good morning!", "See you later!", "You're welcome!", "Hello!"], answer: "See you later!" },
             { id: "es-uq-a1-1-6", level: "A1", prompt: "How do you say 'Excuse me / Sorry' in Spanish?", options: ["Gracias", "De nada", "Perdón", "Por favor"], answer: "Perdón" }
         ]
@@ -138,50 +147,126 @@ export const a1Units: LessonUnit[] = [
         id: "es-a1-u7",
         level: "A1",
         order: 7,
-        title: "Numbers, Time & Days of the Week",
-        description: "Count from 1 to 100, tell the time, and talk about days and time expressions.",
+        title: "Numbers 1-20, Telling Time & Days of the Week",
+        description: "Learn numbers 0-20, tell the time using Son las / Es la, and name the days of the week and key time expressions.",
         grammarIds: ["es-g-a1-6"],
         vocabIds: [
+            // Numbers 0-20
+            "es-v-a1-159", "es-v-a1-160", "es-v-a1-161", "es-v-a1-162", "es-v-a1-163",
+            "es-v-a1-164", "es-v-a1-165", "es-v-a1-166", "es-v-a1-167", "es-v-a1-168",
+            "es-v-a1-169", "es-v-a1-170", "es-v-a1-171", "es-v-a1-172", "es-v-a1-173",
+            "es-v-a1-174", "es-v-a1-175", "es-v-a1-176", "es-v-a1-177", "es-v-a1-178",
+            "es-v-a1-179",
+            // Days of the week
             "es-v-a1-62", "es-v-a1-63", "es-v-a1-64", "es-v-a1-65", "es-v-a1-66",
-            "es-v-a1-67", "es-v-a1-68", "es-v-a1-69", "es-v-a1-70", "es-v-a1-71",
-            "es-v-a1-72", "es-v-a1-73", "es-v-a1-74", "es-v-a1-75", "es-v-a1-76"
+            "es-v-a1-67", "es-v-a1-68",
+            // Time expressions
+            "es-v-a1-69", "es-v-a1-70", "es-v-a1-71", "es-v-a1-72", "es-v-a1-73",
+            "es-v-a1-74", "es-v-a1-75", "es-v-a1-76"
         ],
         verbIds: [],
         testQuestions: [
             { id: "es-uq-a1-7-1", level: "A1", prompt: "How do you say 'It's three o'clock' in Spanish?", options: ["Es las tres.", "Son las tres.", "Hay tres.", "Tengo tres."], answer: "Son las tres." },
             { id: "es-uq-a1-7-2", level: "A1", prompt: "What is the Spanish word for Monday?", options: ["domingo", "martes", "lunes", "viernes"], answer: "lunes" },
-            { id: "es-uq-a1-7-3", level: "A1", prompt: "How do you ask 'What time is it?'", options: ["¿Qué hora tiene?", "¿Qué hora es?", "¿Cuántas horas?", "¿Cuándo es?"], answer: "¿Qué hora es?" },
-            { id: "es-uq-a1-7-4", level: "A1", prompt: "What does 'el fin de semana' mean?", options: ["the holiday", "the end of the month", "the weekend", "the weekday"], answer: "the weekend" },
-            { id: "es-uq-a1-7-5", level: "A1", prompt: "How do you say 'It's half past two'?", options: ["Son las dos y cuarto.", "Es la dos y media.", "Son las dos y media.", "Son las dos menos media."], answer: "Son las dos y media." }
+            { id: "es-uq-a1-7-3", level: "A1", prompt: "What is 'quince' in Spanish?", options: ["twelve", "thirteen", "sixteen", "fifteen"], answer: "fifteen" },
+            { id: "es-uq-a1-7-4", level: "A1", prompt: "How do you say 'It's half past two'?", options: ["Son las dos y cuarto.", "Es la dos y media.", "Son las dos y media.", "Son las dos menos media."], answer: "Son las dos y media." },
+            { id: "es-uq-a1-7-5", level: "A1", prompt: "What does 'el fin de semana' mean?", options: ["the holiday", "the end of the month", "the weekend", "the weekday"], answer: "the weekend" },
+            { id: "es-uq-a1-7-6", level: "A1", prompt: "How do you say 'I am nineteen years old'?", options: ["Tengo diecinueve años.", "Soy diecinueve años.", "Tengo diecinueve año.", "Estoy diecinueve años."], answer: "Tengo diecinueve años." }
         ]
     },
     {
         id: "es-a1-u8",
         level: "A1",
         order: 8,
-        title: "Months, Seasons & Weather",
-        description: "Learn the months, seasons, and weather. Understand the hacer + weather expression construction.",
-        grammarIds: ["es-g-a1-14"],
+        title: "Numbers 20-100, Months & Seasons",
+        description: "Learn the tens from 20 to 100, master compound number rules (veintiuno, treinta y dos…), and learn the months and seasons.",
+        grammarIds: ["es-g-a1-20"],
         vocabIds: [
+            // Tens 20-100
+            "es-v-a1-180", "es-v-a1-181", "es-v-a1-182", "es-v-a1-183",
+            "es-v-a1-184", "es-v-a1-185", "es-v-a1-186", "es-v-a1-187", "es-v-a1-188",
+            // Months
             "es-v-a1-77", "es-v-a1-78", "es-v-a1-79", "es-v-a1-80", "es-v-a1-81",
             "es-v-a1-82", "es-v-a1-83", "es-v-a1-84", "es-v-a1-85", "es-v-a1-86",
-            "es-v-a1-87", "es-v-a1-88", "es-v-a1-89", "es-v-a1-90", "es-v-a1-91",
-            "es-v-a1-92"
+            "es-v-a1-87", "es-v-a1-88",
+            // Seasons
+            "es-v-a1-89", "es-v-a1-90", "es-v-a1-91", "es-v-a1-92"
         ],
-        verbIds: ["es-vb-a1-6"],
+        verbIds: [],
         testQuestions: [
-            { id: "es-uq-a1-8-1", level: "A1", prompt: "What is the Spanish word for January?", options: ["julio", "junio", "enero", "febrero"], answer: "enero" },
-            { id: "es-uq-a1-8-2", level: "A1", prompt: "How do you say 'It's cold' (weather) in Spanish?", options: ["Está frío.", "Hay frío.", "Hace frío.", "Es frío."], answer: "Hace frío." },
-            { id: "es-uq-a1-8-3", level: "A1", prompt: "What is 'primavera' in English?", options: ["summer", "autumn", "winter", "spring"], answer: "spring" },
-            { id: "es-uq-a1-8-4", level: "A1", prompt: "How do you say 'In winter it is very cold'?", options: ["En invierno es muy frío.", "En invierno hay mucho frío.", "En invierno hace mucho frío.", "En invierno está mucho frío."], answer: "En invierno hace mucho frío." },
-            { id: "es-uq-a1-8-5", level: "A1", prompt: "What month comes after marzo (March)?", options: ["febrero", "abril", "mayo", "enero"], answer: "abril" }
+            { id: "es-uq-a1-8-1", level: "A1", prompt: "How do you say 'thirty-two' in Spanish?", options: ["treintadós", "treinta y dos", "treintados", "treinty dos"], answer: "treinta y dos" },
+            { id: "es-uq-a1-8-2", level: "A1", prompt: "How do you say 'twenty-one years old' (with noun)?", options: ["veinte y uno años", "veintiuno años", "veintiún años", "veintiuna años"], answer: "veintiún años", hint: "Veintiuno drops the -o before a masculine noun: veintiún + noun." },
+            { id: "es-uq-a1-8-3", level: "A1", prompt: "What is the Spanish word for January?", options: ["julio", "junio", "enero", "febrero"], answer: "enero" },
+            { id: "es-uq-a1-8-4", level: "A1", prompt: "When do you say 'ciento' instead of 'cien'?", options: ["Always", "Never — it's always cien", "Only for 100 exactly — ciento is for 101-199", "Only in formal Spanish"], answer: "Only for 100 exactly — ciento is for 101-199", hint: "Cien = exactly 100. Ciento uno = 101, ciento veinte = 120, etc." },
+            { id: "es-uq-a1-8-5", level: "A1", prompt: "What is 'primavera' in English?", options: ["summer", "autumn", "winter", "spring"], answer: "spring" },
+            { id: "es-uq-a1-8-6", level: "A1", prompt: "What month comes after marzo?", options: ["febrero", "abril", "mayo", "enero"], answer: "abril" }
         ]
     },
     {
         id: "es-a1-u9",
         level: "A1",
         order: 9,
-        title: "Family",
+        title: "Negation",
+        description: "Learn to negate any Spanish sentence. Discover how Spanish double negation works — and why it's not an error.",
+        grammarIds: ["es-g-a1-18"],
+        vocabIds: [
+            "es-v-a1-189", "es-v-a1-190", "es-v-a1-191", "es-v-a1-192", "es-v-a1-193"
+        ],
+        verbIds: [],
+        testQuestions: [
+            { id: "es-uq-a1-9-1", level: "A1", prompt: "How do you say 'I don't speak English'?", options: ["No hablo inglés.", "Hablo no inglés.", "No hablo no inglés.", "Hablo inglés no."], answer: "No hablo inglés." },
+            { id: "es-uq-a1-9-2", level: "A1", prompt: "How do you negate 'Tengo coche'?", options: ["Tengo no coche.", "No tengo coche.", "No tengo un coche no.", "Tengo coche no."], answer: "No tengo coche." },
+            { id: "es-uq-a1-9-3", level: "A1", prompt: "How do you say 'I don't have anything'?", options: ["No tengo algo.", "No tengo nada.", "Tengo nada.", "No tengo ninguno."], answer: "No tengo nada.", hint: "Spanish double negation: no before the verb + nada after. Both are required." },
+            { id: "es-uq-a1-9-4", level: "A1", prompt: "What does 'nunca' mean?", options: ["always", "sometimes", "never", "often"], answer: "never" },
+            { id: "es-uq-a1-9-5", level: "A1", prompt: "Translate: 'He never comes.'", options: ["Él viene nunca.", "Nunca viene.", "No viene nunca.", "Both B and C are correct."], answer: "Both B and C are correct.", hint: "Spanish allows nunca at the start without no, OR no + verb + nunca. Both are grammatically correct." },
+            { id: "es-uq-a1-9-6", level: "A1", prompt: "What does 'tampoco' mean?", options: ["also / too", "neither / not either", "always", "nothing"], answer: "neither / not either" }
+        ]
+    },
+    {
+        id: "es-a1-u10",
+        level: "A1",
+        order: 10,
+        title: "Question Formation",
+        description: "Learn to ask yes/no questions and information questions in Spanish. Master the question words and understand why every Spanish question opens with ¿.",
+        grammarIds: ["es-g-a1-19"],
+        vocabIds: [
+            "es-v-a1-194", "es-v-a1-195", "es-v-a1-196", "es-v-a1-197",
+            "es-v-a1-198", "es-v-a1-199", "es-v-a1-200"
+        ],
+        verbIds: [],
+        testQuestions: [
+            { id: "es-uq-a1-10-1", level: "A1", prompt: "How do you ask 'Do you speak Spanish?' (yes/no question)?", options: ["Hablas español.", "¿Hablas español?", "¿Qué hablas español?", "¿Cómo hablas español?"], answer: "¿Hablas español?" },
+            { id: "es-uq-a1-10-2", level: "A1", prompt: "How do you ask 'Where do you live?'", options: ["¿Cuándo vives?", "¿Quién vives?", "¿Dónde vives?", "¿Cómo vives?"], answer: "¿Dónde vives?" },
+            { id: "es-uq-a1-10-3", level: "A1", prompt: "What does '¿Cuántos años tienes?' mean?", options: ["What is your name?", "Where are you from?", "How old are you?", "What do you do?"], answer: "How old are you?" },
+            { id: "es-uq-a1-10-4", level: "A1", prompt: "What does '¿Por qué?' mean?", options: ["How?", "When?", "Who?", "Why?"], answer: "Why?" },
+            { id: "es-uq-a1-10-5", level: "A1", prompt: "What is the question word for 'how much'?", options: ["¿cómo?", "¿cuál?", "¿cuánto?", "¿qué?"], answer: "¿cuánto?" },
+            { id: "es-uq-a1-10-6", level: "A1", prompt: "How do you say 'What is this?'", options: ["¿Cómo es esto?", "¿Quién es esto?", "¿Qué es esto?", "¿Cuál es esto?"], answer: "¿Qué es esto?" }
+        ]
+    },
+    {
+        id: "es-a1-u11",
+        level: "A1",
+        order: 11,
+        title: "Weather",
+        description: "Talk about the weather using the hacer + weather expression construction.",
+        grammarIds: ["es-g-a1-14"],
+        vocabIds: [
+            "es-v-a1-77", "es-v-a1-78", "es-v-a1-79", "es-v-a1-80"
+        ],
+        verbIds: ["es-vb-a1-6"],
+        testQuestions: [
+            { id: "es-uq-a1-11-1", level: "A1", prompt: "How do you say 'It's cold' (weather) in Spanish?", options: ["Está frío.", "Hay frío.", "Hace frío.", "Es frío."], answer: "Hace frío." },
+            { id: "es-uq-a1-11-2", level: "A1", prompt: "How do you say 'In winter it is very cold'?", options: ["En invierno es muy frío.", "En invierno hay mucho frío.", "En invierno hace mucho frío.", "En invierno está mucho frío."], answer: "En invierno hace mucho frío." },
+            { id: "es-uq-a1-11-3", level: "A1", prompt: "How do you say 'The weather is nice'?", options: ["Hace malo.", "Hay buen tiempo.", "Hace buen tiempo.", "Es buen tiempo."], answer: "Hace buen tiempo." },
+            { id: "es-uq-a1-11-4", level: "A1", prompt: "How do you say 'It's raining'?", options: ["Hace lluvia.", "Está lloviendo / Llueve.", "Hay lluvia.", "Es lluvioso."], answer: "Está lloviendo / Llueve." },
+            { id: "es-uq-a1-11-5", level: "A1", prompt: "What does 'hacer calor' mean?", options: ["to be cold", "to be windy", "to be hot", "to be cloudy"], answer: "to be hot" }
+        ]
+    },
+    {
+        id: "es-a1-u12",
+        level: "A1",
+        order: 12,
+        title: "Family & Possessives",
         description: "Describe your family members. Learn possessive adjectives and practise ser and tener in the context of family relationships.",
         grammarIds: ["es-g-a1-15"],
         vocabIds: [
@@ -191,18 +276,18 @@ export const a1Units: LessonUnit[] = [
         ],
         verbIds: [],
         testQuestions: [
-            { id: "es-uq-a1-9-1", level: "A1", prompt: "What does 'hermano' mean?", options: ["sister", "father", "brother", "son"], answer: "brother" },
-            { id: "es-uq-a1-9-2", level: "A1", prompt: "Complete: '___ padres son de Madrid.' (our)", options: ["mi", "tu", "su", "nuestros"], answer: "nuestros" },
-            { id: "es-uq-a1-9-3", level: "A1", prompt: "What is the plural of 'hijo'?", options: ["hija", "hijos", "hijas", "hijoas"], answer: "hijos" },
-            { id: "es-uq-a1-9-4", level: "A1", prompt: "What does 'abuelo' mean?", options: ["uncle", "father", "grandfather", "husband"], answer: "grandfather" },
-            { id: "es-uq-a1-9-5", level: "A1", prompt: "Complete: 'Yo tengo dos ___ (sisters).'", options: ["hermanos", "hermanas", "hermano", "hermana"], answer: "hermanas" },
-            { id: "es-uq-a1-9-6", level: "A1", prompt: "How do you say 'my keys' (plural)?", options: ["mi llaves", "mis llaves", "su llaves", "sus llaves"], answer: "mis llaves" }
+            { id: "es-uq-a1-12-1", level: "A1", prompt: "What does 'hermano' mean?", options: ["sister", "father", "brother", "son"], answer: "brother" },
+            { id: "es-uq-a1-12-2", level: "A1", prompt: "Complete: '___ padres son de Madrid.' (our)", options: ["mi", "tu", "su", "nuestros"], answer: "nuestros" },
+            { id: "es-uq-a1-12-3", level: "A1", prompt: "What is the plural of 'hijo'?", options: ["hija", "hijos", "hijas", "hijoas"], answer: "hijos" },
+            { id: "es-uq-a1-12-4", level: "A1", prompt: "What does 'abuelo' mean?", options: ["uncle", "father", "grandfather", "husband"], answer: "grandfather" },
+            { id: "es-uq-a1-12-5", level: "A1", prompt: "Complete: 'Yo tengo dos ___ (sisters).'", options: ["hermanos", "hermanas", "hermano", "hermana"], answer: "hermanas" },
+            { id: "es-uq-a1-12-6", level: "A1", prompt: "How do you say 'my keys' (plural)?", options: ["mi llaves", "mis llaves", "su llaves", "sus llaves"], answer: "mis llaves" }
         ]
     },
     {
-        id: "es-a1-u10",
+        id: "es-a1-u13",
         level: "A1",
-        order: 10,
+        order: 13,
         title: "Food, Drink & Ordering",
         description: "Name common foods and drinks. Learn the stem-changing verb querer (e→ie) and use it to order at a café or restaurant.",
         grammarIds: ["es-g-a1-16"],
@@ -215,18 +300,18 @@ export const a1Units: LessonUnit[] = [
         ],
         verbIds: ["es-vb-a1-7", "es-vb-a1-8", "es-vb-a1-9", "es-vb-a1-13"],
         testQuestions: [
-            { id: "es-uq-a1-10-1", level: "A1", prompt: "What is the 'yo' form of 'querer'?", options: ["quere", "quieres", "quiero", "queremos"], answer: "quiero" },
-            { id: "es-uq-a1-10-2", level: "A1", prompt: "How do you order 'a coffee, please'?", options: ["Un café, gracias.", "Quiero un café, por favor.", "Me gusta un café.", "Hay un café."], answer: "Quiero un café, por favor." },
-            { id: "es-uq-a1-10-3", level: "A1", prompt: "What is the Spanish word for 'bread'?", options: ["queso", "pan", "leche", "mantequilla"], answer: "pan" },
-            { id: "es-uq-a1-10-4", level: "A1", prompt: "What does '¿Qué quieres comer?' mean?", options: ["What are you eating?", "Do you want to eat?", "What do you want to eat?", "I want to eat."], answer: "What do you want to eat?" },
-            { id: "es-uq-a1-10-5", level: "A1", prompt: "What is the 'ellos' form of 'querer'?", options: ["quere", "queremos", "quieres", "quieren"], answer: "quieren" },
-            { id: "es-uq-a1-10-6", level: "A1", prompt: "How do you say 'We want a table for two'?", options: ["Somos una mesa para dos.", "Tenemos una mesa para dos.", "Queremos una mesa para dos.", "Estamos una mesa para dos."], answer: "Queremos una mesa para dos." }
+            { id: "es-uq-a1-13-1", level: "A1", prompt: "What is the 'yo' form of 'querer'?", options: ["quere", "quieres", "quiero", "queremos"], answer: "quiero" },
+            { id: "es-uq-a1-13-2", level: "A1", prompt: "How do you order 'a coffee, please'?", options: ["Un café, gracias.", "Quiero un café, por favor.", "Me gusta un café.", "Hay un café."], answer: "Quiero un café, por favor." },
+            { id: "es-uq-a1-13-3", level: "A1", prompt: "What is the Spanish word for 'bread'?", options: ["queso", "pan", "leche", "mantequilla"], answer: "pan" },
+            { id: "es-uq-a1-13-4", level: "A1", prompt: "What does '¿Qué quieres comer?' mean?", options: ["What are you eating?", "Do you want to eat?", "What do you want to eat?", "I want to eat."], answer: "What do you want to eat?" },
+            { id: "es-uq-a1-13-5", level: "A1", prompt: "What is the 'ellos' form of 'querer'?", options: ["quere", "queremos", "quieres", "quieren"], answer: "quieren" },
+            { id: "es-uq-a1-13-6", level: "A1", prompt: "How do you say 'We want a table for two'?", options: ["Somos una mesa para dos.", "Tenemos una mesa para dos.", "Queremos una mesa para dos.", "Estamos una mesa para dos."], answer: "Queremos una mesa para dos." }
         ]
     },
     {
-        id: "es-a1-u11",
+        id: "es-a1-u14",
         level: "A1",
-        order: 11,
+        order: 14,
         title: "Places & Getting Around — Ir",
         description: "Learn names of places in a town. Use ir (to go) to talk about where you are going.",
         grammarIds: ["es-g-a1-10"],
@@ -237,17 +322,17 @@ export const a1Units: LessonUnit[] = [
         ],
         verbIds: ["es-vb-a1-5"],
         testQuestions: [
-            { id: "es-uq-a1-11-1", level: "A1", prompt: "What is the 'yo' form of 'ir'?", options: ["va", "vas", "voy", "vamos"], answer: "voy" },
-            { id: "es-uq-a1-11-2", level: "A1", prompt: "How do you say 'I'm going to school'?", options: ["Estoy a la escuela.", "Voy a la escuela.", "Soy a la escuela.", "Tengo la escuela."], answer: "Voy a la escuela." },
-            { id: "es-uq-a1-11-3", level: "A1", prompt: "What does 'al' mean? (contraction of a + el)", options: ["from the", "in the", "to the (masculine)", "of the"], answer: "to the (masculine)" },
-            { id: "es-uq-a1-11-4", level: "A1", prompt: "What is the Spanish word for 'hospital'?", options: ["escuela", "tienda", "hospital", "oficina"], answer: "hospital" },
-            { id: "es-uq-a1-11-5", level: "A1", prompt: "Complete: 'Ellos ___ al supermercado.'", options: ["va", "voy", "van", "vamos"], answer: "van" }
+            { id: "es-uq-a1-14-1", level: "A1", prompt: "What is the 'yo' form of 'ir'?", options: ["va", "vas", "voy", "vamos"], answer: "voy" },
+            { id: "es-uq-a1-14-2", level: "A1", prompt: "How do you say 'I'm going to school'?", options: ["Estoy a la escuela.", "Voy a la escuela.", "Soy a la escuela.", "Tengo la escuela."], answer: "Voy a la escuela." },
+            { id: "es-uq-a1-14-3", level: "A1", prompt: "What does 'al' mean? (contraction of a + el)", options: ["from the", "in the", "to the (masculine)", "of the"], answer: "to the (masculine)" },
+            { id: "es-uq-a1-14-4", level: "A1", prompt: "What is the Spanish word for 'hospital'?", options: ["escuela", "tienda", "hospital", "oficina"], answer: "hospital" },
+            { id: "es-uq-a1-14-5", level: "A1", prompt: "Complete: 'Ellos ___ al supermercado.'", options: ["va", "voy", "van", "vamos"], answer: "van" }
         ]
     },
     {
-        id: "es-a1-u12",
+        id: "es-a1-u15",
         level: "A1",
-        order: 12,
+        order: 15,
         title: "Directions & Transport",
         description: "Give and follow directions using location prepositions. Name common modes of transport.",
         grammarIds: ["es-g-a1-17"],
@@ -258,18 +343,18 @@ export const a1Units: LessonUnit[] = [
         ],
         verbIds: [],
         testQuestions: [
-            { id: "es-uq-a1-12-1", level: "A1", prompt: "What does 'a la derecha' mean?", options: ["to the left", "straight ahead", "to the right", "behind"], answer: "to the right" },
-            { id: "es-uq-a1-12-2", level: "A1", prompt: "What does 'todo recto' mean?", options: ["turn right", "stop here", "straight ahead", "turn left"], answer: "straight ahead" },
-            { id: "es-uq-a1-12-3", level: "A1", prompt: "What is the Spanish word for 'bus'?", options: ["tren", "avión", "autobús", "barco"], answer: "autobús" },
-            { id: "es-uq-a1-12-4", level: "A1", prompt: "How do you ask 'Where is the station?'", options: ["¿Cuándo es la estación?", "¿Dónde está la estación?", "¿Cómo es la estación?", "¿Qué es la estación?"], answer: "¿Dónde está la estación?" },
-            { id: "es-uq-a1-12-5", level: "A1", prompt: "What does 'a la izquierda' mean?", options: ["to the right", "to the left", "straight ahead", "behind"], answer: "to the left" },
-            { id: "es-uq-a1-12-6", level: "A1", prompt: "How do you say 'The pharmacy is next to the bank'?", options: ["La farmacia está lejos del banco.", "La farmacia está enfrente del banco.", "La farmacia está al lado del banco.", "La farmacia está detrás del banco."], answer: "La farmacia está al lado del banco." }
+            { id: "es-uq-a1-15-1", level: "A1", prompt: "What does 'a la derecha' mean?", options: ["to the left", "straight ahead", "to the right", "behind"], answer: "to the right" },
+            { id: "es-uq-a1-15-2", level: "A1", prompt: "What does 'todo recto' mean?", options: ["turn right", "stop here", "straight ahead", "turn left"], answer: "straight ahead" },
+            { id: "es-uq-a1-15-3", level: "A1", prompt: "What is the Spanish word for 'bus'?", options: ["tren", "avión", "autobús", "barco"], answer: "autobús" },
+            { id: "es-uq-a1-15-4", level: "A1", prompt: "How do you ask 'Where is the station?'", options: ["¿Cuándo es la estación?", "¿Dónde está la estación?", "¿Cómo es la estación?", "¿Qué es la estación?"], answer: "¿Dónde está la estación?" },
+            { id: "es-uq-a1-15-5", level: "A1", prompt: "What does 'a la izquierda' mean?", options: ["to the right", "to the left", "straight ahead", "behind"], answer: "to the left" },
+            { id: "es-uq-a1-15-6", level: "A1", prompt: "How do you say 'The pharmacy is next to the bank'?", options: ["La farmacia está lejos del banco.", "La farmacia está enfrente del banco.", "La farmacia está al lado del banco.", "La farmacia está detrás del banco."], answer: "La farmacia está al lado del banco." }
         ]
     },
     {
-        id: "es-a1-u13",
+        id: "es-a1-u16",
         level: "A1",
-        order: 13,
+        order: 16,
         title: "Describing People & Things — Review",
         description: "Pull together ser, estar, tener, and adjective agreement to describe yourself and others.",
         grammarIds: [],
@@ -281,34 +366,35 @@ export const a1Units: LessonUnit[] = [
         ],
         verbIds: ["es-vb-a1-8", "es-vb-a1-9", "es-vb-a1-13"],
         testQuestions: [
-            { id: "es-uq-a1-13-1", level: "A1", prompt: "Complete: 'Mi hermano ___ alto y delgado.' (permanent trait)", options: ["está", "tiene", "es", "va"], answer: "es" },
-            { id: "es-uq-a1-13-2", level: "A1", prompt: "What does 'estoy cansado' mean?", options: ["I am a tired person.", "I am tired. (right now)", "I have tiredness.", "I feel tired always."], answer: "I am tired. (right now)" },
-            { id: "es-uq-a1-13-3", level: "A1", prompt: "Which is correct (adjective must agree with a feminine noun)?", options: ["Ella tiene pelo negra.", "Ella tiene pelo negro.", "Ella tiene pelos negra.", "Ella tiene pelos negro."], answer: "Ella tiene pelo negro." },
-            { id: "es-uq-a1-13-4", level: "A1", prompt: "How do you say 'We are at home'?", options: ["Somos en casa.", "Tenemos en casa.", "Estamos en casa.", "Vamos en casa."], answer: "Estamos en casa." },
-            { id: "es-uq-a1-13-5", level: "A1", prompt: "What does '¿Cuántos años tienes?' mean?", options: ["What is your name?", "Where are you from?", "How old are you?", "What do you do?"], answer: "How old are you?" },
-            { id: "es-uq-a1-13-6", level: "A1", prompt: "Complete: 'Vosotros ___ (hablar) muy bien español.'", options: ["hablo", "habla", "habláis", "hablan"], answer: "habláis" }
+            { id: "es-uq-a1-16-1", level: "A1", prompt: "Complete: 'Mi hermano ___ alto y delgado.' (permanent trait)", options: ["está", "tiene", "es", "va"], answer: "es" },
+            { id: "es-uq-a1-16-2", level: "A1", prompt: "What does 'estoy cansado' mean?", options: ["I am a tired person.", "I am tired. (right now)", "I have tiredness.", "I feel tired always."], answer: "I am tired. (right now)" },
+            { id: "es-uq-a1-16-3", level: "A1", prompt: "Which is correct (adjective must agree with a feminine noun)?", options: ["Ella tiene pelo negra.", "Ella tiene pelo negro.", "Ella tiene pelos negra.", "Ella tiene pelos negro."], answer: "Ella tiene pelo negro." },
+            { id: "es-uq-a1-16-4", level: "A1", prompt: "How do you say 'We are at home'?", options: ["Somos en casa.", "Tenemos en casa.", "Estamos en casa.", "Vamos en casa."], answer: "Estamos en casa." },
+            { id: "es-uq-a1-16-5", level: "A1", prompt: "What does '¿Cuántos años tienes?' mean?", options: ["What is your name?", "Where are you from?", "How old are you?", "What do you do?"], answer: "How old are you?" },
+            { id: "es-uq-a1-16-6", level: "A1", prompt: "Complete: 'Vosotros ___ (hablar) muy bien español.'", options: ["hablo", "habla", "habláis", "hablan"], answer: "habláis" }
         ]
     },
     {
-        id: "es-a1-u14",
+        id: "es-a1-u17",
         level: "A1",
-        order: 14,
+        order: 17,
         title: "Bridge: Near Future — Ir a + Infinitive",
         description: "Talk about plans and near-future events using ir + a + infinitive. Your first step into A2 territory.",
         grammarIds: ["es-g-a1-12"],
         vocabIds: [
-            "es-v-a1-151", "es-v-a1-152", "es-v-a1-153", "es-v-a1-154", "es-v-a1-155",
-            "es-v-a1-156", "es-v-a1-157", "es-v-a1-158", "es-v-a1-62", "es-v-a1-63",
-            "es-v-a1-64", "es-v-a1-65", "es-v-a1-66", "es-v-a1-77", "es-v-a1-78"
+            "es-v-a1-151", "es-v-a1-152", "es-v-a1-153", "es-v-a1-154",
+            "es-v-a1-155", "es-v-a1-156", "es-v-a1-157", "es-v-a1-158",
+            "es-v-a1-62", "es-v-a1-63", "es-v-a1-64", "es-v-a1-65",
+            "es-v-a1-66", "es-v-a1-77", "es-v-a1-78"
         ],
         verbIds: ["es-vb-a1-5", "es-vb-a1-7"],
         testQuestions: [
-            { id: "es-uq-a1-14-1", level: "A1", prompt: "What does 'Voy a comer' mean?", options: ["I am eating.", "I ate.", "I am going to eat.", "I want to eat."], answer: "I am going to eat." },
-            { id: "es-uq-a1-14-2", level: "A1", prompt: "How do you say 'She is going to study tomorrow'?", options: ["Ella estudia mañana.", "Ella va a estudiar mañana.", "Ella estudió mañana.", "Ella quiere estudiar mañana."], answer: "Ella va a estudiar mañana." },
-            { id: "es-uq-a1-14-3", level: "A1", prompt: "Complete: 'Nosotros ___ a viajar el próximo verano.'", options: ["voy", "vas", "van", "vamos"], answer: "vamos" },
-            { id: "es-uq-a1-14-4", level: "A1", prompt: "What does 'quiero viajar' mean?", options: ["I am travelling.", "I travelled.", "I want to travel.", "I am going to travel."], answer: "I want to travel." },
-            { id: "es-uq-a1-14-5", level: "A1", prompt: "Complete: '¿Qué vas a ___ este fin de semana?' (do)", options: ["haces", "hago", "haciendo", "hacer"], answer: "hacer" },
-            { id: "es-uq-a1-14-6", level: "A1", prompt: "How do you say 'They are going to come'?", options: ["Ellos quieren venir.", "Ellos van a venir.", "Ellos vienen.", "Ellos vendrán."], answer: "Ellos van a venir." }
+            { id: "es-uq-a1-17-1", level: "A1", prompt: "What does 'Voy a comer' mean?", options: ["I am eating.", "I ate.", "I am going to eat.", "I want to eat."], answer: "I am going to eat." },
+            { id: "es-uq-a1-17-2", level: "A1", prompt: "How do you say 'She is going to study tomorrow'?", options: ["Ella estudia mañana.", "Ella va a estudiar mañana.", "Ella estudió mañana.", "Ella quiere estudiar mañana."], answer: "Ella va a estudiar mañana." },
+            { id: "es-uq-a1-17-3", level: "A1", prompt: "Complete: 'Nosotros ___ a viajar el próximo verano.'", options: ["voy", "vas", "van", "vamos"], answer: "vamos" },
+            { id: "es-uq-a1-17-4", level: "A1", prompt: "What does 'quiero viajar' mean?", options: ["I am travelling.", "I travelled.", "I want to travel.", "I am going to travel."], answer: "I want to travel." },
+            { id: "es-uq-a1-17-5", level: "A1", prompt: "Complete: '¿Qué vas a ___ este fin de semana?' (do)", options: ["haces", "hago", "haciendo", "hacer"], answer: "hacer" },
+            { id: "es-uq-a1-17-6", level: "A1", prompt: "How do you say 'They are going to come'?", options: ["Ellos quieren venir.", "Ellos van a venir.", "Ellos vienen.", "Ellos vendrán."], answer: "Ellos van a venir." }
         ]
-    }
+    },
 ]

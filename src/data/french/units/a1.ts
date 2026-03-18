@@ -4,15 +4,26 @@ import { LessonUnit } from "../../../types"
 // 19 ordered A1 units for French.
 // Each unit builds on the previous. Unit N+1 unlocks when unit N is mastered.
 // futur proche (fr-g-a1-13) is the A1 bridge — the last unit before A2.
+//
+// CHANGES FROM PREVIOUS VERSION:
+// U1 — added Subject Pronouns (fr-g-a1-1) + tu/vous note. Now: Greetings + Pronunciation + Subject Pronouns.
+// U2 — removed Subject Pronouns (moved to U1). Now: Être only.
+// U5 — Adjective Agreement moved here from U10 (follows naturally from Articles & Gender at U4).
+// U6 — was U5: -er Verbs
+// U7 — was U6: Aller
+// U8 — was U7: Faire
+// U9 — was U8: Negation
+// U10 — was U9: Question Formation
+// U11–U19 — unchanged.
 
 export const a1Units: LessonUnit[] = [
     {
         id: "fr-a1-u1",
         level: "A1",
         order: 1,
-        title: "Greetings & Politeness",
-        description: "Learn essential French greetings, farewells, and polite expressions for everyday situations.",
-        grammarIds: ["fr-g-a1-18"],
+        title: "Greetings, Pronunciation & Subject Pronouns",
+        description: "Your first steps in French: learn essential greetings and polite phrases, understand how French pronunciation works, and meet the subject pronouns — including the crucial tu/vous distinction.",
+        grammarIds: ["fr-g-a1-18", "fr-g-a1-1"],
         vocabIds: [
             "fr-v-a1-1", "fr-v-a1-2", "fr-v-a1-3", "fr-v-a1-4", "fr-v-a1-5",
             "fr-v-a1-6", "fr-v-a1-7", "fr-v-a1-8", "fr-v-a1-9", "fr-v-a1-10",
@@ -23,29 +34,29 @@ export const a1Units: LessonUnit[] = [
             { id: "fr-uq-a1-1-1", level: "A1", prompt: "What does 'Bonjour' mean?", options: ["Goodbye", "Please", "Hello", "Thank you"], answer: "Hello" },
             { id: "fr-uq-a1-1-2", level: "A1", prompt: "How do you say 'Thank you' in French?", options: ["S'il vous plaît", "Pardon", "Merci", "De rien"], answer: "Merci" },
             { id: "fr-uq-a1-1-3", level: "A1", prompt: "How do you say 'Goodbye'?", options: ["Bonsoir", "Au revoir", "Bonjour", "Salut"], answer: "Au revoir" },
-            { id: "fr-uq-a1-1-4", level: "A1", prompt: "What is the formal way to say 'please'?", options: ["S'il te plaît", "Pardon", "Merci", "S'il vous plaît"], answer: "S'il vous plaît" },
+            { id: "fr-uq-a1-1-4", level: "A1", prompt: "Which subject pronoun do you use with someone you don't know well?", options: ["tu", "vous", "on", "ils"], answer: "vous", hint: "Vous is used formally with strangers, elders, and in professional contexts. Tu is for friends and family." },
             { id: "fr-uq-a1-1-5", level: "A1", prompt: "How do you say 'Excuse me' formally?", options: ["Pardon", "De rien", "Excusez-moi", "Bonsoir"], answer: "Excusez-moi" },
-            { id: "fr-uq-a1-1-6", level: "A1", prompt: "What does 'De rien' mean?", options: ["Sorry", "You're welcome", "Please", "Good night"], answer: "You're welcome" },
+            { id: "fr-uq-a1-1-6", level: "A1", prompt: "Which subject pronoun means 'we'?", options: ["Vous", "Ils", "Nous", "On"], answer: "Nous" },
         ]
     },
     {
         id: "fr-a1-u2",
         level: "A1",
         order: 2,
-        title: "Subject Pronouns & Être",
-        description: "Learn French subject pronouns and the essential verb être (to be) for describing identity and nationality.",
-        grammarIds: ["fr-g-a1-1", "fr-g-a1-2"],
+        title: "Être — To Be",
+        description: "Master être (to be) — the most essential verb in French. Use it to describe identity, nationality, and profession.",
+        grammarIds: ["fr-g-a1-2"],
         vocabIds: [
             "fr-v-a1-137", "fr-v-a1-138", "fr-v-a1-139", "fr-v-a1-140",
             "fr-v-a1-141", "fr-v-a1-142", "fr-v-a1-143", "fr-v-a1-144"
         ],
         verbIds: ["fr-vb-a1-1"],
         testQuestions: [
-            { id: "fr-uq-a1-2-1", level: "A1", prompt: "Which subject pronoun means 'we'?", options: ["Vous", "Ils", "Nous", "On"], answer: "Nous" },
-            { id: "fr-uq-a1-2-2", level: "A1", prompt: "Complete: 'Je ___ médecin.'", options: ["ai", "vais", "suis", "fais"], answer: "suis" },
-            { id: "fr-uq-a1-2-3", level: "A1", prompt: "How do you say 'They are (masculine)'?", options: ["Elles sont", "Ils sont", "Nous sommes", "Vous êtes"], answer: "Ils sont" },
-            { id: "fr-uq-a1-2-4", level: "A1", prompt: "Unlike Spanish, French subject pronouns are...", options: ["always optional", "only used formally", "always required", "used only in writing"], answer: "always required" },
-            { id: "fr-uq-a1-2-5", level: "A1", prompt: "Complete: 'Vous ___ professeur.'", options: ["sommes", "suis", "êtes", "est"], answer: "êtes" },
+            { id: "fr-uq-a1-2-1", level: "A1", prompt: "Complete: 'Je ___ médecin.'", options: ["ai", "vais", "suis", "fais"], answer: "suis" },
+            { id: "fr-uq-a1-2-2", level: "A1", prompt: "How do you say 'They are (masculine)'?", options: ["Elles sont", "Ils sont", "Nous sommes", "Vous êtes"], answer: "Ils sont" },
+            { id: "fr-uq-a1-2-3", level: "A1", prompt: "Complete: 'Vous ___ professeur.'", options: ["sommes", "suis", "êtes", "est"], answer: "êtes" },
+            { id: "fr-uq-a1-2-4", level: "A1", prompt: "Unlike Spanish and Italian, French subject pronouns are...", options: ["always optional", "only used formally", "always required", "used only in writing"], answer: "always required" },
+            { id: "fr-uq-a1-2-5", level: "A1", prompt: "Complete: 'Elle ___ avocate.'", options: ["est", "es", "suis", "êtes"], answer: "est" },
             { id: "fr-uq-a1-2-6", level: "A1", prompt: "What is 'teacher' in French?", options: ["le médecin", "l'étudiant", "l'ingénieur", "le professeur"], answer: "le professeur" },
         ]
     },
@@ -95,6 +106,28 @@ export const a1Units: LessonUnit[] = [
         id: "fr-a1-u5",
         level: "A1",
         order: 5,
+        title: "Adjective Agreement",
+        description: "Now that you know noun gender, learn the rule that flows from it: adjectives must agree with their noun in gender and number. Understand position — most adjectives follow the noun, but key common ones go before.",
+        grammarIds: ["fr-g-a1-11"],
+        vocabIds: [
+            "fr-v-a1-98", "fr-v-a1-99", "fr-v-a1-100", "fr-v-a1-101",
+            "fr-v-a1-102", "fr-v-a1-103", "fr-v-a1-159", "fr-v-a1-160",
+            "fr-v-a1-163", "fr-v-a1-164", "fr-v-a1-165"
+        ],
+        verbIds: [],
+        testQuestions: [
+            { id: "fr-uq-a1-5-1", level: "A1", prompt: "Feminine form of 'grand'?", options: ["grande", "grands", "grandez", "grandi"], answer: "grande" },
+            { id: "fr-uq-a1-5-2", level: "A1", prompt: "Feminine form of 'beau' (beautiful)?", options: ["beaux", "belles", "belle", "beau"], answer: "belle" },
+            { id: "fr-uq-a1-5-3", level: "A1", prompt: "Which adjective has the same form for both genders?", options: ["grand/grande", "bon/bonne", "facile", "beau/belle"], answer: "facile" },
+            { id: "fr-uq-a1-5-4", level: "A1", prompt: "Plural masculine form of 'petit'?", options: ["petits", "petites", "petite", "petit"], answer: "petits" },
+            { id: "fr-uq-a1-5-5", level: "A1", prompt: "What does 'bon' mean?", options: ["big", "bad", "good", "small"], answer: "good" },
+            { id: "fr-uq-a1-5-6", level: "A1", prompt: "What does 'rouge' mean?", options: ["blue", "green", "red", "white"], answer: "red" },
+        ]
+    },
+    {
+        id: "fr-a1-u6",
+        level: "A1",
+        order: 6,
         title: "Present Tense: -er Verbs",
         description: "Master the most common verb pattern in French. Learn to conjugate regular -er verbs in the present tense.",
         grammarIds: ["fr-g-a1-5"],
@@ -104,18 +137,18 @@ export const a1Units: LessonUnit[] = [
         ],
         verbIds: ["fr-vb-a1-5", "fr-vb-a1-13"],
         testQuestions: [
-            { id: "fr-uq-a1-5-1", level: "A1", prompt: "Complete: 'Nous ___ français.' (parler)", options: ["parle", "parles", "parlons", "parlent"], answer: "parlons" },
-            { id: "fr-uq-a1-5-2", level: "A1", prompt: "Complete: 'Ils ___ à Paris.' (habiter)", options: ["habitons", "habitez", "habite", "habitent"], answer: "habitent" },
-            { id: "fr-uq-a1-5-3", level: "A1", prompt: "What is the -er ending for 'tu'?", options: ["-e", "-ons", "-ez", "-es"], answer: "-es" },
-            { id: "fr-uq-a1-5-4", level: "A1", prompt: "Complete: 'Vous ___ beaucoup.' (travailler)", options: ["travaille", "travailles", "travaillez", "travaillons"], answer: "travaillez" },
-            { id: "fr-uq-a1-5-5", level: "A1", prompt: "What does 'le matin' mean?", options: ["the evening", "the afternoon", "the morning", "the night"], answer: "the morning" },
-            { id: "fr-uq-a1-5-6", level: "A1", prompt: "The je/tu/il/elle forms of -er verbs all sound the same. True or false?", options: ["False", "True"], answer: "True" },
+            { id: "fr-uq-a1-6-1", level: "A1", prompt: "Complete: 'Nous ___ français.' (parler)", options: ["parle", "parles", "parlons", "parlent"], answer: "parlons" },
+            { id: "fr-uq-a1-6-2", level: "A1", prompt: "Complete: 'Ils ___ à Paris.' (habiter)", options: ["habitons", "habitez", "habite", "habitent"], answer: "habitent" },
+            { id: "fr-uq-a1-6-3", level: "A1", prompt: "What is the -er ending for 'tu'?", options: ["-e", "-ons", "-ez", "-es"], answer: "-es" },
+            { id: "fr-uq-a1-6-4", level: "A1", prompt: "Complete: 'Vous ___ beaucoup.' (travailler)", options: ["travaille", "travailles", "travaillez", "travaillons"], answer: "travaillez" },
+            { id: "fr-uq-a1-6-5", level: "A1", prompt: "What does 'le matin' mean?", options: ["the evening", "the afternoon", "the morning", "the night"], answer: "the morning" },
+            { id: "fr-uq-a1-6-6", level: "A1", prompt: "The je/tu/il/elle forms of -er verbs all sound the same. True or false?", options: ["False", "True"], answer: "True" },
         ]
     },
     {
-        id: "fr-a1-u6",
+        id: "fr-a1-u7",
         level: "A1",
-        order: 6,
+        order: 7,
         title: "Aller (to go)",
         description: "Learn the irregular verb aller (to go) and vocabulary for directions and locations.",
         grammarIds: ["fr-g-a1-7"],
@@ -125,18 +158,18 @@ export const a1Units: LessonUnit[] = [
         ],
         verbIds: ["fr-vb-a1-3", "fr-vb-a1-10"],
         testQuestions: [
-            { id: "fr-uq-a1-6-1", level: "A1", prompt: "Complete: 'Je ___ au marché.'", options: ["vas", "vont", "vais", "allons"], answer: "vais" },
-            { id: "fr-uq-a1-6-2", level: "A1", prompt: "Complete: 'Ils ___ au cinéma.'", options: ["allons", "allez", "vont", "va"], answer: "vont" },
-            { id: "fr-uq-a1-6-3", level: "A1", prompt: "What does 'à gauche' mean?", options: ["straight ahead", "to the right", "behind", "to the left"], answer: "to the left" },
-            { id: "fr-uq-a1-6-4", level: "A1", prompt: "What does 'tout droit' mean?", options: ["turn right", "straight ahead", "on the left", "behind"], answer: "straight ahead" },
-            { id: "fr-uq-a1-6-5", level: "A1", prompt: "How do you say 'Is it far from here?'", options: ["C'est près d'ici?", "C'est loin d'ici?", "C'est à côté?", "C'est en face?"], answer: "C'est loin d'ici?" },
-            { id: "fr-uq-a1-6-6", level: "A1", prompt: "Complete: 'Vous ___ bien?' (aller — greeting)", options: ["faites", "êtes", "avez", "allez"], answer: "allez" },
+            { id: "fr-uq-a1-7-1", level: "A1", prompt: "Complete: 'Je ___ au marché.'", options: ["vas", "vont", "vais", "allons"], answer: "vais" },
+            { id: "fr-uq-a1-7-2", level: "A1", prompt: "Complete: 'Ils ___ au cinéma.'", options: ["allons", "allez", "vont", "va"], answer: "vont" },
+            { id: "fr-uq-a1-7-3", level: "A1", prompt: "What does 'à gauche' mean?", options: ["straight ahead", "to the right", "behind", "to the left"], answer: "to the left" },
+            { id: "fr-uq-a1-7-4", level: "A1", prompt: "What does 'tout droit' mean?", options: ["turn right", "straight ahead", "on the left", "behind"], answer: "straight ahead" },
+            { id: "fr-uq-a1-7-5", level: "A1", prompt: "How do you say 'Is it far from here?'", options: ["C'est près d'ici?", "C'est loin d'ici?", "C'est à côté?", "C'est en face?"], answer: "C'est loin d'ici?" },
+            { id: "fr-uq-a1-7-6", level: "A1", prompt: "Complete: 'Vous ___ bien?' (aller — greeting)", options: ["faites", "êtes", "avez", "allez"], answer: "allez" },
         ]
     },
     {
-        id: "fr-a1-u7",
+        id: "fr-a1-u8",
         level: "A1",
-        order: 7,
+        order: 8,
         title: "Faire (to do/make)",
         description: "Learn the highly irregular verb faire and its many fixed expressions used in daily French.",
         grammarIds: ["fr-g-a1-8"],
@@ -146,18 +179,18 @@ export const a1Units: LessonUnit[] = [
         ],
         verbIds: ["fr-vb-a1-4", "fr-vb-a1-8"],
         testQuestions: [
-            { id: "fr-uq-a1-7-1", level: "A1", prompt: "Complete: 'Nous ___ les courses.'", options: ["faites", "font", "faisons", "fait"], answer: "faisons" },
-            { id: "fr-uq-a1-7-2", level: "A1", prompt: "The vous form of faire is unusual. What is it?", options: ["faisez", "faites", "font", "fais"], answer: "faites" },
-            { id: "fr-uq-a1-7-3", level: "A1", prompt: "How do you say 'The weather is nice'?", options: ["Il fait chaud.", "Il fait beau.", "Il fait froid.", "Il fait sombre."], answer: "Il fait beau." },
-            { id: "fr-uq-a1-7-4", level: "A1", prompt: "Complete: 'Tu ___ du sport?' (faire)", options: ["fais", "fait", "faisons", "font"], answer: "fais" },
-            { id: "fr-uq-a1-7-5", level: "A1", prompt: "What does 'le déjeuner' mean?", options: ["breakfast", "dinner", "lunch", "snack"], answer: "lunch" },
-            { id: "fr-uq-a1-7-6", level: "A1", prompt: "What does 'la carte' mean in a restaurant?", options: ["the bill", "the waiter", "the menu", "the table"], answer: "the menu" },
+            { id: "fr-uq-a1-8-1", level: "A1", prompt: "Complete: 'Nous ___ les courses.'", options: ["faites", "font", "faisons", "fait"], answer: "faisons" },
+            { id: "fr-uq-a1-8-2", level: "A1", prompt: "The vous form of faire is unusual. What is it?", options: ["faisez", "faites", "font", "fais"], answer: "faites" },
+            { id: "fr-uq-a1-8-3", level: "A1", prompt: "How do you say 'The weather is nice'?", options: ["Il fait chaud.", "Il fait beau.", "Il fait froid.", "Il fait sombre."], answer: "Il fait beau." },
+            { id: "fr-uq-a1-8-4", level: "A1", prompt: "Complete: 'Tu ___ du sport?' (faire)", options: ["fais", "fait", "faisons", "font"], answer: "fais" },
+            { id: "fr-uq-a1-8-5", level: "A1", prompt: "What does 'le déjeuner' mean?", options: ["breakfast", "dinner", "lunch", "snack"], answer: "lunch" },
+            { id: "fr-uq-a1-8-6", level: "A1", prompt: "What does 'la carte' mean in a restaurant?", options: ["the bill", "the waiter", "the menu", "the table"], answer: "the menu" },
         ]
     },
     {
-        id: "fr-a1-u8",
+        id: "fr-a1-u9",
         level: "A1",
-        order: 8,
+        order: 9,
         title: "Negation: ne...pas",
         description: "Learn how to negate any French sentence using the ne...pas structure.",
         grammarIds: ["fr-g-a1-9"],
@@ -167,18 +200,18 @@ export const a1Units: LessonUnit[] = [
         ],
         verbIds: [],
         testQuestions: [
-            { id: "fr-uq-a1-8-1", level: "A1", prompt: "How do you negate 'Je parle anglais'?", options: ["Je ne parle pas anglais.", "Je parle ne anglais.", "Je parle pas anglais ne.", "Je parle anglais ne pas."], answer: "Je ne parle pas anglais." },
-            { id: "fr-uq-a1-8-2", level: "A1", prompt: "What does 'jamais' mean?", options: ["always", "sometimes", "never", "often"], answer: "never" },
-            { id: "fr-uq-a1-8-3", level: "A1", prompt: "Before a vowel, 'ne' contracts to what?", options: ["ni", "n'", "no", "na"], answer: "n'" },
-            { id: "fr-uq-a1-8-4", level: "A1", prompt: "Negate: 'Il est là.'", options: ["Il n'est pas là.", "Il est ne là.", "Il est là ne pas.", "Il ne là est pas."], answer: "Il n'est pas là." },
-            { id: "fr-uq-a1-8-5", level: "A1", prompt: "What does 'toujours' mean?", options: ["never", "sometimes", "often", "always"], answer: "always" },
-            { id: "fr-uq-a1-8-6", level: "A1", prompt: "What does 'souvent' mean?", options: ["rarely", "never", "often", "soon"], answer: "often" },
+            { id: "fr-uq-a1-9-1", level: "A1", prompt: "How do you negate 'Je parle anglais'?", options: ["Je ne parle pas anglais.", "Je parle ne anglais.", "Je parle pas anglais ne.", "Je parle anglais ne pas."], answer: "Je ne parle pas anglais." },
+            { id: "fr-uq-a1-9-2", level: "A1", prompt: "What does 'jamais' mean?", options: ["always", "sometimes", "never", "often"], answer: "never" },
+            { id: "fr-uq-a1-9-3", level: "A1", prompt: "Before a vowel, 'ne' contracts to what?", options: ["ni", "n'", "no", "na"], answer: "n'" },
+            { id: "fr-uq-a1-9-4", level: "A1", prompt: "Negate: 'Il est là.'", options: ["Il n'est pas là.", "Il est ne là.", "Il est là ne pas.", "Il ne là est pas."], answer: "Il n'est pas là." },
+            { id: "fr-uq-a1-9-5", level: "A1", prompt: "What does 'toujours' mean?", options: ["never", "sometimes", "often", "always"], answer: "always" },
+            { id: "fr-uq-a1-9-6", level: "A1", prompt: "What does 'souvent' mean?", options: ["rarely", "never", "often", "soon"], answer: "often" },
         ]
     },
     {
-        id: "fr-a1-u9",
+        id: "fr-a1-u10",
         level: "A1",
-        order: 9,
+        order: 10,
         title: "Question Formation",
         description: "Learn the three ways to ask questions in French: intonation, est-ce que, and inversion.",
         grammarIds: ["fr-g-a1-10"],
@@ -188,34 +221,12 @@ export const a1Units: LessonUnit[] = [
         ],
         verbIds: [],
         testQuestions: [
-            { id: "fr-uq-a1-9-1", level: "A1", prompt: "Which question method adds 'est-ce que' before the statement?", options: ["Inversion", "Intonation", "Est-ce que method", "Question words only"], answer: "Est-ce que method" },
-            { id: "fr-uq-a1-9-2", level: "A1", prompt: "How do you ask 'Where is the station?' using a question word?", options: ["Est-ce que la gare?", "Où est la gare?", "Qui est la gare?", "Quand est la gare?"], answer: "Où est la gare?" },
-            { id: "fr-uq-a1-9-3", level: "A1", prompt: "Which question method is the most formal?", options: ["Intonation", "Est-ce que", "Inversion", "All are equally formal"], answer: "Inversion" },
-            { id: "fr-uq-a1-9-4", level: "A1", prompt: "What does 'Qu'est-ce que tu fais?' mean?", options: ["Where are you going?", "What are you doing?", "Who are you?", "When do you leave?"], answer: "What are you doing?" },
-            { id: "fr-uq-a1-9-5", level: "A1", prompt: "What does 'l'hôpital' mean?", options: ["hotel", "hospital", "town hall", "school"], answer: "hospital" },
-            { id: "fr-uq-a1-9-6", level: "A1", prompt: "What does 'la gare' mean?", options: ["garage", "airport", "station", "bus stop"], answer: "station" },
-        ]
-    },
-    {
-        id: "fr-a1-u10",
-        level: "A1",
-        order: 10,
-        title: "Adjective Agreement",
-        description: "Learn how French adjectives must agree in gender and number with the noun they describe.",
-        grammarIds: ["fr-g-a1-11"],
-        vocabIds: [
-            "fr-v-a1-98", "fr-v-a1-99", "fr-v-a1-100", "fr-v-a1-101",
-            "fr-v-a1-102", "fr-v-a1-103", "fr-v-a1-159", "fr-v-a1-160",
-            "fr-v-a1-163", "fr-v-a1-164", "fr-v-a1-165"
-        ],
-        verbIds: [],
-        testQuestions: [
-            { id: "fr-uq-a1-10-1", level: "A1", prompt: "Feminine form of 'grand'?", options: ["grande", "grands", "grandez", "grandi"], answer: "grande" },
-            { id: "fr-uq-a1-10-2", level: "A1", prompt: "Feminine form of 'beau' (beautiful)?", options: ["beaux", "belles", "belle", "beau"], answer: "belle" },
-            { id: "fr-uq-a1-10-3", level: "A1", prompt: "Which adjective has the same form for both genders?", options: ["grand/grande", "bon/bonne", "facile", "beau/belle"], answer: "facile" },
-            { id: "fr-uq-a1-10-4", level: "A1", prompt: "Plural masculine form of 'petit'?", options: ["petits", "petites", "petite", "petit"], answer: "petits" },
-            { id: "fr-uq-a1-10-5", level: "A1", prompt: "What does 'bon' mean?", options: ["big", "bad", "good", "small"], answer: "good" },
-            { id: "fr-uq-a1-10-6", level: "A1", prompt: "What does 'rouge' mean?", options: ["blue", "green", "red", "white"], answer: "red" },
+            { id: "fr-uq-a1-10-1", level: "A1", prompt: "Which question method adds 'est-ce que' before the statement?", options: ["Inversion", "Intonation", "Est-ce que method", "Question words only"], answer: "Est-ce que method" },
+            { id: "fr-uq-a1-10-2", level: "A1", prompt: "How do you ask 'Where is the station?' using a question word?", options: ["Est-ce que la gare?", "Où est la gare?", "Qui est la gare?", "Quand est la gare?"], answer: "Où est la gare?" },
+            { id: "fr-uq-a1-10-3", level: "A1", prompt: "Which question method is the most formal?", options: ["Intonation", "Est-ce que", "Inversion", "All are equally formal"], answer: "Inversion" },
+            { id: "fr-uq-a1-10-4", level: "A1", prompt: "What does 'Qu'est-ce que tu fais?' mean?", options: ["Where are you going?", "What are you doing?", "Who are you?", "When do you leave?"], answer: "What are you doing?" },
+            { id: "fr-uq-a1-10-5", level: "A1", prompt: "What does 'l'hôpital' mean?", options: ["hotel", "hospital", "town hall", "school"], answer: "hospital" },
+            { id: "fr-uq-a1-10-6", level: "A1", prompt: "What does 'la gare' mean?", options: ["garage", "airport", "station", "bus stop"], answer: "station" },
         ]
     },
     {
@@ -226,29 +237,11 @@ export const a1Units: LessonUnit[] = [
         description: "Learn numbers 0–20, how to tell the time, and days of the week.",
         grammarIds: ["fr-g-a1-12"],
         vocabIds: [
-            // Numbers 0-20
-            "fr-v-a1-13",  // zéro
-            "fr-v-a1-14",  // un
-            "fr-v-a1-15",  // deux
-            "fr-v-a1-16",  // trois
-            "fr-v-a1-174", // quatre
-            "fr-v-a1-17",  // cinq
-            "fr-v-a1-175", // six
-            "fr-v-a1-176", // sept
-            "fr-v-a1-177", // huit
-            "fr-v-a1-178", // neuf
-            "fr-v-a1-18",  // dix
-            "fr-v-a1-19",  // onze
-            "fr-v-a1-179", // douze
-            "fr-v-a1-180", // treize
-            "fr-v-a1-181", // quatorze
-            "fr-v-a1-182", // quinze
-            "fr-v-a1-183", // seize
-            "fr-v-a1-184", // dix-sept
-            "fr-v-a1-185", // dix-huit
-            "fr-v-a1-186", // dix-neuf
-            "fr-v-a1-20",  // vingt
-            // Days of the week
+            "fr-v-a1-13", "fr-v-a1-14", "fr-v-a1-15", "fr-v-a1-16", "fr-v-a1-174",
+            "fr-v-a1-17", "fr-v-a1-175", "fr-v-a1-176", "fr-v-a1-177", "fr-v-a1-178",
+            "fr-v-a1-18", "fr-v-a1-19", "fr-v-a1-179", "fr-v-a1-180", "fr-v-a1-181",
+            "fr-v-a1-182", "fr-v-a1-183", "fr-v-a1-184", "fr-v-a1-185", "fr-v-a1-186",
+            "fr-v-a1-20",
             "fr-v-a1-28", "fr-v-a1-29", "fr-v-a1-30", "fr-v-a1-31",
             "fr-v-a1-32", "fr-v-a1-33", "fr-v-a1-34",
         ],
@@ -270,19 +263,9 @@ export const a1Units: LessonUnit[] = [
         description: "Learn the tens up to 100 — including the tricky 70-90 system — plus months of the year and seasons.",
         grammarIds: ["fr-g-a1-19"],
         vocabIds: [
-            // Numbers 20-100
-            "fr-v-a1-20",  // vingt
-            "fr-v-a1-21",  // trente
-            "fr-v-a1-22",  // quarante
-            "fr-v-a1-23",  // cinquante
-            "fr-v-a1-24",  // soixante
-            "fr-v-a1-25",  // soixante-dix
-            "fr-v-a1-26",  // quatre-vingts
-            "fr-v-a1-187", // quatre-vingt-dix
-            "fr-v-a1-27",  // cent
-            // Months
+            "fr-v-a1-20", "fr-v-a1-21", "fr-v-a1-22", "fr-v-a1-23", "fr-v-a1-24",
+            "fr-v-a1-25", "fr-v-a1-26", "fr-v-a1-187", "fr-v-a1-27",
             "fr-v-a1-35", "fr-v-a1-36", "fr-v-a1-37",
-            // Seasons
             "fr-v-a1-38", "fr-v-a1-39", "fr-v-a1-40", "fr-v-a1-41",
         ],
         verbIds: [],
@@ -370,15 +353,9 @@ export const a1Units: LessonUnit[] = [
         description: "Learn the second major verb group in French. Regular -ir verbs add -iss- in the plural — once you know the pattern, they're very predictable.",
         grammarIds: ["fr-g-a1-15"],
         vocabIds: [
-            "fr-v-a1-117", // l'école
-            "fr-v-a1-118", // l'université
-            "fr-v-a1-116", // le travail
-            "fr-v-a1-106", // le t-shirt
-            "fr-v-a1-107", // le pantalon
-            "fr-v-a1-108", // la robe
-            "fr-v-a1-109", // la veste
-            "fr-v-a1-110", // les chaussures
-            "fr-v-a1-111", // le manteau
+            "fr-v-a1-117", "fr-v-a1-118", "fr-v-a1-116",
+            "fr-v-a1-106", "fr-v-a1-107", "fr-v-a1-108",
+            "fr-v-a1-109", "fr-v-a1-110", "fr-v-a1-111",
         ],
         verbIds: ["fr-vb-a1-14", "fr-vb-a1-15", "fr-vb-a1-16"],
         testQuestions: [
@@ -398,15 +375,8 @@ export const a1Units: LessonUnit[] = [
         description: "Complete your knowledge of the three French verb groups. Regular -re verbs have a key quirk: the il/elle form has no ending at all.",
         grammarIds: ["fr-g-a1-16"],
         vocabIds: [
-            "fr-v-a1-120", // le magasin
-            "fr-v-a1-121", // le supermarché
-            "fr-v-a1-68",  // le pain
-            "fr-v-a1-69",  // le beurre
-            "fr-v-a1-70",  // le lait
-            "fr-v-a1-71",  // les œufs
-            "fr-v-a1-72",  // le sucre
-            "fr-v-a1-73",  // le sel
-            "fr-v-a1-74",  // le riz
+            "fr-v-a1-120", "fr-v-a1-121", "fr-v-a1-68", "fr-v-a1-69",
+            "fr-v-a1-70", "fr-v-a1-71", "fr-v-a1-72", "fr-v-a1-73", "fr-v-a1-74",
         ],
         verbIds: ["fr-vb-a1-17", "fr-vb-a1-18", "fr-vb-a1-19"],
         testQuestions: [
@@ -426,21 +396,10 @@ export const a1Units: LessonUnit[] = [
         description: "Learn to say what you like, dislike, and prefer — one of the most essential skills in everyday French conversation.",
         grammarIds: ["fr-g-a1-17"],
         vocabIds: [
-            "fr-v-a1-65",  // le café
-            "fr-v-a1-66",  // le thé
-            "fr-v-a1-75",  // le fromage
-            "fr-v-a1-76",  // la viande
-            "fr-v-a1-78",  // les légumes
-            "fr-v-a1-79",  // les fruits
-            "fr-v-a1-82",  // la nourriture
-            "fr-v-a1-83",  // le restaurant
-            "fr-v-a1-152", // souvent
-            "fr-v-a1-153", // toujours
-            "fr-v-a1-154", // jamais
-            "fr-v-a1-166", // facile
-            "fr-v-a1-167", // difficile
-            "fr-v-a1-170", // content/contente
-            "fr-v-a1-172", // sympa
+            "fr-v-a1-65", "fr-v-a1-66", "fr-v-a1-75", "fr-v-a1-76",
+            "fr-v-a1-78", "fr-v-a1-79", "fr-v-a1-82", "fr-v-a1-83",
+            "fr-v-a1-152", "fr-v-a1-153", "fr-v-a1-154",
+            "fr-v-a1-166", "fr-v-a1-167", "fr-v-a1-170", "fr-v-a1-172",
         ],
         verbIds: ["fr-vb-a1-6"],
         testQuestions: [
