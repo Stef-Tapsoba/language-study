@@ -156,56 +156,161 @@ function VerbCard({ verb, langId }: Readonly<{ verb: Verb; langId: string }>) {
 }
 
 // ---------------------------------------------------------------------------
-// TestOutTab — encapsulates all quiz state and phase rendering
+// MistakeReview — collapsible wrong-answer list shown on the done screen
+// ---------------------------------------------------------------------------
+function MistakeReview({ missed }: Readonly<{ missed: MissedItem[] }>) {
+    const [open, setOpen] = useState(false)
+    return (
+        <div className="w-full bg-white border border-gray-200 rounded-2xl overflow-hidden">
+            <button
+                onClick={() => setOpen(o => !o)}
+                className="w-full px-5 py-3 flex items-center justify-between text-sm font-medium text-gray-700"
+            >
+                <span>Review mistakes ({missed.length})</span>
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    className={`w-4 h-4 text-gray-400 transition-transform ${open ? "rotate-180" : ""}`}
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+            {open && (
+                <div className="border-t border-gray-100 divide-y divide-gray-100">
+                    {missed.map((m) => (
+                        <div key={`${m.prompt}|${m.yourAnswer}`} className="px-5 py-3 text-left text-sm">
+                            <p className="text-gray-500 mb-1">{m.prompt}</p>
+                            <p className="text-green-700 font-medium">✓ {m.correct}</p>
+                            <p className="text-red-500">✗ {m.yourAnswer}</p>
+                        </div>
+                    ))}
+                </div>
+            )}
+        </div>
+    )
+}
+
+// ---------------------------------------------------------------------------
+// TestDoneScreen — result view after the quiz finishes
+// ---------------------------------------------------------------------------
+function TestDoneScreen({ score, total, passThreshold, missed, isMastered, didComplete,
+    isLastUnit, nextUnit, level, ui, onComplete, onReset, onBack, onNavigateNext, onNavigateLevelTest }: Readonly<{
+    score: number; total: number; passThreshold: number; missed: MissedItem[]
+    isMastered: boolean; didComplete: boolean; isLastUnit: boolean; nextUnit: LessonUnit | null
+    level: CEFRLevel; ui: UIStrings
+    onComplete: () => void; onReset: () => void; onBack: () => void
+    onNavigateNext: (id: string) => void; onNavigateLevelTest: () => void
+}>) {
+    const passed = score >= passThreshold
+    return (
+        <div className="flex flex-col items-center gap-6 py-8 max-w-sm mx-auto text-center">
+            <div className="text-5xl">{passed ? "🏆" : "📚"}</div>
+            <h3 className="text-xl font-bold text-gray-900">
+                {passed ? ui.unitComplete : ui.keepStudying}
+            </h3>
+            <p className="text-gray-600">
+                {fmt(ui.youAnswered, { score, total })}{" "}
+                ({Math.round((score / total) * 100)}%)
+            </p>
+
+            {missed.length > 0 && <MistakeReview missed={missed} />}
+
+            <div className="w-full bg-white border border-gray-200 rounded-2xl p-5 flex flex-col gap-3">
+                {passed && !isMastered && !didComplete && (
+                    <button onClick={onComplete}
+                        className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl py-2.5 text-sm transition-colors">
+                        {ui.markUnitComplete}
+                    </button>
+                )}
+                {passed && (isMastered || didComplete) && (
+                    <>
+                        {isLastUnit && (
+                            <button onClick={onNavigateLevelTest}
+                                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-2.5 text-sm transition-colors">
+                                Take the {level} Level Test →
+                            </button>
+                        )}
+                        {!isLastUnit && nextUnit && (
+                            <button onClick={() => onNavigateNext(nextUnit.id)}
+                                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-2.5 text-sm transition-colors">
+                                Next: {nextUnit.title} →
+                            </button>
+                        )}
+                        <button onClick={onBack}
+                            className="w-full border border-gray-200 text-gray-600 font-semibold rounded-xl py-2.5 text-sm transition-colors hover:bg-gray-50">
+                            {ui.backToDashboard}
+                        </button>
+                    </>
+                )}
+                {!passed && (
+                    <>
+                        <p className="text-xs text-gray-500">
+                            You need {passThreshold} correct to complete this unit. Review the content and try again.
+                        </p>
+                        <button onClick={onReset}
+                            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-2.5 text-sm transition-colors">
+                            {ui.tryAgain}
+                        </button>
+                        <button onClick={onBack}
+                            className="w-full border border-gray-200 text-gray-600 font-semibold rounded-xl py-2.5 text-sm transition-colors hover:bg-gray-50">
+                            {ui.backToDashboard}
+                        </button>
+                    </>
+                )}
+            </div>
+        </div>
+    )
+}
+
+// ---------------------------------------------------------------------------
+// TestOutTab — quiz state machine; delegates phase rendering to sub-components
 // ---------------------------------------------------------------------------
 type QuizPhase = "start" | "playing" | "done"
 
-function TestOutTab({ unit, langId, isMastered, ui, onMastered, onBack }: Readonly<{
+interface MissedItem { prompt: string; correct: string; yourAnswer: string }
+
+function TestOutTab({ unit, langId, isMastered, nextUnit, isLastUnit, ui, onMastered, onBack, onNavigateNext, onNavigateLevelTest }: Readonly<{
     unit: LessonUnit
     langId: string
     isMastered: boolean
+    nextUnit: LessonUnit | null
+    isLastUnit: boolean
     ui: UIStrings
     onMastered: () => void
     onBack: () => void
+    onNavigateNext: (unitId: string) => void
+    onNavigateLevelTest: () => void
 }>) {
     const [phase, setPhase] = useState<QuizPhase>("start")
     const [qIdx, setQIdx] = useState(0)
     const [selected, setSelected] = useState<string | null>(null)
     const [revealed, setRevealed] = useState(false)
     const [score, setScore] = useState(0)
+    const [missed, setMissed] = useState<MissedItem[]>([])
+    const [didComplete, setDidComplete] = useState(false)
 
     const questions = unit.testQuestions
     const passThreshold = Math.ceil(questions.length * 0.8)
 
-    function handleSelect(opt: string) {
-        setSelected(opt)
-        setRevealed(true)
-    }
+    function handleSelect(opt: string) { setSelected(opt); setRevealed(true) }
 
     function handleNext() {
-        const newScore = score + (selected === questions[qIdx].answer ? 1 : 0)
+        const correct = selected === questions[qIdx].answer
+        if (!correct && selected) {
+            setMissed(m => [...m, { prompt: questions[qIdx].prompt, correct: questions[qIdx].answer, yourAnswer: selected }])
+        }
+        const newScore = score + (correct ? 1 : 0)
         if (qIdx + 1 >= questions.length) {
-            setScore(newScore)
-            setPhase("done")
+            setScore(newScore); setPhase("done")
         } else {
-            setScore(newScore)
-            setQIdx(i => i + 1)
-            setSelected(null)
-            setRevealed(false)
+            setScore(newScore); setQIdx(i => i + 1); setSelected(null); setRevealed(false)
         }
     }
 
     function handleReset() {
-        setQIdx(0); setScore(0)
-        setSelected(null); setRevealed(false)
-        setPhase("start")
+        setQIdx(0); setScore(0); setSelected(null); setRevealed(false)
+        setMissed([]); setDidComplete(false); setPhase("start")
     }
 
-    function handleComplete() {
-        masterUnit(langId, unit.id)
-        onMastered()
-        onBack()
-    }
+    function handleComplete() { masterUnit(langId, unit.id); onMastered(); setDidComplete(true) }
 
     if (!questions.length) {
         return (
@@ -244,55 +349,14 @@ function TestOutTab({ unit, langId, isMastered, ui, onMastered, onBack }: Readon
     }
 
     if (phase === "done") {
-        const passed = score >= passThreshold
         return (
-            <div className="flex flex-col items-center gap-6 py-8 max-w-sm mx-auto text-center">
-                <div className="text-5xl">{passed ? "🏆" : "📚"}</div>
-                <h3 className="text-xl font-bold text-gray-900">
-                    {passed ? ui.unitComplete : ui.keepStudying}
-                </h3>
-                <p className="text-gray-600">
-                    {fmt(ui.youAnswered, { score, total: questions.length })}{" "}
-                    ({Math.round((score / questions.length) * 100)}%)
-                </p>
-                <div className="w-full bg-white border border-gray-200 rounded-2xl p-5 flex flex-col gap-3">
-                    {passed && !isMastered && (
-                        <button
-                            onClick={handleComplete}
-                            className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl py-2.5 text-sm transition-colors"
-                        >
-                            {ui.markUnitComplete}
-                        </button>
-                    )}
-                    {passed && isMastered && (
-                        <button
-                            onClick={onBack}
-                            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-2.5 text-sm transition-colors"
-                        >
-                            {ui.backToDashboard}
-                        </button>
-                    )}
-                    {!passed && (
-                        <>
-                            <p className="text-xs text-gray-500">
-                                You need {passThreshold} correct to complete this unit. Review the content and try again.
-                            </p>
-                            <button
-                                onClick={handleReset}
-                                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-2.5 text-sm transition-colors"
-                            >
-                                {ui.tryAgain}
-                            </button>
-                            <button
-                                onClick={onBack}
-                                className="w-full border border-gray-200 text-gray-600 font-semibold rounded-xl py-2.5 text-sm transition-colors hover:bg-gray-50"
-                            >
-                                {ui.backToDashboard}
-                            </button>
-                        </>
-                    )}
-                </div>
-            </div>
+            <TestDoneScreen
+                score={score} total={questions.length} passThreshold={passThreshold} missed={missed}
+                isMastered={isMastered} didComplete={didComplete} isLastUnit={isLastUnit} nextUnit={nextUnit}
+                level={unit.level} ui={ui}
+                onComplete={handleComplete} onReset={handleReset} onBack={onBack}
+                onNavigateNext={onNavigateNext} onNavigateLevelTest={onNavigateLevelTest}
+            />
         )
     }
 
@@ -384,7 +448,10 @@ export function UnitPage() {
 
     const isLocked = !isUnitUnlocked(langId, unit.id, units)
     const isMastered = mastered.includes(unit.id)
-    const totalUnits = units.filter(u => u.level === unit.level).length
+    const levelUnits = units.filter(u => u.level === unit.level).sort((a, b) => a.order - b.order)
+    const totalUnits = levelUnits.length
+    const isLastUnit = unit.order === totalUnits
+    const nextUnit = levelUnits.find(u => u.order === unit.order + 1) ?? null
 
     if (isLocked) {
         return (
@@ -534,9 +601,13 @@ export function UnitPage() {
                         unit={unit}
                         langId={langId}
                         isMastered={isMastered}
+                        nextUnit={nextUnit}
+                        isLastUnit={isLastUnit}
                         ui={ui}
                         onMastered={() => setMastered(getMasteredUnits(langId))}
                         onBack={() => navigate(`/learn/${langId}`)}
+                        onNavigateNext={(id) => navigate(`/learn/${langId}/unit/${id}`)}
+                        onNavigateLevelTest={() => navigate(`/learn/${langId}/level-test`)}
                     />
                 )}
             </main>

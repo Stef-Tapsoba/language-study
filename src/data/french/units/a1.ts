@@ -1,7 +1,7 @@
 // src/data/french/units/a1.ts
 import { LessonUnit } from "../../../types"
 
-// 15 ordered A1 units for French.
+// 19 ordered A1 units for French.
 // Each unit builds on the previous. Unit N+1 unlocks when unit N is mastered.
 // futur proche (fr-g-a1-13) is the A1 bridge — the last unit before A2.
 
@@ -127,7 +127,7 @@ export const a1Units: LessonUnit[] = [
         testQuestions: [
             { id: "fr-uq-a1-6-1", level: "A1", prompt: "Complete: 'Je ___ au marché.'", options: ["vas", "vont", "vais", "allons"], answer: "vais" },
             { id: "fr-uq-a1-6-2", level: "A1", prompt: "Complete: 'Ils ___ au cinéma.'", options: ["allons", "allez", "vont", "va"], answer: "vont" },
-            { id: "fr-uq-a1-6-3", level: "A1", prompt: "How do you say 'Turn left'?", options: ["Allez tout droit.", "Tournez à droite.", "Tournez à gauche.", "Revenez en arrière."], answer: "Tournez à gauche." },
+            { id: "fr-uq-a1-6-3", level: "A1", prompt: "What does 'à gauche' mean?", options: ["straight ahead", "to the right", "behind", "to the left"], answer: "to the left" },
             { id: "fr-uq-a1-6-4", level: "A1", prompt: "What does 'tout droit' mean?", options: ["turn right", "straight ahead", "on the left", "behind"], answer: "straight ahead" },
             { id: "fr-uq-a1-6-5", level: "A1", prompt: "How do you say 'Is it far from here?'", options: ["C'est près d'ici?", "C'est loin d'ici?", "C'est à côté?", "C'est en face?"], answer: "C'est loin d'ici?" },
             { id: "fr-uq-a1-6-6", level: "A1", prompt: "Complete: 'Vous ___ bien?' (aller — greeting)", options: ["faites", "êtes", "avez", "allez"], answer: "allez" },
@@ -222,39 +222,86 @@ export const a1Units: LessonUnit[] = [
         id: "fr-a1-u11",
         level: "A1",
         order: 11,
-        title: "Numbers, Time & Calendar",
-        description: "Learn numbers 0–100, how to tell the time, and vocabulary for days, months, and seasons.",
+        title: "Numbers 1-20 & Telling Time",
+        description: "Learn numbers 0–20, how to tell the time, and days of the week.",
         grammarIds: ["fr-g-a1-12"],
         vocabIds: [
-            // Numbers
-            "fr-v-a1-13", "fr-v-a1-14", "fr-v-a1-15", "fr-v-a1-16", "fr-v-a1-17",
-            "fr-v-a1-18", "fr-v-a1-19", "fr-v-a1-20", "fr-v-a1-21", "fr-v-a1-22",
-            "fr-v-a1-23", "fr-v-a1-24", "fr-v-a1-25", "fr-v-a1-26", "fr-v-a1-27",
+            // Numbers 0-20
+            "fr-v-a1-13",  // zéro
+            "fr-v-a1-14",  // un
+            "fr-v-a1-15",  // deux
+            "fr-v-a1-16",  // trois
+            "fr-v-a1-174", // quatre
+            "fr-v-a1-17",  // cinq
+            "fr-v-a1-175", // six
+            "fr-v-a1-176", // sept
+            "fr-v-a1-177", // huit
+            "fr-v-a1-178", // neuf
+            "fr-v-a1-18",  // dix
+            "fr-v-a1-19",  // onze
+            "fr-v-a1-179", // douze
+            "fr-v-a1-180", // treize
+            "fr-v-a1-181", // quatorze
+            "fr-v-a1-182", // quinze
+            "fr-v-a1-183", // seize
+            "fr-v-a1-184", // dix-sept
+            "fr-v-a1-185", // dix-huit
+            "fr-v-a1-186", // dix-neuf
+            "fr-v-a1-20",  // vingt
             // Days of the week
             "fr-v-a1-28", "fr-v-a1-29", "fr-v-a1-30", "fr-v-a1-31",
             "fr-v-a1-32", "fr-v-a1-33", "fr-v-a1-34",
-            // Months (3 representative entries — full set if you add the missing months)
-            "fr-v-a1-35", "fr-v-a1-36", "fr-v-a1-37",
-            // Seasons
-            "fr-v-a1-38", "fr-v-a1-39", "fr-v-a1-40", "fr-v-a1-41",
         ],
         verbIds: [],
         testQuestions: [
             { id: "fr-uq-a1-11-1", level: "A1", prompt: "How do you say 'It is half past three'?", options: ["Il est trois heures et quart.", "Il est trois heures et demie.", "Il est trois heures moins le quart.", "Il est trois heures."], answer: "Il est trois heures et demie." },
-            { id: "fr-uq-a1-11-2", level: "A1", prompt: "What is 70 in French?", options: ["soixante", "quatre-vingts", "soixante-dix", "septante"], answer: "soixante-dix" },
-            { id: "fr-uq-a1-11-3", level: "A1", prompt: "What is 80 in French?", options: ["soixante-dix", "quatre-vingt-dix", "quatre-vingts", "huitante"], answer: "quatre-vingts" },
+            { id: "fr-uq-a1-11-2", level: "A1", prompt: "What is 'quinze' in English?", options: ["twelve", "thirteen", "sixteen", "fifteen"], answer: "fifteen" },
+            { id: "fr-uq-a1-11-3", level: "A1", prompt: "How do you say 'It is seven o'clock'?", options: ["Il est sept heures.", "Il est sept heure.", "Il fait sept heures.", "C'est sept heures."], answer: "Il est sept heures." },
             { id: "fr-uq-a1-11-4", level: "A1", prompt: "What day comes after mardi?", options: ["lundi", "jeudi", "mercredi", "vendredi"], answer: "mercredi" },
-            { id: "fr-uq-a1-11-5", level: "A1", prompt: "What season is 'l'hiver'?", options: ["spring", "summer", "autumn", "winter"], answer: "winter" },
-            { id: "fr-uq-a1-11-6", level: "A1", prompt: "How do you say 'I am twenty years old'?", options: ["J'ai vingt ans.", "Je suis vingt ans.", "J'ai vingt années.", "Je fais vingt ans."], answer: "J'ai vingt ans." },
+            { id: "fr-uq-a1-11-5", level: "A1", prompt: "How do you say 'I am nineteen years old'?", options: ["J'ai dix-neuf ans.", "Je suis dix-neuf ans.", "J'ai dix-neuf années.", "Je fais dix-neuf ans."], answer: "J'ai dix-neuf ans." },
+            { id: "fr-uq-a1-11-6", level: "A1", prompt: "What is special about telling the time for 1 o'clock?", options: ["Use 'un heure'", "Use 'une heure' (feminine)", "Use 'midi'", "Use 'il fait'"], answer: "Use 'une heure' (feminine)" },
         ]
     },
     {
         id: "fr-a1-u12",
         level: "A1",
         order: 12,
+        title: "Numbers 20-100, Months & Seasons",
+        description: "Learn the tens up to 100 — including the tricky 70-90 system — plus months of the year and seasons.",
+        grammarIds: ["fr-g-a1-19"],
+        vocabIds: [
+            // Numbers 20-100
+            "fr-v-a1-20",  // vingt
+            "fr-v-a1-21",  // trente
+            "fr-v-a1-22",  // quarante
+            "fr-v-a1-23",  // cinquante
+            "fr-v-a1-24",  // soixante
+            "fr-v-a1-25",  // soixante-dix
+            "fr-v-a1-26",  // quatre-vingts
+            "fr-v-a1-187", // quatre-vingt-dix
+            "fr-v-a1-27",  // cent
+            // Months
+            "fr-v-a1-35", "fr-v-a1-36", "fr-v-a1-37",
+            // Seasons
+            "fr-v-a1-38", "fr-v-a1-39", "fr-v-a1-40", "fr-v-a1-41",
+        ],
+        verbIds: [],
+        testQuestions: [
+            { id: "fr-uq-a1-12-1", level: "A1", prompt: "What is 70 in French?", options: ["soixante", "quatre-vingts", "soixante-dix", "septante"], answer: "soixante-dix" },
+            { id: "fr-uq-a1-12-2", level: "A1", prompt: "What is 80 in French?", options: ["soixante-dix", "quatre-vingt-dix", "quatre-vingts", "huitante"], answer: "quatre-vingts" },
+            { id: "fr-uq-a1-12-3", level: "A1", prompt: "Why is 'quatre-vingt-cinq' written without -s on vingt?", options: ["It is always without -s", "The -s disappears when followed by another number", "It is an exception", "vingt never takes -s"], answer: "The -s disappears when followed by another number" },
+            { id: "fr-uq-a1-12-4", level: "A1", prompt: "What season is 'l'hiver'?", options: ["spring", "summer", "autumn", "winter"], answer: "winter" },
+            { id: "fr-uq-a1-12-5", level: "A1", prompt: "How do you say 'in summer'?", options: ["au été", "en été", "dans l'été", "en l'été"], answer: "en été" },
+            { id: "fr-uq-a1-12-6", level: "A1", prompt: "How do you say 'in spring'?", options: ["en printemps", "au printemps", "dans printemps", "en le printemps"], answer: "au printemps" },
+        ]
+    },
+    {
+        id: "fr-a1-u13",
+        level: "A1",
+        order: 13,
         title: "Family & Relationships",
-        description: "Learn vocabulary for family members and close relationships.",
-        grammarIds: [],
+        description: "Learn vocabulary for family members and close relationships, plus possessive adjectives to talk about whose is whose.",
+        grammarIds: ["fr-g-a1-21"],
         vocabIds: [
             "fr-v-a1-48", "fr-v-a1-49", "fr-v-a1-50", "fr-v-a1-51", "fr-v-a1-52",
             "fr-v-a1-53", "fr-v-a1-54", "fr-v-a1-55", "fr-v-a1-56", "fr-v-a1-57",
@@ -262,21 +309,21 @@ export const a1Units: LessonUnit[] = [
         ],
         verbIds: [],
         testQuestions: [
-            { id: "fr-uq-a1-12-1", level: "A1", prompt: "What does 'la mère' mean?", options: ["the sister", "the mother", "the daughter", "the grandmother"], answer: "the mother" },
-            { id: "fr-uq-a1-12-2", level: "A1", prompt: "What does 'le frère' mean?", options: ["the father", "the son", "the brother", "the husband"], answer: "the brother" },
-            { id: "fr-uq-a1-12-3", level: "A1", prompt: "What does 'les parents' mean?", options: ["the relatives", "the siblings", "the parents", "the grandparents"], answer: "the parents" },
-            { id: "fr-uq-a1-12-4", level: "A1", prompt: "How do you say 'My family is big'?", options: ["Ma famille est grande.", "Mon famille est grand.", "La famille mienne est grande.", "Ma famille est gros."], answer: "Ma famille est grande." },
-            { id: "fr-uq-a1-12-5", level: "A1", prompt: "What does 'l'enfant' mean?", options: ["the adult", "the child", "the teenager", "the baby"], answer: "the child" },
-            { id: "fr-uq-a1-12-6", level: "A1", prompt: "What does 'le voisin' mean?", options: ["the friend", "the colleague", "the neighbour", "the cousin"], answer: "the neighbour" },
+            { id: "fr-uq-a1-13-1", level: "A1", prompt: "What does 'la mère' mean?", options: ["the sister", "the mother", "the daughter", "the grandmother"], answer: "the mother" },
+            { id: "fr-uq-a1-13-2", level: "A1", prompt: "What does 'le frère' mean?", options: ["the father", "the son", "the brother", "the husband"], answer: "the brother" },
+            { id: "fr-uq-a1-13-3", level: "A1", prompt: "What does 'les parents' mean?", options: ["the relatives", "the siblings", "the parents", "the grandparents"], answer: "the parents" },
+            { id: "fr-uq-a1-13-4", level: "A1", prompt: "How do you say 'My family is big'?", options: ["Ma famille est grande.", "Mon famille est grand.", "La famille mienne est grande.", "Ma famille est gros."], answer: "Ma famille est grande." },
+            { id: "fr-uq-a1-13-5", level: "A1", prompt: "Which possessive adjective replaces 'ma' before a vowel?", options: ["ma", "me", "mon", "mes"], answer: "mon" },
+            { id: "fr-uq-a1-13-6", level: "A1", prompt: "How do you say 'his mother' and 'her mother'?", options: ["son mère / sa mère", "sa mère (both)", "son mère (both)", "leur mère (both)"], answer: "sa mère (both)" },
         ]
     },
     {
-        id: "fr-a1-u13",
+        id: "fr-a1-u14",
         level: "A1",
-        order: 13,
+        order: 14,
         title: "Food, Café & Shopping",
         description: "Learn vocabulary for food, drinks, and ordering at a café or restaurant.",
-        grammarIds: [],
+        grammarIds: ["fr-g-a1-20"],
         vocabIds: [
             "fr-v-a1-63", "fr-v-a1-64", "fr-v-a1-65", "fr-v-a1-66", "fr-v-a1-67",
             "fr-v-a1-68", "fr-v-a1-69", "fr-v-a1-70", "fr-v-a1-71", "fr-v-a1-72",
@@ -285,21 +332,21 @@ export const a1Units: LessonUnit[] = [
         ],
         verbIds: ["fr-vb-a1-6", "fr-vb-a1-7", "fr-vb-a1-8", "fr-vb-a1-9", "fr-vb-a1-11"],
         testQuestions: [
-            { id: "fr-uq-a1-13-1", level: "A1", prompt: "How do you ask for the bill?", options: ["La carte, s'il vous plaît.", "L'addition, s'il vous plaît.", "Le menu, s'il vous plaît.", "Commander, s'il vous plaît."], answer: "L'addition, s'il vous plaît." },
-            { id: "fr-uq-a1-13-2", level: "A1", prompt: "What does 'le fromage' mean?", options: ["fish", "meat", "bread", "cheese"], answer: "cheese" },
-            { id: "fr-uq-a1-13-3", level: "A1", prompt: "How do you say 'I would like a coffee'?", options: ["Je veux un café.", "Je voudrais un café.", "Je fais un café.", "J'ai un café."], answer: "Je voudrais un café." },
-            { id: "fr-uq-a1-13-4", level: "A1", prompt: "What does 'commander' mean?", options: ["to pay", "to leave", "to order", "to reserve"], answer: "to order" },
-            { id: "fr-uq-a1-13-5", level: "A1", prompt: "What does 'délicieux' mean?", options: ["cheap", "delicious", "fresh", "cold"], answer: "delicious" },
-            { id: "fr-uq-a1-13-6", level: "A1", prompt: "What does 'la carte' mean in a restaurant context?", options: ["the bill", "the address", "the menu", "the table"], answer: "the menu" },
+            { id: "fr-uq-a1-14-1", level: "A1", prompt: "How do you ask for the bill?", options: ["La carte, s'il vous plaît.", "L'addition, s'il vous plaît.", "Le menu, s'il vous plaît.", "Commander, s'il vous plaît."], answer: "L'addition, s'il vous plaît." },
+            { id: "fr-uq-a1-14-2", level: "A1", prompt: "What does 'le fromage' mean?", options: ["fish", "meat", "bread", "cheese"], answer: "cheese" },
+            { id: "fr-uq-a1-14-3", level: "A1", prompt: "Which phrase is more polite when ordering?", options: ["Je veux un café.", "Je voudrais un café.", "Je fais un café.", "J'ai un café."], answer: "Je voudrais un café." },
+            { id: "fr-uq-a1-14-4", level: "A1", prompt: "What does 'commander' mean?", options: ["to pay", "to leave", "to order", "to reserve"], answer: "to order" },
+            { id: "fr-uq-a1-14-5", level: "A1", prompt: "What does 'délicieux' mean?", options: ["cheap", "delicious", "fresh", "cold"], answer: "delicious" },
+            { id: "fr-uq-a1-14-6", level: "A1", prompt: "What does 'la carte' mean in a restaurant context?", options: ["the bill", "the address", "the menu", "the table"], answer: "the menu" },
         ]
     },
     {
-        id: "fr-a1-u14",
+        id: "fr-a1-u15",
         level: "A1",
-        order: 14,
+        order: 15,
         title: "Places & Daily Routine",
-        description: "Learn vocabulary for places in the city and expressions for daily life and routine.",
-        grammarIds: [],
+        description: "Learn vocabulary for places in the city, plus prepositions for location (à, dans, en, sur, près de…).",
+        grammarIds: ["fr-g-a1-22"],
         vocabIds: [
             "fr-v-a1-114", "fr-v-a1-115", "fr-v-a1-116", "fr-v-a1-117", "fr-v-a1-118",
             "fr-v-a1-119", "fr-v-a1-120", "fr-v-a1-121", "fr-v-a1-122", "fr-v-a1-123",
@@ -307,44 +354,78 @@ export const a1Units: LessonUnit[] = [
         ],
         verbIds: ["fr-vb-a1-13"],
         testQuestions: [
-            { id: "fr-uq-a1-14-1", level: "A1", prompt: "What does 'la gare' mean?", options: ["the garage", "the airport", "the train station", "the bus stop"], answer: "the train station" },
-            { id: "fr-uq-a1-14-2", level: "A1", prompt: "What does 'le centre-ville' mean?", options: ["city hall", "shopping centre", "town centre", "downtown park"], answer: "town centre" },
-            { id: "fr-uq-a1-14-3", level: "A1", prompt: "What does 'la banque' mean?", options: ["the bakery", "the bank", "the bench", "the shop"], answer: "the bank" },
-            { id: "fr-uq-a1-14-4", level: "A1", prompt: "How do you say 'I work in an office'?", options: ["Je travaille dans un magasin.", "Je travaille dans un bureau.", "Je travaille dans une école.", "Je travaille dans un hôpital."], answer: "Je travaille dans un bureau." },
-            { id: "fr-uq-a1-14-5", level: "A1", prompt: "What does 'le parc' mean?", options: ["the car park", "the park", "the square", "the garden"], answer: "the park" },
-            { id: "fr-uq-a1-14-6", level: "A1", prompt: "What does 'la rue' mean?", options: ["the road sign", "the roundabout", "the street", "the square"], answer: "the street" },
-        ]
-    },
-    {
-        id: "fr-a1-u15",
-        level: "A1",
-        order: 17,
-        title: "Bridge: Le Futur Proche",
-        description: "Learn to talk about planned future actions using aller + infinitive — the most common future structure in French.",
-        grammarIds: ["fr-g-a1-13"],
-        vocabIds: [
-            "fr-v-a1-42", "fr-v-a1-43", "fr-v-a1-44", "fr-v-a1-45", "fr-v-a1-46", "fr-v-a1-47",
-            "fr-v-a1-156", "fr-v-a1-157", "fr-v-a1-158"
-        ],
-        verbIds: ["fr-vb-a1-12"],
-        testQuestions: [
-            { id: "fr-uq-a1-15-1", level: "A1", prompt: "How is the futur proche formed?", options: ["Present of avoir + infinitive", "Present of être + infinitive", "Present of aller + infinitive", "Present of faire + infinitive"], answer: "Present of aller + infinitive" },
-            { id: "fr-uq-a1-15-2", level: "A1", prompt: "Complete: 'Je ___ manger ce soir.' (futur proche)", options: ["vais", "suis", "fais", "ai"], answer: "vais" },
-            { id: "fr-uq-a1-15-3", level: "A1", prompt: "How do you say 'We are going to visit Paris'?", options: ["Nous visitons Paris.", "Nous allons visiter Paris.", "Nous faisons visiter Paris.", "Nous avons visité Paris."], answer: "Nous allons visiter Paris." },
-            { id: "fr-uq-a1-15-4", level: "A1", prompt: "What does 'demain' mean?", options: ["yesterday", "now", "tomorrow", "soon"], answer: "tomorrow" },
-            { id: "fr-uq-a1-15-5", level: "A1", prompt: "Complete: 'Il ___ pleuvoir demain.' (futur proche)", options: ["fait", "va", "est", "a"], answer: "va" },
-            { id: "fr-uq-a1-15-6", level: "A1", prompt: "What does 'bientôt' mean?", options: ["already", "soon", "now", "still"], answer: "soon" },
+            { id: "fr-uq-a1-15-1", level: "A1", prompt: "What does 'la gare' mean?", options: ["the garage", "the airport", "the train station", "the bus stop"], answer: "the train station" },
+            { id: "fr-uq-a1-15-2", level: "A1", prompt: "What does 'le centre-ville' mean?", options: ["city hall", "shopping centre", "town centre", "downtown park"], answer: "town centre" },
+            { id: "fr-uq-a1-15-3", level: "A1", prompt: "What does 'la banque' mean?", options: ["the bakery", "the bank", "the bench", "the shop"], answer: "the bank" },
+            { id: "fr-uq-a1-15-4", level: "A1", prompt: "How do you say 'I work in an office'?", options: ["Je travaille dans un magasin.", "Je travaille dans un bureau.", "Je travaille dans une école.", "Je travaille dans un hôpital."], answer: "Je travaille dans un bureau." },
+            { id: "fr-uq-a1-15-5", level: "A1", prompt: "What does 'le parc' mean?", options: ["the car park", "the park", "the square", "the garden"], answer: "the park" },
+            { id: "fr-uq-a1-15-6", level: "A1", prompt: "What does 'la rue' mean?", options: ["the road sign", "the roundabout", "the street", "the square"], answer: "the street" },
         ]
     },
     {
         id: "fr-a1-u16",
         level: "A1",
         order: 16,
+        title: "Present Tense: -ir Verbs",
+        description: "Learn the second major verb group in French. Regular -ir verbs add -iss- in the plural — once you know the pattern, they're very predictable.",
+        grammarIds: ["fr-g-a1-15"],
+        vocabIds: [
+            "fr-v-a1-117", // l'école
+            "fr-v-a1-118", // l'université
+            "fr-v-a1-116", // le travail
+            "fr-v-a1-106", // le t-shirt
+            "fr-v-a1-107", // le pantalon
+            "fr-v-a1-108", // la robe
+            "fr-v-a1-109", // la veste
+            "fr-v-a1-110", // les chaussures
+            "fr-v-a1-111", // le manteau
+        ],
+        verbIds: ["fr-vb-a1-14", "fr-vb-a1-15", "fr-vb-a1-16"],
+        testQuestions: [
+            { id: "fr-uq-a1-16-1", level: "A1", prompt: "What is the nous ending for regular -ir verbs?", options: ["-ons", "-issons", "-isons", "-issions"], answer: "-issons" },
+            { id: "fr-uq-a1-16-2", level: "A1", prompt: "Complete: 'Nous ___ le projet.' (finir)", options: ["finons", "finissons", "finons", "finissent"], answer: "finissons" },
+            { id: "fr-uq-a1-16-3", level: "A1", prompt: "Complete: 'Tu ___ quoi comme veste?' (choisir)", options: ["choisit", "choisis", "choisissons", "choisissez"], answer: "choisis" },
+            { id: "fr-uq-a1-16-4", level: "A1", prompt: "What does 'réussir' mean?", options: ["to refuse", "to rest", "to succeed / to pass", "to listen"], answer: "to succeed / to pass" },
+            { id: "fr-uq-a1-16-5", level: "A1", prompt: "Which -ir verb does NOT use -iss- in the plural?", options: ["finir", "choisir", "réussir", "partir"], answer: "partir" },
+            { id: "fr-uq-a1-16-6", level: "A1", prompt: "Complete: 'Ils ___ leurs examens.' (réussir)", options: ["réussissent", "réussient", "réussisent", "réussent"], answer: "réussissent" },
+        ]
+    },
+    {
+        id: "fr-a1-u17",
+        level: "A1",
+        order: 17,
+        title: "Present Tense: -re Verbs",
+        description: "Complete your knowledge of the three French verb groups. Regular -re verbs have a key quirk: the il/elle form has no ending at all.",
+        grammarIds: ["fr-g-a1-16"],
+        vocabIds: [
+            "fr-v-a1-120", // le magasin
+            "fr-v-a1-121", // le supermarché
+            "fr-v-a1-68",  // le pain
+            "fr-v-a1-69",  // le beurre
+            "fr-v-a1-70",  // le lait
+            "fr-v-a1-71",  // les œufs
+            "fr-v-a1-72",  // le sucre
+            "fr-v-a1-73",  // le sel
+            "fr-v-a1-74",  // le riz
+        ],
+        verbIds: ["fr-vb-a1-17", "fr-vb-a1-18", "fr-vb-a1-19"],
+        testQuestions: [
+            { id: "fr-uq-a1-17-1", level: "A1", prompt: "What is special about the il/elle form of -re verbs?", options: ["It adds -e", "It adds -t", "It has no ending — bare stem only", "It is the same as nous"], answer: "It has no ending — bare stem only" },
+            { id: "fr-uq-a1-17-2", level: "A1", prompt: "Complete: 'J'___ le bus.' (attendre)", options: ["attend", "attendons", "attends", "attendez"], answer: "attends" },
+            { id: "fr-uq-a1-17-3", level: "A1", prompt: "Complete: 'Il ___ des légumes au marché.' (vendre)", options: ["vends", "vendons", "vendt", "vend"], answer: "vend" },
+            { id: "fr-uq-a1-17-4", level: "A1", prompt: "What does 'répondre' mean?", options: ["to repeat", "to rest", "to return", "to answer"], answer: "to answer" },
+            { id: "fr-uq-a1-17-5", level: "A1", prompt: "Complete: 'Vous ___ à l'email?' (répondre)", options: ["répondons", "répondez", "répondent", "répond"], answer: "répondez" },
+            { id: "fr-uq-a1-17-6", level: "A1", prompt: "What does 'le supermarché' mean?", options: ["the market", "the bakery", "the supermarket", "the shop"], answer: "the supermarket" },
+        ]
+    },
+    {
+        id: "fr-a1-u18",
+        level: "A1",
+        order: 18,
         title: "Likes & Dislikes",
         description: "Learn to say what you like, dislike, and prefer — one of the most essential skills in everyday French conversation.",
         grammarIds: ["fr-g-a1-17"],
         vocabIds: [
-            // Activities and things to like/dislike — drawn from existing vocab
             "fr-v-a1-65",  // le café
             "fr-v-a1-66",  // le thé
             "fr-v-a1-75",  // le fromage
@@ -363,12 +444,33 @@ export const a1Units: LessonUnit[] = [
         ],
         verbIds: ["fr-vb-a1-6"],
         testQuestions: [
-            { id: "fr-uq-a1-16-1", level: "A1", prompt: "How do you say 'I like French'?", options: ["J'aime bien un français.", "J'aime le français.", "J'aime de français.", "J'aime français."], answer: "J'aime le français." },
-            { id: "fr-uq-a1-16-2", level: "A1", prompt: "How do you say 'She doesn't like sport'?", options: ["Elle n'aime pas le sport.", "Elle aime ne pas sport.", "Elle aime pas de sport.", "Elle n'aime pas de sport."], answer: "Elle n'aime pas le sport." },
-            { id: "fr-uq-a1-16-3", level: "A1", prompt: "Which sentence correctly expresses a preference?", options: ["Je préfère un thé au café.", "Je préfère le thé au café.", "Je préfère thé de café.", "Je préfère de thé au café."], answer: "Je préfère le thé au café." },
-            { id: "fr-uq-a1-16-4", level: "A1", prompt: "What does 'J'aime bien' express compared to 'J'aime'?", options: ["Stronger like", "Slightly softer like", "Dislike", "Indifference"], answer: "Slightly softer like" },
-            { id: "fr-uq-a1-16-5", level: "A1", prompt: "How do you ask 'Do you like coffee?' (informal)?", options: ["Vous aimez le café?", "Tu aimes le café?", "Tu aimes un café?", "Tu aimes de café?"], answer: "Tu aimes le café?" },
-            { id: "fr-uq-a1-16-6", level: "A1", prompt: "Complete: 'Il ___ les légumes.' (détester)", options: ["déteste", "détestes", "détestez", "détestent"], answer: "déteste" },
+            { id: "fr-uq-a1-18-1", level: "A1", prompt: "How do you say 'I like French'?", options: ["J'aime bien un français.", "J'aime le français.", "J'aime de français.", "J'aime français."], answer: "J'aime le français." },
+            { id: "fr-uq-a1-18-2", level: "A1", prompt: "How do you say 'She doesn't like sport'?", options: ["Elle n'aime pas le sport.", "Elle aime ne pas sport.", "Elle aime pas de sport.", "Elle n'aime pas de sport."], answer: "Elle n'aime pas le sport." },
+            { id: "fr-uq-a1-18-3", level: "A1", prompt: "Which sentence correctly expresses a preference?", options: ["Je préfère un thé au café.", "Je préfère le thé au café.", "Je préfère thé de café.", "Je préfère de thé au café."], answer: "Je préfère le thé au café." },
+            { id: "fr-uq-a1-18-4", level: "A1", prompt: "What does 'J'aime bien' express compared to 'J'aime'?", options: ["Stronger like", "Slightly softer like", "Dislike", "Indifference"], answer: "Slightly softer like" },
+            { id: "fr-uq-a1-18-5", level: "A1", prompt: "How do you ask 'Do you like coffee?' (informal)?", options: ["Vous aimez le café?", "Tu aimes le café?", "Tu aimes un café?", "Tu aimes de café?"], answer: "Tu aimes le café?" },
+            { id: "fr-uq-a1-18-6", level: "A1", prompt: "Complete: 'Il ___ les légumes.' (détester)", options: ["déteste", "détestes", "détestez", "détestent"], answer: "déteste" },
+        ]
+    },
+    {
+        id: "fr-a1-u19",
+        level: "A1",
+        order: 19,
+        title: "Bridge: Le Futur Proche",
+        description: "Learn to talk about planned future actions using aller + infinitive — the most common future structure in French.",
+        grammarIds: ["fr-g-a1-13"],
+        vocabIds: [
+            "fr-v-a1-42", "fr-v-a1-43", "fr-v-a1-44", "fr-v-a1-45", "fr-v-a1-46", "fr-v-a1-47",
+            "fr-v-a1-156", "fr-v-a1-157", "fr-v-a1-158"
+        ],
+        verbIds: ["fr-vb-a1-3"],
+        testQuestions: [
+            { id: "fr-uq-a1-19-1", level: "A1", prompt: "How is the futur proche formed?", options: ["Present of avoir + infinitive", "Present of être + infinitive", "Present of aller + infinitive", "Present of faire + infinitive"], answer: "Present of aller + infinitive" },
+            { id: "fr-uq-a1-19-2", level: "A1", prompt: "Complete: 'Je ___ manger ce soir.' (futur proche)", options: ["vais", "suis", "fais", "ai"], answer: "vais" },
+            { id: "fr-uq-a1-19-3", level: "A1", prompt: "How do you say 'We are going to visit Paris'?", options: ["Nous visitons Paris.", "Nous allons visiter Paris.", "Nous faisons visiter Paris.", "Nous avons visité Paris."], answer: "Nous allons visiter Paris." },
+            { id: "fr-uq-a1-19-4", level: "A1", prompt: "What does 'demain' mean?", options: ["yesterday", "now", "tomorrow", "soon"], answer: "tomorrow" },
+            { id: "fr-uq-a1-19-5", level: "A1", prompt: "Complete: 'Il ___ pleuvoir demain.' (futur proche)", options: ["fait", "va", "est", "a"], answer: "va" },
+            { id: "fr-uq-a1-19-6", level: "A1", prompt: "What does 'bientôt' mean?", options: ["already", "soon", "now", "still"], answer: "soon" },
         ]
     },
 ]

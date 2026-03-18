@@ -1,7 +1,7 @@
 // src/data/french/verbs/a1.ts
 import { Verb } from "../../../types"
 
-// 7 core A1 verbs. Present tense only at A1 — passé composé is introduced at A2.
+// 13 core A1 verbs. Present tense only at A1 — passé composé is introduced at A2.
 // vouloir and pouvoir moved here from A2: both are essential for basic A1 interaction.
 
 export const a1Verbs: Verb[] = [
@@ -223,6 +223,108 @@ export const a1Verbs: Verb[] = [
                 { pronoun: "nous", form: "habitons" },
                 { pronoun: "vous", form: "habitez" },
                 { pronoun: "ils/elles", form: "habitent" }
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-14",
+        level: "A1",
+        infinitive: "finir",
+        meaning: "to finish",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "finis" },
+                { pronoun: "tu", form: "finis" },
+                { pronoun: "il/elle", form: "finit" },
+                { pronoun: "nous", form: "finissons" },
+                { pronoun: "vous", form: "finissez" },
+                { pronoun: "ils/elles", form: "finissent" }
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-15",
+        level: "A1",
+        infinitive: "choisir",
+        meaning: "to choose",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "choisis" },
+                { pronoun: "tu", form: "choisis" },
+                { pronoun: "il/elle", form: "choisit" },
+                { pronoun: "nous", form: "choisissons" },
+                { pronoun: "vous", form: "choisissez" },
+                { pronoun: "ils/elles", form: "choisissent" }
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-16",
+        level: "A1",
+        infinitive: "réussir",
+        meaning: "to succeed / to pass (an exam)",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "réussis" },
+                { pronoun: "tu", form: "réussis" },
+                { pronoun: "il/elle", form: "réussit" },
+                { pronoun: "nous", form: "réussissons" },
+                { pronoun: "vous", form: "réussissez" },
+                { pronoun: "ils/elles", form: "réussissent" }
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-17",
+        level: "A1",
+        infinitive: "attendre",
+        meaning: "to wait (for)",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "attends" },
+                { pronoun: "tu", form: "attends" },
+                { pronoun: "il/elle", form: "attend" },
+                { pronoun: "nous", form: "attendons" },
+                { pronoun: "vous", form: "attendez" },
+                { pronoun: "ils/elles", form: "attendent" }
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-18",
+        level: "A1",
+        infinitive: "vendre",
+        meaning: "to sell",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "vends" },
+                { pronoun: "tu", form: "vends" },
+                { pronoun: "il/elle", form: "vend" },
+                { pronoun: "nous", form: "vendons" },
+                { pronoun: "vous", form: "vendez" },
+                { pronoun: "ils/elles", form: "vendent" }
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-19",
+        level: "A1",
+        infinitive: "répondre",
+        meaning: "to answer / to reply",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "réponds" },
+                { pronoun: "tu", form: "réponds" },
+                { pronoun: "il/elle", form: "répond" },
+                { pronoun: "nous", form: "répondons" },
+                { pronoun: "vous", form: "répondez" },
+                { pronoun: "ils/elles", form: "répondent" }
             ]
         }]
     },
