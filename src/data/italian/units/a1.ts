@@ -1,7 +1,7 @@
 // data/italian/units/a1.ts
 import { LessonUnit } from "../../../types"
 
-// 23 ordered A1 units for Italian.
+// 22 ordered A1 units for Italian.
 // Each unit builds on the previous. Unit N+1 unlocks when unit N is mastered.
 //
 // U1–U19: existing units (see previous history in git log)
@@ -362,75 +362,75 @@ export const a1Units: LessonUnit[] = [
         ]
     },
     {
-        id: "it-a1-u20",
+        id: "it-a1-u19",
         level: "A1",
-        order: 20,
+        order: 19,
         title: "Reflexive Verbs & Daily Routine",
         description: "Learn to describe your daily routine using reflexive verbs — waking up, getting dressed, washing. These verbs use special pronouns placed before the conjugated verb.",
         grammarIds: ["it-g-a1-25"],
         vocabIds: [],
         verbIds: [],
         testQuestions: [
-            { id: "it-uq-a1-20-1", level: "A1", prompt: "How do you say 'My name is Sofia'?", options: ["Sono Sofia.", "Ho Sofia.", "Mi chiamo Sofia.", "Chiamo Sofia."], answer: "Mi chiamo Sofia." },
-            { id: "it-uq-a1-20-2", level: "A1", prompt: "Complete: 'Lei ___ alza alle sette.'", options: ["mi", "ti", "si", "ci"], answer: "si" },
-            { id: "it-uq-a1-20-3", level: "A1", prompt: "Where does the reflexive pronoun go with a conjugated verb?", options: ["After the verb", "Before the conjugated verb", "At the end of the sentence", "After the subject"], answer: "Before the conjugated verb" },
-            { id: "it-uq-a1-20-4", level: "A1", prompt: "Complete: 'Noi ___ laviamo le mani.'", options: ["mi", "ti", "si", "ci"], answer: "ci" },
-            { id: "it-uq-a1-20-5", level: "A1", prompt: "What does 'vestirsi' mean?", options: ["to eat", "to sleep", "to get dressed", "to sit down"], answer: "to get dressed" },
-            { id: "it-uq-a1-20-6", level: "A1", prompt: "How do you say 'What time do you wake up?'", options: ["A che ora ti alzi?", "A che ora mi sveglio?", "A che ora ti svegli?", "A che ora ci alziamo?"], answer: "A che ora ti svegli?" },
+            { id: "it-uq-a1-19-1", level: "A1", prompt: "How do you say 'My name is Sofia'?", options: ["Sono Sofia.", "Ho Sofia.", "Mi chiamo Sofia.", "Chiamo Sofia."], answer: "Mi chiamo Sofia." },
+            { id: "it-uq-a1-19-2", level: "A1", prompt: "Complete: 'Lei ___ alza alle sette.'", options: ["mi", "ti", "si", "ci"], answer: "si" },
+            { id: "it-uq-a1-19-3", level: "A1", prompt: "Where does the reflexive pronoun go with a conjugated verb?", options: ["After the verb", "Before the conjugated verb", "At the end of the sentence", "After the subject"], answer: "Before the conjugated verb" },
+            { id: "it-uq-a1-19-4", level: "A1", prompt: "Complete: 'Noi ___ laviamo le mani.'", options: ["mi", "ti", "si", "ci"], answer: "ci" },
+            { id: "it-uq-a1-19-5", level: "A1", prompt: "What does 'vestirsi' mean?", options: ["to eat", "to sleep", "to get dressed", "to sit down"], answer: "to get dressed" },
+            { id: "it-uq-a1-19-6", level: "A1", prompt: "How do you say 'What time do you wake up?'", options: ["A che ora ti alzi?", "A che ora mi sveglio?", "A che ora ti svegli?", "A che ora ci alziamo?"], answer: "A che ora ti svegli?" },
         ]
     },
     {
-        id: "it-a1-u21",
+        id: "it-a1-u20",
         level: "A1",
-        order: 21,
+        order: 20,
         title: "Demonstratives",
         description: "Point things out in Italian — questo (this) and quello (that). Quello mirrors the definite article pattern, making it elegant once you know the articles.",
         grammarIds: ["it-g-a1-24"],
         vocabIds: [],
         verbIds: [],
         testQuestions: [
-            { id: "it-uq-a1-21-1", level: "A1", prompt: "How do you say 'this book' (il libro)?", options: ["quello libro", "quel libro", "questo libro", "questa libro"], answer: "questo libro" },
-            { id: "it-uq-a1-21-2", level: "A1", prompt: "How do you say 'that student' (lo studente)?", options: ["quel studente", "quello studente", "questo studente", "quell'studente"], answer: "quello studente" },
-            { id: "it-uq-a1-21-3", level: "A1", prompt: "How do you say 'those friends' (gli amici)?", options: ["quei amici", "quegli amici", "quello amici", "quelle amici"], answer: "quegli amici" },
-            { id: "it-uq-a1-21-4", level: "A1", prompt: "How do you say 'this friend' (fem., starts with vowel — l'amica)?", options: ["questa amica", "quest'amica", "questo amica", "quell'amica"], answer: "quest'amica" },
-            { id: "it-uq-a1-21-5", level: "A1", prompt: "How do you say 'What is this?'", options: ["Cos'è questo?", "Cos'è quello?", "Come è questo?", "Che è questo?"], answer: "Cos'è questo?" },
-            { id: "it-uq-a1-21-6", level: "A1", prompt: "Complete: '___ casa è grande.' (that house — la casa)", options: ["Quel", "Quello", "Quella", "Queste"], answer: "Quella" },
+            { id: "it-uq-a1-20-1", level: "A1", prompt: "How do you say 'this book' (il libro)?", options: ["quello libro", "quel libro", "questo libro", "questa libro"], answer: "questo libro" },
+            { id: "it-uq-a1-20-2", level: "A1", prompt: "How do you say 'that student' (lo studente)?", options: ["quel studente", "quello studente", "questo studente", "quell'studente"], answer: "quello studente" },
+            { id: "it-uq-a1-20-3", level: "A1", prompt: "How do you say 'those friends' (gli amici)?", options: ["quei amici", "quegli amici", "quello amici", "quelle amici"], answer: "quegli amici" },
+            { id: "it-uq-a1-20-4", level: "A1", prompt: "How do you say 'this friend' (fem., starts with vowel — l'amica)?", options: ["questa amica", "quest'amica", "questo amica", "quell'amica"], answer: "quest'amica" },
+            { id: "it-uq-a1-20-5", level: "A1", prompt: "How do you say 'What is this?'", options: ["Cos'è questo?", "Cos'è quello?", "Come è questo?", "Che è questo?"], answer: "Cos'è questo?" },
+            { id: "it-uq-a1-20-6", level: "A1", prompt: "Complete: '___ casa è grande.' (that house — la casa)", options: ["Quel", "Quello", "Quella", "Queste"], answer: "Quella" },
         ]
     },
     {
-        id: "it-a1-u22",
+        id: "it-a1-u21",
         level: "A1",
-        order: 22,
+        order: 21,
         title: "Adverbs, Frequency & Connectors",
         description: "Build more natural sentences: say where things are, when they happen, how often, and link ideas with connectors like ma, perché, and prima.",
         grammarIds: ["it-g-a1-26", "it-g-a1-27", "it-g-a1-28", "it-g-a1-29"],
         vocabIds: [],
         verbIds: [],
         testQuestions: [
-            { id: "it-uq-a1-22-1", level: "A1", prompt: "What does 'ancora' mean?", options: ["already", "soon", "still / yet", "never"], answer: "still / yet" },
-            { id: "it-uq-a1-22-2", level: "A1", prompt: "Where do frequency adverbs usually go?", options: ["Before the subject", "After the conjugated verb", "At the end only", "Before the infinitive"], answer: "After the conjugated verb" },
-            { id: "it-uq-a1-22-3", level: "A1", prompt: "What does 'lì' mean?", options: ["here", "nearby", "there", "inside"], answer: "there" },
-            { id: "it-uq-a1-22-4", level: "A1", prompt: "Which connector means 'because'?", options: ["ma", "però", "anche se", "perché"], answer: "perché" },
-            { id: "it-uq-a1-22-5", level: "A1", prompt: "What does 'a volte' mean?", options: ["always", "never", "sometimes", "often"], answer: "sometimes" },
-            { id: "it-uq-a1-22-6", level: "A1", prompt: "Put in order: Prima → ? → Infine", options: ["poi", "ma", "perché", "anche"], answer: "poi" },
+            { id: "it-uq-a1-21-1", level: "A1", prompt: "What does 'ancora' mean?", options: ["already", "soon", "still / yet", "never"], answer: "still / yet" },
+            { id: "it-uq-a1-21-2", level: "A1", prompt: "Where do frequency adverbs usually go?", options: ["Before the subject", "After the conjugated verb", "At the end only", "Before the infinitive"], answer: "After the conjugated verb" },
+            { id: "it-uq-a1-21-3", level: "A1", prompt: "What does 'lì' mean?", options: ["here", "nearby", "there", "inside"], answer: "there" },
+            { id: "it-uq-a1-21-4", level: "A1", prompt: "Which connector means 'because'?", options: ["ma", "però", "anche se", "perché"], answer: "perché" },
+            { id: "it-uq-a1-21-5", level: "A1", prompt: "What does 'a volte' mean?", options: ["always", "never", "sometimes", "often"], answer: "sometimes" },
+            { id: "it-uq-a1-21-6", level: "A1", prompt: "Put in order: Prima → ? → Infine", options: ["poi", "ma", "perché", "anche"], answer: "poi" },
         ]
     },
     {
-        id: "it-a1-u23",
+        id: "it-a1-u22",
         level: "A1",
-        order: 23,
+        order: 22,
         title: "Bridge: The Near Future",
         description: "Express future plans and imminent events using stare per + infinitive and andare a + infinitive. Your first step into A2 territory.",
         grammarIds: ["it-g-a1-13"],
         vocabIds: ["it-v-a1-141", "it-v-a1-142", "it-v-a1-143", "it-v-a1-144", "it-v-a1-145", "it-v-a1-146"],
         verbIds: ["it-vb-a1-4", "it-vb-a1-1"],
         testQuestions: [
-            { id: "it-uq-a1-23-1", level: "A1", prompt: "How do you say 'I am about to go out'?", options: ["Vado a uscire.", "Sto per uscire.", "Uscirò presto.", "Sto uscendo."], answer: "Sto per uscire." },
-            { id: "it-uq-a1-23-2", level: "A1", prompt: "Complete: 'Vado ___ mangiare.'", options: ["per", "di", "a", "in"], answer: "a" },
-            { id: "it-uq-a1-23-3", level: "A1", prompt: "How do you say 'It is about to rain'?", options: ["Piove sempre.", "Sta per piovere.", "Va a piovere.", "Pioverà."], answer: "Sta per piovere." },
-            { id: "it-uq-a1-23-4", level: "A1", prompt: "What does 'domani' mean?", options: ["Today", "Yesterday", "Now", "Tomorrow"], answer: "Tomorrow" },
-            { id: "it-uq-a1-23-5", level: "A1", prompt: "Which structure means something is ABOUT TO happen right now?", options: ["andare a + inf.", "stare per + inf.", "volere + inf.", "potere + inf."], answer: "stare per + inf." },
-            { id: "it-uq-a1-23-6", level: "A1", prompt: "Translate: 'We are going to watch a film tonight.'", options: ["Guardiamo un film stasera.", "Abbiamo guardato un film stasera.", "Andiamo a vedere un film stasera.", "Stiamo per vedere un film."], answer: "Andiamo a vedere un film stasera." },
+            { id: "it-uq-a1-22-1", level: "A1", prompt: "How do you say 'I am about to go out'?", options: ["Vado a uscire.", "Sto per uscire.", "Uscirò presto.", "Sto uscendo."], answer: "Sto per uscire." },
+            { id: "it-uq-a1-22-2", level: "A1", prompt: "Complete: 'Vado ___ mangiare.'", options: ["per", "di", "a", "in"], answer: "a" },
+            { id: "it-uq-a1-22-3", level: "A1", prompt: "How do you say 'It is about to rain'?", options: ["Piove sempre.", "Sta per piovere.", "Va a piovere.", "Pioverà."], answer: "Sta per piovere." },
+            { id: "it-uq-a1-22-4", level: "A1", prompt: "What does 'domani' mean?", options: ["Today", "Yesterday", "Now", "Tomorrow"], answer: "Tomorrow" },
+            { id: "it-uq-a1-22-5", level: "A1", prompt: "Which structure means something is ABOUT TO happen right now?", options: ["andare a + inf.", "stare per + inf.", "volere + inf.", "potere + inf."], answer: "stare per + inf." },
+            { id: "it-uq-a1-22-6", level: "A1", prompt: "Translate: 'We are going to watch a film tonight.'", options: ["Guardiamo un film stasera.", "Abbiamo guardato un film stasera.", "Andiamo a vedere un film stasera.", "Stiamo per vedere un film."], answer: "Andiamo a vedere un film stasera." },
         ]
     },
 ]
