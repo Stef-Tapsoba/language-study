@@ -1,7 +1,7 @@
 // data/korean/units/a1.ts
 import { LessonUnit } from "../../../types"
 
-// 19 ordered A1 units for Korean.
+// 18 ordered A1 units for Korean.
 //
 // CHANGES FROM PREVIOUS VERSION (was 12 units):
 // U1  — Added ko-g-a1-2 (Hangul: Reading Korean) — was missing entirely.
@@ -329,63 +329,63 @@ export const a1Units: LessonUnit[] = [
         ]
     },
     {
-        id: "ko-a1-u16",
+        id: "ko-a1-u15",
         level: "A1",
-        order: 16,
+        order: 15,
         title: "Demonstratives: 이/그/저",
         description: "Point to things near you, near the listener, or far away using Korean's three demonstrative series. Master 이/그/저 with nouns and the standalone forms 이것/그것/저것.",
         grammarIds: ["ko-g-a1-16"],
         vocabIds: [],
         verbIds: [],
         testQuestions: [
-            { id: "ko-uq-a1-16-1", level: "A1", prompt: "How do you say 'this book'?", options: ["그 책", "저 책", "이 책", "것 책"], answer: "이 책" },
-            { id: "ko-uq-a1-16-2", level: "A1", prompt: "Which demonstrative refers to something far from BOTH speaker and listener?", options: ["이-", "그-", "저-", "여기-"], answer: "저-" },
-            { id: "ko-uq-a1-16-3", level: "A1", prompt: "What does '그것' refer to?", options: ["Something near the speaker", "Something near the listener", "Something far from both", "An unknown thing"], answer: "Something near the listener" },
-            { id: "ko-uq-a1-16-4", level: "A1", prompt: "What is the casual form of 이것?", options: ["이거", "이것이", "이게", "이걸"], answer: "이거" },
-            { id: "ko-uq-a1-16-5", level: "A1", prompt: "How do you say 'What is that (far away)?'", options: ["이것이 뭐예요?", "그것이 뭐예요?", "저것이 뭐예요?", "여기가 뭐예요?"], answer: "저것이 뭐예요?" },
-            { id: "ko-uq-a1-16-6", level: "A1", prompt: "'그거 얼마예요?' means:", options: ["How much is this?", "How much is that (near you)?", "How much is that (far away)?", "What is that?"], answer: "How much is that (near you)?" },
+            { id: "ko-uq-a1-15-1", level: "A1", prompt: "How do you say 'this book'?", options: ["그 책", "저 책", "이 책", "것 책"], answer: "이 책" },
+            { id: "ko-uq-a1-15-2", level: "A1", prompt: "Which demonstrative refers to something far from BOTH speaker and listener?", options: ["이-", "그-", "저-", "여기-"], answer: "저-" },
+            { id: "ko-uq-a1-15-3", level: "A1", prompt: "What does '그것' refer to?", options: ["Something near the speaker", "Something near the listener", "Something far from both", "An unknown thing"], answer: "Something near the listener" },
+            { id: "ko-uq-a1-15-4", level: "A1", prompt: "What is the casual form of 이것?", options: ["이거", "이것이", "이게", "이걸"], answer: "이거" },
+            { id: "ko-uq-a1-15-5", level: "A1", prompt: "How do you say 'What is that (far away)?'", options: ["이것이 뭐예요?", "그것이 뭐예요?", "저것이 뭐예요?", "여기가 뭐예요?"], answer: "저것이 뭐예요?" },
+            { id: "ko-uq-a1-15-6", level: "A1", prompt: "'그거 얼마예요?' means:", options: ["How much is this?", "How much is that (near you)?", "How much is that (far away)?", "What is that?"], answer: "How much is that (near you)?" },
         ]
     },
     {
-        id: "ko-a1-u17",
+        id: "ko-a1-u16",
         level: "A1",
-        order: 17,
+        order: 16,
         title: "Future & Desire: ~(으)ㄹ 거예요 & ~고 싶어요",
         description: "Talk about future plans with ~(으)ㄹ 거예요 and express what you want to do with ~고 싶어요. Two essential patterns for everyday communication.",
         grammarIds: ["ko-g-a1-17", "ko-g-a1-18"],
         vocabIds: [],
         verbIds: [],
         testQuestions: [
-            { id: "ko-uq-a1-17-1", level: "A1", prompt: "How do you say 'I will eat'?", options: ["먹어요", "먹었어요", "먹을 거예요", "먹고 싶어요"], answer: "먹을 거예요" },
-            { id: "ko-uq-a1-17-2", level: "A1", prompt: "How do you form the future of 가다 (to go)?", options: ["가을 거예요", "갈 거예요", "가을 것이에요", "갔어요"], answer: "갈 거예요" },
-            { id: "ko-uq-a1-17-3", level: "A1", prompt: "How do you say 'I want to go to Korea'?", options: ["한국에 갈 거예요.", "한국에 가고 싶어요.", "한국에 가고 싶었어요.", "한국에 가요."], answer: "한국에 가고 싶어요." },
-            { id: "ko-uq-a1-17-4", level: "A1", prompt: "How do you say 'I don't want to go'?", options: ["안 가고 싶어요.", "가고 싶지 않아요.", "가고 안 싶어요.", "가기 싫어요."], answer: "가고 싶지 않아요." },
-            { id: "ko-uq-a1-17-5", level: "A1", prompt: "How do you say 'I won't go today'?", options: ["오늘 안 갈 거예요.", "오늘 못 갔어요.", "오늘 가고 싶지 않아요.", "오늘 가지 않아요."], answer: "오늘 안 갈 거예요." },
-            { id: "ko-uq-a1-17-6", level: "A1", prompt: "'뭐 먹고 싶어요?' means:", options: ["What did you eat?", "What do you want to eat?", "What are you eating?", "What will you eat?"], answer: "What do you want to eat?" },
+            { id: "ko-uq-a1-16-1", level: "A1", prompt: "How do you say 'I will eat'?", options: ["먹어요", "먹었어요", "먹을 거예요", "먹고 싶어요"], answer: "먹을 거예요" },
+            { id: "ko-uq-a1-16-2", level: "A1", prompt: "How do you form the future of 가다 (to go)?", options: ["가을 거예요", "갈 거예요", "가을 것이에요", "갔어요"], answer: "갈 거예요" },
+            { id: "ko-uq-a1-16-3", level: "A1", prompt: "How do you say 'I want to go to Korea'?", options: ["한국에 갈 거예요.", "한국에 가고 싶어요.", "한국에 가고 싶었어요.", "한국에 가요."], answer: "한국에 가고 싶어요." },
+            { id: "ko-uq-a1-16-4", level: "A1", prompt: "How do you say 'I don't want to go'?", options: ["안 가고 싶어요.", "가고 싶지 않아요.", "가고 안 싶어요.", "가기 싫어요."], answer: "가고 싶지 않아요." },
+            { id: "ko-uq-a1-16-5", level: "A1", prompt: "How do you say 'I won't go today'?", options: ["오늘 안 갈 거예요.", "오늘 못 갔어요.", "오늘 가고 싶지 않아요.", "오늘 가지 않아요."], answer: "오늘 안 갈 거예요." },
+            { id: "ko-uq-a1-16-6", level: "A1", prompt: "'뭐 먹고 싶어요?' means:", options: ["What did you eat?", "What do you want to eat?", "What are you eating?", "What will you eat?"], answer: "What do you want to eat?" },
         ]
     },
     {
-        id: "ko-a1-u18",
+        id: "ko-a1-u17",
         level: "A1",
-        order: 18,
+        order: 17,
         title: "Adverbs, Frequency & Connectors",
         description: "Say when, how often, and link your ideas. Learn time adverbs (오늘/아직/이미), frequency words (항상/가끔/절대로), sentence connectors (~고/~지만/~아서), and discourse connectors (그리고/하지만/그래서).",
         grammarIds: ["ko-g-a1-19", "ko-g-a1-20", "ko-g-a1-21", "ko-g-a1-22"],
         vocabIds: [],
         verbIds: [],
         testQuestions: [
-            { id: "ko-uq-a1-18-1", level: "A1", prompt: "What does '아직 안 먹었어요' mean?", options: ["I already ate", "I haven't eaten yet", "I don't want to eat", "I always eat"], answer: "I haven't eaten yet" },
-            { id: "ko-uq-a1-18-2", level: "A1", prompt: "Which word requires a negative verb?", options: ["항상", "자주", "가끔", "별로"], answer: "별로" },
-            { id: "ko-uq-a1-18-3", level: "A1", prompt: "What does ~지만 express?", options: ["Cause and result", "Neutral addition", "Contrast (but)", "Sequence (then)"], answer: "Contrast (but)" },
-            { id: "ko-uq-a1-18-4", level: "A1", prompt: "How do you say 'I was tired so I slept'? (피곤하다 = tired, 자다 = sleep)", options: ["피곤하지만 잤어요.", "피곤하고 잤어요.", "피곤해서 잤어요.", "피곤하면 잤어요."], answer: "피곤해서 잤어요." },
-            { id: "ko-uq-a1-18-5", level: "A1", prompt: "Which connector means 'therefore / so' at the start of a new sentence?", options: ["하지만", "그리고", "그래서", "그런데"], answer: "그래서" },
-            { id: "ko-uq-a1-18-6", level: "A1", prompt: "'먼저 손을 씻어요' means:", options: ["I finally wash my hands", "First I wash my hands", "I quickly wash my hands", "I wash my hands slowly"], answer: "First I wash my hands" },
+            { id: "ko-uq-a1-17-1", level: "A1", prompt: "What does '아직 안 먹었어요' mean?", options: ["I already ate", "I haven't eaten yet", "I don't want to eat", "I always eat"], answer: "I haven't eaten yet" },
+            { id: "ko-uq-a1-17-2", level: "A1", prompt: "Which word requires a negative verb?", options: ["항상", "자주", "가끔", "별로"], answer: "별로" },
+            { id: "ko-uq-a1-17-3", level: "A1", prompt: "What does ~지만 express?", options: ["Cause and result", "Neutral addition", "Contrast (but)", "Sequence (then)"], answer: "Contrast (but)" },
+            { id: "ko-uq-a1-17-4", level: "A1", prompt: "How do you say 'I was tired so I slept'? (피곤하다 = tired, 자다 = sleep)", options: ["피곤하지만 잤어요.", "피곤하고 잤어요.", "피곤해서 잤어요.", "피곤하면 잤어요."], answer: "피곤해서 잤어요." },
+            { id: "ko-uq-a1-17-5", level: "A1", prompt: "Which connector means 'therefore / so' at the start of a new sentence?", options: ["하지만", "그리고", "그래서", "그런데"], answer: "그래서" },
+            { id: "ko-uq-a1-17-6", level: "A1", prompt: "'먼저 손을 씻어요' means:", options: ["I finally wash my hands", "First I wash my hands", "I quickly wash my hands", "I wash my hands slowly"], answer: "First I wash my hands" },
         ]
     },
     {
-        id: "ko-a1-u19",
+        id: "ko-a1-u18",
         level: "A1",
-        order: 19,
+        order: 18,
         title: "A1 Review: Putting It Together",
         description: "Review all A1 grammar, vocabulary, and verbs through integrated sentences.",
         grammarIds: [],
@@ -400,12 +400,12 @@ export const a1Units: LessonUnit[] = [
             "ko-vb-a1-4", "ko-vb-a1-7", "ko-vb-a1-8",
         ],
         testQuestions: [
-            { id: "ko-uq-a1-19-1", level: "A1", prompt: "How do you say 'I went to school yesterday'?", options: ["어제 학교에 가요.", "어제 학교에서 갔어요.", "어제 학교에 갔어요.", "어제 학교를 갔어요."], answer: "어제 학교에 갔어요." },
-            { id: "ko-uq-a1-19-2", level: "A1", prompt: "Complete: '저는 한국 음식___ 좋아해요.' (I like Korean food)", options: ["이", "가", "을", "는"], answer: "을" },
-            { id: "ko-uq-a1-19-3", level: "A1", prompt: "What does '어제' mean?", options: ["Today", "Tomorrow", "Yesterday", "Now"], answer: "Yesterday" },
-            { id: "ko-uq-a1-19-4", level: "A1", prompt: "How do you say 'It is snowing'? (눈 = snow)", options: ["눈이 와요.", "눈이 있어요.", "눈이 가요.", "눈이 많아요."], answer: "눈이 와요." },
-            { id: "ko-uq-a1-19-5", level: "A1", prompt: "Which particle is used to mark where an action takes place?", options: ["에", "에서", "을/를", "은/는"], answer: "에서" },
-            { id: "ko-uq-a1-19-6", level: "A1", prompt: "How do you say 'I study at the café'?", options: ["카페에 공부해요.", "카페에서 공부해요.", "카페를 공부해요.", "카페가 공부해요."], answer: "카페에서 공부해요." },
+            { id: "ko-uq-a1-18-1", level: "A1", prompt: "How do you say 'I went to school yesterday'?", options: ["어제 학교에 가요.", "어제 학교에서 갔어요.", "어제 학교에 갔어요.", "어제 학교를 갔어요."], answer: "어제 학교에 갔어요." },
+            { id: "ko-uq-a1-18-2", level: "A1", prompt: "Complete: '저는 한국 음식___ 좋아해요.' (I like Korean food)", options: ["이", "가", "을", "는"], answer: "을" },
+            { id: "ko-uq-a1-18-3", level: "A1", prompt: "What does '어제' mean?", options: ["Today", "Tomorrow", "Yesterday", "Now"], answer: "Yesterday" },
+            { id: "ko-uq-a1-18-4", level: "A1", prompt: "How do you say 'It is snowing'? (눈 = snow)", options: ["눈이 와요.", "눈이 있어요.", "눈이 가요.", "눈이 많아요."], answer: "눈이 와요." },
+            { id: "ko-uq-a1-18-5", level: "A1", prompt: "Which particle is used to mark where an action takes place?", options: ["에", "에서", "을/를", "은/는"], answer: "에서" },
+            { id: "ko-uq-a1-18-6", level: "A1", prompt: "How do you say 'I study at the café'?", options: ["카페에 공부해요.", "카페에서 공부해요.", "카페를 공부해요.", "카페가 공부해요."], answer: "카페에서 공부해요." },
         ]
     },
 ]
