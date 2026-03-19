@@ -24,7 +24,46 @@ export const levelTestQuestions: QuizQuestion[] = [
     { id: "es-lt-a1-13", level: "A1", prompt: "What does 'perdón' mean?", options: ["Thank you", "Sorry / Excuse me", "Goodbye", "Please"], answer: "Sorry / Excuse me" },
     { id: "es-lt-a1-14", level: "A1", prompt: "How do you say 'She works here'?", options: ["Ella trabaja aquí.", "Ella trabajo aquí.", "Ella trabajas aquí.", "Ella trabajamos aquí."], answer: "Ella trabaja aquí." },
     { id: "es-lt-a1-15", level: "A1", prompt: "Which is correct for 'the houses' (feminine plural)?", options: ["el casa", "los casas", "las casas", "la casas"], answer: "las casas" },
-
+    {
+        id: "es-lt-a1-16", level: "A1",
+        prompt: "When do you use 'usted' instead of 'tú'?",
+        options: [
+            "With friends and family",
+            "With strangers, elders, or in formal situations",
+            "Only in Latin America",
+            "Only in writing"
+        ],
+        answer: "With strangers, elders, or in formal situations",
+        hint: "Tú = informal. Usted = formal. Usted conjugates like él/ella."
+    },
+    {
+        id: "es-lt-a1-17", level: "A1",
+        prompt: "How do you say 'I don't speak French'?",
+        options: ["Hablo no francés.", "No hablo francés.", "No hablo no francés.", "Hablo francés no."],
+        answer: "No hablo francés.",
+        hint: "Spanish negation: place 'no' directly before the verb."
+    },
+    {
+        id: "es-lt-a1-18", level: "A1",
+        prompt: "How do you say 'I am fifteen years old'?",
+        options: ["Soy quince años.", "Tengo quince años.", "Estoy quince años.", "Hay quince años."],
+        answer: "Tengo quince años.",
+        hint: "Age in Spanish uses tener: tengo + number + años."
+    },
+    {
+        id: "es-lt-a1-19", level: "A1",
+        prompt: "What is 'treinta y dos' in English?",
+        options: ["Twenty-two", "Thirty-one", "Thirty-two", "Forty-two"],
+        answer: "Thirty-two",
+        hint: "Treinta = thirty, y = and, dos = two → thirty-two."
+    },
+    {
+        id: "es-lt-a1-20", level: "A1",
+        prompt: "How do you say 'It's quarter past four'?",
+        options: ["Son las cuatro y media.", "Son las cuatro menos cuarto.", "Son las cuatro y cuarto.", "Es las cuatro y cuarto."],
+        answer: "Son las cuatro y cuarto.",
+        hint: "Son las + hour + y cuarto (quarter past). Use es only for 1 o'clock."
+    },
     // -----------------------------------------------------------------------
     // A2 — 15 questions
     // -----------------------------------------------------------------------

@@ -43,13 +43,64 @@ export const a1Grammar: GrammarLesson[] = [
         id: "ja-g-a1-3",
         level: "A1",
         title: "Katakana: ア-row through ン",
-        explanation: "Katakana is the second Japanese syllabary, with the same 46 sounds as hiragana but different character shapes. Katakana is used primarily for foreign loanwords, foreign names, scientific terms, and emphasis (like italics). The rows follow the same structure as hiragana: ア-row (a, i, u, e, o), カ-row (ka, ki, ku, ke, ko), サ-row (sa, shi, su, se, so), タ-row (ta, chi, tsu, te, to), ナ-row (na, ni, nu, ne, no), ハ-row (ha, hi, fu, he, ho), マ-row (ma, mi, mu, me, mo), ヤ-row (ya, yu, yo), ラ-row (ra, ri, ru, re, ro), ワ-row (wa, wo), and ン (n). Loanwords often use a long vowel mark ー (e.g., コーヒー = koohii = coffee).",
+        explanation: `Katakana is the second of Japan's two phonetic syllabaries. It has exactly the same 46 sounds as hiragana, but different character shapes. The two scripts are interchangeable in pronunciation — only the use differs.
+
+WHEN KATAKANA IS USED:
+  • Foreign loanwords: コーヒー (koohii = coffee), テレビ (terebi = TV)
+  • Foreign names and place names: アメリカ (Amerika), マリア (Maria)
+  • Scientific and technical terms
+  • Emphasis — like italics in English
+
+KATAKANA CHARACTER TABLE (with hiragana equivalent):
+Each row shows: katakana → hiragana → sound
+
+ア行 (a-row):
+  ア → あ (a)    イ → い (i)    ウ → う (u)    エ → え (e)    オ → お (o)
+
+カ行 (ka-row):
+  カ → か (ka)   キ → き (ki)   ク → く (ku)   ケ → け (ke)   コ → こ (ko)
+
+サ行 (sa-row):
+  サ → さ (sa)   シ → し (shi)  ス → す (su)   セ → せ (se)   ソ → そ (so)
+
+タ行 (ta-row):
+  タ → た (ta)   チ → ち (chi)  ツ → つ (tsu)  テ → て (te)   ト → と (to)
+
+ナ行 (na-row):
+  ナ → な (na)   ニ → に (ni)   ヌ → ぬ (nu)   ネ → ね (ne)   ノ → の (no)
+
+ハ行 (ha-row):
+  ハ → は (ha)   ヒ → ひ (hi)   フ → ふ (fu)   ヘ → へ (he)   ホ → ほ (ho)
+
+マ行 (ma-row):
+  マ → ま (ma)   ミ → み (mi)   ム → む (mu)   メ → め (me)   モ → も (mo)
+
+ヤ行 (ya-row — 3 only):
+  ヤ → や (ya)              ユ → ゆ (yu)              ヨ → よ (yo)
+
+ラ行 (ra-row):
+  ラ → ら (ra)   リ → り (ri)   ル → る (ru)   レ → れ (re)   ロ → ろ (ro)
+
+ワ行 + ン:
+  ワ → わ (wa)   ヲ → を (wo — object particle only)   ン → ん (n)
+
+SPECIAL KATAKANA RULES:
+ー (long vowel mark): extends the preceding vowel. Used constantly in loanwords.
+  コーヒー → ko-o-hi-i → "coffee"     ビール → bi-i-ru → "beer"
+
+Double consonants: small ッ doubles the next consonant (same as っ in hiragana).
+  ベッド (beddo = bed)    サッカー (sakkaa = soccer)
+
+Combinations for sounds not in Japanese: katakana can combine characters for
+foreign sounds that don't exist in Japanese.
+  ファ (fa)    ティ (ti)    ウィ (wi)    ヴ (v-sound)`,
         examples: [
-            { native: "コーヒー", romanized: "koohii", translation: "Coffee (loanword from English, written in katakana)" },
-            { native: "レストラン", romanized: "resutoran", translation: "Restaurant (loanword from French/English)" },
-            { native: "アイスクリーム", romanized: "aisu kuriimu", translation: "Ice cream (loanword from English)" },
-            { native: "テレビ", romanized: "terebi", translation: "Television / TV (loanword from English)" },
-            { native: "スマートフォン", romanized: "sumaato fon", translation: "Smartphone (loanword from English)" }
+            { native: "ア・イ・ウ・エ・オ → あ・い・う・え・お", romanized: "a i u e o", translation: "The ア-row — same sounds as あいうえお, different shapes" },
+            { native: "カ・キ・ク・ケ・コ → か・き・く・け・こ", romanized: "ka ki ku ke ko", translation: "The カ-row — same sounds as かきくけこ" },
+            { native: "コーヒー", romanized: "koohii", translation: "Coffee — note ー extends the vowel" },
+            { native: "レストラン", romanized: "resutoran", translation: "Restaurant (from French/English)" },
+            { native: "テレビ", romanized: "terebi", translation: "Television (from English 'TV')" },
+            { native: "アイスクリーム", romanized: "aisu kuriimu", translation: "Ice cream — notice how English sounds are adapted" },
         ]
     },
     {

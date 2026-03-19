@@ -426,8 +426,8 @@ function CultureEpisodeView({
                         onClick={markedRead ? undefined : handleMarkRead}
                         disabled={markedRead}
                         className={`w-full font-semibold rounded-xl py-3 text-sm transition-colors border ${markedRead
-                                ? "border-green-300 text-green-700 bg-green-50 cursor-default"
-                                : "border-amber-600 bg-amber-600 text-white hover:bg-amber-700"
+                            ? "border-green-300 text-green-700 bg-green-50 cursor-default"
+                            : "border-amber-600 bg-amber-600 text-white hover:bg-amber-700"
                             }`}
                     >
                         {markedRead ? `✓ ${ui.passageComplete}` : ui.markAsRead}

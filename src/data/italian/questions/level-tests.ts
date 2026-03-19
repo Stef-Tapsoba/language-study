@@ -17,6 +17,23 @@ export const levelQuestions: QuizQuestion[] = [
     { id: "it-lt-a1-13", level: "A1", prompt: "Complete: 'Io ___ un caffè.' (volere)", options: ["vuole", "vuoi", "voglio", "vogliono"], answer: "voglio" },
     { id: "it-lt-a1-14", level: "A1", prompt: "How do you say 'I am about to go out'?", options: ["Vado a uscire.", "Uscirò presto.", "Sto per uscire.", "Sto uscendo."], answer: "Sto per uscire." },
     { id: "it-lt-a1-15", level: "A1", prompt: "What does 'sempre' mean?", options: ["Sometimes", "Never", "Often", "Always"], answer: "Always" },
+    { id: "it-lt-a1-16", level: "A1", prompt: "When do you use 'Lei' (capital L) in Italian?", options: ["With close friends","In formal situations with strangers or people deserving respect","Only in southern Italy","Only in writing"], answer: "In formal situations with strangers or people deserving respect", hint: "Tu = informal. Lei (capital L) = formal 'you'. Lei conjugates like lui/lei (third person)."},
+    { id: "it-lt-a1-17", level: "A1", prompt: "How do you say 'I don't speak German'?", options: ["Parlo non tedesco.", "Non parlo tedesco.", "Non parlare tedesco.", "Parlo tedesco non."], answer: "Non parlo tedesco.", hint: "Italian negation: place 'non' directly before the verb." },
+    { id: "it-lt-a1-18", level: "A1", prompt: "Complete: 'Io ___ al supermercato.' (andare)", options: ["vai", "va", "vado", "andiamo"], answer: "vado", hint: "Andare is irregular. Io → vado, tu → vai, lui/lei → va." },
+    {
+        id: "it-lt-a1-19", level: "A1",
+        prompt: "Which question word means 'where'?",
+        options: ["Quando", "Come", "Dove", "Perché"],
+        answer: "Dove",
+        hint: "Dove = where. Dove abiti? = Where do you live?"
+    },
+    {
+        id: "it-lt-a1-20", level: "A1",
+        prompt: "Complete: 'Io ___ le courses.' (fare — to do the shopping)",
+        options: ["fai", "fa", "faccio", "fanno"],
+        answer: "faccio",
+        hint: "Fare is highly irregular. Io → faccio (not faro or fao)."
+    },
 
     // --- A2 (15 questions) ---
     { id: "it-lt-a2-1", level: "A2", prompt: "Complete (passato prossimo): 'Ieri noi ___ al cinema.' (andare)", options: ["andiamo", "abbiamo andato", "siamo andati", "andavamo"], answer: "siamo andati" },

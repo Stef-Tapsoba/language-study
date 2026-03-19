@@ -17,6 +17,41 @@ export const levelQuestions: QuizQuestion[] = [
     { id: "fr-lt-a1-13", level: "A1", prompt: "Complete: 'Elle ___ (faire) du sport.'", options: ["fait", "fais", "faites", "font"], answer: "fait" },
     { id: "fr-lt-a1-14", level: "A1", prompt: "What is the futur proche of 'We are going to visit Paris'?", options: ["Nous visitons Paris.", "Nous allons visiter Paris.", "Nous avons visité Paris.", "Nous visitions Paris."], answer: "Nous allons visiter Paris." },
     { id: "fr-lt-a1-15", level: "A1", prompt: "What does 'travail' mean?", options: ["Travel", "Work", "Train", "Dream"], answer: "Work" },
+    {
+        id: "fr-lt-a1-16", level: "A1",
+        prompt: "Which subject pronoun do you use with someone you don't know well?",
+        options: ["tu", "vous", "on", "ils"],
+        answer: "vous",
+        hint: "Vous is the formal 'you' — used with strangers, elders, and in professional contexts. Tu is for friends and family."
+    },
+    {
+        id: "fr-lt-a1-17", level: "A1",
+        prompt: "Which subject pronoun means 'they' (feminine only)?",
+        options: ["ils", "elles", "nous", "on"],
+        answer: "elles",
+        hint: "Elles = they (feminine only). Ils = they (masculine or mixed group)."
+    },
+    {
+        id: "fr-lt-a1-18", level: "A1",
+        prompt: "Feminine form of 'petit' (small)?",
+        options: ["petits", "petite", "petites", "petit"],
+        answer: "petite",
+        hint: "Regular adjective: add -e for feminine. Petit → petite."
+    },
+    {
+        id: "fr-lt-a1-19", level: "A1",
+        prompt: "Which adjective is the same for both masculine and feminine?",
+        options: ["grand/grande", "beau/belle", "facile", "bon/bonne"],
+        answer: "facile",
+        hint: "Adjectives already ending in -e don't change for feminine: facile, sympa, agréable."
+    },
+    {
+        id: "fr-lt-a1-20", level: "A1",
+        prompt: "Complete: 'Il est ___ heures et demie.' (It's half past three)",
+        options: ["deux", "trois", "trente", "demi"],
+        answer: "trois",
+        hint: "Il est trois heures et demie = It's half past three."
+    },
 
     // --- A2 (15 questions) ---
     { id: "fr-lt-a2-1", level: "A2", prompt: "Complete (passé composé): 'Hier, nous ___ (manger) au restaurant.'", options: ["mangeons", "mangions", "avons mangé", "avions mangé"], answer: "avons mangé" },
