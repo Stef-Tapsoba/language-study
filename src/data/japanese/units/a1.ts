@@ -1,7 +1,7 @@
 // data/japanese/units/a1.ts
 import { LessonUnit } from "../../../types"
 
-// 18 ordered A1 units for Japanese.
+// 22 ordered A1 units for Japanese.
 //
 // CHANGES FROM PREVIOUS VERSION:
 // U1  — Unchanged: How Japanese Works + Hiragana Part 1
@@ -389,6 +389,85 @@ export const a1Units: LessonUnit[] = [
             { id: "ja-uq-a1-18-6", level: "A1", prompt: "Which kanji means 'above / up'?", options: ["下", "中", "小", "上"], answer: "上" },
             { id: "ja-uq-a1-18-7", level: "A1", prompt: "What does 学生 (がくせい) mean?", options: ["Teacher", "School", "Student", "Language"], answer: "Student" },
             { id: "ja-uq-a1-18-8", level: "A1", prompt: "What is the kun'yomi reading of 水?", options: ["すい", "みず", "みな", "こう"], answer: "みず" },
+        ]
+    },
+    {
+        id: "ja-a1-u19",
+        level: "A1",
+        order: 19,
+        title: "Demonstratives & の Particle",
+        description: "Point to things near you, near the listener, or far away with これ/それ/あれ and この/その/あの. Use の to show possession and connect nouns.",
+        grammarIds: ["ja-g-a1-18", "ja-g-a1-19"],
+        vocabIds: [],
+        verbIds: [],
+        testQuestions: [
+            { id: "ja-uq-a1-19-1", level: "A1", prompt: "How do you say 'this book'?", options: ["あの本", "その本", "この本", "どの本"], answer: "この本" },
+            { id: "ja-uq-a1-19-2", level: "A1", prompt: "Which demonstrative refers to something far from BOTH speaker and listener?", options: ["これ", "それ", "あれ", "どれ"], answer: "あれ" },
+            { id: "ja-uq-a1-19-3", level: "A1", prompt: "How do you ask 'Whose bag is this?'", options: ["これは なんの かばんですか？", "これは だれの かばんですか？", "これは どこの かばんですか？", "これは いくらの かばんですか？"], answer: "これは だれの かばんですか？" },
+            { id: "ja-uq-a1-19-4", level: "A1", prompt: "How do you say 'my teacher' using の?", options: ["わたしで せんせい", "わたしに せんせい", "わたしの せんせい", "わたしを せんせい"], answer: "わたしの せんせい" },
+            { id: "ja-uq-a1-19-5", level: "A1", prompt: "What does あそこ mean?", options: ["Here", "There (near you)", "Over there (far)", "Where?"], answer: "Over there (far)" },
+            { id: "ja-uq-a1-19-6", level: "A1", prompt: "How do you say 'It's mine' (using の alone)?", options: ["わたしです。", "わたしのです。", "わたしにです。", "わたしがです。"], answer: "わたしのです。" },
+        ]
+    },
+    {
+        id: "ja-a1-u20",
+        level: "A1",
+        order: 20,
+        title: "Adjective Conjugation: い and な",
+        description: "Japanese adjectives conjugate directly. Learn the four forms (present/negative/past/past-negative) for both い-adjectives and な-adjectives, and how each type is used before a noun.",
+        grammarIds: ["ja-g-a1-20", "ja-g-a1-21"],
+        vocabIds: [],
+        verbIds: [],
+        testQuestions: [
+            { id: "ja-uq-a1-20-1", level: "A1", prompt: "What is the negative form of おいしい (delicious)?", options: ["おいしいじゃないです", "おいしくないです", "おいしかったです", "おいしくなかったです"], answer: "おいしくないです" },
+            { id: "ja-uq-a1-20-2", level: "A1", prompt: "What is the past form of さむい (cold)?", options: ["さむいでした", "さむかったです", "さむくないです", "さむじゃなかったです"], answer: "さむかったです" },
+            { id: "ja-uq-a1-20-3", level: "A1", prompt: "What is the EXCEPTION to い-adjective conjugation?", options: ["おおきい", "たかい", "いい (good)", "おいしい"], answer: "いい (good)" },
+            { id: "ja-uq-a1-20-4", level: "A1", prompt: "How do you say 'a quiet room' (しずか + 部屋)?", options: ["しずかい部屋", "しずかな部屋", "しずかの部屋", "しずかで部屋"], answer: "しずかな部屋" },
+            { id: "ja-uq-a1-20-5", level: "A1", prompt: "What is the past negative of いい (good)?", options: ["いくなかったです", "よかったです", "よくなかったです", "いじゃなかったです"], answer: "よくなかったです" },
+            { id: "ja-uq-a1-20-6", level: "A1", prompt: "What ending does a な-adjective take BEFORE a noun?", options: ["い", "の", "な", "で"], answer: "な" },
+        ]
+    },
+    {
+        id: "ja-a1-u21",
+        level: "A1",
+        order: 21,
+        title: "Adverbs, Frequency & Connectors",
+        description: "Say when, how often, and link your ideas. Learn time adverbs (もう/まだ/はじめに), frequency words (いつも/ときどき/ぜんぜん), and discourse connectors (そして/でも/だから/まず).",
+        grammarIds: ["ja-g-a1-22", "ja-g-a1-23", "ja-g-a1-24"],
+        vocabIds: [],
+        verbIds: [],
+        testQuestions: [
+            { id: "ja-uq-a1-21-1", level: "A1", prompt: "What does 'まだ たべていません' mean?", options: ["I already ate", "I haven't eaten yet", "I don't want to eat", "I sometimes eat"], answer: "I haven't eaten yet" },
+            { id: "ja-uq-a1-21-2", level: "A1", prompt: "Which frequency adverb REQUIRES a negative verb?", options: ["いつも", "よく", "ときどき", "ぜんぜん"], answer: "ぜんぜん" },
+            { id: "ja-uq-a1-21-3", level: "A1", prompt: "Which connector means 'but' in everyday Japanese?", options: ["そして", "だから", "でも", "それから"], answer: "でも" },
+            { id: "ja-uq-a1-21-4", level: "A1", prompt: "How do you say 'I always eat breakfast'?", options: ["いつも あさごはんを たべます。", "ときどき あさごはんを たべます。", "あまり あさごはんを たべます。", "ぜんぜん あさごはんを たべます。"], answer: "いつも あさごはんを たべます。" },
+            { id: "ja-uq-a1-21-5", level: "A1", prompt: "What does だから mean?", options: ["But / However", "And then", "So / Therefore", "By the way"], answer: "So / Therefore" },
+            { id: "ja-uq-a1-21-6", level: "A1", prompt: "'まず、てを あらいます' means:", options: ["I finally wash my hands", "First, I wash my hands", "I quickly wash my hands", "I wash my hands later"], answer: "First, I wash my hands" },
+        ]
+    },
+    {
+        id: "ja-a1-u22",
+        level: "A1",
+        order: 22,
+        title: "A1 Review: Putting It Together",
+        description: "Review all A1 grammar through integrated reading and production. Bring together scripts, particles, verb conjugation, adjectives, demonstratives, and connectors.",
+        grammarIds: [],
+        vocabIds: [
+            "ja-v-a1-1", "ja-v-a1-46", "ja-v-a1-52", "ja-v-a1-53", "ja-v-a1-58",
+            "ja-v-a1-60", "ja-v-a1-62", "ja-v-a1-104", "ja-v-a1-119", "ja-v-a1-143",
+            "ja-v-a1-147", "ja-v-a1-148", "ja-v-a1-150",
+        ],
+        verbIds: [
+            "ja-vb-a1-1", "ja-vb-a1-2", "ja-vb-a1-3",
+            "ja-vb-a1-5", "ja-vb-a1-7", "ja-vb-a1-9",
+        ],
+        testQuestions: [
+            { id: "ja-uq-a1-22-1", level: "A1", prompt: "How do you say 'I went to school yesterday'?", options: ["きのう がっこうで いきます。", "きのう がっこうに いきました。", "きのう がっこうを いきました。", "きのう がっこうが いきます。"], answer: "きのう がっこうに いきました。" },
+            { id: "ja-uq-a1-22-2", level: "A1", prompt: "Complete: 'わたし___ ほん。' (My book)", options: ["が", "は", "の", "に"], answer: "の" },
+            { id: "ja-uq-a1-22-3", level: "A1", prompt: "How do you say 'This restaurant is famous'?", options: ["このレストランは ゆうめいじゃないです。", "このレストランは ゆうめいです。", "このレストランが ゆうめいな。", "このレストランに ゆうめいです。"], answer: "このレストランは ゆうめいです。" },
+            { id: "ja-uq-a1-22-4", level: "A1", prompt: "What does 'もう たべました' mean?", options: ["I haven't eaten yet", "I always eat", "I already ate", "I want to eat"], answer: "I already ate" },
+            { id: "ja-uq-a1-22-5", level: "A1", prompt: "Which particle marks where an action takes place?", options: ["に", "を", "が", "で"], answer: "で" },
+            { id: "ja-uq-a1-22-6", level: "A1", prompt: "How do you say 'It was cold but fun'?", options: ["さむかったです。でも、たのしかったです。", "さむいでした。でも、たのしかったです。", "さむかったです。だから、たのしかったです。", "さむくないです。でも、たのしくないです。"], answer: "さむかったです。でも、たのしかったです。" },
         ]
     },
 ]

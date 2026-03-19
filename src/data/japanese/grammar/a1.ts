@@ -362,4 +362,265 @@ AT A1: When in doubt, use は for general statements. Use が when answering 'wh
             { native: "なにが おいしいですか？", romanized: "Nani ga oishii desu ka?", translation: "What is delicious? (が with question word)" },
         ]
     },
+    {
+        id: "ja-g-a1-18",
+        level: "A1",
+        title: "Demonstratives: これ / それ / あれ",
+        explanation: `Japanese has three distance levels for demonstratives — not two like English.
+
+これ  this (near the speaker)
+それ  that (near the listener)
+あれ  that (far from both)
+
+These are standalone pronouns. Add の + noun, or use shorter forms:
+  この + noun  →  この本  (this book)
+  その + noun  →  その人  (that person)
+  あの + noun  →  あの店  (that shop over there)
+
+PLACE WORDS (where):
+  ここ   here (near speaker)
+  そこ   there (near listener)
+  あそこ  over there (far from both)
+
+QUESTION FORMS (which / which one / where):
+  どれ   which one? (standalone)
+  どの + noun  →  どの本?  (which book?)
+  どこ   where?  (you already know this from negation/question unit)
+
+ASKING:
+  これは なんですか？   What is this?
+  それは いくらですか？  How much is that?
+  あれは だれですか？   Who is that (over there)?
+
+SHORTHAND: Japanese speakers often shorten:
+  これ → こちら (more polite form, also used for directions/people)`,
+        examples: [
+            { native: "これは なんですか？", romanized: "Kore wa nan desu ka?", translation: "What is this?" },
+            { native: "その本は おもしろいです。", romanized: "Sono hon wa omoshiroi desu.", translation: "That book is interesting." },
+            { native: "あれは だれですか？", romanized: "Are wa dare desu ka?", translation: "Who is that (over there)?" },
+            { native: "どれが あなたのですか？", romanized: "Dore ga anata no desu ka?", translation: "Which one is yours?" },
+            { native: "あそこに ゆうびんきょくが あります。", romanized: "Asoko ni yuubinkyoku ga arimasu.", translation: "There is a post office over there." },
+        ]
+    },
+    {
+        id: "ja-g-a1-19",
+        level: "A1",
+        title: "の Particle: Possession & Connection",
+        explanation: `の connects two nouns. The first noun describes or owns the second.
+
+POSSESSION:
+  わたしの本       my book
+  たなかさんの かばん  Tanaka's bag
+  先生の じむしょ    the teacher's office
+
+DESCRIPTION / CATEGORY:
+  日本語の せんせい   Japanese language teacher  (teacher of Japanese)
+  東京の えき       Tokyo station              (station of Tokyo)
+  英語の じゅぎょう   English class
+
+KEY RULE: の links nouns only. The pattern is always X の Y = Y of X.
+  にほん の たべもの   Japanese food (food of Japan)
+  がっこう の ともだち  school friend (friend from school)
+
+ASKING WHOSE:
+  これは だれの かばんですか？   Whose bag is this?
+  → わたしの かばんです。       It's my bag.
+  → わたしのです。              It's mine. (の can stand alone)
+
+NOTE: の as a sentence-final softener (female/gentle speech) is A2+ — focus on possession here.`,
+        examples: [
+            { native: "これは わたしの です。", romanized: "Kore wa watashi no desu.", translation: "This is mine." },
+            { native: "たなかさんの かばんは どこですか？", romanized: "Tanaka-san no kaban wa doko desu ka?", translation: "Where is Tanaka's bag?" },
+            { native: "日本語の じゅぎょうは たのしいです。", romanized: "Nihongo no jugyou wa tanoshii desu.", translation: "Japanese class is fun." },
+            { native: "これは だれの ですか？", romanized: "Kore wa dare no desu ka?", translation: "Whose is this?" },
+            { native: "東京の えきは おおきいです。", romanized: "Tokyo no eki wa ookii desu.", translation: "Tokyo station is big." },
+        ]
+    },
+    {
+        id: "ja-g-a1-20",
+        level: "A1",
+        title: "い-adjective Conjugation",
+        explanation: `い-adjectives end in い. They conjugate directly — no helper needed.
+
+FORMS (using おおきい — big):
+  Present affirmative:  おおきいです。     It is big.
+  Present negative:     おおきくないです。  It is not big.  (drop い → く + ない)
+  Past affirmative:     おおきかったです。  It was big.     (drop い → かった)
+  Past negative:        おおきくなかったです。  It was not big.
+
+ATTRIBUTIVE (before a noun — no change to い):
+  おおきい いぬ    a big dog
+  おいしい たべもの  delicious food
+
+EXCEPTION — いい (good):
+  Positive:  いいです        (is good)
+  Negative:  よくないです     (NOT いくないです ✗)
+  Past:      よかったです     (NOT いかったです ✗)
+  Past neg:  よくなかったです
+
+COMMON い-adjectives:
+  おいしい (delicious)  たかい (expensive/tall)  やすい (cheap)
+  おおきい (big)        ちいさい (small)          あたらしい (new)
+  ふるい (old)          たのしい (fun)            むずかしい (difficult)
+  おもしろい (interesting)  さむい (cold)         あつい (hot)`,
+        examples: [
+            { native: "この りんごは おいしいです。", romanized: "Kono ringo wa oishii desu.", translation: "This apple is delicious." },
+            { native: "あの えいがは おもしろくないです。", romanized: "Ano eiga wa omoshirokunai desu.", translation: "That movie is not interesting." },
+            { native: "きのう さむかったです。", romanized: "Kinou samukatta desu.", translation: "It was cold yesterday." },
+            { native: "このホテルは よくなかったです。", romanized: "Kono hoteru wa yokunakatta desu.", translation: "This hotel was not good." },
+            { native: "おいしい すしを たべました。", romanized: "Oishii sushi wo tabemashita.", translation: "I ate delicious sushi. (attributive — い unchanged)" },
+        ]
+    },
+    {
+        id: "ja-g-a1-21",
+        level: "A1",
+        title: "な-adjective Conjugation",
+        explanation: `な-adjectives behave like nouns with です. They do NOT end in い (or end in い but aren't conjugated like い-adj).
+
+FORMS (using しずか — quiet):
+  Present affirmative:  しずかです。          It is quiet.
+  Present negative:     しずかじゃないです。   It is not quiet.  (also: しずかではないです)
+  Past affirmative:     しずかでした。         It was quiet.
+  Past negative:        しずかじゃなかったです。 It was not quiet.
+
+ATTRIBUTIVE — add な before the noun:
+  しずかな まち    a quiet town
+  きれいな はな    beautiful flowers
+  NOTE: In the predicate (after は) no な needed: この まちは しずかです。
+
+COMMON な-adjectives:
+  きれい (beautiful/clean)   しずか (quiet)    にぎやか (lively/bustling)
+  べんり (convenient)         ゆうめい (famous)  すき (liked/favourite)
+  きらい (disliked)           げんき (healthy/energetic)  ひま (free/bored)
+  たいへん (hard/tough)       へた (bad at)     じょうず (good at)
+
+CAREFUL — すき and きらい are な-adjectives, used with が:
+  すしが すきです。  I like sushi. (not: すしを すきです ✗)`,
+        examples: [
+            { native: "この こうえんは しずかです。", romanized: "Kono kouen wa shizuka desu.", translation: "This park is quiet." },
+            { native: "あの まちは にぎやかじゃないです。", romanized: "Ano machi wa nigiyaka ja nai desu.", translation: "That town is not lively." },
+            { native: "きれいな はなですね。", romanized: "Kirei na hana desu ne.", translation: "What beautiful flowers, aren't they! (attributive な)" },
+            { native: "えきは べんりでした。", romanized: "Eki wa benri deshita.", translation: "The station was convenient." },
+            { native: "ピアノが じょうずです。", romanized: "Piano ga jouzu desu.", translation: "You are good at piano. (じょうず takes が)" },
+        ]
+    },
+    {
+        id: "ja-g-a1-22",
+        level: "A1",
+        title: "Adverbs of Time",
+        explanation: `Time expressions in Japanese usually go at the START of the sentence or just before the verb — they are very flexible.
+
+TIME ANCHORS:
+  今日 (きょう)    today
+  昨日 (きのう)    yesterday
+  明日 (あした)    tomorrow
+  今週 (こんしゅう)  this week
+  先週 (せんしゅう)  last week
+  来週 (らいしゅう)  next week
+
+NOW / RELATIVE:
+  今 (いま)     now
+  もう          already / soon (+ affirmative: もう食べました — already ate)
+                or not yet in questions: もうたべましたか？
+  まだ          still / not yet (+ negative: まだたべていません — haven't eaten yet)
+                or still continuing: まだいます — still here
+
+NOTE: もう vs まだ
+  もう〜ました    already did    (もう食べました。 — already ate)
+  まだ〜ません   not yet        (まだ食べません。 — not eating yet / haven't eaten yet)
+
+SPEED / ORDER:
+  はやく         quickly / early
+  ゆっくり        slowly / leisurely
+  はじめに        first (in a sequence)
+  つぎに          next
+  さいごに        finally / last
+  あとで          later`,
+        examples: [
+            { native: "今日は いそがしいです。", romanized: "Kyou wa isogashii desu.", translation: "I am busy today." },
+            { native: "昨日 ともだちに あいました。", romanized: "Kinou tomodachi ni aimashita.", translation: "I met a friend yesterday." },
+            { native: "もう たべました。", romanized: "Mou tabemashita.", translation: "I already ate." },
+            { native: "まだ たべていません。", romanized: "Mada tabete imasen.", translation: "I haven't eaten yet." },
+            { native: "ゆっくり はなしてください。", romanized: "Yukkuri hanashite kudasai.", translation: "Please speak slowly." },
+            { native: "はじめに てを あらいます。", romanized: "Hajime ni te wo araimasu.", translation: "First I wash my hands." },
+        ]
+    },
+    {
+        id: "ja-g-a1-23",
+        level: "A1",
+        title: "Frequency Adverbs",
+        explanation: `Use these adverbs to say how often something happens.
+
+FREQUENCY SCALE (high → low):
+  いつも         always
+  よく           often
+  ときどき        sometimes
+  あまり (+ neg)  not much / not very often
+  ぜんぜん (+ neg)  not at all / never
+
+IMPORTANT: あまり and ぜんぜん REQUIRE a negative verb:
+  あまり たべません。     I don't eat much.      ✓
+  あまり たべます。       ✗ (grammatically wrong)
+  ぜんぜん わかりません。  I don't understand at all. ✓
+  ぜんぜん わかります。   ✗
+
+POSITION: Frequency adverbs come before the verb, or at the start of the sentence:
+  わたしは いつも あさごはんを たべます。  I always eat breakfast.
+  ときどき えいがを みます。               I sometimes watch films.
+  ぜんぜん わかりません。                 I don't understand at all.
+
+DEGREE ADVERBS (bonus — used with adjectives and adverbs):
+  とても          very          とても おいしいです。  very delicious
+  すごく          really / super すごく さむいです。   really cold
+  ちょっと        a little       ちょっと むずかしいです。  a little difficult`,
+        examples: [
+            { native: "わたしは いつも コーヒーを のみます。", romanized: "Watashi wa itsumo koohii wo nomimasu.", translation: "I always drink coffee." },
+            { native: "ときどき えいがを みます。", romanized: "Tokidoki eiga wo mimasu.", translation: "I sometimes watch movies." },
+            { native: "あまり にくを たべません。", romanized: "Amari niku wo tabemasen.", translation: "I don't eat much meat." },
+            { native: "ぜんぜん わかりません。", romanized: "Zenzen wakarimasen.", translation: "I don't understand at all." },
+            { native: "この えいがは とても おもしろいです。", romanized: "Kono eiga wa totemo omoshiroi desu.", translation: "This movie is very interesting." },
+        ]
+    },
+    {
+        id: "ja-g-a1-24",
+        level: "A1",
+        title: "Discourse Connectors",
+        explanation: `These words connect separate sentences. They go at the START of a new sentence.
+
+ADDING:
+  そして          and / and then
+  それから        and then / after that (stronger sequence)
+  また            also / again
+
+CONTRASTING:
+  でも            but / however (casual, very common)
+  しかし          but / however (more formal)
+  でも is far more common in everyday speech.
+
+CAUSE / RESULT:
+  だから          so / therefore (consequence)
+  それで          so / and as a result (softer cause-effect)
+
+TOPIC SHIFT:
+  ところで        by the way
+  じつは          actually (introducing something the listener might not know)
+
+SEQUENCE (in lists / routines):
+  まず            first of all
+  つぎに          next
+  それから        then / after that
+  さいごに        finally
+
+EXAMPLE SEQUENCE:
+  まず、てを あらいます。        First, I wash my hands.
+  つぎに、りょうりを します。    Next, I cook.
+  さいごに、たべます。           Finally, I eat.`,
+        examples: [
+            { native: "わたしは がくせいです。そして、アルバイトも しています。", romanized: "Watashi wa gakusei desu. Soshite, arubaito mo shite imasu.", translation: "I am a student. And I also work part-time." },
+            { native: "たかいです。でも、おいしいです。", romanized: "Takai desu. Demo, oishii desu.", translation: "It's expensive. But it's delicious." },
+            { native: "あめが ふりました。だから、いえに いました。", romanized: "Ame ga furimashita. Dakara, ie ni imashita.", translation: "It rained. So I stayed home." },
+            { native: "まず てを あらいます。それから たべます。", romanized: "Mazu te wo araimasu. Sorekara tabemasu.", translation: "First I wash my hands. Then I eat." },
+            { native: "じつは、にほんごが すきです。", romanized: "Jitsu wa, nihongo ga suki desu.", translation: "Actually, I like Japanese." },
+        ]
+    },
 ]
