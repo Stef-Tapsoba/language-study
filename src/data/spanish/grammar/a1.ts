@@ -616,6 +616,248 @@ With a feminine noun: veintiuna:
       { native: "Ciento veinte euros.", translation: "One hundred and twenty euros." },
       { native: "Tengo veintiún años.", translation: "I am twenty-one years old." },
     ]
-  }
+  },
+  {
+    id: "es-g-a1-21",
+    level: "A1",
+    title: "Reflexive Verbs",
+    explanation: `Reflexive verbs express actions done to oneself. They use a reflexive pronoun that matches the subject.
+
+REFLEXIVE PRONOUNS
+  yo → me          nosotros → nos
+  tú → te          vosotros → os
+  él/ella → se     ellos/ellas → se
+
+The pronoun goes BEFORE the conjugated verb:
+  Me llamo Ana.       (My name is Ana. — lit. I call myself Ana.)
+  Te despiertas tarde. (You wake up late.)
+  Se ducha por la mañana. (He/she showers in the morning.)
+
+COMMON REFLEXIVE VERBS
+  llamarse       to be called          Me llamo Juan.
+  levantarse     to get up             Me levanto a las siete.
+  acostarse      to go to bed          Me acuesto a las once.
+  despertarse    to wake up            Se despierta temprano.
+  ducharse       to shower             ¿A qué hora te duchas?
+  vestirse       to get dressed        Me visto rápido.
+  sentarse       to sit down           Siéntate aquí.
+
+Note: acostarse (o→ue) and despertarse (e→ie) are also stem-changing.`,
+    examples: [
+      { native: "Me llamo Pablo.", translation: "My name is Pablo." },
+      { native: "Me levanto a las siete.", translation: "I get up at seven." },
+      { native: "Ella se ducha por la mañana.", translation: "She showers in the morning." },
+      { native: "Nos acostamos tarde.", translation: "We go to bed late." },
+      { native: "¿A qué hora te despiertas?", translation: "What time do you wake up?" },
+    ]
+  },
+  {
+    id: "es-g-a1-22",
+    level: "A1",
+    title: "Gustar — Expressing Likes & Dislikes",
+    explanation: `Gustar does not work like a normal verb. The thing you like is the grammatical subject, and the person who likes it is an indirect object.
+
+STRUCTURE: (indirect object pronoun) + gustar + thing liked
+
+  me gusta / me gustan      I like
+  te gusta / te gustan      you like
+  le gusta / le gustan      he/she/you (formal) like(s)
+  nos gusta / nos gustan    we like
+  os gusta / os gustan      you all like (Spain)
+  les gusta / les gustan    they / you all like
+
+SINGULAR vs PLURAL
+  Me gusta el café.         I like coffee.         (singular → gusta)
+  Me gustan las tapas.      I like tapas.           (plural → gustan)
+
+INTENSIFYING
+  Me gusta mucho.           I like it a lot.
+  No me gusta nada.         I don't like it at all.
+  Me encanta.               I love it. (stronger than gustar)
+
+ASKING ABOUT PREFERENCES
+  ¿Te gusta el fútbol?      Do you like football?
+  ¿Qué te gusta hacer?      What do you like to do?
+
+With an infinitive, always use gusta (singular):
+  Me gusta bailar.          I like dancing.`,
+    examples: [
+      { native: "Me gusta el español.", translation: "I like Spanish." },
+      { native: "Me gustan los libros.", translation: "I like books." },
+      { native: "¿Te gusta la música?", translation: "Do you like music?" },
+      { native: "No me gusta nada el frío.", translation: "I don't like the cold at all." },
+      { native: "Nos encanta viajar.", translation: "We love travelling." },
+    ]
+  },
+  {
+    id: "es-g-a1-23",
+    level: "A1",
+    title: "Modal Verbs: Poder, Deber & Tener Que",
+    explanation: `These three verbs express ability, obligation, and necessity. All are followed by an infinitive.
+
+PODER — can / to be able to (stem-changing: o→ue)
+
+  yo **puedo**          nosotros podemos
+  tú **puedes**         vosotros podéis
+  él/ella **puede**     ellos/ellas **pueden**
+
+  Puedo ayudarte.        (I can help you.)
+  ¿Puedes venir mañana?  (Can you come tomorrow?)
+
+DEBER — must / should (regular -er verb)
+
+  Debo estudiar más.     (I must study more.)
+  Debes descansar.       (You should rest.)
+
+TENER QUE — to have to / must (stronger obligation)
+
+  Tengo que trabajar.    (I have to work.)
+  Tienen que salir ya.   (They have to leave now.)
+
+SUMMARY
+  poder     → ability or possibility  (can, could)
+  deber     → moral obligation        (should, must)
+  tener que → concrete necessity      (have to, need to)`,
+    examples: [
+      { native: "¿Puedes hablar más despacio?", translation: "Can you speak more slowly?" },
+      { native: "No puedo venir esta noche.", translation: "I can't come tonight." },
+      { native: "Debes llegar a tiempo.", translation: "You should arrive on time." },
+      { native: "Tengo que trabajar el sábado.", translation: "I have to work on Saturday." },
+      { native: "Tenemos que comprar leche.", translation: "We have to buy milk." },
+    ]
+  },
+  {
+    id: "es-g-a1-24",
+    level: "A1",
+    title: "Demonstrative Adjectives",
+    explanation: `Demonstrative adjectives point out specific nouns. Spanish has three sets based on distance from the speaker.
+
+               Masc. sg.   Fem. sg.   Masc. pl.   Fem. pl.
+  THIS (near)   este        esta       estos       estas
+  THAT (medium) ese         esa        esos        esas
+  THAT (far)    aquel       aquella    aquellos    aquellas
+
+USAGE
+  este libro      — this book (near me)
+  ese libro       — that book (near you)
+  aquel libro     — that book (over there, distant)
+
+They must agree in gender and number with the noun:
+  esta mesa       — this table (fem. sg.)
+  estos zapatos   — these shoes (masc. pl.)
+  esas casas      — those houses (fem. pl.)
+
+DEMONSTRATIVE PRONOUNS (standalone)
+  ¿Qué es esto?       What is this?      (neutral — unknown object)
+  ¿Cuánto cuesta eso? How much is that?  (neutral — pointing at something)`,
+    examples: [
+      { native: "¿Cuánto cuesta este libro?", translation: "How much does this book cost?" },
+      { native: "Quiero esa camisa, por favor.", translation: "I'd like that shirt, please." },
+      { native: "Estas manzanas son deliciosas.", translation: "These apples are delicious." },
+      { native: "¿Qué es esto?", translation: "What is this?" },
+      { native: "Aquel edificio es muy antiguo.", translation: "That building (over there) is very old." },
+    ]
+  },
+  {
+    id: "es-g-a1-25",
+    level: "A1",
+    title: "Adverbs of Place & Time",
+    explanation: `ADVERBS OF PLACE — answer ¿dónde? (where?)
+  aquí        here (near me)
+  ahí         there (near you)
+  allí / allá there / over there (far away)
+  cerca       nearby / close
+  lejos       far away
+  dentro      inside
+  fuera       outside
+  arriba      up / upstairs
+  abajo       down / downstairs
+  enfrente    opposite / facing
+
+ADVERBS OF TIME — answer ¿cuándo? (when?)
+  hoy         today
+  ayer        yesterday
+  mañana      tomorrow
+  ahora       now
+  luego       later / then
+  ya          already / right now
+  todavía     still / yet
+  pronto      soon
+  tarde       late
+  temprano    early
+  antes       before
+  después     after / afterwards`,
+    examples: [
+      { native: "El libro está aquí.", translation: "The book is here." },
+      { native: "¿Está lejos de aquí?", translation: "Is it far from here?" },
+      { native: "Hoy tengo clase.", translation: "Today I have class." },
+      { native: "Ya he comido.", translation: "I have already eaten." },
+      { native: "Todavía estoy aquí.", translation: "I'm still here." },
+    ]
+  },
+  {
+    id: "es-g-a1-26",
+    level: "A1",
+    title: "Frequency Adverbs",
+    explanation: `Frequency adverbs say how often something happens. They usually go directly AFTER the conjugated verb (or before it for emphasis).
+
+FREQUENCY SCALE (most → least)
+  siempre         always
+  normalmente     normally / usually
+  a menudo        often
+  a veces         sometimes
+  raramente       rarely
+  casi nunca      hardly ever
+  nunca           never
+
+POSITION
+  Siempre como en casa.       (I always eat at home.)
+  Normalmente trabajo a las 9.(I normally work at 9.)
+  A veces llueve en verano.   (It sometimes rains in summer.)
+  Nunca llego tarde.          (I never arrive late.)
+  No llego nunca tarde.       (I never arrive late. — no before verb is optional with nunca)
+
+Note: nunca can go before the verb alone (no no needed) or after the verb with no before it.`,
+    examples: [
+      { native: "Siempre desayuno a las ocho.", translation: "I always have breakfast at eight." },
+      { native: "A veces voy al gimnasio.", translation: "I sometimes go to the gym." },
+      { native: "Nunca como carne.", translation: "I never eat meat." },
+      { native: "Normalmente llegamos a tiempo.", translation: "We normally arrive on time." },
+      { native: "¿Con qué frecuencia vas al cine?", translation: "How often do you go to the cinema?" },
+    ]
+  },
+  {
+    id: "es-g-a1-27",
+    level: "A1",
+    title: "Basic Connectors",
+    explanation: `Connectors link words and clauses. Even with a small vocabulary, using connectors makes your Spanish sound much more natural.
+
+COORDINATING (connect equal elements)
+  y           and           Hablo español y francés.
+  o           or            ¿Quieres café o té?
+  pero        but           Me gusta, pero es caro.
+  sino        but rather    No soy inglés, sino irlandés.
+
+SUBORDINATING (introduce a dependent clause)
+  porque      because       Estudio porque me gusta.
+  que         that          Creo que es bueno.
+  cuando      when          Cuando llego, llamo.
+  si          if            Si tienes tiempo, ven.
+  aunque      although      Aunque llueve, salgo.
+
+SEQUENCING (order events or ideas)
+  primero         first
+  después / luego then / afterwards
+  finalmente      finally
+  también         also / too
+  además          furthermore / also`,
+    examples: [
+      { native: "Hablo español y un poco de francés.", translation: "I speak Spanish and a little French." },
+      { native: "Me gusta el café, pero prefiero el té.", translation: "I like coffee, but I prefer tea." },
+      { native: "Estudio mucho porque quiero aprobar.", translation: "I study a lot because I want to pass." },
+      { native: "Primero desayuno, después me ducho.", translation: "First I have breakfast, then I shower." },
+      { native: "Si tienes hambre, hay comida en la nevera.", translation: "If you're hungry, there's food in the fridge." },
+    ]
+  },
 
 ]
