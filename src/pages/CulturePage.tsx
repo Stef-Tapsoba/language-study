@@ -391,24 +391,38 @@ function CultureEpisodeView({
             )}
 
             {/* Body text */}
-            <div className="bg-white rounded-2xl border border-gray-200 p-5">
-                <p className="text-base text-gray-900 leading-relaxed whitespace-pre-line">{bodyText}</p>
-                {showTranslation && (
+            {episode.simpleTarget ? (
+                <div className="bg-white rounded-2xl border border-gray-200 p-5">
+                    <p className="text-base text-gray-900 leading-relaxed whitespace-pre-line">{episode.body.native}</p>
                     <div className="mt-4 pt-4 border-t border-gray-100">
-                        <button
-                            onClick={() => setTranslationShown(v => !v)}
-                            className="text-sm text-indigo-600 hover:underline mb-2"
-                        >
-                            {translationShown ? ui.hideEnglish : ui.showEnglish}
-                        </button>
-                        {translationShown && (
-                            <p className="text-sm text-gray-500 leading-relaxed whitespace-pre-line">
-                                {episode.body.native}
-                            </p>
-                        )}
+                        <p className="text-xs font-semibold text-indigo-600 uppercase tracking-wide mb-3">
+                            📖 Simple {getLanguage(langId)?.name} — reading practice
+                        </p>
+                        <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-line">
+                            {episode.simpleTarget}
+                        </p>
                     </div>
-                )}
-            </div>
+                </div>
+            ) : (
+                <div className="bg-white rounded-2xl border border-gray-200 p-5">
+                    <p className="text-base text-gray-900 leading-relaxed whitespace-pre-line">{bodyText}</p>
+                    {showTranslation && (
+                        <div className="mt-4 pt-4 border-t border-gray-100">
+                            <button
+                                onClick={() => setTranslationShown(v => !v)}
+                                className="text-sm text-indigo-600 hover:underline mb-2"
+                            >
+                                {translationShown ? ui.hideEnglish : ui.showEnglish}
+                            </button>
+                            {translationShown && (
+                                <p className="text-sm text-gray-500 leading-relaxed whitespace-pre-line">
+                                    {episode.body.native}
+                                </p>
+                            )}
+                        </div>
+                    )}
+                </div>
+            )}
 
             {/* Culture vocab */}
             <CultureVocabPanel vocab={episode.cultureVocab} />

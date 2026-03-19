@@ -69,31 +69,39 @@ In Italy, "normal" coffee is an espresso. If you want a long coffee like in Amer
 Northern and Southern Italy have different traditions. In Naples, coffee is an almost religious institution. The "Napoli coffee ceremony" is famous: the caffè sospeso — paying for a coffee in advance for someone who cannot afford it — is a Neapolitan tradition of social solidarity.`
         },
 
+        simpleTarget: `In Italia, il caffè è molto importante.
+Gli italiani bevono il caffè ogni giorno.
+Il bar è un posto centrale nella vita italiana.
+Un espresso è piccolo e molto forte.
+Il cappuccino si beve solo al mattino.
+Il bar apre la mattina presto.
+Un caffè in Italia costa circa un euro.`,
+
         cultureVocab: [
+            {
+                word: "il caffè",
+                translation: "coffee / café",
+                culturalNote: "In Italian, 'caffè' means both the drink (espresso) and the place (the bar). Ordering 'un caffè' always means an espresso — you must specify if you want anything else."
+            },
             {
                 word: "il bar",
                 translation: "Italian café / coffee bar",
-                culturalNote: "The Italian 'bar' is nothing like an English pub. It's open from 6am, serves coffee, pastries, lunch, and yes, alcohol — but it's primarily a coffee and social space."
+                culturalNote: "The Italian 'bar' is open from 6am and serves coffee, pastries, and lunch. It is the centre of neighbourhood social life — most Italians visit their local bar every morning."
             },
             {
-                word: "il barista",
-                translation: "coffee bar worker",
-                culturalNote: "In Italy, 'barista' is a skilled profession. A good barista knows their regulars' orders, and the relationship between a neighbourhood and its barista can last decades."
-            },
-            {
-                word: "il caffè sospeso",
-                translation: "suspended coffee (paid forward for someone in need)",
-                culturalNote: "A Neapolitan tradition of paying for an extra coffee that a stranger can collect later. Now practiced in cafés worldwide as an act of everyday generosity."
-            },
-            {
-                word: "al banco",
-                translation: "at the counter (standing)",
-                culturalNote: "Drinking 'al banco' (standing at the bar counter) is cheaper than sitting at a table — the two-price system is legally allowed and universally practiced."
+                word: "l'espresso",
+                translation: "espresso (strong, small coffee)",
+                culturalNote: "The standard Italian coffee — about 25ml, drunk standing at the counter in under a minute. Sitting at a table to drink it costs more and is considered a tourist habit."
             },
             {
                 word: "il cappuccino",
                 translation: "espresso with steamed milk foam",
-                culturalNote: "Named for the Capuchin friars, whose brown robes matched the colour. The rule against afternoon cappuccino is so strong that even Italian children know it."
+                culturalNote: "Named for the Capuchin friars, whose brown robes matched the colour. The rule against drinking cappuccino after 11am is so strong that even Italian children know it."
+            },
+            {
+                word: "il mattino",
+                translation: "the morning",
+                culturalNote: "The morning bar visit is sacred in Italy. A quick espresso and a cornetto (Italian croissant) at the bar counter is how millions of Italians start every single day."
             }
         ],
 
@@ -120,7 +128,7 @@ Northern and Southern Italy have different traditions. In Naples, coffee is an a
             {
                 id: "it-c-a1-1-q3",
                 type: "comparison",
-                prompt: { native: "How do people drink coffee in your country? How is it different from Italian coffee culture?", target: "Come si beve il caffè nel tuo paese? In cosa è diverso dalla cultura del caffè italiana?" }
+                prompt: { native: "How do people drink coffee in your country? How is it different from Italian coffee culture?", target: "How do people drink coffee in your country? How is it different from Italian coffee culture?" }
             }
         ],
 
@@ -199,26 +207,39 @@ For tourists, this diversity is a treasure. Each region has its own cuisine, its
 Italy is not one country — it is a collection of extraordinary cultures in a relatively small space.`
         },
 
+        simpleTarget: `L'Italia è un paese grande e molto diverso.
+Al nord ci sono Milano e Torino.
+Al sud ci sono Napoli e Palermo.
+Il nord e il sud hanno culture diverse.
+Al nord, la gente mangia risotto e polenta.
+Al sud, la gente mangia pizza e pasta al pomodoro.
+Ogni regione in Italia ha la sua cucina speciale.`,
+
         cultureVocab: [
             {
-                word: "il Risorgimento",
-                translation: "the Italian unification movement (1815–1871)",
-                culturalNote: "Literally 'the Resurgence'. The political movement that united the Italian peninsula into one kingdom, led by figures like Garibaldi and Cavour."
+                word: "il nord",
+                translation: "the north (of Italy)",
+                culturalNote: "Northern Italy — Milan, Turin, Bologna — is one of the richest regions in Europe. It is known for industry, fashion, and rice-based dishes like risotto and polenta."
             },
             {
-                word: "il dialetto",
-                translation: "dialect",
-                culturalNote: "Italian dialects are so distinct linguistically that many are considered separate languages. Venetian, Neapolitan and Sicilian are all recognised as regional languages by the EU."
+                word: "il sud",
+                translation: "the south (of Italy)",
+                culturalNote: "Southern Italy — Naples, Palermo, Bari — has a slower pace of life and a stronger family culture. It gave the world pizza, mozzarella, and pasta al pomodoro."
             },
             {
-                word: "il campanilismo",
-                translation: "strong loyalty to one's own town/village",
-                culturalNote: "From 'campanile' (bell tower) — the idea that your town's bell tower is the centre of the world. Italians often identify with their specific city or region before 'Italy'."
+                word: "la regione",
+                translation: "region",
+                culturalNote: "Italy has 20 regions, each with its own flag, cuisine, and identity. Many Italians identify as 'Neapolitan' or 'Sicilian' before they identify as 'Italian'."
             },
             {
-                word: "le arancine / gli arancini",
-                translation: "Sicilian fried rice balls",
-                culturalNote: "Even the name is contested: in Palermo they're 'arancine' (feminine), in Catania they're 'arancini' (masculine). A small but fierce cultural debate."
+                word: "la cucina",
+                translation: "cuisine, kitchen",
+                culturalNote: "Italian 'cucina' means both 'kitchen' and 'cuisine' — the two are inseparable. Every Italian region has its own cucina, fiercely defended as the best in the country."
+            },
+            {
+                word: "la pasta al pomodoro",
+                translation: "pasta with tomato sauce",
+                culturalNote: "The definitive dish of southern Italy. In the north, pasta is more often served with butter, cream, or meat ragù. This north/south divide is one of Italy's most delicious arguments."
             }
         ],
 
@@ -233,7 +254,7 @@ Italy is not one country — it is a collection of extraordinary cultures in a r
             {
                 id: "it-c-a1-2-q2",
                 type: "reflection",
-                prompt: { native: "Does your country have strong regional differences — in food, accent, or culture? How do people feel about these differences?", target: "Il tuo paese ha forti differenze regionali — nel cibo, nell'accento o nella cultura? Come si sentono le persone riguardo a queste differenze?" }
+                prompt: { native: "Does your country have strong regional differences — in food, accent, or culture? How do people feel about these differences?", target: "Does your country have strong regional differences — in food, accent, or culture? How do people feel about these differences?" }
             }
         ],
 

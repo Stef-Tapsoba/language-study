@@ -73,21 +73,24 @@ In 2022, the French baguette was added to UNESCO's Intangible Cultural Heritage 
 Eating bread in the street is normal in France. Many French people eat their baguette while walking — tearing off pieces from the end. It is an iconic image of French life.`
         },
 
+        simpleTarget: `Le pain est très important en France.
+Les Français mangent du pain chaque jour.
+La baguette est le pain le plus populaire.
+Elle est longue et blanche.
+Dans chaque quartier, il y a une boulangerie.
+Les gens achètent une baguette fraîche le matin et le soir.
+La baguette française est très célèbre dans le monde.`,
+
         cultureVocab: [
+            {
+                word: "la baguette",
+                translation: "baguette (French bread)",
+                culturalNote: "Protected by French law: it must be made on the premises from only four ingredients — flour, water, salt, and yeast. No additives allowed. Bakers cannot sell pre-made bread and still call it a baguette."
+            },
             {
                 word: "la boulangerie",
                 translation: "bakery",
-                culturalNote: "A boulangerie must bake its bread on the premises to use the name. A shop that only sells pre-made bread must call itself a 'dépôt de pain'. The distinction is legally enforced."
-            },
-            {
-                word: "le pain quotidien",
-                translation: "daily bread",
-                culturalNote: "From the Lord's Prayer ('notre pain quotidien'). The phrase is embedded in French culture as a metaphor for essential, daily necessity."
-            },
-            {
-                word: "la farine",
-                translation: "flour",
-                culturalNote: "French flour ('Type 55') is finer than most bread flours, which is part of why baguettes have their specific texture and can't be perfectly replicated elsewhere."
+                culturalNote: "A boulangerie must bake its bread on the premises to use the name. There are about 35,000 artisan bakeries in France — one in every neighbourhood. The government ensures access to fresh bread everywhere."
             },
             {
                 word: "le quartier",
@@ -95,9 +98,14 @@ Eating bread in the street is normal in France. Many French people eat their bag
                 culturalNote: "French urban life is strongly organised around the quartier — a walkable area with its own butcher, baker, café and market. The boulangerie is its anchor."
             },
             {
-                word: "artisanal",
-                translation: "artisan-made, handcrafted",
-                culturalNote: "In French food law, 'artisanal' has a specific meaning: made by hand on premises by a qualified artisan. It is a protected term, not just marketing language."
+                word: "célèbre",
+                translation: "famous, celebrated",
+                culturalNote: "In 2022, the French baguette was added to UNESCO's Intangible Cultural Heritage list — making it officially célèbre on a global stage alongside practices like Japanese calligraphy."
+            },
+            {
+                word: "les Français",
+                translation: "the French (people)",
+                culturalNote: "The French eat about 30 million baguettes per day. Many buy a fresh baguette twice daily, because a baguette loses its quality within a few hours of baking."
             }
         ],
 
@@ -124,7 +132,7 @@ Eating bread in the street is normal in France. Many French people eat their bag
             {
                 id: "fr-c-a1-1-q3",
                 type: "reflection",
-                prompt: { native: "Is there a food in your country that is as culturally important as bread in France? What would happen if it disappeared?", target: "Y a-t-il un aliment dans votre pays aussi important culturellement que le pain en France ? Que se passerait-il s'il disparaissait ?" }
+                prompt: { native: "Is there a food in your country that is as culturally important as bread in France? What would happen if it disappeared?", target: "Is there a food in your country that is as culturally important as bread in France? What would happen if it disappeared?" }
             }
         ],
 
@@ -197,26 +205,39 @@ Nouchi is a fascinating example. It is a creole language spoken in Côte d'Ivoir
 For French learners, this is good news. Learning French opens doors not only in France and Belgium, but across all of Africa — a continent with a rapidly growing economy.`
         },
 
+        simpleTarget: `Le français est une grande langue internationale.
+Des millions de personnes parlent français dans le monde.
+Il y a des francophones en Europe, en Afrique et au Canada.
+En Afrique, beaucoup de personnes parlent français à l'école.
+La République Démocratique du Congo est un grand pays francophone.
+Apprendre le français est utile dans de nombreux pays.
+C'est une belle langue avec une grande culture.`,
+
         cultureVocab: [
+            {
+                word: "francophone",
+                translation: "French-speaking (person or country)",
+                culturalNote: "From 'franco' (French) + 'phone' (voice/sound). There are about 321 million francophones worldwide — more than half live in Africa, not Europe."
+            },
             {
                 word: "la francophonie",
                 translation: "the French-speaking world",
                 culturalNote: "Both a geographic concept and a political organisation (L'Organisation internationale de la Francophonie) with 88 member states and governments."
             },
             {
-                word: "le nouchi",
-                translation: "Ivorian French creole",
-                culturalNote: "Originally slang of Abidjan street youth, now widely used across Côte d'Ivoire and influential in West African French pop music and cinema."
+                word: "une langue internationale",
+                translation: "an international language",
+                culturalNote: "French is an official language in 29 African countries, as well as Canada, Belgium, and Switzerland. It is one of the six official languages of the United Nations."
             },
             {
-                word: "une lingua franca",
-                translation: "a common language between groups",
-                culturalNote: "Ironically, 'lingua franca' is an Italian term (meaning 'Frankish language') for any language used as a bridge between people with different mother tongues."
+                word: "utile",
+                translation: "useful",
+                culturalNote: "Learning French opens doors across Africa, Europe, and Canada — making it one of the most useful languages in the world for travel and professional life."
             },
             {
-                word: "francophone",
-                translation: "French-speaking (person or country)",
-                culturalNote: "From 'franco' (French) + 'phone' (voice/sound). The equivalent terms are 'anglophone', 'hispanophone', 'lusophone' (Portuguese)."
+                word: "des millions",
+                translation: "millions (of people)",
+                culturalNote: "By 2050, demographers predict there will be over 700 million French speakers — almost entirely due to population growth in Africa."
             }
         ],
 
@@ -231,7 +252,7 @@ For French learners, this is good news. Learning French opens doors not only in 
             {
                 id: "fr-c-a1-2-q2",
                 type: "reflection",
-                prompt: { native: "Did you know that most French speakers live in Africa? Does this change how you think about learning French?", target: "Saviez-vous que la plupart des francophones vivent en Afrique ? Cela change-t-il votre vision de l'apprentissage du français ?" }
+                prompt: { native: "Did you know that most French speakers live in Africa? Does this change how you think about learning French?", target: "Did you know that most French speakers live in Africa? Does this change how you think about learning French?" }
             }
         ],
 

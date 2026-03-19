@@ -213,6 +213,7 @@ export interface CultureEpisode {
     }
     photos: CulturePhoto[]
     body: LocalizedText
+    simpleTarget?: string          // short A1-level paragraph in the target language; when set, English becomes the primary body
     cultureVocab: CultureVocabItem[]
     questions: CultureQuestion[]
     didYouKnow?: LocalizedText

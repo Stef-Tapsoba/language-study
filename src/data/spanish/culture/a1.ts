@@ -81,36 +81,39 @@ For foreign visitors, this timetable is difficult. Restaurants in Spain don't op
 The Spanish timetable has an interesting history. Spain is on Central European time, but geographically it is further west. The sun in Madrid sets at ten at night in summer. This is why Spaniards live later.`
         },
 
+        simpleTarget: `En España, la comida es muy importante.
+Los españoles comen tres veces al día.
+El desayuno es pequeño — un café y una tostada.
+La comida del mediodía es la más importante del día.
+En España, la gente come entre las dos y las cuatro.
+La cena es muy tarde, a las nueve o las diez.
+Las familias comen juntas y hablan mucho.`,
+
         cultureVocab: [
             {
                 word: "la comida",
                 translation: "lunch / food / meal",
-                culturalNote: "The same word means both 'food' and specifically 'lunch' — because lunch is the meal that defines the day."
+                culturalNote: "The same word means both 'food' in general and specifically 'lunch'. In Spain, lunch is the main meal of the day — so important that the word for food and lunch is the same."
             },
             {
-                word: "las tapas",
-                translation: "small dishes served with drinks",
-                culturalNote: "Originally a slice of bread or meat placed on top of a drink glass to keep flies out (tapar = to cover). Now a whole culture."
+                word: "el desayuno",
+                translation: "breakfast",
+                culturalNote: "Spanish breakfast is small — just a coffee and toast. The day's main energy comes at lunch, not breakfast, which is why Spaniards eat lunch so late."
             },
             {
-                word: "la sobremesa",
-                translation: "the time spent talking after a meal",
-                culturalNote: "This word has no English translation. It means the conversation that continues at the table after eating — considered as important as the food itself."
+                word: "la cena",
+                translation: "dinner, evening meal",
+                culturalNote: "Spanish dinner is very late by international standards — between 9pm and 11pm. Restaurants don't open for dinner before 9pm. Visitors often wait hungry outside closed restaurants at 7pm."
             },
             {
-                word: "el bocadillo",
-                translation: "sandwich on a baguette",
-                culturalNote: "Not to be confused with a sándwich (made with sliced bread). A bocadillo uses a baguette-style roll and is the classic Spanish mid-morning snack."
+                word: "las familias",
+                translation: "families",
+                culturalNote: "In Spain, lunch is a family gathering. Shops and offices close so families can eat together. This daily ritual is considered as important as the food itself."
             },
             {
-                word: "¡Que aproveche!",
-                translation: "Enjoy your meal!",
-                culturalNote: "Said to anyone you see eating, even strangers at a restaurant. Ignoring it would be considered rude."
-            },
-            {
-                word: "el horario",
-                translation: "schedule, timetable",
-                culturalNote: "The Spanish daily schedule is 2-3 hours later than the rest of Western Europe — a quirk of postwar politics that set Spain to German time permanently."
+                word: "el mediodía",
+                translation: "midday, noon",
+                culturalNote: "In Spain, 'mediodía' (midday) effectively lasts from about 2pm to 4pm — when the most important meal of the day takes place. Spanish time runs about two hours later than the rest of Western Europe."
             }
         ],
 
@@ -145,7 +148,7 @@ The Spanish timetable has an interesting history. Spain is on Central European t
                 type: "reflection",
                 prompt: {
                     native: "How is the mealtime schedule in your country different from Spain's? Which do you prefer?",
-                    target: "¿Cómo es diferente el horario de las comidas en tu país comparado con España? ¿Cuál prefieres?"
+                    target: "How is the mealtime schedule in your country different from Spain's? Which do you prefer?"
                 }
             },
             {
@@ -153,7 +156,7 @@ The Spanish timetable has an interesting history. Spain is on Central European t
                 type: "comparison",
                 prompt: {
                     native: "Do you have a word in your language for the time spent talking after a meal? What do people in your culture usually do after eating?",
-                    target: "¿Hay una palabra en tu idioma para el tiempo de conversación después de comer? ¿Qué hacen las personas en tu cultura después de comer?"
+                    target: "Do you have a word in your language for the time spent talking after a meal? What do people in your culture usually do after eating?"
                 }
             }
         ],
@@ -238,36 +241,39 @@ The food in Mexico's markets is incredible. You can eat tacos, tamales, tlayudas
 Mexico has one of the most important cuisines in the world. In 2010, UNESCO declared Mexican gastronomy an Intangible Cultural Heritage of Humanity — alongside French cuisine and the Mediterranean diet.`
         },
 
+        simpleTarget: `En México, hay muchos mercados.
+En el mercado puedes comprar frutas, verduras y carne.
+El mercado es un lugar muy importante en la comunidad.
+La gente va al mercado cada día.
+En el mercado hay mucha comida rica.
+La palabra "tianguis" viene de una lengua antigua de México.
+Los mexicanos aman sus mercados tradicionales.`,
+
         cultureVocab: [
+            {
+                word: "el mercado",
+                translation: "market",
+                culturalNote: "In Mexico, markets are not just places to buy food — they are the social heart of the community. Going to the market is a daily social ritual, not just a shopping trip. Supermarkets have not replaced them."
+            },
+            {
+                word: "las frutas y verduras",
+                translation: "fruit and vegetables",
+                culturalNote: "Mexican markets offer incredible variety — over 60 types of chilli pepper alone. The range of tropical fruits available has no equivalent in most of the world."
+            },
+            {
+                word: "la comunidad",
+                translation: "community",
+                culturalNote: "The market is the centre of community life in Mexico. It is where people meet, talk, and share food. This communal role is something a supermarket cannot replace."
+            },
             {
                 word: "el tianguis",
                 translation: "open-air periodic market",
                 culturalNote: "From Nahuatl 'tianquiztli'. These markets pre-date European contact by centuries — the Aztec capital Tenochtitlan had one of the largest markets in the world."
             },
             {
-                word: "el náhuatl",
-                translation: "Nahuatl — the Aztec language",
-                culturalNote: "Still spoken by over 1.5 million people in Mexico today. Words like chocolate, tomato, avocado, and chilli all come from Nahuatl."
-            },
-            {
-                word: "regatear",
-                translation: "to bargain, to haggle",
-                culturalNote: "Expected and respected in tianguis. Not negotiating can actually seem dismissive — it implies you don't care about the interaction."
-            },
-            {
-                word: "el platillo",
-                translation: "dish, prepared food",
-                culturalNote: "Platillo (little plate) is the Mexican Spanish word for a dish or recipe. Spain uses 'plato'. This is one of hundreds of vocabulary differences between the two."
-            },
-            {
-                word: "el chile",
-                translation: "chilli pepper",
-                culturalNote: "Mexico has over 60 named varieties, each with different heat, flavour, and culinary use. 'Chili' (English) and 'chile' (Mexican Spanish) vs 'guindilla' (Spain)."
-            },
-            {
-                word: "Patrimonio de la Humanidad",
-                translation: "World Heritage (UNESCO)",
-                culturalNote: "Mexico has 35 UNESCO World Heritage Sites — more than any other country in the Americas — covering both cultural and natural heritage."
+                word: "tradicional",
+                translation: "traditional",
+                culturalNote: "Mexican markets are a living tradition, not a tourist attraction. In 2010, UNESCO recognised Mexican gastronomy as an Intangible Cultural Heritage of Humanity."
             }
         ],
 
@@ -302,7 +308,7 @@ Mexico has one of the most important cuisines in the world. In 2010, UNESCO decl
                 type: "reflection",
                 prompt: {
                     native: "Do you have markets like this in your city or country? What do you buy there?",
-                    target: "¿Hay mercados así en tu ciudad o país? ¿Qué compras allí?"
+                    target: "Do you have markets like this in your city or country? What do you buy there?"
                 }
             },
             {
@@ -310,7 +316,7 @@ Mexico has one of the most important cuisines in the world. In 2010, UNESCO decl
                 type: "comparison",
                 prompt: {
                     native: "Is bargaining normal in your culture, or are prices always fixed? How do you feel about negotiating prices?",
-                    target: "¿Es normal regatear en tu cultura, o los precios son siempre fijos? ¿Cómo te sientes al negociar precios?"
+                    target: "Is bargaining normal in your culture, or are prices always fixed? How do you feel about negotiating prices?"
                 }
             }
         ],

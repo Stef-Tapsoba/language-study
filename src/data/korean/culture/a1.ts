@@ -69,6 +69,14 @@ For example, in Korea when someone says 'it's fine', it may not always mean they
 When learning Korean, learning only the language is not enough. You also need to learn nunchi.`
         },
 
+        simpleTarget: `눈치는 한국 문화에서 매우 중요합니다.
+눈치는 다른 사람의 기분을 이해하는 능력입니다.
+눈치가 좋은 사람은 사회생활을 잘합니다.
+한국에서는 직접적으로 싫다고 말하기 어렵습니다.
+사람들은 미묘한 신호를 보냅니다.
+눈치가 있으면 이 신호를 이해할 수 있습니다.
+한국어를 배울 때 눈치도 중요합니다.`,
+
         cultureVocab: [
             {
                 word: "눈치",
@@ -77,28 +85,28 @@ When learning Korean, learning only the language is not enough. You also need to
                 culturalNote: "Literally 'eye measure'. Having good nunchi (눈치가 빠르다, 'nunchi is fast') is one of the most valued social qualities in Korea. It is taught to children from a young age."
             },
             {
-                word: "눈치 없다",
-                romanized: "nunchi eopda",
-                translation: "to have no nunchi, to be socially oblivious",
-                culturalNote: "Being told someone has 'nunchi eomda' is a significant social criticism. It suggests they are self-absorbed and insensitive to others' needs."
+                word: "기분",
+                romanized: "gibun",
+                translation: "mood, feeling",
+                culturalNote: "In Korean culture, sensing another person's 기분 without being told is the essence of good 눈치. Asking directly 'how do you feel?' is less common than reading the situation."
             },
             {
-                word: "눈치 보다",
-                romanized: "nunchi boda",
-                translation: "to be cautious, to watch others' reactions before acting",
-                culturalNote: "Can be positive (considerate) or negative (overly deferential). The balance is important — too much nunchi-watching can be seen as indecisive."
+                word: "능력",
+                romanized: "neungnyeok",
+                translation: "ability, skill",
+                culturalNote: "눈치 is considered a social 능력 — a skill that can be learned and developed, not just a talent. Korean children are often taught to develop it from a young age."
             },
             {
-                word: "분위기",
-                romanized: "bun-wi-gi",
-                translation: "atmosphere, mood, vibe",
-                culturalNote: "Reading 분위기 is central to Korean social life. '분위기 파악' (reading the atmosphere) is what nunchi enables you to do."
+                word: "사회생활",
+                romanized: "sahoesaenghwal",
+                translation: "social life, navigating social situations",
+                culturalNote: "Literally 'social living'. In Korea, being good at 사회생활 is key to professional and personal success — and 눈치 is essential for it."
             },
             {
-                word: "정 (情)",
-                romanized: "jeong",
-                translation: "deep emotional bond, attachment",
-                culturalNote: "Another untranslatable Korean concept — a feeling of deep connection that builds over time with people you spend a lot of time with. You can have jeong with places and objects too."
+                word: "신호",
+                romanized: "sinho",
+                translation: "signal, cue",
+                culturalNote: "In Korean indirect communication, people send subtle 신호 instead of direct statements. Good 눈치 means you can read these signals without them being spelled out."
             }
         ],
 
@@ -118,12 +126,12 @@ When learning Korean, learning only the language is not enough. You also need to
             {
                 id: "ko-c-a1-1-q2",
                 type: "reflection",
-                prompt: { native: "Is there a concept similar to nunchi in your culture? Do you have a word for it?", target: "당신의 문화에 눈치와 비슷한 개념이 있습니까? 그것을 나타내는 단어가 있습니까?" }
+                prompt: { native: "Is there a concept similar to nunchi in your culture? Do you have a word for it?", target: "Is there a concept similar to nunchi in your culture? Do you have a word for it?" }
             },
             {
                 id: "ko-c-a1-1-q3",
                 type: "comparison",
-                prompt: { native: "Korean culture often prioritises indirect communication. How direct is communication in your culture? Do you think one approach is better than the other?", target: "한국 문화는 종종 간접적인 의사소통을 중시합니다. 당신의 문화에서는 의사소통이 얼마나 직접적입니까?" }
+                prompt: { native: "Korean culture often prioritises indirect communication. How direct is communication in your culture? Do you think one approach is better than the other?", target: "Korean culture often prioritises indirect communication. How direct is communication in your culture? Do you think one approach is better than the other?" }
             }
         ],
 
@@ -194,7 +202,21 @@ Korean table manners are also important. The eldest person should begin eating f
 'Did you eat rice?' — '밥 먹었어요?' — has the same meaning as 'How are you?' in Korean. Rice is not just food, it is life itself.`
         },
 
+        simpleTarget: `한국 음식은 맛있고 다양합니다.
+식사에는 밥, 국, 그리고 반찬이 있습니다.
+반찬은 작은 접시에 담긴 여러 가지 음식입니다.
+모든 사람이 반찬을 함께 먹습니다.
+김치는 가장 유명한 반찬입니다.
+김치는 배추와 고춧가루로 만듭니다.
+한국에서 음식은 나눔입니다.`,
+
         cultureVocab: [
+            {
+                word: "밥",
+                romanized: "bap",
+                translation: "cooked rice / meal in general",
+                culturalNote: "'밥 먹었어요?' ('Did you eat rice?') is how Koreans say 'How are you?' The word for 'meal' and 'rice' is the same, revealing how central rice is to the culture."
+            },
             {
                 word: "반찬",
                 romanized: "banchan",
@@ -205,25 +227,19 @@ Korean table manners are also important. The eldest person should begin eating f
                 word: "김치",
                 romanized: "kimchi",
                 translation: "fermented cabbage (Korea's national food)",
-                culturalNote: "Average Korean consumption: 40lbs (18kg) per person per year. There are over 200 regional and seasonal varieties. North and South Korea's kimchi styles differ noticeably."
+                culturalNote: "There are over 200 varieties of kimchi — made with cabbage, radish, cucumber, and more. Every Korean household has its own recipe, passed down through generations."
             },
             {
-                word: "김장",
-                romanized: "kimjang",
-                translation: "the communal autumn kimchi-making tradition",
-                culturalNote: "Families and neighbours gather to make hundreds of heads of kimchi before winter. UNESCO recognised it in 2013 as an Intangible Cultural Heritage of Humanity."
+                word: "식사",
+                romanized: "siksa",
+                translation: "meal",
+                culturalNote: "식사 is the formal word for a meal. The everyday greeting '밥 먹었어요?' uses 밥 (rice) rather than 식사, showing how informal and central rice is to Korean daily life."
             },
             {
-                word: "밥",
-                romanized: "bap",
-                translation: "cooked rice / meal in general",
-                culturalNote: "'밥 먹었어요?' ('Did you eat rice?') is how Koreans say 'How are you?' The word for 'meal' and 'rice' is the same, revealing how central rice is to the culture."
-            },
-            {
-                word: "정",
-                romanized: "jeong",
-                translation: "deep bond, emotional attachment",
-                culturalNote: "Sharing food creates jeong. Korean food culture is inseparable from this concept — eating together is how relationships deepen and bonds form."
+                word: "나눔",
+                romanized: "na-num",
+                translation: "sharing, giving",
+                culturalNote: "나눔 is the Korean concept of sharing — especially food. Korean food culture is built around 나눔: banchan is shared, BBQ is cooked together at the table, and eating alone is considered sad."
             }
         ],
 
@@ -243,12 +259,12 @@ Korean table manners are also important. The eldest person should begin eating f
             {
                 id: "ko-c-a1-2-q2",
                 type: "comparison",
-                prompt: { native: "In Korea, lifting your bowl to eat from it is impolite — in Japan it's polite. Do table manners in your culture differ significantly from those of neighbouring countries?", target: "한국에서는 그릇을 들고 먹는 것이 예의 바르지 않지만, 일본에서는 예의 바릅니다. 당신의 문화의 식사 예절은 이웃 나라와 많이 다릅니까?" }
+                prompt: { native: "In Korea, lifting your bowl to eat from it is impolite — in Japan it's polite. Do table manners in your culture differ significantly from those of neighbouring countries?", target: "In Korea, lifting your bowl to eat from it is impolite — in Japan it's polite. Do table manners in your culture differ significantly from those of neighbouring countries?" }
             },
             {
                 id: "ko-c-a1-2-q3",
                 type: "reflection",
-                prompt: { native: "In Korea, '밥 먹었어요?' (Did you eat?) is a way to say 'How are you?'. Is there a food-related greeting in your culture? What does food symbolise in your language?", target: "한국에서 '밥 먹었어요?'는 '어떻게 지내요?'를 말하는 방법입니다. 당신의 문화에 음식과 관련된 인사가 있습니까?" }
+                prompt: { native: "In Korea, '밥 먹었어요?' (Did you eat?) is a way to say 'How are you?'. Is there a food-related greeting in your culture? What does food symbolise in your language?", target: "In Korea, '밥 먹었어요?' (Did you eat?) is a way to say 'How are you?'. Is there a food-related greeting in your culture? What does food symbolise in your language?" }
             }
         ],
 
