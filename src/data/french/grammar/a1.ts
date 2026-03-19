@@ -691,4 +691,266 @@ SEASONS:
             { native: "Au printemps, les fleurs poussent.", translation: "In spring, the flowers grow. (au — not en)" },
         ]
     },
+    {
+        id: "fr-g-a1-23",
+        level: "A1",
+        title: "Vouloir (to want)",
+        explanation: `**Vouloir** means 'to want'. It is irregular — memorise it!
+
+Conjugation (present tense):
+  je        → **veux**     (I want)
+  tu        → **veux**     (you want)
+  il/elle   → **veut**     (he/she wants)
+  nous      → **voulons**  (we want)
+  vous      → **voulez**   (you want)
+  ils/elles → **veulent**  (they want)
+
+USES OF VOULOIR
+  vouloir + noun:        Je veux un café.           (I want a coffee.)
+  vouloir + infinitive:  Je veux partir.            (I want to leave.)
+  vouloir bien:          Je veux bien.              (I'd be happy to. / Sure.)
+
+POLITE FORM — je voudrais
+In real conversation, use **je voudrais** (conditional) instead of 'je veux' when ordering or requesting — it sounds much softer and is the standard polite form:
+  Je veux un café.            → direct, can sound abrupt
+  Je voudrais un café.        → I would like a coffee. (standard polite)`,
+        examples: [
+            { native: "Je veux apprendre le français.", translation: "I want to learn French." },
+            { native: "Tu veux venir avec nous?", translation: "Do you want to come with us?" },
+            { native: "Elle veut un verre d'eau.", translation: "She wants a glass of water." },
+            { native: "Je voudrais un café, s'il vous plaît.", translation: "I'd like a coffee, please. (polite — use this when ordering)" },
+            { native: "Nous voulons visiter Paris.", translation: "We want to visit Paris." },
+        ]
+    },
+    {
+        id: "fr-g-a1-24",
+        level: "A1",
+        title: "Pouvoir (to be able to / can)",
+        explanation: `**Pouvoir** means 'to be able to' or 'can'. It is irregular — memorise it!
+
+Conjugation (present tense):
+  je        → **peux**     (I can)
+  tu        → **peux**     (you can)
+  il/elle   → **peut**     (he/she can)
+  nous      → **pouvons**  (we can)
+  vous      → **pouvez**   (you can)
+  ils/elles → **peuvent**  (they can)
+
+Always followed by an infinitive:
+  Je peux nager.            (I can swim.)
+  Tu peux entrer.           (You can come in.)
+
+THREE MEANINGS OF POUVOIR
+  Physical ability:   Je peux courir 5km.      (I can run 5km.)
+  Permission:         Vous pouvez partir.       (You can / may leave.)
+  Possibility:        Il peut pleuvoir demain.  (It can / may rain tomorrow.)
+
+NEGATIVE — not able to / cannot:
+  Je ne peux pas venir.     (I can't come.)
+  Il ne peut pas dormir.    (He can't sleep.)`,
+        examples: [
+            { native: "Je peux parler français un peu.", translation: "I can speak a little French." },
+            { native: "Tu peux m'aider?", translation: "Can you help me?" },
+            { native: "Elle ne peut pas venir ce soir.", translation: "She can't come tonight." },
+            { native: "Vous pouvez entrer.", translation: "You may come in." },
+            { native: "On peut manger ici?", translation: "Can we eat here?" },
+        ]
+    },
+    {
+        id: "fr-g-a1-25",
+        level: "A1",
+        title: "Reflexive Verbs: s'appeler, se lever & others",
+        explanation: `Reflexive verbs describe an action done to oneself. They are formed with a **reflexive pronoun** placed directly before the verb.
+
+REFLEXIVE PRONOUNS (match the subject):
+  je → **me** (m')   tu → **te** (t')   il/elle → **se** (s')
+  nous → **nous**    vous → **vous**     ils/elles → **se** (s')
+
+The pronoun shortens to m'/t'/s' before a vowel or silent h.
+
+KEY A1 REFLEXIVE VERBS
+  **s'appeler**   → to be called         Je m'appelle Marie.
+  **se lever**    → to get up            Je me lève à 7h.
+  **se coucher**  → to go to bed         Je me couche à 23h.
+  **se laver**    → to wash (oneself)    Je me lave les mains.
+  **se sentir**   → to feel             Je me sens bien.
+  **se dépêcher** → to hurry            Dépêche-toi!
+
+NEGATION — ne goes before the reflexive pronoun:
+  Je ne me lève pas tôt.    (I don't get up early.)
+  Il ne s'appelle pas Paul. (His name isn't Paul.)
+
+QUESTIONS:
+  Comment vous appelez-vous?    (What is your name? — formal)
+  Comment tu t'appelles?        (What is your name? — informal)`,
+        examples: [
+            { native: "Je m'appelle Sophie.", translation: "My name is Sophie. (literally: I call myself Sophie)" },
+            { native: "Comment tu t'appelles?", translation: "What's your name? (informal)" },
+            { native: "Il se lève à six heures.", translation: "He gets up at six o'clock." },
+            { native: "Nous nous lavons les mains.", translation: "We wash our hands." },
+            { native: "Elle se couche tôt le soir.", translation: "She goes to bed early in the evening." },
+        ]
+    },
+    {
+        id: "fr-g-a1-26",
+        level: "A1",
+        title: "Demonstratives: ce, cet, cette, ces",
+        explanation: `Demonstrative adjectives mean 'this', 'that', 'these', or 'those'. In French, they agree with the gender and number of the noun they modify.
+
+FORMS:
+  **ce**    — masculine singular before consonant:      ce livre, ce café
+  **cet**   — masculine singular before vowel/silent h: cet homme, cet hôtel
+  **cette** — feminine singular:                        cette maison, cette idée
+  **ces**   — all plurals:                              ces livres, ces maisons
+
+French does not always distinguish 'this' from 'that'. To be specific, add -ci (here) or -là (there) after the noun:
+  ce livre-**ci**  → this book (near you)
+  ce livre-**là**  → that book (over there)
+
+DEMONSTRATIVE PRONOUNS
+To replace a noun entirely (this one / that one):
+  **ceci** — this (thing)      Regarde ceci.      (Look at this.)
+  **cela** / **ça** — that    Je veux ça.        (I want that.)
+  In spoken French, ça is far more common than cela.`,
+        examples: [
+            { native: "Ce café est excellent.", translation: "This coffee is excellent." },
+            { native: "Cet hôtel est très cher.", translation: "This hotel is very expensive." },
+            { native: "Cette robe est magnifique.", translation: "This dress is magnificent." },
+            { native: "Ces chaussures sont confortables.", translation: "These shoes are comfortable." },
+            { native: "Je préfère ce livre-ci.", translation: "I prefer this book (here). (-ci for emphasis)" },
+            { native: "C'est ça!", translation: "That's it! / Exactly! (very common spoken French)" },
+        ]
+    },
+    {
+        id: "fr-g-a1-27",
+        level: "A1",
+        title: "Adverbs of Place & Time",
+        explanation: `Adverbs of place and time are single words that answer WHERE and WHEN. They do not change form (no agreement).
+
+PLACE — where?
+  **ici**        here             Je suis ici.
+  **là**         there            Il est là.
+  **là-bas**     over there       La gare est là-bas.
+  **partout**    everywhere       Il y a des touristes partout.
+  **quelque part** somewhere      Je l'ai vu quelque part.
+  **nulle part** nowhere          Je ne vais nulle part.
+  **en haut**    upstairs / up    La chambre est en haut.
+  **en bas**     downstairs / down L'entrée est en bas.
+
+TIME — when?
+  **aujourd'hui** today           Aujourd'hui il fait beau.
+  **demain**      tomorrow        On se voit demain.
+  **hier**        yesterday       Il est parti hier.
+  **maintenant**  now             Je suis occupé maintenant.
+  **bientôt**     soon            À bientôt!
+  **déjà**        already         Tu as déjà mangé?
+  **encore**      still / again   Il dort encore.
+  **tôt**         early           Je me lève tôt.
+  **tard**        late            Il rentre tard.`,
+        examples: [
+            { native: "La banque est là-bas.", translation: "The bank is over there." },
+            { native: "Aujourd'hui je travaille à la maison.", translation: "Today I'm working from home." },
+            { native: "Tu as déjà vu ce film?", translation: "Have you already seen this film?" },
+            { native: "Il est encore au bureau.", translation: "He is still at the office." },
+            { native: "On mange ici ou là-bas?", translation: "Are we eating here or over there?", speakText: "On mange ici ou là-bas?" },
+        ]
+    },
+    {
+        id: "fr-g-a1-28",
+        level: "A1",
+        title: "Frequency Adverbs",
+        explanation: `Frequency adverbs answer the question 'How often?'. They are placed **after the conjugated verb** in French — not before it as in English.
+
+  **toujours**       always          Je prends toujours un café le matin.
+  **souvent**        often           Elle sort souvent le soir.
+  **parfois**        sometimes       Il pleut parfois en été.
+  **quelquefois**    sometimes       (less common than parfois)
+  **de temps en temps** from time to time  De temps en temps, je lis.
+  **rarement**       rarely          Je mange rarement de la viande.
+  **jamais**         never           Il ne mange jamais de poisson.
+
+POSITION — after the main verb:
+  Je mange ✓ toujours ✓ le petit-déjeuner.  (NOT: Toujours je mange...)
+  Elle est souvent fatiguée.
+
+JAMAIS always needs ne before the verb (ne...jamais):
+  Je ne bois jamais d'alcool.     (I never drink alcohol.)
+  Elle n'est jamais en retard.    (She is never late.)`,
+        examples: [
+            { native: "Je prends toujours un café le matin.", translation: "I always have a coffee in the morning." },
+            { native: "Nous allons souvent au marché.", translation: "We often go to the market." },
+            { native: "Il mange parfois au restaurant.", translation: "He sometimes eats at a restaurant." },
+            { native: "Je ne regarde jamais la télévision.", translation: "I never watch television." },
+            { native: "Elle vient rarement ici.", translation: "She rarely comes here." },
+        ]
+    },
+    {
+        id: "fr-g-a1-29",
+        level: "A1",
+        title: "Basic Connectors",
+        explanation: `Connectors link ideas together. Learning these allows you to build longer, more natural sentences instead of short disconnected ones.
+
+COORDINATING CONNECTORS (join two equal clauses):
+  **et**          and             J'aime le café et le thé.
+  **ou**          or              Tu veux du café ou du thé?
+  **mais**        but             Je veux venir mais je suis fatigué.
+  **donc**        so / therefore  Il pleut donc je reste.
+  **car**         because (formal) Je reste car il pleut.
+  **alors**       so / then       Il était fatigué, alors il a dormi.
+
+SUBORDINATING CONNECTORS (introduce a clause):
+  **parce que**   because         Je mange parce que j'ai faim.
+  **parce qu'**   because (before vowel) Je pars parce qu'il est tard.
+  **quand**       when            J'appelle quand j'arrive.
+  **si**          if              Si tu veux, on peut partir.
+  **que**         that            Je pense que c'est vrai.
+
+SEQUENCE:
+  **d'abord**     first           D'abord, je me lève.
+  **ensuite**     then / next     Ensuite, je mange.
+  **enfin**       finally / at last  Enfin, je pars.
+  **puis**        then            Je prends un café, puis je travaille.`,
+        examples: [
+            { native: "J'aime le café mais je préfère le thé.", translation: "I like coffee but I prefer tea." },
+            { native: "Je reste à la maison parce qu'il pleut.", translation: "I stay at home because it's raining." },
+            { native: "Si tu veux, on peut aller au cinéma.", translation: "If you want, we can go to the cinema." },
+            { native: "D'abord je mange, ensuite je travaille.", translation: "First I eat, then I work.", speakText: "D'abord je mange, ensuite je travaille." },
+            { native: "Il est tard, donc je dois partir.", translation: "It's late, so I have to leave." },
+        ]
+    },
+    {
+        id: "fr-g-a1-30",
+        level: "A1",
+        title: "Weather Expressions",
+        explanation: `French weather uses impersonal constructions — always with the subject **il** (it), which doesn't refer to a person.
+
+WITH IL FAIT (it is / it makes):
+  **il fait beau**      nice weather         Il fait beau aujourd'hui.
+  **il fait mauvais**   bad weather          Il fait mauvais ce matin.
+  **il fait chaud**     it's hot             Il fait très chaud en juillet.
+  **il fait froid**     it's cold            Il fait froid en hiver.
+  **il fait du soleil** it's sunny           Il fait du soleil.
+  **il fait du vent**   it's windy           Il fait du vent en automne.
+  **il fait ... degrés** it's ... degrees    Il fait 25 degrés.
+
+WITH IL Y A (there is / there are):
+  **il y a des nuages**    it's cloudy / there are clouds
+  **il y a du brouillard** it's foggy
+  **il y a de l'orage**    there's a storm
+
+VERB EXPRESSIONS (these are full verbs):
+  **il pleut**      it's raining     (pleuvoir — irregular)
+  **il neige**      it's snowing     (neiger)
+  **il gèle**       it's freezing    (geler)
+
+SEASONS — always with en (except printemps):
+  **en hiver** (in winter) · **au printemps** (in spring) · **en été** (in summer) · **en automne** (in autumn)`,
+        examples: [
+            { native: "Il fait beau et chaud aujourd'hui.", translation: "The weather is nice and warm today." },
+            { native: "Il pleut beaucoup en automne.", translation: "It rains a lot in autumn." },
+            { native: "Il neige en hiver dans les montagnes.", translation: "It snows in winter in the mountains." },
+            { native: "Il fait froid ce matin — il gèle!", translation: "It's cold this morning — it's freezing!" },
+            { native: "Quel temps fait-il?", translation: "What's the weather like? (the standard question)" },
+        ]
+    },
 ]
