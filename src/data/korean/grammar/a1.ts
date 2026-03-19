@@ -241,4 +241,49 @@ Until someone says something like this, stay with 해요체.`,
             { native: "저는 학생이에요. (해요체)", romanized: "Jeoneun haksaengieyo.", translation: "I am a student. — 해요체 is always the safe choice" },
         ]
     },
+    {
+        id: "ko-g-a1-15",
+        level: "A1",
+        title: "하다 Compound Verbs & 좋아하다",
+        explanation: `하다 (hada) means "to do". In Korean, a huge number of verbs are formed by
+taking a noun and adding 하다 to it. This is one of the most productive patterns
+in the language — once you know it, you can form hundreds of verbs.
+
+STRUCTURE: Noun + 하다
+  공부하다   = 공부 (study) + 하다 → to study
+  운동하다   = 운동 (exercise) + 하다 → to exercise
+  요리하다   = 요리 (cooking) + 하다 → to cook
+  전화하다   = 전화 (telephone) + 하다 → to telephone / call
+  쇼핑하다   = 쇼핑 (shopping) + 하다 → to shop
+
+CONJUGATION: 하다 follows the same rules as any verb, but always produces 해요:
+  공부하다 → 공부해요 (studies / am studying)
+  운동하다 → 운동해요 (exercises)
+  요리하다 → 요리해요 (cooks)
+
+NEGATION with 하다 compounds — special rule:
+안 (don't) and 못 (can't) go BETWEEN the noun and 하다, not before the whole verb:
+  공부 안 해요.    (I don't study.)       NOT: 안 공부해요. ✗
+  운동 못 해요.    (I can't exercise.)    NOT: 못 운동해요. ✗
+
+GOOD NEWS: Sino-Korean words you already know as nouns often become verbs with 하다.
+If you know the noun, you know the verb.
+
+좋아하다 — TO LIKE
+좋아하다 is a special 하다 verb meaning "to like". Unlike 좋다 (to be good/nice),
+좋아하다 takes an object with 을/를:
+  한국 음식을 좋아해요.   I like Korean food.
+  커피를 좋아해요.        I like coffee.
+  음악을 좋아해요?        Do you like music?
+
+싫어하다 (to dislike) follows the same pattern:
+  매운 음식을 싫어해요.   I dislike spicy food.`,
+        examples: [
+            { native: "저는 공부해요.", romanized: "Jeoneun gongbuhaeyo.", translation: "I study." },
+            { native: "운동 안 해요.", romanized: "Undong an haeyo.", translation: "I don't exercise." },
+            { native: "한국 음식을 좋아해요.", romanized: "Hanguk eumsige ul joahaeyo.", translation: "I like Korean food. (을 marks the object)" },
+            { native: "커피를 좋아해요?", romanized: "Keopireul joahaeyo?", translation: "Do you like coffee?" },
+            { native: "요리 못 해요.", romanized: "Yori mot haeyo.", translation: "I can't cook." },
+        ]
+    }
 ]
