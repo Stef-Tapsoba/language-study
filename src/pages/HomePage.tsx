@@ -207,7 +207,7 @@ function ReturningHome({ displayName, startedIds }: Readonly<{
                     <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
                         Quick practice
                     </h2>
-                    <div className="grid grid-cols-3 gap-3">
+                    <div className="grid grid-cols-3 gap-2 sm:gap-3">
                         {[
                             { emoji: "🃏", label: "Flashcards",    path: `/learn/${selectedLangId}/flashcards`,    bg: "bg-violet-100" },
                             { emoji: "🔡", label: "Verb Drill",    path: `/learn/${selectedLangId}/verb-drill`,    bg: "bg-red-100"    },
@@ -216,7 +216,7 @@ function ReturningHome({ displayName, startedIds }: Readonly<{
                             <button
                                 key={label}
                                 onClick={() => navigate(path)}
-                                className="bg-white border border-gray-200 rounded-2xl p-4 flex flex-col
+                                className="bg-white border border-gray-200 rounded-2xl p-3 sm:p-4 flex flex-col
                                            items-center gap-2 hover:border-violet-300 hover:shadow-sm
                                            transition-all text-center"
                             >

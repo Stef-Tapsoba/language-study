@@ -84,8 +84,9 @@ export function LanguagePicker() {
 
             {/* Dropdown */}
             {open && (
-                <div className="absolute top-full right-0 mt-1 z-50 bg-white border border-gray-200
-                                rounded-2xl shadow-lg p-3 w-max max-w-[90vw]">
+                <div className="fixed sm:absolute top-14 sm:top-full left-2 right-2 sm:left-auto sm:right-0
+                                sm:mt-1 z-50 bg-white border border-gray-200
+                                rounded-2xl shadow-lg p-3 sm:w-max sm:max-w-[90vw]">
                     <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide px-1 mb-2">
                         Your courses
                     </p>

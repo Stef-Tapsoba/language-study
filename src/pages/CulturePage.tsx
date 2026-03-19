@@ -420,7 +420,7 @@ function CultureEpisodeView({
             <QuizSection episode={episode} langId={langId} ui={ui} />
 
             {/* Sticky mark-as-read bar */}
-            <div className="fixed bottom-0 left-0 right-0 z-20 bg-white border-t border-gray-200 px-4 py-3">
+            <div className="fixed bottom-0 left-0 right-0 z-20 bg-white border-t border-gray-200 px-4 pt-3 pb-safe">
                 <div className="max-w-xl mx-auto">
                     <button
                         onClick={markedRead ? undefined : handleMarkRead}

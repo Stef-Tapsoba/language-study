@@ -234,7 +234,7 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
             )}
 
             {/* Sticky bottom bar — mark as read */}
-            <div className="fixed bottom-0 left-0 right-0 z-20 bg-white border-t border-gray-200 px-4 py-3 safe-area-inset-bottom">
+            <div className="fixed bottom-0 left-0 right-0 z-20 bg-white border-t border-gray-200 px-4 pt-3 pb-safe">
                 <div className="max-w-xl mx-auto">
                     <button
                         onClick={markedRead ? undefined : handleMarkRead}

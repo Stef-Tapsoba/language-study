@@ -31,3 +31,8 @@
 .card-back {
     transform: rotateY(180deg);
 }
+
+/* iOS/Android safe-area bottom inset for fixed bottom bars */
+.pb-safe {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0.75rem));
+}

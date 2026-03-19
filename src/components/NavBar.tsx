@@ -35,7 +35,7 @@ export function NavBar({ title = "Language Study", level, backTo, onBack, showLa
                 {backTo && (
                     <button
                         onClick={handleBack}
-                        className="p-1 -ml-1 mr-1 text-gray-500 hover:text-gray-800 rounded"
+                        className="p-2 -ml-2 mr-0 text-gray-500 hover:text-gray-800 rounded"
                         aria-label="Go back"
                         data-testid="nav-back"
                     >
@@ -60,7 +60,7 @@ export function NavBar({ title = "Language Study", level, backTo, onBack, showLa
 
                 <Link
                     to="/profile"
-                    className="p-1 text-gray-400 hover:text-gray-700 shrink-0"
+                    className="p-2 text-gray-400 hover:text-gray-700 shrink-0"
                     aria-label="Profile"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"

@@ -236,12 +236,12 @@ export function DashboardPage() {
                 </div>
 
                 {/* Tab bar */}
-                <div className="flex gap-1 bg-gray-100 rounded-xl p-1 mb-6">
+                <div className="flex gap-1 bg-gray-100 rounded-xl p-1 mb-6 overflow-x-auto">
                     {tabs.map(t => (
                         <button
                             key={t.id}
                             onClick={() => switchTab(t.id)}
-                            className={`flex-1 py-2 px-2 rounded-lg text-sm font-medium transition-all flex items-center justify-center gap-1.5 ${tab === t.id
+                            className={`shrink-0 sm:flex-1 py-2 px-3 rounded-lg text-xs sm:text-sm font-medium transition-all flex items-center justify-center gap-1.5 ${tab === t.id
                                     ? "bg-white text-gray-900 shadow-sm"
                                     : "text-gray-500 hover:text-gray-700"
                                 }`}

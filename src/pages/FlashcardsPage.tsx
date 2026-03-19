@@ -148,7 +148,7 @@ function FlipCard({ item, flipped, onClick, translationMode, translationShown, u
     return (
         <div
             className="card-scene w-full max-w-sm mx-auto"
-            style={{ height: 220 }}
+            style={{ height: "min(220px, 45vh)" }}
             role={(!typedMode && !flipped) ? "button" : undefined}
             tabIndex={(!typedMode && !flipped) ? 0 : undefined}
             onClick={(!typedMode && !flipped) ? onClick : undefined}
