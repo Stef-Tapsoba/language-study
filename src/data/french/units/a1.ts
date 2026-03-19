@@ -1,7 +1,7 @@
 // src/data/french/units/a1.ts
 import { LessonUnit } from "../../../types"
 
-// 19 ordered A1 units for French.
+// 24 ordered A1 units for French.
 // Each unit builds on the previous. Unit N+1 unlocks when unit N is mastered.
 // futur proche (fr-g-a1-13) is the A1 bridge — the last unit before A2.
 //
@@ -430,6 +430,96 @@ export const a1Units: LessonUnit[] = [
             { id: "fr-uq-a1-19-4", level: "A1", prompt: "What does 'demain' mean?", options: ["yesterday", "now", "tomorrow", "soon"], answer: "tomorrow" },
             { id: "fr-uq-a1-19-5", level: "A1", prompt: "Complete: 'Il ___ pleuvoir demain.' (futur proche)", options: ["fait", "va", "est", "a"], answer: "va" },
             { id: "fr-uq-a1-19-6", level: "A1", prompt: "What does 'bientôt' mean?", options: ["already", "soon", "now", "still"], answer: "soon" },
+        ]
+    },
+    {
+        id: "fr-a1-u20",
+        level: "A1",
+        order: 20,
+        title: "Modal Verbs: Vouloir & Pouvoir",
+        description: "Express what you want and what you can do. Both verbs are irregular and essential — and vouloir gives you the polite 'je voudrais' form for ordering.",
+        grammarIds: ["fr-g-a1-23", "fr-g-a1-24"],
+        vocabIds: [],
+        verbIds: [],
+        testQuestions: [
+            { id: "fr-uq-a1-20-1", level: "A1", prompt: "Complete: 'Je ___ un café, s'il vous plaît.' (polite form of vouloir)", options: ["veux", "voudrais", "peux", "vais"], answer: "voudrais" },
+            { id: "fr-uq-a1-20-2", level: "A1", prompt: "Complete: 'Tu ___ m'aider?' (pouvoir)", options: ["veux", "vas", "peux", "fais"], answer: "peux" },
+            { id: "fr-uq-a1-20-3", level: "A1", prompt: "What form does vouloir/pouvoir always take before another action?", options: ["past participle", "infinitive", "present tense", "gerund"], answer: "infinitive" },
+            { id: "fr-uq-a1-20-4", level: "A1", prompt: "Complete: 'Ils ___ partir maintenant.' (vouloir)", options: ["veulent", "voulons", "voulez", "veut"], answer: "veulent" },
+            { id: "fr-uq-a1-20-5", level: "A1", prompt: "Complete: 'Elle ne ___ pas venir.' (pouvoir)", options: ["veut", "peut", "va", "fait"], answer: "peut" },
+            { id: "fr-uq-a1-20-6", level: "A1", prompt: "Which sentence uses vouloir to express polite desire?", options: ["Je veux un verre d'eau.", "Je voudrais un verre d'eau.", "Je peux un verre d'eau.", "Je fais un verre d'eau."], answer: "Je voudrais un verre d'eau." },
+        ]
+    },
+    {
+        id: "fr-a1-u21",
+        level: "A1",
+        order: 21,
+        title: "Reflexive Verbs",
+        description: "Learn how to express actions done to yourself — getting up, washing, introducing your name. Reflexive verbs use special pronouns and are extremely common in everyday French.",
+        grammarIds: ["fr-g-a1-25"],
+        vocabIds: [],
+        verbIds: [],
+        testQuestions: [
+            { id: "fr-uq-a1-21-1", level: "A1", prompt: "How do you say 'My name is Paul'?", options: ["Je suis appelé Paul.", "Je m'appelle Paul.", "J'appelle Paul.", "Mon nom est Paul."], answer: "Je m'appelle Paul." },
+            { id: "fr-uq-a1-21-2", level: "A1", prompt: "Complete: 'Elle ___ lève à 7h.'", options: ["me", "se", "te", "nous"], answer: "se" },
+            { id: "fr-uq-a1-21-3", level: "A1", prompt: "Where does 'ne' go in a negative reflexive sentence?", options: ["After the verb", "Before the reflexive pronoun", "After the reflexive pronoun", "At the end"], answer: "Before the reflexive pronoun" },
+            { id: "fr-uq-a1-21-4", level: "A1", prompt: "Complete: 'Nous ___ lavons les mains.'", options: ["me", "te", "nous", "se"], answer: "nous" },
+            { id: "fr-uq-a1-21-5", level: "A1", prompt: "What does 'se coucher' mean?", options: ["to cook", "to get up", "to go to bed", "to sit down"], answer: "to go to bed" },
+            { id: "fr-uq-a1-21-6", level: "A1", prompt: "How do you ask 'What is your name?' formally?", options: ["Comment tu t'appelles?", "Comment vous appelez-vous?", "Comment se sont-ils appelés?", "Comment t'appelles-tu-vous?"], answer: "Comment vous appelez-vous?" },
+        ]
+    },
+    {
+        id: "fr-a1-u22",
+        level: "A1",
+        order: 22,
+        title: "Demonstratives",
+        description: "Learn to point things out — this book, that idea, these shoes. French demonstrative adjectives agree with the noun's gender and number.",
+        grammarIds: ["fr-g-a1-26"],
+        vocabIds: [],
+        verbIds: [],
+        testQuestions: [
+            { id: "fr-uq-a1-22-1", level: "A1", prompt: "Which form is correct before a masculine noun starting with a vowel?", options: ["ce", "cet", "cette", "ces"], answer: "cet" },
+            { id: "fr-uq-a1-22-2", level: "A1", prompt: "Complete: '___ maison est belle.'", options: ["Ce", "Cet", "Cette", "Ces"], answer: "Cette" },
+            { id: "fr-uq-a1-22-3", level: "A1", prompt: "Complete: '___ livres sont intéressants.'", options: ["Ce", "Cet", "Cette", "Ces"], answer: "Ces" },
+            { id: "fr-uq-a1-22-4", level: "A1", prompt: "How do you say 'this hotel' (hôtel = masculine)?", options: ["ce hôtel", "cet hôtel", "cette hôtel", "ces hôtel"], answer: "cet hôtel" },
+            { id: "fr-uq-a1-22-5", level: "A1", prompt: "To say 'that book (over there)', you add:", options: ["-ci after the noun", "-là after the noun", "-là before the noun", "c'est before the noun"], answer: "-là after the noun" },
+            { id: "fr-uq-a1-22-6", level: "A1", prompt: "What does 'ça' mean in spoken French?", options: ["this here", "that / it (informal demonstrative pronoun)", "these here", "those there"], answer: "that / it (informal demonstrative pronoun)" },
+        ]
+    },
+    {
+        id: "fr-a1-u23",
+        level: "A1",
+        order: 23,
+        title: "Adverbs, Frequency & Connectors",
+        description: "Build more natural sentences: say where things are, when things happen, how often, and how to link ideas together with words like mais, parce que, and d'abord.",
+        grammarIds: ["fr-g-a1-27", "fr-g-a1-28", "fr-g-a1-29"],
+        vocabIds: [],
+        verbIds: [],
+        testQuestions: [
+            { id: "fr-uq-a1-23-1", level: "A1", prompt: "What does 'là-bas' mean?", options: ["here", "there", "over there", "somewhere"], answer: "over there" },
+            { id: "fr-uq-a1-23-2", level: "A1", prompt: "Where do frequency adverbs go in French?", options: ["Before the subject", "Before the verb", "After the conjugated verb", "At the end of the sentence"], answer: "After the conjugated verb" },
+            { id: "fr-uq-a1-23-3", level: "A1", prompt: "Complete: 'Je ne mange ___ de viande.' (never)", options: ["toujours", "souvent", "jamais", "parfois"], answer: "jamais" },
+            { id: "fr-uq-a1-23-4", level: "A1", prompt: "Which connector means 'because'?", options: ["mais", "donc", "parce que", "ensuite"], answer: "parce que" },
+            { id: "fr-uq-a1-23-5", level: "A1", prompt: "What does 'déjà' mean?", options: ["still", "soon", "already", "never"], answer: "already" },
+            { id: "fr-uq-a1-23-6", level: "A1", prompt: "Put in order: D'abord → ? → Enfin", options: ["ensuite", "donc", "mais", "ou"], answer: "ensuite" },
+        ]
+    },
+    {
+        id: "fr-a1-u24",
+        level: "A1",
+        order: 24,
+        title: "Weather & Seasons",
+        description: "Describe the weather and talk about the seasons. French weather uses impersonal il-constructions — il fait, il pleut, il y a — that are different from English.",
+        grammarIds: ["fr-g-a1-30"],
+        vocabIds: [],
+        verbIds: [],
+        testQuestions: [
+            { id: "fr-uq-a1-24-1", level: "A1", prompt: "How do you say 'It's hot'?", options: ["Il est chaud.", "Il fait chaud.", "Il a chaud.", "Il va chaud."], answer: "Il fait chaud." },
+            { id: "fr-uq-a1-24-2", level: "A1", prompt: "What is the verb for 'it's raining'?", options: ["il fait de la pluie", "il y a la pluie", "il pleut", "il neige"], answer: "il pleut" },
+            { id: "fr-uq-a1-24-3", level: "A1", prompt: "How do you say 'in spring' in French?", options: ["en printemps", "au printemps", "dans printemps", "le printemps"], answer: "au printemps" },
+            { id: "fr-uq-a1-24-4", level: "A1", prompt: "What does 'il y a du brouillard' mean?", options: ["it's windy", "it's foggy", "it's cloudy", "it's freezing"], answer: "it's foggy" },
+            { id: "fr-uq-a1-24-5", level: "A1", prompt: "How do you ask 'What's the weather like?'", options: ["Comment est le temps?", "Quel temps fait-il?", "Qu'est-ce que il fait dehors?", "Comment va le climat?"], answer: "Quel temps fait-il?" },
+            { id: "fr-uq-a1-24-6", level: "A1", prompt: "Which season uses 'en' (not 'au')?", options: ["printemps", "hiver", "été", "Both hiver and été"], answer: "Both hiver and été" },
         ]
     },
 ]
