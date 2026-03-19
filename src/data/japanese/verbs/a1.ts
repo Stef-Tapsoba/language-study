@@ -323,4 +323,64 @@ export const a1Verbs: Verb[] = [
             }
         ]
     },
+    {
+        id: "ja-vb-a1-15",
+        level: "A1",
+        infinitive: "ある",
+        romanized: "aru",
+        meaning: "to exist / to be / to have (inanimate things)",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "あります", romanized: "arimasu" },
+                    { pronoun: "Negative", form: "ありません", romanized: "arimasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "ありました", romanized: "arimashita" },
+                    { pronoun: "Negative", form: "ありませんでした", romanized: "arimasen deshita" }
+                ]
+            },
+            {
+                tense: "て-form (〜てください)",
+                forms: [
+                    { pronoun: "て-form", form: "あって", romanized: "atte" },
+                    { pronoun: "Negative request", form: "ないでください", romanized: "nai de kudasai" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-16",
+        level: "A1",
+        infinitive: "いる",
+        romanized: "iru",
+        meaning: "to exist / to be (animate beings: people, animals)",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "います", romanized: "imasu" },
+                    { pronoun: "Negative", form: "いません", romanized: "imasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "いました", romanized: "imashita" },
+                    { pronoun: "Negative", form: "いませんでした", romanized: "imasen deshita" }
+                ]
+            },
+            {
+                tense: "て-form (〜てください)",
+                forms: [
+                    { pronoun: "て-form", form: "いて", romanized: "ite" },
+                    { pronoun: "Negative request", form: "いないでください", romanized: "inai de kudasai" }
+                ]
+            }
+        ]
+    },
 ]

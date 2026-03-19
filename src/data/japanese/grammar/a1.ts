@@ -623,4 +623,148 @@ EXAMPLE SEQUENCE:
             { native: "じつは、にほんごが すきです。", romanized: "Jitsu wa, nihongo ga suki desu.", translation: "Actually, I like Japanese." },
         ]
     },
+    {
+        id: "ja-g-a1-25",
+        level: "A1",
+        title: "あります / います — Describing Existence",
+        explanation: `あります and います both mean "there is / there are" or "to exist / to have", but they are used for different types of things.
+
+INANIMATE vs ANIMATE:
+  あります  →  non-living things: objects, places, events, plants
+  います    →  living beings: people, animals
+
+BASIC PATTERN:
+  [Location] に [Thing] が あります / います。
+  "There is [Thing] at [Location]."
+
+EXAMPLES:
+  テーブルの うえに りんごが あります。   There is an apple on the table.
+  こうえんに いぬが います。              There is a dog in the park.
+
+QUESTION FORM:
+  [Location] に [Thing] が ありますか？    Is there a [Thing] at [Location]?
+  → はい、あります。  /  いいえ、ありません。
+
+WHERE-IS QUESTION:
+  [Thing] は どこに ありますか？         Where is [Thing]?
+  [Thing] は どこに いますか？           Where is [Thing] (person/animal)?
+  → [Location] に あります / います。
+
+NEGATIVE:
+  あります → ありません  (there is not / I don't have)
+  います   → いません    (is not here / not present)
+
+POSSESSION (ある):
+  ありますか can also mean "do you have?":
+  じかんが ありますか？   Do you have time?
+  おかねが ありません。  I don't have money.`,
+        examples: [
+            { native: "つくえの うえに ほんが あります。", romanized: "Tsukue no ue ni hon ga arimasu.", translation: "There is a book on the desk." },
+            { native: "こうえんに こどもが います。", romanized: "Kouen ni kodomo ga imasu.", translation: "There are children in the park." },
+            { native: "れいぞうこに たまごが ありますか？", romanized: "Reizouko ni tamago ga arimasu ka?", translation: "Are there eggs in the fridge?" },
+            { native: "すみません、トイレは どこに ありますか？", romanized: "Sumimasen, toire wa doko ni arimasu ka?", translation: "Excuse me, where is the toilet?" },
+            { native: "いえに ねこが にひき います。", romanized: "Ie ni neko ga nihiki imasu.", translation: "There are two cats at home." },
+            { native: "きょうは じかんが ありません。", romanized: "Kyou wa jikan ga arimasen.", translation: "I don't have time today." },
+        ]
+    },
+    {
+        id: "ja-g-a1-26",
+        level: "A1",
+        title: "〜てください — Polite Requests",
+        explanation: `〜てください is used to make polite requests: "Please do ~". It is formed by attaching ください to the て-form of a verb.
+
+FORMING THE て-FORM:
+
+Group 1 (U-verbs / godan) — stem ending changes:
+  -う / -つ / -る   →  -って    (かう → かって、まつ → まって、のる → のって)
+  -む / -ぬ / -ぶ   →  -んで    (のむ → のんで、よぶ → よんで)
+  -く              →  -いて    (かく → かいて)  ※ いく → いって (exception)
+  -ぐ              →  -いで    (およぐ → およいで)
+  -す              →  -して    (はなす → はなして)
+
+Group 2 (RU-verbs / ichidan) — drop る, add て:
+  たべる → たべて    みる → みて    おきる → おきて
+
+Irregular:
+  する → して    くる → きて
+
+ATTACHING ください:
+  て-form + ください
+  たべてください。    Please eat.
+  みてください。      Please look/watch.
+  してください。      Please do it.
+
+NEGATIVE REQUEST (ないでください — please don't ~):
+  Negative plain form (〜ない) + でください
+  たべないでください。   Please don't eat.
+  はなさないでください。 Please don't speak.
+
+SOFTENING:
+  Adding すみませんが前に or ending with ～ていただけますか makes the request more polite.`,
+        examples: [
+            { native: "ここに なまえを かいてください。", romanized: "Koko ni namae wo kaite kudasai.", translation: "Please write your name here." },
+            { native: "ゆっくり はなしてください。", romanized: "Yukkuri hanashite kudasai.", translation: "Please speak slowly." },
+            { native: "まどを しめてください。", romanized: "Mado wo shimete kudasai.", translation: "Please close the window." },
+            { native: "しゃしんを とらないでください。", romanized: "Shashin wo toranai de kudasai.", translation: "Please don't take photos." },
+            { native: "すみません、もう いちど いってください。", romanized: "Sumimasen, mou ichido itte kudasai.", translation: "Excuse me, please say that one more time." },
+            { native: "ここで たばこを すわないでください。", romanized: "Koko de tabako wo suwanai de kudasai.", translation: "Please don't smoke here." },
+        ]
+    },
+    {
+        id: "ja-g-a1-27",
+        level: "A1",
+        title: "[Noun]をください — Ordering & Requesting",
+        explanation: `ください on its own means "please give me". Attach it to a noun with を to request any item — at a restaurant, shop, ticket counter, or café.
+
+BASIC PATTERN:
+  [Noun] を ください。       [Noun], please. / Please give me [Noun].
+
+  みずを ください。          Water, please.
+  メニューを ください。      The menu, please.
+  レシートを ください。      A receipt, please.
+
+WITH COUNTERS (ordering a quantity):
+  [Noun] を [Counter] ください。
+
+  コーヒーを いっぱい ください。    One coffee, please. (杯 = cups)
+  ビールを にほん ください。        Two beers, please. (本 = bottles)
+  たまごを みっつ ください。        Three eggs, please. (つ = general counter)
+
+POINTING AT THE MENU:
+  これを ください。     This one, please.
+  それを ください。     That one, please.
+  あれを ください。     That one over there, please.
+
+ASKING THE PRICE:
+  いくらですか？                How much is it?
+  [Noun] は いくらですか？      How much is [Noun]?
+
+  このラーメンは いくらですか？  How much is this ramen?
+
+ASKING IF SOMETHING IS AVAILABLE:
+  [Noun] は ありますか？        Do you have [Noun]? / Is there [Noun]?
+
+  えいごの メニューは ありますか？   Do you have an English menu?
+  きょうの おすすめは ありますか？   Do you have today's special?
+
+POLITE ALTERNATIVES:
+  おねがいします。              Please. / I'd like that. (softer than ください — use with pointing or after stating your order)
+  〜を おねがいします。          [Noun], please. (more formal/polite than をください)
+
+DIFFERENCE: ください vs 〜てください
+  みずを ください。              Water, please.  (noun + を + ください)
+  みずを もってきてください。     Please bring me some water. (verb て-form + ください)
+
+AT THE REGISTER:
+  いくらですか？         How much is it?
+  ぜんぶで いくらですか？ How much is everything altogether?`,
+        examples: [
+            { native: "すみません、みずを ください。", romanized: "Sumimasen, mizu wo kudasai.", translation: "Excuse me, water please." },
+            { native: "コーヒーを ふたつ ください。", romanized: "Koohii wo futatsu kudasai.", translation: "Two coffees, please." },
+            { native: "これを ください。いくらですか？", romanized: "Kore wo kudasai. Ikura desu ka?", translation: "This one, please. How much is it?" },
+            { native: "えいごの メニューは ありますか？", romanized: "Eigo no menyuu wa arimasu ka?", translation: "Do you have an English menu?" },
+            { native: "すしを みっつと みそしるを ひとつ おねがいします。", romanized: "Sushi wo mittsu to misoshiru wo hitotsu onegaishimasu.", translation: "Three pieces of sushi and one miso soup, please." },
+            { native: "ぜんぶで いくらですか？", romanized: "Zenbu de ikura desu ka?", translation: "How much is everything altogether?" },
+        ]
+    },
 ]
