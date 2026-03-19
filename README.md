@@ -51,7 +51,7 @@ All five languages have full grammar, vocab, verbs, units, placement questions, 
 | Spanish | A1–C1 | 158 | 14 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 |
 | French | A1–C1 | 173 | 15 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 |
 | Italian | A1–C1 | 152 | 15 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 |
-| Japanese | A1–C1 | 150 | 15 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 |
+| Japanese | A1–C1 | 170 | 15 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 |
 | Korean | A1–C1 | 150 | 12 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 |
 
 Japanese and Korean include `romanized` fields on all content (words, examples, conjugation forms).

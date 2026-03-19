@@ -908,4 +908,42 @@ Additional B2 and C1 content across all five languages — units, grammar lesson
 - `src/data/{es,fr,it,ja,ko}/units/b2.ts` and `units/c1.ts`
 - `src/data/{es,fr,it,ja,ko}/grammar/b2.ts` and `grammar/c1.ts`
 - `src/data/{es,fr,it,ja,ko}/vocab/b2.ts` and `vocab/c1.ts`
+
+---
+
+## 42 — Japanese A1 hiragana compliance + culture/grammar fixes (all 5 languages)
+
+### A1 culture fixes — all 5 languages
+
+**Policy applied:**
+- `cultureVocab` entries replaced to match words that actually appear in each episode's `simpleTarget` (simplified body text), so learners can look up words they just encountered
+- Reflection and comparison question `target` fields changed to English (matching `native`) — target-language prompts are inappropriate at A1
+- Japanese culture: all kanji converted to hiragana/katakana throughout (`title.target`, photo captions, `body.target`, `simpleTarget`, vocab `word` fields, question `target` prompts, `didYouKnow.target`)
+
+**Per-language culture vocab updated:**
+- **ES ep1:** `la comida`, `el desayuno`, `la cena`, `las familias`, `el mediodía`; ep2: `el mercado`, `las frutas y verduras`, `la comunidad`, `el tianguis`, `tradicional`
+- **FR ep1:** `la baguette`, `la boulangerie`, `le quartier`, `célèbre`, `les Français`; ep2: `francophone`, `la francophonie`, `une langue internationale`, `utile`, `des millions`
+- **IT ep1:** `il caffè`, `il bar`, `l'espresso`, `il cappuccino`, `il mattino`; ep2: `il nord`, `il sud`, `la regione`, `la cucina`, `la pasta al pomodoro`
+- **KO ep1:** `눈치`, `기분`, `능력`, `사회생활`, `신호`; ep2: `밥`, `반찬`, `김치`, `식사`, `나눔`
+- **JA ep1:** `おじぎ`, `あいさつ`, `かんしゃ`, `しゃざい`, `すみません`; ep2: `いただきます`, `ごちそうさまでした`, `かんしゃ`, `たべもの`, `コンビニ`
+
+### Japanese A1 vocab overhaul (`src/data/japanese/vocab/a1.ts`)
+
+- ~95 `word` fields converted from kanji to hiragana across all categories (numbers, days/time, family, food, body, colours, clothing, places, professions, adjectives, seasons)
+- Words kept in kanji (with hiragana reading added in Japanese parentheses): days of week (月曜日（げつようび）etc.), 水（みず）, 手（て）, 本（ほん）, 大学（だいがく）, 学生（がくせい）, 先生（せんせい）, 日本（にほん）, 日本語（にほんご）, 友達（ともだち）, 家族（かぞく）, 子供（こども）, 大きい（おおきい）, 小さい（ちいさい）
+- **15 Kanji category entries added** (IDs 156–170) to support the U18 Beginner Kanji unit — one entry per essential kanji: 山、人、上、下、中、日、水、本、学、生、先、語、大、小、手
+
+### Japanese A1 grammar examples (`src/data/japanese/grammar/a1.ts`)
+
+- All `native` fields in `examples` arrays converted to hiragana/katakana across 14 lessons (ja-g-a1-0, 6–13, 15–16, 18–19, 22)
+- Katakana loanwords (コーヒー, テレビ, レストラン, バス, チケット, スポーツ etc.) retained as katakana
+- Kanji lesson (ja-g-a1-14) left unchanged — showing kanji is its purpose
+- Translation fields updated where they referenced kanji forms in conjugation notes (e.g. "(食べる → 食べます)" → "(たべる → たべます)")
+
+### Files modified
+- `src/data/{es,fr,it,ja,ko}/culture/a1.ts` — culture vocab + reflection/comparison question language
+- `src/data/japanese/vocab/a1.ts` — hiragana conversion, kanji parenthetical readings, 15 Kanji entries (156–170)
+- `src/data/japanese/grammar/a1.ts` — example `native` fields converted to hiragana/katakana
+- `documents/A1-Guide.md` — updated Japanese writing system description
+- `README.md` — updated Japanese A1 vocab count (150 → 170)
 - `src/data/{es,fr,it,ja,ko}/verbs/b2.ts`
