@@ -172,12 +172,12 @@ REGULAR PATTERN — same vowel harmony rules as verbs:
   많다  (many)    → 많아요
   없다  (no/none) → 없어요
 
-ㅡ-IRREGULAR — verbs/adjectives ending in ㅡ drop the ㅡ before 아/어:
+**ㅡ-IRREGULAR** — verbs/adjectives ending in ㅡ drop the ㅡ before 아/어:
   크다  → 크 + 어요 → 커요    (not 크어요)
   예쁘다 → 예쁘 + 어요 → 예뻐요 (not 예쁘어요)
   나쁘다 → 나쁘 + 어요 → 나빠요
 
-ㅂ-IRREGULAR — adjectives ending in ㅂ change ㅂ → 우 before a vowel:
+**ㅂ-IRREGULAR** — adjectives ending in ㅂ change ㅂ → 우 before a vowel:
   춥다  (cold)    → 추 + 워요 → 추워요  (not 춥어요)
   덥다  (hot)     → 더 + 워요 → 더워요
   가볍다 (light)  → 가벼워요

@@ -29,15 +29,15 @@ Note: 'on' informally means 'we' in everyday speech — On y va = We're going.`,
         id: "fr-g-a1-2",
         level: "A1",
         title: "Être (to be)",
-        explanation: `Être means 'to be'. It is completely irregular — memorise it!
+        explanation: `**Être** means 'to be'. It is completely irregular — memorise it!
 
 Conjugation (present tense):
-  je        → suis    (I am)
-  tu        → es      (you are)
-  il/elle   → est     (he/she is)
-  nous      → sommes  (we are)
-  vous      → êtes    (you are — formal/pl.)
-  ils/elles → sont    (they are)
+  je        → **suis**    (I am)
+  tu        → **es**      (you are)
+  il/elle   → **est**     (he/she is)
+  nous      → **sommes**  (we are)
+  vous      → **êtes**    (you are — formal/pl.)
+  ils/elles → **sont**    (they are)
 
 Used for: identity (Je suis étudiant), nationality (Elle est française), origin (Il est de Paris), time (Il est midi).
 
@@ -134,15 +134,15 @@ Common -er verbs: aimer (like), habiter (live), travailler (work), manger (eat),
         id: "fr-g-a1-6",
         level: "A1",
         title: "Avoir (to have)",
-        explanation: `Avoir means 'to have'. It is also the auxiliary verb for the passé composé. The h is always silent — say j'ai, never je ai.
+        explanation: `**Avoir** means 'to have'. It is also the auxiliary verb for the passé composé. The h is always silent — say j'ai, never je ai.
 
 Conjugation (present tense):
-  je        → ai      (I have)
-  tu        → as      (you have)
-  il/elle   → a       (he/she has)
-  nous      → avons   (we have)
-  vous      → avez    (you have)
-  ils/elles → ont     (they have)
+  je        → **ai**      (I have)
+  tu        → **as**      (you have)
+  il/elle   → **a**       (he/she has)
+  nous      → **avons**   (we have)
+  vous      → **avez**    (you have)
+  ils/elles → **ont**     (they have)
 
 Common expressions with avoir:
   avoir faim / soif     → to be hungry / thirsty
@@ -163,15 +163,15 @@ Common expressions with avoir:
         id: "fr-g-a1-7",
         level: "A1",
         title: "Aller (to go)",
-        explanation: `Aller means 'to go'. Its present tense is completely irregular — memorise it!
+        explanation: `**Aller** means 'to go'. Its present tense is completely irregular — memorise it!
 
 Conjugation (present tense):
-  je        → vais    (I go)
-  tu        → vas     (you go)
-  il/elle   → va      (he/she goes)
-  nous      → allons  (we go)
-  vous      → allez   (you go)
-  ils/elles → vont    (they go)
+  je        → **vais**    (I go)
+  tu        → **vas**     (you go)
+  il/elle   → **va**      (he/she goes)
+  nous      → **allons**  (we go)
+  vous      → **allez**   (you go)
+  ils/elles → **vont**    (they go)
 
 Key uses:
   Movement:    aller + à + place  →  Je vais au marché.   (I'm going to the market.)
@@ -189,15 +189,15 @@ Key uses:
         id: "fr-g-a1-8",
         level: "A1",
         title: "Faire (to do / to make)",
-        explanation: `Faire means 'to do' or 'to make'. It is highly irregular — memorise it!
+        explanation: `**Faire** means 'to do' or 'to make'. It is highly irregular — memorise it!
 
 Conjugation (present tense):
-  je        → fais     (I do/make)
-  tu        → fais     (you do/make)
-  il/elle   → fait     (he/she does/makes)
-  nous      → faisons  (we do/make)
-  vous      → faites   (you do/make)  ← irregular! NOT 'faisez'
-  ils/elles → font     (they do/make)
+  je        → **fais**     (I do/make)
+  tu        → **fais**     (you do/make)
+  il/elle   → **fait**     (he/she does/makes)
+  nous      → **faisons**  (we do/make)
+  vous      → **faites**   (you do/make)  ← irregular! NOT 'faisez'
+  ils/elles → **font**     (they do/make)
 
 Common expressions with faire:
   faire du sport          → to do sport / exercise
@@ -429,7 +429,7 @@ Remove -ir and add:
 
 Common regular -ir verbs: finir (finish), choisir (choose), réussir (succeed), grandir (grow), obéir (obey), remplir (fill).
 
-Warning: partir, sortir, dormir are also -ir verbs but are IRREGULAR — they do NOT use -iss-. Learn them separately.`,
+Warning: **partir**, **sortir**, **dormir** are also -ir verbs but are IRREGULAR — they do NOT use -iss-. Learn them separately.`,
         examples: [
             { native: "Je finis.", translation: "I finish." },
             { native: "Tu choisis.", translation: "You choose." },
@@ -531,12 +531,30 @@ ACCENTS
 é (e accent aigu) → the closed e sound, like the 'ay' in 'say': café, étudiant
 è (e accent grave) → the open e sound, like the 'e' in 'bet': très, après
 ê (e circumflex) → similar to è but held slightly longer: être, fête
-The accent on â, î, ô, û mostly distinguishes words from each other rather than changing sound significantly.`,
+The accent on â, î, ô, û mostly distinguishes words from each other rather than changing sound significantly.
+
+VOWEL SOUNDS — QUICK REFERENCE
+  Spelling         Approximate sound         Example words
+  ─────────────────────────────────────────────────────────
+  é                'ay' (closed, tense)       café, été, étudiant
+  è / ê / ai / ei  'eh' (open, relaxed)       très, être, mais, neige
+  e (mid-word)     'uh' (schwa)               le, fenêtre, demain
+  i / y            'ee'                       ici, livre, typique
+  u                'ew' (round lips — no English equivalent)  tu, sur, rue
+  ou               'oo'                       vous, rouge, tour
+  o / ô / au / eau 'oh'                       or, rôle, aussi, beau
+  eu / œu          'uh' (lips rounded)        bleu, peur, cœur
+  ─────────────────────────────────────────────────────────
+  NASALS (air through the nose — no English equivalent):
+  an / en / am/em  'ahn'                      France, enfant, jambe
+  in / ain / im    'an'                       vin, main, impossible
+  on / om          'ohn'                      bon, ombre, nom
+  un / um          'uhn'                      un, parfum`,
         examples: [
             { native: "ils parlent, vous mangez", translation: "Final -ent and -ez are silent — these sound like 'parl' and 'mang-ay'" },
             { native: "un enfant en France", translation: "Three nasal vowels in a row: un (nasal), en (nasal), an (nasal)" },
             { native: "vous_avez / les_amis", speakText: "vous avez, les amis", translation: "Liaison: the s in 'vous' and 'les' is pronounced before a vowel" },
-            { native: "é → café / è → très", speakText: "café, très", translation: "Accent marks change the vowel sound, not just the spelling" },
+            { native: "é → café / è → très / ê → être", speakText: "café, très, être", translation: "Three e-sounds: closed 'ay' (é), open 'eh' (è/ê) — accent = sound" },
             { native: "bonne vs bon", speakText: "bonne, bon", translation: "Double n before a vowel breaks the nasal sound — bonne is not nasal, bon is" },
         ]
     },

@@ -18,15 +18,15 @@ export const a1Grammar: GrammarLesson[] = [
         id: "it-g-a1-2",
         level: "A1",
         title: "Essere (to be)",
-        explanation: `Essere is one of the two key verbs meaning 'to be'. It is used for identity, nationality, profession, origin, and time.
+        explanation: `**Essere** is one of the two key verbs meaning 'to be'. It is used for identity, nationality, profession, origin, and time.
 
 Conjugation (present tense):
-  io      → sono   (I am)
-  tu      → sei    (you are)
-  lui/lei → è      (he/she is)
-  noi     → siamo  (we are)
-  voi     → siete  (you all are)
-  loro    → sono   (they are)`,
+  io      → **sono**   (I am)
+  tu      → **sei**    (you are)
+  lui/lei → **è**      (he/she is)
+  noi     → **siamo**  (we are)
+  voi     → **siete**  (you all are)
+  loro    → **sono**   (they are)`,
         examples: [
             { native: "Sono italiano.", translation: "I am Italian." },
             { native: "Tu sei studentessa?", translation: "Are you a student?" },
@@ -166,15 +166,15 @@ Other Type 2 verbs: preferire (prefer), pulire (clean), costruire (build).`,
         id: "it-g-a1-8",
         level: "A1",
         title: "Andare (to go)",
-        explanation: `Andare means 'to go'. Its present tense is highly irregular — memorise it!
+        explanation: `**Andare** means 'to go'. Its present tense is highly irregular — memorise it!
 
 Conjugation (present tense):
-  io      → vado    (I go)
-  tu      → vai     (you go)
-  lui/lei → va      (he/she goes)
+  io      → **vado**    (I go)
+  tu      → **vai**     (you go)
+  lui/lei → **va**      (he/she goes)
   noi     → andiamo (we go)
   voi     → andate  (you all go)
-  loro    → vanno   (they go)
+  loro    → **vanno**   (they go)
 
 Note: noi/voi follow a regular-looking pattern; the other forms are irregular.
 Usage: andare + a + place → andare a scuola, andare al cinema, andare in Italia.`,
@@ -190,15 +190,15 @@ Usage: andare + a + place → andare a scuola, andare al cinema, andare in Itali
         id: "it-g-a1-9",
         level: "A1",
         title: "Fare (to do / to make)",
-        explanation: `Fare means 'to do' or 'to make'. It is highly irregular — memorise it!
+        explanation: `**Fare** means 'to do' or 'to make'. It is highly irregular — memorise it!
 
 Conjugation (present tense):
-  io      → faccio   (I do/make)
-  tu      → fai      (you do/make)
-  lui/lei → fa       (he/she does/makes)
-  noi     → facciamo (we do/make)
-  voi     → fate     (you all do/make)
-  loro    → fanno    (they do/make)
+  io      → **faccio**   (I do/make)
+  tu      → **fai**      (you do/make)
+  lui/lei → **fa**       (he/she does/makes)
+  noi     → **facciamo** (we do/make)
+  voi     → **fate**     (you all do/make)
+  loro    → **fanno**    (they do/make)
 
 Common expressions with fare:
   fare colazione       → to have breakfast

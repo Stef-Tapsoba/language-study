@@ -31,15 +31,15 @@ tú vs. usted: Use tú with friends, family, and peers. Use usted with strangers
     title: "Ser & Estar — Two Ways to Say 'To Be'",
     explanation: `Spanish has two verbs for 'to be'. Choosing the right one is the key challenge of A1 Spanish.
 
-SER — identity, permanent or defining traits
-  yo soy         nosotros somos
-  tú eres        vosotros sois
-  él/ella es     ellos/ellas son
+**SER** — identity, permanent or defining traits
+  yo **soy**         nosotros **somos**
+  tú **eres**        vosotros **sois**
+  él/ella **es**     ellos/ellas **son**
 
-ESTAR — location, temporary states, and conditions
-  yo estoy         nosotros estamos
-  tú estás         vosotros estáis
-  él/ella está     ellos/ellas están
+**ESTAR** — location, temporary states, and conditions
+  yo **estoy**         nosotros **estamos**
+  tú **estás**         vosotros **estáis**
+  él/ella **está**     ellos/ellas **están**
 
 WHEN TO USE EACH
 
@@ -237,13 +237,13 @@ Common -ir verbs: vivir, escribir, abrir, recibir, subir, decidir.`,
     id: "es-g-a1-9",
     level: "A1",
     title: "Tener — To Have",
-    explanation: `Tener is an irregular -er verb. Its yo form is tengo (not *teno).
+    explanation: `**Tener** is an irregular -er verb. Its yo form is **tengo** (not *teno).
 
 TENER — to have
 
-  yo tengo          nosotros tenemos
-  tú tienes         vosotros tenéis
-  él/ella tiene     ellos/ellas tienen
+  yo **tengo**          nosotros tenemos
+  tú **tienes**         vosotros tenéis
+  él/ella **tiene**     ellos/ellas **tienen**
 
 USES OF TENER
 
@@ -268,13 +268,13 @@ USES OF TENER
     id: "es-g-a1-10",
     level: "A1",
     title: "Ir — To Go",
-    explanation: `Ir is highly irregular in the present tense — the forms look nothing like the infinitive.
+    explanation: `**Ir** is highly irregular in the present tense — the forms look nothing like the infinitive.
 
 IR — to go
 
-  yo voy        nosotros vamos
-  tú vas        vosotros vais
-  él/ella va    ellos/ellas van
+  yo **voy**        nosotros **vamos**
+  tú **vas**        vosotros **vais**
+  él/ella **va**    ellos/ellas **van**
 
 DESTINATIONS — always use ir + a
   Voy a la tienda.    (I'm going to the shop.)    a + la → stays a la
@@ -462,13 +462,13 @@ AMBIGUITY OF SU
     id: "es-g-a1-16",
     level: "A1",
     title: "Querer — Stem-Changing Verb (e → ie)",
-    explanation: `Querer (to want / to love) is one of the most used verbs in Spanish. It is stem-changing: the stem vowel e changes to ie in all forms except nosotros and vosotros.
+    explanation: `**Querer** (to want / to love) is one of the most used verbs in Spanish. It is stem-changing: the stem vowel e changes to ie in all forms except nosotros and vosotros.
 
 QUERER — to want / to love
 
-  yo quiero         nosotros queremos   ← no stem change
-  tú quieres        vosotros queréis    ← no stem change
-  él/ella quiere    ellos/ellas quieren
+  yo **quiero**         nosotros queremos   ← no stem change
+  tú **quieres**        vosotros queréis    ← no stem change
+  él/ella **quiere**    ellos/ellas **quieren**
 
 The nosotros/vosotros forms never stem-change — this is true of all stem-changing verbs.
 

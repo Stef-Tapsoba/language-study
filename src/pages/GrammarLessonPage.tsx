@@ -9,6 +9,23 @@ import { LevelBadge } from "../components/LevelBadge"
 import { SpeakButton } from "../components/SpeakButton"
 import { resolvePrimary } from "../utils/localizedText"
 
+/** Renders a string with **bold** markers as inline <strong> elements. */
+function renderBold(text: string): React.ReactNode[] {
+    const result: React.ReactNode[] = []
+    let rest = text
+    let n = 0
+    while (rest.length > 0) {
+        const start = rest.indexOf("**")
+        if (start === -1) { result.push(rest); break }
+        if (start > 0) result.push(rest.slice(0, start))
+        const end = rest.indexOf("**", start + 2)
+        if (end === -1) { result.push(rest.slice(start)); break }
+        result.push(<strong key={`b${n++}`} className="font-semibold text-gray-900">{rest.slice(start + 2, end)}</strong>)
+        rest = rest.slice(end + 2)
+    }
+    return result
+}
+
 export function GrammarLessonPage() {
     const { langId = "", lessonId = "" } = useParams()
     const language = getLanguage(langId)
@@ -56,7 +73,7 @@ export function GrammarLessonPage() {
                 {/* Explanation */}
                 <div className="bg-white rounded-2xl border border-gray-200 p-5">
                     <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2">Explanation</h2>
-                    <p className="text-gray-800 leading-relaxed whitespace-pre-wrap">{explanation}</p>
+                    <p className="text-gray-800 leading-relaxed whitespace-pre-wrap">{renderBold(explanation)}</p>
                 </div>
 
                 {/* Examples */}

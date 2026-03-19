@@ -146,7 +146,7 @@ foreign sounds that don't exist in Japanese.
         id: "ja-g-a1-7",
         level: "A1",
         title: "Polite Verbs: ます-form (Present / Future)",
-        explanation: "Japanese verbs in polite speech use the ます (masu) form. There are three verb groups. Group 2 (ichidan/ru-verbs): verbs ending in -eru or -iru — remove る and add ます (e.g., 食べる → 食べます). Group 1 (godan/u-verbs): verbs ending in other sounds — change the final sound to its い-row equivalent and add ます (e.g., 飲む → 飲み + ます = 飲みます; 書く → 書き + ます = 書きます). Group 3 (irregular): する → します, 来る(くる) → 来ます(きます). The ます-form is used for present facts and future actions.",
+        explanation: "Japanese verbs in polite speech use the ます (masu) form. There are three verb groups. Group 2 (ichidan/ru-verbs): verbs ending in -eru or -iru — remove る and add ます (e.g., 食べる → 食べます). Group 1 (godan/u-verbs): verbs ending in other sounds — change the final sound to its い-row equivalent and add ます (e.g., 飲む → 飲み + ます = 飲みます; 書く → 書き + ます = 書きます). Group 3 (irregular): **する → します**, **来る(くる) → 来ます(きます)**. The ます-form is used for present facts and future actions.",
         examples: [
             { native: "食べます。", romanized: "Tabemasu.", translation: "I eat. / I will eat. (食べる → 食べます)" },
             { native: "飲みます。", romanized: "Nomimasu.", translation: "I drink. / I will drink. (飲む → 飲みます)" },
