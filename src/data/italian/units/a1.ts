@@ -1,14 +1,16 @@
 // data/italian/units/a1.ts
 import { LessonUnit } from "../../../types"
 
-// 22 ordered A1 units for Italian.
+// 24 ordered A1 units for Italian.
 // Each unit builds on the previous. Unit N+1 unlocks when unit N is mastered.
 //
 // U1–U19: existing units (see previous history in git log)
 // U20: Reflexive Verbs & Daily Routine (new — it-g-a1-25)
 // U21: Demonstratives (new — it-g-a1-24)
 // U22: Adverbs, Frequency & Connectors (new — it-g-a1-26/27/28/29)
-// U23: Bridge — The Near Future (renumbered from U19 — stays last)
+// U23: Bridge — The Near Future (renumbered from U19)
+// U23 (new): Partitive Articles, C'è & Stressed Pronouns (it-g-a1-30/31/34)
+// U24 (new): Commands & Dovere (it-g-a1-32/33)
 
 export const a1Units: LessonUnit[] = [
     {
@@ -431,6 +433,42 @@ export const a1Units: LessonUnit[] = [
             { id: "it-uq-a1-22-4", level: "A1", prompt: "What does 'domani' mean?", options: ["Today", "Yesterday", "Now", "Tomorrow"], answer: "Tomorrow" },
             { id: "it-uq-a1-22-5", level: "A1", prompt: "Which structure means something is ABOUT TO happen right now?", options: ["andare a + inf.", "stare per + inf.", "volere + inf.", "potere + inf."], answer: "stare per + inf." },
             { id: "it-uq-a1-22-6", level: "A1", prompt: "Translate: 'We are going to watch a film tonight.'", options: ["Guardiamo un film stasera.", "Abbiamo guardato un film stasera.", "Andiamo a vedere un film stasera.", "Stiamo per vedere un film."], answer: "Andiamo a vedere un film stasera." },
+        ]
+    },
+    {
+        id: "it-a1-u23",
+        level: "A1",
+        order: 23,
+        title: "Partitive Articles, C'è & Stressed Pronouns",
+        description: "Express indefinite quantities with partitive articles (del, dello, della…), say what exists or doesn't exist with c'è and ci sono, and use stressed pronouns (me, te, lui, lei…) after prepositions and for emphasis.",
+        grammarIds: ["it-g-a1-30", "it-g-a1-31", "it-g-a1-34"],
+        vocabIds: [],
+        verbIds: [],
+        testQuestions: [
+            { id: "it-uq-a1-23-1", level: "A1", prompt: "Which partitive article goes before a masculine noun starting with a vowel (e.g. 'olio')?", options: ["del", "dello", "dell'", "dei"], answer: "dell'" },
+            { id: "it-uq-a1-23-2", level: "A1", prompt: "Complete: 'Vuoi ___ acqua?' (some water)", options: ["del", "della", "delle", "degli"], answer: "della" },
+            { id: "it-uq-a1-23-3", level: "A1", prompt: "Which partitive article is used before masculine plural nouns starting with s + consonant (e.g. 'spaghetti')?", options: ["dei", "degli", "delle", "dell'"], answer: "degli" },
+            { id: "it-uq-a1-23-4", level: "A1", prompt: "Translate: 'There are three apples on the table.'", options: ["C'è tre mele sul tavolo.", "Ci sono tre mele sul tavolo.", "Ci sono tre mele nel tavolo.", "C'è delle mele sul tavolo."], answer: "Ci sono tre mele sul tavolo." },
+            { id: "it-uq-a1-23-5", level: "A1", prompt: "Complete: 'Non c'è ___ problema.' (there is no problem)", options: ["nessun", "nessuno", "nessuna", "alcun"], answer: "nessun" },
+            { id: "it-uq-a1-23-6", level: "A1", prompt: "Choose the correct stressed pronoun: 'Il regalo è per ___ .' (for her)", options: ["lei", "la", "le", "ella"], answer: "lei" },
+        ]
+    },
+    {
+        id: "it-a1-u24",
+        level: "A1",
+        order: 24,
+        title: "Commands & Dovere",
+        description: "Give instructions and commands using the Italian imperative, and express obligation, necessity, and advice with the modal verb dovere (must / have to / should).",
+        grammarIds: ["it-g-a1-32", "it-g-a1-33"],
+        vocabIds: [],
+        verbIds: [],
+        testQuestions: [
+            { id: "it-uq-a1-24-1", level: "A1", prompt: "What is the tu imperative of 'parlare'?", options: ["Parla!", "Parli!", "Parlate!", "Parlare!"], answer: "Parla!" },
+            { id: "it-uq-a1-24-2", level: "A1", prompt: "What is the Lei (formal) imperative of 'aspettare'?", options: ["Aspetta!", "Aspetti!", "Aspettate!", "Aspettare!"], answer: "Aspetti!" },
+            { id: "it-uq-a1-24-3", level: "A1", prompt: "How do you form a negative tu imperative? Complete: '___ correre!' (Don't run!)", options: ["Non corri!", "Non corra!", "Non correre!", "Non correte!"], answer: "Non correre!" },
+            { id: "it-uq-a1-24-4", level: "A1", prompt: "Choose the correct form of dovere: 'Noi ___ studiare ogni giorno.'", options: ["devo", "deve", "dobbiamo", "dovete"], answer: "dobbiamo" },
+            { id: "it-uq-a1-24-5", level: "A1", prompt: "Translate: 'You (tu) must eat breakfast.'", options: ["Devi fare colazione.", "Deve fare colazione.", "Dovete fare colazione.", "Devo fare colazione."], answer: "Devi fare colazione." },
+            { id: "it-uq-a1-24-6", level: "A1", prompt: "Which sentence uses dovere to give advice?", options: ["Dovresti riposare di più.", "Vuoi riposare di più?", "Riesci a riposare?", "Stai riposando?"], answer: "Dovresti riposare di più." },
         ]
     },
 ]

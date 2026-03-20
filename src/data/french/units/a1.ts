@@ -517,4 +517,58 @@ export const a1Units: LessonUnit[] = [
             { id: "fr-uq-a1-24-6", level: "A1", prompt: "Which season uses 'en' (not 'au')?", options: ["printemps", "hiver", "été", "Both hiver and été"], answer: "Both hiver and été" },
         ]
     },
+    {
+        id: "fr-a1-u25",
+        level: "A1",
+        order: 25,
+        title: "Partitive Articles & Existence",
+        description: "Learn to use partitive articles (du, de la, de l', des) to express some/any of something, and master il y a to say there is / there are.",
+        grammarIds: ["fr-g-a1-31", "fr-g-a1-32"],
+        vocabIds: [],
+        verbIds: [],
+        testQuestions: [
+            { id: "fr-uq-a1-25-1", level: "A1", prompt: "Which partitive article goes before a masculine noun? 'Je mange ___ pain.'", options: ["de la", "du", "des", "de l'"], answer: "du" },
+            { id: "fr-uq-a1-25-2", level: "A1", prompt: "Choose the correct sentence: 'I drink some water.'", options: ["Je bois de l'eau.", "Je bois du eau.", "Je bois des eau.", "Je bois de eau."], answer: "Je bois de l'eau." },
+            { id: "fr-uq-a1-25-3", level: "A1", prompt: "What is the partitive article for a feminine noun? 'Elle mange ___ viande.'", options: ["du", "des", "de l'", "de la"], answer: "de la" },
+            { id: "fr-uq-a1-25-4", level: "A1", prompt: "How do you say 'There is a cat in the garden'?", options: ["Il est un chat dans le jardin.", "Il y a un chat dans le jardin.", "Il a un chat dans le jardin.", "C'est un chat dans le jardin."], answer: "Il y a un chat dans le jardin." },
+            { id: "fr-uq-a1-25-5", level: "A1", prompt: "Which sentence correctly uses 'il y a' in a question?", options: ["Est-il y a du lait?", "Y a-t-il du lait?", "Il y a du lait?", "A-t-il y du lait?"], answer: "Y a-t-il du lait?" },
+            { id: "fr-uq-a1-25-6", level: "A1", prompt: "After a negation, partitive articles change to ___. 'Je ne mange pas ___ sucre.'", options: ["du", "de", "des", "de la"], answer: "de" },
+        ]
+    },
+    {
+        id: "fr-a1-u26",
+        level: "A1",
+        order: 26,
+        title: "Commands, Devoir & Venir",
+        description: "Give instructions using the imperative, express obligation with devoir (must/have to), and talk about coming and recent past actions with venir.",
+        grammarIds: ["fr-g-a1-33", "fr-g-a1-34", "fr-g-a1-35"],
+        vocabIds: [],
+        verbIds: [],
+        testQuestions: [
+            { id: "fr-uq-a1-26-1", level: "A1", prompt: "How do you form the tu-form imperative of parler?", options: ["Tu parles!", "Parles!", "Parle!", "Parlons!"], answer: "Parle!" },
+            { id: "fr-uq-a1-26-2", level: "A1", prompt: "Translate: 'Let's eat!' (nous imperative)", options: ["Mangez!", "Mange!", "Mangeons!", "Tu manges!"], answer: "Mangeons!" },
+            { id: "fr-uq-a1-26-3", level: "A1", prompt: "Complete with devoir: 'Tu ___ étudier ce soir.' (You must study tonight.)", options: ["veux", "peux", "dois", "fais"], answer: "dois" },
+            { id: "fr-uq-a1-26-4", level: "A1", prompt: "How do you say 'She must leave now'?", options: ["Elle va partir maintenant.", "Elle doit partir maintenant.", "Elle peut partir maintenant.", "Elle veut partir maintenant."], answer: "Elle doit partir maintenant." },
+            { id: "fr-uq-a1-26-5", level: "A1", prompt: "Which phrase uses venir to express the recent past?", options: ["Je viens manger.", "Je viens de manger.", "Je viens pour manger.", "Je viens en manger."], answer: "Je viens de manger." },
+            { id: "fr-uq-a1-26-6", level: "A1", prompt: "Translate: 'They just arrived.' (recent past with venir)", options: ["Ils arrivent.", "Ils vont arriver.", "Ils viennent d'arriver.", "Ils sont venus arriver."], answer: "Ils viennent d'arriver." },
+        ]
+    },
+    {
+        id: "fr-a1-u27",
+        level: "A1",
+        order: 27,
+        title: "Identity & Stressed Pronouns",
+        description: "Distinguish between c'est (identifying) and il est/elle est (describing), and use stressed pronouns — moi, toi, lui, elle, nous, vous, eux, elles — for emphasis and after prepositions.",
+        grammarIds: ["fr-g-a1-36", "fr-g-a1-37"],
+        vocabIds: [],
+        verbIds: [],
+        testQuestions: [
+            { id: "fr-uq-a1-27-1", level: "A1", prompt: "Choose the correct sentence to identify a person: 'This is my friend Marie.'", options: ["Il est mon amie Marie.", "C'est mon amie Marie.", "Elle est mon amie Marie.", "Voilà est mon amie Marie."], answer: "C'est mon amie Marie." },
+            { id: "fr-uq-a1-27-2", level: "A1", prompt: "Which sentence describes a quality rather than identifying someone?", options: ["C'est médecin.", "Il est médecin.", "C'est un médecin.", "C'est le médecin."], answer: "Il est médecin." },
+            { id: "fr-uq-a1-27-3", level: "A1", prompt: "What is the stressed pronoun for 'je'?", options: ["tu", "lui", "moi", "soi"], answer: "moi" },
+            { id: "fr-uq-a1-27-4", level: "A1", prompt: "Complete: 'Ce livre est pour ___.' (this book is for him)", options: ["il", "le", "lui", "son"], answer: "lui" },
+            { id: "fr-uq-a1-27-5", level: "A1", prompt: "Which stressed pronoun corresponds to 'ils'?", options: ["eux", "leur", "les", "ils"], answer: "eux" },
+            { id: "fr-uq-a1-27-6", level: "A1", prompt: "How do you say 'Me, I prefer coffee.' (using a stressed pronoun for emphasis)?", options: ["Je préfère le café.", "Moi, je préfère le café.", "Moi je suis préfère le café.", "Je moi préfère le café."], answer: "Moi, je préfère le café." },
+        ]
+    },
 ]
