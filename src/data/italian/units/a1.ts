@@ -424,8 +424,17 @@ export const a1Units: LessonUnit[] = [
         title: "Partitive Articles, C'è & Stressed Pronouns",
         description: "Express indefinite quantities with partitive articles (del, dello, della…), say what exists or doesn't exist with c'è and ci sono, and use stressed pronouns (me, te, lui, lei…) after prepositions and for emphasis.",
         grammarIds: ["it-g-a1-30", "it-g-a1-31", "it-g-a1-34"],
-        vocabIds: [],
-        verbIds: [],
+        vocabIds: [
+            "it-v-a1-61", "it-v-a1-62", "it-v-a1-63", "it-v-a1-64", "it-v-a1-65",
+            "it-v-a1-66", "it-v-a1-67", "it-v-a1-68", "it-v-a1-69", "it-v-a1-70",
+            "it-v-a1-71", "it-v-a1-72", "it-v-a1-73", "it-v-a1-74", "it-v-a1-75",
+            "it-v-a1-76", "it-v-a1-77", "it-v-a1-78", "it-v-a1-79", "it-v-a1-80",
+            "it-v-a1-81",
+            "it-v-a1-108", "it-v-a1-109", "it-v-a1-110", "it-v-a1-111", "it-v-a1-112",
+            "it-v-a1-113", "it-v-a1-114", "it-v-a1-115", "it-v-a1-116", "it-v-a1-117",
+            "it-v-a1-118", "it-v-a1-119", "it-v-a1-120", "it-v-a1-121", "it-v-a1-122",
+        ],
+        verbIds: ["it-vb-a1-1", "it-vb-a1-8", "it-vb-a1-9"],
         testQuestions: [
             { id: "it-uq-a1-22-1", level: "A1", prompt: "Which partitive article goes before a masculine noun starting with a vowel (e.g. 'olio')?", options: ["del", "dello", "dell'", "dei"], answer: "dell'" },
             { id: "it-uq-a1-22-2", level: "A1", prompt: "Complete: 'Vuoi ___ acqua?' (some water)", options: ["del", "della", "delle", "degli"], answer: "della" },
@@ -442,8 +451,16 @@ export const a1Units: LessonUnit[] = [
         title: "Commands & Dovere",
         description: "Give instructions and commands using the Italian imperative, and express obligation, necessity, and advice with the modal verb dovere (must / have to / should).",
         grammarIds: ["it-g-a1-32", "it-g-a1-33"],
-        vocabIds: [],
-        verbIds: [],
+        vocabIds: [
+            "it-v-a1-123", "it-v-a1-124", "it-v-a1-125", "it-v-a1-126", "it-v-a1-127",
+            "it-v-a1-128", "it-v-a1-129", "it-v-a1-130",
+            "it-v-a1-141", "it-v-a1-142", "it-v-a1-143", "it-v-a1-144", "it-v-a1-145",
+            "it-v-a1-146", "it-v-a1-147", "it-v-a1-148",
+        ],
+        verbIds: [
+            "it-vb-a1-27", "it-vb-a1-3", "it-vb-a1-4", "it-vb-a1-5",
+            "it-vb-a1-28", "it-vb-a1-29", "it-vb-a1-30", "it-vb-a1-31",
+        ],
         testQuestions: [
             { id: "it-uq-a1-23-1", level: "A1", prompt: "What is the tu imperative of 'parlare'?", options: ["Parla!", "Parli!", "Parlate!", "Parlare!"], answer: "Parla!" },
             { id: "it-uq-a1-23-2", level: "A1", prompt: "What is the Lei (formal) imperative of 'aspettare'?", options: ["Aspetta!", "Aspetti!", "Aspettate!", "Aspettare!"], answer: "Aspetti!" },

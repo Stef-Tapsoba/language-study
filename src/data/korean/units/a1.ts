@@ -389,8 +389,22 @@ export const a1Units: LessonUnit[] = [
         title: "Existence, Particles & Negation",
         description: "Use 있어요/없어요 for existence and possession, add 도 for 'also/too', negate nouns with 이/가 아니에요, and show direction or means with ~(으)로.",
         grammarIds: ["ko-g-a1-23", "ko-g-a1-24", "ko-g-a1-26", "ko-g-a1-28"],
-        vocabIds: [],
-        verbIds: [],
+        vocabIds: [
+            // Location words — used directly with 있어요/없어요 ("여기 있어요", "거기 있어요")
+            "ko-v-a1-147", "ko-v-a1-148", "ko-v-a1-149",
+            // 시간 — "시간이 없어요" (test question in this unit)
+            "ko-v-a1-50",
+            // Transport — 버스로/지하철로/택시로 가요 (으로 particle direction/means)
+            "ko-v-a1-91", "ko-v-a1-92", "ko-v-a1-93", "ko-v-a1-94",
+            // Places — things you say 있어요/없어요 about, + 에/으로 direction context
+            "ko-v-a1-79", "ko-v-a1-80", "ko-v-a1-85", "ko-v-a1-86",
+            // 도 particle and negation context vocab
+            "ko-v-a1-131", "ko-v-a1-140",
+        ],
+        verbIds: [
+            "ko-vb-a1-5",  // 있다 — core verb for 있어요 (existence, possession, location)
+            "ko-vb-a1-6",  // 없다 — core verb for 없어요 (non-existence, lack)
+        ],
         testQuestions: [
             { id: "ko-uq-a1-18-1", level: "A1", prompt: "Which sentence means 'There is a cat in the room'?", options: ["방에 고양이가 없어요.", "방에 고양이가 있어요.", "방이 고양이예요.", "방에 고양이를 가요."], answer: "방에 고양이가 있어요." },
             { id: "ko-uq-a1-18-2", level: "A1", prompt: "How do you say 'I don't have time'? (시간 = time)", options: ["시간이 있어요.", "시간이 없어요.", "시간이 아니에요.", "시간도 가요."], answer: "시간이 없어요." },
@@ -407,8 +421,25 @@ export const a1Units: LessonUnit[] = [
         title: "Counters, Requests & Suggestions",
         description: "Count objects with Korean counters, make polite honorific requests with ~(으)세요, and offer suggestions or wonder aloud with ~(으)ㄹ까요?",
         grammarIds: ["ko-g-a1-25", "ko-g-a1-27", "ko-g-a1-29"],
-        vocabIds: [],
-        verbIds: [],
+        vocabIds: [
+            // Native Korean numbers — used directly with counters (하나/둘/셋… → 한/두/세 before counter)
+            "ko-v-a1-36", "ko-v-a1-37", "ko-v-a1-38", "ko-v-a1-39", "ko-v-a1-40",
+            "ko-v-a1-41", "ko-v-a1-42", "ko-v-a1-43", "ko-v-a1-44", "ko-v-a1-45",
+            // Food/drink — canonical counter examples: "사과 하나", "커피 한 잔", "물 주세요"
+            "ko-v-a1-61", "ko-v-a1-62", "ko-v-a1-67", "ko-v-a1-68",
+            "ko-v-a1-72", "ko-v-a1-73", "ko-v-a1-75",
+            // People — 명 counter: "두 명", "친구 세 명"
+            "ko-v-a1-21", "ko-v-a1-139",
+            // Daily life — natural suggestion targets: 공부할까요?, 운동할까요?
+            "ko-v-a1-131", "ko-v-a1-135",
+        ],
+        verbIds: [
+            "ko-vb-a1-1",   // 먹다 — 먹으세요 (request), 먹을까요? (suggestion)
+            "ko-vb-a1-2",   // 가다 — 가세요 (request), 갈까요? (suggestion)
+            "ko-vb-a1-4",   // 하다 — 하세요 / 할까요? — most productive pattern
+            "ko-vb-a1-7",   // 오다 — 오세요 (request to come), 올까요? (suggestion)
+            "ko-vb-a1-15",  // 요리하다 — 요리하세요 / 요리할까요? — concrete 하다 compound
+        ],
         testQuestions: [
             { id: "ko-uq-a1-19-1", level: "A1", prompt: "Which counter is used for people?", options: ["개", "권", "명", "마리"], answer: "명" },
             { id: "ko-uq-a1-19-2", level: "A1", prompt: "How do you say 'two books'? (책 = book, 권 = counter for books)", options: ["책 이권", "책 두 권", "책 둘 권", "책 이개"], answer: "책 두 권" },

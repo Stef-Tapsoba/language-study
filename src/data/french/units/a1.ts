@@ -444,8 +444,11 @@ export const a1Units: LessonUnit[] = [
         title: "Partitive Articles & Existence",
         description: "Learn to use partitive articles (du, de la, de l', des) to express some/any of something, and master il y a to say there is / there are.",
         grammarIds: ["fr-g-a1-31", "fr-g-a1-32"],
-        vocabIds: [],
-        verbIds: [],
+        vocabIds: [
+            "fr-v-a1-63", "fr-v-a1-64", "fr-v-a1-67", "fr-v-a1-76", "fr-v-a1-77",
+            "fr-v-a1-78", "fr-v-a1-79", "fr-v-a1-81"
+        ],
+        verbIds: ["fr-vb-a1-8", "fr-vb-a1-9"],
         testQuestions: [
             { id: "fr-uq-a1-21-1", level: "A1", prompt: "Which partitive article goes before a masculine noun? 'Je mange ___ pain.'", options: ["de la", "du", "des", "de l'"], answer: "du" },
             { id: "fr-uq-a1-21-2", level: "A1", prompt: "Choose the correct sentence: 'I drink some water.'", options: ["Je bois de l'eau.", "Je bois du eau.", "Je bois des eau.", "Je bois de eau."], answer: "Je bois de l'eau." },
@@ -507,8 +510,15 @@ export const a1Units: LessonUnit[] = [
         title: "Commands, Devoir & Venir",
         description: "Give instructions using the imperative, express obligation with devoir (must/have to), and talk about coming and recent past actions with venir.",
         grammarIds: ["fr-g-a1-33", "fr-g-a1-34", "fr-g-a1-35"],
-        vocabIds: [],
-        verbIds: [],
+        vocabIds: [
+            "fr-v-a1-129", "fr-v-a1-130", "fr-v-a1-131", "fr-v-a1-132",
+            "fr-v-a1-133", "fr-v-a1-134", "fr-v-a1-135", "fr-v-a1-136"
+        ],
+        verbIds: [
+            "fr-vb-a1-3", "fr-vb-a1-4", "fr-vb-a1-5",
+            "fr-vb-a1-10", "fr-vb-a1-20",
+            "fr-vb-a1-21", "fr-vb-a1-22", "fr-vb-a1-23", "fr-vb-a1-24"
+        ],
         testQuestions: [
             { id: "fr-uq-a1-24-1", level: "A1", prompt: "How do you form the tu-form imperative of parler?", options: ["Tu parles!", "Parles!", "Parle!", "Parlons!"], answer: "Parle!" },
             { id: "fr-uq-a1-24-2", level: "A1", prompt: "Translate: 'Let's eat!' (nous imperative)", options: ["Mangez!", "Mange!", "Mangeons!", "Tu manges!"], answer: "Mangeons!" },
@@ -525,8 +535,14 @@ export const a1Units: LessonUnit[] = [
         title: "Identity & Stressed Pronouns",
         description: "Distinguish between c'est (identifying) and il est/elle est (describing), and use stressed pronouns — moi, toi, lui, elle, nous, vous, eux, elles — for emphasis and after prepositions.",
         grammarIds: ["fr-g-a1-36", "fr-g-a1-37"],
-        vocabIds: [],
-        verbIds: [],
+        vocabIds: [
+            "fr-v-a1-137", "fr-v-a1-138", "fr-v-a1-139", "fr-v-a1-140",
+            "fr-v-a1-141", "fr-v-a1-142", "fr-v-a1-143", "fr-v-a1-144",
+            "fr-v-a1-145", "fr-v-a1-146",
+            "fr-v-a1-159", "fr-v-a1-160", "fr-v-a1-163", "fr-v-a1-164",
+            "fr-v-a1-170", "fr-v-a1-171", "fr-v-a1-172"
+        ],
+        verbIds: ["fr-vb-a1-1"],
         testQuestions: [
             { id: "fr-uq-a1-25-1", level: "A1", prompt: "Choose the correct sentence to identify a person: 'This is my friend Marie.'", options: ["Il est mon amie Marie.", "C'est mon amie Marie.", "Elle est mon amie Marie.", "Voilà est mon amie Marie."], answer: "C'est mon amie Marie." },
             { id: "fr-uq-a1-25-2", level: "A1", prompt: "Which sentence describes a quality rather than identifying someone?", options: ["C'est médecin.", "Il est médecin.", "C'est un médecin.", "C'est le médecin."], answer: "Il est médecin." },

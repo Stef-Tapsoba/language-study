@@ -502,8 +502,8 @@ export const a1Units: LessonUnit[] = [
         title: "New Particles: も, と, から, まで",
         description: "Expand your particle toolkit. Use も to mean 'also/too/either', と to link nouns as 'and' or mark a companion, and から/まで to express starting and ending points in time or space.",
         grammarIds: ["ja-g-a1-29", "ja-g-a1-30", "ja-g-a1-31"],
-        vocabIds: [],
-        verbIds: [],
+        vocabIds: ["ja-v-a1-104", "ja-v-a1-105", "ja-v-a1-106", "ja-v-a1-110", "ja-v-a1-112", "ja-v-a1-113", "ja-v-a1-58", "ja-v-a1-59", "ja-v-a1-61", "ja-v-a1-62", "ja-v-a1-35", "ja-v-a1-36", "ja-v-a1-39", "ja-v-a1-41"],
+        verbIds: ["ja-vb-a1-3", "ja-vb-a1-5", "ja-vb-a1-1", "ja-vb-a1-2", "ja-vb-a1-6", "ja-vb-a1-4"],
         testQuestions: [
             { id: "ja-uq-a1-24-1", level: "A1", prompt: "Tanaka-san said 'わたしも がくせいです。' What does も indicate here?", options: ["Tanaka is the only student", "Tanaka is also a student (like someone else)", "Tanaka is not a student", "Tanaka wants to be a student"], answer: "Tanaka is also a student (like someone else)" },
             { id: "ja-uq-a1-24-2", level: "A1", prompt: "How do you say 'I went with Yuki'?", options: ["ゆきが いきました。", "ゆきで いきました。", "ゆきと いきました。", "ゆきに いきました。"], answer: "ゆきと いきました。" },
@@ -520,8 +520,8 @@ export const a1Units: LessonUnit[] = [
         title: "て-form, Plain Form & Suggestions",
         description: "Learn to build the て-form for connecting actions and making requests, introduce the plain (dictionary) form as the base of Japanese grammar, and use 〜ましょう / 〜ませんか to make suggestions.",
         grammarIds: ["ja-g-a1-28", "ja-g-a1-32", "ja-g-a1-33"],
-        vocabIds: [],
-        verbIds: [],
+        vocabIds: ["ja-v-a1-1", "ja-v-a1-2", "ja-v-a1-7", "ja-v-a1-8", "ja-v-a1-9", "ja-v-a1-150"],
+        verbIds: ["ja-vb-a1-1", "ja-vb-a1-2", "ja-vb-a1-3", "ja-vb-a1-4", "ja-vb-a1-5", "ja-vb-a1-6", "ja-vb-a1-7", "ja-vb-a1-8", "ja-vb-a1-9", "ja-vb-a1-10", "ja-vb-a1-11", "ja-vb-a1-12", "ja-vb-a1-13", "ja-vb-a1-14", "ja-vb-a1-17", "ja-vb-a1-18", "ja-vb-a1-19", "ja-vb-a1-20"],
         testQuestions: [
             { id: "ja-uq-a1-25-1", level: "A1", prompt: "What is the て-form of 'たべます' (to eat)?", options: ["たべて", "たべた", "たべます", "たべに"], answer: "たべて" },
             { id: "ja-uq-a1-25-2", level: "A1", prompt: "How do you say 'Let's go!' using 〜ましょう?", options: ["いきますか？", "いきましょう。", "いきません。", "いきませんか？"], answer: "いきましょう。" },

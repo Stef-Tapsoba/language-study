@@ -467,8 +467,42 @@ export const a1Units: LessonUnit[] = [
         title: "Commands, Stem-Changes & Irregular Yo",
         description: "Give instructions using the imperative, master stem-changing verbs (e→ie, o→ue, e→i), and learn the irregular yo forms of the 'yo-go' group.",
         grammarIds: ["es-g-a1-30", "es-g-a1-31", "es-g-a1-34"],
-        vocabIds: [],
-        verbIds: [],
+        vocabIds: [
+            // Objects — direct targets of commands (open, close, put, bring, give)
+            "es-v-a1-52", "es-v-a1-53", "es-v-a1-54", "es-v-a1-55", "es-v-a1-56",
+            "es-v-a1-57", "es-v-a1-58", "es-v-a1-59", "es-v-a1-60", "es-v-a1-61",
+            // Directions — useful for giving commands about movement
+            "es-v-a1-138", "es-v-a1-139", "es-v-a1-140", "es-v-a1-141", "es-v-a1-142",
+            "es-v-a1-143", "es-v-a1-144", "es-v-a1-145",
+            // Daily life — contexts for imperatives (go to work, come to school, etc.)
+            "es-v-a1-151", "es-v-a1-152", "es-v-a1-153", "es-v-a1-154",
+            "es-v-a1-155", "es-v-a1-156", "es-v-a1-157", "es-v-a1-158"
+        ],
+        verbIds: [
+            // Yo-go irregular verbs
+            "es-vb-a1-4",  // tener (tengo)
+            "es-vb-a1-6",  // hacer (hago)
+            "es-vb-a1-18", // venir (vengo)
+            "es-vb-a1-19", // salir (salgo)
+            "es-vb-a1-20", // decir (digo) — also e→i stem-changer
+            "es-vb-a1-21", // poner (pongo)
+            "es-vb-a1-30", // dar (doy)
+            "es-vb-a1-31", // traer (traigo)
+            // Stem-changing verbs (e→ie)
+            "es-vb-a1-22", // pensar
+            "es-vb-a1-23", // entender
+            // Stem-changing verbs (o→ue)
+            "es-vb-a1-24", // volver
+            "es-vb-a1-25", // dormir
+            // Stem-changing verbs (u→ue)
+            "es-vb-a1-26", // jugar
+            // Stem-changing verbs (e→i)
+            "es-vb-a1-17", // pedir
+            // Additional imperative verbs with irregular forms
+            "es-vb-a1-16", // escuchar (regular -ar, introduced here for imperative drills)
+            "es-vb-a1-27", // saber (sepa — irregular imperative)
+            "es-vb-a1-29", // ver (ve — irregular tú imperative)
+        ],
         testQuestions: [
             { id: "es-uq-a1-22-1", level: "A1", prompt: "Which is the correct tú imperative of 'hablar'?", options: ["hablas", "hable", "habla", "hablad"], answer: "habla" },
             { id: "es-uq-a1-22-2", level: "A1", prompt: "Complete: 'Yo ___ la verdad.' (decir — yo-go verb)", options: ["deco", "digo", "deci", "dices"], answer: "digo" },
@@ -485,8 +519,29 @@ export const a1Units: LessonUnit[] = [
         title: "Ser/Estar Nuances, Hay, Saber/Conocer & Pronouns",
         description: "Explore adjectives that change meaning with ser vs estar, use hay to express existence, distinguish saber from conocer, and use stressed pronouns after prepositions.",
         grammarIds: ["es-g-a1-28", "es-g-a1-29", "es-g-a1-32", "es-g-a1-33"],
-        vocabIds: [],
-        verbIds: [],
+        vocabIds: [
+            // Descriptive adjectives — many change meaning with ser vs estar
+            // (e.g. ser aburrido = boring, estar aburrido = bored)
+            "es-v-a1-30", "es-v-a1-31", "es-v-a1-32", "es-v-a1-33", "es-v-a1-34",
+            "es-v-a1-35", "es-v-a1-36", "es-v-a1-37", "es-v-a1-38", "es-v-a1-39",
+            "es-v-a1-40", "es-v-a1-41",
+            // Nationalities & professions — core ser contexts
+            "es-v-a1-16", "es-v-a1-17", "es-v-a1-18", "es-v-a1-19", "es-v-a1-20",
+            "es-v-a1-21", "es-v-a1-22", "es-v-a1-23", "es-v-a1-24", "es-v-a1-25",
+            "es-v-a1-26", "es-v-a1-27", "es-v-a1-28", "es-v-a1-29",
+            // People/family — used with conocer and hay
+            "es-v-a1-93", "es-v-a1-94", "es-v-a1-95", "es-v-a1-96",
+            "es-v-a1-103", "es-v-a1-104",
+            // Places — used with conocer (I know Madrid) and hay (there is a park)
+            "es-v-a1-126", "es-v-a1-127", "es-v-a1-128", "es-v-a1-129", "es-v-a1-130",
+            "es-v-a1-131", "es-v-a1-132", "es-v-a1-133", "es-v-a1-136", "es-v-a1-137"
+        ],
+        verbIds: [
+            "es-vb-a1-2",  // ser — core of this unit
+            "es-vb-a1-3",  // estar — core of this unit
+            "es-vb-a1-27", // saber (to know facts/skills)
+            "es-vb-a1-28", // conocer (to know people/places)
+        ],
         testQuestions: [
             { id: "es-uq-a1-23-1", level: "A1", prompt: "'Estar aburrido' means bored, but 'ser aburrido' means…?", options: ["bored", "boring", "tired", "sad"], answer: "boring" },
             { id: "es-uq-a1-23-2", level: "A1", prompt: "How do you say 'There are three students in the room'?", options: ["Son tres estudiantes en la sala.", "Están tres estudiantes en la sala.", "Hay tres estudiantes en la sala.", "Es tres estudiantes en la sala."], answer: "Hay tres estudiantes en la sala." },
