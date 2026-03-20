@@ -1,49 +1,49 @@
 import { GrammarLesson } from "../../../types"
 
 export const a1Grammar: GrammarLesson[] = [
-    {
-        id: "ja-g-a1-0",
-        level: "A1",
-        title: "How Japanese Works — The Big Picture",
-        explanation: "Japanese is built differently from European languages in four key ways. Understanding these upfront will make everything else click faster.\n\n1. THREE SCRIPTS — Japanese uses three writing systems simultaneously. Hiragana (ひらがな) is the phonetic alphabet for Japanese words and grammar. Katakana (カタカナ) is used for foreign loanwords and emphasis. Kanji (漢字) are Chinese-origin characters used for content words. A typical sentence mixes all three: 私はコーヒーを飲みます (I drink coffee) uses kanji 私/飲, hiragana は/を/ます, and katakana コーヒー.\n\n2. WORD ORDER IS SOV — the verb always comes last. 'I coffee drink.' not 'I drink coffee.' This never changes, even in questions.\n\n3. PARTICLES DO THE GRAMMAR — small hiragana characters attach to nouns to show their role. は marks the topic. を marks the object. に marks destination or time. で marks where an action happens. Because particles carry meaning, word order can shift without confusion.\n\n4. POLITENESS LEVELS — Japanese verbs change form based on social context. You will learn ます/です form (polite, formal), which is safe for all everyday situations with people you don't know well. Casual plain form comes later.",
-        examples: [
-            { native: "わたしはコーヒーをのみます。", romanized: "Watashi wa koohii wo nomimasu.", translation: "I drink coffee. (わたし=I, は=topic, コーヒー=coffee, を=object, のみます=drink)" },
-            { native: "Subject は Object を Verb ます。", romanized: "S wa O wo V masu.", translation: "Basic SOV sentence — verb always last", speakText: "" },
-            { native: "これは ほん です。", romanized: "Kore wa hon desu.", translation: "This is a book. (polite — です/ます style)" },
-            { native: "どこに いきますか？", romanized: "Doko ni ikimasu ka?", translation: "Where are you going? (question word stays in place, か at the end)" },
-        ]
-    },
-    {
-        id: "ja-g-a1-1",
-        level: "A1",
-        title: "Hiragana Part 1: あ-row through な-row",
-        explanation: "Hiragana is one of Japan's two phonetic syllabaries, with 46 base characters. Each character represents a syllable. Part 1 covers the first five rows: あ-row (a, i, u, e, o), か-row (ka, ki, ku, ke, ko), さ-row (sa, shi, su, se, so), た-row (ta, chi, tsu, te, to), and な-row (na, ni, nu, ne, no). Mastering these 25 characters gives you the foundation for reading and writing basic Japanese. Note special sounds: し = shi (not si), ち = chi (not ti), つ = tsu (not tu).",
-        examples: [
-            { native: "あいうえお", romanized: "a i u e o", translation: "The five vowels (あ-row)" },
-            { native: "かきくけこ", romanized: "ka ki ku ke ko", translation: "The か-row (k sounds)" },
-            { native: "さしすせそ", romanized: "sa shi su se so", translation: "The さ-row (s sounds — note: し = shi)" },
-            { native: "たちつてと", romanized: "ta chi tsu te to", translation: "The た-row (t sounds — note: ち = chi, つ = tsu)" },
-            { native: "なにぬねの", romanized: "na ni nu ne no", translation: "The な-row (n sounds)" }
-        ]
-    },
-    {
-        id: "ja-g-a1-2",
-        level: "A1",
-        title: "Hiragana Part 2: は-row through わ-row + ん",
-        explanation: "Part 2 completes the hiragana syllabary with the remaining rows: は-row (ha, hi, fu, he, ho), ま-row (ma, mi, mu, me, mo), や-row (ya, yu, yo), ら-row (ra, ri, ru, re, ro), わ-row (wa, wo), and the nasal ん (n). Special note: は is pronounced 'wa' when used as a topic particle; を is pronounced 'o' and used only as the object particle. ふ = fu (not hu). After learning all 46 characters, you can read almost any Japanese text written in hiragana.",
-        examples: [
-            { native: "はひふへほ", romanized: "ha hi fu he ho", translation: "The は-row (h sounds — note: ふ = fu)" },
-            { native: "まみむめも", romanized: "ma mi mu me mo", translation: "The ま-row (m sounds)" },
-            { native: "やゆよ", romanized: "ya yu yo", translation: "The や-row (y sounds — only 3 characters)" },
-            { native: "らりるれろ", romanized: "ra ri ru re ro", translation: "The ら-row (r sounds — a soft r/l sound)" },
-            { native: "わをん", romanized: "wa wo n", translation: "わ (wa), を (wo/o — object particle), ん (n — syllabic nasal)" }
-        ]
-    },
-    {
-        id: "ja-g-a1-3",
-        level: "A1",
-        title: "Katakana: ア-row through ン",
-        explanation: `Katakana is the second of Japan's two phonetic syllabaries. It has exactly the same 46 sounds as hiragana, but different character shapes. The two scripts are interchangeable in pronunciation — only the use differs.
+  {
+    id: "ja-g-a1-0",
+    level: "A1",
+    title: "How Japanese Works — The Big Picture",
+    explanation: "Japanese is built differently from European languages in four key ways. Understanding these upfront will make everything else click faster.\n\n1. THREE SCRIPTS — Japanese uses three writing systems simultaneously. Hiragana (ひらがな) is the phonetic alphabet for Japanese words and grammar. Katakana (カタカナ) is used for foreign loanwords and emphasis. Kanji (漢字) are Chinese-origin characters used for content words. A typical sentence mixes all three: 私はコーヒーを飲みます (I drink coffee) uses kanji 私/飲, hiragana は/を/ます, and katakana コーヒー.\n\n2. WORD ORDER IS SOV — the verb always comes last. 'I coffee drink.' not 'I drink coffee.' This never changes, even in questions.\n\n3. PARTICLES DO THE GRAMMAR — small hiragana characters attach to nouns to show their role. は marks the topic. を marks the object. に marks destination or time. で marks where an action happens. Because particles carry meaning, word order can shift without confusion.\n\n4. POLITENESS LEVELS — Japanese verbs change form based on social context. You will learn ます/です form (polite, formal), which is safe for all everyday situations with people you don't know well. Casual plain form comes later.",
+    examples: [
+      { native: "わたしはコーヒーをのみます。", romanized: "Watashi wa koohii wo nomimasu.", translation: "I drink coffee. (わたし=I, は=topic, コーヒー=coffee, を=object, のみます=drink)" },
+      { native: "Subject は Object を Verb ます。", romanized: "S wa O wo V masu.", translation: "Basic SOV sentence — verb always last", speakText: "" },
+      { native: "これは ほん です。", romanized: "Kore wa hon desu.", translation: "This is a book. (polite — です/ます style)" },
+      { native: "どこに いきますか？", romanized: "Doko ni ikimasu ka?", translation: "Where are you going? (question word stays in place, か at the end)" },
+    ]
+  },
+  {
+    id: "ja-g-a1-1",
+    level: "A1",
+    title: "Hiragana Part 1: あ-row through な-row",
+    explanation: "Hiragana is one of Japan's two phonetic syllabaries, with 46 base characters. Each character represents a syllable. Part 1 covers the first five rows: あ-row (a, i, u, e, o), か-row (ka, ki, ku, ke, ko), さ-row (sa, shi, su, se, so), た-row (ta, chi, tsu, te, to), and な-row (na, ni, nu, ne, no). Mastering these 25 characters gives you the foundation for reading and writing basic Japanese. Note special sounds: し = shi (not si), ち = chi (not ti), つ = tsu (not tu).",
+    examples: [
+      { native: "あいうえお", romanized: "a i u e o", translation: "The five vowels (あ-row)" },
+      { native: "かきくけこ", romanized: "ka ki ku ke ko", translation: "The か-row (k sounds)" },
+      { native: "さしすせそ", romanized: "sa shi su se so", translation: "The さ-row (s sounds — note: し = shi)" },
+      { native: "たちつてと", romanized: "ta chi tsu te to", translation: "The た-row (t sounds — note: ち = chi, つ = tsu)" },
+      { native: "なにぬねの", romanized: "na ni nu ne no", translation: "The な-row (n sounds)" }
+    ]
+  },
+  {
+    id: "ja-g-a1-2",
+    level: "A1",
+    title: "Hiragana Part 2: は-row through わ-row + ん",
+    explanation: "Part 2 completes the hiragana syllabary with the remaining rows: は-row (ha, hi, fu, he, ho), ま-row (ma, mi, mu, me, mo), や-row (ya, yu, yo), ら-row (ra, ri, ru, re, ro), わ-row (wa, wo), and the nasal ん (n). Special note: は is pronounced 'wa' when used as a topic particle; を is pronounced 'o' and used only as the object particle. ふ = fu (not hu). After learning all 46 characters, you can read almost any Japanese text written in hiragana.",
+    examples: [
+      { native: "はひふへほ", romanized: "ha hi fu he ho", translation: "The は-row (h sounds — note: ふ = fu)" },
+      { native: "まみむめも", romanized: "ma mi mu me mo", translation: "The ま-row (m sounds)" },
+      { native: "やゆよ", romanized: "ya yu yo", translation: "The や-row (y sounds — only 3 characters)" },
+      { native: "らりるれろ", romanized: "ra ri ru re ro", translation: "The ら-row (r sounds — a soft r/l sound)" },
+      { native: "わをん", romanized: "wa wo n", translation: "わ (wa), を (wo/o — object particle), ん (n — syllabic nasal)" }
+    ]
+  },
+  {
+    id: "ja-g-a1-3",
+    level: "A1",
+    title: "Katakana: ア-row through ン",
+    explanation: `Katakana is the second of Japan's two phonetic syllabaries. It has exactly the same 46 sounds as hiragana, but different character shapes. The two scripts are interchangeable in pronunciation — only the use differs.
 
 WHEN KATAKANA IS USED:
   • Foreign loanwords: コーヒー (koohii = coffee), テレビ (terebi = TV)
@@ -94,163 +94,163 @@ Double consonants: small ッ doubles the next consonant (same as っ in hiragana
 Combinations for sounds not in Japanese: katakana can combine characters for
 foreign sounds that don't exist in Japanese.
   ファ (fa)    ティ (ti)    ウィ (wi)    ヴ (v-sound)`,
-        examples: [
-            { native: "ア・イ・ウ・エ・オ → あ・い・う・え・お", romanized: "a i u e o", translation: "The ア-row — same sounds as あいうえお, different shapes", speakText: "ア、イ、ウ、エ、オ" },
-            { native: "カ・キ・ク・ケ・コ → か・き・く・け・こ", romanized: "ka ki ku ke ko", translation: "The カ-row — same sounds as かきくけこ", speakText: "カ、キ、ク、ケ、コ" },
-            { native: "コーヒー", romanized: "koohii", translation: "Coffee — note ー extends the vowel" },
-            { native: "レストラン", romanized: "resutoran", translation: "Restaurant (from French/English)" },
-            { native: "テレビ", romanized: "terebi", translation: "Television (from English 'TV')" },
-            { native: "アイスクリーム", romanized: "aisu kuriimu", translation: "Ice cream — notice how English sounds are adapted" },
-        ]
-    },
-    {
-        id: "ja-g-a1-4",
-        level: "A1",
-        title: "Basic Sentence Structure: X は Y です",
-        explanation: "Japanese sentences generally follow Subject-Object-Verb order, but the most basic pattern uses the topic particle は (wa) and the polite copula です (desu). The pattern 'X は Y です' means 'X is Y'. は marks the topic of the sentence — what you are talking about. です is the polite form of 'to be' and comes at the end. To make it negative, use じゃありません or ではありません (is not). To make a question, add the question particle か at the end.",
-        examples: [
-            { native: "わたしは がくせい です。", romanized: "Watashi wa gakusei desu.", translation: "I am a student." },
-            { native: "これは ほん です。", romanized: "Kore wa hon desu.", translation: "This is a book." },
-            { native: "かれは にほんじん です。", romanized: "Kare wa nihonjin desu.", translation: "He is Japanese." },
-            { native: "あなたは せんせい ですか？", romanized: "Anata wa sensei desu ka?", translation: "Are you a teacher?" },
-            { native: "これは ほん じゃありません。", romanized: "Kore wa hon ja arimasen.", translation: "This is not a book." }
-        ]
-    },
-    {
-        id: "ja-g-a1-5",
-        level: "A1",
-        title: "Greetings and Basic Expressions",
-        explanation: "Japanese has different levels of politeness. These are the standard polite greetings used in everyday situations. おはようございます (ohayou gozaimasu) is the formal 'good morning'; the casual version is just おはよう. こんにちは (konnichiwa) is used during the daytime. こんばんは (konbanwa) is for evening. ありがとうございます (arigatou gozaimasu) is the formal 'thank you'; the casual is ありがとう. すみません (sumimasen) means both 'excuse me' and 'I'm sorry'. はじめまして (hajimemashite) is said when meeting someone for the first time, followed by よろしくおねがいします (yoroshiku onegaishimasu), roughly 'please treat me well'.",
-        examples: [
-            { native: "おはようございます。", romanized: "Ohayou gozaimasu.", translation: "Good morning. (formal)" },
-            { native: "こんにちは。", romanized: "Konnichiwa.", translation: "Hello / Good afternoon." },
-            { native: "こんばんは。", romanized: "Konbanwa.", translation: "Good evening." },
-            { native: "ありがとうございます。", romanized: "Arigatou gozaimasu.", translation: "Thank you very much." },
-            { native: "はじめまして。よろしくおねがいします。", romanized: "Hajimemashite. Yoroshiku onegaishimasu.", translation: "Nice to meet you. Please be kind to me." }
-        ]
-    },
-    {
-        id: "ja-g-a1-6",
-        level: "A1",
-        title: "Numbers 1–100",
-        explanation: "Japanese uses Sino-Japanese (Chinese-origin) numbers for most counting. The basic numbers are: 一(ichi/1), 二(ni/2), 三(san/3), 四(shi or yon/4), 五(go/5), 六(roku/6), 七(nana or shichi/7), 八(hachi/8), 九(ku or kyuu/9), 十(juu/10). Compound numbers are formed by combining: 十一(juuichi/11), 二十(nijuu/20), 三十(sanjuu/30), and so on. 百(hyaku) = 100. Note: 四 is often read as 'yon' and 七 as 'nana' to avoid confusion with 死(death) and other words.",
-        examples: [
-            { native: "いち、に、さん、し・よん、ご", romanized: "ichi, ni, san, shi/yon, go", translation: "One, two, three, four, five" },
-            { native: "ろく、なな・しち、はち、く・きゅう、じゅう", romanized: "roku, nana/shichi, hachi, ku/kyuu, juu", translation: "Six, seven, eight, nine, ten" },
-            { native: "じゅういち、じゅうに、にじゅう、さんじゅう", romanized: "juuichi, juuni, nijuu, sanjuu", translation: "Eleven, twelve, twenty, thirty" },
-            { native: "ごじゅう、ろくじゅう、ななじゅう、はちじゅう、きゅうじゅう", romanized: "gojuu, rokujuu, nanajuu, hachijuu, kyuujuu", translation: "Fifty, sixty, seventy, eighty, ninety" },
-            { native: "ひゃく", romanized: "hyaku", translation: "One hundred" }
-        ]
-    },
-    {
-        id: "ja-g-a1-7",
-        level: "A1",
-        title: "Polite Verbs: ます-form (Present / Future)",
-        explanation: "Japanese verbs in polite speech use the ます (masu) form. There are three verb groups. Group 2 (ichidan/ru-verbs): verbs ending in -eru or -iru — remove る and add ます (e.g., 食べる → 食べます). Group 1 (godan/u-verbs): verbs ending in other sounds — change the final sound to its い-row equivalent and add ます (e.g., 飲む → 飲み + ます = 飲みます; 書く → 書き + ます = 書きます). Group 3 (irregular): **する → します**, **来る(くる) → 来ます(きます)**. The ます-form is used for present facts and future actions.",
-        examples: [
-            { native: "たべます。", romanized: "Tabemasu.", translation: "I eat. / I will eat. (たべる → たべます)" },
-            { native: "のみます。", romanized: "Nomimasu.", translation: "I drink. / I will drink. (のむ → のみます)" },
-            { native: "いきます。", romanized: "Ikimasu.", translation: "I go. / I will go. (いく → いきます)" },
-            { native: "します。", romanized: "Shimasu.", translation: "I do. / I will do. (する → します, irregular)" },
-            { native: "きます。", romanized: "Kimasu.", translation: "I come. / I will come. (くる → きます, irregular)" }
-        ]
-    },
-    {
-        id: "ja-g-a1-8",
-        level: "A1",
-        title: "Past Tense: ました (Polite Past)",
-        explanation: "To express past actions in polite Japanese, replace ます with ました (mashita) for affirmative past, and replace ません with ませんでした (masen deshita) for negative past. This applies to all verb groups once they are in ます-form. For example: 食べます → 食べました (ate), 食べません → 食べませんでした (did not eat). The copula past is でした (deshita): 〜でした = was/were, 〜じゃありませんでした = was not.",
-        examples: [
-            { native: "きのう、すしをたべました。", romanized: "Kinou, sushi wo tabemashita.", translation: "Yesterday, I ate sushi." },
-            { native: "がっこうにいきました。", romanized: "Gakkou ni ikimashita.", translation: "I went to school." },
-            { native: "みずをのみませんでした。", romanized: "Mizu wo nomimasen deshita.", translation: "I did not drink water." },
-            { native: "かれはがくせいでした。", romanized: "Kare wa gakusei deshita.", translation: "He was a student." },
-            { native: "きませんでした。", romanized: "Kimasen deshita.", translation: "I did not come. / He/She did not come." }
-        ]
-    },
-    {
-        id: "ja-g-a1-9",
-        level: "A1",
-        title: "Negation and Questions",
-        explanation: "To negate a polite verb, replace ます with ません (masen): 食べます → 食べません (don't eat). To form a question, add the particle か to the end of a sentence: 食べますか？(Do you eat?). Essential question words: 何(なに/nani) = what, どこ(doko) = where, いつ(itsu) = when, 誰(だれ/dare) = who, どれ(dore) = which one, どう(dou) = how, なぜ/どうして = why, いくら(ikura) = how much, いくつ(ikutsu) = how many. Question words typically come where the unknown information would be in the sentence.",
-        examples: [
-            { native: "きょうはがっこうにいきません。", romanized: "Kyou wa gakkou ni ikimasen.", translation: "Today I am not going to school." },
-            { native: "おなまえはなんですか？", romanized: "Onamae wa nan desu ka?", translation: "What is your name?" },
-            { native: "トイレはどこですか？", romanized: "Toire wa doko desu ka?", translation: "Where is the toilet?" },
-            { native: "きょう、なにをたべましたか？", romanized: "Kyou, nani wo tabemashita ka?", translation: "What did you eat today?" },
-            { native: "いつにほんにきましたか？", romanized: "Itsu Nihon ni kimashita ka?", translation: "When did you come to Japan?" }
-        ]
-    },
-    {
-        id: "ja-g-a1-10",
-        level: "A1",
-        title: "を Particle: Direct Object",
-        explanation: "The particle を (written 'wo' but pronounced 'o') marks the direct object of an action — the thing that receives the action of the verb. It always follows the noun that is the object. In English, word order shows us what the object is; in Japanese, を does this job. を is used only with action verbs (not with adjectives or です). Examples: ご飯を食べます (eat rice), 水を飲みます (drink water), 日本語を勉強します (study Japanese), テレビを見ます (watch TV).",
-        examples: [
-            { native: "ごはんをたべます。", romanized: "Gohan wo tabemasu.", translation: "I eat rice/a meal. (ごはん = object, marked by を)" },
-            { native: "みずをのみます。", romanized: "Mizu wo nomimasu.", translation: "I drink water." },
-            { native: "にほんごをべんきょうします。", romanized: "Nihongo wo benkyou shimasu.", translation: "I study Japanese." },
-            { native: "テレビをみます。", romanized: "Terebi wo mimasu.", translation: "I watch TV." },
-            { native: "てがみをかきます。", romanized: "Tegami wo kakimasu.", translation: "I write a letter." }
-        ]
-    },
-    {
-        id: "ja-g-a1-11",
-        level: "A1",
-        title: "に Particle: Location of Existence and Destination",
-        explanation: "The particle に (ni) has several core uses at A1 level. (1) Destination with movement verbs: に marks where you are going or coming to with verbs like 行く (go), 来る (come), 帰る (return). Example: 学校に行きます (go to school). (2) Location of existence: に marks where something or someone exists with verbs います (animate) and あります (inanimate). Example: 駅の前にあります (it is in front of the station). (3) Time expressions: に marks a specific point in time. Example: 三時に起きます (wake up at three o'clock). に is NOT used for general time words like 今日, 明日, 毎日.",
-        examples: [
-            { native: "がっこうにいきます。", romanized: "Gakkou ni ikimasu.", translation: "I go to school. (に = destination)" },
-            { native: "にほんにきました。", romanized: "Nihon ni kimashita.", translation: "I came to Japan. (に = destination)" },
-            { native: "さんじにおきます。", romanized: "San-ji ni okimasu.", translation: "I wake up at three o'clock. (に = time)" },
-            { native: "つくえのうえにほんがあります。", romanized: "Tsukue no ue ni hon ga arimasu.", translation: "There is a book on the desk. (に = location of existence)" },
-            { native: "こうえんにこどもがいます。", romanized: "Kouen ni kodomo ga imasu.", translation: "There are children at the park. (に = location of existence)" }
-        ]
-    },
-    {
-        id: "ja-g-a1-12",
-        level: "A1",
-        title: "で Particle: Place of Action and Means",
-        explanation: "The particle で (de) marks (1) the location where an action takes place, and (2) the means or tool used to perform an action. This distinguishes it from に: に marks where something exists or where you go TO; で marks where you DO something. For means/transport: バスで来ます (come by bus), 日本語で話します (speak in Japanese), はしで食べます (eat with chopsticks). For location of action: 図書館で勉強します (study at the library), レストランで食べます (eat at the restaurant).",
-        examples: [
-            { native: "としょかんでべんきょうします。", romanized: "Toshokan de benkyou shimasu.", translation: "I study at the library. (で = place of action)" },
-            { native: "レストランでたべました。", romanized: "Resutoran de tabemashita.", translation: "I ate at the restaurant. (で = place of action)" },
-            { native: "バスできます。", romanized: "Basu de kimasu.", translation: "I come by bus. (で = means of transport)" },
-            { native: "にほんごではなしてください。", romanized: "Nihongo de hanashite kudasai.", translation: "Please speak in Japanese. (で = means/language)" },
-            { native: "はしでたべます。", romanized: "Hashi de tabemasu.", translation: "I eat with chopsticks. (で = tool/means)" }
-        ]
-    },
-    {
-        id: "ja-g-a1-13",
-        level: "A1",
-        title: "〜たい: Wanting to Do Something (A1 Bridge)",
-        explanation: "To express a desire to do something ('I want to do X'), take the ます-form stem (the part before ます) and add たいです. Example: 食べます → 食べ + たいです = 食べたいです (I want to eat). This form only expresses the speaker's own first-person wants in statements. The object can take が or を — が is slightly more natural with たい. To ask what someone wants to do: 何がしたいですか？ The negative is たくないです (don't want to do). This is the last A1 unit and bridges into A2 grammar.",
-        examples: [
-            { native: "みずがのみたいです。", romanized: "Mizu ga nomitai desu.", translation: "I want to drink water." },
-            { native: "にほんにいきたいです。", romanized: "Nihon ni ikitai desu.", translation: "I want to go to Japan." },
-            { native: "すしがたべたいです。", romanized: "Sushi ga tabetai desu.", translation: "I want to eat sushi." },
-            { native: "なにがしたいですか？", romanized: "Nani ga shitai desu ka?", translation: "What do you want to do?" },
-            { native: "きょうはなにもしたくないです。", romanized: "Kyou wa nanimo shitakunai desu.", translation: "I don't want to do anything today." }
-        ]
-    },
-    {
-        id: "ja-g-a1-14",
-        level: "A1",
-        title: "Beginner Kanji: 15 Essential Characters",
-        explanation: "Japanese uses kanji — characters borrowed from Chinese — alongside hiragana and katakana. You have already seen many kanji in examples. This lesson teaches 15 high-frequency kanji you will recognise from A1 content. Most kanji have two readings: kun'yomi (native Japanese reading) and on'yomi (Chinese-origin reading). Compounds usually use on'yomi; standalone words often use kun'yomi. Group 1 — Nature & objects: 日 (にち/ひ — day/sun), 水 (みず — water), 山 (やま/さん — mountain), 本 (ほん/もと — book/origin), 手 (て — hand). Group 2 — People & study: 人 (ひと/じん — person), 学 (がく — study), 生 (せい/なま — life/birth), 先 (せん — before/ahead), 語 (ご — language). Group 3 — Directions: 上 (うえ/じょう — above/up), 下 (した/か — below/down), 中 (なか/ちゅう — inside/middle). Group 4 — Size: 大 (おお/だい — big), 小 (ちい/しょう — small). Key compounds you already know: 日本 (にほん — Japan), 日本語 (にほんご — Japanese language), 日本人 (にほんじん — Japanese person), 大学 (だいがく — university), 学生 (がくせい — student), 先生 (せんせい — teacher).",
-        examples: [
-            { native: "日・水・山・本・手", romanized: "nichi/hi ・ mizu ・ yama/san ・ hon/moto ・ te", translation: "Sun/day, water, mountain, book/origin, hand" },
-            { native: "人・学・生・先・語", romanized: "hito/jin ・ gaku ・ sei/nama ・ sen ・ go", translation: "Person, study, life/birth, before, language" },
-            { native: "上・下・中・大・小", romanized: "ue/jou ・ shita/ka ・ naka/chuu ・ oo/dai ・ chii/shou", translation: "Above, below, middle, big, small" },
-            { native: "日本・日本語・日本人", romanized: "Nihon ・ Nihongo ・ Nihonjin", translation: "Japan, Japanese language, Japanese person" },
-            { native: "大学・学生・先生", romanized: "daigaku ・ gakusei ・ sensei", translation: "University, student, teacher" }
-        ]
-    },
-    {
-        id: "ja-g-a1-15",
-        level: "A1",
-        title: "Likes & Dislikes: 好き / 嫌い",
-        explanation: `好き (suki) and 嫌い (kirai) express liking and disliking in Japanese. They are na-adjectives — they use な when placed before a noun, and they follow the XはYが好きです pattern.
+    examples: [
+      { native: "ア・イ・ウ・エ・オ → あ・い・う・え・お", romanized: "a i u e o", translation: "The ア-row — same sounds as あいうえお, different shapes", speakText: "ア、イ、ウ、エ、オ" },
+      { native: "カ・キ・ク・ケ・コ → か・き・く・け・こ", romanized: "ka ki ku ke ko", translation: "The カ-row — same sounds as かきくけこ", speakText: "カ、キ、ク、ケ、コ" },
+      { native: "コーヒー", romanized: "koohii", translation: "Coffee — note ー extends the vowel" },
+      { native: "レストラン", romanized: "resutoran", translation: "Restaurant (from French/English)" },
+      { native: "テレビ", romanized: "terebi", translation: "Television (from English 'TV')" },
+      { native: "アイスクリーム", romanized: "aisu kuriimu", translation: "Ice cream — notice how English sounds are adapted" },
+    ]
+  },
+  {
+    id: "ja-g-a1-4",
+    level: "A1",
+    title: "Basic Sentence Structure: X は Y です",
+    explanation: "Japanese sentences generally follow Subject-Object-Verb order, but the most basic pattern uses the topic particle は (wa) and the polite copula です (desu). The pattern 'X は Y です' means 'X is Y'. は marks the topic of the sentence — what you are talking about. です is the polite form of 'to be' and comes at the end. To make it negative, use じゃありません or ではありません (is not). To make a question, add the question particle か at the end.",
+    examples: [
+      { native: "わたしは がくせい です。", romanized: "Watashi wa gakusei desu.", translation: "I am a student." },
+      { native: "これは ほん です。", romanized: "Kore wa hon desu.", translation: "This is a book." },
+      { native: "かれは にほんじん です。", romanized: "Kare wa nihonjin desu.", translation: "He is Japanese." },
+      { native: "あなたは せんせい ですか？", romanized: "Anata wa sensei desu ka?", translation: "Are you a teacher?" },
+      { native: "これは ほん じゃありません。", romanized: "Kore wa hon ja arimasen.", translation: "This is not a book." }
+    ]
+  },
+  {
+    id: "ja-g-a1-5",
+    level: "A1",
+    title: "Greetings and Basic Expressions",
+    explanation: "Japanese has different levels of politeness. These are the standard polite greetings used in everyday situations. おはようございます (ohayou gozaimasu) is the formal 'good morning'; the casual version is just おはよう. こんにちは (konnichiwa) is used during the daytime. こんばんは (konbanwa) is for evening. ありがとうございます (arigatou gozaimasu) is the formal 'thank you'; the casual is ありがとう. すみません (sumimasen) means both 'excuse me' and 'I'm sorry'. はじめまして (hajimemashite) is said when meeting someone for the first time, followed by よろしくおねがいします (yoroshiku onegaishimasu), roughly 'please treat me well'.",
+    examples: [
+      { native: "おはようございます。", romanized: "Ohayou gozaimasu.", translation: "Good morning. (formal)" },
+      { native: "こんにちは。", romanized: "Konnichiwa.", translation: "Hello / Good afternoon." },
+      { native: "こんばんは。", romanized: "Konbanwa.", translation: "Good evening." },
+      { native: "ありがとうございます。", romanized: "Arigatou gozaimasu.", translation: "Thank you very much." },
+      { native: "はじめまして。よろしくおねがいします。", romanized: "Hajimemashite. Yoroshiku onegaishimasu.", translation: "Nice to meet you. Please be kind to me." }
+    ]
+  },
+  {
+    id: "ja-g-a1-6",
+    level: "A1",
+    title: "Numbers 1–100",
+    explanation: "Japanese uses Sino-Japanese (Chinese-origin) numbers for most counting. The basic numbers are: 一(ichi/1), 二(ni/2), 三(san/3), 四(shi or yon/4), 五(go/5), 六(roku/6), 七(nana or shichi/7), 八(hachi/8), 九(ku or kyuu/9), 十(juu/10). Compound numbers are formed by combining: 十一(juuichi/11), 二十(nijuu/20), 三十(sanjuu/30), and so on. 百(hyaku) = 100. Note: 四 is often read as 'yon' and 七 as 'nana' to avoid confusion with 死(death) and other words.",
+    examples: [
+      { native: "いち、に、さん、し・よん、ご", romanized: "ichi, ni, san, shi/yon, go", translation: "One, two, three, four, five" },
+      { native: "ろく、なな・しち、はち、く・きゅう、じゅう", romanized: "roku, nana/shichi, hachi, ku/kyuu, juu", translation: "Six, seven, eight, nine, ten" },
+      { native: "じゅういち、じゅうに、にじゅう、さんじゅう", romanized: "juuichi, juuni, nijuu, sanjuu", translation: "Eleven, twelve, twenty, thirty" },
+      { native: "ごじゅう、ろくじゅう、ななじゅう、はちじゅう、きゅうじゅう", romanized: "gojuu, rokujuu, nanajuu, hachijuu, kyuujuu", translation: "Fifty, sixty, seventy, eighty, ninety" },
+      { native: "ひゃく", romanized: "hyaku", translation: "One hundred" }
+    ]
+  },
+  {
+    id: "ja-g-a1-7",
+    level: "A1",
+    title: "Polite Verbs: ます-form (Present / Future)",
+    explanation: "Japanese verbs in polite speech use the ます (masu) form. There are three verb groups. Group 2 (ichidan/ru-verbs): verbs ending in -eru or -iru — remove る and add ます (e.g., 食べる → 食べます). Group 1 (godan/u-verbs): verbs ending in other sounds — change the final sound to its い-row equivalent and add ます (e.g., 飲む → 飲み + ます = 飲みます; 書く → 書き + ます = 書きます). Group 3 (irregular): **する → します**, **来る(くる) → 来ます(きます)**. The ます-form is used for present facts and future actions.",
+    examples: [
+      { native: "たべます。", romanized: "Tabemasu.", translation: "I eat. / I will eat. (たべる → たべます)" },
+      { native: "のみます。", romanized: "Nomimasu.", translation: "I drink. / I will drink. (のむ → のみます)" },
+      { native: "いきます。", romanized: "Ikimasu.", translation: "I go. / I will go. (いく → いきます)" },
+      { native: "します。", romanized: "Shimasu.", translation: "I do. / I will do. (する → します, irregular)" },
+      { native: "きます。", romanized: "Kimasu.", translation: "I come. / I will come. (くる → きます, irregular)" }
+    ]
+  },
+  {
+    id: "ja-g-a1-8",
+    level: "A1",
+    title: "Past Tense: ました (Polite Past)",
+    explanation: "To express past actions in polite Japanese, replace ます with ました (mashita) for affirmative past, and replace ません with ませんでした (masen deshita) for negative past. This applies to all verb groups once they are in ます-form. For example: 食べます → 食べました (ate), 食べません → 食べませんでした (did not eat). The copula past is でした (deshita): 〜でした = was/were, 〜じゃありませんでした = was not.",
+    examples: [
+      { native: "きのう、すしをたべました。", romanized: "Kinou, sushi wo tabemashita.", translation: "Yesterday, I ate sushi." },
+      { native: "がっこうにいきました。", romanized: "Gakkou ni ikimashita.", translation: "I went to school." },
+      { native: "みずをのみませんでした。", romanized: "Mizu wo nomimasen deshita.", translation: "I did not drink water." },
+      { native: "かれはがくせいでした。", romanized: "Kare wa gakusei deshita.", translation: "He was a student." },
+      { native: "きませんでした。", romanized: "Kimasen deshita.", translation: "I did not come. / He/She did not come." }
+    ]
+  },
+  {
+    id: "ja-g-a1-9",
+    level: "A1",
+    title: "Negation and Questions",
+    explanation: "To negate a polite verb, replace ます with ません (masen): 食べます → 食べません (don't eat). To form a question, add the particle か to the end of a sentence: 食べますか？(Do you eat?). Essential question words: 何(なに/nani) = what, どこ(doko) = where, いつ(itsu) = when, 誰(だれ/dare) = who, どれ(dore) = which one, どう(dou) = how, なぜ/どうして = why, いくら(ikura) = how much, いくつ(ikutsu) = how many. Question words typically come where the unknown information would be in the sentence.",
+    examples: [
+      { native: "きょうはがっこうにいきません。", romanized: "Kyou wa gakkou ni ikimasen.", translation: "Today I am not going to school." },
+      { native: "おなまえはなんですか？", romanized: "Onamae wa nan desu ka?", translation: "What is your name?" },
+      { native: "トイレはどこですか？", romanized: "Toire wa doko desu ka?", translation: "Where is the toilet?" },
+      { native: "きょう、なにをたべましたか？", romanized: "Kyou, nani wo tabemashita ka?", translation: "What did you eat today?" },
+      { native: "いつにほんにきましたか？", romanized: "Itsu Nihon ni kimashita ka?", translation: "When did you come to Japan?" }
+    ]
+  },
+  {
+    id: "ja-g-a1-10",
+    level: "A1",
+    title: "を Particle: Direct Object",
+    explanation: "The particle を (written 'wo' but pronounced 'o') marks the direct object of an action — the thing that receives the action of the verb. It always follows the noun that is the object. In English, word order shows us what the object is; in Japanese, を does this job. を is used only with action verbs (not with adjectives or です). Examples: ご飯を食べます (eat rice), 水を飲みます (drink water), 日本語を勉強します (study Japanese), テレビを見ます (watch TV).",
+    examples: [
+      { native: "ごはんをたべます。", romanized: "Gohan wo tabemasu.", translation: "I eat rice/a meal. (ごはん = object, marked by を)" },
+      { native: "みずをのみます。", romanized: "Mizu wo nomimasu.", translation: "I drink water." },
+      { native: "にほんごをべんきょうします。", romanized: "Nihongo wo benkyou shimasu.", translation: "I study Japanese." },
+      { native: "テレビをみます。", romanized: "Terebi wo mimasu.", translation: "I watch TV." },
+      { native: "てがみをかきます。", romanized: "Tegami wo kakimasu.", translation: "I write a letter." }
+    ]
+  },
+  {
+    id: "ja-g-a1-11",
+    level: "A1",
+    title: "に Particle: Location of Existence and Destination",
+    explanation: "The particle に (ni) has several core uses at A1 level. (1) Destination with movement verbs: に marks where you are going or coming to with verbs like 行く (go), 来る (come), 帰る (return). Example: 学校に行きます (go to school). (2) Location of existence: に marks where something or someone exists with verbs います (animate) and あります (inanimate). Example: 駅の前にあります (it is in front of the station). (3) Time expressions: に marks a specific point in time. Example: 三時に起きます (wake up at three o'clock). に is NOT used for general time words like 今日, 明日, 毎日.",
+    examples: [
+      { native: "がっこうにいきます。", romanized: "Gakkou ni ikimasu.", translation: "I go to school. (に = destination)" },
+      { native: "にほんにきました。", romanized: "Nihon ni kimashita.", translation: "I came to Japan. (に = destination)" },
+      { native: "さんじにおきます。", romanized: "San-ji ni okimasu.", translation: "I wake up at three o'clock. (に = time)" },
+      { native: "つくえのうえにほんがあります。", romanized: "Tsukue no ue ni hon ga arimasu.", translation: "There is a book on the desk. (に = location of existence)" },
+      { native: "こうえんにこどもがいます。", romanized: "Kouen ni kodomo ga imasu.", translation: "There are children at the park. (に = location of existence)" }
+    ]
+  },
+  {
+    id: "ja-g-a1-12",
+    level: "A1",
+    title: "で Particle: Place of Action and Means",
+    explanation: "The particle で (de) marks (1) the location where an action takes place, and (2) the means or tool used to perform an action. This distinguishes it from に: に marks where something exists or where you go TO; で marks where you DO something. For means/transport: バスで来ます (come by bus), 日本語で話します (speak in Japanese), はしで食べます (eat with chopsticks). For location of action: 図書館で勉強します (study at the library), レストランで食べます (eat at the restaurant).",
+    examples: [
+      { native: "としょかんでべんきょうします。", romanized: "Toshokan de benkyou shimasu.", translation: "I study at the library. (で = place of action)" },
+      { native: "レストランでたべました。", romanized: "Resutoran de tabemashita.", translation: "I ate at the restaurant. (で = place of action)" },
+      { native: "バスできます。", romanized: "Basu de kimasu.", translation: "I come by bus. (で = means of transport)" },
+      { native: "にほんごではなしてください。", romanized: "Nihongo de hanashite kudasai.", translation: "Please speak in Japanese. (で = means/language)" },
+      { native: "はしでたべます。", romanized: "Hashi de tabemasu.", translation: "I eat with chopsticks. (で = tool/means)" }
+    ]
+  },
+  {
+    id: "ja-g-a1-13",
+    level: "A1",
+    title: "〜たい: Wanting to Do Something (A1 Bridge)",
+    explanation: "To express a desire to do something ('I want to do X'), take the ます-form stem (the part before ます) and add たいです. Example: 食べます → 食べ + たいです = 食べたいです (I want to eat). This form only expresses the speaker's own first-person wants in statements. The object can take が or を — が is slightly more natural with たい. To ask what someone wants to do: 何がしたいですか？ The negative is たくないです (don't want to do). This is the last A1 unit and bridges into A2 grammar.",
+    examples: [
+      { native: "みずがのみたいです。", romanized: "Mizu ga nomitai desu.", translation: "I want to drink water." },
+      { native: "にほんにいきたいです。", romanized: "Nihon ni ikitai desu.", translation: "I want to go to Japan." },
+      { native: "すしがたべたいです。", romanized: "Sushi ga tabetai desu.", translation: "I want to eat sushi." },
+      { native: "なにがしたいですか？", romanized: "Nani ga shitai desu ka?", translation: "What do you want to do?" },
+      { native: "きょうはなにもしたくないです。", romanized: "Kyou wa nanimo shitakunai desu.", translation: "I don't want to do anything today." }
+    ]
+  },
+  {
+    id: "ja-g-a1-14",
+    level: "A1",
+    title: "Beginner Kanji: 15 Essential Characters",
+    explanation: "Japanese uses kanji — characters borrowed from Chinese — alongside hiragana and katakana. You have already seen many kanji in examples. This lesson teaches 15 high-frequency kanji you will recognise from A1 content. Most kanji have two readings: kun'yomi (native Japanese reading) and on'yomi (Chinese-origin reading). Compounds usually use on'yomi; standalone words often use kun'yomi. Group 1 — Nature & objects: 日 (にち/ひ — day/sun), 水 (みず — water), 山 (やま/さん — mountain), 本 (ほん/もと — book/origin), 手 (て — hand). Group 2 — People & study: 人 (ひと/じん — person), 学 (がく — study), 生 (せい/なま — life/birth), 先 (せん — before/ahead), 語 (ご — language). Group 3 — Directions: 上 (うえ/じょう — above/up), 下 (した/か — below/down), 中 (なか/ちゅう — inside/middle). Group 4 — Size: 大 (おお/だい — big), 小 (ちい/しょう — small). Key compounds you already know: 日本 (にほん — Japan), 日本語 (にほんご — Japanese language), 日本人 (にほんじん — Japanese person), 大学 (だいがく — university), 学生 (がくせい — student), 先生 (せんせい — teacher).",
+    examples: [
+      { native: "日・水・山・本・手", romanized: "nichi/hi ・ mizu ・ yama/san ・ hon/moto ・ te", translation: "Sun/day, water, mountain, book/origin, hand" },
+      { native: "人・学・生・先・語", romanized: "hito/jin ・ gaku ・ sei/nama ・ sen ・ go", translation: "Person, study, life/birth, before, language" },
+      { native: "上・下・中・大・小", romanized: "ue/jou ・ shita/ka ・ naka/chuu ・ oo/dai ・ chii/shou", translation: "Above, below, middle, big, small" },
+      { native: "日本・日本語・日本人", romanized: "Nihon ・ Nihongo ・ Nihonjin", translation: "Japan, Japanese language, Japanese person" },
+      { native: "大学・学生・先生", romanized: "daigaku ・ gakusei ・ sensei", translation: "University, student, teacher" }
+    ]
+  },
+  {
+    id: "ja-g-a1-15",
+    level: "A1",
+    title: "Likes & Dislikes: 好き / 嫌い",
+    explanation: `好き (suki) and 嫌い (kirai) express liking and disliking in Japanese. They are na-adjectives — they use な when placed before a noun, and they follow the XはYが好きです pattern.
 
 STRUCTURE:
   [Person] は [Thing] が 好き です。= [Person] likes [Thing].
@@ -271,21 +271,21 @@ QUESTIONS:
   どんな〜が好きですか？ = What kind of ~ do you like?
 
 NOTE: 好き and 嫌い can also describe activities when followed by の or combined with verb nominalisation — but at A1, just use them with nouns.`,
-        examples: [
-            { native: "コーヒーがすきです。", romanized: "Koohii ga suki desu.", translation: "I like coffee. (が marks the thing liked)" },
-            { native: "さかながきらいです。", romanized: "Sakana ga kirai desu.", translation: "I dislike fish." },
-            { native: "すしがだいすきです！", romanized: "Sushi ga daisuki desu!", translation: "I love sushi!" },
-            { native: "やさいはあまりすきじゃないです。", romanized: "Yasai wa amari suki ja nai desu.", translation: "I don't really like vegetables." },
-            { native: "どんなおんがくがすきですか？", romanized: "Donna ongaku ga suki desu ka?", translation: "What kind of music do you like?" },
-            { native: "スポーツがすきですか？", romanized: "Supootsu ga suki desu ka?", translation: "Do you like sport?" },
-            { native: "にほんごのべんきょうがすきです。", romanized: "Nihongo no benkyou ga suki desu.", translation: "I like studying Japanese." },
-        ]
-    },
-    {
-        id: "ja-g-a1-16",
-        level: "A1",
-        title: "Counters: Counting Things in Japanese",
-        explanation: `In Japanese, you cannot simply say 'two cats' or 'three cups'. You must use a counter word that matches the type of object. This is one of the most distinctive features of Japanese grammar.
+    examples: [
+      { native: "コーヒーがすきです。", romanized: "Koohii ga suki desu.", translation: "I like coffee. (が marks the thing liked)" },
+      { native: "さかながきらいです。", romanized: "Sakana ga kirai desu.", translation: "I dislike fish." },
+      { native: "すしがだいすきです！", romanized: "Sushi ga daisuki desu!", translation: "I love sushi!" },
+      { native: "やさいはあまりすきじゃないです。", romanized: "Yasai wa amari suki ja nai desu.", translation: "I don't really like vegetables." },
+      { native: "どんなおんがくがすきですか？", romanized: "Donna ongaku ga suki desu ka?", translation: "What kind of music do you like?" },
+      { native: "スポーツがすきですか？", romanized: "Supootsu ga suki desu ka?", translation: "Do you like sport?" },
+      { native: "にほんごのべんきょうがすきです。", romanized: "Nihongo no benkyou ga suki desu.", translation: "I like studying Japanese." },
+    ]
+  },
+  {
+    id: "ja-g-a1-16",
+    level: "A1",
+    title: "Counters: Counting Things in Japanese",
+    explanation: `In Japanese, you cannot simply say 'two cats' or 'three cups'. You must use a counter word that matches the type of object. This is one of the most distinctive features of Japanese grammar.
 
 STRUCTURE: Number + Counter + の + Noun (or just Number + Counter before a verb)
   りんごが三つあります。 (There are three apples.)
@@ -317,19 +317,19 @@ THE FIVE ESSENTIAL A1 COUNTERS:
   コーヒーを一杯飲みました。(I drank one cup of coffee.)
 
 SAFE FALLBACK: When unsure, use つ for objects and 人 for people. Native speakers will understand even if it's not perfect.`,
-        examples: [
-            { native: "りんごがみっつあります。", romanized: "Ringo ga mittsu arimasu.", translation: "There are three apples. (つ = generic objects)" },
-            { native: "かぞくはよにんです。", romanized: "Kazoku wa yo-nin desu.", translation: "My family has four people. (人 = people)" },
-            { native: "みずをいっぽんください。", romanized: "Mizu wo ippon kudasai.", translation: "One bottle of water, please. (本 = long thin objects)" },
-            { native: "チケットをにまいください。", romanized: "Chiketto wo ni-mai kudasai.", translation: "Two tickets, please. (枚 = flat thin objects)" },
-            { native: "コーヒーをいっぱいのみました。", romanized: "Koohii wo ippai nomimashita.", translation: "I drank a cup of coffee. (杯 = cups/glasses)" },
-        ]
-    },
-    {
-        id: "ja-g-a1-17",
-        level: "A1",
-        title: "が vs は — Subject vs Topic",
-        explanation: `The difference between は (topic) and が (subject) is one of the most confusing things in Japanese for beginners. Both can appear where English uses the subject, but they carry different meaning.
+    examples: [
+      { native: "りんごがみっつあります。", romanized: "Ringo ga mittsu arimasu.", translation: "There are three apples. (つ = generic objects)" },
+      { native: "かぞくはよにんです。", romanized: "Kazoku wa yo-nin desu.", translation: "My family has four people. (人 = people)" },
+      { native: "みずをいっぽんください。", romanized: "Mizu wo ippon kudasai.", translation: "One bottle of water, please. (本 = long thin objects)" },
+      { native: "チケットをにまいください。", romanized: "Chiketto wo ni-mai kudasai.", translation: "Two tickets, please. (枚 = flat thin objects)" },
+      { native: "コーヒーをいっぱいのみました。", romanized: "Koohii wo ippai nomimashita.", translation: "I drank a cup of coffee. (杯 = cups/glasses)" },
+    ]
+  },
+  {
+    id: "ja-g-a1-17",
+    level: "A1",
+    title: "が vs は — Subject vs Topic",
+    explanation: `The difference between は (topic) and が (subject) is one of the most confusing things in Japanese for beginners. Both can appear where English uses the subject, but they carry different meaning.
 
 は (WA) — THE TOPIC PARTICLE
 は marks what the sentence is about — the topic. It can introduce something already known, set up a contrast, or signal 'as for X...'.
@@ -354,19 +354,19 @@ QUICK GUIDE:
   Both can translate to English 'I/he/she/it' — context decides which to use.
 
 AT A1: When in doubt, use は for general statements. Use が when answering 'who?' or 'what?', and always use が with すき/きらい/わかる.`,
-        examples: [
-            { native: "わたしは がくせいです。", romanized: "Watashi wa gakusei desu.", translation: "I am a student. (は = topic, general statement)" },
-            { native: "だれが きましたか？ → たなかさんが きました。", romanized: "Dare ga kimashita ka? → Tanaka-san ga kimashita.", translation: "Who came? → Tanaka came. (が = answers 'who')", speakText: "だれが きましたか？ たなかさんが きました。" },
-            { native: "コーヒーが すきです。", romanized: "Koohii ga suki desu.", translation: "I like coffee. (が always used with すき)" },
-            { native: "きょうは さむいですが、あしたは あついです。", romanized: "Kyou wa samui desu ga, ashita wa atsui desu.", translation: "Today is cold, but tomorrow is hot. (は for contrast)" },
-            { native: "なにが おいしいですか？", romanized: "Nani ga oishii desu ka?", translation: "What is delicious? (が with question word)" },
-        ]
-    },
-    {
-        id: "ja-g-a1-18",
-        level: "A1",
-        title: "Demonstratives: これ / それ / あれ",
-        explanation: `Japanese has three distance levels for demonstratives — not two like English.
+    examples: [
+      { native: "わたしは がくせいです。", romanized: "Watashi wa gakusei desu.", translation: "I am a student. (は = topic, general statement)" },
+      { native: "だれが きましたか？ → たなかさんが きました。", romanized: "Dare ga kimashita ka? → Tanaka-san ga kimashita.", translation: "Who came? → Tanaka came. (が = answers 'who')", speakText: "だれが きましたか？ たなかさんが きました。" },
+      { native: "コーヒーが すきです。", romanized: "Koohii ga suki desu.", translation: "I like coffee. (が always used with すき)" },
+      { native: "きょうは さむいですが、あしたは あついです。", romanized: "Kyou wa samui desu ga, ashita wa atsui desu.", translation: "Today is cold, but tomorrow is hot. (は for contrast)" },
+      { native: "なにが おいしいですか？", romanized: "Nani ga oishii desu ka?", translation: "What is delicious? (が with question word)" },
+    ]
+  },
+  {
+    id: "ja-g-a1-18",
+    level: "A1",
+    title: "Demonstratives: これ / それ / あれ",
+    explanation: `Japanese has three distance levels for demonstratives — not two like English.
 
 これ  this (near the speaker)
 それ  that (near the listener)
@@ -394,19 +394,19 @@ ASKING:
 
 SHORTHAND: Japanese speakers often shorten:
   これ → こちら (more polite form, also used for directions/people)`,
-        examples: [
-            { native: "これは なんですか？", romanized: "Kore wa nan desu ka?", translation: "What is this?" },
-            { native: "その ほんは おもしろいです。", romanized: "Sono hon wa omoshiroi desu.", translation: "That book is interesting." },
-            { native: "あれは だれですか？", romanized: "Are wa dare desu ka?", translation: "Who is that (over there)?" },
-            { native: "どれが あなたのですか？", romanized: "Dore ga anata no desu ka?", translation: "Which one is yours?" },
-            { native: "あそこに ゆうびんきょくが あります。", romanized: "Asoko ni yuubinkyoku ga arimasu.", translation: "There is a post office over there." },
-        ]
-    },
-    {
-        id: "ja-g-a1-19",
-        level: "A1",
-        title: "の Particle: Possession & Connection",
-        explanation: `の connects two nouns. The first noun describes or owns the second.
+    examples: [
+      { native: "これは なんですか？", romanized: "Kore wa nan desu ka?", translation: "What is this?" },
+      { native: "その ほんは おもしろいです。", romanized: "Sono hon wa omoshiroi desu.", translation: "That book is interesting." },
+      { native: "あれは だれですか？", romanized: "Are wa dare desu ka?", translation: "Who is that (over there)?" },
+      { native: "どれが あなたのですか？", romanized: "Dore ga anata no desu ka?", translation: "Which one is yours?" },
+      { native: "あそこに ゆうびんきょくが あります。", romanized: "Asoko ni yuubinkyoku ga arimasu.", translation: "There is a post office over there." },
+    ]
+  },
+  {
+    id: "ja-g-a1-19",
+    level: "A1",
+    title: "の Particle: Possession & Connection",
+    explanation: `の connects two nouns. The first noun describes or owns the second.
 
 POSSESSION:
   わたしの本       my book
@@ -428,19 +428,19 @@ ASKING WHOSE:
   → わたしのです。              It's mine. (の can stand alone)
 
 NOTE: の as a sentence-final softener (female/gentle speech) is A2+ — focus on possession here.`,
-        examples: [
-            { native: "これは わたしの です。", romanized: "Kore wa watashi no desu.", translation: "This is mine." },
-            { native: "たなかさんの かばんは どこですか？", romanized: "Tanaka-san no kaban wa doko desu ka?", translation: "Where is Tanaka's bag?" },
-            { native: "にほんごの じゅぎょうは たのしいです。", romanized: "Nihongo no jugyou wa tanoshii desu.", translation: "Japanese class is fun." },
-            { native: "これは だれの ですか？", romanized: "Kore wa dare no desu ka?", translation: "Whose is this?" },
-            { native: "とうきょうの えきは おおきいです。", romanized: "Tokyo no eki wa ookii desu.", translation: "Tokyo station is big." },
-        ]
-    },
-    {
-        id: "ja-g-a1-20",
-        level: "A1",
-        title: "い-adjective Conjugation",
-        explanation: `い-adjectives end in い. They conjugate directly — no helper needed.
+    examples: [
+      { native: "これは わたしの です。", romanized: "Kore wa watashi no desu.", translation: "This is mine." },
+      { native: "たなかさんの かばんは どこですか？", romanized: "Tanaka-san no kaban wa doko desu ka?", translation: "Where is Tanaka's bag?" },
+      { native: "にほんごの じゅぎょうは たのしいです。", romanized: "Nihongo no jugyou wa tanoshii desu.", translation: "Japanese class is fun." },
+      { native: "これは だれの ですか？", romanized: "Kore wa dare no desu ka?", translation: "Whose is this?" },
+      { native: "とうきょうの えきは おおきいです。", romanized: "Tokyo no eki wa ookii desu.", translation: "Tokyo station is big." },
+    ]
+  },
+  {
+    id: "ja-g-a1-20",
+    level: "A1",
+    title: "い-adjective Conjugation",
+    explanation: `い-adjectives end in い. They conjugate directly — no helper needed.
 
 FORMS (using おおきい — big):
   Present affirmative:  おおきいです。     It is big.
@@ -463,19 +463,19 @@ COMMON い-adjectives:
   おおきい (big)        ちいさい (small)          あたらしい (new)
   ふるい (old)          たのしい (fun)            むずかしい (difficult)
   おもしろい (interesting)  さむい (cold)         あつい (hot)`,
-        examples: [
-            { native: "この りんごは おいしいです。", romanized: "Kono ringo wa oishii desu.", translation: "This apple is delicious." },
-            { native: "あの えいがは おもしろくないです。", romanized: "Ano eiga wa omoshirokunai desu.", translation: "That movie is not interesting." },
-            { native: "きのう さむかったです。", romanized: "Kinou samukatta desu.", translation: "It was cold yesterday." },
-            { native: "このホテルは よくなかったです。", romanized: "Kono hoteru wa yokunakatta desu.", translation: "This hotel was not good." },
-            { native: "おいしい すしを たべました。", romanized: "Oishii sushi wo tabemashita.", translation: "I ate delicious sushi. (attributive — い unchanged)" },
-        ]
-    },
-    {
-        id: "ja-g-a1-21",
-        level: "A1",
-        title: "な-adjective Conjugation",
-        explanation: `な-adjectives behave like nouns with です. They do NOT end in い (or end in い but aren't conjugated like い-adj).
+    examples: [
+      { native: "この りんごは おいしいです。", romanized: "Kono ringo wa oishii desu.", translation: "This apple is delicious." },
+      { native: "あの えいがは おもしろくないです。", romanized: "Ano eiga wa omoshirokunai desu.", translation: "That movie is not interesting." },
+      { native: "きのう さむかったです。", romanized: "Kinou samukatta desu.", translation: "It was cold yesterday." },
+      { native: "このホテルは よくなかったです。", romanized: "Kono hoteru wa yokunakatta desu.", translation: "This hotel was not good." },
+      { native: "おいしい すしを たべました。", romanized: "Oishii sushi wo tabemashita.", translation: "I ate delicious sushi. (attributive — い unchanged)" },
+    ]
+  },
+  {
+    id: "ja-g-a1-21",
+    level: "A1",
+    title: "な-adjective Conjugation",
+    explanation: `な-adjectives behave like nouns with です. They do NOT end in い (or end in い but aren't conjugated like い-adj).
 
 FORMS (using しずか — quiet):
   Present affirmative:  しずかです。          It is quiet.
@@ -496,19 +496,19 @@ COMMON な-adjectives:
 
 CAREFUL — すき and きらい are な-adjectives, used with が:
   すしが すきです。  I like sushi. (not: すしを すきです ✗)`,
-        examples: [
-            { native: "この こうえんは しずかです。", romanized: "Kono kouen wa shizuka desu.", translation: "This park is quiet." },
-            { native: "あの まちは にぎやかじゃないです。", romanized: "Ano machi wa nigiyaka ja nai desu.", translation: "That town is not lively." },
-            { native: "きれいな はなですね。", romanized: "Kirei na hana desu ne.", translation: "What beautiful flowers, aren't they! (attributive な)" },
-            { native: "えきは べんりでした。", romanized: "Eki wa benri deshita.", translation: "The station was convenient." },
-            { native: "ピアノが じょうずです。", romanized: "Piano ga jouzu desu.", translation: "You are good at piano. (じょうず takes が)" },
-        ]
-    },
-    {
-        id: "ja-g-a1-22",
-        level: "A1",
-        title: "Adverbs of Time",
-        explanation: `Time expressions in Japanese usually go at the START of the sentence or just before the verb — they are very flexible.
+    examples: [
+      { native: "この こうえんは しずかです。", romanized: "Kono kouen wa shizuka desu.", translation: "This park is quiet." },
+      { native: "あの まちは にぎやかじゃないです。", romanized: "Ano machi wa nigiyaka ja nai desu.", translation: "That town is not lively." },
+      { native: "きれいな はなですね。", romanized: "Kirei na hana desu ne.", translation: "What beautiful flowers, aren't they! (attributive な)" },
+      { native: "えきは べんりでした。", romanized: "Eki wa benri deshita.", translation: "The station was convenient." },
+      { native: "ピアノが じょうずです。", romanized: "Piano ga jouzu desu.", translation: "You are good at piano. (じょうず takes が)" },
+    ]
+  },
+  {
+    id: "ja-g-a1-22",
+    level: "A1",
+    title: "Adverbs of Time",
+    explanation: `Time expressions in Japanese usually go at the START of the sentence or just before the verb — they are very flexible.
 
 TIME ANCHORS:
   今日 (きょう)    today
@@ -536,20 +536,20 @@ SPEED / ORDER:
   つぎに          next
   さいごに        finally / last
   あとで          later`,
-        examples: [
-            { native: "きょうは いそがしいです。", romanized: "Kyou wa isogashii desu.", translation: "I am busy today." },
-            { native: "きのう ともだちに あいました。", romanized: "Kinou tomodachi ni aimashita.", translation: "I met a friend yesterday." },
-            { native: "もう たべました。", romanized: "Mou tabemashita.", translation: "I already ate." },
-            { native: "まだ たべていません。", romanized: "Mada tabete imasen.", translation: "I haven't eaten yet." },
-            { native: "ゆっくり はなしてください。", romanized: "Yukkuri hanashite kudasai.", translation: "Please speak slowly." },
-            { native: "はじめに てを あらいます。", romanized: "Hajime ni te wo araimasu.", translation: "First I wash my hands." },
-        ]
-    },
-    {
-        id: "ja-g-a1-23",
-        level: "A1",
-        title: "Frequency Adverbs",
-        explanation: `Use these adverbs to say how often something happens.
+    examples: [
+      { native: "きょうは いそがしいです。", romanized: "Kyou wa isogashii desu.", translation: "I am busy today." },
+      { native: "きのう ともだちに あいました。", romanized: "Kinou tomodachi ni aimashita.", translation: "I met a friend yesterday." },
+      { native: "もう たべました。", romanized: "Mou tabemashita.", translation: "I already ate." },
+      { native: "まだ たべていません。", romanized: "Mada tabete imasen.", translation: "I haven't eaten yet." },
+      { native: "ゆっくり はなしてください。", romanized: "Yukkuri hanashite kudasai.", translation: "Please speak slowly." },
+      { native: "はじめに てを あらいます。", romanized: "Hajime ni te wo araimasu.", translation: "First I wash my hands." },
+    ]
+  },
+  {
+    id: "ja-g-a1-23",
+    level: "A1",
+    title: "Frequency Adverbs",
+    explanation: `Use these adverbs to say how often something happens.
 
 FREQUENCY SCALE (high → low):
   いつも         always
@@ -573,19 +573,19 @@ DEGREE ADVERBS (bonus — used with adjectives and adverbs):
   とても          very          とても おいしいです。  very delicious
   すごく          really / super すごく さむいです。   really cold
   ちょっと        a little       ちょっと むずかしいです。  a little difficult`,
-        examples: [
-            { native: "わたしは いつも コーヒーを のみます。", romanized: "Watashi wa itsumo koohii wo nomimasu.", translation: "I always drink coffee." },
-            { native: "ときどき えいがを みます。", romanized: "Tokidoki eiga wo mimasu.", translation: "I sometimes watch movies." },
-            { native: "あまり にくを たべません。", romanized: "Amari niku wo tabemasen.", translation: "I don't eat much meat." },
-            { native: "ぜんぜん わかりません。", romanized: "Zenzen wakarimasen.", translation: "I don't understand at all." },
-            { native: "この えいがは とても おもしろいです。", romanized: "Kono eiga wa totemo omoshiroi desu.", translation: "This movie is very interesting." },
-        ]
-    },
-    {
-        id: "ja-g-a1-24",
-        level: "A1",
-        title: "Discourse Connectors",
-        explanation: `These words connect separate sentences. They go at the START of a new sentence.
+    examples: [
+      { native: "わたしは いつも コーヒーを のみます。", romanized: "Watashi wa itsumo koohii wo nomimasu.", translation: "I always drink coffee." },
+      { native: "ときどき えいがを みます。", romanized: "Tokidoki eiga wo mimasu.", translation: "I sometimes watch movies." },
+      { native: "あまり にくを たべません。", romanized: "Amari niku wo tabemasen.", translation: "I don't eat much meat." },
+      { native: "ぜんぜん わかりません。", romanized: "Zenzen wakarimasen.", translation: "I don't understand at all." },
+      { native: "この えいがは とても おもしろいです。", romanized: "Kono eiga wa totemo omoshiroi desu.", translation: "This movie is very interesting." },
+    ]
+  },
+  {
+    id: "ja-g-a1-24",
+    level: "A1",
+    title: "Discourse Connectors",
+    explanation: `These words connect separate sentences. They go at the START of a new sentence.
 
 ADDING:
   そして          and / and then
@@ -615,19 +615,19 @@ EXAMPLE SEQUENCE:
   まず、てを あらいます。        First, I wash my hands.
   つぎに、りょうりを します。    Next, I cook.
   さいごに、たべます。           Finally, I eat.`,
-        examples: [
-            { native: "わたしは がくせいです。そして、アルバイトも しています。", romanized: "Watashi wa gakusei desu. Soshite, arubaito mo shite imasu.", translation: "I am a student. And I also work part-time." },
-            { native: "たかいです。でも、おいしいです。", romanized: "Takai desu. Demo, oishii desu.", translation: "It's expensive. But it's delicious." },
-            { native: "あめが ふりました。だから、いえに いました。", romanized: "Ame ga furimashita. Dakara, ie ni imashita.", translation: "It rained. So I stayed home." },
-            { native: "まず てを あらいます。それから たべます。", romanized: "Mazu te wo araimasu. Sorekara tabemasu.", translation: "First I wash my hands. Then I eat." },
-            { native: "じつは、にほんごが すきです。", romanized: "Jitsu wa, nihongo ga suki desu.", translation: "Actually, I like Japanese." },
-        ]
-    },
-    {
-        id: "ja-g-a1-25",
-        level: "A1",
-        title: "あります / います — Describing Existence",
-        explanation: `あります and います both mean "there is / there are" or "to exist / to have", but they are used for different types of things.
+    examples: [
+      { native: "わたしは がくせいです。そして、アルバイトも しています。", romanized: "Watashi wa gakusei desu. Soshite, arubaito mo shite imasu.", translation: "I am a student. And I also work part-time." },
+      { native: "たかいです。でも、おいしいです。", romanized: "Takai desu. Demo, oishii desu.", translation: "It's expensive. But it's delicious." },
+      { native: "あめが ふりました。だから、いえに いました。", romanized: "Ame ga furimashita. Dakara, ie ni imashita.", translation: "It rained. So I stayed home." },
+      { native: "まず てを あらいます。それから たべます。", romanized: "Mazu te wo araimasu. Sorekara tabemasu.", translation: "First I wash my hands. Then I eat." },
+      { native: "じつは、にほんごが すきです。", romanized: "Jitsu wa, nihongo ga suki desu.", translation: "Actually, I like Japanese." },
+    ]
+  },
+  {
+    id: "ja-g-a1-25",
+    level: "A1",
+    title: "あります / います — Describing Existence",
+    explanation: `あります and います both mean "there is / there are" or "to exist / to have", but they are used for different types of things.
 
 INANIMATE vs ANIMATE:
   あります  →  non-living things: objects, places, events, plants
@@ -658,20 +658,20 @@ POSSESSION (ある):
   ありますか can also mean "do you have?":
   じかんが ありますか？   Do you have time?
   おかねが ありません。  I don't have money.`,
-        examples: [
-            { native: "つくえの うえに ほんが あります。", romanized: "Tsukue no ue ni hon ga arimasu.", translation: "There is a book on the desk." },
-            { native: "こうえんに こどもが います。", romanized: "Kouen ni kodomo ga imasu.", translation: "There are children in the park." },
-            { native: "れいぞうこに たまごが ありますか？", romanized: "Reizouko ni tamago ga arimasu ka?", translation: "Are there eggs in the fridge?" },
-            { native: "すみません、トイレは どこに ありますか？", romanized: "Sumimasen, toire wa doko ni arimasu ka?", translation: "Excuse me, where is the toilet?" },
-            { native: "いえに ねこが にひき います。", romanized: "Ie ni neko ga nihiki imasu.", translation: "There are two cats at home." },
-            { native: "きょうは じかんが ありません。", romanized: "Kyou wa jikan ga arimasen.", translation: "I don't have time today." },
-        ]
-    },
-    {
-        id: "ja-g-a1-26",
-        level: "A1",
-        title: "〜てください — Polite Requests",
-        explanation: `〜てください is used to make polite requests: "Please do ~". It is formed by attaching ください to the て-form of a verb.
+    examples: [
+      { native: "つくえの うえに ほんが あります。", romanized: "Tsukue no ue ni hon ga arimasu.", translation: "There is a book on the desk." },
+      { native: "こうえんに こどもが います。", romanized: "Kouen ni kodomo ga imasu.", translation: "There are children in the park." },
+      { native: "れいぞうこに たまごが ありますか？", romanized: "Reizouko ni tamago ga arimasu ka?", translation: "Are there eggs in the fridge?" },
+      { native: "すみません、トイレは どこに ありますか？", romanized: "Sumimasen, toire wa doko ni arimasu ka?", translation: "Excuse me, where is the toilet?" },
+      { native: "いえに ねこが にひき います。", romanized: "Ie ni neko ga nihiki imasu.", translation: "There are two cats at home." },
+      { native: "きょうは じかんが ありません。", romanized: "Kyou wa jikan ga arimasen.", translation: "I don't have time today." },
+    ]
+  },
+  {
+    id: "ja-g-a1-26",
+    level: "A1",
+    title: "〜てください — Polite Requests",
+    explanation: `〜てください is used to make polite requests: "Please do ~". It is formed by attaching ください to the て-form of a verb.
 
 FORMING THE て-FORM:
 
@@ -701,20 +701,20 @@ NEGATIVE REQUEST (ないでください — please don't ~):
 
 SOFTENING:
   Adding すみませんが前に or ending with ～ていただけますか makes the request more polite.`,
-        examples: [
-            { native: "ここに なまえを かいてください。", romanized: "Koko ni namae wo kaite kudasai.", translation: "Please write your name here." },
-            { native: "ゆっくり はなしてください。", romanized: "Yukkuri hanashite kudasai.", translation: "Please speak slowly." },
-            { native: "まどを しめてください。", romanized: "Mado wo shimete kudasai.", translation: "Please close the window." },
-            { native: "しゃしんを とらないでください。", romanized: "Shashin wo toranai de kudasai.", translation: "Please don't take photos." },
-            { native: "すみません、もう いちど いってください。", romanized: "Sumimasen, mou ichido itte kudasai.", translation: "Excuse me, please say that one more time." },
-            { native: "ここで たばこを すわないでください。", romanized: "Koko de tabako wo suwanai de kudasai.", translation: "Please don't smoke here." },
-        ]
-    },
-    {
-        id: "ja-g-a1-27",
-        level: "A1",
-        title: "[Noun]をください — Ordering & Requesting",
-        explanation: `ください on its own means "please give me". Attach it to a noun with を to request any item — at a restaurant, shop, ticket counter, or café.
+    examples: [
+      { native: "ここに なまえを かいてください。", romanized: "Koko ni namae wo kaite kudasai.", translation: "Please write your name here." },
+      { native: "ゆっくり はなしてください。", romanized: "Yukkuri hanashite kudasai.", translation: "Please speak slowly." },
+      { native: "まどを しめてください。", romanized: "Mado wo shimete kudasai.", translation: "Please close the window." },
+      { native: "しゃしんを とらないでください。", romanized: "Shashin wo toranai de kudasai.", translation: "Please don't take photos." },
+      { native: "すみません、もう いちど いってください。", romanized: "Sumimasen, mou ichido itte kudasai.", translation: "Excuse me, please say that one more time." },
+      { native: "ここで たばこを すわないでください。", romanized: "Koko de tabako wo suwanai de kudasai.", translation: "Please don't smoke here." },
+    ]
+  },
+  {
+    id: "ja-g-a1-27",
+    level: "A1",
+    title: "[Noun]をください — Ordering & Requesting",
+    explanation: `ください on its own means "please give me". Attach it to a noun with を to request any item — at a restaurant, shop, ticket counter, or café.
 
 BASIC PATTERN:
   [Noun] を ください。       [Noun], please. / Please give me [Noun].
@@ -758,13 +758,332 @@ DIFFERENCE: ください vs 〜てください
 AT THE REGISTER:
   いくらですか？         How much is it?
   ぜんぶで いくらですか？ How much is everything altogether?`,
-        examples: [
-            { native: "すみません、みずを ください。", romanized: "Sumimasen, mizu wo kudasai.", translation: "Excuse me, water please." },
-            { native: "コーヒーを ふたつ ください。", romanized: "Koohii wo futatsu kudasai.", translation: "Two coffees, please." },
-            { native: "これを ください。いくらですか？", romanized: "Kore wo kudasai. Ikura desu ka?", translation: "This one, please. How much is it?" },
-            { native: "えいごの メニューは ありますか？", romanized: "Eigo no menyuu wa arimasu ka?", translation: "Do you have an English menu?" },
-            { native: "すしを みっつと みそしるを ひとつ おねがいします。", romanized: "Sushi wo mittsu to misoshiru wo hitotsu onegaishimasu.", translation: "Three pieces of sushi and one miso soup, please." },
-            { native: "ぜんぶで いくらですか？", romanized: "Zenbu de ikura desu ka?", translation: "How much is everything altogether?" },
-        ]
-    },
+    examples: [
+      { native: "すみません、みずを ください。", romanized: "Sumimasen, mizu wo kudasai.", translation: "Excuse me, water please." },
+      { native: "コーヒーを ふたつ ください。", romanized: "Koohii wo futatsu kudasai.", translation: "Two coffees, please." },
+      { native: "これを ください。いくらですか？", romanized: "Kore wo kudasai. Ikura desu ka?", translation: "This one, please. How much is it?" },
+      { native: "えいごの メニューは ありますか？", romanized: "Eigo no menyuu wa arimasu ka?", translation: "Do you have an English menu?" },
+      { native: "すしを みっつと みそしるを ひとつ おねがいします。", romanized: "Sushi wo mittsu to misoshiru wo hitotsu onegaishimasu.", translation: "Three pieces of sushi and one miso soup, please." },
+      { native: "ぜんぶで いくらですか？", romanized: "Zenbu de ikura desu ka?", translation: "How much is everything altogether?" },
+    ]
+  },
+  {
+    id: "ja-g-a1-28",
+    level: "A1",
+    title: "Introduction to the て-form",
+    explanation: `The て-form is one of the most important verb forms in Japanese. You will use it constantly at A2 and beyond — for connecting actions, making requests, and forming the progressive. This lesson introduces the rules so they are not new when you need them.
+
+FORMING THE て-FORM
+
+Group 2 (RU-verbs / ichidan) — drop る, add て:
+  たべる → たべて    みる → みて    おきる → おきて
+
+Group 3 (irregular) — must memorise:
+  する → して    くる → きて
+
+Group 1 (U-verbs / godan) — the ending changes:
+  Stem ending    Change         Example
+  ──────────────────────────────────────────
+  る / つ / う  → って    かう → かって、まつ → まって、のる → のって
+  む / ぬ / ぶ  → んで    のむ → のんで、よぶ → よんで
+  く            → いて    かく → かいて
+  ぐ            → いで    およぐ → およいで
+  す            → して    はなす → はなして
+  Exception: いく → いって (not いいて)
+
+AT A1 — ONE USE TO KNOW NOW
+て-form + ください = polite request ('please do ~')
+You have already seen this in the requests lesson. Now you know where the て comes from.
+  たべてください。   Please eat.
+  みてください。     Please look.
+  してください。     Please do it.
+
+AT A2 — TWO MORE USES ARE COMING
+  て-form + います  → progressive (いま たべています = I am eating now)
+  て-form alone    → connecting two actions in sequence (たべて、ねます = I eat and then sleep)
+
+You do not need to produce these yet. But recognising the て-form when you see it will make A2 lesson 1 much easier.`,
+    examples: [
+      { native: "たべる → たべて", romanized: "taberu → tabete", translation: "RU-verb: drop る, add て", speakText: "たべる、たべて" },
+      { native: "のむ → のんで", romanized: "nomu → nonde", translation: "U-verb ending in む → んで", speakText: "のむ、のんで" },
+      { native: "かく → かいて", romanized: "kaku → kaite", translation: "U-verb ending in く → いて", speakText: "かく、かいて" },
+      { native: "いく → いって", romanized: "iku → itte", translation: "Exception: いく → いって (not いいて)", speakText: "いく、いって" },
+      { native: "する → して / くる → きて", romanized: "suru → shite / kuru → kite", translation: "The two irregular て-forms — must memorise", speakText: "する、して、くる、きて" },
+      { native: "ゆっくり はなしてください。", romanized: "Yukkuri hanashite kudasai.", translation: "Please speak slowly. (はなす → はなして + ください)" },
+    ]
+  },
+  {
+    id: "ja-g-a1-29",
+    level: "A1",
+    title: "も Particle — Also / Too / Either",
+    explanation: `も (mo) means 'also', 'too', or 'as well'. It replaces は, が, or を when you want to say that something additional shares the same predicate. It is one of the highest-frequency particles in Japanese.
+
+REPLACING は — adding a topic:
+  わたしは がくせいです。     I am a student.
+  わたしも がくせいです。     I am also a student. (も replaces は)
+
+  たなかさんは にほんじんです。  Tanaka is Japanese.
+  やまださんも にほんじんです。  Yamada is also Japanese.
+
+REPLACING が — adding a subject:
+  コーヒーが すきです。      I like coffee.
+  おちゃも すきです。        I also like tea.
+
+REPLACING を — adding an object:
+  すしを たべました。        I ate sushi.
+  さしみも たべました。      I also ate sashimi.
+
+NEGATIVE + も — 'either / not...either'
+In negative sentences, も means 'either' — it extends the negation:
+  コーヒーは のみません。    I don't drink coffee.
+  おちゃも のみません。      I don't drink tea either.
+
+  なにも + negative verb = nothing at all:
+  なにも わかりません。      I don't understand anything.
+  なにも たべませんでした。  I didn't eat anything.
+
+  だれも + negative verb = nobody:
+  だれも いません。          There is nobody. / Nobody is here.
+
+も WITH NUMBERS — 'as many/much as' (emphasis):
+  いちじかんも まちました。  I waited a whole hour. (emphasis on quantity)
+  ひゃくえんも ありません。  I don't even have 100 yen.
+
+STACKING も — 'both...and / neither...nor':
+  すしも さしみも すきです。      I like both sushi and sashimi.
+  コーヒーも おちゃも のみません。 I drink neither coffee nor tea.
+
+も NEVER stacks with は, が, or を — it replaces them entirely.
+Other particles (に, で, から, まで) keep their particle and add も after:
+  がっこうにも いきました。   I also went to school.
+  としょかんでも べんきょうしました。  I studied at the library too.`,
+    examples: [
+      { native: "わたしも にほんごを べんきょうしています。", romanized: "Watashi mo nihongo wo benkyou shite imasu.", translation: "I am also studying Japanese." },
+      { native: "このえいがも おもしろいです。", romanized: "Kono eiga mo omoshiroi desu.", translation: "This movie is also interesting." },
+      { native: "なにも たべませんでした。", romanized: "Nani mo tabemasen deshita.", translation: "I didn't eat anything." },
+      { native: "だれも きませんでした。", romanized: "Dare mo kimasen deshita.", translation: "Nobody came." },
+      { native: "すしも さしみも すきです。", romanized: "Sushi mo sashimi mo suki desu.", translation: "I like both sushi and sashimi." },
+      { native: "わたしも そう おもいます。", romanized: "Watashi mo sou omoimasu.", translation: "I think so too." },
+    ]
+  },
+  {
+    id: "ja-g-a1-30",
+    level: "A1",
+    title: "から and まで — From / Since and To / Until",
+    explanation: `から (kara) and まで (made) mark the starting and ending points of time, place, and range. They are often used together but work independently too.
+
+から — FROM / SINCE / BECAUSE
+
+Starting point in time:
+  くじから はたらきます。         I work from nine o'clock.
+  げつようびから べんきょうします。 I will study from Monday.
+
+Starting point in place:
+  とうきょうから きました。        I came from Tokyo.
+  うちから がっこうまで           from home to school
+
+Origin / source:
+  せんせいから きいた。            I heard it from my teacher.
+
+まで — TO / UNTIL / AS FAR AS
+
+Ending point in time:
+  ごじまで はたらきます。          I work until five o'clock.
+  らいしゅうまで まちます。        I will wait until next week.
+
+Ending point in place:
+  えきまで あるきました。          I walked to the station.
+  ここから えきまで とおいですか？ Is it far from here to the station?
+
+USING から AND まで TOGETHER
+They combine naturally to express 'from X to Y':
+
+Time:
+  くじから ごじまで はたらきます。
+  I work from nine to five.
+
+  げつようびから きんようびまで
+  From Monday to Friday.
+
+Place:
+  うちから えきまで じゅっぷんです。
+  It's ten minutes from home to the station.
+
+  とうきょうから おおさかまで しんかんせんで にじかんです。
+  It's two hours from Tokyo to Osaka by shinkansen.
+
+から AS 'BECAUSE' — a preview
+から also means 'because' when attached to a verb or adjective.
+This use is A2+ but you will see it in reading:
+  さむいから、うちにいます。  Because it's cold, I'm staying home.
+Just recognise it for now — do not confuse it with the から of starting point.`,
+    examples: [
+      { native: "くじから ごじまで はたらきます。", romanized: "Kuji kara goji made hatarakimasu.", translation: "I work from nine to five." },
+      { native: "とうきょうから きました。", romanized: "Tokyo kara kimashita.", translation: "I came from Tokyo." },
+      { native: "えきまで あるきましょう。", romanized: "Eki made arukimashou.", translation: "Let's walk to the station." },
+      { native: "げつようびから きんようびまで べんきょうします。", romanized: "Getsuyoubi kara kin'youbi made benkyou shimasu.", translation: "I study from Monday to Friday." },
+      { native: "ここから えきまで とおいですか？", romanized: "Koko kara eki made tooi desu ka?", translation: "Is it far from here to the station?" },
+      { native: "なんじから なんじまで ですか？", romanized: "Nanji kara nanji made desu ka?", translation: "From what time to what time is it?" },
+    ]
+  },
+  {
+    id: "ja-g-a1-31",
+    level: "A1",
+    title: "と Particle — And / With",
+    explanation: `The particle と (to) has two core uses at A1: listing nouns ('A and B') and expressing accompaniment ('together with someone'). Both are extremely common from the very first conversations.
+
+と FOR LISTING NOUNS — 'and'
+と connects nouns in an exhaustive list — it implies these are ALL the items.
+  パンと バター         bread and butter
+  コーヒーと おちゃ     coffee and tea
+  すしと さしみと てんぷら  sushi, sashimi and tempura
+
+Exhaustive means: パンとバターを かいました = I bought bread and butter (and nothing else).
+This distinguishes と from や (A2), which lists examples non-exhaustively.
+
+  すしと さしみを たべました。
+  I ate sushi and sashimi. (those two things, complete list)
+
+と FOR ACCOMPANIMENT — 'with / together with'
+  ともだちと いきます。      I'm going with a friend.
+  かぞくと たべました。      I ate with my family.
+  だれと きましたか？        Who did you come with?
+  ひとりで きました。        I came alone. (ひとりで = by oneself, contrast with と)
+
+と IN COMMON PHRASES
+  いっしょに — together (often used with と):
+  ともだちと いっしょに べんきょうします。
+  I study together with my friend.
+
+  〜と はなす — to talk with:
+  せんせいと はなしました。   I talked with my teacher.
+
+  〜と おもう — I think that (A2+ structure, just recognise):
+  むずかしいと おもいます。   I think it's difficult.
+
+と vs で for 'with'
+  と = with a person (accompaniment)       ともだちと いく    go with a friend
+  で = with a tool/means                   はしで たべる     eat with chopsticks
+  See lesson a1-12 for で.`,
+    examples: [
+      { native: "コーヒーと おちゃを ください。", romanized: "Koohii to ocha wo kudasai.", translation: "Coffee and tea, please." },
+      { native: "ともだちと えいがを みました。", romanized: "Tomodachi to eiga wo mimashita.", translation: "I watched a movie with a friend." },
+      { native: "だれと きましたか？", romanized: "Dare to kimashita ka?", translation: "Who did you come with?" },
+      { native: "かぞくと いっしょに たべます。", romanized: "Kazoku to issho ni tabemasu.", translation: "I eat together with my family." },
+      { native: "パンと バターと ジュースを かいました。", romanized: "Pan to bataa to juusu wo kaimashita.", translation: "I bought bread, butter and juice." },
+      { native: "せんせいと はなしました。", romanized: "Sensei to hanashimashita.", translation: "I talked with my teacher." },
+    ]
+  },
+  {
+    id: "ja-g-a1-32",
+    level: "A1",
+    title: "〜ましょう / 〜ませんか — Let's / Shall We?",
+    explanation: `Two verb endings express suggestions and invitations in polite Japanese. Both attach to the ます-stem (the part before ます).
+
+〜ましょう — LET'S (do something)
+A positive suggestion or decision to do something together.
+Replace ます with ましょう:
+  たべます  → たべましょう     Let's eat.
+  いきます  → いきましょう     Let's go.
+  はじめます → はじめましょう  Let's begin.
+  します   → しましょう        Let's do it.
+
+Ikimashou! is one of the most common expressions in Japanese — you will hear it constantly.
+
+〜ませんか — SHALL WE? / WOULD YOU LIKE TO?
+A softer invitation — it asks whether the other person would like to join.
+Replace ます with ませんか:
+  たべます  → たべませんか？    Shall we eat? / Would you like to eat?
+  いきます  → いきませんか？    Shall we go? / Would you like to go?
+  のみます  → のみませんか？    Shall we have a drink?
+
+THE DIFFERENCE
+  いきましょう！        Let's go! (positive, decided, enthusiastic)
+  いきませんか？        Shall we go? / Would you like to go? (softer, asking)
+
+ましょう is often a response to ませんか:
+  いっしょに ひるごはんを たべませんか？  Shall we have lunch together?
+  → ええ、たべましょう！                  Yes, let's eat!
+
+RESPONDING
+  Agreeing:    ええ、そうしましょう。    Yes, let's do that.
+               はい、いきましょう！      Yes, let's go!
+  Declining:   すみません、ちょっと...   Sorry, it's a bit... (polite decline — trailed off)
+
+COMMON EXPRESSIONS
+  はじめましょう。        Let's begin.
+  やすみましょう。        Let's rest / take a break.
+  いっしょに いきませんか？  Won't you come with us?
+  なにか のみませんか？     Shall we have something to drink?`,
+    examples: [
+      { native: "いっしょに いきましょう！", romanized: "Issho ni ikimashou!", translation: "Let's go together!" },
+      { native: "そろそろ はじめましょう。", romanized: "Sorosoro hajimemashou.", translation: "Let's begin soon." },
+      { native: "いっしょに ひるごはんを たべませんか？", romanized: "Issho ni hirugohan wo tabemasen ka?", translation: "Shall we have lunch together?" },
+      { native: "なにか のみませんか？", romanized: "Nanika nomimasen ka?", translation: "Shall we have something to drink?" },
+      { native: "ええ、そうしましょう！", romanized: "Ee, sou shimashou!", translation: "Yes, let's do that!" },
+      { native: "すこし やすみましょう。", romanized: "Sukoshi yasumimashou.", translation: "Let's rest a little." },
+    ]
+  },
+  {
+    id: "ja-g-a1-33",
+    level: "A1",
+    title: "Plain Form — An Introduction",
+    explanation: `Throughout this course you have learned the polite ます/です forms. But Japanese has a second set of verb and adjective forms called the plain form (also called dictionary form or casual form). You need to know it exists and how to recognise it, because you encounter it in reading, in grammar patterns, and in casual speech from day one.
+
+POLITE FORM vs PLAIN FORM
+
+  Polite (ます/です)      Plain form        Meaning
+  ────────────────────────────────────────────────────
+  たべます               たべる            eat
+  のみます               のむ              drink
+  いきます               いく              go
+  します                 する              do
+  きます                 くる              come
+  たべません             たべない          don't eat
+  たべました             たべた            ate
+  たべませんでした       たべなかった      didn't eat
+  です                   だ                is/am/are
+  じゃありません         じゃない          is not
+
+The plain form is the form listed in dictionaries — this is why it is also called the dictionary form.
+
+THREE REASONS YOU NEED THE PLAIN FORM NOW
+
+1. READING — plain forms appear constantly in written Japanese, menus, signs, and messages between friends. はいれません (polite) vs はいるな (plain negative — 'do not enter' on signs).
+
+2. GRAMMAR PATTERNS — several patterns you already know use plain forms before them:
+   〜とおもいます (I think that ~) — uses plain form before と
+   〜たいです (want to) — built on the ます-stem, related to plain form
+   At A2, many more patterns require the plain form.
+
+3. CASUAL SPEECH — when Japanese speakers talk to close friends they drop ます/です entirely. You will hear plain forms constantly in anime, music, and conversation between peers.
+
+HOW TO RECOGNISE PLAIN FORMS
+
+Verbs end in a う-row sound: たべ**る**、のむ、いく、はなす、まつ
+Plain negative ends in ない: たべない、のまない、いかない
+Plain past ends in た/だ: たべた、のんだ、いった
+Plain past negative ends in なかった: たべなかった、のまなかった
+
+い-adjectives: unchanged from what you know — おいしい、たかい、さむい (plain = polite base)
+Plain negative: おいしくない、たかくない
+Plain past: おいしかった、たかかった
+
+な-adjectives + nouns: replace です with だ:
+  しずかです → しずかだ
+  がくせいです → がくせいだ
+
+AT A1 — RECOGNITION ONLY
+You do not need to produce plain forms yet. Stick to ます/です in your own speech.
+The goal of this lesson is so that when you see たべる or いった or おいしくない,
+you are not confused — you recognise them as verb and adjective forms you already know.`,
+    examples: [
+      { native: "たべます → たべる", romanized: "tabemasu → taberu", translation: "Polite present → plain form (dictionary form)", speakText: "たべます、たべる" },
+      { native: "いきました → いった", romanized: "ikimashita → itta", translation: "Polite past → plain past", speakText: "いきました、いった" },
+      { native: "たべません → たべない", romanized: "tabemasen → tabenai", translation: "Polite negative → plain negative", speakText: "たべません、たべない" },
+      { native: "おいしいです → おいしい / おいしかった", romanized: "oishii desu → oishii / oishikatta", translation: "い-adjective: polite present → plain present / plain past", speakText: "おいしいです、おいしい、おいしかった" },
+      { native: "がくせいです → がくせいだ", romanized: "gakusei desu → gakusei da", translation: "Noun + です → noun + だ (plain copula)", speakText: "がくせいです、がくせいだ" },
+      { native: "〜とおもいます。", romanized: "~ to omoimasu.", translation: "I think that ~ (plain form comes before と in this pattern)" },
+    ]
+  },
 ]

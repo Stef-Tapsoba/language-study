@@ -50,22 +50,22 @@ export const a2Grammar: GrammarLesson[] = [
             { native: "Elle l'aime beaucoup.", translation: "She likes it/him/her a lot." },
         ]
     },
-    {
-        id: "fr-g-a2-4",
-        level: "A2",
-        title: "Partitive Articles: du, de la, de l', des",
-        explanation: {
-            native: "Partitive articles express an unspecified quantity of something — the English equivalent is 'some' or simply leaving the article out. Use du (masculine), de la (feminine), de l' (before vowel), des (plural). After negation, all forms become de (or d' before vowel).",
-            target: "Les articles partitifs expriment une quantité indéterminée de quelque chose. On utilise du (masculin), de la (féminin), de l' (devant une voyelle), des (pluriel). Après la négation, toutes ces formes deviennent de (ou d' devant une voyelle)."
-        },
-        examples: [
-            { native: "Je veux du pain.", translation: "I want some bread. (masculine)" },
-            { native: "Elle boit de la limonade.", translation: "She drinks some lemonade. (feminine)" },
-            { native: "Tu veux de l'eau?", translation: "Do you want some water? (vowel)" },
-            { native: "Je mange des légumes.", translation: "I eat some vegetables. (plural)" },
-            { native: "Je ne bois pas de café.", translation: "I don't drink coffee. (de after negation)" },
-        ]
-    },
+    // {
+    //     id: "fr-g-a2-4",
+    //     level: "A2",
+    //     title: "Partitive Articles: du, de la, de l', des",
+    //     explanation: {
+    //         native: "Partitive articles express an unspecified quantity of something — the English equivalent is 'some' or simply leaving the article out. Use du (masculine), de la (feminine), de l' (before vowel), des (plural). After negation, all forms become de (or d' before vowel).",
+    //         target: "Les articles partitifs expriment une quantité indéterminée de quelque chose. On utilise du (masculin), de la (féminin), de l' (devant une voyelle), des (pluriel). Après la négation, toutes ces formes deviennent de (ou d' devant une voyelle)."
+    //     },
+    //     examples: [
+    //         { native: "Je veux du pain.", translation: "I want some bread. (masculine)" },
+    //         { native: "Elle boit de la limonade.", translation: "She drinks some lemonade. (feminine)" },
+    //         { native: "Tu veux de l'eau?", translation: "Do you want some water? (vowel)" },
+    //         { native: "Je mange des légumes.", translation: "I eat some vegetables. (plural)" },
+    //         { native: "Je ne bois pas de café.", translation: "I don't drink coffee. (de after negation)" },
+    //     ]
+    // },
     {
         id: "fr-g-a2-5",
         level: "A2",
