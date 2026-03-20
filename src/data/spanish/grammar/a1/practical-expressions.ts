@@ -173,4 +173,61 @@ With a feminine noun: veintiuna:
       { native: "Tengo veintiún años.", translation: "I am twenty-one years old." },
     ]
   },
+  {
+    id: "es-g-a1-29",
+    level: "A1",
+    title: "Hay — There Is / There Are",
+    explanation: `HAY is one of the most useful words in Spanish. It means both 'there is' and 'there are' — the same form is used for singular and plural. It never changes and has no subject.
+
+STRUCTURE
+  hay + noun (with indefinite article or number, or no article for general statements)
+
+  Hay un banco cerca de aquí.     There is a bank nearby.
+  Hay tres estudiantes.           There are three students.
+  Hay agua en la botella.         There is water in the bottle.
+
+NEGATIVE — no hay
+Place no directly before hay:
+  Hay leche.                → No hay leche.           There is no milk.
+  Hay una farmacia aquí.    → No hay una farmacia aquí. There is no pharmacy here.
+  Hay problemas.            → No hay problemas.        There are no problems.
+
+QUESTION — ¿hay...?
+Raise intonation or invert punctuation — hay itself does not change:
+  ¿Hay un hotel cerca?            Is there a hotel nearby?
+  ¿Hay asientos libres?           Are there any free seats?
+  ¿Qué hay de comer?              What is there to eat?
+
+HAY vs ESTAR
+This is the most important distinction at A1.
+  hay    → existence or presence (is there something? does something exist?)
+  estar  → location of something already known (where is it?)
+
+  ¿Hay un banco?          Is there a bank? (does one exist nearby?)
+  ¿Dónde está el banco?   Where is the bank? (we know it exists — where?)
+
+  Hay un restaurante en esta calle.    There is a restaurant on this street.
+  El restaurante está en esta calle.   The restaurant is on this street.
+
+COMMON USES
+  Asking what is available:    ¿Qué hay en el menú?      What is on the menu?
+  Describing a place:          En mi ciudad hay un museo. In my city there is a museum.
+  Saying what is needed:       Hay que estudiar.          One must study / You have to study.
+  Expressing absence:          No hay tiempo.             There is no time.
+
+HAY QUE + INFINITIVE
+A very common fixed expression meaning 'one must' or 'you have to' — impersonal obligation:
+  Hay que reservar.             You have to book / One must book.
+  Hay que pagar aquí.           You need to pay here.`,
+    examples: [
+      { native: "¿Hay una farmacia cerca de aquí?", translation: "Is there a pharmacy near here?" },
+      { native: "Sí, hay una a dos minutos.", translation: "Yes, there is one two minutes away." },
+      { native: "No hay habitaciones libres.", translation: "There are no free rooms." },
+      { native: "¿Cuántos estudiantes hay en la clase?", translation: "How many students are there in the class?" },
+      { native: "Hay que reservar con antelación.", translation: "You have to book in advance." },
+      { native: "¿Hay un banco? — Sí. — ¿Dónde está el banco?", translation: "Is there a bank? — Yes. — Where is the bank? (hay = existence, estar = location)", speakText: "¿Hay un banco? Sí. ¿Dónde está el banco?" },
+      { native: "En mi barrio hay un parque muy bonito.", translation: "In my neighbourhood there is a very nice park." },
+      { native: "No hay tiempo.", translation: "There is no time." },
+    ]
+  },
 ]

@@ -232,4 +232,46 @@ SEASONS:
             { native: "Au printemps, les fleurs poussent.", translation: "In spring, the flowers grow. (au — not en)" },
         ]
     },
+    {
+        id: "fr-g-a1-32",
+        level: "A1",
+        title: "Il y a — There Is / There Are",
+        explanation: `IL Y A is one of the most useful expressions in French. It means 'there is' or 'there are' — the same form is used for both singular and plural. Unlike English, it never changes.
+
+STRUCTURE
+  il y a + noun
+
+  Il y a un café près d'ici.      There is a café nearby.
+  Il y a des étudiants ici.       There are students here.
+
+NEGATIVE — il n'y a pas de
+After negation, the article disappears and is replaced by de (or d' before a vowel):
+  Il y a du lait.              → Il n'y a pas de lait.       (There's no milk.)
+  Il y a une pharmacie.        → Il n'y a pas de pharmacie.  (There's no pharmacy.)
+  Il y a des problèmes.        → Il n'y a pas de problèmes.  (There are no problems.)
+
+QUESTION — est-ce qu'il y a / il y a... ?
+  Est-ce qu'il y a un hôtel ici?     Is there a hotel here?
+  Il y a des toilettes?               Are there toilets? (intonation question)
+  Qu'est-ce qu'il y a?                What is there? / What's the matter?
+
+WITH TIME — il y a also means 'ago':
+  Il y a deux ans.     Two years ago.
+  Il y a cinq minutes. Five minutes ago.
+This use will become important at A2 — just recognise it for now.
+
+IL Y A vs C'EST / CE SONT
+  il y a    → signals existence or presence (there is something)
+  c'est     → identifies or describes (it is something specific)
+  Il y a un médecin.   There is a doctor. (existence)
+  C'est mon médecin.   He is my doctor.   (identification)`,
+        examples: [
+            { native: "Il y a un supermarché près d'ici.", translation: "There is a supermarket nearby." },
+            { native: "Il y a des étudiants dans la classe.", translation: "There are students in the classroom." },
+            { native: "Il n'y a pas de lait.", translation: "There is no milk. (de after negation)" },
+            { native: "Est-ce qu'il y a une pharmacie ici?", translation: "Is there a pharmacy here?" },
+            { native: "Qu'est-ce qu'il y a dans ce sac?", translation: "What is there in this bag? / What's in this bag?" },
+            { native: "Il y a combien d'élèves?", translation: "How many students are there?" },
+        ]
+    },
 ]

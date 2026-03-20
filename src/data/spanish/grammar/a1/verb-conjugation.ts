@@ -205,4 +205,311 @@ Note: acostarse (o→ue) and despertarse (e→ie) are also stem-changing.`,
       { native: "¿A qué hora te despiertas?", translation: "What time do you wake up?" },
     ]
   },
+  {
+    id: "es-g-a1-30",
+    level: "A1",
+    title: "The Imperative — Giving Instructions & Commands",
+    explanation: `The imperative is used for instructions, commands, requests, and suggestions. Spanish has imperative forms for tú (informal), vosotros (informal plural — Spain), usted (formal singular), and ustedes (formal plural / Latin America). Nosotros (let's) is also possible.
+
+FORMING THE AFFIRMATIVE IMPERATIVE
+
+TÚ form — the most common:
+  -ar verbs: use the él/ella present tense form (drop -as from tú form):
+    hablar:  tú hablas → ¡Habla!      (Speak!)
+    comprar: tú compras → ¡Compra!    (Buy!)
+  -er/-ir verbs: same rule:
+    comer:   tú comes → ¡Come!        (Eat!)
+    escribir: tú escribes → ¡Escribe! (Write!)
+
+USTED form — formal singular (same as él/ella subjunctive, but just use this pattern):
+  hablar → ¡Hable!      vosotros → ¡Hablen!
+  comer  → ¡Coma!       ustedes  → ¡Coman!
+  escribir → ¡Escriba!  ustedes  → ¡Escriban!
+
+VOSOTROS form — replace the -r of the infinitive with -d:
+  hablar → ¡Hablad!    comer → ¡Comed!    escribir → ¡Escribid!
+
+NOSOTROS — let's:
+  ¡Hablemos!    Let's speak.
+  ¡Comamos!     Let's eat.
+  ¡Vamos!       Let's go. (irregular)
+
+IRREGULAR TÚ IMPERATIVES — must memorise:
+  ser   → ¡Sé!         tener → ¡Ten!
+  ir    → ¡Ve!         venir → ¡Ven!
+  hacer → ¡Haz!        poner → ¡Pon!
+  decir → ¡Di!         salir → ¡Sal!
+
+NEGATIVE IMPERATIVE
+For ALL forms: no + present subjunctive.
+At A1, the key pattern to know is the tú negative:
+  ¡Habla!  → ¡No hables!     Don't speak!
+  ¡Come!   → ¡No comas!      Don't eat!
+  ¡Vayas!  → ¡No vayas!      Don't go!
+The full subjunctive is A2+ — for now, learn the tú negatives as fixed forms.
+
+REFLEXIVE VERBS IN THE IMPERATIVE
+Reflexive pronouns attach to the end of affirmative imperatives:
+  levantarse: ¡Levántate!    Get up! (tú)
+              ¡Levántese!    Get up! (usted)
+              ¡Levantaos!    Get up! (vosotros — te + os, d drops)
+              ¡Levántense!   Get up! (ustedes)
+
+In negative imperatives the pronoun goes before:
+  ¡No te levantes!    Don't get up! (tú)
+
+See lesson a1-21 for reflexive verbs.
+
+COMMON IMPERATIVE EXPRESSIONS
+  ¡Escucha! / ¡Escuche!     Listen!
+  ¡Mira! / ¡Mire!           Look!
+  ¡Espera! / ¡Espere!       Wait!
+  ¡Repite! / ¡Repita!       Repeat!
+  ¡Siéntate! / ¡Siéntese!  Sit down!
+  ¡Pasa! / ¡Pase!           Come in!
+  ¡Habla más despacio!      Speak more slowly!
+  ¡No te preocupes!         Don't worry! (informal)`,
+    examples: [
+      { native: "¡Habla más despacio, por favor!", translation: "Speak more slowly, please! (tú — informal)" },
+      { native: "¡Escuche, por favor!", translation: "Listen, please! (usted — formal)" },
+      { native: "¡Vamos!", translation: "Let's go! (nosotros)" },
+      { native: "¡No comas eso!", translation: "Don't eat that! (tú negative)" },
+      { native: "¡Levántate!", translation: "Get up! (reflexive imperative — pronoun attached)" },
+      { native: "¡Ten cuidado!", translation: "Be careful! (tener — irregular tú imperative)" },
+    ]
+  },
+  {
+    id: "es-g-a1-31",
+    level: "A1",
+    title: "Stem-Changing Verbs — e→ie, o→ue, e→i",
+    explanation: `You already know that querer (lesson a1-16) changes its stem vowel from e to ie in most forms. This is not a quirk unique to querer — it is a pattern shared by a large group of very common verbs. Understanding the three patterns helps you recognise and use dozens of high-frequency verbs correctly.
+
+THE RULE — the boot / shoe pattern
+Stem changes happen in all forms EXCEPT nosotros and vosotros.
+Draw a line around the affected forms and it looks like a boot or shoe:
+  yo, tú, él/ella, ellos/ellas → stem changes     ← inside the boot
+  nosotros, vosotros           → NO stem change   ← outside the boot
+
+PATTERN 1: e → ie
+The stem vowel e changes to ie.
+
+  QUERER — to want (see a1-16)
+  quiero, quieres, quiere, queremos, queréis, quieren
+
+  EMPEZAR — to begin / start
+  empiezo, empiezas, empieza, empezamos, empezáis, empiezan
+
+  PENSAR — to think
+  pienso, piensas, piensa, pensamos, pensáis, piensan
+
+  ENTENDER — to understand
+  entiendo, entiendes, entiende, entendemos, entendéis, entienden
+
+  VENIR — to come (also irregular yo: vengo)
+  vengo, vienes, viene, venimos, venís, vienen
+
+  TENER — to have (also irregular yo: tengo — see a1-9)
+  tengo, tienes, tiene, tenemos, tenéis, tienen
+
+PATTERN 2: o → ue
+The stem vowel o changes to ue.
+
+  PODER — to be able to / can (see a1-23)
+  puedo, puedes, puede, podemos, podéis, pueden
+
+  VOLVER — to return / come back
+  vuelvo, vuelves, vuelve, volvemos, volvéis, vuelven
+
+  DORMIR — to sleep
+  duermo, duermes, duerme, dormimos, dormís, duermen
+
+  ENCONTRAR — to find / to meet
+  encuentro, encuentras, encuentra, encontramos, encontráis, encuentran
+
+  JUGAR — to play (u → ue — the only u→ue verb)
+  juego, juegas, juega, jugamos, jugáis, juegan
+
+PATTERN 3: e → i (only -ir verbs)
+The stem vowel e changes to i. Only applies to -ir verbs.
+
+  PEDIR — to ask for / order
+  pido, pides, pide, pedimos, pedís, piden
+
+  SERVIR — to serve
+  sirvo, sirves, sirve, servimos, servís, sirven
+
+  REPETIR — to repeat
+  repito, repites, repite, repetimos, repetís, repiten
+
+SUMMARY TABLE
+
+  Pattern    Example verb    yo form    Change
+  e → ie     querer          quiero     e in stem → ie
+  o → ue     poder           puedo      o in stem → ue
+  e → i      pedir           pido       e in stem → i (only -ir verbs)
+  u → ue     jugar           juego      u in stem → ue (jugar only)
+
+NOSOTROS/VOSOTROS NEVER CHANGE — this is the key rule:
+  ✓ queremos (not *querimos)
+  ✓ podemos (not *puedemos)
+  ✓ pedimos (not *pidimos)`,
+    examples: [
+      { native: "¿A qué hora empieza la clase?", translation: "What time does the class begin? (empezar e→ie)" },
+      { native: "No entiendo la pregunta.", translation: "I don't understand the question. (entender e→ie)" },
+      { native: "¿A qué hora vuelves a casa?", translation: "What time do you come home? (volver o→ue)" },
+      { native: "Duermo ocho horas cada noche.", translation: "I sleep eight hours every night. (dormir o→ue)" },
+      { native: "¿Qué pides tú?", translation: "What are you ordering? (pedir e→i — in a restaurant)" },
+      { native: "Los niños juegan en el parque.", translation: "The children play in the park. (jugar u→ue)" },
+      { native: "Nosotros volvemos mañana.", translation: "We come back tomorrow. (nosotros — NO stem change)" },
+    ]
+  },
+  {
+    id: "es-g-a1-33",
+    level: "A1",
+    title: "Saber vs Conocer — Two Verbs for 'To Know'",
+    explanation: `Spanish has two verbs that both translate as 'to know' in English, but they are never interchangeable. The distinction is clear once you understand what each one covers.
+
+THE CORE DIFFERENCE
+  saber    — to know a fact, information, or how to do something
+  conocer  — to know / be acquainted with a person, place, or thing
+
+SABER — knowing facts and skills
+
+CONJUGATION (present tense — irregular yo form):
+  yo **sé**           nosotros sabemos
+  tú sabes            vosotros sabéis
+  él/ella sabe        ellos/ellas saben
+
+USES:
+  Knowing facts / information:
+    Sé tu número de teléfono.    I know your phone number.
+    ¿Sabes la respuesta?         Do you know the answer?
+    No sé dónde está.            I don't know where it is.
+
+  Knowing how to do something (saber + infinitive):
+    Sé nadar.                    I know how to swim.
+    ¿Sabes hablar chino?         Do you know how to speak Chinese?
+    No sé cocinar.               I don't know how to cook.
+
+  Knowing learned/factual information:
+    Sé que tienes razón.         I know (that) you are right.
+    ¿Sabes qué hora es?          Do you know what time it is?
+
+CONOCER — being acquainted with people and places
+
+CONJUGATION (present tense — irregular yo form):
+  yo **conozco**      nosotros conocemos
+  tú conoces          vosotros conocéis
+  él/ella conoce      ellos/ellas conocen
+
+USES:
+  Knowing / being acquainted with a person:
+    Conozco a María.             I know María. (I've met her)
+    ¿Conoces a mi hermano?       Do you know my brother?
+    No conozco a nadie aquí.     I don't know anyone here.
+
+  Note: personal a is required before people with conocer (see below).
+
+  Knowing / being familiar with a place:
+    Conozco Madrid muy bien.     I know Madrid very well.
+    ¿Conoces este restaurante?   Do you know this restaurant?
+
+  Being familiar with a thing (book, film, song):
+    ¿Conoces esta canción?       Do you know this song?
+    Conozco ese libro.           I know that book. (I've read/heard of it)
+
+PERSONAL A WITH CONOCER
+When conocer refers to a person, use personal a:
+  Conozco **a** tu profesor.    I know your teacher.
+  ¿Conoces **a** alguien aquí?  Do you know anyone here?
+  No need for a with places or things:
+  Conozco Madrid.    Conozco ese libro.
+
+QUICK TEST
+Can you replace 'know' with 'know how to' or 'know the fact that'? → saber
+Can you replace 'know' with 'be acquainted with' or 'have been to'? → conocer
+
+  ¿Sabes dónde está el banco?    Do you know where the bank is? (fact → saber)
+  ¿Conoces el banco de la plaza? Do you know the bank on the square? (familiar with → conocer)`,
+    examples: [
+      { native: "Sé hablar español un poco.", translation: "I know how to speak a little Spanish. (saber + infinitive)" },
+      { native: "No sé dónde está la estación.", translation: "I don't know where the station is. (fact → saber)" },
+      { native: "Conozco a tu hermana.", translation: "I know your sister. (person → conocer + personal a)" },
+      { native: "¿Conoces Madrid?", translation: "Do you know Madrid? (place → conocer)" },
+      { native: "¿Sabes qué hora es?", translation: "Do you know what time it is? (fact → saber)" },
+      { native: "No conozco a nadie aquí.", translation: "I don't know anyone here. (person → conocer)" },
+      { native: "Sé que tienes razón.", translation: "I know that you are right. (fact → saber)" },
+    ]
+  },
+  {
+    id: "es-g-a1-34",
+    level: "A1",
+    title: "Irregular Yo Forms — The 'Yo-Go' Verbs",
+    explanation: `Several very common Spanish verbs have a regular present tense in all forms except yo, which ends in -go instead of the expected -o. Once you recognise this pattern, you can handle all of them confidently.
+
+THE PATTERN — irregular yo, regular everything else
+
+  TENER — to have (stem-change e→ie in other forms — see a1-9, a1-31)
+  yo **tengo**    tú tienes    él tiene    nosotros tenemos
+
+  VENIR — to come (stem-change e→ie in other forms — see a1-31)
+  yo **vengo**    tú vienes    él viene    nosotros venimos
+
+  HACER — to do / make
+  yo **hago**     tú haces     él hace     nosotros hacemos
+
+  SALIR — to leave / go out
+  yo **salgo**    tú sales     él sale     nosotros salimos
+
+  PONER — to put / place
+  yo **pongo**    tú pones     él pone     nosotros ponemos
+
+  TRAER — to bring
+  yo **traigo**   tú traes     él trae     nosotros traemos
+
+  CAER — to fall
+  yo **caigo**    tú caes      él cae      nosotros caemos
+
+  OÍR — to hear
+  yo **oigo**     tú oyes      él oye      nosotros oímos
+
+TWO EXTRA IRREGULAR YO FORMS (not -go but equally important):
+
+  SABER — to know (see a1-33)
+  yo **sé**       tú sabes     él sabe     nosotros sabemos
+
+  CONOCER — to know / meet (see a1-33)
+  yo **conozco**  tú conoces   él conoce   nosotros conocemos
+
+  VER — to see
+  yo **veo**      tú ves       él ve       nosotros vemos
+
+  DAR — to give
+  yo **doy**      tú das       él da       nosotros damos
+
+THE PRACTICAL IMPACT
+These are among the most frequent verbs in Spanish. You will produce yo forms constantly:
+
+  ¿Qué haces? — Hago los deberes.     What are you doing? — I'm doing homework.
+  ¿A qué hora sales? — Salgo a las ocho. What time do you leave? — I leave at eight.
+  ¿Qué pones aquí? — Pongo las llaves.  What do you put here? — I put the keys.
+  Traigo el vino — ¿tú traes el pan?   I'll bring the wine — will you bring the bread?
+
+COMPOUNDS INHERIT THE IRREGULAR YO
+Verbs built on these roots keep the irregular yo:
+  tener → mantener (maintain) → yo mantengo
+  poner → proponer (propose) → yo propongo
+  venir → convenir (suit/agree) → yo convengo
+  hacer → deshacer (undo) → yo deshago
+You don't need these yet — just know the pattern extends.`,
+    examples: [
+      { native: "Hago deporte todos los días.", translation: "I do sport every day. (hacer → hago)" },
+      { native: "Salgo de casa a las ocho.", translation: "I leave home at eight. (salir → salgo)" },
+      { native: "Pongo las llaves aquí siempre.", translation: "I always put the keys here. (poner → pongo)" },
+      { native: "Traigo algo de comer.", translation: "I'm bringing something to eat. (traer → traigo)" },
+      { native: "No oigo bien — ¿puedes repetir?", translation: "I can't hear well — can you repeat? (oír → oigo)" },
+      { native: "Tengo que irme — vengo mañana.", translation: "I have to go — I'll come tomorrow. (tengo / vengo)" },
+      { native: "Veo la televisión por la noche.", translation: "I watch television at night. (ver → veo)" },
+    ]
+  },
 ]

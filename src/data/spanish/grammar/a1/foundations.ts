@@ -144,4 +144,53 @@ Spanish uses an opening inverted ¿ before every question.`,
       { native: "¿Cuántos años tienes?", translation: "How old are you?" },
     ]
   },
+  {
+    id: "es-g-a1-28",
+    level: "A1",
+    title: "Ser vs Estar — Adjectives That Change Meaning",
+    explanation: `You already know the core rule: ser for identity/permanent traits, estar for location/temporary states. But some adjectives change meaning entirely depending on which verb they follow. These are among the most common adjective pairs in Spanish and are worth knowing from A1.
+
+THE KEY PAIRS
+
+  Adjective      SER (identity/defining)         ESTAR (state/condition)
+  ──────────────────────────────────────────────────────────────────────
+  aburrido/a     boring (personality)            bored (how you feel right now)
+  malo/a         bad / evil (defining trait)     ill / sick (current condition)
+  bueno/a        good (personality / quality)    tasty / feeling well
+  listo/a        clever / smart                  ready
+  rico/a         rich (wealthy)                  delicious (taste)
+  muerto/a       (inherently dead — metaphor)    dead (actual state)
+  seguro/a       safe (inherently)               sure / certain (current feeling)
+  vivo/a         lively / sharp-witted           alive (current state)
+
+THE FOUR YOU WILL MEET FIRST
+
+  ABURRIDO
+    Es muy aburrido.      He is very boring.    (that's his personality)
+    Estoy aburrido.       I am bored.           (right now, this moment)
+
+  MALO
+    Es malo.              He is bad / evil.     (defining character)
+    Está malo.            He is ill / sick.     (temporary condition)
+
+  BUENO
+    Es buena persona.     She is a good person. (character)
+    Está buenísimo.       It tastes amazing.    (food, right now)
+
+  LISTO
+    Es muy lista.         She is very clever.   (personality)
+    ¿Estás listo?         Are you ready?        (current state)
+
+MEMORY TIP: ask yourself whether you are describing what something IS by nature, or what state it is IN at this moment. Nature → ser. State → estar.`,
+    examples: [
+      { native: "Esta película es muy aburrida.", translation: "This film is very boring. (ser — it's just a boring film)" },
+      { native: "Estoy aburrida en casa.", translation: "I am bored at home. (estar — feeling bored right now)" },
+      { native: "Es malo con los animales.", translation: "He is cruel to animals. (ser — character)" },
+      { native: "Mi madre está mala hoy.", translation: "My mother is ill today. (estar — temporary condition)" },
+      { native: "¿Estás listo para salir?", translation: "Are you ready to go out? (estar — current state)" },
+      { native: "Es una chica muy lista.", translation: "She is a very clever girl. (ser — personality)" },
+      { native: "Este postre está riquísimo.", translation: "This dessert is absolutely delicious. (estar — taste)" },
+      { native: "Es rico, tiene tres casas.", translation: "He is wealthy, he has three houses. (ser — defining trait)" },
+    ]
+  },
 ]

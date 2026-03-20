@@ -202,4 +202,144 @@ Note: The infinitive always ends in -si. Remove -si, then conjugate the verb nor
             { native: "A che ora ti svegli?", translation: "What time do you wake up?" },
         ]
     },
+    {
+        id: "it-g-a1-32",
+        level: "A1",
+        title: "The Imperative — Giving Instructions & Commands",
+        explanation: `The imperative is used to give instructions, commands, requests, and suggestions. Italian has imperative forms for tu (informal), noi (let's), and voi (plural/formal group). The formal singular imperative uses Lei and is covered separately at A2.
+
+FORMING THE IMPERATIVE
+
+-ARE VERBS (parlare — to speak):
+  tu    → Parla!       (Speak! — informal singular)
+  noi   → Parliamo!    (Let's speak!)
+  voi   → Parlate!     (Speak! — plural)
+
+-ERE VERBS (scrivere — to write):
+  tu    → Scrivi!      (Write!)
+  noi   → Scriviamo!   (Let's write!)
+  voi   → Scrivete!    (Write! — plural)
+
+-IRE VERBS TYPE 1 (dormire — to sleep):
+  tu    → Dormi!
+  noi   → Dormiamo!
+  voi   → Dormite!
+
+-IRE VERBS TYPE 2 (finire — to finish):
+  tu    → Finisci!     (note the -isc- as in present tense — see a1-7)
+  noi   → Finiamo!
+  voi   → Finite!
+
+KEY OBSERVATION: for -ere and -ire verbs, the tu imperative is identical to
+the present tense tu form. For -are verbs, the tu imperative loses the -i:
+  tu parli (present) → Parla! (imperative)
+  tu scrivi (present) → Scrivi! (imperative — same form)
+
+IRREGULAR IMPERATIVES — the most important:
+
+  essere:  Sii paziente!    Siamo pronti!    Siate puntuali!
+  avere:   Abbi pazienza!   Abbiamo fede!    Abbiate cura!
+  andare:  Vai! / Va'!      Andiamo!         Andate!
+  fare:    Fai! / Fa'!      Facciamo!        Fate!
+  venire:  Vieni!           Veniamo!         Venite!
+  dire:    Di'!             Diciamo!         Dite!
+  stare:   Stai! / Sta'!    Stiamo!          State!
+
+The short forms (Va'! Fa'! Di'! Sta'!) are common in informal speech — the
+apostrophe marks the dropped syllable.
+
+NEGATIVE IMPERATIVE
+For tu: non + infinitive (NOT the imperative form — this is unique to tu):
+  Non parlare!        Don't speak! (tu)
+  Non mangiare!       Don't eat! (tu)
+
+For noi and voi: non + imperative form:
+  Non parliamo di questo.   Let's not talk about this.
+  Non partite ancora!       Don't leave yet!
+
+REFLEXIVE VERBS IN THE IMPERATIVE
+The reflexive pronoun attaches to the end of the verb:
+  Alzati!             Get up! (tu — alzarsi)
+  Alziamoci!          Let's get up!
+  Alzatevi!           Get up! (voi)
+  Non ti alzare!      Don't get up! (tu negative — pronoun before infinitive)
+
+See lesson a1-25 for reflexive verbs.
+
+COMMON IMPERATIVE EXPRESSIONS
+  Aspetta! / Aspettate!    Wait!
+  Guarda! / Guardate!      Look!
+  Ascolta! / Ascoltate!    Listen!
+  Vieni qui!               Come here!
+  Andiamo!                 Let's go!
+  Dimmi!                   Tell me! (Di' + mi)
+  Fammi vedere!            Let me see! (Fa' + mi)
+  Stai tranquillo!         Calm down!`,
+        examples: [
+            { native: "Parla più lentamente, per favore.", translation: "Speak more slowly, please. (tu — informal)" },
+            { native: "Ascoltate bene!", translation: "Listen carefully! (voi — plural)" },
+            { native: "Andiamo!", translation: "Let's go!" },
+            { native: "Non mangiare quello!", translation: "Don't eat that! (tu negative — non + infinitive)" },
+            { native: "Alzati!", translation: "Get up! (reflexive imperative — pronoun attached)" },
+            { native: "Fammi vedere.", translation: "Let me see. (Fa' + mi — contracted)" },
+        ]
+    },
+    {
+        id: "it-g-a1-33",
+        level: "A1",
+        title: "Dovere — Must / Have To / Should",
+        explanation: `**Dovere** expresses obligation, necessity, and probability. Along with volere (a1-19) and potere (a1-19), it completes the core modal verb trio in Italian. It is irregular — memorise it.
+
+CONJUGATION (present tense):
+  io      → **devo**     (I must)
+  tu      → **devi**     (you must)
+  lui/lei → **deve**     (he/she must)
+  noi     → **dobbiamo** (we must)
+  voi     → **dovete**   (you must)
+  loro    → **devono**   (they must)
+
+Always followed by an infinitive:
+  Devo partire.          I must leave.
+  Devi mangiare.         You have to eat.
+  Deve lavorare.         He/she has to work.
+
+THREE MEANINGS OF DOVERE
+
+1. OBLIGATION — must / have to (external necessity):
+   Devo andare dal medico.        I have to go to the doctor.
+   Dovete prenotare in anticipo.  You must book in advance.
+
+2. MORAL DUTY — should / ought to:
+   Devi chiamare tua madre.       You should call your mother.
+   Dobbiamo rispettare gli altri. We should respect others.
+
+3. PROBABILITY — must (logical deduction):
+   È mezzogiorno — devi avere fame.  It's noon — you must be hungry.
+   Non risponde, deve dormire.        She's not answering, she must be sleeping.
+
+DOVERE vs POTERE vs VOLERE — quick comparison:
+  Devo partire.    I must leave.     (obligation — no real choice)
+  Posso partire.   I can leave.      (ability/permission — it's possible)
+  Voglio partire.  I want to leave.  (desire — personal wish)
+
+See lesson a1-19 for volere and potere.
+
+NEGATIVE — non before dovere:
+  Non devo lavorare domani.    I don't have to work tomorrow.
+  Non devi fumare qui.         You must not smoke here.
+
+Note the important distinction:
+  Non devo    → I don't have to (no obligation)
+  Non posso   → I can't (no ability/permission)
+  Non devo fumare.   I don't have to smoke. (it's not required)
+  Non posso fumare.  I can't smoke. (it's not allowed / I'm unable to)`,
+        examples: [
+            { native: "Devo studiare stasera.", translation: "I have to study tonight." },
+            { native: "Devi parlare con il professore.", translation: "You should speak with the teacher." },
+            { native: "Deve essere stanca.", translation: "She must be tired. (probability)" },
+            { native: "Dobbiamo partire alle otto.", translation: "We have to leave at eight." },
+            { native: "Dovete prenotare in anticipo.", translation: "You must book in advance." },
+            { native: "Non devo lavorare domani.", translation: "I don't have to work tomorrow." },
+        ]
+    },
 ]

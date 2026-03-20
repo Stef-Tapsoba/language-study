@@ -184,4 +184,45 @@ To replace a noun entirely (this one / that one):
             { native: "C'est ça!", translation: "That's it! / Exactly! (very common spoken French)" },
         ]
     },
+    {
+        id: "fr-g-a1-31",
+        level: "A1",
+        title: "Partitive Articles: du, de la, de l', des",
+        explanation: `Partitive articles express an unspecified quantity — the English equivalent is 'some', or simply no article at all. Use them when you want part of something rather than a specific, countable unit.
+
+FORMS — same as the contractions you know from lesson 14, but used differently:
+
+  du   — masculine singular:              du pain, du café, du fromage
+  de la — feminine singular:              de la viande, de la limonade, de la chance
+  de l' — masc. or fem. before vowel:    de l'eau, de l'huile, de l'argent
+  des   — all plurals:                    des légumes, des œufs, des amis
+
+PARTITIVE vs CONTRACTION — same form, different meaning
+You already know du and des as contractions of de + le / de + les (lesson 14).
+The form is identical — the meaning depends on context:
+
+  Contraction:  Le livre du professeur.   = The teacher's book.   (de = of/possession)
+  Partitive:    Je mange du pain.          = I eat some bread.    (du = unspecified quantity)
+
+The easiest test: can you replace it with 'some'? If yes, it's a partitive.
+
+AFTER NEGATION — all partitive forms become de (or d' before a vowel):
+  Je veux du café.          → Je ne veux pas de café.
+  Elle mange de la viande.  → Elle ne mange pas de viande.
+  Il boit de l'eau.         → Il ne boit pas d'eau.
+  Tu as des amis.           → Tu n'as pas d'amis.
+
+DEFINITE vs INDEFINITE vs PARTITIVE — quick comparison:
+  le café    → coffee in general / coffee as a concept   (Je n'aime pas le café.)
+  un café    → one coffee, a specific coffee             (Je veux un café.)
+  du café    → some coffee, an unspecified amount        (Je bois du café.)`,
+        examples: [
+            { native: "Je veux du pain.", translation: "I want some bread. (du — masc. sg.)" },
+            { native: "Elle boit de la limonade.", translation: "She drinks some lemonade. (de la — fem. sg.)" },
+            { native: "Tu veux de l'eau?", translation: "Do you want some water? (de l' — before vowel)" },
+            { native: "Je mange des légumes.", translation: "I eat some vegetables. (des — plural)" },
+            { native: "Je ne bois pas de café.", translation: "I don't drink coffee. (de after negation)" },
+            { native: "J'aime le café. / Je bois du café.", translation: "I like coffee (in general). / I drink some coffee (quantity).", speakText: "J'aime le café. Je bois du café." },
+        ]
+    },
 ]
