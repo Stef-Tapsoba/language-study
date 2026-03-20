@@ -329,4 +329,27 @@ export const a1Verbs: Verb[] = [
             }
         ]
     },
+    {
+        id: "ko-vb-a1-15",
+        level: "A1",
+        infinitive: "요리하다",
+        romanized: "yorihada",
+        meaning: "to cook",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "요리해요", romanized: "yorihaeyo" },
+                    { pronoun: "Negative", form: "요리 안 해요", romanized: "yori an haeyo" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "요리했어요", romanized: "yorihaesseoyo" },
+                    { pronoun: "Negative", form: "요리 안 했어요", romanized: "yori an haesseoyo" }
+                ]
+            }
+        ]
+    },
 ]

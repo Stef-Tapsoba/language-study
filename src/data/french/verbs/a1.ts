@@ -328,4 +328,129 @@ export const a1Verbs: Verb[] = [
             ]
         }]
     },
+    {
+        id: "fr-vb-a1-20",
+        level: "A1",
+        infinitive: "devoir",
+        meaning: "must / to have to",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "dois" },
+                { pronoun: "tu", form: "dois" },
+                { pronoun: "il/elle", form: "doit" },
+                { pronoun: "nous", form: "devons" },
+                { pronoun: "vous", form: "devez" },
+                { pronoun: "ils/elles", form: "doivent" },
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-21",
+        level: "A1",
+        infinitive: "écouter",
+        meaning: "to listen",
+        conjugations: [
+            {
+                tense: "Present",
+                forms: [
+                    { pronoun: "je", form: "écoute" },
+                    { pronoun: "tu", form: "écoutes" },
+                    { pronoun: "il/elle", form: "écoute" },
+                    { pronoun: "nous", form: "écoutons" },
+                    { pronoun: "vous", form: "écoutez" },
+                    { pronoun: "ils/elles", form: "écoutent" },
+                ]
+            },
+            {
+                tense: "Imperative",
+                forms: [
+                    { pronoun: "tu", form: "écoute" },
+                    { pronoun: "nous", form: "écoutons" },
+                    { pronoun: "vous", form: "écoutez" },
+                ]
+            }
+        ]
+    },
+    {
+        id: "fr-vb-a1-22",
+        level: "A1",
+        infinitive: "regarder",
+        meaning: "to look / to watch",
+        conjugations: [
+            {
+                tense: "Present",
+                forms: [
+                    { pronoun: "je", form: "regarde" },
+                    { pronoun: "tu", form: "regardes" },
+                    { pronoun: "il/elle", form: "regarde" },
+                    { pronoun: "nous", form: "regardons" },
+                    { pronoun: "vous", form: "regardez" },
+                    { pronoun: "ils/elles", form: "regardent" },
+                ]
+            },
+            {
+                tense: "Imperative",
+                forms: [
+                    { pronoun: "tu", form: "regarde" },
+                    { pronoun: "nous", form: "regardons" },
+                    { pronoun: "vous", form: "regardez" },
+                ]
+            }
+        ]
+    },
+    {
+        id: "fr-vb-a1-23",
+        level: "A1",
+        infinitive: "répéter",
+        meaning: "to repeat",
+        conjugations: [
+            {
+                tense: "Present",
+                forms: [
+                    { pronoun: "je", form: "répète" },
+                    { pronoun: "tu", form: "répètes" },
+                    { pronoun: "il/elle", form: "répète" },
+                    { pronoun: "nous", form: "répétons" },
+                    { pronoun: "vous", form: "répétez" },
+                    { pronoun: "ils/elles", form: "répètent" },
+                ]
+            },
+            {
+                tense: "Imperative",
+                forms: [
+                    { pronoun: "tu", form: "répète" },
+                    { pronoun: "nous", form: "répétons" },
+                    { pronoun: "vous", form: "répétez" },
+                ]
+            }
+        ]
+    },
+    {
+        id: "fr-vb-a1-24",
+        level: "A1",
+        infinitive: "entrer",
+        meaning: "to enter / to come in",
+        conjugations: [
+            {
+                tense: "Present",
+                forms: [
+                    { pronoun: "je", form: "entre" },
+                    { pronoun: "tu", form: "entres" },
+                    { pronoun: "il/elle", form: "entre" },
+                    { pronoun: "nous", form: "entrons" },
+                    { pronoun: "vous", form: "entrez" },
+                    { pronoun: "ils/elles", form: "entrent" },
+                ]
+            },
+            {
+                tense: "Imperative",
+                forms: [
+                    { pronoun: "tu", form: "entre" },
+                    { pronoun: "nous", form: "entrons" },
+                    { pronoun: "vous", form: "entrez" },
+                ]
+            }
+        ]
+    },
 ]

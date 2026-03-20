@@ -457,4 +457,163 @@ export const a1Verbs: Verb[] = [
             ]
         }]
     },
+    {
+        id: "it-vb-a1-27",
+        level: "A1",
+        infinitive: "dovere",
+        meaning: "must / to have to",
+        conjugations: [
+            {
+                tense: "Present",
+                forms: [
+                    { pronoun: "io", form: "devo" },
+                    { pronoun: "tu", form: "devi" },
+                    { pronoun: "lui/lei", form: "deve" },
+                    { pronoun: "noi", form: "dobbiamo" },
+                    { pronoun: "voi", form: "dovete" },
+                    { pronoun: "loro", form: "devono" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "it-vb-a1-28",
+        level: "A1",
+        infinitive: "scrivere",
+        meaning: "to write",
+        conjugations: [
+            {
+                tense: "Present",
+                forms: [
+                    { pronoun: "io", form: "scrivo" },
+                    { pronoun: "tu", form: "scrivi" },
+                    { pronoun: "lui/lei", form: "scrive" },
+                    { pronoun: "noi", form: "scriviamo" },
+                    { pronoun: "voi", form: "scrivete" },
+                    { pronoun: "loro", form: "scrivono" }
+                ]
+            },
+            {
+                tense: "Imperative",
+                forms: [
+                    { pronoun: "tu", form: "scrivi" },
+                    { pronoun: "Lei (formal)", form: "scriva" },
+                    { pronoun: "noi", form: "scriviamo" },
+                    { pronoun: "voi", form: "scrivete" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "it-vb-a1-29",
+        level: "A1",
+        infinitive: "guardare",
+        meaning: "to look at / to watch",
+        conjugations: [
+            {
+                tense: "Present",
+                forms: [
+                    { pronoun: "io", form: "guardo" },
+                    { pronoun: "tu", form: "guardi" },
+                    { pronoun: "lui/lei", form: "guarda" },
+                    { pronoun: "noi", form: "guardiamo" },
+                    { pronoun: "voi", form: "guardate" },
+                    { pronoun: "loro", form: "guardano" }
+                ]
+            },
+            {
+                tense: "Imperative",
+                forms: [
+                    { pronoun: "tu", form: "guarda" },
+                    { pronoun: "Lei (formal)", form: "guardi" },
+                    { pronoun: "noi", form: "guardiamo" },
+                    { pronoun: "voi", form: "guardate" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "it-vb-a1-30",
+        level: "A1",
+        infinitive: "aspettare",
+        meaning: "to wait",
+        conjugations: [
+            {
+                tense: "Present",
+                forms: [
+                    { pronoun: "io", form: "aspetto" },
+                    { pronoun: "tu", form: "aspetti" },
+                    { pronoun: "lui/lei", form: "aspetta" },
+                    { pronoun: "noi", form: "aspettiamo" },
+                    { pronoun: "voi", form: "aspettate" },
+                    { pronoun: "loro", form: "aspettano" }
+                ]
+            },
+            {
+                tense: "Imperative",
+                forms: [
+                    { pronoun: "tu", form: "aspetta" },
+                    { pronoun: "Lei (formal)", form: "aspetti" },
+                    { pronoun: "noi", form: "aspettiamo" },
+                    { pronoun: "voi", form: "aspettate" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "it-vb-a1-31",
+        level: "A1",
+        infinitive: "dire",
+        meaning: "to say / to tell",
+        conjugations: [
+            {
+                tense: "Present",
+                forms: [
+                    { pronoun: "io", form: "dico" },
+                    { pronoun: "tu", form: "dici" },
+                    { pronoun: "lui/lei", form: "dice" },
+                    { pronoun: "noi", form: "diciamo" },
+                    { pronoun: "voi", form: "dite" },
+                    { pronoun: "loro", form: "dicono" }
+                ]
+            },
+            {
+                tense: "Imperative",
+                forms: [
+                    { pronoun: "tu", form: "di'" },
+                    { pronoun: "Lei (formal)", form: "dica" },
+                    { pronoun: "noi", form: "diciamo" },
+                    { pronoun: "voi", form: "dite" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "it-vb-a1-32",
+        level: "A1",
+        infinitive: "stare",
+        meaning: "to stay / to be",
+        conjugations: [
+            {
+                tense: "Present",
+                forms: [
+                    { pronoun: "io", form: "sto" },
+                    { pronoun: "tu", form: "stai" },
+                    { pronoun: "lui/lei", form: "sta" },
+                    { pronoun: "noi", form: "stiamo" },
+                    { pronoun: "voi", form: "state" },
+                    { pronoun: "loro", form: "stanno" }
+                ]
+            },
+            {
+                tense: "Imperative",
+                forms: [
+                    { pronoun: "tu", form: "sta'/stai" },
+                    { pronoun: "Lei (formal)", form: "stia" },
+                    { pronoun: "noi", form: "stiamo" },
+                    { pronoun: "voi", form: "state" }
+                ]
+            }
+        ]
+    },
 ]
