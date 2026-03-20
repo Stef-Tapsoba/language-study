@@ -255,4 +255,191 @@ WHAT you want (a noun, not an action) uses 원하다:
             { native: "가고 싶지 않아요.", romanized: "Gago sipji anayo.", translation: "I don't want to go." },
         ]
     },
+    {
+        id: "ko-g-a1-25",
+        level: "A1",
+        title: "Counters — Counting Things in Korean",
+        explanation: `In Korean, you cannot simply say 'two apples' or 'three cups'. You must use a counter word that matches the type of object. This works the same way as Japanese counters — if you are studying both languages, you will find the concept familiar.
+
+STRUCTURE: Native number + Counter (+ noun, or before a verb)
+  사과 두 개      two apples      (noun + number + counter)
+  커피 세 잔 주세요.  Three coffees please.
+
+NATIVE NUMBERS BEFORE COUNTERS
+Always use native Korean numbers (하나/둘/셋...) with counters — not Sino-Korean.
+The numbers 하나(1), 둘(2), 셋(3), 넷(4), 스물(20) shorten before a counter:
+  하나 → 한    둘 → 두    셋 → 세    넷 → 네    스물 → 스무
+
+See lesson a1-11 for the two number systems.
+
+THE SIX ESSENTIAL A1 COUNTERS
+
+개 — general objects (the safe default for most things):
+  한 개 (1)   두 개 (2)   세 개 (3)   네 개 (4)   다섯 개 (5)
+  사과 두 개   two apples
+  물건 세 개   three items
+  When in doubt, use 개 — it works for most physical objects.
+
+명 / 분 — people:
+  한 명 / 두 명 / 세 명...
+  분 is more polite: 두 분 (two people — respectful, e.g. to a waiter)
+  학생 다섯 명    five students
+  두 분이세요?    Is it two people? (restaurant, polite)
+
+잔 — cups and glasses of liquid:
+  한 잔 / 두 잔 / 세 잔...
+  커피 한 잔    one cup of coffee
+  물 두 잔     two glasses of water
+
+병 — bottles:
+  한 병 / 두 병 / 세 병...
+  맥주 두 병    two bottles of beer
+  물 한 병     one bottle of water
+
+권 — bound books and notebooks:
+  한 권 / 두 권 / 세 권...
+  책 세 권     three books
+  공책 두 권   two notebooks
+
+장 — flat thin things (paper, tickets, photos, slices):
+  한 장 / 두 장 / 세 장...
+  티켓 두 장   two tickets
+  종이 한 장   one sheet of paper
+  피자 한 장   one slice of pizza
+
+ORDERING WITH COUNTERS
+  커피 두 잔 주세요.          Two coffees, please.
+  어른 두 명, 어린이 한 명.   Two adults, one child.
+  사과 세 개 얼마예요?        How much are three apples?
+
+ASKING HOW MANY
+  몇 + counter + 이에요/예요?   How many ~?
+  몇 명이에요?    How many people?
+  몇 잔이에요?    How many cups?
+  몇 개예요?      How many (items)?`,
+        examples: [
+            { native: "사과 두 개 주세요.", romanized: "Sagwa du gae juseyo.", translation: "Two apples, please. (개 = general objects)" },
+            { native: "커피 한 잔 주세요.", romanized: "Keopi han jan juseyo.", translation: "One coffee, please. (잔 = cups)" },
+            { native: "두 분이세요?", romanized: "Du buniseyo?", translation: "Is it two people? (분 = polite counter for people)" },
+            { native: "책 세 권 있어요.", romanized: "Chaek se gwon isseoyo.", translation: "I have three books. (권 = bound books)" },
+            { native: "티켓 두 장 주세요.", romanized: "Tiket du jang juseyo.", translation: "Two tickets, please. (장 = flat things)" },
+            { native: "몇 명이에요?", romanized: "Myeong myeongieyo?", translation: "How many people?" },
+        ]
+    },
+    {
+        id: "ko-g-a1-27",
+        level: "A1",
+        title: "~(으)세요 — Polite Requests & Honorific Commands",
+        explanation: `~(으)세요 is the standard polite form for requests, instructions, and commands in Korean. It is what you hear constantly in shops, announcements, classrooms, and everyday interactions. It is more natural and common in real life than the ~아/어 주세요 form.
+
+FORMATION
+  Verb stem ends in vowel or ㄹ → 세요
+  Verb stem ends in consonant   → 으세요
+
+  가다   → 가 + 세요    = 가세요       Please go. / Go.
+  오다   → 오 + 세요    = 오세요       Please come. / Welcome.
+  앉다   → 앉 + 으세요  = 앉으세요     Please sit down.
+  읽다   → 읽 + 으세요  = 읽으세요     Please read.
+  기다리다 → 기다리 + 세요 = 기다리세요 Please wait.
+
+SPECIAL CASE — ㄹ stems drop ㄹ before 세요:
+  살다   → 살 → 사 + 세요   = 사세요    Please live. / (as greeting: long live~)
+  알다   → 알 → 아 + 세요   = 아세요    Do you know? (honorific question)
+  만들다 → 만들 → 만드 + 세요 = 만드세요 Please make.
+
+TWO USES
+
+1. POLITE REQUESTS / INSTRUCTIONS — asking someone to do something:
+  여기 앉으세요.          Please sit here.
+  잠깐 기다리세요.        Please wait a moment.
+  천천히 말씀해 주세요.   Please speak slowly.
+  이쪽으로 오세요.        Please come this way.
+
+2. HONORIFIC STATEMENTS — used to describe what a respected person does:
+  선생님이 오세요.        The teacher is coming.
+  어머니가 드세요.        My mother is eating. (드시다 = honorific eat)
+  This use is more A2 — just recognise it for now.
+
+NEGATIVE REQUEST — ~지 마세요 (please don't):
+  하다  → 하지 마세요.     Please don't do that.
+  가다  → 가지 마세요.     Please don't go.
+  찍다  → 찍지 마세요.     Please don't take photos.
+
+COMMON ~(으)세요 EXPRESSIONS YOU ALREADY KNOW
+  어서 오세요.             Welcome! (lit. please come quickly — heard in every shop)
+  안녕히 계세요.           Goodbye. (please stay well — said to person staying)
+  안녕히 가세요.           Goodbye. (please go well — said to person leaving)
+  See lesson a1-4 for greetings.
+
+~(으)세요 vs ~아/어 주세요
+  두 가지 다 공손하지만 (both are polite):
+  ~(으)세요         direct polite request, everyday instructions
+  ~아/어 주세요     requesting a favour, slightly softer (please do ~ for me)
+  앉으세요.         Please sit. (standard instruction)
+  앉아 주세요.      Could you please sit? (softer, asking a favour)`,
+        examples: [
+            { native: "여기 앉으세요.", romanized: "Yeogi anjeuseyo.", translation: "Please sit here." },
+            { native: "잠깐 기다리세요.", romanized: "Jamkkan gidariseyo.", translation: "Please wait a moment." },
+            { native: "이쪽으로 오세요.", romanized: "Ijjogeuro oseyo.", translation: "Please come this way." },
+            { native: "천천히 말씀해 주세요.", romanized: "Cheoncheonhi malsseum hae juseyo.", translation: "Please speak slowly." },
+            { native: "사진 찍지 마세요.", romanized: "Sajin jjikji maseyo.", translation: "Please don't take photos." },
+            { native: "어서 오세요!", romanized: "Eoseo oseyo!", translation: "Welcome! (heard in every shop and restaurant)" },
+        ]
+    },
+    {
+        id: "ko-g-a1-29",
+        level: "A1",
+        title: "~(으)ㄹ까요? — Shall We? / I Wonder / What Do You Think?",
+        explanation: `~(으)ㄹ까요? is a versatile sentence-ending that expresses suggestions, polite proposals, and wondering. It is one of the softest and most natural ways to make suggestions in Korean.
+
+FORMATION
+  Verb stem ends in vowel or ㄹ → ㄹ까요?
+  Verb stem ends in consonant   → 을까요?
+
+  가다   → 갈까요?      Shall we go?
+  먹다   → 먹을까요?    Shall we eat?
+  하다   → 할까요?      Shall we do it?
+  앉다   → 앉을까요?    Shall we sit?
+
+THREE USES
+
+1. SUGGESTION — shall we? (first person plural, speaker included)
+  같이 갈까요?          Shall we go together?
+  뭐 먹을까요?          What shall we eat?
+  여기 앉을까요?        Shall we sit here?
+  커피 마실까요?        Shall we have coffee?
+
+This is the most common use at A1. It is softer than 가요! (let's go) and
+more collaborative — it genuinely asks for input.
+
+2. OFFERING / ASKING PERMISSION — shall I? (first person singular)
+  제가 할까요?          Shall I do it? / Would you like me to do it?
+  창문 열까요?          Shall I open the window?
+  도와드릴까요?         Shall I help you?
+
+3. WONDERING / RHETORICAL — I wonder... (to oneself or others)
+  오늘 날씨가 어떨까요?  I wonder what the weather will be like today.
+  얼마나 걸릴까요?       I wonder how long it will take.
+  This use is more A2 — just recognise it for now.
+
+RESPONDING TO ~(으)ㄹ까요?
+  Agreeing:    네, 좋아요!           Yes, sounds good!
+               그래요, 그렇게 해요.  Sure, let's do that.
+  Suggesting alternative: 저는 ~이/가 좋아요.  I'd prefer ~.
+  Declining:   저는 괜찮아요.        I'm okay (no thank you).
+
+~(으)ㄹ까요? vs ~(으)ㅂ시다
+Both suggest doing something together:
+  갈까요?    Shall we go? (soft suggestion, asking)
+  갑시다.    Let's go. (more direct, decided — formal speech level)
+  갈까요? is more common in 해요체 and sounds more natural in everyday conversation.`,
+        examples: [
+            { native: "같이 갈까요?", romanized: "Gachi galkkayo?", translation: "Shall we go together?" },
+            { native: "뭐 먹을까요?", romanized: "Mwo meogeulkkayo?", translation: "What shall we eat?" },
+            { native: "여기 앉을까요?", romanized: "Yeogi anjeulkkayo?", translation: "Shall we sit here?" },
+            { native: "제가 할까요?", romanized: "Jega halkkayo?", translation: "Shall I do it?" },
+            { native: "창문 열까요?", romanized: "Changmun yeolkkayo?", translation: "Shall I open the window?" },
+            { native: "네, 좋아요!", romanized: "Ne, joayo!", translation: "Yes, sounds good! (response to a suggestion)" },
+        ]
+    },
 ]

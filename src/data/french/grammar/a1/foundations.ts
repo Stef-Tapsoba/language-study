@@ -140,4 +140,129 @@ Common expressions with faire:
             { native: "Vous faites la cuisine?", translation: "Do you cook?" },
         ]
     },
+    {
+        id: "fr-g-a1-36",
+        level: "A1",
+        title: "C'est vs Il est / Elle est — Identifying vs Describing",
+        explanation: `C'est and il est / elle est both translate as 'it is' or 'he/she is' in English, but they are not interchangeable in French. Choosing the wrong one is one of the most common errors at A1 and A2.
+
+THE CORE RULE
+
+C'EST — used to identify. It introduces or presents something.
+IL EST / ELLE EST — used to describe. It gives information about something already known.
+
+C'EST + ARTICLE + NOUN (identification):
+  C'est un médecin.        He is a doctor. / It's a doctor.
+  C'est une bonne idée.    It's a good idea.
+  C'est le professeur.     He's the teacher.
+  C'est ma mère.           This is my mother.
+
+IL EST / ELLE EST + ADJECTIVE (description, no article):
+  Il est médecin.          He is a doctor. (profession as description — no article)
+  Elle est française.      She is French.
+  Il est fatigué.          He is tired.
+  Elle est intelligente.   She is intelligent.
+
+THE KEY DIFFERENCE WITH PROFESSIONS
+This is where learners make the most errors:
+  C'est un médecin.    ← article present → c'est
+  Il est médecin.      ← no article → il est
+Both are correct but mean slightly different things:
+  Il est médecin.         He is a doctor. (profession as identity — neutral)
+  C'est un bon médecin.   He is a good doctor. (identified + qualified — adjective forces c'est)
+
+RULE: as soon as an adjective or article modifies the noun → use c'est:
+  Il est médecin.          ✓
+  C'est un médecin.        ✓
+  C'est un bon médecin.    ✓
+  Il est un bon médecin.   ✗
+
+PLURAL — ce sont (not c'est):
+  Ce sont des étudiants.   They are students.
+  Ce sont mes amis.        These are my friends.
+
+QUESTIONS
+  C'est qui?       Who is it?
+  C'est quoi?      What is it?
+  C'est combien?   How much is it?
+  C'est loin?      Is it far?
+
+COMMON FIXED EXPRESSIONS WITH C'EST:
+  C'est ça.        That's it. / Exactly.
+  C'est vrai.      That's true.
+  C'est dommage.   That's a shame.
+  C'est normal.    That's normal.
+  C'est bon.       That's good. / It tastes good.`,
+        examples: [
+            { native: "C'est un hôtel.", translation: "It's a hotel. (c'est + article + noun — identification)" },
+            { native: "Il est grand et moderne.", translation: "It is big and modern. (il est + adjective — description)" },
+            { native: "C'est mon professeur.", translation: "He is my teacher. (c'est + possessive — identification)" },
+            { native: "Il est professeur.", translation: "He is a teacher. (il est + profession, no article)" },
+            { native: "C'est un bon professeur.", translation: "He is a good teacher. (adjective present → c'est)" },
+            { native: "Ce sont mes amis.", translation: "These are my friends. (plural → ce sont)" },
+            { native: "C'est combien?", translation: "How much is it?" },
+        ]
+    },
+    {
+        id: "fr-g-a1-37",
+        level: "A1",
+        title: "Stressed Pronouns — Moi, Toi, Lui, Elle...",
+        explanation: `Stressed pronouns (also called tonic or disjunctive pronouns) are a separate set of pronouns used in specific positions where the regular subject pronouns (je, tu, il...) cannot be used. They appear constantly in everyday French.
+
+THE FORMS
+
+  Subject pronoun    Stressed pronoun
+  je                 moi      (me / I)
+  tu                 toi      (you)
+  il                 lui      (him)
+  elle               elle     (her)
+  nous               nous     (us / we)
+  vous               vous     (you)
+  ils                eux      (them — masc.)
+  elles              elles    (them — fem.)
+
+Note: nous, vous, and elle/elles are the same as the subject pronouns. Only je→moi, tu→toi, il→lui, ils→eux change.
+
+WHEN TO USE STRESSED PRONOUNS
+
+1. AFTER PREPOSITIONS — any preposition requires a stressed pronoun, never a subject pronoun:
+  avec moi          with me           Tu viens avec moi?
+  chez toi          at your place     On se retrouve chez toi?
+  pour lui          for him           C'est pour lui.
+  sans elle         without her       Il est parti sans elle.
+  avant nous        before us         Ils sont arrivés avant nous.
+  après vous        after you         Je pars après vous.
+
+2. AFTER C'EST / CE SONT:
+  C'est moi.        It's me.
+  C'est toi?        Is it you?
+  C'est lui.        It's him.
+  Ce sont eux.      It's them.
+
+3. ALONE OR IN SHORT ANSWERS (no verb):
+  Qui parle français? — Moi!     Who speaks French? — Me!
+  Qui veut du café? — Moi!       Who wants coffee? — Me!
+
+4. FOR EMPHASIS — doubling the subject:
+  Moi, je parle français.        I (for my part) speak French.
+  Lui, il ne travaille pas.      He doesn't work (but others do).
+  Toi, tu fais quoi?             What about you — what are you doing?
+
+5. IN COMPARISONS (see A2 comparatives):
+  Elle est plus grande que moi.  She is taller than me.
+  Il travaille autant que toi.   He works as much as you.
+
+6. AUSSI / NON PLUS — me too / me neither:
+  Moi aussi.        Me too.
+  Moi non plus.     Me neither.`,
+        examples: [
+            { native: "C'est moi.", translation: "It's me." },
+            { native: "Tu viens avec moi?", translation: "Are you coming with me?" },
+            { native: "C'est pour toi.", translation: "It's for you." },
+            { native: "On mange chez lui ce soir.", translation: "We're eating at his place tonight." },
+            { native: "Moi, j'aime le café. Et toi?", translation: "I like coffee. And you?" },
+            { native: "Moi aussi!", translation: "Me too!" },
+            { native: "Ils sont partis sans nous.", translation: "They left without us." },
+        ]
+    },
 ]

@@ -111,4 +111,166 @@ NOTE: の as a sentence-final softener (female/gentle speech) is A2+ — focus o
             { native: "とうきょうの えきは おおきいです。", romanized: "Tokyo no eki wa ookii desu.", translation: "Tokyo station is big." },
         ]
     },
+    {
+        id: "ja-g-a1-29",
+        level: "A1",
+        title: "も Particle — Also / Too / Either",
+        explanation: `も (mo) means 'also', 'too', or 'as well'. It replaces は, が, or を when you want to say that something additional shares the same predicate. It is one of the highest-frequency particles in Japanese.
+
+REPLACING は — adding a topic:
+  わたしは がくせいです。     I am a student.
+  わたしも がくせいです。     I am also a student. (も replaces は)
+
+  たなかさんは にほんじんです。  Tanaka is Japanese.
+  やまださんも にほんじんです。  Yamada is also Japanese.
+
+REPLACING が — adding a subject:
+  コーヒーが すきです。      I like coffee.
+  おちゃも すきです。        I also like tea.
+
+REPLACING を — adding an object:
+  すしを たべました。        I ate sushi.
+  さしみも たべました。      I also ate sashimi.
+
+NEGATIVE + も — 'either / not...either'
+In negative sentences, も means 'either' — it extends the negation:
+  コーヒーは のみません。    I don't drink coffee.
+  おちゃも のみません。      I don't drink tea either.
+
+  なにも + negative verb = nothing at all:
+  なにも わかりません。      I don't understand anything.
+  なにも たべませんでした。  I didn't eat anything.
+
+  だれも + negative verb = nobody:
+  だれも いません。          There is nobody. / Nobody is here.
+
+も WITH NUMBERS — 'as many/much as' (emphasis):
+  いちじかんも まちました。  I waited a whole hour. (emphasis on quantity)
+  ひゃくえんも ありません。  I don't even have 100 yen.
+
+STACKING も — 'both...and / neither...nor':
+  すしも さしみも すきです。      I like both sushi and sashimi.
+  コーヒーも おちゃも のみません。 I drink neither coffee nor tea.
+
+も NEVER stacks with は, が, or を — it replaces them entirely.
+Other particles (に, で, から, まで) keep their particle and add も after:
+  がっこうにも いきました。   I also went to school.
+  としょかんでも べんきょうしました。  I studied at the library too.`,
+        examples: [
+            { native: "わたしも にほんごを べんきょうしています。", romanized: "Watashi mo nihongo wo benkyou shite imasu.", translation: "I am also studying Japanese." },
+            { native: "このえいがも おもしろいです。", romanized: "Kono eiga mo omoshiroi desu.", translation: "This movie is also interesting." },
+            { native: "なにも たべませんでした。", romanized: "Nani mo tabemasen deshita.", translation: "I didn't eat anything." },
+            { native: "だれも きませんでした。", romanized: "Dare mo kimasen deshita.", translation: "Nobody came." },
+            { native: "すしも さしみも すきです。", romanized: "Sushi mo sashimi mo suki desu.", translation: "I like both sushi and sashimi." },
+            { native: "わたしも そう おもいます。", romanized: "Watashi mo sou omoimasu.", translation: "I think so too." },
+        ]
+    },
+    {
+        id: "ja-g-a1-30",
+        level: "A1",
+        title: "から and まで — From / Since and To / Until",
+        explanation: `から (kara) and まで (made) mark the starting and ending points of time, place, and range. They are often used together but work independently too.
+
+から — FROM / SINCE / BECAUSE
+
+Starting point in time:
+  くじから はたらきます。         I work from nine o'clock.
+  げつようびから べんきょうします。 I will study from Monday.
+
+Starting point in place:
+  とうきょうから きました。        I came from Tokyo.
+  うちから がっこうまで           from home to school
+
+Origin / source:
+  せんせいから きいた。            I heard it from my teacher.
+
+まで — TO / UNTIL / AS FAR AS
+
+Ending point in time:
+  ごじまで はたらきます。          I work until five o'clock.
+  らいしゅうまで まちます。        I will wait until next week.
+
+Ending point in place:
+  えきまで あるきました。          I walked to the station.
+  ここから えきまで とおいですか？ Is it far from here to the station?
+
+USING から AND まで TOGETHER
+They combine naturally to express 'from X to Y':
+
+Time:
+  くじから ごじまで はたらきます。
+  I work from nine to five.
+
+  げつようびから きんようびまで
+  From Monday to Friday.
+
+Place:
+  うちから えきまで じゅっぷんです。
+  It's ten minutes from home to the station.
+
+  とうきょうから おおさかまで しんかんせんで にじかんです。
+  It's two hours from Tokyo to Osaka by shinkansen.
+
+から AS 'BECAUSE' — a preview
+から also means 'because' when attached to a verb or adjective.
+This use is A2+ but you will see it in reading:
+  さむいから、うちにいます。  Because it's cold, I'm staying home.
+Just recognise it for now — do not confuse it with the から of starting point.`,
+        examples: [
+            { native: "くじから ごじまで はたらきます。", romanized: "Kuji kara goji made hatarakimasu.", translation: "I work from nine to five." },
+            { native: "とうきょうから きました。", romanized: "Tokyo kara kimashita.", translation: "I came from Tokyo." },
+            { native: "えきまで あるきましょう。", romanized: "Eki made arukimashou.", translation: "Let's walk to the station." },
+            { native: "げつようびから きんようびまで べんきょうします。", romanized: "Getsuyoubi kara kin'youbi made benkyou shimasu.", translation: "I study from Monday to Friday." },
+            { native: "ここから えきまで とおいですか？", romanized: "Koko kara eki made tooi desu ka?", translation: "Is it far from here to the station?" },
+            { native: "なんじから なんじまで ですか？", romanized: "Nanji kara nanji made desu ka?", translation: "From what time to what time is it?" },
+        ]
+    },
+    {
+        id: "ja-g-a1-31",
+        level: "A1",
+        title: "と Particle — And / With",
+        explanation: `The particle と (to) has two core uses at A1: listing nouns ('A and B') and expressing accompaniment ('together with someone'). Both are extremely common from the very first conversations.
+
+と FOR LISTING NOUNS — 'and'
+と connects nouns in an exhaustive list — it implies these are ALL the items.
+  パンと バター         bread and butter
+  コーヒーと おちゃ     coffee and tea
+  すしと さしみと てんぷら  sushi, sashimi and tempura
+
+Exhaustive means: パンとバターを かいました = I bought bread and butter (and nothing else).
+This distinguishes と from や (A2), which lists examples non-exhaustively.
+
+  すしと さしみを たべました。
+  I ate sushi and sashimi. (those two things, complete list)
+
+と FOR ACCOMPANIMENT — 'with / together with'
+  ともだちと いきます。      I'm going with a friend.
+  かぞくと たべました。      I ate with my family.
+  だれと きましたか？        Who did you come with?
+  ひとりで きました。        I came alone. (ひとりで = by oneself, contrast with と)
+
+と IN COMMON PHRASES
+  いっしょに — together (often used with と):
+  ともだちと いっしょに べんきょうします。
+  I study together with my friend.
+
+  〜と はなす — to talk with:
+  せんせいと はなしました。   I talked with my teacher.
+
+  〜と おもう — I think that (A2+ structure, just recognise):
+  むずかしいと おもいます。   I think it's difficult.
+
+と vs で for 'with'
+  と = with a person (accompaniment)       ともだちと いく    go with a friend
+  で = with a tool/means                   はしで たべる     eat with chopsticks
+  See lesson a1-12 for で.`,
+        examples: [
+            { native: "コーヒーと おちゃを ください。", romanized: "Koohii to ocha wo kudasai.", translation: "Coffee and tea, please." },
+            { native: "ともだちと えいがを みました。", romanized: "Tomodachi to eiga wo mimashita.", translation: "I watched a movie with a friend." },
+            { native: "だれと きましたか？", romanized: "Dare to kimashita ka?", translation: "Who did you come with?" },
+            { native: "かぞくと いっしょに たべます。", romanized: "Kazoku to issho ni tabemasu.", translation: "I eat together with my family." },
+            { native: "パンと バターと ジュースを かいました。", romanized: "Pan to bataa to juusu wo kaimashita.", translation: "I bought bread, butter and juice." },
+            { native: "せんせいと はなしました。", romanized: "Sensei to hanashimashita.", translation: "I talked with my teacher." },
+        ]
+    },
 ]

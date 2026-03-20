@@ -143,4 +143,159 @@ QUICK TIP: When in doubt about quello, think of the definite article for that no
             { native: "Cos'è questo?", translation: "What is this?" },
         ]
     },
+    {
+        id: "it-g-a1-30",
+        level: "A1",
+        title: "Partitive Articles: del, dello, della, dell', dei, degli, delle",
+        explanation: `Partitive articles express an unspecified quantity — the English equivalent is 'some', or simply leaving the article out. They are formed by combining the preposition di with the definite article, so they follow exactly the same pattern as the definite articles you already know.
+
+FORMATION — di + definite article:
+
+  di + il   → del     del pane        some bread       (masc. sg., consonant)
+  di + lo   → dello   dello zucchero  some sugar       (masc. sg., s+cons, z, gn...)
+  di + l'   → dell'   dell'acqua      some water       (masc./fem. sg., vowel)
+  di + la   → della   della pasta     some pasta       (fem. sg., consonant)
+  di + i    → dei     dei biscotti    some biscuits    (masc. pl.)
+  di + gli  → degli   degli amici     some friends     (masc. pl., vowel/s+cons...)
+  di + le   → delle   delle mele      some apples      (fem. pl.)
+
+QUICK RULE: choose the partitive the same way you choose the definite article for that noun — just put di in front.
+  il pane → del pane    |    lo zucchero → dello zucchero    |    la frutta → della frutta
+
+AFTER NEGATION — all partitives become di (or d' before a vowel):
+  Voglio del caffè.        I want some coffee.
+  Non voglio caffè.        I don't want (any) coffee.  ← no article at all
+  Ho dei problemi.         I have some problems.
+  Non ho problemi.         I don't have any problems.
+
+WHEN TO USE
+  At the table:      Vuoi del vino?           Do you want some wine?
+  Shopping:          Prendo della frutta.      I'll take some fruit.
+  Describing:        Ho degli amici a Milano.  I have some friends in Milan.
+  Cooking:           Aggiungi dello zucchero.  Add some sugar.`,
+        examples: [
+            { native: "Vuoi del caffè?", translation: "Do you want some coffee? (del = di + il)" },
+            { native: "Prendo della pasta.", translation: "I'll have some pasta. (della = di + la)" },
+            { native: "C'è dell'acqua nel frigo.", translation: "There is some water in the fridge. (dell' = di + l')" },
+            { native: "Ho dei problemi.", translation: "I have some problems. (dei = di + i)" },
+            { native: "Compro delle mele al mercato.", translation: "I'm buying some apples at the market. (delle = di + le)" },
+            { native: "Non ho problemi.", translation: "I don't have any problems. (no article after negation)" },
+        ]
+    },
+    {
+        id: "it-g-a1-31",
+        level: "A1",
+        title: "C'è / Ci sono — There Is / There Are",
+        explanation: `C'è and ci sono are the Italian equivalents of 'there is' and 'there are'. Unlike il y a in French, Italian uses two different forms depending on whether the noun is singular or plural.
+
+FORMS
+  c'è    — there is    (singular)    c'è = ci + è, contraction of ci è
+  ci sono — there are  (plural)
+
+  C'è un bar qui vicino.        There is a bar nearby.
+  Ci sono molti turisti.        There are many tourists.
+
+NEGATIVE — non c'è / non ci sono
+Place non before c'è or ci sono:
+  C'è latte nel frigo.          → Non c'è latte nel frigo.
+  Ci sono problemi.             → Non ci sono problemi.
+
+QUESTION — c'è...? / ci sono...?
+Raise intonation — no word order change needed:
+  C'è un medico?                Is there a doctor?
+  Ci sono posti liberi?         Are there any free seats?
+  Quanto tempo c'è?             How much time is there?
+
+ASKING WHERE SOMETHING IS
+C'è is also used to ask whether something or someone is present — equivalent to 'is X here?':
+  C'è Marco?                    Is Marco here? / Is Marco in?
+  Sì, c'è. / No, non c'è.      Yes, he's here. / No, he's not here.
+
+C'È / CI SONO vs È / SONO
+  c'è / ci sono  → signals existence or presence (there is)
+  è / sono       → links subject to description (is / are)
+  C'è un ristorante.    There is a restaurant.   (existence)
+  È un buon ristorante. It is a good restaurant. (description)
+
+ECCO — here is / here are (pointing)
+A related expression worth knowing: ecco introduces or points out something visible.
+  Ecco il menù.         Here is the menu.
+  Ecco i tuoi amici.    Here are your friends.
+  Ecco!                 There you go! / Here we are!`,
+        examples: [
+            { native: "C'è un supermercato qui vicino?", translation: "Is there a supermarket nearby?" },
+            { native: "Sì, c'è uno all'angolo.", translation: "Yes, there is one on the corner." },
+            { native: "Ci sono molti ristoranti in questa via.", translation: "There are many restaurants on this street." },
+            { native: "Non c'è latte nel frigo.", translation: "There is no milk in the fridge." },
+            { native: "Non ci sono posti liberi.", translation: "There are no free seats." },
+            { native: "C'è Marco? — No, non c'è.", translation: "Is Marco here? — No, he's not here.", speakText: "C'è Marco? No, non c'è." },
+            { native: "Ecco il conto.", translation: "Here is the bill." },
+        ]
+    },
+    {
+        id: "it-g-a1-34",
+        level: "A1",
+        title: "Stressed Pronouns — Me, Te, Lui, Lei...",
+        explanation: `Stressed pronouns (pronomi tonici) are used after prepositions, for emphasis, and in short answers without a verb. They are different from the subject pronouns (io, tu, lui...) and appear constantly in everyday Italian.
+
+THE FORMS
+
+  Subject pronoun    Stressed pronoun
+  io                 me       (me / I)
+  tu                 te       (you)
+  lui                lui      (him)
+  lei                lei      (her)
+  noi                noi      (us / we)
+  voi                voi      (you all)
+  loro               loro     (them)
+
+Note: noi, voi, lui, lei, and loro are the same as the subject pronouns.
+Only io→me and tu→te change form.
+
+WHEN TO USE STRESSED PRONOUNS
+
+1. AFTER PREPOSITIONS — any preposition requires a stressed pronoun:
+  con me          with me           Vieni con me?
+  da te           at your place     Ci vediamo da te?
+  per lui         for him           È per lui.
+  senza di lei    without her       È partito senza di lei.
+  prima di noi    before us         Sono arrivati prima di noi.
+  dopo di voi     after you         Partiamo dopo di voi.
+
+Note: di is inserted between certain prepositions (senza, prima, dopo,
+invece, oltre) and the stressed pronoun.
+
+2. AFTER È / SONO (identification — equivalent to French c'est):
+  Sono io.          It's me.
+  Sei tu?           Is it you?
+  È lui.            It's him.
+  Siamo noi.        It's us.
+
+3. ALONE OR IN SHORT ANSWERS:
+  Chi parla italiano? — Io! / Me!    Who speaks Italian? — Me!
+  Chi vuole il caffè? — Io!          Who wants coffee? — Me!
+
+4. FOR EMPHASIS — contrast or focus:
+  Vengo anch'io.     I'm coming too.
+  Lo faccio io.      I'll do it (myself).
+  Parla con lui, non con me.  Talk to him, not to me.
+
+5. ANCHE / NEANCHE — also / neither:
+  Anch'io.           Me too.
+  Neanche me. / Nemmeno me.   Me neither.
+
+ANCHE + STRESSED PRONOUN
+  anche + me → anch'io (not anche me — the elision is standard)
+  anche + te → anche te
+  anche + lui → anche lui`,
+        examples: [
+            { native: "Sono io.", translation: "It's me." },
+            { native: "Vieni con me?", translation: "Are you coming with me?" },
+            { native: "Questo è per te.", translation: "This is for you." },
+            { native: "Usciamo senza di lui.", translation: "We're going out without him." },
+            { native: "Anch'io voglio un caffè.", translation: "I want a coffee too." },
+            { native: "Parla con lei, non con me.", translation: "Talk to her, not to me." },
+            { native: "Chi ha fame? — Io!", translation: "Who is hungry? — Me!" },
+        ]
+    },
 ]

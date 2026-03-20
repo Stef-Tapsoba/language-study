@@ -172,4 +172,72 @@ SUMMARY
       { native: "Tenemos que comprar leche.", translation: "We have to buy milk." },
     ]
   },
+  {
+    id: "es-g-a1-32",
+    level: "A1",
+    title: "Stressed Pronouns — Mí, Ti, Él, Ella...",
+    explanation: `Stressed pronouns (pronombres tónicos / pronombres preposicionales) are used after prepositions and for emphasis. They are different from subject pronouns (yo, tú, él...) and appear constantly in everyday Spanish.
+
+THE FORMS
+
+  Subject pronoun    Stressed pronoun
+  yo                 mí       (me)
+  tú                 ti       (you)
+  él                 él       (him)
+  ella               ella     (her)
+  usted              usted    (you — formal)
+  nosotros/as        nosotros/as  (us)
+  vosotros/as        vosotros/as  (you all)
+  ellos/ellas        ellos/ellas  (them)
+
+Note: él, ella, nosotros, vosotros, ellos, ellas, usted, ustedes are
+identical to the subject pronouns. Only yo→mí and tú→ti change.
+
+Important: mí has a written accent to distinguish it from mi (my — possessive).
+ti never has an accent.
+
+WHEN TO USE STRESSED PRONOUNS
+
+1. AFTER PREPOSITIONS — any preposition requires a stressed pronoun:
+  para mí          for me            Es para mí.
+  con ti           with you          Quiero ir con ti... ← EXCEPTION below
+  sin él           without him       Salió sin él.
+  a ella           to her            Se lo di a ella.
+  entre nosotros   between us        Entre nosotros...
+  cerca de ellos   near them         Viven cerca de ellos.
+
+SPECIAL CASE — con:
+  con + mí → conmigo    (with me — NOT con mí)
+  con + ti → contigo    (with you — NOT con ti)
+  con + sí → consigo    (with himself/herself/themselves — reflexive)
+  These three fused forms are fixed — always use conmigo/contigo/consigo.
+
+2. FOR EMPHASIS — after ser or in short answers:
+  Soy yo.           It's me.
+  ¿Eres tú?         Is it you?
+  Es él.            It's him.
+
+3. ALONE OR IN SHORT ANSWERS:
+  ¿Quién habla español? — ¡Yo!   Who speaks Spanish? — Me!
+
+4. CLARIFYING SU — stressed pronoun after de:
+  su casa can mean his/her/your/their house — to clarify:
+  la casa de él     his house
+  la casa de ella   her house
+  la casa de usted  your house
+  See lesson a1-15 for possessive adjectives.
+
+5. TAMBIÉN / TAMPOCO — me too / me neither:
+  Yo también.       Me too.
+  Yo tampoco.       Me neither.`,
+    examples: [
+      { native: "Este regalo es para ti.", translation: "This gift is for you." },
+      { native: "¿Quieres venir conmigo?", translation: "Do you want to come with me? (con + mí = conmigo)" },
+      { native: "Lo hizo sin nosotros.", translation: "He did it without us." },
+      { native: "Soy yo.", translation: "It's me." },
+      { native: "Entre tú y yo...", translation: "Between you and me..." },
+      { native: "¿Quién tiene hambre? — ¡Yo!", translation: "Who is hungry? — Me!" },
+      { native: "Yo también quiero ir.", translation: "I want to go too." },
+    ]
+  },
 ]

@@ -79,4 +79,161 @@ export const coreGrammarLessons: GrammarLesson[] = [
             { native: "いつにほんにきましたか？", romanized: "Itsu Nihon ni kimashita ka?", translation: "When did you come to Japan?" }
         ]
     },
+    {
+        id: "ja-g-a1-28",
+        level: "A1",
+        title: "Introduction to the て-form",
+        explanation: `The て-form is one of the most important verb forms in Japanese. You will use it constantly at A2 and beyond — for connecting actions, making requests, and forming the progressive. This lesson introduces the rules so they are not new when you need them.
+
+FORMING THE て-FORM
+
+Group 2 (RU-verbs / ichidan) — drop る, add て:
+  たべる → たべて    みる → みて    おきる → おきて
+
+Group 3 (irregular) — must memorise:
+  する → して    くる → きて
+
+Group 1 (U-verbs / godan) — the ending changes:
+  Stem ending    Change         Example
+  ──────────────────────────────────────────
+  る / つ / う  → って    かう → かって、まつ → まって、のる → のって
+  む / ぬ / ぶ  → んで    のむ → のんで、よぶ → よんで
+  く            → いて    かく → かいて
+  ぐ            → いで    およぐ → およいで
+  す            → して    はなす → はなして
+  Exception: いく → いって (not いいて)
+
+AT A1 — ONE USE TO KNOW NOW
+て-form + ください = polite request ('please do ~')
+You have already seen this in the requests lesson. Now you know where the て comes from.
+  たべてください。   Please eat.
+  みてください。     Please look.
+  してください。     Please do it.
+
+AT A2 — TWO MORE USES ARE COMING
+  て-form + います  → progressive (いま たべています = I am eating now)
+  て-form alone    → connecting two actions in sequence (たべて、ねます = I eat and then sleep)
+
+You do not need to produce these yet. But recognising the て-form when you see it will make A2 lesson 1 much easier.`,
+        examples: [
+            { native: "たべる → たべて", romanized: "taberu → tabete", translation: "RU-verb: drop る, add て", speakText: "たべる、たべて" },
+            { native: "のむ → のんで", romanized: "nomu → nonde", translation: "U-verb ending in む → んで", speakText: "のむ、のんで" },
+            { native: "かく → かいて", romanized: "kaku → kaite", translation: "U-verb ending in く → いて", speakText: "かく、かいて" },
+            { native: "いく → いって", romanized: "iku → itte", translation: "Exception: いく → いって (not いいて)", speakText: "いく、いって" },
+            { native: "する → して / くる → きて", romanized: "suru → shite / kuru → kite", translation: "The two irregular て-forms — must memorise", speakText: "する、して、くる、きて" },
+            { native: "ゆっくり はなしてください。", romanized: "Yukkuri hanashite kudasai.", translation: "Please speak slowly. (はなす → はなして + ください)" },
+        ]
+    },
+    {
+        id: "ja-g-a1-32",
+        level: "A1",
+        title: "〜ましょう / 〜ませんか — Let's / Shall We?",
+        explanation: `Two verb endings express suggestions and invitations in polite Japanese. Both attach to the ます-stem (the part before ます).
+
+〜ましょう — LET'S (do something)
+A positive suggestion or decision to do something together.
+Replace ます with ましょう:
+  たべます  → たべましょう     Let's eat.
+  いきます  → いきましょう     Let's go.
+  はじめます → はじめましょう  Let's begin.
+  します   → しましょう        Let's do it.
+
+Ikimashou! is one of the most common expressions in Japanese — you will hear it constantly.
+
+〜ませんか — SHALL WE? / WOULD YOU LIKE TO?
+A softer invitation — it asks whether the other person would like to join.
+Replace ます with ませんか:
+  たべます  → たべませんか？    Shall we eat? / Would you like to eat?
+  いきます  → いきませんか？    Shall we go? / Would you like to go?
+  のみます  → のみませんか？    Shall we have a drink?
+
+THE DIFFERENCE
+  いきましょう！        Let's go! (positive, decided, enthusiastic)
+  いきませんか？        Shall we go? / Would you like to go? (softer, asking)
+
+ましょう is often a response to ませんか:
+  いっしょに ひるごはんを たべませんか？  Shall we have lunch together?
+  → ええ、たべましょう！                  Yes, let's eat!
+
+RESPONDING
+  Agreeing:    ええ、そうしましょう。    Yes, let's do that.
+               はい、いきましょう！      Yes, let's go!
+  Declining:   すみません、ちょっと...   Sorry, it's a bit... (polite decline — trailed off)
+
+COMMON EXPRESSIONS
+  はじめましょう。        Let's begin.
+  やすみましょう。        Let's rest / take a break.
+  いっしょに いきませんか？  Won't you come with us?
+  なにか のみませんか？     Shall we have something to drink?`,
+        examples: [
+            { native: "いっしょに いきましょう！", romanized: "Issho ni ikimashou!", translation: "Let's go together!" },
+            { native: "そろそろ はじめましょう。", romanized: "Sorosoro hajimemashou.", translation: "Let's begin soon." },
+            { native: "いっしょに ひるごはんを たべませんか？", romanized: "Issho ni hirugohan wo tabemasen ka?", translation: "Shall we have lunch together?" },
+            { native: "なにか のみませんか？", romanized: "Nanika nomimasen ka?", translation: "Shall we have something to drink?" },
+            { native: "ええ、そうしましょう！", romanized: "Ee, sou shimashou!", translation: "Yes, let's do that!" },
+            { native: "すこし やすみましょう。", romanized: "Sukoshi yasumimashou.", translation: "Let's rest a little." },
+        ]
+    },
+    {
+        id: "ja-g-a1-33",
+        level: "A1",
+        title: "Plain Form — An Introduction",
+        explanation: `Throughout this course you have learned the polite ます/です forms. But Japanese has a second set of verb and adjective forms called the plain form (also called dictionary form or casual form). You need to know it exists and how to recognise it, because you encounter it in reading, in grammar patterns, and in casual speech from day one.
+
+POLITE FORM vs PLAIN FORM
+
+  Polite (ます/です)      Plain form        Meaning
+  ────────────────────────────────────────────────────
+  たべます               たべる            eat
+  のみます               のむ              drink
+  いきます               いく              go
+  します                 する              do
+  きます                 くる              come
+  たべません             たべない          don't eat
+  たべました             たべた            ate
+  たべませんでした       たべなかった      didn't eat
+  です                   だ                is/am/are
+  じゃありません         じゃない          is not
+
+The plain form is the form listed in dictionaries — this is why it is also called the dictionary form.
+
+THREE REASONS YOU NEED THE PLAIN FORM NOW
+
+1. READING — plain forms appear constantly in written Japanese, menus, signs, and messages between friends. はいれません (polite) vs はいるな (plain negative — 'do not enter' on signs).
+
+2. GRAMMAR PATTERNS — several patterns you already know use plain forms before them:
+   〜とおもいます (I think that ~) — uses plain form before と
+   〜たいです (want to) — built on the ます-stem, related to plain form
+   At A2, many more patterns require the plain form.
+
+3. CASUAL SPEECH — when Japanese speakers talk to close friends they drop ます/です entirely. You will hear plain forms constantly in anime, music, and conversation between peers.
+
+HOW TO RECOGNISE PLAIN FORMS
+
+Verbs end in a う-row sound: たべ**る**、のむ、いく、はなす、まつ
+Plain negative ends in ない: たべない、のまない、いかない
+Plain past ends in た/だ: たべた、のんだ、いった
+Plain past negative ends in なかった: たべなかった、のまなかった
+
+い-adjectives: unchanged from what you know — おいしい、たかい、さむい (plain = polite base)
+Plain negative: おいしくない、たかくない
+Plain past: おいしかった、たかかった
+
+な-adjectives + nouns: replace です with だ:
+  しずかです → しずかだ
+  がくせいです → がくせいだ
+
+AT A1 — RECOGNITION ONLY
+You do not need to produce plain forms yet. Stick to ます/です in your own speech.
+The goal of this lesson is so that when you see たべる or いった or おいしくない,
+you are not confused — you recognise them as verb and adjective forms you already know.`,
+        examples: [
+            { native: "たべます → たべる", romanized: "tabemasu → taberu", translation: "Polite present → plain form (dictionary form)", speakText: "たべます、たべる" },
+            { native: "いきました → いった", romanized: "ikimashita → itta", translation: "Polite past → plain past", speakText: "いきました、いった" },
+            { native: "たべません → たべない", romanized: "tabemasen → tabenai", translation: "Polite negative → plain negative", speakText: "たべません、たべない" },
+            { native: "おいしいです → おいしい / おいしかった", romanized: "oishii desu → oishii / oishikatta", translation: "い-adjective: polite present → plain present / plain past", speakText: "おいしいです、おいしい、おいしかった" },
+            { native: "がくせいです → がくせいだ", romanized: "gakusei desu → gakusei da", translation: "Noun + です → noun + だ (plain copula)", speakText: "がくせいです、がくせいだ" },
+            { native: "〜とおもいます。", romanized: "~ to omoimasu.", translation: "I think that ~ (plain form comes before と in this pattern)" },
+        ]
+    },
 ]
