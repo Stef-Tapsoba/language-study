@@ -9,6 +9,7 @@ import { useState } from "react"
 import { CEFRLevel, LocalizedText } from "../types"
 import { resolveDisplay } from "../utils/localizedText"
 import { getUI } from "../i18n"
+import { renderExplanation } from "../utils/renderExplanation"
 
 interface Props {
     text: string | LocalizedText
@@ -23,16 +24,16 @@ export function LocalizedExplanation({ text, level, langId = "", className = "" 
     const ui = getUI(langId, level)
 
     if (display.mode === "single") {
-        return <p className={`text-sm text-gray-700 leading-relaxed whitespace-pre-wrap ${className}`}>{display.text}</p>
+        return renderExplanation(display.text, className)
     }
 
     if (display.mode === "bilingual-native-primary") {
         return (
             <div className={className}>
-                <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap">{display.primary}</p>
-                <p className="text-sm text-indigo-600 leading-relaxed whitespace-pre-wrap mt-2 pl-3 border-l-2 border-indigo-200 italic">
-                    {display.secondary}
-                </p>
+                {renderExplanation(display.primary)}
+                <div className="mt-2 pl-3 border-l-2 border-indigo-200">
+                    {renderExplanation(display.secondary)}
+                </div>
             </div>
         )
     }
@@ -40,7 +41,7 @@ export function LocalizedExplanation({ text, level, langId = "", className = "" 
     // bilingual-target-primary (B1) — target language shown, English collapsible
     return (
         <div className={className}>
-            <p className="text-sm text-gray-900 leading-relaxed whitespace-pre-wrap">{display.primary}</p>
+            {renderExplanation(display.primary)}
             <button
                 onClick={() => setExpanded(e => !e)}
                 className="mt-2 text-xs text-gray-400 hover:text-gray-600 flex items-center gap-1 transition-colors"
@@ -53,9 +54,9 @@ export function LocalizedExplanation({ text, level, langId = "", className = "" 
                 {expanded ? ui.hideEnglish : ui.showEnglish}
             </button>
             {expanded && (
-                <p className="text-sm text-gray-500 leading-relaxed whitespace-pre-wrap mt-1 pl-3 border-l-2 border-gray-200">
-                    {display.secondary}
-                </p>
+                <div className="mt-1 pl-3 border-l-2 border-gray-200">
+                    {renderExplanation(display.secondary)}
+                </div>
             )}
         </div>
     )
