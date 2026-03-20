@@ -383,4 +383,96 @@ export const a1Verbs: Verb[] = [
             }
         ]
     },
+    {
+        id: "ja-vb-a1-17",
+        level: "A1",
+        infinitive: "待つ",
+        romanized: "matsu",
+        meaning: "to wait",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "まちます", romanized: "machimasu" },
+                    { pronoun: "Negative", form: "まちません", romanized: "machimasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "まちました", romanized: "machimashita" },
+                    { pronoun: "Negative", form: "まちませんでした", romanized: "machimasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-18",
+        level: "A1",
+        infinitive: "乗る",
+        romanized: "noru",
+        meaning: "to ride / to get on",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "のります", romanized: "norimasu" },
+                    { pronoun: "Negative", form: "のりません", romanized: "norimasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "のりました", romanized: "norimashita" },
+                    { pronoun: "Negative", form: "のりませんでした", romanized: "norimasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-19",
+        level: "A1",
+        infinitive: "呼ぶ",
+        romanized: "yobu",
+        meaning: "to call / to invite",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "よびます", romanized: "yobimasu" },
+                    { pronoun: "Negative", form: "よびません", romanized: "yobimasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "よびました", romanized: "yobimashita" },
+                    { pronoun: "Negative", form: "よびませんでした", romanized: "yobimasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-20",
+        level: "A1",
+        infinitive: "泳ぐ",
+        romanized: "oyogu",
+        meaning: "to swim",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "およぎます", romanized: "oyogimasu" },
+                    { pronoun: "Negative", form: "およぎません", romanized: "oyogimasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "およぎました", romanized: "oyogimashita" },
+                    { pronoun: "Negative", form: "およぎませんでした", romanized: "oyogimasen deshita" }
+                ]
+            }
+        ]
+    },
 ]
