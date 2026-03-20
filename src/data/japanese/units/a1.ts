@@ -514,4 +514,40 @@ export const a1Units: LessonUnit[] = [
             { id: "ja-uq-a1-24-6", level: "A1", prompt: "How do you say 'It was cold but fun'?", options: ["さむかったです。でも、たのしかったです。", "さむいでした。でも、たのしかったです。", "さむかったです。だから、たのしかったです。", "さむくないです。でも、たのしくないです。"], answer: "さむかったです。でも、たのしかったです。" },
         ]
     },
+    {
+        id: "ja-a1-u25",
+        level: "A1",
+        order: 25,
+        title: "New Particles: も, と, から, まで",
+        description: "Expand your particle toolkit. Use も to mean 'also/too/either', と to link nouns as 'and' or mark a companion, and から/まで to express starting and ending points in time or space.",
+        grammarIds: ["ja-g-a1-29", "ja-g-a1-30", "ja-g-a1-31"],
+        vocabIds: [],
+        verbIds: [],
+        testQuestions: [
+            { id: "ja-uq-a1-25-1", level: "A1", prompt: "Tanaka-san said 'わたしも がくせいです。' What does も indicate here?", options: ["Tanaka is the only student", "Tanaka is also a student (like someone else)", "Tanaka is not a student", "Tanaka wants to be a student"], answer: "Tanaka is also a student (like someone else)" },
+            { id: "ja-uq-a1-25-2", level: "A1", prompt: "How do you say 'I went with Yuki'?", options: ["ゆきが いきました。", "ゆきで いきました。", "ゆきと いきました。", "ゆきに いきました。"], answer: "ゆきと いきました。" },
+            { id: "ja-uq-a1-25-3", level: "A1", prompt: "Choose the correct particle: 'くじ___ じゅうじ___ はたらきます。' (I work from 9 to 10.)", options: ["に / まで", "から / まで", "で / に", "は / まで"], answer: "から / まで" },
+            { id: "ja-uq-a1-25-4", level: "A1", prompt: "How do you say 'coffee and tea' as a list of nouns?", options: ["コーヒーが おちゃ", "コーヒーも おちゃ", "コーヒーと おちゃ", "コーヒーは おちゃ"], answer: "コーヒーと おちゃ" },
+            { id: "ja-uq-a1-25-5", level: "A1", prompt: "What does 'とうきょうから きました' mean?", options: ["I am going to Tokyo", "I came from Tokyo", "I live in Tokyo", "I like Tokyo"], answer: "I came from Tokyo" },
+            { id: "ja-uq-a1-25-6", level: "A1", prompt: "Your friend said they don't like sushi. You also dislike it. How do you respond using も?", options: ["わたしも すしが きらいです。", "わたしは すしが きらいです。", "わたしと すしが きらいです。", "わたしから すしが きらいです。"], answer: "わたしも すしが きらいです。" },
+        ]
+    },
+    {
+        id: "ja-a1-u26",
+        level: "A1",
+        order: 26,
+        title: "て-form, Plain Form & Suggestions",
+        description: "Learn to build the て-form for connecting actions and making requests, introduce the plain (dictionary) form as the base of Japanese grammar, and use 〜ましょう / 〜ませんか to make suggestions.",
+        grammarIds: ["ja-g-a1-28", "ja-g-a1-32", "ja-g-a1-33"],
+        vocabIds: [],
+        verbIds: [],
+        testQuestions: [
+            { id: "ja-uq-a1-26-1", level: "A1", prompt: "What is the て-form of 'たべます' (to eat)?", options: ["たべて", "たべた", "たべます", "たべに"], answer: "たべて" },
+            { id: "ja-uq-a1-26-2", level: "A1", prompt: "How do you say 'Let's go!' using 〜ましょう?", options: ["いきますか？", "いきましょう。", "いきません。", "いきませんか？"], answer: "いきましょう。" },
+            { id: "ja-uq-a1-26-3", level: "A1", prompt: "How do you say 'Shall we eat?' as a gentle invitation using 〜ませんか?", options: ["たべましょう。", "たべますか？", "たべませんか？", "たべてください。"], answer: "たべませんか？" },
+            { id: "ja-uq-a1-26-4", level: "A1", prompt: "What is the plain (dictionary) form of 'たべます'?", options: ["たべた", "たべる", "たべて", "たべない"], answer: "たべる" },
+            { id: "ja-uq-a1-26-5", level: "A1", prompt: "The て-form is commonly used to connect two actions. Which sentence correctly links 'eat' and 'sleep'?", options: ["たべます、ねます。", "たべて、ねます。", "たべに、ねます。", "たべる、ねます。"], answer: "たべて、ねます。" },
+            { id: "ja-uq-a1-26-6", level: "A1", prompt: "Which form — plain or polite (〜ます) — is typically used in formal and classroom Japanese for beginners?", options: ["Plain form", "Polite (〜ます) form", "て-form", "ない-form"], answer: "Polite (〜ます) form" },
+        ]
+    },
 ]

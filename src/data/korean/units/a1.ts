@@ -408,4 +408,40 @@ export const a1Units: LessonUnit[] = [
             { id: "ko-uq-a1-18-6", level: "A1", prompt: "How do you say 'I study at the café'?", options: ["카페에 공부해요.", "카페에서 공부해요.", "카페를 공부해요.", "카페가 공부해요."], answer: "카페에서 공부해요." },
         ]
     },
+    {
+        id: "ko-a1-u19",
+        level: "A1",
+        order: 19,
+        title: "Existence, Particles & Negation",
+        description: "Use 있어요/없어요 for existence and possession, add 도 for 'also/too', negate nouns with 이/가 아니에요, and show direction or means with ~(으)로.",
+        grammarIds: ["ko-g-a1-23", "ko-g-a1-24", "ko-g-a1-26", "ko-g-a1-28"],
+        vocabIds: [],
+        verbIds: [],
+        testQuestions: [
+            { id: "ko-uq-a1-19-1", level: "A1", prompt: "Which sentence means 'There is a cat in the room'?", options: ["방에 고양이가 없어요.", "방에 고양이가 있어요.", "방이 고양이예요.", "방에 고양이를 가요."], answer: "방에 고양이가 있어요." },
+            { id: "ko-uq-a1-19-2", level: "A1", prompt: "How do you say 'I don't have time'? (시간 = time)", options: ["시간이 있어요.", "시간이 없어요.", "시간이 아니에요.", "시간도 가요."], answer: "시간이 없어요." },
+            { id: "ko-uq-a1-19-3", level: "A1", prompt: "What does '저도 한국어를 공부해요' mean?", options: ["I don't study Korean.", "I study Korean only.", "I also study Korean.", "I study Korean here."], answer: "I also study Korean." },
+            { id: "ko-uq-a1-19-4", level: "A1", prompt: "Which sentence correctly uses 이/가 아니에요?", options: ["저는 선생님이 있어요.", "저는 선생님이 아니에요.", "저는 선생님도 없어요.", "저는 선생님을 아니에요."], answer: "저는 선생님이 아니에요." },
+            { id: "ko-uq-a1-19-5", level: "A1", prompt: "What does ~(으)로 express in '버스로 가요'?", options: ["Destination", "Means of transport", "Location of action", "Possession"], answer: "Means of transport" },
+            { id: "ko-uq-a1-19-6", level: "A1", prompt: "How do you say 'Turn left' (왼쪽 = left)?", options: ["왼쪽에 가요.", "왼쪽에서 가요.", "왼쪽으로 가요.", "왼쪽을 가요."], answer: "왼쪽으로 가요." },
+        ]
+    },
+    {
+        id: "ko-a1-u20",
+        level: "A1",
+        order: 20,
+        title: "Counters, Requests & Suggestions",
+        description: "Count objects with Korean counters, make polite honorific requests with ~(으)세요, and offer suggestions or wonder aloud with ~(으)ㄹ까요?",
+        grammarIds: ["ko-g-a1-25", "ko-g-a1-27", "ko-g-a1-29"],
+        vocabIds: [],
+        verbIds: [],
+        testQuestions: [
+            { id: "ko-uq-a1-20-1", level: "A1", prompt: "Which counter is used for people?", options: ["개", "권", "명", "마리"], answer: "명" },
+            { id: "ko-uq-a1-20-2", level: "A1", prompt: "How do you say 'two books'? (책 = book, 권 = counter for books)", options: ["책 이권", "책 두 권", "책 둘 권", "책 이개"], answer: "책 두 권" },
+            { id: "ko-uq-a1-20-3", level: "A1", prompt: "What does '앉으세요' mean?", options: ["Please sit down.", "Do you sit?", "I will sit.", "Sit tomorrow."], answer: "Please sit down." },
+            { id: "ko-uq-a1-20-4", level: "A1", prompt: "Which ending makes a polite honorific command from 드시다 (to eat/drink, honorific)?", options: ["드시어요", "드시세요", "드시지요", "드시까요"], answer: "드시세요" },
+            { id: "ko-uq-a1-20-5", level: "A1", prompt: "What does '같이 먹을까요?' mean?", options: ["Did we eat together?", "Shall we eat together?", "We should eat together.", "I wonder what to eat."], answer: "Shall we eat together?" },
+            { id: "ko-uq-a1-20-6", level: "A1", prompt: "How do you say 'What shall we do?' (하다 = to do)", options: ["뭐 해요?", "뭐 할까요?", "뭐 하세요?", "뭐 했어요?"], answer: "뭐 할까요?" },
+        ]
+    },
 ]
