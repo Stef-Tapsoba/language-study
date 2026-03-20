@@ -1,15 +1,19 @@
 // src/data/french/units/a1.ts
 import { LessonUnit } from "../../../types"
 
-// 24 ordered A1 units for French.
+// 27 ordered A1 units for French.
 // Pedagogical progression:
 // U1–U4  : Core building blocks — greetings, être, avoir, articles & gender
 // U5–U10 : Essential grammar — -er verbs, negation, questions, adjectives, aller, faire
 // U11–U13: More grammar — modal verbs (vouloir/pouvoir), reflexive verbs, demonstratives
 // U14–U15: Numbers, time, months & seasons
 // U16–U18: Remaining verb groups (-ir, -re) + adverbs/connectors
-// U19–U23: Everyday topics — likes, family, food, places, futur proche
-// U24    : Weather (bridge to A2)
+// U19–U20: Everyday topics — likes, family
+// U21    : Partitive articles & existence (grammar needed for food unit)
+// U22–U23: Food/café/shopping, places & daily routine
+// U24–U25: Commands/devoir/venir, identity & stressed pronouns
+// U26    : Weather & seasons
+// U27    : Bridge — le futur proche (capstone)
 
 export const a1Units: LessonUnit[] = [
     {
@@ -437,6 +441,24 @@ export const a1Units: LessonUnit[] = [
         id: "fr-a1-u21",
         level: "A1",
         order: 21,
+        title: "Partitive Articles & Existence",
+        description: "Learn to use partitive articles (du, de la, de l', des) to express some/any of something, and master il y a to say there is / there are.",
+        grammarIds: ["fr-g-a1-31", "fr-g-a1-32"],
+        vocabIds: [],
+        verbIds: [],
+        testQuestions: [
+            { id: "fr-uq-a1-21-1", level: "A1", prompt: "Which partitive article goes before a masculine noun? 'Je mange ___ pain.'", options: ["de la", "du", "des", "de l'"], answer: "du" },
+            { id: "fr-uq-a1-21-2", level: "A1", prompt: "Choose the correct sentence: 'I drink some water.'", options: ["Je bois de l'eau.", "Je bois du eau.", "Je bois des eau.", "Je bois de eau."], answer: "Je bois de l'eau." },
+            { id: "fr-uq-a1-21-3", level: "A1", prompt: "What is the partitive article for a feminine noun? 'Elle mange ___ viande.'", options: ["du", "des", "de l'", "de la"], answer: "de la" },
+            { id: "fr-uq-a1-21-4", level: "A1", prompt: "How do you say 'There is a cat in the garden'?", options: ["Il est un chat dans le jardin.", "Il y a un chat dans le jardin.", "Il a un chat dans le jardin.", "C'est un chat dans le jardin."], answer: "Il y a un chat dans le jardin." },
+            { id: "fr-uq-a1-21-5", level: "A1", prompt: "Which sentence correctly uses 'il y a' in a question?", options: ["Est-il y a du lait?", "Y a-t-il du lait?", "Il y a du lait?", "A-t-il y du lait?"], answer: "Y a-t-il du lait?" },
+            { id: "fr-uq-a1-21-6", level: "A1", prompt: "After a negation, partitive articles change to ___. 'Je ne mange pas ___ sucre.'", options: ["du", "de", "des", "de la"], answer: "de" },
+        ]
+    },
+    {
+        id: "fr-a1-u22",
+        level: "A1",
+        order: 22,
         title: "Food, Café & Shopping",
         description: "Learn vocabulary for food, drinks, and ordering at a café or restaurant.",
         grammarIds: ["fr-g-a1-20"],
@@ -448,18 +470,18 @@ export const a1Units: LessonUnit[] = [
         ],
         verbIds: ["fr-vb-a1-6", "fr-vb-a1-7", "fr-vb-a1-8", "fr-vb-a1-9", "fr-vb-a1-11"],
         testQuestions: [
-            { id: "fr-uq-a1-21-1", level: "A1", prompt: "How do you ask for the bill?", options: ["La carte, s'il vous plaît.", "L'addition, s'il vous plaît.", "Le menu, s'il vous plaît.", "Commander, s'il vous plaît."], answer: "L'addition, s'il vous plaît." },
-            { id: "fr-uq-a1-21-2", level: "A1", prompt: "What does 'le fromage' mean?", options: ["fish", "meat", "bread", "cheese"], answer: "cheese" },
-            { id: "fr-uq-a1-21-3", level: "A1", prompt: "Which phrase is more polite when ordering?", options: ["Je veux un café.", "Je voudrais un café.", "Je fais un café.", "J'ai un café."], answer: "Je voudrais un café." },
-            { id: "fr-uq-a1-21-4", level: "A1", prompt: "What does 'commander' mean?", options: ["to pay", "to leave", "to order", "to reserve"], answer: "to order" },
-            { id: "fr-uq-a1-21-5", level: "A1", prompt: "What does 'délicieux' mean?", options: ["cheap", "delicious", "fresh", "cold"], answer: "delicious" },
-            { id: "fr-uq-a1-21-6", level: "A1", prompt: "What does 'la carte' mean in a restaurant context?", options: ["the bill", "the address", "the menu", "the table"], answer: "the menu" },
+            { id: "fr-uq-a1-22-1", level: "A1", prompt: "How do you ask for the bill?", options: ["La carte, s'il vous plaît.", "L'addition, s'il vous plaît.", "Le menu, s'il vous plaît.", "Commander, s'il vous plaît."], answer: "L'addition, s'il vous plaît." },
+            { id: "fr-uq-a1-22-2", level: "A1", prompt: "What does 'le fromage' mean?", options: ["fish", "meat", "bread", "cheese"], answer: "cheese" },
+            { id: "fr-uq-a1-22-3", level: "A1", prompt: "Which phrase is more polite when ordering?", options: ["Je veux un café.", "Je voudrais un café.", "Je fais un café.", "J'ai un café."], answer: "Je voudrais un café." },
+            { id: "fr-uq-a1-22-4", level: "A1", prompt: "What does 'commander' mean?", options: ["to pay", "to leave", "to order", "to reserve"], answer: "to order" },
+            { id: "fr-uq-a1-22-5", level: "A1", prompt: "What does 'délicieux' mean?", options: ["cheap", "delicious", "fresh", "cold"], answer: "delicious" },
+            { id: "fr-uq-a1-22-6", level: "A1", prompt: "What does 'la carte' mean in a restaurant context?", options: ["the bill", "the address", "the menu", "the table"], answer: "the menu" },
         ]
     },
     {
-        id: "fr-a1-u22",
+        id: "fr-a1-u23",
         level: "A1",
-        order: 22,
+        order: 23,
         title: "Places & Daily Routine",
         description: "Learn vocabulary for places in the city, plus prepositions for location (à, dans, en, sur, près de…).",
         grammarIds: ["fr-g-a1-22"],
@@ -470,18 +492,72 @@ export const a1Units: LessonUnit[] = [
         ],
         verbIds: ["fr-vb-a1-13"],
         testQuestions: [
-            { id: "fr-uq-a1-22-1", level: "A1", prompt: "What does 'la gare' mean?", options: ["the garage", "the airport", "the train station", "the bus stop"], answer: "the train station" },
-            { id: "fr-uq-a1-22-2", level: "A1", prompt: "What does 'le centre-ville' mean?", options: ["city hall", "shopping centre", "town centre", "downtown park"], answer: "town centre" },
-            { id: "fr-uq-a1-22-3", level: "A1", prompt: "What does 'la banque' mean?", options: ["the bakery", "the bank", "the bench", "the shop"], answer: "the bank" },
-            { id: "fr-uq-a1-22-4", level: "A1", prompt: "How do you say 'I work in an office'?", options: ["Je travaille dans un magasin.", "Je travaille dans un bureau.", "Je travaille dans une école.", "Je travaille dans un hôpital."], answer: "Je travaille dans un bureau." },
-            { id: "fr-uq-a1-22-5", level: "A1", prompt: "What does 'le parc' mean?", options: ["the car park", "the park", "the square", "the garden"], answer: "the park" },
-            { id: "fr-uq-a1-22-6", level: "A1", prompt: "What does 'la rue' mean?", options: ["the road sign", "the roundabout", "the street", "the square"], answer: "the street" },
+            { id: "fr-uq-a1-23-1", level: "A1", prompt: "What does 'la gare' mean?", options: ["the garage", "the airport", "the train station", "the bus stop"], answer: "the train station" },
+            { id: "fr-uq-a1-23-2", level: "A1", prompt: "What does 'le centre-ville' mean?", options: ["city hall", "shopping centre", "town centre", "downtown park"], answer: "town centre" },
+            { id: "fr-uq-a1-23-3", level: "A1", prompt: "What does 'la banque' mean?", options: ["the bakery", "the bank", "the bench", "the shop"], answer: "the bank" },
+            { id: "fr-uq-a1-23-4", level: "A1", prompt: "How do you say 'I work in an office'?", options: ["Je travaille dans un magasin.", "Je travaille dans un bureau.", "Je travaille dans une école.", "Je travaille dans un hôpital."], answer: "Je travaille dans un bureau." },
+            { id: "fr-uq-a1-23-5", level: "A1", prompt: "What does 'le parc' mean?", options: ["the car park", "the park", "the square", "the garden"], answer: "the park" },
+            { id: "fr-uq-a1-23-6", level: "A1", prompt: "What does 'la rue' mean?", options: ["the road sign", "the roundabout", "the street", "the square"], answer: "the street" },
         ]
     },
     {
-        id: "fr-a1-u23",
+        id: "fr-a1-u24",
         level: "A1",
-        order: 23,
+        order: 24,
+        title: "Commands, Devoir & Venir",
+        description: "Give instructions using the imperative, express obligation with devoir (must/have to), and talk about coming and recent past actions with venir.",
+        grammarIds: ["fr-g-a1-33", "fr-g-a1-34", "fr-g-a1-35"],
+        vocabIds: [],
+        verbIds: [],
+        testQuestions: [
+            { id: "fr-uq-a1-24-1", level: "A1", prompt: "How do you form the tu-form imperative of parler?", options: ["Tu parles!", "Parles!", "Parle!", "Parlons!"], answer: "Parle!" },
+            { id: "fr-uq-a1-24-2", level: "A1", prompt: "Translate: 'Let's eat!' (nous imperative)", options: ["Mangez!", "Mange!", "Mangeons!", "Tu manges!"], answer: "Mangeons!" },
+            { id: "fr-uq-a1-24-3", level: "A1", prompt: "Complete with devoir: 'Tu ___ étudier ce soir.' (You must study tonight.)", options: ["veux", "peux", "dois", "fais"], answer: "dois" },
+            { id: "fr-uq-a1-24-4", level: "A1", prompt: "How do you say 'She must leave now'?", options: ["Elle va partir maintenant.", "Elle doit partir maintenant.", "Elle peut partir maintenant.", "Elle veut partir maintenant."], answer: "Elle doit partir maintenant." },
+            { id: "fr-uq-a1-24-5", level: "A1", prompt: "Which phrase uses venir to express the recent past?", options: ["Je viens manger.", "Je viens de manger.", "Je viens pour manger.", "Je viens en manger."], answer: "Je viens de manger." },
+            { id: "fr-uq-a1-24-6", level: "A1", prompt: "Translate: 'They just arrived.' (recent past with venir)", options: ["Ils arrivent.", "Ils vont arriver.", "Ils viennent d'arriver.", "Ils sont venus arriver."], answer: "Ils viennent d'arriver." },
+        ]
+    },
+    {
+        id: "fr-a1-u25",
+        level: "A1",
+        order: 25,
+        title: "Identity & Stressed Pronouns",
+        description: "Distinguish between c'est (identifying) and il est/elle est (describing), and use stressed pronouns — moi, toi, lui, elle, nous, vous, eux, elles — for emphasis and after prepositions.",
+        grammarIds: ["fr-g-a1-36", "fr-g-a1-37"],
+        vocabIds: [],
+        verbIds: [],
+        testQuestions: [
+            { id: "fr-uq-a1-25-1", level: "A1", prompt: "Choose the correct sentence to identify a person: 'This is my friend Marie.'", options: ["Il est mon amie Marie.", "C'est mon amie Marie.", "Elle est mon amie Marie.", "Voilà est mon amie Marie."], answer: "C'est mon amie Marie." },
+            { id: "fr-uq-a1-25-2", level: "A1", prompt: "Which sentence describes a quality rather than identifying someone?", options: ["C'est médecin.", "Il est médecin.", "C'est un médecin.", "C'est le médecin."], answer: "Il est médecin." },
+            { id: "fr-uq-a1-25-3", level: "A1", prompt: "What is the stressed pronoun for 'je'?", options: ["tu", "lui", "moi", "soi"], answer: "moi" },
+            { id: "fr-uq-a1-25-4", level: "A1", prompt: "Complete: 'Ce livre est pour ___.' (this book is for him)", options: ["il", "le", "lui", "son"], answer: "lui" },
+            { id: "fr-uq-a1-25-5", level: "A1", prompt: "Which stressed pronoun corresponds to 'ils'?", options: ["eux", "leur", "les", "ils"], answer: "eux" },
+            { id: "fr-uq-a1-25-6", level: "A1", prompt: "How do you say 'Me, I prefer coffee.' (using a stressed pronoun for emphasis)?", options: ["Je préfère le café.", "Moi, je préfère le café.", "Moi je suis préfère le café.", "Je moi préfère le café."], answer: "Moi, je préfère le café." },
+        ]
+    },
+    {
+        id: "fr-a1-u26",
+        level: "A1",
+        order: 26,
+        title: "Weather & Seasons",
+        description: "Describe the weather and talk about the seasons. French weather uses impersonal il-constructions — il fait, il pleut, il y a — that are different from English.",
+        grammarIds: ["fr-g-a1-30"],
+        vocabIds: [],
+        verbIds: [],
+        testQuestions: [
+            { id: "fr-uq-a1-26-1", level: "A1", prompt: "How do you say 'It's hot'?", options: ["Il est chaud.", "Il fait chaud.", "Il a chaud.", "Il va chaud."], answer: "Il fait chaud." },
+            { id: "fr-uq-a1-26-2", level: "A1", prompt: "What is the verb for 'it's raining'?", options: ["il fait de la pluie", "il y a la pluie", "il pleut", "il neige"], answer: "il pleut" },
+            { id: "fr-uq-a1-26-3", level: "A1", prompt: "How do you say 'in spring' in French?", options: ["en printemps", "au printemps", "dans printemps", "le printemps"], answer: "au printemps" },
+            { id: "fr-uq-a1-26-4", level: "A1", prompt: "What does 'il y a du brouillard' mean?", options: ["it's windy", "it's foggy", "it's cloudy", "it's freezing"], answer: "it's foggy" },
+            { id: "fr-uq-a1-26-5", level: "A1", prompt: "How do you ask 'What's the weather like?'", options: ["Comment est le temps?", "Quel temps fait-il?", "Qu'est-ce que il fait dehors?", "Comment va le climat?"], answer: "Quel temps fait-il?" },
+            { id: "fr-uq-a1-26-6", level: "A1", prompt: "Which season uses 'en' (not 'au')?", options: ["printemps", "hiver", "été", "Both hiver and été"], answer: "Both hiver and été" },
+        ]
+    },
+    {
+        id: "fr-a1-u27",
+        level: "A1",
+        order: 27,
         title: "Bridge: Le Futur Proche",
         description: "Learn to talk about planned future actions using aller + infinitive — the most common future structure in French.",
         grammarIds: ["fr-g-a1-13"],
@@ -491,84 +567,12 @@ export const a1Units: LessonUnit[] = [
         ],
         verbIds: ["fr-vb-a1-3"],
         testQuestions: [
-            { id: "fr-uq-a1-23-1", level: "A1", prompt: "How is the futur proche formed?", options: ["Present of avoir + infinitive", "Present of être + infinitive", "Present of aller + infinitive", "Present of faire + infinitive"], answer: "Present of aller + infinitive" },
-            { id: "fr-uq-a1-23-2", level: "A1", prompt: "Complete: 'Je ___ manger ce soir.' (futur proche)", options: ["vais", "suis", "fais", "ai"], answer: "vais" },
-            { id: "fr-uq-a1-23-3", level: "A1", prompt: "How do you say 'We are going to visit Paris'?", options: ["Nous visitons Paris.", "Nous allons visiter Paris.", "Nous faisons visiter Paris.", "Nous avons visité Paris."], answer: "Nous allons visiter Paris." },
-            { id: "fr-uq-a1-23-4", level: "A1", prompt: "What does 'demain' mean?", options: ["yesterday", "now", "tomorrow", "soon"], answer: "tomorrow" },
-            { id: "fr-uq-a1-23-5", level: "A1", prompt: "Complete: 'Il ___ pleuvoir demain.' (futur proche)", options: ["fait", "va", "est", "a"], answer: "va" },
-            { id: "fr-uq-a1-23-6", level: "A1", prompt: "What does 'bientôt' mean?", options: ["already", "soon", "now", "still"], answer: "soon" },
-        ]
-    },
-    {
-        id: "fr-a1-u24",
-        level: "A1",
-        order: 24,
-        title: "Weather & Seasons",
-        description: "Describe the weather and talk about the seasons. French weather uses impersonal il-constructions — il fait, il pleut, il y a — that are different from English.",
-        grammarIds: ["fr-g-a1-30"],
-        vocabIds: [],
-        verbIds: [],
-        testQuestions: [
-            { id: "fr-uq-a1-24-1", level: "A1", prompt: "How do you say 'It's hot'?", options: ["Il est chaud.", "Il fait chaud.", "Il a chaud.", "Il va chaud."], answer: "Il fait chaud." },
-            { id: "fr-uq-a1-24-2", level: "A1", prompt: "What is the verb for 'it's raining'?", options: ["il fait de la pluie", "il y a la pluie", "il pleut", "il neige"], answer: "il pleut" },
-            { id: "fr-uq-a1-24-3", level: "A1", prompt: "How do you say 'in spring' in French?", options: ["en printemps", "au printemps", "dans printemps", "le printemps"], answer: "au printemps" },
-            { id: "fr-uq-a1-24-4", level: "A1", prompt: "What does 'il y a du brouillard' mean?", options: ["it's windy", "it's foggy", "it's cloudy", "it's freezing"], answer: "it's foggy" },
-            { id: "fr-uq-a1-24-5", level: "A1", prompt: "How do you ask 'What's the weather like?'", options: ["Comment est le temps?", "Quel temps fait-il?", "Qu'est-ce que il fait dehors?", "Comment va le climat?"], answer: "Quel temps fait-il?" },
-            { id: "fr-uq-a1-24-6", level: "A1", prompt: "Which season uses 'en' (not 'au')?", options: ["printemps", "hiver", "été", "Both hiver and été"], answer: "Both hiver and été" },
-        ]
-    },
-    {
-        id: "fr-a1-u25",
-        level: "A1",
-        order: 25,
-        title: "Partitive Articles & Existence",
-        description: "Learn to use partitive articles (du, de la, de l', des) to express some/any of something, and master il y a to say there is / there are.",
-        grammarIds: ["fr-g-a1-31", "fr-g-a1-32"],
-        vocabIds: [],
-        verbIds: [],
-        testQuestions: [
-            { id: "fr-uq-a1-25-1", level: "A1", prompt: "Which partitive article goes before a masculine noun? 'Je mange ___ pain.'", options: ["de la", "du", "des", "de l'"], answer: "du" },
-            { id: "fr-uq-a1-25-2", level: "A1", prompt: "Choose the correct sentence: 'I drink some water.'", options: ["Je bois de l'eau.", "Je bois du eau.", "Je bois des eau.", "Je bois de eau."], answer: "Je bois de l'eau." },
-            { id: "fr-uq-a1-25-3", level: "A1", prompt: "What is the partitive article for a feminine noun? 'Elle mange ___ viande.'", options: ["du", "des", "de l'", "de la"], answer: "de la" },
-            { id: "fr-uq-a1-25-4", level: "A1", prompt: "How do you say 'There is a cat in the garden'?", options: ["Il est un chat dans le jardin.", "Il y a un chat dans le jardin.", "Il a un chat dans le jardin.", "C'est un chat dans le jardin."], answer: "Il y a un chat dans le jardin." },
-            { id: "fr-uq-a1-25-5", level: "A1", prompt: "Which sentence correctly uses 'il y a' in a question?", options: ["Est-il y a du lait?", "Y a-t-il du lait?", "Il y a du lait?", "A-t-il y du lait?"], answer: "Y a-t-il du lait?" },
-            { id: "fr-uq-a1-25-6", level: "A1", prompt: "After a negation, partitive articles change to ___. 'Je ne mange pas ___ sucre.'", options: ["du", "de", "des", "de la"], answer: "de" },
-        ]
-    },
-    {
-        id: "fr-a1-u26",
-        level: "A1",
-        order: 26,
-        title: "Commands, Devoir & Venir",
-        description: "Give instructions using the imperative, express obligation with devoir (must/have to), and talk about coming and recent past actions with venir.",
-        grammarIds: ["fr-g-a1-33", "fr-g-a1-34", "fr-g-a1-35"],
-        vocabIds: [],
-        verbIds: [],
-        testQuestions: [
-            { id: "fr-uq-a1-26-1", level: "A1", prompt: "How do you form the tu-form imperative of parler?", options: ["Tu parles!", "Parles!", "Parle!", "Parlons!"], answer: "Parle!" },
-            { id: "fr-uq-a1-26-2", level: "A1", prompt: "Translate: 'Let's eat!' (nous imperative)", options: ["Mangez!", "Mange!", "Mangeons!", "Tu manges!"], answer: "Mangeons!" },
-            { id: "fr-uq-a1-26-3", level: "A1", prompt: "Complete with devoir: 'Tu ___ étudier ce soir.' (You must study tonight.)", options: ["veux", "peux", "dois", "fais"], answer: "dois" },
-            { id: "fr-uq-a1-26-4", level: "A1", prompt: "How do you say 'She must leave now'?", options: ["Elle va partir maintenant.", "Elle doit partir maintenant.", "Elle peut partir maintenant.", "Elle veut partir maintenant."], answer: "Elle doit partir maintenant." },
-            { id: "fr-uq-a1-26-5", level: "A1", prompt: "Which phrase uses venir to express the recent past?", options: ["Je viens manger.", "Je viens de manger.", "Je viens pour manger.", "Je viens en manger."], answer: "Je viens de manger." },
-            { id: "fr-uq-a1-26-6", level: "A1", prompt: "Translate: 'They just arrived.' (recent past with venir)", options: ["Ils arrivent.", "Ils vont arriver.", "Ils viennent d'arriver.", "Ils sont venus arriver."], answer: "Ils viennent d'arriver." },
-        ]
-    },
-    {
-        id: "fr-a1-u27",
-        level: "A1",
-        order: 27,
-        title: "Identity & Stressed Pronouns",
-        description: "Distinguish between c'est (identifying) and il est/elle est (describing), and use stressed pronouns — moi, toi, lui, elle, nous, vous, eux, elles — for emphasis and after prepositions.",
-        grammarIds: ["fr-g-a1-36", "fr-g-a1-37"],
-        vocabIds: [],
-        verbIds: [],
-        testQuestions: [
-            { id: "fr-uq-a1-27-1", level: "A1", prompt: "Choose the correct sentence to identify a person: 'This is my friend Marie.'", options: ["Il est mon amie Marie.", "C'est mon amie Marie.", "Elle est mon amie Marie.", "Voilà est mon amie Marie."], answer: "C'est mon amie Marie." },
-            { id: "fr-uq-a1-27-2", level: "A1", prompt: "Which sentence describes a quality rather than identifying someone?", options: ["C'est médecin.", "Il est médecin.", "C'est un médecin.", "C'est le médecin."], answer: "Il est médecin." },
-            { id: "fr-uq-a1-27-3", level: "A1", prompt: "What is the stressed pronoun for 'je'?", options: ["tu", "lui", "moi", "soi"], answer: "moi" },
-            { id: "fr-uq-a1-27-4", level: "A1", prompt: "Complete: 'Ce livre est pour ___.' (this book is for him)", options: ["il", "le", "lui", "son"], answer: "lui" },
-            { id: "fr-uq-a1-27-5", level: "A1", prompt: "Which stressed pronoun corresponds to 'ils'?", options: ["eux", "leur", "les", "ils"], answer: "eux" },
-            { id: "fr-uq-a1-27-6", level: "A1", prompt: "How do you say 'Me, I prefer coffee.' (using a stressed pronoun for emphasis)?", options: ["Je préfère le café.", "Moi, je préfère le café.", "Moi je suis préfère le café.", "Je moi préfère le café."], answer: "Moi, je préfère le café." },
+            { id: "fr-uq-a1-27-1", level: "A1", prompt: "How is the futur proche formed?", options: ["Present of avoir + infinitive", "Present of être + infinitive", "Present of aller + infinitive", "Present of faire + infinitive"], answer: "Present of aller + infinitive" },
+            { id: "fr-uq-a1-27-2", level: "A1", prompt: "Complete: 'Je ___ manger ce soir.' (futur proche)", options: ["vais", "suis", "fais", "ai"], answer: "vais" },
+            { id: "fr-uq-a1-27-3", level: "A1", prompt: "How do you say 'We are going to visit Paris'?", options: ["Nous visitons Paris.", "Nous allons visiter Paris.", "Nous faisons visiter Paris.", "Nous avons visité Paris."], answer: "Nous allons visiter Paris." },
+            { id: "fr-uq-a1-27-4", level: "A1", prompt: "What does 'demain' mean?", options: ["yesterday", "now", "tomorrow", "soon"], answer: "tomorrow" },
+            { id: "fr-uq-a1-27-5", level: "A1", prompt: "Complete: 'Il ___ pleuvoir demain.' (futur proche)", options: ["fait", "va", "est", "a"], answer: "va" },
+            { id: "fr-uq-a1-27-6", level: "A1", prompt: "What does 'bientôt' mean?", options: ["already", "soon", "now", "still"], answer: "soon" },
         ]
     },
 ]
