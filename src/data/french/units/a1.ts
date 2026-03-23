@@ -191,9 +191,9 @@ export const a1Units: LessonUnit[] = [
         id: "fr-a1-u9",
         level: "A1",
         order: 9,
-        title: "Aller (to go)",
-        description: "Learn the irregular verb aller (to go) and vocabulary for directions and locations.",
-        grammarIds: ["fr-g-a1-7"],
+        title: "Aller (to go) & Possessive Adjectives",
+        description: "Learn the irregular verb aller (to go) and possessive adjectives (mon/ma/mes, ton/ta/tes…) — essential for talking about your things, your family, and where you're going.",
+        grammarIds: ["fr-g-a1-7", "fr-g-a1-21"],
         vocabIds: [
             "fr-v-a1-129", "fr-v-a1-130", "fr-v-a1-131", "fr-v-a1-132",
             "fr-v-a1-133", "fr-v-a1-134", "fr-v-a1-135", "fr-v-a1-136"
@@ -381,7 +381,7 @@ export const a1Units: LessonUnit[] = [
         order: 18,
         title: "Adverbs, Frequency & Connectors",
         description: "Build more natural sentences: say where things are, when things happen, how often, and how to link ideas together with words like mais, parce que, and d'abord.",
-        grammarIds: ["fr-g-a1-27", "fr-g-a1-28", "fr-g-a1-29"],
+        grammarIds: ["fr-g-a1-27", "fr-g-a1-28", "fr-g-a1-29", "fr-g-a1-18b"],
         vocabIds: [],
         verbIds: [],
         testQuestions: [
@@ -421,8 +421,8 @@ export const a1Units: LessonUnit[] = [
         level: "A1",
         order: 20,
         title: "Family & Relationships",
-        description: "Learn vocabulary for family members and close relationships, plus possessive adjectives to talk about whose is whose.",
-        grammarIds: ["fr-g-a1-21"],
+        description: "Learn vocabulary for family members and close relationships.",
+        grammarIds: [],
         vocabIds: [
             "fr-v-a1-48", "fr-v-a1-49", "fr-v-a1-50", "fr-v-a1-51", "fr-v-a1-52",
             "fr-v-a1-53", "fr-v-a1-54", "fr-v-a1-55", "fr-v-a1-56", "fr-v-a1-57",

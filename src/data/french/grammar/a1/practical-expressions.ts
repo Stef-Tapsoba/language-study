@@ -97,82 +97,99 @@ ASKING ABOUT PREFERENCES:
     {
         id: "fr-g-a1-18",
         level: "A1",
-        title: "French Pronunciation — Key Rules",
-        explanation: `French is famously difficult to pronounce because the written and spoken forms are very different. Many letters are silent, vowels have unusual sounds, and words run together in speech. These rules cover the most important patterns.
+        title: "French Pronunciation — Getting Started",
+        explanation: `French sounds very different from how it is written. These are the four things you must know on day one.
 
-SILENT FINAL CONSONANTS
-Most final consonants in French are silent. This is why most -er verb endings (parle, parles, parlent) sound identical:
+1. SILENT FINAL CONSONANTS
+Most final consonants are not pronounced:
   pas, est, beaucoup, vous parlez, ils parlent → final consonant silent
-  Exceptions you must memorise: avec, chef, parc, fils
+  The -ent ending on verbs is always silent: ils parlent sounds like ils "parl".
+  Exceptions to memorise: avec, chef, parc, fils
 
-THE SILENT E
-The letter e at the end of a word is almost always silent:
-  table, livre, femme, rouge → final e not pronounced
-  But e in the middle of a word is usually pronounced as a schwa (like the 'u' in 'about')
+2. THE SILENT E
+A final -e is almost always silent: table, livre, rouge, femme.
+A mid-word e is usually a short schwa sound (like 'uh'): le, demain, fenêtre.
 
-NASAL VOWELS — French has four nasal vowels (sounds made through the nose):
-  an/en → like the English 'on' said nasally: France, enfant, manger
-  in/ain → like the English 'an' said nasally: vin, main, bien
-  on → like the English 'own' said nasally: bon, maison, ton
-  un → like the English 'un' said nasally: un, lundi, brun
-  When the vowel is followed by mm or nn, or comes before a vowel, it is NOT nasal: bonne, anime
+3. NASAL VOWELS
+French has vowels pronounced through the nose. Four patterns to recognise:
+  an/en  → "ahn"  France, enfant, manger
+  in/ain → "an"   vin, main, bien
+  on     → "ohn"  bon, maison, on
+  un     → "uhn"  un, lundi
+  Warning: nn or mm after the vowel breaks the nasal — bonne is NOT nasal.
 
-LIAISON — linking words together
-When a word ending in a normally silent consonant is followed by a word starting with a vowel, the consonant is pronounced and links to the next word:
-  vous_avez (voo-za-vay), les_amis (lay-za-mee), nous_habitons (noo-za-bi-ton)
-  This is mandatory in many contexts and completely changes how speech sounds.
+4. LIAISON — words link together
+When a word with a silent final consonant is followed by a word starting with a vowel, the consonant is pronounced and joins the next word:
+  vous_avez (voo-ZA-vay)  ·  les_amis (lay-ZA-mee)  ·  nous_habitons (noo-ZA-bi-ton)
 
-ACCENTS
-é (e accent aigu) → the closed e sound, like the 'ay' in 'say': café, étudiant
-è (e accent grave) → the open e sound, like the 'e' in 'bet': très, après
-ê (e circumflex) → similar to è but held slightly longer: être, fête
-The accent on â, î, ô, û mostly distinguishes words from each other rather than changing sound significantly.
-
-VOWEL SOUNDS — QUICK REFERENCE
-  Spelling         Approximate sound         Example words
-  ─────────────────────────────────────────────────────────
-  é                'ay' (closed, tense)       café, été, étudiant
-  è / ê / ai / ei  'eh' (open, relaxed)       très, être, mais, neige
-  e (mid-word)     'uh' (schwa)               le, fenêtre, demain
-  i / y            'ee'                       ici, livre, typique
-  u                'ew' (round lips — no English equivalent)  tu, sur, rue
-  ou               'oo'                       vous, rouge, tour
-  o / ô / au / eau 'oh'                       or, rôle, aussi, beau
-  eu / œu          'uh' (lips rounded)        bleu, peur, cœur
-  ─────────────────────────────────────────────────────────
-  NASALS (air through the nose — no English equivalent):
-  an / en / am/em  'ahn'                      France, enfant, jambe
-  in / ain / im    'an'                       vin, main, impossible
-  on / om          'ohn'                      bon, ombre, nom
-  un / um          'uhn'                      un, parfum`,
+For the full vowel chart, accents, and detailed sound guide, see the companion lesson "Pronunciation — Complete Reference" (fr-g-a1-18b).`,
         examples: [
-            { native: "ils parlent, vous mangez", translation: "Final -ent and -ez are silent — these sound like 'parl' and 'mang-ay'" },
-            { native: "un enfant en France", translation: "Three nasal vowels in a row: un (nasal), en (nasal), an (nasal)" },
-            { native: "vous_avez / les_amis", speakText: "vous avez, les amis", translation: "Liaison: the s in 'vous' and 'les' is pronounced before a vowel" },
-            { native: "é → café / è → très / ê → être", speakText: "café, très, être", translation: "Three e-sounds: closed 'ay' (é), open 'eh' (è/ê) — accent = sound" },
-            { native: "bonne vs bon", speakText: "bonne, bon", translation: "Double n before a vowel breaks the nasal sound — bonne is not nasal, bon is" },
+            { native: "ils parlent / vous mangez", translation: "Final -ent and -ez are silent — sounds like 'parl' and 'mang-ay'" },
+            { native: "un enfant en France", translation: "Three nasals in a row: un (nasal), en (nasal), an (nasal)" },
+            { native: "vous avez / les amis", speakText: "vous avez, les amis", translation: "Liaison: the s in 'vous' and 'les' links to the next vowel" },
+            { native: "bonne vs bon", speakText: "bonne, bon", translation: "Double n breaks the nasal — bonne is not nasal, bon is" },
         ],
         inlineVocab: [
             { word: "pas", translation: "not / step" },
             { word: "beaucoup", translation: "a lot / very much" },
             { word: "avec", translation: "with" },
-            { word: "chef", translation: "chef / head / boss" },
-            { word: "parc", translation: "park" },
-            { word: "fils", translation: "son" },
-            { word: "table", translation: "table" },
-            { word: "livre", translation: "book" },
-            { word: "femme", translation: "woman / wife" },
-            { word: "rouge", translation: "red" },
             { word: "enfant", translation: "child" },
-            { word: "manger", translation: "to eat" },
-            { word: "vin", translation: "wine" },
-            { word: "main", translation: "hand" },
-            { word: "bien", translation: "well / good" },
             { word: "maison", translation: "house / home" },
-            { word: "lundi", translation: "Monday" },
-            { word: "brun", translation: "brown / brunette (masc.)" },
             { word: "bonne", translation: "good (feminine)" },
             { word: "bon", translation: "good (masculine)" },
+        ]
+    },
+    {
+        id: "fr-g-a1-18b",
+        level: "A1",
+        title: "Pronunciation — Complete Reference",
+        explanation: `A full guide to French sounds for reference throughout your A1 journey. Return to this lesson whenever you encounter an unfamiliar sound.
+
+ACCENTS AND THE E SOUNDS
+  **é** (e accent aigu) → closed 'ay' sound, like the 'ay' in 'say': café, étudiant, été
+  **è** (e accent grave) → open 'eh' sound, like the 'e' in 'bet': très, après
+  **ê** (e circumflex) → similar to è, slightly longer: être, fête
+  Other accents (â, î, ô, û) mostly distinguish words from each other rather than change sound.
+
+VOWEL SOUNDS — COMPLETE CHART
+  Spelling          Approximate sound                    Examples
+  ──────────────────────────────────────────────────────────────
+  é                 'ay' (closed, tense)                 café, été, étudiant
+  è / ê / ai / ei   'eh' (open, relaxed)                 très, être, mais, neige
+  e (mid-word)      'uh' (schwa)                         le, fenêtre, demain
+  i / y             'ee'                                 ici, livre, typique
+  u                 'ew' (round lips — no English equiv) tu, sur, rue
+  ou                'oo'                                 vous, rouge, tour
+  o / ô / au / eau  'oh'                                 or, rôle, aussi, beau
+  eu / œu           rounded 'uh' (lips rounded forward)  bleu, peur, cœur
+  ──────────────────────────────────────────────────────────────
+
+NASAL VOWELS — COMPLETE CHART
+  Spelling          Sound    Examples
+  ──────────────────────────────────────
+  an / en / am / em 'ahn'    France, enfant, jambe, temps
+  in / ain / im     'an'     vin, main, impossible
+  on / om           'ohn'    bon, ombre, nom
+  un / um           'uhn'    un, parfum
+  ──────────────────────────────────────
+  Rule: nn or mm after a nasal vowel spelling breaks the nasalisation.
+  bonne → NOT nasal (double n)  |  bon → nasal
+
+THE U SOUND — the hardest for English speakers
+  The French **u** has no English equivalent. Shape your mouth to say 'ee', then round your lips tightly as if saying 'oo' — without moving your tongue.
+  tu, sur, rue, vu, mur
+
+THE U vs OU DISTINCTION
+  **u**   = lips tightly rounded, tongue forward: tu (you), sur (on), rue (street)
+  **ou**  = lips loosely rounded, tongue back: vous (you), rouge (red), tour (tower)
+  These are completely different sounds — mixing them up changes the word.`,
+        examples: [
+            { native: "é → café / è → très / ê → être", speakText: "café, très, être", translation: "Three e-sounds: 'ay' (é), 'eh' (è/ê) — accent changes the sound" },
+            { native: "tu vs vous / sur vs rouge", speakText: "tu, vous, sur, rouge", translation: "u vs ou — two very different rounded vowels" },
+            { native: "un enfant en France", translation: "Three different nasal vowels: un / en / an — all distinct" },
+            { native: "France, bonne, vin", speakText: "France, bonne, vin", translation: "France = nasal an; bonne = NOT nasal (double n); vin = nasal in" },
+        ],
+        inlineVocab: [
             { word: "café", translation: "café / coffee" },
             { word: "étudiant", translation: "student" },
             { word: "très", translation: "very" },
@@ -180,12 +197,23 @@ VOWEL SOUNDS — QUICK REFERENCE
             { word: "être", translation: "to be" },
             { word: "fête", translation: "party / celebration" },
             { word: "fenêtre", translation: "window" },
-            { word: "demain", translation: "tomorrow" },
             { word: "sur", translation: "on / over / about" },
             { word: "rue", translation: "street" },
             { word: "tour", translation: "tower / tour / turn" },
             { word: "bleu", translation: "blue" },
             { word: "peur", translation: "fear" },
+            { word: "cœur", translation: "heart" },
+            { word: "jambe", translation: "leg" },
+            { word: "ombre", translation: "shadow / shade" },
+            { word: "nom", translation: "name / noun" },
+            { word: "parfum", translation: "perfume / fragrance" },
+            { word: "brun", translation: "brown / brunette (masc.)" },
+            { word: "lundi", translation: "Monday" },
+            { word: "vin", translation: "wine" },
+            { word: "main", translation: "hand" },
+            { word: "fils", translation: "son" },
+            { word: "chef", translation: "chef / head / boss" },
+            { word: "parc", translation: "park" },
             { word: "cœur", translation: "heart" },
             { word: "jambe", translation: "leg" },
             { word: "ombre", translation: "shadow / shade" },
