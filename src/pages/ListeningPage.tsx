@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
-import { getCurrentLevel, markLessonComplete, getCompletedLessons } from "../store/progress"
+import { useProgress } from "../context/ProgressContext"
 import { recordActivity, recordQuizAnswer } from "../store/stats"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
@@ -169,6 +169,7 @@ function ExerciseListen({ exercise, langId, level, completed, onBack, ui }: Read
     const [translationShown, setTranslationShown] = useState(false)
     const [quizOpen, setQuizOpen] = useState(false)
     const [markedListened, setMarkedListened] = useState(completed.includes(exercise.id))
+    const { markLessonComplete } = useProgress()
 
     function handleMarkListened() {
         markLessonComplete(langId, exercise.id)
@@ -261,7 +262,8 @@ export function ListeningPage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
     const mod = getModule(langId)
-    const level = getCurrentLevel(langId)
+    const { level: getLevel, completed: getCompleted } = useProgress()
+    const level = getLevel(langId)
     const ui = getUI(langId, level)
 
     const [selectedExercise, setSelectedExercise] = useState<ListeningExercise | null>(null)
@@ -269,7 +271,7 @@ export function ListeningPage() {
     if (!language || !mod) return null
 
     const exercises = (mod.listeningExercises ?? []).filter(e => e.level === level)
-    const completed = getCompletedLessons(langId)
+    const completed = getCompleted(langId)
 
     if (exercises.length === 0) {
         return (

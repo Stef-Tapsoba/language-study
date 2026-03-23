@@ -1,9 +1,8 @@
 // pages/GrammarLessonPage.tsx — Full grammar lesson detail view
-import { useState } from "react"
 import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
-import { getCurrentLevel, getCompletedLessons, markLessonComplete } from "../store/progress"
+import { useProgress } from "../context/ProgressContext"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { SpeakButton } from "../components/SpeakButton"
@@ -16,9 +15,9 @@ export function GrammarLessonPage() {
     const { langId = "", lessonId = "" } = useParams()
     const language = getLanguage(langId)
     const mod = getModule(langId)
-    const level = getCurrentLevel(langId)
-
-    const [completed, setCompleted] = useState(() => getCompletedLessons(langId))
+    const { level: getLevel, completed: getCompleted, markLessonComplete } = useProgress()
+    const level = getLevel(langId)
+    const completed = getCompleted(langId)
     const { activeWord, handleVocabClick, dismissTooltip } = useVocabTooltip(langId)
 
     if (!language || !mod) return null
@@ -43,7 +42,6 @@ export function GrammarLessonPage() {
     function handleMarkComplete() {
         if (!lesson) return
         markLessonComplete(langId, lesson.id)
-        setCompleted(getCompletedLessons(langId))
     }
 
     return (

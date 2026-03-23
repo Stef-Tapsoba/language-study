@@ -1,20 +1,21 @@
 // pages/LanguageSelectPage.tsx — Language selection screen for new users
 import { useNavigate } from "react-router-dom"
 import { LANGUAGES } from "../data/languages"
-import { setSelectedLanguage, getSelectedLanguage, getStartedLanguages } from "../store/progress"
+import { useProgress } from "../context/ProgressContext"
 import { loadModule } from "../data/modules"
 import { NavBar } from "../components/NavBar"
 import { Flag } from "../components/Flag"
 
 export function LanguageSelectPage() {
     const navigate = useNavigate()
-    const existingLang = getSelectedLanguage()
+    const { selectedLanguage, startedLanguages, setSelectedLanguage } = useProgress()
+    const existingLang = selectedLanguage
     const isReturning = Boolean(existingLang)
 
     function pick(langId: string) {
         setSelectedLanguage(langId)
         loadModule(langId) // pre-fetch chunk before navigation
-        const alreadyStarted = getStartedLanguages().includes(langId)
+        const alreadyStarted = startedLanguages.includes(langId)
         navigate(alreadyStarted ? `/learn/${langId}` : `/learn/${langId}/placement`)
     }
 

@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
-import { setCurrentLevel } from "../store/progress"
+import { useProgress } from "../context/ProgressContext"
 import { NavBar } from "../components/NavBar"
 import { QuizCard } from "../components/QuizCard"
 import { LevelBadge } from "../components/LevelBadge"
@@ -23,6 +23,7 @@ export function PlacementPage() {
     const navigate = useNavigate()
     const language = getLanguage(langId)
     const mod = getModule(langId)
+    const { setCurrentLevel } = useProgress()
 
     const [tab, setTab] = useState<Tab>("test")
     const [current, setCurrent] = useState(0)

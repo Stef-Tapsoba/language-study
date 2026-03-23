@@ -3,7 +3,8 @@ import { useState, useMemo, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
-import { getCurrentLevel, getCompletedLessons, markLessonComplete, getMasteredUnits, masterUnit, isUnitUnlocked } from "../store/progress"
+import { isUnitUnlocked } from "../store/progress"
+import { useProgress } from "../context/ProgressContext"
 import { recordActivity, recordQuizAnswer } from "../store/stats"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
@@ -27,6 +28,7 @@ function GrammarAccordion({ lesson, done, langId, level, ui, onComplete, onVocab
     onVocabClick: VocabClickHandler
 }>) {
     const [open, setOpen] = useState(false)
+    const { markLessonComplete } = useProgress()
     return (
         <div className={`bg-white border rounded-2xl overflow-hidden ${done ? "border-green-300" : "border-gray-200"}`}>
             <button
@@ -78,6 +80,7 @@ function VocabRow({ item, done, langId, ui, onComplete }: Readonly<{
     item: VocabItem; done: boolean; langId: string; ui: UIStrings; onComplete: () => void
 }>) {
     const [open, setOpen] = useState(false)
+    const { markLessonComplete } = useProgress()
     return (
         <div className={`bg-white border rounded-2xl overflow-hidden ${done ? "border-green-300" : "border-gray-200 hover:border-indigo-300"}`}>
             <button
@@ -317,6 +320,7 @@ function TestOutTab({ unit, langId, isMastered, nextUnit, isLastUnit, ui, onMast
         setMissed([]); setDidComplete(false); setPhase("start")
     }
 
+    const { masterUnit } = useProgress()
     function handleComplete() { masterUnit(langId, unit.id); recordActivity(langId); onMastered(); setDidComplete(true) }
 
     if (!questions.length) {
@@ -412,11 +416,11 @@ export function UnitPage() {
 
     const language = getLanguage(langId)
     const mod = getModule(langId)
-    const level = getCurrentLevel(langId)
+    const { level: getLevel, completed: getCompleted, mastered: getMastered } = useProgress()
+    const level = getLevel(langId)
     const ui = getUI(langId, level)
-
-    const [completed, setCompleted] = useState(() => getCompletedLessons(langId))
-    const [mastered, setMastered] = useState(() => getMasteredUnits(langId))
+    const completed = getCompleted(langId)
+    const mastered = getMastered(langId)
     const { activeWord, handleVocabClick, dismissTooltip } = useVocabTooltip(langId)
 
     const units = mod?.units ?? []
@@ -539,7 +543,7 @@ export function UnitPage() {
                                 langId={langId}
                                 level={level}
                                 ui={ui}
-                                onComplete={() => setCompleted(getCompletedLessons(langId))}
+                                onComplete={() => {}}
                                 onVocabClick={handleVocabClick}
                             />
                         ))}
@@ -582,7 +586,7 @@ export function UnitPage() {
                                         done={completed.includes(item.id)}
                                         langId={langId}
                                         ui={ui}
-                                        onComplete={() => setCompleted(getCompletedLessons(langId))}
+                                        onComplete={() => {}}
                                     />
                                 ))}
                             </div>
@@ -614,7 +618,7 @@ export function UnitPage() {
                         nextUnit={nextUnit}
                         isLastUnit={isLastUnit}
                         ui={ui}
-                        onMastered={() => setMastered(getMasteredUnits(langId))}
+                        onMastered={() => {}}
                         onBack={() => navigate(`/learn/${langId}`)}
                         onNavigateNext={(id) => navigate(`/learn/${langId}/units/${id}`, { replace: true })}
                         onNavigateLevelTest={() => navigate(`/learn/${langId}/level-test`)}

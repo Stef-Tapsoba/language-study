@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
-import { getCurrentLevel, markLessonComplete, getCompletedLessons } from "../store/progress"
+import { useProgress } from "../context/ProgressContext"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { QuizCard } from "../components/QuizCard"
@@ -179,6 +179,7 @@ function CategoryRead({ passage, langId, level, label, completed, theme, ui }: R
     const [quizScore, setQuizScore] = useState(0)
     const [quizDone, setQuizDone] = useState(false)
     const [markedRead, setMarkedRead] = useState(completed.includes(passage.id))
+    const { markLessonComplete } = useProgress()
 
     function handleMarkRead() {
         markLessonComplete(langId, passage.id)
@@ -320,7 +321,8 @@ export function CategoryReadingPage() {
     const { langId = "", category = "" } = useParams()
     const language = getLanguage(langId)
     const mod = getModule(langId)
-    const level = getCurrentLevel(langId)
+    const { level: getLevel, completed: getCompleted } = useProgress()
+    const level = getLevel(langId)
     const ui = getUI(langId, level)
 
     const [selectedPassage, setSelectedPassage] = useState<ReadingPassage | null>(null)
@@ -333,7 +335,7 @@ export function CategoryReadingPage() {
 
     const passages = (mod.readingPassages ?? [])
         .filter(p => p.level === level && p.category === (category as PassageCategory))
-    const completed = getCompletedLessons(langId)
+    const completed = getCompleted(langId)
 
     const handleBack = selectedPassage ? () => setSelectedPassage(null) : undefined
 

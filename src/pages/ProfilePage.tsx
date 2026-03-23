@@ -6,12 +6,7 @@ import { useCurrentUser } from "../hooks/useCurrentUser"
 import { useProgressStats, computeProgressStats } from "../hooks/useProgressStats"
 import { LANGUAGES } from "../data/languages"
 import { loadModule } from "../data/modules"
-import {
-    getStartedLanguages,
-    getCurrentLevel,
-    resetLanguageProgress,
-    removeLanguage,
-} from "../store/progress"
+import { useProgress } from "../context/ProgressContext"
 import { resetSRS } from "../store/srs"
 import { getGlobalStreak, resetStats } from "../store/stats"
 import { NavBar } from "../components/NavBar"
@@ -24,13 +19,14 @@ import { SECTION_CONFIG } from "../data/sectionConfig"
 function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: () => void }>) {
     const [manageOpen, setManageOpen] = useState(false)
     const lang = LANGUAGES.find(l => l.id === langId)
-    const level = getCurrentLevel(langId)
+    const { level: getLevel, resetLanguage, removeLanguage } = useProgress()
+    const level = getLevel(langId)
     const { grammar, vocab, verbs, reading, listening, overallPct } = useProgressStats(langId, level)
     if (!lang) return null
 
     function handleReset() {
         if (!confirm(`Reset all progress for ${lang!.name}? Your level will return to A1.`)) return
-        resetLanguageProgress(langId)
+        resetLanguage(langId)
         resetSRS(langId)
         resetStats(langId)
         setManageOpen(false)
@@ -177,9 +173,8 @@ export function ProfilePage() {
     const { logout } = useAuth()
     const navigate = useNavigate()
     const { displayName, email, initials } = useCurrentUser()
+    const { startedLanguages: startedIds, level: getLevel, completed: getCompleted, mastered: getMastered } = useProgress()
     const [tick, setTick] = useState(0)   // force re-render after module loads
-
-    const startedIds = getStartedLanguages()
 
     // Load any unloaded language modules so progress bars show real numbers
     useEffect(() => {
@@ -188,12 +183,11 @@ export function ProfilePage() {
 
     // Global stats across all languages — computed with plain function (not hook) so it can run in reduce
     const totalDone = startedIds.reduce((sum, id) => {
-        const level = getCurrentLevel(id)
-        return sum + computeProgressStats(id, level).totalDone
+        return sum + computeProgressStats(id, getLevel(id), getCompleted(id), getMastered(id)).totalDone
     }, 0)
     const highestLevel = startedIds.reduce<string>((best, id) => {
         const order = ["A1", "A2", "B1", "B2", "C1"]
-        const lvl = getCurrentLevel(id)
+        const lvl = getLevel(id)
         return order.indexOf(lvl) > order.indexOf(best) ? lvl : best
     }, "A1")
     const streak = getGlobalStreak()

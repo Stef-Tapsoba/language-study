@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
-import { getCurrentLevel, getCompletedLessons, markLessonComplete } from "../store/progress"
+import { useProgress } from "../context/ProgressContext"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { SpeakButton } from "../components/SpeakButton"
@@ -21,6 +21,7 @@ function VocabCard({
     onComplete: () => void
 }) {
     const [open, setOpen] = useState(false)
+    const { markLessonComplete } = useProgress()
 
     return (
         <div
@@ -74,8 +75,9 @@ export function VocabPage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
     const mod = getModule(langId)
-    const level = getCurrentLevel(langId)
-    const [completed, setCompleted] = useState(() => getCompletedLessons(langId))
+    const { level: getLevel, completed: getCompleted } = useProgress()
+    const level = getLevel(langId)
+    const completed = getCompleted(langId)
     const [filter, setFilter] = useState<"all" | "todo" | "done">("all")
 
     if (!language || !mod) return null
@@ -133,7 +135,7 @@ export function VocabPage() {
                                 item={item}
                                 done={completed.includes(item.id)}
                                 langId={langId}
-                                onComplete={() => setCompleted(getCompletedLessons(langId))}
+                                onComplete={() => {}}
                             />
                         ))}
                     </div>

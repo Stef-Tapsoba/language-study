@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
-import { getCurrentLevel, markLessonComplete, getCompletedLessons } from "../store/progress"
+import { useProgress } from "../context/ProgressContext"
 import { recordActivity } from "../store/stats"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
@@ -360,6 +360,7 @@ function CultureEpisodeView({
     const showTranslation = level === "A1" || level === "A2"
     const [translationShown, setTranslationShown] = useState(level === "A1")
     const [markedRead, setMarkedRead] = useState(completed.includes(episode.id))
+    const { markLessonComplete } = useProgress()
 
     function handleMarkRead() {
         markLessonComplete(langId, episode.id)
@@ -554,7 +555,8 @@ export function CulturePage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
     const mod = getModule(langId)
-    const level = getCurrentLevel(langId)
+    const { level: getLevel, completed: getCompleted } = useProgress()
+    const level = getLevel(langId)
     const ui = getUI(langId, level)
 
     const [selectedEpisode, setSelectedEpisode] = useState<CultureEpisode | null>(null)
@@ -565,7 +567,7 @@ export function CulturePage() {
     const episodes: CultureEpisode[] = (mod.cultureEpisodes ?? [])
         .filter((ep: CultureEpisode) => CEFR_LEVELS.indexOf(ep.level) <= CEFR_LEVELS.indexOf(level))
 
-    const completed = getCompletedLessons(langId)
+    const completed = getCompleted(langId)
     const handleBack = selectedEpisode ? () => setSelectedEpisode(null) : undefined
 
     return (

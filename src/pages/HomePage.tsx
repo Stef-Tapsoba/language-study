@@ -6,13 +6,7 @@ import { useCurrentUser } from "../hooks/useCurrentUser"
 import { useProgressStats } from "../hooks/useProgressStats"
 import { LANGUAGES } from "../data/languages"
 import { getModule, loadModule } from "../data/modules"
-import {
-    getStartedLanguages,
-    getCurrentLevel,
-    setSelectedLanguage,
-    getSelectedLanguage,
-    initUserSession,
-} from "../store/progress"
+import { useProgress } from "../context/ProgressContext"
 import { getGlobalStreak, getTotalReviews } from "../store/stats"
 import { NavBar } from "../components/NavBar"
 import { Flag } from "../components/Flag"
@@ -76,7 +70,8 @@ function ReturningHome({ firstName, startedIds }: Readonly<{
     startedIds: string[]
 }>) {
     const navigate = useNavigate()
-    const selectedLangId = getSelectedLanguage() ?? startedIds[0]
+    const { selectedLanguage, level: getLevel } = useProgress()
+    const selectedLangId = selectedLanguage ?? startedIds[0]
     const currentLang = LANGUAGES.find(l => l.id === selectedLangId)
 
     const [mod, setMod] = useState<ReturnType<typeof getModule>>(
@@ -86,7 +81,7 @@ function ReturningHome({ firstName, startedIds }: Readonly<{
         if (selectedLangId) loadModule(selectedLangId).then(() => setMod(getModule(selectedLangId)))
     }, [selectedLangId])
 
-    const level = getCurrentLevel(selectedLangId)
+    const level = getLevel(selectedLangId)
     const { grammar, vocab, verbs, reading, listening } = useProgressStats(selectedLangId, level)
 
     if (!currentLang || !mod) return null
@@ -213,11 +208,12 @@ export function HomePage() {
     const { session } = useAuth()
     const navigate = useNavigate()
     const { firstName } = useCurrentUser()
+    const { startedLanguages, initUserSession, setSelectedLanguage } = useProgress()
 
     // Reset progress if a different user has logged in
     if (session) initUserSession(session.userId)
 
-    const startedIds = getStartedLanguages()
+    const startedIds = startedLanguages
 
     function handlePick(langId: string) {
         setSelectedLanguage(langId)

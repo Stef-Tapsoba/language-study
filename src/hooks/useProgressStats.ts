@@ -1,13 +1,13 @@
 // hooks/useProgressStats.ts — Centralised progress calculation for a language at a CEFR level.
 //
 // Exports both:
-//   computeProgressStats(langId, level) — plain function, safe to call outside React components
-//   useProgressStats(langId, level)     — React hook (calls the above; same result)
+//   computeProgressStats(langId, level, completed, masteredUnitIds) — plain function, safe outside React
+//   useProgressStats(langId, level)                                 — React hook, reads from ProgressContext
 //
-// Both return ProgressStats. When Supabase lands, only these two change.
+// Both return ProgressStats. When Supabase lands, only ProgressContext changes.
 
 import { CEFRLevel } from "../types"
-import { getCompletedLessons, getMasteredUnits } from "../store/progress"
+import { useProgress } from "../context/ProgressContext"
 import { getModule } from "../data/modules"
 
 export interface SectionProgress {
@@ -31,22 +31,26 @@ export interface ProgressStats {
 
 /**
  * Pure function — computes content progress for langId at the given level.
- * Grammar / vocab / verbs: items that belong to a mastered unit are counted as done
- * even if not individually marked. Reading / listening: only explicit completion counts.
+ * Accepts completed lesson IDs and mastered unit IDs so it can be called
+ * from both the React hook (ProgressContext) and non-hook contexts (ProfilePage reduce).
  */
-export function computeProgressStats(langId: string, level: CEFRLevel): ProgressStats {
+export function computeProgressStats(
+    langId: string,
+    level: CEFRLevel,
+    completedLessons: string[],
+    masteredUnitIds: string[]
+): ProgressStats {
     const mod = getModule(langId)
-    const completed = getCompletedLessons(langId)
 
     const masteredUnitItems = new Set(
         (mod?.units ?? [])
-            .filter(u => getMasteredUnits(langId).includes(u.id))
+            .filter(u => masteredUnitIds.includes(u.id))
             .flatMap(u => [...u.grammarIds, ...u.vocabIds, ...u.verbIds])
     )
-    const isDone = (id: string) => completed.includes(id) || masteredUnitItems.has(id)
+    const isDone = (id: string) => completedLessons.includes(id) || masteredUnitItems.has(id)
 
     function calc(items: { id: string }[], unitAware = true): SectionProgress {
-        const done = items.filter(x => unitAware ? isDone(x.id) : completed.includes(x.id)).length
+        const done = items.filter(x => unitAware ? isDone(x.id) : completedLessons.includes(x.id)).length
         const total = items.length
         return { done, total, pct: total ? done / total * 100 : 0 }
     }
@@ -69,10 +73,10 @@ export function computeProgressStats(langId: string, level: CEFRLevel): Progress
 }
 
 /**
- * React hook — same as computeProgressStats but callable from components.
- * Reads from localStorage on every render (no React state subscription yet — Supabase migration
- * will move the reads inside this hook only).
+ * React hook — reads completed/mastered from ProgressContext, then delegates to computeProgressStats.
+ * Reactively re-computes whenever progress state changes (e.g. after markLessonComplete).
  */
 export function useProgressStats(langId: string, level: CEFRLevel): ProgressStats {
-    return computeProgressStats(langId, level)
+    const { completed, mastered } = useProgress()
+    return computeProgressStats(langId, level, completed(langId), mastered(langId))
 }

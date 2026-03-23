@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
-import { getCurrentLevel, markLessonComplete, getCompletedLessons } from "../store/progress"
+import { useProgress } from "../context/ProgressContext"
 import { recordActivity, recordQuizAnswer } from "../store/stats"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
@@ -104,6 +104,7 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
     const [quizScore, setQuizScore] = useState(0)
     const [quizDone, setQuizDone] = useState(false)
     const [markedRead, setMarkedRead] = useState(completed.includes(passage.id))
+    const { markLessonComplete } = useProgress()
 
     function handleMarkRead() {
         markLessonComplete(langId, passage.id)
@@ -280,13 +281,14 @@ export function ReadingPage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
     const mod = getModule(langId)
-    const level = getCurrentLevel(langId)
+    const { level: getLevel, completed: getCompleted } = useProgress()
+    const level = getLevel(langId)
     const ui = getUI(langId, level)
 
     if (!language || !mod) return null
 
     const passages = (mod.readingPassages ?? []).filter(p => p.level === level)
-    const completed = getCompletedLessons(langId)
+    const completed = getCompleted(langId)
 
     return (
         <div className="min-h-screen bg-gray-50">

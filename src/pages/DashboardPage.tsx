@@ -3,7 +3,8 @@ import { useState } from "react"
 import { useParams, useNavigate, useSearchParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
-import { getCurrentLevel, getMasteredUnits, isUnitUnlocked } from "../store/progress"
+import { isUnitUnlocked } from "../store/progress"
+import { useProgress } from "../context/ProgressContext"
 import { getDueCount } from "../store/srs"
 import { getHistory } from "../store/stats"
 import { NavBar } from "../components/NavBar"
@@ -155,9 +156,10 @@ export function DashboardPage() {
     const navigate = useNavigate()
     const language = getLanguage(langId)
     const mod = getModule(langId)
-    const level = getCurrentLevel(langId)
+    const { level: getLevel, mastered: getMastered } = useProgress()
+    const level = getLevel(langId)
     const ui = getUI(langId, level)
-    const mastered = getMasteredUnits(langId)
+    const mastered = getMastered(langId)
 
     // All progress via the shared hook — single source of truth
     const { grammar, vocab, verbs, reading, listening, isDone } = useProgressStats(langId, level)

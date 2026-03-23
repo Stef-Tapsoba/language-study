@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import { BrowserRouter, Routes, Route, Navigate, Outlet, useParams } from "react-router-dom"
 import { AuthProvider } from "./auth/AuthContext"
 import { ProtectedRoute } from "./auth/ProtectedRoute"
+import { ProgressProvider } from "./context/ProgressContext"
 import { getModule, loadModule } from "./data/modules"
 
 import { LandingPage } from "./pages/LandingPage"
@@ -51,6 +52,7 @@ function LanguageLoader() {
 export default function App() {
     return (
         <AuthProvider>
+            <ProgressProvider>
             <BrowserRouter>
                 <Routes>
                     {/* Public */}
@@ -98,6 +100,7 @@ export default function App() {
                     <Route path="*" element={<Navigate to="/home" replace />} />
                 </Routes>
             </BrowserRouter>
+            </ProgressProvider>
         </AuthProvider>
     )
 }
