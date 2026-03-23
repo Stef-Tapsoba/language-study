@@ -98,7 +98,7 @@ COORDINATING CONNECTORS (join two equal clauses):
   **mais**        but             Je veux venir mais je suis fatigué.
   **donc**        so / therefore  Il pleut donc je reste.
   **car**         because (formal) Je reste car il pleut.
-  **alors**       so / then       Il était fatigué, alors il a dormi.
+  **alors**       so / then       Il est fatigué, alors il reste à la maison.
 
 SUBORDINATING CONNECTORS (introduce a clause):
   **parce que**   because         Je mange parce que j'ai faim.

@@ -86,7 +86,7 @@ export const a1Units: LessonUnit[] = [
         order: 4,
         title: "Articles & Noun Gender",
         description: "Learn definite articles (le/la/l'/les), grammatical gender, and the essential contractions au, du, aux, des.",
-        grammarIds: ["fr-g-a1-3", "fr-g-a1-14"],
+        grammarIds: ["fr-g-a1-0", "fr-g-a1-3", "fr-g-a1-14"],
         vocabIds: [
             "fr-v-a1-63", "fr-v-a1-64", "fr-v-a1-65", "fr-v-a1-66", "fr-v-a1-67",
             "fr-v-a1-80", "fr-v-a1-81", "fr-v-a1-82", "fr-v-a1-83", "fr-v-a1-84"
@@ -454,7 +454,7 @@ export const a1Units: LessonUnit[] = [
             { id: "fr-uq-a1-21-2", level: "A1", prompt: "Choose the correct sentence: 'I drink some water.'", options: ["Je bois de l'eau.", "Je bois du eau.", "Je bois des eau.", "Je bois de eau."], answer: "Je bois de l'eau." },
             { id: "fr-uq-a1-21-3", level: "A1", prompt: "What is the partitive article for a feminine noun? 'Elle mange ___ viande.'", options: ["du", "des", "de l'", "de la"], answer: "de la" },
             { id: "fr-uq-a1-21-4", level: "A1", prompt: "How do you say 'There is a cat in the garden'?", options: ["Il est un chat dans le jardin.", "Il y a un chat dans le jardin.", "Il a un chat dans le jardin.", "C'est un chat dans le jardin."], answer: "Il y a un chat dans le jardin." },
-            { id: "fr-uq-a1-21-5", level: "A1", prompt: "Which sentence correctly uses 'il y a' in a question?", options: ["Est-il y a du lait?", "Y a-t-il du lait?", "Il y a du lait?", "A-t-il y du lait?"], answer: "Y a-t-il du lait?" },
+            { id: "fr-uq-a1-21-5", level: "A1", prompt: "Which sentence correctly asks 'Is there any milk?' at A1 level?", options: ["Est-ce qu'il y a du lait ?", "Y a-t-il du lait ?", "Est-il du lait ?", "Il y a du lait est ?"], answer: "Est-ce qu'il y a du lait ?", hint: "At A1, use 'Est-ce qu'il y a...' to form questions with 'il y a'. The inversion form 'Y a-t-il' is introduced at A2." },
             { id: "fr-uq-a1-21-6", level: "A1", prompt: "After a negation, partitive articles change to ___. 'Je ne mange pas ___ sucre.'", options: ["du", "de", "des", "de la"], answer: "de" },
         ]
     },

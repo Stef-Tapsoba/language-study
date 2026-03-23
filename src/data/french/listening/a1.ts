@@ -131,6 +131,13 @@ export const a1Listening: ListeningExercise[] = [
         title: "Dans la classe — présentation",
         script: "Bonjour à tous ! Je m'appelle Monsieur Dupont. Je suis votre professeur de français. Vous êtes en première année. Dans cette classe, nous allons apprendre le vocabulaire de base, la grammaire et la prononciation. Est-ce que tout le monde comprend ? Oui, monsieur ! Parfait. Maintenant, présentez-vous à votre voisin. Dites votre nom, votre âge et votre nationalité.",
         translation: "Good morning everyone! My name is Monsieur Dupont. I am your French teacher. You are in first year. In this class, we are going to learn basic vocabulary, grammar and pronunciation. Does everyone understand? Yes, sir! Perfect. Now, introduce yourself to your neighbour. Say your name, your age and your nationality.",
+        dialogue: [
+            { speaker: "M. Dupont", text: "Bonjour à tous ! Je m'appelle Monsieur Dupont. Je suis votre professeur de français.", translation: "Good morning everyone! My name is Monsieur Dupont. I am your French teacher." },
+            { speaker: "M. Dupont", text: "Vous êtes en première année. Dans cette classe, nous allons apprendre le vocabulaire de base, la grammaire et la prononciation.", translation: "You are in first year. In this class, we are going to learn basic vocabulary, grammar and pronunciation." },
+            { speaker: "M. Dupont", text: "Est-ce que tout le monde comprend ?", translation: "Does everyone understand?" },
+            { speaker: "Élèves",    text: "Oui, monsieur !", translation: "Yes, sir!" },
+            { speaker: "M. Dupont", text: "Parfait. Maintenant, présentez-vous à votre voisin. Dites votre nom, votre âge et votre nationalité.", translation: "Perfect. Now, introduce yourself to your neighbour. Say your name, your age and your nationality." }
+        ],
         questions: [
             {
                 id: "fr-l-a1-4-q1",
@@ -152,6 +159,48 @@ export const a1Listening: ListeningExercise[] = [
                 prompt: "Que doivent faire les élèves à la fin ?",
                 options: ["Se présenter à leur voisin", "Écrire leur nom", "Lire un texte", "Faire leurs devoirs"],
                 answer: "Se présenter à leur voisin"
+            }
+        ]
+    },
+    {
+        id: "fr-l-a1-5",
+        level: "A1",
+        title: "Le week-end — la météo et les projets",
+        script: "Lucas : Salut Emma ! Tu as des projets pour ce week-end ? Emma : Salut ! Je ne sais pas encore. Il fait beau aujourd'hui, mais demain il va pleuvoir. Lucas : Ah oui ? La météo dit qu'il va faire mauvais samedi. Emma : Oui, il va faire froid et il y a des nuages. Lucas : Alors samedi, je vais rester à la maison. Emma : Moi aussi. Je vais regarder un film. Lucas : Et dimanche ? Emma : Dimanche, il va faire beau ! Alors je vais aller au parc. Tu viens avec moi ? Lucas : Oui, bonne idée ! On va faire un pique-nique. Emma : Super ! Et il va faire chaud dimanche, alors on va prendre des glaces !",
+        translation: "Lucas: Hi Emma! Do you have plans for this weekend? Emma: Hi! I don't know yet. The weather is nice today, but tomorrow it's going to rain. Lucas: Oh really? The forecast says the weather is going to be bad on Saturday. Emma: Yes, it's going to be cold and there are clouds. Lucas: So on Saturday I'm going to stay at home. Emma: Me too. I'm going to watch a film. Lucas: And Sunday? Emma: On Sunday, it's going to be nice! So I'm going to go to the park. Are you coming with me? Lucas: Yes, good idea! We're going to have a picnic. Emma: Great! And it's going to be warm on Sunday, so we're going to get ice creams!",
+        dialogue: [
+            { speaker: "Lucas", text: "Salut Emma ! Tu as des projets pour ce week-end ?", translation: "Hi Emma! Do you have plans for this weekend?" },
+            { speaker: "Emma",  text: "Salut ! Je ne sais pas encore. Il fait beau aujourd'hui, mais demain il va pleuvoir.", translation: "Hi! I don't know yet. The weather is nice today, but tomorrow it's going to rain." },
+            { speaker: "Lucas", text: "Ah oui ? La météo dit qu'il va faire mauvais samedi.", translation: "Oh really? The forecast says the weather is going to be bad on Saturday." },
+            { speaker: "Emma",  text: "Oui, il va faire froid et il y a des nuages.", translation: "Yes, it's going to be cold and there are clouds." },
+            { speaker: "Lucas", text: "Alors samedi, je vais rester à la maison.", translation: "So on Saturday I'm going to stay at home." },
+            { speaker: "Emma",  text: "Moi aussi. Je vais regarder un film.", translation: "Me too. I'm going to watch a film." },
+            { speaker: "Lucas", text: "Et dimanche ?", translation: "And Sunday?" },
+            { speaker: "Emma",  text: "Dimanche, il va faire beau ! Alors je vais aller au parc. Tu viens avec moi ?", translation: "On Sunday, it's going to be nice! So I'm going to go to the park. Are you coming with me?" },
+            { speaker: "Lucas", text: "Oui, bonne idée ! On va faire un pique-nique.", translation: "Yes, good idea! We're going to have a picnic." },
+            { speaker: "Emma",  text: "Super ! Et il va faire chaud dimanche, alors on va prendre des glaces !", translation: "Great! And it's going to be warm on Sunday, so we're going to get ice creams!" }
+        ],
+        questions: [
+            {
+                id: "fr-l-a1-5-q1",
+                level: "A1",
+                prompt: "Quel temps va-t-il faire samedi ?",
+                options: ["Il va faire mauvais et froid", "Il va faire beau et chaud", "Il va faire beau", "Il va neiger"],
+                answer: "Il va faire mauvais et froid"
+            },
+            {
+                id: "fr-l-a1-5-q2",
+                level: "A1",
+                prompt: "Qu'est-ce qu'Emma va faire samedi ?",
+                options: ["Regarder un film à la maison", "Aller au parc", "Faire un pique-nique", "Rester au café"],
+                answer: "Regarder un film à la maison"
+            },
+            {
+                id: "fr-l-a1-5-q3",
+                level: "A1",
+                prompt: "Qu'est-ce que Lucas et Emma vont faire dimanche ?",
+                options: ["Faire un pique-nique au parc", "Regarder un film", "Rester à la maison", "Aller au marché"],
+                answer: "Faire un pique-nique au parc"
             }
         ]
     }

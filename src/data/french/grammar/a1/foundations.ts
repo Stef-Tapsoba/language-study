@@ -2,6 +2,62 @@ import { GrammarLesson } from "../../../../types"
 
 export const foundationsLessons: GrammarLesson[] = [
     {
+        id: "fr-g-a1-0",
+        level: "A1",
+        title: "Noun Gender: Masculine & Feminine",
+        explanation: `Every French noun is either **masculine** or **feminine** — this is called **grammatical gender**. Unlike English, gender in French is not linked to meaning (most nouns refer to objects, not people). You must learn the gender of each noun as you learn it.
+
+THE GOLDEN RULE
+Always learn a noun together with its article:
+  **le** / **un**   → masculine
+  **la** / **une**  → feminine
+  **l'**            → either gender (used before a vowel sound)
+
+So do not just learn 'table'. Learn **la table**. Do not just learn 'livre'. Learn **le livre**.
+
+USEFUL ENDING PATTERNS
+These are tendencies, not absolute rules — exceptions exist.
+
+Endings that are often **feminine**:
+  **-e**      →  la lampe, la robe, la banque   (but: le livre, le musée, le lycée)
+  **-tion**   →  la nation, la situation, la solution
+  **-ité**    →  la cité, la qualité, l'université
+  **-ure**    →  la voiture, la culture, la nature
+
+Endings that are often **masculine**:
+  **-ment**   →  le moment, le gouvernement, le bâtiment
+  **-age**    →  le village, le voyage, le fromage   (but: la plage, la cage)
+  **-oir**    →  le couloir, le soir, le miroir
+  **-eau**    →  le gâteau, le chapeau, le bateau
+
+GENDER AGREEMENT
+Gender matters beyond just the article — **adjectives and articles must agree** with the noun's gender:
+  le petit chat (masculine)   →   la petite chatte (feminine)
+  un bon repas (masculine)    →   une bonne soirée (feminine)
+
+PRACTICAL ADVICE
+Do not try to guess. When you learn a new noun, always write and say it with its article. If you are unsure, check — building the habit early saves a lot of errors later.`,
+        examples: [
+            { native: "le livre / la lampe", translation: "the book (masc.) / the lamp (fem.)" },
+            { native: "un bâtiment / une nation", translation: "a building (masc.) / a nation (fem.)" },
+            { native: "le voyage / la plage", translation: "the trip (masc.) / the beach (fem.) — both end in -age, different genders" },
+            { native: "Il est petit. / Elle est petite.", translation: "He/It is small. (masc.) / She/It is small. (fem.) — adjective agrees with noun", speakText: "Il est petit. Elle est petite." },
+            { native: "un bon repas / une bonne soirée", translation: "a good meal (masc.) / a good evening (fem.) — article and adjective both agree" }
+        ],
+        inlineVocab: [
+            { word: "le", translation: "the (masculine singular)" },
+            { word: "la", translation: "the (feminine singular)" },
+            { word: "un", translation: "a / an (masculine)" },
+            { word: "une", translation: "a / an (feminine)" },
+            { word: "livre", translation: "book (masculine)" },
+            { word: "lampe", translation: "lamp (feminine)" },
+            { word: "voyage", translation: "trip / journey (masculine)" },
+            { word: "plage", translation: "beach (feminine)" },
+            { word: "bâtiment", translation: "building (masculine)" },
+            { word: "soirée", translation: "evening (feminine)" }
+        ]
+    },
+    {
         id: "fr-g-a1-1",
         level: "A1",
         title: "Subject Pronouns",

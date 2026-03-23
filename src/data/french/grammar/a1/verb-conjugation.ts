@@ -362,12 +362,12 @@ The tu form keeps its -s:
                          Attendons!  (Let's wait!)
                          Attendez!   (Wait! — formal/plural)
 
-IRREGULAR IMPERATIVES — the four most important:
+IRREGULAR IMPERATIVES — the most important at A1:
 
   être:   Sois patient!     Soyons sérieux!   Soyez prêt!
-  avoir:  Aie confiance!    Ayons courage!    Ayez patience!
   aller:  Va-y!             Allons-y!         Allez-y!
-  savoir: Sache que...      Sachons...        Sachez que...
+
+Note: avoir (Aie/Ayons/Ayez) and savoir (Sache/Sachons/Sachez) also have irregular imperatives, but these are rare at A1. You will encounter them at A2.
 
 NEGATIVE IMPERATIVE — ne...pas wraps the verb:
   Parle!  → Ne parle pas!    (Don't speak!)
@@ -409,9 +409,6 @@ COMMON IMPERATIVE EXPRESSIONS
         inlineVocab: [
             { word: "lentement", translation: "slowly" },
             { word: "légumes", translation: "vegetables" },
-            { word: "confiance", translation: "trust / confidence" },
-            { word: "courage", translation: "courage" },
-            { word: "patience", translation: "patience" },
             { word: "patient", translation: "patient" },
             { word: "sérieux", translation: "serious" },
         ]

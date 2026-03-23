@@ -132,8 +132,8 @@ export const a1Reading: ReadingPassage[] = [
         category: "everyday",
         title: "Ma maison",
         body: {
-            target: "J'habite dans une maison à la campagne. Ma maison a deux étages. Au rez-de-chaussée, il y a un salon, une cuisine et une salle à manger. Au premier étage, il y a trois chambres et une salle de bains. Ma chambre est petite mais confortable. J'ai un lit, un bureau et une armoire. Par la fenêtre, je vois un grand jardin avec des fleurs. J'aime beaucoup ma maison.",
-            native: "I live in a house in the country. My house has two floors. On the ground floor, there is a living room, a kitchen and a dining room. On the first floor, there are three bedrooms and a bathroom. My bedroom is small but comfortable. I have a bed, a desk and a wardrobe. Through the window, I can see a big garden with flowers. I love my house very much."
+            target: "J'habite dans une maison à la campagne. Ma maison a un étage. Au rez-de-chaussée, il y a un salon, une cuisine et une salle à manger. Au premier étage, il y a trois chambres et une salle de bains. Ma chambre est petite mais confortable. J'ai un lit, un bureau et une armoire. Par la fenêtre, je vois un grand jardin avec des fleurs. J'aime beaucoup ma maison.",
+            native: "I live in a house in the country. My house has one floor above ground. On the ground floor, there is a living room, a kitchen and a dining room. On the first floor, there are three bedrooms and a bathroom. My bedroom is small but comfortable. I have a bed, a desk and a wardrobe. Through the window, I can see a big garden with flowers. I love my house very much."
         },
         vocabGloss: [
             { word: "à la campagne", translation: "in the country(side)" },
@@ -156,8 +156,8 @@ export const a1Reading: ReadingPassage[] = [
                 id: "fr-r-a1-4-q2",
                 level: "A1",
                 prompt: "Combien d'étages a la maison ?",
-                options: ["Deux étages", "Un étage", "Trois étages", "Quatre étages"],
-                answer: "Deux étages"
+                options: ["Un étage", "Deux étages", "Trois étages", "Quatre étages"],
+                answer: "Un étage"
             },
             {
                 id: "fr-r-a1-4-q3",
@@ -207,6 +207,47 @@ export const a1Reading: ReadingPassage[] = [
                 prompt: "Quelle est l'activité préférée de la personne ?",
                 options: ["Monter à cheval", "Jouer avec le chien", "Nager", "Jardiner"],
                 answer: "Monter à cheval"
+            }
+        ]
+    },
+    {
+        id: "fr-r-a1-6",
+        level: "A1",
+        category: "dialogue",
+        title: "Pour aller à la boulangerie",
+        body: {
+            target: "Touriste : Excusez-moi, monsieur. Je cherche la boulangerie. Vous savez où elle est ? Passant : Oui, bien sûr ! Vous allez tout droit, puis vous tournez à gauche au feu. Touriste : À gauche au feu. D'accord. Passant : Ensuite, vous continuez tout droit pendant deux minutes. La boulangerie est en face de la pharmacie. Touriste : Et il y a un café près de la boulangerie ? Passant : Oui ! Il y a un café à droite de la boulangerie. C'est très facile à trouver. Touriste : Merci beaucoup, monsieur ! Passant : De rien. Bonne journée !",
+            native: "Tourist: Excuse me, sir. I'm looking for the bakery. Do you know where it is? Passer-by: Yes, of course! You go straight ahead, then you turn left at the traffic lights. Tourist: Left at the traffic lights. OK. Passer-by: Then you continue straight ahead for two minutes. The bakery is opposite the pharmacy. Tourist: And is there a café near the bakery? Passer-by: Yes! There is a café to the right of the bakery. It is very easy to find. Tourist: Thank you very much, sir! Passer-by: You're welcome. Have a good day!"
+        },
+        vocabGloss: [
+            { word: "je cherche", translation: "I am looking for" },
+            { word: "tout droit", translation: "straight ahead" },
+            { word: "à gauche", translation: "to the left" },
+            { word: "en face de", translation: "opposite / facing" },
+            { word: "près de", translation: "near / close to" },
+            { word: "à droite", translation: "to the right" }
+        ],
+        questions: [
+            {
+                id: "fr-r-a1-6-q1",
+                level: "A1",
+                prompt: "Que cherche le touriste ?",
+                options: ["La boulangerie", "La pharmacie", "Le café", "L'hôtel"],
+                answer: "La boulangerie"
+            },
+            {
+                id: "fr-r-a1-6-q2",
+                level: "A1",
+                prompt: "Où est la boulangerie par rapport à la pharmacie ?",
+                options: ["En face de la pharmacie", "À gauche de la pharmacie", "Près de la pharmacie", "Derrière la pharmacie"],
+                answer: "En face de la pharmacie"
+            },
+            {
+                id: "fr-r-a1-6-q3",
+                level: "A1",
+                prompt: "Où faut-il tourner pour aller à la boulangerie ?",
+                options: ["À gauche au feu", "À droite au feu", "Tout droit", "À gauche après la pharmacie"],
+                answer: "À gauche au feu"
             }
         ]
     }

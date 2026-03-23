@@ -427,6 +427,40 @@ export const a1Verbs: Verb[] = [
         ]
     },
     {
+        id: "fr-vb-a1-25",
+        level: "A1",
+        infinitive: "s'appeler",
+        meaning: "to be called / to introduce oneself",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "m'appelle" },
+                { pronoun: "tu", form: "t'appelles" },
+                { pronoun: "il/elle", form: "s'appelle" },
+                { pronoun: "nous", form: "nous appelons" },
+                { pronoun: "vous", form: "vous appelez" },
+                { pronoun: "ils/elles", form: "s'appellent" },
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-26",
+        level: "A1",
+        infinitive: "aimer",
+        meaning: "to like / to love",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "aime" },
+                { pronoun: "tu", form: "aimes" },
+                { pronoun: "il/elle", form: "aime" },
+                { pronoun: "nous", form: "aimons" },
+                { pronoun: "vous", form: "aimez" },
+                { pronoun: "ils/elles", form: "aiment" },
+            ]
+        }]
+    },
+    {
         id: "fr-vb-a1-24",
         level: "A1",
         infinitive: "entrer",
