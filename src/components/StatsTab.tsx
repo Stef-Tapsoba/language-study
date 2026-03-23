@@ -119,7 +119,7 @@ export function StatsTab({ langId }: Readonly<{ langId: string }>) {
 
             {total === 0 && (
                 <p className="text-center text-gray-400 text-sm py-2">
-                    Complete a flashcard session to see your review stats.
+                    Complete a drill, flashcard session, or exercise to see your stats.
                 </p>
             )}
         </div>

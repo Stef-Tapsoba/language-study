@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { getCurrentLevel, getCompletedLessons, markLessonComplete } from "../store/progress"
-import { recordActivity } from "../store/stats"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { SpeakButton } from "../components/SpeakButton"
@@ -58,7 +57,7 @@ function VocabCard({
                     </div>
                     {!done && (
                         <button
-                            onClick={() => { markLessonComplete(langId, item.id); recordActivity(langId); onComplete() }}
+                            onClick={() => { markLessonComplete(langId, item.id); onComplete() }}
                             className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold
                                        rounded-xl py-2 text-sm transition-colors"
                         >

@@ -107,7 +107,6 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
 
     function handleMarkRead() {
         markLessonComplete(langId, passage.id)
-        recordActivity(langId)
         setMarkedRead(true)
     }
 
@@ -122,6 +121,7 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
         const newScore = quizScore + (isCorrect ? 1 : 0)
         if (quizIndex + 1 >= passage.questions.length) {
             setQuizScore(newScore)
+            recordActivity(langId)
             setQuizDone(true)
         } else {
             setQuizScore(newScore)

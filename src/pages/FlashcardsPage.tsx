@@ -5,7 +5,7 @@ import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { getCurrentLevel } from "../store/progress"
 import { getDueCards, updateCard, getNextDueDate } from "../store/srs"
-import { recordReview } from "../store/stats"
+import { recordReview, recordActivity } from "../store/stats"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { SpeakButton } from "../components/SpeakButton"
@@ -407,6 +407,7 @@ export function FlashcardsPage() {
         setTimeout(() => {
             setTransitioning(false)
             if (index + 1 >= deck.length) {
+                recordActivity(langId)
                 setDone(true)
             } else {
                 setIndex(i => i + 1)

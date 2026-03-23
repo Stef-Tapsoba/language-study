@@ -3,11 +3,12 @@
 // A1/A2: Show the English meaning → pick the correct target-language sentence.
 // B1+:   Show the target-language sentence → pick the correct English meaning.
 //        This shifts the exercise from production-cued to comprehension-cued.
-import { useMemo } from "react"
+import { useMemo, useEffect } from "react"
 import { useParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { getCurrentLevel } from "../store/progress"
+import { recordActivity } from "../store/stats"
 import { NavBar } from "../components/NavBar"
 import { QuizCard } from "../components/QuizCard"
 import { DrillDoneScreen } from "../components/DrillDoneScreen"
@@ -85,6 +86,8 @@ export function GrammarDrillPage() {
     const questions = useMemo(() => buildQuestions(mod, level), [langId, level])
 
     const drill = useDrill(questions)
+
+    useEffect(() => { if (drill.done) recordActivity(langId) }, [drill.done, langId])
 
     if (!language || !mod) return null
 

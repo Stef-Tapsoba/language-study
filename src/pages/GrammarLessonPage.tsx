@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { getCurrentLevel, getCompletedLessons, markLessonComplete } from "../store/progress"
-import { recordActivity } from "../store/stats"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { SpeakButton } from "../components/SpeakButton"
@@ -44,7 +43,6 @@ export function GrammarLessonPage() {
     function handleMarkComplete() {
         if (!lesson) return
         markLessonComplete(langId, lesson.id)
-        recordActivity(langId)
         setCompleted(getCompletedLessons(langId))
     }
 

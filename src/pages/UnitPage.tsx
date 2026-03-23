@@ -59,7 +59,7 @@ function GrammarAccordion({ lesson, done, langId, level, ui, onComplete, onVocab
                     </div>
                     {!done && (
                         <button
-                            onClick={() => { markLessonComplete(langId, lesson.id); recordActivity(langId); onComplete() }}
+                            onClick={() => { markLessonComplete(langId, lesson.id); onComplete() }}
                             className="mt-4 w-full bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl py-2 text-sm transition-colors"
                         >
                             {ui.markComplete}
@@ -104,7 +104,7 @@ function VocabRow({ item, done, langId, ui, onComplete }: Readonly<{
                     </div>
                     {!done && (
                         <button
-                            onClick={() => { markLessonComplete(langId, item.id); recordActivity(langId); onComplete() }}
+                            onClick={() => { markLessonComplete(langId, item.id); onComplete() }}
                             className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl py-2 text-sm transition-colors"
                         >
                             {ui.markLearned}
@@ -317,7 +317,7 @@ function TestOutTab({ unit, langId, isMastered, nextUnit, isLastUnit, ui, onMast
         setMissed([]); setDidComplete(false); setPhase("start")
     }
 
-    function handleComplete() { masterUnit(langId, unit.id); onMastered(); setDidComplete(true) }
+    function handleComplete() { masterUnit(langId, unit.id); recordActivity(langId); onMastered(); setDidComplete(true) }
 
     if (!questions.length) {
         return (

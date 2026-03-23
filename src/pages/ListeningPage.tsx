@@ -90,9 +90,10 @@ function TranscriptContent({ exercise }: Readonly<{ exercise: ListeningExercise 
 // ---------------------------------------------------------------------------
 // ComprehensionQuiz — in-exercise quiz state machine
 // ---------------------------------------------------------------------------
-function ComprehensionQuiz({ exercise, onAnswer, ui }: Readonly<{
+function ComprehensionQuiz({ exercise, onAnswer, onComplete, ui }: Readonly<{
     exercise: ListeningExercise
     onAnswer: (correct: boolean) => void
+    onComplete: () => void
     ui: ReturnType<typeof getUI>
 }>) {
     const [quizIndex, setQuizIndex] = useState(0)
@@ -108,6 +109,7 @@ function ComprehensionQuiz({ exercise, onAnswer, ui }: Readonly<{
         onAnswer(isCorrect)
         const newScore = quizScore + (isCorrect ? 1 : 0)
         if (quizIndex + 1 >= exercise.questions.length) {
+            onComplete()
             setQuizScore(newScore); setQuizDone(true)
         } else {
             setQuizScore(newScore); setQuizIndex(i => i + 1); setSelected(null); setRevealed(false)
@@ -170,7 +172,6 @@ function ExerciseListen({ exercise, langId, level, completed, onBack, ui }: Read
 
     function handleMarkListened() {
         markLessonComplete(langId, exercise.id)
-        recordActivity(langId)
         setMarkedListened(true)
     }
 
@@ -224,7 +225,7 @@ function ExerciseListen({ exercise, langId, level, completed, onBack, ui }: Read
 
             {/* Show questions button / comprehension quiz */}
             {quizOpen ? (
-                <ComprehensionQuiz exercise={exercise} onAnswer={c => recordQuizAnswer(langId, c)} ui={ui} />
+                <ComprehensionQuiz exercise={exercise} onAnswer={c => recordQuizAnswer(langId, c)} onComplete={() => recordActivity(langId)} ui={ui} />
             ) : (
                 <button
                     onClick={() => setQuizOpen(true)}

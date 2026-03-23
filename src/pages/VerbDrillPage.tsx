@@ -1,9 +1,10 @@
 // pages/VerbDrillPage.tsx — Conjugation fill-in-the-blank drill
-import { useMemo } from "react"
+import { useMemo, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { getCurrentLevel } from "../store/progress"
+import { recordActivity } from "../store/stats"
 import { NavBar } from "../components/NavBar"
 import { QuizCard } from "../components/QuizCard"
 import { LevelBadge } from "../components/LevelBadge"
@@ -75,6 +76,8 @@ export function VerbDrillPage() {
     )
 
     const drill = useDrill(questions)
+
+    useEffect(() => { if (drill.done) recordActivity(langId) }, [drill.done, langId])
 
     if (!language || !mod) return null
 
