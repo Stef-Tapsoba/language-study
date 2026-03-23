@@ -25,6 +25,15 @@ Common -er verbs: aimer (like), habiter (live), travailler (work), manger (eat),
             { native: "Nous parlons.", translation: "We speak." },
             { native: "Vous parlez.", translation: "You speak. (formal/pl.)" },
             { native: "Ils parlent.", translation: "They speak." },
+        ],
+        inlineVocab: [
+            { word: "aimer", translation: "to like / to love" },
+            { word: "habiter", translation: "to live / to reside" },
+            { word: "travailler", translation: "to work" },
+            { word: "manger", translation: "to eat" },
+            { word: "regarder", translation: "to watch / to look at" },
+            { word: "écouter", translation: "to listen" },
+            { word: "étudier", translation: "to study" },
         ]
     },
     {
@@ -56,6 +65,13 @@ Spoken French: 'ne' is very commonly dropped in informal speech:
             { native: "Nous n'avons pas de voiture.", translation: "We don't have a car." },
             { native: "Elle ne fait pas de sport.", translation: "She doesn't do sport." },
             { native: "Tu ne vas pas au marché?", translation: "You're not going to the market?" },
+        ],
+        inlineVocab: [
+            { word: "anglais", translation: "English" },
+            { word: "marché", translation: "market" },
+            { word: "voiture", translation: "car" },
+            { word: "fume", translation: "smoke / smokes" },
+            { word: "comprends", translation: "understand" },
         ]
     },
     {
@@ -89,6 +105,9 @@ QUESTION WORDS — always at the start of the sentence:
             { native: "Parles-tu français?", translation: "Do you speak French? (inversion, formal)" },
             { native: "Où est la gare?", translation: "Where is the train station?" },
             { native: "Qu'est-ce que tu fais?", translation: "What are you doing?" },
+        ],
+        inlineVocab: [
+            { word: "gare", translation: "train station" },
         ]
     },
     {
@@ -114,6 +133,14 @@ Useful time words: bientôt (soon), ce soir (tonight), demain (tomorrow), dans c
             { native: "Nous allons visiter Paris.", translation: "We are going to visit Paris." },
             { native: "Il va pleuvoir demain.", translation: "It's going to rain tomorrow." },
             { native: "Elles vont étudier ensemble.", translation: "They are going to study together." },
+        ],
+        inlineVocab: [
+            { word: "bientôt", translation: "soon" },
+            { word: "partir", translation: "to leave / to depart" },
+            { word: "pleuvoir", translation: "to rain" },
+            { word: "demain", translation: "tomorrow" },
+            { word: "visiter", translation: "to visit" },
+            { word: "ensemble", translation: "together" },
         ]
     },
     {
@@ -140,6 +167,17 @@ Warning: **partir**, **sortir**, **dormir** are also -ir verbs but are IRREGULAR
             { native: "Nous finissons.", translation: "We finish. (-iss- in plural)" },
             { native: "Vous choisissez.", translation: "You choose. (-iss- in plural)" },
             { native: "Ils grandissent.", translation: "They grow. (grandir = to grow)" },
+        ],
+        inlineVocab: [
+            { word: "finir", translation: "to finish" },
+            { word: "choisir", translation: "to choose" },
+            { word: "réussir", translation: "to succeed" },
+            { word: "grandir", translation: "to grow" },
+            { word: "obéir", translation: "to obey" },
+            { word: "remplir", translation: "to fill" },
+            { word: "partir", translation: "to leave / to depart" },
+            { word: "sortir", translation: "to go out" },
+            { word: "dormir", translation: "to sleep" },
         ]
     },
     {
@@ -165,6 +203,15 @@ Common -re verbs: vendre (sell), attendre (wait), répondre (answer), entendre (
             { native: "Nous entendons.", translation: "We hear." },
             { native: "Vous perdez.", translation: "You lose." },
             { native: "Ils vendent.", translation: "They sell." },
+        ],
+        inlineVocab: [
+            { word: "vendre", translation: "to sell" },
+            { word: "attendre", translation: "to wait" },
+            { word: "répondre", translation: "to answer / to respond" },
+            { word: "entendre", translation: "to hear" },
+            { word: "perdre", translation: "to lose" },
+            { word: "descendre", translation: "to go down / to come down" },
+            { word: "rendre", translation: "to give back / to return" },
         ]
     },
     {
@@ -196,6 +243,12 @@ In real conversation, use **je voudrais** (conditional) instead of 'je veux' whe
             { native: "Elle veut un verre d'eau.", translation: "She wants a glass of water." },
             { native: "Je voudrais un café, s'il vous plaît.", translation: "I'd like a coffee, please. (polite — use this when ordering)" },
             { native: "Nous voulons visiter Paris.", translation: "We want to visit Paris." },
+        ],
+        inlineVocab: [
+            { word: "apprendre", translation: "to learn" },
+            { word: "venir", translation: "to come" },
+            { word: "verre", translation: "glass" },
+            { word: "visiter", translation: "to visit" },
         ]
     },
     {
@@ -230,6 +283,13 @@ NEGATIVE — not able to / cannot:
             { native: "Elle ne peut pas venir ce soir.", translation: "She can't come tonight." },
             { native: "Vous pouvez entrer.", translation: "You may come in." },
             { native: "On peut manger ici?", translation: "Can we eat here?" },
+        ],
+        inlineVocab: [
+            { word: "nager", translation: "to swim" },
+            { word: "entrer", translation: "to enter / to come in" },
+            { word: "courir", translation: "to run" },
+            { word: "dormir", translation: "to sleep" },
+            { word: "pleuvoir", translation: "to rain" },
         ]
     },
     {
@@ -265,6 +325,17 @@ QUESTIONS:
             { native: "Il se lève à six heures.", translation: "He gets up at six o'clock." },
             { native: "Nous nous lavons les mains.", translation: "We wash our hands." },
             { native: "Elle se couche tôt le soir.", translation: "She goes to bed early in the evening." },
+        ],
+        inlineVocab: [
+            { word: "appeler", translation: "to call" },
+            { word: "lever", translation: "to raise / to lift" },
+            { word: "coucher", translation: "to lay down / to put to bed" },
+            { word: "laver", translation: "to wash" },
+            { word: "mains", translation: "hands" },
+            { word: "sentir", translation: "to feel / to smell" },
+            { word: "dépêcher", translation: "to hurry" },
+            { word: "tôt", translation: "early" },
+            { word: "soir", translation: "evening" },
         ]
     },
     {
@@ -334,6 +405,15 @@ COMMON IMPERATIVE EXPRESSIONS
             { native: "Ne mange pas ça!", translation: "Don't eat that!" },
             { native: "Dépêche-toi!", translation: "Hurry up! (reflexive imperative — toi after verb)" },
             { native: "Ne vous inquiétez pas.", translation: "Don't worry. (formal/plural negative)" },
+        ],
+        inlineVocab: [
+            { word: "lentement", translation: "slowly" },
+            { word: "légumes", translation: "vegetables" },
+            { word: "confiance", translation: "trust / confidence" },
+            { word: "courage", translation: "courage" },
+            { word: "patience", translation: "patience" },
+            { word: "patient", translation: "patient" },
+            { word: "sérieux", translation: "serious" },
         ]
     },
     {
@@ -386,6 +466,18 @@ Note: ne dois pas means 'must not' (prohibition) — stronger than 'don't have t
             { native: "Nous devons partir à huit heures.", translation: "We have to leave at eight o'clock." },
             { native: "Vous devez réserver à l'avance.", translation: "You must book in advance." },
             { native: "Je ne dois pas oublier mon passeport.", translation: "I must not forget my passport." },
+        ],
+        inlineVocab: [
+            { word: "travailler", translation: "to work" },
+            { word: "manger", translation: "to eat" },
+            { word: "partir", translation: "to leave" },
+            { word: "médecin", translation: "doctor" },
+            { word: "réserver", translation: "to book / to reserve" },
+            { word: "respecter", translation: "to respect" },
+            { word: "fumer", translation: "to smoke" },
+            { word: "oublier", translation: "to forget" },
+            { word: "passeport", translation: "passport" },
+            { word: "retard", translation: "delay / lateness" },
         ]
     },
     {
@@ -445,6 +537,15 @@ This is A2+ — just recognise it for now.`,
             { native: "Je viens de finir mes devoirs.", translation: "I just finished my homework. (venir de = recent past)" },
             { native: "Elle vient d'arriver.", translation: "She just arrived. (de + vowel → d')" },
             { native: "Je viens de manger, je n'ai pas faim.", translation: "I just ate, I'm not hungry." },
+        ],
+        inlineVocab: [
+            { word: "réunion", translation: "meeting" },
+            { word: "Angleterre", translation: "England" },
+            { word: "arriver", translation: "to arrive" },
+            { word: "finir", translation: "to finish" },
+            { word: "devoirs", translation: "homework" },
+            { word: "appeler", translation: "to call" },
+            { word: "faim", translation: "hunger" },
         ]
     },
 ]

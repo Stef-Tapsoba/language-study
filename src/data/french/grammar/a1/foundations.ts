@@ -22,6 +22,14 @@ Note: 'on' informally means 'we' in everyday speech — On y va = We're going.`,
             { native: "Nous habitons à Paris.", translation: "We live in Paris." },
             { native: "Vous êtes professeur.", translation: "You are a teacher. (formal/plural)" },
             { native: "Ils/Elles sont amis.", speakText: "Ils sont amis.", translation: "They are friends." },
+        ],
+        inlineVocab: [
+            { word: "parle", translation: "speak / speaks" },
+            { word: "étudiant", translation: "student" },
+            { word: "travaille", translation: "work / works" },
+            { word: "habitons", translation: "we live / we reside" },
+            { word: "professeur", translation: "teacher / professor" },
+            { word: "amis", translation: "friends" },
         ]
     },
     {
@@ -54,6 +62,15 @@ Unlike Spanish/Italian, French has only one verb for 'to be' — être handles a
             { native: "Il est médecin.", translation: "He is a doctor." },
             { native: "Nous sommes fatigués.", translation: "We are tired." },
             { native: "C'est une bonne idée.", translation: "It's a good idea." },
+        ],
+        inlineVocab: [
+            { word: "française", translation: "French (feminine)" },
+            { word: "médecin", translation: "doctor" },
+            { word: "fatigués", translation: "tired" },
+            { word: "idée", translation: "idea" },
+            { word: "livre", translation: "book" },
+            { word: "loin", translation: "far" },
+            { word: "midi", translation: "noon / midday" },
         ]
     },
     {
@@ -83,6 +100,18 @@ Common expressions with avoir:
             { native: "Il a faim.", translation: "He is hungry. (literally: he has hunger)" },
             { native: "Nous avons une voiture.", translation: "We have a car." },
             { native: "Ils ont de la chance.", translation: "They are lucky. (literally: they have luck)" },
+        ],
+        inlineVocab: [
+            { word: "chat", translation: "cat" },
+            { word: "âge", translation: "age" },
+            { word: "faim", translation: "hunger" },
+            { word: "voiture", translation: "car" },
+            { word: "chance", translation: "luck" },
+            { word: "soif", translation: "thirst" },
+            { word: "chaud", translation: "hot / warm" },
+            { word: "froid", translation: "cold" },
+            { word: "raison", translation: "reason / right (avoir raison = to be right)" },
+            { word: "tort", translation: "wrong (avoir tort = to be wrong)" },
         ]
     },
     {
@@ -109,6 +138,12 @@ Key uses:
             { native: "Elle va à l'école.", translation: "She goes to school." },
             { native: "Nous allons en France.", translation: "We are going to France." },
             { native: "Ils vont au cinéma.", translation: "They are going to the cinema." },
+        ],
+        inlineVocab: [
+            { word: "marché", translation: "market" },
+            { word: "école", translation: "school" },
+            { word: "cinéma", translation: "cinema / movie theatre" },
+            { word: "manger", translation: "to eat" },
         ]
     },
     {
@@ -138,6 +173,16 @@ Common expressions with faire:
             { native: "Il fait beau aujourd'hui.", translation: "The weather is nice today." },
             { native: "Nous faisons les courses.", translation: "We are doing the shopping." },
             { native: "Vous faites la cuisine?", translation: "Do you cook?" },
+        ],
+        inlineVocab: [
+            { word: "sport", translation: "sport / exercise" },
+            { word: "cuisine", translation: "cooking / kitchen" },
+            { word: "courses", translation: "shopping / errands" },
+            { word: "vaisselle", translation: "dishes / washing-up" },
+            { word: "promenade", translation: "walk / stroll" },
+            { word: "beau", translation: "nice / beautiful (weather)" },
+            { word: "mauvais", translation: "bad / nasty (weather)" },
+            { word: "aujourd'hui", translation: "today" },
         ]
     },
     {
@@ -201,6 +246,15 @@ COMMON FIXED EXPRESSIONS WITH C'EST:
             { native: "C'est un bon professeur.", translation: "He is a good teacher. (adjective present → c'est)" },
             { native: "Ce sont mes amis.", translation: "These are my friends. (plural → ce sont)" },
             { native: "C'est combien?", translation: "How much is it?" },
+        ],
+        inlineVocab: [
+            { word: "hôtel", translation: "hotel" },
+            { word: "grand", translation: "big / tall" },
+            { word: "moderne", translation: "modern" },
+            { word: "intelligent", translation: "intelligent / smart" },
+            { word: "fatigué", translation: "tired" },
+            { word: "vrai", translation: "true" },
+            { word: "dommage", translation: "shame / pity" },
         ]
     },
     {
@@ -263,6 +317,12 @@ WHEN TO USE STRESSED PRONOUNS
             { native: "Moi, j'aime le café. Et toi?", translation: "I like coffee. And you?" },
             { native: "Moi aussi!", translation: "Me too!" },
             { native: "Ils sont partis sans nous.", translation: "They left without us." },
+        ],
+        inlineVocab: [
+            { word: "soir", translation: "evening" },
+            { word: "mange", translation: "eat / eats" },
+            { word: "café", translation: "coffee / café" },
+            { word: "partis", translation: "left / departed" },
         ]
     },
 ]

@@ -33,6 +33,16 @@ TIME — when?
             { native: "Tu as déjà vu ce film?", translation: "Have you already seen this film?" },
             { native: "Il est encore au bureau.", translation: "He is still at the office." },
             { native: "On mange ici ou là-bas?", translation: "Are we eating here or over there?", speakText: "On mange ici ou là-bas?" },
+        ],
+        inlineVocab: [
+            { word: "banque", translation: "bank" },
+            { word: "gare", translation: "train station" },
+            { word: "touristes", translation: "tourists" },
+            { word: "chambre", translation: "bedroom / room" },
+            { word: "entrée", translation: "entrance / entry" },
+            { word: "film", translation: "film / movie" },
+            { word: "bureau", translation: "office" },
+            { word: "occupé", translation: "busy" },
         ]
     },
     {
@@ -62,6 +72,18 @@ JAMAIS always needs ne before the verb (ne...jamais):
             { native: "Il mange parfois au restaurant.", translation: "He sometimes eats at a restaurant." },
             { native: "Je ne regarde jamais la télévision.", translation: "I never watch television." },
             { native: "Elle vient rarement ici.", translation: "She rarely comes here." },
+        ],
+        inlineVocab: [
+            { word: "café", translation: "coffee / café" },
+            { word: "matin", translation: "morning" },
+            { word: "soir", translation: "evening" },
+            { word: "marché", translation: "market" },
+            { word: "restaurant", translation: "restaurant" },
+            { word: "télévision", translation: "television" },
+            { word: "poisson", translation: "fish" },
+            { word: "alcool", translation: "alcohol" },
+            { word: "viande", translation: "meat" },
+            { word: "retard", translation: "late / delay" },
         ]
     },
     {
@@ -96,6 +118,16 @@ SEQUENCE:
             { native: "Si tu veux, on peut aller au cinéma.", translation: "If you want, we can go to the cinema." },
             { native: "D'abord je mange, ensuite je travaille.", translation: "First I eat, then I work.", speakText: "D'abord je mange, ensuite je travaille." },
             { native: "Il est tard, donc je dois partir.", translation: "It's late, so I have to leave." },
+        ],
+        inlineVocab: [
+            { word: "café", translation: "coffee / café" },
+            { word: "thé", translation: "tea" },
+            { word: "fatigué", translation: "tired" },
+            { word: "cinéma", translation: "cinema / movie theatre" },
+            { word: "maison", translation: "house / home" },
+            { word: "faim", translation: "hunger" },
+            { word: "tard", translation: "late" },
+            { word: "vrai", translation: "true" },
         ]
     },
     {
@@ -131,6 +163,20 @@ SEASONS — always with en (except printemps):
             { native: "Il neige en hiver dans les montagnes.", translation: "It snows in winter in the mountains." },
             { native: "Il fait froid ce matin — il gèle!", translation: "It's cold this morning — it's freezing!" },
             { native: "Quel temps fait-il?", translation: "What's the weather like? (the standard question)" },
+        ],
+        inlineVocab: [
+            { word: "beau", translation: "nice / beautiful (weather)" },
+            { word: "mauvais", translation: "bad (weather / quality)" },
+            { word: "chaud", translation: "hot / warm" },
+            { word: "froid", translation: "cold" },
+            { word: "soleil", translation: "sun / sunshine" },
+            { word: "vent", translation: "wind" },
+            { word: "nuages", translation: "clouds" },
+            { word: "brouillard", translation: "fog" },
+            { word: "orage", translation: "storm / thunderstorm" },
+            { word: "montagnes", translation: "mountains" },
+            { word: "automne", translation: "autumn / fall" },
+            { word: "hiver", translation: "winter" },
         ]
     },
 ]

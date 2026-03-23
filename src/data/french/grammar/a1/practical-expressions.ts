@@ -31,6 +31,14 @@ Special cases:
             { native: "Il est midi.", translation: "It is noon." },
             { native: "Il est sept heures du matin.", translation: "It is seven in the morning." },
             { native: "J'ai dix-neuf ans.", translation: "I am nineteen years old." },
+        ],
+        inlineVocab: [
+            { word: "heures", translation: "hours / o'clock" },
+            { word: "demie", translation: "half (demi/demie)" },
+            { word: "quart", translation: "quarter" },
+            { word: "midi", translation: "noon" },
+            { word: "minuit", translation: "midnight" },
+            { word: "matin", translation: "morning" },
         ]
     },
     {
@@ -66,6 +74,16 @@ ASKING ABOUT PREFERENCES:
             { native: "Je préfère le thé au café.", translation: "I prefer tea to coffee." },
             { native: "Il déteste les légumes.", translation: "He hates vegetables." },
             { native: "Qu'est-ce que tu aimes faire?", translation: "What do you like to do?" },
+        ],
+        inlineVocab: [
+            { word: "café", translation: "coffee / café" },
+            { word: "chats", translation: "cats" },
+            { word: "restaurant", translation: "restaurant" },
+            { word: "thé", translation: "tea" },
+            { word: "légumes", translation: "vegetables" },
+            { word: "sport", translation: "sport" },
+            { word: "lire", translation: "to read" },
+            { word: "cuisiner", translation: "to cook" },
         ]
     },
     {
@@ -194,6 +212,15 @@ Je voudrais vs Je veux:
             { native: "L'addition, s'il vous plaît.", translation: "The bill, please." },
             { native: "Vous avez une table pour deux?", translation: "Do you have a table for two?" },
             { native: "Pour moi, une eau minérale.", translation: "For me, a mineral water." },
+        ],
+        inlineVocab: [
+            { word: "café", translation: "coffee / café" },
+            { word: "steak", translation: "steak" },
+            { word: "carte", translation: "menu / card / map" },
+            { word: "addition", translation: "bill / check" },
+            { word: "table", translation: "table" },
+            { word: "eau", translation: "water" },
+            { word: "minérale", translation: "mineral (eau minérale = mineral water)" },
         ]
     },
     {
@@ -232,6 +259,20 @@ OTHER LOCATION PREPOSITIONS:
             { native: "Le chat est sous la table.", translation: "The cat is under the table." },
             { native: "La boulangerie est à côté de la banque.", translation: "The bakery is next to the bank." },
             { native: "Il habite en France.", translation: "He lives in France. (en + feminine country)" },
+        ],
+        inlineVocab: [
+            { word: "bureau", translation: "office / desk" },
+            { word: "école", translation: "school" },
+            { word: "maison", translation: "house / home" },
+            { word: "chat", translation: "cat" },
+            { word: "lit", translation: "bed" },
+            { word: "gare", translation: "train station" },
+            { word: "jardin", translation: "garden" },
+            { word: "banque", translation: "bank" },
+            { word: "boulangerie", translation: "bakery" },
+            { word: "pharmacie", translation: "pharmacy" },
+            { word: "poste", translation: "post office" },
+            { word: "mairie", translation: "town hall" },
         ]
     },
     {
@@ -270,6 +311,17 @@ SEASONS:
             { native: "Elle est née en juillet.", translation: "She was born in July. (no capital)" },
             { native: "En été, il fait chaud.", translation: "In summer, it is hot." },
             { native: "Au printemps, les fleurs poussent.", translation: "In spring, the flowers grow. (au — not en)" },
+        ],
+        inlineVocab: [
+            { word: "printemps", translation: "spring" },
+            { word: "été", translation: "summer" },
+            { word: "automne", translation: "autumn / fall" },
+            { word: "hiver", translation: "winter" },
+            { word: "fleurs", translation: "flowers" },
+            { word: "chaud", translation: "hot / warm" },
+            { word: "juillet", translation: "July" },
+            { word: "janvier", translation: "January" },
+            { word: "décembre", translation: "December" },
         ]
     },
     {
@@ -312,6 +364,16 @@ IL Y A vs C'EST / CE SONT
             { native: "Est-ce qu'il y a une pharmacie ici?", translation: "Is there a pharmacy here?" },
             { native: "Qu'est-ce qu'il y a dans ce sac?", translation: "What is there in this bag? / What's in this bag?" },
             { native: "Il y a combien d'élèves?", translation: "How many students are there?" },
+        ],
+        inlineVocab: [
+            { word: "supermarché", translation: "supermarket" },
+            { word: "pharmacie", translation: "pharmacy" },
+            { word: "lait", translation: "milk" },
+            { word: "toilettes", translation: "toilets / restrooms" },
+            { word: "sac", translation: "bag" },
+            { word: "élèves", translation: "students / pupils" },
+            { word: "problèmes", translation: "problems" },
+            { word: "médecin", translation: "doctor" },
         ]
     },
 ]

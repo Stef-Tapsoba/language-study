@@ -23,6 +23,19 @@ The silent h: words starting with h always take l' (not le/la) — the h is neve
             { native: "l'ami / l'amie", speakText: "l'ami, l'amie", translation: "the friend (vowel → l')" },
             { native: "les enfants", translation: "the children (plural)" },
             { native: "l'hôtel", translation: "the hotel (silent h → l')" },
+        ],
+        inlineVocab: [
+            { word: "livre", translation: "book" },
+            { word: "café", translation: "café / coffee" },
+            { word: "père", translation: "father" },
+            { word: "maison", translation: "house / home" },
+            { word: "rue", translation: "street" },
+            { word: "mère", translation: "mother" },
+            { word: "ami", translation: "friend (masculine)" },
+            { word: "hôpital", translation: "hospital" },
+            { word: "homme", translation: "man" },
+            { word: "heure", translation: "hour / time" },
+            { word: "enfants", translation: "children" },
         ]
     },
     {
@@ -46,6 +59,11 @@ After negation, un/une/des → de (or d' before a vowel):
             { native: "une pomme", translation: "an apple (feminine)" },
             { native: "des amis", translation: "some friends (plural)" },
             { native: "Je n'ai pas de voiture.", translation: "I don't have a car. (de after negation)" },
+        ],
+        inlineVocab: [
+            { word: "pomme", translation: "apple" },
+            { word: "voiture", translation: "car" },
+            { word: "amis", translation: "friends" },
         ]
     },
     {
@@ -88,6 +106,14 @@ NO contraction with la and l':
             { native: "Il vient des États-Unis.", translation: "He comes from the United States. (de + les = des)" },
             { native: "Je vais à la boulangerie.", translation: "I'm going to the bakery. (à + la — no contraction)" },
             { native: "Elle revient de l'école.", translation: "She's coming back from school. (de + l' — no contraction)" },
+        ],
+        inlineVocab: [
+            { word: "marché", translation: "market" },
+            { word: "étudiants", translation: "students" },
+            { word: "professeur", translation: "teacher / professor" },
+            { word: "boulangerie", translation: "bakery" },
+            { word: "campagne", translation: "countryside" },
+            { word: "vin", translation: "wine" },
         ]
     },
     {
@@ -124,6 +150,22 @@ These common adjectives come BEFORE the noun:
             { native: "une belle maison", translation: "a beautiful house (irregular: beau → belle)" },
             { native: "un livre intéressant", translation: "an interesting book" },
             { native: "une idée intéressante", translation: "an interesting idea (+ e)" },
+        ],
+        inlineVocab: [
+            { word: "grand", translation: "tall / big" },
+            { word: "homme", translation: "man" },
+            { word: "femme", translation: "woman / wife" },
+            { word: "enfants", translation: "children" },
+            { word: "maison", translation: "house / home" },
+            { word: "beau", translation: "beautiful / handsome" },
+            { word: "belle", translation: "beautiful (feminine)" },
+            { word: "jardin", translation: "garden" },
+            { word: "petit", translation: "small / little" },
+            { word: "bon", translation: "good" },
+            { word: "repas", translation: "meal" },
+            { word: "intéressant", translation: "interesting" },
+            { word: "idée", translation: "idea" },
+            { word: "blanche", translation: "white (feminine)" },
         ]
     },
     {
@@ -152,6 +194,18 @@ Note: son/sa/ses means both 'his' and 'her' — context makes it clear:
             { native: "notre famille, nos enfants", translation: "our family, our children" },
             { native: "mon amie Sophie", translation: "my friend Sophie (mon — not ma — before vowel)" },
             { native: "Leur maison est grande.", translation: "Their house is big." },
+        ],
+        inlineVocab: [
+            { word: "frère", translation: "brother" },
+            { word: "sœur", translation: "sister" },
+            { word: "parents", translation: "parents" },
+            { word: "père", translation: "father" },
+            { word: "mère", translation: "mother" },
+            { word: "famille", translation: "family" },
+            { word: "enfants", translation: "children" },
+            { word: "amie", translation: "friend (feminine)" },
+            { word: "maison", translation: "house / home" },
+            { word: "grande", translation: "big / tall (feminine)" },
         ]
     },
     {
@@ -182,6 +236,16 @@ To replace a noun entirely (this one / that one):
             { native: "Ces chaussures sont confortables.", translation: "These shoes are comfortable." },
             { native: "Je préfère ce livre-ci.", translation: "I prefer this book (here). (-ci for emphasis)" },
             { native: "C'est ça!", translation: "That's it! / Exactly! (very common spoken French)" },
+        ],
+        inlineVocab: [
+            { word: "café", translation: "coffee / café" },
+            { word: "hôtel", translation: "hotel" },
+            { word: "robe", translation: "dress" },
+            { word: "magnifique", translation: "magnificent / stunning" },
+            { word: "chaussures", translation: "shoes" },
+            { word: "confortables", translation: "comfortable" },
+            { word: "excellent", translation: "excellent" },
+            { word: "cher", translation: "expensive / dear" },
         ]
     },
     {
@@ -223,6 +287,18 @@ DEFINITE vs INDEFINITE vs PARTITIVE — quick comparison:
             { native: "Je mange des légumes.", translation: "I eat some vegetables. (des — plural)" },
             { native: "Je ne bois pas de café.", translation: "I don't drink coffee. (de after negation)" },
             { native: "J'aime le café. / Je bois du café.", translation: "I like coffee (in general). / I drink some coffee (quantity).", speakText: "J'aime le café. Je bois du café." },
+        ],
+        inlineVocab: [
+            { word: "pain", translation: "bread" },
+            { word: "fromage", translation: "cheese" },
+            { word: "viande", translation: "meat" },
+            { word: "limonade", translation: "lemonade" },
+            { word: "eau", translation: "water" },
+            { word: "huile", translation: "oil" },
+            { word: "argent", translation: "money / silver" },
+            { word: "légumes", translation: "vegetables" },
+            { word: "œufs", translation: "eggs" },
+            { word: "lait", translation: "milk" },
         ]
     },
 ]
