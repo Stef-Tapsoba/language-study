@@ -615,7 +615,7 @@ export function UnitPage() {
                         ui={ui}
                         onMastered={() => setMastered(getMasteredUnits(langId))}
                         onBack={() => navigate(`/learn/${langId}`)}
-                        onNavigateNext={(id) => navigate(`/learn/${langId}/unit/${id}`)}
+                        onNavigateNext={(id) => navigate(`/learn/${langId}/units/${id}`)}
                         onNavigateLevelTest={() => navigate(`/learn/${langId}/level-test`)}
                     />
                 )}
