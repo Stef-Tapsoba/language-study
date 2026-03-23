@@ -12,6 +12,13 @@ export const foundationsLessons: GrammarLesson[] = [
             { native: "Lui lavora qui.", translation: "He works here." },
             { native: "Noi viviamo a Roma.", translation: "We live in Rome." },
             { native: "Loro sono amici.", translation: "They are friends." }
+        ],
+        inlineVocab: [
+            { word: "parlo", translation: "I speak" },
+            { word: "studentessa", translation: "female student" },
+            { word: "lavora", translation: "he/she works" },
+            { word: "viviamo", translation: "we live" },
+            { word: "amici", translation: "friends" },
         ]
     },
     {
@@ -33,6 +40,11 @@ Conjugation (present tense):
             { native: "Lei è medico.", translation: "She is a doctor." },
             { native: "Siamo stanchi.", translation: "We are tired." },
             { native: "Sono le otto.", translation: "It is eight o'clock." }
+        ],
+        inlineVocab: [
+            { word: "italiano", translation: "Italian" },
+            { word: "medico", translation: "doctor" },
+            { word: "stanchi", translation: "tired" },
         ]
     },
     {
@@ -60,6 +72,14 @@ Common expressions:
             { native: "Lei ha una macchina.", translation: "She has a car." },
             { native: "Abbiamo fame.", translation: "We are hungry." },
             { native: "Ho vent'anni.", translation: "I am twenty years old." }
+        ],
+        inlineVocab: [
+            { word: "cane", translation: "dog" },
+            { word: "macchina", translation: "car" },
+            { word: "fame", translation: "hunger" },
+            { word: "sete", translation: "thirst" },
+            { word: "freddo", translation: "cold" },
+            { word: "caldo", translation: "hot / warm" },
         ]
     },
     {
@@ -89,6 +109,15 @@ FEMININE PLURAL
             { native: "l'amico", translation: "the friend (masc., starts with vowel)" },
             { native: "la casa", translation: "the house (fem., starts with consonant)" },
             { native: "gli studenti / le case", translation: "the students / the houses (plurals)", speakText: "gli studenti, le case" }
+        ],
+        inlineVocab: [
+            { word: "libro", translation: "book" },
+            { word: "studente", translation: "student" },
+            { word: "amico", translation: "friend (masc.)" },
+            { word: "padre", translation: "father" },
+            { word: "madre", translation: "mother" },
+            { word: "uomo", translation: "man" },
+            { word: "ora", translation: "hour / time" },
         ]
     },
     {
@@ -113,6 +142,13 @@ For 'some' (plural), use dei / degli / delle:
             { native: "una casa", translation: "a house (fem.)" },
             { native: "un'amica", translation: "a friend (fem., starts with vowel)" },
             { native: "Vorrei un caffè.", translation: "I would like a coffee." }
+        ],
+        inlineVocab: [
+            { word: "pizza", translation: "pizza" },
+            { word: "amica", translation: "friend (fem.)" },
+            { word: "caffè", translation: "coffee" },
+            { word: "zaino", translation: "backpack" },
+            { word: "zio", translation: "uncle" },
         ]
     },
     {
@@ -142,6 +178,19 @@ POSITION
             { native: "I libri rossi / Le case rosse", translation: "The red books / The red houses", speakText: "I libri rossi, Le case rosse" },
             { native: "un bel ragazzo / una bella ragazza", translation: "a handsome boy / a beautiful girl (before noun)", speakText: "un bel ragazzo, una bella ragazza" },
             { native: "un grande uomo / un uomo grande", translation: "a great man / a big man (position changes meaning)", speakText: "un grande uomo, un uomo grande" }
+        ],
+        inlineVocab: [
+            { word: "rosso", translation: "red" },
+            { word: "storia", translation: "story / history" },
+            { word: "ragazzo", translation: "boy" },
+            { word: "ragazza", translation: "girl" },
+            { word: "alto", translation: "tall" },
+            { word: "interessante", translation: "interesting" },
+            { word: "bello", translation: "beautiful / handsome" },
+            { word: "vecchio", translation: "old" },
+            { word: "grande", translation: "big / great" },
+            { word: "buono", translation: "good" },
+            { word: "cattivo", translation: "bad" },
         ]
     },
 ]

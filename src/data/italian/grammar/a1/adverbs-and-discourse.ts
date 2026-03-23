@@ -36,6 +36,13 @@ ASKING / ANSWERING LOCATION
             { native: "Il gatto è sotto il letto.", translation: "The cat is under the bed." },
             { native: "C'è un bar qui vicino?", translation: "Is there a bar nearby?" },
             { native: "Siediti là.", translation: "Sit there." },
+        ],
+        inlineVocab: [
+            { word: "banca", translation: "bank" },
+            { word: "stazione", translation: "station" },
+            { word: "gatto", translation: "cat" },
+            { word: "letto", translation: "bed" },
+            { word: "tavolo", translation: "table" },
         ]
     },
     {
@@ -71,6 +78,11 @@ IN CONTEXT
             { native: "Ho già finito.", translation: "I've already finished." },
             { native: "Sei ancora a casa?", translation: "Are you still at home?" },
             { native: "Ci vediamo dopo.", translation: "See you later." },
+        ],
+        inlineVocab: [
+            { word: "lezione", translation: "lesson / class" },
+            { word: "mare", translation: "sea / beach" },
+            { word: "lavoro", translation: "work" },
         ]
     },
     {
@@ -104,6 +116,12 @@ Note: mai requires non before the verb — like all Italian negatives:
             { native: "A volte cucino io.", translation: "Sometimes I'm the one who cooks." },
             { native: "Non guardo mai la televisione.", translation: "I never watch television." },
             { native: "Con che frequenza vai in palestra?", translation: "How often do you go to the gym?" },
+        ],
+        inlineVocab: [
+            { word: "palestra", translation: "gym" },
+            { word: "carne", translation: "meat" },
+            { word: "televisione", translation: "television" },
+            { word: "discoteca", translation: "nightclub" },
         ]
     },
     {
@@ -141,6 +159,16 @@ EXAMPLE PARAGRAPH
             { native: "Studio perché voglio parlare con gli italiani.", translation: "I study because I want to speak with Italians." },
             { native: "Prima faccio colazione, poi esco.", translation: "First I have breakfast, then I go out." },
             { native: "Se hai fame, c'è del pane in cucina.", translation: "If you're hungry, there's bread in the kitchen." },
+        ],
+        inlineVocab: [
+            { word: "spagnolo", translation: "Spanish" },
+            { word: "tè", translation: "tea" },
+            { word: "caro", translation: "expensive / dear" },
+            { word: "pesce", translation: "fish" },
+            { word: "pane", translation: "bread" },
+            { word: "cucina", translation: "kitchen" },
+            { word: "macchina", translation: "car" },
+            { word: "risotto", translation: "risotto" },
         ]
     },
 ]

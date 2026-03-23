@@ -37,6 +37,11 @@ Useful time phrases: e mezza (half past), e un quarto (quarter past), meno un qu
             { native: "Ho ventidue anni.", translation: "I am twenty-two years old." },
             { native: "Il negozio apre alle nove.", translation: "The shop opens at nine." },
             { native: "Sono le undici meno un quarto.", translation: "It's quarter to eleven." },
+        ],
+        inlineVocab: [
+            { word: "mezzogiorno", translation: "noon / midday" },
+            { word: "mezzanotte", translation: "midnight" },
+            { word: "negozio", translation: "shop / store" },
         ]
     },
     {
@@ -71,6 +76,14 @@ Quick tip: piacere + infinitive = liking an activity:
             { native: "Preferisco il vino rosso.", translation: "I prefer red wine." },
             { native: "Mi piace studiare l'italiano.", translation: "I like studying Italian. (+ infinitive)" },
             { native: "Gli piacciono i film d'azione.", translation: "He likes action films." },
+        ],
+        inlineVocab: [
+            { word: "caffè", translation: "coffee" },
+            { word: "gatti", translation: "cats" },
+            { word: "pesce", translation: "fish" },
+            { word: "vino", translation: "wine" },
+            { word: "leggere", translation: "to read" },
+            { word: "film", translation: "film / movie" },
         ]
     },
     {
@@ -110,6 +123,22 @@ Words with a written accent are always stressed on that syllable: città, caffè
             { native: "gelato (je-LA-to) / gatto (GA-to)", speakText: "gelato, gatto", translation: "G before e = soft j / G before a = hard g" },
             { native: "nono vs nonno", speakText: "nono, nonno", translation: "Double consonants matter — they change meaning" },
             { native: "medico, studente, città", translation: "Stress patterns — accent marks show exceptions" },
+        ],
+        inlineVocab: [
+            { word: "cane", translation: "dog" },
+            { word: "cosa", translation: "thing" },
+            { word: "cuore", translation: "heart" },
+            { word: "cena", translation: "dinner" },
+            { word: "gelato", translation: "ice cream" },
+            { word: "gatto", translation: "cat" },
+            { word: "figlio", translation: "son" },
+            { word: "aglio", translation: "garlic" },
+            { word: "bagno", translation: "bathroom" },
+            { word: "signore", translation: "sir / gentleman" },
+            { word: "scarpa", translation: "shoe" },
+            { word: "pala", translation: "shovel" },
+            { word: "palla", translation: "ball" },
+            { word: "nonno", translation: "grandfather" },
         ]
     },
     {
@@ -145,6 +174,11 @@ HUNDREDS & THOUSANDS
             { native: "Costa cinquantotto euro.", translation: "It costs fifty-eight euros." },
             { native: "Cento per cento italiano.", translation: "One hundred percent Italian." },
             { native: "Ventuno studenti in classe.", translation: "Twenty-one students in class." },
+        ],
+        inlineVocab: [
+            { word: "euro", translation: "euro(s)" },
+            { word: "anni", translation: "years" },
+            { word: "classe", translation: "class / classroom" },
         ]
     },
     {
@@ -180,6 +214,15 @@ ASKING FOR MORE / ENDING
             { native: "Cosa mi consiglia?", translation: "What do you recommend?" },
             { native: "Il conto, per favore.", translation: "The bill, please." },
             { native: "Avete un tavolo per tre?", translation: "Do you have a table for three?" }
+        ],
+        inlineVocab: [
+            { word: "tavolo", translation: "table" },
+            { word: "menù", translation: "menu" },
+            { word: "cameriere", translation: "waiter" },
+            { word: "risotto", translation: "risotto" },
+            { word: "acqua", translation: "water" },
+            { word: "servizio", translation: "service" },
+            { word: "conto", translation: "bill / check" },
         ]
     },
     {
@@ -221,6 +264,17 @@ COMMON PROFESSIONS
             { native: "Mia madre è medico.", translation: "My mother is a doctor." },
             { native: "Lavoro in un ristorante come cameriere.", translation: "I work in a restaurant as a waiter." },
             { native: "È un bravo avvocato.", translation: "He is a good lawyer. (adjective → article returns)" }
+        ],
+        inlineVocab: [
+            { word: "medico", translation: "doctor" },
+            { word: "insegnante", translation: "teacher" },
+            { word: "avvocato", translation: "lawyer" },
+            { word: "cuoco", translation: "cook / chef" },
+            { word: "cameriere", translation: "waiter" },
+            { word: "ingegnere", translation: "engineer" },
+            { word: "attore", translation: "actor" },
+            { word: "ospedale", translation: "hospital" },
+            { word: "ristorante", translation: "restaurant" },
         ]
     },
     {
@@ -259,6 +313,16 @@ USEFUL PHRASES
             { native: "La banca è di fronte alla chiesa.", translation: "The bank is opposite the church." },
             { native: "Scusi, dov'è la stazione?", translation: "Excuse me, where is the train station?" },
             { native: "È a dieci minuti a piedi.", translation: "It's ten minutes on foot." }
+        ],
+        inlineVocab: [
+            { word: "girare", translation: "to turn" },
+            { word: "attraversare", translation: "to cross" },
+            { word: "piazza", translation: "square / plaza" },
+            { word: "semaforo", translation: "traffic light" },
+            { word: "banca", translation: "bank" },
+            { word: "chiesa", translation: "church" },
+            { word: "strada", translation: "street / road" },
+            { word: "angolo", translation: "corner" },
         ]
     },
 ]

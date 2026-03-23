@@ -12,6 +12,13 @@ export const grammarLessons: GrammarLesson[] = [
             { native: "Non ha la macchina.", translation: "He does not have a car." },
             { native: "Non mangio mai carne.", translation: "I never eat meat." },
             { native: "Non capisco niente.", translation: "I don't understand anything." }
+        ],
+        inlineVocab: [
+            { word: "tedesco", translation: "German" },
+            { word: "stanchi", translation: "tired" },
+            { word: "macchina", translation: "car" },
+            { word: "carne", translation: "meat" },
+            { word: "niente", translation: "nothing" },
         ]
     },
     {
@@ -38,6 +45,13 @@ QUESTION WORDS — always at the start of the sentence:
             { native: "Dove abiti?", translation: "Where do you live?" },
             { native: "Quando arrivi?", translation: "When do you arrive?" },
             { native: "Perché studi l'italiano?", translation: "Why do you study Italian?" }
+        ],
+        inlineVocab: [
+            { word: "vuoi", translation: "you want" },
+            { word: "abiti", translation: "you live" },
+            { word: "arrivi", translation: "you arrive" },
+            { word: "studi", translation: "you study" },
+            { word: "costa", translation: "it costs" },
         ]
     },
     {
@@ -70,6 +84,14 @@ Quick examples: al cinema (a + il), dalla stazione (da + la), sul tavolo (su + i
             { native: "Il libro è sulla scrivania.", translation: "The book is on the desk. (su + la = sulla)" },
             { native: "Vengo da Roma.", translation: "I come from Rome." },
             { native: "Studio l'italiano per parlare con gli italiani.", translation: "I study Italian to speak with Italians." },
+        ],
+        inlineVocab: [
+            { word: "cinema", translation: "cinema / movie theater" },
+            { word: "scrivania", translation: "desk" },
+            { word: "treno", translation: "train" },
+            { word: "famiglia", translation: "family" },
+            { word: "tavolo", translation: "table" },
+            { word: "stazione", translation: "station" },
         ]
     },
     {
@@ -108,6 +130,13 @@ FAMILY MEMBER EXCEPTION — NO article with singular, unmodified family members:
             { native: "mio padre / mia madre", translation: "my father / my mother — no article for singular family", speakText: "mio padre, mia madre" },
             { native: "i miei genitori", translation: "my parents — article returns for plural family" },
             { native: "la loro sorella", translation: "their sister — 'loro' always takes the article" },
+        ],
+        inlineVocab: [
+            { word: "macchina", translation: "car" },
+            { word: "scarpe", translation: "shoes" },
+            { word: "genitori", translation: "parents" },
+            { word: "sorella", translation: "sister" },
+            { word: "fratello", translation: "brother" },
         ]
     },
     {
@@ -141,6 +170,10 @@ QUICK TIP: When in doubt about quello, think of the definite article for that no
             { native: "Quella casa è grande.", translation: "That house is big." },
             { native: "Quei libri sono miei.", translation: "Those books are mine." },
             { native: "Cos'è questo?", translation: "What is this?" },
+        ],
+        inlineVocab: [
+            { word: "interessante", translation: "interesting" },
+            { word: "grande", translation: "big / great" },
         ]
     },
     {
@@ -180,6 +213,19 @@ WHEN TO USE
             { native: "Ho dei problemi.", translation: "I have some problems. (dei = di + i)" },
             { native: "Compro delle mele al mercato.", translation: "I'm buying some apples at the market. (delle = di + le)" },
             { native: "Non ho problemi.", translation: "I don't have any problems. (no article after negation)" },
+        ],
+        inlineVocab: [
+            { word: "pane", translation: "bread" },
+            { word: "zucchero", translation: "sugar" },
+            { word: "acqua", translation: "water" },
+            { word: "pasta", translation: "pasta" },
+            { word: "biscotti", translation: "biscuits / cookies" },
+            { word: "mele", translation: "apples" },
+            { word: "frutta", translation: "fruit" },
+            { word: "vino", translation: "wine" },
+            { word: "caffè", translation: "coffee" },
+            { word: "mercato", translation: "market" },
+            { word: "frigo", translation: "fridge" },
         ]
     },
     {
@@ -230,6 +276,17 @@ A related expression worth knowing: ecco introduces or points out something visi
             { native: "Non ci sono posti liberi.", translation: "There are no free seats." },
             { native: "C'è Marco? — No, non c'è.", translation: "Is Marco here? — No, he's not here.", speakText: "C'è Marco? No, non c'è." },
             { native: "Ecco il conto.", translation: "Here is the bill." },
+        ],
+        inlineVocab: [
+            { word: "bar", translation: "bar / café" },
+            { word: "turisti", translation: "tourists" },
+            { word: "latte", translation: "milk" },
+            { word: "posti", translation: "seats / places" },
+            { word: "ristorante", translation: "restaurant" },
+            { word: "supermercato", translation: "supermarket" },
+            { word: "medico", translation: "doctor" },
+            { word: "conto", translation: "bill / account" },
+            { word: "menù", translation: "menu" },
         ]
     },
     {
@@ -296,6 +353,11 @@ ANCHE + STRESSED PRONOUN
             { native: "Anch'io voglio un caffè.", translation: "I want a coffee too." },
             { native: "Parla con lei, non con me.", translation: "Talk to her, not to me." },
             { native: "Chi ha fame? — Io!", translation: "Who is hungry? — Me!" },
+        ],
+        inlineVocab: [
+            { word: "caffè", translation: "coffee" },
+            { word: "fame", translation: "hunger" },
+            { word: "uscire", translation: "to go out" },
         ]
     },
 ]

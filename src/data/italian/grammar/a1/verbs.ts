@@ -21,6 +21,17 @@ Common -are verbs: parlare (speak), lavorare (work), abitare (live), ascoltare (
             { native: "Lei abita a Firenze.", translation: "She lives in Florence." },
             { native: "Noi ascoltiamo la musica.", translation: "We listen to music." },
             { native: "Loro comprano il pane.", translation: "They buy the bread." }
+        ],
+        inlineVocab: [
+            { word: "parlare", translation: "to speak" },
+            { word: "lavorare", translation: "to work" },
+            { word: "abitare", translation: "to live / to reside" },
+            { word: "ascoltare", translation: "to listen" },
+            { word: "comprare", translation: "to buy" },
+            { word: "camminare", translation: "to walk" },
+            { word: "mangiare", translation: "to eat" },
+            { word: "musica", translation: "music" },
+            { word: "pane", translation: "bread" },
         ]
     },
     {
@@ -46,6 +57,18 @@ Other Type 2 verbs: preferire (prefer), pulire (clean), costruire (build).`,
             { native: "Dormiamo fino alle dieci.", translation: "We sleep until ten." },
             { native: "Capisco l'italiano.", translation: "I understand Italian." },
             { native: "Finiscono il lavoro alle sei.", translation: "They finish work at six." }
+        ],
+        inlineVocab: [
+            { word: "scrivere", translation: "to write" },
+            { word: "lettera", translation: "letter" },
+            { word: "giornale", translation: "newspaper" },
+            { word: "dormire", translation: "to sleep" },
+            { word: "finire", translation: "to finish" },
+            { word: "capire", translation: "to understand" },
+            { word: "preferire", translation: "to prefer" },
+            { word: "pulire", translation: "to clean" },
+            { word: "costruire", translation: "to build" },
+            { word: "lavoro", translation: "work / job" },
         ]
     },
     {
@@ -70,6 +93,14 @@ Usage: andare + a + place → andare a scuola, andare al cinema, andare in Itali
             { native: "Lei va in ufficio.", translation: "She goes to the office." },
             { native: "Andiamo al cinema stasera!", translation: "Let's go to the cinema tonight!" },
             { native: "Loro vanno a Roma domani.", translation: "They are going to Rome tomorrow." }
+        ],
+        inlineVocab: [
+            { word: "scuola", translation: "school" },
+            { word: "supermercato", translation: "supermarket" },
+            { word: "ufficio", translation: "office" },
+            { word: "cinema", translation: "cinema / movie theater" },
+            { word: "stasera", translation: "tonight / this evening" },
+            { word: "domani", translation: "tomorrow" },
         ]
     },
     {
@@ -99,6 +130,16 @@ Common expressions with fare:
             { native: "Fa molto caldo oggi.", translation: "It is very hot today." },
             { native: "Facciamo sport ogni sera.", translation: "We play sports every evening." },
             { native: "Fanno una passeggiata nel parco.", translation: "They take a walk in the park." }
+        ],
+        inlineVocab: [
+            { word: "colazione", translation: "breakfast" },
+            { word: "sport", translation: "sport / exercise" },
+            { word: "domanda", translation: "question" },
+            { word: "spesa", translation: "grocery shopping" },
+            { word: "passeggiata", translation: "walk / stroll" },
+            { word: "bagno", translation: "bath / bathroom" },
+            { word: "parco", translation: "park" },
+            { word: "tempo libero", translation: "free time" },
         ]
     },
     {
@@ -128,6 +169,16 @@ Useful time words: adesso (now), subito (right away), presto (soon), dopo (later
             { native: "Vado a mangiare.", translation: "I am going to eat." },
             { native: "Andiamo a vedere un film stasera.", translation: "We are going to watch a film tonight." },
             { native: "Vai a studiare adesso?", translation: "Are you going to study now?" }
+        ],
+        inlineVocab: [
+            { word: "uscire", translation: "to go out" },
+            { word: "piovere", translation: "to rain" },
+            { word: "mangiare", translation: "to eat" },
+            { word: "studiare", translation: "to study" },
+            { word: "film", translation: "film / movie" },
+            { word: "partire", translation: "to leave / depart" },
+            { word: "presto", translation: "soon / early" },
+            { word: "dopo", translation: "later / after" },
         ]
     },
     {
@@ -166,6 +217,13 @@ Important: always use the infinitive after these verbs.
             { native: "Non posso venire domani.", translation: "I can't come tomorrow." },
             { native: "Vuole cucinare stasera.", translation: "She wants to cook tonight." },
             { native: "Possiamo parlare italiano insieme.", translation: "We can speak Italian together." },
+        ],
+        inlineVocab: [
+            { word: "imparare", translation: "to learn" },
+            { word: "aiutare", translation: "to help" },
+            { word: "venire", translation: "to come" },
+            { word: "cucinare", translation: "to cook" },
+            { word: "insieme", translation: "together" },
         ]
     },
     {
@@ -200,6 +258,18 @@ Note: The infinitive always ends in -si. Remove -si, then conjugate the verb nor
             { native: "Lei si veste velocemente.", translation: "She gets dressed quickly." },
             { native: "Ci laviamo le mani prima di mangiare.", translation: "We wash our hands before eating." },
             { native: "A che ora ti svegli?", translation: "What time do you wake up?" },
+        ],
+        inlineVocab: [
+            { word: "chiamarsi", translation: "to be called" },
+            { word: "alzarsi", translation: "to get up" },
+            { word: "addormentarsi", translation: "to fall asleep" },
+            { word: "lavarsi", translation: "to wash oneself" },
+            { word: "vestirsi", translation: "to get dressed" },
+            { word: "sedersi", translation: "to sit down" },
+            { word: "svegliarsi", translation: "to wake up" },
+            { word: "mani", translation: "hands" },
+            { word: "mattina", translation: "morning" },
+            { word: "fretta", translation: "hurry / rush" },
         ]
     },
     {
@@ -282,6 +352,18 @@ COMMON IMPERATIVE EXPRESSIONS
             { native: "Non mangiare quello!", translation: "Don't eat that! (tu negative — non + infinitive)" },
             { native: "Alzati!", translation: "Get up! (reflexive imperative — pronoun attached)" },
             { native: "Fammi vedere.", translation: "Let me see. (Fa' + mi — contracted)" },
+        ],
+        inlineVocab: [
+            { word: "paziente", translation: "patient" },
+            { word: "pronti", translation: "ready" },
+            { word: "puntuali", translation: "punctual / on time" },
+            { word: "pazienza", translation: "patience" },
+            { word: "lentamente", translation: "slowly" },
+            { word: "aspettare", translation: "to wait" },
+            { word: "guardare", translation: "to look / to watch" },
+            { word: "mangiare", translation: "to eat" },
+            { word: "alzarsi", translation: "to get up" },
+            { word: "tranquillo", translation: "calm / relaxed" },
         ]
     },
     {
@@ -340,6 +422,17 @@ Note the important distinction:
             { native: "Dobbiamo partire alle otto.", translation: "We have to leave at eight." },
             { native: "Dovete prenotare in anticipo.", translation: "You must book in advance." },
             { native: "Non devo lavorare domani.", translation: "I don't have to work tomorrow." },
+        ],
+        inlineVocab: [
+            { word: "partire", translation: "to leave / depart" },
+            { word: "mangiare", translation: "to eat" },
+            { word: "lavorare", translation: "to work" },
+            { word: "prenotare", translation: "to book / reserve" },
+            { word: "rispettare", translation: "to respect" },
+            { word: "fumare", translation: "to smoke" },
+            { word: "madre", translation: "mother" },
+            { word: "stanca", translation: "tired (fem.)" },
+            { word: "anticipo", translation: "advance / early" },
         ]
     },
 ]
