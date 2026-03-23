@@ -207,18 +207,11 @@ THE U vs OU DISTINCTION
             { word: "ombre", translation: "shadow / shade" },
             { word: "nom", translation: "name / noun" },
             { word: "parfum", translation: "perfume / fragrance" },
-            { word: "brun", translation: "brown / brunette (masc.)" },
-            { word: "lundi", translation: "Monday" },
             { word: "vin", translation: "wine" },
             { word: "main", translation: "hand" },
             { word: "fils", translation: "son" },
             { word: "chef", translation: "chef / head / boss" },
             { word: "parc", translation: "park" },
-            { word: "cœur", translation: "heart" },
-            { word: "jambe", translation: "leg" },
-            { word: "ombre", translation: "shadow / shade" },
-            { word: "nom", translation: "name / noun" },
-            { word: "parfum", translation: "perfume / fragrance" },
         ]
     },
     {
