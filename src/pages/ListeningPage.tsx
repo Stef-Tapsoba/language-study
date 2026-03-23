@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { getCurrentLevel, markLessonComplete, getCompletedLessons } from "../store/progress"
+import { recordActivity, recordQuizAnswer } from "../store/stats"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { QuizCard } from "../components/QuizCard"
@@ -89,8 +90,9 @@ function TranscriptContent({ exercise }: Readonly<{ exercise: ListeningExercise 
 // ---------------------------------------------------------------------------
 // ComprehensionQuiz — in-exercise quiz state machine
 // ---------------------------------------------------------------------------
-function ComprehensionQuiz({ exercise, ui }: Readonly<{
+function ComprehensionQuiz({ exercise, onAnswer, ui }: Readonly<{
     exercise: ListeningExercise
+    onAnswer: (correct: boolean) => void
     ui: ReturnType<typeof getUI>
 }>) {
     const [quizIndex, setQuizIndex] = useState(0)
@@ -102,7 +104,9 @@ function ComprehensionQuiz({ exercise, ui }: Readonly<{
     function handleSelect(opt: string) { setSelected(opt); setRevealed(true) }
 
     function handleNext() {
-        const newScore = quizScore + (selected === exercise.questions[quizIndex].answer ? 1 : 0)
+        const isCorrect = selected === exercise.questions[quizIndex].answer
+        onAnswer(isCorrect)
+        const newScore = quizScore + (isCorrect ? 1 : 0)
         if (quizIndex + 1 >= exercise.questions.length) {
             setQuizScore(newScore); setQuizDone(true)
         } else {
@@ -166,6 +170,7 @@ function ExerciseListen({ exercise, langId, level, completed, onBack, ui }: Read
 
     function handleMarkListened() {
         markLessonComplete(langId, exercise.id)
+        recordActivity(langId)
         setMarkedListened(true)
     }
 
@@ -219,7 +224,7 @@ function ExerciseListen({ exercise, langId, level, completed, onBack, ui }: Read
 
             {/* Show questions button / comprehension quiz */}
             {quizOpen ? (
-                <ComprehensionQuiz exercise={exercise} ui={ui} />
+                <ComprehensionQuiz exercise={exercise} onAnswer={c => recordQuizAnswer(langId, c)} ui={ui} />
             ) : (
                 <button
                     onClick={() => setQuizOpen(true)}

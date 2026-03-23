@@ -4,6 +4,7 @@ import { useParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { getCurrentLevel, markLessonComplete, getCompletedLessons } from "../store/progress"
+import { recordActivity, recordQuizAnswer } from "../store/stats"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { QuizCard } from "../components/QuizCard"
@@ -106,6 +107,7 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
 
     function handleMarkRead() {
         markLessonComplete(langId, passage.id)
+        recordActivity(langId)
         setMarkedRead(true)
     }
 
@@ -115,7 +117,9 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
     }
 
     function handleNext() {
-        const newScore = quizScore + (selected === passage.questions[quizIndex].answer ? 1 : 0)
+        const isCorrect = selected === passage.questions[quizIndex].answer
+        recordQuizAnswer(langId, isCorrect)
+        const newScore = quizScore + (isCorrect ? 1 : 0)
         if (quizIndex + 1 >= passage.questions.length) {
             setQuizScore(newScore)
             setQuizDone(true)

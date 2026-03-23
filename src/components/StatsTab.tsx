@@ -1,5 +1,5 @@
 // components/StatsTab.tsx — Stats tab for the Dashboard
-import { getHistory, getTotalReviews, getGlobalStreak } from "../store/stats"
+import { getHistory, getTotalReviews, getGlobalStreak, getOverallAccuracy } from "../store/stats"
 import { getCurrentLevel, getCompletedLessons } from "../store/progress"
 import { getModule } from "../data/modules"
 
@@ -24,8 +24,7 @@ export function StatsTab({ langId }: Readonly<{ langId: string }>) {
     const streak = getGlobalStreak()
     const maxReviewed = Math.max(...history.map(d => d.reviewed), 1)
     const allReviewed = history.reduce((s, d) => s + d.reviewed, 0)
-    const allCorrect = history.reduce((s, d) => s + d.correct, 0)
-    const avgAcc = allReviewed ? Math.round(allCorrect / allReviewed * 100) : 0
+    const avgAcc = getOverallAccuracy(langId, 14)
 
     const mod = getModule(langId)
     const level = getCurrentLevel(langId)
@@ -53,8 +52,8 @@ export function StatsTab({ langId }: Readonly<{ langId: string }>) {
                 </div>
                 <div className="bg-white rounded-2xl border border-gray-200 p-4 text-center">
                     <p className="text-2xl font-bold text-green-600">{avgAcc}%</p>
-                    <p className="text-xs text-gray-500 mt-1">accuracy</p>
-                    <p className="text-xs text-gray-400">last 14 days</p>
+                    <p className="text-xs text-gray-500 mt-1">quiz accuracy</p>
+                    <p className="text-xs text-gray-400">all activities</p>
                 </div>
                 <div className="bg-white rounded-2xl border border-gray-200 p-4 text-center">
                     <p className="text-2xl font-bold text-amber-500">{streak}🔥</p>

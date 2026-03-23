@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { getCurrentLevel, getCompletedLessons, markLessonComplete, getMasteredUnits, masterUnit, isUnitUnlocked } from "../store/progress"
+import { recordActivity, recordQuizAnswer } from "../store/stats"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { QuizCard } from "../components/QuizCard"
@@ -58,7 +59,7 @@ function GrammarAccordion({ lesson, done, langId, level, ui, onComplete, onVocab
                     </div>
                     {!done && (
                         <button
-                            onClick={() => { markLessonComplete(langId, lesson.id); onComplete() }}
+                            onClick={() => { markLessonComplete(langId, lesson.id); recordActivity(langId); onComplete() }}
                             className="mt-4 w-full bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl py-2 text-sm transition-colors"
                         >
                             {ui.markComplete}
@@ -103,7 +104,7 @@ function VocabRow({ item, done, langId, ui, onComplete }: Readonly<{
                     </div>
                     {!done && (
                         <button
-                            onClick={() => { markLessonComplete(langId, item.id); onComplete() }}
+                            onClick={() => { markLessonComplete(langId, item.id); recordActivity(langId); onComplete() }}
                             className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl py-2 text-sm transition-colors"
                         >
                             {ui.markLearned}
@@ -299,6 +300,7 @@ function TestOutTab({ unit, langId, isMastered, nextUnit, isLastUnit, ui, onMast
 
     function handleNext() {
         const correct = selected === questions[qIdx].answer
+        recordQuizAnswer(langId, correct)
         if (!correct && selected) {
             setMissed(m => [...m, { prompt: questions[qIdx].prompt, correct: questions[qIdx].answer, yourAnswer: selected }])
         }
