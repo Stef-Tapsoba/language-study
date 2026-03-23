@@ -148,12 +148,19 @@ export interface ReadingPassage {
 // ---------------------------------------------------------------------------
 // Listening (CO — Compréhension Orale)
 // ---------------------------------------------------------------------------
+export interface DialogueLine {
+    speaker: string
+    text: string
+    translation?: string  // English gloss for this line (optional)
+}
+
 export interface ListeningExercise {
     id: string
     level: CEFRLevel
     title: string
-    script: string        // target language — spoken via TTS
-    translation: string   // English — toggle reference
+    script: string           // flat TTS script (always present)
+    translation: string      // English — toggle reference (flat)
+    dialogue?: DialogueLine[] // structured speaker turns for display
     questions: QuizQuestion[]
 }
 

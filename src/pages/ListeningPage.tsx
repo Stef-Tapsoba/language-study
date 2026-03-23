@@ -57,6 +57,97 @@ function ExerciseBrowse({ exercises, completed, onSelect, ui }: Readonly<{
 }
 
 // ---------------------------------------------------------------------------
+// TranscriptContent — dialogue turns or flat script
+// ---------------------------------------------------------------------------
+function TranscriptContent({ exercise }: Readonly<{ exercise: ListeningExercise }>) {
+    if (exercise.dialogue) {
+        return (
+            <div className="px-5 pb-4 flex flex-col gap-2.5">
+                {exercise.dialogue.map((line) => (
+                    <div key={`${line.speaker}-${line.text.slice(0, 20)}`} className="flex gap-3 text-sm">
+                        <span className="font-semibold text-indigo-600 shrink-0 w-14 pt-0.5 text-right">
+                            {line.speaker}
+                        </span>
+                        <div className="flex-1">
+                            <p className="text-gray-900">{line.text}</p>
+                            {line.translation && (
+                                <p className="text-xs text-gray-400 mt-0.5">{line.translation}</p>
+                            )}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        )
+    }
+    return (
+        <p className="px-5 pb-4 text-sm text-gray-700 leading-relaxed">
+            {exercise.script}
+        </p>
+    )
+}
+
+// ---------------------------------------------------------------------------
+// ComprehensionQuiz — in-exercise quiz state machine
+// ---------------------------------------------------------------------------
+function ComprehensionQuiz({ exercise, ui }: Readonly<{
+    exercise: ListeningExercise
+    ui: ReturnType<typeof getUI>
+}>) {
+    const [quizIndex, setQuizIndex] = useState(0)
+    const [selected, setSelected] = useState<string | null>(null)
+    const [revealed, setRevealed] = useState(false)
+    const [quizScore, setQuizScore] = useState(0)
+    const [quizDone, setQuizDone] = useState(false)
+
+    function handleSelect(opt: string) { setSelected(opt); setRevealed(true) }
+
+    function handleNext() {
+        const newScore = quizScore + (selected === exercise.questions[quizIndex].answer ? 1 : 0)
+        if (quizIndex + 1 >= exercise.questions.length) {
+            setQuizScore(newScore); setQuizDone(true)
+        } else {
+            setQuizScore(newScore); setQuizIndex(i => i + 1); setSelected(null); setRevealed(false)
+        }
+    }
+
+    if (quizDone) {
+        return (
+            <div className="bg-white rounded-2xl border border-gray-200 p-5 text-center">
+                <div className="text-3xl mb-2">{quizScore === exercise.questions.length ? "🎉" : "💪"}</div>
+                <p className="font-semibold text-gray-900">
+                    {fmt(ui.youAnswered, { score: quizScore, total: exercise.questions.length })}
+                </p>
+            </div>
+        )
+    }
+
+    const q = exercise.questions[quizIndex]
+    return (
+        <div className="flex flex-col gap-4">
+            <div className="flex items-center justify-between text-sm text-gray-500">
+                <span>{fmt(ui.questionOf, { n: quizIndex + 1, total: exercise.questions.length })}</span>
+                <span>{ui.scoreLabel}: {quizScore}</span>
+            </div>
+            <QuizCard
+                question={q.prompt}
+                options={q.options}
+                selected={selected}
+                correct={revealed ? q.answer : null}
+                onSelect={handleSelect}
+            />
+            {revealed && (
+                <button
+                    onClick={handleNext}
+                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-3 transition-colors"
+                >
+                    {quizIndex + 1 >= exercise.questions.length ? ui.seeResults : ui.nextQuestion}
+                </button>
+            )}
+        </div>
+    )
+}
+
+// ---------------------------------------------------------------------------
 // ExerciseListen — listen to a single exercise
 // ---------------------------------------------------------------------------
 function ExerciseListen({ exercise, langId, level, completed, onBack, ui }: Readonly<{
@@ -71,34 +162,11 @@ function ExerciseListen({ exercise, langId, level, completed, onBack, ui }: Read
     const [transcriptShown, setTranscriptShown] = useState(transcriptMode === "shown")
     const [translationShown, setTranslationShown] = useState(false)
     const [quizOpen, setQuizOpen] = useState(false)
-    const [quizIndex, setQuizIndex] = useState(0)
-    const [selected, setSelected] = useState<string | null>(null)
-    const [revealed, setRevealed] = useState(false)
-    const [quizScore, setQuizScore] = useState(0)
-    const [quizDone, setQuizDone] = useState(false)
     const [markedListened, setMarkedListened] = useState(completed.includes(exercise.id))
 
     function handleMarkListened() {
         markLessonComplete(langId, exercise.id)
         setMarkedListened(true)
-    }
-
-    function handleSelect(opt: string) {
-        setSelected(opt)
-        setRevealed(true)
-    }
-
-    function handleNext() {
-        const newScore = quizScore + (selected === exercise.questions[quizIndex].answer ? 1 : 0)
-        if (quizIndex + 1 >= exercise.questions.length) {
-            setQuizScore(newScore)
-            setQuizDone(true)
-        } else {
-            setQuizScore(newScore)
-            setQuizIndex(i => i + 1)
-            setSelected(null)
-            setRevealed(false)
-        }
     }
 
     return (
@@ -127,11 +195,7 @@ function ExerciseListen({ exercise, langId, level, completed, onBack, ui }: Read
                         <span>{transcriptShown ? ui.hideTranscript : ui.showTranscript}</span>
                         <span className="text-gray-400">{transcriptShown ? "▲" : "▼"}</span>
                     </button>
-                    {transcriptShown && (
-                        <p className="px-5 pb-4 text-sm text-gray-700 leading-relaxed">
-                            {exercise.script}
-                        </p>
-                    )}
+                    {transcriptShown && <TranscriptContent exercise={exercise} />}
                 </div>
             )}
 
@@ -153,52 +217,16 @@ function ExerciseListen({ exercise, langId, level, completed, onBack, ui }: Read
                 </div>
             )}
 
-            {/* Show questions button */}
-            {!quizOpen && (
+            {/* Show questions button / comprehension quiz */}
+            {quizOpen ? (
+                <ComprehensionQuiz exercise={exercise} ui={ui} />
+            ) : (
                 <button
                     onClick={() => setQuizOpen(true)}
-                    className="w-full border border-indigo-300 text-indigo-700 font-semibold
-                               rounded-xl py-2.5 text-sm transition-colors hover:bg-indigo-50"
+                    className="w-full border border-indigo-300 text-indigo-700 font-semibold rounded-xl py-2.5 text-sm transition-colors hover:bg-indigo-50"
                 >
                     {ui.showQuestions}
                 </button>
-            )}
-
-            {/* Comprehension quiz */}
-            {quizOpen && (
-                quizDone ? (
-                    <div className="bg-white rounded-2xl border border-gray-200 p-5 text-center">
-                        <div className="text-3xl mb-2">
-                            {quizScore === exercise.questions.length ? "🎉" : "💪"}
-                        </div>
-                        <p className="font-semibold text-gray-900">
-                            {fmt(ui.youAnswered, { score: quizScore, total: exercise.questions.length })}
-                        </p>
-                    </div>
-                ) : (
-                    <div className="flex flex-col gap-4">
-                        <div className="flex items-center justify-between text-sm text-gray-500">
-                            <span>{fmt(ui.questionOf, { n: quizIndex + 1, total: exercise.questions.length })}</span>
-                            <span>{ui.scoreLabel}: {quizScore}</span>
-                        </div>
-                        <QuizCard
-                            question={exercise.questions[quizIndex].prompt}
-                            options={exercise.questions[quizIndex].options}
-                            selected={selected}
-                            correct={revealed ? exercise.questions[quizIndex].answer : null}
-                            onSelect={handleSelect}
-                        />
-                        {revealed && (
-                            <button
-                                onClick={handleNext}
-                                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white
-                                           font-semibold rounded-xl py-3 transition-colors"
-                            >
-                                {quizIndex + 1 >= exercise.questions.length ? ui.seeResults : ui.nextQuestion}
-                            </button>
-                        )}
-                    </div>
-                )
             )}
 
             {/* Sticky bottom bar — mark as listened */}

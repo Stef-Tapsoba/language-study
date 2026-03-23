@@ -8,6 +8,16 @@ export const a1Listening: ListeningExercise[] = [
         title: "Buenos días — morning greeting dialogue",
         script: "Buenos días. Me llamo Carlos. ¿Cómo te llamas tú? Me llamo Ana. ¡Mucho gusto, Ana! Mucho gusto, Carlos. ¿Cómo estás? Estoy bien, gracias. ¿Y tú? Muy bien, gracias.",
         translation: "Good morning. My name is Carlos. What's your name? My name is Ana. Nice to meet you, Ana! Nice to meet you, Carlos. How are you? I'm fine, thank you. And you? Very well, thank you.",
+        dialogue: [
+            { speaker: "Carlos", text: "Buenos días. Me llamo Carlos.", translation: "Good morning. My name is Carlos." },
+            { speaker: "Ana", text: "¿Cómo te llamas tú?", translation: "What's your name?" },
+            { speaker: "Carlos", text: "Me llamo Ana.", translation: "My name is Ana." },
+            { speaker: "Ana", text: "¡Mucho gusto, Ana!", translation: "Nice to meet you, Ana!" },
+            { speaker: "Carlos", text: "Mucho gusto, Carlos.", translation: "Nice to meet you, Carlos." },
+            { speaker: "Ana", text: "¿Cómo estás?", translation: "How are you?" },
+            { speaker: "Carlos", text: "Estoy bien, gracias. ¿Y tú?", translation: "I'm fine, thank you. And you?" },
+            { speaker: "Ana", text: "Muy bien, gracias.", translation: "Very well, thank you." }
+        ],
         questions: [
             {
                 id: "es-l-a1-1-q1",
@@ -38,6 +48,17 @@ export const a1Listening: ListeningExercise[] = [
         title: "¿Cuánto cuesta? — market prices",
         script: "Buenos días. ¿Cuánto cuestan las naranjas? Las naranjas cuestan dos euros el kilo. ¿Y los tomates? Los tomates cuestan uno cincuenta el kilo. Quiero un kilo de naranjas y dos kilos de tomates, por favor. Son cinco euros. Aquí tiene. Gracias. ¡Adiós!",
         translation: "Good morning. How much are the oranges? The oranges cost two euros a kilo. And the tomatoes? The tomatoes cost one fifty a kilo. I'd like a kilo of oranges and two kilos of tomatoes, please. That's five euros. Here you go. Thank you. Goodbye!",
+        dialogue: [
+            { speaker: "Cliente", text: "Buenos días.", translation: "Good morning." },
+            { speaker: "Cliente", text: "¿Cuánto cuestan las naranjas?", translation: "How much are the oranges?" },
+            { speaker: "Vendedor", text: "Las naranjas cuestan dos euros el kilo.", translation: "The oranges cost two euros a kilo." },
+            { speaker: "Cliente", text: "¿Y los tomates?", translation: "And the tomatoes?" },
+            { speaker: "Vendedor", text: "Los tomates cuestan uno cincuenta el kilo.", translation: "The tomatoes cost one fifty a kilo." },
+            { speaker: "Cliente", text: "Quiero un kilo de naranjas y dos kilos de tomates, por favor.", translation: "I'd like a kilo of oranges and two kilos of tomatoes, please." },
+            { speaker: "Vendedor", text: "Son cinco euros.", translation: "That's five euros." },
+            { speaker: "Cliente", text: "Aquí tiene.", translation: "Here you go." },
+            { speaker: "Vendedor", text: "Gracias. ¡Adiós!", translation: "Thank you. Goodbye!" }
+        ],
         questions: [
             {
                 id: "es-l-a1-2-q1",
@@ -98,6 +119,19 @@ export const a1Listening: ListeningExercise[] = [
         title: "En el restaurante — ordering food dialogue",
         script: "Buenas tardes. Una mesa para dos, por favor. Por aquí, por favor. Gracias. ¿Qué quieren comer? Yo quiero una ensalada y un filete de pollo. Y yo quiero una sopa y una pizza margherita. ¿Y para beber? Dos aguas, por favor. Muy bien. ¿Algo más? No, gracias. Está todo muy rico. ¿Nos trae la cuenta, por favor?",
         translation: "Good afternoon. A table for two, please. This way, please. Thank you. What would you like to eat? I'd like a salad and a chicken fillet. And I'd like a soup and a margherita pizza. And to drink? Two waters, please. Very good. Anything else? No, thank you. Everything is very tasty. Could you bring us the bill, please?",
+        dialogue: [
+            { speaker: "Cliente", text: "Buenas tardes. Una mesa para dos, por favor.", translation: "Good afternoon. A table for two, please." },
+            { speaker: "Camarero", text: "Por aquí, por favor.", translation: "This way, please." },
+            { speaker: "Cliente", text: "Gracias.", translation: "Thank you." },
+            { speaker: "Camarero", text: "¿Qué quieren comer?", translation: "What would you like to eat?" },
+            { speaker: "Cliente", text: "Yo quiero una ensalada y un filete de pollo.", translation: "I'd like a salad and a chicken fillet." },
+            { speaker: "Cliente 2", text: "Y yo quiero una sopa y una pizza margherita.", translation: "And I'd like a soup and a margherita pizza." },
+            { speaker: "Camarero", text: "¿Y para beber?", translation: "And to drink?" },
+            { speaker: "Cliente", text: "Dos aguas, por favor.", translation: "Two waters, please." },
+            { speaker: "Camarero", text: "Muy bien. ¿Algo más?", translation: "Very good. Anything else?" },
+            { speaker: "Cliente", text: "No, gracias. Está todo muy rico.", translation: "No, thank you. Everything is very tasty." },
+            { speaker: "Cliente 2", text: "¿Nos trae la cuenta, por favor?", translation: "Could you bring us the bill, please?" }
+        ],
         questions: [
             {
                 id: "es-l-a1-4-q1",

@@ -8,6 +8,17 @@ export const a1Listening: ListeningExercise[] = [
         title: "Bonjour ! — dialogue de rencontre",
         script: "Bonjour ! Je m'appelle Luc. Comment tu t'appelles ? Je m'appelle Claire. Enchanté, Claire ! Enchantée, Luc. Tu habites à Paris ? Oui, j'habite à Paris. Et toi ? Moi aussi, j'habite à Paris. Quel âge as-tu ? J'ai vingt-deux ans. Et toi ? J'ai vingt-cinq ans.",
         translation: "Hello! My name is Luc. What's your name? My name is Claire. Nice to meet you, Claire! Nice to meet you, Luc. Do you live in Paris? Yes, I live in Paris. And you? Me too, I live in Paris. How old are you? I'm twenty-two years old. And you? I'm twenty-five years old.",
+        dialogue: [
+            { speaker: "Luc",   text: "Bonjour ! Je m'appelle Luc. Comment tu t'appelles ?", translation: "Hello! My name is Luc. What's your name?" },
+            { speaker: "Claire", text: "Je m'appelle Claire.", translation: "My name is Claire." },
+            { speaker: "Luc",   text: "Enchanté, Claire !", translation: "Nice to meet you, Claire!" },
+            { speaker: "Claire", text: "Enchantée, Luc. Tu habites à Paris ?", translation: "Nice to meet you, Luc. Do you live in Paris?" },
+            { speaker: "Luc",   text: "Oui, j'habite à Paris. Et toi ?", translation: "Yes, I live in Paris. And you?" },
+            { speaker: "Claire", text: "Moi aussi, j'habite à Paris.", translation: "Me too, I live in Paris." },
+            { speaker: "Luc",   text: "Quel âge as-tu ?", translation: "How old are you?" },
+            { speaker: "Claire", text: "J'ai vingt-deux ans. Et toi ?", translation: "I'm twenty-two years old. And you?" },
+            { speaker: "Luc",   text: "J'ai vingt-cinq ans.", translation: "I'm twenty-five years old." }
+        ],
         questions: [
             {
                 id: "fr-l-a1-1-q1",
@@ -38,6 +49,18 @@ export const a1Listening: ListeningExercise[] = [
         title: "Au marché — les prix",
         script: "Bonjour madame ! Bonjour ! Combien coûtent les pommes ? Les pommes coûtent deux euros le kilo. Et les bananes ? Un euro quatre-vingts le kilo. Je voudrais un kilo de pommes et deux kilos de bananes, s'il vous plaît. Très bien. Ça fait cinq euros soixante. Voilà six euros. Merci. Et voilà quarante centimes de monnaie. Bonne journée !",
         translation: "Good morning madam! Good morning! How much do the apples cost? The apples cost two euros a kilo. And the bananas? One euro eighty a kilo. I'd like a kilo of apples and two kilos of bananas, please. Very good. That's five euros sixty. Here's six euros. Thank you. And here's forty cents change. Have a good day!",
+        dialogue: [
+            { speaker: "Client",    text: "Bonjour madame !", translation: "Good morning, madam!" },
+            { speaker: "Marchande", text: "Bonjour !", translation: "Good morning!" },
+            { speaker: "Client",    text: "Combien coûtent les pommes ?", translation: "How much do the apples cost?" },
+            { speaker: "Marchande", text: "Les pommes coûtent deux euros le kilo.", translation: "The apples cost two euros a kilo." },
+            { speaker: "Client",    text: "Et les bananes ?", translation: "And the bananas?" },
+            { speaker: "Marchande", text: "Un euro quatre-vingts le kilo.", translation: "One euro eighty a kilo." },
+            { speaker: "Client",    text: "Je voudrais un kilo de pommes et deux kilos de bananes, s'il vous plaît.", translation: "I'd like a kilo of apples and two kilos of bananas, please." },
+            { speaker: "Marchande", text: "Très bien. Ça fait cinq euros soixante.", translation: "Very good. That's five euros sixty." },
+            { speaker: "Client",    text: "Voilà six euros.", translation: "Here's six euros." },
+            { speaker: "Marchande", text: "Merci. Et voilà quarante centimes de monnaie. Bonne journée !", translation: "Thank you. And here's forty cents change. Have a good day!" }
+        ],
         questions: [
             {
                 id: "fr-l-a1-2-q1",
@@ -68,6 +91,16 @@ export const a1Listening: ListeningExercise[] = [
         title: "Quelle heure est-il ? — la journée",
         script: "Maman, quelle heure est-il ? Il est sept heures et demie. C'est l'heure de se lever ! D'accord. Quand est le petit-déjeuner ? Le petit-déjeuner est à huit heures moins le quart. Et l'école commence à quelle heure ? L'école commence à huit heures et demie. Alors j'ai une heure. Non, tu as quarante-cinq minutes ! Dépêche-toi !",
         translation: "Mum, what time is it? It's half past seven. Time to get up! OK. When is breakfast? Breakfast is at a quarter to eight. And what time does school start? School starts at half past eight. So I have an hour. No, you have forty-five minutes! Hurry up!",
+        dialogue: [
+            { speaker: "Enfant", text: "Maman, quelle heure est-il ?", translation: "Mum, what time is it?" },
+            { speaker: "Maman",  text: "Il est sept heures et demie. C'est l'heure de se lever !", translation: "It's half past seven. Time to get up!" },
+            { speaker: "Enfant", text: "D'accord. Quand est le petit-déjeuner ?", translation: "OK. When is breakfast?" },
+            { speaker: "Maman",  text: "Le petit-déjeuner est à huit heures moins le quart.", translation: "Breakfast is at a quarter to eight." },
+            { speaker: "Enfant", text: "Et l'école commence à quelle heure ?", translation: "And what time does school start?" },
+            { speaker: "Maman",  text: "L'école commence à huit heures et demie.", translation: "School starts at half past eight." },
+            { speaker: "Enfant", text: "Alors j'ai une heure.", translation: "So I have an hour." },
+            { speaker: "Maman",  text: "Non, tu as quarante-cinq minutes ! Dépêche-toi !", translation: "No, you have forty-five minutes! Hurry up!" }
+        ],
         questions: [
             {
                 id: "fr-l-a1-3-q1",
