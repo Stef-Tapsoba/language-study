@@ -27,6 +27,17 @@ The yo form is -o for both groups.`,
       { native: "Ella lee un libro.", translation: "She reads a book." },
       { native: "Nosotros corremos.", translation: "We run." },
       { native: "Ellos venden frutas.", translation: "They sell fruit." },
+    ],
+    inlineVocab: [
+      { word: "comer", translation: "to eat" },
+      { word: "beber", translation: "to drink" },
+      { word: "leer", translation: "to read" },
+      { word: "vender", translation: "to sell" },
+      { word: "correr", translation: "to run" },
+      { word: "comprender", translation: "to understand" },
+      { word: "responder", translation: "to respond / answer" },
+      { word: "frutas", translation: "fruit" },
+      { word: "agua", translation: "water" },
     ]
   },
   {
@@ -55,6 +66,16 @@ Common -ir verbs: vivir, escribir, abrir, recibir, subir, decidir.`,
       { native: "Él abre la puerta.", translation: "He opens the door." },
       { native: "Nosotros subimos.", translation: "We go up." },
       { native: "Ellas reciben cartas.", translation: "They receive letters." },
+    ],
+    inlineVocab: [
+      { word: "vivir", translation: "to live" },
+      { word: "escribir", translation: "to write" },
+      { word: "abrir", translation: "to open" },
+      { word: "recibir", translation: "to receive" },
+      { word: "subir", translation: "to go up / climb" },
+      { word: "decidir", translation: "to decide" },
+      { word: "puerta", translation: "door" },
+      { word: "cartas", translation: "letters" },
     ]
   },
   {
@@ -86,6 +107,16 @@ USES OF TENER
       { native: "Tengo veintiún años.", translation: "I am twenty-one years old." },
       { native: "Tenemos hambre.", translation: "We are hungry." },
       { native: "Ella tiene frío.", translation: "She is cold." },
+    ],
+    inlineVocab: [
+      { word: "coche", translation: "car" },
+      { word: "perro", translation: "dog" },
+      { word: "hambre", translation: "hunger" },
+      { word: "sed", translation: "thirst" },
+      { word: "sueño", translation: "sleepiness / dream" },
+      { word: "miedo", translation: "fear" },
+      { word: "frío", translation: "cold" },
+      { word: "calor", translation: "heat / warmth" },
     ]
   },
   {
@@ -113,6 +144,14 @@ ASKING WHERE SOMEONE IS GOING
       { native: "Él va a la farmacia.", translation: "He goes to the pharmacy." },
       { native: "Vamos al parque.", translation: "We go to the park." },
       { native: "Ellos van a la playa.", translation: "They go to the beach." },
+    ],
+    inlineVocab: [
+      { word: "trabajo", translation: "work / job" },
+      { word: "tienda", translation: "shop / store" },
+      { word: "banco", translation: "bank" },
+      { word: "farmacia", translation: "pharmacy" },
+      { word: "parque", translation: "park" },
+      { word: "playa", translation: "beach" },
     ]
   },
   {
@@ -139,6 +178,15 @@ QUESTIONS
       { native: "¿Vas a estudiar mañana?", translation: "Are you going to study tomorrow?" },
       { native: "Ella va a llamar a su madre.", translation: "She is going to call her mother." },
       { native: "Vamos a visitar a los abuelos.", translation: "We are going to visit the grandparents." },
+    ],
+    inlineVocab: [
+      { word: "noche", translation: "night" },
+      { word: "mañana", translation: "tomorrow / morning" },
+      { word: "madre", translation: "mother" },
+      { word: "abuelos", translation: "grandparents" },
+      { word: "viajar", translation: "to travel" },
+      { word: "trabajar", translation: "to work" },
+      { word: "fin de semana", translation: "weekend" },
     ]
   },
   {
@@ -169,6 +217,13 @@ ORDERING POLITELY
       { native: "Queremos una mesa para dos.", translation: "We want a table for two." },
       { native: "Ella quiere aprender español.", translation: "She wants to learn Spanish." },
       { native: "¿Quieres ir al cine?", translation: "Do you want to go to the cinema?" },
+    ],
+    inlineVocab: [
+      { word: "café", translation: "coffee" },
+      { word: "mesa", translation: "table" },
+      { word: "familia", translation: "family" },
+      { word: "cine", translation: "cinema" },
+      { word: "aprender", translation: "to learn" },
     ]
   },
   {
@@ -203,6 +258,16 @@ Note: acostarse (o→ue) and despertarse (e→ie) are also stem-changing.`,
       { native: "Ella se ducha por la mañana.", translation: "She showers in the morning." },
       { native: "Nos acostamos tarde.", translation: "We go to bed late." },
       { native: "¿A qué hora te despiertas?", translation: "What time do you wake up?" },
+    ],
+    inlineVocab: [
+      { word: "levantarse", translation: "to get up" },
+      { word: "acostarse", translation: "to go to bed" },
+      { word: "despertarse", translation: "to wake up" },
+      { word: "ducharse", translation: "to shower" },
+      { word: "vestirse", translation: "to get dressed" },
+      { word: "tarde", translation: "late" },
+      { word: "temprano", translation: "early" },
+      { word: "mañana", translation: "morning" },
     ]
   },
   {
@@ -276,6 +341,16 @@ COMMON IMPERATIVE EXPRESSIONS
       { native: "¡No comas eso!", translation: "Don't eat that! (tú negative)" },
       { native: "¡Levántate!", translation: "Get up! (reflexive imperative — pronoun attached)" },
       { native: "¡Ten cuidado!", translation: "Be careful! (tener — irregular tú imperative)" },
+    ],
+    inlineVocab: [
+      { word: "despacio", translation: "slowly" },
+      { word: "cuidado", translation: "care / careful" },
+      { word: "esperar", translation: "to wait" },
+      { word: "repetir", translation: "to repeat" },
+      { word: "comprar", translation: "to buy" },
+      { word: "salir", translation: "to leave / go out" },
+      { word: "poner", translation: "to put / place" },
+      { word: "venir", translation: "to come" },
     ]
   },
   {
@@ -361,6 +436,21 @@ NOSOTROS/VOSOTROS NEVER CHANGE — this is the key rule:
       { native: "¿Qué pides tú?", translation: "What are you ordering? (pedir e→i — in a restaurant)" },
       { native: "Los niños juegan en el parque.", translation: "The children play in the park. (jugar u→ue)" },
       { native: "Nosotros volvemos mañana.", translation: "We come back tomorrow. (nosotros — NO stem change)" },
+    ],
+    inlineVocab: [
+      { word: "empezar", translation: "to begin / start" },
+      { word: "pensar", translation: "to think" },
+      { word: "entender", translation: "to understand" },
+      { word: "poder", translation: "to be able to / can" },
+      { word: "volver", translation: "to return / come back" },
+      { word: "dormir", translation: "to sleep" },
+      { word: "encontrar", translation: "to find / meet" },
+      { word: "jugar", translation: "to play" },
+      { word: "pedir", translation: "to ask for / order" },
+      { word: "servir", translation: "to serve" },
+      { word: "clase", translation: "class / lesson" },
+      { word: "pregunta", translation: "question" },
+      { word: "niños", translation: "children" },
     ]
   },
   {
@@ -439,6 +529,18 @@ Can you replace 'know' with 'be acquainted with' or 'have been to'? → conocer
       { native: "¿Sabes qué hora es?", translation: "Do you know what time it is? (fact → saber)" },
       { native: "No conozco a nadie aquí.", translation: "I don't know anyone here. (person → conocer)" },
       { native: "Sé que tienes razón.", translation: "I know that you are right. (fact → saber)" },
+    ],
+    inlineVocab: [
+      { word: "nadar", translation: "to swim" },
+      { word: "cocinar", translation: "to cook" },
+      { word: "respuesta", translation: "answer" },
+      { word: "número", translation: "number" },
+      { word: "estación", translation: "station / season" },
+      { word: "hermana", translation: "sister" },
+      { word: "hermano", translation: "brother" },
+      { word: "restaurante", translation: "restaurant" },
+      { word: "canción", translation: "song" },
+      { word: "razón", translation: "reason / right" },
     ]
   },
   {
@@ -510,6 +612,19 @@ You don't need these yet — just know the pattern extends.`,
       { native: "No oigo bien — ¿puedes repetir?", translation: "I can't hear well — can you repeat? (oír → oigo)" },
       { native: "Tengo que irme — vengo mañana.", translation: "I have to go — I'll come tomorrow. (tengo / vengo)" },
       { native: "Veo la televisión por la noche.", translation: "I watch television at night. (ver → veo)" },
+    ],
+    inlineVocab: [
+      { word: "deporte", translation: "sport" },
+      { word: "días", translation: "days" },
+      { word: "casa", translation: "house / home" },
+      { word: "llaves", translation: "keys" },
+      { word: "pan", translation: "bread" },
+      { word: "vino", translation: "wine" },
+      { word: "deberes", translation: "homework" },
+      { word: "televisión", translation: "television" },
+      { word: "hacer", translation: "to do / make" },
+      { word: "traer", translation: "to bring" },
+      { word: "oír", translation: "to hear" },
     ]
   },
 ]

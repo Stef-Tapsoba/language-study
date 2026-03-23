@@ -21,6 +21,11 @@ tú vs. usted: Use tú with friends, family, and peers. Use usted with strangers
       { native: "Él trabaja aquí.", translation: "He works here." },
       { native: "Nosotros vivimos en Madrid.", translation: "We live in Madrid." },
       { native: "Ellos son amigos.", translation: "They are friends." },
+    ],
+    inlineVocab: [
+      { word: "español", translation: "Spanish" },
+      { word: "estudiante", translation: "student" },
+      { word: "amigos", translation: "friends" },
     ]
   },
   {
@@ -54,6 +59,13 @@ Quick check: Can the situation change? → ESTAR. Is it a defining fact? → SER
       { native: "Estoy cansado.", translation: "I am tired. (temporary state → estar)" },
       { native: "El café está caliente.", translation: "The coffee is hot. (condition → estar)" },
       { native: "Madrid está en España.", translation: "Madrid is in Spain. (location → estar)" },
+    ],
+    inlineVocab: [
+      { word: "médico", translation: "doctor" },
+      { word: "cansado", translation: "tired" },
+      { word: "caliente", translation: "hot" },
+      { word: "profesión", translation: "profession" },
+      { word: "nacionalidad", translation: "nationality" },
     ]
   },
   {
@@ -77,6 +89,18 @@ Note: the yo form always ends in -o. This is true for all regular -ar, -er, and 
       { native: "Ella estudia.", translation: "She studies." },
       { native: "Nosotros cantamos.", translation: "We sing." },
       { native: "Ellos escuchan.", translation: "They listen." },
+    ],
+    inlineVocab: [
+      { word: "hablar", translation: "to speak" },
+      { word: "trabajar", translation: "to work" },
+      { word: "llamar", translation: "to call" },
+      { word: "escuchar", translation: "to listen" },
+      { word: "cantar", translation: "to sing" },
+      { word: "estudiar", translation: "to study" },
+      { word: "comprar", translation: "to buy" },
+      { word: "viajar", translation: "to travel" },
+      { word: "bailar", translation: "to dance" },
+      { word: "caminar", translation: "to walk" },
     ]
   },
   {
@@ -109,6 +133,18 @@ CONTRACTIONS
       { native: "un estudiante", translation: "a student (masc.)" },
       { native: "una profesora", translation: "a teacher (fem.)" },
       { native: "Voy al banco.", translation: "I'm going to the bank. (a + el = al)" },
+    ],
+    inlineVocab: [
+      { word: "libro", translation: "book" },
+      { word: "teléfono", translation: "telephone" },
+      { word: "banco", translation: "bank" },
+      { word: "casa", translation: "house" },
+      { word: "mesa", translation: "table" },
+      { word: "escuela", translation: "school" },
+      { word: "día", translation: "day" },
+      { word: "mano", translation: "hand" },
+      { word: "mapa", translation: "map" },
+      { word: "profesor", translation: "teacher" },
     ]
   },
   {
@@ -142,6 +178,13 @@ Spanish uses an opening inverted ¿ before every question.`,
       { native: "¿Dónde vives?", translation: "Where do you live?" },
       { native: "¿Qué es esto?", translation: "What is this?" },
       { native: "¿Cuántos años tienes?", translation: "How old are you?" },
+    ],
+    inlineVocab: [
+      { word: "inglés", translation: "English" },
+      { word: "vives", translation: "you live" },
+      { word: "llegas", translation: "you arrive" },
+      { word: "cuesta", translation: "it costs" },
+      { word: "años", translation: "years / age" },
     ]
   },
   {
@@ -191,6 +234,18 @@ MEMORY TIP: ask yourself whether you are describing what something IS by nature,
       { native: "Es una chica muy lista.", translation: "She is a very clever girl. (ser — personality)" },
       { native: "Este postre está riquísimo.", translation: "This dessert is absolutely delicious. (estar — taste)" },
       { native: "Es rico, tiene tres casas.", translation: "He is wealthy, he has three houses. (ser — defining trait)" },
+    ],
+    inlineVocab: [
+      { word: "película", translation: "film / movie" },
+      { word: "aburrido", translation: "boring / bored" },
+      { word: "animales", translation: "animals" },
+      { word: "madre", translation: "mother" },
+      { word: "listo", translation: "clever / ready" },
+      { word: "postre", translation: "dessert" },
+      { word: "rico", translation: "rich / delicious" },
+      { word: "casas", translation: "houses" },
+      { word: "chica", translation: "girl" },
+      { word: "persona", translation: "person" },
     ]
   },
 ]

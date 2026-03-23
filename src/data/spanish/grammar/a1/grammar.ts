@@ -27,6 +27,18 @@ A few common adjectives go BEFORE: bueno/a, malo/a, gran (before noun = great).`
       { native: "unos chicos altos / unas chicas altas", translation: "tall boys / tall girls", speakText: "unos chicos altos, unas chicas altas" },
       { native: "el libro rojo / la manzana roja", translation: "the red book / the red apple", speakText: "el libro rojo, la manzana roja" },
       { native: "un coche grande / una casa grande", translation: "a big car / a big house (no gender change)", speakText: "un coche grande, una casa grande" },
+    ],
+    inlineVocab: [
+      { word: "alto", translation: "tall" },
+      { word: "chico", translation: "boy" },
+      { word: "chica", translation: "girl" },
+      { word: "libro", translation: "book" },
+      { word: "rojo", translation: "red" },
+      { word: "manzana", translation: "apple" },
+      { word: "coche", translation: "car" },
+      { word: "grande", translation: "big / large" },
+      { word: "bueno", translation: "good" },
+      { word: "malo", translation: "bad" },
     ]
   },
   {
@@ -63,6 +75,14 @@ AMBIGUITY OF SU
       { native: "Nuestros hijos viven en Madrid.", translation: "Our children live in Madrid." },
       { native: "Su casa es muy grande.", translation: "His/her/their house is very big." },
       { native: "¿Dónde están tus llaves?", translation: "Where are your keys?" },
+    ],
+    inlineVocab: [
+      { word: "madre", translation: "mother" },
+      { word: "padre", translation: "father" },
+      { word: "hermano", translation: "brother" },
+      { word: "hijos", translation: "children / sons" },
+      { word: "llaves", translation: "keys" },
+      { word: "casa", translation: "house" },
     ]
   },
   {
@@ -95,6 +115,15 @@ DEMONSTRATIVE PRONOUNS (standalone)
       { native: "Estas manzanas son deliciosas.", translation: "These apples are delicious." },
       { native: "¿Qué es esto?", translation: "What is this?" },
       { native: "Aquel edificio es muy antiguo.", translation: "That building (over there) is very old." },
+    ],
+    inlineVocab: [
+      { word: "libro", translation: "book" },
+      { word: "camisa", translation: "shirt" },
+      { word: "manzanas", translation: "apples" },
+      { word: "deliciosas", translation: "delicious" },
+      { word: "edificio", translation: "building" },
+      { word: "antiguo", translation: "old / ancient" },
+      { word: "zapatos", translation: "shoes" },
     ]
   },
   {
@@ -133,6 +162,15 @@ With an infinitive, always use gusta (singular):
       { native: "¿Te gusta la música?", translation: "Do you like music?" },
       { native: "No me gusta nada el frío.", translation: "I don't like the cold at all." },
       { native: "Nos encanta viajar.", translation: "We love travelling." },
+    ],
+    inlineVocab: [
+      { word: "café", translation: "coffee" },
+      { word: "tapas", translation: "tapas (Spanish snacks)" },
+      { word: "música", translation: "music" },
+      { word: "fútbol", translation: "football / soccer" },
+      { word: "bailar", translation: "to dance" },
+      { word: "frío", translation: "cold" },
+      { word: "viajar", translation: "to travel" },
     ]
   },
   {
@@ -170,6 +208,15 @@ SUMMARY
       { native: "Debes llegar a tiempo.", translation: "You should arrive on time." },
       { native: "Tengo que trabajar el sábado.", translation: "I have to work on Saturday." },
       { native: "Tenemos que comprar leche.", translation: "We have to buy milk." },
+    ],
+    inlineVocab: [
+      { word: "ayudar", translation: "to help" },
+      { word: "descansar", translation: "to rest" },
+      { word: "estudiar", translation: "to study" },
+      { word: "trabajar", translation: "to work" },
+      { word: "leche", translation: "milk" },
+      { word: "sábado", translation: "Saturday" },
+      { word: "tiempo", translation: "time / weather" },
     ]
   },
   {
@@ -238,6 +285,11 @@ SPECIAL CASE — con:
       { native: "Entre tú y yo...", translation: "Between you and me..." },
       { native: "¿Quién tiene hambre? — ¡Yo!", translation: "Who is hungry? — Me!" },
       { native: "Yo también quiero ir.", translation: "I want to go too." },
+    ],
+    inlineVocab: [
+      { word: "regalo", translation: "gift / present" },
+      { word: "hambre", translation: "hunger" },
+      { word: "cerca", translation: "near / nearby" },
     ]
   },
 ]

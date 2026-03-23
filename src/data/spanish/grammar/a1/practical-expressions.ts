@@ -30,6 +30,13 @@ TELLING TIME — ¿Qué hora es?
       { native: "Es la una y media.", translation: "It's half past one." },
       { native: "Son las dos y cuarto.", translation: "It's quarter past two." },
       { native: "Tengo veinte años.", translation: "I am twenty years old." },
+    ],
+    inlineVocab: [
+      { word: "cero", translation: "zero" },
+      { word: "hora", translation: "hour / time" },
+      { word: "media", translation: "half" },
+      { word: "cuarto", translation: "quarter" },
+      { word: "años", translation: "years" },
     ]
   },
   {
@@ -74,6 +81,19 @@ Written accents (á, é, í, ó, ú) always override these rules: café, médico
       { native: "general, Jorge", translation: "G/J before e/i — strong h sound" },
       { native: "cena", translation: "C before e/i: 'thena' in Spain, 'sena' in Latin America" },
       { native: "médico, está, café", translation: "Written accent overrides the default stress rule" },
+    ],
+    inlineVocab: [
+      { word: "mañana", translation: "tomorrow / morning" },
+      { word: "señor", translation: "Mr. / sir" },
+      { word: "niño", translation: "child / boy" },
+      { word: "perro", translation: "dog" },
+      { word: "pero", translation: "but" },
+      { word: "jardín", translation: "garden" },
+      { word: "viaje", translation: "trip / journey" },
+      { word: "gato", translation: "cat" },
+      { word: "zapato", translation: "shoe" },
+      { word: "cama", translation: "bed" },
+      { word: "médico", translation: "doctor" },
     ]
   },
   {
@@ -107,6 +127,18 @@ SEASONS + WEATHER
       { native: "Llueve mucho en otoño.", translation: "It rains a lot in autumn." },
       { native: "¿Qué tiempo hace?", translation: "What is the weather like?" },
       { native: "En invierno nieva.", translation: "In winter it snows." },
+    ],
+    inlineVocab: [
+      { word: "calor", translation: "heat / warmth" },
+      { word: "frío", translation: "cold" },
+      { word: "sol", translation: "sun" },
+      { word: "viento", translation: "wind" },
+      { word: "llueve", translation: "it rains" },
+      { word: "nieva", translation: "it snows" },
+      { word: "verano", translation: "summer" },
+      { word: "invierno", translation: "winter" },
+      { word: "otoño", translation: "autumn / fall" },
+      { word: "tiempo", translation: "weather / time" },
     ]
   },
   {
@@ -137,6 +169,20 @@ ASKING FOR LOCATION
       { native: "La estación está cerca de aquí.", translation: "The station is near here." },
       { native: "¿Dónde está el hospital?", translation: "Where is the hospital?" },
       { native: "El café está entre el banco y la tienda.", translation: "The café is between the bank and the shop." },
+    ],
+    inlineVocab: [
+      { word: "casa", translation: "house / home" },
+      { word: "mesa", translation: "table" },
+      { word: "silla", translation: "chair" },
+      { word: "gato", translation: "cat" },
+      { word: "jardín", translation: "garden" },
+      { word: "hotel", translation: "hotel" },
+      { word: "farmacia", translation: "pharmacy" },
+      { word: "estación", translation: "station" },
+      { word: "hospital", translation: "hospital" },
+      { word: "aeropuerto", translation: "airport" },
+      { word: "tienda", translation: "shop / store" },
+      { word: "derecha", translation: "right" },
     ]
   },
   {
@@ -171,6 +217,12 @@ With a feminine noun: veintiuna:
       { native: "Hay cien personas en la sala.", translation: "There are one hundred people in the room." },
       { native: "Ciento veinte euros.", translation: "One hundred and twenty euros." },
       { native: "Tengo veintiún años.", translation: "I am twenty-one years old." },
+    ],
+    inlineVocab: [
+      { word: "personas", translation: "people / persons" },
+      { word: "sala", translation: "room / hall" },
+      { word: "euros", translation: "euros" },
+      { word: "años", translation: "years" },
     ]
   },
   {
@@ -228,6 +280,20 @@ A very common fixed expression meaning 'one must' or 'you have to' — impersona
       { native: "¿Hay un banco? — Sí. — ¿Dónde está el banco?", translation: "Is there a bank? — Yes. — Where is the bank? (hay = existence, estar = location)", speakText: "¿Hay un banco? Sí. ¿Dónde está el banco?" },
       { native: "En mi barrio hay un parque muy bonito.", translation: "In my neighbourhood there is a very nice park." },
       { native: "No hay tiempo.", translation: "There is no time." },
+    ],
+    inlineVocab: [
+      { word: "farmacia", translation: "pharmacy" },
+      { word: "habitaciones", translation: "rooms" },
+      { word: "libres", translation: "free / available" },
+      { word: "estudiantes", translation: "students" },
+      { word: "clase", translation: "class" },
+      { word: "reservar", translation: "to book / reserve" },
+      { word: "barrio", translation: "neighbourhood" },
+      { word: "parque", translation: "park" },
+      { word: "bonito", translation: "nice / pretty" },
+      { word: "botella", translation: "bottle" },
+      { word: "menú", translation: "menu" },
+      { word: "museo", translation: "museum" },
     ]
   },
 ]

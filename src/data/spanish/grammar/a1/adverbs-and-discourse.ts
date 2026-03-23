@@ -31,6 +31,15 @@ export const adverbsAndDiscourseLessons: GrammarLesson[] = [
       { native: "No tengo hermanos.", translation: "I don't have any siblings." },
       { native: "No como carne nunca.", translation: "I never eat meat." },
       { native: "No hay nada en la nevera.", translation: "There's nothing in the fridge." },
+    ],
+    inlineVocab: [
+      { word: "inglés", translation: "English" },
+      { word: "cansado", translation: "tired" },
+      { word: "coche", translation: "car" },
+      { word: "hermanos", translation: "siblings / brothers" },
+      { word: "carne", translation: "meat" },
+      { word: "nevera", translation: "fridge" },
+      { word: "trabajo", translation: "work" },
     ]
   },
   {
@@ -64,6 +73,12 @@ KEY RULE: ¿ always opens every Spanish question — a visible signal that a que
       { native: "¿Qué es esto?", translation: "What is this?" },
       { native: "¿Cuántos años tienes?", translation: "How old are you?" },
       { native: "¿Por qué estudias inglés?", translation: "Why do you study English?" },
+    ],
+    inlineVocab: [
+      { word: "hermanos", translation: "siblings / brothers" },
+      { word: "médica", translation: "doctor (fem.)" },
+      { word: "llegas", translation: "you arrive" },
+      { word: "nombre", translation: "name" },
     ]
   },
   {
@@ -101,6 +116,16 @@ ADVERBS OF TIME — answer ¿cuándo? (when?)
       { native: "Hoy tengo clase.", translation: "Today I have class." },
       { native: "Ya he comido.", translation: "I have already eaten." },
       { native: "Todavía estoy aquí.", translation: "I'm still here." },
+    ],
+    inlineVocab: [
+      { word: "libro", translation: "book" },
+      { word: "clase", translation: "class / lesson" },
+      { word: "arriba", translation: "up / upstairs" },
+      { word: "abajo", translation: "down / downstairs" },
+      { word: "dentro", translation: "inside" },
+      { word: "fuera", translation: "outside" },
+      { word: "ayer", translation: "yesterday" },
+      { word: "pronto", translation: "soon" },
     ]
   },
   {
@@ -132,6 +157,15 @@ Note: nunca can go before the verb alone (no no needed) or after the verb with n
       { native: "Nunca como carne.", translation: "I never eat meat." },
       { native: "Normalmente llegamos a tiempo.", translation: "We normally arrive on time." },
       { native: "¿Con qué frecuencia vas al cine?", translation: "How often do you go to the cinema?" },
+    ],
+    inlineVocab: [
+      { word: "desayuno", translation: "breakfast" },
+      { word: "gimnasio", translation: "gym" },
+      { word: "carne", translation: "meat" },
+      { word: "cine", translation: "cinema" },
+      { word: "verano", translation: "summer" },
+      { word: "llueve", translation: "it rains" },
+      { word: "tarde", translation: "late" },
     ]
   },
   {
@@ -165,6 +199,17 @@ SEQUENCING (order events or ideas)
       { native: "Estudio mucho porque quiero aprobar.", translation: "I study a lot because I want to pass." },
       { native: "Primero desayuno, después me ducho.", translation: "First I have breakfast, then I shower." },
       { native: "Si tienes hambre, hay comida en la nevera.", translation: "If you're hungry, there's food in the fridge." },
+    ],
+    inlineVocab: [
+      { word: "francés", translation: "French" },
+      { word: "café", translation: "coffee" },
+      { word: "té", translation: "tea" },
+      { word: "caro", translation: "expensive" },
+      { word: "aprobar", translation: "to pass (an exam)" },
+      { word: "hambre", translation: "hunger" },
+      { word: "comida", translation: "food / meal" },
+      { word: "nevera", translation: "fridge" },
+      { word: "llueve", translation: "it rains" },
     ]
   },
 ]
