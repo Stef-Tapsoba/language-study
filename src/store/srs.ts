@@ -1,20 +1,68 @@
-// store/srs.ts — SM-2 spaced-repetition card state and scheduling (localStorage "ls:srs")
+// store/srs.ts — SM-2 spaced-repetition scheduling, backed by @myorg/srs
 //
-// Storage shape: Record<langId, Record<vocabId, SRSCardState>>
-// localStorage key: "ls:srs"
+// This module wraps @myorg/srs (calcNextReview, getDueCards) with the app's
+// localStorage persistence layer. The public API is unchanged.
+//
+// DATA MIGRATION: v1 stored cards as { nextReviewDate, interval, easeFactor, repetitions }.
+// The package uses { nextReviewAt, intervalDays, easeFactor, streak, reviewCount }.
+// migrateIfNeeded() converts v1 → v2 transparently on first read after upgrade.
 
-import { SRSCardState } from "../types"
+import {
+    SRSCardState,
+    calcNextReview,
+    INITIAL_STATE,
+} from "@myorg/srs"
+import type { SRSQuality } from "@myorg/srs"
+
+export type { SRSCardState } from "@myorg/srs"
 
 const SRS_KEY = "ls:srs"
 
 /** Max new (never-seen) cards introduced per session. */
 export const NEW_CARDS_PER_DAY = 10
 
-const DEFAULT_STATE: SRSCardState = {
-    nextReviewDate: 0,
-    interval: 1,
-    easeFactor: 2.5,
-    repetitions: 0,
+// ---------------------------------------------------------------------------
+// v1 → v2 data migration
+// ---------------------------------------------------------------------------
+
+type LegacyCard = {
+    nextReviewDate?: number
+    interval?: number
+    easeFactor?: number
+    repetitions?: number
+}
+
+/**
+ * Detects and migrates v1-format card states to v2.
+ * v1 fields: nextReviewDate, interval, repetitions
+ * v2 fields: nextReviewAt, intervalDays, streak, reviewCount  (from @myorg/srs)
+ * Safe to call on already-v2 data — v2 cards pass through unchanged.
+ */
+function migrateIfNeeded(
+    raw: Record<string, Record<string, unknown>>
+): Record<string, Record<string, SRSCardState>> {
+    const out: Record<string, Record<string, SRSCardState>> = {}
+    for (const [langId, cards] of Object.entries(raw)) {
+        out[langId] = {}
+        for (const [vocabId, card] of Object.entries(cards)) {
+            const c = card as LegacyCard & Partial<SRSCardState>
+            if (typeof c.nextReviewAt === "number") {
+                // Already v2
+                out[langId][vocabId] = c as SRSCardState
+            } else {
+                // v1 → v2: repetitions approximates both streak and reviewCount
+                const reps = c.repetitions ?? 0
+                out[langId][vocabId] = {
+                    easeFactor:   c.easeFactor   ?? INITIAL_STATE.easeFactor,
+                    reviewCount:  reps,
+                    streak:       reps,
+                    nextReviewAt: c.nextReviewDate ?? INITIAL_STATE.nextReviewAt,
+                    intervalDays: c.interval       ?? INITIAL_STATE.intervalDays,
+                }
+            }
+        }
+    }
+    return out
 }
 
 // ---------------------------------------------------------------------------
@@ -24,7 +72,8 @@ const DEFAULT_STATE: SRSCardState = {
 function loadAll(): Record<string, Record<string, SRSCardState>> {
     try {
         const raw = localStorage.getItem(SRS_KEY)
-        return raw ? JSON.parse(raw) : {}
+        if (!raw) return {}
+        return migrateIfNeeded(JSON.parse(raw))
     } catch {
         return {}
     }
@@ -45,7 +94,7 @@ export function getSRSStates(langId: string): Record<string, SRSCardState> {
 
 /**
  * Split a vocab list into:
- *   due      — cards with a stored state where nextReviewDate <= now
+ *   due      — cards with a stored state where nextReviewAt <= now
  *   newCards — cards with no stored state yet (never reviewed)
  */
 export function getDueCards(
@@ -59,9 +108,9 @@ export function getDueCards(
 
     for (const id of allVocabIds) {
         const state = states[id]
-        if (!state) {
+        if (!state || state.nextReviewAt === 0) {
             newCards.push(id)
-        } else if (state.nextReviewDate <= now) {
+        } else if (state.nextReviewAt <= now) {
             due.push(id)
         }
     }
@@ -83,50 +132,19 @@ export function getDueCount(langId: string, allVocabIds: string[]): number {
 export function updateCard(langId: string, vocabId: string, quality: 1 | 4): void {
     const store = loadAll()
     const langStates = store[langId] ?? {}
-    const prev: SRSCardState = langStates[vocabId] ?? { ...DEFAULT_STATE }
+    const prev = langStates[vocabId] ?? { ...INITIAL_STATE }
 
-    let { interval, easeFactor, repetitions } = prev
+    const { nextState } = calcNextReview(prev, quality as SRSQuality)
 
-    if (quality < 3) {
-        // Failed — reset repetitions and shorten interval; small ease penalty
-        repetitions = 0
-        interval = 1
-        easeFactor = Math.max(1.3, easeFactor - 0.2)
-    } else {
-        // Passed — advance interval using SM-2 schedule
-        if (repetitions === 0) {
-            interval = 1
-        } else if (repetitions === 1) {
-            interval = 6
-        } else {
-            interval = Math.round(interval * easeFactor)
-        }
-        repetitions++
-        // SM-2 ease factor update for quality 4:
-        // ef' = ef + (0.1 - (5-q) * (0.08 + (5-q) * 0.02))
-        //     = ef + (0.1 - 1 * (0.08 + 1 * 0.02)) = ef + 0.0
-        // Standard SM-2 keeps ef stable at quality 4; slight increase formula below
-        easeFactor = Math.max(
-            1.3,
-            easeFactor + 0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02)
-        )
-    }
-
-    const nextReviewDate = Date.now() + interval * 86_400_000
-
-    store[langId] = {
-        ...langStates,
-        [vocabId]: { nextReviewDate, interval, easeFactor, repetitions },
-    }
-
+    store[langId] = { ...langStates, [vocabId]: nextState }
     saveAll(store)
 }
 
-/** Earliest nextReviewDate across all known cards for a language (ms timestamp). */
+/** Earliest nextReviewAt across all known cards for a language (ms timestamp). */
 export function getNextDueDate(langId: string): number | null {
     const states = getSRSStates(langId)
     const dates = Object.values(states)
-        .map(s => s.nextReviewDate)
+        .map(s => s.nextReviewAt)
         .filter(d => d > Date.now())
     if (dates.length === 0) return null
     return Math.min(...dates)

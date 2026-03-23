@@ -2,6 +2,7 @@
 import { useState, FormEvent } from "react"
 import { Link, useNavigate, useLocation } from "react-router-dom"
 import { useAuth } from "../auth/AuthContext"
+import { validateLogin } from "@myorg/validation"
 
 export function LoginPage() {
     const { login } = useAuth()
@@ -17,7 +18,13 @@ export function LoginPage() {
     async function handleSubmit(e: FormEvent) {
         e.preventDefault()
         setError(null)
-        if (!email || !password) { setError("Please fill in all fields."); return }
+
+        const result = validateLogin({ email, password })
+        if (!result.valid) {
+            setError(result.errors[0].message)
+            return
+        }
+
         setLoading(true)
         try {
             await login(email, password)

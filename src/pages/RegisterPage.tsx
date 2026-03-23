@@ -3,6 +3,7 @@ import { useState, FormEvent } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { registerUser } from "../auth/mockAuthApi"
 import { useAuth } from "../auth/AuthContext"
+import { validateRequired, validateEmail, validatePassword } from "@myorg/validation"
 
 export function RegisterPage() {
     const { login } = useAuth()
@@ -17,8 +18,16 @@ export function RegisterPage() {
     async function handleSubmit(e: FormEvent) {
         e.preventDefault()
         setError(null)
-        if (!name || !email || !password) { setError("Please fill in all fields."); return }
-        if (password.length < 6) { setError("Password must be at least 6 characters."); return }
+
+        const errors = [
+            ...validateRequired(name, "Name"),
+            ...validateEmail(email),
+            ...validatePassword(password),
+        ]
+        if (errors.length > 0) {
+            setError(errors[0].message)
+            return
+        }
 
         setLoading(true)
         try {
@@ -46,8 +55,9 @@ export function RegisterPage() {
                     )}
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
                         <input
+                            id="name"
                             type="text"
                             value={name}
                             onChange={e => setName(e.target.value)}
@@ -58,8 +68,9 @@ export function RegisterPage() {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
                         <input
+                            id="email"
                             type="email"
                             value={email}
                             onChange={e => setEmail(e.target.value)}
@@ -70,12 +81,13 @@ export function RegisterPage() {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                        <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">Password</label>
                         <input
+                            id="password"
                             type="password"
                             value={password}
                             onChange={e => setPassword(e.target.value)}
-                            placeholder="Min. 6 characters"
+                            placeholder="Min. 8 characters, one uppercase"
                             className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
                             autoComplete="new-password"
                         />
