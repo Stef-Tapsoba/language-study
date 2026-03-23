@@ -2,14 +2,13 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "../auth/AuthContext"
-import { getUserById } from "../auth/mockAuthApi"
+import { useCurrentUser } from "../hooks/useCurrentUser"
+import { useProgressStats } from "../hooks/useProgressStats"
 import { LANGUAGES } from "../data/languages"
 import { getModule, loadModule } from "../data/modules"
 import {
     getStartedLanguages,
     getCurrentLevel,
-    getCompletedLessons,
-    getMasteredUnits,
     setSelectedLanguage,
     getSelectedLanguage,
     initUserSession,
@@ -18,22 +17,7 @@ import { getGlobalStreak, getTotalReviews } from "../store/stats"
 import { NavBar } from "../components/NavBar"
 import { Flag } from "../components/Flag"
 import { ProgressBar } from "../components/ProgressBar"
-
-// ─── helpers ────────────────────────────────────────────────────────────────
-
-function greeting(name: string): string {
-    const h = new Date().getHours()
-    let time = "Welcome back"
-    if (h >= 5 && h < 12) time = "Good morning"
-    else if (h >= 12 && h < 18) time = "Good afternoon"
-    else if (h >= 18 && h < 22) time = "Good evening"
-    return `${time}, ${name}!`
-}
-
-const LEVEL_DESC: Record<string, string> = {
-    A1: "Beginner", A2: "Elementary",
-    B1: "Intermediate", B2: "Upper Intermediate", C1: "Advanced",
-}
+import { LEVEL_LABELS } from "../types"
 
 // ─── New-user branch ─────────────────────────────────────────────────────────
 
@@ -78,8 +62,17 @@ function NewUserWelcome({ displayName, onPick }: Readonly<{
 
 // ─── Returning-user branch ───────────────────────────────────────────────────
 
-function ReturningHome({ displayName, startedIds }: Readonly<{
-    displayName: string
+function greeting(name: string): string {
+    const h = new Date().getHours()
+    let time = "Welcome back"
+    if (h >= 5 && h < 12) time = "Good morning"
+    else if (h >= 12 && h < 18) time = "Good afternoon"
+    else if (h >= 18 && h < 22) time = "Good evening"
+    return `${time}, ${name}!`
+}
+
+function ReturningHome({ firstName, startedIds }: Readonly<{
+    firstName: string
     startedIds: string[]
 }>) {
     const navigate = useNavigate()
@@ -92,30 +85,13 @@ function ReturningHome({ displayName, startedIds }: Readonly<{
     useEffect(() => {
         if (selectedLangId) loadModule(selectedLangId).then(() => setMod(getModule(selectedLangId)))
     }, [selectedLangId])
+
     const level = getCurrentLevel(selectedLangId)
-    const completed = getCompletedLessons(selectedLangId)
-
-    // Items from mastered units count as complete even if not individually marked
-    const masteredUnitItems = new Set(
-        (mod?.units ?? [])
-            .filter(u => getMasteredUnits(selectedLangId).includes(u.id))
-            .flatMap(u => [...u.grammarIds, ...u.vocabIds, ...u.verbIds])
-    )
-    const isDone = (id: string) => completed.includes(id) || masteredUnitItems.has(id)
-
-    const grammarItems = mod?.grammar.filter(g => g.level === level) ?? []
-    const vocabItems = mod?.vocab.filter(v => v.level === level) ?? []
-    const verbItems = mod?.verbs.filter(v => v.level === level) ?? []
-    const readingItems = (mod?.readingPassages ?? []).filter(r => r.level === level)
-    const listeningItems = (mod?.listeningExercises ?? []).filter(l => l.level === level)
-
-    const grammarPct = grammarItems.length ? (grammarItems.filter(g => isDone(g.id)).length / grammarItems.length) * 100 : 0
-    const vocabPct = vocabItems.length ? (vocabItems.filter(v => isDone(v.id)).length / vocabItems.length) * 100 : 0
-    const verbPct = verbItems.length ? (verbItems.filter(v => isDone(v.id)).length / verbItems.length) * 100 : 0
-    const readingPct = readingItems.length ? (readingItems.filter(r => completed.includes(r.id)).length / readingItems.length) * 100 : 0
-    const listeningPct = listeningItems.length ? (listeningItems.filter(l => completed.includes(l.id)).length / listeningItems.length) * 100 : 0
+    const { grammar, vocab, verbs, reading, listening } = useProgressStats(selectedLangId, level)
 
     if (!currentLang || !mod) return null
+
+    const itemsLearned = grammar.done + vocab.done + verbs.done
 
     return (
         <div className="min-h-screen bg-gray-50">
@@ -124,7 +100,7 @@ function ReturningHome({ displayName, startedIds }: Readonly<{
             <main className="max-w-2xl mx-auto px-4 py-8 flex flex-col gap-6">
                 {/* Greeting */}
                 <div>
-                    <h1 className="text-2xl font-bold text-gray-900">{greeting(displayName)}</h1>
+                    <h1 className="text-2xl font-bold text-gray-900">{greeting(firstName)}</h1>
                     <p className="text-gray-500 text-sm mt-0.5">Pick up where you left off.</p>
                 </div>
 
@@ -140,7 +116,7 @@ function ReturningHome({ displayName, startedIds }: Readonly<{
                             <p className="text-xs text-violet-200">{currentLang.nativeName}</p>
                         </div>
                         <span className="text-xs font-semibold bg-white/20 text-white px-2.5 py-1 rounded-full">
-                            {level} · {LEVEL_DESC[level]}
+                            {level} · {LEVEL_LABELS[level]}
                         </span>
                     </div>
 
@@ -155,9 +131,7 @@ function ReturningHome({ displayName, startedIds }: Readonly<{
                             <p className="text-xs text-violet-200">day streak</p>
                         </div>
                         <div className="bg-white/15 rounded-xl p-3 text-center">
-                            <p className="text-lg font-bold text-white">
-                                {[...grammarItems, ...vocabItems, ...verbItems].filter(x => isDone(x.id)).length}
-                            </p>
+                            <p className="text-lg font-bold text-white">{itemsLearned}</p>
                             <p className="text-xs text-violet-200">items learned</p>
                         </div>
                     </div>
@@ -176,27 +150,27 @@ function ReturningHome({ displayName, startedIds }: Readonly<{
                     <h2 className="text-sm font-semibold text-gray-700 mb-4">Progress at {level}</h2>
                     <div className="flex flex-col gap-3">
                         <ProgressBar
-                            label={`📖 Grammar  ${grammarItems.filter(g => isDone(g.id)).length}/${grammarItems.length}`}
-                            value={grammarPct}
+                            label={`📖 Grammar  ${grammar.done}/${grammar.total}`}
+                            value={grammar.pct}
                         />
                         <ProgressBar
-                            label={`📝 Vocabulary  ${vocabItems.filter(v => isDone(v.id)).length}/${vocabItems.length}`}
-                            value={vocabPct}
+                            label={`📝 Vocabulary  ${vocab.done}/${vocab.total}`}
+                            value={vocab.pct}
                         />
                         <ProgressBar
-                            label={`🔤 Verbs  ${verbItems.filter(v => isDone(v.id)).length}/${verbItems.length}`}
-                            value={verbPct}
+                            label={`🔤 Verbs  ${verbs.done}/${verbs.total}`}
+                            value={verbs.pct}
                         />
-                        {readingItems.length > 0 && (
+                        {reading.total > 0 && (
                             <ProgressBar
-                                label={`📗 Reading  ${readingItems.filter(r => completed.includes(r.id)).length}/${readingItems.length}`}
-                                value={readingPct}
+                                label={`📗 Reading  ${reading.done}/${reading.total}`}
+                                value={reading.pct}
                             />
                         )}
-                        {listeningItems.length > 0 && (
+                        {listening.total > 0 && (
                             <ProgressBar
-                                label={`🎧 Listening  ${listeningItems.filter(l => completed.includes(l.id)).length}/${listeningItems.length}`}
-                                value={listeningPct}
+                                label={`🎧 Listening  ${listening.done}/${listening.total}`}
+                                value={listening.pct}
                             />
                         )}
                     </div>
@@ -238,12 +212,11 @@ function ReturningHome({ displayName, startedIds }: Readonly<{
 export function HomePage() {
     const { session } = useAuth()
     const navigate = useNavigate()
+    const { firstName } = useCurrentUser()
 
     // Reset progress if a different user has logged in
     if (session) initUserSession(session.userId)
 
-    const userInfo = session ? getUserById(session.userId) : null
-    const displayName = userInfo?.displayName?.split(" ")[0] ?? "there"
     const startedIds = getStartedLanguages()
 
     function handlePick(langId: string) {
@@ -252,8 +225,8 @@ export function HomePage() {
     }
 
     if (startedIds.length === 0) {
-        return <NewUserWelcome displayName={displayName} onPick={handlePick} />
+        return <NewUserWelcome displayName={firstName} onPick={handlePick} />
     }
 
-    return <ReturningHome displayName={displayName} startedIds={startedIds} />
+    return <ReturningHome firstName={firstName} startedIds={startedIds} />
 }

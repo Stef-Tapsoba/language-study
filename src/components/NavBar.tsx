@@ -1,4 +1,5 @@
 // components/NavBar.tsx — Sticky top navigation bar with back button, level badge, streak chip, and profile link
+import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import { LevelBadge } from "./LevelBadge"
 import { LanguagePicker } from "./LanguagePicker"
@@ -21,7 +22,8 @@ interface NavBarProps {
 
 export function NavBar({ title = "Language Study", level, backTo, onBack, showLanguagePicker }: Readonly<NavBarProps>) {
     const navigate = useNavigate()
-    const streak = getGlobalStreak()
+    // Computed once on mount — getGlobalStreak() is O(365 × languages), too expensive to run on every re-render.
+    const [streak] = useState(() => getGlobalStreak())
 
     function handleBack() {
         if (onBack) { onBack(); return }

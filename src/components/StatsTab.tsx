@@ -1,7 +1,8 @@
 // components/StatsTab.tsx — Stats tab for the Dashboard
 import { getHistory, getTotalReviews, getGlobalStreak, getOverallAccuracy } from "../store/stats"
-import { getCurrentLevel, getCompletedLessons } from "../store/progress"
-import { getModule } from "../data/modules"
+import { CEFRLevel } from "../types"
+import { SECTION_CONFIG } from "../data/sectionConfig"
+import { useProgressStats } from "../hooks/useProgressStats"
 
 function BreakdownBar({ label, done, total, color }: Readonly<{
     label: string; done: number; total: number; color: string
@@ -18,7 +19,7 @@ function BreakdownBar({ label, done, total, color }: Readonly<{
     )
 }
 
-export function StatsTab({ langId }: Readonly<{ langId: string }>) {
+export function StatsTab({ langId, level }: Readonly<{ langId: string; level: CEFRLevel }>) {
     const history = getHistory(langId, 14)
     const total = getTotalReviews(langId)
     const streak = getGlobalStreak()
@@ -26,20 +27,7 @@ export function StatsTab({ langId }: Readonly<{ langId: string }>) {
     const allReviewed = history.reduce((s, d) => s + d.reviewed, 0)
     const avgAcc = getOverallAccuracy(langId, 14)
 
-    const mod = getModule(langId)
-    const level = getCurrentLevel(langId)
-    const completed = getCompletedLessons(langId)
-
-    function calc(items: { id: string }[]) {
-        const done = items.filter(x => completed.includes(x.id)).length
-        return { done, total: items.length }
-    }
-
-    const grammar = calc(mod?.grammar.filter(g => g.level === level) ?? [])
-    const vocab = calc(mod?.vocab.filter(v => v.level === level) ?? [])
-    const verbs = calc(mod?.verbs.filter(v => v.level === level) ?? [])
-    const reading = calc((mod?.readingPassages ?? []).filter(r => r.level === level))
-    const listening = calc((mod?.listeningExercises ?? []).filter(l => l.level === level))
+    const { grammar, vocab, verbs, reading, listening } = useProgressStats(langId, level)
 
     return (
         <div className="flex flex-col gap-5">
@@ -109,11 +97,11 @@ export function StatsTab({ langId }: Readonly<{ langId: string }>) {
             <div className="bg-white rounded-2xl border border-gray-200 p-4">
                 <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-4">Progress breakdown</p>
                 <div className="flex flex-col gap-3">
-                    <BreakdownBar label="Grammar"    done={grammar.done}   total={grammar.total}   color="bg-green-500" />
-                    <BreakdownBar label="Vocabulary"  done={vocab.done}     total={vocab.total}     color="bg-amber-400" />
-                    <BreakdownBar label="Verbs"       done={verbs.done}     total={verbs.total}     color="bg-red-400"   />
-                    <BreakdownBar label="Reading"     done={reading.done}   total={reading.total}   color="bg-blue-500"  />
-                    <BreakdownBar label="Listening"   done={listening.done} total={listening.total} color="bg-slate-400" />
+                    <BreakdownBar label={SECTION_CONFIG.grammar.label}   done={grammar.done}   total={grammar.total}   color={SECTION_CONFIG.grammar.color}   />
+                    <BreakdownBar label={SECTION_CONFIG.vocab.label}     done={vocab.done}     total={vocab.total}     color={SECTION_CONFIG.vocab.color}     />
+                    <BreakdownBar label={SECTION_CONFIG.verbs.label}     done={verbs.done}     total={verbs.total}     color={SECTION_CONFIG.verbs.color}     />
+                    <BreakdownBar label={SECTION_CONFIG.reading.label}   done={reading.done}   total={reading.total}   color={SECTION_CONFIG.reading.color}   />
+                    <BreakdownBar label={SECTION_CONFIG.listening.label} done={listening.done} total={listening.total} color={SECTION_CONFIG.listening.color} />
                 </div>
             </div>
 

@@ -4,15 +4,16 @@ export type CEFRLevel = "A1" | "A2" | "B1" | "B2" | "C1"
 
 export const CEFR_LEVELS: CEFRLevel[] = ["A1", "A2", "B1", "B2", "C1"]
 
-// ---------------------------------------------------------------------------
-// Spaced Repetition (SM-2) — per-card scheduling state
-// ---------------------------------------------------------------------------
-export interface SRSCardState {
-    nextReviewDate: number  // ms timestamp; 0 = new card (always due)
-    interval: number        // days until next review
-    easeFactor: number      // SM-2 ease factor, starts at 2.5
-    repetitions: number     // consecutive successful reviews
+/** Human-readable level names — single source of truth, use instead of local LEVEL_DESC / LEVEL_LABEL copies. */
+export const LEVEL_LABELS: Record<CEFRLevel, string> = {
+    A1: "Beginner",
+    A2: "Elementary",
+    B1: "Intermediate",
+    B2: "Upper Intermediate",
+    C1: "Advanced",
 }
+
+// SRSCardState is now provided by @myorg/srs — import it from store/srs or @myorg/srs directly.
 
 export type ScriptType = "latin" | "hiragana-kanji" | "hangul"
 

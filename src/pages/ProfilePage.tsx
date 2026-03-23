@@ -2,14 +2,13 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "../auth/AuthContext"
-import { getUserById } from "../auth/mockAuthApi"
+import { useCurrentUser } from "../hooks/useCurrentUser"
+import { useProgressStats, computeProgressStats } from "../hooks/useProgressStats"
 import { LANGUAGES } from "../data/languages"
-import { getModule, loadModule } from "../data/modules"
+import { loadModule } from "../data/modules"
 import {
     getStartedLanguages,
     getCurrentLevel,
-    getCompletedLessons,
-    getMasteredUnits,
     resetLanguageProgress,
     removeLanguage,
 } from "../store/progress"
@@ -17,61 +16,8 @@ import { resetSRS } from "../store/srs"
 import { getGlobalStreak, resetStats } from "../store/stats"
 import { NavBar } from "../components/NavBar"
 import { Flag } from "../components/Flag"
-
-const LEVEL_LABEL: Record<string, string> = {
-    A1: "Beginner", A2: "Elementary",
-    B1: "Intermediate", B2: "Upper Intermediate", C1: "Advanced",
-}
-
-// ─── per-language stats ──────────────────────────────────────────────────────
-
-interface LangStats {
-    grammarDone: number; grammarTotal: number
-    vocabDone: number; vocabTotal: number
-    verbDone: number; verbTotal: number
-    readingDone: number; readingTotal: number
-    listeningDone: number; listeningTotal: number
-    overallPct: number
-    totalDone: number
-}
-
-function computeStats(langId: string): LangStats {
-    const mod = getModule(langId)
-    const level = getCurrentLevel(langId)
-    const completed = getCompletedLessons(langId)
-    if (!mod) return { grammarDone: 0, grammarTotal: 0, vocabDone: 0, vocabTotal: 0, verbDone: 0, verbTotal: 0, readingDone: 0, readingTotal: 0, listeningDone: 0, listeningTotal: 0, overallPct: 0, totalDone: 0 }
-
-    const masteredItems = new Set(
-        (mod.units ?? [])
-            .filter(u => getMasteredUnits(langId).includes(u.id))
-            .flatMap(u => [...u.grammarIds, ...u.vocabIds, ...u.verbIds])
-    )
-    const isDone = (id: string) => completed.includes(id) || masteredItems.has(id)
-
-    const grammar = mod.grammar.filter(g => g.level === level)
-    const vocab = mod.vocab.filter(v => v.level === level)
-    const verbs = mod.verbs.filter(v => v.level === level)
-    const reading = (mod.readingPassages ?? []).filter(r => r.level === level)
-    const listening = (mod.listeningExercises ?? []).filter(l => l.level === level)
-
-    const grammarDone = grammar.filter(g => isDone(g.id)).length
-    const vocabDone = vocab.filter(v => isDone(v.id)).length
-    const verbDone = verbs.filter(v => isDone(v.id)).length
-    const readingDone = reading.filter(r => completed.includes(r.id)).length
-    const listeningDone = listening.filter(l => completed.includes(l.id)).length
-    const totalDone = grammarDone + vocabDone + verbDone + readingDone + listeningDone
-    const totalItems = grammar.length + vocab.length + verbs.length + reading.length + listening.length
-    const overallPct = totalItems ? Math.round(totalDone / totalItems * 100) : 0
-
-    return {
-        grammarDone, grammarTotal: grammar.length,
-        vocabDone, vocabTotal: vocab.length,
-        verbDone, verbTotal: verbs.length,
-        readingDone, readingTotal: reading.length,
-        listeningDone, listeningTotal: listening.length,
-        overallPct, totalDone,
-    }
-}
+import { LEVEL_LABELS } from "../types"
+import { SECTION_CONFIG } from "../data/sectionConfig"
 
 // ─── Language card ───────────────────────────────────────────────────────────
 
@@ -79,7 +25,7 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
     const [manageOpen, setManageOpen] = useState(false)
     const lang = LANGUAGES.find(l => l.id === langId)
     const level = getCurrentLevel(langId)
-    const s = computeStats(langId)
+    const { grammar, vocab, verbs, reading, listening, overallPct } = useProgressStats(langId, level)
     if (!lang) return null
 
     function handleReset() {
@@ -99,6 +45,14 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
         onChanged()
     }
 
+    const breakdown = [
+        { label: SECTION_CONFIG.grammar.label,   done: grammar.done,   total: grammar.total,   color: SECTION_CONFIG.grammar.color   },
+        { label: SECTION_CONFIG.vocab.label,     done: vocab.done,     total: vocab.total,     color: SECTION_CONFIG.vocab.color     },
+        { label: SECTION_CONFIG.verbs.label,     done: verbs.done,     total: verbs.total,     color: SECTION_CONFIG.verbs.color     },
+        ...(reading.total   > 0 ? [{ label: SECTION_CONFIG.reading.label,   done: reading.done,   total: reading.total,   color: SECTION_CONFIG.reading.color   }] : []),
+        ...(listening.total > 0 ? [{ label: SECTION_CONFIG.listening.label, done: listening.done, total: listening.total, color: SECTION_CONFIG.listening.color }] : []),
+    ]
+
     return (
         <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden">
             {/* Main content */}
@@ -111,7 +65,7 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
                         <p className="text-xs text-gray-400">{lang.nativeName}</p>
                     </div>
                     <span className="text-xs font-semibold bg-violet-100 text-violet-700 px-2.5 py-1 rounded-full">
-                        {level} · {LEVEL_LABEL[level]}
+                        {level} · {LEVEL_LABELS[level]}
                     </span>
                 </div>
 
@@ -119,22 +73,16 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
                 <div className="flex items-center gap-2 mb-4">
                     <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
                         <div className="h-full bg-violet-500 rounded-full transition-all"
-                            style={{ width: `${s.overallPct}%` }} />
+                            style={{ width: `${overallPct}%` }} />
                     </div>
                     <span className="text-xs font-semibold text-violet-600 w-10 text-right shrink-0">
-                        {s.overallPct}%
+                        {overallPct}%
                     </span>
                 </div>
 
                 {/* Colored breakdown bars */}
                 <div className="flex flex-col gap-2 pt-3 border-t border-gray-100">
-                    {[
-                        { label: "Grammar",    done: s.grammarDone,   total: s.grammarTotal,   color: "bg-green-500" },
-                        { label: "Vocabulary", done: s.vocabDone,     total: s.vocabTotal,     color: "bg-amber-400" },
-                        { label: "Verbs",      done: s.verbDone,      total: s.verbTotal,      color: "bg-red-400"   },
-                        ...(s.readingTotal   > 0 ? [{ label: "Reading",   done: s.readingDone,   total: s.readingTotal,   color: "bg-blue-500"  }] : []),
-                        ...(s.listeningTotal > 0 ? [{ label: "Listening", done: s.listeningDone, total: s.listeningTotal, color: "bg-slate-400" }] : []),
-                    ].map(({ label, done, total, color }) => (
+                    {breakdown.map(({ label, done, total, color }) => (
                         <div key={label} className="flex items-center gap-3">
                             <span className="text-xs text-gray-500 w-20 shrink-0">{label}</span>
                             <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
@@ -226,24 +174,23 @@ function exportProgress(): void {
 // ─── Page ────────────────────────────────────────────────────────────────────
 
 export function ProfilePage() {
-    const { session, logout } = useAuth()
+    const { logout } = useAuth()
     const navigate = useNavigate()
-    const [tick, setTick] = useState(0)   // force re-render after changes
-
-    const userInfo = session ? getUserById(session.userId) : null
-    const displayName = userInfo?.displayName ?? "User"
-    const email = userInfo?.email ?? ""
-    const initials = displayName.split(" ").map((w: string) => w[0]).join("").slice(0, 2).toUpperCase()
+    const { displayName, email, initials } = useCurrentUser()
+    const [tick, setTick] = useState(0)   // force re-render after module loads
 
     const startedIds = getStartedLanguages()
 
-    // Load any unloaded language modules so computeStats returns real numbers
+    // Load any unloaded language modules so progress bars show real numbers
     useEffect(() => {
         Promise.all(startedIds.map(loadModule)).then(() => setTick(t => t + 1))
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-    // Global stats across all languages
-    const totalDone = startedIds.reduce((sum, id) => sum + computeStats(id).totalDone, 0)
+    // Global stats across all languages — computed with plain function (not hook) so it can run in reduce
+    const totalDone = startedIds.reduce((sum, id) => {
+        const level = getCurrentLevel(id)
+        return sum + computeProgressStats(id, level).totalDone
+    }, 0)
     const highestLevel = startedIds.reduce<string>((best, id) => {
         const order = ["A1", "A2", "B1", "B2", "C1"]
         const lvl = getCurrentLevel(id)

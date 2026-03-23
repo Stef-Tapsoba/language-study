@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useParams, useNavigate, useSearchParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
-import { getCurrentLevel, getCompletedLessons, getMasteredUnits, isUnitUnlocked } from "../store/progress"
+import { getCurrentLevel, getMasteredUnits, isUnitUnlocked } from "../store/progress"
 import { getDueCount } from "../store/srs"
 import { getHistory } from "../store/stats"
 import { NavBar } from "../components/NavBar"
@@ -12,15 +12,12 @@ import { Flag } from "../components/Flag"
 import { LevelBadge } from "../components/LevelBadge"
 import { ProgressBar } from "../components/ProgressBar"
 import { CEFR_LEVELS, CEFRLevel, LessonUnit } from "../types"
+import { SECTION_CONFIG, StudySection } from "../data/sectionConfig"
+import { useProgressStats } from "../hooks/useProgressStats"
 import { resolvePrimary } from "../utils/localizedText"
 import { getUI, UIStrings } from "../i18n"
 
 type DashTab = "path" | "study" | "practice" | "test" | "stats"
-
-function calcProgress(items: { id: string }[], completed: string[]) {
-    const done = items.filter(x => completed.includes(x.id)).length
-    return { done, total: items.length, pct: items.length ? done / items.length * 100 : 0 }
-}
 
 // ---------------------------------------------------------------------------
 // SectionCard — used by Practice tab
@@ -52,29 +49,18 @@ function SectionCard({ emoji, title, description, to, progress, badge }: Readonl
 // ---------------------------------------------------------------------------
 // StudyCard — color-coded cards for the Study tab
 // ---------------------------------------------------------------------------
-type StudySection = "grammar" | "vocab" | "verbs" | "reading" | "listening" | "culture"
-
-const STUDY_COLORS: Record<StudySection, { bar: string; iconBg: string; prog: string }> = {
-    grammar:   { bar: "bg-green-500",  iconBg: "bg-green-100",  prog: "bg-green-500"  },
-    vocab:     { bar: "bg-amber-400",  iconBg: "bg-amber-100",  prog: "bg-amber-400"  },
-    verbs:     { bar: "bg-red-400",    iconBg: "bg-red-100",    prog: "bg-red-400"    },
-    reading:   { bar: "bg-blue-500",   iconBg: "bg-blue-100",   prog: "bg-blue-500"   },
-    listening: { bar: "bg-slate-400",  iconBg: "bg-slate-100",  prog: "bg-slate-400"  },
-    culture:   { bar: "bg-teal-500",   iconBg: "bg-teal-100",   prog: "bg-teal-500"   },
-}
-
-function StudyCard({ section, emoji, title, countDesc, done, total, to }: Readonly<{
-    section: StudySection; emoji: string; title: string; countDesc: string
+function StudyCard({ section, title, countDesc, done, total, to }: Readonly<{
+    section: StudySection; title: string; countDesc: string
     done?: number; total?: number; to: string
 }>) {
-    const c = STUDY_COLORS[section]
+    const c = SECTION_CONFIG[section]
     const pct = (done !== undefined && total) ? done / total * 100 : 0
     return (
         <Link to={to} className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-md hover:border-gray-300 transition-all flex flex-col">
-            <div className={`h-1.5 ${c.bar}`} />
+            <div className={`h-1.5 ${c.color}`} />
             <div className="p-4 flex flex-col gap-2 flex-1">
                 <div className={`w-9 h-9 rounded-xl ${c.iconBg} flex items-center justify-center text-xl leading-none`}>
-                    {emoji}
+                    {c.emoji}
                 </div>
                 <p className="font-semibold text-gray-900 text-sm">{title}</p>
                 <p className="text-xs text-gray-500 flex-1">{countDesc}</p>
@@ -82,7 +68,7 @@ function StudyCard({ section, emoji, title, countDesc, done, total, to }: Readon
                     <div className="mt-1">
                         <p className="text-xs text-gray-400 mb-1">{done} of {total} complete</p>
                         <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                            <div className={`h-full ${c.prog} rounded-full transition-all`} style={{ width: `${pct}%` }} />
+                            <div className={`h-full ${c.color} rounded-full transition-all`} style={{ width: `${pct}%` }} />
                         </div>
                     </div>
                 )}
@@ -171,8 +157,10 @@ export function DashboardPage() {
     const mod = getModule(langId)
     const level = getCurrentLevel(langId)
     const ui = getUI(langId, level)
-    const completed = getCompletedLessons(langId)
     const mastered = getMasteredUnits(langId)
+
+    // All progress via the shared hook — single source of truth
+    const { grammar, vocab, verbs, reading, listening, isDone } = useProgressStats(langId, level)
 
     const [searchParams, setSearchParams] = useSearchParams()
     const levelUnits = (mod?.units ?? []).filter(u => u.level === level)
@@ -192,13 +180,12 @@ export function DashboardPage() {
         )
     }
 
-    const dueCount = getDueCount(langId, mod.vocab.filter(v => v.level === level).map(v => v.id))
+    // completed array needed for UnitRow pills (individual item checks, not the aggregate)
+    const completed = mod.vocab.map(v => v.id).filter(id => isDone(id))
+        .concat(mod.grammar.map(g => g.id).filter(id => isDone(id)))
+        .concat(mod.verbs.map(v => v.id).filter(id => isDone(id)))
 
-    const grammar = calcProgress(mod.grammar.filter(g => g.level === level), completed)
-    const vocab = calcProgress(mod.vocab.filter(v => v.level === level), completed)
-    const verbs = calcProgress(mod.verbs.filter(v => v.level === level), completed)
-    const reading = calcProgress((mod.readingPassages ?? []).filter(r => r.level === level), completed)
-    const listening = calcProgress((mod.listeningExercises ?? []).filter(l => l.level === level), completed)
+    const dueCount = getDueCount(langId, mod.vocab.filter(v => v.level === level).map(v => v.id))
 
     const levelIndex = CEFR_LEVELS.indexOf(level)
     const canAdvance = levelIndex < CEFR_LEVELS.length - 1
@@ -298,7 +285,6 @@ export function DashboardPage() {
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                         <StudyCard
                             section="grammar"
-                            emoji="📖"
                             title={ui.sectionGrammar}
                             countDesc={`${grammar.total} lessons at ${level}`}
                             done={grammar.done} total={grammar.total}
@@ -306,7 +292,6 @@ export function DashboardPage() {
                         />
                         <StudyCard
                             section="vocab"
-                            emoji="📝"
                             title={ui.sectionVocab}
                             countDesc={`${vocab.total} words at ${level}`}
                             done={vocab.done} total={vocab.total}
@@ -314,7 +299,6 @@ export function DashboardPage() {
                         />
                         <StudyCard
                             section="verbs"
-                            emoji="⚡"
                             title={ui.sectionVerbs}
                             countDesc={`${verbs.total} verbs at ${level}`}
                             done={verbs.done} total={verbs.total}
@@ -322,7 +306,6 @@ export function DashboardPage() {
                         />
                         <StudyCard
                             section="reading"
-                            emoji="📗"
                             title={ui.sectionReading}
                             countDesc={`${reading.total} passages at ${level}`}
                             done={reading.done} total={reading.total}
@@ -330,7 +313,6 @@ export function DashboardPage() {
                         />
                         <StudyCard
                             section="listening"
-                            emoji="🎧"
                             title={ui.sectionListening}
                             countDesc={`${listening.total} exercises at ${level}`}
                             done={listening.done} total={listening.total}
@@ -338,7 +320,6 @@ export function DashboardPage() {
                         />
                         <StudyCard
                             section="culture"
-                            emoji="🌍"
                             title={ui.sectionCulture}
                             countDesc={ui.sectionCultureDesc}
                             to={`/learn/${langId}/culture`}
@@ -372,7 +353,7 @@ export function DashboardPage() {
                 )}
 
                 {/* ── STATS ────────────────────────────────────────────── */}
-                {tab === "stats" && <StatsTab langId={langId} />}
+                {tab === "stats" && <StatsTab langId={langId} level={level} />}
 
                 {/* ── TEST ─────────────────────────────────────────────── */}
                 {tab === "test" && (
@@ -395,9 +376,9 @@ export function DashboardPage() {
                                     <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-4">Readiness</p>
                                     <div className="flex flex-col gap-3">
                                         {[
-                                            { label: "Grammar covered", done: grammar.done, total: grammar.total, color: "bg-green-500" },
-                                            { label: "Vocabulary learned", done: vocab.done, total: vocab.total, color: "bg-amber-400" },
-                                            { label: "Flashcard accuracy", done: srsAcc, total: 100, color: "bg-violet-500", suffix: "%" },
+                                            { label: "Grammar covered",    done: grammar.done, total: grammar.total, color: "bg-green-500" },
+                                            { label: "Vocabulary learned",  done: vocab.done,   total: vocab.total,   color: "bg-amber-400" },
+                                            { label: "Flashcard accuracy",  done: srsAcc,       total: 100,           color: "bg-violet-500", suffix: "%" },
                                         ].map(r => (
                                             <div key={r.label} className="flex items-center gap-3">
                                                 <span className="text-sm text-gray-600 flex-1">{r.label}</span>

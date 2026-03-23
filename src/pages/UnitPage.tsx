@@ -1,5 +1,5 @@
 // pages/UnitPage.tsx — Guided lesson unit with grammar, vocab, and verb card activities
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
@@ -440,6 +440,7 @@ export function UnitPage() {
         return "test"
     }
     const [activeTab, setActiveTab] = useState<Tab>(firstTab)
+    useEffect(() => { setActiveTab(firstTab()) }, [unitId])
     const [vocabFilter, setVocabFilter] = useState<"all" | "todo" | "done">("all")
 
     if (!language || !mod || !unit) {
@@ -615,7 +616,7 @@ export function UnitPage() {
                         ui={ui}
                         onMastered={() => setMastered(getMasteredUnits(langId))}
                         onBack={() => navigate(`/learn/${langId}`)}
-                        onNavigateNext={(id) => navigate(`/learn/${langId}/units/${id}`)}
+                        onNavigateNext={(id) => navigate(`/learn/${langId}/units/${id}`, { replace: true })}
                         onNavigateLevelTest={() => navigate(`/learn/${langId}/level-test`)}
                     />
                 )}
