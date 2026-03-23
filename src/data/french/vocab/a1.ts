@@ -224,4 +224,16 @@ export const a1Vocab: VocabItem[] = [
     { id: "fr-v-a1-185", level: "A1", word: "dix-huit", translation: "eighteen", category: "Numbers", example: { native: "J'ai dix-huit ans.", translation: "I am eighteen years old." } },
     { id: "fr-v-a1-186", level: "A1", word: "dix-neuf", translation: "nineteen", category: "Numbers", example: { native: "Il est dix-neuf heures.", translation: "It is 7pm (nineteen hundred hours)." } },
     { id: "fr-v-a1-187", level: "A1", word: "quatre-vingt-dix", translation: "ninety", category: "Numbers", example: { native: "Ça coûte quatre-vingt-dix euros.", translation: "It costs ninety euros." } },
+
+    // --- Home & Rooms (10) ---
+    { id: "fr-v-a1-188", level: "A1", word: "le salon", translation: "the living room", category: "Home", example: { native: "Nous regardons la télé dans le salon.", translation: "We watch TV in the living room." } },
+    { id: "fr-v-a1-189", level: "A1", word: "la cuisine", translation: "the kitchen", category: "Home", example: { native: "Je prépare le dîner dans la cuisine.", translation: "I prepare dinner in the kitchen." } },
+    { id: "fr-v-a1-190", level: "A1", word: "la salle à manger", translation: "the dining room", category: "Home", example: { native: "On mange dans la salle à manger.", translation: "We eat in the dining room." } },
+    { id: "fr-v-a1-191", level: "A1", word: "la chambre", translation: "the bedroom", category: "Home", example: { native: "Ma chambre est au premier étage.", translation: "My bedroom is on the first floor." } },
+    { id: "fr-v-a1-192", level: "A1", word: "la salle de bains", translation: "the bathroom", category: "Home", example: { native: "La salle de bains est à gauche.", translation: "The bathroom is on the left." } },
+    { id: "fr-v-a1-193", level: "A1", word: "le rez-de-chaussée", translation: "the ground floor", category: "Home", example: { native: "La cuisine est au rez-de-chaussée.", translation: "The kitchen is on the ground floor." } },
+    { id: "fr-v-a1-194", level: "A1", word: "le premier étage", translation: "the first floor (above ground)", category: "Home", example: { native: "Les chambres sont au premier étage.", translation: "The bedrooms are on the first floor." } },
+    { id: "fr-v-a1-195", level: "A1", word: "l'armoire (f)", translation: "the wardrobe", category: "Home", example: { native: "Mes vêtements sont dans l'armoire.", translation: "My clothes are in the wardrobe." } },
+    { id: "fr-v-a1-196", level: "A1", word: "le lit", translation: "the bed", category: "Home", example: { native: "Je fais mon lit le matin.", translation: "I make my bed in the morning." } },
+    { id: "fr-v-a1-197", level: "A1", word: "la fenêtre", translation: "the window", category: "Home", example: { native: "J'ouvre la fenêtre quand il fait chaud.", translation: "I open the window when it's hot." } },
 ]

@@ -70,7 +70,14 @@ SINGULAR                      PLURAL
   elle  → she                   elles       → they (feminine only)
 
 Note: 'vous' is used both for one person (polite) and for a group.
-Note: 'on' informally means 'we' in everyday speech — On y va = We're going.`,
+
+ON — the informal 'we'
+In everyday spoken French, **on** is used constantly instead of nous:
+  On mange.         → We eat. / One eats.
+  On va au cinéma.  → We're going to the cinema.
+  On est fatigués.  → We're tired.
+On conjugates exactly like il/elle (third person singular), even when it means 'we'.
+You will see and hear on far more often than nous in casual speech.`,
         examples: [
             { native: "Je parle français.", translation: "I speak French." },
             { native: "Tu es étudiant.", translation: "You are a student. (informal)" },
@@ -78,6 +85,7 @@ Note: 'on' informally means 'we' in everyday speech — On y va = We're going.`,
             { native: "Nous habitons à Paris.", translation: "We live in Paris." },
             { native: "Vous êtes professeur.", translation: "You are a teacher. (formal/plural)" },
             { native: "Ils/Elles sont amis.", speakText: "Ils sont amis.", translation: "They are friends." },
+            { native: "On mange ensemble ce soir?", translation: "Are we eating together tonight? (on = nous in casual speech)" },
         ],
         inlineVocab: [
             { word: "parle", translation: "speak / speaks" },

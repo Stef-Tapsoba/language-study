@@ -123,6 +123,7 @@ export interface LessonUnit {
     vocabIds: string[]        // references VocabItem.id
     verbIds: string[]         // references Verb.id
     testQuestions: QuizQuestion[]  // 5–8 questions to test out of this unit
+    cultureIds?: string[]     // optional: references CultureEpisode.id for related culture content
 }
 
 // ---------------------------------------------------------------------------

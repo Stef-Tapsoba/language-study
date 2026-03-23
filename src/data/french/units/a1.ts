@@ -29,6 +29,7 @@ export const a1Units: LessonUnit[] = [
             "fr-v-a1-11", "fr-v-a1-12"
         ],
         verbIds: [],
+        cultureIds: ["fr-c-a1-2"],
         testQuestions: [
             { id: "fr-uq-a1-1-1", level: "A1", prompt: "What does 'Bonjour' mean?", options: ["Goodbye", "Please", "Hello", "Thank you"], answer: "Hello" },
             { id: "fr-uq-a1-1-2", level: "A1", prompt: "How do you say 'Thank you' in French?", options: ["S'il vous plaît", "Pardon", "Merci", "De rien"], answer: "Merci" },
@@ -472,6 +473,7 @@ export const a1Units: LessonUnit[] = [
             "fr-v-a1-85", "fr-v-a1-86", "fr-v-a1-87"
         ],
         verbIds: ["fr-vb-a1-6", "fr-vb-a1-7", "fr-vb-a1-8", "fr-vb-a1-9", "fr-vb-a1-11"],
+        cultureIds: ["fr-c-a1-1"],
         testQuestions: [
             { id: "fr-uq-a1-22-1", level: "A1", prompt: "How do you ask for the bill?", options: ["La carte, s'il vous plaît.", "L'addition, s'il vous plaît.", "Le menu, s'il vous plaît.", "Commander, s'il vous plaît."], answer: "L'addition, s'il vous plaît." },
             { id: "fr-uq-a1-22-2", level: "A1", prompt: "What does 'le fromage' mean?", options: ["fish", "meat", "bread", "cheese"], answer: "cheese" },
@@ -491,7 +493,9 @@ export const a1Units: LessonUnit[] = [
         vocabIds: [
             "fr-v-a1-114", "fr-v-a1-115", "fr-v-a1-116", "fr-v-a1-117", "fr-v-a1-118",
             "fr-v-a1-119", "fr-v-a1-120", "fr-v-a1-121", "fr-v-a1-122", "fr-v-a1-123",
-            "fr-v-a1-124", "fr-v-a1-125", "fr-v-a1-126", "fr-v-a1-127", "fr-v-a1-128"
+            "fr-v-a1-124", "fr-v-a1-125", "fr-v-a1-126", "fr-v-a1-127", "fr-v-a1-128",
+            "fr-v-a1-188", "fr-v-a1-189", "fr-v-a1-190", "fr-v-a1-191", "fr-v-a1-192",
+            "fr-v-a1-193", "fr-v-a1-194", "fr-v-a1-195", "fr-v-a1-196", "fr-v-a1-197"
         ],
         verbIds: ["fr-vb-a1-13"],
         testQuestions: [

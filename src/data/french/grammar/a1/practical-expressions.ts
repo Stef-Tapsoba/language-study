@@ -24,7 +24,15 @@ Special cases:
   Il est minuit.    = It's midnight.   (0h / 24h)
   Il est une heure. = It's one o'clock. (singular — une heure, not un)
 
-24-hour clock: very common in French — Il est quatorze heures. (= 14h = 2pm)`,
+24-hour clock: very common in French — Il est quatorze heures. (= 14h = 2pm)
+
+ORDINAL NUMBERS — first, second, third...
+Only two ordinal numbers are essential at A1:
+  **premier / première**  → first    (le 1er mai, le premier étage)
+  **deuxième**            → second   (le deuxième jour)
+  **dernier / dernière**  → last     (la dernière fois)
+Note: premier is irregular; all others add -ième to the cardinal number (trois → troisième).
+The -ième endings are introduced fully at A2.`,
         examples: [
             { native: "Il est deux heures.", translation: "It is two o'clock." },
             { native: "Il est trois heures et demie.", translation: "It is half past three." },
