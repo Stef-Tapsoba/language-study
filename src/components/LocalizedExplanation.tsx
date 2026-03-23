@@ -6,31 +6,34 @@
 // B2+ → Target language only
 
 import { useState } from "react"
-import { CEFRLevel, LocalizedText } from "../types"
+import { CEFRLevel, InlineVocabEntry, LocalizedText } from "../types"
 import { resolveDisplay } from "../utils/localizedText"
 import { getUI } from "../i18n"
-import { renderExplanation } from "../utils/renderExplanation"
+import { renderExplanation, VocabClickHandler } from "../utils/renderExplanation"
 
 interface Props {
     text: string | LocalizedText
     level: CEFRLevel
     langId?: string
     className?: string
+    inlineVocab?: InlineVocabEntry[]
+    onVocabClick?: VocabClickHandler
 }
 
-export function LocalizedExplanation({ text, level, langId = "", className = "" }: Readonly<Props>) {
+export function LocalizedExplanation({ text, level, langId = "", className = "", inlineVocab, onVocabClick }: Readonly<Props>) {
     const [expanded, setExpanded] = useState(false)
     const display = resolveDisplay(text, level)
     const ui = getUI(langId, level)
+    const vocabOpts = { inlineVocab, onVocabClick }
 
     if (display.mode === "single") {
-        return renderExplanation(display.text, className)
+        return renderExplanation(display.text, { className, ...vocabOpts })
     }
 
     if (display.mode === "bilingual-native-primary") {
         return (
             <div className={className}>
-                {renderExplanation(display.primary)}
+                {renderExplanation(display.primary, vocabOpts)}
                 <div className="mt-2 pl-3 border-l-2 border-indigo-200">
                     {renderExplanation(display.secondary)}
                 </div>
@@ -41,7 +44,7 @@ export function LocalizedExplanation({ text, level, langId = "", className = "" 
     // bilingual-target-primary (B1) — target language shown, English collapsible
     return (
         <div className={className}>
-            {renderExplanation(display.primary)}
+            {renderExplanation(display.primary, vocabOpts)}
             <button
                 onClick={() => setExpanded(e => !e)}
                 className="mt-2 text-xs text-gray-400 hover:text-gray-600 flex items-center gap-1 transition-colors"

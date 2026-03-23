@@ -7,8 +7,10 @@ import { getCurrentLevel, getCompletedLessons, markLessonComplete } from "../sto
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { SpeakButton } from "../components/SpeakButton"
+import { VocabTooltip } from "../components/VocabTooltip"
 import { resolvePrimary } from "../utils/localizedText"
 import { renderExplanation } from "../utils/renderExplanation"
+import { useVocabTooltip } from "../hooks/useVocabTooltip"
 
 export function GrammarLessonPage() {
     const { langId = "", lessonId = "" } = useParams()
@@ -17,6 +19,7 @@ export function GrammarLessonPage() {
     const level = getCurrentLevel(langId)
 
     const [completed, setCompleted] = useState(() => getCompletedLessons(langId))
+    const { activeWord, handleVocabClick, dismissTooltip } = useVocabTooltip(langId)
 
     if (!language || !mod) return null
 
@@ -57,8 +60,13 @@ export function GrammarLessonPage() {
                 {/* Explanation */}
                 <div className="bg-white rounded-2xl border border-gray-200 p-5">
                     <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2">Explanation</h2>
-                    {renderExplanation(explanation)}
+                    {renderExplanation(explanation, {
+                        inlineVocab: lesson.inlineVocab,
+                        onVocabClick: handleVocabClick,
+                    })}
                 </div>
+
+                <VocabTooltip activeWord={activeWord} onDismiss={dismissTooltip} />
 
                 {/* Examples */}
                 {lesson.examples.length > 0 && (

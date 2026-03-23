@@ -77,7 +77,7 @@ ASKING ABOUT PREFERENCES:
 SILENT FINAL CONSONANTS
 Most final consonants in French are silent. This is why most -er verb endings (parle, parles, parlent) sound identical:
   pas, est, beaucoup, vous parlez, ils parlent → final consonant silent
-  Exceptions you must memorise: avec (with), chef, parc, fils
+  Exceptions you must memorise: avec, chef, parc, fils
 
 THE SILENT E
 The letter e at the end of a word is almost always silent:
@@ -125,6 +125,46 @@ VOWEL SOUNDS — QUICK REFERENCE
             { native: "vous_avez / les_amis", speakText: "vous avez, les amis", translation: "Liaison: the s in 'vous' and 'les' is pronounced before a vowel" },
             { native: "é → café / è → très / ê → être", speakText: "café, très, être", translation: "Three e-sounds: closed 'ay' (é), open 'eh' (è/ê) — accent = sound" },
             { native: "bonne vs bon", speakText: "bonne, bon", translation: "Double n before a vowel breaks the nasal sound — bonne is not nasal, bon is" },
+        ],
+        inlineVocab: [
+            { word: "pas", translation: "not / step" },
+            { word: "beaucoup", translation: "a lot / very much" },
+            { word: "avec", translation: "with" },
+            { word: "chef", translation: "chef / head / boss" },
+            { word: "parc", translation: "park" },
+            { word: "fils", translation: "son" },
+            { word: "table", translation: "table" },
+            { word: "livre", translation: "book" },
+            { word: "femme", translation: "woman / wife" },
+            { word: "rouge", translation: "red" },
+            { word: "enfant", translation: "child" },
+            { word: "manger", translation: "to eat" },
+            { word: "vin", translation: "wine" },
+            { word: "main", translation: "hand" },
+            { word: "bien", translation: "well / good" },
+            { word: "maison", translation: "house / home" },
+            { word: "lundi", translation: "Monday" },
+            { word: "brun", translation: "brown / brunette (masc.)" },
+            { word: "bonne", translation: "good (feminine)" },
+            { word: "bon", translation: "good (masculine)" },
+            { word: "café", translation: "café / coffee" },
+            { word: "étudiant", translation: "student" },
+            { word: "très", translation: "very" },
+            { word: "après", translation: "after" },
+            { word: "être", translation: "to be" },
+            { word: "fête", translation: "party / celebration" },
+            { word: "fenêtre", translation: "window" },
+            { word: "demain", translation: "tomorrow" },
+            { word: "sur", translation: "on / over / about" },
+            { word: "rue", translation: "street" },
+            { word: "tour", translation: "tower / tour / turn" },
+            { word: "bleu", translation: "blue" },
+            { word: "peur", translation: "fear" },
+            { word: "cœur", translation: "heart" },
+            { word: "jambe", translation: "leg" },
+            { word: "ombre", translation: "shadow / shade" },
+            { word: "nom", translation: "name / noun" },
+            { word: "parfum", translation: "perfume / fragrance" },
         ]
     },
     {

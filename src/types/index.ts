@@ -47,12 +47,18 @@ export interface Example {
 // ---------------------------------------------------------------------------
 // Grammar
 // ---------------------------------------------------------------------------
+export interface InlineVocabEntry {
+    word: string
+    translation: string
+}
+
 export interface GrammarLesson {
     id: string
     level: CEFRLevel
     title: string
     explanation: string | LocalizedText
     examples: Example[]
+    inlineVocab?: InlineVocabEntry[]
 }
 
 // ---------------------------------------------------------------------------

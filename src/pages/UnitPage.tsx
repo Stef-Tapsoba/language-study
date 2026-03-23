@@ -9,17 +9,21 @@ import { LevelBadge } from "../components/LevelBadge"
 import { QuizCard } from "../components/QuizCard"
 import { SpeakButton } from "../components/SpeakButton"
 import { LocalizedExplanation } from "../components/LocalizedExplanation"
+import { VocabTooltip } from "../components/VocabTooltip"
 import { GrammarLesson, LessonUnit, VocabItem, Verb, CEFRLevel } from "../types"
 import { getUI, fmt, UIStrings } from "../i18n"
 import { resolvePrimary } from "../utils/localizedText"
+import { useVocabTooltip } from "../hooks/useVocabTooltip"
+import type { VocabClickHandler } from "../utils/renderExplanation"
 
 type Tab = "grammar" | "vocab" | "verbs" | "test"
 
 // ---------------------------------------------------------------------------
 // GrammarAccordion
 // ---------------------------------------------------------------------------
-function GrammarAccordion({ lesson, done, langId, level, ui, onComplete }: Readonly<{
+function GrammarAccordion({ lesson, done, langId, level, ui, onComplete, onVocabClick }: Readonly<{
     lesson: GrammarLesson; done: boolean; langId: string; level: CEFRLevel; ui: UIStrings; onComplete: () => void
+    onVocabClick: VocabClickHandler
 }>) {
     const [open, setOpen] = useState(false)
     return (
@@ -38,13 +42,14 @@ function GrammarAccordion({ lesson, done, langId, level, ui, onComplete }: Reado
             </button>
             {open && (
                 <div className="px-5 pb-5 border-t border-gray-100">
-                    <LocalizedExplanation text={lesson.explanation} level={level} langId={langId} className="mt-4" />
+                    <LocalizedExplanation text={lesson.explanation} level={level} langId={langId} className="mt-4"
+                        inlineVocab={lesson.inlineVocab} onVocabClick={onVocabClick} />
                     <div className="mt-4 flex flex-col gap-3">
                         {lesson.examples.map((ex) => (
                             <div key={ex.native} className="bg-gray-50 rounded-xl p-3">
                                 <div className="flex items-start gap-1">
                                     <p className="flex-1 font-medium text-gray-900">{ex.native}</p>
-                                    <SpeakButton text={ex.native} langId={langId} />
+                                    <SpeakButton text={ex.speakText ?? ex.native} langId={langId} />
                                 </div>
                                 {ex.romanized && <p className="text-xs text-indigo-500 mt-0.5">{ex.romanized}</p>}
                                 <p className="text-sm text-gray-500 mt-0.5">{ex.translation}</p>
@@ -410,6 +415,7 @@ export function UnitPage() {
 
     const [completed, setCompleted] = useState(() => getCompletedLessons(langId))
     const [mastered, setMastered] = useState(() => getMasteredUnits(langId))
+    const { activeWord, handleVocabClick, dismissTooltip } = useVocabTooltip(langId)
 
     const units = mod?.units ?? []
     const unit = units.find(u => u.id === unitId)
@@ -531,6 +537,7 @@ export function UnitPage() {
                                 level={level}
                                 ui={ui}
                                 onComplete={() => setCompleted(getCompletedLessons(langId))}
+                                onVocabClick={handleVocabClick}
                             />
                         ))}
                     </div>
@@ -611,6 +618,7 @@ export function UnitPage() {
                     />
                 )}
             </main>
+            <VocabTooltip activeWord={activeWord} onDismiss={dismissTooltip} />
         </div>
     )
 }
