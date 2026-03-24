@@ -947,3 +947,125 @@ Additional B2 and C1 content across all five languages — units, grammar lesson
 - `documents/A1-Guide.md` — updated Japanese writing system description
 - `README.md` — updated Japanese A1 vocab count (150 → 170)
 - `src/data/{es,fr,it,ja,ko}/verbs/b2.ts`
+---
+
+## 43 — Zustand stats store migration
+
+Replaced hand-rolled localStorage adapter (`src/store/stats.ts`) with a Zustand store backed by `zustand/middleware` `persist`.
+
+### Key changes
+
+- **`src/store/useStatsStore.ts`** — new store (previously existed as a thin wrapper; now the canonical implementation)
+  - `create()` + `persist()` with `createJSONStorage(() => debouncedLocalStorage(500))`
+  - Debounced write adapter: per-key `setTimeout` prevents rapid flashcard-flip writes from hammering `localStorage`; last value always flushed after 500 ms of quiet
+  - `version: 1` + `migrate()`: detects pre-Zustand raw `StatsData` shape (no `data` key) and upgrades automatically on first load
+  - Actions: `recordActivity`, `recordQuizAnswer`, `resetStats`
+  - Selectors: `getGlobalStreak(data)`, `getDailyStats(data, langId)`, `getTodayStats(data, langId)`
+
+- **`src/store/stats.ts`** — **deleted** (was a shim re-exporting from `useStatsStore`; had zero callers after migration)
+
+- **7 pages migrated** off the shim: `CulturePage`, `VerbDrillPage`, `GrammarDrillPage`, `UnitPage`, `ListeningPage`, `ReadingPage`, `FlashcardsPage`
+  - `import { recordX } from "../store/stats"` → `import { useStatsStore } from "../store/useStatsStore"`
+  - Call sites: `recordActivity(langId)` → `useStatsStore.getState().recordActivity(langId)` etc.
+
+### localStorage format change
+
+| Before | After |
+|---|---|
+| `ls:stats` → raw `StatsData` object | `ls:stats` → `{ state: { data: StatsData }, version: 1 }` |
+
+Migration is handled automatically by `migrate()` on first load.
+
+---
+
+## 44 — shadcn/ui infrastructure
+
+Added shadcn/ui primitive component library for consistent, accessible UI atoms.
+
+### Setup
+- `components.json` — shadcn config (style: "default", baseColor: "slate", CSS variables enabled)
+- `tailwind.config.js` — extended with `shadcn` CSS variable tokens + `tailwindcss-animate`
+- `src/index.css` — `:root` + `.dark` CSS variable blocks for shadcn theming
+
+### Components added
+- `src/components/ui/button.tsx` — `Button` with variant/size props (`default`, `destructive`, `outline`, `secondary`, `ghost`, `link`)
+- `src/components/ui/badge.tsx` — `Badge` with variant props
+- `src/components/ui/progress.tsx` — `Progress` (Radix `ProgressPrimitive` with animated indicator)
+- `src/components/ui/card.tsx` — `Card`, `CardHeader`, `CardContent`, `CardFooter`, `CardTitle`, `CardDescription`
+- `src/lib/utils.ts` — `cn()` helper (`clsx` + `tailwind-merge`)
+
+---
+
+## 45 — Vitest unit test suite
+
+Added Vitest with jsdom and `@testing-library/jest-dom` for unit testing.
+
+### Setup
+- `vitest.config.ts` — `environment: "jsdom"`, `setupFiles: ["src/test/setup.ts"]`
+- `src/test/setup.ts` — imports `@testing-library/jest-dom`; provides `InMemoryStorage` class for test isolation (replaces `window.localStorage` so tests don't share state)
+
+### Test files (co-located with source)
+- `src/store/useStatsStore.test.ts` — covers `recordActivity`, `recordQuizAnswer`, `resetStats`, `getGlobalStreak`, `migrate()` (pre-Zustand format → v1)
+- `src/utils/answerMatch.test.ts` — covers `normalizeAnswer`, `answersMatch` with accent stripping, case folding, punctuation, and Japanese/Korean passthrough
+
+### Test organisation decision
+Tests are **co-located** with source files (`*.test.ts` next to the module). `src/test/` is reserved for shared infrastructure only (setup, helpers, fixtures). Rationale: co-location makes it obvious when a module lacks tests and keeps related files together during refactors.
+
+---
+
+## 46 — Performance + architecture fixes
+
+### `useGlobalStreak` hook (`src/hooks/useGlobalStreak.ts`)
+- Returns `useStatsStore(s => getGlobalStreak(s.data))` — integer selector
+- Zustand's default strict equality (`===`) means `NavBar`, `StatsTab`, and `ProfilePage` only re-render when the streak *number* changes, not on every store write
+- Replaces inline `useStatsStore(s => s.data)` + `getGlobalStreak(data)` pattern in all three consumers
+
+### GPU-composited progress bars
+- **Before:** `width: ${pct}%` — triggers layout on every animation frame
+- **After:** `transform: scaleX(${pct / 100})` + `origin-left` — compositor-only, no layout
+- Applied in: `src/components/ProgressBar.tsx`, `src/components/StatsTab.tsx` (breakdown bars), `src/pages/ProfilePage.tsx` (overall + breakdown bars)
+
+### Files modified
+- `src/hooks/useGlobalStreak.ts` (new)
+- `src/components/NavBar.tsx` — uses `useGlobalStreak()`
+- `src/components/StatsTab.tsx` — uses `useGlobalStreak()`; GPU bars
+- `src/components/ProgressBar.tsx` — GPU bars; `Readonly<>` on props
+- `src/pages/ProfilePage.tsx` — uses `useGlobalStreak()`; GPU bars
+
+---
+
+## 47 — Back navigation redesign
+
+### Problem
+`navigate(-1)` breaks when a user arrives via direct URL or deep link: `history.length === 1`, so "back" exits the app or does nothing.
+
+### Design
+- All pages use **explicit `backTo` route strings** on `NavBar` — no reliance on browser history
+- `NavBar` gains a `fallbackRoute` prop: used only when `backTo="back"` and `globalThis.history.length <= 1`
+- `DrillDoneScreen` gains a `backTo` prop passed from the caller, so the done-screen NavBar also uses an explicit destination
+- `window.history` → `globalThis.history` throughout (SonarQube S7764)
+
+### Pages updated
+
+| Page | backTo |
+|---|---|
+| FlashcardsPage (all 5 NavBars) | `` `/learn/${langId}` `` |
+| VerbDrillPage (2 NavBars) | `` `/learn/${langId}` `` |
+| GrammarDrillPage (2 NavBars) | `` `/learn/${langId}` `` |
+| UnitPage (3 NavBars) | `` `/learn/${langId}` `` |
+| GrammarPage | `` `/learn/${langId}` `` |
+| GrammarLessonPage (2 NavBars) | `` `/learn/${langId}/grammar` `` |
+| VocabPage | `` `/learn/${langId}` `` |
+| VerbsPage | `` `/learn/${langId}` `` |
+| ReadingPage | `` `/learn/${langId}` `` |
+| ListeningPage (2 NavBars) | `` `/learn/${langId}` `` |
+| CulturePage | `` `/learn/${langId}` `` |
+| CategoryReadingPage | `` `/learn/${langId}` `` |
+| PlacementPage (2 NavBars) | `"/home"` |
+| LevelTestPage (4 NavBars) | `` `/learn/${langId}` `` |
+| ProfilePage | `backTo="back" fallbackRoute="/home"` (may be reached from multiple places) |
+
+### Files modified
+- `src/components/NavBar.tsx` — `fallbackRoute` prop; `globalThis.history`; `handleBack` logic
+- `src/components/DrillDoneScreen.tsx` — `backTo` prop
+- All 14 page files above
