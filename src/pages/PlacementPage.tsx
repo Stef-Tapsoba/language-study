@@ -66,12 +66,12 @@ export function PlacementPage() {
     // Pre-intro screen — shown before the first question of the placement test
     if (!introSeen && tab === "test") {
         return (
-            <div className="min-h-screen bg-gray-50">
+            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
                 <NavBar title={`${language.name} — Placement Test`} backTo="/home" />
                 <main className="max-w-xl mx-auto px-4 py-16 flex flex-col items-center gap-5 text-center">
                     <p className="text-5xl">🎯</p>
-                    <h2 className="text-xl font-bold text-gray-900">Find your level</h2>
-                    <p className="text-gray-500 text-sm max-w-xs">
+                    <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">Find your level</h2>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm max-w-xs">
                         Answer {questions.length} quick questions and we'll suggest the right starting level for you.
                         Don't worry — you can always change it later.
                     </p>
@@ -85,7 +85,7 @@ export function PlacementPage() {
                         </button>
                         <button
                             onClick={() => setTab("manual")}
-                            className="w-full border border-gray-200 text-gray-600 hover:border-indigo-400
+                            className="w-full border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-indigo-400
                                        font-semibold rounded-xl py-3 text-sm transition-colors"
                         >
                             Set level manually instead
@@ -98,16 +98,16 @@ export function PlacementPage() {
 
     if (done) {
         return (
-            <div className="min-h-screen bg-gray-50">
+            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
                 <NavBar title={language.name} backTo="/home" />
                 <main className="max-w-xl mx-auto px-4 py-12 flex flex-col items-center gap-6 text-center">
                     <div className="text-5xl">🎉</div>
-                    <h2 className="text-2xl font-bold text-gray-900">Placement complete!</h2>
-                    <p className="text-gray-600">
+                    <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Placement complete!</h2>
+                    <p className="text-gray-600 dark:text-gray-400">
                         You answered <strong>{score}</strong> out of <strong>{questions.length}</strong> correctly.
                     </p>
-                    <div className="bg-white rounded-2xl border border-gray-200 p-5 w-full">
-                        <p className="text-sm text-gray-500 mb-3">Suggested level</p>
+                    <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5 w-full">
+                        <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">Suggested level</p>
                         <div className="flex justify-center mb-4">
                             <LevelBadge level={suggested} />
                         </div>
@@ -118,7 +118,7 @@ export function PlacementPage() {
                         >
                             Start at {suggested}
                         </button>
-                        <p className="text-xs text-gray-400 mb-2">Or choose a different level:</p>
+                        <p className="text-xs text-gray-400 dark:text-gray-500 mb-2">Or choose a different level:</p>
                         <div className="flex justify-center gap-2 flex-wrap">
                             {CEFR_LEVELS.map(l => (
                                 <button
@@ -127,7 +127,7 @@ export function PlacementPage() {
                                     className={`px-3 py-1 rounded-full text-sm font-medium border transition-colors
                                         ${l === suggested
                                             ? "border-indigo-500 bg-indigo-50 text-indigo-700"
-                                            : "border-gray-300 text-gray-600 hover:border-indigo-400"}`}
+                                            : "border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-400 hover:border-indigo-400"}`}
                                 >
                                     {l}
                                 </button>
@@ -142,7 +142,7 @@ export function PlacementPage() {
     const q = questions[current]
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
             <NavBar title={`${language.name} — Placement Test`} backTo="/home" />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col items-center gap-6">
                 <Tabs value={tab} onValueChange={v => setTab(v as Tab)} className="w-full">
@@ -152,7 +152,7 @@ export function PlacementPage() {
                     </TabsList>
 
                     <TabsContent value="test" className="flex flex-col items-center gap-6">
-                        <div className="w-full flex items-center justify-between text-sm text-gray-500">
+                        <div className="w-full flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
                             <span>Question {current + 1} of {questions.length}</span>
                             <button
                                 onClick={() => setTab("manual")}
@@ -168,7 +168,7 @@ export function PlacementPage() {
                                 let cls = "h-1.5 flex-1 rounded-full transition-colors "
                                 if (i < current) cls += "bg-indigo-500"
                                 else if (i === current) cls += "bg-indigo-300"
-                                else cls += "bg-gray-200"
+                                else cls += "bg-gray-200 dark:bg-gray-600"
                                 return <div key={question.id} className={cls} />
                             })}
                         </div>
@@ -193,9 +193,9 @@ export function PlacementPage() {
                     </TabsContent>
 
                     <TabsContent value="manual">
-                        <div className="bg-white rounded-2xl border border-gray-200 p-6 w-full">
-                            <h2 className="font-semibold text-gray-900 mb-2">Choose your level</h2>
-                            <p className="text-sm text-gray-500 mb-5">
+                        <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 w-full">
+                            <h2 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Choose your level</h2>
+                            <p className="text-sm text-gray-500 dark:text-gray-400 mb-5">
                                 Select the CEFR level that best describes your current proficiency.
                             </p>
                             <div className="flex flex-col gap-3">
@@ -203,11 +203,11 @@ export function PlacementPage() {
                                     <button
                                         key={l}
                                         onClick={() => confirmLevel(l)}
-                                        className="border border-gray-200 rounded-xl px-4 py-3 text-left
+                                        className="border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-left
                                                    hover:border-indigo-400 hover:bg-indigo-50 transition-colors"
                                     >
-                                        <span className="font-semibold text-gray-900 mr-2">{l}</span>
-                                        <span className="text-sm text-gray-500">
+                                        <span className="font-semibold text-gray-900 dark:text-gray-100 mr-2">{l}</span>
+                                        <span className="text-sm text-gray-500 dark:text-gray-400">
                                             {l === "A1" && "Absolute beginner"}
                                             {l === "A2" && "Elementary"}
                                             {l === "B1" && "Intermediate"}

@@ -32,11 +32,11 @@ export function ProgressBar({ value, className = "", label, color, animate = tru
         <div className={className}>
             {label && (
                 <div className="flex justify-between text-xs mb-1.5">
-                    <span className="text-gray-500">{label}</span>
+                    <span className="text-gray-500 dark:text-gray-400">{label}</span>
                     <span className={`font-semibold ${textCls}`}>{Math.round(pct)}%</span>
                 </div>
             )}
-            <div className="w-full bg-gray-200/70 rounded-full h-2 overflow-hidden">
+            <div className="w-full bg-gray-200/70 dark:bg-gray-600/70 rounded-full h-2 overflow-hidden">
                 <div
                     className={`${gradient} h-2 rounded-full transition-[width] duration-700 ease-out${isComplete ? " brightness-110" : ""}`}
                     style={{ width: `${displayed}%` }}

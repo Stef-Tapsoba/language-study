@@ -57,7 +57,7 @@ function PassageBrowse({ passages, completed, onSelect, category, ui }: Readonly
                 <button
                     key={p.id}
                     onClick={() => onSelect(p)}
-                    className="w-full text-left bg-white rounded-2xl border border-gray-200 p-4
+                    className="w-full text-left bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-4
                                hover:border-indigo-300 hover:shadow-sm transition-all"
                 >
                     <div className="flex items-start justify-between gap-2">
@@ -70,8 +70,8 @@ function PassageBrowse({ passages, completed, onSelect, category, ui }: Readonly
                                     <span className="text-xs text-green-600 font-medium">✓</span>
                                 )}
                             </div>
-                            <p className="font-semibold text-gray-900">{p.title}</p>
-                            <p className="text-xs text-gray-400 mt-0.5">
+                            <p className="font-semibold text-gray-900 dark:text-gray-100">{p.title}</p>
+                            <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">
                                 {p.vocabGloss.length} {ui.vocabGlossTitle.toLowerCase()} · {p.questions.length} Q
                             </p>
                         </div>
@@ -142,18 +142,18 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
                     <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${CATEGORY_COLORS[passage.category]}`}>
                         {categoryLabel(passage.category, ui)}
                     </span>
-                    <h2 className="text-xl font-bold text-gray-900 mt-1">{passage.title}</h2>
+                    <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mt-1">{passage.title}</h2>
                 </div>
                 <LevelBadge level={passage.level} />
             </div>
 
             {/* Body */}
-            <div className="bg-white rounded-2xl border border-gray-200 p-5">
-                <p className="text-base text-gray-900 leading-relaxed whitespace-pre-line">{bodyText}</p>
+            <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5">
+                <p className="text-base text-gray-900 dark:text-gray-100 leading-relaxed whitespace-pre-line">{bodyText}</p>
 
                 {/* English translation — A1: shown (collapsible), A2: behind toggle, B1+: absent */}
                 {translationMode !== "hidden" && (
-                    <div className="mt-4 pt-4 border-t border-gray-100">
+                    <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
                         <button
                             onClick={() => setTranslationShown(v => !v)}
                             className="text-sm text-indigo-600 hover:underline mb-2"
@@ -161,7 +161,7 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
                             {translationShown ? ui.hideEnglish : ui.showEnglish}
                         </button>
                         {translationShown && (
-                            <p className="text-sm text-gray-500 leading-relaxed whitespace-pre-line">
+                            <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line">
                                 {passage.body.native}
                             </p>
                         )}
@@ -171,13 +171,13 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
 
             {/* Vocab gloss — A1/A2: always shown (collapsible), B1+: collapsible hidden by default */}
             {passage.vocabGloss.length > 0 && (
-                <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden">
+                <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
                     <button
                         onClick={() => setVocabShown(v => !v)}
-                        className="w-full flex items-center justify-between px-5 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
+                        className="w-full flex items-center justify-between px-5 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50"
                     >
                         <span>{ui.vocabGlossTitle}</span>
-                        <span className="text-gray-400">{vocabShown ? "▲" : "▼"}</span>
+                        <span className="text-gray-400 dark:text-gray-500">{vocabShown ? "▲" : "▼"}</span>
                     </button>
                     {vocabShown && (
                         <div className="px-5 pb-4 grid grid-cols-2 gap-2">
@@ -187,7 +187,7 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
                                     {g.romanized && (
                                         <p className="text-xs text-indigo-400">{g.romanized}</p>
                                     )}
-                                    <p className="text-xs text-gray-600">{g.translation}</p>
+                                    <p className="text-xs text-gray-600 dark:text-gray-400">{g.translation}</p>
                                 </div>
                             ))}
                         </div>
@@ -205,17 +205,17 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
                     {ui.checkUnderstanding}
                 </button>
             ) : quizDone ? (
-                <div className="bg-white rounded-2xl border border-gray-200 p-5 text-center">
+                <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5 text-center">
                     <div className="text-3xl mb-2">
                         {quizScore === passage.questions.length ? "🎉" : "💪"}
                     </div>
-                    <p className="font-semibold text-gray-900">
+                    <p className="font-semibold text-gray-900 dark:text-gray-100">
                         {fmt(ui.youAnswered, { score: quizScore, total: passage.questions.length })}
                     </p>
                 </div>
             ) : (
                 <div className="flex flex-col gap-4">
-                    <div className="flex items-center justify-between text-sm text-gray-500">
+                    <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
                         <span>{fmt(ui.questionOf, { n: quizIndex + 1, total: passage.questions.length })}</span>
                         <span>{ui.scoreLabel}: {quizScore}</span>
                     </div>
@@ -239,7 +239,7 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
             )}
 
             {/* Sticky bottom bar — mark as read */}
-            <div className="fixed bottom-0 left-0 right-0 z-20 bg-white border-t border-gray-200 px-4 pt-3 pb-safe">
+            <div className="fixed bottom-0 left-0 right-0 z-20 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 px-4 pt-3 pb-safe">
                 <div className="max-w-xl mx-auto">
                     <button
                         onClick={markedRead ? undefined : handleMarkRead}
@@ -291,7 +291,7 @@ export function ReadingPage() {
     const completed = getCompleted(langId)
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
             <NavBar title={ui.sectionReading} level={level} backTo={`/learn/${langId}`} />
             <main className="max-w-xl mx-auto px-4 py-6 flex flex-col gap-3">
                 {CATEGORY_HUB.map(({ category, icon, href }) => {
@@ -302,8 +302,8 @@ export function ReadingPage() {
                         <Link
                             key={category}
                             to={href(langId)}
-                            className={`bg-white rounded-2xl border p-4 flex items-center gap-4
-                                        hover:shadow-sm transition-all ${CATEGORY_COLORS[category].replace("text-", "border-").split(" ")[0].replace("bg-", "border-")} border-gray-200 hover:border-indigo-300`}
+                            className={`bg-white dark:bg-gray-800 rounded-2xl border p-4 flex items-center gap-4
+                                        hover:shadow-sm transition-all ${CATEGORY_COLORS[category].replace("text-", "border-").split(" ")[0].replace("bg-", "border-")} border-gray-200 dark:border-gray-700 hover:border-indigo-300`}
                         >
                             <span className="text-3xl">{icon}</span>
                             <div className="flex-1">
@@ -312,18 +312,18 @@ export function ReadingPage() {
                                         {categoryLabel(category, ui)}
                                     </span>
                                 </div>
-                                <p className="text-xs text-gray-400">
+                                <p className="text-xs text-gray-400 dark:text-gray-500">
                                     {done}/{count} complete
                                 </p>
                             </div>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                             </svg>
                         </Link>
                     )
                 })}
                 {passages.length === 0 && (
-                    <div className="text-center py-16 text-gray-400">
+                    <div className="text-center py-16 text-gray-400 dark:text-gray-500">
                         <p className="text-4xl mb-3">🚧</p>
                         <p className="font-medium">{fmt(ui.noPassagesYet, { level })}</p>
                     </div>

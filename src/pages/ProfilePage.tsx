@@ -1,5 +1,5 @@
 // pages/ProfilePage.tsx — User profile, per-language progress stats, and account management
-import { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "../auth/AuthContext"
 import { useCurrentUser } from "../hooks/useCurrentUser"
@@ -51,15 +51,15 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
     ]
 
     return (
-        <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
             {/* Main content */}
             <div className="p-5">
                 {/* Header */}
                 <div className="flex items-center gap-3 mb-4">
                     <Flag langId={langId} size="lg" />
                     <div className="flex-1">
-                        <p className="font-semibold text-gray-900">{lang.name}</p>
-                        <p className="text-xs text-gray-400">{lang.nativeName}</p>
+                        <p className="font-semibold text-gray-900 dark:text-gray-100">{lang.name}</p>
+                        <p className="text-xs text-gray-400 dark:text-gray-500">{lang.nativeName}</p>
                     </div>
                     <span className="text-xs font-semibold bg-violet-100 text-violet-700 px-2.5 py-1 rounded-full">
                         {level} · {LEVEL_LABELS[level]}
@@ -78,15 +78,15 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
                 </div>
 
                 {/* Colored breakdown bars */}
-                <div className="flex flex-col gap-2 pt-3 border-t border-gray-100">
+                <div className="flex flex-col gap-2 pt-3 border-t border-gray-100 dark:border-gray-700">
                     {breakdown.map(({ label, done, total, color }) => (
                         <div key={label} className="flex items-center gap-3">
-                            <span className="text-xs text-gray-500 w-20 shrink-0">{label}</span>
+                            <span className="text-xs text-gray-500 dark:text-gray-400 w-20 shrink-0">{label}</span>
                             <div className="flex-1 h-1.5 bg-gray-200/70 rounded-full overflow-hidden">
                                 <div className={`h-full ${color} rounded-full transition-[width] duration-700 ease-out`}
                                     style={{ width: `${total ? (done / total) * 100 : 0}%` }} />
                             </div>
-                            <span className="text-xs text-gray-400 w-10 text-right shrink-0">{done}/{total}</span>
+                            <span className="text-xs text-gray-400 dark:text-gray-500 w-10 text-right shrink-0">{done}/{total}</span>
                         </div>
                     ))}
                 </div>
@@ -95,8 +95,8 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
             {/* Manage course — collapsed trigger */}
             <button
                 onClick={() => setManageOpen(v => !v)}
-                className="w-full flex items-center justify-between px-5 py-3 text-sm text-gray-500
-                           hover:bg-gray-50 border-t border-gray-100 transition-colors"
+                className="w-full flex items-center justify-between px-5 py-3 text-sm text-gray-500 dark:text-gray-400
+                           hover:bg-gray-50 dark:hover:bg-gray-700/50 border-t border-gray-100 dark:border-gray-700 transition-colors"
             >
                 <span className="font-medium">Manage course</span>
                 <svg
@@ -113,8 +113,8 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
                 <div className="border-t border-red-100 bg-red-50 px-5 py-4 flex flex-col gap-3">
                     <div className="flex items-start justify-between gap-4">
                         <div>
-                            <p className="text-sm font-semibold text-gray-800">Reset progress</p>
-                            <p className="text-xs text-gray-500 mt-0.5">
+                            <p className="text-sm font-semibold text-gray-800 dark:text-gray-200">Reset progress</p>
+                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
                                 Clears all completed lessons and mastered units. Level returns to A1.
                             </p>
                         </div>
@@ -144,8 +144,8 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
                     </div>
                     <div className="flex items-start justify-between gap-4 pt-3 border-t border-red-200">
                         <div>
-                            <p className="text-sm font-semibold text-gray-800">Remove language</p>
-                            <p className="text-xs text-gray-500 mt-0.5">
+                            <p className="text-sm font-semibold text-gray-800 dark:text-gray-200">Remove language</p>
+                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
                                 Removes this course entirely. Cannot be undone.
                             </p>
                         </div>
@@ -179,7 +179,7 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
     )
 }
 
-// ─── Export ──────────────────────────────────────────────────────────────────
+// ─── Export / Import ─────────────────────────────────────────────────────────
 
 function exportProgress(): void {
     const data = {
@@ -196,6 +196,90 @@ function exportProgress(): void {
     a.download = `language-study-backup-${new Date().toISOString().slice(0, 10)}.json`
     a.click()
     URL.revokeObjectURL(url)
+}
+
+const CEFR_ORDER = ["A1", "A2", "B1", "B2", "C1", "C2"]
+
+function mergeProgressData(current: Record<string, unknown>, imported: Record<string, unknown>): Record<string, unknown> {
+    const c = current as Record<string, Record<string, unknown>>
+    const i = imported as Record<string, Record<string, unknown>>
+
+    // CEFR levels — keep current level for any language already started;
+    // only use the backup's level for languages not yet started in the current session.
+    const currentLevels = (c.levels ?? {}) as Record<string, string>
+    const importedLevels = (i.levels ?? {}) as Record<string, string>
+    const levels: Record<string, string> = { ...importedLevels, ...currentLevels }
+
+    // completedLessons / masteredUnits — union arrays per language
+    function unionArrays(a: Record<string, string[]> = {}, b: Record<string, string[]> = {}): Record<string, string[]> {
+        const result: Record<string, string[]> = {}
+        const keys = new Set([...Object.keys(a), ...Object.keys(b)])
+        for (const k of keys) result[k] = [...new Set([...(a[k] ?? []), ...(b[k] ?? [])])]
+        return result
+    }
+
+    return {
+        ...i,
+        userId: (current as { userId?: string }).userId,
+        selectedLanguage: (current as { selectedLanguage?: string }).selectedLanguage ?? (imported as { selectedLanguage?: string }).selectedLanguage,
+        levels,
+        completedLessons: unionArrays(c.completedLessons as Record<string, string[]>, i.completedLessons as Record<string, string[]>),
+        masteredUnits:    unionArrays(c.masteredUnits    as Record<string, string[]>, i.masteredUnits    as Record<string, string[]>),
+    }
+}
+
+function mergeSRS(current: Record<string, unknown>, imported: Record<string, unknown>): Record<string, unknown> {
+    const result: Record<string, unknown> = { ...imported }
+    for (const [lang, cards] of Object.entries(current)) {
+        const impCards = (imported[lang] ?? {}) as Record<string, { reviewCount?: number }>
+        const currCards = cards as Record<string, { reviewCount?: number }>
+        const merged: Record<string, unknown> = { ...impCards }
+        for (const [cardId, card] of Object.entries(currCards)) {
+            const imp = impCards[cardId]
+            // Keep whichever card has been reviewed more
+            merged[cardId] = !imp || (card.reviewCount ?? 0) >= (imp.reviewCount ?? 0) ? card : imp
+        }
+        result[lang] = merged
+    }
+    return result
+}
+
+function mergeStats(current: Record<string, unknown>, imported: Record<string, unknown>): Record<string, unknown> {
+    // Stats stored as { data: StatsData } by Zustand persist
+    const currData = ((current as { data?: Record<string, Record<string, Record<string, number>>> }).data ?? current) as Record<string, Record<string, Record<string, number>>>
+    const impData  = ((imported as { data?: Record<string, Record<string, Record<string, number>>> }).data ?? imported) as Record<string, Record<string, Record<string, number>>>
+    const result: Record<string, Record<string, Record<string, number>>> = { ...impData }
+    for (const [lang, days] of Object.entries(currData)) {
+        result[lang] = { ...impData[lang] }
+        for (const [day, stats] of Object.entries(days)) {
+            const imp = impData[lang]?.[day] ?? {}
+            const merged: Record<string, number> = {}
+            const keys = new Set([...Object.keys(stats), ...Object.keys(imp)])
+            for (const k of keys) merged[k] = Math.max(stats[k] ?? 0, imp[k] ?? 0)
+            result[lang][day] = merged
+        }
+    }
+    return { data: result }
+}
+
+async function importProgress(file: File): Promise<string | null> {
+    try {
+        const text = await file.text()
+        const data = JSON.parse(text)
+        if (!data.progress || !data.srs || !data.stats) {
+            return "Invalid backup file — missing required fields."
+        }
+        const currentProgress = JSON.parse(localStorage.getItem("ls:progress") ?? "{}")
+        const currentSRS      = JSON.parse(localStorage.getItem("ls:srs")      ?? "{}")
+        const currentStats    = JSON.parse(localStorage.getItem("ls:stats")    ?? "{}")
+
+        localStorage.setItem("ls:progress", JSON.stringify(mergeProgressData(currentProgress, data.progress)))
+        localStorage.setItem("ls:srs",      JSON.stringify(mergeSRS(currentSRS, data.srs)))
+        localStorage.setItem("ls:stats",    JSON.stringify(mergeStats(currentStats, data.stats)))
+        return null
+    } catch {
+        return "Could not parse the file. Make sure it's a valid backup."
+    }
 }
 
 // ─── Page ────────────────────────────────────────────────────────────────────
@@ -221,8 +305,25 @@ export function ProfilePage() {
         return order.indexOf(lvl) > order.indexOf(best) ? lvl : best
     }, "A1")
     const streak = useGlobalStreak()
+    const [importStatus, setImportStatus] = useState<"idle" | "success" | "error">("idle")
+    const [importError, setImportError] = useState<string | null>(null)
 
     function onChanged() { setTick(t => t + 1) }
+
+    async function handleImport(e: React.ChangeEvent<HTMLInputElement>) {
+        const file = e.target.files?.[0]
+        e.target.value = ""    // reset so same file can be re-selected
+        if (!file) return
+        const error = await importProgress(file)
+        if (error) {
+            setImportStatus("error")
+            setImportError(error)
+        } else {
+            setImportStatus("success")
+            // Reload after a brief moment so the user sees the success state
+            setTimeout(() => globalThis.location.reload(), 1200)
+        }
+    }
 
     async function handleLogout() {
         await logout()
@@ -230,7 +331,7 @@ export function ProfilePage() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
             <NavBar title="Profile" backTo="/home" />
 
             <main className="max-w-2xl mx-auto px-4 py-8 flex flex-col gap-6">
@@ -277,7 +378,7 @@ export function ProfilePage() {
                 {/* ── Language cards ── */}
                 {startedIds.length > 0 && (
                     <div>
-                        <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
+                        <h2 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-3">
                             Your languages
                         </h2>
                         <div key={tick} className="flex flex-col gap-4">
@@ -290,10 +391,10 @@ export function ProfilePage() {
 
                 {/* ── Data & backup ── */}
                 <div>
-                    <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
+                    <h2 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-3">
                         Data & backup
                     </h2>
-                    <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden">
+                    <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
                         {/* Warning */}
                         <Alert className="border-0 border-b border-amber-100 rounded-none bg-amber-50 text-amber-800 px-5 py-4">
                             <AlertDescription>
@@ -305,24 +406,41 @@ export function ProfilePage() {
                         <button
                             onClick={exportProgress}
                             className="w-full flex items-center justify-between px-5 py-4 text-sm
-                                       text-gray-700 hover:bg-gray-50 transition-colors"
+                                       text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors border-b border-gray-100 dark:border-gray-700"
                         >
                             <span className="font-medium">Export progress backup</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-400" fill="none"
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-400 dark:text-gray-500" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                 <path strokeLinecap="round" strokeLinejoin="round"
                                     d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                             </svg>
                         </button>
+                        {/* Import button */}
+                        <label
+                            className="w-full flex items-center justify-between px-5 py-4 text-sm
+                                       text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors cursor-pointer"
+                        >
+                            <span className="font-medium">
+                                {importStatus === "success" && "✓ Imported — reloading…"}
+                                {importStatus === "error"   && `⚠ ${importError}`}
+                                {importStatus === "idle"    && "Import progress backup"}
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-400 dark:text-gray-500" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round"
+                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4 4l4-4m0 0l4 4m-4-4V4" />
+                            </svg>
+                            <input type="file" accept=".json" className="sr-only" onChange={handleImport} />
+                        </label>
                     </div>
                 </div>
 
                 {/* ── Account ── */}
                 <div>
-                    <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
+                    <h2 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-3">
                         Account
                     </h2>
-                    <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden">
+                    <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
                         <button
                             onClick={handleLogout}
                             className="w-full flex items-center justify-between px-5 py-4 text-sm

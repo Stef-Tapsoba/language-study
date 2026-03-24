@@ -43,11 +43,11 @@ function GrammarAccordion({ lesson, done, langId, level, ui, onComplete, onVocab
     const { markLessonComplete } = useProgress()
     return (
         <Accordion type="single" collapsible>
-            <AccordionItem value={lesson.id} className={`border rounded-2xl px-5 ${done ? "border-green-300 bg-white" : "border-gray-200 bg-white"}`}>
+            <AccordionItem value={lesson.id} className={`border rounded-2xl px-5 ${done ? "border-green-300 bg-white dark:bg-gray-800" : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800"}`}>
                 <AccordionTrigger className="py-4 hover:no-underline">
                     <div className="flex items-center gap-3">
-                        <span className={`text-lg ${done ? "text-green-500" : "text-gray-300"}`}>{done ? "✓" : "○"}</span>
-                        <span className="font-medium text-gray-900">{lesson.title}</span>
+                        <span className={`text-lg ${done ? "text-green-500" : "text-gray-300 dark:text-gray-600"}`}>{done ? "✓" : "○"}</span>
+                        <span className="font-medium text-gray-900 dark:text-gray-100">{lesson.title}</span>
                     </div>
                 </AccordionTrigger>
                 <AccordionContent>
@@ -56,13 +56,13 @@ function GrammarAccordion({ lesson, done, langId, level, ui, onComplete, onVocab
                             inlineVocab={lesson.inlineVocab} onVocabClick={onVocabClick} />
                         <div className="mt-4 flex flex-col gap-3">
                             {lesson.examples.map((ex) => (
-                                <div key={ex.native} className="bg-gray-50 rounded-xl p-3">
+                                <div key={ex.native} className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-3">
                                     <div className="flex items-start gap-1">
-                                        <p className="flex-1 font-medium text-gray-900">{ex.native}</p>
+                                        <p className="flex-1 font-medium text-gray-900 dark:text-gray-100">{ex.native}</p>
                                         <SpeakButton text={ex.speakText ?? ex.native} langId={langId} />
                                     </div>
                                     {ex.romanized && <p className="text-xs text-indigo-500 mt-0.5">{ex.romanized}</p>}
-                                    <p className="text-sm text-gray-500 mt-0.5">{ex.translation}</p>
+                                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{ex.translation}</p>
                                 </div>
                             ))}
                         </div>
@@ -90,27 +90,27 @@ function VocabRow({ item, done, langId, ui, onComplete }: Readonly<{
     const { markLessonComplete } = useProgress()
     return (
         <Accordion type="single" collapsible>
-            <AccordionItem value={item.id} className={`border rounded-2xl px-4 bg-white ${done ? "border-green-300" : "border-gray-200 hover:border-indigo-300"}`}>
+            <AccordionItem value={item.id} className={`border rounded-2xl px-4 bg-white dark:bg-gray-800 ${done ? "border-green-300" : "border-gray-200 dark:border-gray-700 hover:border-indigo-300"}`}>
                 <AccordionTrigger className="py-3 hover:no-underline">
                     <div className="flex items-center gap-3 w-full pr-2">
-                        <span className={`text-base ${done ? "text-green-500" : "text-gray-300"}`}>{done ? "✓" : "○"}</span>
+                        <span className={`text-base ${done ? "text-green-500" : "text-gray-300 dark:text-gray-600"}`}>{done ? "✓" : "○"}</span>
                         <div className="flex-1 min-w-0 flex items-center gap-2">
-                            <span className="font-semibold text-gray-900">{item.word}</span>
+                            <span className="font-semibold text-gray-900 dark:text-gray-100">{item.word}</span>
                             {item.romanized && <span className="text-xs text-indigo-500">{item.romanized}</span>}
                         </div>
                         <SpeakButton text={item.word} langId={langId} />
-                        <span className="text-sm text-gray-500 shrink-0">{item.translation}</span>
-                        <span className="text-xs bg-gray-100 text-gray-500 rounded-full px-2 py-0.5 shrink-0">
+                        <span className="text-sm text-gray-500 dark:text-gray-400 shrink-0">{item.translation}</span>
+                        <span className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 rounded-full px-2 py-0.5 shrink-0">
                             {item.category}
                         </span>
                     </div>
                 </AccordionTrigger>
                 <AccordionContent>
                     <div className="pb-1">
-                        <div className="bg-gray-50 rounded-xl p-3 mb-3">
-                            <p className="text-sm font-medium text-gray-800">{item.example.native}</p>
+                        <div className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-3 mb-3">
+                            <p className="text-sm font-medium text-gray-800 dark:text-gray-200">{item.example.native}</p>
                             {item.example.romanized && <p className="text-xs text-indigo-500 mt-0.5">{item.example.romanized}</p>}
-                            <p className="text-xs text-gray-500 mt-1">{item.example.translation}</p>
+                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{item.example.translation}</p>
                         </div>
                         {!done && (
                             <button
@@ -133,13 +133,13 @@ function VocabRow({ item, done, langId, ui, onComplete }: Readonly<{
 function VerbCard({ verb, langId }: Readonly<{ verb: Verb; langId: string }>) {
     return (
         <Accordion type="single" collapsible>
-            <AccordionItem value={verb.id} className="border border-gray-200 rounded-2xl px-5 bg-white">
+            <AccordionItem value={verb.id} className="border border-gray-200 dark:border-gray-700 rounded-2xl px-5 bg-white dark:bg-gray-800">
                 <AccordionTrigger className="py-4 hover:no-underline">
                     <div className="flex items-center gap-3 w-full pr-2">
                         <div className="flex-1">
-                            <span className="font-semibold text-gray-900">{verb.infinitive}</span>
+                            <span className="font-semibold text-gray-900 dark:text-gray-100">{verb.infinitive}</span>
                             {verb.romanized && <span className="ml-2 text-xs text-indigo-500">{verb.romanized}</span>}
-                            <span className="ml-2 text-sm text-gray-500">— {verb.meaning}</span>
+                            <span className="ml-2 text-sm text-gray-500 dark:text-gray-400">— {verb.meaning}</span>
                         </div>
                         <SpeakButton text={verb.infinitive} langId={langId} />
                     </div>
@@ -148,12 +148,12 @@ function VerbCard({ verb, langId }: Readonly<{ verb: Verb; langId: string }>) {
                     <div className="pb-1">
                         {verb.conjugations.map(conj => (
                             <div key={conj.tense} className="mt-4">
-                                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">{conj.tense}</p>
-                                <div className="rounded-xl border border-gray-100 overflow-hidden">
+                                <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wide mb-2">{conj.tense}</p>
+                                <div className="rounded-xl border border-gray-100 dark:border-gray-700 overflow-hidden">
                                     {conj.forms.map((f) => (
-                                        <div key={f.pronoun} className="flex items-center px-4 py-2.5 text-sm odd:bg-white even:bg-gray-50">
-                                            <span className="text-gray-500 w-28 shrink-0">{f.pronoun}</span>
-                                            <span className="font-medium text-gray-900">{f.form}</span>
+                                        <div key={f.pronoun} className="flex items-center px-4 py-2.5 text-sm odd:bg-white dark:odd:bg-gray-800 even:bg-gray-50 dark:even:bg-gray-700/30">
+                                            <span className="text-gray-500 dark:text-gray-400 w-28 shrink-0">{f.pronoun}</span>
+                                            <span className="font-medium text-gray-900 dark:text-gray-100">{f.form}</span>
                                             {f.romanized && <span className="ml-2 text-xs text-indigo-400">{f.romanized}</span>}
                                         </div>
                                     ))}
@@ -172,16 +172,16 @@ function VerbCard({ verb, langId }: Readonly<{ verb: Verb; langId: string }>) {
 // ---------------------------------------------------------------------------
 function MistakeReview({ missed }: Readonly<{ missed: MissedItem[] }>) {
     return (
-        <Accordion type="single" collapsible className="w-full bg-white border border-gray-200 rounded-2xl">
+        <Accordion type="single" collapsible className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl">
             <AccordionItem value="mistakes" className="border-0 px-5">
-                <AccordionTrigger className="text-sm font-semibold text-gray-700 py-3 hover:no-underline">
+                <AccordionTrigger className="text-sm font-semibold text-gray-700 dark:text-gray-300 py-3 hover:no-underline">
                     Review mistakes ({missed.length})
                 </AccordionTrigger>
                 <AccordionContent>
-                    <div className="divide-y divide-gray-100">
+                    <div className="divide-y divide-gray-100 dark:divide-gray-700">
                         {missed.map((m) => (
                             <div key={`${m.prompt}|${m.yourAnswer}`} className="py-3 text-left text-sm">
-                                <p className="text-gray-500 mb-1">{m.prompt}</p>
+                                <p className="text-gray-500 dark:text-gray-400 mb-1">{m.prompt}</p>
                                 <p className="text-green-700 font-medium">✓ {m.correct}</p>
                                 <p className="text-red-500">✗ {m.yourAnswer}</p>
                             </div>
@@ -211,10 +211,10 @@ function TestDoneScreen({ score, total, passThreshold, missed, isMastered, didCo
     return (
         <div className="flex flex-col items-center gap-6 py-8 max-w-sm mx-auto text-center">
             <div className="text-5xl">{passed ? "🏆" : "📚"}</div>
-            <h3 className="text-xl font-bold text-gray-900">
+            <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">
                 {passed ? ui.unitComplete : ui.keepStudying}
             </h3>
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-gray-400">
                 {fmt(ui.youAnswered, { score, total })}{" "}
                 ({Math.round((score / total) * 100)}%)
             </p>
@@ -237,7 +237,7 @@ function TestDoneScreen({ score, total, passThreshold, missed, isMastered, didCo
                                 {CULTURE_CATEGORY_EMOJI[ep.category] ?? "🌍"}
                             </span>
                             <div className="flex flex-col gap-0.5 min-w-0">
-                                <p className="text-sm font-semibold text-gray-900 leading-snug">
+                                <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 leading-snug">
                                     {ep.title.native}
                                 </p>
                                 <p className="text-xs text-amber-700 leading-snug line-clamp-2">
@@ -250,7 +250,7 @@ function TestDoneScreen({ score, total, passThreshold, missed, isMastered, didCo
                 </div>
             )}
 
-            <div className="w-full bg-white border border-gray-200 rounded-2xl p-5 flex flex-col gap-3">
+            <div className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-5 flex flex-col gap-3">
                 {passed && !isMastered && !didComplete && (
                     <button onClick={onComplete}
                         className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl py-2.5 text-sm transition-colors">
@@ -272,14 +272,14 @@ function TestDoneScreen({ score, total, passThreshold, missed, isMastered, didCo
                             </button>
                         )}
                         <button onClick={onBack}
-                            className="w-full border border-gray-200 text-gray-600 font-semibold rounded-xl py-2.5 text-sm transition-colors hover:bg-gray-50">
+                            className="w-full border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 font-semibold rounded-xl py-2.5 text-sm transition-colors hover:bg-gray-50 dark:hover:bg-gray-700/50">
                             {ui.backToDashboard}
                         </button>
                     </>
                 )}
                 {!passed && (
                     <>
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-gray-500 dark:text-gray-400">
                             You need {passThreshold} correct to complete this unit. Review the content and try again.
                         </p>
                         <button onClick={onReset}
@@ -287,7 +287,7 @@ function TestDoneScreen({ score, total, passThreshold, missed, isMastered, didCo
                             {ui.tryAgain}
                         </button>
                         <button onClick={onBack}
-                            className="w-full border border-gray-200 text-gray-600 font-semibold rounded-xl py-2.5 text-sm transition-colors hover:bg-gray-50">
+                            className="w-full border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 font-semibold rounded-xl py-2.5 text-sm transition-colors hover:bg-gray-50 dark:hover:bg-gray-700/50">
                             {ui.backToDashboard}
                         </button>
                     </>
@@ -356,7 +356,7 @@ function TestOutTab({ unit, langId, isMastered, nextUnit, isLastUnit, ui, cultur
 
     if (!questions.length) {
         return (
-            <div className="text-center py-16 text-gray-400">
+            <div className="text-center py-16 text-gray-400 dark:text-gray-500">
                 <p className="text-4xl mb-3">🚧</p>
                 <p className="font-medium">Test not yet available for this unit.</p>
             </div>
@@ -374,8 +374,8 @@ function TestOutTab({ unit, langId, isMastered, nextUnit, isLastUnit, ui, cultur
                 )}
                 <div className="text-5xl">📝</div>
                 <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-1">{ui.testOutTitle}</h3>
-                    <p className="text-sm text-gray-500">
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-1">{ui.testOutTitle}</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
                         {questions.length} question{questions.length === 1 ? "" : "s"} &nbsp;·&nbsp;
                         {fmt(ui.levelTestDesc, { pass: passThreshold, total: questions.length, next: "" }).split(" to ")[0]}
                     </p>
@@ -408,7 +408,7 @@ function TestOutTab({ unit, langId, isMastered, nextUnit, isLastUnit, ui, cultur
     const q = questions[qIdx]
     return (
         <div className="flex flex-col items-center gap-5 max-w-xl mx-auto">
-            <div className="w-full flex items-center justify-between text-sm text-gray-500">
+            <div className="w-full flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
                 <span>{fmt(ui.questionOf, { n: qIdx + 1, total: questions.length })}</span>
                 <span className="font-medium">{ui.scoreLabel}: {score}</span>
             </div>
@@ -417,7 +417,7 @@ function TestOutTab({ unit, langId, isMastered, nextUnit, isLastUnit, ui, cultur
                     let dotCls = "h-1.5 flex-1 rounded-full transition-colors "
                     if (i < qIdx) dotCls += "bg-indigo-500"
                     else if (i === qIdx) dotCls += "bg-indigo-300"
-                    else dotCls += "bg-gray-200"
+                    else dotCls += "bg-gray-200 dark:bg-gray-600"
                     return <div key={q.id} className={dotCls} />
                 })}
             </div>
@@ -485,9 +485,9 @@ export function UnitPage() {
 
     if (!language || !mod || !unit) {
         return (
-            <div className="min-h-screen bg-gray-50">
+            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
                 <NavBar title="Unit" level={level} backTo={`/learn/${langId}`} />
-                <main className="max-w-3xl mx-auto px-4 py-16 text-center text-gray-400">
+                <main className="max-w-3xl mx-auto px-4 py-16 text-center text-gray-400 dark:text-gray-500">
                     <p className="text-4xl mb-3">🔍</p>
                     <p className="font-medium">Unit not found.</p>
                 </main>
@@ -504,12 +504,12 @@ export function UnitPage() {
 
     if (isLocked) {
         return (
-            <div className="min-h-screen bg-gray-50">
+            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
                 <NavBar title={unit.title} level={unit.level} backTo={`/learn/${langId}`} />
                 <main className="max-w-xl mx-auto px-4 py-16 text-center">
                     <p className="text-5xl mb-4">🔒</p>
-                    <h2 className="text-xl font-bold text-gray-900 mb-2">Unit locked</h2>
-                    <p className="text-gray-500 mb-6">Complete the previous unit to unlock this one.</p>
+                    <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">Unit locked</h2>
+                    <p className="text-gray-500 dark:text-gray-400 mb-6">Complete the previous unit to unlock this one.</p>
                     <button
                         onClick={() => navigate(`/learn/${langId}`)}
                         className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl px-6 py-2.5 text-sm transition-colors"
@@ -522,17 +522,17 @@ export function UnitPage() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
             <NavBar title={unit.title} level={unit.level} backTo={`/learn/${langId}`}
                 breadcrumb={`${language.name} › Path`} />
 
             <main className="max-w-3xl mx-auto px-4 py-6">
                 {/* Unit header */}
-                <div className="bg-white border border-gray-200 rounded-2xl p-5 mb-6">
+                <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-5 mb-6">
                     <div className="flex items-start justify-between gap-4">
                         <div className="flex-1">
                             <div className="flex items-center gap-2 mb-1">
-                                <span className="text-xs font-semibold text-gray-400 uppercase tracking-wide">
+                                <span className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wide">
                                     Unit {unit.order} of {totalUnits}
                                 </span>
                                 <LevelBadge level={unit.level} />
@@ -542,29 +542,37 @@ export function UnitPage() {
                                     </span>
                                 )}
                             </div>
-                            <h1 className="text-xl font-bold text-gray-900">{unit.title}</h1>
-                            <p className="text-sm text-gray-500 mt-1">{resolvePrimary(unit.description, level)}</p>
+                            <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">{unit.title}</h1>
+                            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{resolvePrimary(unit.description, level)}</p>
                         </div>
                     </div>
                 </div>
 
                 {/* Tab bar */}
                 <Tabs value={activeTab} onValueChange={v => setActiveTab(v as Tab)} className="mb-0">
-                    <TabsList className="w-full h-auto p-1 bg-gray-100 rounded-xl mb-6">
-                        {tabs.map(tab => (
-                            <TabsTrigger
-                                key={tab.id}
-                                value={tab.id}
-                                className="flex-1 py-2 px-3 text-sm"
-                            >
-                                {tab.label}
-                                {tab.count !== undefined && (
-                                    <span className="ml-1 text-xs text-current opacity-60">
-                                        {tab.count}
-                                    </span>
-                                )}
-                            </TabsTrigger>
-                        ))}
+                    <TabsList className="w-full h-auto p-1 bg-gray-100 dark:bg-gray-700 rounded-xl mb-6">
+                        {tabs.map(tab => {
+                            const TAB_COLORS: Record<Tab, string> = {
+                                grammar: "data-[state=active]:bg-green-500  data-[state=active]:text-white",
+                                vocab:   "data-[state=active]:bg-amber-400  data-[state=active]:text-white",
+                                verbs:   "data-[state=active]:bg-red-400    data-[state=active]:text-white",
+                                test:    "data-[state=active]:bg-violet-500 data-[state=active]:text-white",
+                            }
+                            return (
+                                <TabsTrigger
+                                    key={tab.id}
+                                    value={tab.id}
+                                    className={`flex-1 py-2 px-3 text-sm ${TAB_COLORS[tab.id]}`}
+                                >
+                                    {tab.label}
+                                    {tab.count !== undefined && (
+                                        <span className="ml-1 text-xs text-current opacity-60">
+                                            {tab.count}
+                                        </span>
+                                    )}
+                                </TabsTrigger>
+                            )
+                        })}
                     </TabsList>
 
                     {/* Tab content */}
@@ -600,12 +608,12 @@ export function UnitPage() {
                                                 <div className="h-full bg-gradient-to-r from-amber-300 to-amber-500 rounded-full transition-[width] duration-700 ease-out"
                                                     style={{ width: `${vocab.length ? vocabDone / vocab.length * 100 : 0}%` }} />
                                             </div>
-                                            <span className="text-xs text-gray-400 shrink-0">{vocabDone}/{vocab.length}</span>
+                                            <span className="text-xs text-gray-400 dark:text-gray-500 shrink-0">{vocabDone}/{vocab.length}</span>
                                         </div>
                                         <div className="flex gap-1">
                                             {(["all", "todo", "done"] as const).map(f => (
                                                 <button key={f} onClick={() => setVocabFilter(f)}
-                                                    className={`text-xs px-2.5 py-1 rounded-full font-medium transition-colors ${vocabFilter === f ? "bg-amber-100 text-amber-700" : "bg-gray-100 text-gray-500 hover:text-gray-700"}`}>
+                                                    className={`text-xs px-2.5 py-1 rounded-full font-medium transition-colors ${vocabFilter === f ? "bg-amber-100 text-amber-700" : "bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"}`}>
                                                     {f === "all" ? `All ${vocab.length}` : null}
                                                     {f === "todo" ? `To do ${vocab.length - vocabDone}` : null}
                                                     {f === "done" ? `Done ${vocabDone}` : null}
@@ -639,9 +647,9 @@ export function UnitPage() {
                                 ))}
                             </div>
                         ) : (
-                            <div className="text-center py-16 text-gray-400">
+                            <div className="text-center py-16 text-gray-400 dark:text-gray-500">
                                 <p className="text-4xl mb-3">🔤</p>
-                                <p className="font-medium text-gray-500">No verbs in this unit.</p>
+                                <p className="font-medium text-gray-500 dark:text-gray-400">No verbs in this unit.</p>
                                 <p className="text-sm mt-1">Verbs are introduced in a later unit.</p>
                             </div>
                         )}

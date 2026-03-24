@@ -31,7 +31,7 @@ function SectionCard({ emoji, title, description, to, progress, badge }: Readonl
     return (
         <Link
             to={to}
-            className="card-lift bg-white border border-gray-200 rounded-2xl p-5 flex flex-col gap-2"
+            className="card-lift bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-5 flex flex-col gap-2"
         >
             <div className="flex items-start justify-between">
                 <span className="text-3xl">{emoji}</span>
@@ -41,8 +41,8 @@ function SectionCard({ emoji, title, description, to, progress, badge }: Readonl
                     </span>
                 )}
             </div>
-            <p className="font-semibold text-gray-900">{title}</p>
-            <p className="text-sm text-gray-500">{description}</p>
+            <p className="font-semibold text-gray-900 dark:text-gray-100">{title}</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400">{description}</p>
             {progress !== undefined && <ProgressBar value={progress} className="mt-1" color="default" />}
         </Link>
     )
@@ -58,17 +58,17 @@ function StudyCard({ section, title, countDesc, done, total, to }: Readonly<{
     const c = SECTION_CONFIG[section]
     const pct = (done !== undefined && total) ? done / total * 100 : 0
     return (
-        <Link to={to} className="card-lift bg-white border border-gray-200 rounded-2xl overflow-hidden flex flex-col">
+        <Link to={to} className="card-lift bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden flex flex-col">
             <div className={`h-1.5 ${c.gradient}`} />
             <div className="p-4 flex flex-col gap-2 flex-1">
                 <div className={`w-9 h-9 rounded-xl ${c.iconBg} flex items-center justify-center text-xl leading-none`}>
                     {c.emoji}
                 </div>
-                <p className="font-semibold text-gray-900 text-sm">{title}</p>
+                <p className="font-semibold text-gray-900 dark:text-gray-100 text-sm">{title}</p>
                 <p className={`text-xs ${c.iconText} font-medium`}>{countDesc}</p>
                 {done !== undefined && total !== undefined && total > 0 && (
                     <div className="mt-1">
-                        <p className="text-xs text-gray-400 mb-1">{done} of {total} complete</p>
+                        <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">{done} of {total} complete</p>
                         <div className="h-1.5 bg-gray-200/70 rounded-full overflow-hidden">
                             <div className={`h-full ${c.gradient} rounded-full transition-[width] duration-700 ease-out`} style={{ width: `${pct}%` }} />
                         </div>
@@ -89,12 +89,12 @@ function UnitRow({ unit, langId, level, mastered, allUnits, completed }: Readonl
     const isMastered = mastered.includes(unit.id)
     const unlocked = isUnitUnlocked(langId, unit.id, allUnits)
 
-    let rowState = "border-gray-100 border-l-4 border-l-gray-200 bg-gray-50 opacity-50 cursor-default"
+    let rowState = "border-gray-100 dark:border-gray-700 border-l-4 border-l-gray-200 dark:border-l-gray-600 bg-gray-50 dark:bg-gray-700/50 opacity-50 cursor-default"
     if (isMastered) rowState = "border-green-200 border-l-4 border-l-green-500 bg-green-50/40 hover:border-green-300"
-    else if (unlocked) rowState = "border-gray-200 border-l-4 border-l-violet-500 bg-white hover:shadow-sm"
+    else if (unlocked) rowState = "border-gray-200 dark:border-gray-700 border-l-4 border-l-violet-500 bg-white dark:bg-gray-800 hover:shadow-sm"
     const rowCls = `flex items-start gap-4 px-5 py-4 rounded-2xl border-y border-r transition-all ${rowState}`
 
-    let badgeState = "bg-gray-200 text-gray-400"
+    let badgeState = "bg-gray-200 dark:bg-gray-600 text-gray-400 dark:text-gray-500"
     if (isMastered) badgeState = "bg-green-500 text-white"
     else if (unlocked) badgeState = "bg-violet-600 text-white"
     const badgeCls = `shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mt-0.5 ${badgeState}`
@@ -113,10 +113,10 @@ function UnitRow({ unit, langId, level, mastered, allUnits, completed }: Readonl
                 {isMastered ? "✓" : unit.order}
             </span>
             <div className="flex-1 min-w-0">
-                <p className={`font-semibold truncate ${unlocked ? "text-gray-900" : "text-gray-400"}`}>
+                <p className={`font-semibold truncate ${unlocked ? "text-gray-900 dark:text-gray-100" : "text-gray-400 dark:text-gray-500"}`}>
                     {unit.title}
                 </p>
-                <p className="text-xs text-gray-400 truncate mt-0.5">{resolvePrimary(unit.description, level)}</p>
+                <p className="text-xs text-gray-400 dark:text-gray-500 truncate mt-0.5">{resolvePrimary(unit.description, level)}</p>
                 {unlocked && (
                     <div className="flex flex-wrap gap-1.5 mt-2">
                         {pills.map(p => (
@@ -128,7 +128,7 @@ function UnitRow({ unit, langId, level, mastered, allUnits, completed }: Readonl
                 )}
             </div>
             {!unlocked && (
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-300 shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-300 dark:text-gray-600 shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
             )}
@@ -178,7 +178,7 @@ export function DashboardPage() {
     if (!language || !mod) {
         return (
             <div className="min-h-screen flex items-center justify-center">
-                <p className="text-gray-500">Language not found.</p>
+                <p className="text-gray-500 dark:text-gray-400">Language not found.</p>
             </div>
         )
     }
@@ -209,18 +209,18 @@ export function DashboardPage() {
     ]
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
             <NavBar title={language.name} level={level} backTo="/home" />
 
             <main className="max-w-3xl mx-auto px-4 py-6">
                 {/* Level header */}
-                <div className="bg-white rounded-2xl border border-gray-200 p-4 mb-5 flex items-center gap-4">
+                <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-4 mb-5 flex items-center gap-4">
                     <Flag langId={langId} size="lg" />
                     <div className="flex-1">
-                        <p className="text-xs text-gray-400 mb-0.5">{ui.currentLevel}</p>
+                        <p className="text-xs text-gray-400 dark:text-gray-500 mb-0.5">{ui.currentLevel}</p>
                         <div className="flex items-center gap-2">
                             <LevelBadge level={level} />
-                            <span className="text-gray-700 text-sm">{levelName(level, ui)}</span>
+                            <span className="text-gray-700 dark:text-gray-300 text-sm">{levelName(level, ui)}</span>
                         </div>
                     </div>
                     <button
@@ -233,7 +233,7 @@ export function DashboardPage() {
 
                 {/* Tab bar */}
                 <Tabs value={tab} onValueChange={v => switchTab(v as DashTab)} className="mb-6">
-                    <TabsList className="w-full h-auto p-1 bg-gray-100 rounded-xl">
+                    <TabsList className="w-full h-auto p-1 bg-gray-100 dark:bg-gray-700 rounded-xl">
                         {tabs.map(t => (
                             <TabsTrigger
                                 key={t.id}
@@ -256,12 +256,12 @@ export function DashboardPage() {
                             <>
                                 {/* Level progress bar */}
                                 <div className="flex items-center gap-3 mb-4">
-                                    <span className="text-xs text-gray-500 shrink-0">{level} progress</span>
-                                    <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                                    <span className="text-xs text-gray-500 dark:text-gray-400 shrink-0">{level} progress</span>
+                                    <div className="flex-1 h-2 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
                                         <div className="h-full bg-violet-500 rounded-full transition-all"
                                             style={{ width: `${levelUnits.length ? masteredCount / levelUnits.length * 100 : 0}%` }} />
                                     </div>
-                                    <span className="text-xs text-gray-500 shrink-0">{masteredCount} of {levelUnits.length}</span>
+                                    <span className="text-xs text-gray-500 dark:text-gray-400 shrink-0">{masteredCount} of {levelUnits.length}</span>
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     {levelUnits.map(unit => (
@@ -278,7 +278,7 @@ export function DashboardPage() {
                                 </div>
                             </>
                         ) : (
-                            <div className="text-center py-16 text-gray-400">
+                            <div className="text-center py-16 text-gray-400 dark:text-gray-500">
                                 <p className="text-4xl mb-3">🚧</p>
                                 <p className="font-medium">Guided units coming soon for {language.name}.</p>
                                 <p className="text-sm mt-1">Use the Study tab to browse content directly.</p>
@@ -388,8 +388,8 @@ export function DashboardPage() {
                                         <p className="text-violet-200 text-sm">15 questions · pass 12 to advance</p>
                                     </div>
                                     {/* Readiness */}
-                                    <div className="bg-white rounded-2xl border border-gray-200 p-5">
-                                        <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-4">Readiness</p>
+                                    <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5">
+                                        <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wide mb-4">Readiness</p>
                                         <div className="flex flex-col gap-3">
                                             {[
                                                 { label: "Grammar covered",    done: grammar.done, total: grammar.total, color: "bg-green-500" },
@@ -397,12 +397,12 @@ export function DashboardPage() {
                                                 { label: "Flashcard accuracy",  done: srsAcc,       total: 100,           color: "bg-violet-500", suffix: "%" },
                                             ].map(r => (
                                                 <div key={r.label} className="flex items-center gap-3">
-                                                    <span className="text-sm text-gray-600 flex-1">{r.label}</span>
-                                                    <div className="w-28 h-2 bg-gray-100 rounded-full overflow-hidden">
+                                                    <span className="text-sm text-gray-600 dark:text-gray-400 flex-1">{r.label}</span>
+                                                    <div className="w-28 h-2 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
                                                         <div className={`h-full ${r.color} rounded-full`}
                                                             style={{ width: `${r.total ? r.done / r.total * 100 : 0}%` }} />
                                                     </div>
-                                                    <span className="text-xs text-gray-500 w-14 text-right shrink-0">
+                                                    <span className="text-xs text-gray-500 dark:text-gray-400 w-14 text-right shrink-0">
                                                         {r.suffix ? `${r.done}${r.suffix}` : `${r.done}/${r.total}`}
                                                     </span>
                                                 </div>
@@ -428,10 +428,10 @@ export function DashboardPage() {
                                 </div>
                             )
                         })() : (
-                            <div className="flex flex-col items-center text-center py-16 gap-4 text-gray-400">
+                            <div className="flex flex-col items-center text-center py-16 gap-4 text-gray-400 dark:text-gray-500">
                                 <p className="text-4xl">🏆</p>
-                                <p className="font-medium text-gray-700">You've reached the highest level!</p>
-                                <p className="text-sm text-gray-500">Keep your skills sharp with daily practice.</p>
+                                <p className="font-medium text-gray-700 dark:text-gray-300">You've reached the highest level!</p>
+                                <p className="text-sm text-gray-500 dark:text-gray-400">Keep your skills sharp with daily practice.</p>
                                 <button
                                     onClick={() => switchTab("practice")}
                                     className="mt-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold

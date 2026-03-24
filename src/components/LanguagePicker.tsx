@@ -68,7 +68,7 @@ export function LanguagePicker() {
                 className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-sm font-medium
                             transition-colors ${open
                         ? "bg-indigo-100 text-indigo-700"
-                        : "hover:bg-gray-100 text-gray-700"}`}
+                        : "hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"}`}
                 aria-label="Switch language"
             >
                 <Flag langId={selectedId} size="sm" />
@@ -85,9 +85,9 @@ export function LanguagePicker() {
             {/* Dropdown */}
             {open && (
                 <div className="fixed sm:absolute top-14 sm:top-full left-2 right-2 sm:left-auto sm:right-0
-                                sm:mt-1 z-50 bg-white border border-gray-200
+                                sm:mt-1 z-50 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700
                                 rounded-2xl shadow-lg p-3 sm:w-max sm:max-w-[90vw]">
-                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide px-1 mb-2">
+                    <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wide px-1 mb-2">
                         Your courses
                     </p>
 
@@ -107,24 +107,24 @@ export function LanguagePicker() {
                                                 rounded-xl border transition-all text-center
                                                 ${active
                                             ? "border-indigo-400 bg-indigo-50 ring-2 ring-indigo-200"
-                                            : "border-gray-200 hover:border-indigo-300 hover:shadow-sm"}`}
+                                            : "border-gray-200 dark:border-gray-700 hover:border-indigo-300 hover:shadow-sm"}`}
                                 >
                                     <Flag langId={langId} size="lg" />
-                                    <p className="text-xs font-semibold text-gray-900 leading-tight">{lang.name}</p>
+                                    <p className="text-xs font-semibold text-gray-900 dark:text-gray-100 leading-tight">{lang.name}</p>
                                     <span className={`text-xs font-bold px-1.5 py-0.5 rounded-full
                                                      ${active
                                             ? "bg-indigo-200 text-indigo-800"
-                                            : "bg-gray-100 text-gray-600"}`}>
+                                            : "bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400"}`}>
                                         {level}
                                     </span>
                                     {/* Mini progress bar */}
-                                    <div className="w-full bg-gray-100 rounded-full h-1 mt-0.5">
+                                    <div className="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-1 mt-0.5">
                                         <div
                                             className="bg-indigo-400 h-1 rounded-full transition-all"
                                             style={{ width: `${pct}%` }}
                                         />
                                     </div>
-                                    <p className="text-xs text-gray-400">{pct}%</p>
+                                    <p className="text-xs text-gray-400 dark:text-gray-500">{pct}%</p>
                                     {active && (
                                         <span className="text-xs text-indigo-600 font-semibold">✓ Active</span>
                                     )}
@@ -136,11 +136,11 @@ export function LanguagePicker() {
                         <button
                             onClick={addCourse}
                             className="shrink-0 w-28 flex flex-col items-center justify-center gap-2 p-3
-                                       rounded-xl border border-dashed border-gray-300
+                                       rounded-xl border border-dashed border-gray-300 dark:border-gray-600
                                        hover:border-indigo-400 hover:bg-indigo-50 transition-all text-center"
                         >
-                            <span className="text-2xl text-gray-400">＋</span>
-                            <p className="text-xs font-medium text-gray-500">Add a course</p>
+                            <span className="text-2xl text-gray-400 dark:text-gray-500">＋</span>
+                            <p className="text-xs font-medium text-gray-500 dark:text-gray-400">Add a course</p>
                         </button>
                     </div>
                 </div>

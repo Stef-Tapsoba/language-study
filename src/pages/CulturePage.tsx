@@ -61,7 +61,7 @@ function VideoEmbed({ video }: Readonly<{ video: NonNullable<CultureEpisode["vid
         }${video.captionLang ? `&cc_lang_pref=${video.captionLang}&cc_load_policy=1` : ""}`
 
     return (
-        <div className="rounded-2xl overflow-hidden border border-gray-200 bg-black">
+        <div className="rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-black">
             {playing ? (
                 <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
                     <iframe
@@ -113,7 +113,7 @@ function PhotoEssay({ photos }: { photos: CultureEpisode["photos"] }) {
     const photo = photos[activeIdx]
 
     return (
-        <div className="rounded-2xl overflow-hidden border border-gray-200 bg-white">
+        <div className="rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
             <div className="relative" style={{ paddingTop: "60%" }}>
                 <img
                     key={photo.url}
@@ -155,13 +155,13 @@ function CultureVocabPanel({ vocab }: { vocab: CultureEpisode["cultureVocab"] })
     const [expanded, setExpanded] = useState<string | null>(null)
 
     return (
-        <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
             <button
                 onClick={() => setOpen(v => !v)}
-                className="w-full flex items-center justify-between px-5 py-3.5 text-sm font-semibold text-gray-700 hover:bg-gray-50"
+                className="w-full flex items-center justify-between px-5 py-3.5 text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50"
             >
                 <span>🔑 Key vocabulary & cultural notes</span>
-                <span className="text-gray-400 text-xs">{open ? "▲" : "▼"}</span>
+                <span className="text-gray-400 dark:text-gray-500 text-xs">{open ? "▲" : "▼"}</span>
             </button>
             {open && (
                 <div className="px-4 pb-4 flex flex-col gap-2">
@@ -177,7 +177,7 @@ function CultureVocabPanel({ vocab }: { vocab: CultureEpisode["cultureVocab"] })
                                     {v.romanized && (
                                         <p className="text-xs text-amber-500 font-medium">{v.romanized}</p>
                                     )}
-                                    <p className="text-xs text-gray-600 mt-0.5">{v.translation}</p>
+                                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">{v.translation}</p>
                                 </div>
                                 {v.culturalNote && (
                                     <span className="text-xs text-amber-400 shrink-0 mt-0.5">
@@ -186,7 +186,7 @@ function CultureVocabPanel({ vocab }: { vocab: CultureEpisode["cultureVocab"] })
                                 )}
                             </div>
                             {expanded === v.word && v.culturalNote && (
-                                <p className="text-xs text-gray-700 mt-2 pt-2 border-t border-amber-200 leading-relaxed">
+                                <p className="text-xs text-gray-700 dark:text-gray-300 mt-2 pt-2 border-t border-amber-200 leading-relaxed">
                                     {v.culturalNote}
                                 </p>
                             )}
@@ -207,7 +207,7 @@ function DidYouKnow({ content }: Readonly<{ content: NonNullable<CultureEpisode[
     return (
         <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5">
             <p className="text-xs font-bold text-amber-600 uppercase tracking-wider mb-2">💡 Did you know?</p>
-            <p className="text-sm text-gray-800 leading-relaxed">
+            <p className="text-sm text-gray-800 dark:text-gray-200 leading-relaxed">
                 {showTarget && content.target ? content.target : content.native}
             </p>
             {content.target && (
@@ -230,11 +230,11 @@ function ReflectionCard({ question }: { question: CultureEpisode["questions"][nu
     const prompt = question.prompt.target ?? question.prompt.native
 
     return (
-        <div className="bg-white rounded-2xl border border-gray-200 p-5">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5">
             <div className="flex items-center gap-2 mb-3">
                 <QuestionTypePill type={question.type as "reflection" | "comparison"} />
             </div>
-            <p className="text-sm font-medium text-gray-800 leading-relaxed mb-3">{prompt}</p>
+            <p className="text-sm font-medium text-gray-800 dark:text-gray-200 leading-relaxed mb-3">{prompt}</p>
             {!answered ? (
                 <button
                     onClick={() => setAnswered(true)}
@@ -300,15 +300,15 @@ function QuizSection({
                             {ui.checkUnderstanding}
                         </button>
                     ) : quizDone ? (
-                        <div className="bg-white rounded-2xl border border-gray-200 p-5 text-center">
+                        <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5 text-center">
                             <div className="text-3xl mb-2">{quizScore === compQs.length ? "🎉" : "💪"}</div>
-                            <p className="font-semibold text-gray-900">
+                            <p className="font-semibold text-gray-900 dark:text-gray-100">
                                 {fmt(ui.youAnswered, { score: quizScore, total: compQs.length })}
                             </p>
                         </div>
                     ) : (
                         <div className="flex flex-col gap-4">
-                            <div className="flex items-center justify-between text-sm text-gray-500">
+                            <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
                                 <span>{fmt(ui.questionOf, { n: quizIndex + 1, total: compQs.length })}</span>
                                 <span>{ui.scoreLabel}: {quizScore}</span>
                             </div>
@@ -377,10 +377,10 @@ function CultureEpisodeView({
             <div className="flex items-start justify-between gap-2">
                 <div className="flex-1 min-w-0">
                     <CategoryPill category={episode.category} />
-                    <h2 className="text-xl font-bold text-gray-900 mt-2 leading-tight">
+                    <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mt-2 leading-tight">
                         {episode.title.target ?? episode.title.native}
                     </h2>
-                    <p className="text-sm text-gray-500 mt-1 italic">{episode.subtitle}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-1 italic">{episode.subtitle}</p>
                 </div>
                 <LevelBadge level={episode.level} />
             </div>
@@ -395,22 +395,22 @@ function CultureEpisodeView({
 
             {/* Body text */}
             {episode.simpleTarget ? (
-                <div className="bg-white rounded-2xl border border-gray-200 p-5">
-                    <p className="text-base text-gray-900 leading-relaxed whitespace-pre-line">{episode.body.native}</p>
-                    <div className="mt-4 pt-4 border-t border-gray-100">
+                <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5">
+                    <p className="text-base text-gray-900 dark:text-gray-100 leading-relaxed whitespace-pre-line">{episode.body.native}</p>
+                    <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
                         <p className="text-xs font-semibold text-indigo-600 uppercase tracking-wide mb-3">
                             📖 Simple {getLanguage(langId)?.name} — reading practice
                         </p>
-                        <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-line">
+                        <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
                             {episode.simpleTarget}
                         </p>
                     </div>
                 </div>
             ) : (
-                <div className="bg-white rounded-2xl border border-gray-200 p-5">
-                    <p className="text-base text-gray-900 leading-relaxed whitespace-pre-line">{bodyText}</p>
+                <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5">
+                    <p className="text-base text-gray-900 dark:text-gray-100 leading-relaxed whitespace-pre-line">{bodyText}</p>
                     {showTranslation && (
-                        <div className="mt-4 pt-4 border-t border-gray-100">
+                        <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
                             <button
                                 onClick={() => setTranslationShown(v => !v)}
                                 className="text-sm text-indigo-600 hover:underline mb-2"
@@ -418,7 +418,7 @@ function CultureEpisodeView({
                                 {translationShown ? ui.hideEnglish : ui.showEnglish}
                             </button>
                             {translationShown && (
-                                <p className="text-sm text-gray-500 leading-relaxed whitespace-pre-line">
+                                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line">
                                     {episode.body.native}
                                 </p>
                             )}
@@ -437,7 +437,7 @@ function CultureEpisodeView({
             <QuizSection episode={episode} langId={langId} ui={ui} />
 
             {/* Sticky mark-as-read bar */}
-            <div className="fixed bottom-0 left-0 right-0 z-20 bg-white border-t border-gray-200 px-4 pt-3 pb-safe">
+            <div className="fixed bottom-0 left-0 right-0 z-20 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 px-4 pt-3 pb-safe">
                 <div className="max-w-xl mx-auto">
                     <button
                         onClick={markedRead ? undefined : handleMarkRead}
@@ -471,7 +471,7 @@ function CultureBrowse({
 }>) {
     if (episodes.length === 0) {
         return (
-            <div className="text-center py-16 text-gray-400">
+            <div className="text-center py-16 text-gray-400 dark:text-gray-500">
                 <p className="text-4xl mb-3">🌍</p>
                 <p className="font-medium">No cultural episodes at this level yet</p>
             </div>
@@ -486,11 +486,11 @@ function CultureBrowse({
                     <button
                         key={ep.id}
                         onClick={() => onSelect(ep)}
-                        className="w-full text-left bg-white rounded-2xl border border-amber-200 overflow-hidden
+                        className="w-full text-left bg-white dark:bg-gray-800 rounded-2xl border border-amber-200 dark:border-gray-700 overflow-hidden
                                    hover:border-amber-400 hover:shadow-sm transition-all"
                     >
                         {/* Video thumbnail strip */}
-                        <div className="relative h-28 bg-amber-50 overflow-hidden">
+                        <div className="relative h-28 bg-amber-50 dark:bg-gray-700 overflow-hidden">
                             {ep.video ? (
                                 <img
                                     src={`https://img.youtube.com/vi/${ep.video.youtubeId}/mqdefault.jpg`}
@@ -526,16 +526,16 @@ function CultureBrowse({
                                     <div className="flex items-center gap-2 mb-1.5 flex-wrap">
                                         <CategoryPill category={ep.category} />
                                     </div>
-                                    <p className="font-semibold text-gray-900 leading-snug">
+                                    <p className="font-semibold text-gray-900 dark:text-gray-100 leading-snug">
                                         {ep.title.native}
                                     </p>
-                                    <p className="text-xs text-gray-500 mt-1 line-clamp-2 leading-relaxed">
+                                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-2 leading-relaxed">
                                         {ep.subtitle}
                                     </p>
                                 </div>
                                 <LevelBadge level={ep.level} />
                             </div>
-                            <div className="mt-3 flex items-center gap-3 text-xs text-gray-400">
+                            <div className="mt-3 flex items-center gap-3 text-xs text-gray-400 dark:text-gray-500">
                                 <span>📸 {ep.photos.length} photos</span>
                                 <span>🔑 {ep.cultureVocab.length} words</span>
                                 <span>❓ {ep.questions.length} questions</span>
@@ -571,7 +571,7 @@ export function CulturePage() {
     const handleBack = selectedEpisode ? () => setSelectedEpisode(null) : undefined
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
             <NavBar
                 title={selectedEpisode ? (selectedEpisode.title.target ?? selectedEpisode.title.native) : ui.sectionCulture}
                 level={level}

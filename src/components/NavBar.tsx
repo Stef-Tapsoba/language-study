@@ -5,6 +5,7 @@ import { LevelBadge } from "./LevelBadge"
 import { LanguagePicker } from "./LanguagePicker"
 import { CEFRLevel } from "../types"
 import { useGlobalStreak } from "../hooks/useGlobalStreak"
+import { useDarkMode } from "../hooks/useDarkMode"
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip"
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbPage, BreadcrumbSeparator } from "./ui/breadcrumb"
 
@@ -34,6 +35,7 @@ interface NavBarProps {
 
 export function NavBar({ title = "Language Study", level, backTo, fallbackRoute, onBack, showLanguagePicker, breadcrumb }: Readonly<NavBarProps>) {
     const navigate = useNavigate()
+    const [dark, toggleDark] = useDarkMode()
     // Reactive: re-reads from the Zustand store so streak updates live during a session.
     const streak = useGlobalStreak()
 
@@ -64,12 +66,12 @@ export function NavBar({ title = "Language Study", level, backTo, fallbackRoute,
     }
 
     return (
-        <nav className="bg-white border-b border-gray-200 sticky top-0 z-10">
+        <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-10">
             <div className="max-w-3xl mx-auto px-4 md:px-6 pl-[max(1rem,env(safe-area-inset-left))] pr-[max(1rem,env(safe-area-inset-right))] h-14 flex items-center gap-2">
                 {backTo && (
                     <button
                         onClick={handleBack}
-                        className="p-2 -ml-2 mr-0 text-gray-500 hover:text-gray-800 rounded"
+                        className="p-2 -ml-2 mr-0 text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200 rounded"
                         aria-label="Go back"
                         data-testid="nav-back"
                     >
@@ -80,7 +82,7 @@ export function NavBar({ title = "Language Study", level, backTo, fallbackRoute,
                     </button>
                 )}
 
-                <span className="font-semibold text-gray-900 flex-1 truncate">{title}</span>
+                <span className="font-semibold text-gray-900 dark:text-gray-100 flex-1 truncate">{title}</span>
 
                 {showLanguagePicker && <LanguagePicker />}
 
@@ -94,9 +96,30 @@ export function NavBar({ title = "Language Study", level, backTo, fallbackRoute,
 
                 <Tooltip>
                     <TooltipTrigger asChild>
+                        <button
+                            onClick={toggleDark}
+                            className="p-2 text-gray-400 hover:text-gray-700 dark:text-gray-500 dark:hover:text-gray-300 shrink-0"
+                            aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
+                        >
+                            {dark ? (
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                                </svg>
+                            ) : (
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                                </svg>
+                            )}
+                        </button>
+                    </TooltipTrigger>
+                    <TooltipContent>{dark ? "Light mode" : "Dark mode"}</TooltipContent>
+                </Tooltip>
+
+                <Tooltip>
+                    <TooltipTrigger asChild>
                         <Link
                             to="/profile"
-                            className="p-2 text-gray-400 hover:text-gray-700 shrink-0"
+                            className="p-2 text-gray-400 hover:text-gray-700 dark:text-gray-500 dark:hover:text-gray-300 shrink-0"
                             aria-label="View profile"
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"

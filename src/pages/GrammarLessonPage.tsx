@@ -26,9 +26,9 @@ export function GrammarLessonPage() {
 
     if (!lesson) {
         return (
-            <div className="min-h-screen bg-gray-50">
+            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
                 <NavBar title="Grammar" level={level} backTo={`/learn/${langId}/grammar`} />
-                <main className="max-w-xl mx-auto px-4 py-16 text-center text-gray-400">
+                <main className="max-w-xl mx-auto px-4 py-16 text-center text-gray-400 dark:text-gray-500">
                     <p className="text-4xl mb-3">🔍</p>
                     <p className="font-medium">Lesson not found</p>
                 </main>
@@ -45,20 +45,20 @@ export function GrammarLessonPage() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
             <NavBar title={lesson.title} level={level} backTo={`/learn/${langId}/grammar`}
                 breadcrumb={`${language.name} › Grammar`} />
             <main className="max-w-xl mx-auto px-4 py-6 flex flex-col gap-5">
 
                 {/* Title + level badge */}
                 <div className="flex items-start justify-between gap-3">
-                    <h1 className="text-2xl font-bold text-gray-900 leading-tight">{lesson.title}</h1>
+                    <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100 leading-tight">{lesson.title}</h1>
                     <LevelBadge level={lesson.level} />
                 </div>
 
                 {/* Explanation */}
-                <div className="bg-white rounded-2xl border border-gray-200 p-5">
-                    <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2">Explanation</h2>
+                <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5">
+                    <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500 mb-2">Explanation</h2>
                     {renderExplanation(explanation, {
                         inlineVocab: lesson.inlineVocab,
                         onVocabClick: handleVocabClick,
@@ -69,20 +69,20 @@ export function GrammarLessonPage() {
 
                 {/* Examples */}
                 {lesson.examples.length > 0 && (
-                    <div className="bg-white rounded-2xl border border-gray-200 p-5">
-                        <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-3">Examples</h2>
+                    <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5">
+                        <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500 mb-3">Examples</h2>
                         <div className="flex flex-col gap-3">
                             {lesson.examples.map((ex) => (
-                                <div key={ex.native} className="bg-gray-50 rounded-xl p-4 flex items-start gap-2">
+                                <div key={ex.native} className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4 flex items-start gap-2">
                                     <div className="flex-1">
                                         <div className="flex items-center gap-2">
-                                            <p className="font-semibold text-gray-900">{ex.native}</p>
+                                            <p className="font-semibold text-gray-900 dark:text-gray-100">{ex.native}</p>
                                             <SpeakButton text={ex.speakText ?? ex.native} langId={langId} />
                                         </div>
                                         {ex.romanized && (
                                             <p className="text-xs text-indigo-500 mt-0.5">{ex.romanized}</p>
                                         )}
-                                        <p className="text-sm text-gray-500 mt-0.5">{ex.translation}</p>
+                                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{ex.translation}</p>
                                     </div>
                                 </div>
                             ))}

@@ -12,11 +12,11 @@ function BreakdownBar({ label, done, total, color }: Readonly<{
     const pct = total ? done / total * 100 : 0
     return (
         <div className="flex items-center gap-3">
-            <span className="text-sm text-gray-600 w-24 shrink-0">{label}</span>
-            <div className="flex-1 h-2 bg-gray-200/70 rounded-full overflow-hidden">
+            <span className="text-sm text-gray-600 dark:text-gray-400 w-24 shrink-0">{label}</span>
+            <div className="flex-1 h-2 bg-gray-200/70 dark:bg-gray-600/70 rounded-full overflow-hidden">
                 <div className={`h-full ${color} rounded-full transition-[width] duration-700 ease-out`} style={{ width: `${pct}%` }} />
             </div>
-            <span className="text-xs text-gray-500 w-12 text-right shrink-0">{done}/{total}</span>
+            <span className="text-xs text-gray-500 dark:text-gray-400 w-12 text-right shrink-0">{done}/{total}</span>
         </div>
     )
 }
@@ -36,28 +36,28 @@ export function StatsTab({ langId, level }: Readonly<{ langId: string; level: CE
         <div className="flex flex-col gap-5">
             {/* Stat chips */}
             <div className="grid grid-cols-3 gap-3">
-                <div className="bg-white rounded-2xl border border-gray-200 p-4 text-center">
+                <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-4 text-center">
                     <p className="text-2xl font-bold text-violet-600">{allReviewed}</p>
-                    <p className="text-xs text-gray-500 mt-1">cards reviewed</p>
-                    <p className="text-xs text-gray-400">last 14 days</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">cards reviewed</p>
+                    <p className="text-xs text-gray-400 dark:text-gray-500">last 14 days</p>
                 </div>
-                <div className="bg-white rounded-2xl border border-gray-200 p-4 text-center">
+                <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-4 text-center">
                     <p className="text-2xl font-bold text-green-600">{avgAcc}%</p>
-                    <p className="text-xs text-gray-500 mt-1">quiz accuracy</p>
-                    <p className="text-xs text-gray-400">all activities</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">quiz accuracy</p>
+                    <p className="text-xs text-gray-400 dark:text-gray-500">all activities</p>
                 </div>
-                <div className="bg-white rounded-2xl border border-gray-200 p-4 text-center">
+                <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-4 text-center">
                     <p className="text-2xl font-bold text-amber-500">{streak}🔥</p>
-                    <p className="text-xs text-gray-500 mt-1">day streak</p>
-                    <p className="text-xs text-gray-400">keep it up!</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">day streak</p>
+                    <p className="text-xs text-gray-400 dark:text-gray-500">keep it up!</p>
                 </div>
             </div>
 
             {/* Bar chart */}
-            <div className="bg-white rounded-2xl border border-gray-200 p-4">
+            <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-4">
                 <div className="flex items-center justify-between mb-3">
-                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide">Daily reviews</p>
-                    <div className="flex items-center gap-3 text-xs text-gray-400">
+                    <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wide">Daily reviews</p>
+                    <div className="flex items-center gap-3 text-xs text-gray-400 dark:text-gray-500">
                         <span className="flex items-center gap-1">
                             <span className="w-2 h-2 rounded-full bg-violet-400 inline-block" />{" "}
                             {"Reviewed"}
@@ -89,7 +89,7 @@ export function StatsTab({ langId, level }: Readonly<{ langId: string; level: CE
                         const d = new Date(day.date + "T00:00:00")
                         return (
                             <div key={day.date} className="flex-1 text-center">
-                                {d.getDay() === 1 && <span className="text-xs text-gray-300">M</span>}
+                                {d.getDay() === 1 && <span className="text-xs text-gray-300 dark:text-gray-600">M</span>}
                             </div>
                         )
                     })}
@@ -97,8 +97,8 @@ export function StatsTab({ langId, level }: Readonly<{ langId: string; level: CE
             </div>
 
             {/* Progress breakdown */}
-            <div className="bg-white rounded-2xl border border-gray-200 p-4">
-                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-4">Progress breakdown</p>
+            <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-4">
+                <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wide mb-4">Progress breakdown</p>
                 <div className="flex flex-col gap-3">
                     <BreakdownBar label={SECTION_CONFIG.grammar.label}   done={grammar.done}   total={grammar.total}   color={SECTION_CONFIG.grammar.gradient}   />
                     <BreakdownBar label={SECTION_CONFIG.vocab.label}     done={vocab.done}     total={vocab.total}     color={SECTION_CONFIG.vocab.gradient}     />
@@ -109,7 +109,7 @@ export function StatsTab({ langId, level }: Readonly<{ langId: string; level: CE
             </div>
 
             {total === 0 && (
-                <p className="text-center text-gray-400 text-sm py-2">
+                <p className="text-center text-gray-400 dark:text-gray-500 text-sm py-2">
                     Complete a drill, flashcard session, or exercise to see your stats.
                 </p>
             )}

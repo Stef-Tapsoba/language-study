@@ -36,10 +36,44 @@
         --radius:             0.5rem;           /* base radius — rounded-lg = 0.5rem */
     }
 
+    .dark {
+        --background:         222 47% 7%;       /* #060d1f dark navy */
+        --foreground:         210 20% 96%;      /* near-white */
+
+        --card:               222 30% 11%;      /* dark card surface */
+        --card-foreground:    210 20% 96%;
+
+        --popover:            222 30% 11%;
+        --popover-foreground: 210 20% 96%;
+
+        --primary:            263 70% 62%;      /* slightly lighter violet */
+        --primary-foreground: 0 0% 100%;
+
+        --secondary:          222 20% 18%;
+        --secondary-foreground: 210 20% 96%;
+
+        --muted:              222 20% 18%;
+        --muted-foreground:   215 15% 58%;      /* medium gray */
+
+        --accent:             263 70% 62%;
+        --accent-foreground:  0 0% 100%;
+
+        --destructive:        0 84% 60%;
+        --destructive-foreground: 0 0% 100%;
+
+        --border:             222 18% 22%;      /* dark border */
+        --input:              222 18% 22%;
+        --ring:               263 70% 62%;
+    }
+
     body {
         background-color: #f7f5f2;
         @apply text-gray-900;
         -webkit-font-smoothing: antialiased;
+    }
+
+    .dark body {
+        background-color: #0c1120;
     }
 }
 

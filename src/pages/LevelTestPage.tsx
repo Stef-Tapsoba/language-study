@@ -17,7 +17,7 @@ const PASS_THRESHOLD = 12  // out of 15
 function progressDotClass(i: number, current: number): string {
     if (i < current) return "bg-indigo-500"
     if (i === current) return "bg-indigo-300"
-    return "bg-gray-200"
+    return "bg-gray-200 dark:bg-gray-600"
 }
 
 // ---------------------------------------------------------------------------
@@ -29,7 +29,7 @@ function LevelUpOverlay({ nextLevel, onDone }: Readonly<{ nextLevel: CEFRLevel; 
             <DialogContent className="text-center max-w-sm">
                 <DialogHeader>
                     <DialogTitle className="text-2xl font-bold text-indigo-700">🎉 Level Up!</DialogTitle>
-                    <DialogDescription className="text-lg text-gray-700">
+                    <DialogDescription className="text-lg text-gray-700 dark:text-gray-300">
                         You've advanced to {nextLevel}
                     </DialogDescription>
                 </DialogHeader>
@@ -76,7 +76,7 @@ function ResultsActions({ passed, nextLevel, langId, ui, onRetry }: Readonly<{
                         onDone={() => navigate(`/learn/${langId}`)}
                     />
                 )}
-                <p className="text-sm text-gray-500 mb-3">{ui.currentLevel}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">{ui.currentLevel}</p>
                 <div className="flex justify-center mb-4">
                     <LevelBadge level={nextLevel} />
                 </div>
@@ -94,7 +94,7 @@ function ResultsActions({ passed, nextLevel, langId, ui, onRetry }: Readonly<{
     if (passed) {
         return (
             <>
-                <p className="text-sm text-gray-600 mb-4">{ui.levelTestAtHighest}</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">{ui.levelTestAtHighest}</p>
                 <button
                     onClick={() => navigate(`/learn/${langId}`)}
                     className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
@@ -108,10 +108,10 @@ function ResultsActions({ passed, nextLevel, langId, ui, onRetry }: Readonly<{
 
     return (
         <>
-            <p className="text-sm text-gray-600 mb-1">
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
                 {fmt(ui.levelTestNeedScore, { pass: PASS_THRESHOLD })}
             </p>
-            <p className="text-xs text-gray-400 mb-4">
+            <p className="text-xs text-gray-400 dark:text-gray-500 mb-4">
                 {ui.sectionGrammar}, {ui.sectionVocab}, {ui.sectionVerbs}
             </p>
             <button
@@ -159,9 +159,9 @@ export function LevelTestPage() {
 
     if (questions.length === 0) {
         return (
-            <div className="min-h-screen bg-gray-50">
+            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
                 <NavBar title={ui.levelTestTitle} level={level} backTo={`/learn/${langId}`} />
-                <main className="max-w-xl mx-auto px-4 py-16 text-center text-gray-400">
+                <main className="max-w-xl mx-auto px-4 py-16 text-center text-gray-400 dark:text-gray-500">
                     <p className="text-4xl mb-3">🚧</p>
                     <p className="font-medium">Level test coming soon for {level}</p>
                 </main>
@@ -199,14 +199,14 @@ export function LevelTestPage() {
 
     if (!started) {
         return (
-            <div className="min-h-screen bg-gray-50">
+            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
                 <NavBar title={ui.levelTestTitle} level={level} backTo={`/learn/${langId}`} />
                 <main className="max-w-xl mx-auto px-4 py-16 flex flex-col items-center gap-5 text-center">
                     <p className="text-5xl">📝</p>
                     <LevelBadge level={level} />
-                    <h2 className="text-xl font-bold text-gray-900">{ui.levelTestTitle}</h2>
+                    <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">{ui.levelTestTitle}</h2>
                     {nextLevel && (
-                        <p className="text-sm text-gray-500">
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
                             {fmt(ui.levelTestDesc, { pass: PASS_THRESHOLD, total: questions.length, next: nextLevel })}
                         </p>
                     )}
@@ -225,18 +225,18 @@ export function LevelTestPage() {
     if (done) {
         const passed = score >= PASS_THRESHOLD
         return (
-            <div className="min-h-screen bg-gray-50">
+            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
                 <NavBar title={ui.levelTestTitle} level={level} backTo={`/learn/${langId}`} />
                 <main className="max-w-xl mx-auto px-4 py-12 flex flex-col items-center gap-6 text-center">
                     <div className="text-5xl">{passed ? "🏆" : "📚"}</div>
-                    <h2 className="text-2xl font-bold text-gray-900">
+                    <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
                         {passed ? ui.levelTestPassed : ui.levelTestKeepPractising}
                     </h2>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 dark:text-gray-400">
                         {fmt(ui.youAnswered, { score, total: questions.length })}
                         {" "}({Math.round((score / questions.length) * 100)}%)
                     </p>
-                    <div className="bg-white rounded-2xl border border-gray-200 p-5 w-full">
+                    <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5 w-full">
                         <ResultsActions
                             passed={passed}
                             nextLevel={passed ? nextLevel : null}
@@ -246,16 +246,16 @@ export function LevelTestPage() {
                         />
                     </div>
                     {missed.length > 0 && (
-                        <Accordion type="single" collapsible className="w-full bg-white rounded-2xl border border-gray-200 text-left">
+                        <Accordion type="single" collapsible className="w-full bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 text-left">
                             <AccordionItem value="mistakes" className="border-0 px-5">
-                                <AccordionTrigger className="text-sm font-semibold text-gray-700 py-3 hover:no-underline">
+                                <AccordionTrigger className="text-sm font-semibold text-gray-700 dark:text-gray-300 py-3 hover:no-underline">
                                     Review mistakes ({missed.length})
                                 </AccordionTrigger>
                                 <AccordionContent>
-                                    <div className="divide-y divide-gray-100">
+                                    <div className="divide-y divide-gray-100 dark:divide-gray-700">
                                         {missed.map(q => (
                                             <div key={q.id} className="py-3">
-                                                <p className="text-xs text-gray-500 mb-1">{q.prompt}</p>
+                                                <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">{q.prompt}</p>
                                                 <p className="text-sm font-medium text-green-700">✓ {q.answer}</p>
                                             </div>
                                         ))}
@@ -272,10 +272,10 @@ export function LevelTestPage() {
     const q = questions[current]
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
             <NavBar title={ui.levelTestTitle} level={level} backTo={`/learn/${langId}`} />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col items-center gap-6">
-                <div className="w-full flex items-center justify-between text-sm text-gray-500">
+                <div className="w-full flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
                     <span>{fmt(ui.questionOf, { n: current + 1, total: questions.length })}</span>
                     <span className="font-medium">{ui.scoreLabel}: {score}</span>
                 </div>

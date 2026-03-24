@@ -20,15 +20,15 @@ function NewUserWelcome({ displayName, onPick }: Readonly<{
     onPick: (langId: string) => void
 }>) {
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
             <NavBar title="Language Study" />
             <main className="max-w-2xl mx-auto px-4 py-12">
                 <div className="text-center mb-10">
                     <p className="text-4xl mb-4">👋</p>
-                    <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                    <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
                         Welcome, {displayName}!
                     </h1>
-                    <p className="text-gray-500">
+                    <p className="text-gray-500 dark:text-gray-400">
                         Let's start by choosing the language you want to learn.
                     </p>
                 </div>
@@ -38,19 +38,19 @@ function NewUserWelcome({ displayName, onPick }: Readonly<{
                         <button
                             key={lang.id}
                             onClick={() => onPick(lang.id)}
-                            className="bg-white border border-gray-200 rounded-2xl p-5 flex items-center
+                            className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-5 flex items-center
                                        gap-4 hover:border-indigo-400 hover:shadow-md transition-all text-left"
                         >
                             <Flag langId={lang.id} size="lg" />
                             <div>
-                                <p className="font-semibold text-gray-900 text-lg">{lang.name}</p>
-                                <p className="text-sm text-gray-500">{lang.nativeName}</p>
+                                <p className="font-semibold text-gray-900 dark:text-gray-100 text-lg">{lang.name}</p>
+                                <p className="text-sm text-gray-500 dark:text-gray-400">{lang.nativeName}</p>
                             </div>
                         </button>
                     ))}
                 </div>
 
-                <p className="text-center text-xs text-gray-400 mt-2">
+                <p className="text-center text-xs text-gray-400 dark:text-gray-500 mt-2">
                     Pick a language → take a short placement test → start learning at your level
                 </p>
             </main>
@@ -96,14 +96,14 @@ function ReturningHome({ firstName, startedIds }: Readonly<{
     const globalStreak = getGlobalStreak(statsData)
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
             <NavBar title="Language Study" showLanguagePicker />
 
             <main className="max-w-2xl mx-auto px-4 py-8 flex flex-col gap-6">
                 {/* Greeting */}
                 <div>
-                    <h1 className="text-2xl font-bold text-gray-900">{greeting(firstName)}</h1>
-                    <p className="text-gray-500 text-sm mt-0.5">Pick up where you left off.</p>
+                    <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{greeting(firstName)}</h1>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm mt-0.5">Pick up where you left off.</p>
                 </div>
 
                 {/* ── Continue learning hero ── */}
@@ -148,8 +148,8 @@ function ReturningHome({ firstName, startedIds }: Readonly<{
                 </div>
 
                 {/* ── Progress breakdown ── */}
-                <div className="bg-white rounded-2xl border border-gray-200 p-5">
-                    <h2 className="text-sm font-semibold text-gray-700 mb-4">Progress at {level}</h2>
+                <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5">
+                    <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-4">Progress at {level}</h2>
                     <div className="flex flex-col gap-3">
                         <ProgressBar color="grammar"   label={`📖 Grammar  ${grammar.done}/${grammar.total}`}     value={grammar.pct}   />
                         <ProgressBar color="vocab"     label={`📝 Vocabulary  ${vocab.done}/${vocab.total}`}       value={vocab.pct}     />
@@ -165,7 +165,7 @@ function ReturningHome({ firstName, startedIds }: Readonly<{
 
                 {/* ── Quick practice ── */}
                 <div>
-                    <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
+                    <h2 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-3">
                         Quick practice
                     </h2>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
@@ -177,14 +177,14 @@ function ReturningHome({ firstName, startedIds }: Readonly<{
                             <button
                                 key={label}
                                 onClick={() => navigate(path)}
-                                className="bg-white border border-gray-200 rounded-2xl p-3 sm:p-4 flex flex-col
+                                className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-3 sm:p-4 flex flex-col
                                            items-center gap-2 hover:border-violet-300 hover:shadow-sm
                                            transition-all text-center"
                             >
                                 <span className={`text-2xl w-12 h-12 flex items-center justify-center rounded-xl ${bg}`}>
                                     {emoji}
                                 </span>
-                                <p className="text-xs font-medium text-gray-700">{label}</p>
+                                <p className="text-xs font-medium text-gray-700 dark:text-gray-300">{label}</p>
                             </button>
                         ))}
                     </div>
