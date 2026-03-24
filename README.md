@@ -74,6 +74,29 @@ language-study/
 
 ---
 
+## Testing
+
+```bash
+npm run test              # run all tests once
+npm run test -- --watch   # watch mode
+```
+
+| Test file | What it covers |
+|---|---|
+| `src/utils/answerMatch.test.ts` | Exact match, case-insensitivity, accent stripping, whitespace |
+| `src/store/useStatsStore.test.ts` | `recordReview`, streak, accuracy, history, legacy migration |
+| `src/store/progress.test.ts` | Lesson/unit/level CRUD, user-switch wipe, corrupted JSON fallback |
+| `src/store/srs.test.ts` | `getDueCards`, `NEW_CARDS_PER_DAY` cap, v1→v2 migration, `updateCard` accumulation |
+| `src/utils/tts.test.ts` | BCP-47 language mapping, graceful no-op when Speech API absent |
+| `src/auth/mockAuthApi.test.ts` | Login, register, refresh, duplicate email detection |
+| `src/auth/AuthContext.test.tsx` | Session lifecycle, login/logout state updates |
+| `src/context/ProgressContext.test.tsx` | All mutations, user-switch, throws outside provider |
+| `src/hooks/useProgressStats.test.ts` | `computeProgressStats`, `isDone`, division-by-zero guard |
+| `src/components/DrillDoneScreen.test.tsx` | Score/pct rendering, missed-items toggle, callbacks |
+| `src/components/StatsTab.test.tsx` | Streak chip, progress labels, 14-day chart bars |
+
+---
+
 ## See also
 
 - [IMPLEMENTATION_PROGRESS.md](./documents/IMPLEMENTATION_PROGRESS.md) — detailed change log
