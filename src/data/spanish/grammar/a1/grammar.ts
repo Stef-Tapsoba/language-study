@@ -220,6 +220,58 @@ SUMMARY
     ]
   },
   {
+    id: "es-g-a1-35",
+    level: "A1",
+    title: "Direct Object Pronouns — lo, la, los, las",
+    explanation: `A direct object is the noun that directly receives the action of the verb.
+Direct object pronouns replace that noun so you don't have to repeat it.
+
+¿Tienes el libro?  →  Sí, lo tengo.
+Do you have the book?  →  Yes, I have it.
+
+THE FOUR FORMS
+
+              Singular    Plural
+  Masculine:  lo          los
+  Feminine:   la          las
+
+  lo = it / him (masculine noun)    los = them (masculine)
+  la = it / her (feminine noun)     las = them (feminine)
+
+POSITION — place the pronoun BEFORE the conjugated verb:
+  Tengo el café.        →  Lo tengo.        (I have it.)
+  Veo a María.          →  La veo.          (I see her.)
+  ¿Compras los libros?  →  ¿Los compras?    (Are you buying them?)
+  Comemos las tapas.    →  Las comemos.     (We eat them.)
+
+WITH INFINITIVES — two equally correct options:
+  Quiero comerlo.   =   Lo quiero comer.    (I want to eat it.)
+  Voy a hacerlo.    =   Lo voy a hacer.     (I'm going to do it.)
+  The pronoun attaches to the infinitive OR goes before the first verb.
+
+WITH COMMANDS — attach to affirmative; place before negative:
+  ¡Cómelo!           Eat it!
+  ¡No lo comas!      Don't eat it!
+  Ponlo aquí.        Put it here.
+  No lo pongas ahí.  Don't put it there.`,
+    examples: [
+      { native: "¿Tienes el libro? — Sí, lo tengo.", translation: "Do you have the book? — Yes, I have it." },
+      { native: "Veo a Carmen todos los días. La veo todos los días.", translation: "I see Carmen every day. I see her every day." },
+      { native: "¿Comes el pan? — Sí, lo como.", translation: "Do you eat the bread? — Yes, I eat it." },
+      { native: "Quiero comerlo. / Lo quiero comer.", translation: "I want to eat it. (both forms correct)" },
+      { native: "¡Cómelo! / ¡No lo comas!", translation: "Eat it! / Don't eat it!" },
+      { native: "¿Las tapas? Las pedimos ahora.", translation: "The tapas? We're ordering them now." },
+    ],
+    inlineVocab: [
+      { word: "libro", translation: "book" },
+      { word: "tapas", translation: "tapas (Spanish snacks)" },
+      { word: "pan", translation: "bread" },
+      { word: "poner", translation: "to put / to place" },
+      { word: "pedir", translation: "to order / to ask for" },
+      { word: "ahí", translation: "there" },
+    ]
+  },
+  {
     id: "es-g-a1-32",
     level: "A1",
     title: "Stressed Pronouns — Mí, Ti, Él, Ella...",

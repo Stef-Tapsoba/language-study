@@ -578,7 +578,7 @@ export const a1Units: LessonUnit[] = [
         order: 24,
         title: "Commands — the Imperative",
         description: "Give instructions, make requests, and tell people what to do. Learn affirmative and negative tú commands, including the most common irregular imperatives (ven, sal, haz, ve, pon, sé).",
-        grammarIds: ["es-g-a1-30"],
+        grammarIds: ["es-g-a1-30", "es-g-a1-35"],
         vocabIds: [
             // Directions — natural imperative context (gira, sigue recto, cruza)
             "es-v-a1-138", "es-v-a1-139", "es-v-a1-140", "es-v-a1-141", "es-v-a1-142",
