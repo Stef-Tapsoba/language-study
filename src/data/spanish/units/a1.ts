@@ -29,6 +29,9 @@ export const a1Units: LessonUnit[] = [
             "es-v-a1-11", "es-v-a1-12", "es-v-a1-13", "es-v-a1-14", "es-v-a1-15"
         ],
         verbIds: [],
+        readingIds: ["es-r-a1-4"],
+        listeningIds: ["es-l-a1-1"],
+        cultureIds: ["es-c-a1-3"],
         testQuestions: [
             { id: "es-uq-a1-1-1", level: "A1", prompt: "What does '¡Hola!' mean?", options: ["Goodbye", "Hello", "Please", "Thank you"], answer: "Hello" },
             { id: "es-uq-a1-1-2", level: "A1", prompt: "How do you say 'Thank you' in Spanish?", options: ["Gracias", "Por favor", "Perdón", "Buenos días"], answer: "Gracias" },
@@ -51,6 +54,7 @@ export const a1Units: LessonUnit[] = [
             "es-v-a1-26", "es-v-a1-27", "es-v-a1-28", "es-v-a1-29"
         ],
         verbIds: ["es-vb-a1-2", "es-vb-a1-3"],
+        readingIds: ["es-r-a1-6"],
         testQuestions: [
             { id: "es-uq-a1-2-1", level: "A1", prompt: "Which verb do you use for a permanent trait like profession or nationality?", options: ["estar", "tener", "ser", "ir"], answer: "ser" },
             { id: "es-uq-a1-2-2", level: "A1", prompt: "Complete: 'Madrid ___ en España.' (location)", options: ["es", "está", "tiene", "va"], answer: "está" },
@@ -276,6 +280,8 @@ export const a1Units: LessonUnit[] = [
             "es-v-a1-103", "es-v-a1-104"
         ],
         verbIds: [],
+        readingIds: ["es-r-a1-1"],
+        listeningIds: ["es-l-a1-3"],
         testQuestions: [
             { id: "es-uq-a1-12-1", level: "A1", prompt: "What does 'hermano' mean?", options: ["sister", "father", "brother", "son"], answer: "brother" },
             { id: "es-uq-a1-12-2", level: "A1", prompt: "Complete: '___ padres son de Madrid.' (our)", options: ["mi", "tu", "su", "nuestros"], answer: "nuestros" },
@@ -300,6 +306,9 @@ export const a1Units: LessonUnit[] = [
             "es-v-a1-125"
         ],
         verbIds: ["es-vb-a1-7", "es-vb-a1-8", "es-vb-a1-9", "es-vb-a1-13"],
+        readingIds: ["es-r-a1-3", "es-r-a1-5"],
+        listeningIds: ["es-l-a1-2", "es-l-a1-4"],
+        cultureIds: ["es-c-a1-1", "es-c-a1-2", "es-c-a1-4"],
         testQuestions: [
             { id: "es-uq-a1-13-1", level: "A1", prompt: "What is the 'yo' form of 'querer'?", options: ["quere", "quieres", "quiero", "queremos"], answer: "quiero" },
             { id: "es-uq-a1-13-2", level: "A1", prompt: "How do you order 'a coffee, please'?", options: ["Un café, gracias.", "Quiero un café, por favor.", "Me gusta un café.", "Hay un café."], answer: "Quiero un café, por favor." },
@@ -343,6 +352,8 @@ export const a1Units: LessonUnit[] = [
             "es-v-a1-148", "es-v-a1-149", "es-v-a1-150"
         ],
         verbIds: [],
+        readingIds: ["es-r-a1-7"],
+        listeningIds: ["es-l-a1-5"],
         testQuestions: [
             { id: "es-uq-a1-15-1", level: "A1", prompt: "What does 'a la derecha' mean?", options: ["to the left", "straight ahead", "to the right", "behind"], answer: "to the right" },
             { id: "es-uq-a1-15-2", level: "A1", prompt: "What does 'todo recto' mean?", options: ["turn right", "stop here", "straight ahead", "turn left"], answer: "straight ahead" },
@@ -396,6 +407,8 @@ export const a1Units: LessonUnit[] = [
             "es-v-a1-155", "es-v-a1-156", "es-v-a1-157", "es-v-a1-158"
         ],
         verbIds: [],
+        readingIds: ["es-r-a1-2"],
+        listeningIds: ["es-l-a1-6"],
         testQuestions: [
             { id: "es-uq-a1-17-1", level: "A1", prompt: "How do you say 'My name is Carlos'?", options: ["Me llamo Carlos.", "Yo llamo Carlos.", "Soy llamado Carlos.", "Tengo nombre Carlos."], answer: "Me llamo Carlos." },
             { id: "es-uq-a1-17-2", level: "A1", prompt: "Complete: 'Ella ___ levanta a las siete.'", options: ["me", "te", "se", "nos"], answer: "se" },
@@ -444,6 +457,7 @@ export const a1Units: LessonUnit[] = [
             "es-v-a1-155", "es-v-a1-156", "es-v-a1-157", "es-v-a1-158"
         ],
         verbIds: ["es-vb-a1-13"],
+        listeningIds: ["es-l-a1-7"],
         testQuestions: [
             { id: "es-uq-a1-19-1", level: "A1", prompt: "Complete: '¿___ hablar más despacio?' (can you)", options: ["Debes", "Tienes que", "Puedes", "Quieres"], answer: "Puedes" },
             { id: "es-uq-a1-19-2", level: "A1", prompt: "What is the yo form of 'poder'?", options: ["podo", "puedo", "pode", "puede"], answer: "puedo" },

@@ -309,4 +309,30 @@ export const a1Vocab: VocabItem[] = [
     { id: "es-v-a1-259", level: "A1", word: "el sofá", translation: "the sofa / the couch", category: "Home", example: { native: "Me siento en el sofá para ver la tele.", translation: "I sit on the sofa to watch TV." } },
     { id: "es-v-a1-260", level: "A1", word: "la ventana", translation: "the window", category: "Home", example: { native: "Abro la ventana porque hace calor.", translation: "I open the window because it is hot." } },
     { id: "es-v-a1-261", level: "A1", word: "la puerta", translation: "the door", category: "Home", example: { native: "Por favor, cierra la puerta.", translation: "Please close the door." } },
+
+    // ── Transport — additional (262–265) ─────────────────────────────────────
+    { id: "es-v-a1-262", level: "A1", word: "el coche", translation: "the car", category: "Travel", example: { native: "Mi padre va al trabajo en coche.", translation: "My father goes to work by car." } },
+    { id: "es-v-a1-263", level: "A1", word: "la bicicleta", translation: "the bicycle / the bike", category: "Travel", example: { native: "Voy al colegio en bicicleta.", translation: "I go to school by bike." } },
+    { id: "es-v-a1-264", level: "A1", word: "a pie", translation: "on foot", category: "Travel", example: { native: "El supermercado está cerca — voy a pie.", translation: "The supermarket is nearby — I go on foot." } },
+    { id: "es-v-a1-265", level: "A1", word: "la parada de autobús", translation: "the bus stop", category: "Travel", example: { native: "Espero el autobús en la parada.", translation: "I wait for the bus at the bus stop." } },
+
+    // ── Emergency & Health (266–269) ──────────────────────────────────────────
+    { id: "es-v-a1-266", level: "A1", word: "¡Socorro!", translation: "Help!", category: "Emergency", example: { native: "¡Socorro! Necesito ayuda.", translation: "Help! I need help." } },
+    { id: "es-v-a1-267", level: "A1", word: "urgencias", translation: "emergency (medical) / A&E", category: "Emergency", example: { native: "Tengo que ir a urgencias.", translation: "I have to go to A&E." } },
+    { id: "es-v-a1-268", level: "A1", word: "llamar a la policía", translation: "to call the police", category: "Emergency", example: { native: "Necesito llamar a la policía.", translation: "I need to call the police." } },
+    { id: "es-v-a1-269", level: "A1", word: "me duele", translation: "it hurts / I have a pain in", category: "Emergency", example: { native: "Me duele la cabeza.", translation: "My head hurts." } },
+
+    // ── Classroom (270–274) ───────────────────────────────────────────────────
+    { id: "es-v-a1-270", level: "A1", word: "el cuaderno", translation: "the notebook / the exercise book", category: "Classroom", example: { native: "Escribo las palabras en el cuaderno.", translation: "I write the words in the notebook." } },
+    { id: "es-v-a1-271", level: "A1", word: "el bolígrafo", translation: "the pen / the biro", category: "Classroom", example: { native: "¿Tienes un bolígrafo?", translation: "Do you have a pen?" } },
+    { id: "es-v-a1-272", level: "A1", word: "la pizarra", translation: "the blackboard / the whiteboard", category: "Classroom", example: { native: "La profesora escribe en la pizarra.", translation: "The teacher writes on the board." } },
+    { id: "es-v-a1-273", level: "A1", word: "la lección", translation: "the lesson", category: "Classroom", example: { native: "La lección de hoy es difícil.", translation: "Today's lesson is difficult." } },
+    { id: "es-v-a1-274", level: "A1", word: "repetir", translation: "to repeat", category: "Classroom", example: { native: "¿Puedes repetir, por favor?", translation: "Can you repeat, please?" } },
+
+    // ── Shopping & Payment (275–279) ──────────────────────────────────────────
+    { id: "es-v-a1-275", level: "A1", word: "pagar", translation: "to pay", category: "Shopping", example: { native: "¿Puedo pagar con tarjeta?", translation: "Can I pay by card?" } },
+    { id: "es-v-a1-276", level: "A1", word: "la tarjeta bancaria", translation: "the bank card / the debit card", category: "Shopping", example: { native: "No tengo efectivo — ¿puedo pagar con tarjeta bancaria?", translation: "I don't have cash — can I pay by bank card?" } },
+    { id: "es-v-a1-277", level: "A1", word: "el recibo", translation: "the receipt", category: "Shopping", example: { native: "¿Me da el recibo, por favor?", translation: "Can you give me the receipt, please?" } },
+    { id: "es-v-a1-278", level: "A1", word: "el cambio", translation: "the change (money)", category: "Shopping", example: { native: "Aquí tiene su cambio.", translation: "Here is your change." } },
+    { id: "es-v-a1-279", level: "A1", word: "demasiado caro", translation: "too expensive", category: "Shopping", example: { native: "Este abrigo es demasiado caro para mí.", translation: "This coat is too expensive for me." } },
 ]

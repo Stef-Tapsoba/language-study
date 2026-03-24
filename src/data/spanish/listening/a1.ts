@@ -228,5 +228,51 @@ export const a1Listening: ListeningExercise[] = [
                 answer: "A las once"
             }
         ]
+    },
+    {
+        id: "es-l-a1-7",
+        level: "A1",
+        title: "En el médico — at the doctor's",
+        script: "Buenos días. ¿Qué le pasa? Buenos días, doctor. Me duele mucho la cabeza y tengo fiebre. ¿Desde cuándo? Desde ayer por la tarde. ¿Tiene también dolor de garganta? Sí, un poco. ¿Toma algún medicamento? No, no tomo nada. Bien. Abra la boca, por favor. Sí. No es grave. Tiene un resfriado. Le voy a recetar unas pastillas y jarabe para la tos. Necesita descansar y beber mucha agua. ¿Cuándo puedo volver al trabajo? En tres o cuatro días. Muchas gracias, doctor.",
+        translation: "Good morning. What is the matter? Good morning, doctor. My head hurts a lot and I have a temperature. Since when? Since yesterday afternoon. Do you also have a sore throat? Yes, a little. Are you taking any medication? No, I'm not taking anything. Good. Open your mouth, please. Yes. It is not serious. You have a cold. I am going to prescribe some tablets and cough syrup. You need to rest and drink plenty of water. When can I go back to work? In three or four days. Thank you very much, doctor.",
+        dialogue: [
+            { speaker: "Doctor", text: "Buenos días. ¿Qué le pasa?", translation: "Good morning. What is the matter?" },
+            { speaker: "Paciente", text: "Buenos días, doctor. Me duele mucho la cabeza y tengo fiebre.", translation: "Good morning, doctor. My head hurts a lot and I have a temperature." },
+            { speaker: "Doctor", text: "¿Desde cuándo?", translation: "Since when?" },
+            { speaker: "Paciente", text: "Desde ayer por la tarde.", translation: "Since yesterday afternoon." },
+            { speaker: "Doctor", text: "¿Tiene también dolor de garganta?", translation: "Do you also have a sore throat?" },
+            { speaker: "Paciente", text: "Sí, un poco.", translation: "Yes, a little." },
+            { speaker: "Doctor", text: "¿Toma algún medicamento?", translation: "Are you taking any medication?" },
+            { speaker: "Paciente", text: "No, no tomo nada.", translation: "No, I'm not taking anything." },
+            { speaker: "Doctor", text: "Bien. Abra la boca, por favor.", translation: "Good. Open your mouth, please." },
+            { speaker: "Doctor", text: "No es grave. Tiene un resfriado. Le voy a recetar unas pastillas y jarabe para la tos.", translation: "It is not serious. You have a cold. I am going to prescribe some tablets and cough syrup." },
+            { speaker: "Doctor", text: "Necesita descansar y beber mucha agua.", translation: "You need to rest and drink plenty of water." },
+            { speaker: "Paciente", text: "¿Cuándo puedo volver al trabajo?", translation: "When can I go back to work?" },
+            { speaker: "Doctor", text: "En tres o cuatro días.", translation: "In three or four days." },
+            { speaker: "Paciente", text: "Muchas gracias, doctor.", translation: "Thank you very much, doctor." }
+        ],
+        questions: [
+            {
+                id: "es-l-a1-7-q1",
+                level: "A1",
+                prompt: "¿Qué síntomas tiene el paciente?",
+                options: ["Dolor de cabeza y fiebre", "Dolor de estómago", "Dolor de pierna", "Fiebre y tos solamente"],
+                answer: "Dolor de cabeza y fiebre"
+            },
+            {
+                id: "es-l-a1-7-q2",
+                level: "A1",
+                prompt: "¿Qué dice el doctor que tiene el paciente?",
+                options: ["Un resfriado", "La gripe", "Una infección grave", "Alergia"],
+                answer: "Un resfriado"
+            },
+            {
+                id: "es-l-a1-7-q3",
+                level: "A1",
+                prompt: "¿Cuándo puede volver al trabajo el paciente?",
+                options: ["En tres o cuatro días", "Mañana", "En una semana", "Hoy mismo"],
+                answer: "En tres o cuatro días"
+            }
+        ]
     }
 ]
