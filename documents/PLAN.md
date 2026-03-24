@@ -1,6 +1,6 @@
 # language-study — Implementation Plan
 
-*Last updated: March 24, 2026 — v2.2.x (pre-v2.3.0)*
+*Last updated: March 24, 2026 — v2.3.0*
 
 ## Context
 
@@ -77,7 +77,11 @@ language-study/
     │   └── index.ts                    ← getUI(langId, level) + fmt()
     ├── hooks/
     │   ├── useDrill.ts                 ← re-exports useDrill + types from @myorg/quiz-engine
-    │   └── useGlobalStreak.ts          ← Zustand selector hook (streak integer, avoids re-renders)
+    │   ├── useGlobalStreak.ts          ← Zustand selector hook (streak integer, avoids re-renders)
+    │   ├── useDarkMode.ts              ← dark/light toggle; persists to ls:dark-mode; syncs <html class>
+    │   ├── useProgressStats.ts         ← per-section done/total/pct stats
+    │   ├── useCurrentUser.ts           ← display name, email, initials from auth session
+    │   └── useVocabTooltip.ts          ← tooltip state for inline vocab clicks
     ├── utils/
     │   ├── tts.ts                      ← speak() + TTS_LANG_MAP (Web Speech API)
     │   ├── answerMatch.ts              ← normalizeAnswer(), answersMatch() (accent-insensitive)
@@ -441,31 +445,32 @@ Alternative entry to grammar lessons: present examples → user hypothesises the
              Zustand stats store migration; shadcn/ui infrastructure; Vitest unit tests;
              performance + architecture fixes (useGlobalStreak, GPU progress bars);
              back navigation redesign (explicit backTo routes)
-✅ v2.3.x   — French A1 complete CEFR curriculum (vocab gap fill: Transport/Emergency/
-             Classroom/Shopping; 3 new reading passages, 2 new listening exercises,
-             2 new culture episodes; all units wired with readingIds/listeningIds/cultureIds);
+✅ v2.3.0   — French A1 complete CEFR curriculum (vocab gap fill, reading/listening/culture,
+             unit wiring); Spanish + Italian A1 curriculum completion (same scope);
              Culture post-unit unlock cards on TestDoneScreen;
              Fill-in-the-blank mode on GrammarDrillPage;
              Architecture patterns: Repository (repo.ts), Command (actions.ts),
              Adapter (IProgressStorage + LocalStorageProgressStorage);
-             language? field on 5 content types (Supabase migration prep);
-             LessonUnit.readingIds + listeningIds type fields;
-             Culture file splitting (one file per episode — FR/ES/IT/JA done, KO partial)
+             Repo + Actions wired across all pages;
+             UI polish: Plus Jakarta Sans, warm background, gradient ProgressBar with animation,
+             card-lift/tab-fade, section colors unified via sectionConfig.ts;
+             Section-coloured unit tabs (Grammar=green, Vocab=amber, Verbs=red, Test=violet);
+             Progress import with smart merge (levels preserved, completions unioned);
+             Dark mode (NavBar toggle, CSS variables, dark: variants on all pages/components)
 
 Next (v2.4.0 planned):
-  - Complete Korean culture A1 file split + delete old a1.ts files
-  - Wire repo.ts and actions.ts into existing pages (replace direct getModule/progress calls)
-  - A2 reading/listening content for all 5 languages (B1 parity gap)
+  - Japanese and Korean A1 curriculum parity (inline vocab, unit wiring)
+  - A2 reading/listening content for all 5 languages
   - B1 reading/listening passages for all 5 languages
-  - Cultural episodes at A2 level (currently only A1 has culture content)
-  - Migrate pages to use compound actions (completeUnit, completeDrillSession, etc.)
+  - Cultural episodes at A2+ levels
+  - JSON progress export/import improvements (conflict UI, partial restore)
 
 Phase 3     — B1 reading/listening passages for all 5 languages
              Cognitive reinforcement: spaced retrieval quizzes, weekly free recall
 Phase 4     — EO + EE: speaking prompts + writing tasks (self-assessed)
 Phase 5     — Pattern Discovery mode
 Phase 6 (Stage 2) — Supabase backend + auth; swap IProgressStorage adapter;
-             replace repo.ts with async DB calls; dark mode
+             replace repo.ts with async DB calls
 ```
 
 ---

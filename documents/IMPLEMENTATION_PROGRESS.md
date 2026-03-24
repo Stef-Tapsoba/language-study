@@ -1216,3 +1216,134 @@ Original `a1.ts` files deleted for all 5 languages. Parent `index.ts` assembler 
 
 **Files created:**
 - `src/data/{french,spanish,italian,japanese,korean}/culture/a1/` — episode files + `index.ts` per language
+
+---
+
+## 53 — Spanish A1 curriculum completion
+
+**Goal:** bring Spanish A1 to the same standard as French A1 (vocab gap-fill, new culture episode, new listening exercise, all units wired).
+
+### Vocab gap-fill (`src/data/spanish/vocab/a1.ts`)
+Added 18 new items (IDs 262–279) across four categories:
+- **Travel:** coche, bicicleta, a pie, parada de autobús
+- **Emergency:** 4 items (emergency vocab)
+- **Classroom:** 5 items
+- **Shopping:** 5 items
+
+### New content files
+- `src/data/spanish/culture/a1/es-c-a1-4.ts` — "El tapeo — la cultura de las tapas" (food/customs)
+- `src/data/spanish/culture/a1/index.ts` — updated to export 4 episodes
+- `src/data/spanish/listening/a1.ts` — added `es-l-a1-7` "En el médico"
+
+### Unit wiring (`src/data/spanish/units/a1.ts`)
+All 7 Spanish A1 units wired with `grammarIds`, `vocabIds`, `verbIds`, `testQuestions`, `readingIds`, `listeningIds`, `cultureIds`.
+
+---
+
+## 54 — Italian A1 curriculum completion
+
+**Goal:** bring Italian A1 to parity (vocab gap-fill, new listening exercise, unit wiring, duplicate fix).
+
+### Vocab gap-fill (`src/data/italian/vocab/a1.ts`)
+Added 18 new items (IDs 209–226): Transport (near-complete), Emergency, Classroom, Shopping.
+
+### Content fixes/additions
+- `src/data/italian/reading/a1.ts` — `it-r-a1-7` retitled "Il mio appartamento a Bologna" (was duplicate of "La mia casa")
+- `src/data/italian/listening/a1.ts` — added `it-l-a1-7` "Dal medico — una visita"
+
+### Unit wiring (`src/data/italian/units/a1.ts`)
+All 10 Italian A1 units wired with `grammarIds`, `vocabIds`, `verbIds`, `testQuestions`, `readingIds`, `listeningIds`, `cultureIds`.
+
+---
+
+## 55 — v2.3 UI polish pass
+
+**Goal:** visual quality improvements across the full app.
+
+### Typography
+- `index.html` — Google Fonts updated from Poppins to **Plus Jakarta Sans**
+- `packages/theme-tokens/src/css/base.css` — `--font-heading: "Plus Jakarta Sans", system-ui, sans-serif`
+
+### Background & surfaces
+- `src/index.css` — body background `#f7f5f2` (warm off-white); `.card-lift` hover utility; `.tab-fade` keyframe animation
+
+### ProgressBar (`src/components/ProgressBar.tsx`)
+- `color?: StudySection | "default"` prop — gradient fill from `sectionConfig.ts`
+- Mount animation: `useState(0)` + `setTimeout(60ms)` → actual value; 700 ms ease-out transition
+- `textColor` from `sectionConfig` for percentage label
+
+### `sectionConfig.ts` extended
+Added `gradient`, `textColor`, `iconText` fields. **Original section colors preserved** (green/amber/red/blue/slate/teal). All instances now use this single source of truth.
+
+### Per-page updates
+- **DashboardPage** — `StudyCard`: gradient accent strip + mini bar, `iconText` color, `card-lift`; `SectionCard`: `card-lift`; all `TabsContent`: `tab-fade`; content pills: amber/green/red/violet per section
+- **UnitPage** — all `TabsContent`: `tab-fade`; vocab progress bar: amber gradient; vocab filter toggles: visible `bg-gray-100`; Grammar/Vocab/Verbs/Test tabs: section color on active state
+- **HomePage** — ProgressBar calls now pass `color="grammar"`, `color="vocab"`, etc.
+- **StatsTab** — `BreakdownBar` uses `gradient` field + width animation
+- **ProfilePage** — breakdown bars use `gradient` field; overall bar: violet gradient + animation
+- **FlashcardsPage** — toggle container: `bg-amber-50 border-amber-200`; unchecked switches: `data-[state=unchecked]:!bg-amber-300`; rows separated by `divide-y divide-amber-200`
+
+---
+
+## 56 — Repo + Actions wiring to all pages
+
+**Goal:** replace direct `getModule()` + raw progress calls with `repo.ts` query functions and `actions.ts` compound mutations across 15+ pages.
+
+**Pages wired:** GrammarPage, GrammarLessonPage, GrammarDrillPage, VocabPage, VerbsPage, VerbDrillPage, PlacementPage, LevelTestPage, FlashcardsPage, UnitPage, DashboardPage, ReadingPage, ListeningPage, CulturePage, CategoryReadingPage.
+
+**Pattern:** import from `../data/repo` (e.g. `getGrammarForLevel`, `getVocabForLevel`) and `../store/actions` (e.g. `completeDrillSession`, `completeReadingPassage`). `getModule()` direct calls remain only in pages that still use the full module object.
+
+**Fix applied post-wiring:** FlashcardsPage had a stale `mod` reference left after the agent removed the import. Removed `const mod = getModule(langId)` and replaced `mod?.vocab.filter(...)` with `getVocabForLevel(langId, level)`.
+
+---
+
+## 57 — Progress import with smart merge
+
+**Goal:** allow users to restore a JSON backup without losing newer progress made after the export.
+
+### `importProgress()` (`src/pages/ProfilePage.tsx`)
+Reads the file with `file.text()` (async, no FileReader needed), parses JSON, validates shape (`progress`, `srs`, `stats` keys required).
+
+### Merge strategy (three helpers)
+
+**`mergeProgressData(current, imported)`**
+- `levels` — spread imported first, then overwrite with current (`{ ...importedLevels, ...currentLevels }`): current level always wins for started languages; backup provides level only for languages not yet started
+- `completedLessons` / `masteredUnits` — union via `Set` per language key
+- `userId`, `selectedLanguage` — always keeps current
+
+**`mergeSRS(current, imported)`**
+- Per card: keeps whichever `SRSCardState` has higher `reviewCount`
+
+**`mergeStats(current, imported)`**
+- Stats stored as `{ data: StatsData }` (Zustand wrapper) or legacy raw `StatsData`
+- Per language / per day: `Math.max()` of each numeric field (reviewed, correct, acts, qTotal, qCorrect)
+
+### UX
+- `<label>` wrapping hidden `<input type="file" accept=".json">` — tap to open file picker
+- Status feedback inline: idle → "Import progress backup", success → "✓ Imported — reloading…", error → "⚠ {message}"
+- On success: 1.2 s delay then `globalThis.location.reload()` so all stores re-hydrate from the merged localStorage data
+
+---
+
+## 58 — Dark mode
+
+**Goal:** full dark mode support with system-preference detection and NavBar toggle.
+
+### Infrastructure
+- `tailwind.config.ts` — `darkMode: ["class"]` (was already set)
+- `src/index.css` — `.dark {}` block with complete shadcn CSS variable overrides (navy-based dark palette: `--background: 222 47% 7%`, `--card: 222 30% 11%`, `--border: 222 18% 22%`, etc.); `.dark body { background-color: #0c1120 }`
+- `src/hooks/useDarkMode.ts` — new hook: reads `localStorage["ls:dark-mode"]`, falls back to `prefers-color-scheme`; toggles `.dark` class on `<html>`; persists on change
+
+### NavBar (`src/components/NavBar.tsx`)
+- Sun/moon toggle button added before the profile icon; uses `useDarkMode()` hook
+- NavBar itself: `dark:bg-gray-900 dark:border-gray-700`; back button and title: dark text variants
+
+### Components & pages
+All pages and components updated with `dark:` Tailwind variants following the mapping:
+- `bg-white` → `dark:bg-gray-800`; `bg-gray-50` (page) → `dark:bg-gray-900`; `bg-gray-50` (inner) → `dark:bg-gray-700/50`
+- `border-gray-200` → `dark:border-gray-700`; `border-gray-100` → `dark:border-gray-700`
+- `text-gray-900` → `dark:text-gray-100`; `text-gray-700` → `dark:text-gray-300`; `text-gray-500` → `dark:text-gray-400`; etc.
+- Hover, divide, odd/even row colors updated accordingly
+- Section accent colors (green/amber/red/violet/teal/indigo) left unchanged — intentional brand colors
+
+**Files updated:** DashboardPage, UnitPage, FlashcardsPage, HomePage, ProfilePage, GrammarPage, GrammarLessonPage, GrammarDrillPage, VocabPage, VerbsPage, VerbDrillPage, PlacementPage, LevelTestPage, ReadingPage, ListeningPage, CulturePage, StatsTab, DrillDoneScreen, QuizCard, LevelBadge, ProgressBar, LanguagePicker, LocalizedExplanation, VocabTooltip
