@@ -219,4 +219,29 @@ export const a1Vocab: VocabItem[] = [
     { id: "it-v-a1-185", level: "A1", word: "la sedia", translation: "chair", category: "Home", example: { native: "C'è una sedia davanti alla scrivania.", translation: "There is a chair in front of the desk." } },
     { id: "it-v-a1-186", level: "A1", word: "il letto", translation: "bed", category: "Home", example: { native: "Mi alzo dal letto alle sette.", translation: "I get out of bed at seven." } },
     { id: "it-v-a1-187", level: "A1", word: "il divano", translation: "sofa", category: "Home", example: { native: "Il gatto dorme sul divano.", translation: "The cat sleeps on the sofa." } },
+
+    // --- Months individual (12 items — replaces paired cards it-v-a1-40–45) ---
+    { id: "it-v-a1-188", level: "A1", word: "gennaio", translation: "January", category: "Days & Months", example: { native: "Il mio compleanno è in gennaio.", translation: "My birthday is in January." } },
+    { id: "it-v-a1-189", level: "A1", word: "febbraio", translation: "February", category: "Days & Months", example: { native: "A febbraio fa ancora freddo.", translation: "In February it is still cold." } },
+    { id: "it-v-a1-190", level: "A1", word: "marzo", translation: "March", category: "Days & Months", example: { native: "La primavera inizia a marzo.", translation: "Spring begins in March." } },
+    { id: "it-v-a1-191", level: "A1", word: "aprile", translation: "April", category: "Days & Months", example: { native: "Ad aprile piove spesso.", translation: "In April it often rains." } },
+    { id: "it-v-a1-192", level: "A1", word: "maggio", translation: "May", category: "Days & Months", example: { native: "I fiori sbocciano a maggio.", translation: "Flowers bloom in May." } },
+    { id: "it-v-a1-193", level: "A1", word: "giugno", translation: "June", category: "Days & Months", example: { native: "Le vacanze iniziano a giugno.", translation: "Holidays begin in June." } },
+    { id: "it-v-a1-194", level: "A1", word: "luglio", translation: "July", category: "Days & Months", example: { native: "A luglio fa molto caldo.", translation: "In July it is very hot." } },
+    { id: "it-v-a1-195", level: "A1", word: "agosto", translation: "August", category: "Days & Months", example: { native: "Ad agosto molti italiani vanno al mare.", translation: "In August many Italians go to the seaside." } },
+    { id: "it-v-a1-196", level: "A1", word: "settembre", translation: "September", category: "Days & Months", example: { native: "A settembre inizia la scuola.", translation: "In September school starts." } },
+    { id: "it-v-a1-197", level: "A1", word: "ottobre", translation: "October", category: "Days & Months", example: { native: "A ottobre le foglie diventano rosse.", translation: "In October the leaves turn red." } },
+    { id: "it-v-a1-198", level: "A1", word: "novembre", translation: "November", category: "Days & Months", example: { native: "A novembre fa già freddo.", translation: "In November it is already cold." } },
+    { id: "it-v-a1-199", level: "A1", word: "dicembre", translation: "December", category: "Days & Months", example: { native: "A dicembre si festeggia il Natale.", translation: "In December Christmas is celebrated." } },
+
+    // --- Transport (9 items) ---
+    { id: "it-v-a1-200", level: "A1", word: "l'autobus", translation: "bus", category: "Transport", example: { native: "Prendo l'autobus ogni mattina.", translation: "I take the bus every morning." } },
+    { id: "it-v-a1-201", level: "A1", word: "il treno", translation: "train", category: "Transport", example: { native: "Il treno parte alle otto.", translation: "The train leaves at eight." } },
+    { id: "it-v-a1-202", level: "A1", word: "la metropolitana / il metro", translation: "underground / metro", category: "Transport", example: { native: "A Roma c'è la metropolitana.", translation: "In Rome there is an underground." } },
+    { id: "it-v-a1-203", level: "A1", word: "il taxi", translation: "taxi", category: "Transport", example: { native: "Prendiamo un taxi per l'aeroporto.", translation: "Let's take a taxi to the airport." } },
+    { id: "it-v-a1-204", level: "A1", word: "la bicicletta / la bici", translation: "bicycle / bike", category: "Transport", example: { native: "Vado a scuola in bicicletta.", translation: "I go to school by bicycle." } },
+    { id: "it-v-a1-205", level: "A1", word: "a piedi", translation: "on foot", category: "Transport", example: { native: "Vado a lavorare a piedi.", translation: "I walk to work." } },
+    { id: "it-v-a1-206", level: "A1", word: "in macchina", translation: "by car", category: "Transport", example: { native: "Andiamo in macchina o in treno?", translation: "Are we going by car or by train?" } },
+    { id: "it-v-a1-207", level: "A1", word: "il biglietto", translation: "ticket", category: "Transport", example: { native: "Dove si compra il biglietto?", translation: "Where do you buy the ticket?" } },
+    { id: "it-v-a1-208", level: "A1", word: "la fermata", translation: "stop (bus/tram)", category: "Transport", example: { native: "La fermata dell'autobus è qui vicino.", translation: "The bus stop is nearby." } },
 ]

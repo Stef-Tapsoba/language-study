@@ -244,10 +244,15 @@ export const a1Units: LessonUnit[] = [
         description: "Learn the tens from 20 to 100, master compound number spelling rules, and learn months and seasons.",
         grammarIds: ["it-g-a1-18"],
         vocabIds: [
+            // Tens 20–100
             "it-v-a1-153", "it-v-a1-154", "it-v-a1-155", "it-v-a1-156",
             "it-v-a1-157", "it-v-a1-158", "it-v-a1-159", "it-v-a1-160", "it-v-a1-161",
-            "it-v-a1-40", "it-v-a1-41", "it-v-a1-42", "it-v-a1-43",
-            "it-v-a1-44", "it-v-a1-45", "it-v-a1-46",
+            // Months (individual — replaces paired cards it-v-a1-40–45)
+            "it-v-a1-188", "it-v-a1-189", "it-v-a1-190", "it-v-a1-191",
+            "it-v-a1-192", "it-v-a1-193", "it-v-a1-194", "it-v-a1-195",
+            "it-v-a1-196", "it-v-a1-197", "it-v-a1-198", "it-v-a1-199",
+            // Seasons
+            "it-v-a1-46",
         ],
         verbIds: [],
         testQuestions: [
@@ -348,7 +353,15 @@ export const a1Units: LessonUnit[] = [
         title: "Places & Directions",
         description: "Ask for and give directions using places vocabulary and the verb andare.",
         grammarIds: ["it-g-a1-22"],
-        vocabIds: ["it-v-a1-108", "it-v-a1-109", "it-v-a1-110", "it-v-a1-114", "it-v-a1-115", "it-v-a1-116", "it-v-a1-117", "it-v-a1-119", "it-v-a1-121", "it-v-a1-122", "it-v-a1-123", "it-v-a1-124", "it-v-a1-125", "it-v-a1-126", "it-v-a1-127"],
+        vocabIds: [
+            // Places & directions
+            "it-v-a1-108", "it-v-a1-109", "it-v-a1-110", "it-v-a1-114", "it-v-a1-115",
+            "it-v-a1-116", "it-v-a1-117", "it-v-a1-119", "it-v-a1-121", "it-v-a1-122",
+            "it-v-a1-123", "it-v-a1-124", "it-v-a1-125", "it-v-a1-126", "it-v-a1-127",
+            // Transport — how to get there
+            "it-v-a1-200", "it-v-a1-201", "it-v-a1-202", "it-v-a1-203",
+            "it-v-a1-204", "it-v-a1-205", "it-v-a1-206", "it-v-a1-207", "it-v-a1-208"
+        ],
         verbIds: ["it-vb-a1-4", "it-vb-a1-10", "it-vb-a1-22", "it-vb-a1-23"],
         testQuestions: [
             { id: "it-uq-a1-17-1", level: "A1", prompt: "How do you say 'Turn left'?", options: ["Vai dritto.", "Gira a destra.", "Gira a sinistra.", "Torna indietro."], answer: "Gira a sinistra." },
