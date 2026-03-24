@@ -1,11 +1,12 @@
 // components/NavBar.tsx — Sticky top navigation bar with back button, level badge, streak chip, and profile link
-import { useState, useEffect, useRef } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import { LevelBadge } from "./LevelBadge"
 import { LanguagePicker } from "./LanguagePicker"
 import { CEFRLevel } from "../types"
 import { useGlobalStreak } from "../hooks/useGlobalStreak"
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip"
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbPage, BreadcrumbSeparator } from "./ui/breadcrumb"
 
 interface NavBarProps {
     title?: string
@@ -112,7 +113,23 @@ export function NavBar({ title = "Language Study", level, backTo, fallbackRoute,
 
             </div>
             {breadcrumb && (
-                <p className="text-xs text-gray-400 px-4 pb-1 truncate">{breadcrumb}</p>
+                <div className="max-w-3xl mx-auto px-4 md:px-6 pl-[max(1rem,env(safe-area-inset-left))] pr-[max(1rem,env(safe-area-inset-right))] pb-1.5">
+                    <Breadcrumb>
+                        <BreadcrumbList>
+                            {breadcrumb.split(" › ").map((segment, i, arr) => (
+                                <React.Fragment key={i}>
+                                    {i > 0 && <BreadcrumbSeparator />}
+                                    <BreadcrumbItem>
+                                        {i === arr.length - 1
+                                            ? <BreadcrumbPage>{segment}</BreadcrumbPage>
+                                            : <span>{segment}</span>
+                                        }
+                                    </BreadcrumbItem>
+                                </React.Fragment>
+                            ))}
+                        </BreadcrumbList>
+                    </Breadcrumb>
+                </div>
             )}
         </nav>
     )
