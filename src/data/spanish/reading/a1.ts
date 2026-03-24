@@ -209,5 +209,87 @@ export const a1Reading: ReadingPassage[] = [
                 answer: "La comida (almuerzo)"
             }
         ]
+    },
+    {
+        id: "es-r-a1-6",
+        level: "A1",
+        category: "everyday",
+        title: "Una ciudad pequeña",
+        body: {
+            target: "Me llamo Carmen. Tengo veintidós años. Soy española, de Toledo. Toledo es una ciudad pequeña y muy bonita. Estudio Historia en la universidad. Mi familia es pequeña: tengo un padre, una madre y un hermano. Mi hermano se llama Andrés. Él tiene diecinueve años. Vivimos en un apartamento en el centro de la ciudad. Me gusta mucho pasear por las calles antiguas de Toledo. También me gusta leer y escuchar música. Los fines de semana, como con mi familia y hablamos mucho. Toledo es mi ciudad favorita.",
+            native: "My name is Carmen. I am twenty-two years old. I am Spanish, from Toledo. Toledo is a small and very beautiful city. I study History at university. My family is small: I have a father, a mother, and a brother. My brother's name is Andrés. He is nineteen years old. We live in a flat in the city centre. I really like walking through the old streets of Toledo. I also like reading and listening to music. At weekends I eat with my family and we talk a lot. Toledo is my favourite city."
+        },
+        vocabGloss: [
+            { word: "ciudad", translation: "city" },
+            { word: "estudio", translation: "I study" },
+            { word: "apartamento", translation: "flat, apartment" },
+            { word: "centro", translation: "city centre" },
+            { word: "pasear", translation: "to walk, to stroll" },
+            { word: "antiguas", translation: "old (feminine plural)" }
+        ],
+        questions: [
+            {
+                id: "es-r-a1-6-q1",
+                level: "A1",
+                prompt: "¿De dónde es Carmen?",
+                options: ["De Toledo", "De Madrid", "De Sevilla", "De Barcelona"],
+                answer: "De Toledo"
+            },
+            {
+                id: "es-r-a1-6-q2",
+                level: "A1",
+                prompt: "¿Qué estudia Carmen?",
+                options: ["Historia", "Matemáticas", "Inglés", "Medicina"],
+                answer: "Historia"
+            },
+            {
+                id: "es-r-a1-6-q3",
+                level: "A1",
+                prompt: "¿Qué le gusta hacer a Carmen?",
+                options: ["Pasear, leer y escuchar música", "Cocinar y ver la televisión", "Bailar y cantar", "Jugar al fútbol y correr"],
+                answer: "Pasear, leer y escuchar música"
+            }
+        ]
+    },
+    {
+        id: "es-r-a1-7",
+        level: "A1",
+        category: "dialogue",
+        title: "¿Cómo llego al centro?",
+        body: {
+            target: "— Perdona, ¿puedes ayudarme? Busco el centro de la ciudad.\n— Sí, claro. ¿Estás en la estación de tren ahora?\n— Sí, estoy aquí en la estación.\n— Bien. Sal de la estación y ve todo recto por la Calle Mayor.\n— ¿Todo recto por la Calle Mayor?\n— Sí, todo recto. Al final de la calle hay una plaza grande.\n— ¿Y luego?\n— En la plaza, gira a la derecha. Hay una farmacia al lado de la plaza.\n— ¿A la derecha, al lado de la farmacia?\n— Exacto. Después, sigue todo recto y gira a la izquierda en la segunda calle.\n— ¿En la segunda calle a la izquierda?\n— Sí. El centro está enfrente de la iglesia. No puedes perderte.\n— Muchas gracias. ¡Eres muy amable!",
+            native: "— Excuse me, can you help me? I'm looking for the town centre.\n— Yes, of course. Are you at the train station now?\n— Yes, I'm here at the station.\n— Good. Leave the station and go straight ahead along Calle Mayor.\n— Straight ahead along Calle Mayor?\n— Yes, straight ahead. At the end of the street there is a large square.\n— And then?\n— At the square, turn right. There is a pharmacy next to the square.\n— Turn right, next to the pharmacy?\n— Exactly. Then continue straight ahead and turn left at the second street.\n— At the second street on the left?\n— Yes. The town centre is opposite the church. You can't miss it.\n— Thank you very much. You're very kind!"
+        },
+        vocabGloss: [
+            { word: "todo recto", translation: "straight ahead" },
+            { word: "a la derecha", translation: "to the right" },
+            { word: "a la izquierda", translation: "to the left" },
+            { word: "al final de la calle", translation: "at the end of the street" },
+            { word: "al lado de", translation: "next to, beside" },
+            { word: "enfrente de", translation: "opposite, in front of" }
+        ],
+        questions: [
+            {
+                id: "es-r-a1-7-q1",
+                level: "A1",
+                prompt: "¿Dónde está el turista al inicio del diálogo?",
+                options: ["En la estación de tren", "En la plaza", "En el centro", "En la farmacia"],
+                answer: "En la estación de tren"
+            },
+            {
+                id: "es-r-a1-7-q2",
+                level: "A1",
+                prompt: "¿Qué hay al final de la Calle Mayor?",
+                options: ["Una plaza grande", "Una farmacia", "Una iglesia", "La estación de tren"],
+                answer: "Una plaza grande"
+            },
+            {
+                id: "es-r-a1-7-q3",
+                level: "A1",
+                prompt: "¿Dónde está el centro exactamente?",
+                options: ["Enfrente de la iglesia", "Al lado de la farmacia", "Al final de la Calle Mayor", "A la izquierda de la estación"],
+                answer: "Enfrente de la iglesia"
+            }
+        ]
     }
 ]

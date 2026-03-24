@@ -155,5 +155,78 @@ export const a1Listening: ListeningExercise[] = [
                 answer: "Dos aguas"
             }
         ]
+    },
+    {
+        id: "es-l-a1-5",
+        level: "A1",
+        title: "¿Dónde está la farmacia? — asking for directions",
+        script: "Perdona, ¿dónde está la farmacia? No sé muy bien. Espera... Ve todo recto por esta calle. ¿Todo recto? Sí, todo recto. Después de dos calles, gira a la derecha. ¿A la derecha después de dos calles? Exacto. La farmacia está al final de esa calle, al lado de un banco. ¿Al lado de un banco? Sí, es fácil de encontrar. ¡Muchas gracias! De nada. ¡Hasta luego!",
+        translation: "Excuse me, where is the pharmacy? I'm not sure. Wait... Go straight ahead along this street. Straight ahead? Yes, straight ahead. After two streets, turn right. To the right after two streets? Exactly. The pharmacy is at the end of that street, next to a bank. Next to a bank? Yes, it's easy to find. Thank you very much! You're welcome. Goodbye!",
+        dialogue: [
+            { speaker: "Turista", text: "Perdona, ¿dónde está la farmacia?", translation: "Excuse me, where is the pharmacy?" },
+            { speaker: "Local", text: "No sé muy bien. Espera...", translation: "I'm not sure. Wait..." },
+            { speaker: "Local", text: "Ve todo recto por esta calle.", translation: "Go straight ahead along this street." },
+            { speaker: "Turista", text: "¿Todo recto?", translation: "Straight ahead?" },
+            { speaker: "Local", text: "Sí, todo recto. Después de dos calles, gira a la derecha.", translation: "Yes, straight ahead. After two streets, turn right." },
+            { speaker: "Turista", text: "¿A la derecha después de dos calles?", translation: "To the right after two streets?" },
+            { speaker: "Local", text: "Exacto. La farmacia está al final de esa calle, al lado de un banco.", translation: "Exactly. The pharmacy is at the end of that street, next to a bank." },
+            { speaker: "Turista", text: "¿Al lado de un banco?", translation: "Next to a bank?" },
+            { speaker: "Local", text: "Sí, es fácil de encontrar.", translation: "Yes, it's easy to find." },
+            { speaker: "Turista", text: "¡Muchas gracias!", translation: "Thank you very much!" },
+            { speaker: "Local", text: "De nada. ¡Hasta luego!", translation: "You're welcome. Goodbye!" }
+        ],
+        questions: [
+            {
+                id: "es-l-a1-5-q1",
+                level: "A1",
+                prompt: "¿Qué busca el turista?",
+                options: ["La farmacia", "El banco", "La estación", "El hotel"],
+                answer: "La farmacia"
+            },
+            {
+                id: "es-l-a1-5-q2",
+                level: "A1",
+                prompt: "¿Cuántas calles tiene que pasar antes de girar?",
+                options: ["Dos calles", "Una calle", "Tres calles", "Cuatro calles"],
+                answer: "Dos calles"
+            },
+            {
+                id: "es-l-a1-5-q3",
+                level: "A1",
+                prompt: "¿Qué hay al lado de la farmacia?",
+                options: ["Un banco", "Un hotel", "Una iglesia", "Una cafetería"],
+                answer: "Un banco"
+            }
+        ]
+    },
+    {
+        id: "es-l-a1-6",
+        level: "A1",
+        title: "Mi rutina del día — daily routine monologue",
+        script: "Hola. Me llamo Pablo. Soy estudiante. Voy a hablar de mi rutina. Me levanto a las siete de la mañana. Primero me ducho. Después me desayuno — como tostadas y bebo un zumo de naranja. A las ocho y media salgo de casa y voy a la universidad. Tengo clases por la mañana. Al mediodía como en la cafetería con mis amigos. Por la tarde estudio en la biblioteca. A las seis hago ejercicio en el gimnasio. Es muy importante para mí. A las ocho y media ceno en casa. Normalmente como pasta o arroz. Por la noche leo un poco o veo una serie. Me acuesto a las once. Es una rutina tranquila, pero me gusta.",
+        translation: "Hello. My name is Pablo. I am a student. I am going to talk about my routine. I get up at seven in the morning. First I shower. Then I have breakfast — I eat toast and drink an orange juice. At half past eight I leave home and go to university. I have classes in the morning. At midday I eat in the cafeteria with my friends. In the afternoon I study in the library. At six I exercise at the gym. It is very important to me. At half past eight I have dinner at home. I usually eat pasta or rice. In the evening I read a little or watch a series. I go to bed at eleven. It is a calm routine, but I like it.",
+        questions: [
+            {
+                id: "es-l-a1-6-q1",
+                level: "A1",
+                prompt: "¿A qué hora se levanta Pablo?",
+                options: ["A las siete", "A las seis", "A las ocho", "A las siete y media"],
+                answer: "A las siete"
+            },
+            {
+                id: "es-l-a1-6-q2",
+                level: "A1",
+                prompt: "¿Qué hace Pablo por la tarde?",
+                options: ["Estudia en la biblioteca", "Va a la universidad", "Come con sus amigos", "Ve una serie"],
+                answer: "Estudia en la biblioteca"
+            },
+            {
+                id: "es-l-a1-6-q3",
+                level: "A1",
+                prompt: "¿A qué hora se acuesta Pablo?",
+                options: ["A las once", "A las diez", "A las doce", "A las nueve"],
+                answer: "A las once"
+            }
+        ]
     }
 ]
