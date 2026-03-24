@@ -73,7 +73,7 @@ export const a1Reading: ReadingPassage[] = [
             {
                 id: "it-r-a1-2-q2",
                 level: "A1",
-                prompt: "Dove pranzo la persona?",
+                prompt: "Dove pranza la persona?",
                 options: ["Nella mensa scolastica", "A casa", "Al bar", "In piazza"],
                 answer: "Nella mensa scolastica"
             },

@@ -9,7 +9,7 @@ import { LessonUnit } from "../../../types"
 // U21: Demonstratives (new — it-g-a1-24)
 // U22: Adverbs, Frequency & Connectors (new — it-g-a1-26/27/28/29)
 // U22 (new): Partitive Articles, C'è & Stressed Pronouns (it-g-a1-30/31/34)
-// U23 (new): Commands & Dovere (it-g-a1-32/33)
+// U23 (new): Commands & Dovere (it-g-a1-32/33) — replaces old duplicate U22 comment
 // U24: Bridge — The Near Future (capstone — renumbered from U22)
 
 export const a1Units: LessonUnit[] = [
@@ -114,8 +114,8 @@ export const a1Units: LessonUnit[] = [
         description: "Learn the highly irregular verb fare and its many fixed expressions — essential for describing weather, activities, and daily life in Italian.",
         grammarIds: ["it-g-a1-9"],
         vocabIds: [
-            "it-v-a1-151", "it-v-a1-152", "it-v-a1-153", "it-v-a1-154",
-            "it-v-a1-155", "it-v-a1-156", "it-v-a1-157", "it-v-a1-158"
+            // Time of day — natural fare context (fare sport la mattina, passeggiata la sera)
+            "it-v-a1-151", "it-v-a1-152"
         ],
         verbIds: ["it-vb-a1-5"],
         testQuestions: [
@@ -134,7 +134,14 @@ export const a1Units: LessonUnit[] = [
         title: "Adjective Agreement",
         description: "Now that you know noun gender, learn how adjectives must agree with their noun in gender and number — and where to place them.",
         grammarIds: ["it-g-a1-12"],
-        vocabIds: ["it-v-a1-92", "it-v-a1-93", "it-v-a1-94", "it-v-a1-95", "it-v-a1-96", "it-v-a1-97", "it-v-a1-98", "it-v-a1-99", "it-v-a1-100", "it-v-a1-101", "it-v-a1-102", "it-v-a1-103"],
+        vocabIds: [
+            // Colors
+            "it-v-a1-92", "it-v-a1-93", "it-v-a1-94", "it-v-a1-95",
+            "it-v-a1-96", "it-v-a1-97", "it-v-a1-98", "it-v-a1-99",
+            // Clothing (all 8 items — adjective agreement practice targets)
+            "it-v-a1-100", "it-v-a1-101", "it-v-a1-102", "it-v-a1-103",
+            "it-v-a1-104", "it-v-a1-105", "it-v-a1-106", "it-v-a1-107"
+        ],
         verbIds: ["it-vb-a1-1"],
         testQuestions: [
             { id: "it-uq-a1-7-1", level: "A1", prompt: "Complete: 'La macchina è ___.' (red)", options: ["rosso", "rossa", "rossi", "rosse"], answer: "rossa" },
@@ -312,7 +319,14 @@ export const a1Units: LessonUnit[] = [
         title: "Professions & Daily Life",
         description: "Talk about jobs, daily routines, and the human body.",
         grammarIds: ["it-g-a1-21"],
-        vocabIds: ["it-v-a1-131", "it-v-a1-132", "it-v-a1-133", "it-v-a1-134", "it-v-a1-135", "it-v-a1-136", "it-v-a1-137", "it-v-a1-138", "it-v-a1-139", "it-v-a1-140", "it-v-a1-82", "it-v-a1-83", "it-v-a1-84"],
+        vocabIds: [
+            // Professions
+            "it-v-a1-131", "it-v-a1-132", "it-v-a1-133", "it-v-a1-134", "it-v-a1-135",
+            "it-v-a1-136", "it-v-a1-137", "it-v-a1-138", "it-v-a1-139", "it-v-a1-140",
+            // Body parts (all 10 — for mal di testa/braccio/gamba contexts)
+            "it-v-a1-82", "it-v-a1-83", "it-v-a1-84", "it-v-a1-85", "it-v-a1-86",
+            "it-v-a1-87", "it-v-a1-88", "it-v-a1-89", "it-v-a1-90", "it-v-a1-91"
+        ],
         verbIds: ["it-vb-a1-1", "it-vb-a1-2", "it-vb-a1-5"],
         testQuestions: [
             { id: "it-uq-a1-16-1", level: "A1", prompt: "What does 'il medico' mean?", options: ["Lawyer", "Teacher", "Doctor", "Engineer"], answer: "Doctor" },
@@ -331,7 +345,7 @@ export const a1Units: LessonUnit[] = [
         description: "Ask for and give directions using places vocabulary and the verb andare.",
         grammarIds: ["it-g-a1-22"],
         vocabIds: ["it-v-a1-108", "it-v-a1-109", "it-v-a1-110", "it-v-a1-114", "it-v-a1-115", "it-v-a1-116", "it-v-a1-117", "it-v-a1-119", "it-v-a1-121", "it-v-a1-122", "it-v-a1-123", "it-v-a1-124", "it-v-a1-125", "it-v-a1-126", "it-v-a1-127"],
-        verbIds: ["it-vb-a1-4", "it-vb-a1-22", "it-vb-a1-23"],
+        verbIds: ["it-vb-a1-4", "it-vb-a1-10", "it-vb-a1-22", "it-vb-a1-23"],
         testQuestions: [
             { id: "it-uq-a1-17-1", level: "A1", prompt: "How do you say 'Turn left'?", options: ["Vai dritto.", "Gira a destra.", "Gira a sinistra.", "Torna indietro."], answer: "Gira a sinistra." },
             { id: "it-uq-a1-17-2", level: "A1", prompt: "Complete: 'Vado ___ museo.' (article + 'il')", options: ["al", "del", "nel", "col"], answer: "al" },
@@ -370,7 +384,12 @@ export const a1Units: LessonUnit[] = [
         title: "Reflexive Verbs & Daily Routine",
         description: "Learn to describe your daily routine using reflexive verbs — waking up, getting dressed, washing. These verbs use special pronouns placed before the conjugated verb.",
         grammarIds: ["it-g-a1-25"],
-        vocabIds: [],
+        vocabIds: [
+            // Time expressions — natural context for daily routine reflexive verbs
+            "it-v-a1-141", "it-v-a1-142", "it-v-a1-143", "it-v-a1-144",
+            "it-v-a1-145", "it-v-a1-146", "it-v-a1-147", "it-v-a1-148",
+            "it-v-a1-149", "it-v-a1-150", "it-v-a1-151", "it-v-a1-152"
+        ],
         verbIds: [],
         testQuestions: [
             { id: "it-uq-a1-19-1", level: "A1", prompt: "How do you say 'My name is Sofia'?", options: ["Sono Sofia.", "Ho Sofia.", "Mi chiamo Sofia.", "Chiamo Sofia."], answer: "Mi chiamo Sofia." },
@@ -388,7 +407,14 @@ export const a1Units: LessonUnit[] = [
         title: "Demonstratives",
         description: "Point things out in Italian — questo (this) and quello (that). Quello mirrors the definite article pattern, making it elegant once you know the articles.",
         grammarIds: ["it-g-a1-24"],
-        vocabIds: [],
+        vocabIds: [
+            // Clothing — natural demonstrative targets (questa camicia, quella giacca)
+            "it-v-a1-100", "it-v-a1-101", "it-v-a1-102", "it-v-a1-103",
+            "it-v-a1-104", "it-v-a1-105", "it-v-a1-106", "it-v-a1-107",
+            // Food — also good for pointing (quel pane, questa pizza)
+            "it-v-a1-61", "it-v-a1-62", "it-v-a1-63", "it-v-a1-64",
+            "it-v-a1-65", "it-v-a1-66", "it-v-a1-67", "it-v-a1-68"
+        ],
         verbIds: [],
         testQuestions: [
             { id: "it-uq-a1-20-1", level: "A1", prompt: "How do you say 'this book' (il libro)?", options: ["quello libro", "quel libro", "questo libro", "questa libro"], answer: "questo libro" },
@@ -406,7 +432,12 @@ export const a1Units: LessonUnit[] = [
         title: "Adverbs, Frequency & Connectors",
         description: "Build more natural sentences: say where things are, when they happen, how often, and link ideas with connectors like ma, perché, and prima.",
         grammarIds: ["it-g-a1-26", "it-g-a1-27", "it-g-a1-28", "it-g-a1-29"],
-        vocabIds: [],
+        vocabIds: [
+            // Time expressions — primary adverb targets (sempre, mai, spesso, oggi, domani…)
+            "it-v-a1-141", "it-v-a1-142", "it-v-a1-143", "it-v-a1-144",
+            "it-v-a1-145", "it-v-a1-146", "it-v-a1-147", "it-v-a1-148",
+            "it-v-a1-149", "it-v-a1-150"
+        ],
         verbIds: [],
         testQuestions: [
             { id: "it-uq-a1-21-1", level: "A1", prompt: "What does 'ancora' mean?", options: ["already", "soon", "still / yet", "never"], answer: "still / yet" },
@@ -467,7 +498,7 @@ export const a1Units: LessonUnit[] = [
             { id: "it-uq-a1-23-3", level: "A1", prompt: "How do you form a negative tu imperative? Complete: '___ correre!' (Don't run!)", options: ["Non corri!", "Non corra!", "Non correre!", "Non correte!"], answer: "Non correre!" },
             { id: "it-uq-a1-23-4", level: "A1", prompt: "Choose the correct form of dovere: 'Noi ___ studiare ogni giorno.'", options: ["devo", "deve", "dobbiamo", "dovete"], answer: "dobbiamo" },
             { id: "it-uq-a1-23-5", level: "A1", prompt: "Translate: 'You (tu) must eat breakfast.'", options: ["Devi fare colazione.", "Deve fare colazione.", "Dovete fare colazione.", "Devo fare colazione."], answer: "Devi fare colazione." },
-            { id: "it-uq-a1-23-6", level: "A1", prompt: "Which sentence uses dovere to give advice?", options: ["Dovresti riposare di più.", "Vuoi riposare di più?", "Riesci a riposare?", "Stai riposando?"], answer: "Dovresti riposare di più." },
+            { id: "it-uq-a1-23-6", level: "A1", prompt: "Translate: 'They must arrive on time.'", options: ["Vogliono arrivare in orario.", "Possono arrivare in orario.", "Arrivano in orario.", "Devono arrivare in orario."], answer: "Devono arrivare in orario." },
         ]
     },
     {
