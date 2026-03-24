@@ -12,16 +12,16 @@ export function LoginPage() {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [error, setError] = useState<string | null>(null)
+    const [errors, setErrors] = useState<string[]>([])
     const [loading, setLoading] = useState(false)
 
     async function handleSubmit(e: FormEvent) {
         e.preventDefault()
-        setError(null)
+        setErrors([])
 
         const result = validateLogin({ email, password })
         if (!result.valid) {
-            setError(result.errors[0].message)
+            setErrors(result.errors.map(e => e.message))
             return
         }
 
@@ -30,7 +30,7 @@ export function LoginPage() {
             await login(email, password)
             navigate(from, { replace: true })
         } catch (err) {
-            setError(err instanceof Error ? err.message : "Login failed.")
+            setErrors([err instanceof Error ? err.message : "Login failed."])
         } finally {
             setLoading(false)
         }
@@ -43,10 +43,10 @@ export function LoginPage() {
                 <p className="text-center text-gray-500 mb-8">Sign in to continue</p>
 
                 <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-md p-6 flex flex-col gap-4">
-                    {error && (
-                        <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
-                            {error}
-                        </p>
+                    {errors.length > 0 && (
+                        <ul className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2 flex flex-col gap-1 list-disc list-inside">
+                            {errors.map(msg => <li key={msg}>{msg}</li>)}
+                        </ul>
                     )}
 
                     <div>

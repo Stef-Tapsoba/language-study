@@ -1,5 +1,5 @@
 // pages/VerbsPage.tsx — Verb conjugation reference with collapsible tense tables
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { useState } from "react"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
@@ -8,6 +8,7 @@ import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { SpeakButton } from "../components/SpeakButton"
 import { Verb } from "../types"
+import { getUI } from "../i18n"
 
 function VerbCard({ verb, langId }: Readonly<{ verb: Verb; langId: string }>) {
     const [open, setOpen] = useState(false)
@@ -71,6 +72,7 @@ export function VerbsPage() {
     const language = getLanguage(langId)
     const mod = getModule(langId)
     const level = getCurrentLevel(langId)
+    const ui = getUI(langId, level)
 
     if (!language || !mod) return null
 
@@ -79,18 +81,35 @@ export function VerbsPage() {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <NavBar title="Verbs" level={level} backTo={`/learn/${langId}`} />
+            <NavBar title={ui.sectionVerbs} level={level} backTo={`/learn/${langId}`} />
             <main className="max-w-3xl mx-auto px-4 py-6">
                 <div className="flex items-center gap-2 mb-6">
-                    <h2 className="text-xl font-bold text-gray-900">Verbs</h2>
+                    <h1 className="text-xl font-bold text-gray-900">{ui.sectionVerbs}</h1>
                     <LevelBadge level={level} />
                     <span className="text-sm text-gray-500 ml-1">{verbs.length} verbs</span>
                 </div>
 
                 {coming ? (
-                    <div className="text-center py-16 text-gray-400">
-                        <p className="text-4xl mb-3">🚧</p>
-                        <p className="font-medium">Content coming soon for {level}</p>
+                    <div className="flex flex-col items-center text-center py-16 text-gray-400 gap-3">
+                        <p className="text-4xl">🚧</p>
+                        <p className="font-medium text-gray-600">{level} verbs are coming soon!</p>
+                        <p className="text-sm text-gray-500">
+                            In the meantime, try the Verb Drill or review your vocabulary with Flashcards.
+                        </p>
+                        <div className="flex flex-col gap-2 w-full max-w-xs mt-2">
+                            <Link
+                                to={`/learn/${langId}/verb-drill`}
+                                className="block w-full text-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 text-sm font-medium"
+                            >
+                                Go to Verb Drill
+                            </Link>
+                            <Link
+                                to={`/learn/${langId}`}
+                                className="block w-full text-center px-4 py-2 border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-50 text-sm font-medium"
+                            >
+                                Back to Dashboard
+                            </Link>
+                        </div>
                     </div>
                 ) : (
                     <div className="flex flex-col gap-3">

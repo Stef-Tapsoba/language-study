@@ -1,6 +1,6 @@
 // pages/VerbDrillPage.tsx — Conjugation fill-in-the-blank drill
 import { useMemo, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { getCurrentLevel } from "../store/progress"
@@ -82,18 +82,45 @@ export function VerbDrillPage() {
     if (!language || !mod) return null
 
     if (questions.length === 0) {
+        const prevLevelMap: Record<string, string> = { A2: "A1", B1: "A2", B2: "B1", C1: "B2" }
+        const prevLevel = prevLevelMap[level] ?? null
         return (
             <div className="min-h-screen bg-gray-50">
                 <NavBar title={ui.sectionVerbDrill} level={level} backTo={`/learn/${langId}`} />
-                <div className="flex flex-col items-center justify-center py-24 text-gray-400">
+                <div className="flex flex-col items-center justify-center py-24 text-gray-400 px-4 text-center">
                     <p className="text-4xl mb-3">🚧</p>
-                    <p className="font-medium">No verbs to drill at {level} yet</p>
+                    <p className="font-medium text-gray-600 mb-1">
+                        {level} content is coming soon!
+                    </p>
+                    <p className="text-sm text-gray-500 mb-6">
+                        {prevLevel
+                            ? `In the meantime, review your ${prevLevel} knowledge or explore Reading and Culture.`
+                            : "In the meantime, explore Reading and Culture."}
+                    </p>
+                    <div className="flex flex-col gap-3 w-full max-w-xs">
+                        <Link
+                            to={`/learn/${langId}/reading`}
+                            className="block w-full text-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 text-sm font-medium"
+                        >
+                            Go to Reading
+                        </Link>
+                        <Link
+                            to={`/learn/${langId}`}
+                            className="block w-full text-center px-4 py-2 border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-50 text-sm font-medium"
+                        >
+                            Back to Dashboard
+                        </Link>
+                    </div>
                 </div>
             </div>
         )
     }
 
     if (drill.done) {
+        const pct = Math.round((drill.score / questions.length) * 100)
+        let encouragement = "Keep practising — it gets easier with repetition."
+        if (pct >= 80) encouragement = "Excellent! You're ready to move on."
+        else if (pct >= 60) encouragement = "Good progress — review the mistakes and try again."
         return (
             <DrillDoneScreen
                 score={drill.score}
@@ -103,6 +130,7 @@ export function VerbDrillPage() {
                 ui={ui}
                 onRestart={drill.restart}
                 backTo={`/learn/${langId}`}
+                encouragement={encouragement}
                 missed={drill.missed.map(m => ({
                     prompt: `${m.question.verb.infinitive} — ${m.question.tense} — ${m.question.pronoun}`,
                     correct: m.question.correct,

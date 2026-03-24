@@ -104,6 +104,10 @@ export function GrammarDrillPage() {
     }
 
     if (drill.done) {
+        const pct = Math.round((drill.score / questions.length) * 100)
+        let encouragement = "Keep practising — it gets easier with repetition."
+        if (pct >= 80) encouragement = "Excellent! Your grammar is really coming along."
+        else if (pct >= 60) encouragement = "Good progress — review the mistakes and try again."
         return (
             <DrillDoneScreen
                 score={drill.score}
@@ -113,6 +117,7 @@ export function GrammarDrillPage() {
                 ui={ui}
                 onRestart={drill.restart}
                 backTo={`/learn/${langId}`}
+                encouragement={encouragement}
                 missed={drill.missed.map(m => ({
                     prompt: m.question.prompt,
                     correct: m.question.correct,

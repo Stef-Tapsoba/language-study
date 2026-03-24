@@ -52,6 +52,12 @@
     transition: transform 0.45s ease;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .card-inner {
+        transition: none;
+    }
+}
+
 .card-inner.flipped {
     transform: rotateY(180deg);
 }

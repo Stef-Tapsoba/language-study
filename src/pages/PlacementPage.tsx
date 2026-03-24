@@ -26,6 +26,7 @@ export function PlacementPage() {
     const { setCurrentLevel } = useProgress()
 
     const [tab, setTab] = useState<Tab>("test")
+    const [introSeen, setIntroSeen] = useState(false)
     const [current, setCurrent] = useState(0)
     const [selected, setSelected] = useState<string | null>(null)
     const [revealed, setRevealed] = useState(false)
@@ -60,6 +61,39 @@ export function PlacementPage() {
     function confirmLevel(level: CEFRLevel) {
         setCurrentLevel(langId, level)
         navigate(`/learn/${langId}`)
+    }
+
+    // Pre-intro screen — shown before the first question of the placement test
+    if (!introSeen && tab === "test") {
+        return (
+            <div className="min-h-screen bg-gray-50">
+                <NavBar title={`${language.name} — Placement Test`} backTo="/home" />
+                <main className="max-w-xl mx-auto px-4 py-16 flex flex-col items-center gap-5 text-center">
+                    <p className="text-5xl">🎯</p>
+                    <h2 className="text-xl font-bold text-gray-900">Find your level</h2>
+                    <p className="text-gray-500 text-sm max-w-xs">
+                        Answer {questions.length} quick questions and we'll suggest the right starting level for you.
+                        Don't worry — you can always change it later.
+                    </p>
+                    <div className="flex flex-col gap-3 w-full max-w-xs mt-2">
+                        <button
+                            onClick={() => setIntroSeen(true)}
+                            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
+                                       rounded-xl py-3 text-sm transition-colors"
+                        >
+                            Start placement test
+                        </button>
+                        <button
+                            onClick={() => setTab("manual")}
+                            className="w-full border border-gray-200 text-gray-600 hover:border-indigo-400
+                                       font-semibold rounded-xl py-3 text-sm transition-colors"
+                        >
+                            Set level manually instead
+                        </button>
+                    </div>
+                </main>
+            </div>
+        )
     }
 
     if (done) {

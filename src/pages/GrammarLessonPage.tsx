@@ -46,7 +46,8 @@ export function GrammarLessonPage() {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <NavBar title={lesson.title} level={level} backTo={`/learn/${langId}/grammar`} />
+            <NavBar title={lesson.title} level={level} backTo={`/learn/${langId}/grammar`}
+                breadcrumb={`${language.name} › Grammar`} />
             <main className="max-w-xl mx-auto px-4 py-6 flex flex-col gap-5">
 
                 {/* Title + level badge */}

@@ -19,6 +19,33 @@ function progressDotClass(i: number, current: number): string {
 }
 
 // ---------------------------------------------------------------------------
+// LevelUpOverlay — full-screen celebration shown briefly on level advance
+// ---------------------------------------------------------------------------
+function LevelUpOverlay({ nextLevel, onDone }: Readonly<{ nextLevel: CEFRLevel; onDone: () => void }>) {
+    return (
+        <dialog
+            open
+            aria-label="Level up celebration"
+            className="fixed inset-0 z-50 m-0 w-full h-full max-w-none max-h-none border-0
+                       flex flex-col items-center justify-center
+                       bg-indigo-900/90 text-white text-center px-6"
+        >
+            <p className="text-7xl mb-4">🎉</p>
+            <h2 className="text-3xl font-bold mb-2">Level Up!</h2>
+            <p className="text-indigo-200 text-lg mb-1">You've advanced to</p>
+            <span className="text-5xl font-extrabold text-yellow-300 mb-6">{nextLevel}</span>
+            <button
+                onClick={onDone}
+                className="bg-white text-indigo-700 font-semibold rounded-xl px-8 py-3 text-sm
+                           hover:bg-indigo-50 transition-colors"
+            >
+                Continue →
+            </button>
+        </dialog>
+    )
+}
+
+// ---------------------------------------------------------------------------
 // ResultsActions — the action panel inside the results card (no nested ternaries)
 // ---------------------------------------------------------------------------
 function ResultsActions({ passed, nextLevel, langId, ui, onRetry }: Readonly<{
@@ -30,15 +57,26 @@ function ResultsActions({ passed, nextLevel, langId, ui, onRetry }: Readonly<{
 }>) {
     const navigate = useNavigate()
     const { setCurrentLevel } = useProgress()
+    const [showOverlay, setShowOverlay] = useState(false)
 
     function handleAdvance() {
-        if (nextLevel) setCurrentLevel(langId, nextLevel)
-        navigate(`/learn/${langId}`)
+        if (nextLevel) {
+            setCurrentLevel(langId, nextLevel)
+            setShowOverlay(true)
+        } else {
+            navigate(`/learn/${langId}`)
+        }
     }
 
     if (passed && nextLevel) {
         return (
             <>
+                {showOverlay && (
+                    <LevelUpOverlay
+                        nextLevel={nextLevel}
+                        onDone={() => navigate(`/learn/${langId}`)}
+                    />
+                )}
                 <p className="text-sm text-gray-500 mb-3">{ui.currentLevel}</p>
                 <div className="flex justify-center mb-4">
                     <LevelBadge level={nextLevel} />

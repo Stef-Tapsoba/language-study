@@ -174,6 +174,7 @@ function FlipCard({ item, flipped, onClick, translationMode, translationShown, u
                         >
                             <input
                                 autoFocus
+                                aria-label="Type the translation"
                                 value={typedAnswer}
                                 onChange={e => onTypedChange(e.target.value)}
                                 placeholder="Type translation…"
@@ -198,7 +199,14 @@ function FlipCard({ item, flipped, onClick, translationMode, translationShown, u
 
                     {/* Typed mode result indicator */}
                     {typedMode && typedResult && (
-                        <div className="text-2xl">{typedResult === "correct" ? "✅" : "❌"}</div>
+                        <div className="flex flex-col items-center gap-1">
+                            <div className="text-2xl">{typedResult === "correct" ? "✅" : "❌"}</div>
+                            {typedResult === "wrong" && (
+                                <p className="text-xs text-red-500 text-center">
+                                    You typed: <span className="font-medium">{typedAnswer}</span>
+                                </p>
+                            )}
+                        </div>
                     )}
 
                     {/* A1/A2: translation prominent at top */}
@@ -247,6 +255,10 @@ export function FlashcardsPage() {
     const [studyAll, setStudyAll] = useState(false)
     const [started, setStarted] = useState(false)
     const [typedMode, setTypedMode] = useState(false)
+    const [ttsEnabled, setTtsEnabled] = useState(() => {
+        const stored = localStorage.getItem("ls:tts-autoplay")
+        return stored === null ? true : stored === "true"
+    })
 
     const allVocab = useMemo(
         () => mod?.vocab.filter(v => v.level === level) ?? [],
@@ -291,20 +303,25 @@ export function FlashcardsPage() {
 
     // Auto-play word when a new card appears
     useEffect(() => {
-        if (deck.length === 0) return
+        if (deck.length === 0 || !ttsEnabled) return
         speak(deck[index].word, langId)
-    }, [index, deck, langId])
+    }, [index, deck, langId, ttsEnabled])
 
     // Auto-play example sentence when the card is flipped
     useEffect(() => {
-        if (!flipped || deck.length === 0) return
+        if (!flipped || deck.length === 0 || !ttsEnabled) return
         speak(deck[index].example.native, langId)
-    }, [flipped, index, deck, langId])
+    }, [flipped, index, deck, langId, ttsEnabled])
 
     // Cancel any ongoing speech when leaving the page
     useEffect(() => () => { globalThis.speechSynthesis?.cancel() }, [])
 
     if (!language || !mod) return null
+
+    function handleTtsToggle(enabled: boolean) {
+        setTtsEnabled(enabled)
+        localStorage.setItem("ls:tts-autoplay", String(enabled))
+    }
 
     // No vocabulary at this level yet
     if (allVocab.length === 0) {
@@ -336,17 +353,27 @@ export function FlashcardsPage() {
                     {nextStr && (
                         <p className="text-gray-400 text-xs">Next review: {nextStr}</p>
                     )}
-                    <label className="flex items-center gap-2 text-sm text-gray-700 mt-2">
-                        <input
-                            type="checkbox"
-                            checked={typedMode}
-                            onChange={e => setTypedMode(e.target.checked)}
-                        />
-                        <span>Type answers (active recall)</span>
-                    </label>
+                    <div className="flex flex-col gap-2 w-full text-left mt-2">
+                        <label className="flex items-center gap-2 text-sm text-gray-700">
+                            <input
+                                type="checkbox"
+                                checked={typedMode}
+                                onChange={e => setTypedMode(e.target.checked)}
+                            />
+                            <span>Type answers (active recall)</span>
+                        </label>
+                        <label className="flex items-center gap-2 text-sm text-gray-700">
+                            <input
+                                type="checkbox"
+                                checked={ttsEnabled}
+                                onChange={e => handleTtsToggle(e.target.checked)}
+                            />
+                            <span>Auto-play pronunciation</span>
+                        </label>
+                    </div>
                     <button
                         onClick={() => { setStudyAll(true); setStarted(true) }}
-                        className="mt-2 w-full border border-gray-200 text-gray-600 hover:border-indigo-400
+                        className="w-full bg-indigo-600 hover:bg-indigo-700 text-white
                                    font-semibold rounded-xl py-3 text-sm transition-colors"
                     >
                         Study all {allVocab.length} cards anyway
@@ -365,14 +392,24 @@ export function FlashcardsPage() {
                     <p className="text-5xl">🃏</p>
                     <h2 className="text-xl font-bold text-gray-900">{srsDeck.length} cards ready</h2>
                     <p className="text-sm text-gray-500">{due.length} due · {newCardIds.length} new</p>
-                    <label className="flex items-center gap-2 text-sm text-gray-700">
-                        <input
-                            type="checkbox"
-                            checked={typedMode}
-                            onChange={e => setTypedMode(e.target.checked)}
-                        />
-                        <span>Type answers (active recall)</span>
-                    </label>
+                    <div className="flex flex-col gap-2 w-full text-left">
+                        <label className="flex items-center gap-2 text-sm text-gray-700">
+                            <input
+                                type="checkbox"
+                                checked={typedMode}
+                                onChange={e => setTypedMode(e.target.checked)}
+                            />
+                            <span>Type answers (active recall)</span>
+                        </label>
+                        <label className="flex items-center gap-2 text-sm text-gray-700">
+                            <input
+                                type="checkbox"
+                                checked={ttsEnabled}
+                                onChange={e => handleTtsToggle(e.target.checked)}
+                            />
+                            <span>Auto-play pronunciation</span>
+                        </label>
+                    </div>
                     <button
                         onClick={() => setStarted(true)}
                         className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
@@ -467,7 +504,8 @@ export function FlashcardsPage() {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <NavBar title={ui.sectionFlashcards} level={level} backTo={`/learn/${langId}`} />
+            <NavBar title={ui.sectionFlashcards} level={level} backTo={`/learn/${langId}`}
+                breadcrumb={`${language.name} › Practice`} />
             <main className="max-w-sm mx-auto px-4 py-8 flex flex-col items-center gap-6">
                 {/* Progress */}
                 <div className="w-full flex items-center justify-between text-sm text-gray-500">

@@ -12,20 +12,20 @@ export function RegisterPage() {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [error, setError] = useState<string | null>(null)
+    const [formErrors, setFormErrors] = useState<string[]>([])
     const [loading, setLoading] = useState(false)
 
     async function handleSubmit(e: FormEvent) {
         e.preventDefault()
-        setError(null)
+        setFormErrors([])
 
-        const errors = [
+        const validationErrors = [
             ...validateRequired(name, "Name"),
             ...validateEmail(email),
             ...validatePassword(password),
         ]
-        if (errors.length > 0) {
-            setError(errors[0].message)
+        if (validationErrors.length > 0) {
+            setFormErrors(validationErrors.map(e => e.message))
             return
         }
 
@@ -35,7 +35,7 @@ export function RegisterPage() {
             await login(email, password)
             navigate("/home", { replace: true })
         } catch (err) {
-            setError(err instanceof Error ? err.message : "Registration failed.")
+            setFormErrors([err instanceof Error ? err.message : "Registration failed."])
         } finally {
             setLoading(false)
         }
@@ -48,10 +48,10 @@ export function RegisterPage() {
                 <p className="text-center text-gray-500 mb-8">Create your account</p>
 
                 <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-md p-6 flex flex-col gap-4">
-                    {error && (
-                        <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
-                            {error}
-                        </p>
+                    {formErrors.length > 0 && (
+                        <ul className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2 flex flex-col gap-1 list-disc list-inside">
+                            {formErrors.map(msg => <li key={msg}>{msg}</li>)}
+                        </ul>
                     )}
 
                     <div>

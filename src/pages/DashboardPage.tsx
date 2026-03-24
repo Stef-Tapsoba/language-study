@@ -350,12 +350,20 @@ export function DashboardPage() {
                             title={ui.sectionVerbDrill}
                             description={ui.sectionVerbDrillDesc}
                             to={`/learn/${langId}/verb-drill`}
+                            badge={(() => {
+                                const verbCount = mod.verbs.filter(v => v.level === level).length
+                                return verbCount > 0 ? verbCount : undefined
+                            })()}
                         />
                         <SectionCard
                             emoji="✏️"
                             title={ui.sectionGrammarDrill}
                             description={ui.sectionGrammarDrillDesc}
                             to={`/learn/${langId}/grammar-drill`}
+                            badge={(() => {
+                                const gCount = mod.grammar.filter(g => g.level === level).flatMap(g => g.examples).length
+                                return gCount > 0 ? gCount : undefined
+                            })()}
                         />
                     </div>
                 )}
@@ -372,6 +380,7 @@ export function DashboardPage() {
                         const correct14 = history14.reduce((s, d) => s + d.correct, 0)
                         const srsAcc = reviewed14 ? Math.round(correct14 / reviewed14 * 100) : 0
                         return (
+
                             <div className="flex flex-col gap-4">
                                 {/* Hero */}
                                 <div className="bg-gradient-to-br from-violet-600 to-violet-800 rounded-2xl p-6 text-white">
@@ -418,9 +427,17 @@ export function DashboardPage() {
                             </div>
                         )
                     })() : (
-                        <div className="text-center py-16 text-gray-400">
-                            <p className="text-4xl mb-3">🏆</p>
-                            <p className="font-medium">You've reached the highest level!</p>
+                        <div className="flex flex-col items-center text-center py-16 gap-4 text-gray-400">
+                            <p className="text-4xl">🏆</p>
+                            <p className="font-medium text-gray-700">You've reached the highest level!</p>
+                            <p className="text-sm text-gray-500">Keep your skills sharp with daily practice.</p>
+                            <button
+                                onClick={() => switchTab("practice")}
+                                className="mt-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
+                                           rounded-xl px-6 py-2.5 text-sm transition-colors"
+                            >
+                                Go to Practice
+                            </button>
                         </div>
                     )
                 )}

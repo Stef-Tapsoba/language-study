@@ -30,7 +30,7 @@ export function SpeakButton({ text, langId, className = "" }: SpeakButtonProps) 
             onClick={handleSpeak}
             title="Listen"
             aria-label="Listen"
-            className={`shrink-0 p-1.5 rounded-lg transition-colors ${speaking
+            className={`shrink-0 p-2 min-h-[44px] min-w-[44px] rounded-lg transition-colors ${speaking
                     ? "text-indigo-600 bg-indigo-50"
                     : "text-gray-300 hover:text-indigo-500 hover:bg-gray-100"
                 } ${className}`}

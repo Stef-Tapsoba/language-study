@@ -49,6 +49,10 @@ function NewUserWelcome({ displayName, onPick }: Readonly<{
                         </button>
                     ))}
                 </div>
+
+                <p className="text-center text-xs text-gray-400 mt-2">
+                    Pick a language → take a short placement test → start learning at your level
+                </p>
             </main>
         </div>
     )

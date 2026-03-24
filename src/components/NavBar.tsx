@@ -1,4 +1,5 @@
 // components/NavBar.tsx — Sticky top navigation bar with back button, level badge, streak chip, and profile link
+import { useState, useEffect, useRef } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import { LevelBadge } from "./LevelBadge"
 import { LanguagePicker } from "./LanguagePicker"
@@ -25,12 +26,28 @@ interface NavBarProps {
     onBack?: () => void
     /** Renders the language switcher pill between title and profile icon. */
     showLanguagePicker?: boolean
+    /** Optional breadcrumb text rendered below the title bar. */
+    breadcrumb?: string
 }
 
-export function NavBar({ title = "Language Study", level, backTo, fallbackRoute, onBack, showLanguagePicker }: Readonly<NavBarProps>) {
+export function NavBar({ title = "Language Study", level, backTo, fallbackRoute, onBack, showLanguagePicker, breadcrumb }: Readonly<NavBarProps>) {
     const navigate = useNavigate()
     // Reactive: re-reads from the Zustand store so streak updates live during a session.
     const streak = useGlobalStreak()
+
+    // Issue 22: animate streak badge when it increases
+    const [streakBumped, setStreakBumped] = useState(false)
+    const prevStreakRef = useRef(streak)
+
+    useEffect(() => {
+        if (streak > prevStreakRef.current) {
+            setStreakBumped(true)
+            const t = setTimeout(() => setStreakBumped(false), 1000)
+            prevStreakRef.current = streak
+            return () => clearTimeout(t)
+        }
+        prevStreakRef.current = streak
+    }, [streak])
 
     function handleBack() {
         if (onBack) { onBack(); return }
@@ -68,7 +85,7 @@ export function NavBar({ title = "Language Study", level, backTo, fallbackRoute,
                 {level && <LevelBadge level={level} />}
 
                 {streak > 0 && (
-                    <span className="text-xs font-semibold text-orange-500 bg-orange-50 rounded-full px-2 py-0.5 shrink-0">
+                    <span className={`text-xs font-semibold text-orange-500 bg-orange-50 rounded-full px-2 py-0.5 shrink-0 ${streakBumped ? "animate-bounce" : ""}`}>
                         🔥 {streak}d
                     </span>
                 )}
@@ -76,7 +93,7 @@ export function NavBar({ title = "Language Study", level, backTo, fallbackRoute,
                 <Link
                     to="/profile"
                     className="p-2 text-gray-400 hover:text-gray-700 shrink-0"
-                    aria-label="Profile"
+                    aria-label="View profile"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
                         viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -88,6 +105,9 @@ export function NavBar({ title = "Language Study", level, backTo, fallbackRoute,
                 </Link>
 
             </div>
+            {breadcrumb && (
+                <p className="text-xs text-gray-400 px-4 pb-1 truncate">{breadcrumb}</p>
+            )}
         </nav>
     )
 }

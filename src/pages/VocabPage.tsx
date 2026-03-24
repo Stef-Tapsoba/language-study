@@ -1,6 +1,6 @@
 // pages/VocabPage.tsx — Vocabulary browser with mark-as-learned toggling and todo/done filter
 import { useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { useProgress } from "../context/ProgressContext"
@@ -8,6 +8,7 @@ import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { SpeakButton } from "../components/SpeakButton"
 import { VocabItem } from "../types"
+import { getUI } from "../i18n"
 
 function VocabCard({
     item,
@@ -30,9 +31,10 @@ function VocabCard({
             onClick={() => setOpen(o => !o)}
         >
             <div className="px-4 py-3 flex items-center gap-3">
-                <span className={`text-base ${done ? "text-green-500" : "text-gray-300"}`}>
+                <span className={`text-base ${done ? "text-green-500" : "text-gray-300"}`} aria-hidden="true">
                     {done ? "✓" : "○"}
                 </span>
+                <span className="sr-only">{done ? "Learned" : "Not yet learned"}</span>
                 <div className="flex-1 min-w-0 flex items-center gap-1.5">
                     <span className="font-semibold text-gray-900">{item.word}</span>
                     {item.romanized && (
@@ -77,6 +79,7 @@ export function VocabPage() {
     const mod = getModule(langId)
     const { level: getLevel, completed: getCompleted } = useProgress()
     const level = getLevel(langId)
+    const ui = getUI(langId, level)
     const completed = getCompleted(langId)
     const [filter, setFilter] = useState<"all" | "todo" | "done">("all")
 
@@ -93,10 +96,10 @@ export function VocabPage() {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <NavBar title="Vocabulary" level={level} backTo={`/learn/${langId}`} />
+            <NavBar title={ui.sectionVocab} level={level} backTo={`/learn/${langId}`} />
             <main className="max-w-3xl mx-auto px-4 py-6">
                 <div className="flex items-center gap-2 mb-4">
-                    <h2 className="text-xl font-bold text-gray-900">Vocabulary</h2>
+                    <h1 className="text-xl font-bold text-gray-900">{ui.sectionVocab}</h1>
                     <LevelBadge level={level} />
                     <span className="text-sm text-gray-500 ml-1">
                         {doneCount} / {items.length} learned
@@ -121,9 +124,26 @@ export function VocabPage() {
                 )}
 
                 {coming ? (
-                    <div className="text-center py-16 text-gray-400">
-                        <p className="text-4xl mb-3">🚧</p>
-                        <p className="font-medium">Content coming soon for {level}</p>
+                    <div className="flex flex-col items-center text-center py-16 text-gray-400 gap-3">
+                        <p className="text-4xl">🚧</p>
+                        <p className="font-medium text-gray-600">{level} vocabulary is coming soon!</p>
+                        <p className="text-sm text-gray-500">
+                            Keep reviewing with Flashcards or explore Reading passages while you wait.
+                        </p>
+                        <div className="flex flex-col gap-2 w-full max-w-xs mt-2">
+                            <Link
+                                to={`/learn/${langId}/flashcards`}
+                                className="block w-full text-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 text-sm font-medium"
+                            >
+                                Go to Flashcards
+                            </Link>
+                            <Link
+                                to={`/learn/${langId}`}
+                                className="block w-full text-center px-4 py-2 border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-50 text-sm font-medium"
+                            >
+                                Back to Dashboard
+                            </Link>
+                        </div>
                     </div>
                 ) : filtered.length === 0 ? (
                     <p className="text-center text-gray-400 py-12">No words match this filter.</p>

@@ -487,7 +487,8 @@ export function UnitPage() {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <NavBar title={unit.title} level={unit.level} backTo={`/learn/${langId}`} />
+            <NavBar title={unit.title} level={unit.level} backTo={`/learn/${langId}`}
+                breadcrumb={`${language.name} › Path`} />
 
             <main className="max-w-3xl mx-auto px-4 py-6">
                 {/* Unit header */}

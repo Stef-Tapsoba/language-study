@@ -7,6 +7,7 @@ import { getCurrentLevel, getCompletedLessons } from "../store/progress"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { GrammarLesson } from "../types"
+import { getUI } from "../i18n"
 
 function LessonCard({
     lesson,
@@ -23,9 +24,10 @@ function LessonCard({
             className={`bg-white border rounded-2xl overflow-hidden transition-all block hover:shadow-sm ${done ? "border-green-300" : "border-gray-200 hover:border-indigo-300"}`}
         >
             <div className="px-5 py-4 flex items-center gap-3">
-                <span className={`text-lg ${done ? "text-green-500" : "text-gray-300"}`}>
+                <span className={`text-lg ${done ? "text-green-500" : "text-gray-300"}`} aria-hidden="true">
                     {done ? "✓" : "○"}
                 </span>
+                <span className="sr-only">{done ? "Completed" : "Not yet completed"}</span>
                 <span className="flex-1 font-medium text-gray-900">{lesson.title}</span>
                 <LevelBadge level={lesson.level} />
                 <svg
@@ -45,6 +47,7 @@ export function GrammarPage() {
     const language = getLanguage(langId)
     const mod = getModule(langId)
     const level = getCurrentLevel(langId)
+    const ui = getUI(langId, level)
     const [completed] = useState(() => getCompletedLessons(langId))
 
     if (!language || !mod) return null
@@ -55,13 +58,13 @@ export function GrammarPage() {
     return (
         <div className="min-h-screen bg-gray-50">
             <NavBar
-                title="Grammar"
+                title={ui.sectionGrammar}
                 level={level}
                 backTo={`/learn/${langId}`}
             />
             <main className="max-w-3xl mx-auto px-4 py-6">
                 <div className="flex items-center gap-2 mb-6">
-                    <h2 className="text-xl font-bold text-gray-900">Grammar</h2>
+                    <h1 className="text-xl font-bold text-gray-900">{ui.sectionGrammar}</h1>
                     <LevelBadge level={level} />
                     <span className="text-sm text-gray-500 ml-1">
                         {completed.filter(id => lessons.some(l => l.id === id)).length} / {lessons.length} complete
@@ -69,9 +72,26 @@ export function GrammarPage() {
                 </div>
 
                 {coming ? (
-                    <div className="text-center py-16 text-gray-400">
-                        <p className="text-4xl mb-3">🚧</p>
-                        <p className="font-medium">Content coming soon for {level}</p>
+                    <div className="flex flex-col items-center text-center py-16 text-gray-400 gap-3">
+                        <p className="text-4xl">🚧</p>
+                        <p className="font-medium text-gray-600">{level} grammar is coming soon!</p>
+                        <p className="text-sm text-gray-500">
+                            In the meantime, practise what you know with the Grammar Drill or explore Reading.
+                        </p>
+                        <div className="flex flex-col gap-2 w-full max-w-xs mt-2">
+                            <Link
+                                to={`/learn/${langId}/grammar-drill`}
+                                className="block w-full text-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 text-sm font-medium"
+                            >
+                                Go to Grammar Drill
+                            </Link>
+                            <Link
+                                to={`/learn/${langId}`}
+                                className="block w-full text-center px-4 py-2 border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-50 text-sm font-medium"
+                            >
+                                Back to Dashboard
+                            </Link>
+                        </div>
                     </div>
                 ) : (
                     <div className="flex flex-col gap-3">

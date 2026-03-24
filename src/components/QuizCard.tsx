@@ -15,7 +15,7 @@ export function QuizCard({ question, options, selected, correct, onSelect }: Qui
             <div className="flex flex-col gap-3">
                 {options.map(opt => {
                     let cls =
-                        "border-2 rounded-xl px-4 py-3 text-left font-medium transition-colors text-sm "
+                        "border-2 rounded-xl px-4 py-3 text-left font-medium transition-colors text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-0 "
                     if (correct !== null) {
                         if (opt === correct)
                             cls += "border-green-500 bg-green-50 text-green-800"
