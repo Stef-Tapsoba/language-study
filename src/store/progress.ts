@@ -11,15 +11,22 @@ const DEFAULT: UserProgress = {
     masteredUnits: {}
 }
 
+// In-memory write-through cache — avoids a JSON.parse on every mutation.
+// Invalidated to null only when resetProgress() wipes the key entirely.
+let _cache: UserProgress | null = null
+
 export function loadProgress(): UserProgress {
+    if (_cache && localStorage.getItem(KEY) !== null) return _cache
     try {
-        return { ...DEFAULT, ...JSON.parse(localStorage.getItem(KEY) ?? "{}") }
+        _cache = { ...DEFAULT, ...JSON.parse(localStorage.getItem(KEY) ?? "{}") }
     } catch {
-        return { ...DEFAULT }
+        _cache = { ...DEFAULT }
     }
+    return _cache as UserProgress
 }
 
 function save(p: UserProgress): void {
+    _cache = p
     localStorage.setItem(KEY, JSON.stringify(p))
 }
 
@@ -72,6 +79,7 @@ export function markLessonComplete(langId: string, lessonId: string): void {
 }
 
 export function resetProgress(): void {
+    _cache = null
     localStorage.removeItem(KEY)
 }
 

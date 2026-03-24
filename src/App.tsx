@@ -1,32 +1,32 @@
 // App.tsx — Route definitions and top-level app wrapper
-import { useState, useEffect } from "react"
+import { useState, useEffect, lazy, Suspense } from "react"
 import { BrowserRouter, Routes, Route, Navigate, Outlet, useParams } from "react-router-dom"
 import { AuthProvider } from "./auth/AuthContext"
 import { ProtectedRoute } from "./auth/ProtectedRoute"
 import { ProgressProvider } from "./context/ProgressContext"
 import { getModule, loadModule } from "./data/modules"
 
-import { LandingPage } from "./pages/LandingPage"
-import { LoginPage } from "./pages/LoginPage"
-import { RegisterPage } from "./pages/RegisterPage"
-import { HomePage } from "./pages/HomePage"
-import { LanguageSelectPage } from "./pages/LanguageSelectPage"
-import { DashboardPage } from "./pages/DashboardPage"
-import { PlacementPage } from "./pages/PlacementPage"
-import { GrammarPage } from "./pages/GrammarPage"
-import { VocabPage } from "./pages/VocabPage"
-import { VerbsPage } from "./pages/VerbsPage"
-import { LevelTestPage } from "./pages/LevelTestPage"
-import { ProfilePage } from "./pages/ProfilePage"
-import { FlashcardsPage } from "./pages/FlashcardsPage"
-import { VerbDrillPage } from "./pages/VerbDrillPage"
-import { GrammarDrillPage } from "./pages/GrammarDrillPage"
-import { UnitPage } from "./pages/UnitPage"
-import { ReadingPage } from "./pages/ReadingPage"
-import { ListeningPage } from "./pages/ListeningPage"
-import { CulturePage } from "./pages/CulturePage"
-import { CategoryReadingPage } from "./pages/CategoryReadingPage"
-import { GrammarLessonPage } from "./pages/GrammarLessonPage"
+const LandingPage        = lazy(() => import("./pages/LandingPage").then(m => ({ default: m.LandingPage })))
+const LoginPage          = lazy(() => import("./pages/LoginPage").then(m => ({ default: m.LoginPage })))
+const RegisterPage       = lazy(() => import("./pages/RegisterPage").then(m => ({ default: m.RegisterPage })))
+const HomePage           = lazy(() => import("./pages/HomePage").then(m => ({ default: m.HomePage })))
+const LanguageSelectPage = lazy(() => import("./pages/LanguageSelectPage").then(m => ({ default: m.LanguageSelectPage })))
+const DashboardPage      = lazy(() => import("./pages/DashboardPage").then(m => ({ default: m.DashboardPage })))
+const PlacementPage      = lazy(() => import("./pages/PlacementPage").then(m => ({ default: m.PlacementPage })))
+const GrammarPage        = lazy(() => import("./pages/GrammarPage").then(m => ({ default: m.GrammarPage })))
+const VocabPage          = lazy(() => import("./pages/VocabPage").then(m => ({ default: m.VocabPage })))
+const VerbsPage          = lazy(() => import("./pages/VerbsPage").then(m => ({ default: m.VerbsPage })))
+const LevelTestPage      = lazy(() => import("./pages/LevelTestPage").then(m => ({ default: m.LevelTestPage })))
+const ProfilePage        = lazy(() => import("./pages/ProfilePage").then(m => ({ default: m.ProfilePage })))
+const FlashcardsPage     = lazy(() => import("./pages/FlashcardsPage").then(m => ({ default: m.FlashcardsPage })))
+const VerbDrillPage      = lazy(() => import("./pages/VerbDrillPage").then(m => ({ default: m.VerbDrillPage })))
+const GrammarDrillPage   = lazy(() => import("./pages/GrammarDrillPage").then(m => ({ default: m.GrammarDrillPage })))
+const UnitPage           = lazy(() => import("./pages/UnitPage").then(m => ({ default: m.UnitPage })))
+const ReadingPage        = lazy(() => import("./pages/ReadingPage").then(m => ({ default: m.ReadingPage })))
+const ListeningPage      = lazy(() => import("./pages/ListeningPage").then(m => ({ default: m.ListeningPage })))
+const CulturePage        = lazy(() => import("./pages/CulturePage").then(m => ({ default: m.CulturePage })))
+const CategoryReadingPage = lazy(() => import("./pages/CategoryReadingPage").then(m => ({ default: m.CategoryReadingPage })))
+const GrammarLessonPage  = lazy(() => import("./pages/GrammarLessonPage").then(m => ({ default: m.GrammarLessonPage })))
 
 // Ensures the language data chunk is loaded before any /learn/:langId page renders.
 // getModule() is synchronous and reads from cache — this gate means it never returns null
@@ -54,6 +54,11 @@ export default function App() {
         <AuthProvider>
             <ProgressProvider>
             <BrowserRouter>
+                <Suspense fallback={
+                    <div className="flex items-center justify-center min-h-screen">
+                        <div className="w-8 h-8 border-4 border-violet-500 border-t-transparent rounded-full animate-spin" />
+                    </div>
+                }>
                 <Routes>
                     {/* Public */}
                     <Route path="/" element={<LandingPage />} />
@@ -99,6 +104,7 @@ export default function App() {
                     {/* Fallback */}
                     <Route path="*" element={<Navigate to="/home" replace />} />
                 </Routes>
+                </Suspense>
             </BrowserRouter>
             </ProgressProvider>
         </AuthProvider>

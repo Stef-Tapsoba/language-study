@@ -1,5 +1,5 @@
 // pages/DashboardPage.tsx — Per-language dashboard with tabbed navigation (Path, Study, Practice, Test, Stats)
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import { useParams, useNavigate, useSearchParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
@@ -183,11 +183,17 @@ export function DashboardPage() {
     }
 
     // completed array needed for UnitRow pills (individual item checks, not the aggregate)
-    const completed = mod.vocab.map(v => v.id).filter(id => isDone(id))
-        .concat(mod.grammar.map(g => g.id).filter(id => isDone(id)))
-        .concat(mod.verbs.map(v => v.id).filter(id => isDone(id)))
+    const completed = useMemo(() =>
+        mod.vocab.map(v => v.id).filter(id => isDone(id))
+            .concat(mod.grammar.map(g => g.id).filter(id => isDone(id)))
+            .concat(mod.verbs.map(v => v.id).filter(id => isDone(id))),
+        [mod, isDone]
+    )
 
-    const dueCount = getDueCount(langId, mod.vocab.filter(v => v.level === level).map(v => v.id))
+    const dueCount = useMemo(
+        () => getDueCount(langId, mod.vocab.filter(v => v.level === level).map(v => v.id)),
+        [langId, mod, level]
+    )
 
     const levelIndex = CEFR_LEVELS.indexOf(level)
     const canAdvance = levelIndex < CEFR_LEVELS.length - 1

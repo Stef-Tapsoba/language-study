@@ -20,6 +20,10 @@ import {
 
 const LS_KEY = "ls:progress"
 
+// The module keeps an in-memory write-through cache. Reset it before each test
+// so that manual localStorage.setItem() calls are picked up correctly.
+beforeEach(() => { resetProgress() })
+
 describe("loadProgress", () => {
     it("returns default progress when localStorage is empty", () => {
         const p = loadProgress()

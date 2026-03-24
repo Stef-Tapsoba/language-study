@@ -1,7 +1,7 @@
 // context/ProgressContext.tsx
 // Central React state for all user progress. Wraps store/progress.ts so that
 // when we migrate to Supabase (Stage 2), only this file changes.
-import { createContext, useContext, useState, useCallback, ReactNode } from "react"
+import { createContext, useContext, useState, useCallback, useMemo, ReactNode } from "react"
 import {
     loadProgress,
     initUserSession as storeInitUserSession,
@@ -89,7 +89,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         [progress]
     )
 
-    const value: ProgressContextValue = {
+    const value = useMemo<ProgressContextValue>(() => ({
         progress,
         level,
         completed,
@@ -103,7 +103,12 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         masterUnit,
         resetLanguage,
         removeLanguage,
-    }
+    }), [
+        progress,
+        level, completed, mastered,
+        initUserSession, setSelectedLanguage, setCurrentLevel,
+        markLessonComplete, masterUnit, resetLanguage, removeLanguage,
+    ])
 
     return (
         <ProgressContext.Provider value={value}>

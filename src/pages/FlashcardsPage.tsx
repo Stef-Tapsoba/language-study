@@ -293,13 +293,13 @@ export function FlashcardsPage() {
     useEffect(() => {
         if (deck.length === 0) return
         speak(deck[index].word, langId)
-    }, [index, deck]) // eslint-disable-line react-hooks/exhaustive-deps
+    }, [index, deck, langId])
 
     // Auto-play example sentence when the card is flipped
     useEffect(() => {
         if (!flipped || deck.length === 0) return
         speak(deck[index].example.native, langId)
-    }, [flipped]) // eslint-disable-line react-hooks/exhaustive-deps
+    }, [flipped, index, deck, langId])
 
     // Cancel any ongoing speech when leaving the page
     useEffect(() => () => { globalThis.speechSynthesis?.cancel() }, [])

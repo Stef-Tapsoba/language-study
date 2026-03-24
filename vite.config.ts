@@ -8,6 +8,21 @@ const pkg = (name: string) =>
 
 export default defineConfig({
     plugins: [react()],
+    build: {
+        rollupOptions: {
+            output: {
+                // Give each language data chunk a stable, predictable name so that
+                // only the changed language's chunk is cache-busted on redeploy.
+                manualChunks(id) {
+                    if (id.includes("/data/spanish"))  return "lang-es"
+                    if (id.includes("/data/french"))   return "lang-fr"
+                    if (id.includes("/data/italian"))  return "lang-it"
+                    if (id.includes("/data/japanese")) return "lang-ja"
+                    if (id.includes("/data/korean"))   return "lang-ko"
+                },
+            },
+        },
+    },
     resolve: {
         alias: {
             "@":              path.resolve(__dirname, "./src"),
