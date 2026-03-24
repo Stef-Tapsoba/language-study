@@ -5,7 +5,7 @@ import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { isUnitUnlocked } from "../store/progress"
 import { useProgress } from "../context/ProgressContext"
-import { recordActivity, recordQuizAnswer } from "../store/stats"
+import { useStatsStore } from "../store/useStatsStore"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { QuizCard } from "../components/QuizCard"
@@ -303,7 +303,7 @@ function TestOutTab({ unit, langId, isMastered, nextUnit, isLastUnit, ui, onMast
 
     function handleNext() {
         const correct = selected === questions[qIdx].answer
-        recordQuizAnswer(langId, correct)
+        useStatsStore.getState().recordQuizAnswer(langId, correct)
         if (!correct && selected) {
             setMissed(m => [...m, { prompt: questions[qIdx].prompt, correct: questions[qIdx].answer, yourAnswer: selected }])
         }
@@ -321,7 +321,7 @@ function TestOutTab({ unit, langId, isMastered, nextUnit, isLastUnit, ui, onMast
     }
 
     const { masterUnit } = useProgress()
-    function handleComplete() { masterUnit(langId, unit.id); recordActivity(langId); onMastered(); setDidComplete(true) }
+    function handleComplete() { masterUnit(langId, unit.id); useStatsStore.getState().recordActivity(langId); onMastered(); setDidComplete(true) }
 
     if (!questions.length) {
         return (

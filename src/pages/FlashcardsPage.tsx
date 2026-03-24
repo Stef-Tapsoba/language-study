@@ -5,7 +5,7 @@ import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { getCurrentLevel } from "../store/progress"
 import { getDueCards, updateCard, getNextDueDate } from "../store/srs"
-import { recordReview, recordActivity } from "../store/stats"
+import { useStatsStore } from "../store/useStatsStore"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { SpeakButton } from "../components/SpeakButton"
@@ -397,7 +397,7 @@ export function FlashcardsPage() {
         if (!reviewMode && !studyAll) {
             updateCard(langId, deck[index].id, r === "correct" ? 4 : 1)
         }
-        recordReview(langId, r === "correct")
+        useStatsStore.getState().recordReview(langId, r === "correct")
 
         const newResults = [...results, r]
         setResults(newResults)
@@ -407,7 +407,7 @@ export function FlashcardsPage() {
         setTimeout(() => {
             setTransitioning(false)
             if (index + 1 >= deck.length) {
-                recordActivity(langId)
+                useStatsStore.getState().recordActivity(langId)
                 setDone(true)
             } else {
                 setIndex(i => i + 1)

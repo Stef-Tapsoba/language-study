@@ -1,6 +1,7 @@
 // components/StatsTab.tsx — Stats tab for the Dashboard
 import { useMemo } from "react"
-import { useStatsStore, getHistory, getTotalReviews, getGlobalStreak, getOverallAccuracy } from "../store/useStatsStore"
+import { useStatsStore, getHistory, getTotalReviews, getOverallAccuracy } from "../store/useStatsStore"
+import { useGlobalStreak } from "../hooks/useGlobalStreak"
 import { CEFRLevel } from "../types"
 import { SECTION_CONFIG } from "../data/sectionConfig"
 import { useProgressStats } from "../hooks/useProgressStats"
@@ -13,7 +14,7 @@ function BreakdownBar({ label, done, total, color }: Readonly<{
         <div className="flex items-center gap-3">
             <span className="text-sm text-gray-600 w-24 shrink-0">{label}</span>
             <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
-                <div className={`h-full ${color} rounded-full transition-all`} style={{ width: `${pct}%` }} />
+                <div className={`h-full ${color} rounded-full transition-transform origin-left`} style={{ transform: `scaleX(${pct / 100})` }} />
             </div>
             <span className="text-xs text-gray-500 w-12 text-right shrink-0">{done}/{total}</span>
         </div>
@@ -24,7 +25,7 @@ export function StatsTab({ langId, level }: Readonly<{ langId: string; level: CE
     const data = useStatsStore(s => s.data)
     const history    = useMemo(() => getHistory(data, langId, 14),        [data, langId])
     const total      = useMemo(() => getTotalReviews(data, langId),        [data, langId])
-    const streak     = useMemo(() => getGlobalStreak(data),                [data])
+    const streak     = useGlobalStreak()
     const avgAcc     = useMemo(() => getOverallAccuracy(data, langId, 14), [data, langId])
     const maxReviewed = useMemo(() => Math.max(...history.map(d => d.reviewed), 1), [history])
     const allReviewed = useMemo(() => history.reduce((s, d) => s + d.reviewed, 0),  [history])

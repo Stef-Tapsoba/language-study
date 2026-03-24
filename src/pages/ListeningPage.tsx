@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { useProgress } from "../context/ProgressContext"
-import { recordActivity, recordQuizAnswer } from "../store/stats"
+import { useStatsStore } from "../store/useStatsStore"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { QuizCard } from "../components/QuizCard"
@@ -226,7 +226,7 @@ function ExerciseListen({ exercise, langId, level, completed, onBack, ui }: Read
 
             {/* Show questions button / comprehension quiz */}
             {quizOpen ? (
-                <ComprehensionQuiz exercise={exercise} onAnswer={c => recordQuizAnswer(langId, c)} onComplete={() => recordActivity(langId)} ui={ui} />
+                <ComprehensionQuiz exercise={exercise} onAnswer={c => useStatsStore.getState().recordQuizAnswer(langId, c)} onComplete={() => useStatsStore.getState().recordActivity(langId)} ui={ui} />
             ) : (
                 <button
                     onClick={() => setQuizOpen(true)}

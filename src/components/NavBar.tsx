@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom"
 import { LevelBadge } from "./LevelBadge"
 import { LanguagePicker } from "./LanguagePicker"
 import { CEFRLevel } from "../types"
-import { useStatsStore, getGlobalStreak } from "../store/useStatsStore"
+import { useGlobalStreak } from "../hooks/useGlobalStreak"
 
 interface NavBarProps {
     title?: string
@@ -22,8 +22,7 @@ interface NavBarProps {
 export function NavBar({ title = "Language Study", level, backTo, onBack, showLanguagePicker }: Readonly<NavBarProps>) {
     const navigate = useNavigate()
     // Reactive: re-reads from the Zustand store so streak updates live during a session.
-    const data = useStatsStore(s => s.data)
-    const streak = getGlobalStreak(data)
+    const streak = useGlobalStreak()
 
     function handleBack() {
         if (onBack) { onBack(); return }

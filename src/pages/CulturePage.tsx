@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { useProgress } from "../context/ProgressContext"
-import { recordActivity } from "../store/stats"
+import { useStatsStore } from "../store/useStatsStore"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { QuizCard } from "../components/QuizCard"
@@ -364,7 +364,7 @@ function CultureEpisodeView({
 
     function handleMarkRead() {
         markLessonComplete(langId, episode.id)
-        recordActivity(langId)
+        useStatsStore.getState().recordActivity(langId)
         setMarkedRead(true)
     }
 

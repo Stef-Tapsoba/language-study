@@ -8,7 +8,8 @@ import { LANGUAGES } from "../data/languages"
 import { loadModule } from "../data/modules"
 import { useProgress } from "../context/ProgressContext"
 import { resetSRS } from "../store/srs"
-import { useStatsStore, getGlobalStreak } from "../store/useStatsStore"
+import { useStatsStore } from "../store/useStatsStore"
+import { useGlobalStreak } from "../hooks/useGlobalStreak"
 import { NavBar } from "../components/NavBar"
 import { Flag } from "../components/Flag"
 import { LEVEL_LABELS } from "../types"
@@ -68,8 +69,8 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
                 {/* Overall bar */}
                 <div className="flex items-center gap-2 mb-4">
                     <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
-                        <div className="h-full bg-violet-500 rounded-full transition-all"
-                            style={{ width: `${overallPct}%` }} />
+                        <div className="h-full bg-violet-500 rounded-full transition-transform origin-left"
+                            style={{ transform: `scaleX(${overallPct / 100})` }} />
                     </div>
                     <span className="text-xs font-semibold text-violet-600 w-10 text-right shrink-0">
                         {overallPct}%
@@ -82,8 +83,8 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
                         <div key={label} className="flex items-center gap-3">
                             <span className="text-xs text-gray-500 w-20 shrink-0">{label}</span>
                             <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                                <div className={`h-full ${color} rounded-full transition-all`}
-                                    style={{ width: `${total ? done / total * 100 : 0}%` }} />
+                                <div className={`h-full ${color} rounded-full transition-transform origin-left`}
+                                    style={{ transform: `scaleX(${total ? done / total : 0})` }} />
                             </div>
                             <span className="text-xs text-gray-400 w-10 text-right shrink-0">{done}/{total}</span>
                         </div>
@@ -175,8 +176,6 @@ export function ProfilePage() {
     const { displayName, email, initials } = useCurrentUser()
     const { startedLanguages: startedIds, level: getLevel, completed: getCompleted, mastered: getMastered } = useProgress()
     const [tick, setTick] = useState(0)   // force re-render after module loads
-    const statsData = useStatsStore(s => s.data)
-
     // Load any unloaded language modules so progress bars show real numbers
     useEffect(() => {
         Promise.all(startedIds.map(loadModule)).then(() => setTick(t => t + 1))
@@ -191,7 +190,7 @@ export function ProfilePage() {
         const lvl = getLevel(id)
         return order.indexOf(lvl) > order.indexOf(best) ? lvl : best
     }, "A1")
-    const streak = getGlobalStreak(statsData)
+    const streak = useGlobalStreak()
 
     function onChanged() { setTick(t => t + 1) }
 

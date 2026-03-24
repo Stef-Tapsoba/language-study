@@ -4,7 +4,7 @@ import { useParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { useProgress } from "../context/ProgressContext"
-import { recordActivity, recordQuizAnswer } from "../store/stats"
+import { useStatsStore } from "../store/useStatsStore"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { QuizCard } from "../components/QuizCard"
@@ -118,11 +118,11 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
 
     function handleNext() {
         const isCorrect = selected === passage.questions[quizIndex].answer
-        recordQuizAnswer(langId, isCorrect)
+        useStatsStore.getState().recordQuizAnswer(langId, isCorrect)
         const newScore = quizScore + (isCorrect ? 1 : 0)
         if (quizIndex + 1 >= passage.questions.length) {
             setQuizScore(newScore)
-            recordActivity(langId)
+            useStatsStore.getState().recordActivity(langId)
             setQuizDone(true)
         } else {
             setQuizScore(newScore)

@@ -1,6 +1,6 @@
 // store/useStatsStore.ts — Zustand v5 stats store with localStorage persistence
 import { create } from "zustand"
-import { persist, createJSONStorage } from "zustand/middleware"
+import { persist, createJSONStorage, type StateStorage } from "zustand/middleware"
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -17,6 +17,23 @@ export type StatsData = Record<string, Record<string, DayStats>>
 // ─── Internal helpers ─────────────────────────────────────────────────────────
 
 function todayStr(): string { return new Date().toISOString().slice(0, 10) }
+
+/** Wraps localStorage with a debounced setItem to avoid a write on every keystroke/flip */
+function debouncedLocalStorage(delayMs = 500): StateStorage {
+    const timers = new Map<string, ReturnType<typeof setTimeout>>()
+    return {
+        getItem:    (name) => localStorage.getItem(name),
+        removeItem: (name) => localStorage.removeItem(name),
+        setItem(name, value) {
+            const t = timers.get(name)
+            if (t !== undefined) clearTimeout(t)
+            timers.set(name, setTimeout(() => {
+                localStorage.setItem(name, value)
+                timers.delete(name)
+            }, delayMs))
+        },
+    }
+}
 
 // ─── Store shape ─────────────────────────────────────────────────────────────
 
@@ -98,10 +115,18 @@ export const useStatsStore = create<StatsState>()(
         }),
         {
             name: "ls:stats",
-            storage: createJSONStorage(() => localStorage),
-            version: 0,
+            storage: createJSONStorage(() => debouncedLocalStorage(500)),
+            version: 1,
             // Strip actions — only persist { data: StatsData }
             partialize: (state) => ({ data: state.data }),
+            // v0 → v1: handle data stored before Zustand (raw StatsData, no { data: } wrapper)
+            migrate(persistedState: unknown, version: number) {
+                if (version === 0) {
+                    const s = persistedState as Record<string, unknown>
+                    if (!("data" in s)) return { data: s as StatsData }
+                }
+                return persistedState as { data: StatsData }
+            },
         }
     )
 )
