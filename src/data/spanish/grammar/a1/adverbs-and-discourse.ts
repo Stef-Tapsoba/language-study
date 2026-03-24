@@ -109,12 +109,20 @@ ADVERBS OF TIME — answer ¿cuándo? (when?)
   tarde       late
   temprano    early
   antes       before
-  después     after / afterwards`,
+  después     after / afterwards
+
+NOTE ON YA — three uses to know:
+  Ya tengo el libro.    I already have the book.     (= already)
+  ¡Ya voy!             I'm coming! / In a minute!   (= right now / imminently)
+  Ya está.             That's it. / Done.            (= it's done / finished)
+  Ya, ya…              Yeah, yeah… / OK, OK…        (= acknowledgement, sometimes sarcastic)
+The meaning of ya shifts with context — listen for the tone.`,
     examples: [
       { native: "El libro está aquí.", translation: "The book is here." },
       { native: "¿Está lejos de aquí?", translation: "Is it far from here?" },
       { native: "Hoy tengo clase.", translation: "Today I have class." },
-      { native: "Ya he comido.", translation: "I have already eaten." },
+      { native: "Ya tengo el libro.", translation: "I already have the book." },
+      { native: "¡Ya voy!", translation: "I'm coming! / In a minute! (impatient agreement)" },
       { native: "Todavía estoy aquí.", translation: "I'm still here." },
     ],
     inlineVocab: [

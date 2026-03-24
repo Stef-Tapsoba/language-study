@@ -193,7 +193,7 @@ Spanish uses an opening inverted ¿ before every question.`,
     title: "Ser vs Estar — Adjectives That Change Meaning",
     explanation: `You already know the core rule: ser for identity/permanent traits, estar for location/temporary states. But some adjectives change meaning entirely depending on which verb they follow. These are among the most common adjective pairs in Spanish and are worth knowing from A1.
 
-THE KEY PAIRS
+THE KEY PAIRS — the four most useful at A1
 
   Adjective      SER (identity/defining)         ESTAR (state/condition)
   ──────────────────────────────────────────────────────────────────────
@@ -201,12 +201,8 @@ THE KEY PAIRS
   malo/a         bad / evil (defining trait)     ill / sick (current condition)
   bueno/a        good (personality / quality)    tasty / feeling well
   listo/a        clever / smart                  ready
-  rico/a         rich (wealthy)                  delicious (taste)
-  muerto/a       (inherently dead — metaphor)    dead (actual state)
-  seguro/a       safe (inherently)               sure / certain (current feeling)
-  vivo/a         lively / sharp-witted           alive (current state)
 
-THE FOUR YOU WILL MEET FIRST
+Note: other pairs (rico, muerto, seguro, vivo) follow the same logic and are introduced at A2.
 
   ABURRIDO
     Es muy aburrido.      He is very boring.    (that's his personality)

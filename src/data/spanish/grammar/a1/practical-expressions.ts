@@ -11,13 +11,7 @@ export const practicalExpressionsLessons: GrammarLesson[] = [
   11 once   12 doce   13 trece   14 catorce   15 quince
   16 dieciséis   17 diecisiete   18 dieciocho   19 diecinueve   20 veinte
 
-TENS
-  30 treinta   40 cuarenta   50 cincuenta   60 sesenta
-  70 setenta   80 ochenta    90 noventa     100 cien
-
-COMPOUND NUMBERS
-  21–29: one word with accent — veintiuno, veintidós, veintitrés…
-  31+: treinta y uno, cuarenta y dos, cincuenta y tres…
+Numbers 21–100 and compound number rules (veintiuno, treinta y dos…) are in the next lesson: Numbers 20–100 & the Calendar.
 
 TELLING TIME — ¿Qué hora es?
   Es la una.                   It's one o'clock.     (es — singular)

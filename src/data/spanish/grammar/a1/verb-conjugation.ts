@@ -595,15 +595,7 @@ These are among the most frequent verbs in Spanish. You will produce yo forms co
   ¿Qué haces? — Hago los deberes.     What are you doing? — I'm doing homework.
   ¿A qué hora sales? — Salgo a las ocho. What time do you leave? — I leave at eight.
   ¿Qué pones aquí? — Pongo las llaves.  What do you put here? — I put the keys.
-  Traigo el vino — ¿tú traes el pan?   I'll bring the wine — will you bring the bread?
-
-COMPOUNDS INHERIT THE IRREGULAR YO
-Verbs built on these roots keep the irregular yo:
-  tener → mantener (maintain) → yo mantengo
-  poner → proponer (propose) → yo propongo
-  venir → convenir (suit/agree) → yo convengo
-  hacer → deshacer (undo) → yo deshago
-You don't need these yet — just know the pattern extends.`,
+  Traigo el vino — ¿tú traes el pan?   I'll bring the wine — will you bring the bread?`,
     examples: [
       { native: "Hago deporte todos los días.", translation: "I do sport every day. (hacer → hago)" },
       { native: "Salgo de casa a las ocho.", translation: "I leave home at eight. (salir → salgo)" },
