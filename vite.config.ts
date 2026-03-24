@@ -10,6 +10,7 @@ export default defineConfig({
     plugins: [react()],
     resolve: {
         alias: {
+            "@":              path.resolve(__dirname, "./src"),
             "@myorg/auth-core":   pkg("auth-core"),
             "@myorg/api-client":  pkg("api-client"),   // placeholder — wired at Supabase migration (Stage 2)
             "@myorg/validation":  pkg("validation"),

@@ -1,10 +1,9 @@
 // components/NavBar.tsx — Sticky top navigation bar with back button, level badge, streak chip, and profile link
-import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import { LevelBadge } from "./LevelBadge"
 import { LanguagePicker } from "./LanguagePicker"
 import { CEFRLevel } from "../types"
-import { getGlobalStreak } from "../store/stats"
+import { useStatsStore, getGlobalStreak } from "../store/useStatsStore"
 
 interface NavBarProps {
     title?: string
@@ -22,8 +21,9 @@ interface NavBarProps {
 
 export function NavBar({ title = "Language Study", level, backTo, onBack, showLanguagePicker }: Readonly<NavBarProps>) {
     const navigate = useNavigate()
-    // Computed once on mount — getGlobalStreak() is O(365 × languages), too expensive to run on every re-render.
-    const [streak] = useState(() => getGlobalStreak())
+    // Reactive: re-reads from the Zustand store so streak updates live during a session.
+    const data = useStatsStore(s => s.data)
+    const streak = getGlobalStreak(data)
 
     function handleBack() {
         if (onBack) { onBack(); return }

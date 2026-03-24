@@ -7,7 +7,7 @@ import { useProgressStats } from "../hooks/useProgressStats"
 import { LANGUAGES } from "../data/languages"
 import { getModule, loadModule } from "../data/modules"
 import { useProgress } from "../context/ProgressContext"
-import { getGlobalStreak, getTotalReviews } from "../store/stats"
+import { useStatsStore, getGlobalStreak, getTotalReviews } from "../store/useStatsStore"
 import { NavBar } from "../components/NavBar"
 import { Flag } from "../components/Flag"
 import { ProgressBar } from "../components/ProgressBar"
@@ -83,10 +83,13 @@ function ReturningHome({ firstName, startedIds }: Readonly<{
 
     const level = getLevel(selectedLangId)
     const { grammar, vocab, verbs, reading, listening } = useProgressStats(selectedLangId, level)
+    const statsData = useStatsStore(s => s.data)
 
     if (!currentLang || !mod) return null
 
     const itemsLearned = grammar.done + vocab.done + verbs.done
+    const totalReviews = getTotalReviews(statsData, selectedLangId)
+    const globalStreak = getGlobalStreak(statsData)
 
     return (
         <div className="min-h-screen bg-gray-50">
@@ -118,11 +121,11 @@ function ReturningHome({ firstName, startedIds }: Readonly<{
                     {/* Stats row */}
                     <div className="grid grid-cols-3 gap-2 mb-5">
                         <div className="bg-white/15 rounded-xl p-3 text-center">
-                            <p className="text-lg font-bold text-white">{getTotalReviews(selectedLangId)}</p>
+                            <p className="text-lg font-bold text-white">{totalReviews}</p>
                             <p className="text-xs text-violet-200">cards reviewed</p>
                         </div>
                         <div className="bg-white/15 rounded-xl p-3 text-center">
-                            <p className="text-lg font-bold text-white">{getGlobalStreak()}🔥</p>
+                            <p className="text-lg font-bold text-white">{globalStreak}🔥</p>
                             <p className="text-xs text-violet-200">day streak</p>
                         </div>
                         <div className="bg-white/15 rounded-xl p-3 text-center">

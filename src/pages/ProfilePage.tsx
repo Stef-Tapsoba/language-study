@@ -8,7 +8,7 @@ import { LANGUAGES } from "../data/languages"
 import { loadModule } from "../data/modules"
 import { useProgress } from "../context/ProgressContext"
 import { resetSRS } from "../store/srs"
-import { getGlobalStreak, resetStats } from "../store/stats"
+import { useStatsStore, getGlobalStreak } from "../store/useStatsStore"
 import { NavBar } from "../components/NavBar"
 import { Flag } from "../components/Flag"
 import { LEVEL_LABELS } from "../types"
@@ -28,7 +28,7 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
         if (!confirm(`Reset all progress for ${lang!.name}? Your level will return to A1.`)) return
         resetLanguage(langId)
         resetSRS(langId)
-        resetStats(langId)
+        useStatsStore.getState().resetStats(langId)
         setManageOpen(false)
         onChanged()
     }
@@ -37,7 +37,7 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
         if (!confirm(`Remove ${lang!.name} from your courses? This cannot be undone.`)) return
         removeLanguage(langId)
         resetSRS(langId)
-        resetStats(langId)
+        useStatsStore.getState().resetStats(langId)
         onChanged()
     }
 
@@ -175,6 +175,7 @@ export function ProfilePage() {
     const { displayName, email, initials } = useCurrentUser()
     const { startedLanguages: startedIds, level: getLevel, completed: getCompleted, mastered: getMastered } = useProgress()
     const [tick, setTick] = useState(0)   // force re-render after module loads
+    const statsData = useStatsStore(s => s.data)
 
     // Load any unloaded language modules so progress bars show real numbers
     useEffect(() => {
@@ -190,7 +191,7 @@ export function ProfilePage() {
         const lvl = getLevel(id)
         return order.indexOf(lvl) > order.indexOf(best) ? lvl : best
     }, "A1")
-    const streak = getGlobalStreak()
+    const streak = getGlobalStreak(statsData)
 
     function onChanged() { setTick(t => t + 1) }
 

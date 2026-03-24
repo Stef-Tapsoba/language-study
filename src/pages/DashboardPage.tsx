@@ -6,7 +6,7 @@ import { getModule } from "../data/modules"
 import { isUnitUnlocked } from "../store/progress"
 import { useProgress } from "../context/ProgressContext"
 import { getDueCount } from "../store/srs"
-import { getHistory } from "../store/stats"
+import { useStatsStore, getHistory } from "../store/useStatsStore"
 import { NavBar } from "../components/NavBar"
 import { StatsTab } from "../components/StatsTab"
 import { Flag } from "../components/Flag"
@@ -361,7 +361,7 @@ export function DashboardPage() {
                 {tab === "test" && (
                     canAdvance ? (() => {
                         const nextLevel = CEFR_LEVELS[levelIndex + 1]
-                        const history14 = getHistory(langId, 14)
+                        const history14 = getHistory(useStatsStore.getState().data, langId, 14)
                         const reviewed14 = history14.reduce((s, d) => s + d.reviewed, 0)
                         const correct14 = history14.reduce((s, d) => s + d.correct, 0)
                         const srsAcc = reviewed14 ? Math.round(correct14 / reviewed14 * 100) : 0

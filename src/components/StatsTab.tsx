@@ -1,5 +1,6 @@
 // components/StatsTab.tsx — Stats tab for the Dashboard
-import { getHistory, getTotalReviews, getGlobalStreak, getOverallAccuracy } from "../store/stats"
+import { useMemo } from "react"
+import { useStatsStore, getHistory, getTotalReviews, getGlobalStreak, getOverallAccuracy } from "../store/useStatsStore"
 import { CEFRLevel } from "../types"
 import { SECTION_CONFIG } from "../data/sectionConfig"
 import { useProgressStats } from "../hooks/useProgressStats"
@@ -20,12 +21,13 @@ function BreakdownBar({ label, done, total, color }: Readonly<{
 }
 
 export function StatsTab({ langId, level }: Readonly<{ langId: string; level: CEFRLevel }>) {
-    const history = getHistory(langId, 14)
-    const total = getTotalReviews(langId)
-    const streak = getGlobalStreak()
-    const maxReviewed = Math.max(...history.map(d => d.reviewed), 1)
-    const allReviewed = history.reduce((s, d) => s + d.reviewed, 0)
-    const avgAcc = getOverallAccuracy(langId, 14)
+    const data = useStatsStore(s => s.data)
+    const history    = useMemo(() => getHistory(data, langId, 14),        [data, langId])
+    const total      = useMemo(() => getTotalReviews(data, langId),        [data, langId])
+    const streak     = useMemo(() => getGlobalStreak(data),                [data])
+    const avgAcc     = useMemo(() => getOverallAccuracy(data, langId, 14), [data, langId])
+    const maxReviewed = useMemo(() => Math.max(...history.map(d => d.reviewed), 1), [history])
+    const allReviewed = useMemo(() => history.reduce((s, d) => s + d.reviewed, 0),  [history])
 
     const { grammar, vocab, verbs, reading, listening } = useProgressStats(langId, level)
 
