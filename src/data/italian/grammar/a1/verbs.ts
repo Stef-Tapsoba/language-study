@@ -276,7 +276,7 @@ Note: The infinitive always ends in -si. Remove -si, then conjugate the verb nor
         id: "it-g-a1-32",
         level: "A1",
         title: "The Imperative — Giving Instructions & Commands",
-        explanation: `The imperative is used to give instructions, commands, requests, and suggestions. Italian has imperative forms for tu (informal), noi (let's), and voi (plural/formal group). The formal singular imperative uses Lei and is covered separately at A2.
+        explanation: `The imperative is used to give instructions, commands, requests, and suggestions. Italian has imperative forms for tu (informal), noi (let's), voi (plural), and Lei (formal singular). This lesson focuses on tu/noi/voi — the forms you will use most at A1. The Lei imperative (aspetti!, scriva!, guardi!) appears in the verb drill tables for awareness; it is covered in depth at A2.
 
 FORMING THE IMPERATIVE
 
