@@ -257,7 +257,7 @@ export const a1Reading: ReadingPassage[] = [
         id: "it-r-a1-7",
         level: "A1",
         category: "everyday",
-        title: "La mia casa",
+        title: "Il mio appartamento a Bologna",
         body: {
             target: "Mi chiamo Sofia e abito in un appartamento a Bologna. Il mio appartamento è al primo piano. Ci sono quattro stanze: un soggiorno, una cucina, una camera da letto e un bagno. Non c'è lo studio, ma c'è un piccolo balcone. Nel soggiorno ci sono un divano grigio, un tavolo e quattro sedie. La cucina è grande e moderna. Nella mia camera da letto c'è un letto matrimoniale e un armadio. Il bagno è piccolo ma ha tutto quello che serve. Mi piace il mio appartamento perché è luminoso e tranquillo.",
             native: "My name is Sofia and I live in an apartment in Bologna. My apartment is on the first floor. There are four rooms: a living room, a kitchen, a bedroom and a bathroom. There is no study, but there is a small balcony. In the living room there are a grey sofa, a table and four chairs. The kitchen is large and modern. In my bedroom there is a double bed and a wardrobe. The bathroom is small but has everything you need. I like my apartment because it is bright and quiet."

@@ -244,4 +244,28 @@ export const a1Vocab: VocabItem[] = [
     { id: "it-v-a1-206", level: "A1", word: "in macchina", translation: "by car", category: "Transport", example: { native: "Andiamo in macchina o in treno?", translation: "Are we going by car or by train?" } },
     { id: "it-v-a1-207", level: "A1", word: "il biglietto", translation: "ticket", category: "Transport", example: { native: "Dove si compra il biglietto?", translation: "Where do you buy the ticket?" } },
     { id: "it-v-a1-208", level: "A1", word: "la fermata", translation: "stop (bus/tram)", category: "Transport", example: { native: "La fermata dell'autobus è qui vicino.", translation: "The bus stop is nearby." } },
+    { id: "it-v-a1-209", level: "A1", word: "il tram", translation: "tram", category: "Transport", example: { native: "Prendo il tram per andare in centro.", translation: "I take the tram to go to the centre." } },
+
+    // --- Emergency / Health (6 items) ---
+    { id: "it-v-a1-210", level: "A1", word: "aiuto!", translation: "help!", category: "Emergency", example: { native: "Aiuto! C'è un problema!", translation: "Help! There is a problem!" } },
+    { id: "it-v-a1-211", level: "A1", word: "il pronto soccorso", translation: "emergency room / A&E", category: "Emergency", example: { native: "Dobbiamo andare al pronto soccorso.", translation: "We need to go to the emergency room." } },
+    { id: "it-v-a1-212", level: "A1", word: "la farmacia", translation: "pharmacy / chemist", category: "Emergency", example: { native: "C'è una farmacia vicino alla piazza.", translation: "There is a pharmacy near the square." } },
+    { id: "it-v-a1-213", level: "A1", word: "chiamare la polizia", translation: "to call the police", category: "Emergency", example: { native: "Dobbiamo chiamare la polizia!", translation: "We need to call the police!" } },
+    { id: "it-v-a1-214", level: "A1", word: "fa male", translation: "it hurts", category: "Emergency", example: { native: "Mi fa male la gamba.", translation: "My leg hurts." } },
+
+    // --- Classroom (6 items) ---
+    { id: "it-v-a1-215", level: "A1", word: "il quaderno", translation: "exercise book / notebook", category: "Classroom", example: { native: "Scrivo sul quaderno.", translation: "I write in my exercise book." } },
+    { id: "it-v-a1-216", level: "A1", word: "la penna", translation: "pen", category: "Classroom", example: { native: "Hai una penna in prestito?", translation: "Can I borrow a pen?" } },
+    { id: "it-v-a1-217", level: "A1", word: "la lavagna", translation: "blackboard / whiteboard", category: "Classroom", example: { native: "L'insegnante scrive sulla lavagna.", translation: "The teacher writes on the board." } },
+    { id: "it-v-a1-218", level: "A1", word: "la lezione", translation: "lesson / class", category: "Classroom", example: { native: "La lezione inizia alle nove.", translation: "The lesson starts at nine." } },
+    { id: "it-v-a1-219", level: "A1", word: "ripetere", translation: "to repeat", category: "Classroom", example: { native: "Può ripetere, per favore?", translation: "Can you repeat, please?" } },
+    { id: "it-v-a1-220", level: "A1", word: "capire", translation: "to understand", category: "Classroom", example: { native: "Non capisco questa parola.", translation: "I don't understand this word." } },
+
+    // --- Shopping & Payment (6 items) ---
+    { id: "it-v-a1-221", level: "A1", word: "pagare", translation: "to pay", category: "Shopping", example: { native: "Dove si paga?", translation: "Where do you pay?" } },
+    { id: "it-v-a1-222", level: "A1", word: "la carta di credito", translation: "credit card", category: "Shopping", example: { native: "Posso pagare con la carta di credito?", translation: "Can I pay by credit card?" } },
+    { id: "it-v-a1-223", level: "A1", word: "lo scontrino", translation: "receipt", category: "Shopping", example: { native: "Vuole lo scontrino?", translation: "Would you like a receipt?" } },
+    { id: "it-v-a1-224", level: "A1", word: "il resto", translation: "change (money)", category: "Shopping", example: { native: "Ecco il resto: due euro.", translation: "Here is your change: two euros." } },
+    { id: "it-v-a1-225", level: "A1", word: "troppo caro", translation: "too expensive", category: "Shopping", example: { native: "Questo è troppo caro per me.", translation: "This is too expensive for me." } },
+    { id: "it-v-a1-226", level: "A1", word: "quanto costa?", translation: "how much does it cost?", category: "Shopping", example: { native: "Quanto costa questo vestito?", translation: "How much does this dress cost?" } },
 ]

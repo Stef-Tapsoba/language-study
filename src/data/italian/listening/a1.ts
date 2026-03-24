@@ -235,5 +235,50 @@ export const a1Listening: ListeningExercise[] = [
                 answer: "Ventidue euro"
             }
         ]
+    },
+    {
+        id: "it-l-a1-7",
+        level: "A1",
+        title: "Dal medico — una visita",
+        script: "Paziente: Buongiorno, dottore. Dottore: Buongiorno. Come si sente? Paziente: Non mi sento bene. Ho mal di gola e un po' di febbre. Dottore: Da quanti giorni ha questi sintomi? Paziente: Da due giorni. Dottore: Apra la bocca, per favore. Sì, ha la gola rossa. Ha anche mal di testa? Paziente: Sì, un po'. Dottore: Ha preso qualcosa? Paziente: No, solo un'aspirina ieri sera. Dottore: Bene. Le prescrivo un antibiotico. Prenda una compressa tre volte al giorno per cinque giorni. Paziente: Grazie, dottore. Quanto devo restare a casa? Dottore: Almeno due o tre giorni. Si riposi e beva molta acqua. Paziente: Grazie mille. Arrivederci!",
+        translation: "Patient: Good morning, doctor. Doctor: Good morning. How are you feeling? Patient: I don't feel well. I have a sore throat and a slight fever. Doctor: How many days have you had these symptoms? Patient: For two days. Doctor: Open your mouth, please. Yes, your throat is red. Do you also have a headache? Patient: Yes, a little. Doctor: Have you taken anything? Patient: No, only an aspirin last night. Doctor: Good. I'm prescribing an antibiotic for you. Take one tablet three times a day for five days. Patient: Thank you, doctor. How long do I need to stay at home? Doctor: At least two or three days. Rest and drink plenty of water. Patient: Thank you very much. Goodbye!",
+        dialogue: [
+            { speaker: "Paziente", text: "Buongiorno, dottore.", translation: "Good morning, doctor." },
+            { speaker: "Dottore", text: "Buongiorno. Come si sente?", translation: "Good morning. How are you feeling?" },
+            { speaker: "Paziente", text: "Non mi sento bene. Ho mal di gola e un po' di febbre.", translation: "I don't feel well. I have a sore throat and a slight fever." },
+            { speaker: "Dottore", text: "Da quanti giorni ha questi sintomi?", translation: "How many days have you had these symptoms?" },
+            { speaker: "Paziente", text: "Da due giorni.", translation: "For two days." },
+            { speaker: "Dottore", text: "Apra la bocca, per favore. Sì, ha la gola rossa. Ha anche mal di testa?", translation: "Open your mouth, please. Yes, your throat is red. Do you also have a headache?" },
+            { speaker: "Paziente", text: "Sì, un po'.", translation: "Yes, a little." },
+            { speaker: "Dottore", text: "Ha preso qualcosa?", translation: "Have you taken anything?" },
+            { speaker: "Paziente", text: "No, solo un'aspirina ieri sera.", translation: "No, only an aspirin last night." },
+            { speaker: "Dottore", text: "Bene. Le prescrivo un antibiotico. Prenda una compressa tre volte al giorno per cinque giorni.", translation: "Good. I'm prescribing an antibiotic for you. Take one tablet three times a day for five days." },
+            { speaker: "Paziente", text: "Grazie, dottore. Quanto devo restare a casa?", translation: "Thank you, doctor. How long do I need to stay at home?" },
+            { speaker: "Dottore", text: "Almeno due o tre giorni. Si riposi e beva molta acqua.", translation: "At least two or three days. Rest and drink plenty of water." },
+            { speaker: "Paziente", text: "Grazie mille. Arrivederci!", translation: "Thank you very much. Goodbye!" }
+        ],
+        questions: [
+            {
+                id: "it-l-a1-7-q1",
+                level: "A1",
+                prompt: "Quali sintomi ha il paziente?",
+                options: ["Mal di gola e febbre", "Mal di testa e tosse", "Mal di stomaco e febbre", "Mal di schiena e stanchezza"],
+                answer: "Mal di gola e febbre"
+            },
+            {
+                id: "it-l-a1-7-q2",
+                level: "A1",
+                prompt: "Da quanti giorni ha i sintomi il paziente?",
+                options: ["Da due giorni", "Da un giorno", "Da tre giorni", "Da una settimana"],
+                answer: "Da due giorni"
+            },
+            {
+                id: "it-l-a1-7-q3",
+                level: "A1",
+                prompt: "Cosa deve fare il paziente secondo il medico?",
+                options: ["Prendere un antibiotico e restare a casa", "Andare in ospedale subito", "Fare sport ogni giorno", "Prendere solo aspirina"],
+                answer: "Prendere un antibiotico e restare a casa"
+            }
+        ]
     }
 ]

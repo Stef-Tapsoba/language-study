@@ -29,7 +29,8 @@ export const a1Units: LessonUnit[] = [
             { id: "it-uq-a1-1-4", level: "A1", prompt: "When do you use 'Lei' instead of 'tu' in Italian?", options: ["With close friends and family", "In formal situations with strangers or people deserving respect", "Only in writing", "Only in southern Italy"], answer: "In formal situations with strangers or people deserving respect", hint: "Tu = informal (friends, family, peers). Lei (capital L) = formal 'you' — used with strangers, elders, in professional contexts." },
             { id: "it-uq-a1-1-5", level: "A1", prompt: "Which subject pronoun means 'we'?", options: ["Voi", "Loro", "Noi", "Lei"], answer: "Noi" },
             { id: "it-uq-a1-1-6", level: "A1", prompt: "In Italian, subject pronouns are often omitted because...", options: ["they are considered rude", "the verb ending already identifies the subject", "they are too difficult to remember", "they are only used in writing"], answer: "the verb ending already identifies the subject" },
-        ]
+        ],
+        listeningIds: ["it-l-a1-1"],
     },
     {
         id: "it-a1-u2",
@@ -129,7 +130,9 @@ export const a1Units: LessonUnit[] = [
             { id: "it-uq-a1-6-4", level: "A1", prompt: "The noi form of fare is irregular. What is it?", options: ["famo", "fanno", "facciamo", "fate"], answer: "facciamo" },
             { id: "it-uq-a1-6-5", level: "A1", prompt: "Complete: 'Loro ___ una passeggiata.' (fare)", options: ["facciamo", "fate", "fanno", "faccio"], answer: "fanno" },
             { id: "it-uq-a1-6-6", level: "A1", prompt: "What does 'fare la spesa' mean?", options: ["to do sport", "to do homework", "to go grocery shopping", "to do the dishes"], answer: "to go grocery shopping" },
-        ]
+        ],
+        readingIds: ["it-r-a1-6"],
+        listeningIds: ["it-l-a1-5"],
     },
     {
         id: "it-a1-u7",
@@ -208,7 +211,8 @@ export const a1Units: LessonUnit[] = [
             { id: "it-uq-a1-10-4", level: "A1", prompt: "How do you ask 'What is your name?' (informal)?", options: ["Dove ti chiami?", "Come ti chiami?", "Chi ti chiami?", "Cosa ti chiami?"], answer: "Come ti chiami?" },
             { id: "it-uq-a1-10-5", level: "A1", prompt: "What does 'vicino' mean?", options: ["Far", "Above", "Near", "Inside"], answer: "Near" },
             { id: "it-uq-a1-10-6", level: "A1", prompt: "How do you ask 'When does the train leave?'", options: ["Dove parte il treno?", "Come parte il treno?", "Quando parte il treno?", "Perché parte il treno?"], answer: "Quando parte il treno?" }
-        ]
+        ],
+        listeningIds: ["it-l-a1-4"],
     },
     {
         id: "it-a1-u11",
@@ -234,7 +238,8 @@ export const a1Units: LessonUnit[] = [
             { id: "it-uq-a1-11-4", level: "A1", prompt: "How do you say 'It's half past eight'?", options: ["Sono le otto e un quarto.", "Sono le otto meno mezza.", "Sono le otto e mezza.", "Sono le otto e trenta."], answer: "Sono le otto e mezza." },
             { id: "it-uq-a1-11-5", level: "A1", prompt: "How do you say 'It's one o'clock'?", options: ["Sono le una.", "È l'una.", "Sono l'una.", "È le una."], answer: "È l'una." },
             { id: "it-uq-a1-11-6", level: "A1", prompt: "What is 'seventeen' in Italian?", options: ["Sedici", "Diciannove", "Diciotto", "Diciassette"], answer: "Diciassette" },
-        ]
+        ],
+        listeningIds: ["it-l-a1-3"],
     },
     {
         id: "it-a1-u12",
@@ -301,7 +306,8 @@ export const a1Units: LessonUnit[] = [
             { id: "it-uq-a1-14-4", level: "A1", prompt: "What does 'la zia' mean?", options: ["Grandmother", "Cousin", "Aunt", "Sister"], answer: "Aunt" },
             { id: "it-uq-a1-14-5", level: "A1", prompt: "Which is correct for 'my parents'?", options: ["miei genitori", "i miei genitori", "il mio genitori", "la mia genitori"], answer: "i miei genitori" },
             { id: "it-uq-a1-14-6", level: "A1", prompt: "Complete: '___ sorella è medica.' (his/her — fem. sg.)", options: ["il suo", "la sua", "sua", "suo"], answer: "sua" }
-        ]
+        ],
+        readingIds: ["it-r-a1-1", "it-r-a1-4", "it-r-a1-7"],
     },
     {
         id: "it-a1-u15",
@@ -319,7 +325,10 @@ export const a1Units: LessonUnit[] = [
             { id: "it-uq-a1-15-4", level: "A1", prompt: "What does 'il formaggio' mean?", options: ["Butter", "Cream", "Cheese", "Yogurt"], answer: "Cheese" },
             { id: "it-uq-a1-15-5", level: "A1", prompt: "What does 'la birra' mean?", options: ["Wine", "Juice", "Water", "Beer"], answer: "Beer" },
             { id: "it-uq-a1-15-6", level: "A1", prompt: "Complete: 'Non mangio ___.' (carne)", options: ["la carne", "il carne", "lo carne", "un carne"], answer: "la carne" }
-        ]
+        ],
+        readingIds: ["it-r-a1-3"],
+        listeningIds: ["it-l-a1-2"],
+        cultureIds: ["it-c-a1-1", "it-c-a1-4"],
     },
     {
         id: "it-a1-u16",
@@ -344,7 +353,10 @@ export const a1Units: LessonUnit[] = [
             { id: "it-uq-a1-16-4", level: "A1", prompt: "How do you say 'I have a headache'?", options: ["Ho mal di piedi.", "Ho mal di testa.", "Ho mal di mano.", "Ho mal di braccio."], answer: "Ho mal di testa." },
             { id: "it-uq-a1-16-5", level: "A1", prompt: "What does 'il cameriere' mean?", options: ["Chef", "Waiter", "Policeman", "Actor"], answer: "Waiter" },
             { id: "it-uq-a1-16-6", level: "A1", prompt: "Complete: 'Loro ___ sport ogni sera.' (fare)", options: ["faccio", "fa", "fanno", "fate"], answer: "fanno" }
-        ]
+        ],
+        readingIds: ["it-r-a1-2"],
+        listeningIds: ["it-l-a1-4", "it-l-a1-7"],
+        cultureIds: ["it-c-a1-2"],
     },
     {
         id: "it-a1-u17",
@@ -370,7 +382,8 @@ export const a1Units: LessonUnit[] = [
             { id: "it-uq-a1-17-4", level: "A1", prompt: "What does 'la spiaggia' mean?", options: ["Park", "Museum", "Library", "Beach"], answer: "Beach" },
             { id: "it-uq-a1-17-5", level: "A1", prompt: "Complete: 'Loro ___ al parco.' (andare)", options: ["vado", "va", "andate", "vanno"], answer: "vanno" },
             { id: "it-uq-a1-17-6", level: "A1", prompt: "How do you say 'Go straight ahead'?", options: ["Vai dritto.", "Gira a destra.", "Gira a sinistra.", "Fermati qui."], answer: "Vai dritto." }
-        ]
+        ],
+        listeningIds: ["it-l-a1-6"],
     },
     {
         id: "it-a1-u18",
@@ -392,7 +405,8 @@ export const a1Units: LessonUnit[] = [
             { id: "it-uq-a1-18-4", level: "A1", prompt: "How do you say 'I prefer red wine'?", options: ["Preferisco il vino rosso.", "Preferisce il vino rosso.", "Preferisco vino rosso.", "Mi piace preferire il vino rosso."], answer: "Preferisco il vino rosso." },
             { id: "it-uq-a1-18-5", level: "A1", prompt: "How do you say 'Do you like Italian music?' (informal)", options: ["Le piace la musica italiana?", "Ti piace la musica italiana?", "Ti piacciono la musica italiana?", "Gli piace la musica italiana?"], answer: "Ti piace la musica italiana?" },
             { id: "it-uq-a1-18-6", level: "A1", prompt: "Complete: 'Mi piace ___.' (to study Italian)", options: ["studiare l'italiano", "lo studio italiano", "studio l'italiano", "studente italiano"], answer: "studiare l'italiano" },
-        ]
+        ],
+        readingIds: ["it-r-a1-5"],
     },
     {
         id: "it-a1-u19",
@@ -415,7 +429,8 @@ export const a1Units: LessonUnit[] = [
             { id: "it-uq-a1-19-4", level: "A1", prompt: "Complete: 'Noi ___ laviamo le mani.'", options: ["mi", "ti", "si", "ci"], answer: "ci" },
             { id: "it-uq-a1-19-5", level: "A1", prompt: "What does 'vestirsi' mean?", options: ["to eat", "to sleep", "to get dressed", "to sit down"], answer: "to get dressed" },
             { id: "it-uq-a1-19-6", level: "A1", prompt: "How do you say 'What time do you wake up?'", options: ["A che ora ti alzi?", "A che ora mi sveglio?", "A che ora ti svegli?", "A che ora ci alziamo?"], answer: "A che ora ti svegli?" },
-        ]
+        ],
+        cultureIds: ["it-c-a1-3"],
     },
     {
         id: "it-a1-u20",
@@ -543,7 +558,8 @@ export const a1Units: LessonUnit[] = [
             { id: "it-uq-a1-24-4", level: "A1", prompt: "Choose the correct form of dovere: 'Noi ___ studiare ogni giorno.'", options: ["devo", "deve", "dobbiamo", "dovete"], answer: "dobbiamo" },
             { id: "it-uq-a1-24-5", level: "A1", prompt: "Translate: 'You (tu) must eat breakfast.'", options: ["Devi fare colazione.", "Deve fare colazione.", "Dovete fare colazione.", "Devo fare colazione."], answer: "Devi fare colazione." },
             { id: "it-uq-a1-24-6", level: "A1", prompt: "Translate: 'They must arrive on time.'", options: ["Vogliono arrivare in orario.", "Possono arrivare in orario.", "Arrivano in orario.", "Devono arrivare in orario."], answer: "Devono arrivare in orario." },
-        ]
+        ],
+        readingIds: ["it-r-a1-8"],
     },
     {
         id: "it-a1-u25",
