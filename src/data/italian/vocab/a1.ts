@@ -191,4 +191,32 @@ export const a1Vocab: VocabItem[] = [
     { id: "it-v-a1-161", level: "A1", word: "cento", translation: "one hundred", category: "Numbers", example: { native: "Cento per cento.", translation: "One hundred percent." } },
     { id: "it-v-a1-162", level: "A1", word: "mezzogiorno / mezzanotte", translation: "noon / midnight", category: "Numbers", example: { native: "Ci vediamo a mezzogiorno.", translation: "We'll meet at noon." } },
     { id: "it-v-a1-163", level: "A1", word: "e mezza / e un quarto", translation: "half past / quarter past", category: "Numbers", example: { native: "Sono le tre e mezza.", translation: "It's half past three." } },
+
+    // --- Weather (12 items) ---
+    { id: "it-v-a1-164", level: "A1", word: "fa caldo", translation: "it's hot (weather)", category: "Weather", example: { native: "D'estate fa molto caldo.", translation: "In summer it's very hot." } },
+    { id: "it-v-a1-165", level: "A1", word: "fa freddo", translation: "it's cold (weather)", category: "Weather", example: { native: "D'inverno fa freddo.", translation: "In winter it's cold." } },
+    { id: "it-v-a1-166", level: "A1", word: "fa bel tempo", translation: "the weather is nice", category: "Weather", example: { native: "Oggi fa bel tempo — usciamo!", translation: "The weather is nice today — let's go out!" } },
+    { id: "it-v-a1-167", level: "A1", word: "fa brutto tempo", translation: "the weather is bad", category: "Weather", example: { native: "Fa brutto tempo, resto a casa.", translation: "The weather is bad, I'm staying home." } },
+    { id: "it-v-a1-168", level: "A1", word: "c'è il sole", translation: "it's sunny", category: "Weather", example: { native: "C'è il sole e non ci sono nuvole.", translation: "It's sunny and there are no clouds." } },
+    { id: "it-v-a1-169", level: "A1", word: "piove / la pioggia", translation: "it rains / rain", category: "Weather", example: { native: "Piove molto in autunno.", translation: "It rains a lot in autumn." } },
+    { id: "it-v-a1-170", level: "A1", word: "nevica / la neve", translation: "it snows / snow", category: "Weather", example: { native: "Nevica in montagna a gennaio.", translation: "It snows in the mountains in January." } },
+    { id: "it-v-a1-171", level: "A1", word: "c'è vento / il vento", translation: "it's windy / wind", category: "Weather", example: { native: "C'è vento forte oggi.", translation: "There's a strong wind today." } },
+    { id: "it-v-a1-172", level: "A1", word: "è nuvoloso", translation: "it's cloudy", category: "Weather", example: { native: "Il cielo è nuvoloso e grigio.", translation: "The sky is cloudy and grey." } },
+    { id: "it-v-a1-173", level: "A1", word: "la temperatura", translation: "temperature", category: "Weather", example: { native: "La temperatura oggi è di venti gradi.", translation: "The temperature today is twenty degrees." } },
+    { id: "it-v-a1-174", level: "A1", word: "il grado", translation: "degree (°)", category: "Weather", example: { native: "Fa trenta gradi in agosto.", translation: "It's thirty degrees in August." } },
+    { id: "it-v-a1-175", level: "A1", word: "fa fresco", translation: "it's cool/fresh (weather)", category: "Weather", example: { native: "La sera fa fresco in primavera.", translation: "In spring the evenings are cool." } },
+
+    // --- Home & rooms (12 items) ---
+    { id: "it-v-a1-176", level: "A1", word: "il soggiorno", translation: "living room", category: "Home", example: { native: "Guardiamo la televisione nel soggiorno.", translation: "We watch television in the living room." } },
+    { id: "it-v-a1-177", level: "A1", word: "la cucina", translation: "kitchen", category: "Home", example: { native: "La mamma cucina nella cucina.", translation: "Mum cooks in the kitchen." } },
+    { id: "it-v-a1-178", level: "A1", word: "la camera da letto", translation: "bedroom", category: "Home", example: { native: "La mia camera da letto è piccola ma accogliente.", translation: "My bedroom is small but cosy." } },
+    { id: "it-v-a1-179", level: "A1", word: "il bagno", translation: "bathroom", category: "Home", example: { native: "Il bagno è in fondo al corridoio.", translation: "The bathroom is at the end of the corridor." } },
+    { id: "it-v-a1-180", level: "A1", word: "lo studio", translation: "study/home office", category: "Home", example: { native: "Papà lavora nello studio.", translation: "Dad works in the study." } },
+    { id: "it-v-a1-181", level: "A1", word: "il giardino", translation: "garden", category: "Home", example: { native: "I bambini giocano in giardino.", translation: "The children play in the garden." } },
+    { id: "it-v-a1-182", level: "A1", word: "il balcone", translation: "balcony", category: "Home", example: { native: "Ho dei fiori sul balcone.", translation: "I have flowers on the balcony." } },
+    { id: "it-v-a1-183", level: "A1", word: "il piano", translation: "floor (of a building)", category: "Home", example: { native: "Abito al secondo piano.", translation: "I live on the second floor." } },
+    { id: "it-v-a1-184", level: "A1", word: "il tavolo", translation: "table", category: "Home", example: { native: "Mangiamo al tavolo insieme.", translation: "We eat together at the table." } },
+    { id: "it-v-a1-185", level: "A1", word: "la sedia", translation: "chair", category: "Home", example: { native: "C'è una sedia davanti alla scrivania.", translation: "There is a chair in front of the desk." } },
+    { id: "it-v-a1-186", level: "A1", word: "il letto", translation: "bed", category: "Home", example: { native: "Mi alzo dal letto alle sette.", translation: "I get out of bed at seven." } },
+    { id: "it-v-a1-187", level: "A1", word: "il divano", translation: "sofa", category: "Home", example: { native: "Il gatto dorme sul divano.", translation: "The cat sleeps on the sofa." } },
 ]

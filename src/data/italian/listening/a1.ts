@@ -162,5 +162,78 @@ export const a1Listening: ListeningExercise[] = [
                 answer: "Presentarsi al compagno vicino"
             }
         ]
+    },
+    {
+        id: "it-l-a1-5",
+        level: "A1",
+        title: "Che tempo fa questa settimana?",
+        script: "Buongiorno a tutti. Ecco le previsioni del tempo per questa settimana. Lunedì fa bel tempo: c'è il sole e la temperatura è di venti gradi. Martedì è nuvoloso e fa un po' fresco — circa sedici gradi. Mercoledì piove tutto il giorno. Giovedì c'è vento forte e fa freddo. Venerdì il tempo migliora: torna il sole e la temperatura sale a diciotto gradi. Nel weekend fa caldo con il sole. La temperatura massima è di ventiquattro gradi. Buona settimana!",
+        translation: "Good morning everyone. Here is the weather forecast for this week. On Monday the weather is nice: it's sunny and the temperature is twenty degrees. Tuesday is cloudy and a little cool — about sixteen degrees. Wednesday it rains all day. Thursday there is a strong wind and it is cold. Friday the weather improves: the sun returns and the temperature rises to eighteen degrees. At the weekend it is warm and sunny. The maximum temperature is twenty-four degrees. Have a good week!",
+        questions: [
+            {
+                id: "it-l-a1-5-q1",
+                level: "A1",
+                prompt: "Che tempo fa lunedì?",
+                options: ["Fa bel tempo e c'è il sole", "Piove tutto il giorno", "C'è vento forte", "È nuvoloso"],
+                answer: "Fa bel tempo e c'è il sole"
+            },
+            {
+                id: "it-l-a1-5-q2",
+                level: "A1",
+                prompt: "Che giorno piove tutto il giorno?",
+                options: ["Mercoledì", "Martedì", "Giovedì", "Venerdì"],
+                answer: "Mercoledì"
+            },
+            {
+                id: "it-l-a1-5-q3",
+                level: "A1",
+                prompt: "Qual è la temperatura massima nel weekend?",
+                options: ["Ventiquattro gradi", "Venti gradi", "Sedici gradi", "Diciotto gradi"],
+                answer: "Ventiquattro gradi"
+            }
+        ]
+    },
+    {
+        id: "it-l-a1-6",
+        level: "A1",
+        title: "Alla stazione — un biglietto per Firenze",
+        script: "Cliente: Buongiorno. Vorrei un biglietto per Firenze, per favore. Biglietteria: Buongiorno. Solo andata o andata e ritorno? Cliente: Solo andata, per favore. Biglietteria: Per quando? Cliente: Per oggi, se è possibile. Posso prendere il treno delle quattordici? Biglietteria: Sì, c'è posto. Seconda classe? Cliente: Sì, seconda classe va bene. Quanto costa? Biglietteria: Costa ventidue euro. Cliente: Posso pagare con la carta? Biglietteria: Certo. Ecco il suo biglietto. Buon viaggio! Cliente: Grazie mille. Arrivederci!",
+        translation: "Customer: Good morning. I'd like a ticket to Florence, please. Ticket office: Good morning. Single or return? Customer: Single, please. Ticket office: For when? Customer: For today, if possible. Can I take the two o'clock train? Ticket office: Yes, there is space. Second class? Customer: Yes, second class is fine. How much is it? Ticket office: It costs twenty-two euros. Customer: Can I pay by card? Ticket office: Of course. Here is your ticket. Have a good journey! Customer: Thank you very much. Goodbye!",
+        dialogue: [
+            { speaker: "Cliente", text: "Buongiorno. Vorrei un biglietto per Firenze, per favore.", translation: "Good morning. I'd like a ticket to Florence, please." },
+            { speaker: "Biglietteria", text: "Buongiorno. Solo andata o andata e ritorno?", translation: "Good morning. Single or return?" },
+            { speaker: "Cliente", text: "Solo andata, per favore.", translation: "Single, please." },
+            { speaker: "Biglietteria", text: "Per quando?", translation: "For when?" },
+            { speaker: "Cliente", text: "Per oggi, se è possibile. Posso prendere il treno delle quattordici?", translation: "For today, if possible. Can I take the two o'clock train?" },
+            { speaker: "Biglietteria", text: "Sì, c'è posto. Seconda classe?", translation: "Yes, there is space. Second class?" },
+            { speaker: "Cliente", text: "Sì, seconda classe va bene. Quanto costa?", translation: "Yes, second class is fine. How much is it?" },
+            { speaker: "Biglietteria", text: "Costa ventidue euro.", translation: "It costs twenty-two euros." },
+            { speaker: "Cliente", text: "Posso pagare con la carta?", translation: "Can I pay by card?" },
+            { speaker: "Biglietteria", text: "Certo. Ecco il suo biglietto. Buon viaggio!", translation: "Of course. Here is your ticket. Have a good journey!" },
+            { speaker: "Cliente", text: "Grazie mille. Arrivederci!", translation: "Thank you very much. Goodbye!" }
+        ],
+        questions: [
+            {
+                id: "it-l-a1-6-q1",
+                level: "A1",
+                prompt: "Dove vuole andare il cliente?",
+                options: ["A Firenze", "A Roma", "A Milano", "A Napoli"],
+                answer: "A Firenze"
+            },
+            {
+                id: "it-l-a1-6-q2",
+                level: "A1",
+                prompt: "Che tipo di biglietto prende il cliente?",
+                options: ["Solo andata", "Andata e ritorno", "Abbonamento mensile", "Biglietto di prima classe"],
+                answer: "Solo andata"
+            },
+            {
+                id: "it-l-a1-6-q3",
+                level: "A1",
+                prompt: "Quanto costa il biglietto?",
+                options: ["Ventidue euro", "Venti euro", "Trenta euro", "Quindici euro"],
+                answer: "Ventidue euro"
+            }
+        ]
     }
 ]

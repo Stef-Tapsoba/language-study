@@ -211,5 +211,128 @@ export const a1Reading: ReadingPassage[] = [
                 answer: "Dire qualche parola"
             }
         ]
+    },
+    {
+        id: "it-r-a1-6",
+        level: "A1",
+        category: "everyday",
+        title: "Che tempo fa?",
+        body: {
+            target: "Oggi fa bel tempo. C'è il sole e non fa troppo caldo — la temperatura è di circa ventidue gradi. È una giornata perfetta! Ieri invece faceva brutto tempo: pioveva e c'era vento. Io sono rimasto a casa tutto il giorno. Domani, secondo le previsioni, fa freddo e forse nevica in montagna. Io ho un maglione pesante, quindi non ho paura del freddo. Nel pomeriggio voglio fare una passeggiata nel parco. Se fa ancora bel tempo, porto anche il mio cane.",
+            native: "Today the weather is nice. It's sunny and not too hot — the temperature is about twenty-two degrees. It's a perfect day! Yesterday, on the other hand, the weather was bad: it was raining and windy. I stayed at home all day. Tomorrow, according to the forecast, it will be cold and it might snow in the mountains. I have a heavy jumper, so I'm not afraid of the cold. In the afternoon I want to go for a walk in the park. If the weather is still nice, I'll bring my dog too."
+        },
+        vocabGloss: [
+            { word: "fa bel tempo", translation: "the weather is nice" },
+            { word: "la temperatura", translation: "temperature" },
+            { word: "faceva brutto tempo", translation: "the weather was bad" },
+            { word: "le previsioni", translation: "the forecast" },
+            { word: "il maglione pesante", translation: "heavy jumper / thick sweater" },
+            { word: "fare una passeggiata", translation: "to go for a walk" }
+        ],
+        questions: [
+            {
+                id: "it-r-a1-6-q1",
+                level: "A1",
+                prompt: "Che tempo fa oggi?",
+                options: ["Fa bel tempo e c'è il sole", "Piove e c'è vento", "Fa molto caldo", "Nevica"],
+                answer: "Fa bel tempo e c'è il sole"
+            },
+            {
+                id: "it-r-a1-6-q2",
+                level: "A1",
+                prompt: "Che tempo ha fatto ieri?",
+                options: ["Brutto tempo — pioveva e c'era vento", "Bel tempo con il sole", "Faceva caldo", "Nevicava"],
+                answer: "Brutto tempo — pioveva e c'era vento"
+            },
+            {
+                id: "it-r-a1-6-q3",
+                level: "A1",
+                prompt: "Cosa vuole fare la persona nel pomeriggio?",
+                options: ["Fare una passeggiata nel parco", "Restare a casa", "Andare in montagna", "Guardare le previsioni"],
+                answer: "Fare una passeggiata nel parco"
+            }
+        ]
+    },
+    {
+        id: "it-r-a1-7",
+        level: "A1",
+        category: "everyday",
+        title: "La mia casa",
+        body: {
+            target: "Mi chiamo Sofia e abito in un appartamento a Bologna. Il mio appartamento è al primo piano. Ci sono quattro stanze: un soggiorno, una cucina, una camera da letto e un bagno. Non c'è lo studio, ma c'è un piccolo balcone. Nel soggiorno ci sono un divano grigio, un tavolo e quattro sedie. La cucina è grande e moderna. Nella mia camera da letto c'è un letto matrimoniale e un armadio. Il bagno è piccolo ma ha tutto quello che serve. Mi piace il mio appartamento perché è luminoso e tranquillo.",
+            native: "My name is Sofia and I live in an apartment in Bologna. My apartment is on the first floor. There are four rooms: a living room, a kitchen, a bedroom and a bathroom. There is no study, but there is a small balcony. In the living room there are a grey sofa, a table and four chairs. The kitchen is large and modern. In my bedroom there is a double bed and a wardrobe. The bathroom is small but has everything you need. I like my apartment because it is bright and quiet."
+        },
+        vocabGloss: [
+            { word: "appartamento", translation: "apartment, flat" },
+            { word: "stanze", translation: "rooms" },
+            { word: "il soggiorno", translation: "living room" },
+            { word: "il balcone", translation: "balcony" },
+            { word: "il letto matrimoniale", translation: "double bed" },
+            { word: "luminoso", translation: "bright, full of light" }
+        ],
+        questions: [
+            {
+                id: "it-r-a1-7-q1",
+                level: "A1",
+                prompt: "A che piano è l'appartamento di Sofia?",
+                options: ["Al primo piano", "Al secondo piano", "Al terzo piano", "Al piano terra"],
+                answer: "Al primo piano"
+            },
+            {
+                id: "it-r-a1-7-q2",
+                level: "A1",
+                prompt: "Quante stanze ci sono nell'appartamento?",
+                options: ["Quattro stanze", "Tre stanze", "Cinque stanze", "Due stanze"],
+                answer: "Quattro stanze"
+            },
+            {
+                id: "it-r-a1-7-q3",
+                level: "A1",
+                prompt: "Che colore è il divano nel soggiorno?",
+                options: ["Grigio", "Rosso", "Blu", "Bianco"],
+                answer: "Grigio"
+            }
+        ]
+    },
+    {
+        id: "it-r-a1-8",
+        level: "A1",
+        category: "dialogue",
+        title: "Al telefono",
+        body: {
+            target: "Marco: Pronto, ciao Chiara! Chiara: Ciao Marco! Come stai? Marco: Bene, grazie. Senti, vuoi uscire domani sera? Chiara: Sì, volentieri! Dove vuoi andare? Marco: Possiamo andare al cinema. C'è un bel film alle otto. Chiara: Perfetto! A che ora ci vediamo? Marco: Possiamo incontrarci alle sette e mezza davanti al cinema. Chiara: Va bene. Ma dove si trova il cinema? Marco: È in Via Nazionale, vicino alla stazione. Chiara: Ok, lo conosco. A domani sera allora! Marco: A domani! Ciao!",
+            native: "Marco: Hello, hi Chiara! Chiara: Hi Marco! How are you? Marco: Fine, thanks. Listen, do you want to go out tomorrow evening? Chiara: Yes, I'd love to! Where do you want to go? Marco: We can go to the cinema. There's a good film at eight. Chiara: Perfect! What time shall we meet? Marco: We can meet at half past seven in front of the cinema. Chiara: OK. But where is the cinema? Marco: It's in Via Nazionale, near the station. Chiara: OK, I know it. See you tomorrow evening then! Marco: See you tomorrow! Bye!"
+        },
+        vocabGloss: [
+            { word: "pronto", translation: "hello (answering the phone)" },
+            { word: "senti", translation: "listen / hey (informal)" },
+            { word: "vuoi uscire", translation: "do you want to go out" },
+            { word: "volentieri", translation: "gladly, with pleasure" },
+            { word: "ci vediamo", translation: "we'll meet / see you" },
+            { word: "vicino alla stazione", translation: "near the station" }
+        ],
+        questions: [
+            {
+                id: "it-r-a1-8-q1",
+                level: "A1",
+                prompt: "Dove vogliono andare Marco e Chiara?",
+                options: ["Al cinema", "Al ristorante", "In piazza", "Alla stazione"],
+                answer: "Al cinema"
+            },
+            {
+                id: "it-r-a1-8-q2",
+                level: "A1",
+                prompt: "A che ora si incontrano Marco e Chiara?",
+                options: ["Alle sette e mezza", "Alle otto", "Alle sette", "Alle nove"],
+                answer: "Alle sette e mezza"
+            },
+            {
+                id: "it-r-a1-8-q3",
+                level: "A1",
+                prompt: "Dove si trova il cinema?",
+                options: ["In Via Nazionale, vicino alla stazione", "In centro, vicino al parco", "In Via Roma, vicino al bar", "Davanti alla scuola"],
+                answer: "In Via Nazionale, vicino alla stazione"
+            }
+        ]
     }
 ]

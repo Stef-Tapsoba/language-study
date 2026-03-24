@@ -115,7 +115,11 @@ export const a1Units: LessonUnit[] = [
         grammarIds: ["it-g-a1-9"],
         vocabIds: [
             // Time of day — natural fare context (fare sport la mattina, passeggiata la sera)
-            "it-v-a1-151", "it-v-a1-152"
+            "it-v-a1-151", "it-v-a1-152",
+            // Weather — core fare expressions (fa caldo, fa freddo, fa bel/brutto tempo, etc.)
+            "it-v-a1-164", "it-v-a1-165", "it-v-a1-166", "it-v-a1-167",
+            "it-v-a1-168", "it-v-a1-169", "it-v-a1-170", "it-v-a1-171",
+            "it-v-a1-172", "it-v-a1-173", "it-v-a1-174", "it-v-a1-175"
         ],
         verbIds: ["it-vb-a1-5"],
         testQuestions: [
@@ -464,6 +468,10 @@ export const a1Units: LessonUnit[] = [
             "it-v-a1-108", "it-v-a1-109", "it-v-a1-110", "it-v-a1-111", "it-v-a1-112",
             "it-v-a1-113", "it-v-a1-114", "it-v-a1-115", "it-v-a1-116", "it-v-a1-117",
             "it-v-a1-118", "it-v-a1-119", "it-v-a1-120", "it-v-a1-121", "it-v-a1-122",
+            // Home & rooms — natural c'è/ci sono context (c'è una cucina, ci sono due camere da letto)
+            "it-v-a1-176", "it-v-a1-177", "it-v-a1-178", "it-v-a1-179", "it-v-a1-180",
+            "it-v-a1-181", "it-v-a1-182", "it-v-a1-183", "it-v-a1-184", "it-v-a1-185",
+            "it-v-a1-186", "it-v-a1-187",
         ],
         verbIds: ["it-vb-a1-1", "it-vb-a1-8", "it-vb-a1-9"],
         testQuestions: [

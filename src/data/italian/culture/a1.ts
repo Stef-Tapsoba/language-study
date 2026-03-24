@@ -262,6 +262,265 @@ Ogni regione in Italia ha la sua cucina speciale.`,
             native: "When Italy unified in 1861, only about 2.5% of the population spoke what we now call 'Italian'. The rest spoke regional languages and dialects that were mutually unintelligible. It was mass conscription in WWI — putting men from all regions in the same trenches — and later television, that finally created a shared national language.",
             target: "Quando l'Italia si unificò nel 1861, solo circa il 2,5% della popolazione parlava quello che oggi chiamiamo 'italiano'. Il resto parlava lingue regionali e dialetti reciprocamente incomprensibili. Fu la coscrizione di massa nella Prima Guerra Mondiale — mettere uomini di tutte le regioni nelle stesse trincee — e poi la televisione, a creare finalmente una lingua nazionale condivisa."
         }
+    },
+
+    {
+        id: "it-c-a1-3",
+        language: "it",
+        level: "A1",
+        category: "customs",
+        region: "all-italian",
+        title: {
+            native: "I gesti italiani — comunicare con le mani",
+            target: "I gesti italiani — comunicare con le mani"
+        },
+        subtitle: "Italians are famous for talking with their hands — but each gesture has a precise meaning that every visitor should know.",
+
+        video: {
+            youtubeId: "",
+            title: "",
+            channelName: "",
+            captionLang: "it"
+        },
+
+        photos: [
+            {
+                url: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800",
+                caption: {
+                    native: "Italians use gestures as a natural part of conversation",
+                    target: "Gli italiani usano i gesti come parte naturale della conversazione"
+                }
+            }
+        ],
+
+        body: {
+            target: `In Italia, le mani parlano. I gesti sono una parte importante della comunicazione italiana — non un'aggiunta, ma una parte essenziale del messaggio.
+
+Il gesto più famoso nel mondo è il "gesto del carciofo": le cinque dita unite, con il palmo rivolto verso l'alto, mosse su e giù. In Italia questo gesto significa "cosa vuoi?" o "cosa stai dicendo?". Non è scortese — è normale.
+
+Un altro gesto comune è il "gesto del denaro": strofinare il pollice contro l'indice e il medio. Significa "costa molto" o "ci vuole denaro".
+
+Il gesto della mano al mento — muovere il dorso della mano verso l'esterno sotto il mento — significa "non me ne importa niente" o "vai via". Questo gesto può sembrare offensivo se non si conosce il contesto.
+
+Il gesto di portare le dita unite alla bocca, come per un bacio, significa che qualcosa è buonissimo — il cibo, il vino, una persona bella. È il modo italiano di dire "magnifico!".
+
+I gesti italiani cambiano un poco da regione a regione. Al sud, i gesti sono spesso più espressivi. Al nord, le persone gesticolano meno. Ma in tutta Italia, parlare senza le mani sembra strano.
+
+Per uno straniero, imparare i gesti italiani è importante quanto imparare le parole. Un gesto sbagliato può creare confusione o — a volte — ofendere qualcuno senza volerlo.`,
+            native: `In Italy, hands speak. Gestures are an important part of Italian communication — not an addition, but an essential part of the message.
+
+The most famous gesture in the world is the "artichoke gesture": five fingers together, palm facing upward, moved up and down. In Italy this gesture means "what do you want?" or "what are you saying?". It is not rude — it is normal.
+
+Another common gesture is the "money gesture": rubbing the thumb against the index and middle fingers. It means "it costs a lot" or "it requires money".
+
+The hand-to-chin gesture — moving the back of the hand outward under the chin — means "I don't care" or "go away". This gesture can seem offensive if you don't know the context.
+
+The gesture of bringing the fingertips together to the lips, as if for a kiss, means something is delicious — food, wine, a beautiful person. It is the Italian way of saying "magnificent!".
+
+Italian gestures vary a little from region to region. In the south, gestures are often more expressive. In the north, people gesticulate less. But throughout Italy, speaking without your hands seems strange.
+
+For a foreigner, learning Italian gestures is as important as learning the words. A wrong gesture can cause confusion or — sometimes — offend someone without meaning to.`
+        },
+
+        simpleTarget: `Gli italiani parlano con le mani.
+I gesti sono importanti in Italia.
+Un gesto famoso significa "cosa vuoi?".
+Un altro gesto significa "buonissimo!".
+I gesti cambiano da regione a regione.
+È importante imparare i gesti italiani.`,
+
+        cultureVocab: [
+            {
+                word: "il gesto",
+                translation: "gesture",
+                culturalNote: "Italian gestures ('gesti') are so codified that there is an official 'Dictionary of Italian Gestures'. Researchers have counted over 250 distinct gestures used regularly in everyday Italian conversation."
+            },
+            {
+                word: "le dita",
+                translation: "fingers (plural of 'il dito')",
+                culturalNote: "Many Italian gestures involve specific finger positions. 'Le dita unite' (fingers together) is the starting point for several of the most iconic gestures."
+            },
+            {
+                word: "il palmo",
+                translation: "palm (of the hand)",
+                culturalNote: "The orientation of the palm — up, down, or sideways — completely changes the meaning of an Italian gesture. The same hand shape with a different palm direction can mean the opposite thing."
+            },
+            {
+                word: "gesticolare",
+                translation: "to gesticulate, to use hand gestures",
+                culturalNote: "In Italian culture, gesticulating is not considered theatrical or excessive — it is simply how you speak. Sitting on your hands during a conversation would feel very unnatural to an Italian."
+            },
+            {
+                word: "offendere",
+                translation: "to offend",
+                culturalNote: "Some Italian gestures that seem neutral to outsiders can cause offence. The chin-flick gesture ('mano al mento') in particular is quite strong and should be used carefully by learners."
+            }
+        ],
+
+        questions: [
+            {
+                id: "it-c-a1-3-q1",
+                type: "comprehension",
+                prompt: { native: "What does the gesture of bringing fingertips together to the lips mean?", target: "Cosa significa il gesto di portare le dita unite alla bocca?" },
+                options: ["Something is delicious / magnificent", "I don't care", "What do you want?", "It costs a lot"],
+                answer: "Something is delicious / magnificent"
+            },
+            {
+                id: "it-c-a1-3-q2",
+                type: "comprehension",
+                prompt: { native: "According to the text, where in Italy do people gesticulate more?", target: "Secondo il testo, dove in Italia si gesticola di più?" },
+                options: ["Al sud", "Al nord", "In Toscana", "A Roma"],
+                answer: "Al sud"
+            },
+            {
+                id: "it-c-a1-3-q3",
+                type: "comprehension",
+                prompt: { native: "What does the 'money gesture' (rubbing thumb against fingers) mean?", target: "Cosa significa il 'gesto del denaro'?" },
+                options: ["Costa molto / ci vuole denaro", "Cosa vuoi?", "Buonissimo!", "Non me ne importa niente"],
+                answer: "Costa molto / ci vuole denaro"
+            },
+            {
+                id: "it-c-a1-3-q4",
+                type: "reflection",
+                prompt: { native: "Does your culture use hand gestures in conversation? Are there any gestures that mean different things in different cultures?", target: "Does your culture use hand gestures in conversation? Are there any gestures that mean different things in different cultures?" }
+            }
+        ],
+
+        didYouKnow: {
+            native: "In 2021, UNESCO added the art of Neapolitan gesture to its list of Intangible Cultural Heritage. Naples has the richest gesture vocabulary in Italy — linguists have documented over 60 distinct gestures unique to the Neapolitan tradition, many of which date back to ancient Greek and Roman times.",
+            target: "Nel 2021, l'UNESCO ha aggiunto l'arte del gesto napoletano alla sua lista del Patrimonio Culturale Immateriale. Napoli ha il vocabolario gestuale più ricco d'Italia — i linguisti hanno documentato oltre 60 gesti distinti unici della tradizione napoletana, molti dei quali risalgono all'epoca greco-romana."
+        }
+    },
+
+    {
+        id: "it-c-a1-4",
+        language: "it",
+        level: "A1",
+        category: "food",
+        region: "all-italian",
+        title: {
+            native: "La pasta — una tradizione nazionale",
+            target: "La pasta — una tradizione nazionale"
+        },
+        subtitle: "Italy has over 350 pasta shapes — and strict unwritten rules about which sauce goes with which pasta. Breaking them is considered almost criminal.",
+
+        video: {
+            youtubeId: "",
+            title: "",
+            channelName: "",
+            captionLang: "it"
+        },
+
+        photos: [
+            {
+                url: "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=800",
+                caption: {
+                    native: "Fresh pasta being made by hand — a centuries-old Italian tradition",
+                    target: "La pasta fresca fatta a mano — una tradizione italiana di secoli"
+                }
+            },
+            {
+                url: "https://images.unsplash.com/photo-1598866594230-a7c12756260f?w=800",
+                caption: {
+                    native: "Different pasta shapes pair with different sauces — the rules are strict",
+                    target: "Diversi formati di pasta si abbinano a diversi sughi — le regole sono rigide"
+                }
+            }
+        ],
+
+        body: {
+            target: `La pasta è il piatto simbolo dell'Italia. Gli italiani mangiano pasta quasi ogni giorno — a pranzo o a cena. È parte della cultura, non solo del menu.
+
+In Italia esistono più di trecentocinquanta formati di pasta diversi. Ogni formato ha un nome e, spesso, una storia. Gli spaghetti, le penne, i rigatoni, le tagliatelle, i fusilli — ogni tipo di pasta ha la sua forma speciale.
+
+La regola più importante della pasta italiana è questa: ogni formato di pasta si abbina a un sugo specifico. Gli spaghetti vanno con la carbonara o l'amatriciana, non con il ragù. Il ragù alla bolognese va con le tagliatelle, non con gli spaghetti. Le penne vanno con l'arrabbiata. Chi sbaglia abbinamento è considerato quasi un criminale gastronomico.
+
+La pasta si divide in due grandi categorie: la pasta secca e la pasta fresca. La pasta secca — come gli spaghetti e le penne — si fa con acqua e semola di grano duro. La pasta fresca — come le tagliatelle e i tortellini — si fa con acqua, farina e uova.
+
+Ogni regione italiana ha la sua pasta tradizionale. In Emilia-Romagna ci sono le tagliatelle e i tortellini. In Campania ci sono gli spaghetti. In Sicilia ci sono le busiate. In Lombardia ci sono i pizzoccheri.
+
+La pasta non è solo cibo. È identità, storia e famiglia. Per molti italiani, il modo in cui la nonna fa la pasta è il modo giusto — e tutti gli altri modi sono sbagliati.`,
+            native: `Pasta is Italy's symbolic dish. Italians eat pasta almost every day — at lunch or dinner. It is part of the culture, not just the menu.
+
+In Italy there are more than three hundred and fifty different pasta shapes. Each shape has a name and, often, a history. Spaghetti, penne, rigatoni, tagliatelle, fusilli — each type of pasta has its own special form.
+
+The most important rule of Italian pasta is this: each pasta shape pairs with a specific sauce. Spaghetti go with carbonara or amatriciana, not with ragù. Bolognese ragù goes with tagliatelle, not spaghetti. Penne go with arrabbiata. Whoever makes the wrong pairing is considered almost a gastronomic criminal.
+
+Pasta is divided into two main categories: dried pasta and fresh pasta. Dried pasta — like spaghetti and penne — is made with water and durum wheat semolina. Fresh pasta — like tagliatelle and tortellini — is made with water, flour and eggs.
+
+Each Italian region has its own traditional pasta. In Emilia-Romagna there are tagliatelle and tortellini. In Campania there are spaghetti. In Sicily there are busiate. In Lombardy there are pizzoccheri.
+
+Pasta is not just food. It is identity, history and family. For many Italians, the way grandmother makes pasta is the right way — and all other ways are wrong.`
+        },
+
+        simpleTarget: `La pasta è molto importante in Italia.
+Gli italiani mangiano pasta ogni giorno.
+Ci sono molti formati di pasta diversi.
+Ogni pasta ha il suo sugo speciale.
+La pasta secca e la pasta fresca sono diverse.
+Ogni regione italiana ha la sua pasta tradizionale.`,
+
+        cultureVocab: [
+            {
+                word: "il formato di pasta",
+                translation: "pasta shape",
+                culturalNote: "Italy has over 350 named pasta shapes. The shape is not decorative — it determines which sauce clings to it best. Tubes trap chunky sauces; thin long pasta is best with smooth sauces."
+            },
+            {
+                word: "il sugo",
+                translation: "sauce (for pasta)",
+                culturalNote: "In Italian, 'sugo' specifically means a cooked tomato-based pasta sauce. 'Salsa' is more generic. The distinction matters — calling a ragù a 'salsa' would raise Italian eyebrows."
+            },
+            {
+                word: "la pasta fresca",
+                translation: "fresh pasta",
+                culturalNote: "Fresh pasta is made with eggs and flour, often by hand, and must be eaten within a day or two. It is considered more refined than dried pasta, and is the norm for special Sunday lunches and celebrations."
+            },
+            {
+                word: "la pasta secca",
+                translation: "dried pasta",
+                culturalNote: "Dried pasta (pasta secca) is the everyday staple of Italian households. Unlike fresh pasta, it can be stored for months. It is made from durum wheat semolina and water — no eggs."
+            },
+            {
+                word: "il ragù",
+                translation: "meat sauce (slow-cooked)",
+                culturalNote: "Ragù alla Bolognese — the world-famous 'Bolognese sauce' — is officially registered with the Bologna Chamber of Commerce. The authentic recipe uses tagliatelle, not spaghetti. Serving it with spaghetti, as is common internationally, is considered deeply wrong in Italy."
+            }
+        ],
+
+        questions: [
+            {
+                id: "it-c-a1-4-q1",
+                type: "comprehension",
+                prompt: { native: "According to the text, how many pasta shapes exist in Italy?", target: "Secondo il testo, quanti formati di pasta esistono in Italia?" },
+                options: ["Più di trecentocinquanta", "Più di cento", "Circa cinquanta", "Più di mille"],
+                answer: "Più di trecentocinquanta"
+            },
+            {
+                id: "it-c-a1-4-q2",
+                type: "comprehension",
+                prompt: { native: "What is the correct pasta for ragù alla bolognese?", target: "Quale pasta è corretta per il ragù alla bolognese?" },
+                options: ["Le tagliatelle", "Gli spaghetti", "Le penne", "I rigatoni"],
+                answer: "Le tagliatelle"
+            },
+            {
+                id: "it-c-a1-4-q3",
+                type: "comprehension",
+                prompt: { native: "What is fresh pasta (pasta fresca) made with?", target: "Con cosa si fa la pasta fresca?" },
+                options: ["Acqua, farina e uova", "Solo acqua e semola", "Latte e farina", "Solo farina e sale"],
+                answer: "Acqua, farina e uova"
+            },
+            {
+                id: "it-c-a1-4-q4",
+                type: "reflection",
+                prompt: { native: "Does your country have a dish that is as central to national identity as pasta is to Italians? What makes it special?", target: "Does your country have a dish that is as central to national identity as pasta is to Italians? What makes it special?" }
+            }
+        ],
+
+        didYouKnow: {
+            native: "The idea that Marco Polo brought pasta to Italy from China is a myth. Written records of pasta in Italy date back to at least 1154 AD — over a century before Marco Polo was born. The myth was probably invented by a 1929 American macaroni industry newsletter trying to make pasta seem exotic.",
+            target: "L'idea che Marco Polo abbia portato la pasta in Italia dalla Cina è un mito. I documenti scritti sulla pasta in Italia risalgono almeno al 1154 d.C. — oltre un secolo prima della nascita di Marco Polo. Il mito fu probabilmente inventato da un bollettino del settore maccheroni americano del 1929 che cercava di rendere la pasta esotica."
+        }
     }
 ]
 
