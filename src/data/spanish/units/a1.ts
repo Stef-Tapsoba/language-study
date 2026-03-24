@@ -1,16 +1,19 @@
 // data/spanish/units/a1.ts
 import { LessonUnit } from "../../../types"
 
-// 22 ordered A1 units for Spanish.
+// 27 ordered A1 units for Spanish.
 //
 // U1–U17: original units (U7–U8 split for numbers, U9–U17 shifted accordingly)
 // U18: Reflexive Verbs (new — llamarse, levantarse, acostarse)
 // U19: Gustar — Likes & Dislikes (new — key Spanish structure)
 // U20: Modal Verbs — Poder, Deber, Tener Que (new)
 // U21: Demonstratives (new — este/ese/aquel)
-// U22: Commands, Stem-Changes & Irregular Yo (new)
-// U23: Ser/Estar Nuances, Hay, Saber/Conocer & Pronouns (new)
-// U24: Bridge — Ir a + Infinitive (capstone — stays last as A2 bridge)
+// U22: Stem-Changing Verbs (split from old U22)
+// U23: Irregular Yo Forms (split from old U22)
+// U24: Commands — Imperative (split from old U22)
+// U25: Hay & Ser/Estar Nuances (split from old U23; stressed pronouns deferred to A2)
+// U26: Saber & Conocer (split from old U23)
+// U27: Bridge — Ir a + Infinitive (capstone — stays last as A2 bridge)
 
 export const a1Units: LessonUnit[] = [
     {
@@ -40,7 +43,7 @@ export const a1Units: LessonUnit[] = [
         level: "A1",
         order: 2,
         title: "Ser & Estar — Identity and Location",
-        description: "Master the two Spanish verbs for 'to be'. Use ser for identity and estar for states and location. Learn articles.",
+        description: "Master the two Spanish verbs for 'to be'. Use ser for identity and estar for states and location. Learn articles — and get your first look at basic negation (no hablo = I don't speak) and question formation, covered in depth in Units 9 and 10.",
         grammarIds: ["es-g-a1-2", "es-g-a1-4", "es-g-a1-5"],
         vocabIds: [
             "es-v-a1-16", "es-v-a1-17", "es-v-a1-18", "es-v-a1-19", "es-v-a1-20",
@@ -504,97 +507,165 @@ export const a1Units: LessonUnit[] = [
         id: "es-a1-u22",
         level: "A1",
         order: 22,
-        title: "Commands, Stem-Changes & Irregular Yo",
-        description: "Give instructions using the imperative, master stem-changing verbs (e→ie, o→ue, e→i), and learn the irregular yo forms of the 'yo-go' group.",
-        grammarIds: ["es-g-a1-30", "es-g-a1-31", "es-g-a1-34"],
+        title: "Stem-Changing Verbs (e→ie, o→ue, e→i)",
+        description: "Many common Spanish verbs change their stem vowel when conjugated — but only in certain forms. Learn the three main patterns (e→ie: querer, o→ue: dormir, e→i: pedir) and recognise them in everyday speech.",
+        grammarIds: ["es-g-a1-31"],
         vocabIds: [
-            // Objects — direct targets of commands (open, close, put, bring, give)
-            "es-v-a1-52", "es-v-a1-53", "es-v-a1-54", "es-v-a1-55", "es-v-a1-56",
-            "es-v-a1-57", "es-v-a1-58", "es-v-a1-59", "es-v-a1-60", "es-v-a1-61",
-            // Directions — useful for giving commands about movement
-            "es-v-a1-138", "es-v-a1-139", "es-v-a1-140", "es-v-a1-141", "es-v-a1-142",
-            "es-v-a1-143", "es-v-a1-144", "es-v-a1-145",
-            // Daily life — contexts for imperatives (go to work, come to school, etc.)
+            // Food & drink — natural targets for querer/pedir (quiero un café, pido agua)
+            "es-v-a1-105", "es-v-a1-106", "es-v-a1-107", "es-v-a1-108",
+            "es-v-a1-109", "es-v-a1-110", "es-v-a1-111", "es-v-a1-112",
+            // Daily life — contexts for volver, dormir, pensar
             "es-v-a1-151", "es-v-a1-152", "es-v-a1-153", "es-v-a1-154",
             "es-v-a1-155", "es-v-a1-156", "es-v-a1-157", "es-v-a1-158"
         ],
         verbIds: [
-            // Yo-go irregular verbs
-            "es-vb-a1-4",  // tener (tengo)
-            "es-vb-a1-6",  // hacer (hago)
-            "es-vb-a1-18", // venir (vengo)
-            "es-vb-a1-19", // salir (salgo)
-            "es-vb-a1-20", // decir (digo) — also e→i stem-changer
-            "es-vb-a1-21", // poner (pongo)
-            "es-vb-a1-30", // dar (doy)
-            "es-vb-a1-31", // traer (traigo)
-            // Stem-changing verbs (e→ie)
-            "es-vb-a1-22", // pensar
-            "es-vb-a1-23", // entender
-            // Stem-changing verbs (o→ue)
-            "es-vb-a1-24", // volver
-            "es-vb-a1-25", // dormir
-            // Stem-changing verbs (u→ue)
-            "es-vb-a1-26", // jugar
-            // Stem-changing verbs (e→i)
-            "es-vb-a1-17", // pedir
-            // Additional imperative verbs with irregular forms
-            "es-vb-a1-16", // escuchar (regular -ar, introduced here for imperative drills)
-            "es-vb-a1-27", // saber (sepa — irregular imperative)
-            "es-vb-a1-29", // ver (ve — irregular tú imperative)
+            "es-vb-a1-7",  // querer (e→ie)
+            "es-vb-a1-22", // pensar (e→ie)
+            "es-vb-a1-23", // entender (e→ie)
+            "es-vb-a1-13", // poder (o→ue)
+            "es-vb-a1-24", // volver (o→ue)
+            "es-vb-a1-25", // dormir (o→ue)
+            "es-vb-a1-26", // jugar (u→ue)
+            "es-vb-a1-17", // pedir (e→i)
+            "es-vb-a1-20", // decir (e→i + yo-go)
         ],
         testQuestions: [
-            { id: "es-uq-a1-22-1", level: "A1", prompt: "Which is the correct tú imperative of 'hablar'?", options: ["hablas", "hable", "habla", "hablad"], answer: "habla" },
-            { id: "es-uq-a1-22-2", level: "A1", prompt: "Complete: 'Yo ___ la verdad.' (decir — yo-go verb)", options: ["deco", "digo", "deci", "dices"], answer: "digo" },
-            { id: "es-uq-a1-22-3", level: "A1", prompt: "'Querer' is an e→ie stem-changer. How do you say 'She wants'?", options: ["ella quere", "ella quiere", "ella queri", "ella quier"], answer: "ella quiere" },
-            { id: "es-uq-a1-22-4", level: "A1", prompt: "Which verb belongs to the 'yo-go' irregular group?", options: ["hablar", "comer", "tener", "vivir"], answer: "tener" },
-            { id: "es-uq-a1-22-5", level: "A1", prompt: "'Dormir' is an o→ue verb. Complete: 'Nosotros ___.'", options: ["dormimos", "duermemos", "dormemos", "duermimos"], answer: "dormimos" },
-            { id: "es-uq-a1-22-6", level: "A1", prompt: "'Pedir' is an e→i verb. How do you say 'They ask for water'?", options: ["Ellos peden agua.", "Ellos piden agua.", "Ellos piden aguas.", "Ellos pedén agua."], answer: "Ellos piden agua." }
+            { id: "es-uq-a1-22-1", level: "A1", prompt: "'Querer' is an e→ie stem-changer. How do you say 'She wants'?", options: ["ella quere", "ella quiere", "ella queri", "ella quier"], answer: "ella quiere" },
+            { id: "es-uq-a1-22-2", level: "A1", prompt: "'Dormir' is an o→ue verb. Complete: 'Nosotros ___.'", options: ["dormimos", "duermemos", "dormemos", "duermimos"], answer: "dormimos", hint: "The nosotros form does NOT stem-change: dormimos, not duermemos. The change only applies to yo/tú/él/ellos." },
+            { id: "es-uq-a1-22-3", level: "A1", prompt: "'Pedir' is an e→i verb. How do you say 'They ask for water'?", options: ["Ellos peden agua.", "Ellos piden agua.", "Ellos piden aguas.", "Ellos pedén agua."], answer: "Ellos piden agua." },
+            { id: "es-uq-a1-22-4", level: "A1", prompt: "'Poder' is an o→ue verb. Complete: 'Yo ___ hablar inglés.'", options: ["podo", "pode", "puede", "puedo"], answer: "puedo" },
+            { id: "es-uq-a1-22-5", level: "A1", prompt: "Which verb follows the e→ie stem-change pattern?", options: ["volver", "dormir", "cerrar", "pedir"], answer: "cerrar" },
+            { id: "es-uq-a1-22-6", level: "A1", prompt: "'Jugar' is irregular (u→ue). Complete: 'Yo ___ al tenis.'", options: ["jugo", "jugamos", "jugas", "juego"], answer: "juego" }
         ]
     },
     {
         id: "es-a1-u23",
         level: "A1",
         order: 23,
-        title: "Ser/Estar Nuances, Hay, Saber/Conocer & Pronouns",
-        description: "Explore adjectives that change meaning with ser vs estar, use hay to express existence, distinguish saber from conocer, and use stressed pronouns after prepositions.",
-        grammarIds: ["es-g-a1-28", "es-g-a1-29", "es-g-a1-32", "es-g-a1-33"],
+        title: "Irregular Yo Forms — The 'yo-go' Verbs",
+        description: "A key group of very common Spanish verbs have an irregular yo form ending in -go (tengo, vengo, salgo, pongo…). The other forms are regular. Learn to recognise and use them in context.",
+        grammarIds: ["es-g-a1-34"],
         vocabIds: [
-            // Descriptive adjectives — many change meaning with ser vs estar
-            "es-v-a1-30", "es-v-a1-31", "es-v-a1-32", "es-v-a1-33", "es-v-a1-34",
-            "es-v-a1-35", "es-v-a1-36", "es-v-a1-37", "es-v-a1-38", "es-v-a1-39",
-            "es-v-a1-40", "es-v-a1-41",
-            // Nationalities & professions — core ser contexts
-            "es-v-a1-16", "es-v-a1-17", "es-v-a1-18", "es-v-a1-19", "es-v-a1-20",
-            "es-v-a1-21", "es-v-a1-22", "es-v-a1-23", "es-v-a1-24", "es-v-a1-25",
-            "es-v-a1-26", "es-v-a1-27", "es-v-a1-28", "es-v-a1-29",
-            // People/family — used with conocer and hay
-            "es-v-a1-93", "es-v-a1-94", "es-v-a1-95", "es-v-a1-96",
-            "es-v-a1-103", "es-v-a1-104",
-            // Home & rooms — natural hay contexts (hay una cocina, hay dos habitaciones)
-            "es-v-a1-250", "es-v-a1-251", "es-v-a1-252", "es-v-a1-253",
-            "es-v-a1-254", "es-v-a1-255", "es-v-a1-256", "es-v-a1-257",
-            "es-v-a1-258", "es-v-a1-259", "es-v-a1-260", "es-v-a1-261"
+            // Places — natural context for salir, venir, ir, traer
+            "es-v-a1-126", "es-v-a1-127", "es-v-a1-128", "es-v-a1-129",
+            "es-v-a1-130", "es-v-a1-131", "es-v-a1-132", "es-v-a1-133",
+            // Daily life — contexts for hacer, poner, tener
+            "es-v-a1-151", "es-v-a1-152", "es-v-a1-153", "es-v-a1-154",
+            "es-v-a1-155", "es-v-a1-156", "es-v-a1-157", "es-v-a1-158"
         ],
         verbIds: [
-            "es-vb-a1-2",  // ser — core of this unit
-            "es-vb-a1-3",  // estar — core of this unit
-            "es-vb-a1-27", // saber (to know facts/skills)
-            "es-vb-a1-28", // conocer (to know people/places)
+            "es-vb-a1-4",  // tener (tengo)
+            "es-vb-a1-6",  // hacer (hago)
+            "es-vb-a1-18", // venir (vengo)
+            "es-vb-a1-19", // salir (salgo)
+            "es-vb-a1-21", // poner (pongo)
+            "es-vb-a1-30", // dar (doy)
+            "es-vb-a1-31", // traer (traigo)
+            "es-vb-a1-29", // ver (veo — irregular yo but not -go)
         ],
         testQuestions: [
-            { id: "es-uq-a1-23-1", level: "A1", prompt: "'Estar aburrido' means bored, but 'ser aburrido' means…?", options: ["bored", "boring", "tired", "sad"], answer: "boring" },
-            { id: "es-uq-a1-23-2", level: "A1", prompt: "How do you say 'There are three students in the room'?", options: ["Son tres estudiantes en la sala.", "Están tres estudiantes en la sala.", "Hay tres estudiantes en la sala.", "Es tres estudiantes en la sala."], answer: "Hay tres estudiantes en la sala." },
-            { id: "es-uq-a1-23-3", level: "A1", prompt: "Which sentence uses 'saber' correctly?", options: ["Sé a María.", "Conozco hablar inglés.", "Sé hablar inglés.", "Conozco que es tarde."], answer: "Sé hablar inglés." },
-            { id: "es-uq-a1-23-4", level: "A1", prompt: "Complete: 'Este regalo es para ___.' (for me)", options: ["me", "yo", "mí", "mi"], answer: "mí" },
-            { id: "es-uq-a1-23-5", level: "A1", prompt: "You meet someone for the first time. Which verb do you use?", options: ["Sé a Juan.", "Conozco a Juan.", "Hay a Juan.", "Estar a Juan."], answer: "Conozco a Juan." },
-            { id: "es-uq-a1-23-6", level: "A1", prompt: "'Hay' is used to express…?", options: ["location of a specific object", "a temporary state", "existence of people or things", "ownership"], answer: "existence of people or things" }
+            { id: "es-uq-a1-23-1", level: "A1", prompt: "Complete: 'Yo ___ la verdad.' (decir — yo-go verb)", options: ["deco", "dici", "dices", "digo"], answer: "digo" },
+            { id: "es-uq-a1-23-2", level: "A1", prompt: "Which verb belongs to the 'yo-go' irregular group?", options: ["hablar", "comer", "vivir", "tener"], answer: "tener" },
+            { id: "es-uq-a1-23-3", level: "A1", prompt: "Complete: 'Yo ___ la tarea.' (hacer)", options: ["haco", "hace", "haces", "hago"], answer: "hago" },
+            { id: "es-uq-a1-23-4", level: "A1", prompt: "Complete: 'Yo ___ de casa a las ocho.' (salir)", options: ["salo", "salio", "sali", "salgo"], answer: "salgo" },
+            { id: "es-uq-a1-23-5", level: "A1", prompt: "Complete: 'Yo ___ el libro aquí.' (poner)", options: ["pono", "pone", "pones", "pongo"], answer: "pongo" },
+            { id: "es-uq-a1-23-6", level: "A1", prompt: "Complete: 'Yo ___ a la fiesta mañana.' (venir)", options: ["venio", "veno", "viene", "vengo"], answer: "vengo" }
         ]
     },
     {
         id: "es-a1-u24",
         level: "A1",
         order: 24,
+        title: "Commands — the Imperative",
+        description: "Give instructions, make requests, and tell people what to do. Learn affirmative and negative tú commands, including the most common irregular imperatives (ven, sal, haz, ve, pon, sé).",
+        grammarIds: ["es-g-a1-30"],
+        vocabIds: [
+            // Directions — natural imperative context (gira, sigue recto, cruza)
+            "es-v-a1-138", "es-v-a1-139", "es-v-a1-140", "es-v-a1-141", "es-v-a1-142",
+            "es-v-a1-143", "es-v-a1-144", "es-v-a1-145",
+            // Objects — classroom and home commands (abre, cierra, escribe, lee)
+            "es-v-a1-52", "es-v-a1-53", "es-v-a1-54", "es-v-a1-55", "es-v-a1-56",
+            "es-v-a1-57", "es-v-a1-58", "es-v-a1-59", "es-v-a1-60", "es-v-a1-61"
+        ],
+        verbIds: [
+            "es-vb-a1-16", // escuchar (regular -ar, for imperative drills)
+            "es-vb-a1-6",  // hacer (haz — irregular)
+            "es-vb-a1-18", // venir (ven — irregular)
+            "es-vb-a1-19", // salir (sal — irregular)
+            "es-vb-a1-21", // poner (pon — irregular)
+            "es-vb-a1-29", // ver (ve — irregular)
+            "es-vb-a1-27", // saber (sepa — irregular)
+        ],
+        testQuestions: [
+            { id: "es-uq-a1-24-1", level: "A1", prompt: "Which is the correct tú imperative of 'hablar'?", options: ["hablas", "hable", "hablad", "habla"], answer: "habla" },
+            { id: "es-uq-a1-24-2", level: "A1", prompt: "How do you say 'Don't speak so fast!' (negative tú command)?", options: ["No habla tan rápido.", "No hablas tan rápido.", "Habla no tan rápido.", "No hables tan rápido."], answer: "No hables tan rápido.", hint: "Negative tú commands use the present subjunctive: -ar verbs take -es, -er/-ir verbs take -as." },
+            { id: "es-uq-a1-24-3", level: "A1", prompt: "Which is the tú imperative of 'ir'?", options: ["iy", "ires", "ves", "ve"], answer: "ve" },
+            { id: "es-uq-a1-24-4", level: "A1", prompt: "Which is the tú imperative of 'hacer'?", options: ["hace", "haces", "hacé", "haz"], answer: "haz" },
+            { id: "es-uq-a1-24-5", level: "A1", prompt: "Complete: '___ aquí!' (come here — tú command of venir)", options: ["Viene", "Venga", "Vengas", "Ven"], answer: "Ven" },
+            { id: "es-uq-a1-24-6", level: "A1", prompt: "What is the vosotros imperative of 'hablar'?", options: ["hablan", "habláis", "hableis", "hablad"], answer: "hablad" }
+        ]
+    },
+    {
+        id: "es-a1-u25",
+        level: "A1",
+        order: 25,
+        title: "Hay & Ser/Estar — Deeper Meaning",
+        description: "Use hay to express existence (there is / there are). Discover how the same adjective can mean two different things depending on whether you use ser or estar — aburrido, malo, bueno, and more.",
+        grammarIds: ["es-g-a1-29", "es-g-a1-28"],
+        vocabIds: [
+            // Home & rooms — natural hay contexts (hay una cocina, hay dos habitaciones)
+            "es-v-a1-250", "es-v-a1-251", "es-v-a1-252", "es-v-a1-253",
+            "es-v-a1-254", "es-v-a1-255", "es-v-a1-256", "es-v-a1-257",
+            "es-v-a1-258", "es-v-a1-259", "es-v-a1-260", "es-v-a1-261",
+            // Descriptive adjectives — many change meaning with ser vs estar
+            "es-v-a1-30", "es-v-a1-31", "es-v-a1-32", "es-v-a1-33", "es-v-a1-34",
+            "es-v-a1-35", "es-v-a1-36", "es-v-a1-37", "es-v-a1-38", "es-v-a1-39",
+            "es-v-a1-40", "es-v-a1-41"
+        ],
+        verbIds: [
+            "es-vb-a1-2",  // ser
+            "es-vb-a1-3",  // estar
+        ],
+        testQuestions: [
+            { id: "es-uq-a1-25-1", level: "A1", prompt: "'Estar aburrido' means bored, but 'ser aburrido' means…?", options: ["bored", "tired", "sad", "boring"], answer: "boring" },
+            { id: "es-uq-a1-25-2", level: "A1", prompt: "How do you say 'There are three students in the room'?", options: ["Son tres estudiantes en la sala.", "Están tres estudiantes en la sala.", "Es tres estudiantes en la sala.", "Hay tres estudiantes en la sala."], answer: "Hay tres estudiantes en la sala." },
+            { id: "es-uq-a1-25-3", level: "A1", prompt: "'Hay' is used to express…?", options: ["location of a specific object", "a temporary state", "ownership", "existence of people or things"], answer: "existence of people or things" },
+            { id: "es-uq-a1-25-4", level: "A1", prompt: "'Estar malo' = to be ill. What does 'ser malo' mean?", options: ["to be ill", "to be tired", "to be evil/bad", "to be sad"], answer: "to be evil/bad" },
+            { id: "es-uq-a1-25-5", level: "A1", prompt: "How do you say 'Is there a supermarket nearby?'", options: ["¿Es un supermercado cerca?", "¿Está un supermercado cerca?", "¿Son supermercados cerca?", "¿Hay un supermercado cerca?"], answer: "¿Hay un supermercado cerca?" },
+            { id: "es-uq-a1-25-6", level: "A1", prompt: "How do you say 'There is no problem'?", options: ["Es ningún problema.", "Está ningún problema.", "Hay no problema.", "No hay ningún problema."], answer: "No hay ningún problema." }
+        ]
+    },
+    {
+        id: "es-a1-u26",
+        level: "A1",
+        order: 26,
+        title: "Saber & Conocer — Two Verbs for 'To Know'",
+        description: "Spanish has two verbs for 'to know': saber (facts, skills, information) and conocer (people, places, things you're familiar with). Both have irregular yo forms. Learn to choose the right one.",
+        grammarIds: ["es-g-a1-33"],
+        vocabIds: [
+            // People/family — used with conocer
+            "es-v-a1-93", "es-v-a1-94", "es-v-a1-95", "es-v-a1-96",
+            "es-v-a1-97", "es-v-a1-98", "es-v-a1-103", "es-v-a1-104",
+            // Nationalities — knowing countries/cities uses conocer
+            "es-v-a1-16", "es-v-a1-17", "es-v-a1-18", "es-v-a1-19", "es-v-a1-20"
+        ],
+        verbIds: [
+            "es-vb-a1-27", // saber (to know facts/skills)
+            "es-vb-a1-28", // conocer (to know people/places)
+        ],
+        testQuestions: [
+            { id: "es-uq-a1-26-1", level: "A1", prompt: "Which sentence uses 'saber' correctly?", options: ["Sé a María.", "Conozco hablar inglés.", "Conozco que es tarde.", "Sé hablar inglés."], answer: "Sé hablar inglés." },
+            { id: "es-uq-a1-26-2", level: "A1", prompt: "You meet someone for the first time. Which is correct?", options: ["Sé a Juan.", "Hay a Juan.", "Estar a Juan.", "Conozco a Juan."], answer: "Conozco a Juan." },
+            { id: "es-uq-a1-26-3", level: "A1", prompt: "How do you say 'I know Madrid' (familiar with the city)?", options: ["Sé Madrid.", "Sé a Madrid.", "Conozco a Madrid.", "Conozco Madrid."], answer: "Conozco Madrid." },
+            { id: "es-uq-a1-26-4", level: "A1", prompt: "Complete: 'Yo ___ que mañana hay clase.' (know a fact)", options: ["conozco", "sabo", "sabeo", "sé"], answer: "sé" },
+            { id: "es-uq-a1-26-5", level: "A1", prompt: "What is the yo form of 'conocer'?", options: ["conoco", "conoce", "conosceo", "conozco"], answer: "conozco" },
+            { id: "es-uq-a1-26-6", level: "A1", prompt: "'¿Sabes dónde está la farmacia?' uses saber because…?", options: ["It refers to a person", "It refers to a familiar place", "It's always saber with dónde", "It asks for a fact/information"], answer: "It asks for a fact/information" }
+        ]
+    },
+    {
+        id: "es-a1-u27",
+        level: "A1",
+        order: 27,
         title: "Bridge: Near Future — Ir a + Infinitive",
         description: "Talk about plans and near-future events using ir + a + infinitive. Your first step into A2 territory.",
         grammarIds: ["es-g-a1-12"],
@@ -606,12 +677,12 @@ export const a1Units: LessonUnit[] = [
         ],
         verbIds: ["es-vb-a1-5", "es-vb-a1-7"],
         testQuestions: [
-            { id: "es-uq-a1-24-1", level: "A1", prompt: "What does 'Voy a comer' mean?", options: ["I am eating.", "I ate.", "I am going to eat.", "I want to eat."], answer: "I am going to eat." },
-            { id: "es-uq-a1-24-2", level: "A1", prompt: "How do you say 'She is going to study tomorrow'?", options: ["Ella estudia mañana.", "Ella va a estudiar mañana.", "Ella estudió mañana.", "Ella quiere estudiar mañana."], answer: "Ella va a estudiar mañana." },
-            { id: "es-uq-a1-24-3", level: "A1", prompt: "Complete: 'Nosotros ___ a viajar el próximo verano.'", options: ["voy", "vas", "van", "vamos"], answer: "vamos" },
-            { id: "es-uq-a1-24-4", level: "A1", prompt: "What does 'quiero viajar' mean?", options: ["I am travelling.", "I travelled.", "I want to travel.", "I am going to travel."], answer: "I want to travel." },
-            { id: "es-uq-a1-24-5", level: "A1", prompt: "Complete: '¿Qué vas a ___ este fin de semana?' (do)", options: ["haces", "hago", "haciendo", "hacer"], answer: "hacer" },
-            { id: "es-uq-a1-24-6", level: "A1", prompt: "How do you say 'They are going to come'?", options: ["Ellos quieren venir.", "Ellos van a venir.", "Ellos vienen.", "Ellos vendrán."], answer: "Ellos van a venir." }
+            { id: "es-uq-a1-27-1", level: "A1", prompt: "What does 'Voy a comer' mean?", options: ["I am eating.", "I ate.", "I want to eat.", "I am going to eat."], answer: "I am going to eat." },
+            { id: "es-uq-a1-27-2", level: "A1", prompt: "How do you say 'She is going to study tomorrow'?", options: ["Ella estudia mañana.", "Ella estudió mañana.", "Ella quiere estudiar mañana.", "Ella va a estudiar mañana."], answer: "Ella va a estudiar mañana." },
+            { id: "es-uq-a1-27-3", level: "A1", prompt: "Complete: 'Nosotros ___ a viajar el próximo verano.'", options: ["voy", "vas", "van", "vamos"], answer: "vamos" },
+            { id: "es-uq-a1-27-4", level: "A1", prompt: "What does 'quiero viajar' mean?", options: ["I am travelling.", "I travelled.", "I am going to travel.", "I want to travel."], answer: "I want to travel." },
+            { id: "es-uq-a1-27-5", level: "A1", prompt: "Complete: '¿Qué vas a ___ este fin de semana?' (do)", options: ["haces", "hago", "haciendo", "hacer"], answer: "hacer" },
+            { id: "es-uq-a1-27-6", level: "A1", prompt: "How do you say 'They are going to come'?", options: ["Ellos quieren venir.", "Ellos vienen.", "Ellos vendrán.", "Ellos van a venir."], answer: "Ellos van a venir." }
         ]
     },
 ]

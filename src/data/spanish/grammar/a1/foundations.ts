@@ -150,7 +150,7 @@ CONTRACTIONS
   {
     id: "es-g-a1-5",
     level: "A1",
-    title: "Negation & Question Formation",
+    title: "Negation & Question Formation — Quick Reference",
     explanation: `NEGATION
 Place no directly before the verb — no other words are needed.
   No hablo inglés.    (I don't speak English.)
