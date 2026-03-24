@@ -238,4 +238,7 @@ export const a1Vocab: VocabItem[] = [
     { id: "es-v-a1-198", level: "A1", word: "¿quién?", translation: "who?", category: "Question words", example: { native: "¿Quién es esa persona?", translation: "Who is that person?" } },
     { id: "es-v-a1-199", level: "A1", word: "¿por qué?", translation: "why?", category: "Question words", example: { native: "¿Por qué estudias español?", translation: "Why do you study Spanish?" } },
     { id: "es-v-a1-200", level: "A1", word: "¿cuánto/a?", translation: "how much?", category: "Question words", example: { native: "¿Cuánto cuesta?", translation: "How much does it cost?" } },
+    { id: "es-v-a1-201", level: "A1", word: "¿cuál? / ¿cuáles?", translation: "which? / what?", category: "Question words", example: { native: "¿Cuál es tu número de teléfono?", translation: "What is your phone number?" } },
+    { id: "es-v-a1-202", level: "A1", word: "¿cuántos/as?", translation: "how many?", category: "Question words", example: { native: "¿Cuántos hermanos tienes?", translation: "How many siblings do you have?" } },
+    { id: "es-v-a1-203", level: "A1", word: "¿adónde?", translation: "where to? (destination)", category: "Question words", example: { native: "¿Adónde vas?", translation: "Where are you going?" } },
 ]

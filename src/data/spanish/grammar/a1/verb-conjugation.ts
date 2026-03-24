@@ -310,7 +310,7 @@ For ALL forms: no + present subjunctive.
 At A1, the key pattern to know is the tú negative:
   ¡Habla!  → ¡No hables!     Don't speak!
   ¡Come!   → ¡No comas!      Don't eat!
-  ¡Vayas!  → ¡No vayas!      Don't go!
+  ¡Ve!     → ¡No vayas!      Don't go!
 The full subjunctive is A2+ — for now, learn the tú negatives as fixed forms.
 
 REFLEXIVE VERBS IN THE IMPERATIVE

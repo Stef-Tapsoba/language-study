@@ -41,7 +41,7 @@ export const a1Units: LessonUnit[] = [
         order: 2,
         title: "Ser & Estar — Identity and Location",
         description: "Master the two Spanish verbs for 'to be'. Use ser for identity and estar for states and location. Learn articles.",
-        grammarIds: ["es-g-a1-2", "es-g-a1-4"],
+        grammarIds: ["es-g-a1-2", "es-g-a1-4", "es-g-a1-5"],
         vocabIds: [
             "es-v-a1-16", "es-v-a1-17", "es-v-a1-18", "es-v-a1-19", "es-v-a1-20",
             "es-v-a1-21", "es-v-a1-22", "es-v-a1-23", "es-v-a1-24", "es-v-a1-25",
@@ -227,7 +227,7 @@ export const a1Units: LessonUnit[] = [
         grammarIds: ["es-g-a1-19"],
         vocabIds: [
             "es-v-a1-194", "es-v-a1-195", "es-v-a1-196", "es-v-a1-197",
-            "es-v-a1-198", "es-v-a1-199", "es-v-a1-200"
+            "es-v-a1-198", "es-v-a1-199", "es-v-a1-200", "es-v-a1-201", "es-v-a1-202"
         ],
         verbIds: [],
         testQuestions: [
@@ -246,9 +246,8 @@ export const a1Units: LessonUnit[] = [
         title: "Weather",
         description: "Talk about the weather using the hacer + weather expression construction.",
         grammarIds: ["es-g-a1-14"],
-        vocabIds: [
-            "es-v-a1-77", "es-v-a1-78", "es-v-a1-79", "es-v-a1-80"
-        ],
+        vocabIds: [],
+        // Weather vocab block pending (issue #18) — es-v-a1-77..80 were months, not weather
         verbIds: ["es-vb-a1-6"],
         testQuestions: [
             { id: "es-uq-a1-11-1", level: "A1", prompt: "How do you say 'It's cold' (weather) in Spanish?", options: ["Está frío.", "Hay frío.", "Hace frío.", "Es frío."], answer: "Hace frío." },
@@ -314,7 +313,7 @@ export const a1Units: LessonUnit[] = [
         vocabIds: [
             "es-v-a1-126", "es-v-a1-127", "es-v-a1-128", "es-v-a1-129", "es-v-a1-130",
             "es-v-a1-131", "es-v-a1-132", "es-v-a1-133", "es-v-a1-134", "es-v-a1-135",
-            "es-v-a1-136", "es-v-a1-137"
+            "es-v-a1-136", "es-v-a1-137", "es-v-a1-203"
         ],
         verbIds: ["es-vb-a1-5"],
         testQuestions: [
@@ -353,7 +352,7 @@ export const a1Units: LessonUnit[] = [
         order: 16,
         title: "Describing People & Things — Review",
         description: "Pull together ser, estar, tener, and adjective agreement to describe yourself and others.",
-        grammarIds: [],
+        grammarIds: ["es-g-a1-2", "es-g-a1-9", "es-g-a1-11"],
         vocabIds: [
             "es-v-a1-30", "es-v-a1-31", "es-v-a1-32", "es-v-a1-33", "es-v-a1-34",
             "es-v-a1-35", "es-v-a1-36", "es-v-a1-37", "es-v-a1-38", "es-v-a1-39",
@@ -377,7 +376,14 @@ export const a1Units: LessonUnit[] = [
         title: "Reflexive Verbs & Daily Routine",
         description: "Learn to talk about your daily routine using reflexive verbs — getting up, showering, going to bed. These verbs use special pronouns and are used constantly in everyday Spanish.",
         grammarIds: ["es-g-a1-21"],
-        vocabIds: [],
+        vocabIds: [
+            // Time-of-day expressions — natural context for daily-routine reflexive verbs
+            "es-v-a1-69", "es-v-a1-70", "es-v-a1-71", "es-v-a1-72",
+            "es-v-a1-73", "es-v-a1-74", "es-v-a1-75", "es-v-a1-76",
+            // Daily life contexts — work, school, university
+            "es-v-a1-151", "es-v-a1-152", "es-v-a1-153", "es-v-a1-154",
+            "es-v-a1-155", "es-v-a1-156", "es-v-a1-157", "es-v-a1-158"
+        ],
         verbIds: [],
         testQuestions: [
             { id: "es-uq-a1-17-1", level: "A1", prompt: "How do you say 'My name is Carlos'?", options: ["Me llamo Carlos.", "Yo llamo Carlos.", "Soy llamado Carlos.", "Tengo nombre Carlos."], answer: "Me llamo Carlos." },
@@ -395,7 +401,13 @@ export const a1Units: LessonUnit[] = [
         title: "Gustar — Likes & Dislikes",
         description: "Learn the most important structure for expressing preferences in Spanish. Gustar works differently from English — the thing liked is the subject, not the person.",
         grammarIds: ["es-g-a1-22"],
-        vocabIds: [],
+        vocabIds: [
+            // Food & drink vocab — classic gustar targets (me gusta el café, me gustan las tapas)
+            "es-v-a1-105", "es-v-a1-106", "es-v-a1-107", "es-v-a1-108",
+            "es-v-a1-109", "es-v-a1-110", "es-v-a1-111", "es-v-a1-112",
+            "es-v-a1-113", "es-v-a1-114", "es-v-a1-115", "es-v-a1-116",
+            "es-v-a1-117", "es-v-a1-118"
+        ],
         verbIds: [],
         testQuestions: [
             { id: "es-uq-a1-18-1", level: "A1", prompt: "How do you say 'I like Spanish'?", options: ["Gusto el español.", "Me gusta el español.", "Me gustan el español.", "Yo gusta español."], answer: "Me gusta el español." },
@@ -413,13 +425,17 @@ export const a1Units: LessonUnit[] = [
         title: "Modal Verbs: Poder, Deber & Tener Que",
         description: "Express ability, obligation, and necessity. These three verbs are essential for daily communication — saying what you can do, what you should do, and what you have to do.",
         grammarIds: ["es-g-a1-23"],
-        vocabIds: [],
-        verbIds: [],
+        vocabIds: [
+            // Daily life contexts — natural "tengo que / debo / puedo + activity" scenarios
+            "es-v-a1-151", "es-v-a1-152", "es-v-a1-153", "es-v-a1-154",
+            "es-v-a1-155", "es-v-a1-156", "es-v-a1-157", "es-v-a1-158"
+        ],
+        verbIds: ["es-vb-a1-13"],
         testQuestions: [
             { id: "es-uq-a1-19-1", level: "A1", prompt: "Complete: '¿___ hablar más despacio?' (can you)", options: ["Debes", "Tienes que", "Puedes", "Quieres"], answer: "Puedes" },
             { id: "es-uq-a1-19-2", level: "A1", prompt: "What is the yo form of 'poder'?", options: ["podo", "puedo", "pode", "puede"], answer: "puedo" },
             { id: "es-uq-a1-19-3", level: "A1", prompt: "Complete: 'Tengo ___ trabajar mañana.'", options: ["a", "de", "que", "para"], answer: "que" },
-            { id: "es-uq-a1-19-4", level: "A1", prompt: "Which expresses a stronger obligation: 'deber' or 'tener que'?", options: ["deber", "tener que", "they are the same", "neither"], answer: "tener que" },
+            { id: "es-uq-a1-19-4", level: "A1", prompt: "Translate: 'I have to study tonight.'", options: ["Debo estudiar esta noche.", "Tengo que estudiar esta noche.", "Puedo estudiar esta noche.", "Quiero estudiar esta noche."], answer: "Tengo que estudiar esta noche.", hint: "Tener que + infinitive expresses concrete necessity: 'have to do something'. Both A and B are grammatically correct — B uses the most common A1 structure." },
             { id: "es-uq-a1-19-5", level: "A1", prompt: "What does 'No puedo venir esta noche' mean?", options: ["I don't want to come tonight", "I can't come tonight", "I don't have to come tonight", "I shouldn't come tonight"], answer: "I can't come tonight" },
             { id: "es-uq-a1-19-6", level: "A1", prompt: "Complete: 'Ella ___ llegar a tiempo.' (she should)", options: ["puede", "quiere", "debe", "va a"], answer: "debe" },
         ]
@@ -431,7 +447,12 @@ export const a1Units: LessonUnit[] = [
         title: "Demonstratives",
         description: "Point things out in Spanish — this, that, those. Spanish has three levels of distance: near (este), medium (ese), and far (aquel).",
         grammarIds: ["es-g-a1-24"],
-        vocabIds: [],
+        vocabIds: [
+            // Places vocab — natural targets for demonstratives (esta tienda, ese hotel)
+            "es-v-a1-126", "es-v-a1-127", "es-v-a1-128", "es-v-a1-129",
+            "es-v-a1-130", "es-v-a1-131", "es-v-a1-132", "es-v-a1-133",
+            "es-v-a1-136", "es-v-a1-137"
+        ],
         verbIds: [],
         testQuestions: [
             { id: "es-uq-a1-20-1", level: "A1", prompt: "Which form means 'this book' (masculine singular)?", options: ["ese libro", "aquel libro", "este libro", "estos libros"], answer: "este libro" },
@@ -449,7 +470,13 @@ export const a1Units: LessonUnit[] = [
         title: "Adverbs, Frequency & Connectors",
         description: "Build more natural sentences: say where things are, when they happen, how often, and link ideas with words like pero, porque, and primero.",
         grammarIds: ["es-g-a1-25", "es-g-a1-26", "es-g-a1-27"],
-        vocabIds: [],
+        vocabIds: [
+            // Time expressions — hoy, mañana, ayer, etc. (core adverb targets)
+            "es-v-a1-69", "es-v-a1-70", "es-v-a1-71", "es-v-a1-72",
+            "es-v-a1-73", "es-v-a1-74", "es-v-a1-75", "es-v-a1-76",
+            // Negation words — nunca/nada/nadie double as frequency & connectors
+            "es-v-a1-189", "es-v-a1-191", "es-v-a1-193"
+        ],
         verbIds: [],
         testQuestions: [
             { id: "es-uq-a1-21-1", level: "A1", prompt: "What does 'todavía' mean?", options: ["already", "soon", "still / yet", "never"], answer: "still / yet" },

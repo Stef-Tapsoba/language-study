@@ -10,10 +10,10 @@ export const a1Listening: ListeningExercise[] = [
         translation: "Good morning. My name is Carlos. What's your name? My name is Ana. Nice to meet you, Ana! Nice to meet you, Carlos. How are you? I'm fine, thank you. And you? Very well, thank you.",
         dialogue: [
             { speaker: "Carlos", text: "Buenos días. Me llamo Carlos.", translation: "Good morning. My name is Carlos." },
-            { speaker: "Ana", text: "¿Cómo te llamas tú?", translation: "What's your name?" },
-            { speaker: "Carlos", text: "Me llamo Ana.", translation: "My name is Ana." },
-            { speaker: "Ana", text: "¡Mucho gusto, Ana!", translation: "Nice to meet you, Ana!" },
-            { speaker: "Carlos", text: "Mucho gusto, Carlos.", translation: "Nice to meet you, Carlos." },
+            { speaker: "Carlos", text: "¿Cómo te llamas tú?", translation: "What's your name?" },
+            { speaker: "Ana", text: "Me llamo Ana.", translation: "My name is Ana." },
+            { speaker: "Carlos", text: "¡Mucho gusto, Ana!", translation: "Nice to meet you, Ana!" },
+            { speaker: "Ana", text: "Mucho gusto, Carlos.", translation: "Nice to meet you, Carlos." },
             { speaker: "Ana", text: "¿Cómo estás?", translation: "How are you?" },
             { speaker: "Carlos", text: "Estoy bien, gracias. ¿Y tú?", translation: "I'm fine, thank you. And you?" },
             { speaker: "Ana", text: "Muy bien, gracias.", translation: "Very well, thank you." }

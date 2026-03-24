@@ -55,7 +55,7 @@ El desayuno es pequeño: un café con leche y una tostada con aceite de oliva y 
 
 A las once o doce, muchas personas toman un segundo desayuno — un bocadillo o unas tapas con los amigos. Es un momento social importante.
 
-La comida es la comida más importante del día. En España, la comida es entre las dos y las cuatro de la tarde. Las tiendas cierran. Las oficinas cierran. Las familias se reúnen para comer juntas. La comida tiene tres partes: primer plato, segundo plato y postre. Dura una o dos horas.
+La comida es la comida más importante del día. En España, la comida es entre las dos y las cuatro de la tarde. Las tiendas cierran. Las oficinas cierran. Las familias se reúnen para comer juntas. La comida tiene tres partes: primer plato, segundo plato y postre. Dura una o dos horas. Después de comer, la familia habla y descansa — esto se llama la **sobremesa**. La sobremesa es el tiempo en la mesa después de comer, cuando la conversación es más importante que el tiempo.
 
 La siesta es la pausa después de comer. Hoy en día, muchos españoles no duermen la siesta — trabajan en oficinas. Pero la pausa del mediodía es todavía muy importante.
 
@@ -70,7 +70,7 @@ Breakfast is small: a white coffee and a toast with olive oil and tomato. Spania
 
 At eleven or twelve, many people have a second breakfast — a sandwich or some tapas with friends. It is an important social moment.
 
-Lunch is the most important meal of the day. In Spain, lunch is between two and four in the afternoon. Shops close. Offices close. Families gather to eat together. Lunch has three parts: a first course, a second course, and dessert. It lasts one or two hours.
+Lunch is the most important meal of the day. In Spain, lunch is between two and four in the afternoon. Shops close. Offices close. Families gather to eat together. Lunch has three parts: a first course, a second course, and dessert. It lasts one or two hours. After eating, the family talks and rests — this is called the sobremesa. The sobremesa is the time at the table after a meal, when conversation matters more than the clock.
 
 The siesta is the pause after lunch. Nowadays, many Spaniards don't sleep during the siesta — they work in offices. But the midday break is still very important.
 
@@ -114,6 +114,11 @@ Las familias comen juntas y hablan mucho.`,
                 word: "el mediodía",
                 translation: "midday, noon",
                 culturalNote: "In Spain, 'mediodía' (midday) effectively lasts from about 2pm to 4pm — when the most important meal of the day takes place. Spanish time runs about two hours later than the rest of Western Europe."
+            },
+            {
+                word: "la sobremesa",
+                translation: "the time spent talking at the table after eating",
+                culturalNote: "Sobremesa (literally 'over the table') is the Spanish tradition of staying at the table after a meal to talk, relax, and enjoy company. It has no direct English equivalent. In Spain, rushing away from the table after eating is considered rude — the conversation is as important as the food."
             }
         ],
 
