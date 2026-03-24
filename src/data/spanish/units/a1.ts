@@ -246,8 +246,11 @@ export const a1Units: LessonUnit[] = [
         title: "Weather",
         description: "Talk about the weather using the hacer + weather expression construction.",
         grammarIds: ["es-g-a1-14"],
-        vocabIds: [],
-        // Weather vocab block pending (issue #18) — es-v-a1-77..80 were months, not weather
+        vocabIds: [
+            "es-v-a1-204", "es-v-a1-205", "es-v-a1-206", "es-v-a1-207",
+            "es-v-a1-208", "es-v-a1-209", "es-v-a1-210", "es-v-a1-211",
+            "es-v-a1-212", "es-v-a1-213", "es-v-a1-214", "es-v-a1-215"
+        ],
         verbIds: ["es-vb-a1-6"],
         testQuestions: [
             { id: "es-uq-a1-11-1", level: "A1", prompt: "How do you say 'It's cold' (weather) in Spanish?", options: ["Está frío.", "Hay frío.", "Hace frío.", "Es frío."], answer: "Hace frío." },
@@ -354,10 +357,15 @@ export const a1Units: LessonUnit[] = [
         description: "Pull together ser, estar, tener, and adjective agreement to describe yourself and others.",
         grammarIds: ["es-g-a1-2", "es-g-a1-9", "es-g-a1-11"],
         vocabIds: [
+            // Adjectives for descriptions
             "es-v-a1-30", "es-v-a1-31", "es-v-a1-32", "es-v-a1-33", "es-v-a1-34",
             "es-v-a1-35", "es-v-a1-36", "es-v-a1-37", "es-v-a1-38", "es-v-a1-39",
             "es-v-a1-40", "es-v-a1-41", "es-v-a1-42", "es-v-a1-43", "es-v-a1-44",
-            "es-v-a1-45", "es-v-a1-46", "es-v-a1-47", "es-v-a1-48", "es-v-a1-49"
+            "es-v-a1-45", "es-v-a1-46", "es-v-a1-47", "es-v-a1-48", "es-v-a1-49",
+            // Body parts — tener los ojos azules, el pelo largo, etc.
+            "es-v-a1-238", "es-v-a1-239", "es-v-a1-240", "es-v-a1-241",
+            "es-v-a1-242", "es-v-a1-243", "es-v-a1-244", "es-v-a1-245",
+            "es-v-a1-246", "es-v-a1-247", "es-v-a1-248", "es-v-a1-249"
         ],
         verbIds: ["es-vb-a1-8", "es-vb-a1-9", "es-vb-a1-13"],
         testQuestions: [
@@ -402,11 +410,13 @@ export const a1Units: LessonUnit[] = [
         description: "Learn the most important structure for expressing preferences in Spanish. Gustar works differently from English — the thing liked is the subject, not the person.",
         grammarIds: ["es-g-a1-22"],
         vocabIds: [
-            // Food & drink vocab — classic gustar targets (me gusta el café, me gustan las tapas)
+            // Hobbies & activities — primary gustar targets (me gusta bailar, me encanta viajar)
+            "es-v-a1-216", "es-v-a1-217", "es-v-a1-218", "es-v-a1-219",
+            "es-v-a1-220", "es-v-a1-221", "es-v-a1-222", "es-v-a1-223",
+            "es-v-a1-224", "es-v-a1-225", "es-v-a1-226", "es-v-a1-227",
+            // Food & drink — also natural gustar targets (me gusta el café, me gustan las tapas)
             "es-v-a1-105", "es-v-a1-106", "es-v-a1-107", "es-v-a1-108",
-            "es-v-a1-109", "es-v-a1-110", "es-v-a1-111", "es-v-a1-112",
-            "es-v-a1-113", "es-v-a1-114", "es-v-a1-115", "es-v-a1-116",
-            "es-v-a1-117", "es-v-a1-118"
+            "es-v-a1-109", "es-v-a1-110", "es-v-a1-111", "es-v-a1-112"
         ],
         verbIds: [],
         testQuestions: [
@@ -448,10 +458,13 @@ export const a1Units: LessonUnit[] = [
         description: "Point things out in Spanish — this, that, those. Spanish has three levels of distance: near (este), medium (ese), and far (aquel).",
         grammarIds: ["es-g-a1-24"],
         vocabIds: [
-            // Places vocab — natural targets for demonstratives (esta tienda, ese hotel)
+            // Clothing — primary demonstrative targets (este vestido, esos zapatos, aquella chaqueta)
+            "es-v-a1-228", "es-v-a1-229", "es-v-a1-230", "es-v-a1-231",
+            "es-v-a1-232", "es-v-a1-233", "es-v-a1-234", "es-v-a1-235",
+            "es-v-a1-236", "es-v-a1-237",
+            // Places vocab — also useful for pointing (esa tienda, ese banco)
             "es-v-a1-126", "es-v-a1-127", "es-v-a1-128", "es-v-a1-129",
-            "es-v-a1-130", "es-v-a1-131", "es-v-a1-132", "es-v-a1-133",
-            "es-v-a1-136", "es-v-a1-137"
+            "es-v-a1-130", "es-v-a1-131"
         ],
         verbIds: [],
         testQuestions: [
@@ -548,7 +561,6 @@ export const a1Units: LessonUnit[] = [
         grammarIds: ["es-g-a1-28", "es-g-a1-29", "es-g-a1-32", "es-g-a1-33"],
         vocabIds: [
             // Descriptive adjectives — many change meaning with ser vs estar
-            // (e.g. ser aburrido = boring, estar aburrido = bored)
             "es-v-a1-30", "es-v-a1-31", "es-v-a1-32", "es-v-a1-33", "es-v-a1-34",
             "es-v-a1-35", "es-v-a1-36", "es-v-a1-37", "es-v-a1-38", "es-v-a1-39",
             "es-v-a1-40", "es-v-a1-41",
@@ -559,9 +571,10 @@ export const a1Units: LessonUnit[] = [
             // People/family — used with conocer and hay
             "es-v-a1-93", "es-v-a1-94", "es-v-a1-95", "es-v-a1-96",
             "es-v-a1-103", "es-v-a1-104",
-            // Places — used with conocer (I know Madrid) and hay (there is a park)
-            "es-v-a1-126", "es-v-a1-127", "es-v-a1-128", "es-v-a1-129", "es-v-a1-130",
-            "es-v-a1-131", "es-v-a1-132", "es-v-a1-133", "es-v-a1-136", "es-v-a1-137"
+            // Home & rooms — natural hay contexts (hay una cocina, hay dos habitaciones)
+            "es-v-a1-250", "es-v-a1-251", "es-v-a1-252", "es-v-a1-253",
+            "es-v-a1-254", "es-v-a1-255", "es-v-a1-256", "es-v-a1-257",
+            "es-v-a1-258", "es-v-a1-259", "es-v-a1-260", "es-v-a1-261"
         ],
         verbIds: [
             "es-vb-a1-2",  // ser — core of this unit
