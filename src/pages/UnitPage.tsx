@@ -12,7 +12,7 @@ import { QuizCard } from "../components/QuizCard"
 import { SpeakButton } from "../components/SpeakButton"
 import { LocalizedExplanation } from "../components/LocalizedExplanation"
 import { VocabTooltip } from "../components/VocabTooltip"
-import { GrammarLesson, LessonUnit, VocabItem, Verb, CEFRLevel } from "../types"
+import { GrammarLesson, LessonUnit, VocabItem, Verb, CEFRLevel, CultureEpisode } from "../types"
 import { getUI, fmt, UIStrings } from "../i18n"
 import { resolvePrimary } from "../utils/localizedText"
 import { useVocabTooltip } from "../hooks/useVocabTooltip"
@@ -21,6 +21,17 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "../components/ui/tabs"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion"
 
 type Tab = "grammar" | "vocab" | "verbs" | "test"
+
+const CULTURE_CATEGORY_EMOJI: Record<string, string> = {
+    food: "🍽️",
+    customs: "🤝",
+    history: "🏛️",
+    geography: "🗺️",
+    arts: "🎨",
+    "daily-life": "🏡",
+    festivals: "🎉",
+    "language-note": "💬",
+}
 
 // ---------------------------------------------------------------------------
 // GrammarAccordion
@@ -186,12 +197,15 @@ function MistakeReview({ missed }: Readonly<{ missed: MissedItem[] }>) {
 // TestDoneScreen — result view after the quiz finishes
 // ---------------------------------------------------------------------------
 function TestDoneScreen({ score, total, passThreshold, missed, isMastered, didComplete,
-    isLastUnit, nextUnit, level, ui, onComplete, onReset, onBack, onNavigateNext, onNavigateLevelTest }: Readonly<{
+    isLastUnit, nextUnit, level, ui, cultureEpisodes, onComplete, onReset, onBack,
+    onNavigateNext, onNavigateLevelTest, onNavigateCulture }: Readonly<{
     score: number; total: number; passThreshold: number; missed: MissedItem[]
     isMastered: boolean; didComplete: boolean; isLastUnit: boolean; nextUnit: LessonUnit | null
     level: CEFRLevel; ui: UIStrings
+    cultureEpisodes: CultureEpisode[]
     onComplete: () => void; onReset: () => void; onBack: () => void
     onNavigateNext: (id: string) => void; onNavigateLevelTest: () => void
+    onNavigateCulture: (id: string) => void
 }>) {
     const passed = score >= passThreshold
     return (
@@ -206,6 +220,35 @@ function TestDoneScreen({ score, total, passThreshold, missed, isMastered, didCo
             </p>
 
             {missed.length > 0 && <MistakeReview missed={missed} />}
+
+            {passed && (isMastered || didComplete) && cultureEpisodes.length > 0 && (
+                <div className="w-full flex flex-col gap-3">
+                    <p className="text-xs font-semibold text-amber-700 uppercase tracking-wide text-center">
+                        {ui.cultureUnlockHeading}
+                    </p>
+                    {cultureEpisodes.map(ep => (
+                        <button
+                            key={ep.id}
+                            onClick={() => onNavigateCulture(ep.id)}
+                            className="w-full bg-amber-50 border border-amber-200 rounded-2xl px-5 py-4
+                                       flex items-start gap-3 text-left hover:bg-amber-100 transition-colors"
+                        >
+                            <span className="text-2xl leading-none mt-0.5" aria-hidden="true">
+                                {CULTURE_CATEGORY_EMOJI[ep.category] ?? "🌍"}
+                            </span>
+                            <div className="flex flex-col gap-0.5 min-w-0">
+                                <p className="text-sm font-semibold text-gray-900 leading-snug">
+                                    {ep.title.native}
+                                </p>
+                                <p className="text-xs text-amber-700 leading-snug line-clamp-2">
+                                    {ep.subtitle}
+                                </p>
+                            </div>
+                            <span className="ml-auto text-amber-400 text-sm self-center">→</span>
+                        </button>
+                    ))}
+                </div>
+            )}
 
             <div className="w-full bg-white border border-gray-200 rounded-2xl p-5 flex flex-col gap-3">
                 {passed && !isMastered && !didComplete && (
@@ -261,17 +304,20 @@ type QuizPhase = "start" | "playing" | "done"
 
 interface MissedItem { prompt: string; correct: string; yourAnswer: string }
 
-function TestOutTab({ unit, langId, isMastered, nextUnit, isLastUnit, ui, onMastered, onBack, onNavigateNext, onNavigateLevelTest }: Readonly<{
+function TestOutTab({ unit, langId, isMastered, nextUnit, isLastUnit, ui, cultureEpisodes,
+    onMastered, onBack, onNavigateNext, onNavigateLevelTest, onNavigateCulture }: Readonly<{
     unit: LessonUnit
     langId: string
     isMastered: boolean
     nextUnit: LessonUnit | null
     isLastUnit: boolean
     ui: UIStrings
+    cultureEpisodes: CultureEpisode[]
     onMastered: () => void
     onBack: () => void
     onNavigateNext: (unitId: string) => void
     onNavigateLevelTest: () => void
+    onNavigateCulture: (id: string) => void
 }>) {
     const [phase, setPhase] = useState<QuizPhase>("start")
     const [qIdx, setQIdx] = useState(0)
@@ -350,8 +396,10 @@ function TestOutTab({ unit, langId, isMastered, nextUnit, isLastUnit, ui, onMast
                 score={score} total={questions.length} passThreshold={passThreshold} missed={missed}
                 isMastered={isMastered} didComplete={didComplete} isLastUnit={isLastUnit} nextUnit={nextUnit}
                 level={unit.level} ui={ui}
+                cultureEpisodes={cultureEpisodes}
                 onComplete={handleComplete} onReset={handleReset} onBack={onBack}
                 onNavigateNext={onNavigateNext} onNavigateLevelTest={onNavigateLevelTest}
+                onNavigateCulture={onNavigateCulture}
             />
         )
     }
@@ -414,6 +462,9 @@ export function UnitPage() {
     const grammar = useMemo(() => mod?.grammar.filter(g => unit?.grammarIds.includes(g.id)) ?? [], [mod, unit])
     const vocab = useMemo(() => mod?.vocab.filter(v => unit?.vocabIds.includes(v.id)) ?? [], [mod, unit])
     const verbs = useMemo(() => mod?.verbs.filter(v => unit?.verbIds.includes(v.id)) ?? [], [mod, unit])
+    const cultureEpisodes = useMemo(() =>
+        mod?.cultureEpisodes?.filter(c => unit?.cultureIds?.includes(c.id)) ?? [],
+    [mod, unit])
 
     const tabs = useMemo<{ id: Tab; label: string; count?: number }[]>(() => [
         ...(grammar.length > 0 ? [{ id: "grammar" as Tab, label: ui.unitTabGrammar, count: grammar.length }] : []),
@@ -604,10 +655,12 @@ export function UnitPage() {
                             nextUnit={nextUnit}
                             isLastUnit={isLastUnit}
                             ui={ui}
+                            cultureEpisodes={cultureEpisodes}
                             onMastered={() => {}}
                             onBack={() => navigate(`/learn/${langId}`)}
                             onNavigateNext={(id) => navigate(`/learn/${langId}/units/${id}`, { replace: true })}
                             onNavigateLevelTest={() => navigate(`/learn/${langId}/level-test`)}
+                            onNavigateCulture={(id) => navigate(`/learn/${langId}/culture?episode=${id}`)}
                         />
                     </TabsContent>
                 </Tabs>

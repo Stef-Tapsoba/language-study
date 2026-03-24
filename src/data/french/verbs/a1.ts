@@ -461,6 +461,227 @@ export const a1Verbs: Verb[] = [
         }]
     },
     {
+        id: "fr-vb-a1-27",
+        level: "A1",
+        infinitive: "travailler",
+        meaning: "to work",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "travaille" },
+                { pronoun: "tu", form: "travailles" },
+                { pronoun: "il/elle", form: "travaille" },
+                { pronoun: "nous", form: "travaillons" },
+                { pronoun: "vous", form: "travaillez" },
+                { pronoun: "ils/elles", form: "travaillent" },
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-28",
+        level: "A1",
+        infinitive: "partir",
+        meaning: "to leave / to depart",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "pars" },
+                { pronoun: "tu", form: "pars" },
+                { pronoun: "il/elle", form: "part" },
+                { pronoun: "nous", form: "partons" },
+                { pronoun: "vous", form: "partez" },
+                { pronoun: "ils/elles", form: "partent" },
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-29",
+        level: "A1",
+        infinitive: "sortir",
+        meaning: "to go out",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "sors" },
+                { pronoun: "tu", form: "sors" },
+                { pronoun: "il/elle", form: "sort" },
+                { pronoun: "nous", form: "sortons" },
+                { pronoun: "vous", form: "sortez" },
+                { pronoun: "ils/elles", form: "sortent" },
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-30",
+        level: "A1",
+        infinitive: "dormir",
+        meaning: "to sleep",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "dors" },
+                { pronoun: "tu", form: "dors" },
+                { pronoun: "il/elle", form: "dort" },
+                { pronoun: "nous", form: "dormons" },
+                { pronoun: "vous", form: "dormez" },
+                { pronoun: "ils/elles", form: "dorment" },
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-31",
+        level: "A1",
+        infinitive: "voir",
+        meaning: "to see",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "vois" },
+                { pronoun: "tu", form: "vois" },
+                { pronoun: "il/elle", form: "voit" },
+                { pronoun: "nous", form: "voyons" },
+                { pronoun: "vous", form: "voyez" },
+                { pronoun: "ils/elles", form: "voient" },
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-32",
+        level: "A1",
+        infinitive: "mettre",
+        meaning: "to put / to put on (clothing)",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "mets" },
+                { pronoun: "tu", form: "mets" },
+                { pronoun: "il/elle", form: "met" },
+                { pronoun: "nous", form: "mettons" },
+                { pronoun: "vous", form: "mettez" },
+                { pronoun: "ils/elles", form: "mettent" },
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-33",
+        level: "A1",
+        infinitive: "écrire",
+        meaning: "to write",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "écris" },
+                { pronoun: "tu", form: "écris" },
+                { pronoun: "il/elle", form: "écrit" },
+                { pronoun: "nous", form: "écrivons" },
+                { pronoun: "vous", form: "écrivez" },
+                { pronoun: "ils/elles", form: "écrivent" },
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-34",
+        level: "A1",
+        infinitive: "savoir",
+        meaning: "to know (a fact / how to do something)",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "sais" },
+                { pronoun: "tu", form: "sais" },
+                { pronoun: "il/elle", form: "sait" },
+                { pronoun: "nous", form: "savons" },
+                { pronoun: "vous", form: "savez" },
+                { pronoun: "ils/elles", form: "savent" },
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-35",
+        level: "A1",
+        infinitive: "connaître",
+        meaning: "to know (a person / a place)",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "connais" },
+                { pronoun: "tu", form: "connais" },
+                { pronoun: "il/elle", form: "connaît" },
+                { pronoun: "nous", form: "connaissons" },
+                { pronoun: "vous", form: "connaissez" },
+                { pronoun: "ils/elles", form: "connaissent" },
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-36",
+        level: "A1",
+        infinitive: "se lever",
+        meaning: "to get up",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "me lève" },
+                { pronoun: "tu", form: "te lèves" },
+                { pronoun: "il/elle", form: "se lève" },
+                { pronoun: "nous", form: "nous levons" },
+                { pronoun: "vous", form: "vous levez" },
+                { pronoun: "ils/elles", form: "se lèvent" },
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-37",
+        level: "A1",
+        infinitive: "se coucher",
+        meaning: "to go to bed",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "me couche" },
+                { pronoun: "tu", form: "te couches" },
+                { pronoun: "il/elle", form: "se couche" },
+                { pronoun: "nous", form: "nous couchons" },
+                { pronoun: "vous", form: "vous couchez" },
+                { pronoun: "ils/elles", form: "se couchent" },
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-38",
+        level: "A1",
+        infinitive: "se laver",
+        meaning: "to wash (oneself)",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "me lave" },
+                { pronoun: "tu", form: "te laves" },
+                { pronoun: "il/elle", form: "se lave" },
+                { pronoun: "nous", form: "nous lavons" },
+                { pronoun: "vous", form: "vous lavez" },
+                { pronoun: "ils/elles", form: "se lavent" },
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-39",
+        level: "A1",
+        infinitive: "s'habiller",
+        meaning: "to get dressed",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "m'habille" },
+                { pronoun: "tu", form: "t'habilles" },
+                { pronoun: "il/elle", form: "s'habille" },
+                { pronoun: "nous", form: "nous habillons" },
+                { pronoun: "vous", form: "vous habillez" },
+                { pronoun: "ils/elles", form: "s'habillent" },
+            ]
+        }]
+    },
+    {
         id: "fr-vb-a1-24",
         level: "A1",
         infinitive: "entrer",

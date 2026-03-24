@@ -86,6 +86,7 @@ export const ko: UIStrings = {
     sectionReadingDesc: "지문을 읽고 이해도를 확인하세요",
     sectionCulture: "문화",
     sectionCultureDesc: "읽기를 통해 문화를 탐구하세요",
+    cultureUnlockHeading: "Unlock with this unit",
     checkUnderstanding: "이해도 확인하기",
     markAsRead: "읽음으로 표시",
     passageComplete: "지문 완료!",

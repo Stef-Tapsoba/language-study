@@ -109,6 +109,7 @@ export interface UIStrings {
     sectionReadingDesc: string
     sectionCulture: string
     sectionCultureDesc: string
+    cultureUnlockHeading: string
     checkUnderstanding: string
     markAsRead: string
     passageComplete: string

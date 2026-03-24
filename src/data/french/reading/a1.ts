@@ -250,5 +250,48 @@ export const a1Reading: ReadingPassage[] = [
                 answer: "À gauche au feu"
             }
         ]
+    },
+    {
+        id: "fr-r-a1-7",
+        level: "A1",
+        category: "everyday",
+        title: "Une carte postale",
+        body: {
+            target: "Chère Marie,\nJe suis en vacances à Nice avec ma famille. Il fait très beau ici — du soleil et vingt-huit degrés ! Nous habitons dans un petit hôtel près de la mer. Chaque matin, nous allons à la plage. L'eau est froide mais c'est agréable. L'après-midi, nous visitons la vieille ville. Il y a des marchés avec des fruits et des légumes colorés. Le soir, nous mangeons dans un restaurant. La nourriture est délicieuse ! Je rentre à Paris samedi prochain.\nGros bisous,\nSophie",
+            native: "Dear Marie,\nI am on holiday in Nice with my family. The weather is very nice here — sunshine and twenty-eight degrees! We are staying in a small hotel near the sea. Every morning, we go to the beach. The water is cold but it is pleasant. In the afternoon, we visit the old town. There are markets with colourful fruit and vegetables. In the evening, we eat in a restaurant. The food is delicious! I'm coming back to Paris next Saturday.\nLots of love,\nSophie"
+        },
+        vocabGloss: [
+            { word: "en vacances", translation: "on holiday" },
+            { word: "la mer", translation: "the sea" },
+            { word: "la plage", translation: "the beach" },
+            { word: "agréable", translation: "pleasant / nice" },
+            { word: "la vieille ville", translation: "the old town" },
+            { word: "colorés", translation: "colourful" },
+            { word: "je rentre", translation: "I am coming back / I am returning" },
+            { word: "gros bisous", translation: "lots of love / big kisses (informal letter closing)" }
+        ],
+        questions: [
+            {
+                id: "fr-r-a1-7-q1",
+                level: "A1",
+                prompt: "Où est Sophie en ce moment ?",
+                options: ["À Nice", "À Paris", "À Lyon", "À Marseille"],
+                answer: "À Nice"
+            },
+            {
+                id: "fr-r-a1-7-q2",
+                level: "A1",
+                prompt: "Quel temps fait-il à Nice ?",
+                options: ["Il fait beau et chaud", "Il fait froid et nuageux", "Il pleut beaucoup", "Il y a du vent"],
+                answer: "Il fait beau et chaud"
+            },
+            {
+                id: "fr-r-a1-7-q3",
+                level: "A1",
+                prompt: "Quand est-ce que Sophie rentre à Paris ?",
+                options: ["Samedi prochain", "Dimanche prochain", "Vendredi prochain", "La semaine suivante"],
+                answer: "Samedi prochain"
+            }
+        ]
     }
 ]

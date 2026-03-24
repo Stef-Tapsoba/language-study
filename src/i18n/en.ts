@@ -86,6 +86,7 @@ export const en: UIStrings = {
     sectionReadingDesc: "Read passages and test comprehension",
     sectionCulture: "Culture",
     sectionCultureDesc: "Explore culture through reading",
+    cultureUnlockHeading: "Unlock with this unit",
     checkUnderstanding: "Check understanding",
     markAsRead: "Mark as read",
     passageComplete: "Passage complete!",

@@ -30,6 +30,7 @@ export const a1Units: LessonUnit[] = [
         ],
         verbIds: [],
         cultureIds: ["fr-c-a1-2"],
+        listeningIds: ["fr-l-a1-1"],
         testQuestions: [
             { id: "fr-uq-a1-1-1", level: "A1", prompt: "What does 'Bonjour' mean?", options: ["Goodbye", "Please", "Hello", "Thank you"], answer: "Hello" },
             { id: "fr-uq-a1-1-2", level: "A1", prompt: "How do you say 'Thank you' in French?", options: ["S'il vous plaît", "Pardon", "Merci", "De rien"], answer: "Merci" },
@@ -51,6 +52,7 @@ export const a1Units: LessonUnit[] = [
             "fr-v-a1-141", "fr-v-a1-142", "fr-v-a1-143", "fr-v-a1-144"
         ],
         verbIds: ["fr-vb-a1-1"],
+        listeningIds: ["fr-l-a1-4"],
         testQuestions: [
             { id: "fr-uq-a1-2-1", level: "A1", prompt: "Complete: 'Je ___ médecin.'", options: ["ai", "vais", "suis", "fais"], answer: "suis" },
             { id: "fr-uq-a1-2-2", level: "A1", prompt: "How do you say 'They are (masculine)'?", options: ["Elles sont", "Ils sont", "Nous sommes", "Vous êtes"], answer: "Ils sont" },
@@ -300,6 +302,7 @@ export const a1Units: LessonUnit[] = [
             "fr-v-a1-32", "fr-v-a1-33", "fr-v-a1-34",
         ],
         verbIds: [],
+        listeningIds: ["fr-l-a1-3"],
         testQuestions: [
             { id: "fr-uq-a1-14-1", level: "A1", prompt: "How do you say 'It is half past three'?", options: ["Il est trois heures et quart.", "Il est trois heures et demie.", "Il est trois heures moins le quart.", "Il est trois heures."], answer: "Il est trois heures et demie." },
             { id: "fr-uq-a1-14-2", level: "A1", prompt: "What is 'quinze' in English?", options: ["twelve", "thirteen", "sixteen", "fifteen"], answer: "fifteen" },
@@ -407,6 +410,7 @@ export const a1Units: LessonUnit[] = [
             "fr-v-a1-166", "fr-v-a1-167", "fr-v-a1-170", "fr-v-a1-172",
         ],
         verbIds: ["fr-vb-a1-6"],
+        readingIds: ["fr-r-a1-5"],
         testQuestions: [
             { id: "fr-uq-a1-19-1", level: "A1", prompt: "How do you say 'I like French'?", options: ["J'aime bien un français.", "J'aime le français.", "J'aime de français.", "J'aime français."], answer: "J'aime le français." },
             { id: "fr-uq-a1-19-2", level: "A1", prompt: "How do you say 'She doesn't like sport'?", options: ["Elle n'aime pas le sport.", "Elle aime ne pas sport.", "Elle aime pas de sport.", "Elle n'aime pas de sport."], answer: "Elle n'aime pas le sport." },
@@ -429,6 +433,8 @@ export const a1Units: LessonUnit[] = [
             "fr-v-a1-58", "fr-v-a1-59", "fr-v-a1-60", "fr-v-a1-61", "fr-v-a1-62"
         ],
         verbIds: [],
+        cultureIds: ["fr-c-a1-4"],
+        readingIds: ["fr-r-a1-1"],
         testQuestions: [
             { id: "fr-uq-a1-20-1", level: "A1", prompt: "What does 'la mère' mean?", options: ["the sister", "the mother", "the daughter", "the grandmother"], answer: "the mother" },
             { id: "fr-uq-a1-20-2", level: "A1", prompt: "What does 'le frère' mean?", options: ["the father", "the son", "the brother", "the husband"], answer: "the brother" },
@@ -473,7 +479,9 @@ export const a1Units: LessonUnit[] = [
             "fr-v-a1-85", "fr-v-a1-86", "fr-v-a1-87"
         ],
         verbIds: ["fr-vb-a1-6", "fr-vb-a1-7", "fr-vb-a1-8", "fr-vb-a1-9", "fr-vb-a1-11"],
-        cultureIds: ["fr-c-a1-1"],
+        cultureIds: ["fr-c-a1-1", "fr-c-a1-3"],
+        readingIds: ["fr-r-a1-3"],
+        listeningIds: ["fr-l-a1-2", "fr-l-a1-7"],
         testQuestions: [
             { id: "fr-uq-a1-22-1", level: "A1", prompt: "How do you ask for the bill?", options: ["La carte, s'il vous plaît.", "L'addition, s'il vous plaît.", "Le menu, s'il vous plaît.", "Commander, s'il vous plaît."], answer: "L'addition, s'il vous plaît." },
             { id: "fr-uq-a1-22-2", level: "A1", prompt: "What does 'le fromage' mean?", options: ["fish", "meat", "bread", "cheese"], answer: "cheese" },
@@ -498,6 +506,8 @@ export const a1Units: LessonUnit[] = [
             "fr-v-a1-193", "fr-v-a1-194", "fr-v-a1-195", "fr-v-a1-196", "fr-v-a1-197"
         ],
         verbIds: ["fr-vb-a1-13"],
+        readingIds: ["fr-r-a1-2", "fr-r-a1-4", "fr-r-a1-6"],
+        listeningIds: ["fr-l-a1-6"],
         testQuestions: [
             { id: "fr-uq-a1-23-1", level: "A1", prompt: "What does 'la gare' mean?", options: ["the garage", "the airport", "the train station", "the bus stop"], answer: "the train station" },
             { id: "fr-uq-a1-23-2", level: "A1", prompt: "What does 'le centre-ville' mean?", options: ["city hall", "shopping centre", "town centre", "downtown park"], answer: "town centre" },
@@ -586,6 +596,8 @@ export const a1Units: LessonUnit[] = [
             "fr-v-a1-156", "fr-v-a1-157", "fr-v-a1-158"
         ],
         verbIds: ["fr-vb-a1-3"],
+        readingIds: ["fr-r-a1-7"],
+        listeningIds: ["fr-l-a1-5"],
         testQuestions: [
             { id: "fr-uq-a1-27-1", level: "A1", prompt: "How is the futur proche formed?", options: ["Present of avoir + infinitive", "Present of être + infinitive", "Present of aller + infinitive", "Present of faire + infinitive"], answer: "Present of aller + infinitive" },
             { id: "fr-uq-a1-27-2", level: "A1", prompt: "Complete: 'Je ___ manger ce soir.' (futur proche)", options: ["vais", "suis", "fais", "ai"], answer: "vais" },

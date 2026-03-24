@@ -3,7 +3,7 @@
 // A1/A2: Show the English meaning → pick the correct target-language sentence.
 // B1+:   Show the target-language sentence → pick the correct English meaning.
 //        This shifts the exercise from production-cued to comprehension-cued.
-import { useMemo, useEffect } from "react"
+import { useMemo, useEffect, useState } from "react"
 import { useParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
@@ -14,6 +14,7 @@ import { QuizCard } from "../components/QuizCard"
 import { DrillDoneScreen } from "../components/DrillDoneScreen"
 import { useDrill } from "../hooks/useDrill"
 import { getUI, fmt } from "../i18n"
+import { answerMatches } from "../utils/answerMatch"
 
 interface DrillQuestion {
     prompt: string    // displayed in the amber banner
@@ -87,6 +88,26 @@ export function GrammarDrillPage() {
 
     const drill = useDrill(questions)
 
+    const [started, setStarted] = useState(false)
+    const [drillMode, setDrillMode] = useState<"multiple-choice" | "fill-in">("multiple-choice")
+    const [fillInput, setFillInput] = useState("")
+    const [fillState, setFillState] = useState<"idle" | "submitted-correct" | "submitted-wrong">("idle")
+
+    function handleNext() {
+        setFillInput("")
+        setFillState("idle")
+        drill.handleNext()
+    }
+
+    function handleFillSubmit() {
+        if (fillState !== "idle" || !fillInput.trim()) return
+        const current = questions[drill.index]
+        if (!current) return
+        const isCorrect = answerMatches(fillInput, current.correct)
+        setFillState(isCorrect ? "submitted-correct" : "submitted-wrong")
+        drill.handleSelect(isCorrect ? current.correct : fillInput)
+    }
+
     useEffect(() => { if (drill.done) useStatsStore.getState().recordActivity(langId) }, [drill.done, langId])
 
     if (!language || !mod) return null
@@ -99,6 +120,58 @@ export function GrammarDrillPage() {
                     <p className="text-4xl mb-3">🚧</p>
                     <p className="font-medium">Not enough grammar examples at {level} yet</p>
                 </div>
+            </div>
+        )
+    }
+
+    if (!started) {
+        return (
+            <div className="min-h-screen bg-gray-50">
+                <NavBar title={ui.sectionGrammarDrill} level={level} backTo={`/learn/${langId}`} />
+                <main className="max-w-sm mx-auto px-4 py-12 flex flex-col items-center gap-6 text-center">
+                    <p className="text-4xl">📝</p>
+                    <div>
+                        <h2 className="text-xl font-bold text-gray-900">{ui.sectionGrammarDrill}</h2>
+                        <p className="text-sm text-gray-500 mt-1">{questions.length} questions · {level}</p>
+                    </div>
+                    <div className="w-full flex flex-col gap-3">
+                        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide text-left">
+                            Choose a mode
+                        </p>
+                        <button
+                            onClick={() => setDrillMode("multiple-choice")}
+                            className={`w-full rounded-2xl border-2 px-5 py-4 text-left transition-colors ${drillMode === "multiple-choice" ? "border-indigo-500 bg-indigo-50" : "border-gray-200 bg-white hover:border-gray-300"}`}
+                        >
+                            <div className="flex items-start gap-3">
+                                <span className="text-xl mt-0.5">🔤</span>
+                                <div>
+                                    <p className={`text-sm font-semibold ${drillMode === "multiple-choice" ? "text-indigo-900" : "text-gray-900"}`}>Multiple choice</p>
+                                    <p className="text-xs text-gray-500 mt-0.5">Pick the correct sentence from four options</p>
+                                </div>
+                                {drillMode === "multiple-choice" && <span className="ml-auto text-indigo-600 text-sm self-center">✓</span>}
+                            </div>
+                        </button>
+                        <button
+                            onClick={() => setDrillMode("fill-in")}
+                            className={`w-full rounded-2xl border-2 px-5 py-4 text-left transition-colors ${drillMode === "fill-in" ? "border-indigo-500 bg-indigo-50" : "border-gray-200 bg-white hover:border-gray-300"}`}
+                        >
+                            <div className="flex items-start gap-3">
+                                <span className="text-xl mt-0.5">⌨️</span>
+                                <div>
+                                    <p className={`text-sm font-semibold ${drillMode === "fill-in" ? "text-indigo-900" : "text-gray-900"}`}>Type the answer</p>
+                                    <p className="text-xs text-gray-500 mt-0.5">Active recall — type the sentence from memory</p>
+                                </div>
+                                {drillMode === "fill-in" && <span className="ml-auto text-indigo-600 text-sm self-center">✓</span>}
+                            </div>
+                        </button>
+                    </div>
+                    <button
+                        onClick={() => setStarted(true)}
+                        className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-3 text-sm transition-colors"
+                    >
+                        Start
+                    </button>
+                </main>
             </div>
         )
     }
@@ -156,36 +229,98 @@ export function GrammarDrillPage() {
                     <p className="text-lg font-semibold text-amber-900">{q.prompt}</p>
                 </div>
 
-                <QuizCard
-                    question={isFlipped ? ui.grammarDrillQuestionB1 : ui.grammarDrillQuestion}
-                    options={q.options}
-                    selected={drill.selected}
-                    correct={drill.revealed ? q.correct : null}
-                    onSelect={drill.handleSelect}
-                />
-
-                <p className="hidden sm:block text-xs text-gray-400">1–4 to select · Enter to continue</p>
-
-                {drill.revealed && (
-                    <>
-                        {q.lessonTitle && (
-                            <p className="text-xs text-center text-gray-500">
-                                📖{" "}
-                                <Link
-                                    to={`/learn/${langId}/grammar/${q.lessonId}`}
-                                    className="text-indigo-600 hover:underline"
-                                >
-                                    {q.lessonTitle}
-                                </Link>
-                            </p>
+                {drillMode === "fill-in" ? (
+                    <div className="w-full flex flex-col gap-3">
+                        <form onSubmit={e => { e.preventDefault(); handleFillSubmit() }} className="w-full">
+                            <input
+                                autoFocus
+                                aria-label="Type the translation"
+                                value={fillInput}
+                                onChange={e => { if (fillState === "idle") setFillInput(e.target.value) }}
+                                onKeyDown={e => {
+                                    if (e.key === "Enter" && fillState !== "idle") {
+                                        e.preventDefault()
+                                        handleNext()
+                                    }
+                                }}
+                                placeholder={isFlipped ? "Type the English meaning…" : "Type the French sentence…"}
+                                readOnly={fillState !== "idle"}
+                                className={`w-full rounded-xl border-2 px-4 py-3 text-sm text-center focus:outline-none transition-colors
+                                    ${fillState === "idle"
+                                        ? "border-gray-300 focus:border-indigo-400 bg-white text-gray-900"
+                                        : fillState === "submitted-correct"
+                                            ? "border-green-500 bg-green-50 text-green-900"
+                                            : "border-red-400 bg-red-50 text-gray-500 line-through"}`}
+                            />
+                        </form>
+                        {fillState === "submitted-correct" && (
+                            <div className="w-full bg-green-50 border border-green-200 rounded-xl px-4 py-2.5 flex items-center gap-2">
+                                <span className="text-green-600 text-base">✓</span>
+                                <p className="text-sm font-medium text-green-800">Correct!</p>
+                            </div>
                         )}
-                        <button
-                            onClick={drill.handleNext}
-                            className="w-full max-w-xl bg-indigo-600 hover:bg-indigo-700 text-white
-                                       font-semibold rounded-xl py-3 transition-colors"
-                        >
-                            {drill.index + 1 >= questions.length ? ui.seeResults : ui.nextQuestion}
-                        </button>
+                        {fillState === "submitted-wrong" && (
+                            <div className="w-full bg-red-50 border border-red-200 rounded-xl px-4 py-3 flex flex-col gap-0.5">
+                                <p className="text-xs text-red-500 font-medium">Correct answer:</p>
+                                <p className="text-sm font-semibold text-red-800">{q.correct}</p>
+                            </div>
+                        )}
+                        {fillState === "idle" ? (
+                            <button
+                                onClick={handleFillSubmit}
+                                disabled={!fillInput.trim()}
+                                className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-40 text-white font-semibold rounded-xl py-3 text-sm transition-colors"
+                            >
+                                Check
+                            </button>
+                        ) : (
+                            <>
+                                {q.lessonTitle && (
+                                    <p className="text-xs text-center text-gray-500">
+                                        📖{" "}
+                                        <Link to={`/learn/${langId}/grammar/${q.lessonId}`} className="text-indigo-600 hover:underline">
+                                            {q.lessonTitle}
+                                        </Link>
+                                    </p>
+                                )}
+                                <button
+                                    onClick={handleNext}
+                                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-3 transition-colors"
+                                >
+                                    {drill.index + 1 >= questions.length ? ui.seeResults : ui.nextQuestion}
+                                </button>
+                            </>
+                        )}
+                        <p className="hidden sm:block text-xs text-gray-400 text-center">Enter to check · Enter again to continue</p>
+                    </div>
+                ) : (
+                    <>
+                        <QuizCard
+                            question={isFlipped ? ui.grammarDrillQuestionB1 : ui.grammarDrillQuestion}
+                            options={q.options}
+                            selected={drill.selected}
+                            correct={drill.revealed ? q.correct : null}
+                            onSelect={drill.handleSelect}
+                        />
+                        <p className="hidden sm:block text-xs text-gray-400">1–4 to select · Enter to continue</p>
+                        {drill.revealed && (
+                            <>
+                                {q.lessonTitle && (
+                                    <p className="text-xs text-center text-gray-500">
+                                        📖{" "}
+                                        <Link to={`/learn/${langId}/grammar/${q.lessonId}`} className="text-indigo-600 hover:underline">
+                                            {q.lessonTitle}
+                                        </Link>
+                                    </p>
+                                )}
+                                <button
+                                    onClick={handleNext}
+                                    className="w-full max-w-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-3 transition-colors"
+                                >
+                                    {drill.index + 1 >= questions.length ? ui.seeResults : ui.nextQuestion}
+                                </button>
+                            </>
+                        )}
                     </>
                 )}
             </main>

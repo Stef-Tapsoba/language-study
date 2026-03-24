@@ -236,4 +236,97 @@ export const a1Vocab: VocabItem[] = [
     { id: "fr-v-a1-195", level: "A1", word: "l'armoire (f)", translation: "the wardrobe", category: "Home", example: { native: "Mes vêtements sont dans l'armoire.", translation: "My clothes are in the wardrobe." } },
     { id: "fr-v-a1-196", level: "A1", word: "le lit", translation: "the bed", category: "Home", example: { native: "Je fais mon lit le matin.", translation: "I make my bed in the morning." } },
     { id: "fr-v-a1-197", level: "A1", word: "la fenêtre", translation: "the window", category: "Home", example: { native: "J'ouvre la fenêtre quand il fait chaud.", translation: "I open the window when it's hot." } },
+
+    // --- Hobbies & Leisure (12) ---
+    { id: "fr-v-a1-198", level: "A1", word: "le sport", translation: "sport / exercise", category: "Hobbies", example: { native: "Je fais du sport le week-end.", translation: "I do sport at the weekend." } },
+    { id: "fr-v-a1-199", level: "A1", word: "la musique", translation: "music", category: "Hobbies", example: { native: "J'écoute de la musique tous les jours.", translation: "I listen to music every day." } },
+    { id: "fr-v-a1-200", level: "A1", word: "le cinéma", translation: "cinema / movies", category: "Hobbies", example: { native: "On va au cinéma ce soir?", translation: "Shall we go to the cinema tonight?" } },
+    { id: "fr-v-a1-201", level: "A1", word: "la lecture", translation: "reading", category: "Hobbies", example: { native: "J'aime la lecture — je lis souvent le soir.", translation: "I like reading — I often read in the evening." } },
+    { id: "fr-v-a1-202", level: "A1", word: "la natation", translation: "swimming", category: "Hobbies", example: { native: "Je fais de la natation le dimanche.", translation: "I go swimming on Sundays." } },
+    { id: "fr-v-a1-203", level: "A1", word: "le vélo", translation: "cycling / bike", category: "Hobbies", example: { native: "Je fais du vélo dans le parc.", translation: "I go cycling in the park." } },
+    { id: "fr-v-a1-204", level: "A1", word: "la danse", translation: "dancing", category: "Hobbies", example: { native: "Elle aime la danse — elle prend des cours.", translation: "She loves dancing — she takes lessons." } },
+    { id: "fr-v-a1-205", level: "A1", word: "le dessin", translation: "drawing", category: "Hobbies", example: { native: "Mon frère fait du dessin le soir.", translation: "My brother does drawing in the evening." } },
+    { id: "fr-v-a1-206", level: "A1", word: "les jeux vidéo", translation: "video games", category: "Hobbies", example: { native: "Il joue aux jeux vidéo avec ses amis.", translation: "He plays video games with his friends." } },
+    { id: "fr-v-a1-207", level: "A1", word: "la promenade", translation: "walk / stroll", category: "Hobbies", example: { native: "On fait une promenade dans le parc?", translation: "Shall we go for a walk in the park?" } },
+    { id: "fr-v-a1-208", level: "A1", word: "le voyage", translation: "trip / travel", category: "Hobbies", example: { native: "J'adore le voyage — je visite beaucoup de pays.", translation: "I love travelling — I visit many countries." } },
+    { id: "fr-v-a1-209", level: "A1", word: "la photographie", translation: "photography", category: "Hobbies", example: { native: "Il fait de la photographie le week-end.", translation: "He does photography at the weekend." } },
+
+    // --- Animals (10) ---
+    { id: "fr-v-a1-210", level: "A1", word: "le chien", translation: "dog", category: "Animals", example: { native: "Mon chien s'appelle Rex.", translation: "My dog's name is Rex." } },
+    { id: "fr-v-a1-211", level: "A1", word: "le chat", translation: "cat", category: "Animals", example: { native: "J'ai un chat noir.", translation: "I have a black cat." } },
+    { id: "fr-v-a1-212", level: "A1", word: "l'oiseau", translation: "bird", category: "Animals", example: { native: "Il y a des oiseaux dans le jardin.", translation: "There are birds in the garden." } },
+    { id: "fr-v-a1-213", level: "A1", word: "le poisson", translation: "fish (pet)", category: "Animals", example: { native: "Il a un poisson rouge dans un bocal.", translation: "He has a goldfish in a bowl." } },
+    { id: "fr-v-a1-214", level: "A1", word: "le lapin", translation: "rabbit", category: "Animals", example: { native: "Ma sœur a un lapin blanc.", translation: "My sister has a white rabbit." } },
+    { id: "fr-v-a1-215", level: "A1", word: "le cheval", translation: "horse", category: "Animals", example: { native: "Il y a un cheval à la ferme.", translation: "There is a horse on the farm." } },
+    { id: "fr-v-a1-216", level: "A1", word: "la vache", translation: "cow", category: "Animals", example: { native: "Les vaches mangent de l'herbe.", translation: "Cows eat grass." } },
+    { id: "fr-v-a1-217", level: "A1", word: "le cochon", translation: "pig", category: "Animals", example: { native: "Le cochon est à la ferme.", translation: "The pig is on the farm." } },
+    { id: "fr-v-a1-218", level: "A1", word: "la souris", translation: "mouse", category: "Animals", example: { native: "Le chat chasse la souris.", translation: "The cat chases the mouse." } },
+    { id: "fr-v-a1-219", level: "A1", word: "l'animal de compagnie", translation: "pet", category: "Animals", example: { native: "Mon animal de compagnie préféré est le chien.", translation: "My favourite pet is the dog." } },
+
+    // --- Health & Wellbeing (6) ---
+    // Note: fatigué/fatiguée and le médecin already appear in Adjectives (fr-v-a1-171) and Professions (fr-v-a1-137); removed duplicates here.
+    { id: "fr-v-a1-220", level: "A1", word: "j'ai mal à...", translation: "I have a pain in... / my ... hurts", category: "Health", example: { native: "J'ai mal à la tête.", translation: "I have a headache." } },
+    { id: "fr-v-a1-221", level: "A1", word: "malade", translation: "ill / sick", category: "Health", example: { native: "Je suis malade — je ne vais pas au travail.", translation: "I'm ill — I'm not going to work." } },
+    { id: "fr-v-a1-224", level: "A1", word: "la pharmacie", translation: "pharmacy", category: "Health", example: { native: "Est-ce qu'il y a une pharmacie près d'ici?", translation: "Is there a pharmacy near here?" } },
+    { id: "fr-v-a1-225", level: "A1", word: "avoir froid / avoir chaud", translation: "to be cold / to be hot (bodily sensation)", category: "Health", example: { native: "J'ai froid — tu peux fermer la fenêtre?", translation: "I'm cold — can you close the window?" } },
+    { id: "fr-v-a1-226", level: "A1", word: "se sentir bien / mal", translation: "to feel well / unwell", category: "Health", example: { native: "Je ne me sens pas bien aujourd'hui.", translation: "I don't feel well today." } },
+    { id: "fr-v-a1-227", level: "A1", word: "la fièvre", translation: "fever / temperature", category: "Health", example: { native: "Il a de la fièvre — trente-neuf degrés.", translation: "He has a fever — thirty-nine degrees." } },
+
+    // --- Common Adverbs (8) ---
+    { id: "fr-v-a1-228", level: "A1", word: "bien", translation: "well / good", category: "Adverbs", example: { native: "Tu parles très bien français!", translation: "You speak French very well!" } },
+    { id: "fr-v-a1-229", level: "A1", word: "mal", translation: "badly / poorly", category: "Adverbs", example: { native: "Je me sens mal aujourd'hui.", translation: "I feel poorly today." } },
+    { id: "fr-v-a1-230", level: "A1", word: "vite", translation: "quickly / fast", category: "Adverbs", example: { native: "Il mange trop vite.", translation: "He eats too quickly." } },
+    { id: "fr-v-a1-231", level: "A1", word: "lentement", translation: "slowly", category: "Adverbs", example: { native: "Parlez plus lentement, s'il vous plaît.", translation: "Please speak more slowly." } },
+    { id: "fr-v-a1-232", level: "A1", word: "très", translation: "very", category: "Adverbs", example: { native: "Cette robe est très belle.", translation: "This dress is very beautiful." } },
+    { id: "fr-v-a1-233", level: "A1", word: "assez", translation: "quite / enough", category: "Adverbs", example: { native: "C'est assez grand pour nous.", translation: "It's quite big enough for us." } },
+    { id: "fr-v-a1-234", level: "A1", word: "trop", translation: "too / too much", category: "Adverbs", example: { native: "Ce café est trop chaud!", translation: "This coffee is too hot!" } },
+    { id: "fr-v-a1-235", level: "A1", word: "beaucoup", translation: "a lot / very much", category: "Adverbs", example: { native: "Merci beaucoup!", translation: "Thank you very much!" } },
+
+    // --- Fruits & Vegetables (10) ---
+    { id: "fr-v-a1-236", level: "A1", word: "la banane", translation: "banana", category: "Food", example: { native: "Je mange une banane le matin.", translation: "I eat a banana in the morning." } },
+    { id: "fr-v-a1-237", level: "A1", word: "l'orange (f)", translation: "orange", category: "Food", example: { native: "Je voudrais un jus d'orange.", translation: "I would like an orange juice." } },
+    { id: "fr-v-a1-238", level: "A1", word: "la fraise", translation: "strawberry", category: "Food", example: { native: "Les fraises sont rouges et délicieuses.", translation: "Strawberries are red and delicious." } },
+    { id: "fr-v-a1-239", level: "A1", word: "la tomate", translation: "tomato", category: "Food", example: { native: "Je mets des tomates dans la salade.", translation: "I put tomatoes in the salad." } },
+    { id: "fr-v-a1-240", level: "A1", word: "la carotte", translation: "carrot", category: "Food", example: { native: "Les carottes sont bonnes pour les yeux.", translation: "Carrots are good for your eyes." } },
+    { id: "fr-v-a1-241", level: "A1", word: "la salade", translation: "salad / lettuce", category: "Food", example: { native: "Je mange une salade au déjeuner.", translation: "I eat a salad at lunch." } },
+    { id: "fr-v-a1-242", level: "A1", word: "les pâtes", translation: "pasta", category: "Food", example: { native: "Je mange des pâtes deux fois par semaine.", translation: "I eat pasta twice a week." } },
+    { id: "fr-v-a1-243", level: "A1", word: "le riz", translation: "rice", category: "Food", example: { native: "On mange du riz avec le poulet.", translation: "We eat rice with the chicken." } },
+    { id: "fr-v-a1-244", level: "A1", word: "le sucre", translation: "sugar", category: "Food", example: { native: "Tu veux du sucre dans ton café?", translation: "Do you want sugar in your coffee?" } },
+    { id: "fr-v-a1-245", level: "A1", word: "le beurre", translation: "butter", category: "Food", example: { native: "Je mets du beurre sur ma tartine.", translation: "I put butter on my toast." } },
+
+    // --- Transport & Tickets (10) ---
+    { id: "fr-v-a1-246", level: "A1", word: "un billet", translation: "a ticket", category: "Transport", example: { native: "Je voudrais un billet pour Paris, s'il vous plaît.", translation: "I would like a ticket to Paris, please." } },
+    { id: "fr-v-a1-247", level: "A1", word: "aller simple / aller-retour", translation: "one-way / return ticket", category: "Transport", example: { native: "Un aller-retour pour Lyon, c'est combien?", translation: "How much is a return ticket to Lyon?" } },
+    { id: "fr-v-a1-248", level: "A1", word: "le métro", translation: "the metro / underground", category: "Transport", example: { native: "Je prends le métro pour aller au travail.", translation: "I take the metro to go to work." } },
+    { id: "fr-v-a1-249", level: "A1", word: "le bus", translation: "the bus", category: "Transport", example: { native: "Le bus numéro 4 va au centre-ville.", translation: "Bus number 4 goes to the city centre." } },
+    { id: "fr-v-a1-250", level: "A1", word: "le train", translation: "the train", category: "Transport", example: { native: "Le train part à neuf heures.", translation: "The train leaves at nine o'clock." } },
+    { id: "fr-v-a1-251", level: "A1", word: "le quai", translation: "the platform / quay", category: "Transport", example: { native: "Le train pour Bordeaux part du quai cinq.", translation: "The train to Bordeaux leaves from platform five." } },
+    { id: "fr-v-a1-252", level: "A1", word: "la correspondance", translation: "the connection / transfer", category: "Transport", example: { native: "Il faut prendre une correspondance à Lyon.", translation: "You need to change trains at Lyon." } },
+    { id: "fr-v-a1-253", level: "A1", word: "À quelle heure part...?", translation: "What time does ... leave?", category: "Transport", example: { native: "À quelle heure part le prochain bus?", translation: "What time does the next bus leave?" } },
+    { id: "fr-v-a1-254", level: "A1", word: "valider son ticket", translation: "to validate / stamp your ticket", category: "Transport", example: { native: "N'oubliez pas de valider votre ticket dans le bus.", translation: "Don't forget to validate your ticket on the bus." } },
+    { id: "fr-v-a1-255", level: "A1", word: "l'arrêt de bus (m)", translation: "the bus stop", category: "Transport", example: { native: "L'arrêt de bus est juste devant la boulangerie.", translation: "The bus stop is right in front of the bakery." } },
+
+    // --- Emergency & Urgent Phrases (5) ---
+    { id: "fr-v-a1-256", level: "A1", word: "Au secours!", translation: "Help!", category: "Health", example: { native: "Au secours! Quelqu'un a besoin d'aide!", translation: "Help! Someone needs help!" } },
+    { id: "fr-v-a1-257", level: "A1", word: "Appelez le SAMU / les pompiers / la police", translation: "Call the ambulance (15) / fire brigade (18) / police (17)", category: "Health", example: { native: "Appelez le SAMU, s'il vous plaît — c'est urgent!", translation: "Call an ambulance, please — it's urgent!" } },
+    { id: "fr-v-a1-258", level: "A1", word: "j'ai besoin d'aide", translation: "I need help", category: "Health", example: { native: "Excusez-moi, j'ai besoin d'aide — je suis perdu(e).", translation: "Excuse me, I need help — I'm lost." } },
+    { id: "fr-v-a1-259", level: "A1", word: "j'ai perdu mon passeport / portefeuille", translation: "I've lost my passport / wallet", category: "Health", example: { native: "J'ai perdu mon passeport — où est le commissariat?", translation: "I've lost my passport — where is the police station?" } },
+    { id: "fr-v-a1-260", level: "A1", word: "C'est urgent!", translation: "It's urgent!", category: "Health", example: { native: "C'est urgent — appelez un médecin!", translation: "It's urgent — call a doctor!" } },
+
+    // --- Classroom & Learning Phrases (7) ---
+    { id: "fr-v-a1-261", level: "A1", word: "Je ne comprends pas.", translation: "I don't understand.", category: "Classroom", example: { native: "Désolé, je ne comprends pas — pouvez-vous répéter?", translation: "Sorry, I don't understand — could you repeat?" } },
+    { id: "fr-v-a1-262", level: "A1", word: "Répétez, s'il vous plaît.", translation: "Please repeat.", category: "Classroom", example: { native: "Répétez plus lentement, s'il vous plaît.", translation: "Please repeat more slowly." } },
+    { id: "fr-v-a1-263", level: "A1", word: "Comment dit-on... en français?", translation: "How do you say ... in French?", category: "Classroom", example: { native: "Comment dit-on 'window' en français?", translation: "How do you say 'window' in French?" } },
+    { id: "fr-v-a1-264", level: "A1", word: "Je ne sais pas.", translation: "I don't know.", category: "Classroom", example: { native: "Je ne sais pas la réponse — je vais chercher.", translation: "I don't know the answer — I'll look it up." } },
+    { id: "fr-v-a1-265", level: "A1", word: "Pouvez-vous épeler?", translation: "Can you spell it?", category: "Classroom", example: { native: "Pouvez-vous épeler votre nom, s'il vous plaît?", translation: "Can you spell your name, please?" } },
+    { id: "fr-v-a1-266", level: "A1", word: "C'est correct?", translation: "Is that correct?", category: "Classroom", example: { native: "J'ai dit 'je suis' — c'est correct?", translation: "I said 'je suis' — is that correct?" } },
+    { id: "fr-v-a1-267", level: "A1", word: "Encore une fois, s'il vous plaît.", translation: "Once more, please.", category: "Classroom", example: { native: "Encore une fois, s'il vous plaît — je n'ai pas bien entendu.", translation: "Once more, please — I didn't hear well." } },
+
+    // --- Transaction & Payment (6) ---
+    { id: "fr-v-a1-268", level: "A1", word: "Ça fait combien?", translation: "How much does that come to?", category: "Shopping", example: { native: "— Ça fait combien? — Ça fait douze euros cinquante.", translation: "— How much is that? — That's twelve euros fifty." } },
+    { id: "fr-v-a1-269", level: "A1", word: "Je paie par carte / en espèces.", translation: "I'm paying by card / in cash.", category: "Shopping", example: { native: "Je paie par carte, s'il vous plaît.", translation: "I'm paying by card, please." } },
+    { id: "fr-v-a1-270", level: "A1", word: "Avez-vous la monnaie?", translation: "Do you have change?", category: "Shopping", example: { native: "Avez-vous la monnaie pour vingt euros?", translation: "Do you have change for twenty euros?" } },
+    { id: "fr-v-a1-271", level: "A1", word: "C'est combien?", translation: "How much is it?", category: "Shopping", example: { native: "C'est combien, la baguette?", translation: "How much is the baguette?" } },
+    { id: "fr-v-a1-272", level: "A1", word: "le prix", translation: "the price", category: "Shopping", example: { native: "Le prix est affiché sur l'étiquette.", translation: "The price is shown on the label." } },
+    { id: "fr-v-a1-273", level: "A1", word: "la monnaie", translation: "change (coins) / currency", category: "Shopping", example: { native: "Gardez la monnaie!", translation: "Keep the change!" } },
 ]

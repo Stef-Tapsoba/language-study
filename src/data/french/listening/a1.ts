@@ -203,5 +203,90 @@ export const a1Listening: ListeningExercise[] = [
                 answer: "Faire un pique-nique au parc"
             }
         ]
+    },
+    {
+        id: "fr-l-a1-6",
+        level: "A1",
+        title: "Demander son chemin — asking for directions",
+        script: "Excusez-moi, madame. Je cherche la poste, s'il vous plaît. Oui, bien sûr. Vous allez tout droit jusqu'au feu rouge. Au feu, vous tournez à droite. La poste est à gauche, en face de la pharmacie. C'est loin d'ici ? Non, c'est à cinq minutes à pied. Il y a un café près de la poste ? Oui, il y a un café à côté de la poste. Merci beaucoup, madame. De rien. Bonne journée !",
+        translation: "Excuse me, madam. I'm looking for the post office, please. Yes, of course. You go straight ahead to the traffic lights. At the lights, you turn right. The post office is on the left, opposite the pharmacy. Is it far from here? No, it's five minutes on foot. Is there a café near the post office? Yes, there is a café next to the post office. Thank you very much, madam. You're welcome. Have a good day!",
+        dialogue: [
+            { speaker: "Touriste",  text: "Excusez-moi, madame. Je cherche la poste, s'il vous plaît.", translation: "Excuse me, madam. I'm looking for the post office, please." },
+            { speaker: "Passante",  text: "Oui, bien sûr. Vous allez tout droit jusqu'au feu rouge.", translation: "Yes, of course. You go straight ahead to the traffic lights." },
+            { speaker: "Passante",  text: "Au feu, vous tournez à droite. La poste est à gauche, en face de la pharmacie.", translation: "At the lights, you turn right. The post office is on the left, opposite the pharmacy." },
+            { speaker: "Touriste",  text: "C'est loin d'ici ?", translation: "Is it far from here?" },
+            { speaker: "Passante",  text: "Non, c'est à cinq minutes à pied.", translation: "No, it's five minutes on foot." },
+            { speaker: "Touriste",  text: "Il y a un café près de la poste ?", translation: "Is there a café near the post office?" },
+            { speaker: "Passante",  text: "Oui, il y a un café à côté de la poste.", translation: "Yes, there is a café next to the post office." },
+            { speaker: "Touriste",  text: "Merci beaucoup, madame.", translation: "Thank you very much, madam." },
+            { speaker: "Passante",  text: "De rien. Bonne journée !", translation: "You're welcome. Have a good day!" }
+        ],
+        questions: [
+            {
+                id: "fr-l-a1-6-q1",
+                level: "A1",
+                prompt: "Qu'est-ce que le touriste cherche ?",
+                options: ["La poste", "La pharmacie", "Le café", "L'hôtel"],
+                answer: "La poste"
+            },
+            {
+                id: "fr-l-a1-6-q2",
+                level: "A1",
+                prompt: "Où faut-il tourner au feu rouge ?",
+                options: ["À droite", "À gauche", "Tout droit", "En face"],
+                answer: "À droite"
+            },
+            {
+                id: "fr-l-a1-6-q3",
+                level: "A1",
+                prompt: "La poste est loin ?",
+                options: ["Non, cinq minutes à pied", "Oui, vingt minutes", "Non, deux minutes en voiture", "Oui, très loin"],
+                answer: "Non, cinq minutes à pied"
+            }
+        ]
+    },
+    {
+        id: "fr-l-a1-7",
+        level: "A1",
+        title: "Au restaurant — commander un repas",
+        script: "Bonsoir ! Vous avez une table pour deux personnes, s'il vous plaît ? Oui, bien sûr. Par ici. Voici la carte. Merci. Qu'est-ce que vous recommandez ? Je recommande le steak-frites — c'est très bon. D'accord. Je prends le steak-frites. Et comme boisson ? Une carafe d'eau, s'il vous plaît. Et pour vous, madame ? Je voudrais la salade niçoise et un verre de vin blanc. Très bien. C'est tout ? Oui, c'est tout pour le moment. Voilà, bonne soirée ! L'addition, s'il vous plaît. Oui, tout de suite. Ça fait trente-deux euros.",
+        translation: "Good evening! Do you have a table for two, please? Yes, of course. This way. Here is the menu. Thank you. What do you recommend? I recommend the steak and chips — it is very good. OK. I'll have the steak and chips. And to drink? A carafe of water, please. And for you, madam? I would like the Niçoise salad and a glass of white wine. Very good. Is that all? Yes, that's all for now. Enjoy your evening! The bill, please. Yes, right away. That's thirty-two euros.",
+        dialogue: [
+            { speaker: "Client",   text: "Bonsoir ! Vous avez une table pour deux personnes, s'il vous plaît ?", translation: "Good evening! Do you have a table for two, please?" },
+            { speaker: "Serveur",  text: "Oui, bien sûr. Par ici. Voici la carte.", translation: "Yes, of course. This way. Here is the menu." },
+            { speaker: "Client",   text: "Merci. Qu'est-ce que vous recommandez ?", translation: "Thank you. What do you recommend?" },
+            { speaker: "Serveur",  text: "Je recommande le steak-frites — c'est très bon.", translation: "I recommend the steak and chips — it is very good." },
+            { speaker: "Client",   text: "D'accord. Je prends le steak-frites. Et comme boisson ?", translation: "OK. I'll have the steak and chips. And to drink?" },
+            { speaker: "Client",   text: "Une carafe d'eau, s'il vous plaît.", translation: "A carafe of water, please." },
+            { speaker: "Serveur",  text: "Et pour vous, madame ?", translation: "And for you, madam?" },
+            { speaker: "Cliente",  text: "Je voudrais la salade niçoise et un verre de vin blanc.", translation: "I would like the Niçoise salad and a glass of white wine." },
+            { speaker: "Serveur",  text: "Très bien. C'est tout ?", translation: "Very good. Is that all?" },
+            { speaker: "Client",   text: "Oui, c'est tout pour le moment.", translation: "Yes, that's all for now." },
+            { speaker: "Cliente",  text: "L'addition, s'il vous plaît.", translation: "The bill, please." },
+            { speaker: "Serveur",  text: "Oui, tout de suite. Ça fait trente-deux euros.", translation: "Yes, right away. That's thirty-two euros." }
+        ],
+        questions: [
+            {
+                id: "fr-l-a1-7-q1",
+                level: "A1",
+                prompt: "Qu'est-ce que le serveur recommande ?",
+                options: ["Le steak-frites", "La salade niçoise", "Le poulet rôti", "La soupe"],
+                answer: "Le steak-frites"
+            },
+            {
+                id: "fr-l-a1-7-q2",
+                level: "A1",
+                prompt: "Qu'est-ce que la dame commande comme boisson ?",
+                options: ["Un verre de vin blanc", "Une carafe d'eau", "Un café", "Un jus d'orange"],
+                answer: "Un verre de vin blanc"
+            },
+            {
+                id: "fr-l-a1-7-q3",
+                level: "A1",
+                prompt: "Combien coûte le repas ?",
+                options: ["Trente-deux euros", "Vingt-deux euros", "Quarante euros", "Quinze euros"],
+                answer: "Trente-deux euros"
+            }
+        ]
     }
 ]

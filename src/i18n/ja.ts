@@ -86,6 +86,7 @@ export const ja: UIStrings = {
     sectionReadingDesc: "文章を読んで理解度を確認しましょう",
     sectionCulture: "文化",
     sectionCultureDesc: "読み物を通じて文化を学びましょう",
+    cultureUnlockHeading: "Unlock with this unit",
     checkUnderstanding: "理解度を確認する",
     markAsRead: "読了としてマーク",
     passageComplete: "文章完了！",

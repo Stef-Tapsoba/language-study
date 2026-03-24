@@ -124,6 +124,8 @@ export interface LessonUnit {
     verbIds: string[]         // references Verb.id
     testQuestions: QuizQuestion[]  // 5–8 questions to test out of this unit
     cultureIds?: string[]     // optional: references CultureEpisode.id for related culture content
+    readingIds?: string[]     // optional: references ReadingPassage.id linked to this unit
+    listeningIds?: string[]   // optional: references ListeningExercise.id linked to this unit
 }
 
 // ---------------------------------------------------------------------------

@@ -86,6 +86,7 @@ export const fr: UIStrings = {
     sectionReadingDesc: "Lisez des textes et vérifiez votre compréhension",
     sectionCulture: "Culture",
     sectionCultureDesc: "Explorez la culture à travers la lecture",
+    cultureUnlockHeading: "Unlock with this unit",
     checkUnderstanding: "Vérifier la compréhension",
     markAsRead: "Marquer comme lu",
     passageComplete: "Texte terminé !",

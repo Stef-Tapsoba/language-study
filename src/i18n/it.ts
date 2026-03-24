@@ -86,6 +86,7 @@ export const it: UIStrings = {
     sectionReadingDesc: "Leggi brani e verifica la comprensione",
     sectionCulture: "Cultura",
     sectionCultureDesc: "Esplora la cultura attraverso la lettura",
+    cultureUnlockHeading: "Unlock with this unit",
     checkUnderstanding: "Verifica la comprensione",
     markAsRead: "Segna come letto",
     passageComplete: "Brano completato!",
