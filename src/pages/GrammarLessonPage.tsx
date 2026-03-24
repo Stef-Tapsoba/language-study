@@ -27,7 +27,7 @@ export function GrammarLessonPage() {
     if (!lesson) {
         return (
             <div className="min-h-screen bg-gray-50">
-                <NavBar title="Grammar" level={level} backTo="back" />
+                <NavBar title="Grammar" level={level} backTo={`/learn/${langId}/grammar`} />
                 <main className="max-w-xl mx-auto px-4 py-16 text-center text-gray-400">
                     <p className="text-4xl mb-3">🔍</p>
                     <p className="font-medium">Lesson not found</p>
@@ -46,7 +46,7 @@ export function GrammarLessonPage() {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <NavBar title={lesson.title} level={level} backTo="back" />
+            <NavBar title={lesson.title} level={level} backTo={`/learn/${langId}/grammar`} />
             <main className="max-w-xl mx-auto px-4 py-6 flex flex-col gap-5">
 
                 {/* Title + level badge */}

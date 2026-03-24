@@ -79,7 +79,7 @@ export function VerbsPage() {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <NavBar title="Verbs" level={level} backTo="back" />
+            <NavBar title="Verbs" level={level} backTo={`/learn/${langId}`} />
             <main className="max-w-3xl mx-auto px-4 py-6">
                 <div className="flex items-center gap-2 mb-6">
                     <h2 className="text-xl font-bold text-gray-900">Verbs</h2>

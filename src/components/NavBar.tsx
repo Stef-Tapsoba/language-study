@@ -10,24 +10,38 @@ interface NavBarProps {
     level?: CEFRLevel
     /**
      * If provided, renders a back button.
-     * Pass a path string to navigate to that route, or "back" to go to the previous page.
+     * Prefer explicit route strings (e.g. "/home", `/learn/${langId}`) over the
+     * special value "back" — explicit paths work correctly regardless of how the
+     * user arrived at the page (direct URL, deep link, etc.).
+     * Use "back" only when browser-history semantics are intentional (e.g. ProfilePage).
      */
     backTo?: string
+    /**
+     * Used only when backTo is "back". If the browser history stack is empty or
+     * shallow, navigate here instead of calling navigate(-1).
+     */
+    fallbackRoute?: string
     /** If provided, overrides backTo — calls this function instead of navigating. */
     onBack?: () => void
     /** Renders the language switcher pill between title and profile icon. */
     showLanguagePicker?: boolean
 }
 
-export function NavBar({ title = "Language Study", level, backTo, onBack, showLanguagePicker }: Readonly<NavBarProps>) {
+export function NavBar({ title = "Language Study", level, backTo, fallbackRoute, onBack, showLanguagePicker }: Readonly<NavBarProps>) {
     const navigate = useNavigate()
     // Reactive: re-reads from the Zustand store so streak updates live during a session.
     const streak = useGlobalStreak()
 
     function handleBack() {
         if (onBack) { onBack(); return }
-        if (backTo === "back") navigate(-1)
-        else if (backTo) navigate(backTo)
+        if (backTo === "back") {
+            // Safety net: if there is no history to go back to (e.g. direct URL open),
+            // fall back to the explicit route rather than leaving the app.
+            if (globalThis.history.length > 1) navigate(-1)
+            else if (fallbackRoute) navigate(fallbackRoute)
+        } else if (backTo) {
+            navigate(backTo)
+        }
     }
 
     return (

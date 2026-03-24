@@ -344,7 +344,7 @@ export function CategoryReadingPage() {
             <NavBar
                 title={selectedPassage ? selectedPassage.title : label}
                 level={level}
-                backTo="back"
+                backTo={`/learn/${langId}`}
                 onBack={handleBack}
             />
 

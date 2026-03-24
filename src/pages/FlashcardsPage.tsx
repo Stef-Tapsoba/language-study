@@ -310,7 +310,7 @@ export function FlashcardsPage() {
     if (allVocab.length === 0) {
         return (
             <div className="min-h-screen bg-gray-50">
-                <NavBar title={ui.sectionFlashcards} level={level} backTo="back" />
+                <NavBar title={ui.sectionFlashcards} level={level} backTo={`/learn/${langId}`} />
                 <div className="flex flex-col items-center justify-center py-24 text-gray-400">
                     <p className="text-4xl mb-3">🚧</p>
                     <p className="font-medium">No vocabulary at {level} yet</p>
@@ -328,7 +328,7 @@ export function FlashcardsPage() {
 
         return (
             <div className="min-h-screen bg-gray-50">
-                <NavBar title={ui.sectionFlashcards} level={level} backTo="back" />
+                <NavBar title={ui.sectionFlashcards} level={level} backTo={`/learn/${langId}`} />
                 <main className="max-w-sm mx-auto px-4 py-16 flex flex-col items-center gap-5 text-center">
                     <p className="text-5xl">✅</p>
                     <h2 className="text-2xl font-bold text-gray-900">All caught up!</h2>
@@ -360,7 +360,7 @@ export function FlashcardsPage() {
     if (!started) {
         return (
             <div className="min-h-screen bg-gray-50">
-                <NavBar title={ui.sectionFlashcards} level={level} backTo="back" />
+                <NavBar title={ui.sectionFlashcards} level={level} backTo={`/learn/${langId}`} />
                 <main className="max-w-sm mx-auto px-4 py-16 flex flex-col items-center gap-5 text-center">
                     <p className="text-5xl">🃏</p>
                     <h2 className="text-xl font-bold text-gray-900">{srsDeck.length} cards ready</h2>
@@ -447,7 +447,7 @@ export function FlashcardsPage() {
 
         return (
             <div className="min-h-screen bg-gray-50">
-                <NavBar title={ui.sectionFlashcards} level={level} backTo="back" />
+                <NavBar title={ui.sectionFlashcards} level={level} backTo={`/learn/${langId}`} />
                 <ResultsScreen
                     correct={correct}
                     incorrect={incorrect}
@@ -467,7 +467,7 @@ export function FlashcardsPage() {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <NavBar title={ui.sectionFlashcards} level={level} backTo="back" />
+            <NavBar title={ui.sectionFlashcards} level={level} backTo={`/learn/${langId}`} />
             <main className="max-w-sm mx-auto px-4 py-8 flex flex-col items-center gap-6">
                 {/* Progress */}
                 <div className="w-full flex items-center justify-between text-sm text-gray-500">

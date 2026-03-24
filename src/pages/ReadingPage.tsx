@@ -292,7 +292,7 @@ export function ReadingPage() {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <NavBar title={ui.sectionReading} level={level} backTo="back" />
+            <NavBar title={ui.sectionReading} level={level} backTo={`/learn/${langId}`} />
             <main className="max-w-xl mx-auto px-4 py-6 flex flex-col gap-3">
                 {CATEGORY_HUB.map(({ category, icon, href }) => {
                     const count = passages.filter(p => p.category === category).length

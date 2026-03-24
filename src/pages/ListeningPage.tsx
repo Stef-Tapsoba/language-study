@@ -276,7 +276,7 @@ export function ListeningPage() {
     if (exercises.length === 0) {
         return (
             <div className="min-h-screen bg-gray-50">
-                <NavBar title={ui.sectionListening} level={level} backTo="back" />
+                <NavBar title={ui.sectionListening} level={level} backTo={`/learn/${langId}`} />
                 <div className="flex flex-col items-center justify-center py-24 text-gray-400">
                     <p className="text-4xl mb-3">🚧</p>
                     <p className="font-medium">{fmt(ui.noExercisesYet, { level })}</p>
@@ -292,7 +292,7 @@ export function ListeningPage() {
             <NavBar
                 title={selectedExercise ? selectedExercise.title : ui.sectionListening}
                 level={level}
-                backTo="back"
+                backTo={`/learn/${langId}`}
                 onBack={handleBack}
             />
             <main className="max-w-xl mx-auto px-4 py-8">

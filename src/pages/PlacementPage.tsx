@@ -65,7 +65,7 @@ export function PlacementPage() {
     if (done) {
         return (
             <div className="min-h-screen bg-gray-50">
-                <NavBar title={language.name} backTo="back" />
+                <NavBar title={language.name} backTo="/home" />
                 <main className="max-w-xl mx-auto px-4 py-12 flex flex-col items-center gap-6 text-center">
                     <div className="text-5xl">🎉</div>
                     <h2 className="text-2xl font-bold text-gray-900">Placement complete!</h2>
@@ -109,7 +109,7 @@ export function PlacementPage() {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <NavBar title={`${language.name} — Placement Test`} backTo="back" />
+            <NavBar title={`${language.name} — Placement Test`} backTo="/home" />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col items-center gap-6">
                 {tab === "test" ? (
                     <>

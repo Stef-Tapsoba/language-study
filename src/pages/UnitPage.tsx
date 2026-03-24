@@ -450,7 +450,7 @@ export function UnitPage() {
     if (!language || !mod || !unit) {
         return (
             <div className="min-h-screen bg-gray-50">
-                <NavBar title="Unit" level={level} backTo="back" />
+                <NavBar title="Unit" level={level} backTo={`/learn/${langId}`} />
                 <main className="max-w-3xl mx-auto px-4 py-16 text-center text-gray-400">
                     <p className="text-4xl mb-3">🔍</p>
                     <p className="font-medium">Unit not found.</p>
@@ -469,7 +469,7 @@ export function UnitPage() {
     if (isLocked) {
         return (
             <div className="min-h-screen bg-gray-50">
-                <NavBar title={unit.title} level={unit.level} backTo="back" />
+                <NavBar title={unit.title} level={unit.level} backTo={`/learn/${langId}`} />
                 <main className="max-w-xl mx-auto px-4 py-16 text-center">
                     <p className="text-5xl mb-4">🔒</p>
                     <h2 className="text-xl font-bold text-gray-900 mb-2">Unit locked</h2>
@@ -487,7 +487,7 @@ export function UnitPage() {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <NavBar title={unit.title} level={unit.level} backTo="back" />
+            <NavBar title={unit.title} level={unit.level} backTo={`/learn/${langId}`} />
 
             <main className="max-w-3xl mx-auto px-4 py-6">
                 {/* Unit header */}

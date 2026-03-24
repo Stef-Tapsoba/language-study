@@ -84,7 +84,7 @@ export function VerbDrillPage() {
     if (questions.length === 0) {
         return (
             <div className="min-h-screen bg-gray-50">
-                <NavBar title={ui.sectionVerbDrill} level={level} backTo="back" />
+                <NavBar title={ui.sectionVerbDrill} level={level} backTo={`/learn/${langId}`} />
                 <div className="flex flex-col items-center justify-center py-24 text-gray-400">
                     <p className="text-4xl mb-3">🚧</p>
                     <p className="font-medium">No verbs to drill at {level} yet</p>
@@ -102,6 +102,7 @@ export function VerbDrillPage() {
                 navTitle={ui.sectionVerbDrill}
                 ui={ui}
                 onRestart={drill.restart}
+                backTo={`/learn/${langId}`}
                 missed={drill.missed.map(m => ({
                     prompt: `${m.question.verb.infinitive} — ${m.question.tense} — ${m.question.pronoun}`,
                     correct: m.question.correct,
@@ -115,7 +116,7 @@ export function VerbDrillPage() {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <NavBar title={ui.sectionVerbDrill} level={level} backTo="back" />
+            <NavBar title={ui.sectionVerbDrill} level={level} backTo={`/learn/${langId}`} />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col items-center gap-6">
                 <div className="w-full flex items-center justify-between text-sm text-gray-500">
                     <span>{fmt(ui.questionOf, { n: drill.index + 1, total: questions.length })}</span>

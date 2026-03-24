@@ -93,7 +93,7 @@ export function VocabPage() {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <NavBar title="Vocabulary" level={level} backTo="back" />
+            <NavBar title="Vocabulary" level={level} backTo={`/learn/${langId}`} />
             <main className="max-w-3xl mx-auto px-4 py-6">
                 <div className="flex items-center gap-2 mb-4">
                     <h2 className="text-xl font-bold text-gray-900">Vocabulary</h2>
