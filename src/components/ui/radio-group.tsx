@@ -2,9 +2,14 @@
 
 import * as React from "react"
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group"
-import { Circle } from "lucide-react"
-
 import { cn } from "@/lib/utils"
+
+const Circle = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+    className={className} aria-hidden="true">
+    <circle cx="12" cy="12" r="10" />
+  </svg>
+)
 
 const RadioGroup = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Root>,
