@@ -278,6 +278,60 @@ COMMON PROFESSIONS
         ]
     },
     {
+        id: "it-g-a1-35",
+        level: "A1",
+        title: "Telling Dates",
+        explanation: `Italian dates use a simple formula: il + cardinal number + month (+ year).
+No ordinals except for the 1st — use 'primo', not 'uno'.
+
+THE DATE FORMULA
+  il + number + month
+
+  il primo gennaio    = the 1st of January
+  il due febbraio     = the 2nd of February
+  il quindici agosto  = the 15th of August
+  il ventitré marzo   = the 23rd of March
+
+SAYING TODAY'S DATE
+  Oggi è il quattro luglio.   = Today is the 4th of July.
+  Oggi è il primo maggio.     = Today is the 1st of May.
+
+ASKING THE DATE
+  Che giorno è oggi?       → What day is today? (also used for day of week)
+  Quanti ne abbiamo oggi?  → What's today's date? (lit. "how many do we have today?")
+  In che data siamo?       → What is the date?
+
+THE 1st — always 'primo'
+  ✓ il primo ottobre   = the 1st of October
+  ✗ NOT: il uno ottobre
+
+WITH DAY OF WEEK
+  Add the day before the date:
+  lunedì, il tre aprile          = Monday the 3rd of April
+  sabato, il ventisei dicembre   = Saturday the 26th of December
+
+YEARS
+  Attach to the date with no preposition:
+  Sono nato/a il quindici agosto duemilauno.  = I was born on 15th August 2001.
+  duemilaventisei = 2026`,
+        examples: [
+            { native: "Oggi è il tre marzo.", translation: "Today is the 3rd of March." },
+            { native: "Il mio compleanno è il primo aprile.", translation: "My birthday is the 1st of April." },
+            { native: "Quanti ne abbiamo oggi? — Il dieci.", translation: "What's today's date? — The 10th." },
+            { native: "La festa è venerdì, il quattordici febbraio.", translation: "The party is on Friday the 14th of February." },
+            { native: "Sono nata il ventitré luglio duemilacinque.", translation: "I was born on the 23rd of July 2005." },
+            { native: "Che giorno è oggi? — È martedì.", translation: "What day is today? — It's Tuesday." },
+        ],
+        inlineVocab: [
+            { word: "il primo", translation: "the 1st (use for dates, not 'uno')" },
+            { word: "il compleanno", translation: "birthday" },
+            { word: "nato/nata", translation: "born (masc./fem.)" },
+            { word: "la festa", translation: "party / celebration" },
+            { word: "oggi", translation: "today" },
+            { word: "quanti ne abbiamo?", translation: "what's the date? (informal)" },
+        ]
+    },
+    {
         id: "it-g-a1-22",
         level: "A1",
         title: "Giving & Understanding Directions",

@@ -1,7 +1,7 @@
 // data/italian/units/a1.ts
 import { LessonUnit } from "../../../types"
 
-// 24 ordered A1 units for Italian.
+// 25 ordered A1 units for Italian.
 // Each unit builds on the previous. Unit N+1 unlocks when unit N is mastered.
 //
 // U1–U19: existing units (see previous history in git log)
@@ -240,9 +240,9 @@ export const a1Units: LessonUnit[] = [
         id: "it-a1-u12",
         level: "A1",
         order: 12,
-        title: "Numbers 20-100, Months & Seasons",
-        description: "Learn the tens from 20 to 100, master compound number spelling rules, and learn months and seasons.",
-        grammarIds: ["it-g-a1-18"],
+        title: "Numbers 20-100, Months, Seasons & Dates",
+        description: "Learn the tens from 20 to 100, master compound number spelling rules, learn months and seasons, and tell the date using the Italian il + cardinal + month formula.",
+        grammarIds: ["it-g-a1-18", "it-g-a1-35"],
         vocabIds: [
             // Tens 20–100
             "it-v-a1-153", "it-v-a1-154", "it-v-a1-155", "it-v-a1-156",
@@ -261,7 +261,7 @@ export const a1Units: LessonUnit[] = [
             { id: "it-uq-a1-12-3", level: "A1", prompt: "How do you correctly write 'twenty-one'?", options: ["Ventiuno", "Ventuno", "Ventiun", "Ventune"], answer: "Ventuno" },
             { id: "it-uq-a1-12-4", level: "A1", prompt: "How do you say 'I am forty-two years old'?", options: ["Ho quarantadue anni.", "Ho quaranta due anni.", "Ho quaranta-due anni.", "Ho quarantadue anno."], answer: "Ho quarantadue anni." },
             { id: "it-uq-a1-12-5", level: "A1", prompt: "Which month is 'agosto'?", options: ["June", "July", "August", "September"], answer: "August" },
-            { id: "it-uq-a1-12-6", level: "A1", prompt: "Which is correct for 'twenty-three'?", options: ["Ventitre", "Ventitré", "Venti tre", "Ventitrei"], answer: "Ventitré" },
+            { id: "it-uq-a1-12-6", level: "A1", prompt: "How do you say 'Today is the 1st of May'?", options: ["Oggi è uno maggio.", "Oggi è il primo maggio.", "Oggi è il uno maggio.", "Oggi è primo maggio."], answer: "Oggi è il primo maggio." },
         ]
     },
     {
@@ -446,29 +446,52 @@ export const a1Units: LessonUnit[] = [
         id: "it-a1-u21",
         level: "A1",
         order: 21,
-        title: "Adverbs, Frequency & Connectors",
-        description: "Build more natural sentences: say where things are, when they happen, how often, and link ideas with connectors like ma, perché, and prima.",
-        grammarIds: ["it-g-a1-26", "it-g-a1-27", "it-g-a1-28", "it-g-a1-29"],
+        title: "Place & Time Adverbs",
+        description: "Say where things are and when they happen using common place adverbs (qui, lì, dentro, fuori, vicino, lontano) and time adverbs (oggi, domani, ieri, ancora, già, adesso, presto, tardi).",
+        grammarIds: ["it-g-a1-26", "it-g-a1-27"],
         vocabIds: [
-            // Time expressions — primary adverb targets (sempre, mai, spesso, oggi, domani…)
+            // Time expressions — primary adverb targets (oggi, domani, ieri, adesso, presto…)
             "it-v-a1-141", "it-v-a1-142", "it-v-a1-143", "it-v-a1-144",
             "it-v-a1-145", "it-v-a1-146", "it-v-a1-147", "it-v-a1-148",
             "it-v-a1-149", "it-v-a1-150"
         ],
         verbIds: [],
         testQuestions: [
-            { id: "it-uq-a1-21-1", level: "A1", prompt: "What does 'ancora' mean?", options: ["already", "soon", "still / yet", "never"], answer: "still / yet" },
-            { id: "it-uq-a1-21-2", level: "A1", prompt: "Where do frequency adverbs usually go?", options: ["Before the subject", "After the conjugated verb", "At the end only", "Before the infinitive"], answer: "After the conjugated verb" },
-            { id: "it-uq-a1-21-3", level: "A1", prompt: "What does 'lì' mean?", options: ["here", "nearby", "there", "inside"], answer: "there" },
-            { id: "it-uq-a1-21-4", level: "A1", prompt: "Which connector means 'because'?", options: ["ma", "però", "anche se", "perché"], answer: "perché" },
-            { id: "it-uq-a1-21-5", level: "A1", prompt: "What does 'a volte' mean?", options: ["always", "never", "sometimes", "often"], answer: "sometimes" },
-            { id: "it-uq-a1-21-6", level: "A1", prompt: "Put in order: Prima → ? → Infine", options: ["poi", "ma", "perché", "anche"], answer: "poi" },
+            { id: "it-uq-a1-21-1", level: "A1", prompt: "What does 'qui' mean?", options: ["there", "nearby", "here", "inside"], answer: "here" },
+            { id: "it-uq-a1-21-2", level: "A1", prompt: "What does 'lontano' mean?", options: ["near", "here", "outside", "far (away)"], answer: "far (away)" },
+            { id: "it-uq-a1-21-3", level: "A1", prompt: "What does 'ancora' mean?", options: ["already", "soon", "still / yet", "never"], answer: "still / yet" },
+            { id: "it-uq-a1-21-4", level: "A1", prompt: "How do you say 'already' in Italian?", options: ["ancora", "adesso", "già", "presto"], answer: "già" },
+            { id: "it-uq-a1-21-5", level: "A1", prompt: "What does 'adesso' mean?", options: ["soon", "yesterday", "later", "now"], answer: "now" },
+            { id: "it-uq-a1-21-6", level: "A1", prompt: "Choose the place adverb: 'Le chiavi sono ___ .' (inside)", options: ["tardi", "dentro", "ancora", "presto"], answer: "dentro" },
         ]
     },
     {
         id: "it-a1-u22",
         level: "A1",
         order: 22,
+        title: "Frequency Adverbs & Connectors",
+        description: "Say how often things happen with sempre, spesso, a volte, raramente, mai, and link ideas fluently with connectors like ma, però, perché, poi, prima, infine, and anche.",
+        grammarIds: ["it-g-a1-28", "it-g-a1-29"],
+        vocabIds: [
+            // Time expressions — frequency adverb drilling context (sempre, spesso, a volte, mai…)
+            "it-v-a1-141", "it-v-a1-142", "it-v-a1-143", "it-v-a1-144",
+            "it-v-a1-145", "it-v-a1-146", "it-v-a1-147", "it-v-a1-148",
+            "it-v-a1-149", "it-v-a1-150"
+        ],
+        verbIds: [],
+        testQuestions: [
+            { id: "it-uq-a1-22-1", level: "A1", prompt: "What does 'sempre' mean?", options: ["never", "sometimes", "always", "often"], answer: "always" },
+            { id: "it-uq-a1-22-2", level: "A1", prompt: "How do you say 'sometimes' in Italian?", options: ["sempre", "mai", "spesso", "a volte"], answer: "a volte" },
+            { id: "it-uq-a1-22-3", level: "A1", prompt: "Where do frequency adverbs usually go?", options: ["Before the subject", "After the conjugated verb", "At the end only", "Before the infinitive"], answer: "After the conjugated verb" },
+            { id: "it-uq-a1-22-4", level: "A1", prompt: "Which connector means 'because'?", options: ["ma", "però", "anche se", "perché"], answer: "perché" },
+            { id: "it-uq-a1-22-5", level: "A1", prompt: "Put in order: Prima → ? → Infine", options: ["poi", "ma", "perché", "anche"], answer: "poi" },
+            { id: "it-uq-a1-22-6", level: "A1", prompt: "What does 'ma' signal in a sentence?", options: ["addition", "sequence", "contrast / but", "cause"], answer: "contrast / but" },
+        ]
+    },
+    {
+        id: "it-a1-u23",
+        level: "A1",
+        order: 23,
         title: "Partitive Articles, C'è & Stressed Pronouns",
         description: "Express indefinite quantities with partitive articles (del, dello, della…), say what exists or doesn't exist with c'è and ci sono, and use stressed pronouns (me, te, lui, lei…) after prepositions and for emphasis.",
         grammarIds: ["it-g-a1-30", "it-g-a1-31", "it-g-a1-34"],
@@ -488,18 +511,18 @@ export const a1Units: LessonUnit[] = [
         ],
         verbIds: ["it-vb-a1-1", "it-vb-a1-8", "it-vb-a1-9"],
         testQuestions: [
-            { id: "it-uq-a1-22-1", level: "A1", prompt: "Which partitive article goes before a masculine noun starting with a vowel (e.g. 'olio')?", options: ["del", "dello", "dell'", "dei"], answer: "dell'" },
-            { id: "it-uq-a1-22-2", level: "A1", prompt: "Complete: 'Vuoi ___ acqua?' (some water)", options: ["del", "della", "delle", "degli"], answer: "della" },
-            { id: "it-uq-a1-22-3", level: "A1", prompt: "Which partitive article is used before masculine plural nouns starting with s + consonant (e.g. 'spaghetti')?", options: ["dei", "degli", "delle", "dell'"], answer: "degli" },
-            { id: "it-uq-a1-22-4", level: "A1", prompt: "Translate: 'There are three apples on the table.'", options: ["C'è tre mele sul tavolo.", "Ci sono tre mele sul tavolo.", "Ci sono tre mele nel tavolo.", "C'è delle mele sul tavolo."], answer: "Ci sono tre mele sul tavolo." },
-            { id: "it-uq-a1-22-5", level: "A1", prompt: "Complete: 'Non c'è ___ problema.' (there is no problem)", options: ["nessun", "nessuno", "nessuna", "alcun"], answer: "nessun" },
-            { id: "it-uq-a1-22-6", level: "A1", prompt: "Choose the correct stressed pronoun: 'Il regalo è per ___ .' (for her)", options: ["lei", "la", "le", "ella"], answer: "lei" },
+            { id: "it-uq-a1-23-1", level: "A1", prompt: "Which partitive article goes before a masculine noun starting with a vowel (e.g. 'olio')?", options: ["del", "dello", "dell'", "dei"], answer: "dell'" },
+            { id: "it-uq-a1-23-2", level: "A1", prompt: "Complete: 'Vuoi ___ acqua?' (some water)", options: ["del", "della", "delle", "degli"], answer: "della" },
+            { id: "it-uq-a1-23-3", level: "A1", prompt: "Which partitive article is used before masculine plural nouns starting with s + consonant (e.g. 'spaghetti')?", options: ["dei", "degli", "delle", "dell'"], answer: "degli" },
+            { id: "it-uq-a1-23-4", level: "A1", prompt: "Translate: 'There are three apples on the table.'", options: ["C'è tre mele sul tavolo.", "Ci sono tre mele sul tavolo.", "Ci sono tre mele nel tavolo.", "C'è delle mele sul tavolo."], answer: "Ci sono tre mele sul tavolo." },
+            { id: "it-uq-a1-23-5", level: "A1", prompt: "Complete: 'Non c'è ___ problema.' (there is no problem)", options: ["nessun", "nessuno", "nessuna", "alcun"], answer: "nessun" },
+            { id: "it-uq-a1-23-6", level: "A1", prompt: "Choose the correct stressed pronoun: 'Il regalo è per ___ .' (for her)", options: ["lei", "la", "le", "ella"], answer: "lei" },
         ]
     },
     {
-        id: "it-a1-u23",
+        id: "it-a1-u24",
         level: "A1",
-        order: 23,
+        order: 24,
         title: "Commands & Dovere",
         description: "Give instructions and commands using the Italian imperative, and express obligation, necessity, and advice with the modal verb dovere (must / have to / should).",
         grammarIds: ["it-g-a1-32", "it-g-a1-33"],
@@ -514,30 +537,30 @@ export const a1Units: LessonUnit[] = [
             "it-vb-a1-28", "it-vb-a1-29", "it-vb-a1-30", "it-vb-a1-31",
         ],
         testQuestions: [
-            { id: "it-uq-a1-23-1", level: "A1", prompt: "What is the tu imperative of 'parlare'?", options: ["Parla!", "Parli!", "Parlate!", "Parlare!"], answer: "Parla!" },
-            { id: "it-uq-a1-23-2", level: "A1", prompt: "What is the Lei (formal) imperative of 'aspettare'?", options: ["Aspetta!", "Aspetti!", "Aspettate!", "Aspettare!"], answer: "Aspetti!" },
-            { id: "it-uq-a1-23-3", level: "A1", prompt: "How do you form a negative tu imperative? Complete: '___ correre!' (Don't run!)", options: ["Non corri!", "Non corra!", "Non correre!", "Non correte!"], answer: "Non correre!" },
-            { id: "it-uq-a1-23-4", level: "A1", prompt: "Choose the correct form of dovere: 'Noi ___ studiare ogni giorno.'", options: ["devo", "deve", "dobbiamo", "dovete"], answer: "dobbiamo" },
-            { id: "it-uq-a1-23-5", level: "A1", prompt: "Translate: 'You (tu) must eat breakfast.'", options: ["Devi fare colazione.", "Deve fare colazione.", "Dovete fare colazione.", "Devo fare colazione."], answer: "Devi fare colazione." },
-            { id: "it-uq-a1-23-6", level: "A1", prompt: "Translate: 'They must arrive on time.'", options: ["Vogliono arrivare in orario.", "Possono arrivare in orario.", "Arrivano in orario.", "Devono arrivare in orario."], answer: "Devono arrivare in orario." },
+            { id: "it-uq-a1-24-1", level: "A1", prompt: "What is the tu imperative of 'parlare'?", options: ["Parla!", "Parli!", "Parlate!", "Parlare!"], answer: "Parla!" },
+            { id: "it-uq-a1-24-2", level: "A1", prompt: "What is the Lei (formal) imperative of 'aspettare'?", options: ["Aspetta!", "Aspetti!", "Aspettate!", "Aspettare!"], answer: "Aspetti!" },
+            { id: "it-uq-a1-24-3", level: "A1", prompt: "How do you form a negative tu imperative? Complete: '___ correre!' (Don't run!)", options: ["Non corri!", "Non corra!", "Non correre!", "Non correte!"], answer: "Non correre!" },
+            { id: "it-uq-a1-24-4", level: "A1", prompt: "Choose the correct form of dovere: 'Noi ___ studiare ogni giorno.'", options: ["devo", "deve", "dobbiamo", "dovete"], answer: "dobbiamo" },
+            { id: "it-uq-a1-24-5", level: "A1", prompt: "Translate: 'You (tu) must eat breakfast.'", options: ["Devi fare colazione.", "Deve fare colazione.", "Dovete fare colazione.", "Devo fare colazione."], answer: "Devi fare colazione." },
+            { id: "it-uq-a1-24-6", level: "A1", prompt: "Translate: 'They must arrive on time.'", options: ["Vogliono arrivare in orario.", "Possono arrivare in orario.", "Arrivano in orario.", "Devono arrivare in orario."], answer: "Devono arrivare in orario." },
         ]
     },
     {
-        id: "it-a1-u24",
+        id: "it-a1-u25",
         level: "A1",
-        order: 24,
+        order: 25,
         title: "Bridge: The Near Future",
         description: "Express future plans and imminent events using stare per + infinitive and andare a + infinitive. Your first step into A2 territory.",
         grammarIds: ["it-g-a1-13"],
         vocabIds: ["it-v-a1-141", "it-v-a1-142", "it-v-a1-143", "it-v-a1-144", "it-v-a1-145", "it-v-a1-146"],
         verbIds: ["it-vb-a1-4", "it-vb-a1-1"],
         testQuestions: [
-            { id: "it-uq-a1-24-1", level: "A1", prompt: "How do you say 'I am about to go out'?", options: ["Vado a uscire.", "Sto per uscire.", "Uscirò presto.", "Sto uscendo."], answer: "Sto per uscire." },
-            { id: "it-uq-a1-24-2", level: "A1", prompt: "Complete: 'Vado ___ mangiare.'", options: ["per", "di", "a", "in"], answer: "a" },
-            { id: "it-uq-a1-24-3", level: "A1", prompt: "How do you say 'It is about to rain'?", options: ["Piove sempre.", "Sta per piovere.", "Va a piovere.", "Pioverà."], answer: "Sta per piovere." },
-            { id: "it-uq-a1-24-4", level: "A1", prompt: "What does 'domani' mean?", options: ["Today", "Yesterday", "Now", "Tomorrow"], answer: "Tomorrow" },
-            { id: "it-uq-a1-24-5", level: "A1", prompt: "Which structure means something is ABOUT TO happen right now?", options: ["andare a + inf.", "stare per + inf.", "volere + inf.", "potere + inf."], answer: "stare per + inf." },
-            { id: "it-uq-a1-24-6", level: "A1", prompt: "Translate: 'We are going to watch a film tonight.'", options: ["Guardiamo un film stasera.", "Abbiamo guardato un film stasera.", "Andiamo a vedere un film stasera.", "Stiamo per vedere un film."], answer: "Andiamo a vedere un film stasera." },
+            { id: "it-uq-a1-25-1", level: "A1", prompt: "How do you say 'I am about to go out'?", options: ["Vado a uscire.", "Sto per uscire.", "Uscirò presto.", "Sto uscendo."], answer: "Sto per uscire." },
+            { id: "it-uq-a1-25-2", level: "A1", prompt: "Complete: 'Vado ___ mangiare.'", options: ["per", "di", "a", "in"], answer: "a" },
+            { id: "it-uq-a1-25-3", level: "A1", prompt: "How do you say 'It is about to rain'?", options: ["Piove sempre.", "Sta per piovere.", "Va a piovere.", "Pioverà."], answer: "Sta per piovere." },
+            { id: "it-uq-a1-25-4", level: "A1", prompt: "What does 'domani' mean?", options: ["Today", "Yesterday", "Now", "Tomorrow"], answer: "Tomorrow" },
+            { id: "it-uq-a1-25-5", level: "A1", prompt: "Which structure means something is ABOUT TO happen right now?", options: ["andare a + inf.", "stare per + inf.", "volere + inf.", "potere + inf."], answer: "stare per + inf." },
+            { id: "it-uq-a1-25-6", level: "A1", prompt: "Translate: 'We are going to watch a film tonight.'", options: ["Guardiamo un film stasera.", "Abbiamo guardato un film stasera.", "Andiamo a vedere un film stasera.", "Stiamo per vedere un film."], answer: "Andiamo a vedere un film stasera." },
         ]
     },
 ]
