@@ -14,6 +14,8 @@ import { NavBar } from "../components/NavBar"
 import { Flag } from "../components/Flag"
 import { LEVEL_LABELS } from "../types"
 import { SECTION_CONFIG } from "../data/sectionConfig"
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "../components/ui/alert-dialog"
+import { Alert, AlertDescription } from "../components/ui/alert"
 
 // ─── Language card ───────────────────────────────────────────────────────────
 
@@ -26,7 +28,6 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
     if (!lang) return null
 
     function handleReset() {
-        if (!confirm(`Reset all progress for ${lang!.name}? Your level will return to A1.`)) return
         resetLanguage(langId)
         resetSRS(langId)
         useStatsStore.getState().resetStats(langId)
@@ -35,7 +36,6 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
     }
 
     function handleRemove() {
-        if (!confirm(`Remove ${lang!.name} from your courses? This cannot be undone.`)) return
         removeLanguage(langId)
         resetSRS(langId)
         useStatsStore.getState().resetStats(langId)
@@ -118,14 +118,29 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
                                 Clears all completed lessons and mastered units. Level returns to A1.
                             </p>
                         </div>
-                        <button
-                            onClick={handleReset}
-                            className="shrink-0 text-sm font-semibold text-orange-600 hover:text-orange-800
-                                       border border-orange-300 hover:border-orange-500 px-3 py-1.5
-                                       rounded-lg transition-colors"
-                        >
-                            Reset ↺
-                        </button>
+                        <AlertDialog>
+                            <AlertDialogTrigger asChild>
+                                <button className="shrink-0 text-sm font-semibold text-orange-600 hover:text-orange-800
+                                                   border border-orange-300 hover:border-orange-500 px-3 py-1.5
+                                                   rounded-lg transition-colors">
+                                    Reset ↺
+                                </button>
+                            </AlertDialogTrigger>
+                            <AlertDialogContent>
+                                <AlertDialogHeader>
+                                    <AlertDialogTitle>Reset progress for {lang.name}?</AlertDialogTitle>
+                                    <AlertDialogDescription>
+                                        All lessons will be marked incomplete and your level returns to A1. This cannot be undone.
+                                    </AlertDialogDescription>
+                                </AlertDialogHeader>
+                                <AlertDialogFooter>
+                                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                    <AlertDialogAction onClick={handleReset} className="bg-red-600 hover:bg-red-700">
+                                        Reset
+                                    </AlertDialogAction>
+                                </AlertDialogFooter>
+                            </AlertDialogContent>
+                        </AlertDialog>
                     </div>
                     <div className="flex items-start justify-between gap-4 pt-3 border-t border-red-200">
                         <div>
@@ -134,14 +149,29 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
                                 Removes this course entirely. Cannot be undone.
                             </p>
                         </div>
-                        <button
-                            onClick={handleRemove}
-                            className="shrink-0 text-sm font-semibold text-red-600 hover:text-red-800
-                                       border border-red-300 hover:border-red-500 px-3 py-1.5
-                                       rounded-lg transition-colors"
-                        >
-                            Remove 🗑
-                        </button>
+                        <AlertDialog>
+                            <AlertDialogTrigger asChild>
+                                <button className="shrink-0 text-sm font-semibold text-red-600 hover:text-red-800
+                                                   border border-red-300 hover:border-red-500 px-3 py-1.5
+                                                   rounded-lg transition-colors">
+                                    Remove 🗑
+                                </button>
+                            </AlertDialogTrigger>
+                            <AlertDialogContent>
+                                <AlertDialogHeader>
+                                    <AlertDialogTitle>Remove {lang.name}?</AlertDialogTitle>
+                                    <AlertDialogDescription>
+                                        Removes this course entirely. All progress and SRS data will be lost. This cannot be undone.
+                                    </AlertDialogDescription>
+                                </AlertDialogHeader>
+                                <AlertDialogFooter>
+                                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                    <AlertDialogAction onClick={handleRemove} className="bg-red-600 hover:bg-red-700">
+                                        Remove
+                                    </AlertDialogAction>
+                                </AlertDialogFooter>
+                            </AlertDialogContent>
+                        </AlertDialog>
                     </div>
                 </div>
             )}
@@ -223,7 +253,7 @@ export function ProfilePage() {
 
                     {/* Stats row */}
                     {startedIds.length > 0 && (
-                        <div className="grid grid-cols-4 gap-2 mt-5">
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-5">
                             <div className="bg-white/15 rounded-xl p-3 text-center">
                                 <p className="text-lg font-bold text-white">{totalDone}</p>
                                 <p className="text-xs text-violet-200">learned</p>
@@ -265,17 +295,12 @@ export function ProfilePage() {
                     </h2>
                     <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden">
                         {/* Warning */}
-                        <div className="flex gap-3 px-5 py-4 bg-amber-50 border-b border-amber-100">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-amber-500 shrink-0 mt-0.5"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                <path strokeLinecap="round" strokeLinejoin="round"
-                                    d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
-                            </svg>
-                            <p className="text-sm text-amber-800">
+                        <Alert className="border-0 border-b border-amber-100 rounded-none bg-amber-50 text-amber-800 px-5 py-4">
+                            <AlertDescription>
                                 Your progress is saved on this device only. Clearing your browser
                                 data or switching devices will lose it. Export a backup to keep it safe.
-                            </p>
-                        </div>
+                            </AlertDescription>
+                        </Alert>
                         {/* Export button */}
                         <button
                             onClick={exportProgress}

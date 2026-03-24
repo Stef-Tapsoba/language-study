@@ -44,7 +44,8 @@ function VerbCard({ verb, langId }: Readonly<{ verb: Verb; langId: string }>) {
                             <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">
                                 {conj.tense}
                             </p>
-                            <div className="rounded-xl border border-gray-100 overflow-hidden">
+                            <div className="overflow-x-auto">
+                            <div className="rounded-xl border border-gray-100 overflow-hidden min-w-[300px]">
                                 {conj.forms.map((f, i) => (
                                     <div
                                         key={i}
@@ -58,6 +59,7 @@ function VerbCard({ verb, langId }: Readonly<{ verb: Verb; langId: string }>) {
                                         )}
                                     </div>
                                 ))}
+                            </div>
                             </div>
                         </div>
                     ))}

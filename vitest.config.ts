@@ -20,6 +20,7 @@ export default defineConfig({
             "@myorg/quiz-engine": pkg("quiz-engine"),
             "@myorg/tts":         pkg("tts"),
             "@myorg/srs":         pkg("srs"),
+            "lucide-react":       path.resolve(__dirname, "./src/test/lucide-react-stub.tsx"),
         }
     }
 })

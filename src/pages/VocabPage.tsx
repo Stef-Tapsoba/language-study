@@ -43,7 +43,7 @@ function VocabCard({
                     <SpeakButton text={item.word} langId={langId} />
                 </div>
                 <span className="text-sm text-gray-500 shrink-0">{item.translation}</span>
-                <span className="text-xs bg-gray-100 text-gray-500 rounded-full px-2 py-0.5 shrink-0 hidden sm:block">
+                <span className="text-xs bg-gray-100 text-gray-500 rounded-full px-2 py-0.5 shrink-0">
                     {item.category}
                 </span>
             </div>

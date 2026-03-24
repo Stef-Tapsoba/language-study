@@ -28,7 +28,7 @@ function LessonCard({
                     {done ? "✓" : "○"}
                 </span>
                 <span className="sr-only">{done ? "Completed" : "Not yet completed"}</span>
-                <span className="flex-1 font-medium text-gray-900">{lesson.title}</span>
+                <span className="flex-1 font-medium text-gray-900 truncate">{lesson.title}</span>
                 <LevelBadge level={lesson.level} />
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

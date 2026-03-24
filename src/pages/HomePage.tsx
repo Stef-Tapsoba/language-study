@@ -183,7 +183,7 @@ function ReturningHome({ firstName, startedIds }: Readonly<{
                     <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
                         Quick practice
                     </h2>
-                    <div className="grid grid-cols-3 gap-2 sm:gap-3">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
                         {[
                             { emoji: "🃏", label: "Flashcards",    path: `/learn/${selectedLangId}/flashcards`,    bg: "bg-violet-100" },
                             { emoji: "🔡", label: "Verb Drill",    path: `/learn/${selectedLangId}/verb-drill`,    bg: "bg-red-100"    },

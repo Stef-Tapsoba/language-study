@@ -43,7 +43,7 @@ export function RegisterPage() {
 
     return (
         <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4">
-            <div className="w-full max-w-sm">
+            <div className="w-full max-w-sm lg:max-w-md">
                 <h1 className="text-3xl font-bold text-center text-gray-900 mb-2">Language Study</h1>
                 <p className="text-center text-gray-500 mb-8">Create your account</p>
 

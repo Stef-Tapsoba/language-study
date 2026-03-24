@@ -17,6 +17,8 @@ import { SECTION_CONFIG, StudySection } from "../data/sectionConfig"
 import { useProgressStats } from "../hooks/useProgressStats"
 import { resolvePrimary } from "../utils/localizedText"
 import { getUI, UIStrings } from "../i18n"
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "../components/ui/tabs"
+import { Alert, AlertDescription } from "../components/ui/alert"
 
 type DashTab = "path" | "study" | "practice" | "test" | "stats"
 
@@ -231,216 +233,217 @@ export function DashboardPage() {
                 </div>
 
                 {/* Tab bar */}
-                <div className="flex gap-1 bg-gray-100 rounded-xl p-1 mb-6 overflow-x-auto">
-                    {tabs.map(t => (
-                        <button
-                            key={t.id}
-                            onClick={() => switchTab(t.id)}
-                            className={`shrink-0 sm:flex-1 py-2 px-3 rounded-lg text-xs sm:text-sm font-medium transition-all flex items-center justify-center gap-1.5 ${tab === t.id
-                                    ? "bg-white text-gray-900 shadow-sm"
-                                    : "text-gray-500 hover:text-gray-700"
-                                }`}
-                        >
-                            {t.label}
-                            {t.badge && (
-                                <span className={`text-xs font-normal rounded-full px-1.5 py-0.5 ${tab === t.id ? "bg-indigo-100 text-indigo-600" : "bg-gray-200 text-gray-500"
-                                    }`}>
-                                    {t.badge}
-                                </span>
-                            )}
-                        </button>
-                    ))}
-                </div>
-
-                {/* ── PATH ─────────────────────────────────────────────── */}
-                {tab === "path" && (
-                    levelUnits.length > 0 ? (
-                        <>
-                            {/* Level progress bar */}
-                            <div className="flex items-center gap-3 mb-4">
-                                <span className="text-xs text-gray-500 shrink-0">{level} progress</span>
-                                <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
-                                    <div className="h-full bg-violet-500 rounded-full transition-all"
-                                        style={{ width: `${levelUnits.length ? masteredCount / levelUnits.length * 100 : 0}%` }} />
-                                </div>
-                                <span className="text-xs text-gray-500 shrink-0">{masteredCount} of {levelUnits.length}</span>
-                            </div>
-                            <div className="flex flex-col gap-2">
-                                {levelUnits.map(unit => (
-                                    <UnitRow
-                                        key={unit.id}
-                                        unit={unit}
-                                        langId={langId}
-                                        level={level}
-                                        mastered={mastered}
-                                        allUnits={levelUnits}
-                                        completed={completed}
-                                    />
-                                ))}
-                            </div>
-                        </>
-                    ) : (
-                        <div className="text-center py-16 text-gray-400">
-                            <p className="text-4xl mb-3">🚧</p>
-                            <p className="font-medium">Guided units coming soon for {language.name}.</p>
-                            <p className="text-sm mt-1">Use the Study tab to browse content directly.</p>
-                        </div>
-                    )
-                )}
-
-                {/* ── STUDY ────────────────────────────────────────────── */}
-                {tab === "study" && (
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                        <StudyCard
-                            section="grammar"
-                            title={ui.sectionGrammar}
-                            countDesc={`${grammar.total} lessons at ${level}`}
-                            done={grammar.done} total={grammar.total}
-                            to={`/learn/${langId}/grammar`}
-                        />
-                        <StudyCard
-                            section="vocab"
-                            title={ui.sectionVocab}
-                            countDesc={`${vocab.total} words at ${level}`}
-                            done={vocab.done} total={vocab.total}
-                            to={`/learn/${langId}/vocab`}
-                        />
-                        <StudyCard
-                            section="verbs"
-                            title={ui.sectionVerbs}
-                            countDesc={`${verbs.total} verbs at ${level}`}
-                            done={verbs.done} total={verbs.total}
-                            to={`/learn/${langId}/verbs`}
-                        />
-                        <StudyCard
-                            section="reading"
-                            title={ui.sectionReading}
-                            countDesc={`${reading.total} passages at ${level}`}
-                            done={reading.done} total={reading.total}
-                            to={`/learn/${langId}/reading`}
-                        />
-                        <StudyCard
-                            section="listening"
-                            title={ui.sectionListening}
-                            countDesc={`${listening.total} exercises at ${level}`}
-                            done={listening.done} total={listening.total}
-                            to={`/learn/${langId}/listening`}
-                        />
-                        <StudyCard
-                            section="culture"
-                            title={ui.sectionCulture}
-                            countDesc={ui.sectionCultureDesc}
-                            to={`/learn/${langId}/culture`}
-                        />
-                    </div>
-                )}
-
-                {/* ── PRACTICE ─────────────────────────────────────────── */}
-                {tab === "practice" && (
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                        <SectionCard
-                            emoji="🃏"
-                            title={ui.sectionFlashcards}
-                            description={ui.sectionFlashcardsDesc}
-                            to={`/learn/${langId}/flashcards`}
-                            badge={dueCount > 0 ? dueCount : undefined}
-                        />
-                        <SectionCard
-                            emoji="🔡"
-                            title={ui.sectionVerbDrill}
-                            description={ui.sectionVerbDrillDesc}
-                            to={`/learn/${langId}/verb-drill`}
-                            badge={(() => {
-                                const verbCount = mod.verbs.filter(v => v.level === level).length
-                                return verbCount > 0 ? verbCount : undefined
-                            })()}
-                        />
-                        <SectionCard
-                            emoji="✏️"
-                            title={ui.sectionGrammarDrill}
-                            description={ui.sectionGrammarDrillDesc}
-                            to={`/learn/${langId}/grammar-drill`}
-                            badge={(() => {
-                                const gCount = mod.grammar.filter(g => g.level === level).flatMap(g => g.examples).length
-                                return gCount > 0 ? gCount : undefined
-                            })()}
-                        />
-                    </div>
-                )}
-
-                {/* ── STATS ────────────────────────────────────────────── */}
-                {tab === "stats" && <StatsTab langId={langId} level={level} />}
-
-                {/* ── TEST ─────────────────────────────────────────────── */}
-                {tab === "test" && (
-                    canAdvance ? (() => {
-                        const nextLevel = CEFR_LEVELS[levelIndex + 1]
-                        const history14 = getHistory(useStatsStore.getState().data, langId, 14)
-                        const reviewed14 = history14.reduce((s, d) => s + d.reviewed, 0)
-                        const correct14 = history14.reduce((s, d) => s + d.correct, 0)
-                        const srsAcc = reviewed14 ? Math.round(correct14 / reviewed14 * 100) : 0
-                        return (
-
-                            <div className="flex flex-col gap-4">
-                                {/* Hero */}
-                                <div className="bg-gradient-to-br from-violet-600 to-violet-800 rounded-2xl p-6 text-white">
-                                    <p className="text-sm font-medium text-violet-200 mb-1">{level} → {nextLevel}</p>
-                                    <h2 className="text-2xl font-bold mb-0.5">Level test</h2>
-                                    <p className="text-violet-200 text-sm">15 questions · pass 12 to advance</p>
-                                </div>
-                                {/* Readiness */}
-                                <div className="bg-white rounded-2xl border border-gray-200 p-5">
-                                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-4">Readiness</p>
-                                    <div className="flex flex-col gap-3">
-                                        {[
-                                            { label: "Grammar covered",    done: grammar.done, total: grammar.total, color: "bg-green-500" },
-                                            { label: "Vocabulary learned",  done: vocab.done,   total: vocab.total,   color: "bg-amber-400" },
-                                            { label: "Flashcard accuracy",  done: srsAcc,       total: 100,           color: "bg-violet-500", suffix: "%" },
-                                        ].map(r => (
-                                            <div key={r.label} className="flex items-center gap-3">
-                                                <span className="text-sm text-gray-600 flex-1">{r.label}</span>
-                                                <div className="w-28 h-2 bg-gray-100 rounded-full overflow-hidden">
-                                                    <div className={`h-full ${r.color} rounded-full`}
-                                                        style={{ width: `${r.total ? r.done / r.total * 100 : 0}%` }} />
-                                                </div>
-                                                <span className="text-xs text-gray-500 w-14 text-right shrink-0">
-                                                    {r.suffix ? `${r.done}${r.suffix}` : `${r.done}/${r.total}`}
-                                                </span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                    <button
-                                        onClick={() => navigate(`/learn/${langId}/level-test`)}
-                                        className="mt-5 w-full bg-violet-600 hover:bg-violet-700 text-white font-semibold rounded-xl py-3 text-sm transition-colors"
-                                    >
-                                        Start level test →
-                                    </button>
-                                </div>
-                                {/* Tip */}
-                                <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 flex gap-3">
-                                    <span className="text-amber-500 shrink-0">💡</span>
-                                    <p className="text-sm text-amber-800">
-                                        You can take the test at any time — but covering more units first improves your chances.
-                                        You need 12/15 (80%) to advance to {nextLevel}.
-                                    </p>
-                                </div>
-                            </div>
-                        )
-                    })() : (
-                        <div className="flex flex-col items-center text-center py-16 gap-4 text-gray-400">
-                            <p className="text-4xl">🏆</p>
-                            <p className="font-medium text-gray-700">You've reached the highest level!</p>
-                            <p className="text-sm text-gray-500">Keep your skills sharp with daily practice.</p>
-                            <button
-                                onClick={() => switchTab("practice")}
-                                className="mt-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
-                                           rounded-xl px-6 py-2.5 text-sm transition-colors"
+                <Tabs value={tab} onValueChange={v => switchTab(v as DashTab)} className="mb-6">
+                    <TabsList className="w-full h-auto p-1 bg-gray-100 rounded-xl">
+                        {tabs.map(t => (
+                            <TabsTrigger
+                                key={t.id}
+                                value={t.id}
+                                className="flex-1 min-w-0 py-2 px-2 text-xs sm:text-sm flex items-center justify-center gap-1.5"
                             >
-                                Go to Practice
-                            </button>
+                                {t.label}
+                                {t.badge && (
+                                    <span className="hidden sm:inline-flex text-xs font-normal rounded-full px-1.5 py-0.5 bg-indigo-100 text-indigo-600 data-[state=inactive]:bg-gray-200 data-[state=inactive]:text-gray-500">
+                                        {t.badge}
+                                    </span>
+                                )}
+                            </TabsTrigger>
+                        ))}
+                    </TabsList>
+
+                    {/* ── PATH ─────────────────────────────────────────────── */}
+                    <TabsContent value="path">
+                        {levelUnits.length > 0 ? (
+                            <>
+                                {/* Level progress bar */}
+                                <div className="flex items-center gap-3 mb-4">
+                                    <span className="text-xs text-gray-500 shrink-0">{level} progress</span>
+                                    <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                                        <div className="h-full bg-violet-500 rounded-full transition-all"
+                                            style={{ width: `${levelUnits.length ? masteredCount / levelUnits.length * 100 : 0}%` }} />
+                                    </div>
+                                    <span className="text-xs text-gray-500 shrink-0">{masteredCount} of {levelUnits.length}</span>
+                                </div>
+                                <div className="flex flex-col gap-2">
+                                    {levelUnits.map(unit => (
+                                        <UnitRow
+                                            key={unit.id}
+                                            unit={unit}
+                                            langId={langId}
+                                            level={level}
+                                            mastered={mastered}
+                                            allUnits={levelUnits}
+                                            completed={completed}
+                                        />
+                                    ))}
+                                </div>
+                            </>
+                        ) : (
+                            <div className="text-center py-16 text-gray-400">
+                                <p className="text-4xl mb-3">🚧</p>
+                                <p className="font-medium">Guided units coming soon for {language.name}.</p>
+                                <p className="text-sm mt-1">Use the Study tab to browse content directly.</p>
+                            </div>
+                        )}
+                    </TabsContent>
+
+                    {/* ── STUDY ────────────────────────────────────────────── */}
+                    <TabsContent value="study">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                            <StudyCard
+                                section="grammar"
+                                title={ui.sectionGrammar}
+                                countDesc={`${grammar.total} lessons at ${level}`}
+                                done={grammar.done} total={grammar.total}
+                                to={`/learn/${langId}/grammar`}
+                            />
+                            <StudyCard
+                                section="vocab"
+                                title={ui.sectionVocab}
+                                countDesc={`${vocab.total} words at ${level}`}
+                                done={vocab.done} total={vocab.total}
+                                to={`/learn/${langId}/vocab`}
+                            />
+                            <StudyCard
+                                section="verbs"
+                                title={ui.sectionVerbs}
+                                countDesc={`${verbs.total} verbs at ${level}`}
+                                done={verbs.done} total={verbs.total}
+                                to={`/learn/${langId}/verbs`}
+                            />
+                            <StudyCard
+                                section="reading"
+                                title={ui.sectionReading}
+                                countDesc={`${reading.total} passages at ${level}`}
+                                done={reading.done} total={reading.total}
+                                to={`/learn/${langId}/reading`}
+                            />
+                            <StudyCard
+                                section="listening"
+                                title={ui.sectionListening}
+                                countDesc={`${listening.total} exercises at ${level}`}
+                                done={listening.done} total={listening.total}
+                                to={`/learn/${langId}/listening`}
+                            />
+                            <StudyCard
+                                section="culture"
+                                title={ui.sectionCulture}
+                                countDesc={ui.sectionCultureDesc}
+                                to={`/learn/${langId}/culture`}
+                            />
                         </div>
-                    )
-                )}
+                    </TabsContent>
+
+                    {/* ── PRACTICE ─────────────────────────────────────────── */}
+                    <TabsContent value="practice">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                            <SectionCard
+                                emoji="🃏"
+                                title={ui.sectionFlashcards}
+                                description={ui.sectionFlashcardsDesc}
+                                to={`/learn/${langId}/flashcards`}
+                                badge={dueCount > 0 ? dueCount : undefined}
+                            />
+                            <SectionCard
+                                emoji="🔡"
+                                title={ui.sectionVerbDrill}
+                                description={ui.sectionVerbDrillDesc}
+                                to={`/learn/${langId}/verb-drill`}
+                                badge={(() => {
+                                    const verbCount = mod.verbs.filter(v => v.level === level).length
+                                    return verbCount > 0 ? verbCount : undefined
+                                })()}
+                            />
+                            <SectionCard
+                                emoji="✏️"
+                                title={ui.sectionGrammarDrill}
+                                description={ui.sectionGrammarDrillDesc}
+                                to={`/learn/${langId}/grammar-drill`}
+                                badge={(() => {
+                                    const gCount = mod.grammar.filter(g => g.level === level).flatMap(g => g.examples).length
+                                    return gCount > 0 ? gCount : undefined
+                                })()}
+                            />
+                        </div>
+                    </TabsContent>
+
+                    {/* ── STATS ────────────────────────────────────────────── */}
+                    <TabsContent value="stats">
+                        <StatsTab langId={langId} level={level} />
+                    </TabsContent>
+
+                    {/* ── TEST ─────────────────────────────────────────────── */}
+                    <TabsContent value="test">
+                        {canAdvance ? (() => {
+                            const nextLevel = CEFR_LEVELS[levelIndex + 1]
+                            const history14 = getHistory(useStatsStore.getState().data, langId, 14)
+                            const reviewed14 = history14.reduce((s, d) => s + d.reviewed, 0)
+                            const correct14 = history14.reduce((s, d) => s + d.correct, 0)
+                            const srsAcc = reviewed14 ? Math.round(correct14 / reviewed14 * 100) : 0
+                            return (
+                                <div className="flex flex-col gap-4">
+                                    {/* Hero */}
+                                    <div className="bg-gradient-to-br from-violet-600 to-violet-800 rounded-2xl p-6 text-white">
+                                        <p className="text-sm font-medium text-violet-200 mb-1">{level} → {nextLevel}</p>
+                                        <h2 className="text-2xl font-bold mb-0.5">Level test</h2>
+                                        <p className="text-violet-200 text-sm">15 questions · pass 12 to advance</p>
+                                    </div>
+                                    {/* Readiness */}
+                                    <div className="bg-white rounded-2xl border border-gray-200 p-5">
+                                        <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-4">Readiness</p>
+                                        <div className="flex flex-col gap-3">
+                                            {[
+                                                { label: "Grammar covered",    done: grammar.done, total: grammar.total, color: "bg-green-500" },
+                                                { label: "Vocabulary learned",  done: vocab.done,   total: vocab.total,   color: "bg-amber-400" },
+                                                { label: "Flashcard accuracy",  done: srsAcc,       total: 100,           color: "bg-violet-500", suffix: "%" },
+                                            ].map(r => (
+                                                <div key={r.label} className="flex items-center gap-3">
+                                                    <span className="text-sm text-gray-600 flex-1">{r.label}</span>
+                                                    <div className="w-28 h-2 bg-gray-100 rounded-full overflow-hidden">
+                                                        <div className={`h-full ${r.color} rounded-full`}
+                                                            style={{ width: `${r.total ? r.done / r.total * 100 : 0}%` }} />
+                                                    </div>
+                                                    <span className="text-xs text-gray-500 w-14 text-right shrink-0">
+                                                        {r.suffix ? `${r.done}${r.suffix}` : `${r.done}/${r.total}`}
+                                                    </span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                        <button
+                                            onClick={() => navigate(`/learn/${langId}/level-test`)}
+                                            className="mt-5 w-full bg-violet-600 hover:bg-violet-700 text-white font-semibold rounded-xl py-3 text-sm transition-colors"
+                                        >
+                                            Start level test →
+                                        </button>
+                                    </div>
+                                    {/* Tip */}
+                                    <Alert className="border-amber-200 bg-amber-50 text-amber-800">
+                                        <AlertDescription className="flex gap-3">
+                                            <span className="text-amber-500 shrink-0">💡</span>
+                                            <span>
+                                                You can take the test at any time — but covering more units first improves your chances.
+                                                You need 12/15 (80%) to advance to {nextLevel}.
+                                            </span>
+                                        </AlertDescription>
+                                    </Alert>
+                                </div>
+                            )
+                        })() : (
+                            <div className="flex flex-col items-center text-center py-16 gap-4 text-gray-400">
+                                <p className="text-4xl">🏆</p>
+                                <p className="font-medium text-gray-700">You've reached the highest level!</p>
+                                <p className="text-sm text-gray-500">Keep your skills sharp with daily practice.</p>
+                                <button
+                                    onClick={() => switchTab("practice")}
+                                    className="mt-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
+                                               rounded-xl px-6 py-2.5 text-sm transition-colors"
+                                >
+                                    Go to Practice
+                                </button>
+                            </div>
+                        )}
+                    </TabsContent>
+                </Tabs>
             </main>
         </div>
     )

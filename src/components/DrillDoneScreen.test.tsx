@@ -3,6 +3,7 @@
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { MemoryRouter } from "react-router-dom"
+import { TooltipProvider } from "./ui/tooltip"
 import { DrillDoneScreen } from "./DrillDoneScreen"
 import { en } from "../i18n/en"
 
@@ -20,7 +21,9 @@ function renderScreen(props: Partial<React.ComponentProps<typeof DrillDoneScreen
     }
     return render(
         <MemoryRouter>
-            <DrillDoneScreen {...defaults} {...props} />
+            <TooltipProvider>
+                <DrillDoneScreen {...defaults} {...props} />
+            </TooltipProvider>
         </MemoryRouter>
     )
 }

@@ -1,5 +1,6 @@
-// components/LevelBadge.tsx — Coloured CEFR level pill badge (A1–C1)
+// components/LevelBadge.tsx — Coloured CEFR level pill badge (A1–C1) with tooltip
 import { CEFRLevel } from "../types"
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip"
 
 const colours: Record<CEFRLevel, string> = {
     A1: "bg-green-100 text-green-800",
@@ -9,10 +10,23 @@ const colours: Record<CEFRLevel, string> = {
     C1: "bg-orange-100 text-orange-800",
 }
 
-export function LevelBadge({ level }: { level: CEFRLevel }) {
+const levelNames: Record<CEFRLevel, string> = {
+    A1: "Beginner",
+    A2: "Elementary",
+    B1: "Intermediate",
+    B2: "Upper Intermediate",
+    C1: "Advanced",
+}
+
+export function LevelBadge({ level }: Readonly<{ level: CEFRLevel }>) {
     return (
-        <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${colours[level]}`}>
-            {level}
-        </span>
+        <Tooltip>
+            <TooltipTrigger asChild>
+                <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold cursor-default ${colours[level]}`}>
+                    {level}
+                </span>
+            </TooltipTrigger>
+            <TooltipContent>{levelNames[level]}</TooltipContent>
+        </Tooltip>
     )
 }

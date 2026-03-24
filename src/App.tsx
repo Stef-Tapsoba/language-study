@@ -2,6 +2,7 @@
 import { useState, useEffect, lazy, Suspense } from "react"
 import { BrowserRouter, Routes, Route, Navigate, Outlet, useParams } from "react-router-dom"
 import { AuthProvider } from "./auth/AuthContext"
+import { TooltipProvider } from "./components/ui/tooltip"
 import { ProtectedRoute } from "./auth/ProtectedRoute"
 import { ProgressProvider } from "./context/ProgressContext"
 import { getModule, loadModule } from "./data/modules"
@@ -52,6 +53,7 @@ function LanguageLoader() {
 export default function App() {
     return (
         <AuthProvider>
+            <TooltipProvider>
             <ProgressProvider>
             <BrowserRouter>
                 <Suspense fallback={
@@ -107,6 +109,7 @@ export default function App() {
                 </Suspense>
             </BrowserRouter>
             </ProgressProvider>
+            </TooltipProvider>
         </AuthProvider>
     )
 }

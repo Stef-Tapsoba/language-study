@@ -1,8 +1,8 @@
 // components/DrillDoneScreen.tsx — shared session-complete screen for verb and grammar drills
-import { useState } from "react"
 import { NavBar } from "./NavBar"
 import { CEFRLevel } from "../types"
 import { UIStrings } from "../i18n"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion"
 
 export interface MissedReviewItem {
     prompt: string
@@ -26,7 +26,6 @@ interface DrillDoneScreenProps {
 
 export function DrillDoneScreen({ score, total, level, navTitle, ui, onRestart, missed = [], backTo = "/home", encouragement }: Readonly<DrillDoneScreenProps>) {
     const pct = Math.round((score / total) * 100)
-    const [reviewOpen, setReviewOpen] = useState(false)
 
     return (
         <div className="min-h-screen bg-gray-50">
@@ -53,26 +52,24 @@ export function DrillDoneScreen({ score, total, level, navTitle, ui, onRestart, 
                 </div>
 
                 {missed.length > 0 && (
-                    <div className="w-full bg-white rounded-2xl border border-gray-200 overflow-hidden text-left">
-                        <button
-                            onClick={() => setReviewOpen(o => !o)}
-                            className="w-full flex items-center justify-between px-5 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
-                        >
-                            <span>Review mistakes ({missed.length})</span>
-                            <span className="text-gray-400">{reviewOpen ? "▲" : "▼"}</span>
-                        </button>
-                        {reviewOpen && (
-                            <div className="flex flex-col divide-y divide-gray-100">
-                                {missed.map((item) => (
-                                    <div key={`${item.prompt}-${item.correct}`} className="px-5 py-3">
-                                        <p className="text-xs text-gray-500 mb-1">{item.prompt}</p>
-                                        <p className="text-sm font-medium text-green-700">✓ {item.correct}</p>
-                                        <p className="text-sm text-red-500">✗ {item.yourAnswer}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        )}
-                    </div>
+                    <Accordion type="single" collapsible className="w-full bg-white rounded-2xl border border-gray-200 text-left">
+                        <AccordionItem value="mistakes" className="border-0 px-5">
+                            <AccordionTrigger className="text-sm font-semibold text-gray-700 py-3 hover:no-underline">
+                                Review mistakes ({missed.length})
+                            </AccordionTrigger>
+                            <AccordionContent>
+                                <div className="divide-y divide-gray-100">
+                                    {missed.map((item) => (
+                                        <div key={`${item.prompt}-${item.correct}`} className="py-3">
+                                            <p className="text-xs text-gray-500 mb-1">{item.prompt}</p>
+                                            <p className="text-sm font-medium text-green-700">✓ {item.correct}</p>
+                                            <p className="text-sm text-red-500">✗ {item.yourAnswer}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </AccordionContent>
+                        </AccordionItem>
+                    </Accordion>
                 )}
 
                 <button

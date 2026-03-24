@@ -17,6 +17,8 @@ import { getUI, fmt, UIStrings } from "../i18n"
 import { resolvePrimary } from "../utils/localizedText"
 import { useVocabTooltip } from "../hooks/useVocabTooltip"
 import type { VocabClickHandler } from "../utils/renderExplanation"
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "../components/ui/tabs"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion"
 
 type Tab = "grammar" | "vocab" | "verbs" | "test"
 
@@ -27,49 +29,44 @@ function GrammarAccordion({ lesson, done, langId, level, ui, onComplete, onVocab
     lesson: GrammarLesson; done: boolean; langId: string; level: CEFRLevel; ui: UIStrings; onComplete: () => void
     onVocabClick: VocabClickHandler
 }>) {
-    const [open, setOpen] = useState(false)
     const { markLessonComplete } = useProgress()
     return (
-        <div className={`bg-white border rounded-2xl overflow-hidden ${done ? "border-green-300" : "border-gray-200"}`}>
-            <button
-                onClick={() => setOpen(o => !o)}
-                className="w-full px-5 py-4 flex items-center gap-3 text-left"
-            >
-                <span className={`text-lg ${done ? "text-green-500" : "text-gray-300"}`}>{done ? "✓" : "○"}</span>
-                <span className="flex-1 font-medium text-gray-900">{lesson.title}</span>
-                <svg xmlns="http://www.w3.org/2000/svg"
-                    className={`w-4 h-4 text-gray-400 transition-transform ${open ? "rotate-180" : ""}`}
-                    fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-            </button>
-            {open && (
-                <div className="px-5 pb-5 border-t border-gray-100">
-                    <LocalizedExplanation text={lesson.explanation} level={level} langId={langId} className="mt-4"
-                        inlineVocab={lesson.inlineVocab} onVocabClick={onVocabClick} />
-                    <div className="mt-4 flex flex-col gap-3">
-                        {lesson.examples.map((ex) => (
-                            <div key={ex.native} className="bg-gray-50 rounded-xl p-3">
-                                <div className="flex items-start gap-1">
-                                    <p className="flex-1 font-medium text-gray-900">{ex.native}</p>
-                                    <SpeakButton text={ex.speakText ?? ex.native} langId={langId} />
-                                </div>
-                                {ex.romanized && <p className="text-xs text-indigo-500 mt-0.5">{ex.romanized}</p>}
-                                <p className="text-sm text-gray-500 mt-0.5">{ex.translation}</p>
-                            </div>
-                        ))}
+        <Accordion type="single" collapsible>
+            <AccordionItem value={lesson.id} className={`border rounded-2xl px-5 ${done ? "border-green-300 bg-white" : "border-gray-200 bg-white"}`}>
+                <AccordionTrigger className="py-4 hover:no-underline">
+                    <div className="flex items-center gap-3">
+                        <span className={`text-lg ${done ? "text-green-500" : "text-gray-300"}`}>{done ? "✓" : "○"}</span>
+                        <span className="font-medium text-gray-900">{lesson.title}</span>
                     </div>
-                    {!done && (
-                        <button
-                            onClick={() => { markLessonComplete(langId, lesson.id); onComplete() }}
-                            className="mt-4 w-full bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl py-2 text-sm transition-colors"
-                        >
-                            {ui.markComplete}
-                        </button>
-                    )}
-                </div>
-            )}
-        </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                    <div className="pb-1">
+                        <LocalizedExplanation text={lesson.explanation} level={level} langId={langId} className="mt-2"
+                            inlineVocab={lesson.inlineVocab} onVocabClick={onVocabClick} />
+                        <div className="mt-4 flex flex-col gap-3">
+                            {lesson.examples.map((ex) => (
+                                <div key={ex.native} className="bg-gray-50 rounded-xl p-3">
+                                    <div className="flex items-start gap-1">
+                                        <p className="flex-1 font-medium text-gray-900">{ex.native}</p>
+                                        <SpeakButton text={ex.speakText ?? ex.native} langId={langId} />
+                                    </div>
+                                    {ex.romanized && <p className="text-xs text-indigo-500 mt-0.5">{ex.romanized}</p>}
+                                    <p className="text-sm text-gray-500 mt-0.5">{ex.translation}</p>
+                                </div>
+                            ))}
+                        </div>
+                        {!done && (
+                            <button
+                                onClick={() => { markLessonComplete(langId, lesson.id); onComplete() }}
+                                className="mt-4 w-full bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl py-2 text-sm transition-colors"
+                            >
+                                {ui.markComplete}
+                            </button>
+                        )}
+                    </div>
+                </AccordionContent>
+            </AccordionItem>
+        </Accordion>
     )
 }
 
@@ -79,43 +76,43 @@ function GrammarAccordion({ lesson, done, langId, level, ui, onComplete, onVocab
 function VocabRow({ item, done, langId, ui, onComplete }: Readonly<{
     item: VocabItem; done: boolean; langId: string; ui: UIStrings; onComplete: () => void
 }>) {
-    const [open, setOpen] = useState(false)
     const { markLessonComplete } = useProgress()
     return (
-        <div className={`bg-white border rounded-2xl overflow-hidden ${done ? "border-green-300" : "border-gray-200 hover:border-indigo-300"}`}>
-            <button
-                onClick={() => setOpen(o => !o)}
-                className="w-full px-4 py-3 flex items-center gap-3 text-left"
-            >
-                <span className={`text-base ${done ? "text-green-500" : "text-gray-300"}`}>{done ? "✓" : "○"}</span>
-                <div className="flex-1 min-w-0">
-                    <span className="font-semibold text-gray-900">{item.word}</span>
-                    {item.romanized && <span className="ml-2 text-xs text-indigo-500">{item.romanized}</span>}
-                </div>
-                <SpeakButton text={item.word} langId={langId} />
-                <span className="text-sm text-gray-500 shrink-0">{item.translation}</span>
-                <span className="text-xs bg-gray-100 text-gray-500 rounded-full px-2 py-0.5 shrink-0 hidden sm:block">
-                    {item.category}
-                </span>
-            </button>
-            {open && (
-                <div className="px-4 pb-4 border-t border-gray-100 pt-3">
-                    <div className="bg-gray-50 rounded-xl p-3 mb-3">
-                        <p className="text-sm font-medium text-gray-800">{item.example.native}</p>
-                        {item.example.romanized && <p className="text-xs text-indigo-500 mt-0.5">{item.example.romanized}</p>}
-                        <p className="text-xs text-gray-500 mt-1">{item.example.translation}</p>
+        <Accordion type="single" collapsible>
+            <AccordionItem value={item.id} className={`border rounded-2xl px-4 bg-white ${done ? "border-green-300" : "border-gray-200 hover:border-indigo-300"}`}>
+                <AccordionTrigger className="py-3 hover:no-underline">
+                    <div className="flex items-center gap-3 w-full pr-2">
+                        <span className={`text-base ${done ? "text-green-500" : "text-gray-300"}`}>{done ? "✓" : "○"}</span>
+                        <div className="flex-1 min-w-0 flex items-center gap-2">
+                            <span className="font-semibold text-gray-900">{item.word}</span>
+                            {item.romanized && <span className="text-xs text-indigo-500">{item.romanized}</span>}
+                        </div>
+                        <SpeakButton text={item.word} langId={langId} />
+                        <span className="text-sm text-gray-500 shrink-0">{item.translation}</span>
+                        <span className="text-xs bg-gray-100 text-gray-500 rounded-full px-2 py-0.5 shrink-0">
+                            {item.category}
+                        </span>
                     </div>
-                    {!done && (
-                        <button
-                            onClick={() => { markLessonComplete(langId, item.id); onComplete() }}
-                            className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl py-2 text-sm transition-colors"
-                        >
-                            {ui.markLearned}
-                        </button>
-                    )}
-                </div>
-            )}
-        </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                    <div className="pb-1">
+                        <div className="bg-gray-50 rounded-xl p-3 mb-3">
+                            <p className="text-sm font-medium text-gray-800">{item.example.native}</p>
+                            {item.example.romanized && <p className="text-xs text-indigo-500 mt-0.5">{item.example.romanized}</p>}
+                            <p className="text-xs text-gray-500 mt-1">{item.example.translation}</p>
+                        </div>
+                        {!done && (
+                            <button
+                                onClick={() => { markLessonComplete(langId, item.id); onComplete() }}
+                                className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl py-2 text-sm transition-colors"
+                            >
+                                {ui.markLearned}
+                            </button>
+                        )}
+                    </div>
+                </AccordionContent>
+            </AccordionItem>
+        </Accordion>
     )
 }
 
@@ -123,44 +120,39 @@ function VocabRow({ item, done, langId, ui, onComplete }: Readonly<{
 // VerbCard
 // ---------------------------------------------------------------------------
 function VerbCard({ verb, langId }: Readonly<{ verb: Verb; langId: string }>) {
-    const [open, setOpen] = useState(false)
     return (
-        <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden">
-            <button
-                onClick={() => setOpen(o => !o)}
-                className="w-full px-5 py-4 flex items-center gap-3 text-left"
-            >
-                <div className="flex-1">
-                    <span className="font-semibold text-gray-900">{verb.infinitive}</span>
-                    {verb.romanized && <span className="ml-2 text-xs text-indigo-500">{verb.romanized}</span>}
-                    <span className="ml-2 text-sm text-gray-500">— {verb.meaning}</span>
-                </div>
-                <SpeakButton text={verb.infinitive} langId={langId} />
-                <svg xmlns="http://www.w3.org/2000/svg"
-                    className={`w-4 h-4 text-gray-400 transition-transform shrink-0 ${open ? "rotate-180" : ""}`}
-                    fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-            </button>
-            {open && (
-                <div className="px-5 pb-5 border-t border-gray-100">
-                    {verb.conjugations.map(conj => (
-                        <div key={conj.tense} className="mt-4">
-                            <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">{conj.tense}</p>
-                            <div className="rounded-xl border border-gray-100 overflow-hidden">
-                                {conj.forms.map((f) => (
-                                    <div key={f.pronoun} className="flex items-center px-4 py-2.5 text-sm odd:bg-white even:bg-gray-50">
-                                        <span className="text-gray-500 w-28 shrink-0">{f.pronoun}</span>
-                                        <span className="font-medium text-gray-900">{f.form}</span>
-                                        {f.romanized && <span className="ml-2 text-xs text-indigo-400">{f.romanized}</span>}
-                                    </div>
-                                ))}
-                            </div>
+        <Accordion type="single" collapsible>
+            <AccordionItem value={verb.id} className="border border-gray-200 rounded-2xl px-5 bg-white">
+                <AccordionTrigger className="py-4 hover:no-underline">
+                    <div className="flex items-center gap-3 w-full pr-2">
+                        <div className="flex-1">
+                            <span className="font-semibold text-gray-900">{verb.infinitive}</span>
+                            {verb.romanized && <span className="ml-2 text-xs text-indigo-500">{verb.romanized}</span>}
+                            <span className="ml-2 text-sm text-gray-500">— {verb.meaning}</span>
                         </div>
-                    ))}
-                </div>
-            )}
-        </div>
+                        <SpeakButton text={verb.infinitive} langId={langId} />
+                    </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                    <div className="pb-1">
+                        {verb.conjugations.map(conj => (
+                            <div key={conj.tense} className="mt-4">
+                                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">{conj.tense}</p>
+                                <div className="rounded-xl border border-gray-100 overflow-hidden">
+                                    {conj.forms.map((f) => (
+                                        <div key={f.pronoun} className="flex items-center px-4 py-2.5 text-sm odd:bg-white even:bg-gray-50">
+                                            <span className="text-gray-500 w-28 shrink-0">{f.pronoun}</span>
+                                            <span className="font-medium text-gray-900">{f.form}</span>
+                                            {f.romanized && <span className="ml-2 text-xs text-indigo-400">{f.romanized}</span>}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </AccordionContent>
+            </AccordionItem>
+        </Accordion>
     )
 }
 
@@ -168,32 +160,25 @@ function VerbCard({ verb, langId }: Readonly<{ verb: Verb; langId: string }>) {
 // MistakeReview — collapsible wrong-answer list shown on the done screen
 // ---------------------------------------------------------------------------
 function MistakeReview({ missed }: Readonly<{ missed: MissedItem[] }>) {
-    const [open, setOpen] = useState(false)
     return (
-        <div className="w-full bg-white border border-gray-200 rounded-2xl overflow-hidden">
-            <button
-                onClick={() => setOpen(o => !o)}
-                className="w-full px-5 py-3 flex items-center justify-between text-sm font-medium text-gray-700"
-            >
-                <span>Review mistakes ({missed.length})</span>
-                <svg xmlns="http://www.w3.org/2000/svg"
-                    className={`w-4 h-4 text-gray-400 transition-transform ${open ? "rotate-180" : ""}`}
-                    fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-            </button>
-            {open && (
-                <div className="border-t border-gray-100 divide-y divide-gray-100">
-                    {missed.map((m) => (
-                        <div key={`${m.prompt}|${m.yourAnswer}`} className="px-5 py-3 text-left text-sm">
-                            <p className="text-gray-500 mb-1">{m.prompt}</p>
-                            <p className="text-green-700 font-medium">✓ {m.correct}</p>
-                            <p className="text-red-500">✗ {m.yourAnswer}</p>
-                        </div>
-                    ))}
-                </div>
-            )}
-        </div>
+        <Accordion type="single" collapsible className="w-full bg-white border border-gray-200 rounded-2xl">
+            <AccordionItem value="mistakes" className="border-0 px-5">
+                <AccordionTrigger className="text-sm font-semibold text-gray-700 py-3 hover:no-underline">
+                    Review mistakes ({missed.length})
+                </AccordionTrigger>
+                <AccordionContent>
+                    <div className="divide-y divide-gray-100">
+                        {missed.map((m) => (
+                            <div key={`${m.prompt}|${m.yourAnswer}`} className="py-3 text-left text-sm">
+                                <p className="text-gray-500 mb-1">{m.prompt}</p>
+                                <p className="text-green-700 font-medium">✓ {m.correct}</p>
+                                <p className="text-red-500">✗ {m.yourAnswer}</p>
+                            </div>
+                        ))}
+                    </div>
+                </AccordionContent>
+            </AccordionItem>
+        </Accordion>
     )
 }
 
@@ -513,118 +498,119 @@ export function UnitPage() {
                 </div>
 
                 {/* Tab bar */}
-                <div className="flex gap-1 bg-gray-100 rounded-xl p-1 mb-6">
-                    {tabs.map(tab => (
-                        <button
-                            key={tab.id}
-                            onClick={() => setActiveTab(tab.id)}
-                            className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all ${activeTab === tab.id
-                                    ? "bg-white text-gray-900 shadow-sm"
-                                    : "text-gray-500 hover:text-gray-700"
-                                }`}
-                        >
-                            {tab.label}
-                            {tab.count !== undefined && (
-                                <span className={`ml-1 text-xs ${activeTab === tab.id ? "text-indigo-500" : "text-gray-400"}`}>
-                                    {tab.count}
-                                </span>
-                            )}
-                        </button>
-                    ))}
-                </div>
-
-                {/* Tab content */}
-                {activeTab === "grammar" && (
-                    <div className="flex flex-col gap-3">
-                        {grammar.map(lesson => (
-                            <GrammarAccordion
-                                key={lesson.id}
-                                lesson={lesson}
-                                done={completed.includes(lesson.id)}
-                                langId={langId}
-                                level={level}
-                                ui={ui}
-                                onComplete={() => {}}
-                                onVocabClick={handleVocabClick}
-                            />
+                <Tabs value={activeTab} onValueChange={v => setActiveTab(v as Tab)} className="mb-0">
+                    <TabsList className="w-full h-auto p-1 bg-gray-100 rounded-xl mb-6">
+                        {tabs.map(tab => (
+                            <TabsTrigger
+                                key={tab.id}
+                                value={tab.id}
+                                className="flex-1 py-2 px-3 text-sm"
+                            >
+                                {tab.label}
+                                {tab.count !== undefined && (
+                                    <span className="ml-1 text-xs text-current opacity-60">
+                                        {tab.count}
+                                    </span>
+                                )}
+                            </TabsTrigger>
                         ))}
-                    </div>
-                )}
+                    </TabsList>
 
-                {activeTab === "vocab" && (() => {
-                    const vocabDone = vocab.filter(v => completed.includes(v.id)).length
-                    let filtered = vocab
-                    if (vocabFilter === "done") filtered = vocab.filter(v => completed.includes(v.id))
-                    else if (vocabFilter === "todo") filtered = vocab.filter(v => !completed.includes(v.id))
-                    return (
+                    {/* Tab content */}
+                    <TabsContent value="grammar">
                         <div className="flex flex-col gap-3">
-                            {/* Progress + filter */}
-                            <div className="flex items-center justify-between gap-3">
-                                <div className="flex-1 flex items-center gap-2">
-                                    <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                                        <div className="h-full bg-amber-400 rounded-full transition-all"
-                                            style={{ width: `${vocab.length ? vocabDone / vocab.length * 100 : 0}%` }} />
-                                    </div>
-                                    <span className="text-xs text-gray-400 shrink-0">{vocabDone}/{vocab.length}</span>
-                                </div>
-                                <div className="flex gap-1">
-                                    {(["all", "todo", "done"] as const).map(f => (
-                                        <button key={f} onClick={() => setVocabFilter(f)}
-                                            className={`text-xs px-2.5 py-1 rounded-full font-medium transition-colors ${vocabFilter === f ? "bg-amber-100 text-amber-700" : "text-gray-400 hover:text-gray-600"}`}>
-                                            {f === "all" ? `All ${vocab.length}` : null}
-                                            {f === "todo" ? `To do ${vocab.length - vocabDone}` : null}
-                                            {f === "done" ? `Done ${vocabDone}` : null}
-                                        </button>
-                                    ))}
-                                </div>
-                            </div>
-                            {/* List */}
-                            <div className="flex flex-col gap-2">
-                                {filtered.map(item => (
-                                    <VocabRow
-                                        key={item.id}
-                                        item={item}
-                                        done={completed.includes(item.id)}
-                                        langId={langId}
-                                        ui={ui}
-                                        onComplete={() => {}}
-                                    />
-                                ))}
-                            </div>
-                        </div>
-                    )
-                })()}
-
-                {activeTab === "verbs" && (
-                    verbs.length > 0 ? (
-                        <div className="flex flex-col gap-3">
-                            {verbs.map(verb => (
-                                <VerbCard key={verb.id} verb={verb} langId={langId} />
+                            {grammar.map(lesson => (
+                                <GrammarAccordion
+                                    key={lesson.id}
+                                    lesson={lesson}
+                                    done={completed.includes(lesson.id)}
+                                    langId={langId}
+                                    level={level}
+                                    ui={ui}
+                                    onComplete={() => {}}
+                                    onVocabClick={handleVocabClick}
+                                />
                             ))}
                         </div>
-                    ) : (
-                        <div className="text-center py-16 text-gray-400">
-                            <p className="text-4xl mb-3">🔤</p>
-                            <p className="font-medium text-gray-500">No verbs in this unit.</p>
-                            <p className="text-sm mt-1">Verbs are introduced in a later unit.</p>
-                        </div>
-                    )
-                )}
+                    </TabsContent>
 
-                {activeTab === "test" && (
-                    <TestOutTab
-                        unit={unit}
-                        langId={langId}
-                        isMastered={isMastered}
-                        nextUnit={nextUnit}
-                        isLastUnit={isLastUnit}
-                        ui={ui}
-                        onMastered={() => {}}
-                        onBack={() => navigate(`/learn/${langId}`)}
-                        onNavigateNext={(id) => navigate(`/learn/${langId}/units/${id}`, { replace: true })}
-                        onNavigateLevelTest={() => navigate(`/learn/${langId}/level-test`)}
-                    />
-                )}
+                    <TabsContent value="vocab">
+                        {(() => {
+                            const vocabDone = vocab.filter(v => completed.includes(v.id)).length
+                            let filtered = vocab
+                            if (vocabFilter === "done") filtered = vocab.filter(v => completed.includes(v.id))
+                            else if (vocabFilter === "todo") filtered = vocab.filter(v => !completed.includes(v.id))
+                            return (
+                                <div className="flex flex-col gap-3">
+                                    {/* Progress + filter */}
+                                    <div className="flex items-center justify-between gap-3">
+                                        <div className="flex-1 flex items-center gap-2">
+                                            <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                                                <div className="h-full bg-amber-400 rounded-full transition-all"
+                                                    style={{ width: `${vocab.length ? vocabDone / vocab.length * 100 : 0}%` }} />
+                                            </div>
+                                            <span className="text-xs text-gray-400 shrink-0">{vocabDone}/{vocab.length}</span>
+                                        </div>
+                                        <div className="flex gap-1">
+                                            {(["all", "todo", "done"] as const).map(f => (
+                                                <button key={f} onClick={() => setVocabFilter(f)}
+                                                    className={`text-xs px-2.5 py-1 rounded-full font-medium transition-colors ${vocabFilter === f ? "bg-amber-100 text-amber-700" : "text-gray-400 hover:text-gray-600"}`}>
+                                                    {f === "all" ? `All ${vocab.length}` : null}
+                                                    {f === "todo" ? `To do ${vocab.length - vocabDone}` : null}
+                                                    {f === "done" ? `Done ${vocabDone}` : null}
+                                                </button>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    {/* List */}
+                                    <div className="flex flex-col gap-2">
+                                        {filtered.map(item => (
+                                            <VocabRow
+                                                key={item.id}
+                                                item={item}
+                                                done={completed.includes(item.id)}
+                                                langId={langId}
+                                                ui={ui}
+                                                onComplete={() => {}}
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+                            )
+                        })()}
+                    </TabsContent>
+
+                    <TabsContent value="verbs">
+                        {verbs.length > 0 ? (
+                            <div className="flex flex-col gap-3">
+                                {verbs.map(verb => (
+                                    <VerbCard key={verb.id} verb={verb} langId={langId} />
+                                ))}
+                            </div>
+                        ) : (
+                            <div className="text-center py-16 text-gray-400">
+                                <p className="text-4xl mb-3">🔤</p>
+                                <p className="font-medium text-gray-500">No verbs in this unit.</p>
+                                <p className="text-sm mt-1">Verbs are introduced in a later unit.</p>
+                            </div>
+                        )}
+                    </TabsContent>
+
+                    <TabsContent value="test">
+                        <TestOutTab
+                            unit={unit}
+                            langId={langId}
+                            isMastered={isMastered}
+                            nextUnit={nextUnit}
+                            isLastUnit={isLastUnit}
+                            ui={ui}
+                            onMastered={() => {}}
+                            onBack={() => navigate(`/learn/${langId}`)}
+                            onNavigateNext={(id) => navigate(`/learn/${langId}/units/${id}`, { replace: true })}
+                            onNavigateLevelTest={() => navigate(`/learn/${langId}/level-test`)}
+                        />
+                    </TabsContent>
+                </Tabs>
             </main>
             <VocabTooltip activeWord={activeWord} onDismiss={dismissTooltip} />
         </div>

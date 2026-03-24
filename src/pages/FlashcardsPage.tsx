@@ -13,6 +13,8 @@ import { VocabItem } from "../types"
 import { getUI, fmt, UIStrings } from "../i18n"
 import { speak } from "../utils/tts"
 import { answerMatches } from "../utils/answerMatch"
+import { Switch } from "../components/ui/switch"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion"
 
 const FLIP_MS = 450
 
@@ -97,28 +99,25 @@ function ResultsScreen({ correct, incorrect, pct, newCardsScheduled, reviewMode,
 }
 
 function MissedWordReview({ missed }: Readonly<{ missed: VocabItem[] }>) {
-    const [open, setOpen] = useState(false)
     if (missed.length === 0) return null
     return (
-        <div className="w-full bg-white rounded-2xl border border-gray-200 overflow-hidden">
-            <button
-                onClick={() => setOpen(o => !o)}
-                className="w-full flex items-center justify-between px-5 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
-            >
-                <span>Review missed words ({missed.length})</span>
-                <span className="text-gray-400">{open ? "▲" : "▼"}</span>
-            </button>
-            {open && (
-                <div className="flex flex-col divide-y divide-gray-100">
-                    {missed.map(item => (
-                        <div key={item.id} className="px-5 py-3 flex items-center justify-between gap-4">
-                            <span className="text-sm font-semibold text-gray-900">{item.word}</span>
-                            <span className="text-sm text-green-700">{item.translation}</span>
-                        </div>
-                    ))}
-                </div>
-            )}
-        </div>
+        <Accordion type="single" collapsible className="w-full bg-white rounded-2xl border border-gray-200">
+            <AccordionItem value="missed" className="border-0 px-5">
+                <AccordionTrigger className="text-sm font-semibold text-gray-700 py-3 hover:no-underline">
+                    Review missed words ({missed.length})
+                </AccordionTrigger>
+                <AccordionContent>
+                    <div className="divide-y divide-gray-100">
+                        {missed.map(item => (
+                            <div key={item.id} className="py-3 flex items-center justify-between gap-4">
+                                <span className="text-sm font-semibold text-gray-900">{item.word}</span>
+                                <span className="text-sm text-green-700">{item.translation}</span>
+                            </div>
+                        ))}
+                    </div>
+                </AccordionContent>
+            </AccordionItem>
+        </Accordion>
     )
 }
 
@@ -147,8 +146,8 @@ function FlipCard({ item, flipped, onClick, translationMode, translationShown, u
 }>) {
     return (
         <div
-            className="card-scene w-full max-w-sm mx-auto"
-            style={{ height: "min(220px, 45vh)" }}
+            className="card-scene w-full max-w-sm mx-auto overflow-hidden"
+            style={{ height: "min(200px, 40vh)" }}
             role={(!typedMode && !flipped) ? "button" : undefined}
             tabIndex={(!typedMode && !flipped) ? 0 : undefined}
             onClick={(!typedMode && !flipped) ? onClick : undefined}
@@ -156,7 +155,7 @@ function FlipCard({ item, flipped, onClick, translationMode, translationShown, u
                 ? (e) => { if (e.key === "Enter" || e.key === " ") onClick() }
                 : undefined}
         >
-            <div className={`card-inner relative w-full h-full ${flipped ? "flipped" : ""}`}>
+            <div className={`card-inner relative w-full h-full ${flipped ? "flipped" : ""}`} style={{ willChange: "transform" }}>
                 {/* Front */}
                 <div className="card-face absolute inset-0 bg-white rounded-2xl border-2 border-gray-200
                                 flex flex-col items-center justify-center gap-2 p-6 shadow-md">
@@ -353,23 +352,19 @@ export function FlashcardsPage() {
                     {nextStr && (
                         <p className="text-gray-400 text-xs">Next review: {nextStr}</p>
                     )}
-                    <div className="flex flex-col gap-2 w-full text-left mt-2">
-                        <label className="flex items-center gap-2 text-sm text-gray-700">
-                            <input
-                                type="checkbox"
-                                checked={typedMode}
-                                onChange={e => setTypedMode(e.target.checked)}
-                            />
-                            <span>Type answers (active recall)</span>
-                        </label>
-                        <label className="flex items-center gap-2 text-sm text-gray-700">
-                            <input
-                                type="checkbox"
-                                checked={ttsEnabled}
-                                onChange={e => handleTtsToggle(e.target.checked)}
-                            />
-                            <span>Auto-play pronunciation</span>
-                        </label>
+                    <div className="flex flex-col gap-3 w-full mt-2">
+                        <div className="flex items-center gap-3">
+                            <Switch id="typed-mode-caught-up" checked={typedMode} onCheckedChange={setTypedMode} />
+                            <label htmlFor="typed-mode-caught-up" className="text-sm text-gray-700 cursor-pointer">
+                                Type answers (active recall)
+                            </label>
+                        </div>
+                        <div className="flex items-center gap-3">
+                            <Switch id="tts-caught-up" checked={ttsEnabled} onCheckedChange={handleTtsToggle} />
+                            <label htmlFor="tts-caught-up" className="text-sm text-gray-700 cursor-pointer">
+                                Auto-play pronunciation
+                            </label>
+                        </div>
                     </div>
                     <button
                         onClick={() => { setStudyAll(true); setStarted(true) }}
@@ -392,23 +387,19 @@ export function FlashcardsPage() {
                     <p className="text-5xl">🃏</p>
                     <h2 className="text-xl font-bold text-gray-900">{srsDeck.length} cards ready</h2>
                     <p className="text-sm text-gray-500">{due.length} due · {newCardIds.length} new</p>
-                    <div className="flex flex-col gap-2 w-full text-left">
-                        <label className="flex items-center gap-2 text-sm text-gray-700">
-                            <input
-                                type="checkbox"
-                                checked={typedMode}
-                                onChange={e => setTypedMode(e.target.checked)}
-                            />
-                            <span>Type answers (active recall)</span>
-                        </label>
-                        <label className="flex items-center gap-2 text-sm text-gray-700">
-                            <input
-                                type="checkbox"
-                                checked={ttsEnabled}
-                                onChange={e => handleTtsToggle(e.target.checked)}
-                            />
-                            <span>Auto-play pronunciation</span>
-                        </label>
+                    <div className="flex flex-col gap-3 w-full">
+                        <div className="flex items-center gap-3">
+                            <Switch id="typed-mode" checked={typedMode} onCheckedChange={setTypedMode} />
+                            <label htmlFor="typed-mode" className="text-sm text-gray-700 cursor-pointer">
+                                Type answers (active recall)
+                            </label>
+                        </div>
+                        <div className="flex items-center gap-3">
+                            <Switch id="tts-enabled" checked={ttsEnabled} onCheckedChange={handleTtsToggle} />
+                            <label htmlFor="tts-enabled" className="text-sm text-gray-700 cursor-pointer">
+                                Auto-play pronunciation
+                            </label>
+                        </div>
                     </div>
                     <button
                         onClick={() => setStarted(true)}

@@ -8,6 +8,7 @@ import { NavBar } from "../components/NavBar"
 import { QuizCard } from "../components/QuizCard"
 import { LevelBadge } from "../components/LevelBadge"
 import { CEFRLevel, CEFR_LEVELS } from "../types"
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "../components/ui/tabs"
 
 type Tab = "test" | "manual"
 
@@ -145,8 +146,13 @@ export function PlacementPage() {
         <div className="min-h-screen bg-gray-50">
             <NavBar title={`${language.name} — Placement Test`} backTo="/home" />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col items-center gap-6">
-                {tab === "test" ? (
-                    <>
+                <Tabs value={tab} onValueChange={v => setTab(v as Tab)} className="w-full">
+                    <TabsList className="w-full mb-6">
+                        <TabsTrigger value="test" className="flex-1">Placement Test</TabsTrigger>
+                        <TabsTrigger value="manual" className="flex-1">Set Manually</TabsTrigger>
+                    </TabsList>
+
+                    <TabsContent value="test" className="flex flex-col items-center gap-6">
                         <div className="w-full flex items-center justify-between text-sm text-gray-500">
                             <span>Question {current + 1} of {questions.length}</span>
                             <button
@@ -159,15 +165,13 @@ export function PlacementPage() {
 
                         {/* Progress strip */}
                         <div className="w-full flex gap-1">
-                            {questions.map((_, i) => (
-                                <div
-                                    key={i}
-                                    className={`h-1.5 flex-1 rounded-full transition-colors ${i < current ? "bg-indigo-500" :
-                                            i === current ? "bg-indigo-300" :
-                                                "bg-gray-200"
-                                        }`}
-                                />
-                            ))}
+                            {questions.map((question, i) => {
+                                let cls = "h-1.5 flex-1 rounded-full transition-colors "
+                                if (i < current) cls += "bg-indigo-500"
+                                else if (i === current) cls += "bg-indigo-300"
+                                else cls += "bg-gray-200"
+                                return <div key={question.id} className={cls} />
+                            })}
                         </div>
 
                         <QuizCard
@@ -187,40 +191,42 @@ export function PlacementPage() {
                                 {current + 1 >= questions.length ? "See results" : "Next question"}
                             </button>
                         )}
-                    </>
-                ) : (
-                    <div className="bg-white rounded-2xl border border-gray-200 p-6 w-full">
-                        <h2 className="font-semibold text-gray-900 mb-2">Choose your level</h2>
-                        <p className="text-sm text-gray-500 mb-5">
-                            Select the CEFR level that best describes your current proficiency.
-                        </p>
-                        <div className="flex flex-col gap-3">
-                            {CEFR_LEVELS.map(l => (
-                                <button
-                                    key={l}
-                                    onClick={() => confirmLevel(l)}
-                                    className="border border-gray-200 rounded-xl px-4 py-3 text-left
-                                               hover:border-indigo-400 hover:bg-indigo-50 transition-colors"
-                                >
-                                    <span className="font-semibold text-gray-900 mr-2">{l}</span>
-                                    <span className="text-sm text-gray-500">
-                                        {l === "A1" && "Absolute beginner"}
-                                        {l === "A2" && "Elementary"}
-                                        {l === "B1" && "Intermediate"}
-                                        {l === "B2" && "Upper intermediate"}
-                                        {l === "C1" && "Advanced"}
-                                    </span>
-                                </button>
-                            ))}
+                    </TabsContent>
+
+                    <TabsContent value="manual">
+                        <div className="bg-white rounded-2xl border border-gray-200 p-6 w-full">
+                            <h2 className="font-semibold text-gray-900 mb-2">Choose your level</h2>
+                            <p className="text-sm text-gray-500 mb-5">
+                                Select the CEFR level that best describes your current proficiency.
+                            </p>
+                            <div className="flex flex-col gap-3">
+                                {CEFR_LEVELS.map(l => (
+                                    <button
+                                        key={l}
+                                        onClick={() => confirmLevel(l)}
+                                        className="border border-gray-200 rounded-xl px-4 py-3 text-left
+                                                   hover:border-indigo-400 hover:bg-indigo-50 transition-colors"
+                                    >
+                                        <span className="font-semibold text-gray-900 mr-2">{l}</span>
+                                        <span className="text-sm text-gray-500">
+                                            {l === "A1" && "Absolute beginner"}
+                                            {l === "A2" && "Elementary"}
+                                            {l === "B1" && "Intermediate"}
+                                            {l === "B2" && "Upper intermediate"}
+                                            {l === "C1" && "Advanced"}
+                                        </span>
+                                    </button>
+                                ))}
+                            </div>
+                            <button
+                                onClick={() => setTab("test")}
+                                className="mt-4 text-sm text-indigo-600 hover:underline"
+                            >
+                                Take the placement test instead
+                            </button>
                         </div>
-                        <button
-                            onClick={() => setTab("test")}
-                            className="mt-4 text-sm text-indigo-600 hover:underline"
-                        >
-                            Take the placement test instead
-                        </button>
-                    </div>
-                )}
+                    </TabsContent>
+                </Tabs>
             </main>
         </div>
     )
