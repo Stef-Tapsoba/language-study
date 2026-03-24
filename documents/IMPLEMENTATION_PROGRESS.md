@@ -1069,3 +1069,150 @@ Tests are **co-located** with source files (`*.test.ts` next to the module). `sr
 - `src/components/NavBar.tsx` — `fallbackRoute` prop; `globalThis.history`; `handleBack` logic
 - `src/components/DrillDoneScreen.tsx` — `backTo` prop
 - All 14 page files above
+
+---
+
+## 48 — French A1 curriculum completion (professor agent)
+
+Goal: bring French A1 to a complete, CEFR-aligned curriculum covering all five competency domains (grammar, vocab, listening, reading, culture) with proper inter-unit linkage.
+
+### Vocab gap analysis + additions (`src/data/french/vocab/a1.ts`)
+- **Deduplication:** removed `fatigué/fatiguée` (id 222) and `le médecin` (id 223) — both were duplicates of earlier entries
+- **Transport (10 items, ids 246–255):** `le métro`, `le bus`, `la voiture`, `le taxi`, `le train`, `l'avion`, `le vélo`, `à pied`, `la gare`, `l'arrêt de bus`
+- **Emergency/Health (5 items, ids 256–260):** `au secours`, `les urgences`, `la pharmacie`, `le médecin`, `appeler la police`
+- **Classroom (7 items, ids 261–267):** `le cahier`, `le stylo`, `le tableau`, `le professeur`, `la leçon`, `répéter`, `comprendre`
+- **Shopping/Payment (6 items, ids 268–273):** `payer`, `la carte bancaire`, `le reçu`, `la monnaie`, `ça coûte combien ?`, `c'est trop cher`
+
+### New reading passage (`src/data/french/reading/a1.ts`)
+- `fr-r-a1-7` "Une carte postale" — CEFR A1 postcard model text; introduces holiday/travel registers
+
+### New listening exercises (`src/data/french/listening/a1.ts`)
+- `fr-l-a1-6` "Demander son chemin" — asking for directions; key spatial vocab and polite requests
+- `fr-l-a1-7` "Au restaurant — commander un repas" — ordering a meal; lexical complement to `fr-r-a1-4`
+
+### New culture episodes (`src/data/french/culture/a1.ts`)
+- `fr-c-a1-3` "Le café en France" — social and cultural role of the café; ties to eating/drinking vocab
+- `fr-c-a1-4` "La famille française" — family structures; ties to family vocab unit
+
+### Unit wiring (`src/data/french/units/a1.ts`)
+All French A1 units audited for content linkage. Key updates:
+
+| Unit | Change |
+|------|--------|
+| U1 | `listeningIds: ["fr-l-a1-1"]` |
+| U2 | `listeningIds: ["fr-l-a1-4"]` |
+| U14 | `listeningIds: ["fr-l-a1-3"]` |
+| U19 | `readingIds: ["fr-r-a1-5"]` |
+| U20 | `cultureIds: ["fr-c-a1-4"]`, `readingIds: ["fr-r-a1-1"]` |
+| U22 | `cultureIds: ["fr-c-a1-1", "fr-c-a1-3"]`, `readingIds: ["fr-r-a1-3"]`, `listeningIds: ["fr-l-a1-2", "fr-l-a1-7"]` |
+| U23 | `readingIds: ["fr-r-a1-2", "fr-r-a1-4", "fr-r-a1-6"]`, `listeningIds: ["fr-l-a1-6"]` |
+| U27 | `readingIds: ["fr-r-a1-7"]`, `listeningIds: ["fr-l-a1-5"]` |
+
+### Type extension (`src/types/index.ts`)
+- Added `readingIds?: string[]` to `LessonUnit` — references `ReadingPassage.id` items linked to this unit
+- Added `listeningIds?: string[]` to `LessonUnit` — references `ListeningExercise.id` items linked to this unit
+- Added `language?: string` (optional, e.g. `"fr"`) to `GrammarLesson`, `VocabItem`, `Verb`, `ReadingPassage`, `ListeningExercise` — required after Supabase migration, optional now
+
+---
+
+## 49 — Culture post-unit unlock UI
+
+Goal: surface culture episodes contextually at the moment the learner completes a unit, rather than only via the standalone Culture page.
+
+### Design (UX/UI designer consultation)
+- Culture cards appear on `TestDoneScreen` only when: test passed AND unit is mastered (or re-completed)
+- Amber colour scheme (`amber-50` bg, `amber-200` border, `amber-700` text) — visually distinct from pass/fail states
+- Category emoji prefix (`🍽️ food`, `🎭 customs`, `🏛️ history`, etc.)
+- Tappable card navigates directly to `/learn/:langId/culture?episode=<id>` → deep-links into the CulturePage episode view
+
+### Implementation (`src/pages/UnitPage.tsx`)
+- Added `CULTURE_CATEGORY_EMOJI: Record<string, string>` at module scope (10 categories)
+- `TestDoneScreen` signature extended: `cultureEpisodes: CultureEpisode[]` + `onNavigateCulture: (id: string) => void`
+- `cultureEpisodes` resolved via `useMemo` from `unit.cultureIds` using `getCultureEpisodes(langId, unit.cultureIds ?? [])`
+- Culture card section renders between MistakeReview and navigation buttons when `passed && (isMastered || didComplete) && cultureEpisodes.length > 0`
+- `onNavigateCulture` callback: `navigate(\`/learn/${langId}/culture?episode=${id}\`)`
+
+### i18n (`src/i18n/*.ts` — 6 files)
+- Added `cultureUnlockHeading: "Unlock with this unit"` to `strings.ts` interface + all 6 translation files
+
+---
+
+## 50 — Fill-in-the-blank grammar drill mode
+
+Goal: add an active-recall (typing) mode to GrammarDrillPage so learners can test themselves beyond multiple-choice.
+
+### Design (UX/UI designer consultation)
+- Mode selector shown on the drill start screen: two cards "Multiple choice" and "Type the answer"
+- Fill-in: text input centred below the prompt; submit on Enter or button press; immediate colour feedback (green/red pill); advances with Enter/button
+- Answer matching: `answerMatches()` from `utils/answerMatch.ts` — accent-insensitive, case-folded, trims whitespace
+
+### Implementation (`src/pages/GrammarDrillPage.tsx`)
+- New state: `started: boolean`, `drillMode: "multiple-choice" | "fill-in"`, `fillInput: string`, `fillState: "idle" | "submitted-correct" | "submitted-wrong"`
+- `handleNext()` wraps `drill.handleNext()` and resets `fillInput` + `fillState`
+- `handleFillSubmit()` resolves current question as `const current = questions[drill.index]` (avoids reference-before-definition bug)
+- Start screen: two mode selector cards with icons; selected card shows ring highlight
+- Fill-in view: `<input>` + feedback pill replaces `QuizCard` when `drillMode === "fill-in"`
+- Multiple-choice view: original `QuizCard` unchanged
+
+---
+
+## 51 — Architecture patterns: Repository, Actions, Storage adapter
+
+Goal: introduce three design patterns to prepare for Supabase migration (Stage 2) without changing any existing behaviour.
+
+### Repository Pattern (`src/data/repo.ts`) — new file
+Single seam for all data queries. All future pages import from `repo.ts` instead of calling `getModule()` directly. Stage 2: replace these implementations with async Supabase calls.
+
+**19 named query functions exported:**
+- Grammar: `getGrammarForLevel`, `getGrammarLesson`
+- Vocab: `getVocabForLevel`, `getVocabItems`
+- Verbs: `getVerbsForLevel`, `getVerbs`
+- Units: `getUnitsForLevel`, `getUnit`
+- Reading: `getReadingPassagesForLevel`, `getReadingPassage`, `getReadingPassages`
+- Listening: `getListeningForLevel`, `getListeningExercise`, `getListeningExercises`
+- Culture: `getCultureEpisodesForLevel`, `getCultureEpisode`, `getCultureEpisodes`
+- Tests: `getPlacementQuestions`, `getLevelQuestions`
+
+### Command Pattern — compound actions (`src/store/actions.ts`) — new file
+Co-locates all state mutations that belong together. Stage 2: add Supabase remote writes inside these actions rather than scattered across pages.
+
+**6 compound actions:**
+- `completeUnit(langId, unitId, quizScore, quizTotal)` — `masterUnit` + per-question quiz stats + activity
+- `completeLessonItem(langId, lessonId)` — `markLessonComplete`
+- `completeDrillSession(langId)` — `recordActivity`
+- `completeReadingPassage(langId, passageId, quizAnswers[])` — mark + quiz stats + activity
+- `completeListeningExercise(langId, exerciseId, quizAnswers[])` — mark + quiz stats + activity
+- `completeCultureEpisode(langId, episodeId)` — mark + activity
+
+### Adapter Pattern — progress storage interface (`src/store/IProgressStorage.ts`) — new file
+Defines the contract for progress persistence. Stage 2: `SupabaseProgressStorage` implements this; swap in `ProgressContext` without touching any page code.
+
+**7 methods:** `load`, `save`, `markLessonComplete`, `masterUnit`, `setLevel`, `resetLanguage`, `removeLanguage`
+
+### LocalStorageProgressStorage (`src/store/LocalStorageProgressStorage.ts`) — new file
+Implements `IProgressStorage` by delegating to the existing `progress.ts` functions. Exports `localProgressStorage` singleton.
+
+---
+
+## 52 — Culture file splitting (per-language A1 micro-chunks)
+
+Goal: split large culture A1 files (~499–526 lines each) into one file per episode so Vite can create micro-chunks for lazy-loaded culture content.
+
+**Pattern:** `culture/a1.ts` → `culture/a1/` directory with one file per episode + `index.ts` re-exporting the same `*A1Culture: CultureEpisode[]` array. No changes to parent `index.ts` assemblers needed (import path `"./culture/a1"` resolves to `a1/index.ts` once `a1.ts` is removed).
+
+**Status: ✅ complete for all 5 languages.**
+
+| Language | Episodes | Files |
+|----------|----------|-------|
+| French | 4 | `fr-c-a1-{1–4}.ts` + `index.ts` (exports `frA1Culture`) |
+| Spanish | 3 | `es-c-a1-{1–3}.ts` + `index.ts` (exports `a1Culture`) |
+| Italian | 4 | `it-c-a1-{1–4}.ts` + `index.ts` (exports `itA1Culture`) |
+| Japanese | 2 | `ja-c-a1-{1–2}.ts` + `index.ts` (exports `jaA1Culture`) |
+| Korean | 2 | `ko-c-a1-{1–2}.ts` + `index.ts` (exports `koA1Culture`) |
+
+Original `a1.ts` files deleted for all 5 languages. Parent `index.ts` assembler imports unchanged — `"./culture/a1"` now resolves to `a1/index.ts`.
+
+**Note:** Spanish exports `a1Culture` (not `esA1Culture`) to match the name `src/data/spanish/index.ts` already imported.
+
+**Files created:**
+- `src/data/{french,spanish,italian,japanese,korean}/culture/a1/` — episode files + `index.ts` per language

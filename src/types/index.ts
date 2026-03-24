@@ -55,6 +55,7 @@ export interface InlineVocabEntry {
 
 export interface GrammarLesson {
     id: string
+    language?: string    // e.g. "fr" — optional now, required after Supabase migration
     level: CEFRLevel
     title: string
     explanation: string | LocalizedText
@@ -67,6 +68,7 @@ export interface GrammarLesson {
 // ---------------------------------------------------------------------------
 export interface VocabItem {
     id: string
+    language?: string    // e.g. "fr" — optional now, required after Supabase migration
     level: CEFRLevel
     word: string
     romanized?: string
@@ -91,6 +93,7 @@ export interface ConjugationTable {
 
 export interface Verb {
     id: string
+    language?: string    // e.g. "fr" — optional now, required after Supabase migration
     level: CEFRLevel
     infinitive: string
     romanized?: string
@@ -141,6 +144,7 @@ export interface VocabGloss {
 
 export interface ReadingPassage {
     id: string
+    language?: string    // e.g. "fr" — optional now, required after Supabase migration
     level: CEFRLevel
     category: PassageCategory
     title: string
@@ -160,6 +164,7 @@ export interface DialogueLine {
 
 export interface ListeningExercise {
     id: string
+    language?: string    // e.g. "fr" — optional now, required after Supabase migration
     level: CEFRLevel
     title: string
     script: string           // flat TTS script (always present)

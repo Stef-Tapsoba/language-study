@@ -1,6 +1,6 @@
 # language-study — Implementation Plan
 
-*Last updated: March 11, 2026 — v2.1.0*
+*Last updated: March 24, 2026 — v2.2.x (pre-v2.3.0)*
 
 ## Context
 
@@ -65,19 +65,27 @@ language-study/
     │   └── mockAuthApi.ts
     ├── store/
     │   ├── progress.ts                 ← localStorage progress (incl. masteredUnits)
+    │   ├── useStatsStore.ts            ← Zustand stats store (debounced persist, SM-2 migrate)
     │   ├── srs.ts                      ← SM-2 card state + scheduling (ls:srs)
-    │   └── stats.ts                    ← Daily review history + global streak (ls:stats)
+    │   ├── actions.ts                  ← compound progress mutations (Command Pattern)
+    │   ├── IProgressStorage.ts         ← adapter interface (Supabase swap seam)
+    │   └── LocalStorageProgressStorage.ts  ← IProgressStorage impl wrapping progress.ts
     ├── i18n/                           ← UI shell string translations (✅ implemented)
     │   ├── strings.ts                  ← UIStrings interface (~65 keys)
     │   ├── en.ts                       ← default English strings
     │   ├── es.ts, fr.ts, it.ts, ja.ts, ko.ts  ← target language UI strings
     │   └── index.ts                    ← getUI(langId, level) + fmt()
+    ├── hooks/
+    │   ├── useDrill.ts                 ← re-exports useDrill + types from @myorg/quiz-engine
+    │   └── useGlobalStreak.ts          ← Zustand selector hook (streak integer, avoids re-renders)
     ├── utils/
     │   ├── tts.ts                      ← speak() + TTS_LANG_MAP (Web Speech API)
+    │   ├── answerMatch.ts              ← normalizeAnswer(), answersMatch() (accent-insensitive)
     │   └── localizedText.ts            ← toLocalized(), resolveDisplay(), resolvePrimary()
     ├── data/
     │   ├── languages.ts                ← language registry (id, name, nativeName, script)
     │   ├── modules.ts                  ← getModule(langId) registry
+    │   ├── repo.ts                     ← named query functions over module cache (Repository Pattern)
     │   ├── spanish/                    ← ✅ full A1–C1 content + reading/listening at A1/A2/B2/C1
     │   │   ├── index.ts                ← pure assembler
     │   │   ├── grammar/a1.ts, a2.ts, b1.ts, b2.ts, c1.ts
@@ -187,15 +195,17 @@ interface LocalizedText {
 
 interface GrammarLesson {
   id: string
+  language?: string             // e.g. "fr" — optional now, required after Supabase migration
   level: CEFRLevel
   title: string
-  explanation: LocalizedText                              // ← was plain string
+  explanation: LocalizedText    // ← was plain string
   examples: { native: string; romanized?: string; translation: string }[]
-  tip?: LocalizedText
+  inlineVocab?: { word: string; translation: string }[]
 }
 
 interface VocabItem {
   id: string
+  language?: string
   level: CEFRLevel
   word: string
   romanized?: string
@@ -206,6 +216,7 @@ interface VocabItem {
 
 interface Verb {
   id: string
+  language?: string
   level: CEFRLevel
   infinitive: string
   romanized?: string
@@ -235,6 +246,9 @@ interface LessonUnit {
   vocabIds: string[]
   verbIds: string[]
   testQuestions: QuizQuestion[]  // 5–8 questions to test out of this unit
+  cultureIds?: string[]          // optional CultureEpisode.id — unlocked post-unit
+  readingIds?: string[]          // optional ReadingPassage.id — linked to this unit
+  listeningIds?: string[]        // optional ListeningExercise.id — linked to this unit
 }
 
 export type PassageCategory = "everyday" | "culture" | "history" | "literature" | "dialogue"
@@ -247,6 +261,7 @@ interface VocabGloss {
 
 interface ReadingPassage {
   id: string
+  language?: string
   level: CEFRLevel
   category: PassageCategory
   title: string
@@ -257,10 +272,12 @@ interface ReadingPassage {
 
 interface ListeningExercise {
   id: string
+  language?: string
   level: CEFRLevel
   title: string
-  script: string        // target language — spoken via TTS
-  translation: string   // English — toggle reference
+  script: string           // target language — spoken via TTS
+  translation: string      // English — toggle reference
+  dialogue?: DialogueLine[] // structured speaker turns (optional)
   questions: QuizQuestion[]
 }
 
@@ -371,15 +388,15 @@ If `text.target` is undefined, always fall back to `text.native` (safe for incre
 
 See `CONTENT_RESTRUCTURE_PLAN.md` for the full per-language curriculum breakdown.
 
-| Language | Levels | B1 Units | B2 Units | C1 Units | Reading | Listening |
-|---|---|---|---|---|---|---|
-| Spanish | A1–C1 | 9 | 8 | 6 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 |
-| French | A1–C1 | 10 | 8 | 6 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 |
-| Italian | A1–C1 | 8 | 8 | 6 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 |
-| Japanese | A1–C1 | 9 | 8 | 6 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 |
-| Korean | A1–C1 | 8 | 8 | 6 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 |
+| Language | Levels | B1 Units | B2 Units | C1 Units | Reading | Listening | Culture |
+|---|---|---|---|---|---|---|---|
+| Spanish | A1–C1 | 9 | 8 | 6 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 | ✅ A1 (3 ep) |
+| French | A1–C1 | 10 | 8 | 6 | ✅ A1(7)+A2+B2+C1 | ✅ A1(7)+A2+B2+C1 | ✅ A1 (4 ep) |
+| Italian | A1–C1 | 8 | 8 | 6 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 | ✅ A1 (4 ep) |
+| Japanese | A1–C1 | 9 | 8 | 6 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 | ✅ A1 (2 ep) |
+| Korean | A1–C1 | 8 | 8 | 6 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 | ✅ A1 (2 ep) |
 
-All 5 languages have full content at every CEFR level (A1 → C1). Reading and listening passages exist at A1, A2, B2, and C1 (B1 reading/listening is roadmap).
+All 5 languages have full content at every CEFR level (A1 → C1). Reading and listening passages exist at A1, A2, B2, and C1 (B1 reading/listening is roadmap). Culture episodes currently exist only at A1; A2+ culture content is planned. French A1 has 7 reading passages and 7 listening exercises (fullest A1 coverage).
 
 ---
 
@@ -419,13 +436,36 @@ Alternative entry to grammar lessons: present examples → user hypothesises the
              lazy-load language data chunks; Netlify SPA redirect rule;
              B1 full content expansion (grammar/vocab/verbs/units across all 5 languages);
              B2+C1 additional content expansion (mixed conditionals, register mastery,
-             advanced discourse connectors, C1 academic constructions)
+             advanced discourse connectors, C1 academic constructions);
+             @myorg/quiz-engine + @myorg/tts + @myorg/srs package wiring;
+             Zustand stats store migration; shadcn/ui infrastructure; Vitest unit tests;
+             performance + architecture fixes (useGlobalStreak, GPU progress bars);
+             back navigation redesign (explicit backTo routes)
+✅ v2.3.x   — French A1 complete CEFR curriculum (vocab gap fill: Transport/Emergency/
+             Classroom/Shopping; 3 new reading passages, 2 new listening exercises,
+             2 new culture episodes; all units wired with readingIds/listeningIds/cultureIds);
+             Culture post-unit unlock cards on TestDoneScreen;
+             Fill-in-the-blank mode on GrammarDrillPage;
+             Architecture patterns: Repository (repo.ts), Command (actions.ts),
+             Adapter (IProgressStorage + LocalStorageProgressStorage);
+             language? field on 5 content types (Supabase migration prep);
+             LessonUnit.readingIds + listeningIds type fields;
+             Culture file splitting (one file per episode — FR/ES/IT/JA done, KO partial)
+
+Next (v2.4.0 planned):
+  - Complete Korean culture A1 file split + delete old a1.ts files
+  - Wire repo.ts and actions.ts into existing pages (replace direct getModule/progress calls)
+  - A2 reading/listening content for all 5 languages (B1 parity gap)
+  - B1 reading/listening passages for all 5 languages
+  - Cultural episodes at A2 level (currently only A1 has culture content)
+  - Migrate pages to use compound actions (completeUnit, completeDrillSession, etc.)
+
 Phase 3     — B1 reading/listening passages for all 5 languages
              Cognitive reinforcement: spaced retrieval quizzes, weekly free recall
-             Typing/active-recall exercises
 Phase 4     — EO + EE: speaking prompts + writing tasks (self-assessed)
 Phase 5     — Pattern Discovery mode
-Phase 6     — Real backend (Postgres + API); progress export; dark mode
+Phase 6 (Stage 2) — Supabase backend + auth; swap IProgressStorage adapter;
+             replace repo.ts with async DB calls; dark mode
 ```
 
 ---
