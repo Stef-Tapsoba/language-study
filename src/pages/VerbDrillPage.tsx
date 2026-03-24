@@ -2,9 +2,9 @@
 import { useMemo, useEffect } from "react"
 import { useParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
-import { getModule } from "../data/modules"
+import { getVerbsForLevel } from "../data/repo"
 import { getCurrentLevel } from "../store/progress"
-import { useStatsStore } from "../store/useStatsStore"
+import { completeDrillSession } from "../store/actions"
 import { NavBar } from "../components/NavBar"
 import { QuizCard } from "../components/QuizCard"
 import { LevelBadge } from "../components/LevelBadge"
@@ -63,7 +63,6 @@ function progressDotClass(i: number, index: number): string {
 export function VerbDrillPage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
-    const mod = getModule(langId)
     const level = getCurrentLevel(langId)
     const ui = getUI(langId, level)
 
@@ -71,15 +70,15 @@ export function VerbDrillPage() {
     const showMeaning = level === "A1" || level === "A2"
 
     const questions = useMemo(
-        () => buildQuestions(mod?.verbs.filter(v => v.level === level) ?? []),
+        () => buildQuestions(getVerbsForLevel(langId, level)),
         [langId, level]
     )
 
     const drill = useDrill(questions)
 
-    useEffect(() => { if (drill.done) useStatsStore.getState().recordActivity(langId) }, [drill.done, langId])
+    useEffect(() => { if (drill.done) completeDrillSession(langId) }, [drill.done, langId])
 
-    if (!language || !mod) return null
+    if (!language) return null
 
     if (questions.length === 0) {
         const prevLevelMap: Record<string, string> = { A2: "A1", B1: "A2", B2: "B1", C1: "B2" }

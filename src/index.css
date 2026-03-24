@@ -5,7 +5,7 @@
 @layer base {
     :root {
         /* shadcn CSS variables — violet/gray palette to match app design */
-        --background:         0 0% 98%;        /* gray-50  #f9fafb */
+        --background:         30 20% 96%;      /* warm off-white #f7f5f2 */
         --foreground:         220 9% 11%;       /* gray-900 #111827 */
 
         --card:               0 0% 100%;        /* white */
@@ -37,7 +37,8 @@
     }
 
     body {
-        @apply text-gray-900 bg-gray-50;
+        background-color: #f7f5f2;
+        @apply text-gray-900;
         -webkit-font-smoothing: antialiased;
     }
 }
@@ -74,4 +75,25 @@
 /* iOS/Android safe-area bottom inset for fixed bottom bars */
 .pb-safe {
     padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0.75rem));
+}
+
+/* Card hover lift — apply to any tappable card */
+.card-lift {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.10), 0 2px 8px -2px rgba(0, 0, 0, 0.06);
+}
+@media (prefers-reduced-motion: reduce) {
+    .card-lift:hover { transform: none; }
+}
+
+/* Tab content fade transition */
+.tab-fade {
+    animation: tabFadeIn 0.18s ease;
+}
+@keyframes tabFadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
 }

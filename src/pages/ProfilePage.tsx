@@ -43,11 +43,11 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
     }
 
     const breakdown = [
-        { label: SECTION_CONFIG.grammar.label,   done: grammar.done,   total: grammar.total,   color: SECTION_CONFIG.grammar.color   },
-        { label: SECTION_CONFIG.vocab.label,     done: vocab.done,     total: vocab.total,     color: SECTION_CONFIG.vocab.color     },
-        { label: SECTION_CONFIG.verbs.label,     done: verbs.done,     total: verbs.total,     color: SECTION_CONFIG.verbs.color     },
-        ...(reading.total   > 0 ? [{ label: SECTION_CONFIG.reading.label,   done: reading.done,   total: reading.total,   color: SECTION_CONFIG.reading.color   }] : []),
-        ...(listening.total > 0 ? [{ label: SECTION_CONFIG.listening.label, done: listening.done, total: listening.total, color: SECTION_CONFIG.listening.color }] : []),
+        { label: SECTION_CONFIG.grammar.label,   done: grammar.done,   total: grammar.total,   color: SECTION_CONFIG.grammar.gradient   },
+        { label: SECTION_CONFIG.vocab.label,     done: vocab.done,     total: vocab.total,     color: SECTION_CONFIG.vocab.gradient     },
+        { label: SECTION_CONFIG.verbs.label,     done: verbs.done,     total: verbs.total,     color: SECTION_CONFIG.verbs.gradient     },
+        ...(reading.total   > 0 ? [{ label: SECTION_CONFIG.reading.label,   done: reading.done,   total: reading.total,   color: SECTION_CONFIG.reading.gradient   }] : []),
+        ...(listening.total > 0 ? [{ label: SECTION_CONFIG.listening.label, done: listening.done, total: listening.total, color: SECTION_CONFIG.listening.gradient }] : []),
     ]
 
     return (
@@ -68,9 +68,9 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
 
                 {/* Overall bar */}
                 <div className="flex items-center gap-2 mb-4">
-                    <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
-                        <div className="h-full bg-violet-500 rounded-full transition-transform origin-left"
-                            style={{ transform: `scaleX(${overallPct / 100})` }} />
+                    <div className="flex-1 h-2 bg-gray-200/70 rounded-full overflow-hidden">
+                        <div className="h-full bg-gradient-to-r from-violet-400 to-violet-600 rounded-full transition-[width] duration-700 ease-out"
+                            style={{ width: `${overallPct}%` }} />
                     </div>
                     <span className="text-xs font-semibold text-violet-600 w-10 text-right shrink-0">
                         {overallPct}%
@@ -82,9 +82,9 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
                     {breakdown.map(({ label, done, total, color }) => (
                         <div key={label} className="flex items-center gap-3">
                             <span className="text-xs text-gray-500 w-20 shrink-0">{label}</span>
-                            <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                                <div className={`h-full ${color} rounded-full transition-transform origin-left`}
-                                    style={{ transform: `scaleX(${total ? done / total : 0})` }} />
+                            <div className="flex-1 h-1.5 bg-gray-200/70 rounded-full overflow-hidden">
+                                <div className={`h-full ${color} rounded-full transition-[width] duration-700 ease-out`}
+                                    style={{ width: `${total ? (done / total) * 100 : 0}%` }} />
                             </div>
                             <span className="text-xs text-gray-400 w-10 text-right shrink-0">{done}/{total}</span>
                         </div>

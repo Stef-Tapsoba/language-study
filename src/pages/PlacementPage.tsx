@@ -2,7 +2,7 @@
 import { useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { getLanguage } from "../data/languages"
-import { getModule } from "../data/modules"
+import { getPlacementQuestions } from "../data/repo"
 import { useProgress } from "../context/ProgressContext"
 import { NavBar } from "../components/NavBar"
 import { QuizCard } from "../components/QuizCard"
@@ -23,7 +23,6 @@ export function PlacementPage() {
     const { langId = "" } = useParams()
     const navigate = useNavigate()
     const language = getLanguage(langId)
-    const mod = getModule(langId)
     const { setCurrentLevel } = useProgress()
 
     const [tab, setTab] = useState<Tab>("test")
@@ -35,9 +34,9 @@ export function PlacementPage() {
     const [done, setDone] = useState(false)
     const [suggested, setSuggested] = useState<CEFRLevel>("A1")
 
-    if (!language || !mod) return null
+    if (!language) return null
 
-    const questions = mod.placementQuestions
+    const questions = getPlacementQuestions(langId)
 
     function handleSelect(opt: string) {
         setSelected(opt)

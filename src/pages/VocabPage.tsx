@@ -2,7 +2,8 @@
 import { useState } from "react"
 import { useParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
-import { getModule } from "../data/modules"
+import { getVocabForLevel } from "../data/repo"
+import { completeLessonItem } from "../store/actions"
 import { useProgress } from "../context/ProgressContext"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
@@ -22,7 +23,6 @@ function VocabCard({
     onComplete: () => void
 }) {
     const [open, setOpen] = useState(false)
-    const { markLessonComplete } = useProgress()
 
     return (
         <div
@@ -60,7 +60,7 @@ function VocabCard({
                     </div>
                     {!done && (
                         <button
-                            onClick={() => { markLessonComplete(langId, item.id); onComplete() }}
+                            onClick={() => { completeLessonItem(langId, item.id); onComplete() }}
                             className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold
                                        rounded-xl py-2 text-sm transition-colors"
                         >
@@ -76,16 +76,15 @@ function VocabCard({
 export function VocabPage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
-    const mod = getModule(langId)
     const { level: getLevel, completed: getCompleted } = useProgress()
     const level = getLevel(langId)
     const ui = getUI(langId, level)
     const completed = getCompleted(langId)
     const [filter, setFilter] = useState<"all" | "todo" | "done">("all")
 
-    if (!language || !mod) return null
+    if (!language) return null
 
-    const items = mod.vocab.filter(v => v.level === level)
+    const items = getVocabForLevel(langId, level)
     const filtered = items.filter(item => {
         if (filter === "done") return completed.includes(item.id)
         if (filter === "todo") return !completed.includes(item.id)

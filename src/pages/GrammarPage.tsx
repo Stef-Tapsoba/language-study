@@ -2,7 +2,7 @@
 import { useState } from "react"
 import { useParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
-import { getModule } from "../data/modules"
+import { getGrammarForLevel } from "../data/repo"
 import { getCurrentLevel, getCompletedLessons } from "../store/progress"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
@@ -45,14 +45,13 @@ function LessonCard({
 export function GrammarPage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
-    const mod = getModule(langId)
     const level = getCurrentLevel(langId)
     const ui = getUI(langId, level)
     const [completed] = useState(() => getCompletedLessons(langId))
 
-    if (!language || !mod) return null
+    if (!language) return null
 
-    const lessons = mod.grammar.filter(g => g.level === level)
+    const lessons = getGrammarForLevel(langId, level)
     const coming = lessons.length === 0
 
     return (

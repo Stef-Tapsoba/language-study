@@ -2,7 +2,7 @@
 import { useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { getLanguage } from "../data/languages"
-import { getModule } from "../data/modules"
+import { getLevelQuestions } from "../data/repo"
 import { useProgress } from "../context/ProgressContext"
 import { NavBar } from "../components/NavBar"
 import { QuizCard } from "../components/QuizCard"
@@ -138,7 +138,6 @@ function ResultsActions({ passed, nextLevel, langId, ui, onRetry }: Readonly<{
 export function LevelTestPage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
-    const mod = getModule(langId)
     const { level: getLevel } = useProgress()
     const level = getLevel(langId)
     const ui = getUI(langId, level)
@@ -151,9 +150,9 @@ export function LevelTestPage() {
     const [done, setDone] = useState(false)
     const [missed, setMissed] = useState<QuizQuestion[]>([])
 
-    if (!language || !mod) return null
+    if (!language) return null
 
-    const questions = mod.levelQuestions.filter(q => q.level === level)
+    const questions = getLevelQuestions(langId, level)
 
     const levelIndex = CEFR_LEVELS.indexOf(level)
     const nextLevel: CEFRLevel | null = levelIndex < CEFR_LEVELS.length - 1 ? CEFR_LEVELS[levelIndex + 1] : null

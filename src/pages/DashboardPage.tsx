@@ -31,8 +31,7 @@ function SectionCard({ emoji, title, description, to, progress, badge }: Readonl
     return (
         <Link
             to={to}
-            className="bg-white border border-gray-200 rounded-2xl p-5 hover:border-indigo-400
-                       hover:shadow-md transition-all flex flex-col gap-2"
+            className="card-lift bg-white border border-gray-200 rounded-2xl p-5 flex flex-col gap-2"
         >
             <div className="flex items-start justify-between">
                 <span className="text-3xl">{emoji}</span>
@@ -44,7 +43,7 @@ function SectionCard({ emoji, title, description, to, progress, badge }: Readonl
             </div>
             <p className="font-semibold text-gray-900">{title}</p>
             <p className="text-sm text-gray-500">{description}</p>
-            {progress !== undefined && <ProgressBar value={progress} className="mt-1" />}
+            {progress !== undefined && <ProgressBar value={progress} className="mt-1" color="default" />}
         </Link>
     )
 }
@@ -59,19 +58,19 @@ function StudyCard({ section, title, countDesc, done, total, to }: Readonly<{
     const c = SECTION_CONFIG[section]
     const pct = (done !== undefined && total) ? done / total * 100 : 0
     return (
-        <Link to={to} className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-md hover:border-gray-300 transition-all flex flex-col">
-            <div className={`h-1.5 ${c.color}`} />
+        <Link to={to} className="card-lift bg-white border border-gray-200 rounded-2xl overflow-hidden flex flex-col">
+            <div className={`h-1.5 ${c.gradient}`} />
             <div className="p-4 flex flex-col gap-2 flex-1">
                 <div className={`w-9 h-9 rounded-xl ${c.iconBg} flex items-center justify-center text-xl leading-none`}>
                     {c.emoji}
                 </div>
                 <p className="font-semibold text-gray-900 text-sm">{title}</p>
-                <p className="text-xs text-gray-500 flex-1">{countDesc}</p>
+                <p className={`text-xs ${c.iconText} font-medium`}>{countDesc}</p>
                 {done !== undefined && total !== undefined && total > 0 && (
                     <div className="mt-1">
                         <p className="text-xs text-gray-400 mb-1">{done} of {total} complete</p>
-                        <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                            <div className={`h-full ${c.color} rounded-full transition-all`} style={{ width: `${pct}%` }} />
+                        <div className="h-1.5 bg-gray-200/70 rounded-full overflow-hidden">
+                            <div className={`h-full ${c.gradient} rounded-full transition-[width] duration-700 ease-out`} style={{ width: `${pct}%` }} />
                         </div>
                     </div>
                 )}
@@ -252,7 +251,7 @@ export function DashboardPage() {
                     </TabsList>
 
                     {/* ── PATH ─────────────────────────────────────────────── */}
-                    <TabsContent value="path">
+                    <TabsContent value="path" className="tab-fade">
                         {levelUnits.length > 0 ? (
                             <>
                                 {/* Level progress bar */}
@@ -288,7 +287,7 @@ export function DashboardPage() {
                     </TabsContent>
 
                     {/* ── STUDY ────────────────────────────────────────────── */}
-                    <TabsContent value="study">
+                    <TabsContent value="study" className="tab-fade">
                         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                             <StudyCard
                                 section="grammar"
@@ -335,7 +334,7 @@ export function DashboardPage() {
                     </TabsContent>
 
                     {/* ── PRACTICE ─────────────────────────────────────────── */}
-                    <TabsContent value="practice">
+                    <TabsContent value="practice" className="tab-fade">
                         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                             <SectionCard
                                 emoji="🃏"
@@ -368,12 +367,12 @@ export function DashboardPage() {
                     </TabsContent>
 
                     {/* ── STATS ────────────────────────────────────────────── */}
-                    <TabsContent value="stats">
+                    <TabsContent value="stats" className="tab-fade">
                         <StatsTab langId={langId} level={level} />
                     </TabsContent>
 
                     {/* ── TEST ─────────────────────────────────────────────── */}
-                    <TabsContent value="test">
+                    <TabsContent value="test" className="tab-fade">
                         {canAdvance ? (() => {
                             const nextLevel = CEFR_LEVELS[levelIndex + 1]
                             const history14 = getHistory(useStatsStore.getState().data, langId, 14)

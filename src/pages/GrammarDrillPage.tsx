@@ -6,15 +6,16 @@
 import { useMemo, useEffect, useState } from "react"
 import { useParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
-import { getModule } from "../data/modules"
+import { getGrammarForLevel } from "../data/repo"
 import { getCurrentLevel } from "../store/progress"
-import { useStatsStore } from "../store/useStatsStore"
+import { completeDrillSession } from "../store/actions"
 import { NavBar } from "../components/NavBar"
 import { QuizCard } from "../components/QuizCard"
 import { DrillDoneScreen } from "../components/DrillDoneScreen"
 import { useDrill } from "../hooks/useDrill"
 import { getUI, fmt } from "../i18n"
 import { answerMatches } from "../utils/answerMatch"
+import { GrammarLesson } from "../types"
 
 interface DrillQuestion {
     prompt: string    // displayed in the amber banner
@@ -28,12 +29,9 @@ function shuffle<T>(arr: T[]): T[] {
     return [...arr].sort(() => Math.random() - 0.5)
 }
 
-function buildQuestions(mod: ReturnType<typeof getModule>, level: string): DrillQuestion[] {
-    if (!mod) return []
-
+function buildQuestions(lessons: GrammarLesson[], level: string): DrillQuestion[] {
     // Tag each example with its lesson id so we can prefer same-lesson distractors
-    const tagged = mod.grammar
-        .filter(g => g.level === level)
+    const tagged = lessons
         .flatMap(g => g.examples.map(ex => ({ ...ex, lessonId: g.id })))
         .filter((ex, i, arr) => arr.findIndex(e => e.native === ex.native) === i)
 
@@ -41,7 +39,7 @@ function buildQuestions(mod: ReturnType<typeof getModule>, level: string): Drill
 
     const isFlipped = level !== "A1" && level !== "A2"  // B1+ → target → English
 
-    const lessonTitleMap = Object.fromEntries(mod.grammar.filter(g => g.level === level).map(g => [g.id, g.title]))
+    const lessonTitleMap = Object.fromEntries(lessons.map(g => [g.id, g.title]))
 
     if (isFlipped) {
         // B1+: target sentence prompt → pick English meaning
@@ -79,12 +77,11 @@ function buildQuestions(mod: ReturnType<typeof getModule>, level: string): Drill
 export function GrammarDrillPage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
-    const mod = getModule(langId)
     const level = getCurrentLevel(langId)
     const ui = getUI(langId, level)
     const isFlipped = level !== "A1" && level !== "A2"
 
-    const questions = useMemo(() => buildQuestions(mod, level), [langId, level])
+    const questions = useMemo(() => buildQuestions(getGrammarForLevel(langId, level), level), [langId, level])
 
     const drill = useDrill(questions)
 
@@ -108,9 +105,9 @@ export function GrammarDrillPage() {
         drill.handleSelect(isCorrect ? current.correct : fillInput)
     }
 
-    useEffect(() => { if (drill.done) useStatsStore.getState().recordActivity(langId) }, [drill.done, langId])
+    useEffect(() => { if (drill.done) completeDrillSession(langId) }, [drill.done, langId])
 
-    if (!language || !mod) return null
+    if (!language) return null
 
     if (questions.length === 0) {
         return (

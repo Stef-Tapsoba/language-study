@@ -2,10 +2,11 @@
 import { useState, useMemo, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
-import { getModule } from "../data/modules"
+import { getVocabForLevel } from "../data/repo"
 import { getCurrentLevel } from "../store/progress"
 import { getDueCards, updateCard, getNextDueDate } from "../store/srs"
 import { useStatsStore } from "../store/useStatsStore"
+import { completeDrillSession } from "../store/actions"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { SpeakButton } from "../components/SpeakButton"
@@ -244,7 +245,6 @@ function FlipCard({ item, flipped, onClick, translationMode, translationShown, u
 export function FlashcardsPage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
-    const mod = getModule(langId)
     const level = getCurrentLevel(langId)
     const ui = getUI(langId, level)
     const translationMode = getTranslationMode(level)
@@ -260,7 +260,7 @@ export function FlashcardsPage() {
     })
 
     const allVocab = useMemo(
-        () => mod?.vocab.filter(v => v.level === level) ?? [],
+        () => getVocabForLevel(langId, level),
         [langId, level]
     )
 
@@ -315,7 +315,7 @@ export function FlashcardsPage() {
     // Cancel any ongoing speech when leaving the page
     useEffect(() => () => { globalThis.speechSynthesis?.cancel() }, [])
 
-    if (!language || !mod) return null
+    if (!language) return null
 
     function handleTtsToggle(enabled: boolean) {
         setTtsEnabled(enabled)

@@ -13,8 +13,8 @@ function BreakdownBar({ label, done, total, color }: Readonly<{
     return (
         <div className="flex items-center gap-3">
             <span className="text-sm text-gray-600 w-24 shrink-0">{label}</span>
-            <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
-                <div className={`h-full ${color} rounded-full transition-transform origin-left`} style={{ transform: `scaleX(${pct / 100})` }} />
+            <div className="flex-1 h-2 bg-gray-200/70 rounded-full overflow-hidden">
+                <div className={`h-full ${color} rounded-full transition-[width] duration-700 ease-out`} style={{ width: `${pct}%` }} />
             </div>
             <span className="text-xs text-gray-500 w-12 text-right shrink-0">{done}/{total}</span>
         </div>
@@ -100,11 +100,11 @@ export function StatsTab({ langId, level }: Readonly<{ langId: string; level: CE
             <div className="bg-white rounded-2xl border border-gray-200 p-4">
                 <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-4">Progress breakdown</p>
                 <div className="flex flex-col gap-3">
-                    <BreakdownBar label={SECTION_CONFIG.grammar.label}   done={grammar.done}   total={grammar.total}   color={SECTION_CONFIG.grammar.color}   />
-                    <BreakdownBar label={SECTION_CONFIG.vocab.label}     done={vocab.done}     total={vocab.total}     color={SECTION_CONFIG.vocab.color}     />
-                    <BreakdownBar label={SECTION_CONFIG.verbs.label}     done={verbs.done}     total={verbs.total}     color={SECTION_CONFIG.verbs.color}     />
-                    <BreakdownBar label={SECTION_CONFIG.reading.label}   done={reading.done}   total={reading.total}   color={SECTION_CONFIG.reading.color}   />
-                    <BreakdownBar label={SECTION_CONFIG.listening.label} done={listening.done} total={listening.total} color={SECTION_CONFIG.listening.color} />
+                    <BreakdownBar label={SECTION_CONFIG.grammar.label}   done={grammar.done}   total={grammar.total}   color={SECTION_CONFIG.grammar.gradient}   />
+                    <BreakdownBar label={SECTION_CONFIG.vocab.label}     done={vocab.done}     total={vocab.total}     color={SECTION_CONFIG.vocab.gradient}     />
+                    <BreakdownBar label={SECTION_CONFIG.verbs.label}     done={verbs.done}     total={verbs.total}     color={SECTION_CONFIG.verbs.gradient}     />
+                    <BreakdownBar label={SECTION_CONFIG.reading.label}   done={reading.done}   total={reading.total}   color={SECTION_CONFIG.reading.gradient}   />
+                    <BreakdownBar label={SECTION_CONFIG.listening.label} done={listening.done} total={listening.total} color={SECTION_CONFIG.listening.gradient} />
                 </div>
             </div>
 

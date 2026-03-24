@@ -568,7 +568,7 @@ export function UnitPage() {
                     </TabsList>
 
                     {/* Tab content */}
-                    <TabsContent value="grammar">
+                    <TabsContent value="grammar" className="tab-fade">
                         <div className="flex flex-col gap-3">
                             {grammar.map(lesson => (
                                 <GrammarAccordion
@@ -585,7 +585,7 @@ export function UnitPage() {
                         </div>
                     </TabsContent>
 
-                    <TabsContent value="vocab">
+                    <TabsContent value="vocab" className="tab-fade">
                         {(() => {
                             const vocabDone = vocab.filter(v => completed.includes(v.id)).length
                             let filtered = vocab
@@ -596,8 +596,8 @@ export function UnitPage() {
                                     {/* Progress + filter */}
                                     <div className="flex items-center justify-between gap-3">
                                         <div className="flex-1 flex items-center gap-2">
-                                            <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                                                <div className="h-full bg-amber-400 rounded-full transition-all"
+                                            <div className="flex-1 h-1.5 bg-gray-200/70 rounded-full overflow-hidden">
+                                                <div className="h-full bg-gradient-to-r from-amber-300 to-amber-500 rounded-full transition-[width] duration-700 ease-out"
                                                     style={{ width: `${vocab.length ? vocabDone / vocab.length * 100 : 0}%` }} />
                                             </div>
                                             <span className="text-xs text-gray-400 shrink-0">{vocabDone}/{vocab.length}</span>
@@ -605,7 +605,7 @@ export function UnitPage() {
                                         <div className="flex gap-1">
                                             {(["all", "todo", "done"] as const).map(f => (
                                                 <button key={f} onClick={() => setVocabFilter(f)}
-                                                    className={`text-xs px-2.5 py-1 rounded-full font-medium transition-colors ${vocabFilter === f ? "bg-amber-100 text-amber-700" : "text-gray-400 hover:text-gray-600"}`}>
+                                                    className={`text-xs px-2.5 py-1 rounded-full font-medium transition-colors ${vocabFilter === f ? "bg-amber-100 text-amber-700" : "bg-gray-100 text-gray-500 hover:text-gray-700"}`}>
                                                     {f === "all" ? `All ${vocab.length}` : null}
                                                     {f === "todo" ? `To do ${vocab.length - vocabDone}` : null}
                                                     {f === "done" ? `Done ${vocabDone}` : null}
@@ -631,7 +631,7 @@ export function UnitPage() {
                         })()}
                     </TabsContent>
 
-                    <TabsContent value="verbs">
+                    <TabsContent value="verbs" className="tab-fade">
                         {verbs.length > 0 ? (
                             <div className="flex flex-col gap-3">
                                 {verbs.map(verb => (
@@ -647,7 +647,7 @@ export function UnitPage() {
                         )}
                     </TabsContent>
 
-                    <TabsContent value="test">
+                    <TabsContent value="test" className="tab-fade">
                         <TestOutTab
                             unit={unit}
                             langId={langId}

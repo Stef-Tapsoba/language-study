@@ -2,7 +2,7 @@
 import { useParams, Link } from "react-router-dom"
 import { useState } from "react"
 import { getLanguage } from "../data/languages"
-import { getModule } from "../data/modules"
+import { getVerbsForLevel } from "../data/repo"
 import { getCurrentLevel } from "../store/progress"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
@@ -72,13 +72,12 @@ function VerbCard({ verb, langId }: Readonly<{ verb: Verb; langId: string }>) {
 export function VerbsPage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
-    const mod = getModule(langId)
     const level = getCurrentLevel(langId)
     const ui = getUI(langId, level)
 
-    if (!language || !mod) return null
+    if (!language) return null
 
-    const verbs = mod.verbs.filter(v => v.level === level)
+    const verbs = getVerbsForLevel(langId, level)
     const coming = verbs.length === 0
 
     return (

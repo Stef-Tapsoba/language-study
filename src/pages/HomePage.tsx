@@ -151,29 +151,14 @@ function ReturningHome({ firstName, startedIds }: Readonly<{
                 <div className="bg-white rounded-2xl border border-gray-200 p-5">
                     <h2 className="text-sm font-semibold text-gray-700 mb-4">Progress at {level}</h2>
                     <div className="flex flex-col gap-3">
-                        <ProgressBar
-                            label={`📖 Grammar  ${grammar.done}/${grammar.total}`}
-                            value={grammar.pct}
-                        />
-                        <ProgressBar
-                            label={`📝 Vocabulary  ${vocab.done}/${vocab.total}`}
-                            value={vocab.pct}
-                        />
-                        <ProgressBar
-                            label={`🔤 Verbs  ${verbs.done}/${verbs.total}`}
-                            value={verbs.pct}
-                        />
+                        <ProgressBar color="grammar"   label={`📖 Grammar  ${grammar.done}/${grammar.total}`}     value={grammar.pct}   />
+                        <ProgressBar color="vocab"     label={`📝 Vocabulary  ${vocab.done}/${vocab.total}`}       value={vocab.pct}     />
+                        <ProgressBar color="verbs"     label={`⚡ Verbs  ${verbs.done}/${verbs.total}`}            value={verbs.pct}     />
                         {reading.total > 0 && (
-                            <ProgressBar
-                                label={`📗 Reading  ${reading.done}/${reading.total}`}
-                                value={reading.pct}
-                            />
+                            <ProgressBar color="reading"   label={`📗 Reading  ${reading.done}/${reading.total}`}   value={reading.pct}   />
                         )}
                         {listening.total > 0 && (
-                            <ProgressBar
-                                label={`🎧 Listening  ${listening.done}/${listening.total}`}
-                                value={listening.pct}
-                            />
+                            <ProgressBar color="listening" label={`🎧 Listening  ${listening.done}/${listening.total}`} value={listening.pct} />
                         )}
                     </div>
                 </div>
