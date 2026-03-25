@@ -26,7 +26,7 @@ function renderRichText(
 
         if (isBold) {
             result.push(
-                <strong key={`${keyPrefix}b${i}`} className="font-semibold text-gray-900">
+                <strong key={`${keyPrefix}b${i}`} className="font-semibold text-gray-900 dark:text-gray-300">
                     {segments}
                 </strong>
             )
@@ -124,7 +124,7 @@ function renderTableBlock(
 ): React.ReactNode {
     const lines = block.split("\n")
     return (
-        <div key={blockKey} className="bg-gray-50 rounded-lg px-3 py-2.5 flex flex-col gap-1">
+        <div key={blockKey} className="bg-gray-50 rounded-lg px-3 py-2.5 flex flex-col gap-1 dark:bg-gray-700/50">
             {lines.map((line, i) => {
                 const key = `${blockKey}-${i}`
                 const cols = splitAtWidestGap(line)
@@ -132,15 +132,15 @@ function renderTableBlock(
                     const trimmed = line.trim()
                     if (!trimmed) return null
                     return (
-                        <p key={key} className="text-sm font-medium text-gray-700 mt-1 first:mt-0">
+                        <p key={key} className="text-sm font-medium text-gray-700 mt-1 first:mt-0 dark:text-gray-300 whitespace-pre-wrap">
                             {renderRichText(trimmed, key, vocabMap, onVocabClick)}
                         </p>
                     )
                 }
                 return (
                     <div key={key} className="grid grid-cols-2 gap-x-3">
-                        <span className="text-sm text-gray-800">{renderRichText(cols[0], key + "l", vocabMap, onVocabClick)}</span>
-                        <span className="text-sm text-gray-800">{renderRichText(cols[1], key + "r", vocabMap, onVocabClick)}</span>
+                        <span className="text-sm text-gray-800 dark:text-white">{renderRichText(cols[0], key + "l", vocabMap, onVocabClick)}</span>
+                        <span className="text-sm text-gray-800 dark:text-white">{renderRichText(cols[1], key + "r", vocabMap, onVocabClick)}</span>
                     </div>
                 )
             })}
@@ -177,7 +177,7 @@ export function renderExplanation(text: string, options: RenderExplanationOption
                 const isTable = block.split("\n").some(l => / {3,}/.test(l))
                 if (isTable) return renderTableBlock(block, key, vocabMap, onVocabClick)
                 return (
-                    <p key={key} className="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap">
+                    <p key={key} className="text-sm text-gray-700 dark:text-white leading-relaxed whitespace-pre-wrap">
                         {renderRichText(block, `${key}-`, vocabMap, onVocabClick)}
                     </p>
                 )

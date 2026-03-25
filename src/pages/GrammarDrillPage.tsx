@@ -240,7 +240,7 @@ export function GrammarDrillPage() {
                                         handleNext()
                                     }
                                 }}
-                                placeholder={isFlipped ? "Type the English meaning…" : "Type the French sentence…"}
+                                placeholder={ isFlipped ? "Type the English meaning…" : "Type the sentence in " + language.name + "… (accents and punctuation optional)" }
                                 readOnly={fillState !== "idle"}
                                 className={`w-full rounded-xl border-2 px-4 py-3 text-sm text-center focus:outline-none transition-colors
                                     ${fillState === "idle"

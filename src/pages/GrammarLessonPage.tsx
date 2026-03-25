@@ -58,7 +58,7 @@ export function GrammarLessonPage() {
 
                 {/* Explanation */}
                 <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5">
-                    <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500 mb-2">Explanation</h2>
+                    <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-white-500 mb-2">Explanation</h2>
                     {renderExplanation(explanation, {
                         inlineVocab: lesson.inlineVocab,
                         onVocabClick: handleVocabClick,

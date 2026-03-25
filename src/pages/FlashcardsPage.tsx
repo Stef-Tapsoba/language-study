@@ -194,8 +194,8 @@ function FlipCard({ item, flipped, onClick, translationMode, translationShown, u
                 </div>
 
                 {/* Back */}
-                <div className="card-back card-face absolute inset-0 bg-indigo-50 rounded-2xl border-2
-                                border-indigo-300 flex flex-col items-center justify-center gap-3 p-6 shadow-md">
+                <div className="card-back card-face absolute inset-0 bg-indigo-50 dark:bg-indigo-600 rounded-2xl border-2
+                                border-indigo-300 dark:border-indigo-700 flex flex-col items-center justify-center gap-3 p-6 shadow-md">
 
                     {/* Typed mode result indicator */}
                     {typedMode && typedResult && (
@@ -211,11 +211,11 @@ function FlipCard({ item, flipped, onClick, translationMode, translationShown, u
 
                     {/* A1/A2: translation prominent at top */}
                     {translationMode === "primary" && (
-                        <p className="text-2xl font-bold text-indigo-900 text-center">{item.translation}</p>
+                        <p className="text-2xl font-bold text-indigo-900 text-center dark:text-white">{item.translation}</p>
                     )}
 
                     {/* Example sentence — always shown */}
-                    <div className="bg-white rounded-xl px-4 py-2 text-center relative">
+                    <div className="bg-white dark:bg-gray-700 rounded-xl px-4 py-2 text-center relative">
                         <p className="text-sm text-gray-700 dark:text-gray-300">{item.example.native}</p>
                         {item.example.romanized && (
                             <p className="text-xs text-indigo-400 mt-0.5">{item.example.romanized}</p>
@@ -390,13 +390,13 @@ export function FlashcardsPage() {
                     <div className="w-full bg-amber-50 border border-amber-200 rounded-2xl divide-y divide-amber-200">
                         <div className="flex items-center gap-3 px-4 py-3">
                             <Switch id="typed-mode" checked={typedMode} onCheckedChange={setTypedMode} className="data-[state=unchecked]:!bg-amber-300" />
-                            <label htmlFor="typed-mode" className="text-sm text-gray-700 dark:text-gray-300 cursor-pointer">
+                            <label htmlFor="typed-mode" className="text-sm text-gray-700 cursor-pointer">
                                 Type answers (active recall)
                             </label>
                         </div>
                         <div className="flex items-center gap-3 px-4 py-3">
                             <Switch id="tts-enabled" checked={ttsEnabled} onCheckedChange={handleTtsToggle} className="data-[state=unchecked]:!bg-amber-300" />
-                            <label htmlFor="tts-enabled" className="text-sm text-gray-700 dark:text-gray-300 cursor-pointer">
+                            <label htmlFor="tts-enabled" className="text-sm text-gray-700 cursor-pointer">
                                 Auto-play pronunciation
                             </label>
                         </div>
