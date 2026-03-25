@@ -211,11 +211,30 @@ Place:
   とうきょうから おおさかまで しんかんせんで にじかんです。
   It's two hours from Tokyo to Osaka by shinkansen.
 
-から AS 'BECAUSE' — a preview
-から also means 'because' when attached to a verb or adjective.
-This use is A2+ but you will see it in reading:
-  さむいから、うちにいます。  Because it's cold, I'm staying home.
-Just recognise it for now — do not confuse it with the から of starting point.`,
+から AS 'BECAUSE' — reason connector (second grammatical function)
+から also means 'because / so' when it follows a verb, adjective, or です.
+This is a separate grammatical function from the starting-point から above.
+
+PATTERN:
+  [Reason clause] から、[Result clause]。
+  [Result clause]。[Reason clause] から。  (reason at the end)
+
+EXAMPLES:
+  さむいから、うちにいます。       Because it's cold, I'm staying home.
+  つかれたから、ねます。           Because I'm tired, I'll sleep.
+  にほんごが すきだから、べんきょうします。
+                                    Because I like Japanese, I study it.
+  やすいですから、かいました。     Because it was cheap, I bought it.
+
+  REASON AT THE END (common in speech):
+  うちにいます。さむいから。       I'm staying home. Because it's cold.
+  This trailing から gives the reason after the fact — very natural in conversation.
+
+KEY — HOW TO TELL THE TWO から APART:
+  Range から  →  follows a NOUN (time/place):   くじから はたらく (work from 9)
+  Reason から →  follows a VERB or ADJECTIVE:   さむいから うちにいる (cold, so I stay home)
+
+Both appear heavily on N5 — recognise and use both.`,
         examples: [
             { native: "くじから ごじまで はたらきます。", romanized: "Kuji kara goji made hatarakimasu.", translation: "I work from nine to five." },
             { native: "とうきょうから きました。", romanized: "Tokyo kara kimashita.", translation: "I came from Tokyo." },
@@ -271,6 +290,66 @@ This distinguishes と from や (A2), which lists examples non-exhaustively.
             { native: "かぞくと いっしょに たべます。", romanized: "Kazoku to issho ni tabemasu.", translation: "I eat together with my family." },
             { native: "パンと バターと ジュースを かいました。", romanized: "Pan to bataa to juusu wo kaimashita.", translation: "I bought bread, butter and juice." },
             { native: "せんせいと はなしました。", romanized: "Sensei to hanashimashita.", translation: "I talked with my teacher." },
+        ]
+    },
+    {
+        id: "ja-g-a1-37",
+        level: "A1",
+        title: "へ Particle — Direction",
+        explanation: `The particle へ (written 'he', pronounced 'e' as a particle) marks the direction of movement — where someone or something is headed. It is closely related to に but carries a different nuance.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BASIC USE — marking direction:
+  へ follows a place word to show the direction of travel.
+
+  がっこうへ いきます。   I am going to school.
+  にほんへ きました。     I came to Japan.
+  うちへ かえります。     I will return home.
+  どこへ いきますか？     Where are you going?
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+へ vs に — the key distinction:
+
+Both can mark destination with movement verbs (行く, 来る, 帰る).
+The difference is one of emphasis:
+
+  に  →  emphasises the ARRIVAL POINT (endpoint, destination reached)
+  へ  →  emphasises the DIRECTION / JOURNEY (the heading, not necessarily arrival)
+
+Practical effect at A1:
+  がっこうに いきます。   I go to school.  (に: arriving at school is the point)
+  がっこうへ いきます。   I head to school. (へ: direction of travel)
+
+In many everyday sentences, both are interchangeable and native speakers use both freely.
+Where they differ:
+
+  へ ONLY — direction without clear arrival:
+  そとへ でましょう。      Let's head outside. (direction, not a fixed endpoint)
+  みなみへ すすんでください。  Please proceed southward. (compass direction — へ is natural)
+
+  に ONLY — cannot use へ:
+  さんじに おきます。     I wake up at 3 o'clock. (TIME — に only, never へ)
+  いすに すわります。     I sit in the chair. (static position — に, not へ)
+  つくえに ほんが あります。 There is a book on the desk. (existence — に, not へ)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COMMON PHRASES WITH へ:
+  どこへ いきますか？       Where are you going?
+  どちらへ？                Where to? (polite)
+  にほんへ ようこそ！       Welcome to Japan!
+  みぎへ まがってください。 Please turn right.
+  まっすぐ まえへ いってください。  Please go straight ahead.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+AT A1: Use へ freely with 行く/来る/帰る to mean 'to/toward'.
+Reserve に when talking about time, existence (あります/います), or static location.`,
+        examples: [
+            { native: "どこへ いきますか？", romanized: "Doko e ikimasu ka?", translation: "Where are you going?" },
+            { native: "とうきょうへ いきます。", romanized: "Tokyo e ikimasu.", translation: "I am going to Tokyo." },
+            { native: "にほんへ ようこそ！", romanized: "Nihon e youkoso!", translation: "Welcome to Japan!" },
+            { native: "うちへ かえりましょう。", romanized: "Uchi e kaerimashou.", translation: "Let's head home." },
+            { native: "みぎへ まがってください。", romanized: "Migi e magatte kudasai.", translation: "Please turn right." },
+            { native: "がっこうへ いきます。／ がっこうに いきます。", romanized: "Gakkou e ikimasu. / Gakkou ni ikimasu.", translation: "I go to school. (both natural — へ = direction, に = destination)", speakText: "がっこうへ いきます。" },
         ]
     },
 ]

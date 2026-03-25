@@ -264,4 +264,183 @@ AT THE REGISTER:
             { native: "ぜんぶで いくらですか？", romanized: "Zenbu de ikura desu ka?", translation: "How much is everything altogether?" },
         ]
     },
+    {
+        id: "ja-g-a1-34",
+        level: "A1",
+        title: "〜ています — Progressive and Resultant States",
+        explanation: `〜ています (te-form + います) is one of the most important and heavily tested patterns at N5. It has two distinct uses that must not be confused.
+
+FORMATION:
+  て-form of verb + います
+  て-form of verb + いません  (negative)
+  て-form of verb + いますか？ (question)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+USE 1: ONGOING ACTION (progressive — like English '-ing')
+Used with action verbs to describe something happening right now.
+
+  食べています。       I am eating. / He is eating.
+  何をしていますか？  What are you doing?
+  テレビを見ています。 I am watching TV.
+  雨が降っています。  It is raining.
+
+KEY: The action is in progress at the moment of speaking.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+USE 2: RESULTANT STATE (ongoing result of a completed action)
+Used with change-of-state verbs to describe the lasting result.
+The action is finished but its result continues.
+
+  結婚しています。     I am married. (= got married, and that state continues)
+  住んでいます。       I live in... (= settled/moved, and am still there)
+  知っています。       I know. (= came to know, and still know)
+  着ています。         I am wearing... (= put on, and am still wearing)
+
+KEY: The action itself is over, but the resulting condition persists.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CONTRAST — the two uses side by side:
+
+  食べています。       [ongoing action]   I am eating (right now).
+  結婚しています。     [resultant state]  I am married (the state of being married).
+  東京に住んでいます。 [resultant state]  I live in Tokyo.
+  今、走っています。   [ongoing action]   I am running right now.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+NEGATIVE AND QUESTION FORMS:
+  食べていません。        I am not eating. / I haven't eaten (yet).
+  結婚していません。      I am not married.
+  何をしていますか？      What are you doing?
+  どこに住んでいますか？  Where do you live?
+
+NOTE: 知りません (not 知っていません) is the natural negative of 知っています.`,
+        examples: [
+            { native: "いま なにを していますか？", romanized: "Ima nani wo shite imasu ka?", translation: "What are you doing right now?" },
+            { native: "ごはんを たべています。", romanized: "Gohan wo tabete imasu.", translation: "I am eating a meal." },
+            { native: "とうきょうに すんでいます。", romanized: "Tokyo ni sunde imasu.", translation: "I live in Tokyo." },
+            { native: "かれは けっこんしています。", romanized: "Kare wa kekkon shite imasu.", translation: "He is married." },
+            { native: "あめが ふっています。", romanized: "Ame ga futte imasu.", translation: "It is raining." },
+            { native: "すみません、いま でんわを しています。", romanized: "Sumimasen, ima denwa wo shite imasu.", translation: "Sorry, I am on the phone right now." },
+        ]
+    },
+    {
+        id: "ja-g-a1-35",
+        level: "A1",
+        title: "Giving and Receiving — あげます / くれます / もらいます",
+        explanation: `Japanese uses three different verbs for giving and receiving. The choice depends on the DIRECTION of the giving — who gives to whom. This is a key N5 grammar point.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+あげます — I/we give TO someone else (outward direction)
+The giver is the speaker (or an in-group member) and the receiver is someone else.
+
+  Pattern: [giver] は [receiver] に [thing] を あげます。
+  わたしは ともだちに プレゼントを あげました。
+  I gave a present to my friend.
+
+  はなこさんに ほんを あげます。
+  I will give a book to Hanako.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+くれます — someone gives TO me/us (inward direction)
+The receiver is the speaker (or an in-group member). The giver is someone else.
+
+  Pattern: [giver] は [receiver = me/us] に [thing] を くれます。
+  ともだちは わたしに プレゼントを くれました。
+  My friend gave me a present.
+
+  せんせいが じしょを くれました。
+  My teacher gave me a dictionary.
+
+  NOTE: When the receiver is clearly 'me', に わたしに is often omitted:
+  せんせいが じしょを くれました。 (= gave it TO ME)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+もらいます — I receive FROM someone
+The receiver is the speaker. に or から marks the giver.
+
+  Pattern: [receiver = me] は [giver] に/から [thing] を もらいます。
+  わたしは ともだちに/から プレゼントを もらいました。
+  I received a present from my friend.
+
+  に and から are both natural here; から is slightly more natural when emphasising the source.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+QUICK COMPARISON:
+  あげる  →  I give (away from me)
+  くれる  →  someone gives (toward me)
+  もらう  →  I receive (coming to me)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+て-FORM VERSIONS — giving/receiving a favour (an action, not a thing):
+  〜てあげます     I do something for someone else (as a favour)
+    かばんを もってあげます。    I'll carry your bag for you.
+
+  〜てくれます     someone does something for me
+    てつだってくれますか？      Will you help me?
+
+  〜てもらいます   I have someone do something for me / I get someone to do X
+    せんせいに せつめいして もらいました。
+    I had my teacher explain it (to me).`,
+        examples: [
+            { native: "わたしは ははに はなを あげました。", romanized: "Watashi wa haha ni hana wo agemashita.", translation: "I gave flowers to my mother." },
+            { native: "ともだちが わたしに ほんを くれました。", romanized: "Tomodachi ga watashi ni hon wo kuremashita.", translation: "My friend gave me a book." },
+            { native: "わたしは せんせいから じしょを もらいました。", romanized: "Watashi wa sensei kara jisho wo moraimashita.", translation: "I received a dictionary from my teacher." },
+            { native: "てつだって くれますか？", romanized: "Tetsudatte kuremasu ka?", translation: "Will you help me?" },
+            { native: "かばんを もってあげましょうか。", romanized: "Kaban wo motte agemashou ka.", translation: "Shall I carry your bag for you?" },
+            { native: "せんせいに せつめいして もらいました。", romanized: "Sensei ni setsumei shite moraimashita.", translation: "I had my teacher explain it to me." },
+        ]
+    },
+    {
+        id: "ja-g-a1-36",
+        level: "A1",
+        title: "Permission and Prohibition — 〜てもいいですか / 〜てはいけません",
+        explanation: `These patterns let you ask permission, grant permission, and express prohibition. All are built on the て-form.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ASKING PERMISSION: 〜てもいいですか？  (May I...? / Is it okay to...?)
+  Formation: て-form + もいいですか？
+
+  ここに すわっても いいですか？   May I sit here?
+  しゃしんを とっても いいですか？ May I take a photo?
+  まどを あけても いいですか？     May I open the window?
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GRANTING PERMISSION: 〜てもいいです  (You may... / It's okay to...)
+  Formation: て-form + もいいです
+
+  はい、すわっても いいです。      Yes, you may sit down.
+  どうぞ、とっても いいですよ。    Please go ahead, you may take one.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PROHIBITION: 〜てはいけません  (You must not... / It is not allowed to...)
+  Formation: て-form + はいけません
+  Casual variant: 〜てはだめです (slightly softer, more everyday)
+
+  ここで たばこを すっては いけません。  You must not smoke here.
+  しゃしんを とっては いけません。       You must not take photos.
+  このへやに はいっては だめです。       You must not enter this room.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+NOT NECESSARY: 〜なくてもいいです  (You don't have to... / It's okay not to...)
+  Formation: ない-form (drop い) + くてもいいです
+
+  むりに たべなくても いいです。    You don't have to force yourself to eat.
+  はやく こなくても いいです。      You don't have to come early.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+OVERVIEW TABLE:
+  〜てもいいですか？      May I ~?           (asking permission)
+  〜てもいいです          You may ~          (granting permission)
+  〜てはいけません        You must not ~     (prohibition — firm)
+  〜てはだめです          You must not ~     (prohibition — casual)
+  〜なくてもいいです      You don't have to ~ (no obligation)`,
+        examples: [
+            { native: "ここに すわっても いいですか？", romanized: "Koko ni suwatte mo ii desu ka?", translation: "May I sit here?" },
+            { native: "はい、どうぞ。すわっても いいですよ。", romanized: "Hai, douzo. Suwatte mo ii desu yo.", translation: "Yes, please. You may sit down." },
+            { native: "ここで たばこを すっては いけません。", romanized: "Koko de tabako wo sutte wa ikemasen.", translation: "You must not smoke here." },
+            { native: "しゃしんを とっても いいですか？", romanized: "Shashin wo totte mo ii desu ka?", translation: "May I take a photo?" },
+            { native: "むりに たべなくても いいです。", romanized: "Muri ni tabenakute mo ii desu.", translation: "You don't have to force yourself to eat." },
+            { native: "このへやに はいっては だめです。", romanized: "Kono heya ni haitte wa dame desu.", translation: "You must not enter this room." },
+        ]
+    },
 ]

@@ -1,7 +1,7 @@
 // data/japanese/units/a1.ts
 import { LessonUnit } from "../../../types"
 
-// 26 ordered A1 units for Japanese.
+// 27 ordered A1 units for Japanese.
 //
 // REORDER (2026-03-19): Demonstratives & の moved from U19 → U7 (used in basic sentences
 // from the start; learners need これ/その/の before counters and verbs). Adjective
@@ -12,15 +12,22 @@ import { LessonUnit } from "../../../types"
 // Suggestions" moved before the capstone review. New order: U24 ← old U25, U25 ← old U26,
 // U26 ← old U24 (capstone stays last).
 //
+// CURRICULUM FIX (2026-03-25): U5 repurposed from duplicate greetings to へ particle (ja-g-a1-37).
+// U8 expanded to include 〜ています (ja-g-a1-34). U22 expanded to include permission/prohibition
+// (ja-g-a1-36) and giving/receiving (ja-g-a1-35). U18 updated to N5 Kanji Group 1 (ja-g-a1-14
+// expanded). U26 now covers N5 Kanji Group 2 (ja-g-a1-38). U27 is new capstone review.
+// 21 new verbs added (ja-vb-a1-21 through ja-vb-a1-41) distributed across thematic units.
+// から-as-reason connector added to ja-g-a1-30 explanation.
+//
 // U1  — How Japanese Works + Hiragana Part 1
 // U2  — Hiragana Part 2 & First Greetings
 // U3  — Katakana
 // U4  — Basic Sentences: X は Y です
-// U5  — Greetings & Daily Expressions
+// U5  — へ Particle — Direction & Movement  (replaces duplicate greetings)
 // U6  — Numbers 1–100
 // U7  — Demonstratives & の  ← was U19
 // U8  — Counters  ← was U7
-// U9  — Polite Verbs: ます-form  ← was U8
+// U9  — Polite Verbs: ます-form & 〜ています  (expanded)
 // U10 — Past Tense: ました  ← was U9
 // U11 — Negation & Questions  ← was U10
 // U12 — Adjective Conjugation: い and な  ← was U20
@@ -31,13 +38,14 @@ import { LessonUnit } from "../../../types"
 // U17 — Food & Shopping Vocabulary  ← was U15
 // U18 — Likes & Dislikes: 好き / 嫌い  ← was U16
 // U19 — Wanting To Do: 〜たい  ← was U17
-// U20 — Beginner Kanji  ← was U18
+// U20 — N5 Kanji Part 1 — Why Kanji + Numbers, Time, Nature & Position  (ja-g-a1-39 added)
 // U21 — Adverbs, Frequency & Connectors
-// U22 — Polite Requests: 〜てください
+// U22 — Requests, Permission & Giving  (expanded: +permission, +giving/receiving)
 // U23 — Ordering Food & Drinks
 // U24 — New Particles: も, と, から, まで  ← was U25
 // U25 — て-form, Plain Form & Suggestions  ← was U26
-// U26 — A1 Review: Putting It Together (capstone)  ← was U24
+// U26 — N5 Kanji Part 2 — People, Actions, Places & Society  (new)
+// U27 — A1 Review: Putting It Together (capstone)
 
 export const a1Units: LessonUnit[] = [
     {
@@ -116,17 +124,18 @@ export const a1Units: LessonUnit[] = [
         id: "ja-a1-u5",
         level: "A1",
         order: 5,
-        title: "Greetings & Daily Expressions",
-        description: "Master all common Japanese greetings and essential polite phrases for daily life. You were introduced to these in Unit 2 — now learn the full set and the cultural context behind them.",
-        grammarIds: ["ja-g-a1-5"],
-        vocabIds: ["ja-v-a1-1", "ja-v-a1-2", "ja-v-a1-3", "ja-v-a1-4", "ja-v-a1-5", "ja-v-a1-6", "ja-v-a1-7", "ja-v-a1-8", "ja-v-a1-9", "ja-v-a1-10", "ja-v-a1-11", "ja-v-a1-12"],
-        verbIds: [],
+        title: "へ Particle — Direction & Movement",
+        description: "Learn the direction particle へ (e) and how it differs from に. Use it immediately with the movement verbs 行く / 来る / 帰る you met in previous units. Understand when each particle is the natural choice.",
+        grammarIds: ["ja-g-a1-37"],
+        vocabIds: ["ja-v-a1-104", "ja-v-a1-105", "ja-v-a1-106", "ja-v-a1-110", "ja-v-a1-112", "ja-v-a1-113", "ja-v-a1-147"],
+        verbIds: ["ja-vb-a1-3", "ja-vb-a1-5", "ja-vb-a1-14"],
         testQuestions: [
-            { id: "ja-uq-a1-5-1", level: "A1", prompt: "How do you say 'Good evening'?", options: ["おはようございます", "こんにちは", "こんばんは", "おやすみなさい"], answer: "こんばんは" },
-            { id: "ja-uq-a1-5-2", level: "A1", prompt: "What does 'すみません' mean?", options: ["Thank you", "Yes", "Excuse me / I'm sorry", "No"], answer: "Excuse me / I'm sorry" },
-            { id: "ja-uq-a1-5-3", level: "A1", prompt: "Which greeting is used during the daytime?", options: ["おはようございます", "こんにちは", "こんばんは", "さようなら"], answer: "こんにちは" },
-            { id: "ja-uq-a1-5-4", level: "A1", prompt: "What does 'どうぞ' mean?", options: ["Thank you", "Goodbye", "Please / Here you go / Go ahead", "Excuse me"], answer: "Please / Here you go / Go ahead" },
-            { id: "ja-uq-a1-5-5", level: "A1", prompt: "What do you say when meeting someone for the first time?", options: ["ありがとうございます", "はじめまして", "こんばんは", "さようなら"], answer: "はじめまして" },
+            { id: "ja-uq-a1-5-1", level: "A1", prompt: "What does the particle へ (e) mark in a sentence?", options: ["The topic", "The direction of movement", "The location of existence", "The time of an action"], answer: "The direction of movement" },
+            { id: "ja-uq-a1-5-2", level: "A1", prompt: "How do you say 'I am going to Tokyo'?", options: ["とうきょうで いきます。", "とうきょうを いきます。", "とうきょうへ いきます。", "とうきょうが いきます。"], answer: "とうきょうへ いきます。" },
+            { id: "ja-uq-a1-5-3", level: "A1", prompt: "Which sentence uses へ correctly?", options: ["さんじへ おきます。", "うちへ かえります。", "テーブルへ りんごが あります。", "えいごへ はなします。"], answer: "うちへ かえります。" },
+            { id: "ja-uq-a1-5-4", level: "A1", prompt: "What is the key difference between に and へ for destinations?", options: ["に is casual; へ is formal", "に emphasises arrival; へ emphasises direction of travel", "They are completely different particles with no overlap", "へ is used only for train travel"], answer: "に emphasises arrival; へ emphasises direction of travel" },
+            { id: "ja-uq-a1-5-5", level: "A1", prompt: "How do you say 'Let's head home'?", options: ["うちに かえりましょう。", "うちへ かえりましょう。", "うちで かえりましょう。", "うちを かえりましょう。"], answer: "うちへ かえりましょう。" },
+            { id: "ja-uq-a1-5-6", level: "A1", prompt: "Can you say 'さんじへ おきます' (wake up at three o'clock)?", options: ["Yes — に and へ are always interchangeable", "No — time expressions use に only, never へ", "Yes — but it is unusual", "No — you need で for times"], answer: "No — time expressions use に only, never へ" },
         ]
     },
     {
@@ -195,18 +204,19 @@ export const a1Units: LessonUnit[] = [
         id: "ja-a1-u8",
         level: "A1",
         order: 9,
-        title: "Polite Verbs: ます-form",
-        description: "Learn to conjugate verbs in polite present/future form using ます.",
-        grammarIds: ["ja-g-a1-7"],
-        vocabIds: ["ja-v-a1-58", "ja-v-a1-60", "ja-v-a1-104", "ja-v-a1-143", "ja-v-a1-144", "ja-v-a1-145", "ja-v-a1-146", "ja-v-a1-148"],
-        verbIds: ["ja-vb-a1-1", "ja-vb-a1-2", "ja-vb-a1-3", "ja-vb-a1-4", "ja-vb-a1-9", "ja-vb-a1-10", "ja-vb-a1-11"],
+        title: "Polite Verbs: ます-form & 〜ています",
+        description: "Learn to conjugate verbs in polite present/future form using ます. Then extend into 〜ています — the essential progressive/resultant-state form covering 'I am doing X' and 'I live in / I am married'.",
+        grammarIds: ["ja-g-a1-7", "ja-g-a1-34"],
+        vocabIds: ["ja-v-a1-58", "ja-v-a1-60", "ja-v-a1-104", "ja-v-a1-143", "ja-v-a1-144", "ja-v-a1-145", "ja-v-a1-146", "ja-v-a1-147", "ja-v-a1-148"],
+        verbIds: ["ja-vb-a1-1", "ja-vb-a1-2", "ja-vb-a1-3", "ja-vb-a1-4", "ja-vb-a1-9", "ja-vb-a1-10", "ja-vb-a1-11", "ja-vb-a1-26", "ja-vb-a1-31"],
         testQuestions: [
             { id: "ja-uq-a1-8-1", level: "A1", prompt: "What is the polite present form of 食べる (taberu)?", options: ["食べた", "食べます", "食べません", "食べて"], answer: "食べます" },
             { id: "ja-uq-a1-8-2", level: "A1", prompt: "What is the polite present form of 行く (iku)?", options: ["行きます", "行く", "行って", "行きた"], answer: "行きます" },
             { id: "ja-uq-a1-8-3", level: "A1", prompt: "The irregular verb する (suru) becomes which ます-form?", options: ["するます", "すります", "します", "しいます"], answer: "します" },
-            { id: "ja-uq-a1-8-4", level: "A1", prompt: "How do you say 'I drink water' in polite Japanese?", options: ["みずを飲みた。", "みずを飲みます。", "みずを飲む。", "みずを飲んで。"], answer: "みずを飲みます。" },
+            { id: "ja-uq-a1-8-4", level: "A1", prompt: "How do you say 'I am eating right now' using 〜ています?", options: ["たべます。", "たべました。", "たべています。", "たべてください。"], answer: "たべています。" },
             { id: "ja-uq-a1-8-5", level: "A1", prompt: "What kind of actions does ます-form express?", options: ["Past actions only", "Present habits and future actions (polite)", "Commands only", "Wishes only"], answer: "Present habits and future actions (polite)" },
-            { id: "ja-uq-a1-8-6", level: "A1", prompt: "How do you say 'I go to school' in polite Japanese?", options: ["学校に行く。", "学校に行きます。", "学校に行きた。", "学校に行って。"], answer: "学校に行きます。" },
+            { id: "ja-uq-a1-8-6", level: "A1", prompt: "How do you say 'I live in Tokyo' (resultant state)?", options: ["とうきょうに いきます。", "とうきょうに すんでいます。", "とうきょうに いました。", "とうきょうに いてください。"], answer: "とうきょうに すんでいます。" },
+            { id: "ja-uq-a1-8-7", level: "A1", prompt: "What does '〜ています' express with a change-of-state verb like 結婚する?", options: ["The action is happening right now", "The ongoing result of a completed action", "A future intention", "A polite request"], answer: "The ongoing result of a completed action" },
         ]
     },
     {
@@ -217,7 +227,7 @@ export const a1Units: LessonUnit[] = [
         description: "Express past actions using ました (affirmative) and ませんでした (negative).",
         grammarIds: ["ja-g-a1-8"],
         vocabIds: ["ja-v-a1-35", "ja-v-a1-36", "ja-v-a1-37", "ja-v-a1-38", "ja-v-a1-70", "ja-v-a1-104"],
-        verbIds: ["ja-vb-a1-5", "ja-vb-a1-6", "ja-vb-a1-12", "ja-vb-a1-13", "ja-vb-a1-14"],
+        verbIds: ["ja-vb-a1-5", "ja-vb-a1-6", "ja-vb-a1-12", "ja-vb-a1-13", "ja-vb-a1-14", "ja-vb-a1-25", "ja-vb-a1-27"],
         testQuestions: [
             { id: "ja-uq-a1-9-1", level: "A1", prompt: "How do you say 'I ate sushi yesterday'?", options: ["昨日、すしを食べます。", "昨日、すしを食べました。", "昨日、すしを食べません。", "昨日、すしを食べた。"], answer: "昨日、すしを食べました。" },
             { id: "ja-uq-a1-9-2", level: "A1", prompt: "How do you form the polite past negative?", options: ["ます → まして", "ます → ませんでした", "ます → ました", "ます → ません"], answer: "ます → ませんでした" },
@@ -235,7 +245,7 @@ export const a1Units: LessonUnit[] = [
         description: "Form negative sentences with ません and ask questions with か and question words.",
         grammarIds: ["ja-g-a1-9"],
         vocabIds: ["ja-v-a1-35", "ja-v-a1-36", "ja-v-a1-38", "ja-v-a1-104", "ja-v-a1-106", "ja-v-a1-114", "ja-v-a1-147", "ja-v-a1-148", "ja-v-a1-149", "ja-v-a1-150"],
-        verbIds: ["ja-vb-a1-7", "ja-vb-a1-8"],
+        verbIds: ["ja-vb-a1-7", "ja-vb-a1-8", "ja-vb-a1-21", "ja-vb-a1-33", "ja-vb-a1-34"],
         testQuestions: [
             { id: "ja-uq-a1-10-1", level: "A1", prompt: "How do you say 'I don't speak Japanese'?", options: ["日本語を話します。", "日本語を話しません。", "日本語を話しました。", "日本語を話すか？"], answer: "日本語を話しません。" },
             { id: "ja-uq-a1-10-2", level: "A1", prompt: "What question word means 'where'?", options: ["なに", "いつ", "どこ", "だれ"], answer: "どこ" },
@@ -288,7 +298,7 @@ export const a1Units: LessonUnit[] = [
         description: "Use に for destinations with movement verbs, locations of existence, and time expressions.",
         grammarIds: ["ja-g-a1-11", "ja-g-a1-25"],
         vocabIds: ["ja-v-a1-104", "ja-v-a1-105", "ja-v-a1-106", "ja-v-a1-107", "ja-v-a1-108", "ja-v-a1-111", "ja-v-a1-112", "ja-v-a1-113", "ja-v-a1-115", "ja-v-a1-116", "ja-v-a1-28", "ja-v-a1-38"],
-        verbIds: ["ja-vb-a1-3", "ja-vb-a1-5", "ja-vb-a1-12", "ja-vb-a1-14", "ja-vb-a1-15", "ja-vb-a1-16"],
+        verbIds: ["ja-vb-a1-3", "ja-vb-a1-5", "ja-vb-a1-12", "ja-vb-a1-14", "ja-vb-a1-15", "ja-vb-a1-16", "ja-vb-a1-23", "ja-vb-a1-24", "ja-vb-a1-38"],
         testQuestions: [
             { id: "ja-uq-a1-12-1", level: "A1", prompt: "Which particle marks the destination of movement?", options: ["を", "は", "に", "で"], answer: "に" },
             { id: "ja-uq-a1-12-2", level: "A1", prompt: "How do you say 'I go to school'?", options: ["学校で行きます。", "学校を行きます。", "学校が行きます。", "学校に行きます。"], answer: "学校に行きます。" },
@@ -348,7 +358,7 @@ export const a1Units: LessonUnit[] = [
         description: "Build vocabulary for food, drink, shopping, adjectives and describing things.",
         grammarIds: [],
         vocabIds: ["ja-v-a1-58", "ja-v-a1-59", "ja-v-a1-60", "ja-v-a1-61", "ja-v-a1-64", "ja-v-a1-65", "ja-v-a1-66", "ja-v-a1-67", "ja-v-a1-68", "ja-v-a1-70", "ja-v-a1-72", "ja-v-a1-129", "ja-v-a1-130", "ja-v-a1-131", "ja-v-a1-132", "ja-v-a1-133", "ja-v-a1-134", "ja-v-a1-137", "ja-v-a1-138"],
-        verbIds: ["ja-vb-a1-1", "ja-vb-a1-2", "ja-vb-a1-9", "ja-vb-a1-11"],
+        verbIds: ["ja-vb-a1-1", "ja-vb-a1-2", "ja-vb-a1-9", "ja-vb-a1-11", "ja-vb-a1-22", "ja-vb-a1-30", "ja-vb-a1-40"],
         testQuestions: [
             { id: "ja-uq-a1-15-1", level: "A1", prompt: "What does 'おいしい' mean?", options: ["Cheap", "Big", "Delicious", "New"], answer: "Delicious" },
             { id: "ja-uq-a1-15-2", level: "A1", prompt: "What is 'meat' in Japanese?", options: ["さかな", "やさい", "にく", "くだもの"], answer: "にく" },
@@ -388,7 +398,7 @@ export const a1Units: LessonUnit[] = [
         description: "Express desires using たい — the bridge between A1 and A2 grammar.",
         grammarIds: ["ja-g-a1-13"],
         vocabIds: ["ja-v-a1-60", "ja-v-a1-70", "ja-v-a1-71", "ja-v-a1-104", "ja-v-a1-106", "ja-v-a1-110", "ja-v-a1-112", "ja-v-a1-147"],
-        verbIds: ["ja-vb-a1-1", "ja-vb-a1-2", "ja-vb-a1-3", "ja-vb-a1-4", "ja-vb-a1-6"],
+        verbIds: ["ja-vb-a1-1", "ja-vb-a1-2", "ja-vb-a1-3", "ja-vb-a1-4", "ja-vb-a1-6", "ja-vb-a1-28", "ja-vb-a1-29", "ja-vb-a1-39"],
         testQuestions: [
             { id: "ja-uq-a1-17-1", level: "A1", prompt: "How do you say 'I want to eat sushi'?", options: ["すしを食べます。", "すしが食べたいです。", "すしを食べました。", "すしを食べません。"], answer: "すしが食べたいです。" },
             { id: "ja-uq-a1-17-2", level: "A1", prompt: "How is たい formed? Take the ます-form stem and...", options: ["add ない", "add たい", "add て", "add ました"], answer: "add たい" },
@@ -402,9 +412,9 @@ export const a1Units: LessonUnit[] = [
         id: "ja-a1-u18",
         level: "A1",
         order: 20,
-        title: "Beginner Kanji",
-        description: "Learn 15 essential kanji you have already seen throughout A1 — 日, 水, 山, 本, 人, 学, 生, 先, 語, 上, 下, 中, 大, 小, 手. Each now has its own vocab card so you can study the reading and meaning directly.",
-        grammarIds: ["ja-g-a1-14"],
+        title: "N5 Kanji Part 1 — Why Kanji + Numbers, Time, Nature & Position",
+        description: "Start with why kanji matters and how meaning compounds (木→林→森, 電車, 学生). Then learn the first group of N5 kanji: numbers 一〜十百千万円, time 年月日時間分, days of the week 火水木金土, position 上下左右中外前後, and nature 山川田空花木林森.",
+        grammarIds: ["ja-g-a1-39", "ja-g-a1-14"],
         vocabIds: [
             // Kanji already with vocab entries
             "ja-v-a1-60",   // 水 (みず) — water
@@ -445,7 +455,7 @@ export const a1Units: LessonUnit[] = [
         description: "Say when, how often, and link your ideas. Learn time adverbs (もう/まだ/はじめに), frequency words (いつも/ときどき/ぜんぜん), and discourse connectors (そして/でも/だから/まず).",
         grammarIds: ["ja-g-a1-22", "ja-g-a1-23", "ja-g-a1-24"],
         vocabIds: [],
-        verbIds: [],
+        verbIds: ["ja-vb-a1-31"],
         testQuestions: [
             { id: "ja-uq-a1-21-1", level: "A1", prompt: "What does 'まだ たべていません' mean?", options: ["I already ate", "I haven't eaten yet", "I don't want to eat", "I sometimes eat"], answer: "I haven't eaten yet" },
             { id: "ja-uq-a1-21-2", level: "A1", prompt: "Which frequency adverb REQUIRES a negative verb?", options: ["いつも", "よく", "ときどき", "ぜんぜん"], answer: "ぜんぜん" },
@@ -459,18 +469,19 @@ export const a1Units: LessonUnit[] = [
         id: "ja-a1-u22",
         level: "A1",
         order: 22,
-        title: "Polite Requests: 〜てください",
-        description: "Make and refuse polite requests. Learn to form the て-form for all verb groups, use 〜てください and 〜ないでください, and soften requests with すみません.",
-        grammarIds: ["ja-g-a1-26"],
-        vocabIds: ["ja-v-a1-52", "ja-v-a1-55", "ja-v-a1-56", "ja-v-a1-57", "ja-v-a1-62", "ja-v-a1-65"],
-        verbIds: ["ja-vb-a1-1", "ja-vb-a1-2", "ja-vb-a1-3", "ja-vb-a1-5", "ja-vb-a1-7", "ja-vb-a1-8", "ja-vb-a1-16"],
+        title: "Requests, Permission & Giving",
+        description: "Make and refuse polite requests with 〜てください. Ask and grant permission with 〜てもいいですか, and express prohibition with 〜てはいけません. Learn how Japanese distinguishes giving TO someone (あげます), giving TO you (くれます), and receiving (もらいます).",
+        grammarIds: ["ja-g-a1-26", "ja-g-a1-36", "ja-g-a1-35"],
+        vocabIds: ["ja-v-a1-52", "ja-v-a1-53", "ja-v-a1-55", "ja-v-a1-56", "ja-v-a1-57", "ja-v-a1-62", "ja-v-a1-65"],
+        verbIds: ["ja-vb-a1-1", "ja-vb-a1-2", "ja-vb-a1-3", "ja-vb-a1-5", "ja-vb-a1-7", "ja-vb-a1-8", "ja-vb-a1-16", "ja-vb-a1-35", "ja-vb-a1-36", "ja-vb-a1-37"],
         testQuestions: [
             { id: "ja-uq-a1-22-1", level: "A1", prompt: "What is the て-form of たべる?", options: ["たべって", "たべいて", "たべて", "たべして"], answer: "たべて" },
             { id: "ja-uq-a1-22-2", level: "A1", prompt: "How do you say 'Please speak slowly'?", options: ["ゆっくり はなさないでください。", "ゆっくり はなしてください。", "ゆっくり はなすてください。", "ゆっくり はなしください。"], answer: "ゆっくり はなしてください。" },
-            { id: "ja-uq-a1-22-3", level: "A1", prompt: "What is the て-form of いく?", options: ["いいて", "いきて", "いって", "いくて"], answer: "いって" },
-            { id: "ja-uq-a1-22-4", level: "A1", prompt: "How do you say 'Please don't take photos'?", options: ["しゃしんを とってください。", "しゃしんを とらないでください。", "しゃしんを とるないでください。", "しゃしんを とらてください。"], answer: "しゃしんを とらないでください。" },
-            { id: "ja-uq-a1-22-5", level: "A1", prompt: "What is the て-form of する?", options: ["すて", "すって", "して", "しいて"], answer: "して" },
-            { id: "ja-uq-a1-22-6", level: "A1", prompt: "'もう いちど いってください' means:", options: ["Please go one more time", "Please say that one more time", "Please come one more time", "Please write it again"], answer: "Please say that one more time" },
+            { id: "ja-uq-a1-22-3", level: "A1", prompt: "How do you ask 'May I sit here?'", options: ["ここに すわっては いけません。", "ここに すわっても いいですか？", "ここに すわってください。", "ここに すわらないでください。"], answer: "ここに すわっても いいですか？" },
+            { id: "ja-uq-a1-22-4", level: "A1", prompt: "How do you say 'You must not smoke here'?", options: ["ここで たばこを すっても いいです。", "ここで たばこを すっては いけません。", "ここで たばこを すってください。", "ここで たばこを すわないでください。"], answer: "ここで たばこを すっては いけません。" },
+            { id: "ja-uq-a1-22-5", level: "A1", prompt: "Which verb do you use when someone gives something TO YOU?", options: ["あげます", "くれます", "もらいます", "かします"], answer: "くれます" },
+            { id: "ja-uq-a1-22-6", level: "A1", prompt: "How do you say 'I gave a present to my friend'?", options: ["ともだちが わたしに プレゼントを くれました。", "わたしは ともだちに プレゼントを あげました。", "わたしは ともだちから プレゼントを もらいました。", "ともだちは わたしから プレゼントを もらいました。"], answer: "わたしは ともだちに プレゼントを あげました。" },
+            { id: "ja-uq-a1-22-7", level: "A1", prompt: "How do you say 'You don't have to come early'?", options: ["はやく きてください。", "はやく きてはいけません。", "はやく こなくてもいいです。", "はやく きてもいいです。"], answer: "はやく こなくてもいいです。" },
         ]
     },
     {
@@ -485,7 +496,7 @@ export const a1Units: LessonUnit[] = [
             "ja-v-a1-63", "ja-v-a1-64", "ja-v-a1-65", "ja-v-a1-70", "ja-v-a1-71",
             "ja-v-a1-72", "ja-v-a1-73", "ja-v-a1-110",
         ],
-        verbIds: ["ja-vb-a1-1", "ja-vb-a1-2", "ja-vb-a1-15"],
+        verbIds: ["ja-vb-a1-1", "ja-vb-a1-2", "ja-vb-a1-15", "ja-vb-a1-32", "ja-vb-a1-40"],
         testQuestions: [
             { id: "ja-uq-a1-23-1", level: "A1", prompt: "How do you say 'Water, please' when ordering?", options: ["みずが ください。", "みずを ください。", "みずで ください。", "みずに ください。"], answer: "みずを ください。" },
             { id: "ja-uq-a1-23-2", level: "A1", prompt: "How do you ask 'How much is it?'", options: ["いくらですか？", "なんですか？", "どこですか？", "いつですか？"], answer: "いくらですか？" },
@@ -503,7 +514,7 @@ export const a1Units: LessonUnit[] = [
         description: "Expand your particle toolkit. Use も to mean 'also/too/either', と to link nouns as 'and' or mark a companion, and から/まで to express starting and ending points in time or space.",
         grammarIds: ["ja-g-a1-29", "ja-g-a1-30", "ja-g-a1-31"],
         vocabIds: ["ja-v-a1-104", "ja-v-a1-105", "ja-v-a1-106", "ja-v-a1-110", "ja-v-a1-112", "ja-v-a1-113", "ja-v-a1-58", "ja-v-a1-59", "ja-v-a1-61", "ja-v-a1-62", "ja-v-a1-35", "ja-v-a1-36", "ja-v-a1-39", "ja-v-a1-41"],
-        verbIds: ["ja-vb-a1-3", "ja-vb-a1-5", "ja-vb-a1-1", "ja-vb-a1-2", "ja-vb-a1-6", "ja-vb-a1-4"],
+        verbIds: ["ja-vb-a1-3", "ja-vb-a1-5", "ja-vb-a1-1", "ja-vb-a1-2", "ja-vb-a1-6", "ja-vb-a1-4", "ja-vb-a1-18", "ja-vb-a1-38"],
         testQuestions: [
             { id: "ja-uq-a1-24-1", level: "A1", prompt: "Tanaka-san said 'わたしも がくせいです。' What does も indicate here?", options: ["Tanaka is the only student", "Tanaka is also a student (like someone else)", "Tanaka is not a student", "Tanaka wants to be a student"], answer: "Tanaka is also a student (like someone else)" },
             { id: "ja-uq-a1-24-2", level: "A1", prompt: "How do you say 'I went with Yuki'?", options: ["ゆきが いきました。", "ゆきで いきました。", "ゆきと いきました。", "ゆきに いきました。"], answer: "ゆきと いきました。" },
@@ -521,7 +532,7 @@ export const a1Units: LessonUnit[] = [
         description: "Learn to build the て-form for connecting actions and making requests, introduce the plain (dictionary) form as the base of Japanese grammar, and use 〜ましょう / 〜ませんか to make suggestions.",
         grammarIds: ["ja-g-a1-28", "ja-g-a1-32", "ja-g-a1-33"],
         vocabIds: ["ja-v-a1-1", "ja-v-a1-2", "ja-v-a1-7", "ja-v-a1-8", "ja-v-a1-9", "ja-v-a1-150"],
-        verbIds: ["ja-vb-a1-1", "ja-vb-a1-2", "ja-vb-a1-3", "ja-vb-a1-4", "ja-vb-a1-5", "ja-vb-a1-6", "ja-vb-a1-7", "ja-vb-a1-8", "ja-vb-a1-9", "ja-vb-a1-10", "ja-vb-a1-11", "ja-vb-a1-12", "ja-vb-a1-13", "ja-vb-a1-14", "ja-vb-a1-17", "ja-vb-a1-18", "ja-vb-a1-19", "ja-vb-a1-20"],
+        verbIds: ["ja-vb-a1-1", "ja-vb-a1-2", "ja-vb-a1-3", "ja-vb-a1-4", "ja-vb-a1-5", "ja-vb-a1-6", "ja-vb-a1-7", "ja-vb-a1-8", "ja-vb-a1-9", "ja-vb-a1-10", "ja-vb-a1-11", "ja-vb-a1-12", "ja-vb-a1-13", "ja-vb-a1-14", "ja-vb-a1-17", "ja-vb-a1-18", "ja-vb-a1-19", "ja-vb-a1-20", "ja-vb-a1-26", "ja-vb-a1-28"],
         testQuestions: [
             { id: "ja-uq-a1-25-1", level: "A1", prompt: "What is the て-form of 'たべます' (to eat)?", options: ["たべて", "たべた", "たべます", "たべに"], answer: "たべて" },
             { id: "ja-uq-a1-25-2", level: "A1", prompt: "How do you say 'Let's go!' using 〜ましょう?", options: ["いきますか？", "いきましょう。", "いきません。", "いきませんか？"], answer: "いきましょう。" },
@@ -535,8 +546,40 @@ export const a1Units: LessonUnit[] = [
         id: "ja-a1-u26",
         level: "A1",
         order: 26,
+        title: "N5 Kanji Part 2 — People, Actions, Places & Society",
+        description: "Complete the N5 kanji set. Learn kanji for people and family 人女男子父母兄姉弟妹, body parts 目耳口手足, common action verbs 行来帰見聞話読書食飲入出, school 学校先生語文字本, places 国店駅道町市社会電車, compass directions 東西南北, time of day 朝昼夜, colours 白黒赤青, and other high-frequency N5 characters 名気力友家族.",
+        grammarIds: ["ja-g-a1-38"],
+        vocabIds: [
+            "ja-v-a1-52",   // ともだち — friend (友達)
+            "ja-v-a1-53",   // 先生 (せんせい) — teacher
+            "ja-v-a1-83",   // 手 (て) — hand
+            "ja-v-a1-104",  // 学校 (がっこう) — school
+            "ja-v-a1-113",  // 駅 (えき) — station
+            "ja-v-a1-119",  // 学生 (がくせい) — student
+            "ja-v-a1-143",  // 本 (ほん) — book
+            "ja-v-a1-147",  // 日本 (にほん) — Japan
+            "ja-v-a1-148",  // 日本語 (にほんご) — Japanese language
+            "ja-v-a1-149",  // 英語 (えいご) — English
+            "ja-v-a1-150",  // 名前 (なまえ) — name
+        ],
+        verbIds: ["ja-vb-a1-3", "ja-vb-a1-5", "ja-vb-a1-6", "ja-vb-a1-7", "ja-vb-a1-8", "ja-vb-a1-9", "ja-vb-a1-23", "ja-vb-a1-24"],
+        testQuestions: [
+            { id: "ja-uq-a1-26-1", level: "A1", prompt: "What does the kanji 東 mean?", options: ["West", "North", "East", "South"], answer: "East" },
+            { id: "ja-uq-a1-26-2", level: "A1", prompt: "Which kanji means 'mouth'?", options: ["目", "耳", "口", "手"], answer: "口" },
+            { id: "ja-uq-a1-26-3", level: "A1", prompt: "What is the kun'yomi of 女?", options: ["じょ", "おんな", "こ", "ひと"], answer: "おんな" },
+            { id: "ja-uq-a1-26-4", level: "A1", prompt: "Which kanji compound means 'company' (business)?", options: ["学校", "電車", "会社", "駅前"], answer: "会社" },
+            { id: "ja-uq-a1-26-5", level: "A1", prompt: "What does 家族 (かぞく) mean?", options: ["House", "Friend", "Family", "Company"], answer: "Family" },
+            { id: "ja-uq-a1-26-6", level: "A1", prompt: "Which kanji means 'morning'?", options: ["昼", "夜", "朝", "時"], answer: "朝" },
+            { id: "ja-uq-a1-26-7", level: "A1", prompt: "What does 元気 (げんき) mean?", options: ["Weather", "Healthy / Fine / Energetic", "Power", "Friend"], answer: "Healthy / Fine / Energetic" },
+            { id: "ja-uq-a1-26-8", level: "A1", prompt: "What does 電車 (でんしゃ) mean?", options: ["Telephone", "Train", "Car", "Station"], answer: "Train" },
+        ]
+    },
+    {
+        id: "ja-a1-u27",
+        level: "A1",
+        order: 27,
         title: "A1 Review: Putting It Together",
-        description: "Review all A1 grammar through integrated reading and production. Bring together scripts, particles, verb conjugation, adjectives, demonstratives, and connectors.",
+        description: "Review all A1 grammar through integrated reading and production. Bring together scripts, particles, verb conjugation, adjectives, demonstratives, connectors, 〜ています, giving/receiving, and permission/prohibition.",
         grammarIds: [],
         vocabIds: [
             "ja-v-a1-1", "ja-v-a1-46", "ja-v-a1-52", "ja-v-a1-53", "ja-v-a1-58",
@@ -546,14 +589,15 @@ export const a1Units: LessonUnit[] = [
         verbIds: [
             "ja-vb-a1-1", "ja-vb-a1-2", "ja-vb-a1-3",
             "ja-vb-a1-5", "ja-vb-a1-7", "ja-vb-a1-9",
+            "ja-vb-a1-25", "ja-vb-a1-26", "ja-vb-a1-27",
         ],
         testQuestions: [
-            { id: "ja-uq-a1-26-1", level: "A1", prompt: "How do you say 'I went to school yesterday'?", options: ["きのう がっこうで いきます。", "きのう がっこうに いきました。", "きのう がっこうを いきました。", "きのう がっこうが いきます。"], answer: "きのう がっこうに いきました。" },
-            { id: "ja-uq-a1-26-2", level: "A1", prompt: "Complete: 'わたし___ ほん。' (My book)", options: ["が", "は", "の", "に"], answer: "の" },
-            { id: "ja-uq-a1-26-3", level: "A1", prompt: "How do you say 'This restaurant is famous'?", options: ["このレストランは ゆうめいじゃないです。", "このレストランは ゆうめいです。", "このレストランが ゆうめいな。", "このレストランに ゆうめいです。"], answer: "このレストランは ゆうめいです。" },
-            { id: "ja-uq-a1-26-4", level: "A1", prompt: "What does 'もう たべました' mean?", options: ["I haven't eaten yet", "I always eat", "I already ate", "I want to eat"], answer: "I already ate" },
-            { id: "ja-uq-a1-26-5", level: "A1", prompt: "Which particle marks where an action takes place?", options: ["に", "を", "が", "で"], answer: "で" },
-            { id: "ja-uq-a1-26-6", level: "A1", prompt: "How do you say 'It was cold but fun'?", options: ["さむかったです。でも、たのしかったです。", "さむいでした。でも、たのしかったです。", "さむかったです。だから、たのしかったです。", "さむくないです。でも、たのしくないです。"], answer: "さむかったです。でも、たのしかったです。" },
+            { id: "ja-uq-a1-27-1", level: "A1", prompt: "How do you say 'I went to school yesterday'?", options: ["きのう がっこうで いきます。", "きのう がっこうに いきました。", "きのう がっこうを いきました。", "きのう がっこうが いきます。"], answer: "きのう がっこうに いきました。" },
+            { id: "ja-uq-a1-27-2", level: "A1", prompt: "How do you say 'I am studying Japanese right now'?", options: ["にほんごを べんきょうします。", "にほんごを べんきょうしました。", "にほんごを べんきょうしています。", "にほんごを べんきょうしたいです。"], answer: "にほんごを べんきょうしています。" },
+            { id: "ja-uq-a1-27-3", level: "A1", prompt: "How do you say 'This restaurant is famous'?", options: ["このレストランは ゆうめいじゃないです。", "このレストランは ゆうめいです。", "このレストランが ゆうめいな。", "このレストランに ゆうめいです。"], answer: "このレストランは ゆうめいです。" },
+            { id: "ja-uq-a1-27-4", level: "A1", prompt: "My friend gave me a book. Which sentence is correct?", options: ["わたしは ともだちに ほんを あげました。", "ともだちが わたしに ほんを くれました。", "わたしは ともだちから ほんを あげました。", "ともだちは わたしへ ほんを もらいました。"], answer: "ともだちが わたしに ほんを くれました。" },
+            { id: "ja-uq-a1-27-5", level: "A1", prompt: "Which particle marks where an action takes place?", options: ["に", "を", "が", "で"], answer: "で" },
+            { id: "ja-uq-a1-27-6", level: "A1", prompt: "How do you say 'It was cold but fun'?", options: ["さむかったです。でも、たのしかったです。", "さむいでした。でも、たのしかったです。", "さむかったです。だから、たのしかったです。", "さむくないです。でも、たのしくないです。"], answer: "さむかったです。でも、たのしかったです。" },
         ]
     },
 ]

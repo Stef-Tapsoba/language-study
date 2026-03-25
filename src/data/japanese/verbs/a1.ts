@@ -475,4 +475,487 @@ export const a1Verbs: Verb[] = [
             }
         ]
     },
+    {
+        id: "ja-vb-a1-21",
+        level: "A1",
+        infinitive: "使う",
+        romanized: "tsukau",
+        meaning: "to use",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "使います", romanized: "tsukaimasu" },
+                    { pronoun: "Negative", form: "使いません", romanized: "tsukaimasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "使いました", romanized: "tsukaimashita" },
+                    { pronoun: "Negative", form: "使いませんでした", romanized: "tsukaimasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-22",
+        level: "A1",
+        infinitive: "作る",
+        romanized: "tsukuru",
+        meaning: "to make / to cook",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "作ります", romanized: "tsukurimasu" },
+                    { pronoun: "Negative", form: "作りません", romanized: "tsukurimasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "作りました", romanized: "tsukurimashita" },
+                    { pronoun: "Negative", form: "作りませんでした", romanized: "tsukurimasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-23",
+        level: "A1",
+        infinitive: "入る",
+        romanized: "hairu",
+        meaning: "to enter / to go in",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "入ります", romanized: "hairimasu" },
+                    { pronoun: "Negative", form: "入りません", romanized: "hairimasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "入りました", romanized: "hairimashita" },
+                    { pronoun: "Negative", form: "入りませんでした", romanized: "hairimasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-24",
+        level: "A1",
+        infinitive: "出る",
+        romanized: "deru",
+        meaning: "to exit / to leave / to come out",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "出ます", romanized: "demasu" },
+                    { pronoun: "Negative", form: "出ません", romanized: "demasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "出ました", romanized: "demashita" },
+                    { pronoun: "Negative", form: "出ませんでした", romanized: "demasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-25",
+        level: "A1",
+        infinitive: "言う",
+        romanized: "iu",
+        meaning: "to say / to tell",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "言います", romanized: "iimasu" },
+                    { pronoun: "Negative", form: "言いません", romanized: "iimasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "言いました", romanized: "iimashita" },
+                    { pronoun: "Negative", form: "言いませんでした", romanized: "iimasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-26",
+        level: "A1",
+        infinitive: "思う",
+        romanized: "omou",
+        meaning: "to think / to feel",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "思います", romanized: "omoimasu" },
+                    { pronoun: "Negative", form: "思いません", romanized: "omoimasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "思いました", romanized: "omoimashita" },
+                    { pronoun: "Negative", form: "思いませんでした", romanized: "omoimasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-27",
+        level: "A1",
+        infinitive: "会う",
+        romanized: "au",
+        meaning: "to meet / to see (a person)",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "会います", romanized: "aimasu" },
+                    { pronoun: "Negative", form: "会いません", romanized: "aimasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "会いました", romanized: "aimashita" },
+                    { pronoun: "Negative", form: "会いませんでした", romanized: "aimasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-28",
+        level: "A1",
+        infinitive: "歌う",
+        romanized: "utau",
+        meaning: "to sing",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "歌います", romanized: "utaimasu" },
+                    { pronoun: "Negative", form: "歌いません", romanized: "utaimasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "歌いました", romanized: "utaimashita" },
+                    { pronoun: "Negative", form: "歌いませんでした", romanized: "utaimasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-29",
+        level: "A1",
+        infinitive: "走る",
+        romanized: "hashiru",
+        meaning: "to run",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "走ります", romanized: "hashirimasu" },
+                    { pronoun: "Negative", form: "走りません", romanized: "hashirimasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "走りました", romanized: "hashirimashita" },
+                    { pronoun: "Negative", form: "走りませんでした", romanized: "hashirimasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-30",
+        level: "A1",
+        infinitive: "切る",
+        romanized: "kiru",
+        meaning: "to cut",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "切ります", romanized: "kirimasu" },
+                    { pronoun: "Negative", form: "切りません", romanized: "kirimasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "切りました", romanized: "kirimashita" },
+                    { pronoun: "Negative", form: "切りませんでした", romanized: "kirimasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-31",
+        level: "A1",
+        infinitive: "降る",
+        romanized: "furu",
+        meaning: "to fall (rain / snow)",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "降ります", romanized: "furimasu" },
+                    { pronoun: "Negative", form: "降りません", romanized: "furimasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "降りました", romanized: "furimashita" },
+                    { pronoun: "Negative", form: "降りませんでした", romanized: "furimasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-32",
+        level: "A1",
+        infinitive: "撮る",
+        romanized: "toru",
+        meaning: "to take (a photo / video)",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "撮ります", romanized: "torimasu" },
+                    { pronoun: "Negative", form: "撮りません", romanized: "torimasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "撮りました", romanized: "torimashita" },
+                    { pronoun: "Negative", form: "撮りませんでした", romanized: "torimasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-33",
+        level: "A1",
+        infinitive: "教える",
+        romanized: "oshieru",
+        meaning: "to teach / to tell",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "教えます", romanized: "oshiemasu" },
+                    { pronoun: "Negative", form: "教えません", romanized: "oshiemasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "教えました", romanized: "oshiemashita" },
+                    { pronoun: "Negative", form: "教えませんでした", romanized: "oshiemasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-34",
+        level: "A1",
+        infinitive: "覚える",
+        romanized: "oboeru",
+        meaning: "to memorize / to remember",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "覚えます", romanized: "oboemasu" },
+                    { pronoun: "Negative", form: "覚えません", romanized: "oboemasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "覚えました", romanized: "oboemashita" },
+                    { pronoun: "Negative", form: "覚えませんでした", romanized: "oboemasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-35",
+        level: "A1",
+        infinitive: "開ける",
+        romanized: "akeru",
+        meaning: "to open (something)",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "開けます", romanized: "akemasu" },
+                    { pronoun: "Negative", form: "開けません", romanized: "akemasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "開けました", romanized: "akemashita" },
+                    { pronoun: "Negative", form: "開けませんでした", romanized: "akemasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-36",
+        level: "A1",
+        infinitive: "閉める",
+        romanized: "shimeru",
+        meaning: "to close (something)",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "閉めます", romanized: "shimemasu" },
+                    { pronoun: "Negative", form: "閉めません", romanized: "shimemasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "閉めました", romanized: "shimemashita" },
+                    { pronoun: "Negative", form: "閉めませんでした", romanized: "shimemasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-37",
+        level: "A1",
+        infinitive: "借りる",
+        romanized: "kariru",
+        meaning: "to borrow / to rent",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "借ります", romanized: "karimasu" },
+                    { pronoun: "Negative", form: "借りません", romanized: "karimasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "借りました", romanized: "karimashita" },
+                    { pronoun: "Negative", form: "借りませんでした", romanized: "karimasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-38",
+        level: "A1",
+        infinitive: "降りる",
+        romanized: "oriru",
+        meaning: "to get off (a vehicle) / to descend",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "降ります", romanized: "orimasu" },
+                    { pronoun: "Negative", form: "降りません", romanized: "orimasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "降りました", romanized: "orimashita" },
+                    { pronoun: "Negative", form: "降りませんでした", romanized: "orimasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-39",
+        level: "A1",
+        infinitive: "疲れる",
+        romanized: "tsukareru",
+        meaning: "to get tired / to be tired",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "疲れます", romanized: "tsukaremasu" },
+                    { pronoun: "Negative", form: "疲れません", romanized: "tsukaremasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "疲れました", romanized: "tsukaremashita" },
+                    { pronoun: "Negative", form: "疲れませんでした", romanized: "tsukaremasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-40",
+        level: "A1",
+        infinitive: "売る",
+        romanized: "uru",
+        meaning: "to sell",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "売ります", romanized: "urimasu" },
+                    { pronoun: "Negative", form: "売りません", romanized: "urimasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "売りました", romanized: "urimashita" },
+                    { pronoun: "Negative", form: "売りませんでした", romanized: "urimasen deshita" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-a1-41",
+        level: "A1",
+        infinitive: "浴びる",
+        romanized: "abiru",
+        meaning: "to shower / to bathe / to be showered with",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "浴びます", romanized: "abimasu" },
+                    { pronoun: "Negative", form: "浴びません", romanized: "abimasen" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "浴びました", romanized: "abimashita" },
+                    { pronoun: "Negative", form: "浴びませんでした", romanized: "abimasen deshita" }
+                ]
+            }
+        ]
+    },
 ]
