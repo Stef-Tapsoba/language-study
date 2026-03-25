@@ -40,6 +40,10 @@ SPEED / ORDER:
             { native: "まだ たべていません。", romanized: "Mada tabete imasen.", translation: "I haven't eaten yet." },
             { native: "ゆっくり はなしてください。", romanized: "Yukkuri hanashite kudasai.", translation: "Please speak slowly." },
             { native: "はじめに てを あらいます。", romanized: "Hajime ni te wo araimasu.", translation: "First I wash my hands." },
+        ],
+        inlineVocab: [
+            { word: "ともだち", translation: "friend" },
+            { word: "て", translation: "hand" },
         ]
     },
     {
@@ -76,6 +80,11 @@ DEGREE ADVERBS (bonus — used with adjectives and adverbs):
             { native: "あまり にくを たべません。", romanized: "Amari niku wo tabemasen.", translation: "I don't eat much meat." },
             { native: "ぜんぜん わかりません。", romanized: "Zenzen wakarimasen.", translation: "I don't understand at all." },
             { native: "この えいがは とても おもしろいです。", romanized: "Kono eiga wa totemo omoshiroi desu.", translation: "This movie is very interesting." },
+        ],
+        inlineVocab: [
+            { word: "コーヒー", translation: "coffee" },
+            { word: "えいが", translation: "movie / film" },
+            { word: "にく", translation: "meat" },
         ]
     },
     {
@@ -118,6 +127,13 @@ EXAMPLE SEQUENCE:
             { native: "あめが ふりました。だから、いえに いました。", romanized: "Ame ga furimashita. Dakara, ie ni imashita.", translation: "It rained. So I stayed home." },
             { native: "まず てを あらいます。それから たべます。", romanized: "Mazu te wo araimasu. Sorekara tabemasu.", translation: "First I wash my hands. Then I eat." },
             { native: "じつは、にほんごが すきです。", romanized: "Jitsu wa, nihongo ga suki desu.", translation: "Actually, I like Japanese." },
+        ],
+        inlineVocab: [
+            { word: "アルバイト", translation: "part-time job" },
+            { word: "あめ", translation: "rain" },
+            { word: "いえ", translation: "house / home" },
+            { word: "て", translation: "hand" },
+            { word: "にほんご", translation: "Japanese language" },
         ]
     },
     {
@@ -162,6 +178,14 @@ POSSESSION (ある):
             { native: "すみません、トイレは どこに ありますか？", romanized: "Sumimasen, toire wa doko ni arimasu ka?", translation: "Excuse me, where is the toilet?" },
             { native: "いえに ねこが にひき います。", romanized: "Ie ni neko ga nihiki imasu.", translation: "There are two cats at home." },
             { native: "きょうは じかんが ありません。", romanized: "Kyou wa jikan ga arimasen.", translation: "I don't have time today." },
+        ],
+        inlineVocab: [
+            { word: "ほん", translation: "book" },
+            { word: "こうえん", translation: "park" },
+            { word: "れいぞうこ", translation: "refrigerator" },
+            { word: "たまご", translation: "egg" },
+            { word: "ねこ", translation: "cat" },
+            { word: "じかん", translation: "time" },
         ]
     },
     {
@@ -205,6 +229,12 @@ SOFTENING:
             { native: "しゃしんを とらないでください。", romanized: "Shashin wo toranai de kudasai.", translation: "Please don't take photos." },
             { native: "すみません、もう いちど いってください。", romanized: "Sumimasen, mou ichido itte kudasai.", translation: "Excuse me, please say that one more time." },
             { native: "ここで たばこを すわないでください。", romanized: "Koko de tabako wo suwanai de kudasai.", translation: "Please don't smoke here." },
+        ],
+        inlineVocab: [
+            { word: "なまえ", translation: "name" },
+            { word: "まど", translation: "window" },
+            { word: "しゃしん", translation: "photo / photograph" },
+            { word: "たばこ", translation: "cigarette / tobacco" },
         ]
     },
     {
@@ -262,6 +292,13 @@ AT THE REGISTER:
             { native: "えいごの メニューは ありますか？", romanized: "Eigo no menyuu wa arimasu ka?", translation: "Do you have an English menu?" },
             { native: "すしを みっつと みそしるを ひとつ おねがいします。", romanized: "Sushi wo mittsu to misoshiru wo hitotsu onegaishimasu.", translation: "Three pieces of sushi and one miso soup, please." },
             { native: "ぜんぶで いくらですか？", romanized: "Zenbu de ikura desu ka?", translation: "How much is everything altogether?" },
+        ],
+        inlineVocab: [
+            { word: "みず", translation: "water" },
+            { word: "コーヒー", translation: "coffee" },
+            { word: "すし", translation: "sushi" },
+            { word: "みそしる", translation: "miso soup" },
+            { word: "メニュー", translation: "menu" },
         ]
     },
     {

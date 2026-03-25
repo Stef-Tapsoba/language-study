@@ -12,6 +12,11 @@ export const adjectivesAndVocabLessons: GrammarLesson[] = [
             { native: "すしがたべたいです。", romanized: "Sushi ga tabetai desu.", translation: "I want to eat sushi." },
             { native: "なにがしたいですか？", romanized: "Nani ga shitai desu ka?", translation: "What do you want to do?" },
             { native: "きょうはなにもしたくないです。", romanized: "Kyou wa nanimo shitakunai desu.", translation: "I don't want to do anything today." }
+        ],
+        inlineVocab: [
+            { word: "みず", translation: "water" },
+            { word: "にほん", translation: "Japan" },
+            { word: "すし", translation: "sushi" },
         ]
     },
     {
@@ -47,6 +52,15 @@ NOTE: 好き and 嫌い can also describe activities when followed by の or com
             { native: "どんなおんがくがすきですか？", romanized: "Donna ongaku ga suki desu ka?", translation: "What kind of music do you like?" },
             { native: "スポーツがすきですか？", romanized: "Supootsu ga suki desu ka?", translation: "Do you like sport?" },
             { native: "にほんごのべんきょうがすきです。", romanized: "Nihongo no benkyou ga suki desu.", translation: "I like studying Japanese." },
+        ],
+        inlineVocab: [
+            { word: "コーヒー", translation: "coffee" },
+            { word: "さかな", translation: "fish" },
+            { word: "すし", translation: "sushi" },
+            { word: "やさい", translation: "vegetables" },
+            { word: "おんがく", translation: "music" },
+            { word: "スポーツ", translation: "sport" },
+            { word: "にほんご", translation: "Japanese language" },
         ]
     },
     {
@@ -91,6 +105,13 @@ SAFE FALLBACK: When unsure, use つ for objects and 人 for people. Native speak
             { native: "みずをいっぽんください。", romanized: "Mizu wo ippon kudasai.", translation: "One bottle of water, please. (本 = long thin objects)" },
             { native: "チケットをにまいください。", romanized: "Chiketto wo ni-mai kudasai.", translation: "Two tickets, please. (枚 = flat thin objects)" },
             { native: "コーヒーをいっぱいのみました。", romanized: "Koohii wo ippai nomimashita.", translation: "I drank a cup of coffee. (杯 = cups/glasses)" },
+        ],
+        inlineVocab: [
+            { word: "りんご", translation: "apple" },
+            { word: "かぞく", translation: "family" },
+            { word: "みず", translation: "water" },
+            { word: "チケット", translation: "ticket" },
+            { word: "コーヒー", translation: "coffee" },
         ]
     },
     {
@@ -131,6 +152,10 @@ SHORTHAND: Japanese speakers often shorten:
             { native: "あれは だれですか？", romanized: "Are wa dare desu ka?", translation: "Who is that (over there)?" },
             { native: "どれが あなたのですか？", romanized: "Dore ga anata no desu ka?", translation: "Which one is yours?" },
             { native: "あそこに ゆうびんきょくが あります。", romanized: "Asoko ni yuubinkyoku ga arimasu.", translation: "There is a post office over there." },
+        ],
+        inlineVocab: [
+            { word: "ほん", translation: "book" },
+            { word: "ゆうびんきょく", translation: "post office" },
         ]
     },
     {
@@ -166,6 +191,12 @@ COMMON い-adjectives:
             { native: "きのう さむかったです。", romanized: "Kinou samukatta desu.", translation: "It was cold yesterday." },
             { native: "このホテルは よくなかったです。", romanized: "Kono hoteru wa yokunakatta desu.", translation: "This hotel was not good." },
             { native: "おいしい すしを たべました。", romanized: "Oishii sushi wo tabemashita.", translation: "I ate delicious sushi. (attributive — い unchanged)" },
+        ],
+        inlineVocab: [
+            { word: "りんご", translation: "apple" },
+            { word: "えいが", translation: "movie / film" },
+            { word: "ホテル", translation: "hotel" },
+            { word: "すし", translation: "sushi" },
         ]
     },
     {
@@ -199,6 +230,13 @@ CAREFUL — すき and きらい are な-adjectives, used with が:
             { native: "きれいな はなですね。", romanized: "Kirei na hana desu ne.", translation: "What beautiful flowers, aren't they! (attributive な)" },
             { native: "えきは べんりでした。", romanized: "Eki wa benri deshita.", translation: "The station was convenient." },
             { native: "ピアノが じょうずです。", romanized: "Piano ga jouzu desu.", translation: "You are good at piano. (じょうず takes が)" },
+        ],
+        inlineVocab: [
+            { word: "こうえん", translation: "park" },
+            { word: "まち", translation: "town" },
+            { word: "はな", translation: "flower" },
+            { word: "えき", translation: "station" },
+            { word: "ピアノ", translation: "piano" },
         ]
     },
 ]

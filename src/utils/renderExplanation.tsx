@@ -55,8 +55,11 @@ function highlightVocab(
         w.replaceAll(/[.*+?^${}()|[\]\\]/g, String.raw`\$&`)
     )
     const pattern = escaped.join("|")
-    // Unicode-aware word boundaries: not preceded/followed by any Latin letter (incl. accented)
-    const regex = new RegExp(`(?<![a-zA-ZÀ-ÿœŒ])(${pattern})(?![a-zA-ZÀ-ÿœŒ])`, "gi")
+    // Unicode-aware word boundaries: not preceded/followed by any Latin letter (incl. accented).
+    // Lookahead also blocks CJK/kana so single-kanji entries (e.g. 木) don't match inside
+    // larger compounds (e.g. 木曜日). Lookbehind stays Latin-only — Japanese text commonly
+    // places kanji after hiragana particles and we still want those to match.
+    const regex = new RegExp(`(?<![a-zA-ZÀ-ÿœŒ])(${pattern})(?![a-zA-ZÀ-ÿœŒ\u3040-\u30ff\u4e00-\u9fff])`, "gu")
 
     const parts: React.ReactNode[] = []
     let lastIndex = 0

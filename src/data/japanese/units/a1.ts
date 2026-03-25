@@ -85,6 +85,9 @@ export const a1Units: LessonUnit[] = [
         grammarIds: ["ja-g-a1-2", "ja-g-a1-5"],
         vocabIds: ["ja-v-a1-1", "ja-v-a1-2", "ja-v-a1-3", "ja-v-a1-4", "ja-v-a1-5", "ja-v-a1-9", "ja-v-a1-10", "ja-v-a1-11", "ja-v-a1-12", "ja-v-a1-174", "ja-v-a1-175", "ja-v-a1-176"],
         verbIds: [],
+        cultureIds: ["ja-c-a1-1"],
+        readingIds: ["ja-r-a1-3"],
+        listeningIds: ["ja-l-a1-1"],
         testQuestions: [
             { id: "ja-uq-a1-2-1", level: "A1", prompt: "What sound does 'ふ' make?", options: ["hu", "fu", "pu", "bu"], answer: "fu" },
             { id: "ja-uq-a1-2-2", level: "A1", prompt: "Which character represents the nasal 'n' sound at the end of a syllable?", options: ["の", "ぬ", "ん", "な"], answer: "ん" },
@@ -121,6 +124,8 @@ export const a1Units: LessonUnit[] = [
         grammarIds: ["ja-g-a1-4"],
         vocabIds: ["ja-v-a1-46", "ja-v-a1-47", "ja-v-a1-48", "ja-v-a1-49", "ja-v-a1-50", "ja-v-a1-51", "ja-v-a1-52", "ja-v-a1-53", "ja-v-a1-54", "ja-v-a1-55", "ja-v-a1-119", "ja-v-a1-150"],
         verbIds: [],
+        readingIds: ["ja-r-a1-1"],
+        listeningIds: ["ja-l-a1-4"],
         testQuestions: [
             { id: "ja-uq-a1-4-1", level: "A1", prompt: "How do you say 'I am a student'?", options: ["わたしをがくせいです。", "わたしはがくせいです。", "わたしがくせいです。", "がくせいはわたしです。"], answer: "わたしはがくせいです。" },
             { id: "ja-uq-a1-4-2", level: "A1", prompt: "What does は (wa) mark in a sentence?", options: ["The direct object", "The topic", "The verb", "The location"], answer: "The topic" },
@@ -157,6 +162,7 @@ export const a1Units: LessonUnit[] = [
         grammarIds: ["ja-g-a1-6"],
         vocabIds: ["ja-v-a1-13", "ja-v-a1-14", "ja-v-a1-15", "ja-v-a1-16", "ja-v-a1-17", "ja-v-a1-18", "ja-v-a1-19", "ja-v-a1-20", "ja-v-a1-21", "ja-v-a1-22", "ja-v-a1-23", "ja-v-a1-24", "ja-v-a1-25", "ja-v-a1-26", "ja-v-a1-27", "ja-v-a1-28", "ja-v-a1-29", "ja-v-a1-30", "ja-v-a1-31", "ja-v-a1-32", "ja-v-a1-33", "ja-v-a1-34"],
         verbIds: [],
+        listeningIds: ["ja-l-a1-3"],
         testQuestions: [
             { id: "ja-uq-a1-6-1", level: "A1", prompt: "What is 'seven' in Sino-Japanese?", options: ["ろく", "なな / しち", "はち", "きゅう"], answer: "なな / しち" },
             { id: "ja-uq-a1-6-2", level: "A1", prompt: "How do you say '15' in Japanese?", options: ["いちご", "じゅうご", "ごじゅう", "じゅう"], answer: "じゅうご" },
@@ -238,6 +244,7 @@ export const a1Units: LessonUnit[] = [
         grammarIds: ["ja-g-a1-8"],
         vocabIds: ["ja-v-a1-35", "ja-v-a1-36", "ja-v-a1-37", "ja-v-a1-38", "ja-v-a1-70", "ja-v-a1-104"],
         verbIds: ["ja-vb-a1-5", "ja-vb-a1-6", "ja-vb-a1-12", "ja-vb-a1-13", "ja-vb-a1-14", "ja-vb-a1-25", "ja-vb-a1-27"],
+        readingIds: ["ja-r-a1-2"],
         testQuestions: [
             { id: "ja-uq-a1-10-1", level: "A1", prompt: "How do you say 'I ate sushi yesterday'?", options: ["昨日、すしを食べます。", "昨日、すしを食べました。", "昨日、すしを食べません。", "昨日、すしを食べた。"], answer: "昨日、すしを食べました。" },
             { id: "ja-uq-a1-10-2", level: "A1", prompt: "How do you form the polite past negative?", options: ["ます → まして", "ます → ませんでした", "ます → ました", "ます → ません"], answer: "ます → ませんでした" },
@@ -309,6 +316,7 @@ export const a1Units: LessonUnit[] = [
         grammarIds: ["ja-g-a1-11", "ja-g-a1-25"],
         vocabIds: ["ja-v-a1-104", "ja-v-a1-105", "ja-v-a1-106", "ja-v-a1-107", "ja-v-a1-108", "ja-v-a1-111", "ja-v-a1-112", "ja-v-a1-113", "ja-v-a1-115", "ja-v-a1-116", "ja-v-a1-28", "ja-v-a1-38"],
         verbIds: ["ja-vb-a1-3", "ja-vb-a1-5", "ja-vb-a1-12", "ja-vb-a1-14", "ja-vb-a1-15", "ja-vb-a1-16", "ja-vb-a1-23", "ja-vb-a1-24", "ja-vb-a1-38"],
+        readingIds: ["ja-r-a1-4"],
         testQuestions: [
             { id: "ja-uq-a1-14-1", level: "A1", prompt: "Which particle marks the destination of movement?", options: ["を", "は", "に", "で"], answer: "に" },
             { id: "ja-uq-a1-14-2", level: "A1", prompt: "How do you say 'I go to school'?", options: ["学校で行きます。", "学校を行きます。", "学校が行きます。", "学校に行きます。"], answer: "学校に行きます。" },
@@ -369,6 +377,9 @@ export const a1Units: LessonUnit[] = [
         grammarIds: [],
         vocabIds: ["ja-v-a1-58", "ja-v-a1-59", "ja-v-a1-60", "ja-v-a1-61", "ja-v-a1-64", "ja-v-a1-65", "ja-v-a1-66", "ja-v-a1-67", "ja-v-a1-68", "ja-v-a1-70", "ja-v-a1-72", "ja-v-a1-129", "ja-v-a1-130", "ja-v-a1-131", "ja-v-a1-132", "ja-v-a1-133", "ja-v-a1-134", "ja-v-a1-137", "ja-v-a1-138"],
         verbIds: ["ja-vb-a1-1", "ja-vb-a1-2", "ja-vb-a1-9", "ja-vb-a1-11", "ja-vb-a1-22", "ja-vb-a1-30", "ja-vb-a1-40"],
+        cultureIds: ["ja-c-a1-2", "ja-c-a1-3"],
+        readingIds: ["ja-r-a1-5"],
+        listeningIds: ["ja-l-a1-2"],
         testQuestions: [
             { id: "ja-uq-a1-17-1", level: "A1", prompt: "What does 'おいしい' mean?", options: ["Cheap", "Big", "Delicious", "New"], answer: "Delicious" },
             { id: "ja-uq-a1-17-2", level: "A1", prompt: "What is 'meat' in Japanese?", options: ["さかな", "やさい", "にく", "くだもの"], answer: "にく" },
@@ -409,6 +420,7 @@ export const a1Units: LessonUnit[] = [
         grammarIds: ["ja-g-a1-13"],
         vocabIds: ["ja-v-a1-60", "ja-v-a1-70", "ja-v-a1-71", "ja-v-a1-104", "ja-v-a1-106", "ja-v-a1-110", "ja-v-a1-112", "ja-v-a1-147"],
         verbIds: ["ja-vb-a1-1", "ja-vb-a1-2", "ja-vb-a1-3", "ja-vb-a1-4", "ja-vb-a1-6", "ja-vb-a1-28", "ja-vb-a1-29", "ja-vb-a1-39"],
+        cultureIds: ["ja-c-a1-4"],
         testQuestions: [
             { id: "ja-uq-a1-19-1", level: "A1", prompt: "How do you say 'I want to eat sushi'?", options: ["すしを食べます。", "すしが食べたいです。", "すしを食べました。", "すしを食べません。"], answer: "すしが食べたいです。" },
             { id: "ja-uq-a1-19-2", level: "A1", prompt: "How is たい formed? Take the ます-form stem and...", options: ["add ない", "add たい", "add て", "add ました"], answer: "add たい" },

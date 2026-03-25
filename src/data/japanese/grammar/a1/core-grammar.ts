@@ -12,6 +12,12 @@ export const coreGrammarLessons: GrammarLesson[] = [
             { native: "かれは にほんじん です。", romanized: "Kare wa nihonjin desu.", translation: "He is Japanese." },
             { native: "あなたは せんせい ですか？", romanized: "Anata wa sensei desu ka?", translation: "Are you a teacher?" },
             { native: "これは ほん じゃありません。", romanized: "Kore wa hon ja arimasen.", translation: "This is not a book." }
+        ],
+        inlineVocab: [
+            { word: "がくせい", translation: "student" },
+            { word: "ほん", translation: "book" },
+            { word: "にほんじん", translation: "Japanese person" },
+            { word: "せんせい", translation: "teacher" },
         ]
     },
     {
@@ -25,6 +31,10 @@ export const coreGrammarLessons: GrammarLesson[] = [
             { native: "こんばんは。", romanized: "Konbanwa.", translation: "Good evening." },
             { native: "ありがとうございます。", romanized: "Arigatou gozaimasu.", translation: "Thank you very much." },
             { native: "はじめまして。よろしくおねがいします。", romanized: "Hajimemashite. Yoroshiku onegaishimasu.", translation: "Nice to meet you. Please be kind to me." }
+        ],
+        inlineVocab: [
+            { word: "あさ", translation: "morning" },
+            { word: "よる", translation: "evening / night" },
         ]
     },
     {
@@ -38,6 +48,10 @@ export const coreGrammarLessons: GrammarLesson[] = [
             { native: "じゅういち、じゅうに、にじゅう、さんじゅう", romanized: "juuichi, juuni, nijuu, sanjuu", translation: "Eleven, twelve, twenty, thirty" },
             { native: "ごじゅう、ろくじゅう、ななじゅう、はちじゅう、きゅうじゅう", romanized: "gojuu, rokujuu, nanajuu, hachijuu, kyuujuu", translation: "Fifty, sixty, seventy, eighty, ninety" },
             { native: "ひゃく", romanized: "hyaku", translation: "One hundred" }
+        ],
+        inlineVocab: [
+            { word: "ひゃく", translation: "one hundred" },
+            { word: "じゅう", translation: "ten" },
         ]
     },
     {
@@ -51,6 +65,13 @@ export const coreGrammarLessons: GrammarLesson[] = [
             { native: "いきます。", romanized: "Ikimasu.", translation: "I go. / I will go. (いく → いきます)" },
             { native: "します。", romanized: "Shimasu.", translation: "I do. / I will do. (する → します, irregular)" },
             { native: "きます。", romanized: "Kimasu.", translation: "I come. / I will come. (くる → きます, irregular)" }
+        ],
+        inlineVocab: [
+            { word: "たべる", translation: "eat" },
+            { word: "のむ", translation: "drink" },
+            { word: "いく", translation: "go" },
+            { word: "する", translation: "do" },
+            { word: "くる", translation: "come" },
         ]
     },
     {
@@ -64,6 +85,12 @@ export const coreGrammarLessons: GrammarLesson[] = [
             { native: "みずをのみませんでした。", romanized: "Mizu wo nomimasen deshita.", translation: "I did not drink water." },
             { native: "かれはがくせいでした。", romanized: "Kare wa gakusei deshita.", translation: "He was a student." },
             { native: "きませんでした。", romanized: "Kimasen deshita.", translation: "I did not come. / He/She did not come." }
+        ],
+        inlineVocab: [
+            { word: "すし", translation: "sushi" },
+            { word: "がっこう", translation: "school" },
+            { word: "みず", translation: "water" },
+            { word: "がくせい", translation: "student" },
         ]
     },
     {
@@ -77,6 +104,11 @@ export const coreGrammarLessons: GrammarLesson[] = [
             { native: "トイレはどこですか？", romanized: "Toire wa doko desu ka?", translation: "Where is the toilet?" },
             { native: "きょう、なにをたべましたか？", romanized: "Kyou, nani wo tabemashita ka?", translation: "What did you eat today?" },
             { native: "いつにほんにきましたか？", romanized: "Itsu Nihon ni kimashita ka?", translation: "When did you come to Japan?" }
+        ],
+        inlineVocab: [
+            { word: "がっこう", translation: "school" },
+            { word: "トイレ", translation: "toilet / restroom" },
+            { word: "にほん", translation: "Japan" },
         ]
     },
     {
@@ -122,6 +154,13 @@ You do not need to produce these yet. But recognising the て-form when you see 
             { native: "いく → いって", romanized: "iku → itte", translation: "Exception: いく → いって (not いいて)", speakText: "いく、いって" },
             { native: "する → して / くる → きて", romanized: "suru → shite / kuru → kite", translation: "The two irregular て-forms — must memorise", speakText: "する、して、くる、きて" },
             { native: "ゆっくり はなしてください。", romanized: "Yukkuri hanashite kudasai.", translation: "Please speak slowly. (はなす → はなして + ください)" },
+        ],
+        inlineVocab: [
+            { word: "たべる", translation: "eat" },
+            { word: "のむ", translation: "drink" },
+            { word: "いく", translation: "go" },
+            { word: "かく", translation: "write" },
+            { word: "はなす", translation: "speak" },
         ]
     },
     {
@@ -172,6 +211,9 @@ COMMON EXPRESSIONS
             { native: "なにか のみませんか？", romanized: "Nanika nomimasen ka?", translation: "Shall we have something to drink?" },
             { native: "ええ、そうしましょう！", romanized: "Ee, sou shimashou!", translation: "Yes, let's do that!" },
             { native: "すこし やすみましょう。", romanized: "Sukoshi yasumimashou.", translation: "Let's rest a little." },
+        ],
+        inlineVocab: [
+            { word: "ひるごはん", translation: "lunch" },
         ]
     },
     {
@@ -234,6 +276,12 @@ you are not confused — you recognise them as verb and adjective forms you alre
             { native: "おいしいです → おいしい / おいしかった", romanized: "oishii desu → oishii / oishikatta", translation: "い-adjective: polite present → plain present / plain past", speakText: "おいしいです、おいしい、おいしかった" },
             { native: "がくせいです → がくせいだ", romanized: "gakusei desu → gakusei da", translation: "Noun + です → noun + だ (plain copula)", speakText: "がくせいです、がくせいだ" },
             { native: "〜とおもいます。", romanized: "~ to omoimasu.", translation: "I think that ~ (plain form comes before と in this pattern)" },
+        ],
+        inlineVocab: [
+            { word: "たべる", translation: "eat" },
+            { word: "のむ", translation: "drink" },
+            { word: "いく", translation: "go" },
+            { word: "がくせい", translation: "student" },
         ]
     },
 ]

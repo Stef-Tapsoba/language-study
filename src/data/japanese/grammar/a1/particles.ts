@@ -12,6 +12,13 @@ export const particlesLessons: GrammarLesson[] = [
             { native: "にほんごをべんきょうします。", romanized: "Nihongo wo benkyou shimasu.", translation: "I study Japanese." },
             { native: "テレビをみます。", romanized: "Terebi wo mimasu.", translation: "I watch TV." },
             { native: "てがみをかきます。", romanized: "Tegami wo kakimasu.", translation: "I write a letter." }
+        ],
+        inlineVocab: [
+            { word: "ごはん", translation: "rice / meal" },
+            { word: "みず", translation: "water" },
+            { word: "にほんご", translation: "Japanese language" },
+            { word: "テレビ", translation: "television" },
+            { word: "てがみ", translation: "letter" },
         ]
     },
     {
@@ -25,6 +32,12 @@ export const particlesLessons: GrammarLesson[] = [
             { native: "さんじにおきます。", romanized: "San-ji ni okimasu.", translation: "I wake up at three o'clock. (に = time)" },
             { native: "つくえのうえにほんがあります。", romanized: "Tsukue no ue ni hon ga arimasu.", translation: "There is a book on the desk. (に = location of existence)" },
             { native: "こうえんにこどもがいます。", romanized: "Kouen ni kodomo ga imasu.", translation: "There are children at the park. (に = location of existence)" }
+        ],
+        inlineVocab: [
+            { word: "がっこう", translation: "school" },
+            { word: "にほん", translation: "Japan" },
+            { word: "こうえん", translation: "park" },
+            { word: "こども", translation: "child / children" },
         ]
     },
     {
@@ -38,6 +51,13 @@ export const particlesLessons: GrammarLesson[] = [
             { native: "バスできます。", romanized: "Basu de kimasu.", translation: "I come by bus. (で = means of transport)" },
             { native: "にほんごではなしてください。", romanized: "Nihongo de hanashite kudasai.", translation: "Please speak in Japanese. (で = means/language)" },
             { native: "はしでたべます。", romanized: "Hashi de tabemasu.", translation: "I eat with chopsticks. (で = tool/means)" }
+        ],
+        inlineVocab: [
+            { word: "としょかん", translation: "library" },
+            { word: "レストラン", translation: "restaurant" },
+            { word: "バス", translation: "bus" },
+            { word: "にほんご", translation: "Japanese language" },
+            { word: "はし", translation: "chopsticks" },
         ]
     },
     {
@@ -75,6 +95,11 @@ AT A1: When in doubt, use は for general statements. Use が when answering 'wh
             { native: "コーヒーが すきです。", romanized: "Koohii ga suki desu.", translation: "I like coffee. (が always used with すき)" },
             { native: "きょうは さむいですが、あしたは あついです。", romanized: "Kyou wa samui desu ga, ashita wa atsui desu.", translation: "Today is cold, but tomorrow is hot. (は for contrast)" },
             { native: "なにが おいしいですか？", romanized: "Nani ga oishii desu ka?", translation: "What is delicious? (が with question word)" },
+        ],
+        inlineVocab: [
+            { word: "がくせい", translation: "student" },
+            { word: "コーヒー", translation: "coffee" },
+            { word: "すし", translation: "sushi" },
         ]
     },
     {
@@ -109,6 +134,12 @@ NOTE: の as a sentence-final softener (female/gentle speech) is A2+ — focus o
             { native: "にほんごの じゅぎょうは たのしいです。", romanized: "Nihongo no jugyou wa tanoshii desu.", translation: "Japanese class is fun." },
             { native: "これは だれの ですか？", romanized: "Kore wa dare no desu ka?", translation: "Whose is this?" },
             { native: "とうきょうの えきは おおきいです。", romanized: "Tokyo no eki wa ookii desu.", translation: "Tokyo station is big." },
+        ],
+        inlineVocab: [
+            { word: "ほん", translation: "book" },
+            { word: "かばん", translation: "bag" },
+            { word: "にほんご", translation: "Japanese language" },
+            { word: "えき", translation: "station" },
         ]
     },
     {
@@ -163,6 +194,12 @@ Other particles (に, で, から, まで) keep their particle and add も after
             { native: "だれも きませんでした。", romanized: "Dare mo kimasen deshita.", translation: "Nobody came." },
             { native: "すしも さしみも すきです。", romanized: "Sushi mo sashimi mo suki desu.", translation: "I like both sushi and sashimi." },
             { native: "わたしも そう おもいます。", romanized: "Watashi mo sou omoimasu.", translation: "I think so too." },
+        ],
+        inlineVocab: [
+            { word: "えいが", translation: "movie / film" },
+            { word: "すし", translation: "sushi" },
+            { word: "さしみ", translation: "sashimi" },
+            { word: "にほんご", translation: "Japanese language" },
         ]
     },
     {
@@ -242,6 +279,10 @@ Both appear heavily on N5 — recognise and use both.`,
             { native: "げつようびから きんようびまで べんきょうします。", romanized: "Getsuyoubi kara kin'youbi made benkyou shimasu.", translation: "I study from Monday to Friday." },
             { native: "ここから えきまで とおいですか？", romanized: "Koko kara eki made tooi desu ka?", translation: "Is it far from here to the station?" },
             { native: "なんじから なんじまで ですか？", romanized: "Nanji kara nanji made desu ka?", translation: "From what time to what time is it?" },
+        ],
+        inlineVocab: [
+            { word: "とうきょう", translation: "Tokyo" },
+            { word: "えき", translation: "station" },
         ]
     },
     {
@@ -290,6 +331,13 @@ This distinguishes と from や (A2), which lists examples non-exhaustively.
             { native: "かぞくと いっしょに たべます。", romanized: "Kazoku to issho ni tabemasu.", translation: "I eat together with my family." },
             { native: "パンと バターと ジュースを かいました。", romanized: "Pan to bataa to juusu wo kaimashita.", translation: "I bought bread, butter and juice." },
             { native: "せんせいと はなしました。", romanized: "Sensei to hanashimashita.", translation: "I talked with my teacher." },
+        ],
+        inlineVocab: [
+            { word: "コーヒー", translation: "coffee" },
+            { word: "おちゃ", translation: "green tea" },
+            { word: "ともだち", translation: "friend" },
+            { word: "かぞく", translation: "family" },
+            { word: "せんせい", translation: "teacher" },
         ]
     },
     {
@@ -350,6 +398,11 @@ Reserve に when talking about time, existence (あります/います), or stat
             { native: "うちへ かえりましょう。", romanized: "Uchi e kaerimashou.", translation: "Let's head home." },
             { native: "みぎへ まがってください。", romanized: "Migi e magatte kudasai.", translation: "Please turn right." },
             { native: "がっこうへ いきます。／ がっこうに いきます。", romanized: "Gakkou e ikimasu. / Gakkou ni ikimasu.", translation: "I go to school. (both natural — へ = direction, に = destination)", speakText: "がっこうへ いきます。" },
+        ],
+        inlineVocab: [
+            { word: "とうきょう", translation: "Tokyo" },
+            { word: "うち", translation: "home / house" },
+            { word: "がっこう", translation: "school" },
         ]
     },
 ]
