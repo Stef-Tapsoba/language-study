@@ -5,31 +5,9 @@ import { Verb } from "../../../types"
 // A1 verbs — core daily action verbs, each with present and past tense.
 // 있다 and 없다 are descriptive verbs (adjectives in English) but fully conjugated as verbs in Korean.
 // 오다 moved here from the old A2 data — it is essential at A1 alongside 가다.
+// Order: 가다, 오다, 하다, 있다, 없다, 먹다 first (most foundational), then remaining original verbs, then new additions.
 
 export const a1Verbs: Verb[] = [
-    {
-        id: "ko-vb-a1-1",
-        level: "A1",
-        infinitive: "먹다",
-        romanized: "meokda",
-        meaning: "to eat",
-        conjugations: [
-            {
-                tense: "Present (Polite)",
-                forms: [
-                    { pronoun: "Affirmative", form: "먹어요", romanized: "meogeoyo" },
-                    { pronoun: "Negative", form: "안 먹어요", romanized: "an meogeoyo" }
-                ]
-            },
-            {
-                tense: "Past (Polite)",
-                forms: [
-                    { pronoun: "Affirmative", form: "먹었어요", romanized: "meogeosseoyo" },
-                    { pronoun: "Negative", form: "안 먹었어요", romanized: "an meogeosseoyo" }
-                ]
-            }
-        ]
-    },
     {
         id: "ko-vb-a1-2",
         level: "A1",
@@ -54,24 +32,24 @@ export const a1Verbs: Verb[] = [
         ]
     },
     {
-        id: "ko-vb-a1-3",
+        id: "ko-vb-a1-7",
         level: "A1",
-        infinitive: "마시다",
-        romanized: "masida",
-        meaning: "to drink",
+        infinitive: "오다",
+        romanized: "oda",
+        meaning: "to come",
         conjugations: [
             {
                 tense: "Present (Polite)",
                 forms: [
-                    { pronoun: "Affirmative", form: "마셔요", romanized: "masyeoyo" },
-                    { pronoun: "Negative", form: "안 마셔요", romanized: "an masyeoyo" }
+                    { pronoun: "Affirmative", form: "와요", romanized: "wayo" },
+                    { pronoun: "Negative", form: "안 와요", romanized: "an wayo" }
                 ]
             },
             {
                 tense: "Past (Polite)",
                 forms: [
-                    { pronoun: "Affirmative", form: "마셨어요", romanized: "masyeosseoyo" },
-                    { pronoun: "Negative", form: "안 마셨어요", romanized: "an masyeosseoyo" }
+                    { pronoun: "Affirmative", form: "왔어요", romanized: "wasseoyo" },
+                    { pronoun: "Negative", form: "안 왔어요", romanized: "an wasseoyo" }
                 ]
             }
         ]
@@ -109,15 +87,13 @@ export const a1Verbs: Verb[] = [
             {
                 tense: "Present (Polite)",
                 forms: [
-                    { pronoun: "Affirmative", form: "있어요", romanized: "isseoyo" },
-                    { pronoun: "Negative (→ 없다)", form: "없어요", romanized: "eopseoyo" }
+                    { pronoun: "Affirmative", form: "있어요", romanized: "isseoyo" }
                 ]
             },
             {
                 tense: "Past (Polite)",
                 forms: [
-                    { pronoun: "Affirmative", form: "있었어요", romanized: "isseosseoyo" },
-                    { pronoun: "Negative", form: "없었어요", romanized: "eopseosseoyo" }
+                    { pronoun: "Affirmative", form: "있었어요", romanized: "isseosseoyo" }
                 ]
             }
         ]
@@ -132,38 +108,59 @@ export const a1Verbs: Verb[] = [
             {
                 tense: "Present (Polite)",
                 forms: [
-                    { pronoun: "Affirmative", form: "없어요", romanized: "eopseoyo" },
-                    { pronoun: "Opposite (→ 있다)", form: "있어요", romanized: "isseoyo" }
+                    { pronoun: "Affirmative", form: "없어요", romanized: "eopseoyo" }
                 ]
             },
             {
                 tense: "Past (Polite)",
                 forms: [
-                    { pronoun: "Affirmative", form: "없었어요", romanized: "eopseosseoyo" },
-                    { pronoun: "Opposite", form: "있었어요", romanized: "isseosseoyo" }
+                    { pronoun: "Affirmative", form: "없었어요", romanized: "eopseosseoyo" }
                 ]
             }
         ]
     },
     {
-        id: "ko-vb-a1-7",
+        id: "ko-vb-a1-1",
         level: "A1",
-        infinitive: "오다",
-        romanized: "oda",
-        meaning: "to come",
+        infinitive: "먹다",
+        romanized: "meokda",
+        meaning: "to eat",
         conjugations: [
             {
                 tense: "Present (Polite)",
                 forms: [
-                    { pronoun: "Affirmative", form: "와요", romanized: "wayo" },
-                    { pronoun: "Negative", form: "안 와요", romanized: "an wayo" }
+                    { pronoun: "Affirmative", form: "먹어요", romanized: "meogeoyo" },
+                    { pronoun: "Negative", form: "안 먹어요", romanized: "an meogeoyo" }
                 ]
             },
             {
                 tense: "Past (Polite)",
                 forms: [
-                    { pronoun: "Affirmative", form: "왔어요", romanized: "wasseoyo" },
-                    { pronoun: "Negative", form: "안 왔어요", romanized: "an wasseoyo" }
+                    { pronoun: "Affirmative", form: "먹었어요", romanized: "meogeosseoyo" },
+                    { pronoun: "Negative", form: "안 먹었어요", romanized: "an meogeosseoyo" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ko-vb-a1-3",
+        level: "A1",
+        infinitive: "마시다",
+        romanized: "masida",
+        meaning: "to drink",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "마셔요", romanized: "masyeoyo" },
+                    { pronoun: "Negative", form: "안 마셔요", romanized: "an masyeoyo" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "마셨어요", romanized: "masyeosseoyo" },
+                    { pronoun: "Negative", form: "안 마셨어요", romanized: "an masyeosseoyo" }
                 ]
             }
         ]
@@ -348,6 +345,147 @@ export const a1Verbs: Verb[] = [
                 forms: [
                     { pronoun: "Affirmative", form: "요리했어요", romanized: "yorihaesseoyo" },
                     { pronoun: "Negative", form: "요리 안 했어요", romanized: "yori an haesseoyo" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ko-vb-a1-16",
+        level: "A1",
+        infinitive: "보다",
+        romanized: "boda",
+        meaning: "to see / to watch",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "봐요", romanized: "bwayo" },
+                    { pronoun: "Negative", form: "안 봐요", romanized: "an bwayo" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "봤어요", romanized: "bwasseoyo" },
+                    { pronoun: "Negative", form: "안 봤어요", romanized: "an bwasseoyo" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ko-vb-a1-17",
+        level: "A1",
+        infinitive: "쓰다",
+        romanized: "sseuda",
+        meaning: "to write / to use",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "써요", romanized: "sseoyo" },
+                    { pronoun: "Negative", form: "안 써요", romanized: "an sseoyo" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "썼어요", romanized: "sseosseoyo" },
+                    { pronoun: "Negative", form: "안 썼어요", romanized: "an sseosseoyo" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ko-vb-a1-18",
+        level: "A1",
+        infinitive: "듣다",
+        romanized: "deutda",
+        meaning: "to listen",
+        conjugations: [
+            // ㄷ-irregular: 듣- → 들- before vowel suffix
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "들어요", romanized: "deureoyo" },
+                    { pronoun: "Negative", form: "안 들어요", romanized: "an deureoyo" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "들었어요", romanized: "deureosseoyo" },
+                    { pronoun: "Negative", form: "안 들었어요", romanized: "an deureosseoyo" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ko-vb-a1-19",
+        level: "A1",
+        infinitive: "자다",
+        romanized: "jada",
+        meaning: "to sleep",
+        conjugations: [
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "자요", romanized: "jayo" },
+                    { pronoun: "Negative", form: "안 자요", romanized: "an jayo" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "잤어요", romanized: "jasseoyo" },
+                    { pronoun: "Negative", form: "안 잤어요", romanized: "an jasseoyo" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ko-vb-a1-20",
+        level: "A1",
+        infinitive: "알다",
+        romanized: "alda",
+        meaning: "to know",
+        conjugations: [
+            // ㄹ-irregular. Note: the negative of 알다 is 모르다 (not 안 알아요).
+            // Both forms shown for clarity.
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "알아요", romanized: "arayo" },
+                    { pronoun: "Negative (→ 모르다)", form: "몰라요", romanized: "mollayo" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "알았어요", romanized: "arasseoyo" },
+                    { pronoun: "Negative (→ 모르다)", form: "몰랐어요", romanized: "mollasseoyo" }
+                ]
+            }
+        ]
+    },
+    {
+        id: "ko-vb-a1-21",
+        level: "A1",
+        infinitive: "모르다",
+        romanized: "moreuda",
+        meaning: "to not know",
+        conjugations: [
+            // 르-irregular: 모르- → 몰라- / 몰랐-.
+            // This verb expresses negation in itself; there is no standard 안 모르다 form.
+            {
+                tense: "Present (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "몰라요", romanized: "mollayo" }
+                ]
+            },
+            {
+                tense: "Past (Polite)",
+                forms: [
+                    { pronoun: "Affirmative", form: "몰랐어요", romanized: "mollasseoyo" }
                 ]
             }
         ]
