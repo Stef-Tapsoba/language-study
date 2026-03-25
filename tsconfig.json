@@ -21,31 +21,31 @@
         "paths": {
             "@/*": ["./src/*"],
             "@myorg/auth-core": [
-                "../packages/auth-core/src"
+                "./packages/auth-core/src"
             ],
             "@myorg/api-client": [
-                "../packages/api-client/src"
+                "./packages/api-client/src"
             ],
             "@myorg/validation": [
-                "../packages/validation/src"
+                "./packages/validation/src"
             ],
             "@myorg/theme-tokens": [
-                "../packages/theme-tokens/src"
+                "./packages/theme-tokens/src"
             ],
             "@myorg/storage": [
-                "../packages/storage/src"
+                "./packages/storage/src"
             ],
             "@myorg/event-bus": [
-                "../packages/event-bus/src"
+                "./packages/event-bus/src"
             ],
             "@myorg/quiz-engine": [
-                "../packages/quiz-engine/src"
+                "./packages/quiz-engine/src"
             ],
             "@myorg/tts": [
-                "../packages/tts/src"
+                "./packages/tts/src"
             ],
             "@myorg/srs": [
-                "../packages/srs/src"
+                "./packages/srs/src"
             ]
         }
     },

@@ -4,7 +4,7 @@ import path from "path"
 
 // Resolve @myorg/* packages directly from their source — no build step needed.
 const pkg = (name: string) =>
-    path.resolve(__dirname, `../packages/${name}/src`)
+    path.resolve(__dirname, `./packages/${name}/src`)
 
 export default defineConfig({
     plugins: [react()],
