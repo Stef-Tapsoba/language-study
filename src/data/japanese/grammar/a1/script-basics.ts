@@ -193,6 +193,103 @@ The next two lessons (Kanji Group 1 and Group 2) cover the full N5 set organised
         ]
     },
     {
+        id: "ja-g-a1-40",
+        level: "A1",
+        title: "Kanji Radicals (部首) — How Kanji Are Built",
+        explanation: `Every kanji contains one component that acts as its "classifier" — the radical (部首, ぶしゅ). There are 214 traditional radicals. You don't need to memorise them all. At N5 you only need to recognise about 20, and you already know most of them as standalone kanji.
+
+The radical does two things:
+1. It hints at the meaning category of the kanji
+2. It is the key used to look up unknown kanji in a dictionary
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+THE MOST IMPORTANT N5 RADICALS
+
+Radical (standalone / modified) | Reading | Meaning | Example kanji
+
+  氵(さんずい) = water (modified form of 水)
+      → 水(water), 海(sea), 泳(swim), 湖(lake), 泣(cry), 洗(wash)
+
+  木 (き) = tree
+      → 木(tree), 林(grove), 森(forest), 机(desk), 椅(chair)
+
+  口 (くち) = mouth
+      → 口(mouth), 言(say), 歌(sing), 名(name), 古(old)
+
+  日 (ひ) = sun/day
+      → 日(day), 明(bright), 時(time), 曜(day of week)
+
+  月 (つき) = moon/month
+      → 月(moon), 朝(morning), 期(period)
+
+  人/亻(ひと) = person
+      → 人(person), 休(rest — person leaning on tree), 体(body), 作(make), 何(what)
+
+  言/訁(こと) = speech/words
+      → 言(say), 語(language), 話(speak), 読(read), 記(record)
+
+  手/扌(て) = hand
+      → 手(hand), 持(hold), 打(hit), 指(finger)
+
+  女 (おんな) = woman
+      → 女(woman), 姉(sister), 妹(younger sister), 好(like — woman + child)
+
+  山 (やま) = mountain
+      → 山(mountain), 島(island), 岩(rock)
+
+  火/灬 (ひ) = fire
+      → 火(fire), 焼(burn), 点(dot/light)
+
+  金/钅 (かね) = metal/gold
+      → 金(gold), 銀(silver), 鉄(iron), 銭(money)
+
+  心/忄 (こころ) = heart/feeling
+      → 心(heart), 思(think), 意(meaning), 急(urgent)
+
+  門 (もん) = gate
+      → 門(gate), 間(interval/between), 聞(hear — ear at the gate), 問(question)
+
+  糸 (いと) = thread
+      → 糸(thread), 紙(paper), 絵(picture), 紅(crimson)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RADICALS IN ACTION: GUESSING MEANING
+
+When you see an unknown kanji, find the radical and use it as a clue.
+
+  泳ぐ (およぐ) = swim — you see 氵 (water radical) → it's water-related ✓
+  話す (はなす) = speak — you see 言 (speech radical) → it's about speaking ✓
+  好き (すき) = like — you see 女 + 子 (woman + child) → the character "like" is composed of a mother and child
+  休む (やすむ) = rest — you see 亻+ 木 (person + tree) → a person leaning against a tree = rest
+  明るい (あかるい) = bright — you see 日 + 月 (sun + moon) → sun and moon together = bright
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PRACTICAL TIP
+
+Don't try to memorise all radicals at once. Instead:
+1. When you learn a new kanji, notice its radical
+2. Group kanji that share a radical — they often share a meaning thread
+3. The radical isn't always obvious (it can be compressed or deformed) — that's OK, you'll develop an eye for it over time
+
+The next two lessons introduce the full N5 kanji set. Spotting radicals will help meanings stick.`,
+        examples: [
+            { native: "氵→ 水・海・泳・湖・洗", romanized: "sanzui → mizu / umi / oyogu / mizuumi / arau", translation: "Water radical: water, sea, swim, lake, wash — all relate to water" },
+            { native: "言 → 語・話・読", romanized: "kotoba → go / wa / doku", translation: "Speech radical: language, speak, read — all relate to words" },
+            { native: "人/亻→ 休・体・何・作", romanized: "hito → yasu / karada / nani / tsukuru", translation: "Person radical: rest, body, what, make — kanji about people and human actions" },
+            { native: "好き (女 + 子)", romanized: "suki (onna + ko)", translation: "Like/love — the character combines woman (女) and child (子)" },
+            { native: "休む (亻+ 木)", romanized: "yasumu (hito + ki)", translation: "Rest — a person (亻) leaning against a tree (木)" },
+            { native: "明るい (日 + 月)", romanized: "akarui (hi + tsuki)", translation: "Bright — sun (日) and moon (月) together" },
+        ],
+        inlineVocab: [
+            { word: "部首", translation: "radical — the classifier component of a kanji (ぶしゅ)" },
+            { word: "氵", translation: "water radical (sanzui) — signals water-related kanji" },
+            { word: "言", translation: "speech radical — signals language/communication kanji" },
+            { word: "好き", translation: "like/love (すき) — 女(woman) + 子(child)" },
+            { word: "休む", translation: "to rest (やすむ) — 亻(person) + 木(tree)" },
+            { word: "明るい", translation: "bright (あかるい) — 日(sun) + 月(moon)" },
+        ]
+    },
+    {
         id: "ja-g-a1-14",
         level: "A1",
         title: "N5 Kanji Group 1 — Numbers, Time, Nature & Position",

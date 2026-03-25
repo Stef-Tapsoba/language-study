@@ -72,6 +72,7 @@ export interface VocabItem {
     level: CEFRLevel
     word: string
     romanized?: string
+    hiragana?: string    // pure kana reading — shown at A2+ when romaji is hidden
     translation: string
     category: string
     example: Example
@@ -84,6 +85,7 @@ export interface ConjugationForm {
     pronoun: string
     form: string
     romanized?: string
+    hiragana?: string    // pure kana reading — shown at A2+ when romaji is hidden
 }
 
 export interface ConjugationTable {
@@ -97,6 +99,7 @@ export interface Verb {
     level: CEFRLevel
     infinitive: string
     romanized?: string
+    hiragana?: string    // pure kana reading of the infinitive — shown at A2+ when romaji is hidden
     meaning: string
     conjugations: ConjugationTable[]
 }
