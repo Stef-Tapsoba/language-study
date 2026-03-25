@@ -35,6 +35,15 @@ POSITION: Time expressions typically go at the START of the sentence or directly
             { native: "아직 안 먹었어요.", romanized: "Ajik an meogeosseoyo.", translation: "I haven't eaten yet." },
             { native: "이미 했어요.", romanized: "Imi haesseoyo.", translation: "I already did it." },
             { native: "빨리 오세요!", romanized: "Ppalli oseyo!", translation: "Come quickly! / Hurry up!" },
+        ],
+        inlineVocab: [
+            { word: "오늘", translation: "today" },
+            { word: "어제", translation: "yesterday" },
+            { word: "내일", translation: "tomorrow" },
+            { word: "지금", translation: "now" },
+            { word: "아직", translation: "still / not yet (used with negative)" },
+            { word: "빨리", translation: "quickly / hurry up" },
+            { word: "천천히", translation: "slowly" },
         ]
     },
     {
@@ -66,6 +75,14 @@ POSITION: Frequency adverbs typically go before the verb or at the start of the 
             { native: "별로 안 좋아해요.", romanized: "Byeollo an joahaeyo.", translation: "I don't really like it." },
             { native: "절대로 안 먹어요.", romanized: "Jeoldaero an meogeoy o.", translation: "I never eat it." },
             { native: "자주 한국 음식을 먹어요.", romanized: "Jaju hanguk eumsige ul meogeoy o.", translation: "I often eat Korean food." },
+        ],
+        inlineVocab: [
+            { word: "항상", translation: "always" },
+            { word: "자주", translation: "often" },
+            { word: "가끔", translation: "sometimes" },
+            { word: "별로", translation: "not really (must be followed by negative verb)" },
+            { word: "절대로", translation: "never (strong, followed by negative verb)" },
+            { word: "보통", translation: "usually / normally" },
         ]
     },
     {
@@ -98,6 +115,14 @@ NOTE: ~아서/어서 expresses a natural cause-effect. For "because" with an exp
             { native: "배가 고파서 밥을 먹었어요.", romanized: "Baega gopaseo babeul meogeosseoyo.", translation: "I was hungry so I ate rice." },
             { native: "음식이 맛있어서 많이 먹었어요.", romanized: "Eumsigi massisseoseo mani meogeosseoyo.", translation: "The food was delicious so I ate a lot." },
             { native: "비가 와서 집에 있어요.", romanized: "Biga waseo jibe isseoyo.", translation: "It's raining so I'm staying home." },
+        ],
+        inlineVocab: [
+            { word: "고", translation: "and / and then (connects clauses neutrally)" },
+            { word: "지만", translation: "but (clause connector — contrast)" },
+            { word: "아서/어서", translation: "so / because (reason → result)" },
+            { word: "피곤하다", translation: "to be tired" },
+            { word: "배가 고프다", translation: "to be hungry (stomach is empty)" },
+            { word: "비", translation: "rain" },
         ]
     },
     {
@@ -134,6 +159,55 @@ EXAMPLE SEQUENCE:
             { native: "배가 고팠어요. 그래서 밥을 먹었어요.", romanized: "Baega gopasseoy o. Geuraeseo babeul meogeosseoyo.", translation: "I was hungry. So I ate rice." },
             { native: "먼저 공부해요. 그다음 운동해요.", romanized: "Meonjeo gongbuhaeyo. Geudaeum undongha eyo.", translation: "First I study. Then I exercise." },
             { native: "한국어는 어려워요. 그런데 재미있어요.", romanized: "Hangugeo neun eoryeowoyo. Geureonde jaemiisseoyo.", translation: "Korean is difficult. But it's fun." },
+        ],
+        inlineVocab: [
+            { word: "그리고", translation: "and / and then (connects sentences)" },
+            { word: "하지만", translation: "but / however (sentence-level contrast)" },
+            { word: "그래서", translation: "so / therefore (consequence)" },
+            { word: "그런데", translation: "but / by the way (softer contrast or topic shift)" },
+            { word: "먼저", translation: "first (in a sequence)" },
+            { word: "그다음", translation: "next / then" },
+        ]
+    },
+    {
+        id: "ko-g-a1-37",
+        level: "A1",
+        title: "Conditional: ~(으)면 (if / when)",
+        explanation: `~(으)면 attaches to a verb or adjective stem to mean "if" or "when". It is one of the most useful connectors in Korean and appears constantly at A1 level.
+
+FORMATION:
+  Stem ending in vowel or ㄹ  →  add ~면
+  Stem ending in consonant    →  add ~으면
+
+  가다  → 가면      (if you go)
+  먹다  → 먹으면    (if you eat)
+  크다  → 크면      (if it is big)
+  춥다  → 추우면    (if it is cold — ㅂ-irregular)
+  이다  → 이면/면   (if it is — 학생이면 = if [you are] a student)
+
+TWO USES:
+1. Conditional "if": a specific condition that may or may not happen.
+   비가 오면 우산을 써요.  →  If it rains, I use an umbrella.
+
+2. General "when": a predictable situation that always triggers a result.
+   봄이 되면 꽃이 펴요.  →  When spring comes, flowers bloom.
+
+COMMON MISTAKE: Do not use ~(으)면 for past events. Use ~았/었을 때 for "when [something] happened in the past".`,
+        examples: [
+            { native: "시간이 있으면 같이 가요.", romanized: "Sigani isseumyeon gachi gayo.", translation: "If you have time, let's go together." },
+            { native: "배가 고프면 뭐 먹어요?", romanized: "Baega gopeumyeon mwo meogeoyo?", translation: "What do you eat when you are hungry?" },
+            { native: "날씨가 좋으면 산책해요.", romanized: "Nalssiga joheumyeon sanchaek haeyo.", translation: "When the weather is nice, I take a walk." },
+            { native: "모르면 선생님한테 물어보세요.", romanized: "Moreumyeon seonsaengnim hante mureoboseyo.", translation: "If you don't know, ask the teacher." },
+            { native: "한국에 가면 삼겹살 먹을 거예요.", romanized: "Hanguge gamyeon samgyeopsal meogeul geoyeyo.", translation: "If I go to Korea, I will eat samgyeopsal." },
+            { native: "값이 싸면 살게요.", romanized: "Gabsi ssamyeon salgeyo.", translation: "If the price is cheap, I'll buy it." },
+        ],
+        inlineVocab: [
+            { word: "시간이 있으면", translation: "if you have time" },
+            { word: "배가 고프면", translation: "when/if you are hungry" },
+            { word: "날씨가 좋으면", translation: "when the weather is nice" },
+            { word: "모르면", translation: "if you don't know" },
+            { word: "가면", translation: "if/when (you) go" },
+            { word: "싸면", translation: "if it is cheap" },
         ]
     },
 ]

@@ -211,5 +211,91 @@ export const a1Reading: ReadingPassage[] = [
                 answer: "In winter"
             }
         ]
+    },
+    {
+        id: "ko-r-a1-6",
+        level: "A1",
+        category: "everyday",
+        title: "시장에서 (At the Market)",
+        body: {
+            target: "민수: 저기요, 이 사과 얼마예요?\n상인: 사과는 한 개에 오백 원이에요.\n민수: 그럼 세 개 주세요. 그리고 저 딸기는요?\n상인: 딸기는 한 팩에 삼천 원이에요.\n민수: 좀 비싸요. 이천오백 원에 살 수 있어요?\n상인: 네, 괜찮아요. 딸기 한 팩 드릴게요.\n민수: 감사합니다. 카드로 계산해도 돼요?\n상인: 아니요, 현금만 받아요. 죄송해요.\n민수: 알겠어요. 여기 오천 원이요.\n상인: 거스름돈 오백 원 드릴게요. 또 오세요!",
+            native: "Minsu: Excuse me, how much are these apples?\nSeller: Apples are five hundred won each.\nMinsu: Then please give me three. And those strawberries?\nSeller: Strawberries are three thousand won per pack.\nMinsu: That's a bit expensive. Can I buy them for two thousand five hundred won?\nSeller: Yes, that's fine. I'll give you one pack of strawberries.\nMinsu: Thank you. Can I pay by card?\nSeller: No, we only accept cash. Sorry.\nMinsu: I see. Here's five thousand won.\nSeller: Here's five hundred won in change. Come again!"
+        },
+        vocabGloss: [
+            { word: "시장", translation: "market", romanized: "sijang" },
+            { word: "상인", translation: "seller, vendor", romanized: "sangin" },
+            { word: "팩", translation: "pack (packaging unit)", romanized: "paek" },
+            { word: "비싸요", translation: "is expensive", romanized: "bissayo" },
+            { word: "계산하다", translation: "to pay, to calculate the bill", romanized: "gyesanhada" },
+            { word: "현금", translation: "cash", romanized: "hyeongeum" },
+            { word: "거스름돈", translation: "change (money returned)", romanized: "geoseureum don" },
+            { word: "또 오세요", translation: "please come again", romanized: "tto oseyo" }
+        ],
+        questions: [
+            {
+                id: "ko-r-a1-6-q1",
+                level: "A1",
+                prompt: "How much does Minsu pay for three apples?",
+                options: ["1,500 won", "3,000 won", "1,000 won", "500 won"],
+                answer: "1,500 won"
+            },
+            {
+                id: "ko-r-a1-6-q2",
+                level: "A1",
+                prompt: "How much does Minsu pay for the strawberries?",
+                options: ["3,000 won", "2,500 won", "1,500 won", "2,000 won"],
+                answer: "2,500 won"
+            },
+            {
+                id: "ko-r-a1-6-q3",
+                level: "A1",
+                prompt: "Why can't Minsu pay by card?",
+                options: ["The card machine is broken", "The shop only accepts cash", "The total is too small", "He forgot his card"],
+                answer: "The shop only accepts cash"
+            }
+        ]
+    },
+    {
+        id: "ko-r-a1-7",
+        level: "A1",
+        category: "everyday",
+        title: "병원에서 (At the Doctor's)",
+        body: {
+            target: "저는 어제부터 몸이 안 좋아요. 머리가 아프고 목도 아파요. 열도 있어요. 그래서 오늘 아침에 병원에 갔어요. 의사 선생님이 물었어요. \"어디가 아파요?\" 저는 대답했어요. \"머리랑 목이 아파요. 그리고 기침도 해요.\" 의사 선생님은 진찰을 했어요. \"감기예요. 걱정하지 마세요.\" 의사 선생님이 약을 처방해 주셨어요. 약국에서 약을 샀어요. 하루에 세 번 먹어야 해요. 집에서 쉬어야 해요. 빨리 낫고 싶어요.",
+            native: "I have not been feeling well since yesterday. My head hurts and my throat hurts too. I also have a fever. So I went to the hospital this morning. The doctor asked, 'Where does it hurt?' I replied, 'My head and throat hurt. And I also have a cough.' The doctor examined me. 'It's a cold. Don't worry.' The doctor prescribed medicine for me. I bought the medicine at the pharmacy. I need to take it three times a day. I need to rest at home. I want to get better quickly."
+        },
+        vocabGloss: [
+            { word: "몸이 안 좋아요", translation: "not feeling well (body is not good)", romanized: "momi an joayo" },
+            { word: "열", translation: "fever", romanized: "yeol" },
+            { word: "기침", translation: "cough", romanized: "gichim" },
+            { word: "진찰", translation: "medical examination", romanized: "jinchal" },
+            { word: "감기", translation: "cold (illness)", romanized: "gamgi" },
+            { word: "약", translation: "medicine", romanized: "yak" },
+            { word: "처방하다", translation: "to prescribe", romanized: "cheobanghada" },
+            { word: "낫다", translation: "to get better, to recover", romanized: "natda" }
+        ],
+        questions: [
+            {
+                id: "ko-r-a1-7-q1",
+                level: "A1",
+                prompt: "What symptoms does the person have? (Choose the most complete answer)",
+                options: ["Headache only", "Headache, sore throat, fever, and cough", "Fever and cough only", "Sore throat and stomachache"],
+                answer: "Headache, sore throat, fever, and cough"
+            },
+            {
+                id: "ko-r-a1-7-q2",
+                level: "A1",
+                prompt: "What does the doctor diagnose?",
+                options: ["Flu", "Stomachache", "A cold", "Toothache"],
+                answer: "A cold"
+            },
+            {
+                id: "ko-r-a1-7-q3",
+                level: "A1",
+                prompt: "How often does the person need to take the medicine?",
+                options: ["Once a day", "Twice a day", "Three times a day", "Four times a day"],
+                answer: "Three times a day"
+            }
+        ]
     }
 ]

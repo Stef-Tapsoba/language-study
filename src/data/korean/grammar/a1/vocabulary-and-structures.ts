@@ -12,6 +12,14 @@ export const vocabularyAndStructuresLessons: GrammarLesson[] = [
             { native: "사과 두 개 / 커피 세 잔", romanized: "sagwa du gae / keopi se jan", translation: "two apples / three coffees (native numbers, shortened before counters)", speakText: "사과 두 개, 커피 세 잔" },
             { native: "지금 세 시 삼십 분이에요.", romanized: "Jigeum se si samsip bunieyo.", translation: "It's 3:30 now. (hours = native 세, minutes = Sino 삼십)" },
             { native: "저는 스물두 살이에요.", romanized: "Jeoneun seumuldu sarieyo.", translation: "I am 22 years old. (age = native Korean)" },
+        ],
+        inlineVocab: [
+            { word: "일 이 삼 사 오", translation: "1 2 3 4 5 (Sino-Korean)" },
+            { word: "하나 둘 셋 넷 다섯", translation: "1 2 3 4 5 (native Korean)" },
+            { word: "살", translation: "years old (age counter)" },
+            { word: "개", translation: "general object counter (things)" },
+            { word: "잔", translation: "cup / glass (liquid counter)" },
+            { word: "분", translation: "minute (Sino-Korean) / polite counter for people" },
         ]
     },
     {
@@ -26,6 +34,14 @@ export const vocabularyAndStructuresLessons: GrammarLesson[] = [
             { native: "왜 안 먹어요?", romanized: "Wae an meogeoyo?", translation: "Why aren't you eating?" },
             { native: "어떻게 가요?", romanized: "Eotteoke gayo?", translation: "How do you get there?" },
             { native: "누가 왔어요?", romanized: "Nuga wasseoyo?", translation: "Who came? (누구 + 가 subject particle → 누가)" },
+        ],
+        inlineVocab: [
+            { word: "뭐", translation: "what (spoken form of 무엇)" },
+            { word: "어디", translation: "where" },
+            { word: "언제", translation: "when" },
+            { word: "왜", translation: "why" },
+            { word: "어떻게", translation: "how" },
+            { word: "누구", translation: "who (누가 = subject form)" },
         ]
     },
     {
@@ -65,6 +81,14 @@ In negative form, adjectives also use 안:
             { native: "겨울에 추워요.", romanized: "Gyeoure chuwoyo.", translation: "It's cold in winter. (춥다 → 추워요, ㅂ-irregular)" },
             { native: "날씨가 안 좋아요.", romanized: "Nalssiga an joayo.", translation: "The weather is not good. (안 + adjective)" },
             { native: "사람이 많아요.", romanized: "Sarami manayo.", translation: "There are many people. (많다 → 많아요, regular)" },
+        ],
+        inlineVocab: [
+            { word: "크다", translation: "big / large (크다 → 커요, ㅡ-irregular)" },
+            { word: "예쁘다", translation: "pretty (예쁘다 → 예뻐요, ㅡ-irregular)" },
+            { word: "춥다", translation: "cold weather (춥다 → 추워요, ㅂ-irregular)" },
+            { word: "덥다", translation: "hot weather (덥다 → 더워요, ㅂ-irregular)" },
+            { word: "많다", translation: "many / much (많다 → 많아요, regular)" },
+            { word: "날씨", translation: "weather" },
         ]
     },
     {
@@ -108,6 +132,14 @@ Until someone says something like this, stay with 해요체.`,
             { native: "감사합니다. (formal) / 고마워요. (polite) / 고마워. (casual)", romanized: "Gamsahamnida / Gomawoyo / Gomawo", translation: "Thank you across three levels", speakText: "감사합니다. 고마워요. 고마워." },
             { native: "말을 놓아도 돼요.", romanized: "Mareul noaado dwaeyo.", translation: "You can speak casually with me. (invitation to switch levels)" },
             { native: "저는 학생이에요. (해요체)", romanized: "Jeoneun haksaengieyo.", translation: "I am a student. — 해요체 is always the safe choice", speakText: "저는 학생이에요." },
+        ],
+        inlineVocab: [
+            { word: "해요체", translation: "polite informal speech level (default for A1 learners)" },
+            { word: "합쇼체", translation: "formal polite speech level (~습니다/ㅂ니다)" },
+            { word: "반말", translation: "casual / informal speech (no 요 — close friends only)" },
+            { word: "먹어요", translation: "eat (해요체)" },
+            { word: "먹습니다", translation: "eat (합쇼체 — formal)" },
+            { word: "말을 놓다", translation: "to speak casually with someone (drop formal speech)" },
         ]
     },
     {
@@ -153,6 +185,14 @@ If you know the noun, you know the verb.
             { native: "한국 음식을 좋아해요.", romanized: "Hanguk eumsige ul joahaeyo.", translation: "I like Korean food. (을 marks the object)" },
             { native: "커피를 좋아해요?", romanized: "Keopireul joahaeyo?", translation: "Do you like coffee?" },
             { native: "요리 못 해요.", romanized: "Yori mot haeyo.", translation: "I can't cook." },
+        ],
+        inlineVocab: [
+            { word: "하다", translation: "to do (base of 하다 compound verbs)" },
+            { word: "공부하다", translation: "to study (공부 + 하다)" },
+            { word: "운동하다", translation: "to exercise (운동 + 하다)" },
+            { word: "좋아하다", translation: "to like (takes object particle 을/를)" },
+            { word: "싫어하다", translation: "to dislike" },
+            { word: "요리하다", translation: "to cook (요리 + 하다)" },
         ]
     },
     {
@@ -187,6 +227,14 @@ SHORTCUT: In casual speech 이것/그것/저것 → 이거/그거/저거`,
             { native: "저것이 뭐예요?", romanized: "Jeogeosi mwoyeyo?", translation: "What is that (over there)?" },
             { native: "이거 주세요.", romanized: "Igeo juseyo.", translation: "Give me this, please." },
             { native: "그거 얼마예요?", romanized: "Geugeo eolmayeyo?", translation: "How much is that?" },
+        ],
+        inlineVocab: [
+            { word: "이", translation: "this- (near speaker: 이 책, 이것)" },
+            { word: "그", translation: "that- (near listener: 그 사람, 그것)" },
+            { word: "저", translation: "that over there- (far from both: 저 집, 저것)" },
+            { word: "이것", translation: "this (thing) — informal: 이거" },
+            { word: "그것", translation: "that (thing near you) — informal: 그거" },
+            { word: "얼마", translation: "how much" },
         ]
     },
     {
@@ -219,6 +267,14 @@ QUESTION: rising intonation → 갈 거예요?  (Are you going to go?)`,
             { native: "주말에 공부할 거예요.", romanized: "Jumare gongbuhal geoyeyo.", translation: "I will study on the weekend." },
             { native: "오늘 안 갈 거예요.", romanized: "Oneul an gal geoyeyo.", translation: "I won't go today." },
             { native: "어디에 살 거예요?", romanized: "Eodie sal geoyeyo?", translation: "Where are you going to live?" },
+        ],
+        inlineVocab: [
+            { word: "(으)ㄹ 거예요", translation: "will / going to (future tense ending)" },
+            { word: "갈 거예요", translation: "will go" },
+            { word: "먹을 거예요", translation: "will eat" },
+            { word: "내일", translation: "tomorrow" },
+            { word: "주말", translation: "weekend" },
+            { word: "살다", translation: "to live (in a place)" },
         ]
     },
     {
@@ -253,6 +309,14 @@ WHAT you want (a noun, not an action) uses 원하다:
             { native: "한국어를 배우고 싶어요.", romanized: "Hangugeo reul baeuge sipeoyo.", translation: "I want to learn Korean." },
             { native: "오늘은 집에 있고 싶어요.", romanized: "Oneureun jibe itgo sipeoyo.", translation: "Today I want to stay home." },
             { native: "가고 싶지 않아요.", romanized: "Gago sipji anayo.", translation: "I don't want to go." },
+        ],
+        inlineVocab: [
+            { word: "고 싶어요", translation: "want to (do something)" },
+            { word: "한국", translation: "Korea" },
+            { word: "배우다", translation: "to learn" },
+            { word: "고 싶지 않아요", translation: "don't want to (negation of ~고 싶어요)" },
+            { word: "집", translation: "home / house" },
+            { word: "있고 싶어요", translation: "want to stay / be (somewhere)" },
         ]
     },
     {
@@ -324,6 +388,14 @@ ASKING HOW MANY
             { native: "책 세 권 있어요.", romanized: "Chaek se gwon isseoyo.", translation: "I have three books. (권 = bound books)" },
             { native: "티켓 두 장 주세요.", romanized: "Tiket du jang juseyo.", translation: "Two tickets, please. (장 = flat things)" },
             { native: "몇 명이에요?", romanized: "Myeong myeongieyo?", translation: "How many people?" },
+        ],
+        inlineVocab: [
+            { word: "개", translation: "general object counter (default when unsure)" },
+            { word: "명", translation: "people counter (neutral)" },
+            { word: "분", translation: "polite people counter (e.g. restaurant)" },
+            { word: "잔", translation: "cup / glass counter" },
+            { word: "권", translation: "counter for bound books / notebooks" },
+            { word: "몇", translation: "how many / what number" },
         ]
     },
     {
@@ -384,6 +456,14 @@ COMMON ~(으)세요 EXPRESSIONS YOU ALREADY KNOW
             { native: "천천히 말씀해 주세요.", romanized: "Cheoncheonhi malsseum hae juseyo.", translation: "Please speak slowly." },
             { native: "사진 찍지 마세요.", romanized: "Sajin jjikji maseyo.", translation: "Please don't take photos." },
             { native: "어서 오세요!", romanized: "Eoseo oseyo!", translation: "Welcome! (heard in every shop and restaurant)" },
+        ],
+        inlineVocab: [
+            { word: "(으)세요", translation: "please (do something) — polite request/command" },
+            { word: "앉으세요", translation: "please sit down" },
+            { word: "기다리세요", translation: "please wait" },
+            { word: "오세요", translation: "please come / welcome" },
+            { word: "어서 오세요", translation: "welcome (heard in every shop)" },
+            { word: "지 마세요", translation: "please don't (negative request)" },
         ]
     },
     {
@@ -440,6 +520,127 @@ Both suggest doing something together:
             { native: "제가 할까요?", romanized: "Jega halkkayo?", translation: "Shall I do it?" },
             { native: "창문 열까요?", romanized: "Changmun yeolkkayo?", translation: "Shall I open the window?" },
             { native: "네, 좋아요!", romanized: "Ne, joayo!", translation: "Yes, sounds good! (response to a suggestion)" },
+        ],
+        inlineVocab: [
+            { word: "(으)ㄹ까요", translation: "shall we / shall I / I wonder (soft suggestion ending)" },
+            { word: "갈까요", translation: "shall we go?" },
+            { word: "먹을까요", translation: "shall we eat?" },
+            { word: "같이", translation: "together" },
+            { word: "창문", translation: "window" },
+            { word: "좋아요", translation: "sounds good / it's good (agreeing to a suggestion)" },
+        ]
+    },
+    {
+        id: "ko-g-a1-35",
+        level: "A1",
+        title: "~고 있다 — Progressive: Currently Doing",
+        explanation: `~고 있다 is the Korean progressive construction. It expresses an action that is happening right now, equivalent to English 'am/is/are + -ing'. It is one of the most important structures at A1 for describing what someone is doing at this moment.
+
+FORMATION
+  Verb stem + 고 있어요   (polite present)
+  Verb stem + 고 있었어요  (polite past progressive — was doing)
+
+  먹다   →  먹고 있어요     I am eating (right now)
+  공부하다 → 공부하고 있어요  I am studying
+  자다   →  자고 있어요     I am sleeping
+  보다   →  보고 있어요     I am watching / looking at
+  기다리다 → 기다리고 있어요  I am waiting
+
+The formation is completely regular — just attach 고 있어요 directly to the verb stem, regardless of the final sound.
+
+SIMPLE PRESENT vs PROGRESSIVE — the key contrast
+Korean simple present (~아요/어요) is used for habits, routines, and general truths:
+  저는 아침에 커피를 마셔요.    I drink coffee in the morning. (habit)
+
+~고 있어요 is used for what is happening at this exact moment:
+  지금 커피를 마시고 있어요.    I am drinking coffee right now. (right now)
+
+KEY VOCABULARY WITH ~고 있어요
+  뭐 하고 있어요?              What are you doing (right now)?
+  → 지금 밥을 먹고 있어요.     I am eating right now.
+  → 숙제하고 있어요.           I am doing homework.
+
+PAST PROGRESSIVE — was doing
+Add 었 before 어요 to form the past:
+  공부하고 있었어요.   I was studying.
+  자고 있었어요.       I was sleeping.
+
+NOTE — STATE VERBS do not use ~고 있어요
+Stative verbs (있다, 없다, 알다, 모르다, 좋아하다) describe states, not ongoing actions. Use simple present with these.
+  ✗ 알고 있어요  →  ✓ 알아요   I know. (state, not an action in progress)
+  Exception: 알고 있어요 is sometimes used to mean 'I am aware of it / I already know', so you may hear it — but 알아요 is safer at A1.`,
+        examples: [
+            { native: "지금 뭐 하고 있어요?", romanized: "Jigeum mwo hago isseoyo?", translation: "What are you doing right now? (most natural way to ask)" },
+            { native: "밥을 먹고 있어요.", romanized: "Babeul meokgo isseoyo.", translation: "I am eating (a meal) right now." },
+            { native: "한국어를 공부하고 있어요.", romanized: "Hangugeoreul gongbuhago isseoyo.", translation: "I am studying Korean (right now / these days)." },
+            { native: "친구를 기다리고 있어요.", romanized: "Chingureul gidarigo isseoyo.", translation: "I am waiting for a friend." },
+            { native: "드라마를 보고 있었어요.", romanized: "Deuramareul bogo isseosseoyo.", translation: "I was watching a drama. (past progressive)" },
+            { native: "아이가 자고 있어요.", romanized: "Aiga jago isseoyo.", translation: "The child is sleeping." },
+        ],
+        inlineVocab: [
+            { word: "고 있어요", translation: "am/is/are -ing (progressive — happening right now)" },
+            { word: "고 있었어요", translation: "was/were -ing (past progressive)" },
+            { word: "기다리다", translation: "to wait" },
+            { word: "자다", translation: "to sleep" },
+            { word: "보다", translation: "to see / watch / look at" },
+            { word: "숙제", translation: "homework" },
+            { word: "지금", translation: "now / right now" },
+        ]
+    },
+    {
+        id: "ko-g-a1-36",
+        level: "A1",
+        title: "~아/어 주다 — Doing Something for Someone",
+        explanation: `~아/어 주다 means to do an action FOR someone else. It is used both to make polite requests ('Please do X for me') and to describe doing a favour for someone else. It is one of the most important and most-used structures in everyday Korean.
+
+FORMATION
+  Verb stem + 아/어 주세요     Please [verb] for me  (polite request)
+  Verb stem + 아/어 줘요       [Someone] does [verb] for [someone]  (statement)
+  Verb stem + 아/어 줬어요      [Someone] did [verb] for [someone]  (past)
+
+The 아/어 vowel harmony follows the same rule as ~아요/어요 (lesson a1-8):
+  • Last vowel ㅏ or ㅗ → 아 주세요
+  • All other vowels → 어 주세요
+  • 하다 verbs → 해 주세요
+
+COMMON REQUESTS — learn these as fixed phrases
+  도와주세요.           Please help me.  (돕다 → 도와 is an irregular form)
+  가르쳐 주세요.        Please teach me.  (가르치다 → 가르쳐)
+  써 주세요.            Please write it (for me).  (쓰다 → 써)
+  보여 주세요.          Please show me.  (보이다 → 보여)
+  기다려 주세요.        Please wait (for me).  (기다리다 → 기다려)
+  한국어로 말해 주세요.  Please speak in Korean. (말하다 → 말해)
+  천천히 말해 주세요.   Please speak slowly.
+
+THE VERB 주다 vs 드리다 — formality with the recipient
+주다 means 'to give' and is used when the recipient is of equal or lower social status:
+  친구한테 가르쳐 줬어요.   I taught (= gave teaching to) a friend.
+
+드리다 replaces 주다 when the person you are doing the favour FOR is of higher status (teachers, parents, seniors, customers):
+  선생님께 보여 드렸어요.   I showed it to the teacher.
+  도와 드릴까요?            Shall I help you? (to a customer or elder)
+
+At A1, focus on 아/어 주세요 for requests and begin to notice 드리다 in contexts involving elders or service situations.
+
+NOTE — ~아/어 주다 vs ~아/어 줄게요
+  주세요     Please give/do (request — asking the listener)
+  줄게요     I will do it (for you) — a promise or offer (lesson a1-27 future tense context)`,
+        examples: [
+            { native: "도와주세요!", romanized: "Dowajuseyo!", translation: "Please help me! (fixed expression — 돕다 irregular)" },
+            { native: "천천히 말해 주세요.", romanized: "Cheoncheonhi malhae juseyo.", translation: "Please speak slowly. (말하다 → 말해 + 주세요)" },
+            { native: "이름을 써 주세요.", romanized: "Ireumeul sseo juseyo.", translation: "Please write your name (for me). (쓰다 → 써)" },
+            { native: "가르쳐 주세요.", romanized: "Gareuchyeo juseyo.", translation: "Please teach me. (가르치다 → 가르쳐)" },
+            { native: "보여 주세요.", romanized: "Boyeo juseyo.", translation: "Please show me. (보이다 → 보여)" },
+            { native: "도와 드릴까요?", romanized: "Dowa deurilkkayo?", translation: "Shall I help you? (드리다 = polite form for helping someone of higher status)" },
+        ],
+        inlineVocab: [
+            { word: "아/어 주세요", translation: "please do [verb] for me (polite request)" },
+            { word: "주다", translation: "to give / to do for someone (equal or lower status)" },
+            { word: "드리다", translation: "to give / to do for someone (higher status — honorific)" },
+            { word: "도와주세요", translation: "please help me (fixed expression)" },
+            { word: "가르치다", translation: "to teach" },
+            { word: "쓰다", translation: "to write / to use" },
+            { word: "천천히", translation: "slowly" },
         ]
     },
 ]

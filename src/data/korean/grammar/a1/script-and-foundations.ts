@@ -11,6 +11,14 @@ export const scriptAndFoundationsLessons: GrammarLesson[] = [
             { native: "Subject + Object + Verb", romanized: "S + O + V", translation: "Korean sentence order — the verb always comes last" },
             { native: "저는 학생이에요.", romanized: "Jeoneun haksaengieyo.", translation: "I am a student. (polite informal — 해요체)" },
             { native: "저는 학생이야.", romanized: "Jeoneun haksaengiya.", translation: "I am a student. (casual — 반말, for close friends only)" },
+        ],
+        inlineVocab: [
+            { word: "저", translation: "I / me (polite)" },
+            { word: "밥", translation: "rice / meal" },
+            { word: "먹어요", translation: "eat (polite present)" },
+            { word: "학생", translation: "student" },
+            { word: "해요체", translation: "polite informal speech level" },
+            { word: "반말", translation: "casual speech (informal, no 요)" },
         ]
     },
     {
@@ -24,6 +32,14 @@ export const scriptAndFoundationsLessons: GrammarLesson[] = [
             { native: "안 = ㅇ + ㅏ + ㄴ", romanized: "an", translation: "Silent ㅇ + ㅏ + final consonant ㄴ = 안" },
             { native: "한글", romanized: "Hangeul", translation: "한(han) + 글(geul) — two syllable blocks" },
             { native: "사람", romanized: "saram", translation: "사(sa) + 람(ram) — person" },
+        ],
+        inlineVocab: [
+            { word: "한글", translation: "the Korean alphabet / writing system" },
+            { word: "자음", translation: "consonant" },
+            { word: "모음", translation: "vowel" },
+            { word: "음절", translation: "syllable" },
+            { word: "사람", translation: "person, people" },
+            { word: "가", translation: "go (also: syllable block ㄱ+ㅏ)" },
         ]
     },
     {
@@ -37,6 +53,15 @@ export const scriptAndFoundationsLessons: GrammarLesson[] = [
             { native: "이것은 책이에요.", romanized: "Igeoseun chaegieyo.", translation: "This is a book." },
             { native: "저는 영국 사람이에요.", romanized: "Jeoneun yeongguk saramieyo.", translation: "I am British." },
             { native: "이름은 민준이에요.", romanized: "Ireumeun minjunieyo.", translation: "My name is Minjun." },
+        ],
+        inlineVocab: [
+            { word: "은/는", translation: "topic particle (은 after consonant, 는 after vowel)" },
+            { word: "이에요/예요", translation: "is / am / are (polite copula)" },
+            { word: "학생", translation: "student" },
+            { word: "선생님", translation: "teacher" },
+            { word: "책", translation: "book" },
+            { word: "이름", translation: "name" },
+            { word: "사람", translation: "person" },
         ]
     },
     {
@@ -51,6 +76,16 @@ export const scriptAndFoundationsLessons: GrammarLesson[] = [
             { native: "감사합니다. / 고마워요.", romanized: "Gamsahamnida. / Gomawoyo.", translation: "Thank you. (formal) / Thank you. (polite informal)", speakText: "감사합니다. 고마워요." },
             { native: "괜찮아요.", romanized: "Gwaenchanayo.", translation: "It's okay. / I'm fine. / No problem." },
             { native: "죄송합니다. / 미안해요.", romanized: "Joesonghamnida. / Mianhaeyo.", translation: "I'm sorry. (formal) / I'm sorry. (polite informal)", speakText: "죄송합니다. 미안해요." },
+        ],
+        inlineVocab: [
+            { word: "안녕하세요", translation: "hello (polite)" },
+            { word: "감사합니다", translation: "thank you (formal)" },
+            { word: "고마워요", translation: "thank you (polite informal)" },
+            { word: "괜찮아요", translation: "it's okay / I'm fine" },
+            { word: "죄송합니다", translation: "I'm sorry (formal)" },
+            { word: "미안해요", translation: "I'm sorry (polite informal)" },
+            { word: "안녕히 가세요", translation: "goodbye (to person leaving)" },
+            { word: "안녕히 계세요", translation: "goodbye (to person staying)" },
         ]
     },
 ]

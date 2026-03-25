@@ -179,5 +179,35 @@ export const a1Vocab: VocabItem[] = [
     { id: "ko-v-a1-147", level: "A1", word: "여기", romanized: "Yeogi", translation: "Here", category: "Location", example: { native: "여기 앉으세요.", romanized: "Yeogi anjeuseyo.", translation: "Please sit here." } },
     { id: "ko-v-a1-148", level: "A1", word: "거기", romanized: "Geogi", translation: "There", category: "Location", example: { native: "거기 있어요.", romanized: "Geogi isseoyo.", translation: "It's there." } },
     { id: "ko-v-a1-149", level: "A1", word: "어디", romanized: "Eodi", translation: "Where", category: "Location", example: { native: "어디에 가요?", romanized: "Eodie gayo?", translation: "Where are you going?" } },
-    { id: "ko-v-a1-150", level: "A1", word: "뭐", romanized: "Mwo", translation: "What (spoken form)", category: "Basics", example: { native: "뭐 먹어요?", romanized: "Mwo meogeoyo?", translation: "What are you eating?" } }
+    { id: "ko-v-a1-150", level: "A1", word: "뭐", romanized: "Mwo", translation: "What (spoken form)", category: "Basics", example: { native: "뭐 먹어요?", romanized: "Mwo meogeoyo?", translation: "What are you eating?" } },
+
+    // ── EMERGENCY (151–158) ───────────────────────────────────────────────────
+    { id: "ko-v-a1-151", level: "A1", word: "병원", romanized: "Byeongwon", translation: "Hospital", category: "Emergency", example: { native: "병원에 가야 해요.", romanized: "Byeongwone gaya haeyo.", translation: "I need to go to the hospital." } },
+    { id: "ko-v-a1-152", level: "A1", word: "구급차", romanized: "Gugeupcha", translation: "Ambulance", category: "Emergency", example: { native: "구급차를 불러 주세요.", romanized: "Gugeupchareul bulleo juseyo.", translation: "Please call an ambulance." } },
+    { id: "ko-v-a1-153", level: "A1", word: "도와주세요", romanized: "Dowajuseyo", translation: "Please help me!", category: "Emergency", example: { native: "도와주세요! 아파요.", romanized: "Dowajuseyo! Apayo.", translation: "Help me! I'm in pain." } },
+    { id: "ko-v-a1-154", level: "A1", word: "경찰", romanized: "Gyeongchal", translation: "Police", category: "Emergency", example: { native: "경찰을 불러 주세요.", romanized: "Gyeongchareul bulleo juseyo.", translation: "Please call the police." } },
+    { id: "ko-v-a1-155", level: "A1", word: "소방서", romanized: "Sobangse o", translation: "Fire station / fire department", category: "Emergency", example: { native: "소방서에 전화했어요.", romanized: "Sobangseo e jeonhwahaesseoyo.", translation: "I called the fire department." } },
+    { id: "ko-v-a1-156", level: "A1", word: "아프다", romanized: "Apeuda", translation: "To be sick / hurt", category: "Emergency", example: { native: "배가 아파요.", romanized: "Baega apayo.", translation: "My stomach hurts." } },
+    { id: "ko-v-a1-157", level: "A1", word: "위험해요", romanized: "Wiheomhaeyo", translation: "It is dangerous", category: "Emergency", example: { native: "여기는 위험해요.", romanized: "Yeogineun wiheomhaeyo.", translation: "This place is dangerous." } },
+    { id: "ko-v-a1-158", level: "A1", word: "의사", romanized: "Uisa", translation: "Doctor", category: "Emergency", example: { native: "의사 선생님을 만나야 해요.", romanized: "Uisa seonsaengnimeul mannaya haeyo.", translation: "I need to see a doctor." } },
+
+    // ── CLASSROOM (159–166) ───────────────────────────────────────────────────
+    { id: "ko-v-a1-159", level: "A1", word: "교실", romanized: "Gyosil", translation: "Classroom", category: "Classroom", example: { native: "교실이 깨끗해요.", romanized: "Gyosiri kkaekkeuthaeyo.", translation: "The classroom is clean." } },
+    { id: "ko-v-a1-160", level: "A1", word: "연필", romanized: "Yeonpil", translation: "Pencil", category: "Classroom", example: { native: "연필로 써요.", romanized: "Yeonpillo sseoyo.", translation: "I write with a pencil." } },
+    { id: "ko-v-a1-161", level: "A1", word: "공책", romanized: "Gongchaek", translation: "Notebook", category: "Classroom", example: { native: "공책에 적어요.", romanized: "Gongchaege jeogeoyo.", translation: "I write in the notebook." } },
+    { id: "ko-v-a1-162", level: "A1", word: "칠판", romanized: "Chilpan", translation: "Blackboard / whiteboard", category: "Classroom", example: { native: "칠판에 글씨가 있어요.", romanized: "Chilpane geulsiga isseoyo.", translation: "There is writing on the board." } },
+    { id: "ko-v-a1-163", level: "A1", word: "숙제", romanized: "Sukje", translation: "Homework", category: "Classroom", example: { native: "숙제를 했어요.", romanized: "Sukjereul haesseoyo.", translation: "I did my homework." } },
+    { id: "ko-v-a1-164", level: "A1", word: "질문", romanized: "Jilmun", translation: "Question", category: "Classroom", example: { native: "질문이 있어요.", romanized: "Jilmuni isseoyo.", translation: "I have a question." } },
+    { id: "ko-v-a1-165", level: "A1", word: "대답", romanized: "Daedap", translation: "Answer / reply", category: "Classroom", example: { native: "대답해 주세요.", romanized: "Daedaphae juseyo.", translation: "Please answer." } },
+    { id: "ko-v-a1-166", level: "A1", word: "펜", romanized: "Pen", translation: "Pen", category: "Classroom", example: { native: "펜을 빌려 주세요.", romanized: "Peneul billyeo juseyo.", translation: "Please lend me a pen." } },
+
+    // ── SHOPPING & PAYMENT (167–174) ──────────────────────────────────────────
+    { id: "ko-v-a1-167", level: "A1", word: "가격", romanized: "Gagyeok", translation: "Price", category: "Shopping", example: { native: "가격이 얼마예요?", romanized: "Gagyeogi eolmayeyo?", translation: "What is the price?" } },
+    { id: "ko-v-a1-168", level: "A1", word: "얼마예요", romanized: "Eolmayeyo", translation: "How much is it?", category: "Shopping", example: { native: "이거 얼마예요?", romanized: "Igeo eolmayeyo?", translation: "How much is this?" } },
+    { id: "ko-v-a1-169", level: "A1", word: "사다", romanized: "Sada", translation: "To buy", category: "Shopping", example: { native: "옷을 샀어요.", romanized: "Oseul sasseoyo.", translation: "I bought clothes." } },
+    { id: "ko-v-a1-170", level: "A1", word: "팔다", romanized: "Palda", translation: "To sell", category: "Shopping", example: { native: "여기서 과일을 팔아요.", romanized: "Yeogiseo gwaireul parayo.", translation: "They sell fruit here." } },
+    { id: "ko-v-a1-171", level: "A1", word: "싸다", romanized: "Ssada", translation: "Cheap / inexpensive", category: "Shopping", example: { native: "이게 더 싸요.", romanized: "Ige deo ssayo.", translation: "This is cheaper." } },
+    { id: "ko-v-a1-172", level: "A1", word: "비싸다", romanized: "Bissada", translation: "Expensive", category: "Shopping", example: { native: "좀 비싸요.", romanized: "Jom bissayo.", translation: "It's a bit expensive." } },
+    { id: "ko-v-a1-173", level: "A1", word: "카드", romanized: "Kadeu", translation: "Credit card", category: "Shopping", example: { native: "카드로 계산할게요.", romanized: "Kadeuro gyesan halgeyo.", translation: "I'll pay by card." } },
+    { id: "ko-v-a1-174", level: "A1", word: "영수증", romanized: "Yeongsujeung", translation: "Receipt", category: "Shopping", example: { native: "영수증 주세요.", romanized: "Yeongsujeung juseyo.", translation: "Please give me a receipt." } }
 ]

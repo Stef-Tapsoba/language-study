@@ -60,6 +60,8 @@ export const a1Units: LessonUnit[] = [
             "ko-v-a1-21", "ko-v-a1-22", "ko-v-a1-23", "ko-v-a1-24", "ko-v-a1-25"
         ],
         verbIds: [],
+        readingIds: ["ko-r-a1-3"],
+        listeningIds: ["ko-l-a1-1"],
         testQuestions: [
             { id: "ko-uq-a1-2-1", level: "A1", prompt: "How do you say 'I am a student'?", options: ["학생는 저이에요.", "저를 학생이에요.", "저는 학생이에요.", "학생이에요 저."], answer: "저는 학생이에요." },
             { id: "ko-uq-a1-2-2", level: "A1", prompt: "Which particle marks the topic of a sentence?", options: ["이/가", "을/를", "에서", "은/는"], answer: "은/는" },
@@ -85,6 +87,7 @@ export const a1Units: LessonUnit[] = [
             "ko-v-a1-2",   // 안녕히 가세요
         ],
         verbIds: [],
+        cultureIds: ["ko-c-a1-1"],
         testQuestions: [
             { id: "ko-uq-a1-3-1", level: "A1", prompt: "Which speech level should you use as a default with strangers and service staff?", options: ["반말 (informal) — no 요", "합쇼체 — ~습니다/ㅂ니다", "해요체 — ~아요/어요/해요", "They are all equally acceptable"], answer: "해요체 — ~아요/어요/해요" },
             { id: "ko-uq-a1-3-2", level: "A1", prompt: "When is it appropriate to use 반말 (informal speech)?", options: ["With anyone older than you", "With close friends of the same age or younger people", "In professional settings", "With teachers and bosses"], answer: "With close friends of the same age or younger people" },
@@ -106,6 +109,7 @@ export const a1Units: LessonUnit[] = [
             "ko-v-a1-56", "ko-v-a1-57", "ko-v-a1-58", "ko-v-a1-59", "ko-v-a1-60"
         ],
         verbIds: [],
+        listeningIds: ["ko-l-a1-2"],
         testQuestions: [
             { id: "ko-uq-a1-4-1", level: "A1", prompt: "What is 3 in Sino-Korean?", options: ["셋", "삼", "三", "사"], answer: "삼" },
             { id: "ko-uq-a1-4-2", level: "A1", prompt: "Sino-Korean numbers are used for which of these?", options: ["Counting objects", "Telling the hour", "People's ages", "Dates and money"], answer: "Dates and money" },
@@ -126,6 +130,7 @@ export const a1Units: LessonUnit[] = [
             "ko-v-a1-41", "ko-v-a1-42", "ko-v-a1-43", "ko-v-a1-44", "ko-v-a1-45"
         ],
         verbIds: [],
+        listeningIds: ["ko-l-a1-3"],
         testQuestions: [
             { id: "ko-uq-a1-5-1", level: "A1", prompt: "What is 'five' in native Korean?", options: ["오", "넷", "다섯", "여섯"], answer: "다섯" },
             { id: "ko-uq-a1-5-2", level: "A1", prompt: "How does 둘 (two) change before a counter?", options: ["이", "둘", "두", "둘이"], answer: "두" },
@@ -139,13 +144,15 @@ export const a1Units: LessonUnit[] = [
         level: "A1",
         order: 6,
         title: "Family & People",
-        description: "Talk about your family members. Korean family terms differ depending on whether the speaker is male or female — learn the key distinctions.",
-        grammarIds: ["ko-g-a1-3"],
+        description: "Talk about your family members. Korean family terms differ depending on whether the speaker is male or female — learn the key distinctions. Also: the possessive particle 의 (my father's name, a friend's bag).",
+        grammarIds: ["ko-g-a1-3", "ko-g-a1-31"],
         vocabIds: [
             "ko-v-a1-26", "ko-v-a1-27", "ko-v-a1-28", "ko-v-a1-29", "ko-v-a1-30",
             "ko-v-a1-31", "ko-v-a1-32", "ko-v-a1-33", "ko-v-a1-34", "ko-v-a1-35"
         ],
         verbIds: [],
+        readingIds: ["ko-r-a1-1"],
+        listeningIds: ["ko-l-a1-4"],
         testQuestions: [
             { id: "ko-uq-a1-6-1", level: "A1", prompt: "What does '가족' mean?", options: ["Friend", "Family", "Teacher", "Person"], answer: "Family" },
             { id: "ko-uq-a1-6-2", level: "A1", prompt: "What does '동생' mean?", options: ["Older brother", "Older sister", "Younger sibling", "Husband"], answer: "Younger sibling" },
@@ -158,9 +165,9 @@ export const a1Units: LessonUnit[] = [
         id: "ko-a1-u7",
         level: "A1",
         order: 7,
-        title: "Particles: Subject & Object",
-        description: "Mark subjects with 이/가 and objects with 을/를. Understand when to use 이/가 vs 은/는.",
-        grammarIds: ["ko-g-a1-5", "ko-g-a1-6"],
+        title: "Particles: Subject, Object & Connective",
+        description: "Mark subjects with 이/가 and objects with 을/를. Understand when to use 이/가 vs 은/는. Also: connecting nouns with 와/과/하고/랑 (and/with) and choosing between 나/이나 (or).",
+        grammarIds: ["ko-g-a1-5", "ko-g-a1-6", "ko-g-a1-30", "ko-g-a1-34"],
         vocabIds: [
             "ko-v-a1-131", "ko-v-a1-132", "ko-v-a1-133", "ko-v-a1-134", "ko-v-a1-135",
             "ko-v-a1-136", "ko-v-a1-137", "ko-v-a1-138", "ko-v-a1-139", "ko-v-a1-140"
@@ -179,15 +186,16 @@ export const a1Units: LessonUnit[] = [
         id: "ko-a1-u8",
         level: "A1",
         order: 8,
-        title: "Present Tense: ~아요/어요",
-        description: "Learn how to conjugate verbs in polite present tense (해요체) using the ~아요/어요 endings and vowel harmony.",
-        grammarIds: ["ko-g-a1-8"],
+        title: "Present Tense: ~아요/어요 & ~고 있어요",
+        description: "Conjugate verbs in polite present tense (해요체) using ~아요/어요. Then express ongoing actions with ~고 있어요 — the Korean progressive ('I am eating', 'I am studying').",
+        grammarIds: ["ko-g-a1-8", "ko-g-a1-35"],
         vocabIds: [
             "ko-v-a1-61", "ko-v-a1-62", "ko-v-a1-63", "ko-v-a1-64", "ko-v-a1-65",
             "ko-v-a1-66", "ko-v-a1-67", "ko-v-a1-68", "ko-v-a1-69", "ko-v-a1-70",
             "ko-v-a1-71", "ko-v-a1-72", "ko-v-a1-73", "ko-v-a1-74", "ko-v-a1-75"
         ],
         verbIds: ["ko-vb-a1-1", "ko-vb-a1-3"],
+        readingIds: ["ko-r-a1-2"],
         testQuestions: [
             { id: "ko-uq-a1-8-1", level: "A1", prompt: "How do you say 'I eat' (polite informal)?", options: ["먹습니다", "먹었어요", "먹어요", "먹다"], answer: "먹어요" },
             { id: "ko-uq-a1-8-2", level: "A1", prompt: "How do you conjugate 가다 (to go) in polite present?", options: ["가어요", "가아요", "가요", "갑니다 only"], answer: "가요" },
@@ -254,6 +262,8 @@ export const a1Units: LessonUnit[] = [
             "ko-v-a1-101", "ko-v-a1-102", "ko-v-a1-103", "ko-v-a1-104", "ko-v-a1-105"
         ],
         verbIds: ["ko-vb-a1-4", "ko-vb-a1-8"],
+        readingIds: ["ko-r-a1-5"],
+        cultureIds: ["ko-c-a1-2"],
         testQuestions: [
             { id: "ko-uq-a1-11-1", level: "A1", prompt: "How do you say 'I like Korean food'?", options: ["한국 음식이 좋아요.", "한국 음식을 좋아해요.", "한국 음식이 있어요.", "한국 음식을 먹어요."], answer: "한국 음식을 좋아해요." },
             { id: "ko-uq-a1-11-2", level: "A1", prompt: "How do you say 'I exercise'?", options: ["운동이에요.", "운동을 좋아해요.", "운동해요.", "운동 있어요."], answer: "운동해요." },
@@ -267,9 +277,9 @@ export const a1Units: LessonUnit[] = [
         id: "ko-a1-u12",
         level: "A1",
         order: 12,
-        title: "Going Places: Location Particles 에 & 에서",
-        description: "Use 에 for destinations and the location of existence. Use 에서 for where actions happen. Master the key difference between these two particles.",
-        grammarIds: ["ko-g-a1-7"],
+        title: "Going Places: Location & Direction Particles",
+        description: "Use 에 for destinations and existence; 에서 for action locations. Then add 에게/한테 (to a person) and 부터/까지 (from...to) for time ranges and routes.",
+        grammarIds: ["ko-g-a1-7", "ko-g-a1-32", "ko-g-a1-33"],
         vocabIds: [
             "ko-v-a1-76", "ko-v-a1-77", "ko-v-a1-78", "ko-v-a1-79", "ko-v-a1-80",
             "ko-v-a1-81", "ko-v-a1-82", "ko-v-a1-83", "ko-v-a1-84", "ko-v-a1-85",
@@ -277,6 +287,7 @@ export const a1Units: LessonUnit[] = [
             "ko-v-a1-91", "ko-v-a1-92", "ko-v-a1-93", "ko-v-a1-94", "ko-v-a1-95"
         ],
         verbIds: ["ko-vb-a1-2", "ko-vb-a1-7", "ko-vb-a1-9"],
+        readingIds: ["ko-r-a1-4"],
         testQuestions: [
             { id: "ko-uq-a1-12-1", level: "A1", prompt: "Complete: '학교___ 가요.' (I go to school — destination)", options: ["에서", "에", "이", "을"], answer: "에" },
             { id: "ko-uq-a1-12-2", level: "A1", prompt: "Complete: '카페___ 공부해요.' (I study at the café — action location)", options: ["에", "에서", "이", "을"], answer: "에서" },
@@ -319,6 +330,8 @@ export const a1Units: LessonUnit[] = [
             "ko-v-a1-118", "ko-v-a1-119", "ko-v-a1-120"
         ],
         verbIds: [],
+        readingIds: ["ko-r-a1-7"],
+        listeningIds: ["ko-l-a1-7"],
         testQuestions: [
             { id: "ko-uq-a1-14-1", level: "A1", prompt: "What does '어디' mean?", options: ["When", "What", "Where", "Why"], answer: "Where" },
             { id: "ko-uq-a1-14-2", level: "A1", prompt: "What does '뭐' mean?", options: ["Where", "When", "Who", "What"], answer: "What" },
@@ -368,11 +381,12 @@ export const a1Units: LessonUnit[] = [
         id: "ko-a1-u17",
         level: "A1",
         order: 17,
-        title: "Adverbs, Frequency & Connectors",
-        description: "Say when, how often, and link your ideas. Learn time adverbs (오늘/아직/이미), frequency words (항상/가끔/절대로), sentence connectors (~고/~지만/~아서), and discourse connectors (그리고/하지만/그래서).",
-        grammarIds: ["ko-g-a1-19", "ko-g-a1-20", "ko-g-a1-21", "ko-g-a1-22"],
+        title: "Adverbs, Frequency, Connectors & Conditionals",
+        description: "Say when, how often, and link your ideas. Learn time adverbs (오늘/아직/이미), frequency words (항상/가끔/절대로), sentence connectors (~고/~지만/~아서), discourse connectors (그리고/하지만/그래서), and the conditional ~(으)면 (if/when).",
+        grammarIds: ["ko-g-a1-19", "ko-g-a1-20", "ko-g-a1-21", "ko-g-a1-22", "ko-g-a1-37"],
         vocabIds: [],
         verbIds: [],
+        cultureIds: ["ko-c-a1-3"],
         testQuestions: [
             { id: "ko-uq-a1-17-1", level: "A1", prompt: "What does '아직 안 먹었어요' mean?", options: ["I already ate", "I haven't eaten yet", "I don't want to eat", "I always eat"], answer: "I haven't eaten yet" },
             { id: "ko-uq-a1-17-2", level: "A1", prompt: "Which word requires a negative verb?", options: ["항상", "자주", "가끔", "별로"], answer: "별로" },
@@ -389,6 +403,7 @@ export const a1Units: LessonUnit[] = [
         title: "Existence, Particles & Negation",
         description: "Use 있어요/없어요 for existence and possession, add 도 for 'also/too', negate nouns with 이/가 아니에요, and show direction or means with ~(으)로.",
         grammarIds: ["ko-g-a1-23", "ko-g-a1-24", "ko-g-a1-26", "ko-g-a1-28"],
+        listeningIds: ["ko-l-a1-6"],
         vocabIds: [
             // Location words — used directly with 있어요/없어요 ("여기 있어요", "거기 있어요")
             "ko-v-a1-147", "ko-v-a1-148", "ko-v-a1-149",
@@ -418,9 +433,11 @@ export const a1Units: LessonUnit[] = [
         id: "ko-a1-u19",
         level: "A1",
         order: 19,
-        title: "Counters, Requests & Suggestions",
-        description: "Count objects with Korean counters, make polite honorific requests with ~(으)세요, and offer suggestions or wonder aloud with ~(으)ㄹ까요?",
-        grammarIds: ["ko-g-a1-25", "ko-g-a1-27", "ko-g-a1-29"],
+        title: "Counters, Requests & Favours",
+        description: "Count objects with Korean counters, make polite honorific requests with ~(으)세요, suggest or wonder with ~(으)ㄹ까요?, and ask for favours with ~아/어 주세요.",
+        grammarIds: ["ko-g-a1-25", "ko-g-a1-27", "ko-g-a1-29", "ko-g-a1-36"],
+        readingIds: ["ko-r-a1-6"],
+        listeningIds: ["ko-l-a1-5"],
         vocabIds: [
             // Native Korean numbers — used directly with counters (하나/둘/셋… → 한/두/세 before counter)
             "ko-v-a1-36", "ko-v-a1-37", "ko-v-a1-38", "ko-v-a1-39", "ko-v-a1-40",
@@ -456,6 +473,7 @@ export const a1Units: LessonUnit[] = [
         title: "A1 Review: Putting It Together",
         description: "Review all A1 grammar, vocabulary, and verbs through integrated sentences.",
         grammarIds: [],
+        cultureIds: ["ko-c-a1-4"],
         vocabIds: [
             "ko-v-a1-1", "ko-v-a1-16", "ko-v-a1-26", "ko-v-a1-46", "ko-v-a1-47",
             "ko-v-a1-48", "ko-v-a1-62", "ko-v-a1-68", "ko-v-a1-76", "ko-v-a1-77",

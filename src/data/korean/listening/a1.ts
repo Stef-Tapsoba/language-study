@@ -121,5 +121,95 @@ export const a1Listening: ListeningExercise[] = [
                 answer: "Third year"
             }
         ]
+    },
+    {
+        id: "ko-l-a1-5",
+        level: "A1",
+        title: "카페에서 — at a café",
+        script: "어서 오세요! 주문하시겠어요? 네, 아이스 아메리카노 한 잔이랑 카페라테 한 잔 주세요. 사이즈는 어떻게 해 드릴까요? 둘 다 레귤러로 주세요. 따뜻하게 드릴까요, 차갑게 드릴까요? 아메리카노는 아이스로 주시고, 라테는 따뜻하게 주세요. 알겠습니다. 이름이 어떻게 되세요? 민지예요. 합계 구천 원이에요. 카드로 계산할게요. 잠깐만 기다려 주세요. 민지 손님, 주문 나왔습니다!",
+        translation: "Welcome! Would you like to order? Yes, please give me one iced americano and one café latte. What size would you like? Regular for both, please. Shall I make them hot or cold? Please make the americano iced, and the latte hot. Understood. What is your name? It's Minji. The total is nine thousand won. I'll pay by card. Please wait a moment. Customer Minji, your order is ready!",
+        questions: [
+            {
+                id: "ko-l-a1-5-q1",
+                level: "A1",
+                prompt: "What drinks does the customer order?",
+                options: ["Two americanos", "An iced americano and a café latte", "A latte and an orange juice", "Two lattes"],
+                answer: "An iced americano and a café latte"
+            },
+            {
+                id: "ko-l-a1-5-q2",
+                level: "A1",
+                prompt: "How does the customer want the latte?",
+                options: ["Iced", "Hot", "Regular temperature", "Without milk"],
+                answer: "Hot"
+            },
+            {
+                id: "ko-l-a1-5-q3",
+                level: "A1",
+                prompt: "How much is the total?",
+                options: ["8,000 won", "9,500 won", "9,000 won", "10,000 won"],
+                answer: "9,000 won"
+            }
+        ]
+    },
+    {
+        id: "ko-l-a1-6",
+        level: "A1",
+        title: "길 안내 — asking for and giving directions",
+        script: "실례합니다. 이 근처에 편의점이 있어요? 네, 있어요. 이쪽으로 쭉 가세요. 그다음 사거리에서 오른쪽으로 도세요. 편의점은 은행 옆에 있어요. 걸어서 얼마나 걸려요? 오 분쯤 걸려요. 멀지 않아요. 감사합니다. 그런데 지하철역은 어디에 있어요? 지하철역은 좀 멀어요. 버스를 타세요. 삼십이번 버스가 역까지 가요. 정류장은 저쪽에 있어요. 정말 감사합니다!",
+        translation: "Excuse me. Is there a convenience store near here? Yes, there is. Go straight this way. Then turn right at the intersection. The convenience store is next to the bank. How long does it take on foot? It takes about five minutes. It's not far. Thank you. By the way, where is the subway station? The subway station is a bit far. Take the bus. Bus number 32 goes to the station. The bus stop is over there. Thank you so much!",
+        questions: [
+            {
+                id: "ko-l-a1-6-q1",
+                level: "A1",
+                prompt: "Where is the convenience store located?",
+                options: ["Next to the subway station", "Next to the bank", "In front of the school", "Behind the bus stop"],
+                answer: "Next to the bank"
+            },
+            {
+                id: "ko-l-a1-6-q2",
+                level: "A1",
+                prompt: "How long does it take to walk to the convenience store?",
+                options: ["About ten minutes", "About three minutes", "About five minutes", "About fifteen minutes"],
+                answer: "About five minutes"
+            },
+            {
+                id: "ko-l-a1-6-q3",
+                level: "A1",
+                prompt: "Which bus goes to the subway station?",
+                options: ["Bus 23", "Bus 32", "Bus 13", "Bus 30"],
+                answer: "Bus 32"
+            }
+        ]
+    },
+    {
+        id: "ko-l-a1-7",
+        level: "A1",
+        title: "병원에서 — at the doctor's office",
+        script: "안녕하세요. 어디가 불편하세요? 어제부터 배가 많이 아파요. 그리고 열도 있어요. 언제부터 열이 났어요? 어젯밤부터요. 지금 열이 몇 도예요? 삼십팔 도예요. 다른 증상이 있어요? 네, 구역질도 나요. 식사는 잘 하고 있어요? 아니요, 어제 저녁부터 아무것도 못 먹었어요. 알겠어요. 진찰해 볼게요. 배에 손을 대면 아파요? 네, 많이 아파요. 장염인 것 같아요. 오늘은 죽만 드세요. 약을 드릴게요. 이틀 후에 다시 오세요.",
+        translation: "Hello. Where are you uncomfortable? My stomach has been hurting a lot since yesterday. And I also have a fever. Since when did the fever start? Since last night. What is your temperature now? It's 38 degrees. Do you have any other symptoms? Yes, I also feel nauseous. Are you eating well? No, I haven't been able to eat anything since yesterday evening. I see. Let me examine you. Does it hurt when I press your stomach? Yes, it hurts a lot. It seems like gastroenteritis. Eat only porridge today. I'll give you medicine. Come back in two days.",
+        questions: [
+            {
+                id: "ko-l-a1-7-q1",
+                level: "A1",
+                prompt: "What is the patient's temperature?",
+                options: ["37 degrees", "38.5 degrees", "38 degrees", "39 degrees"],
+                answer: "38 degrees"
+            },
+            {
+                id: "ko-l-a1-7-q2",
+                level: "A1",
+                prompt: "What does the doctor say the patient should eat today?",
+                options: ["Nothing at all", "Only porridge", "Soup and bread", "Normal food"],
+                answer: "Only porridge"
+            },
+            {
+                id: "ko-l-a1-7-q3",
+                level: "A1",
+                prompt: "When should the patient come back?",
+                options: ["Tomorrow", "In three days", "In one week", "In two days"],
+                answer: "In two days"
+            }
+        ]
     }
 ]
