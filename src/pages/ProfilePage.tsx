@@ -184,7 +184,7 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
 function exportProgress(): void {
     const data = {
         exportedAt: new Date().toISOString(),
-        appVersion: "2.2.0",
+        appVersion: "2.3.0",
         progress: JSON.parse(localStorage.getItem("ls:progress") ?? "{}"),
         srs: JSON.parse(localStorage.getItem("ls:srs") ?? "{}"),
         stats: JSON.parse(localStorage.getItem("ls:stats") ?? "{}"),
