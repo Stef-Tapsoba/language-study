@@ -121,5 +121,35 @@ export const a2Listening: ListeningExercise[] = [
                 answer: "Usar el transporte público"
             }
         ]
+    },
+    {
+        id: "es-l-a2-5",
+        level: "A2",
+        title: "Una llamada para reservar — making a reservation",
+        script: "Restaurante Casa Pepe, buenas tardes. Buenas tardes. ¿Podría hacer una reserva para esta noche? Por supuesto, ¿para cuántas personas? Somos cuatro. ¿Y a qué hora? A las nueve y media, si es posible. Déjeme comprobar... sí, tenemos una mesa disponible. ¿Me podría dar su nombre? Claro, me llamo Martínez, con acento en la i. ¿Tienen alguna preferencia de mesa? Si fuera posible, nos gustaría una mesa en la terraza. La terraza ya está completa, lo siento. ¿Les parecería bien una mesa interior cerca de la ventana? Sí, perfecto, muchas gracias. De nada. Les esperamos a las nueve y media. ¡Hasta luego!",
+        translation: "Restaurant Casa Pepe, good afternoon. Good afternoon. Could I make a reservation for tonight? Of course, for how many people? There are four of us. And at what time? At half past nine, if possible. Let me check... yes, we have a table available. Could you give me your name? Of course, my name is Martínez, with an accent on the i. Do you have any table preference? If it were possible, we would like a table on the terrace. The terrace is already full, I'm sorry. Would a table inside near the window be all right for you? Yes, perfect, thank you very much. You're welcome. We'll see you at half past nine. Goodbye!",
+        questions: [
+            {
+                id: "es-l-a2-5-q1",
+                level: "A2",
+                prompt: "¿Para cuántas personas es la reserva?",
+                options: ["Para cuatro", "Para dos", "Para seis", "Para tres"],
+                answer: "Para cuatro"
+            },
+            {
+                id: "es-l-a2-5-q2",
+                level: "A2",
+                prompt: "¿Por qué no pueden sentarse en la terraza?",
+                options: ["Está completa", "Está cerrada", "Hace demasiado frío", "No aceptan reservas allí"],
+                answer: "Está completa"
+            },
+            {
+                id: "es-l-a2-5-q3",
+                level: "A2",
+                prompt: "¿Qué alternativa ofrece el restaurante?",
+                options: ["Una mesa interior cerca de la ventana", "Una mesa en el jardín", "Una mesa en el sótano", "Una mesa en la barra"],
+                answer: "Una mesa interior cerca de la ventana"
+            }
+        ]
     }
 ]

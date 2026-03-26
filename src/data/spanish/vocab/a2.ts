@@ -140,6 +140,43 @@ export const esVocabA2: VocabItem[] = [
     { id: "es-v-a2-101", level: "A2", word: "luego / después", translation: "then / afterwards", category: "time expressions", example: { native: "Comí y luego salí a dar un paseo.", translation: "I ate and then went for a walk." } },
     { id: "es-v-a2-102", level: "A2", word: "al final", translation: "in the end / finally", category: "time expressions", example: { native: "Al final, encontramos un taxi.", translation: "In the end, we found a taxi." } },
     { id: "es-v-a2-103", level: "A2", word: "en aquel momento", translation: "at that moment", category: "time expressions", example: { native: "En aquel momento, no sabía qué hacer.", translation: "At that moment, I didn't know what to do." } },
+
+    // ── Media & technology ────────────────────────────────────────────────────
+    { id: "es-v-a2-104", level: "A2", word: "el móvil / el celular", translation: "mobile phone", category: "media & technology", example: { native: "Se me olvidó el móvil en casa.", translation: "I forgot my mobile at home." } },
+    { id: "es-v-a2-105", level: "A2", word: "la red social", translation: "social network", category: "media & technology", example: { native: "Usa las redes sociales cada día.", translation: "She uses social networks every day." } },
+    { id: "es-v-a2-106", level: "A2", word: "el correo electrónico", translation: "email", category: "media & technology", example: { native: "Te mando el documento por correo electrónico.", translation: "I'll send you the document by email." } },
+    { id: "es-v-a2-107", level: "A2", word: "la aplicación / la app", translation: "app, application", category: "media & technology", example: { native: "Descargué una nueva aplicación para estudiar.", translation: "I downloaded a new app to study." } },
+    { id: "es-v-a2-108", level: "A2", word: "buscar en internet", translation: "to search online", category: "media & technology", example: { native: "Si no sabes, búscalo en internet.", translation: "If you don't know, search for it online." } },
+    { id: "es-v-a2-109", level: "A2", word: "la contraseña", translation: "password", category: "media & technology", example: { native: "Olvidé la contraseña de mi correo.", translation: "I forgot the password to my email." } },
+
+    // ── Home & housing ────────────────────────────────────────────────────────
+    { id: "es-v-a2-110", level: "A2", word: "alquilar", translation: "to rent", category: "home & housing", example: { native: "Quiero alquilar un piso en el centro.", translation: "I want to rent a flat in the city centre." } },
+    { id: "es-v-a2-111", level: "A2", word: "el alquiler", translation: "rent (the payment)", category: "home & housing", example: { native: "El alquiler ha subido mucho este año.", translation: "Rent has gone up a lot this year." } },
+    { id: "es-v-a2-112", level: "A2", word: "amueblado", translation: "furnished", category: "home & housing", example: { native: "Busco un piso amueblado.", translation: "I'm looking for a furnished flat." } },
+    { id: "es-v-a2-113", level: "A2", word: "mudarse", translation: "to move house", category: "home & housing", example: { native: "Nos mudamos a un piso más grande.", translation: "We moved to a bigger flat." } },
+    { id: "es-v-a2-114", level: "A2", word: "los muebles", translation: "furniture", category: "home & housing", example: { native: "Necesitamos comprar muebles nuevos.", translation: "We need to buy new furniture." } },
+    { id: "es-v-a2-115", level: "A2", word: "la calefacción", translation: "heating", category: "home & housing", example: { native: "La calefacción no funciona bien.", translation: "The heating doesn't work well." } },
+
+    // ── Nature & environment ──────────────────────────────────────────────────
+    { id: "es-v-a2-116", level: "A2", word: "el medio ambiente", translation: "the environment", category: "nature & environment", example: { native: "Debemos proteger el medio ambiente.", translation: "We must protect the environment." } },
+    { id: "es-v-a2-117", level: "A2", word: "reciclar", translation: "to recycle", category: "nature & environment", example: { native: "En mi ciudad reciclamos el papel y el plástico.", translation: "In my city we recycle paper and plastic." } },
+    { id: "es-v-a2-118", level: "A2", word: "la contaminación", translation: "pollution", category: "nature & environment", example: { native: "La contaminación del aire es un problema grave.", translation: "Air pollution is a serious problem." } },
+    { id: "es-v-a2-119", level: "A2", word: "el paisaje", translation: "landscape, scenery", category: "nature & environment", example: { native: "El paisaje de los Pirineos es impresionante.", translation: "The scenery of the Pyrenees is impressive." } },
+    { id: "es-v-a2-120", level: "A2", word: "la costa", translation: "coast", category: "nature & environment", example: { native: "Pasamos el verano en la costa mediterránea.", translation: "We spent the summer on the Mediterranean coast." } },
+    { id: "es-v-a2-121", level: "A2", word: "el bosque", translation: "forest, wood", category: "nature & environment", example: { native: "Hay un bosque enorme detrás del pueblo.", translation: "There is an enormous forest behind the village." } },
+
+    // ── Personality ───────────────────────────────────────────────────────────
+    { id: "es-v-a2-122", level: "A2", word: "amable", translation: "kind, friendly", category: "personality", example: { native: "La recepcionista fue muy amable.", translation: "The receptionist was very kind." } },
+    { id: "es-v-a2-123", level: "A2", word: "trabajador / trabajadora", translation: "hardworking", category: "personality", example: { native: "Es una persona muy trabajadora.", translation: "She is a very hardworking person." } },
+    { id: "es-v-a2-124", level: "A2", word: "impaciente", translation: "impatient", category: "personality", example: { native: "Se puso impaciente porque el tren llegaba tarde.", translation: "He got impatient because the train was late." } },
+    { id: "es-v-a2-125", level: "A2", word: "generoso / generosa", translation: "generous", category: "personality", example: { native: "Mi abuela es muy generosa con todos.", translation: "My grandmother is very generous with everyone." } },
+    { id: "es-v-a2-126", level: "A2", word: "terco / terca", translation: "stubborn", category: "personality", example: { native: "Es muy terco — no cambia de opinión nunca.", translation: "He is very stubborn — he never changes his mind." } },
+
+    // ── Discourse & connectors ────────────────────────────────────────────────
+    { id: "es-v-a2-127", level: "A2", word: "sin embargo", translation: "however, nevertheless", category: "discourse", example: { native: "Estudié mucho; sin embargo, suspendí.", translation: "I studied a lot; however, I failed." } },
+    { id: "es-v-a2-128", level: "A2", word: "aunque", translation: "although, even though", category: "discourse", example: { native: "Salimos aunque llovía.", translation: "We went out even though it was raining." } },
+    { id: "es-v-a2-129", level: "A2", word: "ya que", translation: "since, given that", category: "discourse", example: { native: "Ya que estás aquí, ayúdame.", translation: "Since you're here, help me." } },
+    { id: "es-v-a2-130", level: "A2", word: "por lo tanto", translation: "therefore, so", category: "discourse", example: { native: "No tenía dinero, por lo tanto no pude ir.", translation: "I had no money, so I couldn't go." } },
 ]
 
 // Alias for backward compatibility with index.ts assembler
