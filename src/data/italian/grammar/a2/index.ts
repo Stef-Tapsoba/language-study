@@ -1,4 +1,4 @@
-import { GrammarLesson } from "../../../types"
+import { GrammarLesson } from "../../../../types"
 
 export const a2Grammar: GrammarLesson[] = [
     {

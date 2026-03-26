@@ -1,5 +1,5 @@
 // data/spanish/grammar/a2.ts
-import { GrammarLesson } from "../../../types"
+import { GrammarLesson } from "../../../../types"
 
 // A2 grammar — 22 lessons.
 // Duplicates with A1 (reflexive verbs, gustar, direct object pronouns,
