@@ -1,4 +1,4 @@
-import { GrammarLesson } from "../../../types"
+import { GrammarLesson } from "../../../../types"
 
 // A2 grammar — 24 lessons covering all CEFR A2 grammar competencies.
 // Fixed (2026-03-26): removed 4 direct duplicates with A1 (partitive articles,
