@@ -466,6 +466,24 @@ Alternative entry to grammar lessons: present examples → user hypothesises the
 
 Next (v2.5.0 planned):
   - JSON progress export/import improvements (conflict UI, partial restore)
+  - UX Phase 1 quick wins (from 2026-03-26 audit):
+      • Streak always visible on mobile (remove `hidden sm:flex` from NavBar)
+      • Adaptive done-screen messages tied to score (90%+ / 75–89% / 60–74% / <60%)
+      • ARIA labels on all progress bars (role, aria-valuenow, aria-valuemin, aria-valuemax)
+      • Text labels alongside color coding on StudyCards (accessibility)
+
+  - UX Phase 2 core improvements:
+      • Mobile NavBar redesign — collapse secondary buttons to overflow/hamburger
+      • New-user onboarding card on first Dashboard visit (pulsing tab, "Start here" tip)
+      • Level-up celebration modal (LevelUpModal) on CEFR advancement
+      • Placement test copy — explain purpose + reassurance about changing level
+      • Tooltip on locked units ("Complete previous unit to unlock")
+
+  - UX Phase 3 engagement features (longer-term):
+      • Spaced repetition onboarding (explain SM-2 on first flashcard session)
+      • Smart practice recommendations based on per-section accuracy stats
+      • Visual learning-path roadmap on Path tab (A1 → C1 timeline)
+      • Daily challenges system (progress ring, reward on completion)
 
 Phase 3     — B1 reading/listening passages for all 5 languages
              Cognitive reinforcement: spaced retrieval quizzes, weekly free recall
