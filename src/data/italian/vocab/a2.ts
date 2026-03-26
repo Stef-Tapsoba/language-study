@@ -135,4 +135,50 @@ export const a2Vocab: VocabItem[] = [
     { id: "it-v-a2-104", level: "A2", word: "poi / dopo", translation: "then / afterwards", category: "time expressions", example: { native: "Ho mangiato e poi sono uscito.", translation: "I ate and then went out." } },
     { id: "it-v-a2-105", level: "A2", word: "alla fine", translation: "in the end / finally", category: "time expressions", example: { native: "Alla fine, abbiamo trovato un taxi.", translation: "In the end, we found a taxi." } },
     { id: "it-v-a2-106", level: "A2", word: "in quel momento", translation: "at that moment", category: "time expressions", example: { native: "In quel momento, non sapevo cosa fare.", translation: "At that moment, I didn't know what to do." } },
+
+    // ── Conditional & polite expressions (Unit 9) ─────────────────────────────
+    { id: "it-v-a2-107", level: "A2", word: "volentieri", translation: "gladly / willingly", category: "social interactions", example: { native: "Mangerei volentieri una pizza.", translation: "I would gladly eat a pizza." } },
+    { id: "it-v-a2-108", level: "A2", word: "purtroppo", translation: "unfortunately", category: "social interactions", example: { native: "Purtroppo non posso venire.", translation: "Unfortunately I can't come." } },
+    { id: "it-v-a2-109", level: "A2", word: "magari", translation: "maybe / I wish / if only", category: "social interactions", example: { native: "Magari potessimo restare più a lungo!", translation: "If only we could stay longer!" } },
+
+    // ── Real conditionals vocabulary (Unit 11) ────────────────────────────────
+    { id: "it-v-a2-110", level: "A2", word: "in caso di", translation: "in case of", category: "everyday", example: { native: "In caso di pioggia, portiamo l'ombrello.", translation: "In case of rain, we bring the umbrella." } },
+    { id: "it-v-a2-111", level: "A2", word: "a meno che", translation: "unless", category: "everyday", example: { native: "Vengo, a meno che non piova.", translation: "I'll come, unless it rains." } },
+    { id: "it-v-a2-112", level: "A2", word: "purché", translation: "as long as / provided that", category: "everyday", example: { native: "Possiamo uscire, purché faccia bel tempo.", translation: "We can go out, as long as the weather is nice." } },
+
+    // ── Formal register / professional contexts (Unit 12) ─────────────────────
+    { id: "it-v-a2-113", level: "A2", word: "il/la collega", translation: "colleague", category: "work & professions", example: { native: "Il mio collega parla tre lingue.", translation: "My colleague speaks three languages." } },
+    { id: "it-v-a2-114", level: "A2", word: "il modulo", translation: "form (document)", category: "everyday", example: { native: "Deve compilare questo modulo.", translation: "You need to fill in this form. (formal)" } },
+    { id: "it-v-a2-115", level: "A2", word: "gentilmente", translation: "kindly / politely", category: "social interactions", example: { native: "La prego gentilmente di aspettare.", translation: "I kindly ask you to wait. (formal)" } },
+
+    // ── Object pronouns vocabulary (Units 13–14) ──────────────────────────────
+    { id: "it-v-a2-116", level: "A2", word: "restituire", translation: "to return / give back", category: "everyday", example: { native: "Ti restituisco il libro domani.", translation: "I'll give you the book back tomorrow." } },
+    { id: "it-v-a2-117", level: "A2", word: "mandare / inviare", translation: "to send", category: "everyday", example: { native: "Ti ho mandato un messaggio.", translation: "I sent you a message." } },
+    { id: "it-v-a2-118", level: "A2", word: "spiegare", translation: "to explain", category: "everyday", example: { native: "Puoi spiegarmi la regola?", translation: "Can you explain the rule to me?" } },
+    { id: "it-v-a2-119", level: "A2", word: "offrire", translation: "to offer / to treat", category: "social interactions", example: { native: "Ti offro un caffè.", translation: "I'll treat you to a coffee." } },
+
+    // ── Double pronouns vocabulary (Unit 15) ──────────────────────────────────
+    { id: "it-v-a2-120", level: "A2", word: "passare (qualcosa a qualcuno)", translation: "to pass / hand (something to someone)", category: "everyday", example: { native: "Me lo passi, per favore?", translation: "Could you pass it to me, please?" } },
+    { id: "it-v-a2-121", level: "A2", word: "consegnare", translation: "to deliver / hand over", category: "everyday", example: { native: "Glielo consegno domani.", translation: "I'll hand it over to him/her tomorrow." } },
+
+    // ── Ci and Ne vocabulary (Unit 16) ────────────────────────────────────────
+    { id: "it-v-a2-122", level: "A2", word: "tenerci (a qualcosa)", translation: "to care about (something)", category: "social interactions", example: { native: "Ci tengo molto a questa cosa.", translation: "I care a lot about this." } },
+    { id: "it-v-a2-123", level: "A2", word: "fidarsi (di)", translation: "to trust", category: "social interactions", example: { native: "Me ne fido completamente.", translation: "I trust him/her completely." } },
+
+    // ── Adverbs (Unit 17) ─────────────────────────────────────────────────────
+    { id: "it-v-a2-124", level: "A2", word: "abbastanza", translation: "enough / quite / fairly", category: "everyday", example: { native: "Parli abbastanza bene l'italiano.", translation: "You speak Italian quite well." } },
+    { id: "it-v-a2-125", level: "A2", word: "sicuramente / certamente", translation: "certainly / definitely / surely", category: "everyday", example: { native: "Sicuramente verrà anche lui.", translation: "He will certainly come too." } },
+
+    // ── Discourse connectors (Unit 18) ────────────────────────────────────────
+    { id: "it-v-a2-126", level: "A2", word: "tuttavia", translation: "however / nevertheless", category: "everyday", example: { native: "È difficile; tuttavia, ci provo.", translation: "It's difficult; nevertheless, I'll try." } },
+    { id: "it-v-a2-127", level: "A2", word: "inoltre", translation: "furthermore / also / in addition", category: "everyday", example: { native: "È bravo e, inoltre, è simpatico.", translation: "He's good, and furthermore, he's friendly." } },
+    { id: "it-v-a2-128", level: "A2", word: "cioè", translation: "that is / I mean / in other words", category: "everyday", example: { native: "È una persona onesta, cioè di cui mi fido.", translation: "He's an honest person, in other words, someone I trust." } },
+
+    // ── Verbs with prepositions (Unit 19) ─────────────────────────────────────
+    { id: "it-v-a2-129", level: "A2", word: "smettere di", translation: "to stop (doing something)", category: "everyday", example: { native: "Ha smesso di fumare l'anno scorso.", translation: "He stopped smoking last year." } },
+    { id: "it-v-a2-130", level: "A2", word: "avere paura di", translation: "to be afraid of", category: "everyday", example: { native: "Ho paura di volare.", translation: "I'm afraid of flying." } },
+
+    // ── Progressive / stare + gerundio (Unit 20) ──────────────────────────────
+    { id: "it-v-a2-131", level: "A2", word: "nel frattempo", translation: "in the meantime / meanwhile", category: "time expressions", example: { native: "Nel frattempo, stavo preparando la cena.", translation: "In the meantime, I was preparing dinner." } },
+    { id: "it-v-a2-132", level: "A2", word: "ancora", translation: "still / yet / again", category: "everyday", example: { native: "Sta ancora piovendo?", translation: "Is it still raining?" } },
 ]
