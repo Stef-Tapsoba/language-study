@@ -4,7 +4,7 @@ export const frCA22: CultureEpisode = {
     id: "fr-c-a2-2",
     language: "fr",
     level: "A2",
-    category: "traditions",
+    category: "festivals",
     region: "france",
     title: {
         native: "Les fêtes françaises — quand la France s'arrête",

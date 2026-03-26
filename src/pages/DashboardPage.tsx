@@ -1,5 +1,5 @@
 // pages/DashboardPage.tsx — Per-language dashboard with tabbed navigation (Path, Study, Practice, Test, Stats)
-import { useState, useMemo } from "react"
+import { useState, useMemo, memo } from "react"
 import { useParams, useNavigate, useSearchParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
@@ -25,7 +25,7 @@ type DashTab = "path" | "study" | "practice" | "test" | "stats"
 // ---------------------------------------------------------------------------
 // SectionCard — used by Practice tab
 // ---------------------------------------------------------------------------
-function SectionCard({ emoji, title, description, to, progress, badge }: Readonly<{
+const SectionCard = memo(function SectionCard({ emoji, title, description, to, progress, badge }: Readonly<{
     emoji: string; title: string; description: string; to: string; progress?: number; badge?: number
 }>) {
     return (
@@ -46,12 +46,12 @@ function SectionCard({ emoji, title, description, to, progress, badge }: Readonl
             {progress !== undefined && <ProgressBar value={progress} className="mt-1" color="default" />}
         </Link>
     )
-}
+})
 
 // ---------------------------------------------------------------------------
 // StudyCard — color-coded cards for the Study tab
 // ---------------------------------------------------------------------------
-function StudyCard({ section, title, countDesc, done, total, to }: Readonly<{
+const StudyCard = memo(function StudyCard({ section, title, countDesc, done, total, to }: Readonly<{
     section: StudySection; title: string; countDesc: string
     done?: number; total?: number; to: string
 }>) {
@@ -77,14 +77,14 @@ function StudyCard({ section, title, countDesc, done, total, to }: Readonly<{
             </div>
         </Link>
     )
-}
+})
 
 // ---------------------------------------------------------------------------
 // UnitRow — one row in the Learning Path list
 // ---------------------------------------------------------------------------
-function UnitRow({ unit, langId, level, mastered, allUnits, completed }: Readonly<{
+const UnitRow = memo(function UnitRow({ unit, langId, level, mastered, allUnits, completed }: Readonly<{
     unit: LessonUnit; langId: string; level: CEFRLevel
-    mastered: string[]; allUnits: LessonUnit[]; completed: string[]
+    mastered: string[]; allUnits: LessonUnit[]; completed: ReadonlySet<string>
 }>) {
     const isMastered = mastered.includes(unit.id)
     const unlocked = isUnitUnlocked(langId, unit.id, allUnits)
@@ -101,9 +101,9 @@ function UnitRow({ unit, langId, level, mastered, allUnits, completed }: Readonl
 
     // Content pills shown on unlocked units
     const pills = [
-        ...(unit.grammarIds.length > 0 ? [{ label: "Grammar", done: unit.grammarIds.every(id => completed.includes(id)), cls: "bg-green-100 text-green-700" }] : []),
-        ...(unit.vocabIds.length > 0 ? [{ label: "Vocab", done: unit.vocabIds.every(id => completed.includes(id)), cls: "bg-amber-100 text-amber-700" }] : []),
-        ...(unit.verbIds.length > 0 ? [{ label: "Verbs", done: unit.verbIds.every(id => completed.includes(id)), cls: "bg-red-100 text-red-600" }] : []),
+        ...(unit.grammarIds.length > 0 ? [{ label: "Grammar", done: unit.grammarIds.every(id => completed.has(id)), cls: "bg-green-100 text-green-700" }] : []),
+        ...(unit.vocabIds.length > 0 ? [{ label: "Vocab", done: unit.vocabIds.every(id => completed.has(id)), cls: "bg-amber-100 text-amber-700" }] : []),
+        ...(unit.verbIds.length > 0 ? [{ label: "Verbs", done: unit.verbIds.every(id => completed.has(id)), cls: "bg-red-100 text-red-600" }] : []),
         { label: "Test", done: isMastered, cls: "bg-violet-100 text-violet-700" },
     ]
 
@@ -137,7 +137,7 @@ function UnitRow({ unit, langId, level, mastered, allUnits, completed }: Readonl
 
     if (!unlocked) return inner
     return <Link to={`/learn/${langId}/units/${unit.id}`} className="block">{inner}</Link>
-}
+})
 
 function levelName(level: CEFRLevel, ui: UIStrings): string {
     switch (level) {
@@ -166,9 +166,27 @@ export function DashboardPage() {
     const { grammar, vocab, verbs, reading, listening, isDone } = useProgressStats(langId, level)
 
     const [searchParams, setSearchParams] = useSearchParams()
-    const levelUnits = (mod?.units ?? []).filter(u => u.level === level)
+    const levelUnits = useMemo(
+        () => (mod?.units ?? []).filter(u => u.level === level),
+        [mod, level]
+    )
     const defaultTab: DashTab = levelUnits.length > 0 ? "path" : "study"
     const [tab, setTab] = useState<DashTab>((searchParams.get("tab") as DashTab | null) ?? defaultTab)
+
+    // completed Set for O(1) UnitRow pill checks
+    const completed = useMemo<ReadonlySet<string>>(() => {
+        if (!mod) return new Set()
+        return new Set([
+            ...mod.vocab.map(v => v.id).filter(id => isDone(id)),
+            ...mod.grammar.map(g => g.id).filter(id => isDone(id)),
+            ...mod.verbs.map(v => v.id).filter(id => isDone(id)),
+        ])
+    }, [mod, isDone])
+
+    const dueCount = useMemo(
+        () => mod ? getDueCount(langId, mod.vocab.filter(v => v.level === level).map(v => v.id)) : 0,
+        [langId, mod, level]
+    )
 
     function switchTab(t: DashTab) {
         setTab(t)
@@ -182,19 +200,6 @@ export function DashboardPage() {
             </div>
         )
     }
-
-    // completed array needed for UnitRow pills (individual item checks, not the aggregate)
-    const completed = useMemo(() =>
-        mod.vocab.map(v => v.id).filter(id => isDone(id))
-            .concat(mod.grammar.map(g => g.id).filter(id => isDone(id)))
-            .concat(mod.verbs.map(v => v.id).filter(id => isDone(id))),
-        [mod, isDone]
-    )
-
-    const dueCount = useMemo(
-        () => getDueCount(langId, mod.vocab.filter(v => v.level === level).map(v => v.id)),
-        [langId, mod, level]
-    )
 
     const levelIndex = CEFR_LEVELS.indexOf(level)
     const canAdvance = levelIndex < CEFR_LEVELS.length - 1
