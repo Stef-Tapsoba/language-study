@@ -14,7 +14,7 @@ Most language apps optimise for streaks and dopamine. This one optimises for ret
 - **Spaced repetition** — SM-2 flashcard scheduling with auto-TTS pronunciation
 - **Immersion progression** — grammar explanations and UI strings switch to the target language at A2+
 - **Honest level tests** — pass 12/15 to advance; review every mistake before moving on
-- **Practice modes** — verb conjugation drill, grammar drill, reading passages, TTS listening exercises, culture pages
+- **Practice modes** — verb conjugation drill, grammar drill, reading passages, TTS listening exercises, cultural insight episodes (A1 + A2)
 
 ---
 
@@ -63,7 +63,7 @@ language-study/
 ├── vite.config.ts       ← @myorg/* path aliases
 └── src/
     ├── auth/            ← AuthContext, ProtectedRoute
-    ├── data/            ← language content (grammar, vocab, verbs, units, reading, listening)
+    ├── data/            ← language content (grammar, vocab, verbs, units, reading, listening, culture)
     ├── store/           ← progress, SRS, stats (Zustand)
     ├── hooks/           ← useDrill, useGlobalStreak, useProgressStats, …
     ├── components/      ← NavBar, QuizCard, Flashcard, DrillDoneScreen, shadcn primitives, …
