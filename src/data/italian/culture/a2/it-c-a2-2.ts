@@ -4,7 +4,7 @@ export const itCA22: CultureEpisode = {
     id: "it-c-a2-2",
     language: "it",
     level: "A2",
-    category: "culture",
+    category: "festivals",
     region: "all-italian",
     title: {
         native: "Le feste italiane",

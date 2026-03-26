@@ -394,13 +394,13 @@ See `CONTENT_RESTRUCTURE_PLAN.md` for the full per-language curriculum breakdown
 
 | Language | Levels | B1 Units | B2 Units | C1 Units | Reading | Listening | Culture |
 |---|---|---|---|---|---|---|---|
-| Spanish | A1–C1 | 9 | 8 | 6 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 | ✅ A1 (4 ep) + A2 (3 ep) |
-| French | A1–C1 | 10 | 8 | 6 | ✅ A1(7)+A2+B2+C1 | ✅ A1(7)+A2+B2+C1 | ✅ A1 (4 ep) + A2 (3 ep) |
-| Italian | A1–C1 | 8 | 8 | 6 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 | ✅ A1 (4 ep) + A2 (3 ep) |
-| Japanese | A1–C1 | 9 | 8 | 6 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 | ✅ A1 (4 ep) + A2 (3 ep) |
-| Korean | A1–C1 | 8 | 8 | 6 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 | ✅ A1 (4 ep) + A2 (3 ep) |
+| Spanish | A1–C1 | 9 | 8 | 6 | ✅ A1+A2+B1+B2+C1 | ✅ A1+A2+B1+B2+C1 | ✅ A1 (4 ep) + A2 (3 ep) |
+| French | A1–C1 | 10 | 8 | 6 | ✅ A1(7)+A2+B1+B2+C1 | ✅ A1(7)+A2+B1+B2+C1 | ✅ A1 (4 ep) + A2 (3 ep) |
+| Italian | A1–C1 | 8 | 8 | 6 | ✅ A1+A2+B1+B2+C1 | ✅ A1+A2+B1+B2+C1 | ✅ A1 (4 ep) + A2 (3 ep) |
+| Japanese | A1–C1 | 9 | 8 | 6 | ✅ A1+A2+B1+B2+C1 | ✅ A1+A2+B1+B2+C1 | ✅ A1 (4 ep) + A2 (3 ep) |
+| Korean | A1–C1 | 8 | 8 | 6 | ✅ A1+A2+B1+B2+C1 | ✅ A1+A2+B1+B2+C1 | ✅ A1 (4 ep) + A2 (3 ep) |
 
-All 5 languages have full content at every CEFR level (A1 → C1). A2 grammar/vocab/units overhauled to 20 grammar lessons, 20 units, and 60+ vocab items per language. Reading and listening passages exist at A1, A2, B2, and C1 (B1 reading/listening is roadmap). Culture episodes exist at A1 (4 per language) and A2 (3 per language) for all 5 languages; split into per-episode files under `culture/a1/` and `culture/a2/` subfolders. French A1 has 7 reading passages and 7 listening exercises (fullest A1 coverage).
+All 5 languages have full content at every CEFR level (A1 → C1). A2 grammar/vocab/units overhauled to 20 grammar lessons, 20 units, and 60+ vocab items per language. Reading and listening passages exist at all five CEFR levels (A1–C1). Culture episodes exist at A1 (4 per language) and A2 (3 per language) for all 5 languages; split into per-episode files under `culture/a1/` and `culture/a2/` subfolders. French A1 has 7 reading passages and 7 listening exercises (fullest A1 coverage).
 
 ---
 
@@ -465,10 +465,6 @@ Alternative entry to grammar lessons: present examples → user hypothesises the
              adopted across all 5 languages (matching A1 pattern)
 
 Next (v2.5.0 planned):
-  - Web MVP deployment to Vercel (localStorage only — no backend needed)
-  - Japanese and Korean A1 curriculum parity (inline vocab, unit wiring)
-  - A2 reading/listening content for all 5 languages
-  - B1 reading/listening passages for all 5 languages
   - JSON progress export/import improvements (conflict UI, partial restore)
 
 Phase 3     — B1 reading/listening passages for all 5 languages

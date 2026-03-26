@@ -4,7 +4,7 @@ export const esCA22: CultureEpisode = {
   id: "es-c-a2-2",
   language: "es",
   level: "A2",
-  category: "traditions",
+  category: "festivals",
   region: "all-spanish",
   title: {
     native: "Festivals Across the Spanish-Speaking World",
