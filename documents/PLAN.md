@@ -1,6 +1,6 @@
 # language-study — Implementation Plan
 
-*Last updated: March 24, 2026 — v2.3.0*
+*Last updated: March 26, 2026 — v2.4.0*
 
 ## Context
 
@@ -394,13 +394,13 @@ See `CONTENT_RESTRUCTURE_PLAN.md` for the full per-language curriculum breakdown
 
 | Language | Levels | B1 Units | B2 Units | C1 Units | Reading | Listening | Culture |
 |---|---|---|---|---|---|---|---|
-| Spanish | A1–C1 | 9 | 8 | 6 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 | ✅ A1 (3 ep) |
-| French | A1–C1 | 10 | 8 | 6 | ✅ A1(7)+A2+B2+C1 | ✅ A1(7)+A2+B2+C1 | ✅ A1 (4 ep) |
-| Italian | A1–C1 | 8 | 8 | 6 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 | ✅ A1 (4 ep) |
-| Japanese | A1–C1 | 9 | 8 | 6 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 | ✅ A1 (2 ep) |
-| Korean | A1–C1 | 8 | 8 | 6 | ✅ A1+A2+B2+C1 | ✅ A1+A2+B2+C1 | ✅ A1 (2 ep) |
+| Spanish | A1–C1 | 9 | 8 | 6 | ✅ A1+A2+B1+B2+C1 | ✅ A1+A2+B1+B2+C1 | ✅ A1 (4 ep) + A2 (3 ep) |
+| French | A1–C1 | 10 | 8 | 6 | ✅ A1(7)+A2+B1+B2+C1 | ✅ A1(7)+A2+B1+B2+C1 | ✅ A1 (4 ep) + A2 (3 ep) |
+| Italian | A1–C1 | 8 | 8 | 6 | ✅ A1+A2+B1+B2+C1 | ✅ A1+A2+B1+B2+C1 | ✅ A1 (4 ep) + A2 (3 ep) |
+| Japanese | A1–C1 | 9 | 8 | 6 | ✅ A1+A2+B1+B2+C1 | ✅ A1+A2+B1+B2+C1 | ✅ A1 (4 ep) + A2 (3 ep) |
+| Korean | A1–C1 | 8 | 8 | 6 | ✅ A1+A2+B1+B2+C1 | ✅ A1+A2+B1+B2+C1 | ✅ A1 (4 ep) + A2 (3 ep) |
 
-All 5 languages have full content at every CEFR level (A1 → C1). Reading and listening passages exist at A1, A2, B2, and C1 (B1 reading/listening is roadmap). Culture episodes currently exist only at A1; A2+ culture content is planned. French A1 has 7 reading passages and 7 listening exercises (fullest A1 coverage).
+All 5 languages have full content at every CEFR level (A1 → C1). A2 grammar/vocab/units overhauled to 20 grammar lessons, 20 units, and 60+ vocab items per language. Reading and listening passages exist at all five CEFR levels (A1–C1). Culture episodes exist at A1 (4 per language) and A2 (3 per language) for all 5 languages; split into per-episode files under `culture/a1/` and `culture/a2/` subfolders. French A1 has 7 reading passages and 7 listening exercises (fullest A1 coverage).
 
 ---
 
@@ -458,12 +458,32 @@ Alternative entry to grammar lessons: present examples → user hypothesises the
              Progress import with smart merge (levels preserved, completions unioned);
              Dark mode (NavBar toggle, CSS variables, dark: variants on all pages/components)
 
-Next (v2.4.0 planned):
-  - Japanese and Korean A1 curriculum parity (inline vocab, unit wiring)
-  - A2 reading/listening content for all 5 languages
-  - B1 reading/listening passages for all 5 languages
-  - Cultural episodes at A2+ levels
+✅ v2.4.0   — A2 curriculum overhaul: all 5 languages expanded to 20 grammar lessons, 20 units,
+             60+ vocab items per language; 4 A1 duplicate grammar lessons replaced with
+             genuine A2/JLPT-N4/TOPIK-3 content (Japanese + Korean); A2 culture episodes
+             added for all 5 languages (3 per language); culture a2/ subfolder structure
+             adopted across all 5 languages (matching A1 pattern)
+
+Next (v2.5.0 planned):
   - JSON progress export/import improvements (conflict UI, partial restore)
+  - UX Phase 1 quick wins (from 2026-03-26 audit):
+      • Streak always visible on mobile (remove `hidden sm:flex` from NavBar)
+      • Adaptive done-screen messages tied to score (90%+ / 75–89% / 60–74% / <60%)
+      • ARIA labels on all progress bars (role, aria-valuenow, aria-valuemin, aria-valuemax)
+      • Text labels alongside color coding on StudyCards (accessibility)
+
+  - UX Phase 2 core improvements:
+      • Mobile NavBar redesign — collapse secondary buttons to overflow/hamburger
+      • New-user onboarding card on first Dashboard visit (pulsing tab, "Start here" tip)
+      • Level-up celebration modal (LevelUpModal) on CEFR advancement
+      • Placement test copy — explain purpose + reassurance about changing level
+      • Tooltip on locked units ("Complete previous unit to unlock")
+
+  - UX Phase 3 engagement features (longer-term):
+      • Spaced repetition onboarding (explain SM-2 on first flashcard session)
+      • Smart practice recommendations based on per-section accuracy stats
+      • Visual learning-path roadmap on Path tab (A1 → C1 timeline)
+      • Daily challenges system (progress ring, reward on completion)
 
 Phase 3     — B1 reading/listening passages for all 5 languages
              Cognitive reinforcement: spaced retrieval quizzes, weekly free recall

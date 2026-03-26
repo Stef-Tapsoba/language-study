@@ -18,6 +18,24 @@ export type StatsData = Record<string, Record<string, DayStats>>
 
 function todayStr(): string { return new Date().toISOString().slice(0, 10) }
 
+const HISTORY_DAYS = 360
+
+/** Remove stat entries older than HISTORY_DAYS to prevent unbounded localStorage growth. */
+function pruneData(data: StatsData): StatsData {
+    const cutoff = new Date()
+    cutoff.setDate(cutoff.getDate() - HISTORY_DAYS)
+    const cutoffStr = cutoff.toISOString().slice(0, 10)
+    const pruned: StatsData = {}
+    for (const [lang, days] of Object.entries(data)) {
+        const kept: Record<string, DayStats> = {}
+        for (const [day, stats] of Object.entries(days)) {
+            if (day >= cutoffStr) kept[day] = stats
+        }
+        if (Object.keys(kept).length > 0) pruned[lang] = kept
+    }
+    return pruned
+}
+
 /** Wraps localStorage with a debounced setItem to avoid a write on every keystroke/flip */
 function debouncedLocalStorage(delayMs = 500): StateStorage {
     const timers = new Map<string, ReturnType<typeof setTimeout>>()
@@ -116,16 +134,20 @@ export const useStatsStore = create<StatsState>()(
         {
             name: "ls:stats",
             storage: createJSONStorage(() => debouncedLocalStorage(500)),
-            version: 1,
+            version: 2,
             // Strip actions — only persist { data: StatsData }
             partialize: (state) => ({ data: state.data }),
             // v0 → v1: handle data stored before Zustand (raw StatsData, no { data: } wrapper)
+            // v1 → v2: prune history to HISTORY_DAYS (360) to cap localStorage growth
             migrate(persistedState: unknown, version: number) {
+                let data: StatsData
                 if (version === 0) {
                     const s = persistedState as Record<string, unknown>
-                    if (!("data" in s)) return { data: s as StatsData }
+                    data = ("data" in s ? s.data : s) as StatsData
+                } else {
+                    data = (persistedState as { data: StatsData }).data ?? {}
                 }
-                return persistedState as { data: StatsData }
+                return { data: pruneData(data) }
             },
         }
     )

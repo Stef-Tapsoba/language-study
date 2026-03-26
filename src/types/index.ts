@@ -50,6 +50,7 @@ export interface Example {
 // ---------------------------------------------------------------------------
 export interface InlineVocabEntry {
     word: string
+    romanized?: string
     translation: string
 }
 

@@ -1347,3 +1347,60 @@ All pages and components updated with `dark:` Tailwind variants following the ma
 - Section accent colors (green/amber/red/violet/teal/indigo) left unchanged — intentional brand colors
 
 **Files updated:** DashboardPage, UnitPage, FlashcardsPage, HomePage, ProfilePage, GrammarPage, GrammarLessonPage, GrammarDrillPage, VocabPage, VerbsPage, VerbDrillPage, PlacementPage, LevelTestPage, ReadingPage, ListeningPage, CulturePage, StatsTab, DrillDoneScreen, QuizCard, LevelBadge, ProgressBar, LanguagePicker, LocalizedExplanation, VocabTooltip
+
+---
+
+## 59 — A2 Curriculum Overhaul (all 5 languages)
+
+**Goal:** expand all A2 grammar, vocab, and units from partial placeholder content to a full 20-lesson CEFR A2 curriculum, replacing any A1 duplicates with genuine A2-level content.
+
+### Grammar (all 5 languages)
+
+**Spanish, French, Italian** — each expanded from 8 → 20 grammar lessons. Topics added: ser vs estar extended, subjunctive present, reflexive verbs, conditional, imperfect, preterite II (irregular verbs), future tense, imperative, indirect object pronouns, comparatives/superlatives, accentuation, discourse connectors.
+
+**Japanese** — expanded from 8 → 20 lessons. 4 A1 duplicates (て-form progressive, permission, giving/receiving, polite requests) replaced with: potential form, passive form (〜られる), causative (〜させる), causative-passive (〜させられる). 12 new lessons added: conditionals (たら, ば/と/なら), obligation (〜なければなりません), nominalization (こと/の), reported speech/hearsay, appearance/conjecture (そうです/ようです), て-form extensions (てみる, ておく, てしまう), relative clauses, purpose/reason (ために/ので), concession (のに/ても), scope/limits (だけ/しか〜ない), time sequencing (前に/た後で/ながら/あいだに).
+
+**Korean** — expanded from 8 → 20 lessons. 3 A1 duplicates (present tense, past tense, location particle) replaced with: direction verbs (에 가다/오다/다니다), permission (아/어도 되다), obligation (아/어야 하다). 12 new lessons added: progressive past (고 있었다), past experience (적이 있다/없다), suggestions (으면 어때요/는 게 어때요), contrast/concession (지만, 는데, 아/어도), conditional (으면/면), negation strategies (지 않다/못, 안), causative/passive, reported speech, planning/intention (으려고 하다/ㄹ 계획이다), comparative (보다, 만큼), no-need (지 않아도 되다/ㄹ 필요가 없다).
+
+**Files updated per language:** `src/data/<lang>/grammar/a2.ts`
+
+### Vocab (all 5 languages)
+
+Each language expanded to 100+ A2 vocab items (some had 40-80 before). 60–64 new items added per language covering the new grammar topics. Items include example sentences with translations; Japanese and Korean items include `romanized` fields.
+
+**Files updated per language:** `src/data/<lang>/vocab/a2.ts`
+
+### Units (all 5 languages)
+
+Each language expanded from 7–8 units → 20 units. Every unit maps to one grammar lesson, includes 5 `testQuestions`, and references appropriate `vocabIds` and `verbIds`. Korean and Japanese units were completely rewritten to align with the new grammar ID scheme.
+
+**Files updated per language:** `src/data/<lang>/units/a2.ts`
+
+---
+
+## 60 — A2 Culture Episodes (all 5 languages) + Subfolder Refactor
+
+**Goal:** add A2 culture episodes for all 5 languages and migrate all language culture files to the per-episode subfolder pattern (matching the A1 structure established in v2.3).
+
+### Episodes added
+
+All 5 languages now have 3 A2 culture episodes each (15 new episodes total). Each episode includes: bilingual title + subtitle, 3 photos with bilingual captions, a bilingual long-form body passage (~500 words), 5 `cultureVocab` items with `culturalNote`, 2 comprehension questions + 1 reflection prompt, and a `didYouKnow` fact.
+
+| Language | Episodes |
+|---|---|
+| Spanish | es-c-a2-1 (La Siesta), es-c-a2-2 (Fútbol y pasión), es-c-a2-3 (El flamenco) |
+| French | fr-c-a2-1 (Le marché), fr-c-a2-2 (La bande dessinée), fr-c-a2-3 (Le Tour de France) |
+| Italian | it-c-a2-1 (La dolce vita), it-c-a2-2 (La pizza), it-c-a2-3 (Il calcio italiano) |
+| Japanese | ja-c-a2-1 (温泉 Onsen), ja-c-a2-2 (お弁当 Bento), ja-c-a2-3 (お祭り Matsuri) |
+| Korean | ko-c-a2-1 (한국의 식사 문화 Dining), ko-c-a2-2 (한류 Hallyu), ko-c-a2-3 (한국의 계절과 명절 Seasons) |
+
+### Subfolder structure (all 5 languages)
+
+Each language's A2 culture content was split from a flat `culture/a2.ts` file into a `culture/a2/` directory with individual episode files and an `index.ts` re-exporter — matching the `culture/a1/` pattern established in v2.3. The parent language `index.ts` imports remain unchanged (TypeScript resolves `./culture/a2` to `a2/index.ts` automatically).
+
+**Files created per language:**
+- `src/data/<lang>/culture/a2/<lang>-c-a2-1.ts`, `<lang>-c-a2-2.ts`, `<lang>-c-a2-3.ts`
+- `src/data/<lang>/culture/a2/index.ts`
+
+**Files deleted per language (replaced by subfolder):**
+- `src/data/<lang>/culture/a2.ts`

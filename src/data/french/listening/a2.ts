@@ -121,5 +121,65 @@ export const a2Listening: ListeningExercise[] = [
                 answer: "Il a plu toute la journée"
             }
         ]
+    },
+    {
+        id: "fr-l-a2-5",
+        level: "A2",
+        title: "Au restaurant — passer une commande",
+        script: "Bonsoir, vous avez réservé ? Oui, une table pour deux, au nom de Dupont. Très bien, suivez-moi s'il vous plaît. Voilà votre table. Voici la carte. Vous êtes prêts à commander ? Oui. Je voudrais le menu à vingt-cinq euros. Et pour vous, madame ? Moi, je vais prendre la salade de chèvre chaud en entrée, et le saumon pour le plat principal. Est-ce que le saumon contient du gluten ? Non, il est naturellement sans gluten. Parfait, je suis intolérante au gluten. Et comme boisson ? Une carafe d'eau et une bouteille de vin rouge. Vous désirez un dessert ? Oui, la tarte tatin pour moi. Et pour monsieur ? Je prends une crème brûlée.",
+        translation: "Good evening, do you have a reservation? Yes, a table for two, under the name Dupont. Very well, follow me please. Here is your table. Here is the menu. Are you ready to order? Yes. I'd like the twenty-five euro set menu. And for you, madam? I'll have the warm goat's cheese salad as a starter, and the salmon for the main course. Does the salmon contain gluten? No, it is naturally gluten-free. Perfect, I'm intolerant to gluten. And to drink? A jug of water and a bottle of red wine. Would you like a dessert? Yes, the tarte tatin for me. And for the gentleman? I'll have a crème brûlée.",
+        questions: [
+            {
+                id: "fr-l-a2-5-q1",
+                level: "A2",
+                prompt: "Quelle est l'allergie de la femme ?",
+                options: ["Elle est intolérante au gluten", "Elle est allergique aux fruits de mer", "Elle ne mange pas de viande", "Elle est intolérante au lactose"],
+                answer: "Elle est intolérante au gluten"
+            },
+            {
+                id: "fr-l-a2-5-q2",
+                level: "A2",
+                prompt: "Que commande la femme comme plat principal ?",
+                options: ["Le saumon", "La salade de chèvre chaud", "La tarte tatin", "La crème brûlée"],
+                answer: "Le saumon"
+            },
+            {
+                id: "fr-l-a2-5-q3",
+                level: "A2",
+                prompt: "Que boivent-ils ?",
+                options: ["Une carafe d'eau et du vin rouge", "Du vin blanc et de l'eau en bouteille", "De la bière et du jus de fruits", "De l'eau minérale seulement"],
+                answer: "Une carafe d'eau et du vin rouge"
+            }
+        ]
+    },
+    {
+        id: "fr-l-a2-6",
+        level: "A2",
+        title: "Chez le médecin — une consultation",
+        script: "Bonjour, asseyez-vous. Qu'est-ce qui vous amène aujourd'hui ? Bonjour docteur. J'ai mal à la gorge depuis trois jours et j'ai de la fièvre. Vous avez pris votre température ? Oui, j'avais trente-huit cinq hier soir. Vous toussez aussi ? Oui, un peu, surtout la nuit. Est-ce que vous avez d'autres symptômes ? J'ai aussi mal à la tête et je suis très fatigué. D'accord, je vais examiner votre gorge. Ouvrez la bouche. Ah, votre gorge est très rouge. C'est une angine bactérienne. Il faut prendre des antibiotiques pendant dix jours. Je vous fais une ordonnance. Vous devez vous reposer et boire beaucoup d'eau. Est-ce que vous êtes allergique à un médicament ? Non, pas à ma connaissance.",
+        translation: "Hello, sit down. What brings you in today? Hello doctor. I've had a sore throat for three days and I have a temperature. Have you taken your temperature? Yes, I had thirty-eight point five yesterday evening. Are you coughing too? Yes, a little, especially at night. Do you have any other symptoms? I also have a headache and I'm very tired. All right, I'll examine your throat. Open your mouth. Ah, your throat is very red. It's a bacterial throat infection. You need to take antibiotics for ten days. I'll write you a prescription. You must rest and drink plenty of water. Are you allergic to any medication? No, not to my knowledge.",
+        questions: [
+            {
+                id: "fr-l-a2-6-q1",
+                level: "A2",
+                prompt: "Depuis combien de temps le patient a-t-il mal à la gorge ?",
+                options: ["Trois jours", "Une semaine", "Deux jours", "Un mois"],
+                answer: "Trois jours"
+            },
+            {
+                id: "fr-l-a2-6-q2",
+                level: "A2",
+                prompt: "Quel est le diagnostic du médecin ?",
+                options: ["Une angine bactérienne", "Un rhume", "Une grippe", "Une allergie"],
+                answer: "Une angine bactérienne"
+            },
+            {
+                id: "fr-l-a2-6-q3",
+                level: "A2",
+                prompt: "Combien de temps doit-il prendre des antibiotiques ?",
+                options: ["Dix jours", "Cinq jours", "Une semaine", "Deux semaines"],
+                answer: "Dix jours"
+            }
+        ]
     }
 ]

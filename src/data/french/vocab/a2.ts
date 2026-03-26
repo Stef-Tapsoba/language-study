@@ -138,6 +138,55 @@ export const frVocabA2: VocabItem[] = [
     { id: "fr-v-a2-105", level: "A2", word: "pendant que", translation: "while / during", category: "time expressions", example: { native: "Pendant qu'elle lisait, il cuisinait.", translation: "While she was reading, he was cooking." } },
     { id: "fr-v-a2-106", level: "A2", word: "ensuite", translation: "then / next", category: "time expressions", example: { native: "J'ai mangé, ensuite je suis sorti.", translation: "I ate, then I went out." } },
     { id: "fr-v-a2-107", level: "A2", word: "finalement", translation: "finally / eventually", category: "time expressions", example: { native: "Finalement, nous avons trouvé un taxi.", translation: "Finally, we found a taxi." } },
+
+    // ── home & housing ───────────────────────────────────────────────────────
+    { id: "fr-v-a2-108", level: "A2", word: "le loyer", translation: "rent", category: "home & housing", example: { native: "Le loyer de cet appartement est trop cher.", translation: "The rent for this flat is too expensive." } },
+    { id: "fr-v-a2-109", level: "A2", word: "le propriétaire", translation: "landlord / owner", category: "home & housing", example: { native: "Le propriétaire a réparé le chauffage.", translation: "The landlord repaired the heating." } },
+    { id: "fr-v-a2-110", level: "A2", word: "déménager", translation: "to move house", category: "home & housing", example: { native: "Nous allons déménager le mois prochain.", translation: "We are going to move house next month." } },
+    { id: "fr-v-a2-111", level: "A2", word: "les meubles", translation: "furniture", category: "home & housing", example: { native: "L'appartement est livré avec tous les meubles.", translation: "The flat comes with all the furniture." } },
+    { id: "fr-v-a2-112", level: "A2", word: "le chauffage", translation: "heating", category: "home & housing", example: { native: "Le chauffage ne fonctionne pas.", translation: "The heating is not working." } },
+    { id: "fr-v-a2-113", level: "A2", word: "louer", translation: "to rent (as tenant)", category: "home & housing", example: { native: "On loue un appartement au centre-ville.", translation: "We rent a flat in the city centre." } },
+    { id: "fr-v-a2-114", level: "A2", word: "les charges", translation: "service charges / utilities", category: "home & housing", example: { native: "Les charges sont comprises dans le loyer.", translation: "Utilities are included in the rent." } },
+    { id: "fr-v-a2-115", level: "A2", word: "emménager", translation: "to move in", category: "home & housing", example: { native: "Elle a emménagé dans son nouvel appartement hier.", translation: "She moved into her new flat yesterday." } },
+
+    // ── education ────────────────────────────────────────────────────────────
+    { id: "fr-v-a2-116", level: "A2", word: "une matière", translation: "school subject", category: "education", example: { native: "Quelle est ta matière préférée ?", translation: "What is your favourite subject?" } },
+    { id: "fr-v-a2-117", level: "A2", word: "les devoirs", translation: "homework", category: "education", example: { native: "J'ai beaucoup de devoirs ce soir.", translation: "I have a lot of homework tonight." } },
+    { id: "fr-v-a2-118", level: "A2", word: "une note", translation: "grade / mark", category: "education", example: { native: "Elle a eu une très bonne note en maths.", translation: "She got a very good grade in maths." } },
+    { id: "fr-v-a2-119", level: "A2", word: "passer un examen", translation: "to take an exam", category: "education", example: { native: "Je passe mon examen de français demain.", translation: "I am taking my French exam tomorrow." } },
+    { id: "fr-v-a2-120", level: "A2", word: "réussir", translation: "to pass / succeed", category: "education", example: { native: "Il a réussi son bac avec mention.", translation: "He passed his baccalauréat with distinction." } },
+    { id: "fr-v-a2-121", level: "A2", word: "échouer", translation: "to fail", category: "education", example: { native: "Elle a échoué à l'examen mais elle va réessayer.", translation: "She failed the exam but she will try again." } },
+
+    // ── leisure & sport ──────────────────────────────────────────────────────
+    { id: "fr-v-a2-122", level: "A2", word: "s'entraîner", translation: "to train / practise", category: "leisure & sport", example: { native: "Il s'entraîne trois fois par semaine.", translation: "He trains three times a week." } },
+    { id: "fr-v-a2-123", level: "A2", word: "un match", translation: "match / game", category: "leisure & sport", example: { native: "On a regardé le match à la télé.", translation: "We watched the match on TV." } },
+    { id: "fr-v-a2-124", level: "A2", word: "une compétition", translation: "competition", category: "leisure & sport", example: { native: "Elle participe à une compétition nationale.", translation: "She is taking part in a national competition." } },
+    { id: "fr-v-a2-125", level: "A2", word: "un abonnement", translation: "subscription / membership", category: "leisure & sport", example: { native: "J'ai pris un abonnement à la salle de sport.", translation: "I took out a gym membership." } },
+    { id: "fr-v-a2-126", level: "A2", word: "faire de la randonnée", translation: "to go hiking", category: "leisure & sport", example: { native: "On fait de la randonnée en montagne chaque été.", translation: "We go hiking in the mountains every summer." } },
+    { id: "fr-v-a2-127", level: "A2", word: "un spectacle", translation: "show / performance", category: "leisure & sport", example: { native: "Nous sommes allés voir un spectacle de danse.", translation: "We went to see a dance show." } },
+    { id: "fr-v-a2-128", level: "A2", word: "se détendre", translation: "to relax", category: "leisure & sport", example: { native: "Le week-end, j'aime me détendre au bord de la mer.", translation: "At the weekend, I like to relax by the sea." } },
+
+    // ── nature & geography ───────────────────────────────────────────────────
+    { id: "fr-v-a2-129", level: "A2", word: "une colline", translation: "hill", category: "nature & geography", example: { native: "Il y a de jolies collines autour du village.", translation: "There are pretty hills around the village." } },
+    { id: "fr-v-a2-130", level: "A2", word: "un fleuve", translation: "major river (reaching the sea)", category: "nature & geography", example: { native: "La Loire est le plus long fleuve de France.", translation: "The Loire is the longest river in France." } },
+    { id: "fr-v-a2-131", level: "A2", word: "la côte", translation: "coast", category: "nature & geography", example: { native: "La côte bretonne est très sauvage.", translation: "The Brittany coast is very wild." } },
+    { id: "fr-v-a2-132", level: "A2", word: "une forêt", translation: "forest", category: "nature & geography", example: { native: "Nous nous promenons dans la forêt le dimanche.", translation: "We walk in the forest on Sundays." } },
+    { id: "fr-v-a2-133", level: "A2", word: "le paysage", translation: "landscape / scenery", category: "nature & geography", example: { native: "Le paysage est magnifique depuis le sommet.", translation: "The scenery is magnificent from the summit." } },
+    { id: "fr-v-a2-134", level: "A2", word: "une région", translation: "region", category: "nature & geography", example: { native: "La Bretagne est une région très touristique.", translation: "Brittany is a very popular tourist region." } },
+
+    // ── personality & character ──────────────────────────────────────────────
+    { id: "fr-v-a2-135", level: "A2", word: "ambitieux / ambitieuse", translation: "ambitious", category: "personality", example: { native: "Elle est très ambitieuse et travaille dur.", translation: "She is very ambitious and works hard." } },
+    { id: "fr-v-a2-136", level: "A2", word: "paresseux / paresseuse", translation: "lazy", category: "personality", example: { native: "Il est paresseux — il ne finit jamais ses devoirs.", translation: "He is lazy — he never finishes his homework." } },
+    { id: "fr-v-a2-137", level: "A2", word: "bavard / bavarde", translation: "talkative", category: "personality", example: { native: "Ma voisine est très bavarde !", translation: "My neighbour is very talkative!" } },
+    { id: "fr-v-a2-138", level: "A2", word: "honnête", translation: "honest", category: "personality", example: { native: "C'est important d'être honnête avec ses amis.", translation: "It is important to be honest with your friends." } },
+    { id: "fr-v-a2-139", level: "A2", word: "têtu / têtue", translation: "stubborn", category: "personality", example: { native: "Il est têtu — impossible de le faire changer d'avis.", translation: "He is stubborn — impossible to make him change his mind." } },
+
+    // ── cooking at home ──────────────────────────────────────────────────────
+    { id: "fr-v-a2-140", level: "A2", word: "une recette", translation: "recipe", category: "cooking", example: { native: "J'ai trouvé une bonne recette de quiche.", translation: "I found a good quiche recipe." } },
+    { id: "fr-v-a2-141", level: "A2", word: "les ingrédients", translation: "ingredients", category: "cooking", example: { native: "Il faut mélanger tous les ingrédients.", translation: "You need to mix all the ingredients." } },
+    { id: "fr-v-a2-142", level: "A2", word: "faire cuire", translation: "to cook / to bake", category: "cooking", example: { native: "Faites cuire à 180 degrés pendant 30 minutes.", translation: "Cook at 180 degrees for 30 minutes." } },
+    { id: "fr-v-a2-143", level: "A2", word: "mélanger", translation: "to mix", category: "cooking", example: { native: "Mélangez la farine et le beurre.", translation: "Mix the flour and the butter." } },
+    { id: "fr-v-a2-144", level: "A2", word: "un four", translation: "oven", category: "cooking", example: { native: "Préchauffez le four à 200 degrés.", translation: "Preheat the oven to 200 degrees." } },
 ]
 
 // Re-export under legacy name so existing imports keep working

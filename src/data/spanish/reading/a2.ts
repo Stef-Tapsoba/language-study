@@ -197,5 +197,54 @@ export const a2Reading: ReadingPassage[] = [
                 answer: "Un flamenco"
             }
         ]
+    },
+    {
+        id: "es-r-a2-5",
+        level: "A2",
+        category: "everyday",
+        title: "Un verano inolvidable",
+        body: {
+            target: "Aquel verano fue diferente a todos los demás. Tenía dieciséis años y mis padres me dejaron ir solo a casa de mi abuela en Galicia. Era la primera vez que viajaba sin ellos.\n\nCuando llegué a la estación, llovía. El paisaje era verde y tranquilo — muy diferente a Madrid, donde vivía. Mi abuela me esperaba en la puerta. Me preparó caldo gallego y me contó historias de cuando era joven.\n\nDurante las semanas que estuve allí, aprendí a pescar con mi tío, visité pueblos pequeños y nadé en el mar. Una tarde, mientras caminaba por la playa, encontré una botella con una carta dentro. La carta estaba escrita en francés. No entendí mucho, pero guardé la carta.\n\nAl volver a Madrid en septiembre, busqué la traducción y descubrí que era una carta de amor de 1985. Nunca supe quién la escribió, pero todavía la tengo en mi cajón.",
+            native: "That summer was different from all the others. I was sixteen years old and my parents let me go alone to my grandmother's house in Galicia. It was the first time I had travelled without them.\n\nWhen I arrived at the station, it was raining. The landscape was green and peaceful — very different from Madrid, where I lived. My grandmother was waiting at the door. She made me Galician broth and told me stories from when she was young.\n\nDuring the weeks I was there, I learned to fish with my uncle, visited small villages and swam in the sea. One afternoon, while walking along the beach, I found a bottle with a letter inside. The letter was written in French. I didn't understand much, but I kept the letter.\n\nWhen I got back to Madrid in September, I looked up the translation and discovered it was a love letter from 1985. I never found out who wrote it, but I still have it in my drawer."
+        },
+        vocabGloss: [
+            { word: "inolvidable", translation: "unforgettable" },
+            { word: "caldo gallego", translation: "Galician broth (traditional soup)" },
+            { word: "pescar", translation: "to fish" },
+            { word: "guardar", translation: "to keep, to put away" },
+            { word: "la traducción", translation: "translation" },
+            { word: "descubrí", translation: "I discovered" },
+            { word: "el cajón", translation: "drawer" }
+        ],
+        questions: [
+            {
+                id: "es-r-a2-5-q1",
+                level: "A2",
+                prompt: "¿Por qué aquel verano fue especial para el narrador?",
+                options: ["Fue la primera vez que viajó sin sus padres", "Encontró mucho dinero en la playa", "Su abuela le enseñó a hablar francés", "Ganó un concurso de pesca"],
+                answer: "Fue la primera vez que viajó sin sus padres"
+            },
+            {
+                id: "es-r-a2-5-q2",
+                level: "A2",
+                prompt: "¿Qué encontró el narrador en la playa?",
+                options: ["Una botella con una carta", "Una moneda antigua", "Una foto de su familia", "Un libro en francés"],
+                answer: "Una botella con una carta"
+            },
+            {
+                id: "es-r-a2-5-q3",
+                level: "A2",
+                prompt: "¿En qué año fue escrita la carta?",
+                options: ["En 1985", "En 1975", "En 1995", "En 2005"],
+                answer: "En 1985"
+            },
+            {
+                id: "es-r-a2-5-q4",
+                level: "A2",
+                prompt: "¿Qué hizo el narrador con la carta al volver a Madrid?",
+                options: ["Buscó la traducción", "La tiró", "Se la mandó a su abuela", "La publicó en el periódico"],
+                answer: "Buscó la traducción"
+            }
+        ]
     }
 ]

@@ -133,4 +133,94 @@ export const a2Vocab: VocabItem[] = [
     { id: "ko-v-a2-102", level: "A2", word: "보고 싶어요", romanized: "bogo sipeoyo", translation: "I miss you (I want to see you)", category: "emotions", example: { native: "많이 보고 싶어요.", romanized: "Manhi bogo sipeoyo.", translation: "I miss you so much." } },
     { id: "ko-v-a2-103", level: "A2", word: "동의해요", romanized: "donguihaeyo", translation: "I agree", category: "social interactions", example: { native: "저도 동의해요.", romanized: "Jeodo donguihaeyo.", translation: "I agree too." } },
     { id: "ko-v-a2-104", level: "A2", word: "나중에 봐요", romanized: "najunge bwayo", translation: "see you later", category: "social interactions", example: { native: "오늘 수고했어요. 나중에 봐요!", romanized: "Oneul sugohaesseoyo. Najunge bwayo!", translation: "Good work today. See you later!" } },
+
+    // ── Unit 3: Permission & Prohibition ─────────────────────────────────────
+    { id: "ko-v-a2-105", level: "A2", word: "조용히", romanized: "joyonghi", translation: "quietly / silently", category: "daily routines", example: { native: "도서관에서는 조용히 해야 해요.", romanized: "Doseogwaneseo neun joyonghi haeya haeyo.", translation: "You have to be quiet in the library." } },
+    { id: "ko-v-a2-106", level: "A2", word: "규칙", romanized: "gyuchik", translation: "rule / regulation", category: "daily routines", example: { native: "규칙을 지켜야 해요.", romanized: "Gyuchigeul jikyeoya haeyo.", translation: "You have to follow the rules." } },
+    { id: "ko-v-a2-107", level: "A2", word: "허락", romanized: "heorak", translation: "permission / approval", category: "social interactions", example: { native: "부모님의 허락이 필요해요.", romanized: "Bumonimui heoragi piryohaeyo.", translation: "I need my parents' permission." } },
+    { id: "ko-v-a2-108", level: "A2", word: "금지", romanized: "geumji", translation: "prohibition / ban", category: "daily routines", example: { native: "여기서 흡연은 금지예요.", romanized: "Yeogiseo heubyeoneun geumjiyeyo.", translation: "Smoking is prohibited here." } },
+
+    // ── Unit 5: Obligation & Necessity ───────────────────────────────────────
+    { id: "ko-v-a2-109", level: "A2", word: "숙제", romanized: "sukje", translation: "homework / assignment", category: "daily routines", example: { native: "오늘 숙제를 해야 해요.", romanized: "Oneul sukjereul haeya haeyo.", translation: "I have to do my homework today." } },
+    { id: "ko-v-a2-110", level: "A2", word: "준비하다", romanized: "junbihada", translation: "to prepare / get ready", category: "daily routines", example: { native: "시험을 위해 준비해야 해요.", romanized: "Siheomeul wihae junbihaeya haeyo.", translation: "I have to prepare for the exam." } },
+    { id: "ko-v-a2-111", level: "A2", word: "필요하다", romanized: "piryohada", translation: "to be necessary / needed", category: "daily routines", example: { native: "우산이 필요해요.", romanized: "Usani piryohaeyo.", translation: "I need an umbrella." } },
+    { id: "ko-v-a2-112", level: "A2", word: "중요하다", romanized: "jungyohada", translation: "to be important", category: "daily routines", example: { native: "건강이 중요해요.", romanized: "Geongangi jungyohaeyo.", translation: "Health is important." } },
+
+    // ── Unit 8: From...to (Range & Duration) ─────────────────────────────────
+    { id: "ko-v-a2-113", level: "A2", word: "걸리다", romanized: "geollida", translation: "to take (time) / to require", category: "time expressions", example: { native: "서울에서 부산까지 세 시간 걸려요.", romanized: "Seoureseo Busankaji se sigan geollyeoyo.", translation: "It takes three hours from Seoul to Busan." } },
+    { id: "ko-v-a2-114", level: "A2", word: "얼마나", romanized: "eolmana", translation: "how much / how long / how far", category: "time expressions", example: { native: "여기서 역까지 얼마나 걸려요?", romanized: "Yeogiseo yeokkkaji eolmana geollyeoyo?", translation: "How long does it take from here to the station?" } },
+    { id: "ko-v-a2-115", level: "A2", word: "거리", romanized: "geori", translation: "distance / street", category: "travel & transport", example: { native: "집에서 학교까지 거리가 멀어요.", romanized: "Jibeseo hakgyokkaji georiga meoreoyo.", translation: "The distance from home to school is far." } },
+    { id: "ko-v-a2-116", level: "A2", word: "방향", romanized: "banghyang", translation: "direction", category: "travel & transport", example: { native: "어느 방향으로 가야 해요?", romanized: "Eoneu bangyangeuro gaya haeyo?", translation: "Which direction should I go?" } },
+
+    // ── Unit 9: Conditional (-(으)면) ─────────────────────────────────────────
+    { id: "ko-v-a2-117", level: "A2", word: "날씨", romanized: "nalsi", translation: "weather", category: "daily routines", example: { native: "날씨가 좋으면 산책할게요.", romanized: "Nalssiga joeumyeon sanchaekhalgeyo.", translation: "If the weather is nice, I'll go for a walk." } },
+    { id: "ko-v-a2-118", level: "A2", word: "합격하다", romanized: "hapgyeokhada", translation: "to pass (an exam)", category: "daily routines", example: { native: "시험에 합격하면 기쁠 거예요.", romanized: "Siheome hapgyeokhamyeon gippeul geoyeyo.", translation: "If I pass the exam, I'll be happy." } },
+    { id: "ko-v-a2-119", level: "A2", word: "아프다", romanized: "apeuda", translation: "to be sick / in pain", category: "health & body", example: { native: "아프면 병원에 가야 해요.", romanized: "Apeumyeon byeongwone gaya haeyo.", translation: "If you are sick, you should go to the hospital." } },
+    { id: "ko-v-a2-120", level: "A2", word: "행복하다", romanized: "haengbokhada", translation: "to be happy / content", category: "emotions", example: { native: "가족과 함께 있으면 행복해요.", romanized: "Gajokgwa hamkke isseumyeon haengbokhaeyo.", translation: "I am happy when I am with my family." } },
+
+    // ── Unit 10: Contrast (-지만) ─────────────────────────────────────────────
+    { id: "ko-v-a2-121", level: "A2", word: "비싸다", romanized: "bissada", translation: "to be expensive", category: "shopping & money", example: { native: "이 가방은 비싸지만 예뻐요.", romanized: "I gabangeun bissajiman yeppeoyo.", translation: "This bag is expensive but pretty." } },
+    { id: "ko-v-a2-122", level: "A2", word: "싸다", romanized: "ssada", translation: "to be cheap / inexpensive", category: "shopping & money", example: { native: "음식이 싸지만 맛있어요.", romanized: "Eumsigi ssajiman massisseoyo.", translation: "The food is cheap but delicious." } },
+    { id: "ko-v-a2-123", level: "A2", word: "어렵다", romanized: "eoryeopda", translation: "to be difficult / hard", category: "daily routines", example: { native: "한국어는 어렵지만 재미있어요.", romanized: "Hangugeoneun eoryeopjiman jaemiisseoyo.", translation: "Korean is difficult but interesting." } },
+    { id: "ko-v-a2-124", level: "A2", word: "쉽다", romanized: "swipda", translation: "to be easy", category: "daily routines", example: { native: "문제가 쉬웠지만 실수했어요.", romanized: "Munjega swiwossjiman silsuhaesseoyo.", translation: "The problem was easy but I made a mistake." } },
+
+    // ── Unit 11: Alternative (-거나) ──────────────────────────────────────────
+    { id: "ko-v-a2-125", level: "A2", word: "아니면", romanized: "animyeon", translation: "or / otherwise", category: "social interactions", example: { native: "커피를 마실래요, 아니면 차를 마실래요?", romanized: "Keopireul masilraeyo, animyeon chareul masilraeyo?", translation: "Will you drink coffee or tea?" } },
+    { id: "ko-v-a2-126", level: "A2", word: "선택", romanized: "seontaek", translation: "choice / option / selection", category: "social interactions", example: { native: "선택하기 어려워요.", romanized: "Seontaekagi eoryeowoyo.", translation: "It's hard to make a choice." } },
+    { id: "ko-v-a2-127", level: "A2", word: "결정하다", romanized: "gyeoljeongha da", translation: "to decide", category: "social interactions", example: { native: "어디 갈지 결정했어요?", romanized: "Eodi galji gyeoljeonghaesseoyo?", translation: "Have you decided where to go?" } },
+    { id: "ko-v-a2-128", level: "A2", word: "둘 다", romanized: "dul da", translation: "both / either one", category: "social interactions", example: { native: "둘 다 좋아요.", romanized: "Dul da joayo.", translation: "Both are good." } },
+
+    // ── Unit 12: Simultaneous (-(으)면서) ────────────────────────────────────
+    { id: "ko-v-a2-129", level: "A2", word: "동시에", romanized: "dongsie", translation: "at the same time / simultaneously", category: "daily routines", example: { native: "두 가지를 동시에 할 수 있어요.", romanized: "Du gajireul dongsie hal su isseoyo.", translation: "I can do two things at the same time." } },
+    { id: "ko-v-a2-130", level: "A2", word: "노래", romanized: "norae", translation: "song / singing", category: "daily routines", example: { native: "음악을 들으면서 노래를 불러요.", romanized: "Eumageul deureumyeo noraereul bulleoyo.", translation: "I sing along while listening to music." } },
+    { id: "ko-v-a2-131", level: "A2", word: "운동", romanized: "undong", translation: "exercise / sport", category: "health & body", example: { native: "음악을 들으면서 운동해요.", romanized: "Eumageul deureumyeo undonghaeyo.", translation: "I exercise while listening to music." } },
+    { id: "ko-v-a2-132", level: "A2", word: "음악", romanized: "eumak", translation: "music", category: "daily routines", example: { native: "공부하면서 음악을 들어요.", romanized: "Gongbuhamyeo eumageul deoreoyo.", translation: "I listen to music while studying." } },
+
+    // ── Unit 13: Before / After ───────────────────────────────────────────────
+    { id: "ko-v-a2-133", level: "A2", word: "전에", romanized: "jeone", translation: "before", category: "time expressions", example: { native: "자기 전에 양치질을 해요.", romanized: "Jagi jeone yangchijireul haeyo.", translation: "I brush my teeth before sleeping." } },
+    { id: "ko-v-a2-134", level: "A2", word: "후에", romanized: "hue", translation: "after", category: "time expressions", example: { native: "수업 후에 도서관에 가요.", romanized: "Sueop hue doseogwane gayo.", translation: "I go to the library after class." } },
+    { id: "ko-v-a2-135", level: "A2", word: "먼저", romanized: "meonjeo", translation: "first / before anything else", category: "time expressions", example: { native: "먼저 손을 씻어요.", romanized: "Meonjeo soneul ssiseoyo.", translation: "First, I wash my hands." } },
+    { id: "ko-v-a2-136", level: "A2", word: "나중에", romanized: "najunge", translation: "later / afterwards", category: "time expressions", example: { native: "나중에 연락할게요.", romanized: "Najunge yeollakhalgeyo.", translation: "I'll contact you later." } },
+
+    // ── Unit 14: Nominalization (-(으)ㄴ/는 것) ──────────────────────────────
+    { id: "ko-v-a2-137", level: "A2", word: "습관", romanized: "seupgwan", translation: "habit / custom", category: "daily routines", example: { native: "일찍 일어나는 것이 좋은 습관이에요.", romanized: "Iljjik ireonan aeosio joeun seupgwanieyo.", translation: "Getting up early is a good habit." } },
+    { id: "ko-v-a2-138", level: "A2", word: "경험", romanized: "gyeongheum", translation: "experience", category: "daily routines", example: { native: "새로운 것을 경험하는 게 좋아요.", romanized: "Saeroun geoseul gyeongheomhaneun ge joayo.", translation: "I like experiencing new things." } },
+    { id: "ko-v-a2-139", level: "A2", word: "사실", romanized: "sasil", translation: "fact / actually / the truth", category: "social interactions", example: { native: "사실, 저는 수영을 못해요.", romanized: "Sasil, jeoneun suyeongeul motaeyo.", translation: "Actually, I can't swim." } },
+    { id: "ko-v-a2-140", level: "A2", word: "장점", romanized: "jangjeom", translation: "advantage / strong point", category: "social interactions", example: { native: "한국어를 배우는 것의 장점이 많아요.", romanized: "Hangugeoreul baeuneun geose jangjeomi manayo.", translation: "There are many advantages to learning Korean." } },
+
+    // ── Unit 15: Past / State Attributive Clauses (-(으)ㄴ + noun) ────────────
+    { id: "ko-v-a2-141", level: "A2", word: "유명하다", romanized: "yumyeonghada", translation: "to be famous / well-known", category: "daily routines", example: { native: "유명한 식당에 가 봤어요?", romanized: "Yumyeonghan sikdange ga bwasseoyo?", translation: "Have you been to a famous restaurant?" } },
+    { id: "ko-v-a2-142", level: "A2", word: "새롭다", romanized: "saereopda", translation: "to be new / fresh", category: "daily routines", example: { native: "새로 산 가방이 예뻐요.", romanized: "Saero san gabangi yeppeoyo.", translation: "The bag I just bought is pretty." } },
+    { id: "ko-v-a2-143", level: "A2", word: "예쁘다", romanized: "yeppeuda", translation: "to be pretty / beautiful", category: "daily routines", example: { native: "어제 본 영화가 예뻤어요.", romanized: "Eoje bon yeonghwaga yeppeoisseoyo.", translation: "The movie I watched yesterday was beautiful." } },
+    { id: "ko-v-a2-144", level: "A2", word: "특별하다", romanized: "teukbyeolhada", translation: "to be special", category: "emotions", example: { native: "오늘은 특별한 날이에요.", romanized: "Oneureun teukbyeolhan narieyo.", translation: "Today is a special day." } },
+
+    // ── Unit 16: Present Attributive Clauses (-는 + noun) ─────────────────────
+    { id: "ko-v-a2-145", level: "A2", word: "살다", romanized: "salda", translation: "to live / to reside", category: "daily routines", example: { native: "서울에 사는 친구가 있어요.", romanized: "Seoure saneun chinguga isseoyo.", translation: "I have a friend who lives in Seoul." } },
+    { id: "ko-v-a2-146", level: "A2", word: "읽다", romanized: "ikda", translation: "to read", category: "daily routines", example: { native: "지금 읽는 책이 재미있어요.", romanized: "Jigeum ingneun chaegi jaemiisseoyo.", translation: "The book I am reading now is interesting." } },
+    { id: "ko-v-a2-147", level: "A2", word: "가르치다", romanized: "gareuchida", translation: "to teach", category: "daily routines", example: { native: "수학을 가르치는 선생님이에요.", romanized: "Suhagigeul garuchineun seonsaengnimieyo.", translation: "I am a teacher who teaches mathematics." } },
+    { id: "ko-v-a2-148", level: "A2", word: "일하다", romanized: "ilhada", translation: "to work", category: "daily routines", example: { native: "카페에서 일하는 친구가 있어요.", romanized: "Kapeseo ilhaneun chinguga isseoyo.", translation: "I have a friend who works at a café." } },
+
+    // ── Unit 17: Third-person Feelings (-고 싶어하다 / -아/어하다) ─────────────
+    { id: "ko-v-a2-149", level: "A2", word: "무서워하다", romanized: "museowohada", translation: "to be scared of / to fear (3rd person)", category: "emotions", example: { native: "동생이 개를 무서워해요.", romanized: "Dongsaengi gaereul museowohaeyo.", translation: "My younger sibling is scared of dogs." } },
+    { id: "ko-v-a2-150", level: "A2", word: "기뻐하다", romanized: "gippeohada", translation: "to be delighted / overjoyed (3rd person)", category: "emotions", example: { native: "친구가 선물을 받고 기뻐했어요.", romanized: "Chinguga seonmureul batgo gippeohaeyo.", translation: "My friend was delighted to receive the gift." } },
+    { id: "ko-v-a2-151", level: "A2", word: "슬퍼하다", romanized: "seulpeohada", translation: "to be sad / to grieve (3rd person)", category: "emotions", example: { native: "엄마가 많이 슬퍼하셨어요.", romanized: "Eommaga mani seulpeohaeyosseoyo.", translation: "My mother was very sad." } },
+    { id: "ko-v-a2-152", level: "A2", word: "싫어하다", romanized: "sireohada", translation: "to dislike / to hate (3rd person)", category: "emotions", example: { native: "아이가 채소를 싫어해요.", romanized: "Aiga chaesoreul sireohaeyo.", translation: "The child dislikes vegetables." } },
+
+    // ── Unit 18: Volitional Promise (-(으)ㄹ게요) ────────────────────────────
+    { id: "ko-v-a2-153", level: "A2", word: "노력하다", romanized: "noryeokhada", translation: "to make an effort / try hard", category: "daily routines", example: { native: "더 열심히 노력할게요.", romanized: "Deo yeolsimhi noryeokhalgeyo.", translation: "I will try harder." } },
+    { id: "ko-v-a2-154", level: "A2", word: "도와주다", romanized: "dowajuda", translation: "to help someone", category: "social interactions", example: { native: "제가 도와드릴게요.", romanized: "Jega dowadeurilgeyo.", translation: "I will help you." } },
+    { id: "ko-v-a2-155", level: "A2", word: "연락하다", romanized: "yeollakhada", translation: "to contact / get in touch", category: "social interactions", example: { native: "도착하면 연락할게요.", romanized: "Dochakamyeon yeollakhalgeyo.", translation: "I will contact you when I arrive." } },
+    { id: "ko-v-a2-156", level: "A2", word: "지키다", romanized: "jikida", translation: "to keep (a promise) / to protect", category: "social interactions", example: { native: "약속을 꼭 지킬게요.", romanized: "Yaksogul kkok jikigeyo.", translation: "I will definitely keep my promise." } },
+
+    // ── Unit 19: Honorific Imperative (-(으)세요) ─────────────────────────────
+    { id: "ko-v-a2-157", level: "A2", word: "잠깐", romanized: "jamkkan", translation: "for a moment / just a sec", category: "social interactions", example: { native: "잠깐 기다려 주세요.", romanized: "Jamkkan gidaryeo juseyo.", translation: "Please wait a moment." } },
+    { id: "ko-v-a2-158", level: "A2", word: "들어오다", romanized: "deureooda", translation: "to come in / to enter", category: "daily routines", example: { native: "어서 들어오세요.", romanized: "Eoseo deureooseyo.", translation: "Please come in." } },
+    { id: "ko-v-a2-159", level: "A2", word: "기다리다", romanized: "gidarida", translation: "to wait", category: "daily routines", example: { native: "잠깐 기다려 주세요.", romanized: "Jamkkan gidaryeo juseyo.", translation: "Please wait a moment." } },
+    { id: "ko-v-a2-160", level: "A2", word: "천천히", romanized: "cheoncheonhi", translation: "slowly / take your time", category: "daily routines", example: { native: "천천히 말해 주세요.", romanized: "Cheoncheonhi malhae juseyo.", translation: "Please speak slowly." } },
+
+    // ── Unit 20: No Need To (-지 않아도 되다 / 필요가 없다) ──────────────────
+    { id: "ko-v-a2-161", level: "A2", word: "걱정하다", romanized: "geokjeonghada", translation: "to worry", category: "emotions", example: { native: "걱정하지 않아도 돼요.", romanized: "Geokjeonghaji anhado dwaeyo.", translation: "You don't need to worry." } },
+    { id: "ko-v-a2-162", level: "A2", word: "서두르다", romanized: "seodureuda", translation: "to hurry / to rush", category: "daily routines", example: { native: "서두르지 않아도 돼요.", romanized: "Seodureuji anhado dwaeyo.", translation: "You don't need to hurry." } },
+    { id: "ko-v-a2-163", level: "A2", word: "괜찮다", romanized: "gwaenchanta", translation: "to be okay / fine / alright", category: "emotions", example: { native: "괜찮아요. 걱정하지 마세요.", romanized: "Gwaenchanayo. Geokjeonghaji maseyo.", translation: "It's okay. Don't worry." } },
+    { id: "ko-v-a2-164", level: "A2", word: "충분하다", romanized: "chungbunhada", translation: "to be enough / sufficient", category: "daily routines", example: { native: "이 정도면 충분해요.", romanized: "I jeongdomyeon chungbunhaeyo.", translation: "This much is enough." } },
 ]
