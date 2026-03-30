@@ -47,7 +47,7 @@ export function StatsTab({ langId, level }: Readonly<{ langId: string; level: CE
                     <p className="text-xs text-gray-400 dark:text-gray-500">all activities</p>
                 </div>
                 <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-4 text-center">
-                    <p className="text-2xl font-bold text-amber-500">{streak}🔥</p>
+                    <p className="text-2xl font-bold text-amber-500">{streak > 0 ? `${streak}🔥` : "—"}</p>
                     <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">day streak</p>
                     <p className="text-xs text-gray-400 dark:text-gray-500">keep it up!</p>
                 </div>
