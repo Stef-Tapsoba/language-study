@@ -265,6 +265,7 @@ export interface LanguageModule {
 // User progress (stored in localStorage)
 // ---------------------------------------------------------------------------
 export interface UserProgress {
+    schemaVersion?: number                      // incremented on breaking schema changes
     userId?: string                             // owner of this progress record
     selectedLanguage: string | null
     levels: Record<string, CEFRLevel>           // langId → current level

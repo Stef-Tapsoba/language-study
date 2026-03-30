@@ -173,13 +173,21 @@ describe("getGlobalStreak", () => {
         expect(getGlobalStreak({})).toBe(0)
     })
 
-    it("returns 0 when there is no activity today", () => {
+    it("preserves streak when today has no activity but yesterday does (BUG-003 fix)", () => {
         const data: StatsData = {
             spanish: {
                 [yesterday]: { reviewed: 3, correct: 2, acts: 1, qTotal: 1, qCorrect: 1 },
             },
         }
-        // Yesterday has activity, but today doesn't — streak starts from today so = 0
+        expect(getGlobalStreak(data)).toBe(1)
+    })
+
+    it("returns 0 when neither today nor yesterday has activity", () => {
+        const data: StatsData = {
+            spanish: {
+                [twoDaysAgo]: { reviewed: 3, correct: 2, acts: 1, qTotal: 1, qCorrect: 1 },
+            },
+        }
         expect(getGlobalStreak(data)).toBe(0)
     })
 

@@ -4,11 +4,37 @@ import { CEFRLevel, UserProgress } from "../types"
 
 const KEY = "ls:progress"
 
+// Bump this whenever a breaking schema change is made (field rename, removal, type change).
+// Add a migration branch in `migrate()` for each version increment.
+const SCHEMA_VERSION = 1
+
 const DEFAULT: UserProgress = {
+    schemaVersion: SCHEMA_VERSION,
     selectedLanguage: null,
     levels: {},
     completedLessons: {},
     masteredUnits: {}
+}
+
+/**
+ * Migrate raw stored data from an older schema version to the current one.
+ * Each `if (version < N)` block is idempotent and runs in order so a user
+ * jumping multiple versions gets all migrations applied.
+ */
+function migrate(raw: Record<string, unknown>): UserProgress {
+    let version = typeof raw.schemaVersion === "number" ? raw.schemaVersion : 0
+
+    // v0 → v1: masteredUnits was not always persisted — ensure it exists.
+    if (version < 1) {
+        if (!raw.masteredUnits || typeof raw.masteredUnits !== "object") {
+            raw = { ...raw, masteredUnits: {} }
+        }
+    }
+
+    // Future migrations go here:
+    // if (version < 2) { raw = { ...raw, newField: defaultValue }; version = 2 }
+
+    return { ...DEFAULT, ...raw, schemaVersion: SCHEMA_VERSION }
 }
 
 // In-memory write-through cache — avoids a JSON.parse on every mutation.
@@ -18,7 +44,8 @@ let _cache: UserProgress | null = null
 export function loadProgress(): UserProgress {
     if (_cache && localStorage.getItem(KEY) !== null) return _cache
     try {
-        _cache = { ...DEFAULT, ...JSON.parse(localStorage.getItem(KEY) ?? "{}") }
+        const raw = JSON.parse(localStorage.getItem(KEY) ?? "{}")
+        _cache = raw && typeof raw === "object" ? migrate(raw as Record<string, unknown>) : { ...DEFAULT }
     } catch {
         _cache = { ...DEFAULT }
     }
@@ -142,18 +169,19 @@ export function masterUnit(langId: string, unitId: string): void {
 
 /**
  * Returns true if the unit is available to study.
- * The first unit (order === 1) is always unlocked.
- * Any subsequent unit is unlocked once the previous unit is mastered.
+ * The first unit in sorted order is always unlocked.
+ * Any subsequent unit is unlocked once the immediately preceding unit is mastered.
+ * Uses index-based lookup so non-contiguous `order` values (e.g. 1, 2, 4) are handled
+ * correctly — there is no silent bypass when a gap exists in the ordering.
  */
 export function isUnitUnlocked(
     langId: string,
     unitId: string,
     allUnits: { id: string; order: number }[]
 ): boolean {
-    const unit = allUnits.find(u => u.id === unitId)
-    if (!unit) return false
-    if (unit.order === 1) return true
-    const prev = allUnits.find(u => u.order === unit.order - 1)
-    if (!prev) return true
-    return getMasteredUnits(langId).includes(prev.id)
+    const sorted = [...allUnits].sort((a, b) => a.order - b.order)
+    const idx = sorted.findIndex(u => u.id === unitId)
+    if (idx < 0) return false
+    if (idx === 0) return true
+    return getMasteredUnits(langId).includes(sorted[idx - 1].id)
 }
