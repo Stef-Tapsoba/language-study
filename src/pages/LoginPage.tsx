@@ -37,40 +37,40 @@ export function LoginPage() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col items-center justify-center px-4">
             <div className="w-full max-w-sm lg:max-w-md">
-                <h1 className="text-3xl font-bold text-center text-gray-900 mb-2">Language Study</h1>
-                <p className="text-center text-gray-500 mb-8">Sign in to continue</p>
+                <h1 className="text-3xl font-bold text-center text-gray-900 dark:text-gray-100 mb-2">Language Study</h1>
+                <p className="text-center text-gray-500 dark:text-gray-400 mb-8">Sign in to continue</p>
 
-                <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-md p-6 flex flex-col gap-4">
+                <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-800 rounded-2xl shadow-md p-6 flex flex-col gap-4">
                     {errors.length > 0 && (
-                        <ul className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2 flex flex-col gap-1 list-disc list-inside">
+                        <ul className="text-sm text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-700 rounded-lg px-3 py-2 flex flex-col gap-1 list-disc list-inside">
                             {errors.map(msg => <li key={msg}>{msg}</li>)}
                         </ul>
                     )}
 
                     <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
                         <input
                             id="email"
                             type="email"
                             value={email}
                             onChange={e => setEmail(e.target.value)}
                             placeholder="you@example.com"
-                            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                            className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                             autoComplete="email"
                         />
                     </div>
 
                     <div>
-                        <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                        <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Password</label>
                         <input
                             id="password"
                             type="password"
                             value={password}
                             onChange={e => setPassword(e.target.value)}
                             placeholder="••••••••"
-                            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                            className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                             autoComplete="current-password"
                         />
                     </div>
@@ -84,14 +84,14 @@ export function LoginPage() {
                     </button>
                 </form>
 
-                <p className="text-center text-sm text-gray-500 mt-4">
+                <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4">
                     No account?{" "}
                     <Link to="/register" className="text-indigo-600 hover:underline font-medium">
                         Create one
                     </Link>
                 </p>
-                <p className="text-center text-sm text-gray-400 mt-2">
-                    <Link to="/" className="hover:text-gray-600">← Back to home</Link>
+                <p className="text-center text-sm text-gray-400 dark:text-gray-500 mt-2">
+                    <Link to="/" className="hover:text-gray-600 dark:hover:text-gray-300">← Back to home</Link>
                 </p>
             </div>
         </div>

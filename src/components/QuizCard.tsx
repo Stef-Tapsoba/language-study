@@ -26,10 +26,10 @@ export function QuizCard({ question, options, selected, correct, onSelect }: Rea
                         <label
                             key={opt}
                             className={cn(
-                                "flex items-center gap-3 w-full px-3 sm:px-4 py-3 rounded-xl border-2 cursor-pointer transition-all text-sm",
-                                !revealed && "border-gray-200 dark:border-gray-600 hover:border-indigo-400 hover:bg-indigo-50",
-                                revealed && isCorrect && "border-green-500 bg-green-50 text-green-800",
-                                revealed && isSelected && !isCorrect && "border-red-400 bg-red-50 text-red-800",
+                                "flex items-center gap-3 w-full px-3 sm:px-4 py-3 rounded-xl border-2 cursor-pointer transition-all text-sm text-gray-800 dark:text-gray-200",
+                                !revealed && "border-gray-200 dark:border-gray-600 hover:border-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/30",
+                                revealed && isCorrect && "border-green-500 bg-green-50 text-green-800 dark:bg-green-900/30 dark:text-green-300",
+                                revealed && isSelected && !isCorrect && "border-red-400 bg-red-50 text-red-800 dark:bg-red-900/30 dark:text-red-300",
                                 revealed && !isSelected && !isCorrect && "border-gray-100 dark:border-gray-700 text-gray-400 dark:text-gray-500",
                             )}
                         >

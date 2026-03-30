@@ -36,7 +36,14 @@ export function ProgressBar({ value, className = "", label, color, animate = tru
                     <span className={`font-semibold ${textCls}`}>{Math.round(pct)}%</span>
                 </div>
             )}
-            <div className="w-full bg-gray-200/70 dark:bg-gray-600/70 rounded-full h-2 overflow-hidden">
+            <div
+                className="w-full bg-gray-200/70 dark:bg-gray-600/70 rounded-full h-2 overflow-hidden"
+                role="progressbar"
+                aria-valuenow={Math.round(pct)}
+                aria-valuemin={0}
+                aria-valuemax={100}
+                aria-label={label ?? "Progress"}
+            >
                 <div
                     className={`${gradient} h-2 rounded-full transition-[width] duration-700 ease-out${isComplete ? " brightness-110" : ""}`}
                     style={{ width: `${displayed}%` }}
