@@ -215,10 +215,33 @@ describe("isUnitUnlocked", () => {
         expect(isUnitUnlocked("es", "u3", units)).toBe(true)
     })
 
-    it("returns true when there is no previous unit in the list", () => {
-        // Edge case: unit whose order-1 has no match in the array
+    it("returns true when it is the only unit in the list (no predecessor)", () => {
         const sparse = [{ id: "u5", order: 5 }]
         expect(isUnitUnlocked("es", "u5", sparse)).toBe(true)
+    })
+
+    it("handles non-contiguous order values — gap does not bypass the lock (BUG-006 fix)", () => {
+        // orders 1, 2, 4 — unit u4 must require u2 mastered, not unlock freely
+        const gapped = [
+            { id: "u1", order: 1 },
+            { id: "u2", order: 2 },
+            { id: "u4", order: 4 },
+        ]
+        masterUnit("es", "u1")
+        expect(isUnitUnlocked("es", "u4", gapped)).toBe(false)
+        masterUnit("es", "u2")
+        expect(isUnitUnlocked("es", "u4", gapped)).toBe(true)
+    })
+
+    it("works correctly when units are passed in unsorted order", () => {
+        const unsorted = [
+            { id: "u3", order: 3 },
+            { id: "u1", order: 1 },
+            { id: "u2", order: 2 },
+        ]
+        masterUnit("es", "u1")
+        masterUnit("es", "u2")
+        expect(isUnitUnlocked("es", "u3", unsorted)).toBe(true)
     })
 })
 
@@ -304,5 +327,55 @@ describe("resetProgress", () => {
         const p = loadProgress()
         expect(p.selectedLanguage).toBeNull()
         expect(p.levels).toEqual({})
+    })
+})
+
+// ─── Schema migration (BUG-005) ───────────────────────────────────────────────
+
+describe("schema migration", () => {
+    it("stamps schemaVersion=1 on a fresh write", () => {
+        setSelectedLanguage("es")
+        const p = loadProgress()
+        expect(p.schemaVersion).toBe(1)
+    })
+
+    it("migrates v0 data: adds missing masteredUnits", () => {
+        // Write raw v0 data (no schemaVersion, no masteredUnits)
+        localStorage.setItem("ls:progress", JSON.stringify({
+            selectedLanguage: "es",
+            levels: { es: "A2" },
+            completedLessons: { es: ["lesson-1"] },
+        }))
+        const p = loadProgress()
+        expect(p.masteredUnits).toEqual({})
+        expect(p.schemaVersion).toBe(1)
+        // Original data preserved
+        expect(p.selectedLanguage).toBe("es")
+        expect(p.levels.es).toBe("A2")
+        expect(p.completedLessons.es).toContain("lesson-1")
+    })
+
+    it("does not overwrite existing masteredUnits during v0 migration", () => {
+        localStorage.setItem("ls:progress", JSON.stringify({
+            selectedLanguage: "fr",
+            levels: { fr: "B1" },
+            completedLessons: {},
+            masteredUnits: { fr: ["unit-1"] },
+        }))
+        const p = loadProgress()
+        expect(p.masteredUnits.fr).toContain("unit-1")
+    })
+
+    it("already-v1 data is loaded without alteration", () => {
+        localStorage.setItem("ls:progress", JSON.stringify({
+            schemaVersion: 1,
+            selectedLanguage: "ja",
+            levels: { ja: "A1" },
+            completedLessons: {},
+            masteredUnits: {},
+        }))
+        const p = loadProgress()
+        expect(p.schemaVersion).toBe(1)
+        expect(p.selectedLanguage).toBe("ja")
     })
 })

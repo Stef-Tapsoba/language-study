@@ -151,20 +151,31 @@ export function getHistory(
 }
 
 /**
- * Global streak: consecutive calendar days (including today if studied) with at least
- * one activity in ANY language. Walking back from today, stop at first day with no activity.
+ * Global streak: consecutive calendar days with at least one activity in ANY language.
+ * Includes today if studied. If today has no activity yet, the streak is preserved from
+ * yesterday — it only breaks once two consecutive days have no activity.
  */
 export function getGlobalStreak(data: StatsData): number {
-    let streak = 0
+    function hasActivityOn(dateStr: string): boolean {
+        return Object.values(data).some(langDays => {
+            const day = langDays[dateStr]
+            return !!day && (day.acts ?? 0) + (day.reviewed ?? 0) > 0
+        })
+    }
+
     const d = new Date()
+    const todayStr = d.toISOString().slice(0, 10)
+
+    // If the user hasn't studied today, start counting from yesterday so the
+    // streak is not broken until they miss a full calendar day.
+    if (!hasActivityOn(todayStr)) {
+        d.setDate(d.getDate() - 1)
+    }
+
+    let streak = 0
     for (let i = 0; i < 365; i++) {
         const dateStr = d.toISOString().slice(0, 10)
-        const hasActivity = Object.values(data).some(langDays => {
-            const day = langDays[dateStr]
-            if (!day) return false
-            return (day.acts ?? 0) + (day.reviewed ?? 0) > 0
-        })
-        if (!hasActivity) break
+        if (!hasActivityOn(dateStr)) break
         streak++
         d.setDate(d.getDate() - 1)
     }

@@ -81,4 +81,58 @@ describe("answerMatches", () => {
         expect(answerMatches("CAFE", "café")).toBe(true)
         expect(answerMatches("Naïve", "naive")).toBe(true)
     })
+
+    // ── Punctuation stripping (BUG-001) ──────────────────────────────────────
+    it("ignores leading inverted exclamation mark in target (¡Hola! → hola)", () => {
+        expect(answerMatches("hola", "¡Hola!")).toBe(true)
+    })
+
+    it("ignores trailing exclamation mark in input", () => {
+        expect(answerMatches("hola!", "hola")).toBe(true)
+    })
+
+    it("ignores question marks", () => {
+        expect(answerMatches("comment ca va", "comment ça va?")).toBe(true)
+    })
+
+    it("ignores apostrophes in target (c'est → cest)", () => {
+        expect(answerMatches("cest", "c'est")).toBe(true)
+    })
+
+    it("ignores apostrophes in input", () => {
+        expect(answerMatches("c'est", "cest")).toBe(true)
+    })
+
+    it("ignores hyphens", () => {
+        expect(answerMatches("avant garde", "avant-garde")).toBe(true)
+    })
+
+    it("ignores commas", () => {
+        expect(answerMatches("si si", "sí, sí")).toBe(true)
+    })
+
+    it("collapses multiple internal spaces after punctuation removal", () => {
+        expect(answerMatches("buenos  dias", "buenos días")).toBe(true)
+    })
+
+    // ── Multi-answer support (BUG-002) ───────────────────────────────────────
+    it("accepts the first answer in an array", () => {
+        expect(answerMatches("hola", ["hola", "hello"])).toBe(true)
+    })
+
+    it("accepts the second answer in an array", () => {
+        expect(answerMatches("hello", ["hola", "hello"])).toBe(true)
+    })
+
+    it("accepts a normalised match within an array", () => {
+        expect(answerMatches("cafe", ["café", "coffee"])).toBe(true)
+    })
+
+    it("rejects an answer not present in the array", () => {
+        expect(answerMatches("adios", ["hola", "hello"])).toBe(false)
+    })
+
+    it("returns false for an empty array of targets", () => {
+        expect(answerMatches("hola", [])).toBe(false)
+    })
 })
