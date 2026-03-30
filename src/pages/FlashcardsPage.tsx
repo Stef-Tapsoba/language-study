@@ -13,6 +13,8 @@ import { VocabItem } from "../types"
 import { getUI, fmt, UIStrings } from "../i18n"
 import { speak } from "../utils/tts"
 import { answerMatches } from "../utils/answerMatch"
+import { adaptiveMessage } from "../utils/adaptiveMessage"
+import { shuffle } from "../utils/arrayUtils"
 import { Switch } from "../components/ui/switch"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion"
 
@@ -30,18 +32,7 @@ function getTranslationMode(level: string): TranslationMode {
     return "hidden"
 }
 
-function shuffle<T>(arr: T[]): T[] {
-    return [...arr].sort(() => Math.random() - 0.5)
-}
-
 type Result = "correct" | "incorrect"
-
-function adaptiveMessage(pct: number): string {
-    if (pct >= 90) return "Perfect!"
-    if (pct >= 75) return "Great job!"
-    if (pct >= 60) return "Good effort!"
-    return "Keep it up!"
-}
 
 function ResultsScreen({ correct, incorrect, pct, newCardsScheduled, reviewMode, missed, ui, onReview, onRestart }: Readonly<{
     correct: number

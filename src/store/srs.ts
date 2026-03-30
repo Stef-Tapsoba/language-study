@@ -1,5 +1,24 @@
 // store/srs.ts — SM-2 spaced-repetition scheduling.
 //
+// ── Package boundary ────────────────────────────────────────────────────────
+// @myorg/srs (packages/srs) owns the SM-2 algorithm primitives:
+//   • SRSCardState — persistent state stored per card (ease, streak, interval)
+//   • SRSQuality   — 0–5 quality rating per SM-2 spec
+//   • SRSResult    — { nextState, nextLabel } returned from calcNextReview
+//   • calcNextReview(state, quality) → SRSResult   (pure function)
+//   • INITIAL_STATE — default card state for a brand-new card
+//
+// This file (store/srs.ts) is the app's SRS lifecycle layer that sits on top:
+//   • Owns session-level policy: NEW_CARDS_PER_DAY cap, due-card selection
+//   • Provides synchronous read helpers (getDueCards, getDueCount, getNextDueDate)
+//     served from the local in-memory cache in registry.srs
+//   • Provides async write helpers (updateCard, resetSRS) routed through
+//     registry.srs so the storage backend can be swapped at Stage 2 without
+//     any page code changes
+//
+// Pages and components import from this file — never directly from @myorg/srs.
+// ────────────────────────────────────────────────────────────────────────────
+//
 // Read helpers (getDueCards, getDueCount, getNextDueDate) are synchronous and
 // call registry.srs.getStates() which reads from the local cache.
 //

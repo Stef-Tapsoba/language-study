@@ -173,6 +173,7 @@ export function DashboardPage() {
 
     // All progress via the shared hook — single source of truth
     const { grammar, vocab, verbs, reading, listening, isDone } = useProgressStats(langId, level)
+    const statsData = useStatsStore(s => s.data)
 
     const [searchParams, setSearchParams] = useSearchParams()
     const levelUnits = useMemo(
@@ -420,7 +421,7 @@ export function DashboardPage() {
                     <TabsContent value="test" className="tab-fade">
                         {canAdvance ? (() => {
                             const nextLevel = CEFR_LEVELS[levelIndex + 1]
-                            const history14 = getHistory(useStatsStore.getState().data, langId, 14)
+                            const history14 = getHistory(statsData, langId, 14)
                             const reviewed14 = history14.reduce((s, d) => s + d.reviewed, 0)
                             const correct14 = history14.reduce((s, d) => s + d.correct, 0)
                             const srsAcc = reviewed14 ? Math.round(correct14 / reviewed14 * 100) : 0

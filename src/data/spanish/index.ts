@@ -3,7 +3,7 @@
 // src/data/modules.ts imports this file via getModule("es"), so the public API
 // is unchanged — all existing pages continue to work without modification.
 
-import { LanguageModule } from "../../types"
+import { createLanguageModule } from "../moduleFactory"
 
 import { a1Grammar } from "./grammar/a1"
 import { a2Grammar } from "./grammar/a2"
@@ -50,40 +50,15 @@ import { b1Culture } from "./culture/b1"
 import { b2Culture } from "./culture/b2"
 import { c1Culture } from "./culture/c1"
 
-const module: LanguageModule = {
-    grammar: [
-        ...a1Grammar,
-        ...a2Grammar,
-        ...b1Grammar,
-        ...b2Grammar,
-        ...c1Grammar
-    ],
-    vocab: [
-        ...a1Vocab,
-        ...a2Vocab,
-        ...b1Vocab,
-        ...b2Vocab,
-        ...c1Vocab
-    ],
-    verbs: [
-        ...a1Verbs,
-        ...a2Verbs,
-        ...b1Verbs,
-        ...b2Verbs,
-        ...c1Verbs
-    ],
-    units: [
-        ...a1Units,
-        ...a2Units,
-        ...b1Units,
-        ...b2Units,
-        ...c1Units
-    ],
+export default createLanguageModule({
+    langId: "es",
+    grammar: [a1Grammar, a2Grammar, b1Grammar, b2Grammar, c1Grammar],
+    vocab: [a1Vocab, a2Vocab, b1Vocab, b2Vocab, c1Vocab],
+    verbs: [a1Verbs, a2Verbs, b1Verbs, b2Verbs, c1Verbs],
+    units: [a1Units, a2Units, b1Units, b2Units, c1Units],
     placementQuestions,
     levelQuestions: levelTestQuestions,
-    readingPassages: [...a1Reading, ...a2Reading, ...b1Reading, ...b2Reading, ...c1Reading],
-    listeningExercises: [...a1Listening, ...a2Listening, ...b1Listening, ...b2Listening, ...c1Listening],
-    cultureEpisodes: [...a1Culture, ...a2Culture, ...b1Culture, ...b2Culture, ...c1Culture]
-}
-
-export default module
+    readingPassages: [a1Reading, a2Reading, b1Reading, b2Reading, c1Reading],
+    listeningExercises: [a1Listening, a2Listening, b1Listening, b2Listening, c1Listening],
+    cultureEpisodes: [a1Culture, a2Culture, b1Culture, b2Culture, c1Culture],
+})

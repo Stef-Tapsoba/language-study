@@ -12,7 +12,7 @@ import { registry } from "../store/registry"
 import { useGlobalStreak } from "../hooks/useGlobalStreak"
 import { NavBar } from "../components/NavBar"
 import { Flag } from "../components/Flag"
-import { LEVEL_LABELS } from "../types"
+import { LEVEL_LABELS, CEFR_LEVELS } from "../types"
 import type { UserProgress } from "../types"
 import type { StatsData } from "../store/useStatsStore"
 import type { SRSCardState } from "@myorg/srs"
@@ -197,8 +197,6 @@ async function exportProgress(): Promise<void> {
     URL.revokeObjectURL(url)
 }
 
-const CEFR_ORDER = ["A1", "A2", "B1", "B2", "C1", "C2"]
-
 function mergeProgressData(current: Record<string, unknown>, imported: Record<string, unknown>): Record<string, unknown> {
     const c = current as Record<string, Record<string, unknown>>
     const i = imported as Record<string, Record<string, unknown>>
@@ -299,9 +297,8 @@ export function ProfilePage() {
         return sum + computeProgressStats(id, getLevel(id), getCompleted(id), getMastered(id)).totalDone
     }, 0)
     const highestLevel = startedIds.reduce<string>((best, id) => {
-        const order = ["A1", "A2", "B1", "B2", "C1"]
         const lvl = getLevel(id)
-        return order.indexOf(lvl) > order.indexOf(best) ? lvl : best
+        return CEFR_LEVELS.indexOf(lvl) > CEFR_LEVELS.indexOf(best as typeof CEFR_LEVELS[number]) ? lvl : best
     }, "A1")
     const streak = useGlobalStreak()
     const [importStatus, setImportStatus] = useState<"idle" | "success" | "error">("idle")

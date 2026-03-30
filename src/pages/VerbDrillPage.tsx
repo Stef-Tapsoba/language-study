@@ -12,6 +12,7 @@ import { DrillDoneScreen } from "../components/DrillDoneScreen"
 import { useDrill } from "../hooks/useDrill"
 import { Verb } from "../types"
 import { getUI, fmt } from "../i18n"
+import { shuffle } from "../utils/arrayUtils"
 
 interface DrillQuestion {
     verb: Verb
@@ -19,10 +20,6 @@ interface DrillQuestion {
     pronoun: string
     correct: string
     options: string[]
-}
-
-function shuffle<T>(arr: T[]): T[] {
-    return [...arr].sort(() => Math.random() - 0.5)
 }
 
 function buildQuestions(verbs: Verb[]): DrillQuestion[] {

@@ -3,6 +3,7 @@ import { NavBar } from "./NavBar"
 import { CEFRLevel } from "../types"
 import { UIStrings } from "../i18n"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion"
+import { adaptiveMessage } from "../utils/adaptiveMessage"
 
 export interface MissedReviewItem {
     prompt: string
@@ -24,12 +25,6 @@ interface DrillDoneScreenProps {
     encouragement?: string
 }
 
-function adaptiveMessage(pct: number): string {
-    if (pct >= 90) return "Perfect!"
-    if (pct >= 75) return "Great job!"
-    if (pct >= 60) return "Good effort!"
-    return "Keep it up!"
-}
 
 export function DrillDoneScreen({ score, total, level, navTitle, ui, onRestart, missed = [], backTo = "/home", encouragement }: Readonly<DrillDoneScreenProps>) {
     const pct = Math.round((score / total) * 100)
