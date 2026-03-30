@@ -4,7 +4,7 @@
 
 ## Context
 
-Building a structured, cognitively-designed language-learning app for adults — not gamified, not streak-obsessed. Built for durable mastery. The full architectural vision is documented in `Language_Study_App_Architecture_Blueprint.md`.
+Building a structured, cognitively-designed language-learning app for adults — not gamified, not streak-obsessed. Built for durable mastery. The technical architecture is documented in `ARCHITECTURE.md`. The full product philosophy and deployment roadmap are in `Language_Study_App_Architecture_Blueprint.md`.
 
 This document tracks the current stack, types, file structure, routes, and feature plans.
 
@@ -23,8 +23,8 @@ This document tracks the current stack, types, file structure, routes, and featu
 | UI | React 18 + TypeScript | Required by user |
 | Build | Vite | Fast DX; easy alias config for local packages |
 | Routing | React Router v6 | Standard |
-| Styling | Tailwind CSS | Mobile-first responsive with zero custom CSS needed |
-| State | React Context + useState | Prototype doesn't need Redux/Zustand |
+| Styling | Tailwind CSS + shadcn/ui | Mobile-first responsive |
+| State | Zustand (stats) + localStorage (progress, SRS) | Behind adapter seam — swappable to Supabase |
 | Packages | @myorg/* via Vite path aliases | No build step for packages during dev |
 
 ---
@@ -36,6 +36,9 @@ Vite aliases point directly to `packages/*/src` so packages are compiled togethe
 | Package | Used for |
 |---|---|
 | `@myorg/auth-core` | `AuthService` — session management, auto-refresh, events |
+| `@myorg/quiz-engine` | `useDrill` hook powering all drill pages; keyboard shortcuts (1–4, Enter) |
+| `@myorg/srs` | SM-2 algorithm — `SRSCardState`, `calcNextReview`, `INITIAL_STATE` |
+| `@myorg/tts` | Web Speech API wrapper — BCP-47 language mapping, graceful no-op fallback |
 | `@myorg/storage` | `LocalStorageAdapter` — concrete storage for AuthService |
 | `@myorg/validation` | Login + register form validation |
 | `@myorg/theme-tokens` | CSS custom properties (import the generated CSS files) |
@@ -390,17 +393,20 @@ If `text.target` is undefined, always fall back to `text.native` (safe for incre
 
 ## Content Depth (Current State)
 
-See `CONTENT_RESTRUCTURE_PLAN.md` for the full per-language curriculum breakdown.
+All 5 languages have A1 and A2 fully built out. B1–C1 structure exists but content is partial. See `ARCHITECTURE.md §11` for full content status.
 
-| Language | Levels | B1 Units | B2 Units | C1 Units | Reading | Listening | Culture |
-|---|---|---|---|---|---|---|---|
-| Spanish | A1–C1 | 9 | 8 | 6 | ✅ A1+A2+B1+B2+C1 | ✅ A1+A2+B1+B2+C1 | ✅ A1 (4 ep) + A2 (3 ep) |
-| French | A1–C1 | 10 | 8 | 6 | ✅ A1(7)+A2+B1+B2+C1 | ✅ A1(7)+A2+B1+B2+C1 | ✅ A1 (4 ep) + A2 (3 ep) |
-| Italian | A1–C1 | 8 | 8 | 6 | ✅ A1+A2+B1+B2+C1 | ✅ A1+A2+B1+B2+C1 | ✅ A1 (4 ep) + A2 (3 ep) |
-| Japanese | A1–C1 | 9 | 8 | 6 | ✅ A1+A2+B1+B2+C1 | ✅ A1+A2+B1+B2+C1 | ✅ A1 (4 ep) + A2 (3 ep) |
-| Korean | A1–C1 | 8 | 8 | 6 | ✅ A1+A2+B1+B2+C1 | ✅ A1+A2+B1+B2+C1 | ✅ A1 (4 ep) + A2 (3 ep) |
+| Content type | A1 | A2 | B1+ |
+|---|---|---|---|
+| Grammar lessons | ✅ 35–42/lang | ✅ 20–25/lang | Partial |
+| Vocab items | ✅ 174–280/lang | ✅ 130–164/lang | Partial |
+| Units (path cards) | ✅ 14–16/lang | ✅ 20/lang | Partial |
+| Culture episodes | ✅ 3–4/lang | ✅ 3/lang | Pending |
+| Reading passages | ✅ 2+/lang | Pending | Pending |
+| Listening exercises | ✅ 2+/lang | Pending | Pending |
+| Placement test | ✅ | shared | shared |
+| Level test | ✅ | ✅ | ✅ |
 
-All 5 languages have full content at every CEFR level (A1 → C1). A2 grammar/vocab/units overhauled to 20 grammar lessons, 20 units, and 60+ vocab items per language. Reading and listening passages exist at all five CEFR levels (A1–C1). Culture episodes exist at A1 (4 per language) and A2 (3 per language) for all 5 languages; split into per-episode files under `culture/a1/` and `culture/a2/` subfolders. French A1 has 7 reading passages and 7 listening exercises (fullest A1 coverage).
+French A1 has the fullest reading/listening coverage (7 passages + 7 exercises).
 
 ---
 
