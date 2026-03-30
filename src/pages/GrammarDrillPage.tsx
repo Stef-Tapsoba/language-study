@@ -9,6 +9,7 @@ import { getLanguage } from "../data/languages"
 import { getGrammarForLevel } from "../data/repo"
 import { useProgress } from "../context/ProgressContext"
 import { completeDrillSession } from "../store/actions"
+import { shuffle } from "../utils/arrayUtils"
 import { NavBar } from "../components/NavBar"
 import { QuizCard } from "../components/QuizCard"
 import { DrillDoneScreen } from "../components/DrillDoneScreen"
@@ -29,10 +30,6 @@ type DrillMode = "multiple-choice" | "fill-in"
 type FillState = "idle" | "submitted-correct" | "submitted-wrong"
 type UI = ReturnType<typeof getUI>
 type DrillHandle = ReturnType<typeof useDrill>
-
-function shuffle<T>(arr: T[]): T[] {
-    return [...arr].sort(() => Math.random() - 0.5)
-}
 
 function buildQuestions(lessons: GrammarLesson[], level: string): DrillQuestion[] {
     // Tag each example with its lesson id so we can prefer same-lesson distractors

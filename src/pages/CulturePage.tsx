@@ -11,23 +11,10 @@ import { QuizCard } from "../components/QuizCard"
 import { CultureEpisode, CEFR_LEVELS } from "../types"
 import { getUI, fmt } from "../i18n"
 import { Flag } from "../components/Flag"
-
-// ---------------------------------------------------------------------------
-// Category pill config
-// ---------------------------------------------------------------------------
-const CATEGORY_META: Record<string, { emoji: string; label: string; color: string }> = {
-    food: { emoji: "🍽️", label: "Food & Drink", color: "bg-orange-100 text-orange-700" },
-    customs: { emoji: "🤝", label: "Customs", color: "bg-purple-100 text-purple-700" },
-    history: { emoji: "📜", label: "History", color: "bg-stone-100 text-stone-700" },
-    geography: { emoji: "🗺️", label: "Geography", color: "bg-teal-100 text-teal-700" },
-    arts: { emoji: "🎭", label: "Arts & Culture", color: "bg-pink-100 text-pink-700" },
-    "daily-life": { emoji: "☀️", label: "Daily Life", color: "bg-yellow-100 text-yellow-700" },
-    festivals: { emoji: "🎉", label: "Festivals", color: "bg-red-100 text-red-700" },
-    "language-note": { emoji: "✍️", label: "Language", color: "bg-indigo-100 text-indigo-700" },
-}
+import { CATEGORY_META, CATEGORY_META_FALLBACK } from "../data/cultureConfig"
 
 function CategoryPill({ category }: { category: string }) {
-    const meta = CATEGORY_META[category] ?? { emoji: "🌍", label: category, color: "bg-amber-100 text-amber-700" }
+    const meta = CATEGORY_META[category] ?? { ...CATEGORY_META_FALLBACK, label: category }
     return (
         <span className={`inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full ${meta.color}`}>
             {meta.emoji} {meta.label}
