@@ -23,6 +23,7 @@ export interface Language {
     nativeName: string
     flag: string
     script: ScriptType
+    hidden?: boolean    // when true, language is not shown in the UI (content preserved)
 }
 
 // ---------------------------------------------------------------------------
