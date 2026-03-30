@@ -19,6 +19,7 @@ import { resolvePrimary } from "../utils/localizedText"
 import { getUI, UIStrings } from "../i18n"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "../components/ui/tabs"
 import { Alert, AlertDescription } from "../components/ui/alert"
+import { Tooltip, TooltipContent, TooltipTrigger } from "../components/ui/tooltip"
 
 type DashTab = "path" | "study" | "practice" | "test" | "stats"
 
@@ -57,8 +58,11 @@ const StudyCard = memo(function StudyCard({ section, title, countDesc, done, tot
 }>) {
     const c = SECTION_CONFIG[section]
     const pct = (done !== undefined && total) ? done / total * 100 : 0
+    const ariaLabel = done !== undefined && total !== undefined
+        ? `${title} — ${done} of ${total} complete`
+        : title
     return (
-        <Link to={to} className="card-lift bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden flex flex-col">
+        <Link to={to} aria-label={ariaLabel} className="card-lift bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden flex flex-col">
             <div className={`h-1.5 ${c.gradient}`} />
             <div className="p-4 flex flex-col gap-2 flex-1">
                 <div className={`w-9 h-9 rounded-xl ${c.iconBg} flex items-center justify-center text-xl leading-none`}>
@@ -128,9 +132,14 @@ const UnitRow = memo(function UnitRow({ unit, langId, level, mastered, allUnits,
                 )}
             </div>
             {!unlocked && (
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-300 dark:text-gray-600 shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                </svg>
+                <Tooltip>
+                    <TooltipTrigger asChild>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-300 dark:text-gray-600 shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-label="Locked">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                    </TooltipTrigger>
+                    <TooltipContent>Complete the previous unit to unlock</TooltipContent>
+                </Tooltip>
             )}
         </div>
     )
@@ -188,6 +197,14 @@ export function DashboardPage() {
         [langId, mod, level]
     )
 
+    const onboardingKey = `ls:onboarded:${langId}`
+    const [showOnboarding, setShowOnboarding] = useState(() => !localStorage.getItem(onboardingKey))
+
+    function dismissOnboarding() {
+        localStorage.setItem(onboardingKey, "1")
+        setShowOnboarding(false)
+    }
+
     function switchTab(t: DashTab) {
         setTab(t)
         setSearchParams({ tab: t }, { replace: true })
@@ -236,6 +253,29 @@ export function DashboardPage() {
                     </button>
                 </div>
 
+                {/* First-visit onboarding card */}
+                {showOnboarding && (
+                    <div className="bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700 rounded-2xl p-4 mb-5 flex gap-4 items-start">
+                        <span className="text-2xl shrink-0">👋</span>
+                        <div className="flex-1 min-w-0">
+                            <p className="font-semibold text-indigo-900 dark:text-indigo-100 text-sm">Start here</p>
+                            <p className="text-xs text-indigo-700 dark:text-indigo-300 mt-0.5">
+                                Head to the <strong>Path</strong> tab for a guided tour, or jump straight into <strong>Study</strong> to browse lessons.
+                                Practice with flashcards and drills, then take a <strong>Level Test</strong> when you're ready to advance.
+                            </p>
+                        </div>
+                        <button
+                            onClick={dismissOnboarding}
+                            aria-label="Dismiss"
+                            className="text-indigo-400 hover:text-indigo-600 dark:text-indigo-500 dark:hover:text-indigo-300 shrink-0 p-1"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                )}
+
                 {/* Tab bar */}
                 <Tabs value={tab} onValueChange={v => switchTab(v as DashTab)} className="mb-6">
                     <TabsList className="w-full h-auto p-1 bg-gray-100 dark:bg-gray-700 rounded-xl">
@@ -247,7 +287,7 @@ export function DashboardPage() {
                             >
                                 {t.label}
                                 {t.badge && (
-                                    <span className="hidden sm:inline-flex text-xs font-normal rounded-full px-1.5 py-0.5 bg-indigo-100 text-indigo-600 data-[state=inactive]:bg-gray-200 data-[state=inactive]:text-gray-500">
+                                    <span className="inline-flex text-xs font-normal rounded-full px-1.5 py-0.5 bg-indigo-100 text-indigo-600 data-[state=inactive]:bg-gray-200 data-[state=inactive]:text-gray-500">
                                         {t.badge}
                                     </span>
                                 )}

@@ -6,7 +6,6 @@ import { getVocabForLevel } from "../data/repo"
 import { getCurrentLevel } from "../store/progress"
 import { getDueCards, updateCard, getNextDueDate } from "../store/srs"
 import { useStatsStore } from "../store/useStatsStore"
-import { completeDrillSession } from "../store/actions"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { SpeakButton } from "../components/SpeakButton"
@@ -37,6 +36,13 @@ function shuffle<T>(arr: T[]): T[] {
 
 type Result = "correct" | "incorrect"
 
+function adaptiveMessage(pct: number): string {
+    if (pct >= 90) return "Perfect!"
+    if (pct >= 75) return "Great job!"
+    if (pct >= 60) return "Good effort!"
+    return "Keep it up!"
+}
+
 function ResultsScreen({ correct, incorrect, pct, newCardsScheduled, reviewMode, missed, ui, onReview, onRestart }: Readonly<{
     correct: number
     incorrect: number
@@ -54,6 +60,7 @@ function ResultsScreen({ correct, incorrect, pct, newCardsScheduled, reviewMode,
             <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
                 {reviewMode ? ui.reviewComplete : ui.roundComplete}
             </h2>
+            <p className="text-sm text-gray-500 dark:text-gray-400 italic -mt-2">{adaptiveMessage(pct)}</p>
             <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5 w-full flex justify-around">
                 <div>
                     <p className="text-3xl font-bold text-green-600">{correct}</p>
@@ -160,9 +167,11 @@ function FlipCard({ item, flipped, onClick, translationMode, translationShown, u
                 {/* Front */}
                 <div className="card-face absolute inset-0 bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-600
                                 flex flex-col items-center justify-center gap-2 p-6 shadow-md">
-                    <div className="flex items-center justify-center gap-2">
-                        <p className="text-3xl font-bold text-gray-900 dark:text-gray-100 text-center">{item.word}</p>
-                        <SpeakButton text={item.word} langId={langId} />
+                    <div className="flex items-start justify-center gap-2 w-full min-w-0">
+                        <p className="text-3xl font-bold text-gray-900 dark:text-gray-100 text-center break-words flex-1 min-w-0">{item.word}</p>
+                        <div className="shrink-0 pt-1">
+                            <SpeakButton text={item.word} langId={langId} />
+                        </div>
                     </div>
                     {item.romanized && (
                         <p className="text-sm text-indigo-500">{item.romanized}</p>
@@ -356,7 +365,7 @@ export function FlashcardsPage() {
                         <div className="flex items-center gap-3 px-4 py-3">
                             <Switch id="typed-mode-caught-up" checked={typedMode} onCheckedChange={setTypedMode} className="data-[state=unchecked]:!bg-amber-300" />
                             <label htmlFor="typed-mode-caught-up" className="text-sm text-gray-700 dark:text-gray-300 cursor-pointer">
-                                Type answers (active recall)
+                                Type answers (test yourself)
                             </label>
                         </div>
                         <div className="flex items-center gap-3 px-4 py-3">
@@ -391,7 +400,7 @@ export function FlashcardsPage() {
                         <div className="flex items-center gap-3 px-4 py-3">
                             <Switch id="typed-mode" checked={typedMode} onCheckedChange={setTypedMode} className="data-[state=unchecked]:!bg-amber-300" />
                             <label htmlFor="typed-mode" className="text-sm text-gray-700 cursor-pointer">
-                                Type answers (active recall)
+                                Type answers (test yourself)
                             </label>
                         </div>
                         <div className="flex items-center gap-3 px-4 py-3">

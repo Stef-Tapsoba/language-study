@@ -74,6 +74,7 @@
 
     .dark body {
         background-color: #0c1120;
+        @apply text-gray-100;
     }
 }
 

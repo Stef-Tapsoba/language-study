@@ -38,6 +38,20 @@ export function NavBar({ title = "Language Study", level, backTo, fallbackRoute,
     const [dark, toggleDark] = useDarkMode()
     // Reactive: re-reads from the Zustand store so streak updates live during a session.
     const streak = useGlobalStreak()
+    const [menuOpen, setMenuOpen] = useState(false)
+    const menuRef = useRef<HTMLDivElement>(null)
+
+    // Close hamburger menu when clicking outside
+    useEffect(() => {
+        if (!menuOpen) return
+        function handleClick(e: MouseEvent) {
+            if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+                setMenuOpen(false)
+            }
+        }
+        document.addEventListener("mousedown", handleClick)
+        return () => document.removeEventListener("mousedown", handleClick)
+    }, [menuOpen])
 
     // Issue 22: animate streak badge when it increases
     const [streakBumped, setStreakBumped] = useState(false)
@@ -89,50 +103,99 @@ export function NavBar({ title = "Language Study", level, backTo, fallbackRoute,
                 {level && <LevelBadge level={level} />}
 
                 {streak > 0 && (
-                    <span className={`hidden sm:flex text-xs font-semibold text-orange-500 bg-orange-50 rounded-full px-2 py-0.5 shrink-0 ${streakBumped ? "animate-bounce" : ""}`}>
+                    <span className={`flex text-xs font-semibold text-orange-500 bg-orange-50 rounded-full px-2 py-0.5 shrink-0 ${streakBumped ? "animate-bounce" : ""}`}>
                         🔥 {streak}d
                     </span>
                 )}
 
-                <Tooltip>
-                    <TooltipTrigger asChild>
-                        <button
-                            onClick={toggleDark}
-                            className="p-2 text-gray-400 hover:text-gray-700 dark:text-gray-500 dark:hover:text-gray-300 shrink-0"
-                            aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
-                        >
-                            {dark ? (
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                {/* sm+: inline dark-mode + profile */}
+                <div className="hidden sm:flex items-center">
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <button
+                                onClick={toggleDark}
+                                className="p-2 text-gray-400 hover:text-gray-700 dark:text-gray-500 dark:hover:text-gray-300 shrink-0"
+                                aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
+                            >
+                                {dark ? (
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                                    </svg>
+                                ) : (
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                                    </svg>
+                                )}
+                            </button>
+                        </TooltipTrigger>
+                        <TooltipContent>{dark ? "Light mode" : "Dark mode"}</TooltipContent>
+                    </Tooltip>
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <Link
+                                to="/profile"
+                                className="p-2 text-gray-400 hover:text-gray-700 dark:text-gray-500 dark:hover:text-gray-300 shrink-0"
+                                aria-label="View profile"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                    <path strokeLinecap="round" strokeLinejoin="round"
+                                        d="M5.121 17.804A9 9 0 1118.879 6.196 9 9 0 015.12 17.804z" />
+                                    <path strokeLinecap="round" strokeLinejoin="round"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
-                            ) : (
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                                </svg>
-                            )}
-                        </button>
-                    </TooltipTrigger>
-                    <TooltipContent>{dark ? "Light mode" : "Dark mode"}</TooltipContent>
-                </Tooltip>
+                            </Link>
+                        </TooltipTrigger>
+                        <TooltipContent>View profile</TooltipContent>
+                    </Tooltip>
+                </div>
 
-                <Tooltip>
-                    <TooltipTrigger asChild>
-                        <Link
-                            to="/profile"
-                            className="p-2 text-gray-400 hover:text-gray-700 dark:text-gray-500 dark:hover:text-gray-300 shrink-0"
-                            aria-label="View profile"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                <path strokeLinecap="round" strokeLinejoin="round"
-                                    d="M5.121 17.804A9 9 0 1118.879 6.196 9 9 0 015.12 17.804z" />
-                                <path strokeLinecap="round" strokeLinejoin="round"
-                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
-                        </Link>
-                    </TooltipTrigger>
-                    <TooltipContent>View profile</TooltipContent>
-                </Tooltip>
+                {/* mobile: hamburger menu */}
+                <div className="sm:hidden relative" ref={menuRef}>
+                    <button
+                        onClick={() => setMenuOpen(v => !v)}
+                        className="p-2 text-gray-400 hover:text-gray-700 dark:text-gray-500 dark:hover:text-gray-300 shrink-0"
+                        aria-label="Open menu"
+                        aria-expanded={menuOpen}
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                    {menuOpen && (
+                        <div className="absolute right-0 top-full mt-1 w-44 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg py-1 z-20">
+                            <button
+                                onClick={() => { toggleDark(); setMenuOpen(false) }}
+                                className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+                            >
+                                {dark ? (
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                                    </svg>
+                                ) : (
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                                    </svg>
+                                )}
+                                {dark ? "Light mode" : "Dark mode"}
+                            </button>
+                            <Link
+                                to="/profile"
+                                onClick={() => setMenuOpen(false)}
+                                className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                    <path strokeLinecap="round" strokeLinejoin="round"
+                                        d="M5.121 17.804A9 9 0 1118.879 6.196 9 9 0 015.12 17.804z" />
+                                    <path strokeLinecap="round" strokeLinejoin="round"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                                Profile
+                            </Link>
+                        </div>
+                    )}
+                </div>
 
             </div>
             {breadcrumb && (

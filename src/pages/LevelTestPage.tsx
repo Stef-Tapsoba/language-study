@@ -1,5 +1,5 @@
 // pages/LevelTestPage.tsx — CEFR level-advancement test (pass threshold: 12/15)
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getLevelQuestions } from "../data/repo"
@@ -24,13 +24,31 @@ function progressDotClass(i: number, current: number): string {
 // LevelUpOverlay — full-screen celebration shown briefly on level advance
 // ---------------------------------------------------------------------------
 function LevelUpOverlay({ nextLevel, onDone }: Readonly<{ nextLevel: CEFRLevel; onDone: () => void }>) {
+    // Auto-dismiss after 4 s; user can also click Continue early
+    useEffect(() => {
+        const t = setTimeout(onDone, 4000)
+        return () => clearTimeout(t)
+    }, [onDone])
+
+    const levelNames: Record<CEFRLevel, string> = {
+        A1: "Beginner", A2: "Elementary", B1: "Intermediate",
+        B2: "Upper Intermediate", C1: "Advanced",
+    }
+
     return (
         <Dialog open onOpenChange={() => {}}>
             <DialogContent className="text-center max-w-sm">
                 <DialogHeader>
-                    <DialogTitle className="text-2xl font-bold text-indigo-700">🎉 Level Up!</DialogTitle>
-                    <DialogDescription className="text-lg text-gray-700 dark:text-gray-300">
-                        You've advanced to {nextLevel}
+                    <DialogTitle className="text-3xl font-bold text-indigo-700">🏆 Level Up!</DialogTitle>
+                    <DialogDescription asChild>
+                        <div className="flex flex-col items-center gap-2 mt-2">
+                            <p className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+                                Welcome to {nextLevel}!
+                            </p>
+                            <p className="text-sm text-gray-500 dark:text-gray-400">
+                                {levelNames[nextLevel]} — keep up the great work.
+                            </p>
+                        </div>
                     </DialogDescription>
                 </DialogHeader>
                 <button
