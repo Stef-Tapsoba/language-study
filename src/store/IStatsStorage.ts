@@ -23,6 +23,9 @@ export interface IStatsStorage {
     /** Persist any study activity that doesn't produce a quiz result. */
     recordActivity(langId: string, date: string): Promise<void>
 
+    /** Replace all stats data (used for import/restore). */
+    saveAll(data: StatsData): Promise<void>
+
     /** Wipe all stats for a language (called on language reset). */
     resetLanguage(langId: string): Promise<void>
 }

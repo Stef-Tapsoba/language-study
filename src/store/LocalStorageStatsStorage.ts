@@ -84,6 +84,10 @@ export class LocalStorageStatsStorage implements IStatsStorage {
         saveRaw({ ...data, [langId]: { ...(data[langId] ?? {}), [date]: updated } })
     }
 
+    async saveAll(data: StatsData): Promise<void> {
+        saveRaw(data)
+    }
+
     async resetLanguage(langId: string): Promise<void> {
         const data = loadRaw()
         const next = { ...data }

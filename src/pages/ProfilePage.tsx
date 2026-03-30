@@ -8,10 +8,14 @@ import { LANGUAGES } from "../data/languages"
 import { loadModule } from "../data/modules"
 import { useProgress } from "../context/ProgressContext"
 import { resetLanguageData, removeLanguageData } from "../store/actions"
+import { registry } from "../store/registry"
 import { useGlobalStreak } from "../hooks/useGlobalStreak"
 import { NavBar } from "../components/NavBar"
 import { Flag } from "../components/Flag"
 import { LEVEL_LABELS } from "../types"
+import type { UserProgress } from "../types"
+import type { StatsData } from "../store/useStatsStore"
+import type { SRSCardState } from "@myorg/srs"
 import { SECTION_CONFIG } from "../data/sectionConfig"
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "../components/ui/alert-dialog"
 import { Alert, AlertDescription } from "../components/ui/alert"
@@ -176,13 +180,13 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
 
 // ─── Export / Import ─────────────────────────────────────────────────────────
 
-function exportProgress(): void {
+async function exportProgress(): Promise<void> {
     const data = {
         exportedAt: new Date().toISOString(),
         appVersion: "2.3.0",
-        progress: JSON.parse(localStorage.getItem("ls:progress") ?? "{}"),
-        srs: JSON.parse(localStorage.getItem("ls:srs") ?? "{}"),
-        stats: JSON.parse(localStorage.getItem("ls:stats") ?? "{}"),
+        progress: registry.progress.load(),
+        srs: await registry.srs.loadAll(),
+        stats: await registry.stats.load(),
     }
     const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" })
     const url = URL.createObjectURL(blob)
@@ -264,13 +268,13 @@ async function importProgress(file: File): Promise<string | null> {
         if (!data.progress || !data.srs || !data.stats) {
             return "Invalid backup file — missing required fields."
         }
-        const currentProgress = JSON.parse(localStorage.getItem("ls:progress") ?? "{}")
-        const currentSRS      = JSON.parse(localStorage.getItem("ls:srs")      ?? "{}")
-        const currentStats    = JSON.parse(localStorage.getItem("ls:stats")    ?? "{}")
+        const currentProgress = registry.progress.load() as unknown as Record<string, unknown>
+        const currentSRS      = await registry.srs.loadAll() as unknown as Record<string, unknown>
+        const currentStats    = await registry.stats.load() as unknown as Record<string, unknown>
 
-        localStorage.setItem("ls:progress", JSON.stringify(mergeProgressData(currentProgress, data.progress)))
-        localStorage.setItem("ls:srs",      JSON.stringify(mergeSRS(currentSRS, data.srs)))
-        localStorage.setItem("ls:stats",    JSON.stringify(mergeStats(currentStats, data.stats)))
+        await registry.progress.save(mergeProgressData(currentProgress, data.progress) as unknown as UserProgress)
+        await registry.srs.saveAll(mergeSRS(currentSRS, data.srs) as unknown as Record<string, Record<string, SRSCardState>>)
+        await registry.stats.saveAll(mergeStats(currentStats, data.stats) as unknown as StatsData)
         return null
     } catch {
         return "Could not parse the file. Make sure it's a valid backup."
@@ -399,7 +403,7 @@ export function ProfilePage() {
                         </Alert>
                         {/* Export button */}
                         <button
-                            onClick={exportProgress}
+                            onClick={() => exportProgress().catch(console.error)}
                             className="w-full flex items-center justify-between px-5 py-4 text-sm
                                        text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors border-b border-gray-100 dark:border-gray-700"
                         >

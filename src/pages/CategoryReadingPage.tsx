@@ -250,7 +250,7 @@ function CategoryRead({ passage, langId, level, label, completed, theme, ui }: R
     const { markLessonComplete } = useProgress()
 
     function handleMarkRead() {
-        markLessonComplete(langId, passage.id)
+        markLessonComplete(langId, passage.id, "reading")
         setMarkedRead(true)
     }
 

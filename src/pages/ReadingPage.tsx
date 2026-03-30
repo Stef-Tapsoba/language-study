@@ -107,7 +107,7 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
     const { markLessonComplete } = useProgress()
 
     function handleMarkRead() {
-        markLessonComplete(langId, passage.id)
+        markLessonComplete(langId, passage.id, "reading")
         setMarkedRead(true)
     }
 

@@ -13,6 +13,12 @@ export interface ISRSStorage {
     /** Load all card states for a language. */
     getStates(langId: string): Record<string, SRSCardState>
 
+    /** Load all card states for all languages (used for export/backup). */
+    loadAll(): Promise<Record<string, Record<string, SRSCardState>>>
+
+    /** Replace all card states for all languages (used for import/restore). */
+    saveAll(data: Record<string, Record<string, SRSCardState>>): Promise<void>
+
     /** Persist an updated card state after a review. */
     updateCard(langId: string, vocabId: string, quality: 1 | 4): Promise<void>
 

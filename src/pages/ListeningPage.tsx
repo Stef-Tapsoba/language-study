@@ -172,7 +172,7 @@ function ExerciseListen({ exercise, langId, level, completed, onBack, ui }: Read
     const { markLessonComplete } = useProgress()
 
     function handleMarkListened() {
-        markLessonComplete(langId, exercise.id)
+        markLessonComplete(langId, exercise.id, "listening")
         setMarkedListened(true)
     }
 

@@ -7,7 +7,7 @@ import { useMemo, useEffect, useState } from "react"
 import { useParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getGrammarForLevel } from "../data/repo"
-import { getCurrentLevel } from "../store/progress"
+import { useProgress } from "../context/ProgressContext"
 import { completeDrillSession } from "../store/actions"
 import { NavBar } from "../components/NavBar"
 import { QuizCard } from "../components/QuizCard"
@@ -302,7 +302,8 @@ function MultipleChoiceMode({ langId, question, isFlipped, ui, drill, questionsL
 export function GrammarDrillPage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
-    const level = getCurrentLevel(langId)
+    const { level: getLevel } = useProgress()
+    const level = getLevel(langId)
     const ui = getUI(langId, level)
     const isFlipped = level !== "A1" && level !== "A2"
 
