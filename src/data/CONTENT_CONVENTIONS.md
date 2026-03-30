@@ -88,3 +88,35 @@ Examples: `es-g-a1-3`, `ja-v-a2-12`, `fr-c-a1-1`
 ## `language` field
 
 Content files do **not** need to set `language` on individual items. `createLanguageModule()` stamps every item with the correct `langId` at assembly time.
+
+## Minimum content density per level
+
+These are the minimum targets that each language must meet before a level is considered complete for release. Numbers are derived from the current content baseline (March 2026) across all 5 languages.
+
+| Content type | A1 min | A2 min | B1+ min | Notes |
+|---|---|---|---|---|
+| Grammar lessons | **12** | **20** | **15** | A1 is foundational; A2 expands key patterns |
+| Vocab items | **150** | **120** | **80** | A1 core vocabulary is the largest investment |
+| Verbs | **6** | **6** | **4** | With full conjugation tables |
+| Units (path cards) | **8** | **8** | **6** | Each unit groups 1–3 grammar + vocab sets |
+| Culture episodes | **3** | **3** | **2** | Split across thematic categories |
+| Reading passages | **2** | **3** | **3** | — |
+| Listening exercises | **2** | **3** | **3** | — |
+| Placement questions | **10** (2/level × 5 levels) | shared | shared | One placement bank covers all levels |
+| Level-test questions | **15** per level | same | same | Pass threshold: 12/15 |
+
+### Current baseline (observed counts, 2026-03-30)
+
+| Language | A1 grammar | A2 grammar | A1 vocab | A2 vocab | Total verbs |
+|---|---|---|---|---|---|
+| Spanish | 35 | 22 | 279 | 130 | 51 |
+| French | 39 | 25 | 280 | 144 | 59 |
+| Italian | 35 | 20 | 226 | 132 | 49 |
+| Japanese | 42 | 20 | 177 | 164 | 61 |
+| Korean | 40 | 20 | 174 | 164 | 38 |
+
+All languages meet or exceed the minimums above. When adding new content, maintain at least these counts before bumping the minor version.
+
+### Density rule of thumb
+
+A single grammar lesson should have **5 examples** and **3 inline vocab items** at minimum. A vocab item must have `word`, `translation`, and `example`. Verbs must have at least **2 tenses** with full conjugation tables.

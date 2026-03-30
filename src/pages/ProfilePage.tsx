@@ -183,7 +183,7 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
 async function exportProgress(): Promise<void> {
     const data = {
         exportedAt: new Date().toISOString(),
-        appVersion: "2.3.0",
+        appVersion: __APP_VERSION__,
         progress: registry.progress.load(),
         srs: await registry.srs.loadAll(),
         stats: await registry.stats.load(),
