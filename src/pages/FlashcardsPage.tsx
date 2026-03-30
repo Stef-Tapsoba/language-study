@@ -432,6 +432,8 @@ export function FlashcardsPage() {
         setResults(newResults)
         setFlipped(false)
         setTranslationShown(false)
+        setTypedAnswer("")
+        setTypedResult(null)
         setTransitioning(true)
         setTimeout(() => {
             setTransitioning(false)

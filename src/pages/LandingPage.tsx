@@ -20,7 +20,7 @@ const HOW_IT_WORKS = [
         step: "3",
         icon: "🎯",
         title: "Test yourself to advance",
-        body: "When you feel ready, take the level test. Pass 80% and unlock the next level. No time pressure, no streaks to maintain.",
+        body: "When you feel ready, take the level test. Pass 80% and unlock the next level. No time pressure — come back whenever you're ready.",
     },
 ]
 
@@ -74,7 +74,7 @@ export function LandingPage() {
                 </h1>
                 <p className="text-lg text-gray-500 dark:text-gray-400 mb-8 max-w-xl mx-auto">
                     Grammar, vocabulary, and practice — structured by CEFR level, at your own pace.
-                    No streaks, no pressure.
+                    No time pressure, learn at your own pace.
                 </p>
                 <Link to="/register"
                     className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
