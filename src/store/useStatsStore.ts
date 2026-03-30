@@ -1,6 +1,14 @@
-// store/useStatsStore.ts — Zustand v5 stats store with localStorage persistence
+// store/useStatsStore.ts — Zustand v5 store for in-memory study stats.
+//
+// Persistence is handled by IStatsStorage (via registry) rather than Zustand's
+// persist middleware. This decouples the reactive in-memory state from the
+// storage backend, making it trivial to swap localStorage for Supabase at Stage 2.
+//
+// Hydration: call useStatsStore.getState().hydrate() once after the user session
+// is established (done inside ProgressContext.initUserSession).
+
 import { create } from "zustand"
-import { persist, createJSONStorage, type StateStorage } from "zustand/middleware"
+import { registry } from "./registry"
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -16,47 +24,16 @@ export type StatsData = Record<string, Record<string, DayStats>>
 
 // ─── Internal helpers ─────────────────────────────────────────────────────────
 
-function todayStr(): string { return new Date().toISOString().slice(0, 10) }
-
-const HISTORY_DAYS = 360
-
-/** Remove stat entries older than HISTORY_DAYS to prevent unbounded localStorage growth. */
-function pruneData(data: StatsData): StatsData {
-    const cutoff = new Date()
-    cutoff.setDate(cutoff.getDate() - HISTORY_DAYS)
-    const cutoffStr = cutoff.toISOString().slice(0, 10)
-    const pruned: StatsData = {}
-    for (const [lang, days] of Object.entries(data)) {
-        const kept: Record<string, DayStats> = {}
-        for (const [day, stats] of Object.entries(days)) {
-            if (day >= cutoffStr) kept[day] = stats
-        }
-        if (Object.keys(kept).length > 0) pruned[lang] = kept
-    }
-    return pruned
-}
-
-/** Wraps localStorage with a debounced setItem to avoid a write on every keystroke/flip */
-function debouncedLocalStorage(delayMs = 500): StateStorage {
-    const timers = new Map<string, ReturnType<typeof setTimeout>>()
-    return {
-        getItem:    (name) => localStorage.getItem(name),
-        removeItem: (name) => localStorage.removeItem(name),
-        setItem(name, value) {
-            const t = timers.get(name)
-            if (t !== undefined) clearTimeout(t)
-            timers.set(name, setTimeout(() => {
-                localStorage.setItem(name, value)
-                timers.delete(name)
-            }, delayMs))
-        },
-    }
-}
+export function todayStr(): string { return new Date().toISOString().slice(0, 10) }
 
 // ─── Store shape ─────────────────────────────────────────────────────────────
 
 interface StatsState {
     data: StatsData
+    hydrated: boolean
+
+    /** Load stats from storage into the in-memory state. Call once on login. */
+    hydrate(): Promise<void>
 
     /** Record one flashcard result for a language */
     recordReview: (langId: string, correct: boolean) => void
@@ -69,89 +46,91 @@ interface StatsState {
 
     /** Clear per-language history (called on language reset) */
     resetStats: (langId: string) => void
+
+    /** Wipe all stats for every language (called on user change) */
+    resetAllStats: () => void
 }
 
 // ─── Store ────────────────────────────────────────────────────────────────────
 
-export const useStatsStore = create<StatsState>()(
-    persist(
-        (set) => ({
-            data: {},
+export const useStatsStore = create<StatsState>()((set, get) => ({
+    data: {},
+    hydrated: false,
 
-            recordReview(langId, correct) {
-                set(({ data }) => {
-                    const d = todayStr()
-                    const lang = data[langId] ?? {}
-                    const e = lang[d]
-                    return { data: { ...data, [langId]: { ...lang, [d]: {
-                        reviewed: (e?.reviewed ?? 0) + 1,
-                        correct:  (e?.correct  ?? 0) + (correct ? 1 : 0),
-                        acts:     (e?.acts     ?? 0) + 1,
-                        qTotal:   (e?.qTotal   ?? 0) + 1,
-                        qCorrect: (e?.qCorrect ?? 0) + (correct ? 1 : 0),
-                    } } } }
-                })
-            },
+    async hydrate() {
+        const data = await registry.stats.load()
+        set({ data, hydrated: true })
+    },
 
-            recordQuizAnswer(langId, correct) {
-                set(({ data }) => {
-                    const d = todayStr()
-                    const lang = data[langId] ?? {}
-                    const e = lang[d]
-                    return { data: { ...data, [langId]: { ...lang, [d]: {
-                        reviewed: e?.reviewed ?? 0,
-                        correct:  e?.correct  ?? 0,
-                        acts:     (e?.acts     ?? 0) + 1,
-                        qTotal:   (e?.qTotal   ?? 0) + 1,
-                        qCorrect: (e?.qCorrect ?? 0) + (correct ? 1 : 0),
-                    } } } }
-                })
-            },
+    recordReview(langId, correct) {
+        const date = todayStr()
+        set(({ data }) => {
+            const lang = data[langId] ?? {}
+            const e = lang[date]
+            return { data: { ...data, [langId]: { ...lang, [date]: {
+                reviewed: (e?.reviewed ?? 0) + 1,
+                correct:  (e?.correct  ?? 0) + (correct ? 1 : 0),
+                acts:     (e?.acts     ?? 0) + 1,
+                qTotal:   (e?.qTotal   ?? 0) + 1,
+                qCorrect: (e?.qCorrect ?? 0) + (correct ? 1 : 0),
+            } } } }
+        })
+        registry.stats.recordReview(langId, date, correct).catch(console.error)
+    },
 
-            recordActivity(langId) {
-                set(({ data }) => {
-                    const d = todayStr()
-                    const lang = data[langId] ?? {}
-                    const e = lang[d]
-                    return { data: { ...data, [langId]: { ...lang, [d]: {
-                        reviewed: e?.reviewed ?? 0,
-                        correct:  e?.correct  ?? 0,
-                        acts:     (e?.acts ?? 0) + 1,
-                        qTotal:   e?.qTotal   ?? 0,
-                        qCorrect: e?.qCorrect ?? 0,
-                    } } } }
-                })
-            },
+    recordQuizAnswer(langId, correct) {
+        const date = todayStr()
+        set(({ data }) => {
+            const lang = data[langId] ?? {}
+            const e = lang[date]
+            return { data: { ...data, [langId]: { ...lang, [date]: {
+                reviewed: e?.reviewed ?? 0,
+                correct:  e?.correct  ?? 0,
+                acts:     (e?.acts     ?? 0) + 1,
+                qTotal:   (e?.qTotal   ?? 0) + 1,
+                qCorrect: (e?.qCorrect ?? 0) + (correct ? 1 : 0),
+            } } } }
+        })
+        registry.stats.recordQuizAnswer(langId, date, correct).catch(console.error)
+    },
 
-            resetStats(langId) {
-                set(({ data }) => {
-                    const next = { ...data }
-                    delete next[langId]
-                    return { data: next }
-                })
-            },
-        }),
-        {
-            name: "ls:stats",
-            storage: createJSONStorage(() => debouncedLocalStorage(500)),
-            version: 2,
-            // Strip actions — only persist { data: StatsData }
-            partialize: (state) => ({ data: state.data }),
-            // v0 → v1: handle data stored before Zustand (raw StatsData, no { data: } wrapper)
-            // v1 → v2: prune history to HISTORY_DAYS (360) to cap localStorage growth
-            migrate(persistedState: unknown, version: number) {
-                let data: StatsData
-                if (version === 0) {
-                    const s = persistedState as Record<string, unknown>
-                    data = ("data" in s ? s.data : s) as StatsData
-                } else {
-                    data = (persistedState as { data: StatsData }).data ?? {}
-                }
-                return { data: pruneData(data) }
-            },
-        }
-    )
-)
+    recordActivity(langId) {
+        const date = todayStr()
+        set(({ data }) => {
+            const lang = data[langId] ?? {}
+            const e = lang[date]
+            return { data: { ...data, [langId]: { ...lang, [date]: {
+                reviewed: e?.reviewed ?? 0,
+                correct:  e?.correct  ?? 0,
+                acts:     (e?.acts ?? 0) + 1,
+                qTotal:   e?.qTotal   ?? 0,
+                qCorrect: e?.qCorrect ?? 0,
+            } } } }
+        })
+        registry.stats.recordActivity(langId, date).catch(console.error)
+    },
+
+    resetStats(langId) {
+        set(({ data }) => {
+            const next = { ...data }
+            delete next[langId]
+            return { data: next }
+        })
+        registry.stats.resetLanguage(langId).catch(console.error)
+    },
+
+    resetAllStats() {
+        set({ data: {} })
+        // Persist: wipe each language entry by saving an empty object.
+        // LocalStorageStatsStorage.load() will return {} on next hydrate.
+        registry.stats.load().then(current => {
+            const wipes = Object.keys(current).map(lang =>
+                registry.stats.resetLanguage(lang)
+            )
+            return Promise.all(wipes)
+        }).catch(console.error)
+    },
+}))
 
 // ─── Plain computation functions (take data as first param — NOT hooks) ───────
 

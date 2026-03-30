@@ -6,6 +6,7 @@ import { getModule } from "../data/modules"
 import { isUnitUnlocked } from "../store/progress"
 import { useProgress } from "../context/ProgressContext"
 import { useStatsStore } from "../store/useStatsStore"
+import { confirmUnitMastery } from "../store/actions"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { QuizCard } from "../components/QuizCard"
@@ -351,8 +352,11 @@ function TestOutTab({ unit, langId, isMastered, nextUnit, isLastUnit, ui, cultur
         setMissed([]); setDidComplete(false); setPhase("start")
     }
 
-    const { masterUnit } = useProgress()
-    function handleComplete() { masterUnit(langId, unit.id); useStatsStore.getState().recordActivity(langId); onMastered(); setDidComplete(true) }
+    function handleComplete() {
+        confirmUnitMastery(langId, unit.id).catch(console.error)
+        onMastered()
+        setDidComplete(true)
+    }
 
     if (!questions.length) {
         return (

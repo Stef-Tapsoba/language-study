@@ -330,7 +330,7 @@ export function GrammarDrillPage() {
         drill.handleSelect(isCorrect ? current.correct : fillInput)
     }
 
-    useEffect(() => { if (drill.done) completeDrillSession(langId) }, [drill.done, langId])
+    useEffect(() => { if (drill.done) completeDrillSession(langId, "grammar").catch(console.error) }, [drill.done, langId])
 
     if (!language) return null
 

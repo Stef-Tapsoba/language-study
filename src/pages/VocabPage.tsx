@@ -60,7 +60,7 @@ function VocabCard({
                     </div>
                     {!done && (
                         <button
-                            onClick={() => { completeLessonItem(langId, item.id); onComplete() }}
+                            onClick={() => { completeLessonItem(langId, item.id, "vocab").catch(console.error); onComplete() }}
                             className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold
                                        rounded-xl py-2 text-sm transition-colors"
                         >

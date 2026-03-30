@@ -25,7 +25,7 @@ export function loadProgress(): UserProgress {
     return _cache as UserProgress
 }
 
-function save(p: UserProgress): void {
+export function save(p: UserProgress): void {
     _cache = p
     localStorage.setItem(KEY, JSON.stringify(p))
 }

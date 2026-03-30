@@ -1,14 +1,15 @@
 // store/LocalStorageProgressStorage.ts — localStorage implementation of IProgressStorage.
 //
-// This is a thin wrapper around the existing progress.ts functions.
-// It satisfies the IProgressStorage interface so ProgressContext can
-// inject it — and swap it for a SupabaseProgressStorage at Stage 2
-// without any page code changing.
+// Delegates to the synchronous progress.ts functions which maintain a
+// write-through cache. Each write method returns Promise.resolve() immediately
+// after the synchronous localStorage write — Stage 2 callers can await without
+// any observable delay in Stage 1.
 
 import { CEFRLevel, UserProgress } from "../types"
-import { IProgressStorage } from "./IProgressStorage"
+import { IProgressStorage, ContentType } from "./IProgressStorage"
 import {
     loadProgress,
+    save as storeSave,
     markLessonComplete as storeMark,
     masterUnit as storeMaster,
     setCurrentLevel,
@@ -21,32 +22,30 @@ export class LocalStorageProgressStorage implements IProgressStorage {
         return loadProgress()
     }
 
-    save(_progress: UserProgress): void {
-        // progress.ts manages its own write-through cache; direct save
-        // is handled internally. This method exists for interface compliance
-        // and will be meaningful in the Supabase implementation.
+    async save(progress: UserProgress): Promise<void> {
+        storeSave(progress)
     }
 
-    markLessonComplete(langId: string, lessonId: string): void {
+    // contentType is forwarded for interface compliance but ignored locally —
+    // Stage 1 stores everything in the flat completedLessons array.
+    // Stage 2 (SupabaseProgressStorage) will route to the appropriate table.
+    async markLessonComplete(langId: string, lessonId: string, _contentType: ContentType): Promise<void> {
         storeMark(langId, lessonId)
     }
 
-    masterUnit(langId: string, unitId: string): void {
+    async masterUnit(langId: string, unitId: string): Promise<void> {
         storeMaster(langId, unitId)
     }
 
-    setLevel(langId: string, level: CEFRLevel): void {
+    async setLevel(langId: string, level: CEFRLevel): Promise<void> {
         setCurrentLevel(langId, level)
     }
 
-    resetLanguage(langId: string): void {
+    async resetLanguage(langId: string): Promise<void> {
         resetLanguageProgress(langId)
     }
 
-    removeLanguage(langId: string): void {
+    async removeLanguage(langId: string): Promise<void> {
         storeRemove(langId)
     }
 }
-
-/** Singleton instance — import this instead of constructing a new one. */
-export const localProgressStorage = new LocalStorageProgressStorage()
