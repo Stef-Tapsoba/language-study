@@ -41,7 +41,7 @@ export function GrammarLessonPage() {
 
     function handleMarkComplete() {
         if (!lesson) return
-        completeLessonItem(langId, lesson.id)
+        completeLessonItem(langId, lesson.id, "grammar").catch(console.error)
     }
 
     return (

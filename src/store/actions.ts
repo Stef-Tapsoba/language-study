@@ -1,38 +1,54 @@
 // store/actions.ts — Compound progress actions.
 //
-// Each function co-locates all state mutations that logically belong together,
-// so call sites stay clean and Stage 2 (Supabase sync) has a single place to add
-// remote writes — inside these actions, not scattered across page components.
+// Each async function co-locates all state mutations that logically belong
+// together, so call sites stay clean and Stage 2 (Supabase sync) has a single
+// place to add remote writes — inside these actions, not scattered across pages.
 //
-// Usage: import named actions instead of calling store functions directly in pages.
+// All functions are async so that Stage 2 Supabase writes compose naturally.
+// LocalStorage writes inside the storage adapters are synchronous, so Stage 1
+// callers see no observable delay.
+//
+// Usage: import named actions instead of calling store functions directly.
 //   Before: masterUnit(langId, unitId); useStatsStore.getState().recordActivity(langId)
-//   After:  completeUnit(langId, unitId)
+//   After:  await completeUnit(langId, unitId, score, total)
 
-import { masterUnit, markLessonComplete } from "./progress"
+import { registry } from "./registry"
 import { useStatsStore } from "./useStatsStore"
+import type { ContentType } from "./IProgressStorage"
 
 // ---------------------------------------------------------------------------
-// Unit completion — called when a learner passes a unit's test-out quiz
+// Unit completion
 // ---------------------------------------------------------------------------
 
 /**
- * Mark a unit as mastered and record the activity + quiz result in stats.
- * Call this instead of calling masterUnit + recordActivity separately.
+ * Mark a unit as mastered and record quiz results + activity in stats.
+ * Use this when quiz answers have NOT already been recorded per-question
+ * (i.e. you have the final score and want to batch-record everything at once).
  */
-export function completeUnit(
+export async function completeUnit(
     langId: string,
     unitId: string,
     quizScore: number,
     quizTotal: number
-): void {
-    masterUnit(langId, unitId)
+): Promise<void> {
+    await registry.progress.masterUnit(langId, unitId)
     const stats = useStatsStore.getState()
-    // Record each question result individually so accuracy tracks correctly
     for (let i = 0; i < quizTotal; i++) {
         stats.recordQuizAnswer(langId, i < quizScore)
     }
     stats.recordActivity(langId)
-    // Stage 2: await supabase.from("mastered_units").upsert({ user_id, lang_id, unit_id, score, completed_at })
+    // Stage 2: await supabase.from("mastered_units").upsert({ user_id, lang_id, unit_id, completed_at })
+}
+
+/**
+ * Mark a unit as mastered and record activity only.
+ * Use this when quiz answers have ALREADY been recorded per-question
+ * (e.g. UnitPage, which calls recordQuizAnswer on each handleNext).
+ */
+export async function confirmUnitMastery(langId: string, unitId: string): Promise<void> {
+    await registry.progress.masterUnit(langId, unitId)
+    useStatsStore.getState().recordActivity(langId)
+    // Stage 2: await supabase.from("mastered_units").upsert({ user_id, lang_id, unit_id, completed_at })
 }
 
 // ---------------------------------------------------------------------------
@@ -40,27 +56,34 @@ export function completeUnit(
 // ---------------------------------------------------------------------------
 
 /**
- * Mark a single lesson item (grammar lesson, vocab card, etc.) as complete.
- * Call this instead of calling markLessonComplete directly when a stats
- * side-effect is also needed.
+ * Mark a single lesson item as complete with its content type.
+ * The contentType is used by Stage 2 to route to the correct table.
  */
-export function completeLessonItem(langId: string, lessonId: string): void {
-    markLessonComplete(langId, lessonId)
-    // Activity is not recorded per-item — only on drill/session completion.
-    // Stage 2: await supabase.from("completed_lessons").upsert({ user_id, lang_id, lesson_id, completed_at })
+export async function completeLessonItem(
+    langId: string,
+    lessonId: string,
+    contentType: ContentType
+): Promise<void> {
+    await registry.progress.markLessonComplete(langId, lessonId, contentType)
+    // Stage 2: routed by contentType to the appropriate table
 }
 
 // ---------------------------------------------------------------------------
 // Drill session completion — grammar drill, verb drill, flashcard session
 // ---------------------------------------------------------------------------
 
+export type DrillSessionType = "grammar" | "verb" | "flashcard"
+
 /**
- * Record the completion of any drill session (grammar, verb, or flashcard).
- * Call this at the end of a drill instead of calling recordActivity directly.
+ * Record the completion of a drill session (grammar, verb, or flashcard).
+ * Call this at the end of a drill to record activity in stats.
  */
-export function completeDrillSession(langId: string): void {
+export async function completeDrillSession(
+    langId: string,
+    _sessionType: DrillSessionType
+): Promise<void> {
     useStatsStore.getState().recordActivity(langId)
-    // Stage 2: await supabase.from("drill_sessions").insert({ user_id, lang_id, session_type, completed_at })
+    // Stage 2: await supabase.from("drill_sessions").insert({ user_id, lang_id, session_type: _sessionType, completed_at })
 }
 
 // ---------------------------------------------------------------------------
@@ -68,15 +91,15 @@ export function completeDrillSession(langId: string): void {
 // ---------------------------------------------------------------------------
 
 /**
- * Mark a reading passage as read and record activity + quiz answers in stats.
+ * Mark a reading passage as read and record quiz answers + activity in stats.
  * @param quizAnswers — array of booleans (true = correct) for each question answered
  */
-export function completeReadingPassage(
+export async function completeReadingPassage(
     langId: string,
     passageId: string,
     quizAnswers: boolean[]
-): void {
-    markLessonComplete(langId, passageId)
+): Promise<void> {
+    await registry.progress.markLessonComplete(langId, passageId, "reading")
     const stats = useStatsStore.getState()
     quizAnswers.forEach(correct => stats.recordQuizAnswer(langId, correct))
     stats.recordActivity(langId)
@@ -88,14 +111,14 @@ export function completeReadingPassage(
 // ---------------------------------------------------------------------------
 
 /**
- * Mark a listening exercise as complete and record activity + quiz answers.
+ * Mark a listening exercise as complete and record quiz answers + activity.
  */
-export function completeListeningExercise(
+export async function completeListeningExercise(
     langId: string,
     exerciseId: string,
     quizAnswers: boolean[]
-): void {
-    markLessonComplete(langId, exerciseId)
+): Promise<void> {
+    await registry.progress.markLessonComplete(langId, exerciseId, "listening")
     const stats = useStatsStore.getState()
     quizAnswers.forEach(correct => stats.recordQuizAnswer(langId, correct))
     stats.recordActivity(langId)
@@ -109,8 +132,42 @@ export function completeListeningExercise(
 /**
  * Mark a culture episode as read and record activity in stats.
  */
-export function completeCultureEpisode(langId: string, episodeId: string): void {
-    markLessonComplete(langId, episodeId)
+export async function completeCultureEpisode(
+    langId: string,
+    episodeId: string
+): Promise<void> {
+    await registry.progress.markLessonComplete(langId, episodeId, "culture")
     useStatsStore.getState().recordActivity(langId)
     // Stage 2: await supabase.from("culture_completions").upsert({ user_id, lang_id, episode_id, completed_at })
+}
+
+// ---------------------------------------------------------------------------
+// Language data reset — progress + SRS + stats
+// ---------------------------------------------------------------------------
+
+/**
+ * Reset all data for a language: CEFR progress, SRS card states, and study stats.
+ * Call this instead of calling resetLanguage + resetSRS + resetStats separately.
+ */
+export async function resetLanguageData(langId: string): Promise<void> {
+    await registry.progress.resetLanguage(langId)
+    await registry.srs.resetLanguage(langId)
+    await registry.stats.resetLanguage(langId)
+    useStatsStore.getState().resetStats(langId)
+    // Stage 2: cascade deletes or soft-resets on all per-language tables
+}
+
+// ---------------------------------------------------------------------------
+// Language removal — complete removal of a language from the learner's profile
+// ---------------------------------------------------------------------------
+
+/**
+ * Remove a language entirely. Clears level, progress, SRS, and stats.
+ */
+export async function removeLanguageData(langId: string): Promise<void> {
+    await registry.progress.removeLanguage(langId)
+    await registry.srs.resetLanguage(langId)
+    await registry.stats.resetLanguage(langId)
+    useStatsStore.getState().resetStats(langId)
+    // Stage 2: delete rows in all per-language tables for this user
 }

@@ -7,8 +7,7 @@ import { useProgressStats, computeProgressStats } from "../hooks/useProgressStat
 import { LANGUAGES } from "../data/languages"
 import { loadModule } from "../data/modules"
 import { useProgress } from "../context/ProgressContext"
-import { resetSRS } from "../store/srs"
-import { useStatsStore } from "../store/useStatsStore"
+import { resetLanguageData, removeLanguageData } from "../store/actions"
 import { useGlobalStreak } from "../hooks/useGlobalStreak"
 import { NavBar } from "../components/NavBar"
 import { Flag } from "../components/Flag"
@@ -22,23 +21,19 @@ import { Alert, AlertDescription } from "../components/ui/alert"
 function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: () => void }>) {
     const [manageOpen, setManageOpen] = useState(false)
     const lang = LANGUAGES.find(l => l.id === langId)
-    const { level: getLevel, resetLanguage, removeLanguage } = useProgress()
+    const { level: getLevel } = useProgress()
     const level = getLevel(langId)
     const { grammar, vocab, verbs, reading, listening, overallPct } = useProgressStats(langId, level)
     if (!lang) return null
 
     function handleReset() {
-        resetLanguage(langId)
-        resetSRS(langId)
-        useStatsStore.getState().resetStats(langId)
+        resetLanguageData(langId).catch(console.error)
         setManageOpen(false)
         onChanged()
     }
 
     function handleRemove() {
-        removeLanguage(langId)
-        resetSRS(langId)
-        useStatsStore.getState().resetStats(langId)
+        removeLanguageData(langId).catch(console.error)
         onChanged()
     }
 

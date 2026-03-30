@@ -1,17 +1,19 @@
 // context/ProgressContext.tsx
-// Central React state for all user progress. Wraps store/progress.ts so that
-// when we migrate to Supabase (Stage 2), only this file changes.
+// Central React state for all user progress. Mutations route through
+// registry.progress so that swapping to Supabase at Stage 2 only requires
+// registering new adapters — no page code changes.
+//
+// Optimistic update pattern: local cache is written synchronously (so the UI
+// updates immediately), then the async storage write fires in the background.
+// In Stage 1, LocalStorageProgressStorage resolves synchronously anyway.
 import { createContext, useContext, useState, useCallback, useMemo, ReactNode } from "react"
 import {
     loadProgress,
     initUserSession as storeInitUserSession,
     setSelectedLanguage as storeSetSelectedLanguage,
-    setCurrentLevel as storeSetCurrentLevel,
-    markLessonComplete as storeMarkLessonComplete,
-    masterUnit as storeMasterUnit,
-    resetLanguageProgress as storeResetLanguageProgress,
-    removeLanguage as storeRemoveLanguage,
 } from "../store/progress"
+import { registry } from "../store/registry"
+import { useStatsStore } from "../store/useStatsStore"
 import { CEFRLevel, UserProgress } from "../types"
 
 interface ProgressContextValue {
@@ -24,7 +26,7 @@ interface ProgressContextValue {
     startedLanguages: string[]
     selectedLanguage: string | null
 
-    // Mutations — each writes to localStorage then refreshes React state
+    // Mutations — each writes to storage then refreshes React state
     initUserSession: (userId: string) => void
     setSelectedLanguage: (langId: string) => void
     setCurrentLevel: (langId: string, level: CEFRLevel) => void
@@ -36,13 +38,22 @@ interface ProgressContextValue {
 
 const ProgressContext = createContext<ProgressContextValue | null>(null)
 
-export function ProgressProvider({ children }: { children: ReactNode }) {
+export function ProgressProvider({ children }: Readonly<{ children: ReactNode }>) {
     const [progress, setProgress] = useState<UserProgress>(() => loadProgress())
 
     const refresh = useCallback(() => setProgress(loadProgress()), [])
 
+    // initUserSession resets progress when the userId changes (e.g. different
+    // user on a shared device) and also clears SRS + stats for the old user,
+    // then hydrates the stats store from storage for the new user.
     const initUserSession = useCallback((userId: string) => {
+        const prev = loadProgress()
         storeInitUserSession(userId)
+        if (prev.userId !== userId) {
+            registry.srs.resetAll().catch(console.error)
+            useStatsStore.getState().resetAllStats()
+        }
+        useStatsStore.getState().hydrate().catch(console.error)
         refresh()
     }, [refresh])
 
@@ -52,28 +63,26 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     }, [refresh])
 
     const setCurrentLevel = useCallback((langId: string, level: CEFRLevel) => {
-        storeSetCurrentLevel(langId, level)
-        refresh()
+        registry.progress.setLevel(langId, level).then(refresh).catch(console.error)
     }, [refresh])
 
     const markLessonComplete = useCallback((langId: string, lessonId: string) => {
-        storeMarkLessonComplete(langId, lessonId)
-        refresh()
+        // contentType not available at this level — callers that know the type
+        // should use completeLessonItem() from actions.ts directly.
+        registry.progress.markLessonComplete(langId, lessonId, "grammar")
+            .then(refresh).catch(console.error)
     }, [refresh])
 
     const masterUnit = useCallback((langId: string, unitId: string) => {
-        storeMasterUnit(langId, unitId)
-        refresh()
+        registry.progress.masterUnit(langId, unitId).then(refresh).catch(console.error)
     }, [refresh])
 
     const resetLanguage = useCallback((langId: string) => {
-        storeResetLanguageProgress(langId)
-        refresh()
+        registry.progress.resetLanguage(langId).then(refresh).catch(console.error)
     }, [refresh])
 
     const removeLanguage = useCallback((langId: string) => {
-        storeRemoveLanguage(langId)
-        refresh()
+        registry.progress.removeLanguage(langId).then(refresh).catch(console.error)
     }, [refresh])
 
     const level = useCallback(

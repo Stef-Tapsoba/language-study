@@ -76,7 +76,7 @@ export function VerbDrillPage() {
 
     const drill = useDrill(questions)
 
-    useEffect(() => { if (drill.done) completeDrillSession(langId) }, [drill.done, langId])
+    useEffect(() => { if (drill.done) completeDrillSession(langId, "verb").catch(console.error) }, [drill.done, langId])
 
     if (!language) return null
 
