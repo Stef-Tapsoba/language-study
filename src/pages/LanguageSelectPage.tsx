@@ -1,6 +1,6 @@
 // pages/LanguageSelectPage.tsx — Language selection screen for new users
 import { useNavigate } from "react-router-dom"
-import { LANGUAGES } from "../data/languages"
+import { VISIBLE_LANGUAGES } from "../data/languages"
 import { useProgress } from "../context/ProgressContext"
 import { loadModule } from "../data/modules"
 import { NavBar } from "../components/NavBar"
@@ -37,7 +37,7 @@ export function LanguageSelectPage() {
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {LANGUAGES.map(lang => (
+                    {VISIBLE_LANGUAGES.map(lang => (
                         <button
                             key={lang.id}
                             onClick={() => pick(lang.id)}

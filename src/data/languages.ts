@@ -5,9 +5,12 @@ export const LANGUAGES: Language[] = [
     { id: "es", name: "Spanish", nativeName: "Español", flag: "🇪🇸", script: "latin" },
     { id: "fr", name: "French", nativeName: "Français", flag: "🇫🇷", script: "latin" },
     { id: "it", name: "Italian", nativeName: "Italiano", flag: "🇮🇹", script: "latin" },
-    { id: "ja", name: "Japanese", nativeName: "日本語", flag: "🇯🇵", script: "hiragana-kanji" },
+    { id: "ja", name: "Japanese", nativeName: "日本語", flag: "🇯🇵", script: "hiragana-kanji", hidden: true },
     { id: "ko", name: "Korean", nativeName: "한국어", flag: "🇰🇷", script: "hangul" }
 ]
+
+/** Languages available for selection in the UI. Hidden languages are excluded. */
+export const VISIBLE_LANGUAGES = LANGUAGES.filter(l => !l.hidden)
 
 export function getLanguage(id: string): Language | undefined {
     return LANGUAGES.find(l => l.id === id)

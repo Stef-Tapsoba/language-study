@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { useAuth } from "../auth/AuthContext"
 import { useCurrentUser } from "../hooks/useCurrentUser"
 import { useProgressStats } from "../hooks/useProgressStats"
-import { LANGUAGES } from "../data/languages"
+import { LANGUAGES, VISIBLE_LANGUAGES } from "../data/languages"
 import { getModule, loadModule } from "../data/modules"
 import { useProgress } from "../context/ProgressContext"
 import { useStatsStore, getGlobalStreak, getTotalReviews } from "../store/useStatsStore"
@@ -34,7 +34,7 @@ function NewUserWelcome({ displayName, onPick }: Readonly<{
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {LANGUAGES.map(lang => (
+                    {VISIBLE_LANGUAGES.map(lang => (
                         <button
                             key={lang.id}
                             onClick={() => onPick(lang.id)}
