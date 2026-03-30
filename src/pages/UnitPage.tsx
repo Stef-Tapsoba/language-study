@@ -95,15 +95,19 @@ function VocabRow({ item, done, langId, ui, onComplete }: Readonly<{
                 <AccordionTrigger className="py-3 hover:no-underline">
                     <div className="flex items-center gap-3 w-full pr-2">
                         <span className={`text-base ${done ? "text-green-500" : "text-gray-300 dark:text-gray-600"}`}>{done ? "✓" : "○"}</span>
-                        <div className="flex-1 min-w-0 flex items-center gap-2">
-                            <span className="font-semibold text-gray-900 dark:text-gray-100">{item.word}</span>
+                        <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-1.5">
+                                <span className="font-semibold text-gray-900 dark:text-gray-100 whitespace-nowrap">{item.word}</span>
+                                <SpeakButton text={item.word} langId={langId} />
+                            </div>
                             {item.romanized && <span className="text-xs text-indigo-500">{item.romanized}</span>}
                         </div>
-                        <SpeakButton text={item.word} langId={langId} />
-                        <span className="text-sm text-gray-500 dark:text-gray-400 shrink-0">{item.translation}</span>
-                        <span className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 rounded-full px-2 py-0.5 shrink-0">
-                            {item.category}
-                        </span>
+                        <div className="shrink-0 flex flex-col items-end gap-0.5">
+                            <span className="text-sm text-gray-500 dark:text-gray-400 text-right">{item.translation}</span>
+                            <span className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 rounded-full px-2 py-0.5">
+                                {item.category}
+                            </span>
+                        </div>
                     </div>
                 </AccordionTrigger>
                 <AccordionContent>
