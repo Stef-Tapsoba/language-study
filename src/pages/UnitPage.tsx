@@ -69,7 +69,7 @@ function GrammarAccordion({ lesson, done, langId, level, ui, onComplete, onVocab
                         </div>
                         {!done && (
                             <button
-                                onClick={() => { markLessonComplete(langId, lesson.id); onComplete() }}
+                                onClick={() => { markLessonComplete(langId, lesson.id, "grammar"); onComplete() }}
                                 className="mt-4 w-full bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl py-2 text-sm transition-colors"
                             >
                                 {ui.markComplete}
@@ -115,7 +115,7 @@ function VocabRow({ item, done, langId, ui, onComplete }: Readonly<{
                         </div>
                         {!done && (
                             <button
-                                onClick={() => { markLessonComplete(langId, item.id); onComplete() }}
+                                onClick={() => { markLessonComplete(langId, item.id, "vocab"); onComplete() }}
                                 className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl py-2 text-sm transition-colors"
                             >
                                 {ui.markLearned}

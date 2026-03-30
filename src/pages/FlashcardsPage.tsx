@@ -3,7 +3,7 @@ import { useState, useMemo, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getVocabForLevel } from "../data/repo"
-import { getCurrentLevel } from "../store/progress"
+import { useProgress } from "../context/ProgressContext"
 import { getDueCards, updateCard, getNextDueDate } from "../store/srs"
 import { useStatsStore } from "../store/useStatsStore"
 import { NavBar } from "../components/NavBar"
@@ -254,7 +254,8 @@ function FlipCard({ item, flipped, onClick, translationMode, translationShown, u
 export function FlashcardsPage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
-    const level = getCurrentLevel(langId)
+    const { level: getLevel } = useProgress()
+    const level = getLevel(langId)
     const ui = getUI(langId, level)
     const translationMode = getTranslationMode(level)
 

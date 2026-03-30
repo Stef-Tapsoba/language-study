@@ -1,9 +1,8 @@
 // pages/GrammarPage.tsx — Grammar lesson browser for the current CEFR level
-import { useState } from "react"
 import { useParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getGrammarForLevel } from "../data/repo"
-import { getCurrentLevel, getCompletedLessons } from "../store/progress"
+import { useProgress } from "../context/ProgressContext"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { GrammarLesson } from "../types"
@@ -45,9 +44,10 @@ function LessonCard({
 export function GrammarPage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
-    const level = getCurrentLevel(langId)
+    const { level: getLevel, completed: getCompleted } = useProgress()
+    const level = getLevel(langId)
+    const completed = getCompleted(langId)
     const ui = getUI(langId, level)
-    const [completed] = useState(() => getCompletedLessons(langId))
 
     if (!language) return null
 

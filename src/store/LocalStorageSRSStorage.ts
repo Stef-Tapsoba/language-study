@@ -47,7 +47,7 @@ function migrateIfNeeded(
 // ── Implementation ────────────────────────────────────────────────────────────
 
 export class LocalStorageSRSStorage implements ISRSStorage {
-    private loadAll(): Record<string, Record<string, SRSCardState>> {
+    private _load(): Record<string, Record<string, SRSCardState>> {
         try {
             const raw = localStorage.getItem(SRS_KEY)
             if (!raw) return {}
@@ -57,30 +57,38 @@ export class LocalStorageSRSStorage implements ISRSStorage {
         }
     }
 
-    private saveAll(store: Record<string, Record<string, SRSCardState>>): void {
+    private _save(store: Record<string, Record<string, SRSCardState>>): void {
         localStorage.setItem(SRS_KEY, JSON.stringify(store))
     }
 
     getStates(langId: string): Record<string, SRSCardState> {
-        return this.loadAll()[langId] ?? {}
+        return this._load()[langId] ?? {}
+    }
+
+    async loadAll(): Promise<Record<string, Record<string, SRSCardState>>> {
+        return this._load()
+    }
+
+    async saveAll(data: Record<string, Record<string, SRSCardState>>): Promise<void> {
+        this._save(data)
     }
 
     async updateCard(langId: string, vocabId: string, quality: 1 | 4): Promise<void> {
-        const store = this.loadAll()
+        const store = this._load()
         const langStates = store[langId] ?? {}
         const prev = langStates[vocabId] ?? { ...INITIAL_STATE }
         const { nextState } = calcNextReview(prev, quality as SRSQuality)
         store[langId] = { ...langStates, [vocabId]: nextState }
-        this.saveAll(store)
+        this._save(store)
     }
 
     async resetLanguage(langId: string): Promise<void> {
-        const store = this.loadAll()
+        const store = this._load()
         delete store[langId]
-        this.saveAll(store)
+        this._save(store)
     }
 
     async resetAll(): Promise<void> {
-        this.saveAll({})
+        this._save({})
     }
 }

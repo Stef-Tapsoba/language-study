@@ -3,38 +3,24 @@ import { useState, useRef, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { LANGUAGES } from "../data/languages"
 import { Flag } from "./Flag"
-import { getModule } from "../data/modules"
-import {
-    getStartedLanguages,
-    getCurrentLevel,
-    getCompletedLessons,
-    getSelectedLanguage,
-    setSelectedLanguage,
-} from "../store/progress"
-
-function overallPct(langId: string): number {
-    const mod = getModule(langId)
-    const level = getCurrentLevel(langId)
-    if (!mod) return 0
-    const items = [
-        ...mod.grammar.filter(g => g.level === level),
-        ...mod.vocab.filter(v => v.level === level),
-        ...mod.verbs.filter(v => v.level === level),
-        ...(mod.readingPassages ?? []).filter(r => r.level === level),
-        ...(mod.listeningExercises ?? []).filter(l => l.level === level),
-    ]
-    if (!items.length) return 0
-    const done = getCompletedLessons(langId)
-    return Math.round(items.filter(i => done.includes(i.id)).length / items.length * 100)
-}
+import { useProgress } from "../context/ProgressContext"
+import { computeProgressStats } from "../hooks/useProgressStats"
 
 export function LanguagePicker() {
     const navigate = useNavigate()
     const [open, setOpen] = useState(false)
     const ref = useRef<HTMLDivElement>(null)
 
-    const started = getStartedLanguages()
-    const selectedId = getSelectedLanguage() ?? started[0] ?? ""
+    const {
+        startedLanguages: started,
+        selectedLanguage,
+        level: getLevel,
+        completed: getCompleted,
+        mastered: getMastered,
+        setSelectedLanguage,
+    } = useProgress()
+
+    const selectedId = selectedLanguage ?? started[0] ?? ""
     const current = LANGUAGES.find(l => l.id === selectedId)
 
     // Close on outside click
@@ -95,8 +81,8 @@ export function LanguagePicker() {
                     <div className="flex gap-2 overflow-x-auto pb-1 pr-1">
                         {started.map(langId => {
                             const lang = LANGUAGES.find(l => l.id === langId)
-                            const level = getCurrentLevel(langId)
-                            const pct = overallPct(langId)
+                            const level = getLevel(langId)
+                            const pct = computeProgressStats(langId, level, getCompleted(langId), getMastered(langId)).overallPct
                             const active = langId === selectedId
                             if (!lang) return null
                             return (

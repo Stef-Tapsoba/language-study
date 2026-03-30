@@ -15,6 +15,7 @@ import {
 import { registry } from "../store/registry"
 import { useStatsStore } from "../store/useStatsStore"
 import { CEFRLevel, UserProgress } from "../types"
+import type { ContentType } from "../store/IProgressStorage"
 
 interface ProgressContextValue {
     progress: UserProgress
@@ -30,7 +31,7 @@ interface ProgressContextValue {
     initUserSession: (userId: string) => void
     setSelectedLanguage: (langId: string) => void
     setCurrentLevel: (langId: string, level: CEFRLevel) => void
-    markLessonComplete: (langId: string, lessonId: string) => void
+    markLessonComplete: (langId: string, lessonId: string, contentType: ContentType) => void
     masterUnit: (langId: string, unitId: string) => void
     resetLanguage: (langId: string) => void
     removeLanguage: (langId: string) => void
@@ -66,10 +67,8 @@ export function ProgressProvider({ children }: Readonly<{ children: ReactNode }>
         registry.progress.setLevel(langId, level).then(refresh).catch(console.error)
     }, [refresh])
 
-    const markLessonComplete = useCallback((langId: string, lessonId: string) => {
-        // contentType not available at this level — callers that know the type
-        // should use completeLessonItem() from actions.ts directly.
-        registry.progress.markLessonComplete(langId, lessonId, "grammar")
+    const markLessonComplete = useCallback((langId: string, lessonId: string, contentType: ContentType) => {
+        registry.progress.markLessonComplete(langId, lessonId, contentType)
             .then(refresh).catch(console.error)
     }, [refresh])
 

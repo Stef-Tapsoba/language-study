@@ -27,7 +27,7 @@ function MutationConsumer() {
             <span data-testid="mastered-es">{ctx.mastered("es").join(",")}</span>
             <button onClick={() => ctx.setSelectedLanguage("es")}>set-lang</button>
             <button onClick={() => ctx.setCurrentLevel("es", "B1")}>set-level</button>
-            <button onClick={() => ctx.markLessonComplete("es", "lesson-1")}>mark-lesson</button>
+            <button onClick={() => ctx.markLessonComplete("es", "lesson-1", "grammar")}>mark-lesson</button>
             <button onClick={() => ctx.masterUnit("es", "unit-1")}>master-unit</button>
             <button onClick={() => ctx.resetLanguage("es")}>reset-lang</button>
             <button onClick={() => ctx.removeLanguage("es")}>remove-lang</button>

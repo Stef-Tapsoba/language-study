@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom"
 import { useState } from "react"
 import { getLanguage } from "../data/languages"
 import { getVerbsForLevel } from "../data/repo"
-import { getCurrentLevel } from "../store/progress"
+import { useProgress } from "../context/ProgressContext"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { SpeakButton } from "../components/SpeakButton"
@@ -72,7 +72,8 @@ function VerbCard({ verb, langId }: Readonly<{ verb: Verb; langId: string }>) {
 export function VerbsPage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
-    const level = getCurrentLevel(langId)
+    const { level: getLevel } = useProgress()
+    const level = getLevel(langId)
     const ui = getUI(langId, level)
 
     if (!language) return null

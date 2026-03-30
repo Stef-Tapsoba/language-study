@@ -363,7 +363,7 @@ function CultureEpisodeView({
     const { markLessonComplete } = useProgress()
 
     function handleMarkRead() {
-        markLessonComplete(langId, episode.id)
+        markLessonComplete(langId, episode.id, "culture")
         useStatsStore.getState().recordActivity(langId)
         setMarkedRead(true)
     }

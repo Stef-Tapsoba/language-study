@@ -3,7 +3,7 @@ import { useMemo, useEffect } from "react"
 import { useParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getVerbsForLevel } from "../data/repo"
-import { getCurrentLevel } from "../store/progress"
+import { useProgress } from "../context/ProgressContext"
 import { completeDrillSession } from "../store/actions"
 import { NavBar } from "../components/NavBar"
 import { QuizCard } from "../components/QuizCard"
@@ -63,7 +63,8 @@ function progressDotClass(i: number, index: number): string {
 export function VerbDrillPage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
-    const level = getCurrentLevel(langId)
+    const { level: getLevel } = useProgress()
+    const level = getLevel(langId)
     const ui = getUI(langId, level)
 
     // At B1+, hide the English meaning — learner should rely on the verb form alone
