@@ -277,24 +277,26 @@ export function DashboardPage() {
                     </div>
                 )}
 
-                {/* Tab bar */}
+                {/* Tab bar — scrollable on narrow phones so badges and target-language labels don't overflow */}
                 <Tabs value={tab} onValueChange={v => switchTab(v as DashTab)} className="mb-6">
-                    <TabsList className="w-full h-auto p-1 bg-gray-100 dark:bg-gray-700 rounded-xl">
-                        {tabs.map(t => (
-                            <TabsTrigger
-                                key={t.id}
-                                value={t.id}
-                                className="flex-1 min-w-0 py-2 px-2 text-xs sm:text-sm flex items-center justify-center gap-1.5"
-                            >
-                                {t.label}
-                                {t.badge && (
-                                    <span className="inline-flex text-xs font-normal rounded-full px-1.5 py-0.5 bg-indigo-100 text-indigo-600 data-[state=inactive]:bg-gray-200 data-[state=inactive]:text-gray-500">
-                                        {t.badge}
-                                    </span>
-                                )}
-                            </TabsTrigger>
-                        ))}
-                    </TabsList>
+                    <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+                        <TabsList className="min-w-full w-max h-auto p-1 bg-gray-100 dark:bg-gray-700 rounded-xl flex">
+                            {tabs.map(t => (
+                                <TabsTrigger
+                                    key={t.id}
+                                    value={t.id}
+                                    className="flex-1 min-w-[3.5rem] py-2 px-2 text-xs sm:text-sm flex items-center justify-center gap-1.5 whitespace-nowrap"
+                                >
+                                    {t.label}
+                                    {t.badge && (
+                                        <span className="inline-flex text-xs font-normal rounded-full px-1.5 py-0.5 bg-indigo-100 text-indigo-600 data-[state=inactive]:bg-gray-200 data-[state=inactive]:text-gray-500">
+                                            {t.badge}
+                                        </span>
+                                    )}
+                                </TabsTrigger>
+                            ))}
+                        </TabsList>
+                    </div>
 
                     {/* ── PATH ─────────────────────────────────────────────── */}
                     <TabsContent value="path" className="tab-fade">

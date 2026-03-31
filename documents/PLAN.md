@@ -393,18 +393,18 @@ If `text.target` is undefined, always fall back to `text.native` (safe for incre
 
 ## Content Depth (Current State)
 
-All 5 languages have A1 and A2 fully built out. B1–C1 structure exists but content is partial. See `ARCHITECTURE.md §11` for full content status.
+All 5 languages have A1, A2, and B1 reading/listening fully built out. B2–C1 content is partial. See `ARCHITECTURE.md §11` for full content status.
 
-| Content type | A1 | A2 | B1+ |
-|---|---|---|---|
-| Grammar lessons | ✅ 35–42/lang | ✅ 20–25/lang | Partial |
-| Vocab items | ✅ 174–280/lang | ✅ 130–164/lang | Partial |
-| Units (path cards) | ✅ 14–16/lang | ✅ 20/lang | Partial |
-| Culture episodes | ✅ 3–4/lang | ✅ 3/lang | Pending |
-| Reading passages | ✅ 2+/lang | Pending | Pending |
-| Listening exercises | ✅ 2+/lang | Pending | Pending |
-| Placement test | ✅ | shared | shared |
-| Level test | ✅ | ✅ | ✅ |
+| Content type | A1 | A2 | B1 | B2+ |
+|---|---|---|---|---|
+| Grammar lessons | ✅ 35–42/lang | ✅ 20–25/lang | ✅ | Partial |
+| Vocab items | ✅ 174–280/lang | ✅ 130–164/lang | ✅ | Partial |
+| Units (path cards) | ✅ 14–16/lang | ✅ 20/lang | ✅ | Partial |
+| Culture episodes | ✅ 3–4/lang | ✅ 3/lang | Pending | Pending |
+| Reading passages | ✅ 2+/lang | ✅ 3–5/lang | ✅ 3/lang | Partial |
+| Listening exercises | ✅ 2+/lang | ✅ 3–5/lang | ✅ 3/lang | Partial |
+| Placement test | ✅ | shared | shared | shared |
+| Level test | ✅ | ✅ | ✅ | ✅ |
 
 French A1 has the fullest reading/listening coverage (7 passages + 7 exercises).
 

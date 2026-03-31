@@ -68,13 +68,17 @@ export function PlacementPage() {
         return (
             <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
                 <NavBar title={`${language.name} — Placement Test`} backTo="/home" />
-                <main className="max-w-xl mx-auto px-4 py-16 flex flex-col items-center gap-5 text-center">
+                <main className="max-w-xl mx-auto px-4 py-12 flex flex-col items-center gap-5 text-center">
                     <p className="text-5xl">🎯</p>
                     <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">Find your level</h2>
-                    <p className="text-gray-500 dark:text-gray-400 text-sm max-w-xs">
-                        Answer {questions.length} quick questions and we'll suggest the right starting level for you.
-                        Don't worry — you can always change it later.
+                    <p className="text-gray-600 dark:text-gray-400 text-sm max-w-sm">
+                        Starting at the right level keeps lessons challenging without being overwhelming — and it means you won't waste time on content you already know.
                     </p>
+                    <ul className="text-sm text-gray-500 dark:text-gray-400 space-y-1.5 text-left w-full max-w-xs">
+                        <li className="flex items-start gap-2"><span className="text-indigo-400 mt-px">✓</span>{questions.length} quick multiple-choice questions</li>
+                        <li className="flex items-start gap-2"><span className="text-indigo-400 mt-px">✓</span>No penalty for wrong answers — just answer honestly</li>
+                        <li className="flex items-start gap-2"><span className="text-indigo-400 mt-px">✓</span>You can override the suggestion or change level any time</li>
+                    </ul>
                     <div className="flex flex-col gap-3 w-full max-w-xs mt-2">
                         <button
                             onClick={() => setIntroSeen(true)}
@@ -88,7 +92,7 @@ export function PlacementPage() {
                             className="w-full border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-indigo-400
                                        font-semibold rounded-xl py-3 text-sm transition-colors"
                         >
-                            Set level manually instead
+                            I already know my level
                         </button>
                     </div>
                 </main>
@@ -118,7 +122,9 @@ export function PlacementPage() {
                         >
                             Start at {suggested}
                         </button>
-                        <p className="text-xs text-gray-400 dark:text-gray-500 mb-2">Or choose a different level:</p>
+                        <p className="text-xs text-gray-400 dark:text-gray-500 mb-2">
+                            Not quite right? You know your level better than any test — pick freely:
+                        </p>
                         <div className="flex justify-center gap-2 flex-wrap">
                             {CEFR_LEVELS.map(l => (
                                 <button
@@ -133,6 +139,7 @@ export function PlacementPage() {
                                 </button>
                             ))}
                         </div>
+                        <p className="text-xs text-gray-400 dark:text-gray-500 mt-3">You can also change your level any time from the dashboard.</p>
                     </div>
                 </main>
             </div>
@@ -196,7 +203,7 @@ export function PlacementPage() {
                         <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 w-full">
                             <h2 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Choose your level</h2>
                             <p className="text-sm text-gray-500 dark:text-gray-400 mb-5">
-                                Select the CEFR level that best describes your current proficiency.
+                                Pick the level that best matches where you are now. You can change it any time.
                             </p>
                             <div className="flex flex-col gap-3">
                                 {CEFR_LEVELS.map(l => (
@@ -204,16 +211,25 @@ export function PlacementPage() {
                                         key={l}
                                         onClick={() => confirmLevel(l)}
                                         className="border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-left
-                                                   hover:border-indigo-400 hover:bg-indigo-50 transition-colors"
+                                                   hover:border-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-colors"
                                     >
-                                        <span className="font-semibold text-gray-900 dark:text-gray-100 mr-2">{l}</span>
-                                        <span className="text-sm text-gray-500 dark:text-gray-400">
-                                            {l === "A1" && "Absolute beginner"}
-                                            {l === "A2" && "Elementary"}
-                                            {l === "B1" && "Intermediate"}
-                                            {l === "B2" && "Upper intermediate"}
-                                            {l === "C1" && "Advanced"}
-                                        </span>
+                                        <div className="flex items-baseline gap-2">
+                                            <span className="font-semibold text-gray-900 dark:text-gray-100">{l}</span>
+                                            <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
+                                                {l === "A1" && "Beginner"}
+                                                {l === "A2" && "Elementary"}
+                                                {l === "B1" && "Intermediate"}
+                                                {l === "B2" && "Upper Intermediate"}
+                                                {l === "C1" && "Advanced"}
+                                            </span>
+                                        </div>
+                                        <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">
+                                            {l === "A1" && "No prior knowledge — start from the very basics."}
+                                            {l === "A2" && "Know greetings and simple phrases; can handle basic everyday situations."}
+                                            {l === "B1" && "Can hold simple conversations on familiar topics; understand main points of clear speech."}
+                                            {l === "B2" && "Comfortable with complex topics; can converse fluently with native speakers."}
+                                            {l === "C1" && "Near-fluent; can express ideas spontaneously with minimal effort."}
+                                        </p>
                                     </button>
                                 ))}
                             </div>
@@ -221,7 +237,7 @@ export function PlacementPage() {
                                 onClick={() => setTab("test")}
                                 className="mt-4 text-sm text-indigo-600 hover:underline"
                             >
-                                Take the placement test instead
+                                Not sure? Take the placement test
                             </button>
                         </div>
                     </TabsContent>
