@@ -15,6 +15,10 @@ export default defineConfig({
     },
     plugins: [react()],
     build: {
+        // Language data chunks are lazy-loaded per-language (~200 kB gzip each).
+        // The 500 kB default threshold fires on minified size, not gzip, and doesn't
+        // account for on-demand loading — raise it to silence the false positive.
+        chunkSizeWarningLimit: 750,
         rollupOptions: {
             output: {
                 // Give each language data chunk a stable, predictable name so that
