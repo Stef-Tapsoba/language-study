@@ -2,7 +2,8 @@
 import { useMemo, useEffect } from "react"
 import { useParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
-import { getVerbsForLevel } from "../data/repo"
+import { getVerbsForLevel, getUnitsForLevel } from "../data/repo"
+import { getMasteredUnits } from "../store/progress"
 import { useProgress } from "../context/ProgressContext"
 import { completeDrillSession } from "../store/actions"
 import { NavBar } from "../components/NavBar"
@@ -67,10 +68,20 @@ export function VerbDrillPage() {
     // At B1+, hide the English meaning — learner should rely on the verb form alone
     const showMeaning = level === "A1" || level === "A2"
 
-    const questions = useMemo(
-        () => buildQuestions(getVerbsForLevel(langId, level)),
-        [langId, level]
-    )
+    const questions = useMemo(() => {
+        const allVerbs = getVerbsForLevel(langId, level)
+        const units = getUnitsForLevel(langId, level)
+        const mastered = getMasteredUnits(langId)
+        const coveredVerbIds = new Set(
+            units
+                .filter((_, i) => i === 0 || mastered.includes(units[i - 1].id))
+                .flatMap(u => u.verbIds)
+        )
+        const covered = allVerbs.filter(v => coveredVerbIds.has(v.id))
+        // Need ≥2 verbs for meaningful distractors; fall back to all if pool is too small
+        const source = covered.length >= 2 ? covered : allVerbs
+        return buildQuestions(source)
+    }, [langId, level])
 
     const drill = useDrill(questions)
 
