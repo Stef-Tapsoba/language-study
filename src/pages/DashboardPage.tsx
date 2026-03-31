@@ -396,20 +396,12 @@ export function DashboardPage() {
                                 title={ui.sectionVerbDrill}
                                 description={ui.sectionVerbDrillDesc}
                                 to={`/learn/${langId}/verb-drill`}
-                                badge={(() => {
-                                    const verbCount = mod.verbs.filter(v => v.level === level).length
-                                    return verbCount > 0 ? verbCount : undefined
-                                })()}
                             />
                             <SectionCard
                                 emoji="✏️"
                                 title={ui.sectionGrammarDrill}
                                 description={ui.sectionGrammarDrillDesc}
                                 to={`/learn/${langId}/grammar-drill`}
-                                badge={(() => {
-                                    const gCount = mod.grammar.filter(g => g.level === level).flatMap(g => g.examples).length
-                                    return gCount > 0 ? gCount : undefined
-                                })()}
                             />
                         </div>
                     </TabsContent>
