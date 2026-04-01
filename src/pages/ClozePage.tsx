@@ -25,8 +25,12 @@ interface ClozeItem {
     sentenceWithBlank: string
     /** The complete original sentence (for TTS and display after reveal) */
     fullSentence: string
+    /** English translation of the sentence — shown as context so the user knows what to fill in */
+    sentenceTranslation: string
     /** The word to type */
     targetWord: string
+    /** English meaning of the target word — shown as a secondary hint */
+    targetTranslation: string
     /** Romanized reading of targetWord if available */
     romanized?: string
 }
@@ -35,22 +39,31 @@ type SubmitState = "idle" | "correct" | "wrong"
 
 // ── Build items ───────────────────────────────────────────────────────────────
 
+function splitSentences(text: string): string[] {
+    return text.split(/[.!?。！？\n]+/).map(s => s.trim()).filter(Boolean)
+}
+
 function buildClozeItems(passages: ReadingPassage[]): ClozeItem[] {
     const items: ClozeItem[] = []
 
     for (const passage of passages) {
         const bodyTarget = passage.body.target ?? passage.body.native
-        const sentences = bodyTarget.split(/[.!?。！？\n]+/).map(s => s.trim()).filter(Boolean)
+        const targetSentences = splitSentences(bodyTarget)
+        const nativeSentences = splitSentences(passage.body.native)
 
         for (const gloss of passage.vocabGloss) {
-            // Find a sentence that contains the gloss word
-            const sentence = sentences.find(s =>
+            // Find the index of the sentence containing the gloss word
+            const sentenceIdx = targetSentences.findIndex(s =>
                 s.toLowerCase().includes(gloss.word.toLowerCase())
             )
-            if (!sentence) continue
+            if (sentenceIdx < 0) continue
+
+            const sentence = targetSentences[sentenceIdx]
+            // Use the parallel native sentence as translation context; fall back to passage title
+            const sentenceTranslation = nativeSentences[sentenceIdx] ?? passage.title
 
             // Replace the first occurrence of the word in the sentence
-            const escaped = gloss.word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+            const escaped = gloss.word.replaceAll(/[.*+?^${}()|[\]\\]/g, String.raw`\$&`)
             const regex = new RegExp(escaped, "i")
             const sentenceWithBlank = sentence.replace(regex, "_____")
             if (sentenceWithBlank === sentence) continue // no replacement happened
@@ -60,7 +73,9 @@ function buildClozeItems(passages: ReadingPassage[]): ClozeItem[] {
                 passageTitle: passage.title,
                 sentenceWithBlank,
                 fullSentence: sentence,
+                sentenceTranslation,
                 targetWord: gloss.word,
+                targetTranslation: gloss.translation,
                 romanized: gloss.romanized,
             })
         }
@@ -181,15 +196,24 @@ export default function ClozePage({ items, langId, level, onComplete }: Readonly
                     })}
                 </div>
 
-                {/* Instruction banner */}
+                {/* Context: English sentence translation */}
+                <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-2xl px-5 py-4">
+                    <p className="text-xs text-blue-500 dark:text-blue-400 font-medium uppercase tracking-wide mb-1">
+                        English — from "{q.passageTitle}"
+                    </p>
+                    <p className="text-base text-blue-900 dark:text-blue-100 leading-relaxed">
+                        {q.sentenceTranslation}
+                    </p>
+                    <p className="text-xs text-blue-500 dark:text-blue-400 mt-2">
+                        Missing word meaning: <span className="font-semibold">{q.targetTranslation}</span>
+                    </p>
+                </div>
+
+                {/* Target sentence with blank */}
                 <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-2xl px-5 py-4">
                     <p className="text-xs text-amber-600 dark:text-amber-400 font-medium uppercase tracking-wide mb-2">
-                        Type the missing word
+                        Fill in the missing word
                     </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">
-                        From: <span className="font-medium text-gray-700 dark:text-gray-300">{q.passageTitle}</span>
-                    </p>
-                    {/* Sentence with blank shown inline */}
                     <p className="text-base font-medium text-amber-900 dark:text-amber-100 leading-relaxed">
                         {parts[0]}
                         <span className="inline-block bg-amber-200 dark:bg-amber-800 rounded px-2 mx-0.5 font-bold text-amber-800 dark:text-amber-200 min-w-[4rem] text-center">
