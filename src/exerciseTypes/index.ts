@@ -43,6 +43,7 @@ import "./scriptReading"
 import "./dialogueCompletion"
 import "./vocabInContext"
 import "./errorCorrection"
+import "./speaking"
 
 // Re-export registry API so consumers only need one import
 export { registerExerciseType, getExerciseType, getAllExerciseTypes } from "./registry"

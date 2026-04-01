@@ -457,6 +457,12 @@ export function DashboardPage() {
                                 description="Find and fix the grammar mistake"
                                 to={`/learn/${langId}/exercise/error-correction`}
                             />
+                            <SectionCard
+                                emoji="🎤"
+                                title="Speaking"
+                                description="Hear a phrase, then say it aloud"
+                                to={`/learn/${langId}/exercise/speaking`}
+                            />
                         </div>
                     </TabsContent>
 

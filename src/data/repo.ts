@@ -20,6 +20,7 @@ import {
     ListeningExercise,
     CultureEpisode,
     QuizQuestion,
+    SpeakingPrompt,
 } from "../types"
 
 // ---------------------------------------------------------------------------
@@ -123,6 +124,14 @@ export function getCultureEpisode(langId: string, episodeId: string): CultureEpi
 export function getCultureEpisodes(langId: string, ids: string[]): CultureEpisode[] {
     const episodes = getModule(langId)?.cultureEpisodes ?? []
     return ids.map(id => episodes.find(c => c.id === id)).filter(Boolean) as CultureEpisode[]
+}
+
+// ---------------------------------------------------------------------------
+// Speaking (EO)
+// ---------------------------------------------------------------------------
+
+export function getSpeakingForLevel(langId: string, level: CEFRLevel): SpeakingPrompt[] {
+    return getModule(langId)?.speakingPrompts?.filter(s => s.level === level) ?? []
 }
 
 // ---------------------------------------------------------------------------
