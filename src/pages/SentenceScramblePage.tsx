@@ -80,7 +80,7 @@ interface DoneProps {
     missed: { prompt: string; correct: string; yourAnswer: string }[]
 }
 
-function SentenceScrambleDone({ score, total, level, langId, onRestart, missed }: DoneProps) {
+function SentenceScrambleDone({ score, total, level, langId, onRestart, missed }: Readonly<DoneProps>) {
     const ui = getUI(langId, level)
     return (
         <DrillDoneScreen
@@ -126,7 +126,9 @@ function TokenButton({ token, onClick, variant, disabled = false }: Readonly<Tok
 export default function SentenceScramblePage({ items, langId, level, onComplete }: Readonly<ExerciseComponentProps<GrammarLesson>>) {
     const ui = getUI(langId, level)
 
-    const questions = useMemo(() => buildItems(items, langId), [items, langId])
+    // C-4: sessionKey busts the memo on restart so questions are reshuffled each play
+    const [sessionKey, setSessionKey] = useState(0)
+    const questions = useMemo(() => buildItems(items, langId), [items, langId, sessionKey])
 
     const [index, setIndex] = useState(0)
     const [score, setScore] = useState(0)
@@ -150,6 +152,7 @@ export default function SentenceScramblePage({ items, langId, level, onComplete 
     }, [index, questions])
 
     function handleRestart() {
+        setSessionKey(k => k + 1)
         setIndex(0)
         setScore(0)
         setDone(false)
@@ -238,11 +241,11 @@ export default function SentenceScramblePage({ items, langId, level, onComplete 
                     <span className="font-medium">{ui.scoreLabel}: {score}</span>
                 </div>
                 <div className="flex gap-1">
-                    {questions.map((_, i) => {
+                    {questions.map((q, i) => {
                         let cls = "bg-gray-200 dark:bg-gray-600"
                         if (i < index) cls = "bg-indigo-500"
                         else if (i === index) cls = "bg-indigo-300"
-                        return <div key={i} className={`h-1.5 flex-1 rounded-full transition-colors ${cls}`} />
+                        return <div key={`${q.lessonId}:${q.correct}`} className={`h-1.5 flex-1 rounded-full transition-colors ${cls}`} />
                     })}
                 </div>
 
@@ -324,20 +327,20 @@ export default function SentenceScramblePage({ items, langId, level, onComplete 
                             Clear
                         </button>
                     )}
-                    {!submitted ? (
+                    {submitted ? (
+                        <button
+                            onClick={handleNext}
+                            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-3 text-sm transition-colors"
+                        >
+                            {isLast ? ui.seeResults : ui.nextQuestion}
+                        </button>
+                    ) : (
                         <button
                             onClick={handleSubmit}
                             disabled={assembled.length === 0}
                             className="flex-[2] bg-indigo-600 hover:bg-indigo-700 disabled:opacity-40 text-white font-semibold rounded-xl py-3 text-sm transition-colors"
                         >
                             Check
-                        </button>
-                    ) : (
-                        <button
-                            onClick={handleNext}
-                            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-3 text-sm transition-colors"
-                        >
-                            {isLast ? ui.seeResults : ui.nextQuestion}
                         </button>
                     )}
                 </div>

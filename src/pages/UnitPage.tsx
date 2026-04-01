@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { isUnitUnlocked } from "../store/progress"
+import { DEBUG } from "../auth/debugSession"
 import { useProgress } from "../context/ProgressContext"
 import { useStatsStore } from "../store/useStatsStore"
 import { confirmUnitMastery } from "../store/actions"
@@ -561,7 +562,7 @@ export function UnitPage() {
 
     const isMastered = mastered.includes(unit.id)
     const levelUnits = units.filter(u => u.level === unit.level).sort((a, b) => a.order - b.order)
-    const isLocked = !isUnitUnlocked(langId, unit.id, levelUnits)
+    const isLocked = !DEBUG && !isUnitUnlocked(langId, unit.id, levelUnits)
     const totalUnits = levelUnits.length
     const isLastUnit = unit.order === totalUnits
     const nextUnit = levelUnits.find(u => u.order === unit.order + 1) ?? null

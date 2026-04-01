@@ -6,7 +6,8 @@
 // Items are derived on-the-fly from GrammarLesson examples inside the page
 // component — no new data fields required.
 //
-// matchMode: "strict" — splits "/" alternatives, accent/case/punctuation tolerant.
+// matchMode: "dictation" — accent/case/punctuation tolerant; no alternative splitting
+// (full-sentence reconstruction doesn't need slash-alternative expansion).
 
 import { lazy } from "react"
 import { registerExerciseType } from "./registry"
@@ -22,8 +23,8 @@ registerExerciseType<GrammarLesson>({
     // Reuses grammar progress tracking.
     contentType: "grammar",
 
-    // Target-language typed answer.
-    matchMode: "strict",
+    // Full-sentence reconstruction — dictation mode (no slash-alternative splitting).
+    matchMode: "dictation",
 
     fetchItems: async ({ langId, level }) =>
         Promise.resolve(getGrammarForLevel(langId, level)),

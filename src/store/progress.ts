@@ -1,7 +1,6 @@
 // store/progress.ts — CEFR level, completed lessons, and mastered units (localStorage "ls:progress")
 
 import { CEFRLevel, UserProgress } from "../types"
-import { DEBUG } from "../auth/debugSession"
 
 const KEY = "ls:progress"
 
@@ -180,7 +179,6 @@ export function isUnitUnlocked(
     unitId: string,
     allUnits: { id: string; order: number }[]
 ): boolean {
-    if (DEBUG) return allUnits.some(u => u.id === unitId)
     const sorted = [...allUnits].sort((a, b) => a.order - b.order)
     const idx = sorted.findIndex(u => u.id === unitId)
     if (idx < 0) return false

@@ -5,7 +5,7 @@
 // Correct pairs are highlighted green and removed from play.
 // Accepts ExerciseComponentProps<VocabItem>.
 
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect, useRef } from "react"
 import { NavBar } from "../components/NavBar"
 import { shuffle } from "../utils/arrayUtils"
 import { getUI, fmt } from "../i18n"
@@ -97,11 +97,14 @@ export default function VocabMatchingPage({ items, langId, level, onComplete }: 
     const [matchedIds, setMatchedIds] = useState<Set<string>>(new Set())
     const [wrongPair, setWrongPair] = useState<[string, string] | null>(null)
 
+    // C-6: clear pending wrong-pair timeout on unmount to avoid setState on unmounted component
+    const wrongPairTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+    useEffect(() => () => { if (wrongPairTimer.current) clearTimeout(wrongPairTimer.current) }, [])
+
     function handleRestart() {
-        const newPool = shuffle(pool)
-        const firstRound = buildRound(newPool, new Set())
+        // C-5: use the original pool consistently (not a re-shuffle that only affects round 1)
         setUsedIds(new Set())
-        setRound(firstRound)
+        setRound(buildRound(pool, new Set()))
         setRoundNum(1)
         setTotalScore(0)
         setTotalItems(0)
@@ -132,7 +135,7 @@ export default function VocabMatchingPage({ items, langId, level, onComplete }: 
 
                 if (remaining.length === 0) {
                     // All items done
-                    completeDrillSession(langId, "grammar").catch(console.error)
+                    completeDrillSession(langId, "vocab").catch(console.error)
                     setDone(true)
                 } else {
                     setUsedIds(newUsed)
@@ -146,7 +149,8 @@ export default function VocabMatchingPage({ items, langId, level, onComplete }: 
         } else {
             // Flash wrong feedback then clear selection
             setWrongPair([leftId, rightId])
-            setTimeout(() => {
+            if (wrongPairTimer.current) clearTimeout(wrongPairTimer.current)
+            wrongPairTimer.current = setTimeout(() => {
                 setWrongPair(null)
                 setSelectedLeft(null)
                 setSelectedRight(null)
@@ -172,23 +176,24 @@ export default function VocabMatchingPage({ items, langId, level, onComplete }: 
 
     function leftState(id: string): ItemState {
         if (matchedIds.has(id)) return "matched"
-        if (wrongPair && wrongPair[0] === id) return "wrong"
+        if (wrongPair?.[0] === id) return "wrong"
         if (selectedLeft === id) return "selected"
         return "idle"
     }
 
     function rightState(id: string): ItemState {
         if (matchedIds.has(id)) return "matched"
-        if (wrongPair && wrongPair[1] === id) return "wrong"
+        if (wrongPair?.[1] === id) return "wrong"
         if (selectedRight === id) return "selected"
         return "idle"
     }
 
-    const remainingAfterRound = pool.filter(v => {
+    // S-3: memoised to avoid rebuilding a Set on every render
+    const remainingAfterRound = useMemo(() => {
         const usedAfterThis = new Set(usedIds)
         round.pairs.forEach(p => usedAfterThis.add(p.id))
-        return !usedAfterThis.has(v.id)
-    }).length
+        return pool.filter(v => !usedAfterThis.has(v.id)).length
+    }, [pool, usedIds, round.pairs])
 
     if (done) {
         const pct = totalItems > 0 ? Math.round((totalScore / totalItems) * 100) : 0
@@ -284,6 +289,15 @@ export default function VocabMatchingPage({ items, langId, level, onComplete }: 
                 <p className="text-xs text-center text-gray-400 dark:text-gray-500">
                     {fmt(ui.youAnswered, { score: totalScore, total: totalItems })}
                 </p>
+
+                {/* S-5: sr-only live region announces match results to screen readers */}
+                <div aria-live="polite" aria-atomic="true" className="sr-only">
+                    {(() => {
+                        if (wrongPair) return "Incorrect — try again"
+                        if (matchedIds.size > 0) return `Matched ${matchedIds.size} of ${round.pairs.length}`
+                        return ""
+                    })()}
+                </div>
             </main>
         </div>
     )

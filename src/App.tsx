@@ -99,7 +99,7 @@ export default function App() {
                         <Route path="listening" element={<ListeningPage />} />
                         <Route path="culture" element={<CulturePage />} />
                         {/* Registry-based exercises — ExerciseShell looks up the type and renders it */}
-                        <Route path=":exerciseTypeId" element={<ExerciseShell />} />
+                        <Route path="exercise/:exerciseTypeId" element={<ExerciseShell />} />
                     </Route>
 
                     {/* Profile */}
