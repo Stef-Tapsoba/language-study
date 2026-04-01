@@ -3,6 +3,7 @@ import { useState, useEffect, lazy, Suspense } from "react"
 import { BrowserRouter, Routes, Route, Navigate, Outlet, useParams } from "react-router-dom"
 import { AuthProvider } from "./auth/AuthContext"
 import { ExerciseShell } from "./components/ExerciseShell"
+import { DebugBadge } from "./components/DebugBadge"
 import { TooltipProvider } from "./components/ui/tooltip"
 import { ProtectedRoute } from "./auth/ProtectedRoute"
 import { ProgressProvider } from "./context/ProgressContext"
@@ -110,6 +111,7 @@ export default function App() {
                     <Route path="*" element={<Navigate to="/home" replace />} />
                 </Routes>
                 </Suspense>
+                <DebugBadge />
             </BrowserRouter>
             </ProgressProvider>
             </TooltipProvider>
