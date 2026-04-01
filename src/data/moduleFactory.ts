@@ -16,6 +16,7 @@ import type {
     ReadingPassage,
     ListeningExercise,
     CultureEpisode,
+    SpeakingPrompt,
 } from "../types"
 
 export interface LanguageModuleSlices {
@@ -29,6 +30,7 @@ export interface LanguageModuleSlices {
     readingPassages?: ReadingPassage[][]
     listeningExercises?: ListeningExercise[][]
     cultureEpisodes?: CultureEpisode[][]
+    speakingPrompts?: SpeakingPrompt[][]
 }
 
 function stamp<T extends { language?: string }>(items: T[], langId: string): T[] {
@@ -47,5 +49,6 @@ export function createLanguageModule(slices: LanguageModuleSlices): LanguageModu
         readingPassages: slices.readingPassages ? stamp(slices.readingPassages.flat(), langId) : undefined,
         listeningExercises: slices.listeningExercises ? stamp(slices.listeningExercises.flat(), langId) : undefined,
         cultureEpisodes: slices.cultureEpisodes ? stamp(slices.cultureEpisodes.flat(), langId) : undefined,
+        speakingPrompts: slices.speakingPrompts ? stamp(slices.speakingPrompts.flat(), langId) : undefined,
     }
 }

@@ -248,6 +248,22 @@ export interface CultureEpisode {
 }
 
 // ---------------------------------------------------------------------------
+// Speaking (EO — Expression Orale)
+// ---------------------------------------------------------------------------
+export interface SpeakingPrompt {
+    id: string
+    language?: string    // stamped by moduleFactory; not set in data files
+    level: CEFRLevel
+    /** Target-language phrase — TTS speaks this; user must say it aloud */
+    phrase: string
+    romanized?: string   // for Japanese/Korean
+    /** English cue shown to the learner before they speak */
+    translation: string
+    /** Short phonetic stress note, pronunciation tip, or common-mistake warning */
+    hint?: string
+}
+
+// ---------------------------------------------------------------------------
 // Language module — what each data/*/index.ts assembles and exports
 // ---------------------------------------------------------------------------
 export interface LanguageModule {
@@ -260,6 +276,7 @@ export interface LanguageModule {
     readingPassages?: ReadingPassage[]
     listeningExercises?: ListeningExercise[]
     cultureEpisodes?: CultureEpisode[]
+    speakingPrompts?: SpeakingPrompt[]
 }
 
 // ---------------------------------------------------------------------------

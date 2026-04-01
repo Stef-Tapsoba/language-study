@@ -35,6 +35,7 @@ export type ContentType =
     | "reading"
     | "listening"
     | "culture"
+    | "speaking"
 
 export interface IProgressStorage {
     /**

@@ -50,6 +50,8 @@ import { b1Culture } from "./culture/b1"
 import { b2Culture } from "./culture/b2"
 import { c1Culture } from "./culture/c1"
 
+import { a1Speaking } from "./speaking/a1"
+
 export default createLanguageModule({
     langId: "es",
     grammar: [a1Grammar, a2Grammar, b1Grammar, b2Grammar, c1Grammar],
@@ -61,4 +63,5 @@ export default createLanguageModule({
     readingPassages: [a1Reading, a2Reading, b1Reading, b2Reading, c1Reading],
     listeningExercises: [a1Listening, a2Listening, b1Listening, b2Listening, c1Listening],
     cultureEpisodes: [a1Culture, a2Culture, b1Culture, b2Culture, c1Culture],
+    speakingPrompts: [a1Speaking],
 })
