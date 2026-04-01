@@ -562,7 +562,7 @@ export function UnitPage() {
 
     const isMastered = mastered.includes(unit.id)
     const levelUnits = units.filter(u => u.level === unit.level).sort((a, b) => a.order - b.order)
-    const isLocked = !DEBUG && !isUnitUnlocked(langId, unit.id, levelUnits)
+    const isLocked = !DEBUG && !isUnitUnlocked(unit.id, levelUnits, mastered)
     const totalUnits = levelUnits.length
     const isLastUnit = unit.order === totalUnits
     const nextUnit = levelUnits.find(u => u.order === unit.order + 1) ?? null

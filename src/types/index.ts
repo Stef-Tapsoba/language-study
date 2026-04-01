@@ -254,7 +254,7 @@ export interface LanguageModule {
     grammar: GrammarLesson[]
     vocab: VocabItem[]
     verbs: Verb[]
-    units?: LessonUnit[]                 // optional until all languages are migrated
+    units: LessonUnit[]                  // always present — norm() in data/modules.ts defaults to []
     placementQuestions: QuizQuestion[]   // 2 per level → 10 total
     levelQuestions: QuizQuestion[]       // 15 per level for the level advancement test
     readingPassages?: ReadingPassage[]
@@ -270,6 +270,14 @@ export interface UserProgress {
     userId?: string                             // owner of this progress record
     selectedLanguage: string | null
     levels: Record<string, CEFRLevel>           // langId → current level
-    completedLessons: Record<string, string[]>  // langId → completed lesson ids
+    completedLessons: Record<string, string[]>  // langId → completed lesson ids (flat, Stage 1)
     masteredUnits: Record<string, string[]>     // langId → mastered unit ids
+    /**
+     * Per-content-type completion tracking — parallel to completedLessons.
+     * Populated alongside completedLessons so Stage 1 behaviour is unchanged.
+     * Stage 2 (Supabase): each ContentType maps to a separate DB table;
+     * SupabaseProgressStorage.markLessonComplete() will route writes here.
+     * Shape: { [langId]: { grammar: [...ids], vocab: [...ids], ... } }
+     */
+    completedByType?: Record<string, Partial<Record<string, string[]>>>
 }

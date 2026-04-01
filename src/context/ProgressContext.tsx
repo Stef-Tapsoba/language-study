@@ -7,11 +7,7 @@
 // updates immediately), then the async storage write fires in the background.
 // In Stage 1, LocalStorageProgressStorage resolves synchronously anyway.
 import { createContext, useContext, useState, useCallback, useMemo, ReactNode } from "react"
-import {
-    loadProgress,
-    initUserSession as storeInitUserSession,
-    setSelectedLanguage as storeSetSelectedLanguage,
-} from "../store/progress"
+import { loadProgress } from "../store/progress"
 import { registry } from "../store/registry"
 import { useStatsStore } from "../store/useStatsStore"
 import { CEFRLevel, UserProgress } from "../types"
@@ -49,7 +45,7 @@ export function ProgressProvider({ children }: Readonly<{ children: ReactNode }>
     // then hydrates the stats store from storage for the new user.
     const initUserSession = useCallback((userId: string) => {
         const prev = loadProgress()
-        storeInitUserSession(userId)
+        registry.progress.initSession(userId).catch(console.error)
         if (prev.userId !== userId) {
             registry.srs.resetAll().catch(console.error)
             useStatsStore.getState().resetAllStats()
@@ -59,7 +55,7 @@ export function ProgressProvider({ children }: Readonly<{ children: ReactNode }>
     }, [refresh])
 
     const setSelectedLanguage = useCallback((langId: string) => {
-        storeSetSelectedLanguage(langId)
+        registry.progress.setSelectedLanguage(langId).catch(console.error)
         refresh()
     }, [refresh])
 

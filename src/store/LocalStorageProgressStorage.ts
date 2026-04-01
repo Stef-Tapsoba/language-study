@@ -10,6 +10,8 @@ import { IProgressStorage, ContentType } from "./IProgressStorage"
 import {
     loadProgress,
     save as storeSave,
+    initUserSession as storeInitSession,
+    setSelectedLanguage as storeSetSelectedLanguage,
     markLessonComplete as storeMark,
     masterUnit as storeMaster,
     setCurrentLevel,
@@ -26,11 +28,18 @@ export class LocalStorageProgressStorage implements IProgressStorage {
         storeSave(progress)
     }
 
-    // contentType is forwarded for interface compliance but ignored locally —
-    // Stage 1 stores everything in the flat completedLessons array.
-    // Stage 2 (SupabaseProgressStorage) will route to the appropriate table.
-    async markLessonComplete(langId: string, lessonId: string, _contentType: ContentType): Promise<void> {
-        storeMark(langId, lessonId)
+    async initSession(userId: string): Promise<void> {
+        storeInitSession(userId)
+    }
+
+    async setSelectedLanguage(langId: string): Promise<void> {
+        storeSetSelectedLanguage(langId)
+    }
+
+    // contentType is written to completedByType alongside the flat completedLessons array.
+    // Stage 2 (SupabaseProgressStorage) will route writes to the appropriate DB table.
+    async markLessonComplete(langId: string, lessonId: string, contentType: ContentType): Promise<void> {
+        storeMark(langId, lessonId, contentType)
     }
 
     async masterUnit(langId: string, unitId: string): Promise<void> {

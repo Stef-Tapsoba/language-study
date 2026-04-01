@@ -18,6 +18,7 @@ registerExerciseType<ListeningExercise>({
 
     // Reuses listening progress tracking.
     contentType: "listening",
+    sessionType: "listening",
 
     // Verbatim reproduction.
     matchMode: "dictation",

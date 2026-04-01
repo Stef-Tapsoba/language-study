@@ -18,6 +18,7 @@ registerExerciseType<ReadingPassage>({
 
     // Reuses reading progress tracking.
     contentType: "reading",
+    sessionType: "reading",
 
     // Multiple-choice only.
     matchMode: null,

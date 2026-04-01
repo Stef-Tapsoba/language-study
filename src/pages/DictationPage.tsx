@@ -12,7 +12,6 @@ import { ListeningPlayer } from "../components/ListeningPlayer"
 import { answerMatches } from "../utils/answerMatch"
 import { shuffle } from "../utils/arrayUtils"
 import { getUI, fmt } from "../i18n"
-import { completeDrillSession } from "../store/actions"
 import { useStatsStore } from "../store/useStatsStore"
 import type { ExerciseComponentProps } from "../exerciseTypes/registry"
 import type { ListeningExercise } from "../types"
@@ -62,7 +61,7 @@ function buildDictationItems(exercises: ListeningExercise[]): { id: string; titl
 
 // ── Main page ─────────────────────────────────────────────────────────────────
 
-export default function DictationPage({ items, langId, level, onComplete }: Readonly<ExerciseComponentProps<ListeningExercise>>) {
+export default function DictationPage({ items, langId, level, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<ListeningExercise>>) {
     const ui = getUI(langId, level)
 
     const questions = useMemo(() => buildDictationItems(items), [items])
@@ -144,7 +143,7 @@ export default function DictationPage({ items, langId, level, onComplete }: Read
 
     function handleNext() {
         if (isLast) {
-            completeDrillSession(langId, "grammar").catch(console.error)
+            onSessionDone()
             setDone(true)
         } else {
             setIndex(i => i + 1)

@@ -9,7 +9,7 @@
 import { useState, useEffect, useCallback, Suspense } from "react"
 import { useParams, Navigate, Link } from "react-router-dom"
 import { useProgress } from "../context/ProgressContext"
-import { completeLessonItem } from "../store/actions"
+import { completeLessonItem, completeDrillSession } from "../store/actions"
 import { getExerciseType } from "../exerciseTypes/index"
 
 export function ExerciseShell() {
@@ -32,11 +32,16 @@ export function ExerciseShell() {
             .catch(() => { setError(true); setLoading(false) })
     }, [def, langId, level])
 
-    // Defined unconditionally to satisfy Rules of Hooks.
-    // def is always set when onComplete is reachable (the Navigate guard below runs first).
+    // Both callbacks defined unconditionally to satisfy Rules of Hooks.
+    // def is always set when they are reachable (the Navigate guard below runs first).
     const onComplete = useCallback((itemId: string) => {
         if (!def) return
         completeLessonItem(langId, itemId, def.contentType).catch(console.error)
+    }, [langId, def])
+
+    const onSessionDone = useCallback(() => {
+        if (!def) return
+        completeDrillSession(langId, def.sessionType).catch(console.error)
     }, [langId, def])
 
     if (!def) return <Navigate to={`/learn/${langId}`} replace />
@@ -74,7 +79,7 @@ export function ExerciseShell() {
                 <div className="w-8 h-8 border-4 border-violet-500 border-t-transparent rounded-full animate-spin" />
             </div>
         }>
-            <Component items={items} langId={langId} level={level} onComplete={onComplete} />
+            <Component items={items} langId={langId} level={level} onComplete={onComplete} onSessionDone={onSessionDone} />
         </Suspense>
     )
 }

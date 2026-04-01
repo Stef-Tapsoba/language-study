@@ -42,15 +42,16 @@ export function computeProgressStats(
 ): ProgressStats {
     const mod = getModule(langId)
 
+    const completedSet = new Set(completedLessons)
     const masteredUnitItems = new Set(
         (mod?.units ?? [])
             .filter(u => masteredUnitIds.includes(u.id))
             .flatMap(u => [...u.grammarIds, ...u.vocabIds, ...u.verbIds])
     )
-    const isDone = (id: string) => completedLessons.includes(id) || masteredUnitItems.has(id)
+    const isDone = (id: string) => completedSet.has(id) || masteredUnitItems.has(id)
 
     function calc(items: { id: string }[], unitAware = true): SectionProgress {
-        const done = items.filter(x => unitAware ? isDone(x.id) : completedLessons.includes(x.id)).length
+        const done = items.filter(x => unitAware ? isDone(x.id) : completedSet.has(x.id)).length
         const total = items.length
         return { done, total, pct: total ? done / total * 100 : 0 }
     }

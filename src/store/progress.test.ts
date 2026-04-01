@@ -192,32 +192,32 @@ describe("isUnitUnlocked", () => {
     ]
 
     it("returns false for an unknown unit id", () => {
-        expect(isUnitUnlocked("es", "u-unknown", units)).toBe(false)
+        expect(isUnitUnlocked("u-unknown", units, [])).toBe(false)
     })
 
     it("always unlocks the first unit (order === 1)", () => {
-        expect(isUnitUnlocked("es", "u1", units)).toBe(true)
+        expect(isUnitUnlocked("u1", units, [])).toBe(true)
     })
 
     it("locks the second unit when the first is not mastered", () => {
-        expect(isUnitUnlocked("es", "u2", units)).toBe(false)
+        expect(isUnitUnlocked("u2", units, [])).toBe(false)
     })
 
     it("unlocks the second unit once the first is mastered", () => {
         masterUnit("es", "u1")
-        expect(isUnitUnlocked("es", "u2", units)).toBe(true)
+        expect(isUnitUnlocked("u2", units, getMasteredUnits("es"))).toBe(true)
     })
 
     it("unlocks the third unit once the second is mastered (not just first)", () => {
         masterUnit("es", "u1")
-        expect(isUnitUnlocked("es", "u3", units)).toBe(false)
+        expect(isUnitUnlocked("u3", units, getMasteredUnits("es"))).toBe(false)
         masterUnit("es", "u2")
-        expect(isUnitUnlocked("es", "u3", units)).toBe(true)
+        expect(isUnitUnlocked("u3", units, getMasteredUnits("es"))).toBe(true)
     })
 
     it("returns true when it is the only unit in the list (no predecessor)", () => {
         const sparse = [{ id: "u5", order: 5 }]
-        expect(isUnitUnlocked("es", "u5", sparse)).toBe(true)
+        expect(isUnitUnlocked("u5", sparse, [])).toBe(true)
     })
 
     it("handles non-contiguous order values — gap does not bypass the lock (BUG-006 fix)", () => {
@@ -228,9 +228,9 @@ describe("isUnitUnlocked", () => {
             { id: "u4", order: 4 },
         ]
         masterUnit("es", "u1")
-        expect(isUnitUnlocked("es", "u4", gapped)).toBe(false)
+        expect(isUnitUnlocked("u4", gapped, getMasteredUnits("es"))).toBe(false)
         masterUnit("es", "u2")
-        expect(isUnitUnlocked("es", "u4", gapped)).toBe(true)
+        expect(isUnitUnlocked("u4", gapped, getMasteredUnits("es"))).toBe(true)
     })
 
     it("works correctly when units are passed in unsorted order", () => {
@@ -241,7 +241,7 @@ describe("isUnitUnlocked", () => {
         ]
         masterUnit("es", "u1")
         masterUnit("es", "u2")
-        expect(isUnitUnlocked("es", "u3", unsorted)).toBe(true)
+        expect(isUnitUnlocked("u3", unsorted, getMasteredUnits("es"))).toBe(true)
     })
 })
 

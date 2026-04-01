@@ -32,6 +32,8 @@ let _adapters: StorageAdapters = {
     stats:    new LocalStorageStatsStorage(),
 }
 
+let _configured = false
+
 export const registry = {
     get progress(): IProgressStorage { return _adapters.progress },
     get srs():      ISRSStorage      { return _adapters.srs },
@@ -39,6 +41,11 @@ export const registry = {
 
     /** Replace one or more storage adapters. Call once during app bootstrap. */
     configure(adapters: Partial<StorageAdapters>): void {
+        if (_configured) {
+            console.warn("[registry] configure() called more than once — ignoring. Call configure() exactly once at app bootstrap.")
+            return
+        }
+        _configured = true
         _adapters = { ..._adapters, ...adapters }
     },
 }

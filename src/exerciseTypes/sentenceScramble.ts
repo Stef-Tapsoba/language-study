@@ -20,6 +20,7 @@ registerExerciseType<GrammarLesson>({
 
     // Grammar examples are the content source; reuses "grammar" progress tracking.
     contentType: "grammar",
+    sessionType: "grammar",
 
     // User must reconstruct the exact target-language sentence.
     // "strict": splits " / " alternatives, keeps parentheticals, accent-tolerant.

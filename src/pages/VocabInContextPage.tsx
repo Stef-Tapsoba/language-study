@@ -10,7 +10,6 @@ import { DrillDoneScreen } from "../components/DrillDoneScreen"
 import { QuizCard } from "../components/QuizCard"
 import { shuffle } from "../utils/arrayUtils"
 import { getUI, fmt } from "../i18n"
-import { completeDrillSession } from "../store/actions"
 import { useStatsStore } from "../store/useStatsStore"
 import type { ExerciseComponentProps } from "../exerciseTypes/registry"
 import type { ReadingPassage } from "../types"
@@ -94,7 +93,7 @@ function HighlightedExcerpt({ excerpt, word }: Readonly<{ excerpt: string; word:
 
 // ── Main page ─────────────────────────────────────────────────────────────────
 
-export default function VocabInContextPage({ items, langId, level, onComplete }: Readonly<ExerciseComponentProps<ReadingPassage>>) {
+export default function VocabInContextPage({ items, langId, level, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<ReadingPassage>>) {
     const ui = getUI(langId, level)
 
     const questions = useMemo(() => buildContextItems(items), [items])
@@ -170,7 +169,7 @@ export default function VocabInContextPage({ items, langId, level, onComplete }:
 
     function handleNext() {
         if (isLast) {
-            completeDrillSession(langId, "grammar").catch(console.error)
+            onSessionDone()
             setDone(true)
         } else {
             setIndex(i => i + 1)

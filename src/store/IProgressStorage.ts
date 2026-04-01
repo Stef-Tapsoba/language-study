@@ -43,6 +43,19 @@ export interface IProgressStorage {
     /** Persist the full progress object (used for bulk writes, e.g. import). */
     save(progress: UserProgress): Promise<void>
 
+    /**
+     * Initialise a session for the given user.
+     * If the stored progress belongs to a different user, wipes it and starts fresh.
+     * Stage 2: upsert a row in users table and hydrate progress from Supabase.
+     */
+    initSession(userId: string): Promise<void>
+
+    /**
+     * Persist the user's active language selection.
+     * Stage 2: write to user_preferences table.
+     */
+    setSelectedLanguage(langId: string): Promise<void>
+
     /** Mark a single lesson item as complete. Idempotent. */
     markLessonComplete(langId: string, lessonId: string, contentType: ContentType): Promise<void>
 

@@ -9,7 +9,6 @@ import { useState, useMemo, useEffect, useRef } from "react"
 import { NavBar } from "../components/NavBar"
 import { shuffle } from "../utils/arrayUtils"
 import { getUI, fmt } from "../i18n"
-import { completeDrillSession } from "../store/actions"
 import { useStatsStore } from "../store/useStatsStore"
 import type { ExerciseComponentProps } from "../exerciseTypes/registry"
 import type { VocabItem } from "../types"
@@ -79,7 +78,7 @@ function ItemButton({ label, state, onClick }: Readonly<ItemButtonProps>) {
 
 // ── Main page ─────────────────────────────────────────────────────────────────
 
-export default function VocabMatchingPage({ items, langId, level, onComplete }: Readonly<ExerciseComponentProps<VocabItem>>) {
+export default function VocabMatchingPage({ items, langId, level, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<VocabItem>>) {
     const ui = getUI(langId, level)
 
     const pool = useMemo(() => shuffle(items).slice(0, ROUND_SIZE * MAX_ROUNDS), [items])
@@ -135,7 +134,7 @@ export default function VocabMatchingPage({ items, langId, level, onComplete }: 
 
                 if (remaining.length === 0) {
                     // All items done
-                    completeDrillSession(langId, "vocab").catch(console.error)
+                    onSessionDone()
                     setDone(true)
                 } else {
                     setUsedIds(newUsed)

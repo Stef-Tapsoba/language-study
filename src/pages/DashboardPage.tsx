@@ -4,6 +4,8 @@ import { useParams, useNavigate, useSearchParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { isUnitUnlocked } from "../store/progress"
+import { isOnboardingVisible, dismissOnboarding } from "../store/preferences"
+
 import { useProgress } from "../context/ProgressContext"
 import { getDueCount } from "../store/srs"
 import { useStatsStore, getHistory } from "../store/useStatsStore"
@@ -91,7 +93,7 @@ const UnitRow = memo(function UnitRow({ unit, langId, level, mastered, allUnits,
     mastered: string[]; allUnits: LessonUnit[]; completed: ReadonlySet<string>
 }>) {
     const isMastered = mastered.includes(unit.id)
-    const unlocked = isUnitUnlocked(langId, unit.id, allUnits)
+    const unlocked = isUnitUnlocked(unit.id, allUnits, mastered)
 
     let rowState = "border-gray-100 dark:border-gray-700 border-l-4 border-l-gray-200 dark:border-l-gray-600 bg-gray-50 dark:bg-gray-700/50 opacity-50 cursor-default"
     if (isMastered) rowState = "border-green-200 border-l-4 border-l-green-500 bg-green-50/40 hover:border-green-300"
@@ -201,11 +203,10 @@ export function DashboardPage() {
         [langId, mod, level]
     )
 
-    const onboardingKey = `ls:onboarded:${langId}`
-    const [showOnboarding, setShowOnboarding] = useState(() => !localStorage.getItem(onboardingKey))
+    const [showOnboarding, setShowOnboarding] = useState(() => isOnboardingVisible(langId))
 
-    function dismissOnboarding() {
-        localStorage.setItem(onboardingKey, "1")
+    function handleDismissOnboarding() {
+        dismissOnboarding(langId)
         setShowOnboarding(false)
     }
 
@@ -269,7 +270,7 @@ export function DashboardPage() {
                             </p>
                         </div>
                         <button
-                            onClick={dismissOnboarding}
+                            onClick={handleDismissOnboarding}
                             aria-label="Dismiss"
                             className="text-indigo-400 hover:text-indigo-600 dark:text-indigo-500 dark:hover:text-indigo-300 shrink-0 p-1"
                         >

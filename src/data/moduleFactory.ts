@@ -41,7 +41,7 @@ export function createLanguageModule(slices: LanguageModuleSlices): LanguageModu
         grammar: stamp(slices.grammar.flat(), langId),
         vocab: stamp(slices.vocab.flat(), langId),
         verbs: stamp(slices.verbs.flat(), langId),
-        units: slices.units?.flat(),
+        units: slices.units?.flat() ?? [],
         placementQuestions: slices.placementQuestions,
         levelQuestions: slices.levelQuestions,
         readingPassages: slices.readingPassages ? stamp(slices.readingPassages.flat(), langId) : undefined,

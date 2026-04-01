@@ -7,7 +7,6 @@ import { useMemo, useEffect, useState } from "react"
 import { useParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getGrammarForLevel, getUnitsForLevel } from "../data/repo"
-import { getMasteredUnits } from "../store/progress"
 import { useProgress } from "../context/ProgressContext"
 import { completeDrillSession } from "../store/actions"
 import { shuffle } from "../utils/arrayUtils"
@@ -300,26 +299,26 @@ function MultipleChoiceMode({ langId, question, isFlipped, ui, drill, questionsL
 export function GrammarDrillPage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
-    const { level: getLevel } = useProgress()
+    const { level: getLevel, mastered: getMastered } = useProgress()
     const level = getLevel(langId)
+    const masteredIds = getMastered(langId)
     const ui = getUI(langId, level)
     const isFlipped = level !== "A1" && level !== "A2"
 
     const questions = useMemo(() => {
         const allGrammar = getGrammarForLevel(langId, level)
         const units = getUnitsForLevel(langId, level)
-        const mastered = getMasteredUnits(langId)
         // Covered units: first unit is always unlocked; subsequent unlock when previous is mastered
         const coveredGrammarIds = new Set(
             units
-                .filter((_, i) => i === 0 || mastered.includes(units[i - 1].id))
+                .filter((_, i) => i === 0 || masteredIds.includes(units[i - 1].id))
                 .flatMap(u => u.grammarIds)
         )
         const covered = allGrammar.filter(g => coveredGrammarIds.has(g.id))
         // Need ≥4 distinct examples to build questions; fall back to all if pool is too small
         const source = covered.flatMap(g => g.examples).length >= 4 ? covered : allGrammar
         return buildQuestions(source, level)
-    }, [langId, level])
+    }, [langId, level, masteredIds])
 
     const drill = useDrill(questions)
 
