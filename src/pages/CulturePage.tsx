@@ -27,9 +27,9 @@ function CategoryPill({ category }: { category: string }) {
 // ---------------------------------------------------------------------------
 function QuestionTypePill({ type }: { type: "comprehension" | "reflection" | "comparison" }) {
     const cfg = {
-        comprehension: { label: "Comprehension", color: "bg-blue-50 text-blue-600" },
-        reflection: { label: "Reflect", color: "bg-purple-50 text-purple-600" },
-        comparison: { label: "Compare", color: "bg-teal-50 text-teal-600" },
+        comprehension: { label: "Comprehension", color: "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400" },
+        reflection: { label: "Reflect", color: "bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400" },
+        comparison: { label: "Compare", color: "bg-teal-50 dark:bg-teal-900/20 text-teal-600 dark:text-teal-400" },
     }[type]
     return (
         <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${cfg.color}`}>
@@ -156,24 +156,24 @@ function CultureVocabPanel({ vocab }: { vocab: CultureEpisode["cultureVocab"] })
                         <button
                             key={v.word}
                             onClick={() => setExpanded(exp => exp === v.word ? null : v.word)}
-                            className="w-full text-left bg-amber-50 hover:bg-amber-100 rounded-xl px-4 py-3 transition-colors"
+                            className="w-full text-left bg-amber-50 dark:bg-amber-900/20 hover:bg-amber-100 dark:hover:bg-amber-900/30 rounded-xl px-4 py-3 transition-colors"
                         >
                             <div className="flex items-start justify-between gap-2">
                                 <div>
-                                    <p className="text-sm font-bold text-amber-900">{v.word}</p>
+                                    <p className="text-sm font-bold text-amber-900 dark:text-amber-100">{v.word}</p>
                                     {v.romanized && (
-                                        <p className="text-xs text-amber-500 font-medium">{v.romanized}</p>
+                                        <p className="text-xs text-amber-500 dark:text-amber-400 font-medium">{v.romanized}</p>
                                     )}
                                     <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">{v.translation}</p>
                                 </div>
                                 {v.culturalNote && (
-                                    <span className="text-xs text-amber-400 shrink-0 mt-0.5">
+                                    <span className="text-xs text-amber-400 dark:text-amber-500 shrink-0 mt-0.5">
                                         {expanded === v.word ? "▲" : "💡"}
                                     </span>
                                 )}
                             </div>
                             {expanded === v.word && v.culturalNote && (
-                                <p className="text-xs text-gray-700 dark:text-gray-300 mt-2 pt-2 border-t border-amber-200 leading-relaxed">
+                                <p className="text-xs text-gray-700 dark:text-gray-300 mt-2 pt-2 border-t border-amber-200 dark:border-amber-800 leading-relaxed">
                                     {v.culturalNote}
                                 </p>
                             )}
@@ -192,15 +192,15 @@ function DidYouKnow({ content }: Readonly<{ content: NonNullable<CultureEpisode[
     const [showTarget, setShowTarget] = useState(false)
 
     return (
-        <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5">
-            <p className="text-xs font-bold text-amber-600 uppercase tracking-wider mb-2">💡 Did you know?</p>
+        <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-2xl p-5">
+            <p className="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider mb-2">💡 Did you know?</p>
             <p className="text-sm text-gray-800 dark:text-gray-200 leading-relaxed">
                 {showTarget && content.target ? content.target : content.native}
             </p>
             {content.target && (
                 <button
                     onClick={() => setShowTarget(v => !v)}
-                    className="mt-3 text-xs text-amber-700 hover:underline font-medium"
+                    className="mt-3 text-xs text-amber-700 dark:text-amber-400 hover:underline font-medium"
                 >
                     {showTarget ? "Show in English" : "Read in target language"}
                 </button>
@@ -430,7 +430,7 @@ function CultureEpisodeView({
                         onClick={markedRead ? undefined : handleMarkRead}
                         disabled={markedRead}
                         className={`w-full font-semibold rounded-xl py-3 text-sm transition-colors border ${markedRead
-                            ? "border-green-300 text-green-700 bg-green-50 cursor-default"
+                            ? "border-green-300 dark:border-green-700 text-green-700 dark:text-green-400 bg-green-50 dark:bg-green-900/20 cursor-default"
                             : "border-amber-600 bg-amber-600 text-white hover:bg-amber-700"
                             }`}
                     >
@@ -573,12 +573,12 @@ export function CulturePage() {
 
             {/* Hero banner — browse view only */}
             {!selectedEpisode && (
-                <div className="bg-amber-50 border-b border-amber-200 px-4 py-5">
+                <div className="bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200 dark:border-amber-800 px-4 py-5">
                     <div className="max-w-xl mx-auto flex items-center gap-3">
                         <Flag langId={langId} size="lg" />
                         <div>
-                            <p className="font-bold text-amber-900">{language.name} · Cultural Episodes</p>
-                            <p className="text-xs text-amber-700 mt-0.5">
+                            <p className="font-bold text-amber-900 dark:text-amber-100">{language.name} · Cultural Episodes</p>
+                            <p className="text-xs text-amber-700 dark:text-amber-400 mt-0.5">
                                 Stories, traditions, and cultural context
                             </p>
                         </div>
