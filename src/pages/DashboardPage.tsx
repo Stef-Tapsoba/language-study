@@ -4,6 +4,7 @@ import { useParams, useNavigate, useSearchParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { isUnitUnlocked } from "../store/progressUtils"
+import { DEBUG } from "../auth/debugSession"
 import { isOnboardingVisible, dismissOnboarding } from "../store/preferences"
 
 import { useProgress } from "../context/ProgressContext"
@@ -93,7 +94,7 @@ const UnitRow = memo(function UnitRow({ unit, langId, level, mastered, allUnits,
     mastered: string[]; allUnits: LessonUnit[]; completed: ReadonlySet<string>
 }>) {
     const isMastered = mastered.includes(unit.id)
-    const unlocked = isUnitUnlocked(unit.id, allUnits, mastered)
+    const unlocked = DEBUG || isUnitUnlocked(unit.id, allUnits, mastered)
 
     let rowState = "border-gray-100 dark:border-gray-700 border-l-4 border-l-gray-200 dark:border-l-gray-600 bg-gray-50 dark:bg-gray-700/50 opacity-50 cursor-default"
     if (isMastered) rowState = "border-green-200 border-l-4 border-l-green-500 bg-green-50/40 hover:border-green-300"
