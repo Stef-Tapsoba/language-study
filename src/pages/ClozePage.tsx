@@ -61,7 +61,13 @@ function buildClozeItems(passages: ReadingPassage[]): ClozeItem[] {
             // Use the parallel native sentence as translation context; fall back to passage title
             const sentenceTranslation = nativeSentences[sentenceIdx] ?? passage.title
 
-            // Replace the first occurrence of the word in the sentence
+            // Replace the first occurrence of the word in the sentence.
+            // /i flag: helps when the gloss capitalisation differs from the sentence
+            // (e.g. sentence-initial position). For CJK scripts the flag is a no-op
+            // (no case concept). Known limitation: for CJK the regex may match inside
+            // a longer compound rather than at a true word boundary — acceptable for
+            // now since the vocabGloss words are authored to appear verbatim in the
+            // sentence body.
             const escaped = gloss.word.replaceAll(/[.*+?^${}()|[\]\\]/g, String.raw`\$&`)
             const regex = new RegExp(escaped, "i")
             const sentenceWithBlank = sentence.replace(regex, "_____")

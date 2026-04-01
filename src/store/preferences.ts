@@ -3,6 +3,14 @@
 // Centralises all direct localStorage reads/writes for UI preferences so they
 // are easy to find and easy to swap for a Supabase user_preferences row in
 // Stage 2 without hunting across page components.
+//
+// Storage keys managed here:
+//   ls:onboarded:{langId}  — "1" once the onboarding banner has been dismissed
+//   ls:tts-autoplay        — "true" | "false" (defaults to true when absent)
+//
+// Stage 2: introduce IPreferencesStorage + LocalStoragePreferencesStorage
+// and a registry slot so these reads/writes can be swapped for a Supabase
+// user_preferences row (enables cross-device preference sync).
 
 // ── Onboarding ────────────────────────────────────────────────────────────────
 

@@ -48,4 +48,20 @@ export const registry = {
         _configured = true
         _adapters = { ..._adapters, ...adapters }
     },
+
+    /**
+     * Reset adapters back to the localStorage defaults and clear the configured flag.
+     * ONLY for use in tests — allows each test to inject fresh mock adapters via
+     * configure() without Vite's module cache carrying state between tests.
+     * Guarded to throw in production so it can never be called accidentally.
+     */
+    _resetForTests(): void {
+        if (import.meta.env.PROD) throw new Error("[registry] _resetForTests() must not be called in production")
+        _adapters = {
+            progress: new LocalStorageProgressStorage(),
+            srs:      new LocalStorageSRSStorage(),
+            stats:    new LocalStorageStatsStorage(),
+        }
+        _configured = false
+    },
 }

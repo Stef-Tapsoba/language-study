@@ -39,6 +39,14 @@ interface ProgressContextValue {
     selectedLanguage: string | null
 
     /**
+     * Force a re-read of progress from the storage cache.
+     * Call this after an external write (e.g. importProgressSnapshot) that writes
+     * directly to the registry without going through a ProgressContext mutation.
+     * Normal mutations (setCurrentLevel, masterUnit, etc.) call this internally.
+     */
+    refreshProgress: () => void
+
+    /**
      * Set when a storage mutation fails. Null on success or before the first mutation.
      * Stage 2 (Supabase): network or RLS errors surface here.
      * Pages should show a retry banner when this is non-null.
@@ -163,6 +171,7 @@ export function ProgressProvider({ children }: Readonly<{ children: ReactNode }>
         progress,
         isHydrating,
         hydrateError,
+        refreshProgress: refresh,
         mutationError,
         clearMutationError,
         level,
@@ -178,7 +187,7 @@ export function ProgressProvider({ children }: Readonly<{ children: ReactNode }>
         resetLanguage,
         removeLanguage,
     }), [
-        progress, isHydrating, hydrateError, mutationError, clearMutationError,
+        progress, isHydrating, hydrateError, refresh, mutationError, clearMutationError,
         level, completed, mastered,
         initUserSession, setSelectedLanguage, setCurrentLevel,
         markLessonComplete, masterUnit, resetLanguage, removeLanguage,

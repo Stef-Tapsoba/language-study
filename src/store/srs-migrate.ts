@@ -14,9 +14,15 @@ import type { SRSCardState } from "@myorg/srs"
 
 export const SRS_SCHEMA_VERSION = 2
 
+/**
+ * In-memory shape returned by migrateSRSStore and used by LocalStorageSRSStorage.
+ * On-disk the store is persisted as { schemaVersion: N, langs: { [langId]: {...} } }.
+ * Legacy data (pre-nested format) had lang maps at the top level — migrateSRSStore
+ * handles both shapes transparently.
+ */
 export type SRSStore = {
     schemaVersion: typeof SRS_SCHEMA_VERSION
-    [langId: string]: Record<string, SRSCardState> | typeof SRS_SCHEMA_VERSION
+    langs: Record<string, Record<string, SRSCardState>>
 }
 
 type LegacyCardV1 = {
@@ -56,25 +62,34 @@ function migrateV1ToV2(
  * Migrate raw stored SRS data to the current schema version.
  * Safe to call on already-current data — each migration step is idempotent.
  * Add `if (version < N)` blocks here as the SRSCardState shape evolves.
+ *
+ * Handles two on-disk formats transparently:
+ *   Legacy (pre-nested): { schemaVersion?: N, es: {...}, fr: {...} }
+ *   Current (nested):    { schemaVersion: N, langs: { es: {...}, fr: {...} } }
  */
 export function migrateSRSStore(raw: unknown): SRSStore {
     if (!raw || typeof raw !== "object") {
-        return { schemaVersion: SRS_SCHEMA_VERSION }
+        return { schemaVersion: SRS_SCHEMA_VERSION, langs: {} }
     }
 
     const obj = raw as Record<string, unknown>
     const version = typeof obj.schemaVersion === "number" ? obj.schemaVersion : 1
 
-    // Strip the schemaVersion key before passing language maps to migration fns
-    const { schemaVersion: _, ...langMaps } = obj
-
-    let data = langMaps as Record<string, Record<string, unknown>>
-
-    if (version < 2) {
-        data = migrateV1ToV2(data)
+    // Detect format: new format has a `langs` object key; legacy has lang IDs at the top level.
+    let langData: Record<string, Record<string, unknown>>
+    if (obj.langs && typeof obj.langs === "object" && !Array.isArray(obj.langs)) {
+        langData = obj.langs as Record<string, Record<string, unknown>>
+    } else {
+        // Legacy flat format — strip schemaVersion and treat the rest as lang maps
+        const { schemaVersion: _, ...flatMaps } = obj
+        langData = flatMaps as Record<string, Record<string, unknown>>
     }
 
-    // Future: if (version < 3) { data = migrateV2ToV3(data) }
+    if (version < 2) {
+        langData = migrateV1ToV2(langData)
+    }
 
-    return { schemaVersion: SRS_SCHEMA_VERSION, ...data } as SRSStore
+    // Future: if (version < 3) { langData = migrateV2ToV3(langData) }
+
+    return { schemaVersion: SRS_SCHEMA_VERSION, langs: langData as Record<string, Record<string, SRSCardState>> }
 }

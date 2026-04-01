@@ -203,7 +203,7 @@ export function ProfilePage() {
     const { logout } = useAuth()
     const navigate = useNavigate()
     const { displayName, email, initials } = useCurrentUser()
-    const { startedLanguages: startedIds, level: getLevel, completed: getCompleted, mastered: getMastered } = useProgress()
+    const { startedLanguages: startedIds, level: getLevel, completed: getCompleted, mastered: getMastered, refreshProgress } = useProgress()
     const [tick, setTick] = useState(0)   // force re-render after module loads
     // Load any unloaded language modules so progress bars show real numbers
     useEffect(() => {
@@ -234,7 +234,8 @@ export function ProfilePage() {
             setImportError(error)
         } else {
             setImportStatus("success")
-            // Reload after a brief moment so the user sees the success state
+            // Sync ProgressContext immediately so the 1.2 s before reload shows merged data
+            refreshProgress()
             setTimeout(() => globalThis.location.reload(), 1200)
         }
     }

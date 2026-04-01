@@ -36,8 +36,9 @@ export class LocalStorageProgressStorage implements IProgressStorage {
         storeSetSelectedLanguage(langId)
     }
 
-    // contentType is written to completedByType alongside the flat completedLessons array.
-    // Stage 2 (SupabaseProgressStorage) will route writes to the appropriate DB table.
+    // Stage 1: contentType is intentionally unused here — only the flat completedLessons
+    // array is stored in localStorage. Stage 2 (SupabaseProgressStorage) will use
+    // contentType to route writes to the correct DB table (lesson_completions.content_type).
     async markLessonComplete(langId: string, lessonId: string, contentType: ContentType): Promise<void> {
         storeMark(langId, lessonId, contentType)
     }
