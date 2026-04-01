@@ -1,5 +1,5 @@
 // components/ListeningPlayer.tsx — TTS audio player for listening exercises with play/stop and slow/normal rate
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { UIStrings } from "../i18n"
 
 const LANG_MAP: Record<string, string> = {
@@ -20,6 +20,8 @@ interface Props {
 export function ListeningPlayer({ script, langId, ui, onEnded }: Readonly<Props>) {
     const [playing, setPlaying] = useState(false)
     const [slow, setSlow] = useState(false)
+
+    useEffect(() => () => { window.speechSynthesis.cancel() }, [])
 
     if (!("speechSynthesis" in window)) return null
 

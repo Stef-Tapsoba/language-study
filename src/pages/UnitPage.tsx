@@ -8,6 +8,7 @@ import { useProgress } from "../context/ProgressContext"
 import { useStatsStore } from "../store/useStatsStore"
 import { confirmUnitMastery } from "../store/actions"
 import { NavBar } from "../components/NavBar"
+import { MarkCompleteButton } from "../components/MarkCompleteButton"
 import { LevelBadge } from "../components/LevelBadge"
 import { QuizCard } from "../components/QuizCard"
 import { SpeakButton } from "../components/SpeakButton"
@@ -67,14 +68,12 @@ function GrammarAccordion({ lesson, done, langId, level, ui, onComplete, onVocab
                                 </div>
                             ))}
                         </div>
-                        {!done && (
-                            <button
-                                onClick={() => { markLessonComplete(langId, lesson.id, "grammar"); onComplete() }}
-                                className="mt-4 w-full bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl py-2 text-sm transition-colors"
-                            >
-                                {ui.markComplete}
-                            </button>
-                        )}
+                        <MarkCompleteButton
+                            done={done}
+                            onClick={() => { markLessonComplete(langId, lesson.id, "grammar"); onComplete() }}
+                            label={ui.markComplete}
+                            className="mt-4"
+                        />
                     </div>
                 </AccordionContent>
             </AccordionItem>
@@ -117,14 +116,11 @@ function VocabRow({ item, done, langId, ui, onComplete }: Readonly<{
                             {item.example.romanized && <p className="text-xs text-indigo-500 mt-0.5">{item.example.romanized}</p>}
                             <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{item.example.translation}</p>
                         </div>
-                        {!done && (
-                            <button
-                                onClick={() => { markLessonComplete(langId, item.id, "vocab"); onComplete() }}
-                                className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl py-2 text-sm transition-colors"
-                            >
-                                {ui.markLearned}
-                            </button>
-                        )}
+                        <MarkCompleteButton
+                            done={done}
+                            onClick={() => { markLessonComplete(langId, item.id, "vocab"); onComplete() }}
+                            label={ui.markLearned}
+                        />
                     </div>
                 </AccordionContent>
             </AccordionItem>
@@ -135,12 +131,14 @@ function VocabRow({ item, done, langId, ui, onComplete }: Readonly<{
 // ---------------------------------------------------------------------------
 // VerbCard
 // ---------------------------------------------------------------------------
-function VerbCard({ verb, langId }: Readonly<{ verb: Verb; langId: string }>) {
+function VerbCard({ verb, langId, done, ui }: Readonly<{ verb: Verb; langId: string; done: boolean; ui: UIStrings }>) {
+    const { markLessonComplete } = useProgress()
     return (
         <Accordion type="single" collapsible>
-            <AccordionItem value={verb.id} className="border border-gray-200 dark:border-gray-700 rounded-2xl px-5 bg-white dark:bg-gray-800">
+            <AccordionItem value={verb.id} className={`border rounded-2xl px-5 bg-white dark:bg-gray-800 ${done ? "border-green-300" : "border-gray-200 dark:border-gray-700"}`}>
                 <AccordionTrigger className="py-4 hover:no-underline">
                     <div className="flex items-center gap-3 w-full pr-2">
+                        <span className={`text-base ${done ? "text-green-500" : "text-gray-300 dark:text-gray-600"}`}>{done ? "✓" : "○"}</span>
                         <div className="flex-1">
                             <span className="font-semibold text-gray-900 dark:text-gray-100">{verb.infinitive}</span>
                             {verb.romanized && <span className="ml-2 text-xs text-indigo-500">{verb.romanized}</span>}
@@ -165,6 +163,12 @@ function VerbCard({ verb, langId }: Readonly<{ verb: Verb; langId: string }>) {
                                 </div>
                             </div>
                         ))}
+                        <MarkCompleteButton
+                            done={done}
+                            onClick={() => markLessonComplete(langId, verb.id, "verb")}
+                            label={ui.markLearned}
+                            className="mt-4"
+                        />
                     </div>
                 </AccordionContent>
             </AccordionItem>
@@ -726,7 +730,7 @@ export function UnitPage() {
                         {verbs.length > 0 ? (
                             <div className="flex flex-col gap-3">
                                 {verbs.map(verb => (
-                                    <VerbCard key={verb.id} verb={verb} langId={langId} />
+                                    <VerbCard key={verb.id} verb={verb} langId={langId} done={completed.includes(verb.id)} ui={ui} />
                                 ))}
                             </div>
                         ) : (
