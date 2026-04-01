@@ -115,7 +115,7 @@ describe("answerMatches", () => {
         expect(answerMatches("buenos  dias", "buenos días")).toBe(true)
     })
 
-    // ── Multi-answer support (BUG-002) ───────────────────────────────────────
+    // ── Multi-answer array support ───────────────────────────────────────────
     it("accepts the first answer in an array", () => {
         expect(answerMatches("hola", ["hola", "hello"])).toBe(true)
     })
@@ -134,5 +134,117 @@ describe("answerMatches", () => {
 
     it("returns false for an empty array of targets", () => {
         expect(answerMatches("hola", [])).toBe(false)
+    })
+
+    // ── loose mode: parenthetical stripping ──────────────────────────────────
+    describe("loose mode (default) — parenthetical stripping", () => {
+        it("accepts answer without register qualifier: 'please' matches 'Please (formal)'", () => {
+            expect(answerMatches("please", "Please (formal)")).toBe(true)
+        })
+
+        it("accepts answer without register qualifier: 'please' matches 'Please (informal)'", () => {
+            expect(answerMatches("please", "Please (informal)")).toBe(true)
+        })
+
+        it("accepts answer without context qualifier: 'goodbye' matches 'Goodbye (to person leaving)'", () => {
+            expect(answerMatches("goodbye", "Goodbye (to person leaving)")).toBe(true)
+        })
+
+        it("accepts answer without qualifier: 'good morning' matches 'Good morning (formal)'", () => {
+            expect(answerMatches("good morning", "Good morning (formal)")).toBe(true)
+        })
+
+        it("still rejects a completely wrong answer even with parentheticals in target", () => {
+            expect(answerMatches("goodbye", "Please (formal)")).toBe(false)
+        })
+
+        it("accepts the full answer including qualifier text when typed", () => {
+            // user who types the full thing should still get credit
+            expect(answerMatches("please formal", "Please (formal)")).toBe(true)
+        })
+    })
+
+    // ── loose mode: slash-alternative splitting ───────────────────────────────
+    describe("loose mode (default) — slash alternative splitting", () => {
+        it("accepts first alternative: 'hello' matches 'Hello / Good morning'", () => {
+            expect(answerMatches("hello", "Hello / Good morning")).toBe(true)
+        })
+
+        it("accepts second alternative: 'good morning' matches 'Hello / Good morning'", () => {
+            expect(answerMatches("good morning", "Hello / Good morning")).toBe(true)
+        })
+
+        it("accepts any of three alternatives: 'please' matches 'Please / Here you go / Go ahead'", () => {
+            expect(answerMatches("please", "Please / Here you go / Go ahead")).toBe(true)
+        })
+
+        it("accepts 'go ahead' from three alternatives", () => {
+            expect(answerMatches("go ahead", "Please / Here you go / Go ahead")).toBe(true)
+        })
+
+        it("rejects answer not in alternatives", () => {
+            expect(answerMatches("farewell", "Hello / Good morning")).toBe(false)
+        })
+    })
+
+    // ── loose mode: combined parentheticals + slash alternatives ─────────────
+    describe("loose mode (default) — parentheticals combined with alternatives", () => {
+        it("strips qualifier then matches first alt: 'i' matches 'I / me (polite)'", () => {
+            expect(answerMatches("i", "I / me (polite)")).toBe(true)
+        })
+
+        it("strips qualifier then matches second alt: 'me' matches 'I / me (polite)'", () => {
+            expect(answerMatches("me", "I / me (polite)")).toBe(true)
+        })
+
+        it("strips qualifier then matches: 'sorry' matches 'Sorry / Pardon'", () => {
+            expect(answerMatches("sorry", "Sorry / Pardon")).toBe(true)
+        })
+    })
+
+    // ── strict mode: no parenthetical stripping ───────────────────────────────
+    describe("strict mode — parentheticals are required", () => {
+        it("does NOT match 'please' against 'Please (formal)' — qualifier is part of answer", () => {
+            expect(answerMatches("please", "Please (formal)", "strict")).toBe(false)
+        })
+
+        it("matches full normalised form 'please formal' against 'Please (formal)'", () => {
+            expect(answerMatches("please formal", "Please (formal)", "strict")).toBe(true)
+        })
+
+        it("still matches exact answer without parentheticals when target has none", () => {
+            expect(answerMatches("bonjour", "Bonjour", "strict")).toBe(true)
+        })
+    })
+
+    // ── strict mode: slash alternatives still work ────────────────────────────
+    describe("strict mode — slash alternatives still expand", () => {
+        it("accepts first alt in strict mode", () => {
+            expect(answerMatches("je vais bien", "Je vais bien / Ça va bien", "strict")).toBe(true)
+        })
+
+        it("accepts second alt in strict mode", () => {
+            expect(answerMatches("ca va bien", "Je vais bien / Ça va bien", "strict")).toBe(true)
+        })
+    })
+
+    // ── dictation mode: no splitting or stripping ─────────────────────────────
+    describe("dictation mode — exact script reproduction", () => {
+        it("matches exact script (accent tolerance still applies)", () => {
+            expect(answerMatches("bonjour comment ca va", "Bonjour, comment ça va?", "dictation")).toBe(true)
+        })
+
+        it("does NOT accept partial answer — dictation requires full script", () => {
+            expect(answerMatches("bonjour", "Bonjour, comment ça va?", "dictation")).toBe(false)
+        })
+
+        it("does NOT split slash alternatives in dictation mode", () => {
+            // If the script literally contains " / ", the user must type the whole thing
+            expect(answerMatches("hello", "Hello / Good morning", "dictation")).toBe(false)
+        })
+
+        it("does NOT strip parentheticals in dictation mode", () => {
+            expect(answerMatches("please", "Please (formal)", "dictation")).toBe(false)
+        })
     })
 })

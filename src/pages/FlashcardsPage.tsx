@@ -448,7 +448,7 @@ export function FlashcardsPage() {
 
     function handleTypedSubmit() {
         const card = deck[index]
-        const match = answerMatches(typedAnswer, card.translation)
+        const match = answerMatches(typedAnswer, card.translation, "loose")
         setTypedResult(match ? "correct" : "wrong")
         setFlipped(true)
     }

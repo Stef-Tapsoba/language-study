@@ -338,7 +338,7 @@ export function GrammarDrillPage() {
         if (fillState !== "idle" || !fillInput.trim()) return
         const current = questions[drill.index]
         if (!current) return
-        const isCorrect = answerMatches(fillInput, current.correct)
+        const isCorrect = answerMatches(fillInput, current.correct, "strict")
         setFillState(isCorrect ? "submitted-correct" : "submitted-wrong")
         drill.handleSelect(isCorrect ? current.correct : fillInput)
     }
