@@ -231,5 +231,10 @@ export async function importProgressSnapshot(
         registry.stats.saveAll(mergeStats(currentStats, data.stats)),
     ])
 
+    // Re-sync the Zustand stats store so any rendered UI picks up the merged
+    // data immediately — without this, the stats store holds pre-import values
+    // until the page reloads.
+    await useStatsStore.getState().hydrate()
+
     return null
 }

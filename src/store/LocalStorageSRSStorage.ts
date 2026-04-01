@@ -7,7 +7,7 @@
 import { SRSCardState, calcNextReview, INITIAL_STATE } from "@myorg/srs"
 import type { SRSQuality } from "@myorg/srs"
 import { ISRSStorage } from "./ISRSStorage"
-import { migrateSRSStore } from "./srs-migrate"
+import { migrateSRSStore, SRS_SCHEMA_VERSION } from "./srs-migrate"
 
 const SRS_KEY = "ls:srs"
 
@@ -18,16 +18,15 @@ export class LocalStorageSRSStorage implements ISRSStorage {
         try {
             const raw = localStorage.getItem(SRS_KEY)
             if (!raw) return {}
-            const migrated = migrateSRSStore(JSON.parse(raw))
-            const { schemaVersion: _, ...langMaps } = migrated
-            return langMaps as Record<string, Record<string, SRSCardState>>
+            return migrateSRSStore(JSON.parse(raw)).langs
         } catch {
             return {}
         }
     }
 
     private _save(store: Record<string, Record<string, SRSCardState>>): void {
-        localStorage.setItem(SRS_KEY, JSON.stringify(store))
+        // Persist with schemaVersion + nested langs so future loads skip migrations.
+        localStorage.setItem(SRS_KEY, JSON.stringify({ schemaVersion: SRS_SCHEMA_VERSION, langs: store }))
     }
 
     getStates(langId: string): Record<string, SRSCardState> {

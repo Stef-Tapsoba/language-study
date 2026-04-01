@@ -53,7 +53,7 @@ interface StatsState {
 
 // ─── Store ────────────────────────────────────────────────────────────────────
 
-export const useStatsStore = create<StatsState>()((set, get) => ({
+export const useStatsStore = create<StatsState>()((set, get) => ({  // 'get' used by resetAllStats
     data: {},
     hydrated: false,
 
@@ -120,9 +120,12 @@ export const useStatsStore = create<StatsState>()((set, get) => ({
     },
 
     async resetAllStats() {
-        set({ data: {} })
-        const current = await registry.stats.load()
-        await Promise.all(Object.keys(current).map(lang => registry.stats.resetLanguage(lang)))
+        // Read lang keys synchronously from the current Zustand state — avoids an
+        // async gap where recordActivity() could fire between set({}) and load(),
+        // creating a new entry that the subsequent resets would then also wipe.
+        const langIds = Object.keys(get().data)
+        await Promise.all(langIds.map(lang => registry.stats.resetLanguage(lang)))
+        set({ data: {}, hydrated: false })
     },
 }))
 
