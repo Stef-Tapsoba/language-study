@@ -32,14 +32,19 @@ interface ScrambleItem {
 // ── Token segmentation ────────────────────────────────────────────────────────
 
 /**
- * Split a sentence into word tokens.
- * For Japanese/Korean (no spaces between words), we split on spaces if present,
- * otherwise treat each character as a token — but the data uses spaces between
- * grammar segments, so space-splitting is safe.
- * We filter out empty strings.
+ * Split a sentence into word tokens, stripping leading/trailing punctuation
+ * from each token so that punctuation doesn't reveal word position
+ * (e.g. "estás?" → "estás", "¡Hola" → "Hola", "bien." → "bien").
+ *
+ * answerMatches(..., "strict") strips punctuation from both sides before
+ * comparing, so assembled tokens still match the original sentence correctly.
  */
 function tokenize(sentence: string): string[] {
-    return sentence.split(/\s+/).filter(Boolean)
+    return sentence
+        .split(/\s+/)
+        .filter(Boolean)
+        .map(t => t.replaceAll(/^[\p{P}\p{S}]+|[\p{P}\p{S}]+$/gu, ""))
+        .filter(Boolean)
 }
 
 // ── Build items ───────────────────────────────────────────────────────────────
