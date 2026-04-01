@@ -1,10 +1,15 @@
 // auth/ProtectedRoute.tsx — Route guard that redirects unauthenticated users to /
 import { Navigate, useLocation } from "react-router-dom"
 import { useAuth } from "./AuthContext"
+import { DEBUG } from "./debugSession"
 
 export function ProtectedRoute({ children }: { children: React.ReactNode }) {
     const { session, loading } = useAuth()
     const location = useLocation()
+
+    // Debug mode: AuthContext already has a stub session, but guard this as
+    // a second line of defence so no spinner or redirect ever fires.
+    if (DEBUG) return <>{children}</>
 
     if (loading) {
         return (

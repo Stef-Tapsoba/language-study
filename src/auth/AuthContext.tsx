@@ -3,6 +3,7 @@ import React, { createContext, useContext, useEffect, useState } from "react"
 import { AuthService, Session } from "@myorg/auth-core"
 import { LocalStorageAdapter } from "@myorg/storage"
 import { mockAuthApi } from "./mockAuthApi"
+import { DEBUG, DEBUG_SESSION } from "./debugSession"
 
 interface AuthContextValue {
     authService: AuthService
@@ -17,10 +18,13 @@ const AuthContext = createContext<AuthContextValue | null>(null)
 const authService = new AuthService(mockAuthApi, new LocalStorageAdapter("ls"))
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-    const [session, setSession] = useState<Session | null>(null)
-    const [loading, setLoading] = useState(true)
+    // Debug mode: inject a stub session immediately, skip authService entirely.
+    const [session, setSession] = useState<Session | null>(DEBUG ? DEBUG_SESSION : null)
+    const [loading, setLoading] = useState(!DEBUG)
 
     useEffect(() => {
+        if (DEBUG) return
+
         authService.getSession().then(s => {
             setSession(s)
             setLoading(false)
