@@ -27,6 +27,7 @@ export const b1Units: LessonUnit[] = [
         grammarIds: ["it-g-b1-2"],
         vocabIds: ["it-v-b1-008", "it-v-b1-009", "it-v-b1-031", "it-v-b1-032", "it-v-b1-047", "it-v-b1-048"],
         verbIds: ["it-vb-b1-1", "it-vb-b1-2"],
+        listeningIds: ["it-l-b1-1"],
         testQuestions: [
             { id: "it-uq-b1-2-1", level: "B1", prompt: "Complete (condizionale): 'Con più tempo, io ___ di più.' (viaggiare)", options: ["viaggio", "viaggerò", "viaggerei", "viaggiavo"], answer: "viaggerei" },
             { id: "it-uq-b1-2-2", level: "B1", prompt: "Complete: 'Tu ___ studiare di più.' (dovere — condizionale)", options: ["devi", "dovevi", "dovresti", "dovrai"], answer: "dovresti" },
@@ -44,6 +45,7 @@ export const b1Units: LessonUnit[] = [
         grammarIds: ["it-g-b1-3"],
         vocabIds: ["it-v-b1-001", "it-v-b1-002", "it-v-b1-003", "it-v-b1-011", "it-v-b1-012", "it-v-b1-013", "it-v-b1-014"],
         verbIds: [],
+        readingIds: ["it-r-b1-1"],
         testQuestions: [
             { id: "it-uq-b1-3-1", level: "B1", prompt: "Complete: 'La città ___ vivo è Roma.'", options: ["che", "cui", "in cui", "il quale"], answer: "in cui" },
             { id: "it-uq-b1-3-2", level: "B1", prompt: "Complete: 'Il libro ___ leggo è interessante.'", options: ["cui", "in cui", "che", "di cui"], answer: "che" },
@@ -78,6 +80,7 @@ export const b1Units: LessonUnit[] = [
         grammarIds: ["it-g-b1-4"],
         vocabIds: ["it-v-b1-010", "it-v-b1-065", "it-v-b1-066", "it-v-b1-067", "it-v-b1-068", "it-v-b1-069", "it-v-b1-070"],
         verbIds: ["it-vb-b1-1", "it-vb-b1-4"],
+        listeningIds: ["it-l-b1-2"],
         testQuestions: [
             { id: "it-uq-b1-5-1", level: "B1", prompt: "Complete (trapassato prossimo): 'Quando sono arrivato, lui ___ già.' (mangiare)", options: ["ha mangiato", "mangiava", "aveva mangiato", "mangerà"], answer: "aveva mangiato" },
             { id: "it-uq-b1-5-2", level: "B1", prompt: "The trapassato prossimo uses which auxiliary tense?", options: ["Presente", "Futuro", "Imperfetto", "Passato prossimo"], answer: "Imperfetto" },
@@ -95,6 +98,7 @@ export const b1Units: LessonUnit[] = [
         grammarIds: ["it-g-b1-7"],
         vocabIds: ["it-v-b1-081", "it-v-b1-082", "it-v-b1-083", "it-v-b1-084", "it-v-b1-085"],
         verbIds: ["it-vb-b1-5"],
+        readingIds: ["it-r-b1-2"],
         testQuestions: [
             { id: "it-uq-b1-6-1", level: "B1", prompt: "Complete (real condition): 'Se ___ (studiare, tu) di più, supererai l'esame.'", options: ["studieresti", "studi", "studiassi", "studiavi"], answer: "studi", hint: "Real condition: se + presente → futuro. The se-clause takes presente indicativo." },
             { id: "it-uq-b1-6-2", level: "B1", prompt: "Complete (hypothetical): 'Se ___ (avere, io) più tempo, viaggerei di più.'", options: ["ho", "avrò", "avessi", "avrei"], answer: "avessi", hint: "Hypothetical: se + congiuntivo imperfetto → condizionale presente." },
@@ -113,6 +117,7 @@ export const b1Units: LessonUnit[] = [
         grammarIds: ["it-g-b1-8"],
         vocabIds: ["it-v-b1-086", "it-v-b1-087", "it-v-b1-088", "it-v-b1-089"],
         verbIds: ["it-vb-b1-6"],
+        listeningIds: ["it-l-b1-3"],
         testQuestions: [
             { id: "it-uq-b1-7-1", level: "B1", prompt: "Transform: 'Sono stanco.' → Ha detto che ___.", options: ["è stanco", "era stanco", "fu stanco", "sarà stanco"], answer: "era stanco", hint: "Presente → imperfetto in reported speech when reporting verb is in the past." },
             { id: "it-uq-b1-7-2", level: "B1", prompt: "Transform: 'Hai fame?' → Mi ha chiesto se ___.", options: ["ho fame", "avevo fame", "avessi fame", "avrò fame"], answer: "avevo fame", hint: "Yes/no questions in reported speech: se + imperfetto indicativo." },
@@ -131,6 +136,7 @@ export const b1Units: LessonUnit[] = [
         grammarIds: ["it-g-b1-9"],
         vocabIds: ["it-v-b1-090", "it-v-b1-091", "it-v-b1-092", "it-v-b1-093", "it-v-b1-094"],
         verbIds: [],
+        readingIds: ["it-r-b1-3"],
         testQuestions: [
             { id: "it-uq-b1-8-1", level: "B1", prompt: "What does 'rendersi conto di' mean?", options: ["to render useless", "to realise / become aware of", "to count on", "to report on"], answer: "to realise / become aware of", hint: "Rendersi conto di = to realise. The correct collocation — not capire or scoprire in this sense." },
             { id: "it-uq-b1-8-2", level: "B1", prompt: "How do you say 'on the one hand… on the other hand'?", options: ["di più… di meno", "da una parte… dall'altra", "in primo luogo… in secondo luogo", "prima… poi"], answer: "da una parte… dall'altra", hint: "Da una parte / dall'altra (parte) = on the one hand / on the other." },

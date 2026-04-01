@@ -13,7 +13,7 @@ import { QuizCard } from "../components/QuizCard"
 import { SpeakButton } from "../components/SpeakButton"
 import { LocalizedExplanation } from "../components/LocalizedExplanation"
 import { VocabTooltip } from "../components/VocabTooltip"
-import { GrammarLesson, LessonUnit, VocabItem, Verb, CEFRLevel, CultureEpisode } from "../types"
+import { GrammarLesson, LessonUnit, VocabItem, Verb, CEFRLevel, CultureEpisode, ReadingPassage, ListeningExercise } from "../types"
 import { getUI, fmt, UIStrings } from "../i18n"
 import { resolvePrimary } from "../utils/localizedText"
 import { useVocabTooltip } from "../hooks/useVocabTooltip"
@@ -202,15 +202,20 @@ function MistakeReview({ missed }: Readonly<{ missed: MissedItem[] }>) {
 // TestDoneScreen — result view after the quiz finishes
 // ---------------------------------------------------------------------------
 function TestDoneScreen({ score, total, passThreshold, missed, isMastered, didComplete,
-    isLastUnit, nextUnit, level, ui, cultureEpisodes, onComplete, onReset, onBack,
-    onNavigateNext, onNavigateLevelTest, onNavigateCulture }: Readonly<{
+    isLastUnit, nextUnit, level, ui, cultureEpisodes, readingPassages, listeningExercises,
+    onComplete, onReset, onBack, onNavigateNext, onNavigateLevelTest,
+    onNavigateCulture, onNavigateReading, onNavigateListening }: Readonly<{
     score: number; total: number; passThreshold: number; missed: MissedItem[]
     isMastered: boolean; didComplete: boolean; isLastUnit: boolean; nextUnit: LessonUnit | null
     level: CEFRLevel; ui: UIStrings
     cultureEpisodes: CultureEpisode[]
+    readingPassages: ReadingPassage[]
+    listeningExercises: ListeningExercise[]
     onComplete: () => void; onReset: () => void; onBack: () => void
     onNavigateNext: (id: string) => void; onNavigateLevelTest: () => void
     onNavigateCulture: (id: string) => void
+    onNavigateReading: (id: string) => void
+    onNavigateListening: (id: string) => void
 }>) {
     const passed = score >= passThreshold
     return (
@@ -225,6 +230,60 @@ function TestDoneScreen({ score, total, passThreshold, missed, isMastered, didCo
             </p>
 
             {missed.length > 0 && <MistakeReview missed={missed} />}
+
+            {passed && (isMastered || didComplete) && readingPassages.length > 0 && (
+                <div className="w-full flex flex-col gap-3">
+                    <p className="text-xs font-semibold text-blue-700 uppercase tracking-wide text-center">
+                        Reading
+                    </p>
+                    {readingPassages.map(p => (
+                        <button
+                            key={p.id}
+                            onClick={() => onNavigateReading(p.id)}
+                            className="w-full bg-blue-50 border border-blue-200 rounded-2xl px-5 py-4
+                                       flex items-start gap-3 text-left hover:bg-blue-100 transition-colors"
+                        >
+                            <span className="text-2xl leading-none mt-0.5" aria-hidden="true">📖</span>
+                            <div className="flex flex-col gap-0.5 min-w-0">
+                                <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 leading-snug">
+                                    {p.title}
+                                </p>
+                                <p className="text-xs text-blue-700 leading-snug">
+                                    {p.vocabGloss.length} vocab · {p.questions.length} Q
+                                </p>
+                            </div>
+                            <span className="ml-auto text-blue-400 text-sm self-center">→</span>
+                        </button>
+                    ))}
+                </div>
+            )}
+
+            {passed && (isMastered || didComplete) && listeningExercises.length > 0 && (
+                <div className="w-full flex flex-col gap-3">
+                    <p className="text-xs font-semibold text-indigo-700 uppercase tracking-wide text-center">
+                        Listening
+                    </p>
+                    {listeningExercises.map(ex => (
+                        <button
+                            key={ex.id}
+                            onClick={() => onNavigateListening(ex.id)}
+                            className="w-full bg-indigo-50 border border-indigo-200 rounded-2xl px-5 py-4
+                                       flex items-start gap-3 text-left hover:bg-indigo-100 transition-colors"
+                        >
+                            <span className="text-2xl leading-none mt-0.5" aria-hidden="true">🎧</span>
+                            <div className="flex flex-col gap-0.5 min-w-0">
+                                <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 leading-snug">
+                                    {ex.title}
+                                </p>
+                                <p className="text-xs text-indigo-700 leading-snug">
+                                    {ex.questions.length} Q
+                                </p>
+                            </div>
+                            <span className="ml-auto text-indigo-400 text-sm self-center">→</span>
+                        </button>
+                    ))}
+                </div>
+            )}
 
             {passed && (isMastered || didComplete) && cultureEpisodes.length > 0 && (
                 <div className="w-full flex flex-col gap-3">
@@ -310,7 +369,9 @@ type QuizPhase = "start" | "playing" | "done"
 interface MissedItem { prompt: string; correct: string; yourAnswer: string }
 
 function TestOutTab({ unit, langId, isMastered, nextUnit, isLastUnit, ui, cultureEpisodes,
-    onMastered, onBack, onNavigateNext, onNavigateLevelTest, onNavigateCulture }: Readonly<{
+    readingPassages, listeningExercises,
+    onMastered, onBack, onNavigateNext, onNavigateLevelTest,
+    onNavigateCulture, onNavigateReading, onNavigateListening }: Readonly<{
     unit: LessonUnit
     langId: string
     isMastered: boolean
@@ -318,11 +379,15 @@ function TestOutTab({ unit, langId, isMastered, nextUnit, isLastUnit, ui, cultur
     isLastUnit: boolean
     ui: UIStrings
     cultureEpisodes: CultureEpisode[]
+    readingPassages: ReadingPassage[]
+    listeningExercises: ListeningExercise[]
     onMastered: () => void
     onBack: () => void
     onNavigateNext: (unitId: string) => void
     onNavigateLevelTest: () => void
     onNavigateCulture: (id: string) => void
+    onNavigateReading: (id: string) => void
+    onNavigateListening: (id: string) => void
 }>) {
     const [phase, setPhase] = useState<QuizPhase>("start")
     const [qIdx, setQIdx] = useState(0)
@@ -405,9 +470,13 @@ function TestOutTab({ unit, langId, isMastered, nextUnit, isLastUnit, ui, cultur
                 isMastered={isMastered} didComplete={didComplete} isLastUnit={isLastUnit} nextUnit={nextUnit}
                 level={unit.level} ui={ui}
                 cultureEpisodes={cultureEpisodes}
+                readingPassages={readingPassages}
+                listeningExercises={listeningExercises}
                 onComplete={handleComplete} onReset={handleReset} onBack={onBack}
                 onNavigateNext={onNavigateNext} onNavigateLevelTest={onNavigateLevelTest}
                 onNavigateCulture={onNavigateCulture}
+                onNavigateReading={onNavigateReading}
+                onNavigateListening={onNavigateListening}
             />
         )
     }
@@ -472,6 +541,12 @@ export function UnitPage() {
     const verbs = useMemo(() => mod?.verbs.filter(v => unit?.verbIds.includes(v.id)) ?? [], [mod, unit])
     const cultureEpisodes = useMemo(() =>
         mod?.cultureEpisodes?.filter(c => unit?.cultureIds?.includes(c.id)) ?? [],
+    [mod, unit])
+    const readingPassages = useMemo(() =>
+        mod?.readingPassages?.filter(p => unit?.readingIds?.includes(p.id)) ?? [],
+    [mod, unit])
+    const listeningExercises = useMemo(() =>
+        mod?.listeningExercises?.filter(e => unit?.listeningIds?.includes(e.id)) ?? [],
     [mod, unit])
 
     const tabs = useMemo<{ id: Tab; label: string; count?: number }[]>(() => [
@@ -672,11 +747,15 @@ export function UnitPage() {
                             isLastUnit={isLastUnit}
                             ui={ui}
                             cultureEpisodes={cultureEpisodes}
+                            readingPassages={readingPassages}
+                            listeningExercises={listeningExercises}
                             onMastered={() => {}}
                             onBack={() => navigate(`/learn/${langId}`)}
                             onNavigateNext={(id) => navigate(`/learn/${langId}/units/${id}`, { replace: true })}
                             onNavigateLevelTest={() => navigate(`/learn/${langId}/level-test`)}
                             onNavigateCulture={(id) => navigate(`/learn/${langId}/culture?episode=${id}`)}
+                            onNavigateReading={(id) => navigate(`/learn/${langId}/reading?passage=${id}`)}
+                            onNavigateListening={(id) => navigate(`/learn/${langId}/listening?exercise=${id}`)}
                         />
                     </TabsContent>
                 </Tabs>

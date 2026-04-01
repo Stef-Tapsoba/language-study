@@ -231,6 +231,7 @@ export const esUnitsA2: LessonUnit[] = [
         grammarIds: ["es-g-a2-5"],
         vocabIds: ["es-v-a2-044", "es-v-a2-045", "es-v-a2-047", "es-v-a2-031", "es-v-a2-002"],
         verbIds: ["es-vb-a2-6"],
+        listeningIds: ["es-l-a2-2"],
         testQuestions: [
             {
                 id: "es-a2-u5-q1", level: "A2",
@@ -613,7 +614,7 @@ export const esUnitsA2: LessonUnit[] = [
         grammarIds: ["es-g-a2-12"],
         vocabIds: ["es-v-a2-004", "es-v-a2-043", "es-v-a2-031", "es-v-a2-023", "es-v-a2-006"],
         verbIds: [],
-        readingIds: ["es-r-a2-2"],
+        readingIds: ["es-r-a2-3"],
         testQuestions: [
             {
                 id: "es-a2-u12-q1", level: "A2",
@@ -722,6 +723,7 @@ export const esUnitsA2: LessonUnit[] = [
         grammarIds: ["es-g-a2-14"],
         vocabIds: ["es-v-a2-059", "es-v-a2-060", "es-v-a2-062", "es-v-a2-092", "es-v-a2-094"],
         verbIds: [],
+        listeningIds: ["es-l-a2-5"],
         testQuestions: [
             {
                 id: "es-a2-u14-q1", level: "A2",

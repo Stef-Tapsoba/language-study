@@ -1,6 +1,6 @@
 // pages/ReadingPage.tsx — Reading category hub + passage browser
 import { useState } from "react"
-import { useParams, Link } from "react-router-dom"
+import { useParams, Link, useSearchParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { useProgress } from "../context/ProgressContext"
@@ -279,53 +279,80 @@ const CATEGORY_HUB: CategoryConfig[] = [
 // ---------------------------------------------------------------------------
 export function ReadingPage() {
     const { langId = "" } = useParams()
+    const [searchParams] = useSearchParams()
     const language = getLanguage(langId)
     const mod = getModule(langId)
     const { level: getLevel, completed: getCompleted } = useProgress()
     const level = getLevel(langId)
     const ui = getUI(langId, level)
+    const completed = getCompleted(langId)
+
+    const [selectedPassage, setSelectedPassage] = useState<ReadingPassage | null>(() => {
+        const id = searchParams.get("passage")
+        if (!id || !mod) return null
+        return (mod.readingPassages ?? []).find((p: ReadingPassage) => p.id === id) ?? null
+    })
 
     if (!language || !mod) return null
 
     const passages = (mod.readingPassages ?? []).filter(p => p.level === level)
-    const completed = getCompleted(langId)
+
+    const handleBack = selectedPassage ? () => setSelectedPassage(null) : undefined
 
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-            <NavBar title={ui.sectionReading} level={level} backTo={`/learn/${langId}`} />
-            <main className="max-w-xl mx-auto px-4 py-6 flex flex-col gap-3">
-                {CATEGORY_HUB.map(({ category, icon, href }) => {
-                    const count = passages.filter(p => p.category === category).length
-                    if (count === 0) return null
-                    const done = passages.filter(p => p.category === category && completed.includes(p.id)).length
-                    return (
-                        <Link
-                            key={category}
-                            to={href(langId)}
-                            className={`bg-white dark:bg-gray-800 rounded-2xl border p-4 flex items-center gap-4
-                                        hover:shadow-sm transition-all ${CATEGORY_COLORS[category].replace("text-", "border-").split(" ")[0].replace("bg-", "border-")} border-gray-200 dark:border-gray-700 hover:border-indigo-300`}
-                        >
-                            <span className="text-3xl">{icon}</span>
-                            <div className="flex-1">
-                                <div className="flex items-center gap-2 mb-0.5">
-                                    <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${CATEGORY_COLORS[category]}`}>
-                                        {categoryLabel(category, ui)}
-                                    </span>
-                                </div>
-                                <p className="text-xs text-gray-400 dark:text-gray-500">
-                                    {done}/{count} complete
-                                </p>
+            <NavBar
+                title={selectedPassage ? selectedPassage.title : ui.sectionReading}
+                level={level}
+                backTo={`/learn/${langId}`}
+                onBack={handleBack}
+            />
+            <main className="max-w-xl mx-auto px-4 py-6">
+                {selectedPassage ? (
+                    <PassageRead
+                        passage={selectedPassage}
+                        langId={langId}
+                        level={level}
+                        completed={completed}
+                        onBack={() => setSelectedPassage(null)}
+                        ui={ui}
+                    />
+                ) : (
+                    <div className="flex flex-col gap-3">
+                        {CATEGORY_HUB.map(({ category, icon, href }) => {
+                            const count = passages.filter(p => p.category === category).length
+                            if (count === 0) return null
+                            const done = passages.filter(p => p.category === category && completed.includes(p.id)).length
+                            return (
+                                <Link
+                                    key={category}
+                                    to={href(langId)}
+                                    className={`bg-white dark:bg-gray-800 rounded-2xl border p-4 flex items-center gap-4
+                                                hover:shadow-sm transition-all ${CATEGORY_COLORS[category].replace("text-", "border-").split(" ")[0].replace("bg-", "border-")} border-gray-200 dark:border-gray-700 hover:border-indigo-300`}
+                                >
+                                    <span className="text-3xl">{icon}</span>
+                                    <div className="flex-1">
+                                        <div className="flex items-center gap-2 mb-0.5">
+                                            <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${CATEGORY_COLORS[category]}`}>
+                                                {categoryLabel(category, ui)}
+                                            </span>
+                                        </div>
+                                        <p className="text-xs text-gray-400 dark:text-gray-500">
+                                            {done}/{count} complete
+                                        </p>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </Link>
+                            )
+                        })}
+                        {passages.length === 0 && (
+                            <div className="text-center py-16 text-gray-400 dark:text-gray-500">
+                                <p className="text-4xl mb-3">🚧</p>
+                                <p className="font-medium">{fmt(ui.noPassagesYet, { level })}</p>
                             </div>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </Link>
-                    )
-                })}
-                {passages.length === 0 && (
-                    <div className="text-center py-16 text-gray-400 dark:text-gray-500">
-                        <p className="text-4xl mb-3">🚧</p>
-                        <p className="font-medium">{fmt(ui.noPassagesYet, { level })}</p>
+                        )}
                     </div>
                 )}
             </main>

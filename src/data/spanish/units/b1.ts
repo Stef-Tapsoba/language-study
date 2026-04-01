@@ -85,6 +85,7 @@ export const esUnitsB1: LessonUnit[] = [
         grammarIds: ["es-g-b1-1"],
         vocabIds: ["es-v-b1-011", "es-v-b1-013", "es-v-b1-036", "es-v-b1-072", "es-v-b1-077"],
         verbIds: ["es-vb-b1-1"],
+        listeningIds: ["es-l-b1-1"],
         testQuestions: [
             {
                 id: "es-b1-u2-q1",
@@ -150,6 +151,7 @@ export const esUnitsB1: LessonUnit[] = [
         grammarIds: ["es-g-b1-3"],
         vocabIds: ["es-v-b1-047", "es-v-b1-055", "es-v-b1-057", "es-v-b1-039", "es-v-b1-077"],
         verbIds: ["es-vb-b1-3"],
+        readingIds: ["es-r-b1-1"],
         testQuestions: [
             {
                 id: "es-b1-u3-q1",
@@ -290,6 +292,7 @@ export const esUnitsB1: LessonUnit[] = [
         grammarIds: ["es-g-b1-5"],
         vocabIds: ["es-v-b1-065", "es-v-b1-047", "es-v-b1-040", "es-v-b1-077", "es-v-b1-078"],
         verbIds: [],
+        listeningIds: ["es-l-b1-2"],
         testQuestions: [
             {
                 id: "es-b1-u5-q1",
@@ -350,6 +353,7 @@ export const esUnitsB1: LessonUnit[] = [
         grammarIds: ["es-g-b1-6"],
         vocabIds: ["es-v-b1-081", "es-v-b1-082", "es-v-b1-083", "es-v-b1-084", "es-v-b1-085"],
         verbIds: ["es-vb-b1-4"],
+        readingIds: ["es-r-b1-2"],
         testQuestions: [
             { id: "es-b1-u6-q1", level: "B1", prompt: "Complete (real condition): 'Si ___ (tener, tú) tiempo, llámame.'", options: ["tendrías", "tienes", "tuvieras", "tenías"], answer: "tienes", hint: "Real condition: si + presente → futuro/imperativo. The si-clause takes presente." },
             { id: "es-b1-u6-q2", level: "B1", prompt: "Complete (hypothetical): 'Si ___ (ganar, yo) la lotería, viajaría por el mundo.'", options: ["gano", "ganaré", "ganara", "ganaría"], answer: "ganara", hint: "Hypothetical: si + imperfecto de subjuntivo → condicional." },
@@ -386,6 +390,7 @@ export const esUnitsB1: LessonUnit[] = [
         grammarIds: ["es-g-b1-8"],
         vocabIds: ["es-v-b1-090", "es-v-b1-091", "es-v-b1-092", "es-v-b1-093", "es-v-b1-094"],
         verbIds: [],
+        listeningIds: ["es-l-b1-3"],
         testQuestions: [
             { id: "es-b1-u8-q1", level: "B1", prompt: "How do you express 'on the one hand… on the other hand' in Spanish?", options: ["de más… de menos", "por un lado… por otro lado", "en primer lugar… en segundo lugar", "primero… luego"], answer: "por un lado… por otro lado", hint: "Por un lado / por otro lado structures a two-sided argument." },
             { id: "es-b1-u8-q2", level: "B1", prompt: "Which phrase introduces a concession ('admittedly / I accept that, but…')?", options: ["sin embargo", "es cierto que…, pero", "en conclusión", "por lo tanto"], answer: "es cierto que…, pero", hint: "Es cierto que… pero / si bien… = conceding a point before countering it." },
@@ -404,6 +409,7 @@ export const esUnitsB1: LessonUnit[] = [
         grammarIds: ["es-g-b1-6"],
         vocabIds: ["es-v-b1-081", "es-v-b1-082", "es-v-b1-083", "es-v-b1-090", "es-v-b1-091", "es-v-b1-092"],
         verbIds: ["es-vb-b1-4"],
+        readingIds: ["es-r-b1-3"],
         testQuestions: [
             { id: "es-b1-u9-q1", level: "B1", prompt: "Identify the si-clause type: 'Si tuviera más tiempo, aprendería japonés.'", options: ["Real condition", "Hypothetical present", "Past regret", "General truth"], answer: "Hypothetical present", hint: "Si + imperfecto subjuntivo (tuviera) → condicional (aprendería) = hypothetical present." },
             { id: "es-b1-u9-q2", level: "B1", prompt: "Identify the type: 'Si hubiera llegado antes, lo habría visto.'", options: ["Real condition", "Hypothetical present", "Past hypothetical", "Future plan"], answer: "Past hypothetical", hint: "Si + pluscuamperfecto subjuntivo → condicional compuesto = past regret/hypothetical." },

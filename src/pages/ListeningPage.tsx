@@ -1,6 +1,6 @@
 // pages/ListeningPage.tsx — Listening exercise browser with TTS playback
 import { useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useSearchParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { useProgress } from "../context/ProgressContext"
@@ -266,7 +266,12 @@ export function ListeningPage() {
     const level = getLevel(langId)
     const ui = getUI(langId, level)
 
-    const [selectedExercise, setSelectedExercise] = useState<ListeningExercise | null>(null)
+    const [searchParams] = useSearchParams()
+    const [selectedExercise, setSelectedExercise] = useState<ListeningExercise | null>(() => {
+        const id = searchParams.get("exercise")
+        if (!id || !mod) return null
+        return (mod.listeningExercises ?? []).find((e: ListeningExercise) => e.id === id) ?? null
+    })
 
     if (!language || !mod) return null
 
