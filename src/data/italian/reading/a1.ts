@@ -92,8 +92,8 @@ export const a1Reading: ReadingPassage[] = [
         category: "dialogue",
         title: "Al bar",
         body: {
-            target: "Barista: Buongiorno! Cosa prende? Cliente: Buongiorno! Vorrei un caffè, per favore. Barista: Subito. Vuole anche qualcosa da mangiare? Cliente: Sì, un cornetto alla crema, grazie. Quanto costa? Barista: Un caffè e un cornetto fanno due euro e venti. Cliente: Ecco a Lei. Barista: Grazie mille. Buona giornata! Cliente: Altrettanto, grazie!",
-            native: "Barista: Good morning! What would you like? Customer: Good morning! I'd like a coffee, please. Barista: Right away. Would you also like something to eat? Customer: Yes, a cream croissant, thank you. How much is it? Barista: A coffee and a croissant come to two euros twenty. Customer: Here you go. Barista: Thank you very much. Have a good day! Customer: Same to you, thanks!"
+            target: "Barista: Buongiorno! Cosa prende?\nCliente: Buongiorno! Vorrei un caffè, per favore.\nBarista: Subito. Vuole anche qualcosa da mangiare?\nCliente: Sì, un cornetto alla crema, grazie. Quanto costa?\nBarista: Un caffè e un cornetto fanno due euro e venti.\nCliente: Ecco a Lei.\nBarista: Grazie mille. Buona giornata!\nCliente: Altrettanto, grazie!",
+            native: "Barista: Good morning! What would you like?\nCustomer: Good morning! I'd like a coffee, please.\nBarista: Right away. Would you also like something to eat?\nCustomer: Yes, a cream croissant, thank you. How much is it?\nBarista: A coffee and a croissant come to two euros twenty.\nCustomer: Here you go.\nBarista: Thank you very much. Have a good day!\nCustomer: Same to you, thanks!"
         },
         vocabGloss: [
             { word: "cosa prende?", translation: "what would you like? (formal)" },
@@ -300,8 +300,8 @@ export const a1Reading: ReadingPassage[] = [
         category: "dialogue",
         title: "Al telefono",
         body: {
-            target: "Marco: Pronto, ciao Chiara! Chiara: Ciao Marco! Come stai? Marco: Bene, grazie. Senti, vuoi uscire domani sera? Chiara: Sì, volentieri! Dove vuoi andare? Marco: Possiamo andare al cinema. C'è un bel film alle otto. Chiara: Perfetto! A che ora ci vediamo? Marco: Possiamo incontrarci alle sette e mezza davanti al cinema. Chiara: Va bene. Ma dove si trova il cinema? Marco: È in Via Nazionale, vicino alla stazione. Chiara: Ok, lo conosco. A domani sera allora! Marco: A domani! Ciao!",
-            native: "Marco: Hello, hi Chiara! Chiara: Hi Marco! How are you? Marco: Fine, thanks. Listen, do you want to go out tomorrow evening? Chiara: Yes, I'd love to! Where do you want to go? Marco: We can go to the cinema. There's a good film at eight. Chiara: Perfect! What time shall we meet? Marco: We can meet at half past seven in front of the cinema. Chiara: OK. But where is the cinema? Marco: It's in Via Nazionale, near the station. Chiara: OK, I know it. See you tomorrow evening then! Marco: See you tomorrow! Bye!"
+            target: "Marco: Pronto, ciao Chiara!\nChiara: Ciao Marco! Come stai?\nMarco: Bene, grazie. Senti, vuoi uscire domani sera?\nChiara: Sì, volentieri! Dove vuoi andare?\nMarco: Possiamo andare al cinema. C'è un bel film alle otto.\nChiara: Perfetto! A che ora ci vediamo?\nMarco: Possiamo incontrarci alle sette e mezza davanti al cinema.\nChiara: Va bene. Ma dove si trova il cinema?\nMarco: È in Via Nazionale, vicino alla stazione.\nChiara: Ok, lo conosco. A domani sera allora!\nMarco: A domani! Ciao!",
+            native: "Marco: Hello, hi Chiara!\nChiara: Hi Marco! How are you?\nMarco: Fine, thanks. Listen, do you want to go out tomorrow evening?\nChiara: Yes, I'd love to! Where do you want to go?\nMarco: We can go to the cinema. There's a good film at eight.\nChiara: Perfect! What time shall we meet?\nMarco: We can meet at half past seven in front of the cinema.\nChiara: OK. But where is the cinema?\nMarco: It's in Via Nazionale, near the station.\nChiara: OK, I know it. See you tomorrow evening then!\nMarco: See you tomorrow! Bye!"
         },
         vocabGloss: [
             { word: "pronto", translation: "hello (answering the phone)" },
