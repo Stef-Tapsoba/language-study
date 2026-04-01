@@ -90,7 +90,6 @@ export const a2Units: LessonUnit[] = [
             "fr-v-a2-086", "fr-v-a2-087", "fr-v-a2-088", "fr-v-a2-089", "fr-v-a2-090"
         ],
         verbIds: ["fr-vb-a2-4"],
-        readingIds: [],
         listeningIds: ["fr-l-a2-2", "fr-l-a2-5"],
         testQuestions: [
             { id: "fr-uq-a2-5-1", level: "A2", prompt: "How do you say 'You need to book in advance' (impersonally)?", options: ["Tu dois réserver à l'avance.", "Il faut réserver à l'avance.", "On doit réserver à l'avance.", "Vous pouvez réserver à l'avance."], answer: "Il faut réserver à l'avance." },
@@ -155,7 +154,6 @@ export const a2Units: LessonUnit[] = [
         ],
         verbIds: ["fr-vb-a2-6"],
         readingIds: ["fr-r-a2-1"],
-        listeningIds: [],
         testQuestions: [
             { id: "fr-uq-a2-8-1", level: "A2", prompt: "Which tense? 'Quand j'étais enfant, je ___ souvent au parc.' (aller — habitual)", options: ["suis allé", "allais", "vais", "irai"], answer: "allais" },
             { id: "fr-uq-a2-8-2", level: "A2", prompt: "Which tense? 'Hier, elle ___ ses clés.' (perdre — single event)", options: ["perdait", "perd", "a perdu", "va perdre"], answer: "a perdu" },
@@ -221,8 +219,6 @@ export const a2Units: LessonUnit[] = [
             "fr-v-a2-060"
         ],
         verbIds: [],
-        readingIds: [],
-        listeningIds: [],
         testQuestions: [
             { id: "fr-uq-a2-11-1", level: "A2", prompt: "How do you say 'In France, people eat at noon' using 'on'?", options: ["Les Français mangent à midi.", "On mange à midi en France.", "Nous mangeons à midi.", "Ils mangent à midi."], answer: "On mange à midi en France." },
             { id: "fr-uq-a2-11-2", level: "A2", prompt: "How do you say 'I have been living here for three years' (and still am)?", options: ["J'ai habité ici depuis trois ans.", "J'habite ici depuis trois ans.", "J'habitais ici depuis trois ans.", "J'ai habité ici il y a trois ans."], answer: "J'habite ici depuis trois ans." },
@@ -243,8 +239,6 @@ export const a2Units: LessonUnit[] = [
             "fr-v-a2-129", "fr-v-a2-130", "fr-v-a2-131", "fr-v-a2-132", "fr-v-a2-133", "fr-v-a2-134"
         ],
         verbIds: [],
-        readingIds: ["fr-r-a2-3"],
-        listeningIds: ["fr-l-a2-2"],
         testQuestions: [
             { id: "fr-uq-a2-12-1", level: "A2", prompt: "Complete: 'Elle habite ___ France.'", options: ["au", "à", "en", "aux"], answer: "en" },
             { id: "fr-uq-a2-12-2", level: "A2", prompt: "Complete: 'Il travaille ___ Japon.'", options: ["en", "à", "aux", "au"], answer: "au" },
@@ -265,7 +259,6 @@ export const a2Units: LessonUnit[] = [
             "fr-v-a2-122", "fr-v-a2-123", "fr-v-a2-124", "fr-v-a2-125", "fr-v-a2-126", "fr-v-a2-127", "fr-v-a2-128"
         ],
         verbIds: [],
-        readingIds: ["fr-r-a2-2"],
         testQuestions: [
             { id: "fr-uq-a2-13-1", level: "A2", prompt: "Complete: 'Tu ___ nager ?' (know how to)", options: ["connais", "sais", "peux", "veux"], answer: "sais" },
             { id: "fr-uq-a2-13-2", level: "A2", prompt: "Complete: 'Je ___ bien Paris.' (am familiar with)", options: ["sais", "connais", "peux", "veux"], answer: "connais" },

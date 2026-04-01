@@ -30,6 +30,7 @@ export const b1Units: LessonUnit[] = [
         grammarIds: ["fr-g-b1-1"],
         vocabIds: ["fr-v-b1-004", "fr-v-b1-005", "fr-v-b1-006", "fr-v-b1-038", "fr-v-b1-039", "fr-v-b1-040", "fr-v-b1-041", "fr-v-b1-042"],
         verbIds: [],
+        listeningIds: ["fr-l-b1-1"],
         testQuestions: [
             { id: "fr-uq-b1-2-1", level: "B1", prompt: "Complete (subjonctif): 'Il faut que tu ___ (venir).'", options: ["viens", "viendras", "viennes", "venais"], answer: "viennes" },
             { id: "fr-uq-b1-2-2", level: "B1", prompt: "Complete (subjonctif): 'Je veux qu'il ___ (être) heureux.'", options: ["est", "soit", "sera", "était"], answer: "soit" },
@@ -47,6 +48,7 @@ export const b1Units: LessonUnit[] = [
         grammarIds: ["fr-g-b1-3"],
         vocabIds: ["fr-v-b1-007", "fr-v-b1-008", "fr-v-b1-009", "fr-v-b1-025", "fr-v-b1-026", "fr-v-b1-027", "fr-v-b1-028"],
         verbIds: ["fr-vb-b1-1"],
+        readingIds: ["fr-r-b1-1"],
         testQuestions: [
             { id: "fr-uq-b1-3-1", level: "B1", prompt: "Complete: 'Je ___ (lire) quand il est arrivé.' (background action)", options: ["lisais", "ai lu", "lirai", "lirais"], answer: "lisais" },
             { id: "fr-uq-b1-3-2", level: "B1", prompt: "Which tense is used for a completed event that interrupted something?", options: ["imparfait", "passé composé", "plus-que-parfait", "conditionnel"], answer: "passé composé" },
@@ -81,6 +83,7 @@ export const b1Units: LessonUnit[] = [
         grammarIds: ["fr-g-b1-5"],
         vocabIds: ["fr-v-b1-014", "fr-v-b1-015", "fr-v-b1-016", "fr-v-b1-052", "fr-v-b1-053", "fr-v-b1-059", "fr-v-b1-060"],
         verbIds: ["fr-vb-b1-4"],
+        listeningIds: ["fr-l-b1-2"],
         testQuestions: [
             { id: "fr-uq-b1-5-1", level: "B1", prompt: "How is the plus-que-parfait formed?", options: ["Present of avoir/être + past participle", "Imparfait of avoir/être + past participle", "Future of avoir/être + past participle", "Conditionnel + past participle"], answer: "Imparfait of avoir/être + past participle" },
             { id: "fr-uq-b1-5-2", level: "B1", prompt: "Complete (plus-que-parfait): 'Quand je suis arrivé, il ___ déjà mangé.'", options: ["est parti", "partait", "était parti", "partira"], answer: "était parti" },
@@ -98,6 +101,7 @@ export const b1Units: LessonUnit[] = [
         grammarIds: ["fr-g-b1-6"],
         vocabIds: ["fr-v-b1-067", "fr-v-b1-068", "fr-v-b1-069", "fr-v-b1-070", "fr-v-b1-071"],
         verbIds: ["fr-vb-b1-5"],
+        readingIds: ["fr-r-b1-2"],
         testQuestions: [
             { id: "fr-uq-b1-6-1", level: "B1", prompt: "Complete (real condition): 'Si tu ___ (étudier), tu réussiras.'", options: ["étudierais", "étudies", "étudieras", "étudiais"], answer: "étudies", hint: "Real condition: si + présent → futur. The si-clause takes présent." },
             { id: "fr-uq-b1-6-2", level: "B1", prompt: "Complete (hypothetical): 'Si j'___ (avoir) le temps, je voyagerais.'", options: ["ai", "aurai", "aurais", "avais"], answer: "avais", hint: "Hypothetical: si + imparfait → conditionnel. The si-clause takes imparfait." },
@@ -134,6 +138,7 @@ export const b1Units: LessonUnit[] = [
         grammarIds: ["fr-g-b1-9"],
         vocabIds: ["fr-v-b1-076", "fr-v-b1-077", "fr-v-b1-078", "fr-v-b1-079", "fr-v-b1-080"],
         verbIds: [],
+        listeningIds: ["fr-l-b1-3"],
         testQuestions: [
             { id: "fr-uq-b1-8-1", level: "B1", prompt: "How do you express a nuanced disagreement without being blunt?", options: ["C'est faux.", "Je ne suis pas du tout d'accord.", "Oui, mais il faut aussi considérer que…", "Tu as tort."], answer: "Oui, mais il faut aussi considérer que…", hint: "B1 disagreement: acknowledge, then redirect. 'Oui, mais…' is softer than a direct contradiction." },
             { id: "fr-uq-b1-8-2", level: "B1", prompt: "What does 'd'une part… d'autre part' signal in an argument?", options: ["cause and effect", "on the one hand… on the other hand", "first… then", "however… therefore"], answer: "on the one hand… on the other hand", hint: "D'une part / d'autre part structures a two-sided argument — essential for B1 essays and debates." },
@@ -152,6 +157,7 @@ export const b1Units: LessonUnit[] = [
         grammarIds: ["fr-g-b1-6"],
         vocabIds: ["fr-v-b1-067", "fr-v-b1-068", "fr-v-b1-069", "fr-v-b1-070", "fr-v-b1-071", "fr-v-b1-072", "fr-v-b1-076", "fr-v-b1-077"],
         verbIds: ["fr-vb-b1-5"],
+        readingIds: ["fr-r-b1-3"],
         testQuestions: [
             { id: "fr-uq-b1-9-1", level: "B1", prompt: "Complete: 'Si nous ___ (partir) tôt, nous aurions eu le train.'", options: ["partons", "partions", "étions partis", "étions parti"], answer: "étions partis", hint: "Past hypothetical (regret): si + plus-que-parfait → conditionnel passé." },
             { id: "fr-uq-b1-9-2", level: "B1", prompt: "Which collocation is correct?", options: ["faire une décision", "prendre une décision", "avoir une décision", "mettre une décision"], answer: "prendre une décision", hint: "Prendre une décision — prendre, not faire. Collocations must be memorised as fixed chunks." },

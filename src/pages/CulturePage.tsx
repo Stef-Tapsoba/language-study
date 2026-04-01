@@ -1,6 +1,6 @@
 // pages/CulturePage.tsx — Culture episode page (upgraded for CultureEpisode type)
 import { useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useSearchParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { useProgress } from "../context/ProgressContext"
@@ -540,13 +540,18 @@ function CultureBrowse({
 // ---------------------------------------------------------------------------
 export function CulturePage() {
     const { langId = "" } = useParams()
+    const [searchParams] = useSearchParams()
     const language = getLanguage(langId)
     const mod = getModule(langId)
     const { level: getLevel, completed: getCompleted } = useProgress()
     const level = getLevel(langId)
     const ui = getUI(langId, level)
 
-    const [selectedEpisode, setSelectedEpisode] = useState<CultureEpisode | null>(null)
+    const [selectedEpisode, setSelectedEpisode] = useState<CultureEpisode | null>(() => {
+        const id = searchParams.get("episode")
+        if (!id || !mod) return null
+        return mod.cultureEpisodes?.find((ep: CultureEpisode) => ep.id === id) ?? null
+    })
 
     if (!language || !mod) return null
 

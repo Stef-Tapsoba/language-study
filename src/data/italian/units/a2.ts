@@ -44,6 +44,7 @@ export const a2Units: LessonUnit[] = [
         grammarIds: ["it-g-a2-3"],
         vocabIds: ["it-v-a2-009", "it-v-a2-010"],
         verbIds: [],
+        listeningIds: ["it-l-a2-1"],
         testQuestions: [
             { id: "it-uq-a2-3-1", level: "A2", prompt: "Complete (passato prossimo): 'Stamattina io ___ alle sette.' (svegliarsi)", options: ["svegliavo", "si è svegliato", "mi sono svegliato", "ho svegliato"], answer: "mi sono svegliato" },
             { id: "it-uq-a2-3-2", level: "A2", prompt: "Complete: 'Lei ___ elegantemente.' (vestirsi — passato prossimo)", options: ["si vestiva", "ha vestito", "si è vestita", "si vestirà"], answer: "si è vestita" },
@@ -78,6 +79,7 @@ export const a2Units: LessonUnit[] = [
         grammarIds: ["it-g-a2-5"],
         vocabIds: ["it-v-a2-085", "it-v-a2-086", "it-v-a2-087", "it-v-a2-088"],
         verbIds: ["it-vb-a2-4"],
+        readingIds: ["it-r-a2-1"],
         testQuestions: [
             { id: "it-uq-a2-5-1", level: "A2", prompt: "How do you say 'I had to work all night'?", options: ["Dovevo lavorare tutta la notte.", "Ho dovuto lavorare tutta la notte.", "Devo lavorare tutta la notte.", "Avevo lavorato tutta la notte."], answer: "Ho dovuto lavorare tutta la notte." },
             { id: "it-uq-a2-5-2", level: "A2", prompt: "Complete: 'Non ___ venire alla festa.' (potere — io — passato prossimo)", options: ["potevo", "ho potuto", "sono potuto", "posso"], answer: "ho potuto" },
@@ -112,6 +114,7 @@ export const a2Units: LessonUnit[] = [
         grammarIds: ["it-g-a2-7"],
         vocabIds: ["it-v-a2-096", "it-v-a2-097", "it-v-a2-098"],
         verbIds: [],
+        readingIds: ["it-r-a2-2"],
         testQuestions: [
             { id: "it-uq-a2-7-1", level: "A2", prompt: "Fill in the relative pronoun: 'Il libro ___ ho letto è bellissimo.'", options: ["chi", "che", "cui", "quale"], answer: "che" },
             { id: "it-uq-a2-7-2", level: "A2", prompt: "Translate: 'Those who study will pass the exam.'", options: ["Che studia passerà.", "Chi studia passerà l'esame.", "Quello che studia passerà.", "Chi studia hanno passato."], answer: "Chi studia passerà l'esame." },

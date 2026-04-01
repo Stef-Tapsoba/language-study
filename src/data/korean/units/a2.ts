@@ -104,6 +104,7 @@ export const a2Units: LessonUnit[] = [
         grammarIds: ["ko-g-a2-3"],
         vocabIds: ["ko-v-a2-105", "ko-v-a2-106", "ko-v-a2-107", "ko-v-a2-108"],
         verbIds: [],
+        listeningIds: ["ko-l-a2-1"],
         testQuestions: [
             {
                 id: "ko-a2-u3-q1", level: "A2",
@@ -188,6 +189,7 @@ export const a2Units: LessonUnit[] = [
         grammarIds: ["ko-g-a2-5"],
         vocabIds: ["ko-v-a2-092", "ko-v-a2-109", "ko-v-a2-110", "ko-v-a2-111", "ko-v-a2-112"],
         verbIds: [],
+        readingIds: ["ko-r-a2-1"],
         testQuestions: [
             {
                 id: "ko-a2-u5-q1", level: "A2",
@@ -315,6 +317,7 @@ export const a2Units: LessonUnit[] = [
         grammarIds: ["ko-g-a2-8"],
         vocabIds: ["ko-v-a2-113", "ko-v-a2-114", "ko-v-a2-115", "ko-v-a2-116"],
         verbIds: [],
+        listeningIds: ["ko-l-a2-2"],
         testQuestions: [
             {
                 id: "ko-a2-u8-q1", level: "A2",
@@ -399,6 +402,7 @@ export const a2Units: LessonUnit[] = [
         grammarIds: ["ko-g-a2-10"],
         vocabIds: ["ko-v-a2-121", "ko-v-a2-122", "ko-v-a2-123", "ko-v-a2-124"],
         verbIds: [],
+        readingIds: ["ko-r-a2-2"],
         testQuestions: [
             {
                 id: "ko-a2-u10-q1", level: "A2",
@@ -525,6 +529,7 @@ export const a2Units: LessonUnit[] = [
         grammarIds: ["ko-g-a2-13"],
         vocabIds: ["ko-v-a2-133", "ko-v-a2-134", "ko-v-a2-135", "ko-v-a2-136"],
         verbIds: [],
+        listeningIds: ["ko-l-a2-3"],
         testQuestions: [
             {
                 id: "ko-a2-u13-q1", level: "A2",
@@ -609,6 +614,7 @@ export const a2Units: LessonUnit[] = [
         grammarIds: ["ko-g-a2-15"],
         vocabIds: ["ko-v-a2-141", "ko-v-a2-142", "ko-v-a2-143", "ko-v-a2-144"],
         verbIds: [],
+        readingIds: ["ko-r-a2-3"],
         testQuestions: [
             {
                 id: "ko-a2-u15-q1", level: "A2",
@@ -740,6 +746,7 @@ export const a2Units: LessonUnit[] = [
         grammarIds: ["ko-g-a2-18"],
         vocabIds: ["ko-v-a2-153", "ko-v-a2-154", "ko-v-a2-155", "ko-v-a2-156"],
         verbIds: [],
+        listeningIds: ["ko-l-a2-4"],
         testQuestions: [
             {
                 id: "ko-a2-u18-q1", level: "A2",
@@ -829,6 +836,7 @@ export const a2Units: LessonUnit[] = [
         grammarIds: ["ko-g-a2-20"],
         vocabIds: ["ko-v-a2-161", "ko-v-a2-162", "ko-v-a2-163", "ko-v-a2-164"],
         verbIds: [],
+        readingIds: ["ko-r-a2-4"],
         testQuestions: [
             {
                 id: "ko-a2-u20-q1", level: "A2",

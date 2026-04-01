@@ -54,6 +54,7 @@ export const b1Units: LessonUnit[] = [
         grammarIds: ["ko-g-b1-2"],
         vocabIds: ["ko-v-b1-006", "ko-v-b1-007", "ko-v-b1-018", "ko-v-b1-019", "ko-v-b1-020", "ko-v-b1-021"],
         verbIds: ["ko-vb-b1-3"],
+        listeningIds: ["ko-l-b1-1"],
         testQuestions: [
             {
                 id: "ko-b1-u2-q1", level: "B1",
@@ -96,6 +97,7 @@ export const b1Units: LessonUnit[] = [
         grammarIds: ["ko-g-b1-3"],
         vocabIds: ["ko-v-b1-001", "ko-v-b1-002", "ko-v-b1-010", "ko-v-b1-012", "ko-v-b1-013", "ko-v-b1-014"],
         verbIds: ["ko-vb-b1-2"],
+        readingIds: ["ko-r-b1-1"],
         testQuestions: [
             {
                 id: "ko-b1-u3-q1", level: "B1",
@@ -180,6 +182,7 @@ export const b1Units: LessonUnit[] = [
         grammarIds: ["ko-g-b1-5"],
         vocabIds: ["ko-v-b1-081", "ko-v-b1-082", "ko-v-b1-083", "ko-v-b1-084"],
         verbIds: ["ko-vb-b1-5"],
+        listeningIds: ["ko-l-b1-2"],
         testQuestions: [
             { id: "ko-b1-u5-q1", level: "B1", prompt: "Transform: '바빠요.' → 바쁘___ 해요. (He said he's busy.)", options: ["다고", "라고", "냐고", "자고"], answer: "다고", hint: "For statements (action/descriptive verbs in present): verb stem + 다고 하다. 바쁘다 → 바쁘다고 해요." },
             { id: "ko-b1-u5-q2", level: "B1", prompt: "Which ending reports a yes/no question?", options: ["~다고 하다", "~냐고 하다", "~라고 하다", "~자고 하다"], answer: "~냐고 하다", hint: "Questions use ~냐고 하다 (or ~는지 묻다 for content questions). 바빠요? → 바쁘냐고 했어요." },
@@ -198,6 +201,7 @@ export const b1Units: LessonUnit[] = [
         grammarIds: ["ko-g-b1-6"],
         vocabIds: ["ko-v-b1-085", "ko-v-b1-086", "ko-v-b1-087", "ko-v-b1-088"],
         verbIds: ["ko-vb-b1-6"],
+        readingIds: ["ko-r-b1-2"],
         testQuestions: [
             { id: "ko-b1-u6-q1", level: "B1", prompt: "How do you say 'I have to study today'?", options: ["오늘 공부하고 싶어요.", "오늘 공부해야 해요.", "오늘 공부할 수 있어요.", "오늘 공부하면 돼요."], answer: "오늘 공부해야 해요.", hint: "~아/어야 하다 = must / have to. 공부하다 → 공부해야 해요." },
             { id: "ko-b1-u6-q2", level: "B1", prompt: "What is the difference between ~아/어야 하다 and ~아/어야 되다?", options: ["They have completely different meanings", "야 하다 is stronger; 야 되다 is more neutral — but both mean must/have to", "야 되다 means 'it becomes'; 야 하다 means 'it does'", "야 하다 is only for people; 야 되다 is for situations"], answer: "야 하다 is stronger; 야 되다 is more neutral — but both mean must/have to", hint: "Both mean 'must/have to'. 야 되다 is slightly softer and more common in spoken Korean." },
@@ -216,6 +220,7 @@ export const b1Units: LessonUnit[] = [
         grammarIds: ["ko-g-b1-7"],
         vocabIds: ["ko-v-b1-089", "ko-v-b1-090", "ko-v-b1-091"],
         verbIds: [],
+        listeningIds: ["ko-l-b1-3"],
         testQuestions: [
             { id: "ko-b1-u7-q1", level: "B1", prompt: "How do you say 'I went to the library to study'?", options: ["도서관에 공부해서 갔어요.", "도서관에 공부하러 갔어요.", "도서관에 공부하고 갔어요.", "도서관에 공부하면 갔어요."], answer: "도서관에 공부하러 갔어요.", hint: "~(으)러 가다 = to go in order to do ~. 공부하다 → 공부하러 갔어요." },
             { id: "ko-b1-u7-q2", level: "B1", prompt: "How do you say 'Exercising is important'?", options: ["운동은 중요해요.", "운동하는 것이 중요해요.", "운동하기 중요해요.", "운동 중요해요."], answer: "운동하는 것이 중요해요.", hint: "~는 것 = the act of / the fact of. 운동하는 것이 중요해요 = Exercising is important." },
@@ -234,6 +239,7 @@ export const b1Units: LessonUnit[] = [
         grammarIds: ["ko-g-b1-2", "ko-g-b1-4", "ko-g-b1-8"],
         vocabIds: ["ko-v-b1-092", "ko-v-b1-093", "ko-v-b1-094"],
         verbIds: [],
+        readingIds: ["ko-r-b1-3"],
         testQuestions: [
             { id: "ko-b1-u8-q1", level: "B1", prompt: "Which connector is more appropriate in a formal written argument?", options: ["~아/어서", "~기 때문에", "~고", "~지만"], answer: "~기 때문에", hint: "~기 때문에 is formal/objective — correct in essays, reports, and formal speech. ~아/어서 is casual." },
             { id: "ko-b1-u8-q2", level: "B1", prompt: "How do you express a structured opinion: 'In my opinion, this is the best solution'?", options: ["이게 좋은 것 같아요.", "제 생각에는, 이것이 가장 좋은 방법이라고 생각해요.", "좋아요.", "이게 좋기 때문에요."], answer: "제 생각에는, 이것이 가장 좋은 방법이라고 생각해요.", hint: "제 생각에는 (in my opinion) + ~(이)라고 생각해요 (I think that) = structured B1 opinion expression." },
