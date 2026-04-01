@@ -3,9 +3,9 @@ import { useState } from "react"
 import { useParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getVocabForLevel } from "../data/repo"
-import { completeLessonItem } from "../store/actions"
 import { useProgress } from "../context/ProgressContext"
 import { NavBar } from "../components/NavBar"
+import { MarkCompleteButton } from "../components/MarkCompleteButton"
 import { LevelBadge } from "../components/LevelBadge"
 import { SpeakButton } from "../components/SpeakButton"
 import { VocabItem } from "../types"
@@ -62,15 +62,7 @@ function VocabCard({
                         <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{item.example.translation}</p>
                         <SpeakButton text={item.example.native} langId={langId} className="absolute top-1.5 right-1.5" />
                     </div>
-                    {!done && (
-                        <button
-                            onClick={() => { completeLessonItem(langId, item.id, "vocab").catch(console.error); onComplete() }}
-                            className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold
-                                       rounded-xl py-2 text-sm transition-colors"
-                        >
-                            Mark as learned
-                        </button>
-                    )}
+                    <MarkCompleteButton done={done} onClick={onComplete} label="Mark as learned" />
                 </div>
             )}
         </div>
@@ -80,7 +72,7 @@ function VocabCard({
 export function VocabPage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
-    const { level: getLevel, completed: getCompleted } = useProgress()
+    const { level: getLevel, completed: getCompleted, markLessonComplete } = useProgress()
     const level = getLevel(langId)
     const ui = getUI(langId, level)
     const completed = getCompleted(langId)
@@ -158,7 +150,7 @@ export function VocabPage() {
                                 item={item}
                                 done={completed.includes(item.id)}
                                 langId={langId}
-                                onComplete={() => {}}
+                                onComplete={() => markLessonComplete(langId, item.id, "vocab")}
                             />
                         ))}
                     </div>

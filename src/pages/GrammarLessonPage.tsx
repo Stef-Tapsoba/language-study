@@ -2,9 +2,9 @@
 import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getGrammarLesson } from "../data/repo"
-import { completeLessonItem } from "../store/actions"
 import { useProgress } from "../context/ProgressContext"
 import { NavBar } from "../components/NavBar"
+import { MarkCompleteButton } from "../components/MarkCompleteButton"
 import { LevelBadge } from "../components/LevelBadge"
 import { SpeakButton } from "../components/SpeakButton"
 import { VocabTooltip } from "../components/VocabTooltip"
@@ -15,7 +15,7 @@ import { useVocabTooltip } from "../hooks/useVocabTooltip"
 export function GrammarLessonPage() {
     const { langId = "", lessonId = "" } = useParams()
     const language = getLanguage(langId)
-    const { level: getLevel, completed: getCompleted } = useProgress()
+    const { level: getLevel, completed: getCompleted, markLessonComplete } = useProgress()
     const level = getLevel(langId)
     const completed = getCompleted(langId)
     const { activeWord, handleVocabClick, dismissTooltip } = useVocabTooltip(langId)
@@ -38,11 +38,6 @@ export function GrammarLessonPage() {
 
     const isDone = completed.includes(lesson.id)
     const explanation = resolvePrimary(lesson.explanation, level)
-
-    function handleMarkComplete() {
-        if (!lesson) return
-        completeLessonItem(langId, lesson.id, "grammar").catch(console.error)
-    }
 
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -91,16 +86,11 @@ export function GrammarLessonPage() {
                 )}
 
                 {/* Mark complete */}
-                <button
-                    onClick={isDone ? undefined : handleMarkComplete}
-                    disabled={isDone}
-                    className={`w-full font-semibold rounded-xl py-3 text-sm transition-colors border ${isDone
-                        ? "border-green-300 text-green-700 bg-green-50 cursor-default"
-                        : "border-green-600 bg-green-600 text-white hover:bg-green-700"
-                    }`}
-                >
-                    {isDone ? "✓ Completed" : "Mark as complete"}
-                </button>
+                <MarkCompleteButton
+                    done={isDone}
+                    onClick={() => markLessonComplete(langId, lesson.id, "grammar")}
+                    showDoneState
+                />
             </main>
         </div>
     )

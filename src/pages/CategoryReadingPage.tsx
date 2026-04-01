@@ -273,7 +273,11 @@ function CategoryRead({ passage, langId, level, label, completed, theme, ui }: R
 
             {/* Body */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5">
-                <p className="text-base text-gray-900 dark:text-gray-100 leading-relaxed whitespace-pre-line">{bodyText}</p>
+                <div className="flex flex-col gap-2">
+                    {bodyText.split('\n').filter(Boolean).map((line) => (
+                        <p key={line} className="text-base text-gray-900 dark:text-gray-100 leading-relaxed">{line}</p>
+                    ))}
+                </div>
                 {showTranslation && (
                     <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
                         <button
@@ -283,9 +287,11 @@ function CategoryRead({ passage, langId, level, label, completed, theme, ui }: R
                             {translationShown ? ui.hideEnglish : ui.showEnglish}
                         </button>
                         {translationShown && (
-                            <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line">
-                                {passage.body.native}
-                            </p>
+                            <div className="flex flex-col gap-1.5">
+                                {passage.body.native.split('\n').filter(Boolean).map((line) => (
+                                    <p key={line} className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{line}</p>
+                                ))}
+                            </div>
                         )}
                     </div>
                 )}
