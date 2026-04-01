@@ -2,6 +2,7 @@
 import { useState, useEffect, lazy, Suspense } from "react"
 import { BrowserRouter, Routes, Route, Navigate, Outlet, useParams } from "react-router-dom"
 import { AuthProvider } from "./auth/AuthContext"
+import { ExerciseShell } from "./components/ExerciseShell"
 import { TooltipProvider } from "./components/ui/tooltip"
 import { ProtectedRoute } from "./auth/ProtectedRoute"
 import { ProgressProvider } from "./context/ProgressContext"
@@ -96,6 +97,8 @@ export default function App() {
                         <Route path="reading/:category" element={<CategoryReadingPage />} />
                         <Route path="listening" element={<ListeningPage />} />
                         <Route path="culture" element={<CulturePage />} />
+                        {/* Registry-based exercises — ExerciseShell looks up the type and renders it */}
+                        <Route path=":exerciseTypeId" element={<ExerciseShell />} />
                     </Route>
 
                     {/* Profile */}

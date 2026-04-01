@@ -403,6 +403,56 @@ export function DashboardPage() {
                                 description={ui.sectionGrammarDrillDesc}
                                 to={`/learn/${langId}/grammar-drill`}
                             />
+                            <SectionCard
+                                emoji="🔀"
+                                title="Sentence Scramble"
+                                description="Put shuffled words back in the right order"
+                                to={`/learn/${langId}/sentence-scramble`}
+                            />
+                            <SectionCard
+                                emoji="🎯"
+                                title="Vocab Matching"
+                                description="Match words with their translations"
+                                to={`/learn/${langId}/vocab-matching`}
+                            />
+                            <SectionCard
+                                emoji="📖"
+                                title="Cloze"
+                                description="Fill in the missing word from a passage"
+                                to={`/learn/${langId}/cloze`}
+                            />
+                            <SectionCard
+                                emoji="🎧"
+                                title="Dictation"
+                                description="Listen and type what you hear"
+                                to={`/learn/${langId}/dictation`}
+                            />
+                            {language?.script !== "latin" && (
+                                <SectionCard
+                                    emoji="🈳"
+                                    title="Script Reading"
+                                    description="Identify the correct reading of a word"
+                                    to={`/learn/${langId}/script-reading`}
+                                />
+                            )}
+                            <SectionCard
+                                emoji="💬"
+                                title="Dialogue Completion"
+                                description="Choose the missing line in a conversation"
+                                to={`/learn/${langId}/dialogue-completion`}
+                            />
+                            <SectionCard
+                                emoji="🔍"
+                                title="Vocab in Context"
+                                description="Guess a word's meaning from a passage"
+                                to={`/learn/${langId}/vocab-in-context`}
+                            />
+                            <SectionCard
+                                emoji="🔧"
+                                title="Error Correction"
+                                description="Find and fix the grammar mistake"
+                                to={`/learn/${langId}/error-correction`}
+                            />
                         </div>
                     </TabsContent>
 
