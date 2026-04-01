@@ -35,14 +35,15 @@
 // Everything else — component, matchMode, contentType, route — stays unchanged.
 
 // ── Registered exercise types ────────────────────────────────────────────────
-// (none yet — uncomment as each type is implemented)
-//
-// import "./sentenceScramble"
-// import "./vocabMatching"
-// import "./cloze"
-// import "./dictation"
-// import "./dialogueCompletion"
-// import "./errorCorrection"
+
+import "./sentenceScramble"
+import "./vocabMatching"
+import "./cloze"
+import "./dictation"
+import "./scriptReading"
+import "./dialogueCompletion"
+import "./vocabInContext"
+import "./errorCorrection"
 
 // Re-export registry API so consumers only need one import
 export { registerExerciseType, getExerciseType, getAllExerciseTypes } from "./registry"
