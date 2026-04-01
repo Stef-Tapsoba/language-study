@@ -16,7 +16,6 @@ import { SpeakButton } from "../components/SpeakButton"
 import { answerMatches } from "../utils/answerMatch"
 import { shuffle } from "../utils/arrayUtils"
 import { getUI, fmt } from "../i18n"
-import { completeDrillSession } from "../store/actions"
 import { useStatsStore } from "../store/useStatsStore"
 import type { ExerciseComponentProps } from "../exerciseTypes/registry"
 import type { GrammarLesson } from "../types"
@@ -150,7 +149,7 @@ function buildErrorItems(lessons: GrammarLesson[]): ErrorItem[] {
 
 // ── Main page ─────────────────────────────────────────────────────────────────
 
-export default function ErrorCorrectionPage({ items, langId, level, onComplete }: Readonly<ExerciseComponentProps<GrammarLesson>>) {
+export default function ErrorCorrectionPage({ items, langId, level, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<GrammarLesson>>) {
     const ui = getUI(langId, level)
 
     const questions = useMemo(() => buildErrorItems(items), [items])
@@ -226,7 +225,7 @@ export default function ErrorCorrectionPage({ items, langId, level, onComplete }
 
     function handleNext() {
         if (isLast) {
-            completeDrillSession(langId, "grammar").catch(console.error)
+            onSessionDone()
             setDone(true)
         } else {
             setIndex(i => i + 1)

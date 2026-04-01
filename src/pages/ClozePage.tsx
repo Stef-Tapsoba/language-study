@@ -11,7 +11,6 @@ import { SpeakButton } from "../components/SpeakButton"
 import { answerMatches } from "../utils/answerMatch"
 import { shuffle } from "../utils/arrayUtils"
 import { getUI, fmt } from "../i18n"
-import { completeDrillSession } from "../store/actions"
 import { useStatsStore } from "../store/useStatsStore"
 import type { ExerciseComponentProps } from "../exerciseTypes/registry"
 import type { ReadingPassage } from "../types"
@@ -86,7 +85,7 @@ function buildClozeItems(passages: ReadingPassage[]): ClozeItem[] {
 
 // ── Main page ─────────────────────────────────────────────────────────────────
 
-export default function ClozePage({ items, langId, level, onComplete }: Readonly<ExerciseComponentProps<ReadingPassage>>) {
+export default function ClozePage({ items, langId, level, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<ReadingPassage>>) {
     const ui = getUI(langId, level)
 
     // C-4: sessionKey busts the memo on restart so questions are reshuffled each play
@@ -165,7 +164,7 @@ export default function ClozePage({ items, langId, level, onComplete }: Readonly
 
     function handleNext() {
         if (isLast) {
-            completeDrillSession(langId, "reading").catch(console.error)
+            onSessionDone()
             setDone(true)
         } else {
             setIndex(i => i + 1)

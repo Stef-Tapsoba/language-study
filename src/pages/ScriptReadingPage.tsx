@@ -13,7 +13,6 @@ import { SpeakButton } from "../components/SpeakButton"
 import { shuffle } from "../utils/arrayUtils"
 import { getUI, fmt } from "../i18n"
 import { getLanguage } from "../data/languages"
-import { completeDrillSession } from "../store/actions"
 import { useStatsStore } from "../store/useStatsStore"
 import type { ExerciseComponentProps } from "../exerciseTypes/registry"
 import type { VocabItem } from "../types"
@@ -55,7 +54,7 @@ function buildScriptItems(vocabItems: VocabItem[]): ScriptItem[] {
 
 // ── Main page ─────────────────────────────────────────────────────────────────
 
-export default function ScriptReadingPage({ items, langId, level, onComplete }: Readonly<ExerciseComponentProps<VocabItem>>) {
+export default function ScriptReadingPage({ items, langId, level, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<VocabItem>>) {
     const ui = getUI(langId, level)
     const language = getLanguage(langId)
 
@@ -146,7 +145,7 @@ export default function ScriptReadingPage({ items, langId, level, onComplete }: 
 
     function handleNext() {
         if (isLast) {
-            completeDrillSession(langId, "grammar").catch(console.error)
+            onSessionDone()
             setDone(true)
         } else {
             setIndex(i => i + 1)

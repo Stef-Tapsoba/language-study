@@ -11,7 +11,6 @@ import { DrillDoneScreen } from "../components/DrillDoneScreen"
 import { QuizCard } from "../components/QuizCard"
 import { shuffle } from "../utils/arrayUtils"
 import { getUI, fmt } from "../i18n"
-import { completeDrillSession } from "../store/actions"
 import { useStatsStore } from "../store/useStatsStore"
 import type { ExerciseComponentProps } from "../exerciseTypes/registry"
 import type { ReadingPassage } from "../types"
@@ -75,7 +74,7 @@ function buildDialogueItems(passages: ReadingPassage[]): DialogueItem[] {
 
 // ── Main page ─────────────────────────────────────────────────────────────────
 
-export default function DialogueCompletionPage({ items, langId, level, onComplete }: Readonly<ExerciseComponentProps<ReadingPassage>>) {
+export default function DialogueCompletionPage({ items, langId, level, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<ReadingPassage>>) {
     const ui = getUI(langId, level)
 
     const questions = useMemo(() => buildDialogueItems(items), [items])
@@ -151,7 +150,7 @@ export default function DialogueCompletionPage({ items, langId, level, onComplet
 
     function handleNext() {
         if (isLast) {
-            completeDrillSession(langId, "grammar").catch(console.error)
+            onSessionDone()
             setDone(true)
         } else {
             setIndex(i => i + 1)

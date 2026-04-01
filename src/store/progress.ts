@@ -1,8 +1,18 @@
-// store/progress.ts — CEFR level, completed lessons, and mastered units (localStorage "ls:progress")
+// store/progress.ts — CEFR level, completed lessons, and mastered units (localStorage "ls:progress:{userId}")
+//
+// Key strategy:
+//   Anonymous / pre-login:  "ls:progress"          (legacy key, read-only fallback)
+//   Authenticated:          "ls:progress:{userId}"  (user-scoped key, set by initUserSession)
+//
+// On the first call to initUserSession(userId), if no user-scoped key exists yet,
+// the legacy key is migrated forward (copied to the new key then removed) so existing
+// users keep all their progress after upgrading.
 
 import { CEFRLevel, UserProgress } from "../types"
+import type { ContentType } from "./IProgressStorage"
 
-const KEY = "ls:progress"
+const LEGACY_KEY = "ls:progress"
+const userKey = (userId: string) => `ls:progress:${userId}`
 
 // Bump this whenever a breaking schema change is made (field rename, removal, type change).
 // Add a migration branch in `migrate()` for each version increment.
@@ -38,13 +48,16 @@ function migrate(raw: Record<string, unknown>): UserProgress {
 }
 
 // In-memory write-through cache — avoids a JSON.parse on every mutation.
-// Invalidated to null only when resetProgress() wipes the key entirely.
+// Invalidated to null on key switch (user change) or resetProgress().
+let _activeKey = LEGACY_KEY
 let _cache: UserProgress | null = null
 
+function readKey(): string { return _activeKey }
+
 export function loadProgress(): UserProgress {
-    if (_cache && localStorage.getItem(KEY) !== null) return _cache
+    if (_cache && localStorage.getItem(readKey()) !== null) return _cache
     try {
-        const raw = JSON.parse(localStorage.getItem(KEY) ?? "{}")
+        const raw = JSON.parse(localStorage.getItem(readKey()) ?? "{}")
         _cache = raw && typeof raw === "object" ? migrate(raw as Record<string, unknown>) : { ...DEFAULT }
     } catch {
         _cache = { ...DEFAULT }
@@ -54,17 +67,41 @@ export function loadProgress(): UserProgress {
 
 export function save(p: UserProgress): void {
     _cache = p
-    localStorage.setItem(KEY, JSON.stringify(p))
+    localStorage.setItem(readKey(), JSON.stringify(p))
 }
 
 /**
- * Called on every authenticated page load. If the stored progress belongs to a
- * different user, wipes it and starts fresh for the new user. Idempotent.
+ * Called on every authenticated page load.
+ * - Switches the active storage key to `ls:progress:{userId}`.
+ * - On first switch, migrates legacy `ls:progress` data for this user to the
+ *   new key (copies then removes the old key) so existing users keep their progress.
+ * - If the legacy data belongs to a different user, starts fresh.
  */
 export function initUserSession(userId: string): void {
+    const newKey = userKey(userId)
+    if (_activeKey !== newKey) {
+        _activeKey = newKey
+        _cache = null
+
+        // Migrate: if new key is empty, check if legacy key has data for this user
+        if (localStorage.getItem(newKey) === null) {
+            const legacyRaw = localStorage.getItem(LEGACY_KEY)
+            if (legacyRaw !== null) {
+                try {
+                    const parsed = JSON.parse(legacyRaw)
+                    const legacyUserId = parsed?.userId as string | undefined
+                    if (!legacyUserId || legacyUserId === userId) {
+                        // Belongs to this user — migrate it forward
+                        localStorage.setItem(newKey, legacyRaw)
+                        localStorage.removeItem(LEGACY_KEY)
+                    }
+                } catch { /* corrupt legacy data — start fresh */ }
+            }
+        }
+    }
+
     const p = loadProgress()
     if (p.userId !== userId) {
-        // Different user (or no userId stored) — reset progress for this user
         save({ ...DEFAULT, userId })
     }
 }
@@ -91,23 +128,34 @@ export function getCompletedLessons(langId: string): string[] {
     return loadProgress().completedLessons[langId] ?? []
 }
 
-export function markLessonComplete(langId: string, lessonId: string): void {
+export function markLessonComplete(langId: string, lessonId: string, contentType?: ContentType): void {
     const p = loadProgress()
     const existing = p.completedLessons[langId] ?? []
-    if (!existing.includes(lessonId)) {
-        save({
-            ...p,
-            completedLessons: {
-                ...p.completedLessons,
-                [langId]: [...existing, lessonId]
-            }
-        })
-    }
+    if (existing.includes(lessonId)) return
+
+    const completedByType = contentType
+        ? {
+            ...p.completedByType,
+            [langId]: {
+                ...p.completedByType?.[langId],
+                [contentType]: [
+                    ...(p.completedByType?.[langId]?.[contentType] ?? []),
+                    lessonId,
+                ],
+            },
+          }
+        : p.completedByType
+
+    save({
+        ...p,
+        completedLessons: { ...p.completedLessons, [langId]: [...existing, lessonId] },
+        completedByType,
+    })
 }
 
 export function resetProgress(): void {
     _cache = null
-    localStorage.removeItem(KEY)
+    localStorage.removeItem(readKey())
 }
 
 /** Returns all langIds that have an explicit level set (i.e. the user has started them). */
@@ -173,15 +221,19 @@ export function masterUnit(langId: string, unitId: string): void {
  * Any subsequent unit is unlocked once the immediately preceding unit is mastered.
  * Uses index-based lookup so non-contiguous `order` values (e.g. 1, 2, 4) are handled
  * correctly — there is no silent bypass when a gap exists in the ordering.
+ *
+ * Accepts `masteredIds` as an explicit parameter so callers can pass the value
+ * from React state (ProgressContext.mastered) rather than re-reading localStorage
+ * directly. This keeps the function pure and avoids hidden storage reads in domain logic.
  */
 export function isUnitUnlocked(
-    langId: string,
     unitId: string,
-    allUnits: { id: string; order: number }[]
+    allUnits: { id: string; order: number }[],
+    masteredIds: string[]
 ): boolean {
     const sorted = [...allUnits].sort((a, b) => a.order - b.order)
     const idx = sorted.findIndex(u => u.id === unitId)
     if (idx < 0) return false
     if (idx === 0) return true
-    return getMasteredUnits(langId).includes(sorted[idx - 1].id)
+    return masteredIds.includes(sorted[idx - 1].id)
 }

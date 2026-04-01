@@ -15,6 +15,7 @@ import { speak } from "../utils/tts"
 import { answerMatches } from "../utils/answerMatch"
 import { adaptiveMessage } from "../utils/adaptiveMessage"
 import { shuffle } from "../utils/arrayUtils"
+import { getTtsAutoplay, setTtsAutoplay } from "../store/preferences"
 import { Switch } from "../components/ui/switch"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion"
 
@@ -255,10 +256,7 @@ export function FlashcardsPage() {
     const [studyAll, setStudyAll] = useState(false)
     const [started, setStarted] = useState(false)
     const [typedMode, setTypedMode] = useState(false)
-    const [ttsEnabled, setTtsEnabled] = useState(() => {
-        const stored = localStorage.getItem("ls:tts-autoplay")
-        return stored === null ? true : stored === "true"
-    })
+    const [ttsEnabled, setTtsEnabled] = useState(getTtsAutoplay)
 
     const allVocab = useMemo(
         () => getVocabForLevel(langId, level),
@@ -320,7 +318,7 @@ export function FlashcardsPage() {
 
     function handleTtsToggle(enabled: boolean) {
         setTtsEnabled(enabled)
-        localStorage.setItem("ls:tts-autoplay", String(enabled))
+        setTtsAutoplay(enabled)
     }
 
     // No vocabulary at this level yet

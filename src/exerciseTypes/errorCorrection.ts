@@ -22,6 +22,7 @@ registerExerciseType<GrammarLesson>({
 
     // Reuses grammar progress tracking.
     contentType: "grammar",
+    sessionType: "grammar",
 
     // Full-sentence reconstruction — dictation mode (no slash-alternative splitting).
     matchMode: "dictation",

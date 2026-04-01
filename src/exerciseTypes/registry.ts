@@ -54,6 +54,7 @@ import type { LazyExoticComponent, ComponentType } from "react"
 import type { CEFRLevel } from "../types"
 import type { MatchMode } from "../utils/answerMatch"
 import type { ContentType } from "../store/IProgressStorage"
+import type { DrillSessionType } from "../store/actions"
 
 // ---------------------------------------------------------------------------
 // Params passed to fetchItems
@@ -80,6 +81,12 @@ export interface ExerciseComponentProps<TItem = unknown> {
      * The shell calls markLessonComplete(langId, itemId, contentType) via actions.ts.
      */
     onComplete: (itemId: string) => void
+    /**
+     * Call when the user finishes the entire session (all items done / results screen shown).
+     * The shell calls completeDrillSession(langId, def.sessionType) — components do not
+     * need to import completeDrillSession directly.
+     */
+    onSessionDone: () => void
 }
 
 // ---------------------------------------------------------------------------
@@ -105,6 +112,14 @@ export interface ExerciseTypeDef<TItem = unknown> {
      * from all existing types.
      */
     contentType: ContentType
+
+    /**
+     * The DrillSessionType recorded when the user completes a session.
+     * Passed to completeDrillSession() by ExerciseShell when onSessionDone() fires —
+     * exercise component pages do not call completeDrillSession() directly.
+     * Almost always equal to contentType; declared separately for clarity and type safety.
+     */
+    sessionType: DrillSessionType
 
     /**
      * Which answerMatches() mode to use for typed answers.

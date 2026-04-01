@@ -19,6 +19,7 @@ registerExerciseType<VocabItem>({
 
     // Reuses vocab progress tracking.
     contentType: "vocab",
+    sessionType: "vocab",
 
     // Multiple-choice pairing — no typed input.
     matchMode: null,

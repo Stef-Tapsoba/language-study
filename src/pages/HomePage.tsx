@@ -1,7 +1,7 @@
 // pages/HomePage.tsx — Authenticated home: new-user language-select branch vs returning-user language list
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import { useAuth } from "../auth/AuthContext"
+import { useAppBootstrap } from "../hooks/useAppBootstrap"
 import { useCurrentUser } from "../hooks/useCurrentUser"
 import { useProgressStats } from "../hooks/useProgressStats"
 import { LANGUAGES, VISIBLE_LANGUAGES } from "../data/languages"
@@ -197,13 +197,10 @@ function ReturningHome({ firstName, startedIds }: Readonly<{
 // ─── Page ────────────────────────────────────────────────────────────────────
 
 export function HomePage() {
-    const { session } = useAuth()
+    useAppBootstrap()
     const navigate = useNavigate()
     const { firstName } = useCurrentUser()
-    const { startedLanguages, initUserSession, setSelectedLanguage } = useProgress()
-
-    // Reset progress if a different user has logged in
-    if (session) initUserSession(session.userId)
+    const { startedLanguages, setSelectedLanguage } = useProgress()
 
     const startedIds = startedLanguages
 

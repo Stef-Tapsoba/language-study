@@ -18,6 +18,7 @@ registerExerciseType<ReadingPassage>({
 
     // Reuses reading progress tracking.
     contentType: "reading",
+    sessionType: "reading",
 
     // Target-language fill-in.
     matchMode: "strict",

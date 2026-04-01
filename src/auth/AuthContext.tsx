@@ -1,8 +1,7 @@
 // auth/AuthContext.tsx — Auth session context and useAuth hook
 import React, { createContext, useContext, useEffect, useState } from "react"
 import { AuthService, Session } from "@myorg/auth-core"
-import { LocalStorageAdapter } from "@myorg/storage"
-import { mockAuthApi } from "./mockAuthApi"
+import { authRegistry } from "./authRegistry"
 import { DEBUG, DEBUG_SESSION } from "./debugSession"
 
 interface AuthContextValue {
@@ -15,9 +14,8 @@ interface AuthContextValue {
 
 const AuthContext = createContext<AuthContextValue | null>(null)
 
-const authService = new AuthService(mockAuthApi, new LocalStorageAdapter("ls"))
-
 export function AuthProvider({ children }: { children: React.ReactNode }) {
+    const authService = authRegistry.service
     // Debug mode: inject a stub session immediately, skip authService entirely.
     const [session, setSession] = useState<Session | null>(DEBUG ? DEBUG_SESSION : null)
     const [loading, setLoading] = useState(!DEBUG)
