@@ -31,6 +31,7 @@ interface RoundState {
 // ── Round builder ─────────────────────────────────────────────────────────────
 
 const ROUND_SIZE = 6
+const MAX_ROUNDS = 5   // cap one sitting at 30 items (5 × 6)
 
 function buildRound(pool: VocabItem[], usedIds: Set<string>): RoundState {
     const available = pool.filter(v => !usedIds.has(v.id))
@@ -81,7 +82,7 @@ function ItemButton({ label, state, onClick }: Readonly<ItemButtonProps>) {
 export default function VocabMatchingPage({ items, langId, level, onComplete }: Readonly<ExerciseComponentProps<VocabItem>>) {
     const ui = getUI(langId, level)
 
-    const pool = useMemo(() => shuffle(items), [items])
+    const pool = useMemo(() => shuffle(items).slice(0, ROUND_SIZE * MAX_ROUNDS), [items])
 
     const [usedIds, setUsedIds] = useState<Set<string>>(new Set())
     const [round, setRound] = useState<RoundState>(() => buildRound(pool, new Set()))
