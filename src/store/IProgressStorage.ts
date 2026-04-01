@@ -14,8 +14,20 @@
 
 import { CEFRLevel, UserProgress } from "../types"
 
-/** Distinguishes content types that share the completedLessons namespace locally
- *  but will map to separate tables in Supabase (Stage 2). */
+/**
+ * Distinguishes content types that share the completedLessons namespace locally
+ * but will map to separate tables in Supabase (Stage 2).
+ *
+ * New exercise types registered in src/exerciseTypes/ should reuse an existing
+ * ContentType wherever the content is the same:
+ *   sentence-scramble → "grammar"
+ *   cloze             → "reading"
+ *   dictation         → "listening"
+ *   vocab-matching    → "vocab"
+ *
+ * Only add a new value here if the exercise tracks genuinely separate content
+ * that does not overlap with any existing type.
+ */
 export type ContentType =
     | "grammar"
     | "vocab"
