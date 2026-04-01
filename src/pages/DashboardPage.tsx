@@ -105,10 +105,13 @@ const UnitRow = memo(function UnitRow({ unit, langId, level, mastered, allUnits,
 
     // Content pills shown on unlocked units
     const pills = [
-        ...(unit.grammarIds.length > 0 ? [{ label: "Grammar", done: unit.grammarIds.every(id => completed.has(id)), cls: "bg-green-100 text-green-700" }] : []),
-        ...(unit.vocabIds.length > 0 ? [{ label: "Vocab", done: unit.vocabIds.every(id => completed.has(id)), cls: "bg-amber-100 text-amber-700" }] : []),
-        ...(unit.verbIds.length > 0 ? [{ label: "Verbs", done: unit.verbIds.every(id => completed.has(id)), cls: "bg-red-100 text-red-600" }] : []),
-        { label: "Test", done: isMastered, cls: "bg-violet-100 text-violet-700" },
+        ...(unit.grammarIds.length > 0 ? [{ label: "Grammar", done: unit.grammarIds.every(id => completed.has(id)), cls: "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300" }] : []),
+        ...(unit.vocabIds.length > 0 ? [{ label: "Vocab", done: unit.vocabIds.every(id => completed.has(id)), cls: "bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300" }] : []),
+        ...(unit.verbIds.length > 0 ? [{ label: "Verbs", done: unit.verbIds.every(id => completed.has(id)), cls: "bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400" }] : []),
+        ...((unit.readingIds?.length ?? 0) > 0 ? [{ label: "Reading", done: (unit.readingIds ?? []).every(id => completed.has(id)), cls: "bg-sky-100 dark:bg-sky-900/30 text-sky-700 dark:text-sky-300" }] : []),
+        ...((unit.listeningIds?.length ?? 0) > 0 ? [{ label: "Listening", done: (unit.listeningIds ?? []).every(id => completed.has(id)), cls: "bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300" }] : []),
+        ...((unit.cultureIds?.length ?? 0) > 0 ? [{ label: "Culture", done: (unit.cultureIds ?? []).every(id => completed.has(id)), cls: "bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300" }] : []),
+        { label: "Test", done: isMastered, cls: "bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300" },
     ]
 
     const inner = (
