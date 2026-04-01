@@ -1,6 +1,6 @@
 # language-study — Implementation Plan
 
-*Last updated: March 26, 2026 — v2.4.0*
+*Last updated: April 1, 2026 — v2.5.0 (pre-Supabase hardening complete)*
 
 ## Context
 
@@ -67,24 +67,38 @@ language-study/
     │   ├── ProtectedRoute.tsx
     │   └── mockAuthApi.ts
     ├── store/
-    │   ├── progress.ts                 ← localStorage progress (incl. masteredUnits)
-    │   ├── useStatsStore.ts            ← Zustand stats store (debounced persist, SM-2 migrate)
+    │   ├── registry.ts                 ← DI container: holds IProgressStorage/ISRSStorage/IStatsStorage instances
+    │   ├── progress.ts                 ← localStorage progress (user-scoped key ls:progress:{userId})
+    │   ├── progressUtils.ts            ← pure isUnitUnlocked() (no storage imports)
+    │   ├── useStatsStore.ts            ← Zustand stats store (write-through to IStatsStorage)
     │   ├── srs.ts                      ← SM-2 card state + scheduling (ls:srs)
+    │   ├── srs-migrate.ts              ← versioned SRS schema migration (v1→v2; { schemaVersion, langs } shape)
     │   ├── actions.ts                  ← compound progress mutations (Command Pattern)
+    │   ├── merge.ts                    ← smart merge helpers for progress/SRS/stats import
+    │   ├── preferences.ts              ← UI preferences (ls:onboarded:{langId}, ls:tts-autoplay)
     │   ├── IProgressStorage.ts         ← adapter interface (Supabase swap seam)
-    │   └── LocalStorageProgressStorage.ts  ← IProgressStorage impl wrapping progress.ts
+    │   ├── ISRSStorage.ts              ← SRS adapter interface (incl. hydrate())
+    │   ├── IStatsStorage.ts            ← stats adapter interface (incl. flush())
+    │   ├── LocalStorageProgressStorage.ts  ← IProgressStorage impl wrapping progress.ts
+    │   ├── LocalStorageSRSStorage.ts   ← ISRSStorage impl; saves { schemaVersion, langs } on disk
+    │   └── LocalStorageStatsStorage.ts ← IStatsStorage impl
     ├── i18n/                           ← UI shell string translations (✅ implemented)
     │   ├── strings.ts                  ← UIStrings interface (~65 keys)
     │   ├── en.ts                       ← default English strings
     │   ├── es.ts, fr.ts, it.ts, ja.ts, ko.ts  ← target language UI strings
     │   └── index.ts                    ← getUI(langId, level) + fmt()
+    ├── context/
+    │   └── ProgressContext.tsx         ← central React state; all mutations route through registry
     ├── hooks/
     │   ├── useDrill.ts                 ← re-exports useDrill + types from @myorg/quiz-engine
     │   ├── useGlobalStreak.ts          ← Zustand selector hook (streak integer, avoids re-renders)
     │   ├── useDarkMode.ts              ← dark/light toggle; persists to ls:dark-mode; syncs <html class>
     │   ├── useProgressStats.ts         ← per-section done/total/pct stats
     │   ├── useCurrentUser.ts           ← display name, email, initials from auth session
-    │   └── useVocabTooltip.ts          ← tooltip state for inline vocab clicks
+    │   ├── useVocabTooltip.ts          ← tooltip state for inline vocab clicks
+    │   ├── useAppBootstrap.ts          ← sequences hydration on login; isReady = initialized && !isHydrating
+    │   ├── useContentQuery.ts          ← data-fetching hook for exercise shell
+    │   └── useSpeechRecognition.ts     ← Web Speech API wrapper (idle → listening → done state machine)
     ├── utils/
     │   ├── tts.ts                      ← speak() + TTS_LANG_MAP (Web Speech API)
     │   ├── answerMatch.ts              ← normalizeAnswer(), answersMatch() (accent-insensitive)
@@ -106,6 +120,12 @@ language-study/
     │   ├── italian/                    ← ✅ full A1–C1 content (same file structure)
     │   ├── japanese/                   ← ✅ full A1–C1 content (+ romanized fields throughout)
     │   └── korean/                     ← ✅ full A1–C1 content (+ romanized fields throughout)
+    ├── exerciseTypes/                  ← registry-based exercise type system
+    │   ├── registry.ts                 ← registerExerciseType() + ExerciseComponentProps type
+    │   ├── index.ts                    ← imports all exercise types (side-effect registrations)
+    │   ├── cloze.ts, dictation.ts, dialogueCompletion.ts, errorCorrection.ts
+    │   ├── scriptReading.ts, sentenceScramble.ts, vocabInContext.ts, vocabMatching.ts
+    │   └── speaking.ts                 ← EO module (Web Speech API recognition)
     ├── components/
     │   ├── NavBar.tsx                  ← showLanguagePicker prop
     │   ├── LanguagePicker.tsx          ← dropdown with all started languages
@@ -115,7 +135,9 @@ language-study/
     │   ├── ProgressBar.tsx
     │   ├── LocalizedExplanation.tsx    ← renders LocalizedText by CEFR level
     │   ├── SpeakButton.tsx             ← Web Speech API one-shot speaker
-    │   └── ListeningPlayer.tsx         ← TTS player with play/stop/speed
+    │   ├── ListeningPlayer.tsx         ← TTS player with play/stop/speed
+    │   ├── ExerciseShell.tsx           ← generic shell wrapping any registered exercise type
+    │   └── StatsTab.tsx                ← 14-day CSS bar chart + streak/accuracy stats
     └── pages/
         ├── LandingPage.tsx
         ├── LoginPage.tsx
@@ -124,11 +146,11 @@ language-study/
         ├── LanguageSelectPage.tsx
         ├── DashboardPage.tsx           ← 5 tabs: Path / Study / Practice / Test / Stats
         ├── PlacementPage.tsx
-        ├── UnitPage.tsx                ← grammar/vocab/verbs tabs + mini-test
+        ├── UnitPage.tsx                ← grammar/vocab/verbs tabs + mini-test (+ reading/listening/culture pills)
         ├── GrammarPage.tsx
         ├── VocabPage.tsx
         ├── VerbsPage.tsx
-        ├── FlashcardsPage.tsx
+        ├── FlashcardsPage.tsx          ← SRS deck gated behind isHydrating
         ├── VerbDrillPage.tsx
         ├── GrammarDrillPage.tsx
         ├── ReadingPage.tsx             ← CE module (browse + read; culture= filter)
@@ -136,13 +158,22 @@ language-study/
         ├── GrammarLessonPage.tsx       ← full lesson detail (/grammar/:lessonId)
         ├── ListeningPage.tsx           ← CO module (browse + listen)
         ├── LevelTestPage.tsx
-        └── ProfilePage.tsx             ← stats + language danger zone (reset/remove)
+        ├── ProfilePage.tsx             ← stats + language danger zone (reset/remove)
+        ├── ClozePage.tsx               ← fill-in-the-blank from reading passages
+        ├── SentenceScramblePage.tsx    ← token-reorder exercise
+        ├── VocabMatchingPage.tsx       ← match word↔translation pairs (max 5 rounds)
+        ├── VocabInContextPage.tsx      ← choose correct vocab in a sentence
+        ├── DictationPage.tsx           ← type what you hear (TTS + strict match)
+        ├── DialogueCompletionPage.tsx  ← choose the next dialogue line
+        ├── ErrorCorrectionPage.tsx     ← spot and fix the error in a sentence
+        ├── ScriptReadingPage.tsx       ← read a script aloud (for Japanese/Korean kana)
+        ├── CategoryReadingPage.tsx     ← filtered reading browse by passage category
+        └── SpeakingPage.tsx            ← EO: TTS plays phrase → user speaks → Speech API evaluates
 ```
 
 Planned (future):
 ```
-        ├── SpeakingPage.tsx            ← EO module
-        └── WritingPage.tsx             ← EE module
+        └── WritingPage.tsx             ← EE module (self-assessed constrained writing)
 ```
 
 ---
@@ -151,13 +182,13 @@ Planned (future):
 
 Current:
 ```
-/                           → LandingPage (public)
+/                                → LandingPage (public)
 /login, /register
-/home                       → HomePage (authenticated)          [protected]
-/languages                  → LanguageSelectPage                [protected]
-/learn/:langId              → DashboardPage                     [protected]
+/home                            → HomePage (authenticated)          [protected]
+/languages                       → LanguageSelectPage                [protected]
+/learn/:langId                   → DashboardPage                     [protected]
 /learn/:langId/placement
-/learn/:langId/units/:unitId → UnitPage                         [protected]
+/learn/:langId/units/:unitId     → UnitPage                         [protected]
 /learn/:langId/grammar
 /learn/:langId/grammar/:lessonId → GrammarLessonPage
 /learn/:langId/vocab
@@ -165,17 +196,22 @@ Current:
 /learn/:langId/flashcards
 /learn/:langId/verb-drill
 /learn/:langId/grammar-drill
-/learn/:langId/reading       → ReadingPage                      [protected]
-/learn/:langId/listening     → ListeningPage                    [protected]
-/learn/:langId/culture       → CulturePage                      [protected]
+/learn/:langId/reading           → ReadingPage                      [protected]
+/learn/:langId/listening         → ListeningPage                    [protected]
+/learn/:langId/culture           → CulturePage                      [protected]
 /learn/:langId/level-test
+/learn/:langId/exercise/:exerciseTypeId → ExerciseShell (registry-dispatched)
 /profile
 ```
 
-Planned (future skill modules):
+All exercise types routed through `ExerciseShell` via `:exerciseTypeId`:
+- `cloze`, `dictation`, `dialogue-completion`, `error-correction`
+- `script-reading`, `sentence-scramble`, `vocab-in-context`, `vocab-matching`
+- `speaking` (EO — Web Speech API)
+
+Planned (future):
 ```
-/learn/:langId/speaking
-/learn/:langId/writing
+/learn/:langId/exercise/writing  ← EE module
 ```
 
 ---
@@ -297,11 +333,23 @@ interface LanguageModule {
   levelQuestions: QuizQuestion[]
   readingPassages?: ReadingPassage[]
   listeningExercises?: ListeningExercise[]
+  speakingPrompts?: SpeakingPrompt[]  // EO module; per-level via getSpeakingForLevel()
 }
 
-// Progress (persisted in localStorage)
+// Speaking (EO — Expression Orale)
+interface SpeakingPrompt {
+  id: string
+  language?: string
+  level: CEFRLevel
+  cue: string              // English instruction / scenario
+  targetPhrase: string     // target-language phrase to speak
+  romanized?: string       // romanization for Japanese/Korean
+}
+
+// Progress (persisted in localStorage under ls:progress:{userId})
 interface UserProgress {
-  userId: string
+  schemaVersion: 1         // bump on breaking field changes
+  userId?: string
   selectedLanguage: string | null
   levels: Record<string, CEFRLevel>
   completedLessons: Record<string, string[]>
@@ -318,6 +366,7 @@ interface UserProgress {
 - `login()` — finds matching user, returns a fake Session with `accessToken = btoa(email)`, `expiresAt = now + 8h`
 - `refresh()` — re-issues a fresh session; never expires in prototype
 - `AuthContext` creates one `AuthService(mockAuthApi, new LocalStorageAdapter("ls"))` and exposes it
+- `authRegistry.ts` — selects mock vs real AuthApi; `VITE_DEBUG=true` bypasses auth entirely (all units unlocked)
 
 ---
 
@@ -470,33 +519,49 @@ Alternative entry to grammar lessons: present examples → user hypothesises the
              added for all 5 languages (3 per language); culture a2/ subfolder structure
              adopted across all 5 languages (matching A1 pattern)
 
-Next (v2.5.0 planned):
-  - JSON progress export/import improvements (conflict UI, partial restore)
-  - UX Phase 1 quick wins (from 2026-03-26 audit):
-      • Streak always visible on mobile (remove `hidden sm:flex` from NavBar)
-      • Adaptive done-screen messages tied to score (90%+ / 75–89% / 60–74% / <60%)
+✅ v2.5.0   — Exercise type registry system (ExerciseShell + exerciseTypes/ registry pattern);
+             8 new exercise pages wired through /exercise/:exerciseTypeId route:
+             ClozePage, SentenceScramblePage, VocabMatchingPage, VocabInContextPage,
+             DictationPage, DialogueCompletionPage, ErrorCorrectionPage, ScriptReadingPage;
+             EO module (Speaking): SpeakingPage + useSpeechRecognition hook +
+             Web Speech API single-utterance evaluation via answerMatches("strict");
+             Debug mode: VITE_DEBUG=true bypasses auth + unlocks all units (authRegistry.ts);
+             Reading/listening/culture pills on unit rows and test start screen;
+             Pre-Supabase architectural hardening (ARCH_REVIEW_MIGRATION.md):
+               • Adapter seam complete: ISRSStorage.hydrate(), IStatsStorage.flush()
+               • SRS schema migration extracted to srs-migrate.ts (v1→v2; { schemaVersion, langs })
+               • Merge logic extracted to merge.ts (mergeProgress/mergeSRS/mergeStats)
+               • ProgressContext: all mutations async/await, mutationError state, refreshProgress()
+               • useAppBootstrap: isReady = initialized && !isHydrating (correct hydration gate)
+               • resetAllStats() race fixed: capture keys synchronously, wipe storage, then clear Zustand
+               • importProgressSnapshot: re-hydrates Zustand stats store immediately after write
+               • registry.ts: _resetForTests() escape hatch for test adapter injection
+               • SRSStore type: { schemaVersion, langs } replaces unsafe index-signature union
+             Full Supabase migration plan: documents/SUPABASE_MIGRATION.md
+
+Next:
+  - UX Phase 1 remaining:
       • ARIA labels on all progress bars (role, aria-valuenow, aria-valuemin, aria-valuemax)
       • Text labels alongside color coding on StudyCards (accessibility)
-
   - UX Phase 2 core improvements:
       • Mobile NavBar redesign — collapse secondary buttons to overflow/hamburger
-      • New-user onboarding card on first Dashboard visit (pulsing tab, "Start here" tip)
       • Level-up celebration modal (LevelUpModal) on CEFR advancement
-      • Placement test copy — explain purpose + reassurance about changing level
       • Tooltip on locked units ("Complete previous unit to unlock")
-
+  - JSON progress import: conflict UI + partial restore (quality-of-life improvement)
+  - hydrateError / mutationError: wire up retry banner in the UI (currently defined but not consumed)
   - UX Phase 3 engagement features (longer-term):
       • Spaced repetition onboarding (explain SM-2 on first flashcard session)
       • Smart practice recommendations based on per-section accuracy stats
       • Visual learning-path roadmap on Path tab (A1 → C1 timeline)
       • Daily challenges system (progress ring, reward on completion)
 
-Phase 3     — B1 reading/listening passages for all 5 languages
+Phase 3 content — B1 reading/listening/culture content expansion (all 5 languages)
+Phase 4     — EE: writing tasks (self-assessed prompt + model answer)
              Cognitive reinforcement: spaced retrieval quizzes, weekly free recall
-Phase 4     — EO + EE: speaking prompts + writing tasks (self-assessed)
 Phase 5     — Pattern Discovery mode
-Phase 6 (Stage 2) — Supabase backend + auth; swap IProgressStorage adapter;
-             replace repo.ts with async DB calls
+Stage 2 (Supabase) — Swap IProgressStorage/ISRSStorage/IStatsStorage adapters;
+             replace repo.ts with async DB calls; RLS policies + RPCs per SUPABASE_MIGRATION.md
+             NOTE: Architecture is seam-ready. Migrate once A1/A2 content + auth is stable.
 ```
 
 ---
