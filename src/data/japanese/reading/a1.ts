@@ -92,8 +92,8 @@ export const a1Reading: ReadingPassage[] = [
         category: "dialogue",
         title: "はじめまして (Nice to Meet You)",
         body: {
-            target: "たなか：はじめまして。わたしは田中けんたです。よろしくおねがいします。やまだ：はじめまして。山田みかです。どうぞよろしく。たなか：山田さんはどちらのかたですか。やまだ：大阪です。たなかさんは？たなか：わたしは東京です。山田さんはがくせいですか。やまだ：はい、そうです。大学一年生です。たなかさんは？たなか：わたしはかいしゃいんです。",
-            native: "Tanaka: How do you do. I am Tanaka Kenta. Nice to meet you. Yamada: How do you do. I am Yamada Mika. Nice to meet you too. Tanaka: Where are you from, Yamada-san? Yamada: Osaka. What about you, Tanaka-san? Tanaka: I am from Tokyo. Are you a student, Yamada-san? Yamada: Yes, that's right. I'm a first-year university student. What about you, Tanaka-san? Tanaka: I am a company employee."
+            target: "たなか：はじめまして。わたしは田中けんたです。よろしくおねがいします。\nやまだ：はじめまして。山田みかです。どうぞよろしく。\nたなか：山田さんはどちらのかたですか。\nやまだ：大阪です。たなかさんは？\nたなか：わたしは東京です。山田さんはがくせいですか。\nやまだ：はい、そうです。大学一年生です。たなかさんは？\nたなか：わたしはかいしゃいんです。",
+            native: "Tanaka: How do you do. I am Tanaka Kenta. Nice to meet you.\nYamada: How do you do. I am Yamada Mika. Nice to meet you too.\nTanaka: Where are you from, Yamada-san?\nYamada: Osaka. What about you, Tanaka-san?\nTanaka: I am from Tokyo. Are you a student, Yamada-san?\nYamada: Yes, that's right. I'm a first-year university student. What about you, Tanaka-san?\nTanaka: I am a company employee."
         },
         vocabGloss: [
             { word: "はじめまして", translation: "How do you do / Nice to meet you (first time)", romanized: "hajimemashite" },

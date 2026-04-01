@@ -94,8 +94,8 @@ export const a1Reading: ReadingPassage[] = [
         category: "dialogue",
         title: "처음 뵙겠습니다 (Nice to Meet You)",
         body: {
-            target: "이준: 안녕하세요. 저는 이준이에요. 만나서 반가워요. 수진: 안녕하세요. 저는 박수진이에요. 저도 반가워요. 이준: 수진 씨는 어디 출신이에요? 수진: 저는 부산 출신이에요. 이준 씨는요? 이준: 저는 서울 출신이에요. 수진 씨는 직업이 뭐예요? 수진: 저는 대학생이에요. 이준 씨는요? 이준: 저는 회사원이에요.",
-            native: "Lee Jun: Hello. I am Lee Jun. Nice to meet you. Park Sujin: Hello. I am Park Sujin. Nice to meet you too. Lee Jun: Where are you from, Sujin? Sujin: I am from Busan. What about you, Jun? Lee Jun: I am from Seoul. What is your job, Sujin? Sujin: I am a university student. What about you, Jun? Lee Jun: I am a company employee."
+            target: "이준: 안녕하세요. 저는 이준이에요. 만나서 반가워요.\n수진: 안녕하세요. 저는 박수진이에요. 저도 반가워요.\n이준: 수진 씨는 어디 출신이에요?\n수진: 저는 부산 출신이에요. 이준 씨는요?\n이준: 저는 서울 출신이에요. 수진 씨는 직업이 뭐예요?\n수진: 저는 대학생이에요. 이준 씨는요?\n이준: 저는 회사원이에요.",
+            native: "Lee Jun: Hello. I am Lee Jun. Nice to meet you.\nPark Sujin: Hello. I am Park Sujin. Nice to meet you too.\nLee Jun: Where are you from, Sujin?\nSujin: I am from Busan. What about you, Jun?\nLee Jun: I am from Seoul. What is your job, Sujin?\nSujin: I am a university student. What about you, Jun?\nLee Jun: I am a company employee."
         },
         vocabGloss: [
             { word: "만나서 반가워요", translation: "nice to meet you", romanized: "mannaseo bangawoyo" },

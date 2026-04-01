@@ -91,8 +91,8 @@ export const a1Reading: ReadingPassage[] = [
         category: "dialogue",
         title: "Au café",
         body: {
-            target: "Serveur : Bonjour ! Vous désirez ? Client : Bonjour ! Je voudrais un café, s'il vous plaît. Serveur : Un café, très bien. Et avec ça ? Client : Un croissant, s'il vous plaît. Combien ça coûte ? Serveur : Un café et un croissant, c'est trois euros cinquante. Client : Voilà. Merci ! Serveur : Merci à vous. Bonne journée !",
-            native: "Waiter: Hello! What would you like? Customer: Hello! I'd like a coffee, please. Waiter: A coffee, very good. And with that? Customer: A croissant, please. How much is it? Waiter: A coffee and a croissant is three euros fifty. Customer: Here you go. Thank you! Waiter: Thank you. Have a good day!"
+            target: "Serveur : Bonjour ! Vous désirez ?\nClient : Bonjour ! Je voudrais un café, s'il vous plaît.\nServeur : Un café, très bien. Et avec ça ?\nClient : Un croissant, s'il vous plaît. Combien ça coûte ?\nServeur : Un café et un croissant, c'est trois euros cinquante.\nClient : Voilà. Merci !\nServeur : Merci à vous. Bonne journée !",
+            native: "Waiter: Hello! What would you like?\nCustomer: Hello! I'd like a coffee, please.\nWaiter: A coffee, very good. And with that?\nCustomer: A croissant, please. How much is it?\nWaiter: A coffee and a croissant is three euros fifty.\nCustomer: Here you go. Thank you!\nWaiter: Thank you. Have a good day!"
         },
         vocabGloss: [
             { word: "vous désirez", translation: "what would you like?" },
@@ -216,8 +216,8 @@ export const a1Reading: ReadingPassage[] = [
         category: "dialogue",
         title: "Pour aller à la boulangerie",
         body: {
-            target: "Touriste : Excusez-moi, monsieur. Je cherche la boulangerie. Vous savez où elle est ? Passant : Oui, bien sûr ! Vous allez tout droit, puis vous tournez à gauche au feu. Touriste : À gauche au feu. D'accord. Passant : Ensuite, vous continuez tout droit pendant deux minutes. La boulangerie est en face de la pharmacie. Touriste : Et il y a un café près de la boulangerie ? Passant : Oui ! Il y a un café à droite de la boulangerie. C'est très facile à trouver. Touriste : Merci beaucoup, monsieur ! Passant : De rien. Bonne journée !",
-            native: "Tourist: Excuse me, sir. I'm looking for the bakery. Do you know where it is? Passer-by: Yes, of course! You go straight ahead, then you turn left at the traffic lights. Tourist: Left at the traffic lights. OK. Passer-by: Then you continue straight ahead for two minutes. The bakery is opposite the pharmacy. Tourist: And is there a café near the bakery? Passer-by: Yes! There is a café to the right of the bakery. It is very easy to find. Tourist: Thank you very much, sir! Passer-by: You're welcome. Have a good day!"
+            target: "Touriste : Excusez-moi, monsieur. Je cherche la boulangerie. Vous savez où elle est ?\nPassant : Oui, bien sûr ! Vous allez tout droit, puis vous tournez à gauche au feu.\nTouriste : À gauche au feu. D'accord.\nPassant : Ensuite, vous continuez tout droit pendant deux minutes. La boulangerie est en face de la pharmacie.\nTouriste : Et il y a un café près de la boulangerie ?\nPassant : Oui ! Il y a un café à droite de la boulangerie. C'est très facile à trouver.\nTouriste : Merci beaucoup, monsieur !\nPassant : De rien. Bonne journée !",
+            native: "Tourist: Excuse me, sir. I'm looking for the bakery. Do you know where it is?\nPasser-by: Yes, of course! You go straight ahead, then you turn left at the traffic lights.\nTourist: Left at the traffic lights. OK.\nPasser-by: Then you continue straight ahead for two minutes. The bakery is opposite the pharmacy.\nTourist: And is there a café near the bakery?\nPasser-by: Yes! There is a café to the right of the bakery. It is very easy to find.\nTourist: Thank you very much, sir!\nPasser-by: You're welcome. Have a good day!"
         },
         vocabGloss: [
             { word: "je cherche", translation: "I am looking for" },
