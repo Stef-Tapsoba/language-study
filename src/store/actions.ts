@@ -72,10 +72,10 @@ export async function completeLessonItem(
 // Drill session completion — grammar drill, verb drill, flashcard session
 // ---------------------------------------------------------------------------
 
-export type DrillSessionType = "grammar" | "verb" | "flashcard"
+export type DrillSessionType = "grammar" | "verb" | "flashcard" | "vocab" | "reading"
 
 /**
- * Record the completion of a drill session (grammar, verb, or flashcard).
+ * Record the completion of a drill session.
  * Call this at the end of a drill to record activity in stats.
  */
 export async function completeDrillSession(

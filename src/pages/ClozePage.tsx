@@ -89,7 +89,9 @@ function buildClozeItems(passages: ReadingPassage[]): ClozeItem[] {
 export default function ClozePage({ items, langId, level, onComplete }: Readonly<ExerciseComponentProps<ReadingPassage>>) {
     const ui = getUI(langId, level)
 
-    const questions = useMemo(() => buildClozeItems(items), [items])
+    // C-4: sessionKey busts the memo on restart so questions are reshuffled each play
+    const [sessionKey, setSessionKey] = useState(0)
+    const questions = useMemo(() => buildClozeItems(items), [items, sessionKey])
 
     const [index, setIndex] = useState(0)
     const [score, setScore] = useState(0)
@@ -105,6 +107,7 @@ export default function ClozePage({ items, langId, level, onComplete }: Readonly
     }, [index])
 
     function handleRestart() {
+        setSessionKey(k => k + 1)
         setIndex(0)
         setScore(0)
         setDone(false)
@@ -162,7 +165,7 @@ export default function ClozePage({ items, langId, level, onComplete }: Readonly
 
     function handleNext() {
         if (isLast) {
-            completeDrillSession(langId, "grammar").catch(console.error)
+            completeDrillSession(langId, "reading").catch(console.error)
             setDone(true)
         } else {
             setIndex(i => i + 1)
@@ -188,11 +191,11 @@ export default function ClozePage({ items, langId, level, onComplete }: Readonly
                     <span className="font-medium">{ui.scoreLabel}: {score}</span>
                 </div>
                 <div className="flex gap-1">
-                    {questions.map((_, i) => {
+                    {questions.map((q, i) => {
                         let cls = "bg-gray-200 dark:bg-gray-600"
                         if (i < index) cls = "bg-indigo-500"
                         else if (i === index) cls = "bg-indigo-300"
-                        return <div key={i} className={`h-1.5 flex-1 rounded-full transition-colors ${cls}`} />
+                        return <div key={`${q.passageId}:${q.targetWord}`} className={`h-1.5 flex-1 rounded-full transition-colors ${cls}`} />
                     })}
                 </div>
 
@@ -217,7 +220,7 @@ export default function ClozePage({ items, langId, level, onComplete }: Readonly
                     <p className="text-base font-medium text-amber-900 dark:text-amber-100 leading-relaxed">
                         {parts[0]}
                         <span className="inline-block bg-amber-200 dark:bg-amber-800 rounded px-2 mx-0.5 font-bold text-amber-800 dark:text-amber-200 min-w-[4rem] text-center">
-                            {submitState !== "idle" ? q.targetWord : "?????"}
+                            {submitState === "idle" ? "?????" : q.targetWord}
                         </span>
                         {parts[1]}
                     </p>

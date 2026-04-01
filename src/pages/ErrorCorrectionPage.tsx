@@ -120,7 +120,6 @@ function introduceError(
 
 function buildErrorItems(lessons: GrammarLesson[]): ErrorItem[] {
     const items: ErrorItem[] = []
-    let strategyCounter = 0
 
     for (const lesson of lessons) {
         for (const ex of lesson.examples) {
@@ -128,7 +127,8 @@ function buildErrorItems(lessons: GrammarLesson[]): ErrorItem[] {
             const wordCount = ex.native.trim().split(/\s+/).length
             if (wordCount < 3) continue
 
-            const result = introduceError(ex.native, strategyCounter++)
+            // I-2: random strategy per item so replays don't produce identical errors
+            const result = introduceError(ex.native, Math.floor(Math.random() * 4))
             if (!result) continue
 
             // Sanity check: errored sentence should differ from correct
@@ -209,7 +209,7 @@ export default function ErrorCorrectionPage({ items, langId, level, onComplete }
 
     function handleSubmit() {
         if (submitState !== "idle" || !input.trim()) return
-        const correct = answerMatches(input, q.correct, "strict")
+        const correct = answerMatches(input, q.correct, "dictation")
         setSubmitState(correct ? "correct" : "wrong")
         useStatsStore.getState().recordQuizAnswer(langId, correct)
         if (correct) {

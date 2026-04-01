@@ -7,11 +7,10 @@
 // --------------------------------
 // 1. Create src/exerciseTypes/<your-type>.ts  (see sentenceScramble.ts as a template)
 // 2. Create src/pages/<YourType>Page.tsx      (the exercise component)
-// 3. Add a route in App.tsx:
-//      <Route path="/learn/:langId/<your-type>" element={<Suspense>...<YourTypePage /></Suspense>} />
-// 4. Import the definition file below — one line.
+// 3. Import the definition file below — one line.
 //
-// That's it. The unit page and dashboard discover it via getAllExerciseTypes().
+// That's it. ExerciseShell handles routing automatically for all registered types
+// via the "exercise/:exerciseTypeId" route in App.tsx — no route changes needed.
 // No other files need editing.
 //
 // HOW TO SWAP TO SUPABASE (Stage 2)
