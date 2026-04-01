@@ -37,7 +37,17 @@ export type ContentType =
     | "culture"
 
 export interface IProgressStorage {
-    /** Load the full progress object for the current session. */
+    /**
+     * Return the current progress from the write-through in-memory cache.
+     *
+     * Stage 1 (localStorage): reads the JSON blob directly — cheap.
+     * Stage 2 (Supabase): reads from a local cache populated by initSession().
+     *   Never issues a DB query. The cache is kept up-to-date by every write method.
+     *
+     * Contract: callers may call load() after every mutation without performance concern.
+     * Do NOT call load() to detect whether hydration has completed — use
+     * ProgressContext.isHydrating for that.
+     */
     load(): UserProgress
 
     /** Persist the full progress object (used for bulk writes, e.g. import). */

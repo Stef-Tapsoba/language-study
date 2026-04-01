@@ -124,28 +124,28 @@ describe("getCompletedLessons / markLessonComplete", () => {
     })
 
     it("adds a lesson to the completed list", () => {
-        markLessonComplete("es", "lesson-1")
+        markLessonComplete("es", "lesson-1", "grammar")
         expect(getCompletedLessons("es")).toContain("lesson-1")
     })
 
     it("is idempotent — marking the same lesson twice does not duplicate", () => {
-        markLessonComplete("es", "lesson-1")
-        markLessonComplete("es", "lesson-1")
+        markLessonComplete("es", "lesson-1", "grammar")
+        markLessonComplete("es", "lesson-1", "grammar")
         const lessons = getCompletedLessons("es")
         expect(lessons.filter(l => l === "lesson-1").length).toBe(1)
     })
 
     it("accumulates multiple distinct lessons", () => {
-        markLessonComplete("es", "lesson-1")
-        markLessonComplete("es", "lesson-2")
+        markLessonComplete("es", "lesson-1", "grammar")
+        markLessonComplete("es", "lesson-2", "grammar")
         const lessons = getCompletedLessons("es")
         expect(lessons).toContain("lesson-1")
         expect(lessons).toContain("lesson-2")
     })
 
     it("keeps lessons separate per language", () => {
-        markLessonComplete("es", "lesson-1")
-        markLessonComplete("fr", "lesson-A")
+        markLessonComplete("es", "lesson-1", "grammar")
+        markLessonComplete("fr", "lesson-A", "grammar")
         expect(getCompletedLessons("es")).not.toContain("lesson-A")
         expect(getCompletedLessons("fr")).not.toContain("lesson-1")
     })
@@ -248,7 +248,7 @@ describe("isUnitUnlocked", () => {
 describe("resetLanguageProgress", () => {
     it("resets level to A1 and clears lessons/units for the language", () => {
         setCurrentLevel("es", "B2")
-        markLessonComplete("es", "lesson-1")
+        markLessonComplete("es", "lesson-1", "grammar")
         masterUnit("es", "unit-1")
 
         resetLanguageProgress("es")
@@ -261,7 +261,7 @@ describe("resetLanguageProgress", () => {
     it("does not affect other languages", () => {
         setCurrentLevel("es", "B2")
         setCurrentLevel("fr", "A2")
-        markLessonComplete("fr", "fr-lesson")
+        markLessonComplete("fr", "fr-lesson", "grammar")
 
         resetLanguageProgress("es")
 
@@ -273,7 +273,7 @@ describe("resetLanguageProgress", () => {
 describe("removeLanguage", () => {
     it("removes level, lessons, and mastered units for the language", () => {
         setCurrentLevel("es", "A2")
-        markLessonComplete("es", "l1")
+        markLessonComplete("es", "l1", "grammar")
         masterUnit("es", "u1")
 
         removeLanguage("es")

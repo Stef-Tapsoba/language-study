@@ -94,4 +94,7 @@ export class LocalStorageStatsStorage implements IStatsStorage {
         delete next[langId]
         saveRaw(next)
     }
+
+    // Stage 1: writes are synchronous, nothing to flush.
+    async flush(): Promise<void> {}
 }

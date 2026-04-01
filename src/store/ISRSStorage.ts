@@ -27,4 +27,13 @@ export interface ISRSStorage {
 
     /** Wipe all card states for every language (called on user change). */
     resetAll(): Promise<void>
+
+    /**
+     * Hydrate the in-memory cache from the storage backend.
+     * Stage 1 (localStorage): no-op — `getStates()` reads directly from storage.
+     * Stage 2 (Supabase): loads card rows into a local cache so `getStates()` can
+     *   remain synchronous. Pass `langId` to hydrate only one language (lazy load);
+     *   omit to hydrate all languages (eager, on login).
+     */
+    hydrate(langId?: string): Promise<void>
 }

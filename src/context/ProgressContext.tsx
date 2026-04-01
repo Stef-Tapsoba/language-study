@@ -16,6 +16,21 @@ import type { ContentType } from "../store/IProgressStorage"
 interface ProgressContextValue {
     progress: UserProgress
 
+    /**
+     * True while initSession is hydrating from the storage backend.
+     * Stage 1 (localStorage): always false — hydration is synchronous.
+     * Stage 2 (Supabase): true between login and first successful hydrate_progress response.
+     * Pages that read progress should render a skeleton/spinner while this is true.
+     */
+    isHydrating: boolean
+
+    /**
+     * Set when initSession hydration fails. Null on success or before first call.
+     * Stage 2 (Supabase): network or RLS errors surface here.
+     * Pages should show a retry banner when this is non-null.
+     */
+    hydrateError: Error | null
+
     // Derived read helpers (avoid components parsing raw progress object)
     level: (langId: string) => CEFRLevel
     completed: (langId: string) => string[]
@@ -23,20 +38,32 @@ interface ProgressContextValue {
     startedLanguages: string[]
     selectedLanguage: string | null
 
-    // Mutations — each writes to storage then refreshes React state
-    initUserSession: (userId: string) => void
-    setSelectedLanguage: (langId: string) => void
-    setCurrentLevel: (langId: string, level: CEFRLevel) => void
-    markLessonComplete: (langId: string, lessonId: string, contentType: ContentType) => void
-    masterUnit: (langId: string, unitId: string) => void
-    resetLanguage: (langId: string) => void
-    removeLanguage: (langId: string) => void
+    /**
+     * Set when a storage mutation fails. Null on success or before the first mutation.
+     * Stage 2 (Supabase): network or RLS errors surface here.
+     * Pages should show a retry banner when this is non-null.
+     */
+    mutationError: Error | null
+    clearMutationError: () => void
+
+    // Mutations — all async; each awaits the storage write then refreshes React state.
+    // Stage 1: resolves synchronously (localStorage). Stage 2: resolves after Supabase write.
+    initUserSession: (userId: string) => void   // intentionally void — hydration tracked via isHydrating
+    setSelectedLanguage: (langId: string) => Promise<void>
+    setCurrentLevel: (langId: string, level: CEFRLevel) => Promise<void>
+    markLessonComplete: (langId: string, lessonId: string, contentType: ContentType) => Promise<void>
+    masterUnit: (langId: string, unitId: string) => Promise<void>
+    resetLanguage: (langId: string) => Promise<void>
+    removeLanguage: (langId: string) => Promise<void>
 }
 
 const ProgressContext = createContext<ProgressContextValue | null>(null)
 
 export function ProgressProvider({ children }: Readonly<{ children: ReactNode }>) {
     const [progress, setProgress] = useState<UserProgress>(() => loadProgress())
+    const [isHydrating, setIsHydrating] = useState(false)
+    const [hydrateError, setHydrateError] = useState<Error | null>(null)
+    const [mutationError, setMutationError] = useState<Error | null>(null)
 
     const refresh = useCallback(() => setProgress(loadProgress()), [])
 
@@ -45,40 +72,79 @@ export function ProgressProvider({ children }: Readonly<{ children: ReactNode }>
     // then hydrates the stats store from storage for the new user.
     const initUserSession = useCallback((userId: string) => {
         const prev = loadProgress()
-        registry.progress.initSession(userId).catch(console.error)
-        if (prev.userId !== userId) {
-            registry.srs.resetAll().catch(console.error)
-            useStatsStore.getState().resetAllStats()
-        }
-        useStatsStore.getState().hydrate().catch(console.error)
-        refresh()
+        setIsHydrating(true)
+        setHydrateError(null)
+        registry.progress.initSession(userId)
+            .then(() => {
+                // If the user changed, wipe the previous user's SRS + stats before
+                // hydrating the new user's data. Both resets must complete first so
+                // hydrate() never merges data across users.
+                if (prev.userId !== userId) {
+                    return Promise.all([
+                        registry.srs.resetAll(),
+                        useStatsStore.getState().resetAllStats(),
+                    ])
+                }
+            })
+            .then(() => useStatsStore.getState().hydrate())
+            .then(() => { refresh(); setIsHydrating(false) })
+            .catch((err: unknown) => {
+                setIsHydrating(false)
+                setHydrateError(err instanceof Error ? err : new Error(String(err)))
+                refresh()
+            })
     }, [refresh])
 
-    const setSelectedLanguage = useCallback((langId: string) => {
-        registry.progress.setSelectedLanguage(langId).catch(console.error)
-        refresh()
-    }, [refresh])
+    const clearMutationError = useCallback(() => setMutationError(null), [])
 
-    const setCurrentLevel = useCallback((langId: string, level: CEFRLevel) => {
-        registry.progress.setLevel(langId, level).then(refresh).catch(console.error)
-    }, [refresh])
+    // Shared error handler for all mutations — surfaces errors instead of swallowing them.
+    // Stage 1: never fires (localStorage is synchronous and infallible).
+    // Stage 2: catches Supabase network / RLS errors so the UI can show a retry banner.
+    const handleMutationError = useCallback((err: unknown) => {
+        setMutationError(err instanceof Error ? err : new Error(String(err)))
+    }, [])
 
-    const markLessonComplete = useCallback((langId: string, lessonId: string, contentType: ContentType) => {
-        registry.progress.markLessonComplete(langId, lessonId, contentType)
-            .then(refresh).catch(console.error)
-    }, [refresh])
+    const setSelectedLanguage = useCallback(async (langId: string): Promise<void> => {
+        try {
+            await registry.progress.setSelectedLanguage(langId)
+            refresh()
+        } catch (err) { handleMutationError(err) }
+    }, [refresh, handleMutationError])
 
-    const masterUnit = useCallback((langId: string, unitId: string) => {
-        registry.progress.masterUnit(langId, unitId).then(refresh).catch(console.error)
-    }, [refresh])
+    const setCurrentLevel = useCallback(async (langId: string, level: CEFRLevel): Promise<void> => {
+        try {
+            await registry.progress.setLevel(langId, level)
+            refresh()
+        } catch (err) { handleMutationError(err) }
+    }, [refresh, handleMutationError])
 
-    const resetLanguage = useCallback((langId: string) => {
-        registry.progress.resetLanguage(langId).then(refresh).catch(console.error)
-    }, [refresh])
+    const markLessonComplete = useCallback(async (langId: string, lessonId: string, contentType: ContentType): Promise<void> => {
+        try {
+            await registry.progress.markLessonComplete(langId, lessonId, contentType)
+            refresh()
+        } catch (err) { handleMutationError(err) }
+    }, [refresh, handleMutationError])
 
-    const removeLanguage = useCallback((langId: string) => {
-        registry.progress.removeLanguage(langId).then(refresh).catch(console.error)
-    }, [refresh])
+    const masterUnit = useCallback(async (langId: string, unitId: string): Promise<void> => {
+        try {
+            await registry.progress.masterUnit(langId, unitId)
+            refresh()
+        } catch (err) { handleMutationError(err) }
+    }, [refresh, handleMutationError])
+
+    const resetLanguage = useCallback(async (langId: string): Promise<void> => {
+        try {
+            await registry.progress.resetLanguage(langId)
+            refresh()
+        } catch (err) { handleMutationError(err) }
+    }, [refresh, handleMutationError])
+
+    const removeLanguage = useCallback(async (langId: string): Promise<void> => {
+        try {
+            await registry.progress.removeLanguage(langId)
+            refresh()
+        } catch (err) { handleMutationError(err) }
+    }, [refresh, handleMutationError])
 
     const level = useCallback(
         (langId: string): CEFRLevel => progress.levels[langId] ?? "A1",
@@ -95,6 +161,10 @@ export function ProgressProvider({ children }: Readonly<{ children: ReactNode }>
 
     const value = useMemo<ProgressContextValue>(() => ({
         progress,
+        isHydrating,
+        hydrateError,
+        mutationError,
+        clearMutationError,
         level,
         completed,
         mastered,
@@ -108,7 +178,7 @@ export function ProgressProvider({ children }: Readonly<{ children: ReactNode }>
         resetLanguage,
         removeLanguage,
     }), [
-        progress,
+        progress, isHydrating, hydrateError, mutationError, clearMutationError,
         level, completed, mastered,
         initUserSession, setSelectedLanguage, setCurrentLevel,
         markLessonComplete, masterUnit, resetLanguage, removeLanguage,

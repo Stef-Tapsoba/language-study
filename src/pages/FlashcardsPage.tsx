@@ -246,7 +246,7 @@ function FlipCard({ item, flipped, onClick, translationMode, translationShown, u
 export function FlashcardsPage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
-    const { level: getLevel } = useProgress()
+    const { level: getLevel, isHydrating } = useProgress()
     const level = getLevel(langId)
     const ui = getUI(langId, level)
     const translationMode = getTranslationMode(level)
@@ -315,6 +315,21 @@ export function FlashcardsPage() {
     useEffect(() => () => { globalThis.speechSynthesis?.cancel() }, [])
 
     if (!language) return null
+
+    // Wait for the SRS cache to be hydrated before computing the deck.
+    // In Stage 1 (localStorage) isHydrating is always false.
+    // In Stage 2 (Supabase) reading the SRS states before hydration completes
+    // would treat every card as "new", discarding real scheduling data.
+    if (isHydrating) {
+        return (
+            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+                <NavBar title={ui.sectionFlashcards} level={level} backTo={`/learn/${langId}`} />
+                <div className="flex items-center justify-center py-24 text-gray-400 dark:text-gray-500">
+                    <p className="text-sm">Loading your cards…</p>
+                </div>
+            </div>
+        )
+    }
 
     function handleTtsToggle(enabled: boolean) {
         setTtsEnabled(enabled)
