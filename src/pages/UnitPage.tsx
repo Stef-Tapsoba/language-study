@@ -463,6 +463,61 @@ function TestOutTab({ unit, langId, isMastered, nextUnit, isLastUnit, ui, cultur
                 >
                     {isMastered ? ui.retakeTest : ui.startTest}
                 </button>
+
+                {/* Reading / Listening / Culture — shown directly when the unit is already mastered */}
+                {isMastered && readingPassages.length > 0 && (
+                    <div className="w-full flex flex-col gap-3 text-left">
+                        <p className="text-xs font-semibold text-blue-700 uppercase tracking-wide text-center">Reading</p>
+                        {readingPassages.map(p => (
+                            <button key={p.id} onClick={() => onNavigateReading(p.id)}
+                                className="w-full bg-blue-50 border border-blue-200 rounded-2xl px-5 py-4
+                                           flex items-start gap-3 text-left hover:bg-blue-100 transition-colors">
+                                <span className="text-2xl leading-none mt-0.5" aria-hidden="true">📖</span>
+                                <div className="flex flex-col gap-0.5 min-w-0">
+                                    <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 leading-snug">{p.title}</p>
+                                    <p className="text-xs text-blue-700 leading-snug">{p.vocabGloss.length} vocab · {p.questions.length} Q</p>
+                                </div>
+                                <span className="ml-auto text-blue-400 text-sm self-center">→</span>
+                            </button>
+                        ))}
+                    </div>
+                )}
+                {isMastered && listeningExercises.length > 0 && (
+                    <div className="w-full flex flex-col gap-3 text-left">
+                        <p className="text-xs font-semibold text-indigo-700 uppercase tracking-wide text-center">Listening</p>
+                        {listeningExercises.map(ex => (
+                            <button key={ex.id} onClick={() => onNavigateListening(ex.id)}
+                                className="w-full bg-indigo-50 border border-indigo-200 rounded-2xl px-5 py-4
+                                           flex items-start gap-3 text-left hover:bg-indigo-100 transition-colors">
+                                <span className="text-2xl leading-none mt-0.5" aria-hidden="true">🎧</span>
+                                <div className="flex flex-col gap-0.5 min-w-0">
+                                    <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 leading-snug">{ex.title}</p>
+                                    <p className="text-xs text-indigo-700 leading-snug">{ex.questions.length} Q</p>
+                                </div>
+                                <span className="ml-auto text-indigo-400 text-sm self-center">→</span>
+                            </button>
+                        ))}
+                    </div>
+                )}
+                {isMastered && cultureEpisodes.length > 0 && (
+                    <div className="w-full flex flex-col gap-3 text-left">
+                        <p className="text-xs font-semibold text-amber-700 uppercase tracking-wide text-center">{ui.cultureUnlockHeading}</p>
+                        {cultureEpisodes.map(ep => (
+                            <button key={ep.id} onClick={() => onNavigateCulture(ep.id)}
+                                className="w-full bg-amber-50 border border-amber-200 rounded-2xl px-5 py-4
+                                           flex items-start gap-3 text-left hover:bg-amber-100 transition-colors">
+                                <span className="text-2xl leading-none mt-0.5" aria-hidden="true">
+                                    {CULTURE_CATEGORY_EMOJI[ep.category] ?? "🌍"}
+                                </span>
+                                <div className="flex flex-col gap-0.5 min-w-0">
+                                    <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 leading-snug">{ep.title.native}</p>
+                                    <p className="text-xs text-amber-700 leading-snug line-clamp-2">{ep.subtitle}</p>
+                                </div>
+                                <span className="ml-auto text-amber-400 text-sm self-center">→</span>
+                            </button>
+                        ))}
+                    </div>
+                )}
             </div>
         )
     }
