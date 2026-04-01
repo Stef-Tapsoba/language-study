@@ -36,6 +36,43 @@ const CULTURE_CATEGORY_EMOJI: Record<string, string> = {
 }
 
 // ---------------------------------------------------------------------------
+// ContentLinkSection — shared by TestDoneScreen and TestOutTab start screen
+// ---------------------------------------------------------------------------
+type ContentTheme = "reading" | "listening" | "culture"
+
+const CONTENT_THEME: Record<ContentTheme, { bg: string; border: string; hover: string; text: string; arrow: string }> = {
+    reading:   { bg: "bg-blue-50 dark:bg-blue-900/20",     border: "border-blue-200 dark:border-blue-800",     hover: "hover:bg-blue-100 dark:hover:bg-blue-900/30",    text: "text-blue-700 dark:text-blue-400",    arrow: "text-blue-400 dark:text-blue-500"    },
+    listening: { bg: "bg-indigo-50 dark:bg-indigo-900/20", border: "border-indigo-200 dark:border-indigo-800", hover: "hover:bg-indigo-100 dark:hover:bg-indigo-900/30", text: "text-indigo-700 dark:text-indigo-400", arrow: "text-indigo-400 dark:text-indigo-500" },
+    culture:   { bg: "bg-amber-50 dark:bg-amber-900/20",   border: "border-amber-200 dark:border-amber-800",   hover: "hover:bg-amber-100 dark:hover:bg-amber-900/30",   text: "text-amber-700 dark:text-amber-400",  arrow: "text-amber-400 dark:text-amber-500"  },
+}
+
+interface ContentLink { id: string; emoji: string; title: string; meta: string }
+
+function ContentLinkSection({ theme, heading, links, onNavigate }: Readonly<{
+    theme: ContentTheme; heading: string; links: ContentLink[]; onNavigate: (id: string) => void
+}>) {
+    if (links.length === 0) return null
+    const th = CONTENT_THEME[theme]
+    return (
+        <div className="w-full flex flex-col gap-3 text-left">
+            <p className={`text-xs font-semibold uppercase tracking-wide text-center ${th.text}`}>{heading}</p>
+            {links.map(l => (
+                <button key={l.id} onClick={() => onNavigate(l.id)}
+                    className={`w-full ${th.bg} border ${th.border} rounded-2xl px-5 py-4
+                                flex items-start gap-3 text-left ${th.hover} transition-colors`}>
+                    <span className="text-2xl leading-none mt-0.5" aria-hidden="true">{l.emoji}</span>
+                    <div className="flex flex-col gap-0.5 min-w-0">
+                        <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 leading-snug">{l.title}</p>
+                        <p className={`text-xs leading-snug ${th.text}`}>{l.meta}</p>
+                    </div>
+                    <span className={`ml-auto text-sm self-center ${th.arrow}`}>→</span>
+                </button>
+            ))}
+        </div>
+    )
+}
+
+// ---------------------------------------------------------------------------
 // GrammarAccordion
 // ---------------------------------------------------------------------------
 function GrammarAccordion({ lesson, done, langId, level, ui, onComplete, onVocabClick }: Readonly<{
@@ -235,87 +272,15 @@ function TestDoneScreen({ score, total, passThreshold, missed, isMastered, didCo
 
             {missed.length > 0 && <MistakeReview missed={missed} />}
 
-            {passed && (isMastered || didComplete) && readingPassages.length > 0 && (
-                <div className="w-full flex flex-col gap-3">
-                    <p className="text-xs font-semibold text-blue-700 uppercase tracking-wide text-center">
-                        Reading
-                    </p>
-                    {readingPassages.map(p => (
-                        <button
-                            key={p.id}
-                            onClick={() => onNavigateReading(p.id)}
-                            className="w-full bg-blue-50 border border-blue-200 rounded-2xl px-5 py-4
-                                       flex items-start gap-3 text-left hover:bg-blue-100 transition-colors"
-                        >
-                            <span className="text-2xl leading-none mt-0.5" aria-hidden="true">📖</span>
-                            <div className="flex flex-col gap-0.5 min-w-0">
-                                <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 leading-snug">
-                                    {p.title}
-                                </p>
-                                <p className="text-xs text-blue-700 leading-snug">
-                                    {p.vocabGloss.length} vocab · {p.questions.length} Q
-                                </p>
-                            </div>
-                            <span className="ml-auto text-blue-400 text-sm self-center">→</span>
-                        </button>
-                    ))}
-                </div>
-            )}
-
-            {passed && (isMastered || didComplete) && listeningExercises.length > 0 && (
-                <div className="w-full flex flex-col gap-3">
-                    <p className="text-xs font-semibold text-indigo-700 uppercase tracking-wide text-center">
-                        Listening
-                    </p>
-                    {listeningExercises.map(ex => (
-                        <button
-                            key={ex.id}
-                            onClick={() => onNavigateListening(ex.id)}
-                            className="w-full bg-indigo-50 border border-indigo-200 rounded-2xl px-5 py-4
-                                       flex items-start gap-3 text-left hover:bg-indigo-100 transition-colors"
-                        >
-                            <span className="text-2xl leading-none mt-0.5" aria-hidden="true">🎧</span>
-                            <div className="flex flex-col gap-0.5 min-w-0">
-                                <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 leading-snug">
-                                    {ex.title}
-                                </p>
-                                <p className="text-xs text-indigo-700 leading-snug">
-                                    {ex.questions.length} Q
-                                </p>
-                            </div>
-                            <span className="ml-auto text-indigo-400 text-sm self-center">→</span>
-                        </button>
-                    ))}
-                </div>
-            )}
-
-            {passed && (isMastered || didComplete) && cultureEpisodes.length > 0 && (
-                <div className="w-full flex flex-col gap-3">
-                    <p className="text-xs font-semibold text-amber-700 uppercase tracking-wide text-center">
-                        {ui.cultureUnlockHeading}
-                    </p>
-                    {cultureEpisodes.map(ep => (
-                        <button
-                            key={ep.id}
-                            onClick={() => onNavigateCulture(ep.id)}
-                            className="w-full bg-amber-50 border border-amber-200 rounded-2xl px-5 py-4
-                                       flex items-start gap-3 text-left hover:bg-amber-100 transition-colors"
-                        >
-                            <span className="text-2xl leading-none mt-0.5" aria-hidden="true">
-                                {CULTURE_CATEGORY_EMOJI[ep.category] ?? "🌍"}
-                            </span>
-                            <div className="flex flex-col gap-0.5 min-w-0">
-                                <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 leading-snug">
-                                    {ep.title.native}
-                                </p>
-                                <p className="text-xs text-amber-700 leading-snug line-clamp-2">
-                                    {ep.subtitle}
-                                </p>
-                            </div>
-                            <span className="ml-auto text-amber-400 text-sm self-center">→</span>
-                        </button>
-                    ))}
-                </div>
+            {passed && (isMastered || didComplete) && (
+                <>
+                    <ContentLinkSection theme="reading" heading="Reading" onNavigate={onNavigateReading}
+                        links={readingPassages.map(p => ({ id: p.id, emoji: "📖", title: p.title, meta: `${p.vocabGloss.length} vocab · ${p.questions.length} Q` }))} />
+                    <ContentLinkSection theme="listening" heading="Listening" onNavigate={onNavigateListening}
+                        links={listeningExercises.map(ex => ({ id: ex.id, emoji: "🎧", title: ex.title, meta: `${ex.questions.length} Q` }))} />
+                    <ContentLinkSection theme="culture" heading={ui.cultureUnlockHeading} onNavigate={onNavigateCulture}
+                        links={cultureEpisodes.map(ep => ({ id: ep.id, emoji: CULTURE_CATEGORY_EMOJI[ep.category] ?? "🌍", title: ep.title.native, meta: ep.subtitle }))} />
+                </>
             )}
 
             <div className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-5 flex flex-col gap-3">
@@ -444,7 +409,7 @@ function TestOutTab({ unit, langId, isMastered, nextUnit, isLastUnit, ui, cultur
         return (
             <div className="flex flex-col items-center gap-6 py-8 max-w-sm mx-auto text-center">
                 {isMastered && (
-                    <div className="w-full bg-green-50 border border-green-200 rounded-2xl px-4 py-3 flex items-center gap-2 text-green-700">
+                    <div className="w-full bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-2xl px-4 py-3 flex items-center gap-2 text-green-700 dark:text-green-400">
                         <span className="text-lg">✓</span>
                         <span className="text-sm font-medium">{ui.alreadyCompleted}</span>
                     </div>
@@ -465,58 +430,15 @@ function TestOutTab({ unit, langId, isMastered, nextUnit, isLastUnit, ui, cultur
                 </button>
 
                 {/* Reading / Listening / Culture — shown directly when the unit is already mastered */}
-                {isMastered && readingPassages.length > 0 && (
-                    <div className="w-full flex flex-col gap-3 text-left">
-                        <p className="text-xs font-semibold text-blue-700 uppercase tracking-wide text-center">Reading</p>
-                        {readingPassages.map(p => (
-                            <button key={p.id} onClick={() => onNavigateReading(p.id)}
-                                className="w-full bg-blue-50 border border-blue-200 rounded-2xl px-5 py-4
-                                           flex items-start gap-3 text-left hover:bg-blue-100 transition-colors">
-                                <span className="text-2xl leading-none mt-0.5" aria-hidden="true">📖</span>
-                                <div className="flex flex-col gap-0.5 min-w-0">
-                                    <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 leading-snug">{p.title}</p>
-                                    <p className="text-xs text-blue-700 leading-snug">{p.vocabGloss.length} vocab · {p.questions.length} Q</p>
-                                </div>
-                                <span className="ml-auto text-blue-400 text-sm self-center">→</span>
-                            </button>
-                        ))}
-                    </div>
-                )}
-                {isMastered && listeningExercises.length > 0 && (
-                    <div className="w-full flex flex-col gap-3 text-left">
-                        <p className="text-xs font-semibold text-indigo-700 uppercase tracking-wide text-center">Listening</p>
-                        {listeningExercises.map(ex => (
-                            <button key={ex.id} onClick={() => onNavigateListening(ex.id)}
-                                className="w-full bg-indigo-50 border border-indigo-200 rounded-2xl px-5 py-4
-                                           flex items-start gap-3 text-left hover:bg-indigo-100 transition-colors">
-                                <span className="text-2xl leading-none mt-0.5" aria-hidden="true">🎧</span>
-                                <div className="flex flex-col gap-0.5 min-w-0">
-                                    <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 leading-snug">{ex.title}</p>
-                                    <p className="text-xs text-indigo-700 leading-snug">{ex.questions.length} Q</p>
-                                </div>
-                                <span className="ml-auto text-indigo-400 text-sm self-center">→</span>
-                            </button>
-                        ))}
-                    </div>
-                )}
-                {isMastered && cultureEpisodes.length > 0 && (
-                    <div className="w-full flex flex-col gap-3 text-left">
-                        <p className="text-xs font-semibold text-amber-700 uppercase tracking-wide text-center">{ui.cultureUnlockHeading}</p>
-                        {cultureEpisodes.map(ep => (
-                            <button key={ep.id} onClick={() => onNavigateCulture(ep.id)}
-                                className="w-full bg-amber-50 border border-amber-200 rounded-2xl px-5 py-4
-                                           flex items-start gap-3 text-left hover:bg-amber-100 transition-colors">
-                                <span className="text-2xl leading-none mt-0.5" aria-hidden="true">
-                                    {CULTURE_CATEGORY_EMOJI[ep.category] ?? "🌍"}
-                                </span>
-                                <div className="flex flex-col gap-0.5 min-w-0">
-                                    <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 leading-snug">{ep.title.native}</p>
-                                    <p className="text-xs text-amber-700 leading-snug line-clamp-2">{ep.subtitle}</p>
-                                </div>
-                                <span className="ml-auto text-amber-400 text-sm self-center">→</span>
-                            </button>
-                        ))}
-                    </div>
+                {isMastered && (
+                    <>
+                        <ContentLinkSection theme="reading" heading="Reading" onNavigate={onNavigateReading}
+                            links={readingPassages.map(p => ({ id: p.id, emoji: "📖", title: p.title, meta: `${p.vocabGloss.length} vocab · ${p.questions.length} Q` }))} />
+                        <ContentLinkSection theme="listening" heading="Listening" onNavigate={onNavigateListening}
+                            links={listeningExercises.map(ex => ({ id: ex.id, emoji: "🎧", title: ex.title, meta: `${ex.questions.length} Q` }))} />
+                        <ContentLinkSection theme="culture" heading={ui.cultureUnlockHeading} onNavigate={onNavigateCulture}
+                            links={cultureEpisodes.map(ep => ({ id: ep.id, emoji: CULTURE_CATEGORY_EMOJI[ep.category] ?? "🌍", title: ep.title.native, meta: ep.subtitle }))} />
+                    </>
                 )}
             </div>
         )
