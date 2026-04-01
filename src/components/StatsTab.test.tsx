@@ -71,10 +71,10 @@ describe("StatsTab — basic rendering", () => {
 // ── streak display ─────────────────────────────────────────────────────────────
 
 describe("StatsTab — streak", () => {
-    it("shows 0 streak when no activity recorded", () => {
+    it("shows — when no activity recorded (zero streak)", () => {
         renderTab()
-        // The streak chip renders "{streak}🔥" — with 0 streak it shows "0🔥"
-        expect(screen.getByText(/0🔥/)).toBeInTheDocument()
+        // The streak chip renders "—" when streak is 0 (no active streak)
+        expect(screen.getByText("—")).toBeInTheDocument()
     })
 
     it("shows non-zero streak after activity is recorded today", () => {

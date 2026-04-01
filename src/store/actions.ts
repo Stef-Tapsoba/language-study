@@ -15,6 +15,10 @@
 import { registry } from "./registry"
 import { useStatsStore } from "./useStatsStore"
 import type { ContentType } from "./IProgressStorage"
+import type { UserProgress } from "../types"
+import type { StatsData } from "./useStatsStore"
+import type { SRSCardState } from "@myorg/srs"
+import { mergeProgress, mergeSRS, mergeStats } from "./merge"
 
 // ---------------------------------------------------------------------------
 // Unit completion
@@ -170,4 +174,62 @@ export async function removeLanguageData(langId: string): Promise<void> {
     await registry.stats.resetLanguage(langId)
     useStatsStore.getState().resetStats(langId)
     // Stage 2: delete rows in all per-language tables for this user
+}
+
+// ---------------------------------------------------------------------------
+// Progress export / import
+// ---------------------------------------------------------------------------
+
+export type ProgressSnapshot = {
+    exportedAt: string
+    appVersion: string
+    progress: UserProgress
+    srs: Record<string, Record<string, SRSCardState>>
+    stats: StatsData
+}
+
+/**
+ * Collect all user data into a portable snapshot for download.
+ * Reads from registry adapters so Stage 2 will export Supabase data transparently.
+ */
+export async function exportProgressSnapshot(): Promise<ProgressSnapshot> {
+    const [srs, stats] = await Promise.all([
+        registry.srs.loadAll(),
+        registry.stats.load(),
+    ])
+    return {
+        exportedAt:  new Date().toISOString(),
+        appVersion:  __APP_VERSION__,
+        progress:    registry.progress.load(),
+        srs,
+        stats,
+    }
+}
+
+/**
+ * Merge an imported snapshot into the current user's data and persist it.
+ * Returns null on success, or an error message string on validation failure.
+ * Uses smart merge (no downgrades) via store/merge.ts.
+ */
+export async function importProgressSnapshot(
+    snapshot: unknown
+): Promise<string | null> {
+    const data = snapshot as Partial<ProgressSnapshot>
+    if (!data.progress || !data.srs || !data.stats) {
+        return "Invalid backup file — missing required fields."
+    }
+
+    const [currentSRS, currentStats] = await Promise.all([
+        registry.srs.loadAll(),
+        registry.stats.load(),
+    ])
+    const currentProgress = registry.progress.load()
+
+    await Promise.all([
+        registry.progress.save(mergeProgress(currentProgress, data.progress)),
+        registry.srs.saveAll(mergeSRS(currentSRS, data.srs)),
+        registry.stats.saveAll(mergeStats(currentStats, data.stats)),
+    ])
+
+    return null
 }

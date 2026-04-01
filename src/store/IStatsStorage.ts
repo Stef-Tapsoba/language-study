@@ -28,4 +28,12 @@ export interface IStatsStorage {
 
     /** Wipe all stats for a language (called on language reset). */
     resetLanguage(langId: string): Promise<void>
+
+    /**
+     * Flush any buffered writes to the storage backend.
+     * Stage 1 (localStorage): no-op — writes are synchronous.
+     * Stage 2 (Supabase): flushes the pending write queue accumulated during a session.
+     * Call on session end, drill completion, and page-hide events.
+     */
+    flush(): Promise<void>
 }

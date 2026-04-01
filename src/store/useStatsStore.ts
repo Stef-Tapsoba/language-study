@@ -48,7 +48,7 @@ interface StatsState {
     resetStats: (langId: string) => void
 
     /** Wipe all stats for every language (called on user change) */
-    resetAllStats: () => void
+    resetAllStats: () => Promise<void>
 }
 
 // ─── Store ────────────────────────────────────────────────────────────────────
@@ -119,16 +119,10 @@ export const useStatsStore = create<StatsState>()((set, get) => ({
         registry.stats.resetLanguage(langId).catch(console.error)
     },
 
-    resetAllStats() {
+    async resetAllStats() {
         set({ data: {} })
-        // Persist: wipe each language entry by saving an empty object.
-        // LocalStorageStatsStorage.load() will return {} on next hydrate.
-        registry.stats.load().then(current => {
-            const wipes = Object.keys(current).map(lang =>
-                registry.stats.resetLanguage(lang)
-            )
-            return Promise.all(wipes)
-        }).catch(console.error)
+        const current = await registry.stats.load()
+        await Promise.all(Object.keys(current).map(lang => registry.stats.resetLanguage(lang)))
     },
 }))
 

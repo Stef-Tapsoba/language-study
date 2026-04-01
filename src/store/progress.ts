@@ -128,34 +128,25 @@ export function getCompletedLessons(langId: string): string[] {
     return loadProgress().completedLessons[langId] ?? []
 }
 
-export function markLessonComplete(langId: string, lessonId: string, contentType?: ContentType): void {
+export function markLessonComplete(langId: string, lessonId: string, contentType: ContentType): void {
     const p = loadProgress()
     const existing = p.completedLessons[langId] ?? []
     if (existing.includes(lessonId)) return
-
-    const completedByType = contentType
-        ? {
-            ...p.completedByType,
-            [langId]: {
-                ...p.completedByType?.[langId],
-                [contentType]: [
-                    ...(p.completedByType?.[langId]?.[contentType] ?? []),
-                    lessonId,
-                ],
-            },
-          }
-        : p.completedByType
-
+    // contentType is intentionally not written to completedByType here.
+    // Stage 2 (Supabase): SupabaseProgressStorage.markLessonComplete() routes writes
+    // to the lesson_completions table by content_type column — the flat
+    // completedLessons array is the sole Stage 1 store.
+    void contentType
     save({
         ...p,
         completedLessons: { ...p.completedLessons, [langId]: [...existing, lessonId] },
-        completedByType,
     })
 }
 
 export function resetProgress(): void {
-    _cache = null
     localStorage.removeItem(readKey())
+    _activeKey = LEGACY_KEY
+    _cache = null
 }
 
 /** Returns all langIds that have an explicit level set (i.e. the user has started them). */
@@ -215,25 +206,6 @@ export function masterUnit(langId: string, unitId: string): void {
     }
 }
 
-/**
- * Returns true if the unit is available to study.
- * The first unit in sorted order is always unlocked.
- * Any subsequent unit is unlocked once the immediately preceding unit is mastered.
- * Uses index-based lookup so non-contiguous `order` values (e.g. 1, 2, 4) are handled
- * correctly — there is no silent bypass when a gap exists in the ordering.
- *
- * Accepts `masteredIds` as an explicit parameter so callers can pass the value
- * from React state (ProgressContext.mastered) rather than re-reading localStorage
- * directly. This keeps the function pure and avoids hidden storage reads in domain logic.
- */
-export function isUnitUnlocked(
-    unitId: string,
-    allUnits: { id: string; order: number }[],
-    masteredIds: string[]
-): boolean {
-    const sorted = [...allUnits].sort((a, b) => a.order - b.order)
-    const idx = sorted.findIndex(u => u.id === unitId)
-    if (idx < 0) return false
-    if (idx === 0) return true
-    return masteredIds.includes(sorted[idx - 1].id)
-}
+// Re-exported here so existing imports (e.g. progress.test.ts) keep working.
+// New code should import directly from ./progressUtils.
+export { isUnitUnlocked } from "./progressUtils"

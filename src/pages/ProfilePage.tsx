@@ -7,15 +7,11 @@ import { useProgressStats, computeProgressStats } from "../hooks/useProgressStat
 import { LANGUAGES } from "../data/languages"
 import { loadModule } from "../data/modules"
 import { useProgress } from "../context/ProgressContext"
-import { resetLanguageData, removeLanguageData } from "../store/actions"
-import { registry } from "../store/registry"
+import { resetLanguageData, removeLanguageData, exportProgressSnapshot, importProgressSnapshot } from "../store/actions"
 import { useGlobalStreak } from "../hooks/useGlobalStreak"
 import { NavBar } from "../components/NavBar"
 import { Flag } from "../components/Flag"
 import { LEVEL_LABELS, CEFR_LEVELS } from "../types"
-import type { UserProgress } from "../types"
-import type { StatsData } from "../store/useStatsStore"
-import type { SRSCardState } from "@myorg/srs"
 import { SECTION_CONFIG } from "../data/sectionConfig"
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "../components/ui/alert-dialog"
 import { Alert, AlertDescription } from "../components/ui/alert"
@@ -181,14 +177,8 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
 // ─── Export / Import ─────────────────────────────────────────────────────────
 
 async function exportProgress(): Promise<void> {
-    const data = {
-        exportedAt: new Date().toISOString(),
-        appVersion: __APP_VERSION__,
-        progress: registry.progress.load(),
-        srs: await registry.srs.loadAll(),
-        stats: await registry.stats.load(),
-    }
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" })
+    const snapshot = await exportProgressSnapshot()
+    const blob = new Blob([JSON.stringify(snapshot, null, 2)], { type: "application/json" })
     const url = URL.createObjectURL(blob)
     const a = document.createElement("a")
     a.href = url
@@ -197,83 +187,11 @@ async function exportProgress(): Promise<void> {
     URL.revokeObjectURL(url)
 }
 
-function mergeProgressData(current: Record<string, unknown>, imported: Record<string, unknown>): Record<string, unknown> {
-    const c = current as Record<string, Record<string, unknown>>
-    const i = imported as Record<string, Record<string, unknown>>
-
-    // CEFR levels — keep current level for any language already started;
-    // only use the backup's level for languages not yet started in the current session.
-    const currentLevels = (c.levels ?? {}) as Record<string, string>
-    const importedLevels = (i.levels ?? {}) as Record<string, string>
-    const levels: Record<string, string> = { ...importedLevels, ...currentLevels }
-
-    // completedLessons / masteredUnits — union arrays per language
-    function unionArrays(a: Record<string, string[]> = {}, b: Record<string, string[]> = {}): Record<string, string[]> {
-        const result: Record<string, string[]> = {}
-        const keys = new Set([...Object.keys(a), ...Object.keys(b)])
-        for (const k of keys) result[k] = [...new Set([...(a[k] ?? []), ...(b[k] ?? [])])]
-        return result
-    }
-
-    return {
-        ...i,
-        userId: (current as { userId?: string }).userId,
-        selectedLanguage: (current as { selectedLanguage?: string }).selectedLanguage ?? (imported as { selectedLanguage?: string }).selectedLanguage,
-        levels,
-        completedLessons: unionArrays(c.completedLessons as Record<string, string[]>, i.completedLessons as Record<string, string[]>),
-        masteredUnits:    unionArrays(c.masteredUnits    as Record<string, string[]>, i.masteredUnits    as Record<string, string[]>),
-    }
-}
-
-function mergeSRS(current: Record<string, unknown>, imported: Record<string, unknown>): Record<string, unknown> {
-    const result: Record<string, unknown> = { ...imported }
-    for (const [lang, cards] of Object.entries(current)) {
-        const impCards = (imported[lang] ?? {}) as Record<string, { reviewCount?: number }>
-        const currCards = cards as Record<string, { reviewCount?: number }>
-        const merged: Record<string, unknown> = { ...impCards }
-        for (const [cardId, card] of Object.entries(currCards)) {
-            const imp = impCards[cardId]
-            // Keep whichever card has been reviewed more
-            merged[cardId] = !imp || (card.reviewCount ?? 0) >= (imp.reviewCount ?? 0) ? card : imp
-        }
-        result[lang] = merged
-    }
-    return result
-}
-
-function mergeStats(current: Record<string, unknown>, imported: Record<string, unknown>): Record<string, unknown> {
-    // Stats stored as { data: StatsData } by Zustand persist
-    const currData = ((current as { data?: Record<string, Record<string, Record<string, number>>> }).data ?? current) as Record<string, Record<string, Record<string, number>>>
-    const impData  = ((imported as { data?: Record<string, Record<string, Record<string, number>>> }).data ?? imported) as Record<string, Record<string, Record<string, number>>>
-    const result: Record<string, Record<string, Record<string, number>>> = { ...impData }
-    for (const [lang, days] of Object.entries(currData)) {
-        result[lang] = { ...impData[lang] }
-        for (const [day, stats] of Object.entries(days)) {
-            const imp = impData[lang]?.[day] ?? {}
-            const merged: Record<string, number> = {}
-            const keys = new Set([...Object.keys(stats), ...Object.keys(imp)])
-            for (const k of keys) merged[k] = Math.max(stats[k] ?? 0, imp[k] ?? 0)
-            result[lang][day] = merged
-        }
-    }
-    return { data: result }
-}
-
 async function importProgress(file: File): Promise<string | null> {
     try {
         const text = await file.text()
         const data = JSON.parse(text)
-        if (!data.progress || !data.srs || !data.stats) {
-            return "Invalid backup file — missing required fields."
-        }
-        const currentProgress = registry.progress.load() as unknown as Record<string, unknown>
-        const currentSRS      = await registry.srs.loadAll() as unknown as Record<string, unknown>
-        const currentStats    = await registry.stats.load() as unknown as Record<string, unknown>
-
-        await registry.progress.save(mergeProgressData(currentProgress, data.progress) as unknown as UserProgress)
-        await registry.srs.saveAll(mergeSRS(currentSRS, data.srs) as unknown as Record<string, Record<string, SRSCardState>>)
-        await registry.stats.saveAll(mergeStats(currentStats, data.stats) as unknown as StatsData)
-        return null
+        return await importProgressSnapshot(data)
     } catch {
         return "Could not parse the file. Make sure it's a valid backup."
     }

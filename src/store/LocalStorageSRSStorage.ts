@@ -7,42 +7,9 @@
 import { SRSCardState, calcNextReview, INITIAL_STATE } from "@myorg/srs"
 import type { SRSQuality } from "@myorg/srs"
 import { ISRSStorage } from "./ISRSStorage"
+import { migrateSRSStore } from "./srs-migrate"
 
 const SRS_KEY = "ls:srs"
-
-// ── v1 → v2 migration (kept here, co-located with the storage layer) ──────────
-
-type LegacyCard = {
-    nextReviewDate?: number
-    interval?: number
-    easeFactor?: number
-    repetitions?: number
-}
-
-function migrateIfNeeded(
-    raw: Record<string, Record<string, unknown>>
-): Record<string, Record<string, SRSCardState>> {
-    const out: Record<string, Record<string, SRSCardState>> = {}
-    for (const [langId, cards] of Object.entries(raw)) {
-        out[langId] = {}
-        for (const [vocabId, card] of Object.entries(cards)) {
-            const c = card as LegacyCard & Partial<SRSCardState>
-            if (typeof c.nextReviewAt === "number") {
-                out[langId][vocabId] = c as SRSCardState
-            } else {
-                const reps = c.repetitions ?? 0
-                out[langId][vocabId] = {
-                    easeFactor:   c.easeFactor   ?? INITIAL_STATE.easeFactor,
-                    reviewCount:  reps,
-                    streak:       reps,
-                    nextReviewAt: c.nextReviewDate ?? INITIAL_STATE.nextReviewAt,
-                    intervalDays: c.interval       ?? INITIAL_STATE.intervalDays,
-                }
-            }
-        }
-    }
-    return out
-}
 
 // ── Implementation ────────────────────────────────────────────────────────────
 
@@ -51,7 +18,9 @@ export class LocalStorageSRSStorage implements ISRSStorage {
         try {
             const raw = localStorage.getItem(SRS_KEY)
             if (!raw) return {}
-            return migrateIfNeeded(JSON.parse(raw))
+            const migrated = migrateSRSStore(JSON.parse(raw))
+            const { schemaVersion: _, ...langMaps } = migrated
+            return langMaps as Record<string, Record<string, SRSCardState>>
         } catch {
             return {}
         }
@@ -91,4 +60,9 @@ export class LocalStorageSRSStorage implements ISRSStorage {
     async resetAll(): Promise<void> {
         this._save({})
     }
+
+    // Stage 1: getStates() reads directly from localStorage on every call — no
+    // in-memory cache to pre-populate, so hydrate() is intentionally a no-op.
+    // Stage 2 (SupabaseSRSStorage) overrides this to load cards from the DB.
+    async hydrate(_langId?: string): Promise<void> { /* no-op in Stage 1 */ }
 }

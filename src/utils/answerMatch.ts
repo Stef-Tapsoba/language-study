@@ -59,5 +59,9 @@ export function answerMatches(
         }
     })
 
+    // Direct normalized match: handles empty targets and full answers that
+    // include qualifier text (e.g. "please formal" matching "Please (formal)").
+    if (targets.some(t => normalize(t) === normInput)) return true
+
     return candidates.some(c => normalize(c) === normInput)
 }

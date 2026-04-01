@@ -3,7 +3,7 @@ import { useState, useMemo, memo } from "react"
 import { useParams, useNavigate, useSearchParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
-import { isUnitUnlocked } from "../store/progress"
+import { isUnitUnlocked } from "../store/progressUtils"
 import { isOnboardingVisible, dismissOnboarding } from "../store/preferences"
 
 import { useProgress } from "../context/ProgressContext"
