@@ -1,6 +1,8 @@
 # Supabase Migration Plan — Stage 2
 
-*Author: Backend Engineer Agent | Last updated: 2026-04-02*
+*Authors: Backend Engineer Agent + Architect Agent | Last updated: 2026-04-02*
+
+> **Complete DDL:** See [`DATABASE_SCHEMA.sql`](./DATABASE_SCHEMA.sql) for the full production-ready schema with all tables, indexes, RLS policies, and helper RPCs.
 
 ---
 
@@ -12,14 +14,34 @@ The adapter seam is already in place (`IProgressStorage`, `ISRSStorage`, `IStats
 
 ## 1. Entity Model & SQL Schema
 
-### 1.1 Core entities (mapped from localStorage)
+### 1.1 Entity mapping (localStorage → Supabase tables)
 
 | localStorage key | Current shape | Supabase table(s) |
 |---|---|---|
-| `ls:progress:{userId}` | `UserProgress` blob | `profiles`, `user_language_levels`, `lesson_completions`, `mastered_units`, `reinforcement_grammar`, `reinforcement_sections` |
-| `ls:srs` | nested `Record<langId, Record<vocabId, SRSCardState>>` | `srs_cards` |
-| `ls:stats` | nested `Record<langId, Record<date, DayStats>>` | `daily_stats` |
-| `ls:goal` (legacy) | GoalId string | `profiles.learning_goal` — migrated via `UserProgress.goal` |
+| `ls:progress:{userId}` | `UserProgress` blob | `profiles` (goal, selected_language), `user_language_levels` (levels), `lesson_completions`, `mastered_units`, `reinforcement_grammar`, `reinforcement_sections` |
+| `ls:srs` | `Record<langId, Record<vocabId, SRSCardState>>` | `srs_cards` |
+| `ls:stats` | `Record<langId, Record<date, DayStats>>` | `daily_stats` |
+| `ls:goal` (legacy) | GoalId string | `profiles.learning_goal` — now also in `UserProgress.goal` via adapter |
+| `ls:tts-autoplay` | boolean | `user_preferences.preferences.tts_autoplay` |
+| *(new)* | *(not yet tracked)* | `study_sessions` + `exercise_attempts` — for plateau detection |
+
+### 1.2 Table summary
+
+| Table | Rows represent | Key unique constraint |
+|---|---|---|
+| `profiles` | One per auth user | `id` (= auth.users.id) |
+| `user_language_levels` | CEFR level per user+language | `(user_id, lang_id)` |
+| `lesson_completions` | One completed content item | `(user_id, lang_id, content_type, content_id)` |
+| `mastered_units` | One passed unit test | `(user_id, lang_id, unit_id)` |
+| `reinforcement_grammar` | One grammar exercise done | `(user_id, lang_id, unit_id, grammar_lesson_id)` |
+| `reinforcement_sections` | One vocab/verbs exercise done | `(user_id, lang_id, unit_id, section)` |
+| `srs_cards` | SM-2 state per vocab item | `(user_id, lang_id, vocab_id)` |
+| `daily_stats` | Aggregated daily metrics | `(user_id, lang_id, study_date)` |
+| `user_preferences` | Cross-device UI prefs | `user_id` (1:1 with profiles) |
+| `study_sessions` | One drill/reading session | primary key |
+| `exercise_attempts` | One item attempt in a session | primary key (append-only) |
+
+→ **Full DDL, indexes, RLS, and helper RPCs**: [`DATABASE_SCHEMA.sql`](./DATABASE_SCHEMA.sql)
 
 ### 1.2 Full DDL
 
