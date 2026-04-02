@@ -224,6 +224,9 @@ export function DashboardPage() {
     function switchTab(t: DashTab) {
         setTab(t)
         setSearchParams({ tab: t }, { replace: true })
+        // Auto-dismiss the onboarding banner the first time the user navigates —
+        // switching tabs means they've read it and started exploring.
+        if (showOnboarding) handleDismissOnboarding()
     }
 
     if (!language || !mod) {

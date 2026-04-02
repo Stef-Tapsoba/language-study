@@ -9,7 +9,9 @@ function prefersDark(): boolean {
 
 function readStored(): boolean {
     const v = localStorage.getItem(LS_KEY)
-    return v !== null ? v === "true" : prefersDark()
+    // Light mode is the explicit default for new users.
+    // System preference is respected only once the user has made an explicit choice.
+    return v !== null ? v === "true" : false
 }
 
 export function useDarkMode(): [boolean, () => void] {
