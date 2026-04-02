@@ -37,7 +37,7 @@ export function ExerciseShell() {
         if (!def) return
         setLoading(true)
         setError(false)
-        def.fetchItems({ langId, level, unitId })
+        def.fetchItems({ langId, level, unitId, lessonId })
             .then(result => { setRawItems(result); setLoading(false) })
             .catch(() => { setError(true); setLoading(false) })
     }, [def, langId, level, unitId])
