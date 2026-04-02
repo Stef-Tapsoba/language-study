@@ -11,6 +11,7 @@ import { CEFR_LEVELS, CEFRLevel, QuizQuestion } from "../types"
 import { getUI, fmt, UIStrings } from "../i18n"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "../components/ui/dialog"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion"
+import { Button } from "../components/ui/button"
 
 const PASS_THRESHOLD = 12  // out of 15
 
@@ -51,12 +52,9 @@ function LevelUpOverlay({ nextLevel, onDone }: Readonly<{ nextLevel: CEFRLevel; 
                         </div>
                     </DialogDescription>
                 </DialogHeader>
-                <button
-                    onClick={onDone}
-                    className="mt-4 w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-2.5 transition-colors"
-                >
+                <Button onClick={onDone} className="mt-4 w-full rounded-xl py-2.5 font-semibold">
                     Continue →
-                </button>
+                </Button>
             </DialogContent>
         </Dialog>
     )
@@ -98,13 +96,9 @@ function ResultsActions({ passed, nextLevel, langId, ui, onRetry }: Readonly<{
                 <div className="flex justify-center mb-4">
                     <LevelBadge level={nextLevel} />
                 </div>
-                <button
-                    onClick={handleAdvance}
-                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
-                               rounded-xl py-2.5 text-sm transition-colors"
-                >
+                <Button onClick={handleAdvance} className="w-full rounded-xl py-2.5 text-sm font-semibold">
                     {fmt(ui.levelTestAdvanceTo, { next: nextLevel })}
-                </button>
+                </Button>
             </>
         )
     }
@@ -113,13 +107,9 @@ function ResultsActions({ passed, nextLevel, langId, ui, onRetry }: Readonly<{
         return (
             <>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">{ui.levelTestAtHighest}</p>
-                <button
-                    onClick={() => navigate(`/learn/${langId}`)}
-                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
-                               rounded-xl py-2.5 text-sm transition-colors"
-                >
+                <Button onClick={() => navigate(`/learn/${langId}`)} className="w-full rounded-xl py-2.5 text-sm font-semibold">
                     {ui.backToDashboard}
-                </button>
+                </Button>
             </>
         )
     }
@@ -132,20 +122,12 @@ function ResultsActions({ passed, nextLevel, langId, ui, onRetry }: Readonly<{
             <p className="text-xs text-gray-400 dark:text-gray-500 mb-4">
                 {ui.sectionGrammar}, {ui.sectionVocab}, {ui.sectionVerbs}
             </p>
-            <button
-                onClick={() => navigate(`/learn/${langId}`)}
-                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
-                           rounded-xl py-2.5 text-sm transition-colors mb-2"
-            >
+            <Button onClick={() => navigate(`/learn/${langId}`)} className="w-full rounded-xl py-2.5 text-sm font-semibold mb-2">
                 {ui.backToDashboard}
-            </button>
-            <button
-                onClick={onRetry}
-                className="w-full border border-indigo-300 text-indigo-700 font-semibold
-                           rounded-xl py-2.5 text-sm transition-colors hover:bg-indigo-50"
-            >
+            </Button>
+            <Button variant="outline" onClick={onRetry} className="w-full rounded-xl py-2.5 text-sm font-semibold">
                 {ui.tryAgain}
-            </button>
+            </Button>
         </>
     )
 }
@@ -228,13 +210,9 @@ export function LevelTestPage() {
                             {fmt(ui.levelTestDesc, { pass: PASS_THRESHOLD, total: questions.length, next: nextLevel })}
                         </p>
                     )}
-                    <button
-                        onClick={() => setStarted(true)}
-                        className="w-full max-w-xs bg-indigo-600 hover:bg-indigo-700 text-white
-                                   font-semibold rounded-xl py-3 text-sm transition-colors"
-                    >
+                    <Button onClick={() => setStarted(true)} className="w-full max-w-xs rounded-xl py-3 text-sm font-semibold">
                         {ui.startTest}
-                    </button>
+                    </Button>
                 </main>
             </div>
         )
@@ -317,13 +295,9 @@ export function LevelTestPage() {
                 />
 
                 {revealed && (
-                    <button
-                        onClick={handleNext}
-                        className="w-full max-w-xl bg-indigo-600 hover:bg-indigo-700 text-white
-                                   font-semibold rounded-xl py-3 transition-colors"
-                    >
+                    <Button onClick={handleNext} className="w-full max-w-xl rounded-xl py-3 font-semibold">
                         {current + 1 >= questions.length ? ui.seeResults : ui.nextQuestion}
-                    </button>
+                    </Button>
                 )}
             </main>
         </div>

@@ -9,6 +9,7 @@ import { QuizCard } from "../components/QuizCard"
 import { LevelBadge } from "../components/LevelBadge"
 import { CEFRLevel, CEFR_LEVELS } from "../types"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "../components/ui/tabs"
+import { Button } from "../components/ui/button"
 
 type Tab = "test" | "manual"
 
@@ -80,20 +81,12 @@ export function PlacementPage() {
                         <li className="flex items-start gap-2"><span className="text-indigo-400 mt-px">✓</span>You can override the suggestion or change level any time</li>
                     </ul>
                     <div className="flex flex-col gap-3 w-full max-w-xs mt-2">
-                        <button
-                            onClick={() => setIntroSeen(true)}
-                            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
-                                       rounded-xl py-3 text-sm transition-colors"
-                        >
+                        <Button onClick={() => setIntroSeen(true)} className="w-full rounded-xl py-3 text-sm font-semibold">
                             Start placement test
-                        </button>
-                        <button
-                            onClick={() => setTab("manual")}
-                            className="w-full border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-indigo-400
-                                       font-semibold rounded-xl py-3 text-sm transition-colors"
-                        >
+                        </Button>
+                        <Button variant="outline" onClick={() => setTab("manual")} className="w-full rounded-xl py-3 text-sm font-semibold">
                             I already know my level
-                        </button>
+                        </Button>
                     </div>
                 </main>
             </div>
@@ -115,13 +108,9 @@ export function PlacementPage() {
                         <div className="flex justify-center mb-4">
                             <LevelBadge level={suggested} />
                         </div>
-                        <button
-                            onClick={() => confirmLevel(suggested)}
-                            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
-                                       rounded-xl py-2.5 text-sm transition-colors mb-3"
-                        >
+                        <Button onClick={() => confirmLevel(suggested)} className="w-full rounded-xl py-2.5 text-sm font-semibold mb-3">
                             Start at {suggested}
-                        </button>
+                        </Button>
                         <p className="text-xs text-gray-400 dark:text-gray-500 mb-2">
                             Not quite right? You know your level better than any test — pick freely:
                         </p>
@@ -161,12 +150,9 @@ export function PlacementPage() {
                     <TabsContent value="test" className="flex flex-col items-center gap-6">
                         <div className="w-full flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
                             <span>Question {current + 1} of {questions.length}</span>
-                            <button
-                                onClick={() => setTab("manual")}
-                                className="text-indigo-600 hover:underline"
-                            >
+                            <Button variant="link" onClick={() => setTab("manual")} className="p-0 h-auto text-sm text-indigo-600 dark:text-indigo-400">
                                 Set level manually
-                            </button>
+                            </Button>
                         </div>
 
                         {/* Progress strip */}
@@ -189,13 +175,9 @@ export function PlacementPage() {
                         />
 
                         {revealed && (
-                            <button
-                                onClick={handleNext}
-                                className="w-full max-w-xl bg-indigo-600 hover:bg-indigo-700 text-white
-                                           font-semibold rounded-xl py-3 transition-colors"
-                            >
+                            <Button onClick={handleNext} className="w-full max-w-xl rounded-xl py-3 font-semibold">
                                 {current + 1 >= questions.length ? "See results" : "Next question"}
-                            </button>
+                            </Button>
                         )}
                     </TabsContent>
 
@@ -233,12 +215,9 @@ export function PlacementPage() {
                                     </button>
                                 ))}
                             </div>
-                            <button
-                                onClick={() => setTab("test")}
-                                className="mt-4 text-sm text-indigo-600 hover:underline"
-                            >
+                            <Button variant="link" onClick={() => setTab("test")} className="mt-4 p-0 h-auto text-sm text-indigo-600 dark:text-indigo-400">
                                 Not sure? Take the placement test
-                            </button>
+                            </Button>
                         </div>
                     </TabsContent>
                 </Tabs>

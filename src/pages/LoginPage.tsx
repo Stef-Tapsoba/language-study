@@ -3,6 +3,8 @@ import { useState, FormEvent } from "react"
 import { Link, useNavigate, useLocation } from "react-router-dom"
 import { useAuth } from "../auth/AuthContext"
 import { validateLogin } from "@myorg/validation"
+import { Button } from "../components/ui/button"
+import { Input } from "../components/ui/input"
 
 export function LoginPage() {
     const { login } = useAuth()
@@ -51,37 +53,37 @@ export function LoginPage() {
 
                     <div>
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
-                        <input
+                        <Input
                             id="email"
                             type="email"
                             value={email}
                             onChange={e => setEmail(e.target.value)}
                             placeholder="you@example.com"
-                            className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                             autoComplete="email"
+                            className="text-sm"
                         />
                     </div>
 
                     <div>
                         <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Password</label>
-                        <input
+                        <Input
                             id="password"
                             type="password"
                             value={password}
                             onChange={e => setPassword(e.target.value)}
                             placeholder="••••••••"
-                            className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                             autoComplete="current-password"
+                            className="text-sm"
                         />
                     </div>
 
-                    <button
+                    <Button
                         type="submit"
                         disabled={loading}
-                        className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 text-white font-semibold rounded-lg py-2.5 text-sm transition-colors"
+                        className="w-full rounded-lg py-2.5 text-sm font-semibold"
                     >
                         {loading ? "Signing in…" : "Sign in"}
-                    </button>
+                    </Button>
                 </form>
 
                 <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4">

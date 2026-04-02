@@ -12,6 +12,7 @@ import { getUI, fmt } from "../i18n"
 import { useStatsStore } from "../store/useStatsStore"
 import type { ExerciseComponentProps } from "../exerciseTypes/registry"
 import type { VocabItem } from "../types"
+import { Button } from "../components/ui/button"
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -215,12 +216,9 @@ export default function VocabMatchingPage({ items, langId, level, config, onComp
                             <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{ui.scoreLabel}</p>
                         </div>
                     </div>
-                    <button
-                        onClick={handleRestart}
-                        className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-2.5 text-sm transition-colors"
-                    >
+                    <Button onClick={handleRestart} className="w-full rounded-xl py-2.5 text-sm font-semibold">
                         {ui.tryAgain}
-                    </button>
+                    </Button>
                 </main>
             </div>
         )
