@@ -221,20 +221,29 @@ export function ProfilePage() {
     const streak = useGlobalStreak()
     const [importStatus, setImportStatus] = useState<"idle" | "success" | "error">("idle")
     const [importError, setImportError] = useState<string | null>(null)
+    const [pendingFile, setPendingFile] = useState<File | null>(null)
+    const [showImportDialog, setShowImportDialog] = useState(false)
 
     function onChanged() { setTick(t => t + 1) }
 
-    async function handleImport(e: React.ChangeEvent<HTMLInputElement>) {
+    function handleFileSelected(e: React.ChangeEvent<HTMLInputElement>) {
         const file = e.target.files?.[0]
-        e.target.value = ""    // reset so same file can be re-selected
+        e.target.value = ""
         if (!file) return
-        const error = await importProgress(file)
+        setPendingFile(file)
+        setShowImportDialog(true)
+    }
+
+    async function confirmImport() {
+        if (!pendingFile) return
+        setShowImportDialog(false)
+        const error = await importProgress(pendingFile)
+        setPendingFile(null)
         if (error) {
             setImportStatus("error")
             setImportError(error)
         } else {
             setImportStatus("success")
-            // Sync ProgressContext immediately so the 1.2 s before reload shows merged data
             refreshProgress()
             setTimeout(() => globalThis.location.reload(), 1200)
         }
@@ -330,7 +339,7 @@ export function ProfilePage() {
                                     d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                             </svg>
                         </button>
-                        {/* Import button */}
+                        {/* Import button + confirmation dialog */}
                         <label
                             className="w-full flex items-center justify-between px-5 py-4 text-sm
                                        text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors cursor-pointer"
@@ -345,8 +354,35 @@ export function ProfilePage() {
                                 <path strokeLinecap="round" strokeLinejoin="round"
                                     d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
                             </svg>
-                            <input type="file" accept=".json" className="sr-only" onChange={handleImport} />
+                            <input type="file" accept=".json" className="sr-only" onChange={handleFileSelected} />
                         </label>
+
+                        {/* Import confirmation dialog */}
+                        <AlertDialog open={showImportDialog} onOpenChange={setShowImportDialog}>
+                            <AlertDialogContent>
+                                <AlertDialogHeader>
+                                    <AlertDialogTitle>Import backup?</AlertDialogTitle>
+                                    <AlertDialogDescription asChild>
+                                        <div className="flex flex-col gap-2 text-sm text-gray-600 dark:text-gray-400">
+                                            <p>
+                                                Your existing progress will be <strong>merged</strong> with the backup —
+                                                completed lessons and mastered units are never downgraded.
+                                            </p>
+                                            <p>
+                                                If you want to keep a copy of your current progress first, cancel and
+                                                export a backup before importing.
+                                            </p>
+                                        </div>
+                                    </AlertDialogDescription>
+                                </AlertDialogHeader>
+                                <AlertDialogFooter>
+                                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                    <AlertDialogAction onClick={confirmImport}>
+                                        Import and merge
+                                    </AlertDialogAction>
+                                </AlertDialogFooter>
+                            </AlertDialogContent>
+                        </AlertDialog>
                     </div>
                 </div>
 

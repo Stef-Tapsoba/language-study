@@ -131,7 +131,7 @@ export function ReviewPage() {
                     <span>{index + 1} of {reviewItems.length}</span>
                     <span>{correct} remembered</span>
                 </div>
-                <Progress value={progress} className="h-1.5" />
+                <Progress value={progress} className="h-1.5" aria-label={`Review progress — ${index + 1} of ${reviewItems.length} cards`} />
 
                 {/* Card — two states rendered separately to avoid nested-button issue:
                     front = <button> (no SpeakButton inside), back = <div> + SpeakButton */}

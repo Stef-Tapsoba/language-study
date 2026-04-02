@@ -155,16 +155,22 @@ const UnitRow = memo(function UnitRow({ unit, langId, level, mastered, allUnits,
                     </div>
                 )}
             </div>
-            {!unlocked && (
-                <Tooltip>
-                    <TooltipTrigger asChild>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-300 dark:text-gray-600 shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-label="Locked">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                        </svg>
-                    </TooltipTrigger>
-                    <TooltipContent>Complete the previous unit to unlock</TooltipContent>
-                </Tooltip>
-            )}
+            {!unlocked && (() => {
+                const prevUnit = allUnits.find(u => u.order === unit.order - 1)
+                const tipText = prevUnit
+                    ? `Complete "${prevUnit.title}" to unlock`
+                    : "Complete the previous unit to unlock"
+                return (
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-300 dark:text-gray-600 shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-label={tipText}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                        </TooltipTrigger>
+                        <TooltipContent>{tipText}</TooltipContent>
+                    </Tooltip>
+                )
+            })()}
         </div>
     )
 
@@ -367,6 +373,7 @@ export function DashboardPage() {
                                     <Progress
                                         value={levelUnits.length ? masteredCount / levelUnits.length * 100 : 0}
                                         className="flex-1 h-2"
+                                        aria-label={`${level} level progress — ${masteredCount} of ${levelUnits.length} units complete`}
                                     />
                                     <span className="text-xs text-gray-500 dark:text-gray-400 shrink-0">{masteredCount} of {levelUnits.length}</span>
                                 </div>
@@ -557,6 +564,7 @@ export function DashboardPage() {
                                                     <Progress
                                                         value={r.total ? r.done / r.total * 100 : 0}
                                                         className="w-28 h-2"
+                                                        aria-label={`${r.label}: ${r.suffix ? `${r.done}${r.suffix}` : `${r.done} of ${r.total}`}`}
                                                     />
                                                     <span className="text-xs text-gray-500 dark:text-gray-400 w-14 text-right shrink-0">
                                                         {r.suffix ? `${r.done}${r.suffix}` : `${r.done}/${r.total}`}
