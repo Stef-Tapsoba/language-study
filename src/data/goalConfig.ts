@@ -8,13 +8,15 @@
 // The scored sort is O(n) over units. At Stage 2 this can be replaced with
 // a server-side sort if needed.
 
-import type { TopicTag } from "../types"
+import type { TopicTag, GoalId } from "../types"
+
+// GoalId is defined in types/index.ts to avoid circular imports.
+// Re-export it from here so existing imports of GoalId from goalConfig continue to work.
+export type { GoalId }
 
 // ---------------------------------------------------------------------------
 // Goal definitions
 // ---------------------------------------------------------------------------
-
-export type GoalId = "traveller" | "social" | "culture" | "general"
 
 export interface GoalProfile {
     id: GoalId

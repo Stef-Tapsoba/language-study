@@ -371,4 +371,18 @@ export interface UserProgress {
      * Stage 2: maps to reinforcement_grammar + reinforcement_sections Supabase tables.
      */
     completedReinforcement?: Record<string, Record<string, UnitReinforcementState>>
+    /**
+     * User's selected learning goal (traveller / social / culture / general).
+     * Stored here so it syncs cross-device via IProgressStorage in Stage 2.
+     * Stage 1 reads fall back to ls:goal for migration compatibility.
+     * Stage 2: maps to profiles.learning_goal column.
+     */
+    goal?: GoalId
 }
+
+// ---------------------------------------------------------------------------
+// Learning goal — defined here to avoid circular imports with data/goalConfig.ts
+// ---------------------------------------------------------------------------
+
+/** User's learning-path preference. Stored in UserProgress for cross-device sync. */
+export type GoalId = "traveller" | "social" | "culture" | "general"

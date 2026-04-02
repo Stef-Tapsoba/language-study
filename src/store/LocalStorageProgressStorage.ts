@@ -5,7 +5,7 @@
 // after the synchronous localStorage write — Stage 2 callers can await without
 // any observable delay in Stage 1.
 
-import { CEFRLevel, UserProgress, UnitReinforcementState } from "../types"
+import { CEFRLevel, UserProgress, UnitReinforcementState, GoalId } from "../types"
 import { IProgressStorage, ContentType, ReinforcementSection } from "./IProgressStorage"
 import {
     loadProgress,
@@ -19,6 +19,7 @@ import {
     removeLanguage as storeRemove,
     markReinforcementDone as storeMark2,
     getReinforcementState as storeGetReinforcement,
+    setGoalInProgress,
 } from "./progress"
 
 export class LocalStorageProgressStorage implements IProgressStorage {
@@ -72,5 +73,9 @@ export class LocalStorageProgressStorage implements IProgressStorage {
 
     getReinforcementState(langId: string, unitId: string): UnitReinforcementState {
         return storeGetReinforcement(langId, unitId)
+    }
+
+    async setGoal(goalId: GoalId): Promise<void> {
+        setGoalInProgress(goalId)
     }
 }
