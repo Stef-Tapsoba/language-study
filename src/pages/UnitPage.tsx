@@ -174,9 +174,12 @@ function GrammarSequenceList({ grammar, langId, unitId, completed, reinforcedLes
     const donePairs   = currentIdx > 0 ? grammar.slice(0, currentIdx) : currentIdx === -1 ? grammar : []
     const activePairs = currentIdx === -1 ? [] : grammar.slice(currentIdx)
 
-    function exState(lesson: GrammarLesson): ExerciseState {
+    // exState: a lesson in activePairs can never have an "available" exercise, even if
+    // its lesson was completed via the Study tab out of unit sequence. Only lessons
+    // that are sequentially done (in donePairs) can have an available exercise.
+    function exState(lesson: GrammarLesson, inDonePairs: boolean): ExerciseState {
         if (reinforcedLessonIds.includes(lesson.id)) return "done"
-        if (completed.includes(lesson.id)) return "available"
+        if (inDonePairs && completed.includes(lesson.id)) return "available"
         return "locked"
     }
 
@@ -188,7 +191,7 @@ function GrammarSequenceList({ grammar, langId, unitId, completed, reinforcedLes
                     {donePairs.map(lesson => (
                         <div key={lesson.id} className="flex flex-col gap-1.5">
                             <GrammarLessonRow lesson={lesson} state="done" langId={langId} unitId={unitId} nav={nav} />
-                            <GrammarExerciseRow lesson={lesson} state={exState(lesson)} langId={langId} unitId={unitId} nav={nav} />
+                            <GrammarExerciseRow lesson={lesson} state={exState(lesson, true)} langId={langId} unitId={unitId} nav={nav} />
                         </div>
                     ))}
                 </>
@@ -201,7 +204,7 @@ function GrammarSequenceList({ grammar, langId, unitId, completed, reinforcedLes
                         return (
                             <div key={lesson.id} className="flex flex-col gap-1.5">
                                 <GrammarLessonRow lesson={lesson} state={lState} langId={langId} unitId={unitId} nav={nav} />
-                                <GrammarExerciseRow lesson={lesson} state={exState(lesson)} langId={langId} unitId={unitId} nav={nav} />
+                                <GrammarExerciseRow lesson={lesson} state={exState(lesson, false)} langId={langId} unitId={unitId} nav={nav} />
                             </div>
                         )
                     })}
