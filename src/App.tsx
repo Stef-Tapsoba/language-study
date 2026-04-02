@@ -31,6 +31,7 @@ const CulturePage        = lazy(() => import("./pages/CulturePage").then(m => ({
 const CategoryReadingPage = lazy(() => import("./pages/CategoryReadingPage").then(m => ({ default: m.CategoryReadingPage })))
 const GrammarLessonPage  = lazy(() => import("./pages/GrammarLessonPage").then(m => ({ default: m.GrammarLessonPage })))
 const ReviewPage         = lazy(() => import("./pages/ReviewPage").then(m => ({ default: m.ReviewPage })))
+const GoalPickerPage     = lazy(() => import("./pages/GoalPickerPage").then(m => ({ default: m.GoalPickerPage })))
 
 // Ensures the language data chunk is loaded before any /learn/:langId page renders.
 // getModule() is synchronous and reads from cache — this gate means it never returns null
@@ -103,6 +104,8 @@ export default function App() {
                         <Route path="exercise/:exerciseTypeId" element={<ExerciseShell />} />
                         {/* Break-return review session */}
                         <Route path="review" element={<ReviewPage />} />
+                        {/* Learning goal picker */}
+                        <Route path="goal" element={<GoalPickerPage />} />
                     </Route>
 
                     {/* Profile */}

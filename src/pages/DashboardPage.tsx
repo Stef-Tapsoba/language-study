@@ -5,9 +5,10 @@ import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { isUnitUnlocked } from "../store/progressUtils"
 import { DEBUG } from "../auth/debugSession"
-import { isOnboardingVisible, dismissOnboarding } from "../store/preferences"
+import { isOnboardingVisible, dismissOnboarding, getGoal } from "../store/preferences"
 import { useBreakDetection } from "../hooks/useBreakDetection"
 import { ReviewPromptCard } from "../components/ReviewPromptCard"
+import { scoreUnitForGoal, USER_GOALS, type GoalId } from "../data/goalConfig"
 
 import { useProgress } from "../context/ProgressContext"
 import { getDueCount } from "../store/srs"
@@ -94,9 +95,10 @@ const StudyCard = memo(function StudyCard({ section, title, countDesc, done, tot
 // ---------------------------------------------------------------------------
 // UnitRow — one row in the Learning Path list
 // ---------------------------------------------------------------------------
-const UnitRow = memo(function UnitRow({ unit, langId, level, mastered, allUnits, completed }: Readonly<{
+const UnitRow = memo(function UnitRow({ unit, langId, level, mastered, allUnits, completed, goalScore }: Readonly<{
     unit: LessonUnit; langId: string; level: CEFRLevel
     mastered: string[]; allUnits: LessonUnit[]; completed: ReadonlySet<string>
+    goalScore: number
 }>) {
     const isMastered = mastered.includes(unit.id)
     const unlocked = DEBUG || isUnitUnlocked(unit.id, allUnits, mastered)
@@ -128,9 +130,16 @@ const UnitRow = memo(function UnitRow({ unit, langId, level, mastered, allUnits,
                 {isMastered ? "✓" : unit.order}
             </span>
             <div className="flex-1 min-w-0">
-                <p className={`font-semibold truncate ${unlocked ? "text-gray-900 dark:text-gray-100" : "text-gray-400 dark:text-gray-500"}`}>
-                    {unit.title}
-                </p>
+                <div className="flex items-center gap-2 min-w-0">
+                    <p className={`font-semibold truncate ${unlocked ? "text-gray-900 dark:text-gray-100" : "text-gray-400 dark:text-gray-500"}`}>
+                        {unit.title}
+                    </p>
+                    {goalScore > 0 && unlocked && (
+                        <Badge variant="outline" className="text-[10px] font-medium shrink-0 text-indigo-600 dark:text-indigo-400 border-indigo-200 dark:border-indigo-700 bg-indigo-50 dark:bg-indigo-900/20">
+                            For you
+                        </Badge>
+                    )}
+                </div>
                 <p className="text-xs text-gray-400 dark:text-gray-500 truncate mt-0.5">{resolvePrimary(unit.description, level)}</p>
                 {unlocked && (
                     <div className="flex flex-wrap gap-1.5 mt-2">
@@ -241,6 +250,18 @@ export function DashboardPage() {
     const canAdvance = levelIndex < CEFR_LEVELS.length - 1
     const masteredCount = levelUnits.filter(u => mastered.includes(u.id)).length
 
+    // Goal-based unit sorting: matched units float to the top of the Path list
+    const goalId = getGoal() as GoalId
+    const sortedLevelUnits = useMemo(() => {
+        if (goalId === "general" || !(goalId in USER_GOALS)) return levelUnits
+        return [...levelUnits].sort((a, b) => {
+            const sa = scoreUnitForGoal(a.topicTags, goalId)
+            const sb = scoreUnitForGoal(b.topicTags, goalId)
+            if (sb !== sa) return sb - sa
+            return a.order - b.order
+        })
+    }, [levelUnits, goalId])
+
     const tabs: { id: DashTab; label: string; badge?: string }[] = [
         { id: "path", label: ui.tabPath, badge: levelUnits.length > 0 ? `${masteredCount}/${levelUnits.length}` : undefined },
         { id: "study", label: ui.tabStudy },
@@ -264,14 +285,24 @@ export function DashboardPage() {
                             <span className="text-gray-700 dark:text-gray-300 text-sm">{levelName(level, ui)}</span>
                         </div>
                     </div>
-                    <Button
-                        variant="link"
-                        size="sm"
-                        onClick={() => navigate(`/learn/${langId}/placement`)}
-                        className="text-xs p-0 h-auto shrink-0 text-indigo-600 dark:text-indigo-400"
-                    >
-                        {ui.changeLevel}
-                    </Button>
+                    <div className="flex flex-col items-end gap-1 shrink-0">
+                        <Button
+                            variant="link"
+                            size="sm"
+                            onClick={() => navigate(`/learn/${langId}/placement`)}
+                            className="text-xs p-0 h-auto text-indigo-600 dark:text-indigo-400"
+                        >
+                            {ui.changeLevel}
+                        </Button>
+                        <Button
+                            variant="link"
+                            size="sm"
+                            onClick={() => navigate(`/learn/${langId}/goal?returnTo=/learn/${langId}`)}
+                            className="text-xs p-0 h-auto text-gray-400 dark:text-gray-500 hover:text-indigo-500"
+                        >
+                            {USER_GOALS[goalId]?.icon} Goal
+                        </Button>
+                    </div>
                 </div>
 
                 {/* First-visit onboarding card */}
@@ -340,7 +371,7 @@ export function DashboardPage() {
                                     <span className="text-xs text-gray-500 dark:text-gray-400 shrink-0">{masteredCount} of {levelUnits.length}</span>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    {levelUnits.map(unit => (
+                                    {sortedLevelUnits.map(unit => (
                                         <UnitRow
                                             key={unit.id}
                                             unit={unit}
@@ -349,6 +380,7 @@ export function DashboardPage() {
                                             mastered={mastered}
                                             allUnits={levelUnits}
                                             completed={completed}
+                                            goalScore={scoreUnitForGoal(unit.topicTags, goalId)}
                                         />
                                     ))}
                                 </div>
