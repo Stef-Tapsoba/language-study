@@ -24,8 +24,12 @@ registerExerciseType<VocabItem>({
     // Multiple-choice pairing — no typed input.
     matchMode: null,
 
-    fetchItems: async ({ langId, level, unitId }) =>
-        Promise.resolve(unitId ? getVocabForUnit(langId, unitId) : getVocabForLevel(langId, level)),
+    // Vocab exercises always scope to the full unit vocab — a single-lesson
+    // scope makes no sense for word matching (too few items for meaningful rounds).
+    fetchItems: async ({ langId, level, unitId }) => {
+        if (unitId) return getVocabForUnit(langId, unitId)
+        return getVocabForLevel(langId, level)
+    },
 
     component: VocabMatchingPage,
 })

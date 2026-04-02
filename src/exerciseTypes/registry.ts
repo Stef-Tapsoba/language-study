@@ -65,6 +65,12 @@ export interface ExerciseFetchParams {
     level: CEFRLevel
     /** Optionally scope to a specific unit's content */
     unitId?: string
+    /**
+     * Optionally scope to a single lesson item (grammar lesson or vocab group).
+     * When set, fetchItems should return only content from that lesson.
+     * Takes precedence over unitId for filtering granularity.
+     */
+    lessonId?: string
 }
 
 // ---------------------------------------------------------------------------
