@@ -12,6 +12,8 @@ import { getUI, fmt, UIStrings } from "../i18n"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "../components/ui/dialog"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion"
 import { Button } from "../components/ui/button"
+import confetti from "canvas-confetti"
+import { playLevelUp } from "../utils/sound"
 
 const PASS_THRESHOLD = 12  // out of 15
 
@@ -25,36 +27,71 @@ function progressDotClass(i: number, current: number): string {
 // LevelUpOverlay — full-screen celebration shown briefly on level advance
 // ---------------------------------------------------------------------------
 function LevelUpOverlay({ nextLevel, onDone }: Readonly<{ nextLevel: CEFRLevel; onDone: () => void }>) {
-    // Auto-dismiss after 4 s; user can also click Continue early
-    useEffect(() => {
-        const t = setTimeout(onDone, 4000)
-        return () => clearTimeout(t)
-    }, [onDone])
-
     const levelNames: Record<CEFRLevel, string> = {
         A1: "Beginner", A2: "Elementary", B1: "Intermediate",
         B2: "Upper Intermediate", C1: "Advanced",
     }
 
+    // Fire confetti + sound on mount; auto-dismiss after 5 s
+    useEffect(() => {
+        playLevelUp()
+
+        // Burst from the top-centre of the screen
+        confetti({
+            particleCount: 120,
+            spread: 80,
+            origin: { x: 0.5, y: 0.2 },
+            colors: ["#6366f1", "#8b5cf6", "#a78bfa", "#fbbf24", "#34d399", "#f472b6"],
+        })
+        // Second wave slightly delayed for depth
+        const second = setTimeout(() => {
+            confetti({
+                particleCount: 60,
+                spread: 120,
+                origin: { x: 0.5, y: 0.3 },
+                scalar: 0.8,
+            })
+        }, 350)
+
+        const dismiss = setTimeout(onDone, 5000)
+        return () => { clearTimeout(second); clearTimeout(dismiss) }
+    }, [onDone])
+
     return (
         <Dialog open onOpenChange={() => {}}>
-            <DialogContent className="text-center max-w-sm">
-                <DialogHeader>
-                    <DialogTitle className="text-3xl font-bold text-indigo-700">🏆 Level Up!</DialogTitle>
-                    <DialogDescription asChild>
-                        <div className="flex flex-col items-center gap-2 mt-2">
-                            <p className="text-xl font-semibold text-gray-900 dark:text-gray-100">
-                                Welcome to {nextLevel}!
-                            </p>
-                            <p className="text-sm text-gray-500 dark:text-gray-400">
-                                {levelNames[nextLevel]} — keep up the great work.
-                            </p>
-                        </div>
-                    </DialogDescription>
-                </DialogHeader>
-                <Button onClick={onDone} className="mt-4 w-full rounded-xl py-2.5 font-semibold">
-                    Continue →
-                </Button>
+            <DialogContent className="text-center max-w-sm border-0 bg-gradient-to-b from-indigo-600 to-violet-700 text-white p-0 overflow-hidden">
+                {/* Glow ring */}
+                <div className="absolute inset-0 bg-white/5 rounded-xl pointer-events-none" />
+
+                <div className="relative flex flex-col items-center gap-4 px-6 py-8">
+                    {/* Trophy — pulsing animation */}
+                    <div className="text-6xl animate-bounce" style={{ animationDuration: "1.2s" }}>
+                        🏆
+                    </div>
+
+                    <DialogHeader className="space-y-1">
+                        <DialogTitle className="text-3xl font-extrabold text-white tracking-tight">
+                            Level Up!
+                        </DialogTitle>
+                        <DialogDescription asChild>
+                            <div className="flex flex-col items-center gap-1">
+                                <p className="text-indigo-200 text-sm">You've reached</p>
+                                <div className="bg-white/20 rounded-xl px-5 py-2 mt-1">
+                                    <span className="text-2xl font-black text-white tracking-wide">{nextLevel}</span>
+                                    <span className="text-indigo-200 text-sm ml-2">— {levelNames[nextLevel]}</span>
+                                </div>
+                                <p className="text-indigo-200 text-sm mt-2">Keep up the great work 🌟</p>
+                            </div>
+                        </DialogDescription>
+                    </DialogHeader>
+
+                    <Button
+                        onClick={onDone}
+                        className="mt-2 w-full bg-white text-indigo-700 hover:bg-indigo-50 font-semibold rounded-xl py-2.5"
+                    >
+                        Continue →
+                    </Button>
+                </div>
             </DialogContent>
         </Dialog>
     )
