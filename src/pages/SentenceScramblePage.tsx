@@ -127,10 +127,14 @@ export default function SentenceScramblePage({ items, langId, level, config, onC
 
     // C-4: sessionKey busts the memo on restart so questions are reshuffled each play
     const [sessionKey, setSessionKey] = useState(0)
-    // config.maxRounds acts as the total question cap for this exercise type
+    // config.maxRounds represents lesson count, not example count — sentence scramble
+    // builds items from lesson *examples*, so we cap by example count not lesson count.
+    // Unit context: show up to 5 questions (the user just read the lesson).
+    // Practice context: show up to 10.
+    const SCRAMBLE_CAP = config.context === "unit" ? 5 : 10
     const questions = useMemo(
-        () => buildItems(items, langId).slice(0, config.maxRounds),
-        [items, langId, config.maxRounds, sessionKey]
+        () => buildItems(items, langId).slice(0, SCRAMBLE_CAP),
+        [items, langId, SCRAMBLE_CAP, sessionKey]
     )
 
     const [index, setIndex] = useState(0)
