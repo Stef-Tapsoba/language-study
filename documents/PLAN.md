@@ -583,11 +583,10 @@ Alternative entry to grammar lessons: present examples → user hypothesises the
   • 618 tests across 29 files (up from 467/21)
 
 Next:
-  - UX remaining: ARIA on progress bars (P2), locked-unit tooltip improvement (P2)
-  - JSON progress import: conflict UI + partial restore
-  - hydrateError / mutationError: retry banner in UI
+  - hydrateError / mutationError: retry banner in UI (currently defined but not consumed)
   - Verb tab reinforcement (deferred from reinforcement sprint)
   - Optional exercise unlock chain in unit sequential list
+  - JSON progress import: partial restore UI (full conflict resolution, not just merge warning)
 
 Phase 3 content — B1 reading/listening/culture content expansion (all 5 languages)
 Phase 4     — EE: writing tasks (self-assessed prompt + model answer)
