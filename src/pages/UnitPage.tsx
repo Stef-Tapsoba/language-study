@@ -1,6 +1,6 @@
 // pages/UnitPage.tsx — Guided lesson unit with grammar, vocab, and verb card activities
 import { useState, useMemo, useEffect } from "react"
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams, useNavigate, useSearchParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { isUnitUnlocked } from "../store/progressUtils"
@@ -8,22 +8,22 @@ import { DEBUG } from "../auth/debugSession"
 import { useProgress } from "../context/ProgressContext"
 import { useStatsStore } from "../store/useStatsStore"
 import { confirmUnitMastery } from "../store/actions"
+import { getReinforcementState } from "../store/progress"
 import { NavBar } from "../components/NavBar"
 import { MarkCompleteButton } from "../components/MarkCompleteButton"
 import { LevelBadge } from "../components/LevelBadge"
 import { QuizCard } from "../components/QuizCard"
 import { SpeakButton } from "../components/SpeakButton"
-import { LocalizedExplanation } from "../components/LocalizedExplanation"
-import { VocabTooltip } from "../components/VocabTooltip"
 import { GrammarLesson, LessonUnit, VocabItem, Verb, CEFRLevel, CultureEpisode, ReadingPassage, ListeningExercise } from "../types"
 import { getUI, fmt, UIStrings } from "../i18n"
 import { resolvePrimary } from "../utils/localizedText"
-import { useVocabTooltip } from "../hooks/useVocabTooltip"
-import type { VocabClickHandler } from "../utils/renderExplanation"
+import { getGrammarExerciseType, getExerciseLabel, getVocabUnlockThreshold, isVocabExerciseUnlocked } from "../utils/reinforcementMapping"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "../components/ui/tabs"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion"
 
 type Tab = "grammar" | "vocab" | "verbs" | "test"
+type LessonState   = "done" | "current" | "locked"
+type ExerciseState = "done" | "available" | "locked"
 
 const CULTURE_CATEGORY_EMOJI: Record<string, string> = {
     food: "🍽️",
@@ -74,48 +74,190 @@ function ContentLinkSection({ theme, heading, links, onNavigate }: Readonly<{
 }
 
 // ---------------------------------------------------------------------------
-// GrammarAccordion
+// Grammar sequential list
 // ---------------------------------------------------------------------------
-function GrammarAccordion({ lesson, done, langId, level, ui, onComplete, onVocabClick }: Readonly<{
-    lesson: GrammarLesson; done: boolean; langId: string; level: CEFRLevel; ui: UIStrings; onComplete: () => void
-    onVocabClick: VocabClickHandler
-}>) {
-    const { markLessonComplete } = useProgress()
+
+function GrammarStateIcon({ state }: Readonly<{ state: LessonState | "available" }>) {
+    if (state === "done")
+        return (
+            <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                <span className="text-white text-[10px] font-bold leading-none">✓</span>
+            </div>
+        )
+    if (state === "current" || state === "available")
+        return (
+            <div className="w-5 h-5 rounded-full bg-indigo-600 flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                <div className="w-2 h-2 rounded-full bg-white" />
+            </div>
+        )
     return (
-        <Accordion type="single" collapsible>
-            <AccordionItem value={lesson.id} className={`border rounded-2xl px-5 ${done ? "border-green-300 bg-white dark:bg-gray-800" : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800"}`}>
-                <AccordionTrigger className="py-4 hover:no-underline">
-                    <div className="flex items-center gap-3">
-                        <span className={`text-lg ${done ? "text-green-500" : "text-gray-300 dark:text-gray-600"}`}>{done ? "✓" : "○"}</span>
-                        <span className="font-medium text-gray-900 dark:text-gray-100">{lesson.title}</span>
-                    </div>
-                </AccordionTrigger>
-                <AccordionContent>
-                    <div className="pb-1">
-                        <LocalizedExplanation text={lesson.explanation} level={level} langId={langId} className="mt-2"
-                            inlineVocab={lesson.inlineVocab} onVocabClick={onVocabClick} />
-                        <div className="mt-4 flex flex-col gap-3">
-                            {lesson.examples.map((ex) => (
-                                <div key={ex.native} className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-3">
-                                    <div className="flex items-start gap-1">
-                                        <p className="flex-1 font-medium text-gray-900 dark:text-gray-100">{ex.native}</p>
-                                        <SpeakButton text={ex.speakText ?? ex.native} langId={langId} />
-                                    </div>
-                                    {ex.romanized && <p className="text-xs text-indigo-500 mt-0.5">{ex.romanized}</p>}
-                                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{ex.translation}</p>
-                                </div>
-                            ))}
+        <div className="w-5 h-5 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center flex-shrink-0" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3 h-3 text-gray-400 dark:text-gray-500">
+                <path fillRule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clipRule="evenodd" />
+            </svg>
+        </div>
+    )
+}
+
+function GrammarLessonRow({ lesson, state, langId, unitId, nav }: Readonly<{
+    lesson: GrammarLesson; state: LessonState; langId: string; unitId: string; nav: (to: string) => void
+}>) {
+    const isDone   = state === "done"
+    const isLocked = state === "locked"
+    const isActive = state === "current"
+    const content = (
+        <div className={[
+            "flex items-center gap-3 px-4 py-3 rounded-2xl border transition-colors",
+            isDone   ? "border-green-200 dark:border-green-800 bg-white dark:bg-gray-800"
+            : isActive ? "border-l-2 border-indigo-600 bg-indigo-50/50 dark:bg-indigo-900/20 border-r border-t border-b border-indigo-200 dark:border-indigo-800 shadow-sm"
+            : "border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800",
+        ].join(" ")}>
+            <GrammarStateIcon state={state} />
+            <div className="flex-1 min-w-0">
+                <p className={`text-sm font-medium truncate ${isLocked ? "text-gray-400 dark:text-gray-500" : "text-gray-900 dark:text-gray-100"}`}>{lesson.title}</p>
+                <p className="text-xs text-gray-400 dark:text-gray-500">Lesson</p>
+            </div>
+            {isDone && <span className="text-xs font-medium text-green-700 dark:text-green-400 bg-green-100 dark:bg-green-900/30 rounded-full px-2 py-0.5 flex-shrink-0">Done</span>}
+        </div>
+    )
+    if (isLocked) return content
+    const returnTo = encodeURIComponent(`/learn/${langId}/units/${unitId}?tab=grammar`)
+    return (
+        <button onClick={() => nav(`/learn/${langId}/grammar/${lesson.id}?returnTo=${returnTo}`)} className="w-full text-left">
+            {content}
+        </button>
+    )
+}
+
+function GrammarExerciseRow({ lesson, state, langId, unitId, nav }: Readonly<{
+    lesson: GrammarLesson; state: ExerciseState; langId: string; unitId: string; nav: (to: string) => void
+}>) {
+    const exerciseTypeId = getGrammarExerciseType(lesson)
+    const label    = getExerciseLabel(exerciseTypeId)
+    const isDone   = state === "done"
+    const isAvail  = state === "available"
+    const isLocked = state === "locked"
+    const content = (
+        <div className={[
+            "flex items-center gap-3 px-4 py-3 rounded-2xl border transition-colors ml-6",
+            isDone  ? "border-green-200 dark:border-green-800 bg-white dark:bg-gray-800"
+            : isAvail ? "border-indigo-200 dark:border-indigo-700 bg-indigo-50 dark:bg-indigo-900/20"
+            : "border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800 opacity-60",
+        ].join(" ")}>
+            <GrammarStateIcon state={isDone ? "done" : isAvail ? "available" : "locked"} />
+            <div className="flex-1 min-w-0">
+                <p className={`text-sm font-medium truncate ${isLocked ? "text-gray-400 dark:text-gray-500" : "text-gray-900 dark:text-gray-100"}`}>{label}</p>
+                <p className="text-xs text-gray-400 dark:text-gray-500 truncate">
+                    {isDone ? "Required exercise · Completed" : isLocked ? "Required exercise · Unlocks after lesson" : "Required exercise"}
+                </p>
+            </div>
+            {isDone
+                ? <span className="text-xs font-medium text-green-700 dark:text-green-400 bg-green-100 dark:bg-green-900/30 rounded-full px-2 py-0.5 flex-shrink-0">Done</span>
+                : <span className={`text-xs font-medium rounded-full px-2 py-0.5 flex-shrink-0 ${isAvail ? "text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900/30" : "text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700"}`}>Required</span>
+            }
+        </div>
+    )
+    if (!isAvail) return content
+    const returnTo = encodeURIComponent(`/learn/${langId}/units/${unitId}?tab=grammar`)
+    return (
+        <button onClick={() => nav(`/learn/${langId}/exercise/${exerciseTypeId}?unitId=${unitId}&section=grammar&lessonId=${lesson.id}&returnTo=${returnTo}`)} className="w-full text-left">
+            {content}
+        </button>
+    )
+}
+
+function GrammarSequenceList({ grammar, langId, unitId, completed, reinforcedLessonIds, nav }: Readonly<{
+    grammar: GrammarLesson[]; langId: string; unitId: string
+    completed: string[]; reinforcedLessonIds: string[]; nav: (to: string) => void
+}>) {
+    const currentIdx  = grammar.findIndex(l => !completed.includes(l.id))
+    const donePairs   = currentIdx > 0 ? grammar.slice(0, currentIdx) : currentIdx === -1 ? grammar : []
+    const activePairs = currentIdx === -1 ? [] : grammar.slice(currentIdx)
+
+    function exState(lesson: GrammarLesson): ExerciseState {
+        if (reinforcedLessonIds.includes(lesson.id)) return "done"
+        if (completed.includes(lesson.id)) return "available"
+        return "locked"
+    }
+
+    return (
+        <div className="flex flex-col gap-2">
+            {donePairs.length > 0 && (
+                <>
+                    <p className="text-[10px] font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 px-1 mt-1 mb-0.5">Lessons</p>
+                    {donePairs.map(lesson => (
+                        <div key={lesson.id} className="flex flex-col gap-1.5">
+                            <GrammarLessonRow lesson={lesson} state="done" langId={langId} unitId={unitId} nav={nav} />
+                            <GrammarExerciseRow lesson={lesson} state={exState(lesson)} langId={langId} unitId={unitId} nav={nav} />
                         </div>
-                        <MarkCompleteButton
-                            done={done}
-                            onClick={() => { markLessonComplete(langId, lesson.id, "grammar"); onComplete() }}
-                            label={ui.markComplete}
-                            className="mt-4"
-                        />
-                    </div>
-                </AccordionContent>
-            </AccordionItem>
-        </Accordion>
+                    ))}
+                </>
+            )}
+            {activePairs.length > 0 && (
+                <>
+                    <p className={`text-[10px] font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 px-1 mb-0.5 ${donePairs.length > 0 ? "mt-4" : "mt-1"}`}>Up Next</p>
+                    {activePairs.map((lesson, i) => {
+                        const lState: LessonState = i === 0 ? "current" : "locked"
+                        return (
+                            <div key={lesson.id} className="flex flex-col gap-1.5">
+                                <GrammarLessonRow lesson={lesson} state={lState} langId={langId} unitId={unitId} nav={nav} />
+                                <GrammarExerciseRow lesson={lesson} state={exState(lesson)} langId={langId} unitId={unitId} nav={nav} />
+                            </div>
+                        )
+                    })}
+                </>
+            )}
+        </div>
+    )
+}
+
+// ---------------------------------------------------------------------------
+// Vocab practice section
+// ---------------------------------------------------------------------------
+
+function VocabPracticeSection({ unit, langId, completed, vocabExerciseDone, nav }: Readonly<{
+    unit: LessonUnit; langId: string; completed: string[]; vocabExerciseDone: boolean; nav: (to: string) => void
+}>) {
+    const threshold  = getVocabUnlockThreshold(unit)
+    const learnedCnt = unit.vocabIds.filter(id => completed.includes(id)).length
+    const isUnlocked = isVocabExerciseUnlocked(unit, completed)
+    const isDone     = vocabExerciseDone
+    const sublabel   = isDone
+        ? "Completed"
+        : isUnlocked
+        ? "Practice the words you've learned in context"
+        : `${learnedCnt} word${learnedCnt === 1 ? "" : "s"} ready · Mark ${threshold} or more to unlock`
+    const returnTo = encodeURIComponent(`/learn/${langId}/units/${unit.id}?tab=vocab`)
+    const row = (
+        <div className={[
+            "flex items-center gap-3 px-4 py-3 rounded-2xl border transition-colors",
+            isDone      ? "border-green-200 dark:border-green-800 bg-white dark:bg-gray-800"
+            : isUnlocked ? "border-indigo-200 dark:border-indigo-700 bg-indigo-50 dark:bg-indigo-900/20"
+            : "border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800 opacity-60",
+        ].join(" ")}>
+            <GrammarStateIcon state={isDone ? "done" : isUnlocked ? "available" : "locked"} />
+            <div className="flex-1 min-w-0">
+                <p className={`text-sm font-medium truncate ${!isDone && !isUnlocked ? "text-gray-400 dark:text-gray-500" : "text-gray-900 dark:text-gray-100"}`}>
+                    Vocab in context
+                </p>
+                <p className="text-xs text-gray-400 dark:text-gray-500 truncate">{sublabel}</p>
+            </div>
+            {isDone
+                ? <span className="text-xs font-medium text-green-700 dark:text-green-400 bg-green-100 dark:bg-green-900/30 rounded-full px-2 py-0.5 flex-shrink-0">Done</span>
+                : <span className={`text-xs font-medium rounded-full px-2 py-0.5 flex-shrink-0 ${isUnlocked ? "text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900/30" : "text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700"}`}>Required</span>
+            }
+        </div>
+    )
+    return (
+        <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
+            <p className="text-[10px] font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 px-1 mb-2">
+                Practice What You've Learned
+            </p>
+            {isUnlocked && !isDone
+                ? <button onClick={() => nav(`/learn/${langId}/exercise/vocab-in-context?unitId=${unit.id}&section=vocab&returnTo=${returnTo}`)} className="w-full text-left">{row}</button>
+                : row
+            }
+        </div>
     )
 }
 
@@ -504,6 +646,7 @@ function TestOutTab({ unit, langId, isMastered, nextUnit, isLastUnit, ui, cultur
 // ---------------------------------------------------------------------------
 export function UnitPage() {
     const { langId = "", unitId = "" } = useParams()
+    const [searchParams] = useSearchParams()
     const navigate = useNavigate()
 
     const language = getLanguage(langId)
@@ -513,10 +656,12 @@ export function UnitPage() {
     const ui = getUI(langId, level)
     const completed = getCompleted(langId)
     const mastered = getMastered(langId)
-    const { activeWord, handleVocabClick, dismissTooltip } = useVocabTooltip(langId)
 
     const units = mod?.units ?? []
     const unit = units.find(u => u.id === unitId)
+
+    // Reinforcement state — read from write-through cache; fresh on every remount (navigation back from exercise)
+    const reinforcement = unit ? getReinforcementState(langId, unitId) : { grammarLessonIds: [] }
 
     const grammar = useMemo(() => mod?.grammar.filter(g => unit?.grammarIds.includes(g.id)) ?? [], [mod, unit])
     const vocab = useMemo(() => mod?.vocab.filter(v => unit?.vocabIds.includes(v.id)) ?? [], [mod, unit])
@@ -539,6 +684,8 @@ export function UnitPage() {
     ], [grammar, vocab, verbs, ui])
 
     function firstTab(): Tab {
+        const p = searchParams.get("tab") as Tab | null
+        if (p && (["grammar", "vocab", "verbs", "test"] as const).includes(p as Tab)) return p as Tab
         if (grammar.length > 0) return "grammar"
         if (vocab.length > 0) return "vocab"
         if (verbs.length > 0) return "verbs"
@@ -547,6 +694,14 @@ export function UnitPage() {
     const [activeTab, setActiveTab] = useState<Tab>(firstTab)
     useEffect(() => { setActiveTab(firstTab()) }, [unitId])
     const [vocabFilter, setVocabFilter] = useState<"all" | "todo" | "done">("all")
+
+    // Per-tab completion flags (content + required exercises)
+    const grammarAllDone = grammar.length > 0
+        && grammar.every(l => completed.includes(l.id))
+        && grammar.every(l => reinforcement.grammarLessonIds.includes(l.id))
+    const vocabAllDone = vocab.length > 0
+        && isVocabExerciseUnlocked(unit!, completed)
+        && reinforcement.vocab === true
 
     if (!language || !mod || !unit) {
         return (
@@ -623,6 +778,7 @@ export function UnitPage() {
                                 verbs:   "data-[state=active]:bg-red-400    data-[state=active]:text-white",
                                 test:    "data-[state=active]:bg-violet-500 data-[state=active]:text-white",
                             }
+                            const isTabDone = (tab.id === "grammar" && grammarAllDone) || (tab.id === "vocab" && vocabAllDone)
                             return (
                                 <TabsTrigger
                                     key={tab.id}
@@ -630,11 +786,12 @@ export function UnitPage() {
                                     className={`flex-1 py-2 px-3 text-sm ${TAB_COLORS[tab.id]}`}
                                 >
                                     {tab.label}
-                                    {tab.count !== undefined && (
-                                        <span className="ml-1 text-xs text-current opacity-60">
-                                            {tab.count}
-                                        </span>
-                                    )}
+                                    {isTabDone
+                                        ? <span className="ml-1 text-xs font-medium text-green-600 dark:text-green-400 data-[state=active]:text-white">✓</span>
+                                        : tab.count !== undefined && (
+                                            <span className="ml-1 text-xs text-current opacity-60">{tab.count}</span>
+                                        )
+                                    }
                                 </TabsTrigger>
                             )
                         })}
@@ -642,20 +799,14 @@ export function UnitPage() {
 
                     {/* Tab content */}
                     <TabsContent value="grammar" className="tab-fade">
-                        <div className="flex flex-col gap-3">
-                            {grammar.map(lesson => (
-                                <GrammarAccordion
-                                    key={lesson.id}
-                                    lesson={lesson}
-                                    done={completed.includes(lesson.id)}
-                                    langId={langId}
-                                    level={level}
-                                    ui={ui}
-                                    onComplete={() => {}}
-                                    onVocabClick={handleVocabClick}
-                                />
-                            ))}
-                        </div>
+                        <GrammarSequenceList
+                            grammar={grammar}
+                            langId={langId}
+                            unitId={unitId}
+                            completed={completed}
+                            reinforcedLessonIds={reinforcement.grammarLessonIds}
+                            nav={navigate}
+                        />
                     </TabsContent>
 
                     <TabsContent value="vocab" className="tab-fade">
@@ -699,6 +850,14 @@ export function UnitPage() {
                                             />
                                         ))}
                                     </div>
+                                    {/* Practice section — always at bottom regardless of filter */}
+                                    <VocabPracticeSection
+                                        unit={unit}
+                                        langId={langId}
+                                        completed={completed}
+                                        vocabExerciseDone={reinforcement.vocab === true}
+                                        nav={navigate}
+                                    />
                                 </div>
                             )
                         })()}
@@ -742,7 +901,6 @@ export function UnitPage() {
                     </TabsContent>
                 </Tabs>
             </main>
-            <VocabTooltip activeWord={activeWord} onDismiss={dismissTooltip} />
         </div>
     )
 }

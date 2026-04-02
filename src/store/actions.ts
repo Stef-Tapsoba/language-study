@@ -14,7 +14,7 @@
 
 import { registry } from "./registry"
 import { useStatsStore } from "./useStatsStore"
-import type { ContentType } from "./IProgressStorage"
+import type { ContentType, ReinforcementSection } from "./IProgressStorage"
 import type { UserProgress } from "../types"
 import type { StatsData } from "./useStatsStore"
 import type { SRSCardState } from "@myorg/srs"
@@ -143,6 +143,29 @@ export async function completeCultureEpisode(
     await registry.progress.markLessonComplete(langId, episodeId, "culture")
     useStatsStore.getState().recordActivity(langId)
     // Stage 2: await supabase.from("culture_completions").upsert({ user_id, lang_id, episode_id, completed_at })
+}
+
+// ---------------------------------------------------------------------------
+// Reinforcement exercise completion
+// ---------------------------------------------------------------------------
+
+/**
+ * Mark a unit reinforcement exercise as done.
+ *
+ * @param section         "grammar" | "vocab" | "verbs"
+ * @param grammarLessonId Required when section === "grammar".
+ *
+ * Stage 2: routes to reinforcement_grammar or reinforcement_sections table.
+ */
+export async function completeReinforcement(
+    langId: string,
+    unitId: string,
+    section: ReinforcementSection,
+    grammarLessonId?: string
+): Promise<void> {
+    await registry.progress.markReinforcementDone(langId, unitId, section, grammarLessonId)
+    // Stage 2: await supabase.from(section === "grammar" ? "reinforcement_grammar" : "reinforcement_sections")
+    //   .upsert({ user_id, lang_id, unit_id, ...(section === "grammar" ? { grammar_lesson_id } : { section }) })
 }
 
 // ---------------------------------------------------------------------------

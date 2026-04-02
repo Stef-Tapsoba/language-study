@@ -55,6 +55,13 @@ export interface InlineVocabEntry {
     translation: string
 }
 
+/**
+ * The exercise type shown immediately below a grammar lesson in the unit Grammar tab.
+ * Defaults to "sentence-scramble" when absent.
+ * Set to "dictation" for pronunciation/phonetics/sounds lessons.
+ */
+export type GrammarExerciseType = "sentence-scramble" | "dictation"
+
 export interface GrammarLesson {
     id: string
     language?: string    // e.g. "fr" — stamped by createLanguageModule(); always set on assembled items
@@ -63,6 +70,11 @@ export interface GrammarLesson {
     explanation: string | LocalizedText
     examples: Example[]
     inlineVocab?: InlineVocabEntry[]
+    /**
+     * Exercise type paired with this lesson in the unit Grammar tab.
+     * Defaults to "sentence-scramble" when absent.
+     */
+    exerciseType?: GrammarExerciseType
 }
 
 // ---------------------------------------------------------------------------
@@ -134,6 +146,12 @@ export interface LessonUnit {
     cultureIds?: string[]     // optional: references CultureEpisode.id for related culture content
     readingIds?: string[]     // optional: references ReadingPassage.id linked to this unit
     listeningIds?: string[]   // optional: references ListeningExercise.id linked to this unit
+    /**
+     * Minimum number of vocab items that must be marked learned before the
+     * vocab section exercise unlocks. Defaults to VOCAB_EXERCISE_THRESHOLD (5).
+     * Override for units with fewer than 5 vocab items.
+     */
+    vocabUnlockThreshold?: number
 }
 
 // ---------------------------------------------------------------------------
@@ -282,6 +300,25 @@ export interface LanguageModule {
 // ---------------------------------------------------------------------------
 // User progress (stored in localStorage)
 // ---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
+// Reinforcement exercise completion
+// ---------------------------------------------------------------------------
+
+/**
+ * Tracks which reinforcement exercises have been completed for a single unit.
+ *
+ * Grammar uses per-lesson granularity: each GrammarLesson.id in grammarLessonIds
+ * means that lesson's paired exercise was completed.
+ *
+ * Vocab and verbs use section-level granularity: one exercise covers the whole
+ * section, so completion is a simple boolean flag.
+ */
+export interface UnitReinforcementState {
+    grammarLessonIds: string[]  // GrammarLesson.ids whose paired exercise is done
+    vocab?: true                // vocab section exercise done
+    verbs?: true                // verbs section exercise done
+}
+
 export interface UserProgress {
     schemaVersion?: number                      // incremented on breaking schema changes
     userId?: string                             // owner of this progress record
@@ -297,4 +334,10 @@ export interface UserProgress {
      * Shape: { [langId]: { grammar: [...ids], vocab: [...ids], ... } }
      */
     completedByType?: Record<string, Partial<Record<string, string[]>>>
+    /**
+     * Reinforcement exercise completion, nested by language → unit.
+     * Absent key = nothing done yet (safe default for old saves — no migration needed).
+     * Stage 2: maps to reinforcement_grammar + reinforcement_sections Supabase tables.
+     */
+    completedReinforcement?: Record<string, Record<string, UnitReinforcementState>>
 }
