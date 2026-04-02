@@ -148,7 +148,7 @@ function GrammarExerciseRow({ lesson, state, langId, unitId, nav }: Readonly<{
             <div className="flex-1 min-w-0">
                 <p className={`text-sm font-medium truncate ${isLocked ? "text-gray-400 dark:text-gray-500" : "text-gray-900 dark:text-gray-100"}`}>{label}</p>
                 <p className="text-xs text-gray-400 dark:text-gray-500 truncate">
-                    {isDone ? "Required exercise · Completed" : isLocked ? "Required exercise · Unlocks after lesson" : "Required exercise"}
+                    {isDone ? "Completed · Practice again" : isLocked ? "Required exercise · Unlocks after lesson" : "Required exercise"}
                 </p>
             </div>
             {isDone
@@ -157,7 +157,7 @@ function GrammarExerciseRow({ lesson, state, langId, unitId, nav }: Readonly<{
             }
         </div>
     )
-    if (!isAvail) return content
+    if (isLocked) return content
     const returnTo = encodeURIComponent(`/learn/${langId}/units/${unitId}?tab=grammar`)
     return (
         <button onClick={() => nav(`/learn/${langId}/exercise/${exerciseTypeId}?unitId=${unitId}&section=grammar&lessonId=${lesson.id}&returnTo=${returnTo}`)} className="w-full text-left">
@@ -240,7 +240,9 @@ function VocabPracticeSection({ unit, langId, completed, vocabExerciseDone, nav 
                 <p className={`text-sm font-medium truncate ${!isDone && !isUnlocked ? "text-gray-400 dark:text-gray-500" : "text-gray-900 dark:text-gray-100"}`}>
                     Vocab matching
                 </p>
-                <p className="text-xs text-gray-400 dark:text-gray-500 truncate">{sublabel}</p>
+                <p className="text-xs text-gray-400 dark:text-gray-500 truncate">
+                    {isDone ? "Completed · Practice again" : sublabel}
+                </p>
             </div>
             {isDone
                 ? <span className="text-xs font-medium text-green-700 dark:text-green-400 bg-green-100 dark:bg-green-900/30 rounded-full px-2 py-0.5 flex-shrink-0">Done</span>
@@ -253,7 +255,7 @@ function VocabPracticeSection({ unit, langId, completed, vocabExerciseDone, nav 
             <p className="text-[10px] font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 px-1 mb-2">
                 Practice What You've Learned
             </p>
-            {isUnlocked && !isDone
+            {isUnlocked
                 ? <button onClick={() => nav(`/learn/${langId}/exercise/vocab-matching?unitId=${unit.id}&section=vocab&returnTo=${returnTo}`)} className="w-full text-left">{row}</button>
                 : row
             }
