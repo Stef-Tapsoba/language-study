@@ -75,6 +75,10 @@ export interface GrammarLesson {
      * Defaults to "sentence-scramble" when absent.
      */
     exerciseType?: GrammarExerciseType
+    /** Communicative function tags — what does this grammar structure do? */
+    fnTags?: FunctionTag[]
+    /** Topic tags — only set when intrinsically topic-bound (e.g. Numbers, Food). */
+    topicTags?: TopicTag[]
 }
 
 // ---------------------------------------------------------------------------
@@ -90,6 +94,8 @@ export interface VocabItem {
     translation: string
     category: string
     example: Example
+    /** Topic tags — optional, supplements category for goal-based filtering. */
+    topicTags?: TopicTag[]
 }
 
 // ---------------------------------------------------------------------------
@@ -131,6 +137,25 @@ export interface QuizQuestion {
 }
 
 // ---------------------------------------------------------------------------
+// Content tagging — topic and function tags for personalized learning paths
+// ---------------------------------------------------------------------------
+
+export const TOPIC_TAGS = [
+    "identity", "greetings", "food", "shopping", "travel",
+    "social", "home", "health", "work", "culture", "numbers", "nature",
+] as const
+
+export const FUNCTION_TAGS = [
+    "fn:describing", "fn:asking-questions", "fn:expressing-time",
+    "fn:expressing-quantity", "fn:giving-instructions", "fn:expressing-opinion",
+    "fn:socialising", "fn:narrating", "fn:making-requests", "fn:identifying",
+] as const
+
+export type TopicTag    = typeof TOPIC_TAGS[number]
+export type FunctionTag = typeof FUNCTION_TAGS[number]
+export type ContentTag  = TopicTag | FunctionTag
+
+// ---------------------------------------------------------------------------
 // Lesson unit — ordered curriculum block within a level
 // ---------------------------------------------------------------------------
 export interface LessonUnit {
@@ -152,6 +177,12 @@ export interface LessonUnit {
      * Override for units with fewer than 5 vocab items.
      */
     vocabUnlockThreshold?: number
+    /**
+     * Topic tags for personalized path filtering.
+     * 1–3 values from the TopicTag vocabulary. Authoritative source for goal matching.
+     * Optional during migration — units without tags are shown to all learners.
+     */
+    topicTags?: TopicTag[]
 }
 
 // ---------------------------------------------------------------------------

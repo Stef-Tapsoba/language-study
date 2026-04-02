@@ -22,6 +22,8 @@ import {
     QuizQuestion,
     SpeakingPrompt,
 } from "../types"
+import { scoreUnitForGoal, USER_GOALS, type GoalId } from "./goalConfig"
+import { UNIT_TAGS } from "./unitTags"
 
 // ---------------------------------------------------------------------------
 // Grammar
@@ -69,10 +71,33 @@ export function getUnitsForLevel(langId: string, level: CEFRLevel): LessonUnit[]
     return (getModule(langId)?.units ?? [])
         .filter(u => u.level === level)
         .sort((a, b) => a.order - b.order)
+        .map(u => u.topicTags ? u : { ...u, topicTags: UNIT_TAGS[u.id] })
 }
 
 export function getUnit(langId: string, unitId: string): LessonUnit | null {
     return getModule(langId)?.units?.find(u => u.id === unitId) ?? null
+}
+
+/**
+ * Returns units for a level sorted by goal relevance (matched units first),
+ * then by natural unit order within each group.
+ * Units without topicTags are placed after tagged units.
+ *
+ * @param goalId  The user's selected learning goal from goalConfig.ts
+ */
+export function getUnitsForGoal(
+    langId: string,
+    level: CEFRLevel,
+    goalId: string
+): LessonUnit[] {
+    const units = getUnitsForLevel(langId, level)
+    if (goalId === "general" || !(goalId in USER_GOALS)) return units
+    return [...units].sort((a, b) => {
+        const sa = scoreUnitForGoal(a.topicTags, goalId as GoalId)
+        const sb = scoreUnitForGoal(b.topicTags, goalId as GoalId)
+        if (sb !== sa) return sb - sa   // higher score first
+        return a.order - b.order        // natural order as tiebreaker
+    })
 }
 
 // ---------------------------------------------------------------------------

@@ -5,9 +5,10 @@
 // Stage 2 without hunting across page components.
 //
 // Storage keys managed here:
-//   ls:onboarded:{langId}          — "1" once the onboarding banner has been dismissed
-//   ls:tts-autoplay                — "true" | "false" (defaults to true when absent)
-//   ls:review-dismissed:{langId}:{date}  — "1" when review prompt dismissed for that day
+//   ls:onboarded:{langId}               — "1" once the onboarding banner has been dismissed
+//   ls:tts-autoplay                     — "true" | "false" (defaults to true when absent)
+//   ls:review-dismissed:{langId}:{date} — "1" when review prompt dismissed for that day
+//   ls:goal                             — GoalId selected during onboarding ("general" when absent)
 //
 // Stage 2: introduce IPreferencesStorage + LocalStoragePreferencesStorage
 // and a registry slot so these reads/writes can be swapped for a Supabase
@@ -54,4 +55,18 @@ export function isReviewPromptDismissed(langId: string): boolean {
 /** Dismiss the review prompt for today. Resets automatically the next calendar day. */
 export function dismissReviewPrompt(langId: string): void {
     localStorage.setItem(todayKey(langId), "1")
+}
+
+// ── Learning goal ─────────────────────────────────────────────────────────────
+
+const GOAL_KEY = "ls:goal"
+
+/** Returns the stored learning goal ID, defaulting to "general" for new users. */
+export function getGoal(): string {
+    return localStorage.getItem(GOAL_KEY) ?? "general"
+}
+
+/** Persist the user's selected learning goal. */
+export function setGoal(goalId: string): void {
+    localStorage.setItem(GOAL_KEY, goalId)
 }
