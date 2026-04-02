@@ -17,6 +17,7 @@ import { getDueCards } from "../store/srs"
 import type { VocabItem } from "../types"
 import type { ReinforcementSection } from "../store/IProgressStorage"
 import type { ExerciseContext } from "../utils/exerciseConfig"
+import { Skeleton } from "../components/ui/skeleton"
 
 export function ExerciseShell() {
     const { langId = "", exerciseTypeId = "" } = useParams()
@@ -130,8 +131,28 @@ export function ExerciseShell() {
 
     if (loading) {
         return (
-            <div className="flex items-center justify-center min-h-screen">
-                <div className="w-8 h-8 border-4 border-violet-500 border-t-transparent rounded-full animate-spin" />
+            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+                {/* NavBar skeleton */}
+                <div className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 h-14 flex items-center px-4 gap-3">
+                    <Skeleton className="h-8 w-8 rounded" />
+                    <Skeleton className="h-4 w-36 rounded" />
+                    <div className="flex-1" />
+                    <Skeleton className="h-6 w-12 rounded-full" />
+                </div>
+                {/* Content skeleton — progress bar + two cards */}
+                <main className="max-w-xl mx-auto px-4 py-8 flex flex-col gap-4">
+                    <div className="flex items-center justify-between">
+                        <Skeleton className="h-3 w-20 rounded" />
+                        <Skeleton className="h-3 w-16 rounded" />
+                    </div>
+                    <Skeleton className="h-2 w-full rounded-full" />
+                    <Skeleton className="h-32 w-full rounded-2xl" />
+                    <div className="flex flex-col gap-2">
+                        {[1, 2, 3, 4].map(i => (
+                            <Skeleton key={i} className="h-12 w-full rounded-xl" />
+                        ))}
+                    </div>
+                </main>
             </div>
         )
     }
@@ -155,8 +176,20 @@ export function ExerciseShell() {
 
     return (
         <Suspense fallback={
-            <div className="flex items-center justify-center min-h-screen">
-                <div className="w-8 h-8 border-4 border-violet-500 border-t-transparent rounded-full animate-spin" />
+            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+                <div className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 h-14 flex items-center px-4 gap-3">
+                    <Skeleton className="h-8 w-8 rounded" />
+                    <Skeleton className="h-4 w-36 rounded" />
+                    <div className="flex-1" />
+                    <Skeleton className="h-6 w-12 rounded-full" />
+                </div>
+                <main className="max-w-xl mx-auto px-4 py-8 flex flex-col gap-4">
+                    <Skeleton className="h-2 w-full rounded-full" />
+                    <Skeleton className="h-32 w-full rounded-2xl" />
+                    <div className="flex flex-col gap-2">
+                        {[1, 2, 3, 4].map(i => <Skeleton key={i} className="h-12 w-full rounded-xl" />)}
+                    </div>
+                </main>
             </div>
         }>
             <Component items={items} langId={langId} level={level} config={config} onComplete={onComplete} onSessionDone={onSessionDone} />

@@ -11,6 +11,7 @@ import { confirmUnitMastery } from "../store/actions"
 import { getReinforcementState } from "../store/progress"
 import { NavBar } from "../components/NavBar"
 import { MarkCompleteButton } from "../components/MarkCompleteButton"
+import { Button } from "../components/ui/button"
 import { LevelBadge } from "../components/LevelBadge"
 import { QuizCard } from "../components/QuizCard"
 import { SpeakButton } from "../components/SpeakButton"
@@ -433,29 +434,25 @@ function TestDoneScreen({ score, total, passThreshold, missed, isMastered, didCo
 
             <div className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-5 flex flex-col gap-3">
                 {passed && !isMastered && !didComplete && (
-                    <button onClick={onComplete}
-                        className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl py-2.5 text-sm transition-colors">
+                    <Button onClick={onComplete} className="w-full rounded-xl py-2.5 text-sm font-semibold bg-green-600 hover:bg-green-700">
                         {ui.markUnitComplete}
-                    </button>
+                    </Button>
                 )}
                 {passed && (isMastered || didComplete) && (
                     <>
                         {isLastUnit && (
-                            <button onClick={onNavigateLevelTest}
-                                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-2.5 text-sm transition-colors">
+                            <Button onClick={onNavigateLevelTest} className="w-full rounded-xl py-2.5 text-sm font-semibold">
                                 Take the {level} Level Test →
-                            </button>
+                            </Button>
                         )}
                         {!isLastUnit && nextUnit && (
-                            <button onClick={() => onNavigateNext(nextUnit.id)}
-                                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-2.5 text-sm transition-colors">
+                            <Button onClick={() => onNavigateNext(nextUnit.id)} className="w-full rounded-xl py-2.5 text-sm font-semibold">
                                 Next: {nextUnit.title} →
-                            </button>
+                            </Button>
                         )}
-                        <button onClick={onBack}
-                            className="w-full border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 font-semibold rounded-xl py-2.5 text-sm transition-colors hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                        <Button variant="outline" onClick={onBack} className="w-full rounded-xl py-2.5 text-sm font-semibold">
                             {ui.backToDashboard}
-                        </button>
+                        </Button>
                     </>
                 )}
                 {!passed && (
@@ -463,14 +460,12 @@ function TestDoneScreen({ score, total, passThreshold, missed, isMastered, didCo
                         <p className="text-xs text-gray-500 dark:text-gray-400">
                             You need {passThreshold} correct to complete this unit. Review the content and try again.
                         </p>
-                        <button onClick={onReset}
-                            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-2.5 text-sm transition-colors">
+                        <Button onClick={onReset} className="w-full rounded-xl py-2.5 text-sm font-semibold">
                             {ui.tryAgain}
-                        </button>
-                        <button onClick={onBack}
-                            className="w-full border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 font-semibold rounded-xl py-2.5 text-sm transition-colors hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                        </Button>
+                        <Button variant="outline" onClick={onBack} className="w-full rounded-xl py-2.5 text-sm font-semibold">
                             {ui.backToDashboard}
-                        </button>
+                        </Button>
                     </>
                 )}
             </div>
@@ -674,12 +669,9 @@ function TestOutTab({ unit, langId, isMastered, nextUnit, isLastUnit, ui, cultur
                 onSelect={handleSelect}
             />
             {revealed && (
-                <button
-                    onClick={handleNext}
-                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-3 transition-colors"
-                >
+                <Button onClick={handleNext} className="w-full rounded-xl py-3 font-semibold">
                     {qIdx + 1 >= questions.length ? ui.seeResults : ui.nextQuestion}
-                </button>
+                </Button>
             )}
         </div>
     )
@@ -774,12 +766,9 @@ export function UnitPage() {
                     <p className="text-5xl mb-4">🔒</p>
                     <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">Unit locked</h2>
                     <p className="text-gray-500 dark:text-gray-400 mb-6">Complete the previous unit to unlock this one.</p>
-                    <button
-                        onClick={() => navigate(`/learn/${langId}`)}
-                        className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl px-6 py-2.5 text-sm transition-colors"
-                    >
+                    <Button onClick={() => navigate(`/learn/${langId}`)} className="rounded-xl px-6 py-2.5 text-sm font-semibold">
                         {ui.backToDashboard}
-                    </button>
+                    </Button>
                 </main>
             </div>
         )

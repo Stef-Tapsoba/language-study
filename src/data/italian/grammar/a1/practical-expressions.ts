@@ -89,6 +89,7 @@ Quick tip: piacere + infinitive = liking an activity:
     {
         id: "it-g-a1-17",
         level: "A1",
+        exerciseType: "dictation" as const,
         title: "Italian Pronunciation — Key Rules",
         explanation: `Italian is highly phonetic — almost every letter is pronounced and spelling reflects pronunciation closely. The main challenges are the c/g rules before different vowels, double consonants, and stress patterns.
 
