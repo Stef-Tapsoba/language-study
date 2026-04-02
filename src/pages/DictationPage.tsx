@@ -61,7 +61,7 @@ function buildDictationItems(exercises: ListeningExercise[]): { id: string; titl
 
 // ── Main page ─────────────────────────────────────────────────────────────────
 
-export default function DictationPage({ items, langId, level, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<ListeningExercise>>) {
+export default function DictationPage({ items, langId, level, config: _config, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<ListeningExercise>>) {
     const ui = getUI(langId, level)
 
     const questions = useMemo(() => buildDictationItems(items), [items])

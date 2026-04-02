@@ -93,7 +93,7 @@ function HighlightedExcerpt({ excerpt, word }: Readonly<{ excerpt: string; word:
 
 // ── Main page ─────────────────────────────────────────────────────────────────
 
-export default function VocabInContextPage({ items, langId, level, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<ReadingPassage>>) {
+export default function VocabInContextPage({ items, langId, level, config: _config, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<ReadingPassage>>) {
     const ui = getUI(langId, level)
 
     const questions = useMemo(() => buildContextItems(items), [items])

@@ -149,7 +149,7 @@ function buildErrorItems(lessons: GrammarLesson[]): ErrorItem[] {
 
 // ── Main page ─────────────────────────────────────────────────────────────────
 
-export default function ErrorCorrectionPage({ items, langId, level, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<GrammarLesson>>) {
+export default function ErrorCorrectionPage({ items, langId, level, config: _config, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<GrammarLesson>>) {
     const ui = getUI(langId, level)
 
     const questions = useMemo(() => buildErrorItems(items), [items])

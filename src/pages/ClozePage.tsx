@@ -91,7 +91,7 @@ function buildClozeItems(passages: ReadingPassage[]): ClozeItem[] {
 
 // ── Main page ─────────────────────────────────────────────────────────────────
 
-export default function ClozePage({ items, langId, level, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<ReadingPassage>>) {
+export default function ClozePage({ items, langId, level, config: _config, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<ReadingPassage>>) {
     const ui = getUI(langId, level)
 
     // C-4: sessionKey busts the memo on restart so questions are reshuffled each play

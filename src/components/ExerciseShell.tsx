@@ -11,7 +11,9 @@ import { useParams, useSearchParams, Navigate, Link, useNavigate } from "react-r
 import { useProgress } from "../context/ProgressContext"
 import { completeLessonItem, completeDrillSession, completeReinforcement } from "../store/actions"
 import { getExerciseType } from "../exerciseTypes/index"
+import { getExerciseConfig, selectItems } from "../utils/exerciseConfig"
 import type { ReinforcementSection } from "../store/IProgressStorage"
+import type { ExerciseContext } from "../utils/exerciseConfig"
 
 export function ExerciseShell() {
     const { langId = "", exerciseTypeId = "" } = useParams()
@@ -29,6 +31,9 @@ export function ExerciseShell() {
 
     const def = getExerciseType(exerciseTypeId)
 
+    // Derive context from URL params: unit exercises have a unitId, everything else is practice
+    const context: ExerciseContext = unitId ? "unit" : "practice"
+
     const [rawItems, setRawItems] = useState<unknown[]>([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(false)
@@ -40,19 +45,22 @@ export function ExerciseShell() {
         def.fetchItems({ langId, level, unitId, lessonId })
             .then(result => { setRawItems(result); setLoading(false) })
             .catch(() => { setError(true); setLoading(false) })
-    }, [def, langId, level, unitId])
+    }, [def, langId, level, unitId, lessonId])
 
-    // In Practice-tab mode (no unitId), only show items the learner has already
-    // encountered — prevents A1-unit-1 learners from seeing the full level corpus.
-    // Falls through to the full set if none have been completed yet (new user).
-    const items = useMemo(() => {
-        if (unitId || completedIds.length === 0) return rawItems
-        const seen = rawItems.filter((item: unknown) => {
-            const id = (item as { id?: string }).id
-            return id !== undefined && completedIds.includes(id)
-        })
-        return seen.length > 0 ? seen : rawItems
-    }, [rawItems, completedIds, unitId])
+    // Compute context-aware config (sizing + tier ratios) from available item count
+    const config = useMemo(
+        () => getExerciseConfig(context, rawItems.length),
+        [context, rawItems.length]
+    )
+
+    // Select and order items using SM-2 tier system:
+    //   srs-due → weak (easeFactor<2.0) → new → random
+    // In practice mode this also filters to items the learner has completed,
+    // preventing a unit-1 learner from seeing the full level corpus.
+    const items = useMemo(
+        () => selectItems(rawItems as { id: string }[], config, langId, completedIds),
+        [rawItems, config, langId, completedIds]
+    )
 
     // Both callbacks defined unconditionally to satisfy Rules of Hooks.
     // def is always set when they are reachable (the Navigate guard below runs first).
@@ -108,7 +116,7 @@ export function ExerciseShell() {
                 <div className="w-8 h-8 border-4 border-violet-500 border-t-transparent rounded-full animate-spin" />
             </div>
         }>
-            <Component items={items} langId={langId} level={level} onComplete={onComplete} onSessionDone={onSessionDone} />
+            <Component items={items} langId={langId} level={level} config={config} onComplete={onComplete} onSessionDone={onSessionDone} />
         </Suspense>
     )
 }

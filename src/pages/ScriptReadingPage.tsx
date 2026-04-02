@@ -54,7 +54,7 @@ function buildScriptItems(vocabItems: VocabItem[]): ScriptItem[] {
 
 // ── Main page ─────────────────────────────────────────────────────────────────
 
-export default function ScriptReadingPage({ items, langId, level, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<VocabItem>>) {
+export default function ScriptReadingPage({ items, langId, level, config: _config, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<VocabItem>>) {
     const ui = getUI(langId, level)
     const language = getLanguage(langId)
 
