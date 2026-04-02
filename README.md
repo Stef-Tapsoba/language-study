@@ -31,17 +31,25 @@ Most language apps optimise for retention loops. This one optimises for retentio
 
 | Feature | Why it matters |
 |---|---|
-| Placement test | Start at the right level — not from scratch |
-| Unit progression | Build skills in the right order, not randomly |
-| Flashcards (SRS) | Review words exactly when you're about to forget them |
+| Placement test + goal picker | Start at the right level with content matched to your goals |
+| Unit reinforcement exercises | Practice after each lesson — not just read and scroll |
+| Smart exercise sizing | Short focused sets in units; full corpus in free practice |
+| SRS-aware item selection | Struggling items appear first; fresh items fill the rest |
+| Cross-unit review | Prior vocab resurfaces when due — spaced retrieval in context |
+| Break-return review | Come back after a week and get a targeted refresher |
+| Personalized goal paths | Travelling, social, culture, or full course — units sorted for you |
+| Sentence scramble + vocab matching | Active retrieval, not passive reading |
+| Flashcards (SM-2 SRS) | Review words exactly when you're about to forget them |
 | Auto-TTS pronunciation | Hear every word in the right accent, automatically |
+| Speaking exercises | Speak the phrase, Web Speech API evaluates |
 | Typed recall mode | Prove you actually know a word — not just recognise it |
 | Verb conjugation drill | Repetition until conjugations become automatic |
-| Grammar drill | Targeted practice on the rules you keep getting wrong |
+| Grammar + cloze + dictation | Multiple retrieval modes for every grammar concept |
 | Reading + listening passages | Real comprehension practice at each level |
 | Culture episodes | Context that makes vocabulary stick |
+| Sound feedback | Correct-answer chime and level-up fanfare (Web Audio API) |
 | Immersion progression | Gradually removes English as you improve |
-| Dark mode | Works how you want it to |
+| Light-first UI with dark mode | Clean by default; toggle any time |
 | Progress export / import | Your data, your device — portable JSON backup |
 
 ---
@@ -62,13 +70,15 @@ Each A-level includes 20 grammar lessons, 20 units, 60+ vocabulary items, verb d
 
 ## How to use the app
 
-1. **Register** (mock auth — no real backend) and land on the dashboard
-2. **Take the placement test** to start at A1, or skip ahead if you already know the basics
-3. **Work through units** — each one combines grammar, vocabulary, verbs, and a mini-quiz
-4. **Use the flashcard deck** between sessions to lock in vocabulary with spaced repetition
-5. **Take the level test** when the unit tab is complete — pass 12/15 to advance
-6. **Review your mistakes** — required before moving to the next level
-7. **Watch the UI shift** — at A2+, explanations and labels start appearing in your target language
+1. **Register** (mock auth — no real backend) and pick a language
+2. **Take the placement test** to find your level — or skip if you already know
+3. **Pick your learning goal** — Travelling, Making friends, Culture, or Full course
+4. **Work through units** — each one has lessons, paired reinforcement exercises, and a mini-quiz
+5. **Do the exercises** — after each grammar lesson or vocab review, a targeted exercise unlocks
+6. **Use the flashcard deck** between sessions for spaced repetition review
+7. **Take the level test** when ready — pass 12/15 to advance to the next CEFR level
+8. **Come back after a break** — a review prompt appears if you've been away 7+ days
+9. **Watch the UI shift** — at A2+, explanations and labels start appearing in your target language
 
 ---
 
@@ -87,11 +97,11 @@ npm run typecheck  # tsc --noEmit
 
 ## Roadmap
 
-- **Cloud sync** — optional Supabase backend (preserves local-first default)
+- **Cloud sync** — optional Supabase backend (preserves local-first default; architecture seam-ready)
 - **Mobile apps** — iOS + Android via Capacitor
-- **Speaking evaluation** — pronunciation feedback
-- **Peer practice** — community corrections and conversation partners
-- **B1–C1 content** — rolling out across all five languages
+- **B1–C1 content expansion** — reading/listening/culture rolling out across all five languages
+- **Writing exercises** — constrained prompts + model answers (EE module)
+- **Daily challenges** — progress ring, reward on completion
 
 ---
 
@@ -145,19 +155,22 @@ npm run test              # run all tests once
 npm run test -- --watch   # watch mode
 ```
 
+618 tests across 29 files. Key test files:
+
 | Test file | What it covers |
 |---|---|
-| `src/utils/answerMatch.test.ts` | Exact match, case-insensitivity, accent stripping, whitespace |
-| `src/store/useStatsStore.test.ts` | `recordReview`, streak, accuracy, history, legacy migration |
-| `src/store/progress.test.ts` | Lesson/unit/level CRUD, user-switch wipe, corrupted JSON fallback |
-| `src/store/srs.test.ts` | `getDueCards`, `NEW_CARDS_PER_DAY` cap, v1→v2 migration, `updateCard` accumulation |
-| `src/utils/tts.test.ts` | BCP-47 language mapping, graceful no-op when Speech API absent |
-| `src/auth/mockAuthApi.test.ts` | Login, register, refresh, duplicate email detection |
-| `src/auth/AuthContext.test.tsx` | Session lifecycle, login/logout state updates |
-| `src/context/ProgressContext.test.tsx` | All mutations, user-switch, throws outside provider |
-| `src/hooks/useProgressStats.test.ts` | `computeProgressStats`, `isDone`, division-by-zero guard |
-| `src/components/DrillDoneScreen.test.tsx` | Score/pct rendering, missed-items toggle, callbacks |
-| `src/components/StatsTab.test.tsx` | Streak chip, progress labels, 14-day chart bars |
+| `src/utils/answerMatch.test.ts` | Exact match, accent stripping, multi-answer, whitespace |
+| `src/utils/exerciseConfig.test.ts` | Context-aware sizing, selectItems tier routing, slot caps |
+| `src/utils/reinforcementMapping.test.ts` | Vocab threshold, unlock conditions, exercise type resolver |
+| `src/data/goalConfig.test.ts` | Goal profile structure, scoreUnitForGoal edge cases |
+| `src/data/repo.unit.test.ts` | getGrammarForUnit, getVocabForUnit, getReviewItemsForUnit |
+| `src/store/progress.test.ts` | CRUD, schema migration, reinforcement tracking, mergeProgress |
+| `src/store/reinforcement.test.ts` | markReinforcementDone idempotency, cross-section isolation |
+| `src/store/preferences.test.ts` | isGoalSet, goal persistence, review prompt dismissal + date reset |
+| `src/hooks/useBreakDetection.test.ts` | Full tier boundary sweep (none/light/medium/heavy/critical) |
+| `src/store/srs.test.ts` | SM-2 calculations, due-card logic, v1→v2 migration |
+| `src/store/statsActivity.test.ts` | getLastActivityDate edge cases, per-language isolation |
+| `src/components/DrillDoneScreen.test.tsx` | Score rendering, missed-items toggle, callbacks |
 
 ---
 

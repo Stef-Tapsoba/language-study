@@ -1,6 +1,6 @@
 # language-study — Implementation Plan
 
-*Last updated: April 1, 2026 — v2.5.0 (pre-Supabase hardening complete)*
+*Last updated: April 2, 2026 — v2.5.x (unit reinforcement, tagging, UI modernization, smart exercises)*
 
 ## Context
 
@@ -201,6 +201,8 @@ Current:
 /learn/:langId/culture           → CulturePage                      [protected]
 /learn/:langId/level-test
 /learn/:langId/exercise/:exerciseTypeId → ExerciseShell (registry-dispatched)
+/learn/:langId/goal      → GoalPickerPage (personalized learning path selection)
+/learn/:langId/review    → ReviewPage (break-return SRS review session)
 /profile
 ```
 
@@ -208,6 +210,12 @@ All exercise types routed through `ExerciseShell` via `:exerciseTypeId`:
 - `cloze`, `dictation`, `dialogue-completion`, `error-correction`
 - `script-reading`, `sentence-scramble`, `vocab-in-context`, `vocab-matching`
 - `speaking` (EO — Web Speech API)
+
+`ExerciseShell` supports URL params for reinforcement scoping:
+- `?unitId=` — scopes content to that unit's grammar/vocab
+- `?lessonId=` — scopes grammar exercises to specific lesson examples
+- `?section=grammar|vocab|verbs` — records reinforcement completion
+- `?returnTo=` — navigates back after session done
 
 Planned (future):
 ```
@@ -278,20 +286,34 @@ interface QuizQuestion {
   answer: string
 }
 
+// Content tagging — for personalized learning paths
+type TopicTag = "identity"|"greetings"|"food"|"shopping"|"travel"|"social"|
+                "home"|"health"|"work"|"culture"|"numbers"|"nature"
+type FunctionTag = "fn:describing"|"fn:asking-questions"|"fn:expressing-time"|...
+
 // Groups grammar/vocab/verbs into a sequential curriculum unit within a level.
 interface LessonUnit {
   id: string                  // e.g. "es-a1-u1"
   level: CEFRLevel
   order: number               // sequential within the level
   title: string
-  description: LocalizedText  // ← LocalizedText (not plain string)
+  description: LocalizedText
   grammarIds: string[]
   vocabIds: string[]
   verbIds: string[]
-  testQuestions: QuizQuestion[]  // 5–8 questions to test out of this unit
-  cultureIds?: string[]          // optional CultureEpisode.id — unlocked post-unit
-  readingIds?: string[]          // optional ReadingPassage.id — linked to this unit
-  listeningIds?: string[]        // optional ListeningExercise.id — linked to this unit
+  testQuestions: QuizQuestion[]
+  cultureIds?: string[]
+  readingIds?: string[]
+  listeningIds?: string[]
+  vocabUnlockThreshold?: number   // min learned before vocab exercise unlocks (default 5)
+  topicTags?: TopicTag[]          // 1-3 tags; merged from unitTags.ts via repo.getUnitsForLevel()
+}
+
+// Reinforcement exercise completion (stored in UserProgress.completedReinforcement)
+interface UnitReinforcementState {
+  grammarLessonIds: string[]  // lesson IDs whose paired exercise is done
+  vocab?: true                // vocab section exercise done
+  verbs?: true                // verbs section exercise done
 }
 
 export type PassageCategory = "everyday" | "culture" | "history" | "literature" | "dialogue"
@@ -348,12 +370,14 @@ interface SpeakingPrompt {
 
 // Progress (persisted in localStorage under ls:progress:{userId})
 interface UserProgress {
-  schemaVersion: 1         // bump on breaking field changes
+  schemaVersion: 2         // v1→v2: completedReinforcement added (no migration needed)
   userId?: string
   selectedLanguage: string | null
   levels: Record<string, CEFRLevel>
   completedLessons: Record<string, string[]>
   masteredUnits: Record<string, string[]>
+  completedReinforcement?: Record<string, Record<string, UnitReinforcementState>>
+  // shape: { [langId]: { [unitId]: UnitReinforcementState } }
 }
 ```
 
@@ -539,21 +563,31 @@ Alternative entry to grammar lessons: present examples → user hypothesises the
                • SRSStore type: { schemaVersion, langs } replaces unsafe index-signature union
              Full Supabase migration plan: documents/SUPABASE_MIGRATION.md
 
+✅ v2.5.x (2026-04-02) — Unit reinforcement layer + smart exercise system + UI overhaul:
+  • Unit reinforcement: grammar sequential list (per-lesson exercises), vocab practice section,
+    soft test gate with "start test anyway", completion tracking (UnitReinforcementState)
+  • Smart exercise config: ExerciseConfig (context-aware sizing), selectItems() 4-tier SRS selection
+  • Break-return system: useBreakDetection, ReviewPromptCard (3 severity variants), /review route
+  • Cross-unit SRS review: prior-unit due vocab silently injected when ≥4 units mastered
+  • Content tagging: TopicTag/FunctionTag types, 200 A1+A2 unit assignments (all 5 languages)
+  • Personalized learning goals: GoalPickerPage, 4 profiles (traveller/social/culture/general),
+    goal-sorted Path tab, "For you" badges, inserted into new-user onboarding flow
+  • UI modernization: Button, Badge, Progress, Card, Sheet (mobile NavBar), Input, Avatar, Skeleton,
+    canvas-confetti, lucide-react — shadcn adopted consistently across all pages
+  • Sound feedback: playCorrect/playWrong/playLevelUp (Web Audio API, no asset files)
+  • Level-up overlay redesigned: gradient Dialog, confetti burst, 4-note fanfare
+  • Pronunciation lessons → exerciseType: "dictation" (es/fr/it A1)
+  • Unit scoping: exercises filtered to lesson/unit content (not full A1 corpus)
+  • Light mode as default for new users; dark mode respects stored preference only
+  • Onboarding banner auto-dismisses on first tab switch
+  • 618 tests across 29 files (up from 467/21)
+
 Next:
-  - UX Phase 1 remaining:
-      • ARIA labels on all progress bars (role, aria-valuenow, aria-valuemin, aria-valuemax)
-      • Text labels alongside color coding on StudyCards (accessibility)
-  - UX Phase 2 core improvements:
-      • Mobile NavBar redesign — collapse secondary buttons to overflow/hamburger
-      • Level-up celebration modal (LevelUpModal) on CEFR advancement
-      • Tooltip on locked units ("Complete previous unit to unlock")
-  - JSON progress import: conflict UI + partial restore (quality-of-life improvement)
-  - hydrateError / mutationError: wire up retry banner in the UI (currently defined but not consumed)
-  - UX Phase 3 engagement features (longer-term):
-      • Spaced repetition onboarding (explain SM-2 on first flashcard session)
-      • Smart practice recommendations based on per-section accuracy stats
-      • Visual learning-path roadmap on Path tab (A1 → C1 timeline)
-      • Daily challenges system (progress ring, reward on completion)
+  - UX remaining: ARIA on progress bars (P2), locked-unit tooltip improvement (P2)
+  - JSON progress import: conflict UI + partial restore
+  - hydrateError / mutationError: retry banner in UI
+  - Verb tab reinforcement (deferred from reinforcement sprint)
+  - Optional exercise unlock chain in unit sequential list
 
 Phase 3 content — B1 reading/listening/culture content expansion (all 5 languages)
 Phase 4     — EE: writing tasks (self-assessed prompt + model answer)
@@ -584,9 +618,12 @@ npm run dev     # → http://localhost:5173
 ```
 
 Happy path:
-1. Register → Login → Pick Spanish → Placement test → Dashboard
-2. Dashboard shows ordered A1 unit list with lock/complete states
-3. Open Unit 1 → tabs for grammar / vocab / verbs / test
-4. Pass unit test → Unit 2 unlocks
-5. Take Level Test → pass or fail
-6. Works on mobile viewport (DevTools → iPhone 14 size)
+1. Register → Login → Pick Spanish → Placement test → **Goal picker** → Dashboard
+2. Dashboard shows A1 unit list sorted by goal relevance ("For you" badges on matches)
+3. Open Unit 1 → grammar sequential list (lesson rows + exercise rows) + vocab practice
+4. Complete grammar lesson → exercise row unlocks → do exercise → exercise marked done
+5. Test tab shows soft gate checklist if exercises incomplete; "Start test anyway" always visible
+6. Pass unit test → Unit 2 unlocks
+7. Take Level Test → pass → confetti + fanfare → advance
+8. Break-return: come back after 7+ days → ReviewPromptCard in Path tab → /review route
+9. Works on mobile viewport (Sheet drawer nav on mobile)
