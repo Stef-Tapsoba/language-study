@@ -55,7 +55,7 @@ import type { CEFRLevel } from "../types"
 import type { MatchMode } from "../utils/answerMatch"
 import type { ContentType } from "../store/IProgressStorage"
 import type { DrillSessionType } from "../store/actions"
-import type { ExerciseConfig } from "../utils/exerciseConfig"
+import type { ExerciseConfig, ExerciseContext } from "../utils/exerciseConfig"
 
 // ---------------------------------------------------------------------------
 // Params passed to fetchItems
@@ -72,6 +72,12 @@ export interface ExerciseFetchParams {
      * Takes precedence over unitId for filtering granularity.
      */
     lessonId?: string
+    /**
+     * Launch context — 'unit' | 'practice' | 'review'.
+     * Defaults to 'unit' when unitId is present, 'practice' otherwise.
+     * fetchItems implementations may use this to vary their query; most ignore it.
+     */
+    context?: ExerciseContext
 }
 
 // ---------------------------------------------------------------------------
