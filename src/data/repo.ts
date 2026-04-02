@@ -76,6 +76,26 @@ export function getUnit(langId: string, unitId: string): LessonUnit | null {
 }
 
 // ---------------------------------------------------------------------------
+// Unit-scoped content — used by exercise fetchItems when unitId is provided
+// ---------------------------------------------------------------------------
+
+/** Returns only the grammar lessons that belong to the given unit. */
+export function getGrammarForUnit(langId: string, unitId: string): GrammarLesson[] {
+    const unit = getUnit(langId, unitId)
+    if (!unit) return []
+    const grammar = getModule(langId)?.grammar ?? []
+    return unit.grammarIds.map(id => grammar.find(g => g.id === id)).filter(Boolean) as GrammarLesson[]
+}
+
+/** Returns only the vocab items that belong to the given unit. */
+export function getVocabForUnit(langId: string, unitId: string): VocabItem[] {
+    const unit = getUnit(langId, unitId)
+    if (!unit) return []
+    const vocab = getModule(langId)?.vocab ?? []
+    return unit.vocabIds.map(id => vocab.find(v => v.id === id)).filter(Boolean) as VocabItem[]
+}
+
+// ---------------------------------------------------------------------------
 // Reading
 // ---------------------------------------------------------------------------
 

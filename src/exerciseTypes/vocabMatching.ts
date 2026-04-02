@@ -8,7 +8,7 @@
 
 import { lazy } from "react"
 import { registerExerciseType } from "./registry"
-import { getVocabForLevel } from "../data/repo"
+import { getVocabForLevel, getVocabForUnit } from "../data/repo"
 import type { VocabItem } from "../types"
 
 const VocabMatchingPage = lazy(() => import("../pages/VocabMatchingPage"))
@@ -24,8 +24,8 @@ registerExerciseType<VocabItem>({
     // Multiple-choice pairing — no typed input.
     matchMode: null,
 
-    fetchItems: async ({ langId, level }) =>
-        Promise.resolve(getVocabForLevel(langId, level)),
+    fetchItems: async ({ langId, level, unitId }) =>
+        Promise.resolve(unitId ? getVocabForUnit(langId, unitId) : getVocabForLevel(langId, level)),
 
     component: VocabMatchingPage,
 })
