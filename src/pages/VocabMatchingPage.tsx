@@ -29,12 +29,9 @@ interface RoundState {
 
 // ── Round builder ─────────────────────────────────────────────────────────────
 
-const ROUND_SIZE = 6
-const MAX_ROUNDS = 5   // cap one sitting at 30 items (5 × 6)
-
-function buildRound(pool: VocabItem[], usedIds: Set<string>): RoundState {
+function buildRound(pool: VocabItem[], usedIds: Set<string>, roundSize: number): RoundState {
     const available = pool.filter(v => !usedIds.has(v.id))
-    const selected = shuffle(available).slice(0, ROUND_SIZE)
+    const selected = shuffle(available).slice(0, roundSize)
     const pairs: MatchPair[] = selected.map(v => ({
         id: v.id,
         word: v.word,
@@ -78,13 +75,15 @@ function ItemButton({ label, state, onClick }: Readonly<ItemButtonProps>) {
 
 // ── Main page ─────────────────────────────────────────────────────────────────
 
-export default function VocabMatchingPage({ items, langId, level, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<VocabItem>>) {
+export default function VocabMatchingPage({ items, langId, level, config, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<VocabItem>>) {
     const ui = getUI(langId, level)
 
-    const pool = useMemo(() => shuffle(items).slice(0, ROUND_SIZE * MAX_ROUNDS), [items])
+    // Items are pre-selected and ordered by ExerciseShell (selectItems).
+    // Use config.roundSize / config.maxRounds for sizing instead of hardcoded constants.
+    const pool = useMemo(() => items, [items])
 
     const [usedIds, setUsedIds] = useState<Set<string>>(new Set())
-    const [round, setRound] = useState<RoundState>(() => buildRound(pool, new Set()))
+    const [round, setRound] = useState<RoundState>(() => buildRound(pool, new Set(), config.roundSize))
     const [roundNum, setRoundNum] = useState(1)
     const [totalScore, setTotalScore] = useState(0)
     const [totalItems, setTotalItems] = useState(0)
@@ -103,7 +102,7 @@ export default function VocabMatchingPage({ items, langId, level, onComplete, on
     function handleRestart() {
         // C-5: use the original pool consistently (not a re-shuffle that only affects round 1)
         setUsedIds(new Set())
-        setRound(buildRound(pool, new Set()))
+        setRound(buildRound(pool, new Set(), config.roundSize))
         setRoundNum(1)
         setTotalScore(0)
         setTotalItems(0)
@@ -138,7 +137,7 @@ export default function VocabMatchingPage({ items, langId, level, onComplete, on
                     setDone(true)
                 } else {
                     setUsedIds(newUsed)
-                    setRound(buildRound(pool, newUsed))
+                    setRound(buildRound(pool, newUsed, config.roundSize))
                     setRoundNum(r => r + 1)
                     setMatchedIds(new Set())
                     setSelectedLeft(null)

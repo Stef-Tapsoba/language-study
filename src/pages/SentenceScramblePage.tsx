@@ -65,7 +65,7 @@ function buildItems(lessons: GrammarLesson[], langId: string): ScrambleItem[] {
             })
         }
     }
-    return shuffle(items).slice(0, 10)
+    return shuffle(items)
 }
 
 // ── Done screen wrapper ────────────────────────────────────────────────────────
@@ -122,12 +122,16 @@ function TokenButton({ token, onClick, variant, disabled = false }: Readonly<Tok
 
 // ── Main page ─────────────────────────────────────────────────────────────────
 
-export default function SentenceScramblePage({ items, langId, level, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<GrammarLesson>>) {
+export default function SentenceScramblePage({ items, langId, level, config, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<GrammarLesson>>) {
     const ui = getUI(langId, level)
 
     // C-4: sessionKey busts the memo on restart so questions are reshuffled each play
     const [sessionKey, setSessionKey] = useState(0)
-    const questions = useMemo(() => buildItems(items, langId), [items, langId, sessionKey])
+    // config.maxRounds acts as the total question cap for this exercise type
+    const questions = useMemo(
+        () => buildItems(items, langId).slice(0, config.maxRounds),
+        [items, langId, config.maxRounds, sessionKey]
+    )
 
     const [index, setIndex] = useState(0)
     const [score, setScore] = useState(0)

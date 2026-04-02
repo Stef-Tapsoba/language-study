@@ -72,6 +72,7 @@ export default function SpeakingPage({
     items,
     langId,
     level,
+    config: _config,
     onComplete,
     onSessionDone,
 }: Readonly<ExerciseComponentProps<SpeakingPrompt>>) {

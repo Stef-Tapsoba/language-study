@@ -55,6 +55,7 @@ import type { CEFRLevel } from "../types"
 import type { MatchMode } from "../utils/answerMatch"
 import type { ContentType } from "../store/IProgressStorage"
 import type { DrillSessionType } from "../store/actions"
+import type { ExerciseConfig } from "../utils/exerciseConfig"
 
 // ---------------------------------------------------------------------------
 // Params passed to fetchItems
@@ -78,10 +79,12 @@ export interface ExerciseFetchParams {
 // ---------------------------------------------------------------------------
 
 export interface ExerciseComponentProps<TItem = unknown> {
-    /** Items returned by fetchItems — typed by the specific exercise definition */
+    /** Items returned by fetchItems, already selected and ordered by ExerciseShell */
     items: TItem[]
     langId: string
     level: CEFRLevel
+    /** Context-aware sizing and selection config computed by ExerciseShell */
+    config: ExerciseConfig
     /**
      * Call when the user successfully completes one item.
      * The shell calls markLessonComplete(langId, itemId, contentType) via actions.ts.

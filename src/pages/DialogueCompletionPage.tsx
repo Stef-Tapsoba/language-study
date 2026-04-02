@@ -74,7 +74,7 @@ function buildDialogueItems(passages: ReadingPassage[]): DialogueItem[] {
 
 // ── Main page ─────────────────────────────────────────────────────────────────
 
-export default function DialogueCompletionPage({ items, langId, level, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<ReadingPassage>>) {
+export default function DialogueCompletionPage({ items, langId, level, config: _config, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<ReadingPassage>>) {
     const ui = getUI(langId, level)
 
     const questions = useMemo(() => buildDialogueItems(items), [items])
