@@ -66,6 +66,15 @@ export function getGoal(): string {
     return localStorage.getItem(GOAL_KEY) ?? "general"
 }
 
+/**
+ * Returns true once the user has explicitly set a goal (including "general").
+ * False only for brand-new users who have never reached the goal picker.
+ * Used by PlacementPage to decide whether to insert the goal picker into the onboarding flow.
+ */
+export function isGoalSet(): boolean {
+    return localStorage.getItem(GOAL_KEY) !== null
+}
+
 /** Persist the user's selected learning goal. */
 export function setGoal(goalId: string): void {
     localStorage.setItem(GOAL_KEY, goalId)
