@@ -12,7 +12,7 @@
 // Read methods stay synchronous — they serve from a write-through local cache.
 // Stage 2 will hydrate that cache from Supabase once on login.
 
-import { CEFRLevel, UserProgress, UnitReinforcementState } from "../types"
+import { CEFRLevel, UserProgress, UnitReinforcementState, GoalId } from "../types"
 
 /**
  * Distinguishes content types that share the completedLessons namespace locally
@@ -81,6 +81,13 @@ export interface IProgressStorage {
 
     /** Remove a language entirely (level + all progress). */
     removeLanguage(langId: string): Promise<void>
+
+    /**
+     * Persist the user's selected learning goal.
+     * Stored in UserProgress so it syncs cross-device in Stage 2.
+     * Stage 2: write to profiles.learning_goal column.
+     */
+    setGoal(goalId: GoalId): Promise<void>
 
     // ---------------------------------------------------------------------------
     // Reinforcement exercise completion

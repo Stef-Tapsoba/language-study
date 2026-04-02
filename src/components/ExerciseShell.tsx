@@ -17,6 +17,7 @@ import { getDueCards } from "../store/srs"
 import type { VocabItem, CEFRLevel } from "../types"
 import type { ReinforcementSection } from "../store/IProgressStorage"
 import type { ExerciseContext } from "../utils/exerciseConfig"
+import { logError } from "../utils/logger"
 import { Skeleton } from "../components/ui/skeleton"
 
 /**
@@ -117,15 +118,15 @@ export function ExerciseShell() {
     // def is always set when they are reachable (the Navigate guard below runs first).
     const onComplete = useCallback((itemId: string) => {
         if (!def) return
-        completeLessonItem(langId, itemId, def.contentType).catch(console.error)
+        completeLessonItem(langId, itemId, def.contentType).catch(err => logError("ExerciseShell", err))
     }, [langId, def])
 
     const onSessionDone = useCallback(() => {
         if (!def) return
-        completeDrillSession(langId, def.sessionType).catch(console.error)
+        completeDrillSession(langId, def.sessionType).catch(err => logError("ExerciseShell", err))
         // If launched from a unit page, record reinforcement completion then navigate back
         if (unitId && section) {
-            completeReinforcement(langId, unitId, section, lessonId).catch(console.error)
+            completeReinforcement(langId, unitId, section, lessonId).catch(err => logError("ExerciseShell", err))
         }
         if (returnTo) {
             navigate(decodeURIComponent(returnTo), { replace: true })

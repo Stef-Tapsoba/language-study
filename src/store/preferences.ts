@@ -58,31 +58,40 @@ export function dismissReviewPrompt(langId: string): void {
 }
 
 // ── Learning goal ─────────────────────────────────────────────────────────────
+// Goal is stored in UserProgress (via IProgressStorage) for cross-device sync in
+// Stage 2. The ls:goal key is retained as a fast local cache and migration fallback.
+
+import { getGoalFromProgress, setGoalInProgress, loadProgress } from "./progress"
+import type { GoalId } from "../types"
 
 const GOAL_KEY = "ls:goal"
+const VALID_GOAL_IDS = new Set<string>(["traveller", "social", "culture", "general"])
 
-// Runtime whitelist — prevents a corrupted/stale localStorage value producing
-// `undefined` when used as a key in USER_GOALS (e.g. USER_GOALS["tourism"]?.icon).
-const VALID_GOAL_IDS = new Set(["traveller", "social", "culture", "general"])
-
-/** Returns the stored learning goal ID, validated at runtime. Defaults to "general". */
-export function getGoal(): import("../data/goalConfig").GoalId {
+/**
+ * Returns the user's goal, validated at runtime.
+ * Reads from UserProgress.goal first (Stage 2 syncable),
+ * falls back to ls:goal for migration compatibility with existing installs.
+ */
+export function getGoal(): GoalId {
+    const fromProgress = getGoalFromProgress()
+    if (fromProgress !== "general") return fromProgress
     const stored = localStorage.getItem(GOAL_KEY)
-    return (stored && VALID_GOAL_IDS.has(stored))
-        ? stored as import("../data/goalConfig").GoalId
-        : "general"
+    return (stored && VALID_GOAL_IDS.has(stored)) ? stored as GoalId : "general"
 }
 
 /**
- * Returns true once the user has explicitly set a goal (including "general").
+ * Returns true once the user has explicitly set a goal (either in UserProgress or ls:goal).
  * False only for brand-new users who have never reached the goal picker.
- * Used by PlacementPage to decide whether to insert the goal picker into the onboarding flow.
  */
 export function isGoalSet(): boolean {
-    return localStorage.getItem(GOAL_KEY) !== null
+    return loadProgress().goal !== undefined || localStorage.getItem(GOAL_KEY) !== null
 }
 
-/** Persist the user's selected learning goal. */
-export function setGoal(goalId: string): void {
+/**
+ * Persist the user's goal.
+ * Writes to UserProgress (Stage 2 syncable) and caches in ls:goal for fast reads.
+ */
+export function setGoal(goalId: GoalId): void {
     localStorage.setItem(GOAL_KEY, goalId)
+    setGoalInProgress(goalId)
 }

@@ -1,6 +1,6 @@
 # Supabase Migration Plan — Stage 2
 
-*Author: Backend Engineer Agent | Date: 2026-04-01*
+*Author: Backend Engineer Agent | Last updated: 2026-04-02*
 
 ---
 
@@ -16,9 +16,10 @@ The adapter seam is already in place (`IProgressStorage`, `ISRSStorage`, `IStats
 
 | localStorage key | Current shape | Supabase table(s) |
 |---|---|---|
-| `ls:progress:{userId}` | `UserProgress` blob | `profiles`, `user_language_levels`, `lesson_completions`, `mastered_units` |
+| `ls:progress:{userId}` | `UserProgress` blob | `profiles`, `user_language_levels`, `lesson_completions`, `mastered_units`, `reinforcement_grammar`, `reinforcement_sections` |
 | `ls:srs` | nested `Record<langId, Record<vocabId, SRSCardState>>` | `srs_cards` |
 | `ls:stats` | nested `Record<langId, Record<date, DayStats>>` | `daily_stats` |
+| `ls:goal` (legacy) | GoalId string | `profiles.learning_goal` — migrated via `UserProgress.goal` |
 
 ### 1.2 Full DDL
 
@@ -34,6 +35,8 @@ create table public.profiles (
   id               uuid references auth.users(id) on delete cascade primary key,
   display_name     text,
   selected_language text,          -- last active lang_id (nullable)
+  learning_goal    text check (learning_goal in ('traveller','social','culture','general')),
+                                   -- UserProgress.goal — syncs cross-device
   created_at       timestamptz not null default now(),
   updated_at       timestamptz not null default now()
 );
@@ -77,6 +80,37 @@ create table public.mastered_units (
   completed_at timestamptz not null default now(),
   unique (user_id, lang_id, unit_id)
 );
+
+-- ─── reinforcement_grammar ────────────────────────────────────────────────────
+-- Per-lesson grammar exercise completion. Replaces UserProgress.completedReinforcement
+-- (grammarLessonIds array). IProgressStorage.markReinforcementDone("grammar", lessonId).
+
+create table public.reinforcement_grammar (
+  user_id           uuid not null references public.profiles(id) on delete cascade,
+  lang_id           text not null,
+  unit_id           text not null,
+  grammar_lesson_id text not null,
+  completed_at      timestamptz not null default now(),
+  primary key (user_id, lang_id, unit_id, grammar_lesson_id)
+);
+
+create index idx_rg_user_lang on public.reinforcement_grammar (user_id, lang_id);
+
+-- ─── reinforcement_sections ───────────────────────────────────────────────────
+-- Section-level exercise completion (vocab, verbs). Replaces
+-- UserProgress.completedReinforcement (vocab/verbs booleans).
+-- IProgressStorage.markReinforcementDone("vocab" | "verbs").
+
+create table public.reinforcement_sections (
+  user_id      uuid not null references public.profiles(id) on delete cascade,
+  lang_id      text not null,
+  unit_id      text not null,
+  section      text not null check (section in ('vocab','verbs')),
+  completed_at timestamptz not null default now(),
+  primary key (user_id, lang_id, unit_id, section)
+);
+
+create index idx_rs_user_lang on public.reinforcement_sections (user_id, lang_id);
 
 -- ─── srs_cards ────────────────────────────────────────────────────────────────
 -- One row per (user, language, vocab card). Mirrors SRSCardState from @myorg/srs.
@@ -965,12 +999,20 @@ In Supabase, `lesson_completions.content_type` is the canonical store. When hydr
 ## 8. Implementation Checklist
 
 ### Pre-migration (do now, in Stage 1)
-- [ ] Add `userId` field to `UserProgress` type (already present in `progress.ts` but not in `types/index.ts`)
-- [ ] Ensure `IProgressStorage.load()` returns a type that includes `userId`
-- [ ] Add `isHydrating` / `hydrateError` to ProgressContext value type (non-breaking — Stage 1 always sets `isHydrating: false`)
-- [ ] Add `flush()` method to `IStatsStorage` interface (Stage 1 impl is a no-op)
-- [ ] Add `hydrate(langId?: string)` method to `ISRSStorage` interface (Stage 1 impl is a no-op)
-- [ ] Instrument `actions.ts` error paths with structured logging (not just `console.error`)
+- [x] `userId` field on `UserProgress` — present in both `types/index.ts` and `progress.ts`
+- [x] `isHydrating` / `hydrateError` / `mutationError` in ProgressContext — exposed + `HydrationErrorBanner` component wired into DashboardPage
+- [x] `flush()` on `IStatsStorage` — interface method present; Stage 1 no-op in `LocalStorageStatsStorage`
+- [x] `hydrate(langId?)` on `ISRSStorage` — interface method present; Stage 1 no-op in `LocalStorageSRSStorage`
+- [x] Structured error logging — `src/utils/logger.ts` `logError()` utility; swap body for Sentry at Stage 2
+- [x] `goal` in `UserProgress` — added with `IProgressStorage.setGoal()`, `preferences.getGoal()` reads through adapter
+- [x] Reinforcement tables documented — `reinforcement_grammar` + `reinforcement_sections` DDL above
+- [x] `profiles.learning_goal` column — added to profiles DDL above
+- [ ] `topic_tags text[]` column on units content table — add when content moves to Supabase; `unitTags.ts` retired at that point
+- [ ] Schema version check on import — validate `data.progress.schemaVersion <= SCHEMA_VERSION` in `importProgressSnapshot()`
+- [ ] `SupabaseProgressStorage` implementation — implement all `IProgressStorage` methods against Supabase tables
+- [ ] `SupabaseSRSStorage` implementation — implement all `ISRSStorage` methods
+- [ ] `SupabaseStatsStorage` implementation — implement all `IStatsStorage` methods
+- [ ] Replace `mockAuthApi` with `SupabaseAuthApi` wrapping `@supabase/supabase-js` auth
 
 ### Stage 2 execution order
 1. Set up Supabase project, apply DDL (§1.2), enable RLS (§1.4), deploy RPCs (§1.5)

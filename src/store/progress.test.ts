@@ -333,10 +333,10 @@ describe("resetProgress", () => {
 // ─── Schema migration (BUG-005) ───────────────────────────────────────────────
 
 describe("schema migration", () => {
-    it("stamps schemaVersion=2 on a fresh write", () => {
+    it("stamps schemaVersion=3 on a fresh write", () => {
         setSelectedLanguage("es")
         const p = loadProgress()
-        expect(p.schemaVersion).toBe(2)
+        expect(p.schemaVersion).toBe(3)
     })
 
     it("migrates v0 data: adds missing masteredUnits", () => {
@@ -348,7 +348,7 @@ describe("schema migration", () => {
         }))
         const p = loadProgress()
         expect(p.masteredUnits).toEqual({})
-        expect(p.schemaVersion).toBe(2)
+        expect(p.schemaVersion).toBe(3)
         // Original data preserved
         expect(p.selectedLanguage).toBe("es")
         expect(p.levels.es).toBe("A2")
@@ -375,7 +375,7 @@ describe("schema migration", () => {
             masteredUnits: {},
         }))
         const p = loadProgress()
-        expect(p.schemaVersion).toBe(2)
+        expect(p.schemaVersion).toBe(3)
         expect(p.selectedLanguage).toBe("ja")
     })
 })

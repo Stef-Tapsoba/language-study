@@ -73,6 +73,8 @@ export function mergeProgress(current: UserProgress, imported: UserProgress): Us
         ...imported,
         userId:                   current.userId,
         selectedLanguage:         current.selectedLanguage ?? imported.selectedLanguage,
+        // Current goal wins — don't override an active session's goal from an old backup
+        goal:                     current.goal ?? imported.goal,
         levels,
         completedLessons:         unionArrays(current.completedLessons, imported.completedLessons),
         masteredUnits:            unionArrays(current.masteredUnits,    imported.masteredUnits),

@@ -8,7 +8,7 @@
 // the legacy key is migrated forward (copied to the new key then removed) so existing
 // users keep all their progress after upgrading.
 
-import { CEFRLevel, UserProgress, UnitReinforcementState } from "../types"
+import { CEFRLevel, UserProgress, UnitReinforcementState, GoalId } from "../types"
 import type { ContentType, ReinforcementSection } from "./IProgressStorage"
 
 const LEGACY_KEY = "ls:progress"
@@ -16,7 +16,7 @@ const userKey = (userId: string) => `ls:progress:${userId}`
 
 // Bump this whenever a breaking schema change is made (field rename, removal, type change).
 // Add a migration branch in `migrate()` for each version increment.
-const SCHEMA_VERSION = 2
+const SCHEMA_VERSION = 3
 
 const DEFAULT: UserProgress = {
     schemaVersion: SCHEMA_VERSION,
@@ -41,8 +41,9 @@ function migrate(raw: Record<string, unknown>): UserProgress {
         }
     }
 
-    // v1 → v2: completedReinforcement introduced. No field migration needed —
-    // the field is optional and safely absent in all v1 records.
+    // v1 → v2: completedReinforcement introduced. No field migration needed.
+    // v2 → v3: goal field introduced. No field migration needed —
+    // the field is optional; absent = falls back to ls:goal for migration compat.
 
     return { ...DEFAULT, ...raw, schemaVersion: SCHEMA_VERSION }
 }
@@ -250,6 +251,21 @@ export function markReinforcementDone(
             [langId]: { ...langMap, [unitId]: next },
         },
     })
+}
+
+// ---------------------------------------------------------------------------
+// Learning goal helpers
+// ---------------------------------------------------------------------------
+
+/** Returns the stored goal from UserProgress, falling back to ls:goal for migration. */
+export function getGoalFromProgress(): GoalId {
+    return loadProgress().goal ?? "general"
+}
+
+/** Persists the goal in UserProgress (so it syncs via IProgressStorage in Stage 2). */
+export function setGoalInProgress(goalId: GoalId): void {
+    const p = loadProgress()
+    save({ ...p, goal: goalId })
 }
 
 // Re-exported here so existing imports (e.g. progress.test.ts) keep working.
