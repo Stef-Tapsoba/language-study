@@ -25,6 +25,9 @@ import { getUI, UIStrings } from "../i18n"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "../components/ui/tabs"
 import { Alert, AlertDescription } from "../components/ui/alert"
 import { Tooltip, TooltipContent, TooltipTrigger } from "../components/ui/tooltip"
+import { Button } from "../components/ui/button"
+import { Badge } from "../components/ui/badge"
+import { Progress } from "../components/ui/progress"
 
 type DashTab = "path" | "study" | "practice" | "test" | "stats"
 
@@ -37,14 +40,14 @@ const SectionCard = memo(function SectionCard({ emoji, title, description, to, p
     return (
         <Link
             to={to}
-            className="card-lift bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-5 flex flex-col gap-2"
+            className="card-lift bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-5 flex flex-col gap-2 hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
         >
             <div className="flex items-start justify-between">
                 <span className="text-3xl">{emoji}</span>
                 {badge !== undefined && (
-                    <span className="bg-red-500 text-white text-xs font-bold rounded-full px-1.5 py-0.5 leading-none">
+                    <Badge variant="destructive" className="text-xs font-bold rounded-full">
                         {badge}
-                    </span>
+                    </Badge>
                 )}
             </div>
             <p className="font-semibold text-gray-900 dark:text-gray-100">{title}</p>
@@ -132,9 +135,13 @@ const UnitRow = memo(function UnitRow({ unit, langId, level, mastered, allUnits,
                 {unlocked && (
                     <div className="flex flex-wrap gap-1.5 mt-2">
                         {pills.map(p => (
-                            <span key={p.label} className={`text-xs font-medium rounded-full px-2 py-0.5 ${p.cls} ${p.done ? "opacity-60" : ""}`}>
+                            <Badge
+                                key={p.label}
+                                variant="outline"
+                                className={`text-xs font-medium ${p.cls} border-0 ${p.done ? "opacity-60" : ""}`}
+                            >
                                 {p.done ? `${p.label} ✓` : p.label}
-                            </span>
+                            </Badge>
                         ))}
                     </div>
                 )}
@@ -254,12 +261,14 @@ export function DashboardPage() {
                             <span className="text-gray-700 dark:text-gray-300 text-sm">{levelName(level, ui)}</span>
                         </div>
                     </div>
-                    <button
+                    <Button
+                        variant="link"
+                        size="sm"
                         onClick={() => navigate(`/learn/${langId}/placement`)}
-                        className="text-xs text-indigo-600 hover:underline shrink-0"
+                        className="text-xs p-0 h-auto shrink-0 text-indigo-600 dark:text-indigo-400"
                     >
                         {ui.changeLevel}
-                    </button>
+                    </Button>
                 </div>
 
                 {/* First-visit onboarding card */}
@@ -273,15 +282,17 @@ export function DashboardPage() {
                                 Practice with flashcards and drills, then take a <strong>Level Test</strong> when you're ready to advance.
                             </p>
                         </div>
-                        <button
+                        <Button
+                            variant="ghost"
+                            size="icon"
                             onClick={handleDismissOnboarding}
                             aria-label="Dismiss"
-                            className="text-indigo-400 hover:text-indigo-600 dark:text-indigo-500 dark:hover:text-indigo-300 shrink-0 p-1"
+                            className="w-7 h-7 shrink-0 text-indigo-400 hover:text-indigo-600 dark:text-indigo-500 dark:hover:text-indigo-300"
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                             </svg>
-                        </button>
+                        </Button>
                     </div>
                 )}
 
@@ -319,10 +330,10 @@ export function DashboardPage() {
                                 {/* Level progress bar */}
                                 <div className="flex items-center gap-3 mb-4">
                                     <span className="text-xs text-gray-500 dark:text-gray-400 shrink-0">{level} progress</span>
-                                    <div className="flex-1 h-2 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
-                                        <div className="h-full bg-violet-500 rounded-full transition-all"
-                                            style={{ width: `${levelUnits.length ? masteredCount / levelUnits.length * 100 : 0}%` }} />
-                                    </div>
+                                    <Progress
+                                        value={levelUnits.length ? masteredCount / levelUnits.length * 100 : 0}
+                                        className="flex-1 h-2"
+                                    />
                                     <span className="text-xs text-gray-500 dark:text-gray-400 shrink-0">{masteredCount} of {levelUnits.length}</span>
                                 </div>
                                 <div className="flex flex-col gap-2">
@@ -502,28 +513,28 @@ export function DashboardPage() {
                                         <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wide mb-4">Readiness</p>
                                         <div className="flex flex-col gap-3">
                                             {[
-                                                { label: "Grammar covered",    done: grammar.done, total: grammar.total, color: "bg-green-500" },
-                                                { label: "Vocabulary learned",  done: vocab.done,   total: vocab.total,   color: "bg-amber-400" },
-                                                { label: "Flashcard accuracy",  done: srsAcc,       total: 100,           color: "bg-violet-500", suffix: "%" },
+                                                { label: "Grammar covered",    done: grammar.done, total: grammar.total, suffix: "" },
+                                                { label: "Vocabulary learned",  done: vocab.done,   total: vocab.total,   suffix: "" },
+                                                { label: "Flashcard accuracy",  done: srsAcc,       total: 100,           suffix: "%" },
                                             ].map(r => (
                                                 <div key={r.label} className="flex items-center gap-3">
                                                     <span className="text-sm text-gray-600 dark:text-gray-400 flex-1">{r.label}</span>
-                                                    <div className="w-28 h-2 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
-                                                        <div className={`h-full ${r.color} rounded-full`}
-                                                            style={{ width: `${r.total ? r.done / r.total * 100 : 0}%` }} />
-                                                    </div>
+                                                    <Progress
+                                                        value={r.total ? r.done / r.total * 100 : 0}
+                                                        className="w-28 h-2"
+                                                    />
                                                     <span className="text-xs text-gray-500 dark:text-gray-400 w-14 text-right shrink-0">
                                                         {r.suffix ? `${r.done}${r.suffix}` : `${r.done}/${r.total}`}
                                                     </span>
                                                 </div>
                                             ))}
                                         </div>
-                                        <button
+                                        <Button
                                             onClick={() => navigate(`/learn/${langId}/level-test`)}
-                                            className="mt-5 w-full bg-violet-600 hover:bg-violet-700 text-white font-semibold rounded-xl py-3 text-sm transition-colors"
+                                            className="mt-5 w-full bg-violet-600 hover:bg-violet-700 rounded-xl py-3 text-sm font-semibold"
                                         >
                                             Start level test →
-                                        </button>
+                                        </Button>
                                     </div>
                                     {/* Tip */}
                                     <Alert className="border-amber-200 bg-amber-50 text-amber-800">
@@ -542,13 +553,12 @@ export function DashboardPage() {
                                 <p className="text-4xl">🏆</p>
                                 <p className="font-medium text-gray-700 dark:text-gray-300">You've reached the highest level!</p>
                                 <p className="text-sm text-gray-500 dark:text-gray-400">Keep your skills sharp with daily practice.</p>
-                                <button
+                                <Button
                                     onClick={() => switchTab("practice")}
-                                    className="mt-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
-                                               rounded-xl px-6 py-2.5 text-sm transition-colors"
+                                    className="mt-2 rounded-xl px-6 text-sm font-semibold"
                                 >
                                     Go to Practice
-                                </button>
+                                </Button>
                             </div>
                         )}
                     </TabsContent>

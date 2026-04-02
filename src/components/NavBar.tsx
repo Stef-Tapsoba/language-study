@@ -1,5 +1,5 @@
 // components/NavBar.tsx — Sticky top navigation bar with back button, level badge, streak chip, and profile link
-import React, { useState, useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import { LevelBadge } from "./LevelBadge"
 import { LanguagePicker } from "./LanguagePicker"
@@ -8,6 +8,8 @@ import { useGlobalStreak } from "../hooks/useGlobalStreak"
 import { useDarkMode } from "../hooks/useDarkMode"
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip"
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbPage, BreadcrumbSeparator } from "./ui/breadcrumb"
+import { Button } from "./ui/button"
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet"
 
 interface NavBarProps {
     title?: string
@@ -33,27 +35,60 @@ interface NavBarProps {
     breadcrumb?: string
 }
 
+// ── Icon helpers ──────────────────────────────────────────────────────────────
+
+function BackIcon() {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+    )
+}
+
+function SunIcon() {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+    )
+}
+
+function MoonIcon() {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+    )
+}
+
+function ProfileIcon({ size = 20 }: Readonly<{ size?: number }>) {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round"
+                d="M5.121 17.804A9 9 0 1118.879 6.196 9 9 0 015.12 17.804z" />
+            <path strokeLinecap="round" strokeLinejoin="round"
+                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+    )
+}
+
+function MenuIcon() {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    )
+}
+
+// ── NavBar ────────────────────────────────────────────────────────────────────
+
 export function NavBar({ title = "Language Study", level, backTo, fallbackRoute, onBack, showLanguagePicker, breadcrumb }: Readonly<NavBarProps>) {
     const navigate = useNavigate()
     const [dark, toggleDark] = useDarkMode()
-    // Reactive: re-reads from the Zustand store so streak updates live during a session.
     const streak = useGlobalStreak()
-    const [menuOpen, setMenuOpen] = useState(false)
-    const menuRef = useRef<HTMLDivElement>(null)
 
-    // Close hamburger menu when clicking outside
-    useEffect(() => {
-        if (!menuOpen) return
-        function handleClick(e: MouseEvent) {
-            if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
-                setMenuOpen(false)
-            }
-        }
-        document.addEventListener("mousedown", handleClick)
-        return () => document.removeEventListener("mousedown", handleClick)
-    }, [menuOpen])
-
-    // Issue 22: animate streak badge when it increases
     const [streakBumped, setStreakBumped] = useState(false)
     const prevStreakRef = useRef(streak)
 
@@ -70,8 +105,6 @@ export function NavBar({ title = "Language Study", level, backTo, fallbackRoute,
     function handleBack() {
         if (onBack) { onBack(); return }
         if (backTo === "back") {
-            // Safety net: if there is no history to go back to (e.g. direct URL open),
-            // fall back to the explicit route rather than leaving the app.
             if (globalThis.history.length > 1) navigate(-1)
             else if (fallbackRoute) navigate(fallbackRoute)
         } else if (backTo) {
@@ -82,119 +115,99 @@ export function NavBar({ title = "Language Study", level, backTo, fallbackRoute,
     return (
         <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-10">
             <div className="max-w-3xl mx-auto px-4 md:px-6 pl-[max(1rem,env(safe-area-inset-left))] pr-[max(1rem,env(safe-area-inset-right))] h-14 flex items-center gap-2">
+
+                {/* Back button */}
                 {backTo && (
-                    <button
+                    <Button
+                        variant="ghost"
+                        size="icon"
                         onClick={handleBack}
-                        className="p-2 -ml-2 mr-0 text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200 rounded"
                         aria-label="Go back"
                         data-testid="nav-back"
+                        className="-ml-2 mr-0 text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </button>
+                        <BackIcon />
+                    </Button>
                 )}
 
+                {/* Title */}
                 <span className="font-semibold text-gray-900 dark:text-gray-100 flex-1 truncate">{title}</span>
 
                 {showLanguagePicker && <LanguagePicker />}
-
                 {level && <LevelBadge level={level} />}
 
+                {/* Streak chip */}
                 {streak > 0 && (
-                    <span className={`flex text-xs font-semibold text-orange-500 bg-orange-50 rounded-full px-2 py-0.5 shrink-0 ${streakBumped ? "animate-bounce" : ""}`}>
+                    <span className={`flex text-xs font-semibold text-orange-500 bg-orange-50 dark:bg-orange-900/20 rounded-full px-2 py-0.5 shrink-0 ${streakBumped ? "animate-bounce" : ""}`}>
                         🔥 {streak}d
                     </span>
                 )}
 
-                {/* sm+: inline dark-mode + profile */}
-                <div className="hidden sm:flex items-center">
+                {/* Desktop: dark-mode toggle + profile */}
+                <div className="hidden sm:flex items-center gap-0.5">
                     <Tooltip>
                         <TooltipTrigger asChild>
-                            <button
+                            <Button
+                                variant="ghost"
+                                size="icon"
                                 onClick={toggleDark}
-                                className="p-2 text-gray-400 hover:text-gray-700 dark:text-gray-500 dark:hover:text-gray-300 shrink-0"
                                 aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
+                                className="text-gray-400 hover:text-gray-700 dark:text-gray-500 dark:hover:text-gray-300"
                             >
-                                {dark ? (
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                                    </svg>
-                                ) : (
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                                    </svg>
-                                )}
-                            </button>
+                                {dark ? <SunIcon /> : <MoonIcon />}
+                            </Button>
                         </TooltipTrigger>
                         <TooltipContent>{dark ? "Light mode" : "Dark mode"}</TooltipContent>
                     </Tooltip>
                     <Tooltip>
                         <TooltipTrigger asChild>
-                            <Link
-                                to="/profile"
-                                className="p-2 text-gray-400 hover:text-gray-700 dark:text-gray-500 dark:hover:text-gray-300 shrink-0"
-                                aria-label="View profile"
+                            <Button
+                                variant="ghost"
+                                size="icon"
+                                asChild
+                                className="text-gray-400 hover:text-gray-700 dark:text-gray-500 dark:hover:text-gray-300"
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                    <path strokeLinecap="round" strokeLinejoin="round"
-                                        d="M5.121 17.804A9 9 0 1118.879 6.196 9 9 0 015.12 17.804z" />
-                                    <path strokeLinecap="round" strokeLinejoin="round"
-                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                </svg>
-                            </Link>
+                                <Link to="/profile" aria-label="View profile">
+                                    <ProfileIcon />
+                                </Link>
+                            </Button>
                         </TooltipTrigger>
                         <TooltipContent>View profile</TooltipContent>
                     </Tooltip>
                 </div>
 
-                {/* mobile: hamburger menu */}
-                <div className="sm:hidden relative" ref={menuRef}>
-                    <button
-                        onClick={() => setMenuOpen(v => !v)}
-                        className="p-2 text-gray-400 hover:text-gray-700 dark:text-gray-500 dark:hover:text-gray-300 shrink-0"
-                        aria-label="Open menu"
-                        aria-expanded={menuOpen}
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                    {menuOpen && (
-                        <div className="absolute right-0 top-full mt-1 w-44 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg py-1 z-20">
-                            <button
-                                onClick={() => { toggleDark(); setMenuOpen(false) }}
-                                className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+                {/* Mobile: sheet drawer */}
+                <div className="sm:hidden">
+                    <Sheet>
+                        <SheetTrigger asChild>
+                            <Button
+                                variant="ghost"
+                                size="icon"
+                                aria-label="Open menu"
+                                className="text-gray-400 hover:text-gray-700 dark:text-gray-500 dark:hover:text-gray-300"
                             >
-                                {dark ? (
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                                    </svg>
-                                ) : (
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                                    </svg>
-                                )}
-                                {dark ? "Light mode" : "Dark mode"}
-                            </button>
-                            <Link
-                                to="/profile"
-                                onClick={() => setMenuOpen(false)}
-                                className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                    <path strokeLinecap="round" strokeLinejoin="round"
-                                        d="M5.121 17.804A9 9 0 1118.879 6.196 9 9 0 015.12 17.804z" />
-                                    <path strokeLinecap="round" strokeLinejoin="round"
-                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                </svg>
-                                Profile
-                            </Link>
-                        </div>
-                    )}
+                                <MenuIcon />
+                            </Button>
+                        </SheetTrigger>
+                        <SheetContent side="right" className="w-64 p-0">
+                            <div className="flex flex-col py-4">
+                                <button
+                                    onClick={toggleDark}
+                                    className="flex items-center gap-3 px-5 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors text-left"
+                                >
+                                    {dark ? <SunIcon /> : <MoonIcon />}
+                                    {dark ? "Light mode" : "Dark mode"}
+                                </button>
+                                <Link
+                                    to="/profile"
+                                    className="flex items-center gap-3 px-5 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                                >
+                                    <ProfileIcon size={16} />
+                                    Profile
+                                </Link>
+                            </div>
+                        </SheetContent>
+                    </Sheet>
                 </div>
 
             </div>

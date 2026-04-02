@@ -3,6 +3,8 @@ import { NavBar } from "./NavBar"
 import { CEFRLevel } from "../types"
 import { UIStrings } from "../i18n"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion"
+import { Button } from "./ui/button"
+import { Card, CardContent } from "./ui/card"
 import { adaptiveMessage } from "../utils/adaptiveMessage"
 
 export interface MissedReviewItem {
@@ -37,20 +39,22 @@ export function DrillDoneScreen({ score, total, level, navTitle, ui, onRestart, 
                 <div className="text-5xl">{pct >= 70 ? "🏆" : "💪"}</div>
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{ui.drillComplete}</h2>
                 <p className="text-sm text-gray-500 dark:text-gray-400 italic mt-1">{message}</p>
-                <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5 w-full flex justify-around">
-                    <div>
-                        <p className="text-3xl font-bold text-green-600">{score}</p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{ui.scoreCorrect}</p>
-                    </div>
-                    <div>
-                        <p className="text-3xl font-bold text-red-500">{total - score}</p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{ui.scoreWrong}</p>
-                    </div>
-                    <div>
-                        <p className="text-3xl font-bold text-indigo-600">{pct}%</p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{ui.scoreLabel}</p>
-                    </div>
-                </div>
+                <Card className="w-full">
+                    <CardContent className="p-5 flex justify-around">
+                        <div>
+                            <p className="text-3xl font-bold text-green-600">{score}</p>
+                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{ui.scoreCorrect}</p>
+                        </div>
+                        <div>
+                            <p className="text-3xl font-bold text-red-500">{total - score}</p>
+                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{ui.scoreWrong}</p>
+                        </div>
+                        <div>
+                            <p className="text-3xl font-bold text-indigo-600">{pct}%</p>
+                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{ui.scoreLabel}</p>
+                        </div>
+                    </CardContent>
+                </Card>
 
                 {missed.length > 0 && (
                     <Accordion type="single" collapsible className="w-full bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 text-left">
@@ -73,13 +77,9 @@ export function DrillDoneScreen({ score, total, level, navTitle, ui, onRestart, 
                     </Accordion>
                 )}
 
-                <button
-                    onClick={onRestart}
-                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
-                               rounded-xl py-2.5 text-sm transition-colors"
-                >
+                <Button onClick={onRestart} className="w-full rounded-xl py-2.5 text-sm font-semibold">
                     {ui.tryAgain}
-                </button>
+                </Button>
             </main>
         </div>
     )

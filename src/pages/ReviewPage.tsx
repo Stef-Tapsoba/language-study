@@ -16,6 +16,9 @@ import { getDueCards, updateCard } from "../store/srs"
 import { useBreakDetection } from "../hooks/useBreakDetection"
 import { NavBar } from "../components/NavBar"
 import { SpeakButton } from "../components/SpeakButton"
+import { Button } from "../components/ui/button"
+import { Card, CardContent } from "../components/ui/card"
+import { Progress } from "../components/ui/progress"
 import { useStatsStore } from "../store/useStatsStore"
 
 const TIER_CAP: Record<string, number> = {
@@ -78,12 +81,9 @@ export function ReviewPage() {
                     <p className="text-5xl">🎉</p>
                     <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">You're all caught up!</h2>
                     <p className="text-sm text-gray-500 dark:text-gray-400">No cards are due for review right now.</p>
-                    <button
-                        onClick={() => navigate(`/learn/${langId}`)}
-                        className="mt-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl px-6 py-2.5 text-sm transition-colors"
-                    >
+                    <Button onClick={() => navigate(`/learn/${langId}`)} className="mt-2 rounded-xl px-6 py-2.5 text-sm font-semibold">
                         Back to lessons
-                    </button>
+                    </Button>
                 </main>
             </div>
         )
@@ -92,11 +92,14 @@ export function ReviewPage() {
     // Done screen
     if (done) {
         const pct = Math.round((correct / reviewItems.length) * 100)
+        let resultEmoji = "💪"
+        if (pct >= 80) resultEmoji = "🌟"
+        else if (pct >= 50) resultEmoji = "👍"
         return (
             <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
                 <NavBar title="Review" level={level} backTo={`/learn/${langId}`} />
                 <main className="max-w-md mx-auto px-4 py-16 text-center flex flex-col items-center gap-4">
-                    <p className="text-5xl">{pct >= 80 ? "🌟" : pct >= 50 ? "👍" : "💪"}</p>
+                    <p className="text-5xl">{resultEmoji}</p>
                     <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">Review complete!</h2>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
                         {correct} of {reviewItems.length} remembered ({pct}%)
@@ -104,12 +107,12 @@ export function ReviewPage() {
                     <p className="text-xs text-gray-400 dark:text-gray-500 max-w-xs">
                         Good job getting back on track. Your review intervals have been updated.
                     </p>
-                    <button
+                    <Button
                         onClick={() => navigate(`/learn/${langId}`)}
-                        className="mt-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl px-6 py-2.5 text-sm transition-colors"
+                        className="mt-2 rounded-xl px-6 py-2.5 text-sm font-semibold"
                     >
                         Continue to lessons →
-                    </button>
+                    </Button>
                 </main>
             </div>
         )
@@ -128,34 +131,17 @@ export function ReviewPage() {
                     <span>{index + 1} of {reviewItems.length}</span>
                     <span>{correct} remembered</span>
                 </div>
-                <div className="h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div
-                        className="h-full bg-indigo-500 rounded-full transition-[width] duration-500 ease-out"
-                        style={{ width: `${progress}%` }}
-                    />
-                </div>
+                <Progress value={progress} className="h-1.5" />
 
-                {/* Card */}
-                <div
-                    className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl px-6 py-8 text-center shadow-sm cursor-pointer select-none min-h-[180px] flex flex-col items-center justify-center gap-3 transition-colors hover:border-indigo-300 dark:hover:border-indigo-600"
-                    onClick={() => !flipped && setFlipped(true)}
-                    role="button"
-                    aria-label={flipped ? "Card revealed" : "Tap to reveal"}
-                >
-                    {!flipped ? (
-                        <>
+                {/* Card — two states rendered separately to avoid nested-button issue:
+                    front = <button> (no SpeakButton inside), back = <div> + SpeakButton */}
+                {flipped ? (
+                    <Card className="min-h-[180px] shadow-sm">
+                        <CardContent className="p-6 flex flex-col items-center justify-center gap-3 text-center min-h-[180px]">
                             <div className="flex items-center gap-2">
-                                <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{item.word}</p>
+                                <p className="text-lg font-semibold text-gray-900 dark:text-gray-100">{item.word}</p>
                                 <SpeakButton text={item.word} langId={langId} />
                             </div>
-                            {item.romanized && (
-                                <p className="text-sm text-indigo-500 dark:text-indigo-400 italic">{item.romanized}</p>
-                            )}
-                            <p className="text-xs text-gray-400 dark:text-gray-500 mt-2">Tap to reveal</p>
-                        </>
-                    ) : (
-                        <>
-                            <p className="text-lg font-semibold text-gray-900 dark:text-gray-100">{item.word}</p>
                             {item.romanized && (
                                 <p className="text-xs text-indigo-500 dark:text-indigo-400 italic">{item.romanized}</p>
                             )}
@@ -165,25 +151,38 @@ export function ReviewPage() {
                                     {item.example.native}
                                 </p>
                             )}
-                        </>
-                    )}
-                </div>
+                        </CardContent>
+                    </Card>
+                ) : (
+                    <button
+                        onClick={() => setFlipped(true)}
+                        className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl px-6 py-8 text-center shadow-sm select-none min-h-[180px] flex flex-col items-center justify-center gap-3 transition-colors hover:border-indigo-300 dark:hover:border-indigo-600"
+                    >
+                        <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{item.word}</p>
+                        {item.romanized && (
+                            <p className="text-sm text-indigo-500 dark:text-indigo-400 italic">{item.romanized}</p>
+                        )}
+                        <p className="text-xs text-gray-400 dark:text-gray-500 mt-2">Tap to reveal</p>
+                    </button>
+                )}
 
                 {/* Answer buttons — only visible after flip */}
                 {flipped && (
                     <div className="grid grid-cols-2 gap-3">
-                        <button
+                        <Button
+                            variant="outline"
                             onClick={() => handleAnswer(false)}
-                            className="py-3 rounded-xl border-2 border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-400 font-semibold text-sm hover:bg-red-100 dark:hover:bg-red-900/40 transition-colors"
+                            className="py-3 rounded-xl border-2 border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-400 font-semibold text-sm hover:bg-red-100 dark:hover:bg-red-900/40 hover:text-red-700"
                         >
                             ✗ Forgot
-                        </button>
-                        <button
+                        </Button>
+                        <Button
+                            variant="outline"
                             onClick={() => handleAnswer(true)}
-                            className="py-3 rounded-xl border-2 border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400 font-semibold text-sm hover:bg-green-100 dark:hover:bg-green-900/40 transition-colors"
+                            className="py-3 rounded-xl border-2 border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400 font-semibold text-sm hover:bg-green-100 dark:hover:bg-green-900/40 hover:text-green-700"
                         >
                             ✓ Got it
-                        </button>
+                        </Button>
                     </div>
                 )}
 
