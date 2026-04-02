@@ -8,15 +8,15 @@
 // the legacy key is migrated forward (copied to the new key then removed) so existing
 // users keep all their progress after upgrading.
 
-import { CEFRLevel, UserProgress } from "../types"
-import type { ContentType } from "./IProgressStorage"
+import { CEFRLevel, UserProgress, UnitReinforcementState } from "../types"
+import type { ContentType, ReinforcementSection } from "./IProgressStorage"
 
 const LEGACY_KEY = "ls:progress"
 const userKey = (userId: string) => `ls:progress:${userId}`
 
 // Bump this whenever a breaking schema change is made (field rename, removal, type change).
 // Add a migration branch in `migrate()` for each version increment.
-const SCHEMA_VERSION = 1
+const SCHEMA_VERSION = 2
 
 const DEFAULT: UserProgress = {
     schemaVersion: SCHEMA_VERSION,
@@ -41,8 +41,8 @@ function migrate(raw: Record<string, unknown>): UserProgress {
         }
     }
 
-    // Future migrations go here:
-    // if (version < 2) { raw = { ...raw, newField: defaultValue }; version = 2 }
+    // v1 → v2: completedReinforcement introduced. No field migration needed —
+    // the field is optional and safely absent in all v1 records.
 
     return { ...DEFAULT, ...raw, schemaVersion: SCHEMA_VERSION }
 }
@@ -204,6 +204,52 @@ export function masterUnit(langId: string, unitId: string): void {
             }
         })
     }
+}
+
+// ---------------------------------------------------------------------------
+// Reinforcement exercise completion helpers
+// ---------------------------------------------------------------------------
+
+const EMPTY_REINFORCEMENT: UnitReinforcementState = Object.freeze({ grammarLessonIds: [] })
+
+/** Returns the reinforcement state for a unit, or an empty default. */
+export function getReinforcementState(langId: string, unitId: string): UnitReinforcementState {
+    return loadProgress().completedReinforcement?.[langId]?.[unitId] ?? EMPTY_REINFORCEMENT
+}
+
+/**
+ * Mark a reinforcement exercise as done. Idempotent.
+ *
+ * @param section         "grammar" | "vocab" | "verbs"
+ * @param grammarLessonId Required when section === "grammar".
+ */
+export function markReinforcementDone(
+    langId: string,
+    unitId: string,
+    section: ReinforcementSection,
+    grammarLessonId?: string
+): void {
+    const p = loadProgress()
+    const langMap = p.completedReinforcement?.[langId] ?? {}
+    const current = langMap[unitId] ?? { grammarLessonIds: [] }
+
+    let next: UnitReinforcementState
+    if (section === "grammar") {
+        if (!grammarLessonId) return
+        if (current.grammarLessonIds.includes(grammarLessonId)) return
+        next = { ...current, grammarLessonIds: [...current.grammarLessonIds, grammarLessonId] }
+    } else {
+        if (current[section] === true) return
+        next = { ...current, [section]: true as const }
+    }
+
+    save({
+        ...p,
+        completedReinforcement: {
+            ...p.completedReinforcement,
+            [langId]: { ...langMap, [unitId]: next },
+        },
+    })
 }
 
 // Re-exported here so existing imports (e.g. progress.test.ts) keep working.

@@ -12,7 +12,7 @@
 // Read methods stay synchronous — they serve from a write-through local cache.
 // Stage 2 will hydrate that cache from Supabase once on login.
 
-import { CEFRLevel, UserProgress } from "../types"
+import { CEFRLevel, UserProgress, UnitReinforcementState } from "../types"
 
 /**
  * Distinguishes content types that share the completedLessons namespace locally
@@ -81,4 +81,42 @@ export interface IProgressStorage {
 
     /** Remove a language entirely (level + all progress). */
     removeLanguage(langId: string): Promise<void>
+
+    // ---------------------------------------------------------------------------
+    // Reinforcement exercise completion
+    // ---------------------------------------------------------------------------
+
+    /**
+     * Mark a reinforcement exercise as done for a unit section.
+     * Idempotent — safe to call multiple times.
+     *
+     * @param section         "grammar" | "vocab" | "verbs"
+     * @param grammarLessonId Required when section === "grammar". The specific
+     *                        GrammarLesson.id whose paired exercise was completed.
+     *
+     * Stage 2 (Supabase):
+     *   section === "grammar" → upsert row in reinforcement_grammar
+     *                           keyed by (user_id, lang_id, unit_id, grammar_lesson_id)
+     *   section === "vocab" | "verbs" → upsert row in reinforcement_sections
+     *                           keyed by (user_id, lang_id, unit_id, section)
+     */
+    markReinforcementDone(
+        langId: string,
+        unitId: string,
+        section: ReinforcementSection,
+        grammarLessonId?: string
+    ): Promise<void>
+
+    /**
+     * Returns the current reinforcement state for a unit.
+     * Returns a default empty state when nothing has been recorded yet.
+     * Synchronous — reads from the write-through cache.
+     */
+    getReinforcementState(langId: string, unitId: string): UnitReinforcementState
 }
+
+// ---------------------------------------------------------------------------
+// Supporting types
+// ---------------------------------------------------------------------------
+
+export type ReinforcementSection = "grammar" | "vocab" | "verbs"

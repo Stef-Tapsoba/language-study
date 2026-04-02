@@ -10,7 +10,7 @@
 //   srs      — keep whichever card has been reviewed more (higher reviewCount wins)
 //   stats    — per-field max (highest value wins — prevents accidental downgrades)
 
-import type { UserProgress } from "../types"
+import type { UserProgress, UnitReinforcementState } from "../types"
 import type { StatsData } from "./useStatsStore"
 import type { SRSCardState } from "@myorg/srs"
 
@@ -27,9 +27,41 @@ function unionArrays(
 }
 
 /**
+ * Merge reinforcement completion records — append-only, no downgrades.
+ * A completed exercise is never un-completed by an import.
+ */
+function mergeReinforcement(
+    current: Record<string, Record<string, UnitReinforcementState>> = {},
+    imported: Record<string, Record<string, UnitReinforcementState>> = {}
+): Record<string, Record<string, UnitReinforcementState>> {
+    const result: Record<string, Record<string, UnitReinforcementState>> = {}
+    const langs = new Set([...Object.keys(current), ...Object.keys(imported)])
+    for (const lang of langs) {
+        const units = new Set([
+            ...Object.keys(current[lang] ?? {}),
+            ...Object.keys(imported[lang] ?? {}),
+        ])
+        result[lang] = {}
+        for (const unitId of units) {
+            const c = current[lang]?.[unitId]
+            const i = imported[lang]?.[unitId]
+            result[lang][unitId] = {
+                grammarLessonIds: [...new Set([
+                    ...(c?.grammarLessonIds ?? []),
+                    ...(i?.grammarLessonIds ?? []),
+                ])],
+                ...(c?.vocab === true || i?.vocab === true ? { vocab: true as const } : {}),
+                ...(c?.verbs === true || i?.verbs === true ? { verbs: true as const } : {}),
+            }
+        }
+    }
+    return result
+}
+
+/**
  * Merge an imported UserProgress into the current one.
  * - CEFR levels: current wins for any language already started; imported fills gaps.
- * - completedLessons / masteredUnits: union (append-only, no downgrades).
+ * - completedLessons / masteredUnits / completedReinforcement: union (append-only, no downgrades).
  * - userId / selectedLanguage: always kept from current session.
  */
 export function mergeProgress(current: UserProgress, imported: UserProgress): UserProgress {
@@ -39,11 +71,15 @@ export function mergeProgress(current: UserProgress, imported: UserProgress): Us
     }
     return {
         ...imported,
-        userId:           current.userId,
-        selectedLanguage: current.selectedLanguage ?? imported.selectedLanguage,
+        userId:                   current.userId,
+        selectedLanguage:         current.selectedLanguage ?? imported.selectedLanguage,
         levels,
-        completedLessons: unionArrays(current.completedLessons, imported.completedLessons),
-        masteredUnits:    unionArrays(current.masteredUnits,    imported.masteredUnits),
+        completedLessons:         unionArrays(current.completedLessons, imported.completedLessons),
+        masteredUnits:            unionArrays(current.masteredUnits,    imported.masteredUnits),
+        completedReinforcement:   mergeReinforcement(
+                                      current.completedReinforcement,
+                                      imported.completedReinforcement
+                                  ),
     }
 }
 

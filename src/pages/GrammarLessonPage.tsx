@@ -1,5 +1,5 @@
 // pages/GrammarLessonPage.tsx — Full grammar lesson detail view
-import { useParams } from "react-router-dom"
+import { useParams, useSearchParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getGrammarLesson } from "../data/repo"
 import { useProgress } from "../context/ProgressContext"
@@ -14,6 +14,9 @@ import { useVocabTooltip } from "../hooks/useVocabTooltip"
 
 export function GrammarLessonPage() {
     const { langId = "", lessonId = "" } = useParams()
+    const [searchParams] = useSearchParams()
+    // When navigated from a UnitPage, returnTo brings the back button back to that unit.
+    const grammarBack = searchParams.get("returnTo") ?? `/learn/${langId}/grammar`
     const language = getLanguage(langId)
     const { level: getLevel, completed: getCompleted, markLessonComplete } = useProgress()
     const level = getLevel(langId)
@@ -27,7 +30,7 @@ export function GrammarLessonPage() {
     if (!lesson) {
         return (
             <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-                <NavBar title="Grammar" level={level} backTo={`/learn/${langId}/grammar`} />
+                <NavBar title="Grammar" level={level} backTo={grammarBack} />
                 <main className="max-w-xl mx-auto px-4 py-16 text-center text-gray-400 dark:text-gray-500">
                     <p className="text-4xl mb-3">🔍</p>
                     <p className="font-medium">Lesson not found</p>
@@ -41,7 +44,7 @@ export function GrammarLessonPage() {
 
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-            <NavBar title={lesson.title} level={level} backTo={`/learn/${langId}/grammar`}
+            <NavBar title={lesson.title} level={level} backTo={grammarBack}
                 breadcrumb={`${language.name} › Grammar`} />
             <main className="max-w-xl mx-auto px-4 py-6 flex flex-col gap-5">
 

@@ -7,15 +7,24 @@
 // src/exerciseTypes/index.ts — adding a new type requires zero changes here.
 
 import { useState, useEffect, useCallback, Suspense } from "react"
-import { useParams, Navigate, Link } from "react-router-dom"
+import { useParams, useSearchParams, Navigate, Link, useNavigate } from "react-router-dom"
 import { useProgress } from "../context/ProgressContext"
-import { completeLessonItem, completeDrillSession } from "../store/actions"
+import { completeLessonItem, completeDrillSession, completeReinforcement } from "../store/actions"
 import { getExerciseType } from "../exerciseTypes/index"
+import type { ReinforcementSection } from "../store/IProgressStorage"
 
 export function ExerciseShell() {
     const { langId = "", exerciseTypeId = "" } = useParams()
+    const [searchParams] = useSearchParams()
+    const navigate = useNavigate()
     const { level: getLevel } = useProgress()
     const level = getLevel(langId)
+
+    // Reinforcement context — present when launched from a unit page
+    const unitId   = searchParams.get("unitId")   ?? undefined
+    const section  = searchParams.get("section")  as ReinforcementSection | null ?? undefined
+    const lessonId = searchParams.get("lessonId") ?? undefined
+    const returnTo = searchParams.get("returnTo") ?? undefined
 
     const def = getExerciseType(exerciseTypeId)
 
@@ -27,10 +36,10 @@ export function ExerciseShell() {
         if (!def) return
         setLoading(true)
         setError(false)
-        def.fetchItems({ langId, level })
+        def.fetchItems({ langId, level, unitId })
             .then(result => { setItems(result); setLoading(false) })
             .catch(() => { setError(true); setLoading(false) })
-    }, [def, langId, level])
+    }, [def, langId, level, unitId])
 
     // Both callbacks defined unconditionally to satisfy Rules of Hooks.
     // def is always set when they are reachable (the Navigate guard below runs first).
@@ -42,7 +51,14 @@ export function ExerciseShell() {
     const onSessionDone = useCallback(() => {
         if (!def) return
         completeDrillSession(langId, def.sessionType).catch(console.error)
-    }, [langId, def])
+        // If launched from a unit page, record reinforcement completion then navigate back
+        if (unitId && section) {
+            completeReinforcement(langId, unitId, section, lessonId).catch(console.error)
+        }
+        if (returnTo) {
+            navigate(decodeURIComponent(returnTo), { replace: true })
+        }
+    }, [langId, def, unitId, section, lessonId, returnTo, navigate])
 
     if (!def) return <Navigate to={`/learn/${langId}`} replace />
 
