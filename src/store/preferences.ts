@@ -5,8 +5,9 @@
 // Stage 2 without hunting across page components.
 //
 // Storage keys managed here:
-//   ls:onboarded:{langId}  — "1" once the onboarding banner has been dismissed
-//   ls:tts-autoplay        — "true" | "false" (defaults to true when absent)
+//   ls:onboarded:{langId}          — "1" once the onboarding banner has been dismissed
+//   ls:tts-autoplay                — "true" | "false" (defaults to true when absent)
+//   ls:review-dismissed:{langId}:{date}  — "1" when review prompt dismissed for that day
 //
 // Stage 2: introduce IPreferencesStorage + LocalStoragePreferencesStorage
 // and a registry slot so these reads/writes can be swapped for a Supabase
@@ -35,4 +36,22 @@ export function getTtsAutoplay(): boolean {
 /** Persist the TTS auto-play preference. */
 export function setTtsAutoplay(enabled: boolean): void {
     localStorage.setItem("ls:tts-autoplay", String(enabled))
+}
+
+// ── Review prompt dismissal ───────────────────────────────────────────────────
+// Dismissed state is keyed by language + calendar date so the card re-appears
+// each new day if the learner is still in a break tier.
+
+function todayKey(langId: string): string {
+    return `ls:review-dismissed:${langId}:${new Date().toISOString().slice(0, 10)}`
+}
+
+/** Returns true if the review prompt has been dismissed today for this language. */
+export function isReviewPromptDismissed(langId: string): boolean {
+    return !!localStorage.getItem(todayKey(langId))
+}
+
+/** Dismiss the review prompt for today. Resets automatically the next calendar day. */
+export function dismissReviewPrompt(langId: string): void {
+    localStorage.setItem(todayKey(langId), "1")
 }
