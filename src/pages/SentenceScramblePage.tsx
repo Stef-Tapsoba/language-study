@@ -11,6 +11,7 @@ import { NavBar } from "../components/NavBar"
 import { DrillDoneScreen } from "../components/DrillDoneScreen"
 import { SpeakButton } from "../components/SpeakButton"
 import { Button } from "../components/ui/button"
+import { playCorrect, playWrong } from "../utils/sound"
 import { answerMatches } from "../utils/answerMatch"
 import { shuffle } from "../utils/arrayUtils"
 import { getUI, fmt } from "../i18n"
@@ -223,9 +224,11 @@ export default function SentenceScramblePage({ items, langId, level, config, onC
         setSubmitted(true)
         useStatsStore.getState().recordQuizAnswer(langId, correct)
         if (correct) {
+            playCorrect()
             setScore(s => s + 1)
             onComplete(q.lessonId)
         } else {
+            playWrong()
             setMissed(prev => [...prev, { prompt: q.prompt, correct: q.correct, yourAnswer: userAnswer }])
         }
     }

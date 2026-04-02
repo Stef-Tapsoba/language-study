@@ -13,6 +13,7 @@ import { useStatsStore } from "../store/useStatsStore"
 import type { ExerciseComponentProps } from "../exerciseTypes/registry"
 import type { VocabItem } from "../types"
 import { Button } from "../components/ui/button"
+import { playCorrect, playWrong } from "../utils/sound"
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -119,6 +120,7 @@ export default function VocabMatchingPage({ items, langId, level, config, onComp
         useStatsStore.getState().recordQuizAnswer(langId, isCorrect)
         setTotalItems(n => n + 1)
         if (isCorrect) {
+            playCorrect()
             setTotalScore(s => s + 1)
             onComplete(leftId)
             const newMatched = new Set(matchedIds).add(leftId)
@@ -147,6 +149,7 @@ export default function VocabMatchingPage({ items, langId, level, config, onComp
             }
         } else {
             // Flash wrong feedback then clear selection
+            playWrong()
             setWrongPair([leftId, rightId])
             if (wrongPairTimer.current) clearTimeout(wrongPairTimer.current)
             wrongPairTimer.current = setTimeout(() => {

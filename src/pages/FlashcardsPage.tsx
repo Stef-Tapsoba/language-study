@@ -20,6 +20,7 @@ import { Switch } from "../components/ui/switch"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion"
 import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
+import { playCorrect, playWrong } from "../utils/sound"
 
 const FLIP_MS = 450
 
@@ -417,6 +418,8 @@ export function FlashcardsPage() {
     }
 
     function handleResult(r: Result) {
+        if (r === "correct") playCorrect()
+        else playWrong()
         // Persist SRS rating (skip in review mode and studyAll mode)
         if (!reviewMode && !studyAll) {
             updateCard(langId, deck[index].id, r === "correct" ? 4 : 1)
