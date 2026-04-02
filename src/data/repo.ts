@@ -71,7 +71,14 @@ export function getUnitsForLevel(langId: string, level: CEFRLevel): LessonUnit[]
     return (getModule(langId)?.units ?? [])
         .filter(u => u.level === level)
         .sort((a, b) => a.order - b.order)
-        .map(u => u.topicTags ? u : { ...u, topicTags: UNIT_TAGS[u.id] })
+        .map(u => {
+            if (u.topicTags) return u
+            const tags = UNIT_TAGS[u.id]
+            if (!tags && import.meta.env.DEV) {
+                console.warn(`[unitTags] No tag entry found for unit: ${u.id} — add it to unitTags.ts`)
+            }
+            return { ...u, topicTags: tags }
+        })
 }
 
 export function getUnit(langId: string, unitId: string): LessonUnit | null {

@@ -100,12 +100,9 @@ export interface IProgressStorage {
      *   section === "vocab" | "verbs" → upsert row in reinforcement_sections
      *                           keyed by (user_id, lang_id, unit_id, section)
      */
-    markReinforcementDone(
-        langId: string,
-        unitId: string,
-        section: ReinforcementSection,
-        grammarLessonId?: string
-    ): Promise<void>
+    // Overloaded to enforce grammarLessonId at compile time for the "grammar" section.
+    markReinforcementDone(langId: string, unitId: string, section: "grammar", grammarLessonId: string): Promise<void>
+    markReinforcementDone(langId: string, unitId: string, section: "vocab" | "verbs"): Promise<void>
 
     /**
      * Returns the current reinforcement state for a unit.

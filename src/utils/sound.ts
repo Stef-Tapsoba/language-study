@@ -10,13 +10,19 @@
 // Silence is graceful: if AudioContext is unavailable (SSR, restricted env),
 // calls are no-ops.
 
+// Singleton AudioContext — browsers limit contexts per tab (typically 6).
+// Creating one per call would exhaust the limit during rapid answering.
+let _ctx: AudioContext | null = null
+
 function ctx(): AudioContext | null {
     try {
+        if (_ctx && _ctx.state !== "closed") return _ctx
         const Ctor =
             typeof window !== "undefined"
                 ? (window.AudioContext ?? (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext)
                 : undefined
-        return Ctor ? new Ctor() : null
+        _ctx = Ctor ? new Ctor() : null
+        return _ctx
     } catch {
         return null
     }

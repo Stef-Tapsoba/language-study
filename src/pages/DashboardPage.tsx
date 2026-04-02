@@ -3,6 +3,7 @@ import { useState, useMemo, memo } from "react"
 import { useParams, useNavigate, useSearchParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
+import { getUnitsForLevel, getUnitsForGoal } from "../data/repo"
 import { isUnitUnlocked } from "../store/progressUtils"
 import { DEBUG } from "../auth/debugSession"
 import { isOnboardingVisible, dismissOnboarding, getGoal } from "../store/preferences"
@@ -206,9 +207,10 @@ export function DashboardPage() {
     const statsData = useStatsStore(s => s.data)
 
     const [searchParams, setSearchParams] = useSearchParams()
+    // Use repo.getUnitsForLevel — auto-merges topicTags from unitTags.ts lookup
     const levelUnits = useMemo(
-        () => (mod?.units ?? []).filter(u => u.level === level),
-        [mod, level]
+        () => getUnitsForLevel(langId, level),
+        [langId, level]
     )
     const defaultTab: DashTab = levelUnits.length > 0 ? "path" : "study"
     const [tab, setTab] = useState<DashTab>((searchParams.get("tab") as DashTab | null) ?? defaultTab)
@@ -256,17 +258,12 @@ export function DashboardPage() {
     const canAdvance = levelIndex < CEFR_LEVELS.length - 1
     const masteredCount = levelUnits.filter(u => mastered.includes(u.id)).length
 
-    // Goal-based unit sorting: matched units float to the top of the Path list
-    const goalId = getGoal() as GoalId
-    const sortedLevelUnits = useMemo(() => {
-        if (goalId === "general" || !(goalId in USER_GOALS)) return levelUnits
-        return [...levelUnits].sort((a, b) => {
-            const sa = scoreUnitForGoal(a.topicTags, goalId)
-            const sb = scoreUnitForGoal(b.topicTags, goalId)
-            if (sb !== sa) return sb - sa
-            return a.order - b.order
-        })
-    }, [levelUnits, goalId])
+    // Goal-based unit sorting via repo — single source of truth, tags merged via getUnitsForLevel
+    const goalId = getGoal()
+    const sortedLevelUnits = useMemo(
+        () => getUnitsForGoal(langId, level, goalId),
+        [langId, level, goalId]
+    )
 
     const tabs: { id: DashTab; label: string; badge?: string }[] = [
         { id: "path", label: ui.tabPath, badge: levelUnits.length > 0 ? `${masteredCount}/${levelUnits.length}` : undefined },

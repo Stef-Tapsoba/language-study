@@ -16,7 +16,7 @@ export function GoalPickerPage() {
     const [searchParams] = useSearchParams()
     const returnTo = searchParams.get("returnTo") ?? "/home"
 
-    const [selected, setSelected] = useState<GoalId>(() => getGoal() as GoalId)
+    const [selected, setSelected] = useState<GoalId>(() => getGoal())
 
     function handleConfirm() {
         setGoal(selected)
