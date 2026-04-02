@@ -10,6 +10,7 @@ import { LevelBadge } from "../components/LevelBadge"
 import { CEFRLevel, CEFR_LEVELS } from "../types"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "../components/ui/tabs"
 import { Button } from "../components/ui/button"
+import { isGoalSet } from "../store/preferences"
 
 type Tab = "test" | "manual"
 
@@ -61,7 +62,13 @@ export function PlacementPage() {
 
     function confirmLevel(level: CEFRLevel) {
         setCurrentLevel(langId, level)
-        navigate(`/learn/${langId}`)
+        // First-time users: route through goal picker before hitting the dashboard.
+        // Returning users who are changing level skip the picker (goal already set).
+        if (!isGoalSet()) {
+            navigate(`/learn/${langId}/goal?returnTo=/learn/${langId}`, { replace: true })
+        } else {
+            navigate(`/learn/${langId}`)
+        }
     }
 
     // Pre-intro screen — shown before the first question of the placement test
