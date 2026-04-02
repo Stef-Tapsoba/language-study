@@ -12,6 +12,9 @@ import { useProgress } from "../context/ProgressContext"
 import { completeLessonItem, completeDrillSession, completeReinforcement } from "../store/actions"
 import { getExerciseType } from "../exerciseTypes/index"
 import { getExerciseConfig, selectItems } from "../utils/exerciseConfig"
+import { getReviewItemsForUnit } from "../data/repo"
+import { getDueCards } from "../store/srs"
+import type { VocabItem } from "../types"
 import type { ReinforcementSection } from "../store/IProgressStorage"
 import type { ExerciseContext } from "../utils/exerciseConfig"
 
@@ -19,9 +22,10 @@ export function ExerciseShell() {
     const { langId = "", exerciseTypeId = "" } = useParams()
     const [searchParams] = useSearchParams()
     const navigate = useNavigate()
-    const { level: getLevel, completed: getCompleted } = useProgress()
+    const { level: getLevel, completed: getCompleted, mastered: getMastered } = useProgress()
     const level = getLevel(langId)
     const completedIds = getCompleted(langId)
+    const mastered = getMastered(langId)
 
     // Reinforcement context — present when launched from a unit page
     const unitId   = searchParams.get("unitId")   ?? undefined
@@ -34,6 +38,10 @@ export function ExerciseShell() {
     // Derive context from URL params: unit exercises have a unitId, everything else is practice
     const context: ExerciseContext = unitId ? "unit" : "practice"
 
+    // Cross-unit review slots — how many prior-unit SRS-due items to inject.
+    // Requires >= 4 mastered units before any review is added (professor recommendation).
+    const reviewSlots = mastered.length < 4 ? 0 : mastered.length < 10 ? 2 : 3
+
     const [rawItems, setRawItems] = useState<unknown[]>([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(false)
@@ -42,10 +50,45 @@ export function ExerciseShell() {
         if (!def) return
         setLoading(true)
         setError(false)
-        def.fetchItems({ langId, level, unitId, lessonId })
-            .then(result => { setRawItems(result); setLoading(false) })
+        def.fetchItems({ langId, level, unitId, lessonId, context })
+            .then(result => {
+                // Cross-unit review: inject prior-unit SRS-due vocab items when in unit context.
+                // Only for vocab exercises — injecting vocab into a grammar exercise makes no sense.
+                const canInjectReview =
+                    context === "unit" &&
+                    unitId !== undefined &&
+                    def.contentType === "vocab" &&
+                    reviewSlots > 0
+
+                if (canInjectReview) {
+                    const priorItems = getReviewItemsForUnit(langId, unitId!, level)
+                    if (priorItems.length > 0) {
+                        const priorIds = priorItems.map(v => v.id)
+                        const { due, newCards } = getDueCards(langId, priorIds)
+                        // Prefer overdue (due) over never-reviewed (newCards)
+                        const reviewIds = [...due, ...newCards].slice(0, reviewSlots)
+                        const reviewMap = new Map<string, VocabItem>(priorItems.map(v => [v.id, v]))
+                        const reviewVocab = reviewIds
+                            .map(id => reviewMap.get(id))
+                            .filter(Boolean) as unknown[]
+                        // Deduplicate: skip any review item already in the unit pool
+                        const unitIdSet = new Set(
+                            result.map((r: unknown) => (r as { id: string }).id)
+                        )
+                        const fresh = reviewVocab.filter(
+                            r => !unitIdSet.has((r as { id: string }).id)
+                        )
+                        setRawItems([...result, ...fresh])
+                    } else {
+                        setRawItems(result)
+                    }
+                } else {
+                    setRawItems(result)
+                }
+                setLoading(false)
+            })
             .catch(() => { setError(true); setLoading(false) })
-    }, [def, langId, level, unitId, lessonId])
+    }, [def, langId, level, unitId, lessonId, context, reviewSlots])
 
     // Compute context-aware config (sizing + tier ratios) from available item count
     const config = useMemo(
