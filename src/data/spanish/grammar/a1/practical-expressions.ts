@@ -36,6 +36,7 @@ TELLING TIME — ¿Qué hora es?
   {
     id: "es-g-a1-13",
     level: "A1",
+    exerciseType: "dictation" as const,
     title: "Spanish Pronunciation — Key Rules",
     explanation: `Spanish is one of the most phonetic languages in the world: you read what you write and write what you say. There are very few silent letters. A few rules cover almost every situation.
 

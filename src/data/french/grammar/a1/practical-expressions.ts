@@ -97,6 +97,7 @@ ASKING ABOUT PREFERENCES:
     {
         id: "fr-g-a1-18",
         level: "A1",
+        exerciseType: "dictation" as const,
         title: "French Pronunciation — Getting Started",
         explanation: `French sounds very different from how it is written. These are the four things you must know on day one.
 
@@ -142,6 +143,7 @@ For the full vowel chart, accents, and detailed sound guide, see the companion l
     {
         id: "fr-g-a1-18b",
         level: "A1",
+        exerciseType: "dictation" as const,
         title: "Pronunciation — Complete Reference",
         explanation: `A full guide to French sounds for reference throughout your A1 journey. Return to this lesson whenever you encounter an unfamiliar sound.
 
