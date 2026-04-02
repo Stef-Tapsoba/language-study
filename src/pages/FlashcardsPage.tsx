@@ -18,6 +18,8 @@ import { shuffle } from "../utils/arrayUtils"
 import { getTtsAutoplay, setTtsAutoplay } from "../store/preferences"
 import { Switch } from "../components/ui/switch"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion"
+import { Button } from "../components/ui/button"
+import { Input } from "../components/ui/input"
 
 const FLIP_MS = 450
 
@@ -76,21 +78,13 @@ function ResultsScreen({ correct, incorrect, pct, newCardsScheduled, reviewMode,
 
             <div className="flex flex-col gap-3 w-full">
                 {incorrect > 0 && (
-                    <button
-                        onClick={onReview}
-                        className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
-                                   rounded-xl py-2.5 text-sm transition-colors"
-                    >
+                    <Button onClick={onReview} className="w-full rounded-xl py-2.5 text-sm font-semibold">
                         {fmt(ui.reviewMissed, { n: incorrect })}
-                    </button>
+                    </Button>
                 )}
-                <button
-                    onClick={onRestart}
-                    className="w-full border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-indigo-400
-                               font-semibold rounded-xl py-2.5 text-sm transition-colors"
-                >
+                <Button variant="outline" onClick={onRestart} className="w-full rounded-xl py-2.5 text-sm font-semibold">
                     {ui.startOver}
-                </button>
+                </Button>
             </div>
 
             <MissedWordReview missed={missed} />
@@ -173,21 +167,17 @@ function FlipCard({ item, flipped, onClick, translationMode, translationShown, u
                             onSubmit={e => { e.preventDefault(); onTypedSubmit() }}
                             className="w-full flex flex-col gap-2 mt-1"
                         >
-                            <input
+                            <Input
                                 autoFocus
                                 aria-label="Type the translation"
                                 value={typedAnswer}
                                 onChange={e => onTypedChange(e.target.value)}
                                 placeholder="Type translation…"
-                                className="border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm w-full text-center
-                                           focus:outline-none focus:border-indigo-400 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                                className="text-sm text-center"
                             />
-                            <button
-                                type="submit"
-                                className="text-xs text-indigo-600 hover:underline"
-                            >
+                            <Button type="submit" variant="link" className="text-xs p-0 h-auto">
                                 Submit
-                            </button>
+                            </Button>
                         </form>
                     ) : (
                         <p className="text-xs text-gray-400 dark:text-gray-500 mt-2">{ui.tapToReveal}</p>
@@ -380,13 +370,9 @@ export function FlashcardsPage() {
                             </label>
                         </div>
                     </div>
-                    <button
-                        onClick={() => { setStudyAll(true); setStarted(true) }}
-                        className="w-full bg-indigo-600 hover:bg-indigo-700 text-white
-                                   font-semibold rounded-xl py-3 text-sm transition-colors"
-                    >
+                    <Button onClick={() => { setStudyAll(true); setStarted(true) }} className="w-full rounded-xl py-3 text-sm font-semibold">
                         Study all {allVocab.length} cards anyway
-                    </button>
+                    </Button>
                 </main>
             </div>
         )
@@ -415,13 +401,9 @@ export function FlashcardsPage() {
                             </label>
                         </div>
                     </div>
-                    <button
-                        onClick={() => setStarted(true)}
-                        className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
-                                   rounded-xl py-3 text-sm transition-colors"
-                    >
+                    <Button onClick={() => setStarted(true)} className="w-full rounded-xl py-3 text-sm font-semibold">
                         Start
-                    </button>
+                    </Button>
                 </main>
             </div>
         )
@@ -546,33 +528,30 @@ export function FlashcardsPage() {
 
                 {/* B2+ translation toggle — shown after flip */}
                 {flipped && translationMode === "hidden" && (
-                    <button
-                        onClick={() => setTranslationShown(v => !v)}
-                        className="text-sm text-indigo-600 hover:underline"
-                    >
+                    <Button variant="link" onClick={() => setTranslationShown(v => !v)} className="text-sm p-0 h-auto">
                         {translationShown ? ui.hideTranslation : ui.showTranslation}
-                    </button>
+                    </Button>
                 )}
 
                 {/* Self-rating buttons — only after flip */}
                 {flipped && (
                     <div className="flex gap-3 w-full max-w-sm">
-                        <button
+                        <Button
+                            variant="outline"
                             disabled={transitioning}
                             onClick={() => handleResult("incorrect")}
-                            className="flex-1 border-2 border-red-300 text-red-600 font-semibold
-                                       rounded-xl py-3 hover:bg-red-50 transition-colors disabled:opacity-50"
+                            className="flex-1 rounded-xl py-3 border-2 border-red-300 text-red-600 hover:bg-red-50 hover:text-red-600 dark:border-red-800 dark:text-red-400 dark:hover:bg-red-900/20"
                         >
                             ✗ {ui.notYet}
-                        </button>
-                        <button
+                        </Button>
+                        <Button
+                            variant="outline"
                             disabled={transitioning}
                             onClick={() => handleResult("correct")}
-                            className="flex-1 border-2 border-green-400 text-green-700 font-semibold
-                                       rounded-xl py-3 hover:bg-green-50 transition-colors disabled:opacity-50"
+                            className="flex-1 rounded-xl py-3 border-2 border-green-400 text-green-700 hover:bg-green-50 hover:text-green-700 dark:border-green-700 dark:text-green-400 dark:hover:bg-green-900/20"
                         >
                             ✓ {ui.gotIt}
-                        </button>
+                        </Button>
                     </div>
                 )}
                 {!flipped && !typedMode && (

@@ -10,6 +10,7 @@ import { useState, useMemo, useEffect } from "react"
 import { NavBar } from "../components/NavBar"
 import { DrillDoneScreen } from "../components/DrillDoneScreen"
 import { SpeakButton } from "../components/SpeakButton"
+import { Button } from "../components/ui/button"
 import { answerMatches } from "../utils/answerMatch"
 import { shuffle } from "../utils/arrayUtils"
 import { getUI, fmt } from "../i18n"
@@ -326,29 +327,27 @@ export default function SentenceScramblePage({ items, langId, level, config, onC
                 {/* Actions */}
                 <div className="flex gap-3">
                     {!submitted && (
-                        <button
+                        <Button
+                            variant="outline"
                             onClick={handleClear}
                             disabled={assembled.length === 0}
-                            className="flex-1 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold rounded-xl py-3 text-sm transition-colors hover:border-gray-400 disabled:opacity-40"
+                            className="flex-1 rounded-xl py-3 text-sm font-semibold"
                         >
                             Clear
-                        </button>
+                        </Button>
                     )}
                     {submitted ? (
-                        <button
-                            onClick={handleNext}
-                            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-3 text-sm transition-colors"
-                        >
+                        <Button onClick={handleNext} className="w-full rounded-xl py-3 text-sm font-semibold">
                             {isLast ? ui.seeResults : ui.nextQuestion}
-                        </button>
+                        </Button>
                     ) : (
-                        <button
+                        <Button
                             onClick={handleSubmit}
                             disabled={assembled.length === 0}
-                            className="flex-[2] bg-indigo-600 hover:bg-indigo-700 disabled:opacity-40 text-white font-semibold rounded-xl py-3 text-sm transition-colors"
+                            className="flex-[2] rounded-xl py-3 text-sm font-semibold"
                         >
                             Check
-                        </button>
+                        </Button>
                     )}
                 </div>
                 <p className="hidden sm:block text-xs text-gray-400 dark:text-gray-500 text-center">
