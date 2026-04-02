@@ -61,9 +61,16 @@ export function dismissReviewPrompt(langId: string): void {
 
 const GOAL_KEY = "ls:goal"
 
-/** Returns the stored learning goal ID, defaulting to "general" for new users. */
-export function getGoal(): string {
-    return localStorage.getItem(GOAL_KEY) ?? "general"
+// Runtime whitelist — prevents a corrupted/stale localStorage value producing
+// `undefined` when used as a key in USER_GOALS (e.g. USER_GOALS["tourism"]?.icon).
+const VALID_GOAL_IDS = new Set(["traveller", "social", "culture", "general"])
+
+/** Returns the stored learning goal ID, validated at runtime. Defaults to "general". */
+export function getGoal(): import("../data/goalConfig").GoalId {
+    const stored = localStorage.getItem(GOAL_KEY)
+    return (stored && VALID_GOAL_IDS.has(stored))
+        ? stored as import("../data/goalConfig").GoalId
+        : "general"
 }
 
 /**

@@ -14,10 +14,34 @@ import { getExerciseType } from "../exerciseTypes/index"
 import { getExerciseConfig, selectItems } from "../utils/exerciseConfig"
 import { getReviewItemsForUnit } from "../data/repo"
 import { getDueCards } from "../store/srs"
-import type { VocabItem } from "../types"
+import type { VocabItem, CEFRLevel } from "../types"
 import type { ReinforcementSection } from "../store/IProgressStorage"
 import type { ExerciseContext } from "../utils/exerciseConfig"
 import { Skeleton } from "../components/ui/skeleton"
+
+/**
+ * Injects prior-unit SRS-due vocab items into an exercise pool.
+ * Extracted from ExerciseShell to keep the component focused on React concerns.
+ * Returns the original result array if injection is not applicable.
+ */
+function withCrossUnitReview(
+    result: unknown[],
+    langId: string,
+    unitId: string,
+    level: CEFRLevel,
+    reviewSlots: number
+): unknown[] {
+    const priorItems = getReviewItemsForUnit(langId, unitId, level)
+    if (priorItems.length === 0) return result
+    const priorIds = priorItems.map(v => v.id)
+    const { due, newCards } = getDueCards(langId, priorIds)
+    const reviewIds = [...due, ...newCards].slice(0, reviewSlots)
+    const reviewMap = new Map<string, VocabItem>(priorItems.map(v => [v.id, v]))
+    const reviewVocab = reviewIds.map(id => reviewMap.get(id)).filter(Boolean) as unknown[]
+    const unitIdSet = new Set(result.map((r: unknown) => (r as { id: string }).id))
+    const fresh = reviewVocab.filter(r => !unitIdSet.has((r as { id: string }).id))
+    return [...result, ...fresh]
+}
 
 export function ExerciseShell() {
     const { langId = "", exerciseTypeId = "" } = useParams()
@@ -49,10 +73,12 @@ export function ExerciseShell() {
 
     useEffect(() => {
         if (!def) return
+        let cancelled = false
         setLoading(true)
         setError(false)
         def.fetchItems({ langId, level, unitId, lessonId, context })
             .then(result => {
+                if (cancelled) return
                 // Cross-unit review: inject prior-unit SRS-due vocab items when in unit context.
                 // Only for vocab exercises — injecting vocab into a grammar exercise makes no sense.
                 const canInjectReview =
@@ -61,34 +87,15 @@ export function ExerciseShell() {
                     def.contentType === "vocab" &&
                     reviewSlots > 0
 
-                if (canInjectReview) {
-                    const priorItems = getReviewItemsForUnit(langId, unitId!, level)
-                    if (priorItems.length > 0) {
-                        const priorIds = priorItems.map(v => v.id)
-                        const { due, newCards } = getDueCards(langId, priorIds)
-                        // Prefer overdue (due) over never-reviewed (newCards)
-                        const reviewIds = [...due, ...newCards].slice(0, reviewSlots)
-                        const reviewMap = new Map<string, VocabItem>(priorItems.map(v => [v.id, v]))
-                        const reviewVocab = reviewIds
-                            .map(id => reviewMap.get(id))
-                            .filter(Boolean) as unknown[]
-                        // Deduplicate: skip any review item already in the unit pool
-                        const unitIdSet = new Set(
-                            result.map((r: unknown) => (r as { id: string }).id)
-                        )
-                        const fresh = reviewVocab.filter(
-                            r => !unitIdSet.has((r as { id: string }).id)
-                        )
-                        setRawItems([...result, ...fresh])
-                    } else {
-                        setRawItems(result)
-                    }
-                } else {
-                    setRawItems(result)
-                }
+                setRawItems(
+                    canInjectReview
+                        ? withCrossUnitReview(result, langId, unitId!, level, reviewSlots)
+                        : result
+                )
                 setLoading(false)
             })
-            .catch(() => { setError(true); setLoading(false) })
+            .catch(() => { if (!cancelled) { setError(true); setLoading(false) } })
+        return () => { cancelled = true }
     }, [def, langId, level, unitId, lessonId, context, reviewSlots])
 
     // Compute context-aware config (sizing + tier ratios) from available item count

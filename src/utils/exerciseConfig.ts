@@ -148,10 +148,19 @@ function scoreItem(
     isCompleted: boolean,
     now: number
 ): ScoredItem {
-    // Tier 1 — SRS due: nextReviewAt === 0 (never reviewed) OR overdue
-    if (!srsState || srsState.nextReviewAt === 0 || srsState.nextReviewAt <= now) {
-        if (!srsState || srsState.nextReviewAt === 0) {
-            // Never reviewed — treat as immediately due, no overdue bonus
+    // Tier 1 — SRS due: has SRS state with nextReviewAt === 0 OR is overdue
+    // Items with NO SRS state that are also not completed are "new" (Tier 3) —
+    // they should not sneak into srs-due, which would bypass the "new: maxItems:0"
+    // guard used by the review context (break-return session should see only seen items).
+    if (!srsState) {
+        // No SRS record at all — go to Tier 3 (new) or Tier 4 (random if completed)
+        return isCompleted
+            ? { tier: "random", score: Math.random() }
+            : { tier: "new",    score: Math.random() }
+    }
+    if (srsState.nextReviewAt === 0 || srsState.nextReviewAt <= now) {
+        if (srsState.nextReviewAt === 0) {
+            // Completed before SRS existed, or reset — treat as immediately due
             return { tier: "srs-due", score: 0.5 }
         }
         const dayMs = 86_400_000
@@ -167,12 +176,7 @@ function scoreItem(
         return { tier: "weak", score: weakScore }
     }
 
-    // Tier 3 — new: never completed, no SRS state at all
-    if (!isCompleted) {
-        return { tier: "new", score: Math.random() }
-    }
-
-    // Tier 4 — random: seen before, not due, not weak
+    // Tier 4 — random: has SRS state, not due, not weak (seen and consolidating)
     return { tier: "random", score: Math.random() }
 }
 
@@ -185,22 +189,25 @@ const TIER_ORDER: TierName[] = ["srs-due", "weak", "new", "random"]
 /**
  * Select and order items for an exercise session according to config tiers.
  *
+ * Accepts a pre-fetched `srsStates` map so the caller controls freshness and
+ * the function remains pure (no implicit localStorage reads). This also makes
+ * the Stage 2 async-SRS migration straightforward — the caller awaits SRS
+ * state once and passes it in.
+ *
  * Items are scored, grouped by tier, sorted within each tier, then filled
  * into `roundSize × maxRounds` slots in tier priority order.
  *
  * Returns a new array. Does not mutate the input.
- *
- * Works for any item type that has an `.id` string field (VocabItem,
- * GrammarLesson, etc.). SRS state is only present for vocab items — grammar
- * items fall through to the "new" or "random" tier naturally.
  */
 export function selectItems<T extends { id: string }>(
     items: T[],
     config: ExerciseConfig,
     langId: string,
-    completedIds: string[]
+    completedIds: string[],
+    /** Pre-fetched SRS states. Defaults to reading from localStorage if omitted. */
+    preloadedSrsStates?: Record<string, SRSCardState>
 ): T[] {
-    const srsStates   = getSRSStates(langId)
+    const srsStates   = preloadedSrsStates ?? getSRSStates(langId)
     const completedSet = new Set(completedIds)
     const now          = Date.now()
     const totalSlots   = config.roundSize * config.maxRounds

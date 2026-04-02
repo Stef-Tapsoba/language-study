@@ -163,7 +163,14 @@ export async function completeReinforcement(
     section: ReinforcementSection,
     grammarLessonId?: string
 ): Promise<void> {
-    await registry.progress.markReinforcementDone(langId, unitId, section, grammarLessonId)
+    // Type-narrow to satisfy the overloaded interface signatures
+    if (section === "grammar" && grammarLessonId) {
+        await registry.progress.markReinforcementDone(langId, unitId, "grammar", grammarLessonId)
+    } else if (section !== "grammar") {
+        await registry.progress.markReinforcementDone(langId, unitId, section)
+    }
+    // Reinforcement exercises are real study activity — count toward streak.
+    useStatsStore.getState().recordActivity(langId)
     // Stage 2: await supabase.from(section === "grammar" ? "reinforcement_grammar" : "reinforcement_sections")
     //   .upsert({ user_id, lang_id, unit_id, ...(section === "grammar" ? { grammar_lesson_id } : { section }) })
 }
