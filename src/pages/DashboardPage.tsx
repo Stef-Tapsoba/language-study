@@ -6,6 +6,8 @@ import { getModule } from "../data/modules"
 import { isUnitUnlocked } from "../store/progressUtils"
 import { DEBUG } from "../auth/debugSession"
 import { isOnboardingVisible, dismissOnboarding } from "../store/preferences"
+import { useBreakDetection } from "../hooks/useBreakDetection"
+import { ReviewPromptCard } from "../components/ReviewPromptCard"
 
 import { useProgress } from "../context/ProgressContext"
 import { getDueCount } from "../store/srs"
@@ -204,6 +206,7 @@ export function DashboardPage() {
         [langId, mod, level]
     )
 
+    const breakDetection = useBreakDetection(langId)
     const [showOnboarding, setShowOnboarding] = useState(() => isOnboardingVisible(langId))
 
     function handleDismissOnboarding() {
@@ -305,6 +308,12 @@ export function DashboardPage() {
 
                     {/* ── PATH ─────────────────────────────────────────────── */}
                     <TabsContent value="path" className="tab-fade">
+                        <ReviewPromptCard
+                            langId={langId}
+                            tier={breakDetection.tier}
+                            daysSince={breakDetection.daysSince}
+                            dueCount={dueCount}
+                        />
                         {levelUnits.length > 0 ? (
                             <>
                                 {/* Level progress bar */}
