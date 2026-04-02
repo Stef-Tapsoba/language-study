@@ -238,7 +238,7 @@ function VocabPracticeSection({ unit, langId, completed, vocabExerciseDone, nav 
             <GrammarStateIcon state={isDone ? "done" : isUnlocked ? "available" : "locked"} />
             <div className="flex-1 min-w-0">
                 <p className={`text-sm font-medium truncate ${!isDone && !isUnlocked ? "text-gray-400 dark:text-gray-500" : "text-gray-900 dark:text-gray-100"}`}>
-                    Vocab in context
+                    Vocab matching
                 </p>
                 <p className="text-xs text-gray-400 dark:text-gray-500 truncate">{sublabel}</p>
             </div>
@@ -254,7 +254,7 @@ function VocabPracticeSection({ unit, langId, completed, vocabExerciseDone, nav 
                 Practice What You've Learned
             </p>
             {isUnlocked && !isDone
-                ? <button onClick={() => nav(`/learn/${langId}/exercise/vocab-in-context?unitId=${unit.id}&section=vocab&returnTo=${returnTo}`)} className="w-full text-left">{row}</button>
+                ? <button onClick={() => nav(`/learn/${langId}/exercise/vocab-matching?unitId=${unit.id}&section=vocab&returnTo=${returnTo}`)} className="w-full text-left">{row}</button>
                 : row
             }
         </div>

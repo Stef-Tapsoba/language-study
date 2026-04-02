@@ -8,7 +8,7 @@
 
 import { lazy } from "react"
 import { registerExerciseType } from "./registry"
-import { getGrammarForLevel } from "../data/repo"
+import { getGrammarForLevel, getGrammarForUnit } from "../data/repo"
 import type { GrammarLesson } from "../types"
 
 // Lazy-load the page component so this exercise type is code-split automatically.
@@ -39,8 +39,8 @@ registerExerciseType<GrammarLesson>({
     //       return data ?? []
     //   }
     //
-    fetchItems: async ({ langId, level }) =>
-        Promise.resolve(getGrammarForLevel(langId, level)),
+    fetchItems: async ({ langId, level, unitId }) =>
+        Promise.resolve(unitId ? getGrammarForUnit(langId, unitId) : getGrammarForLevel(langId, level)),
 
     component: SentenceScramblePage,
 })
