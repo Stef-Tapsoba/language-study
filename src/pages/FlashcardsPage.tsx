@@ -358,17 +358,23 @@ export function FlashcardsPage() {
                         <p className="text-gray-400 dark:text-gray-500 text-xs">Next review: {nextStr}</p>
                     )}
                     <div className="w-full mt-2 bg-amber-50 border border-amber-200 rounded-2xl divide-y divide-amber-200">
-                        <div className="flex items-center gap-3 px-4 py-3">
-                            <Switch id="typed-mode-caught-up" checked={typedMode} onCheckedChange={setTypedMode} className="data-[state=unchecked]:!bg-amber-300" />
-                            <label htmlFor="typed-mode-caught-up" className="text-sm text-gray-700 dark:text-gray-300 cursor-pointer">
-                                Type answers (test yourself)
-                            </label>
+                        <div className="flex items-start gap-3 px-4 py-3">
+                            <Switch id="typed-mode-caught-up" checked={typedMode} onCheckedChange={setTypedMode} className="data-[state=unchecked]:!bg-amber-300 mt-0.5 shrink-0" />
+                            <div>
+                                <label htmlFor="typed-mode-caught-up" className="text-sm font-medium text-gray-700 dark:text-gray-300 cursor-pointer block">
+                                    Type the translation
+                                </label>
+                                <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">Active recall — harder but more effective</p>
+                            </div>
                         </div>
-                        <div className="flex items-center gap-3 px-4 py-3">
-                            <Switch id="tts-caught-up" checked={ttsEnabled} onCheckedChange={handleTtsToggle} className="data-[state=unchecked]:!bg-amber-300" />
-                            <label htmlFor="tts-caught-up" className="text-sm text-gray-700 dark:text-gray-300 cursor-pointer">
-                                Auto-play pronunciation
-                            </label>
+                        <div className="flex items-start gap-3 px-4 py-3">
+                            <Switch id="tts-caught-up" checked={ttsEnabled} onCheckedChange={handleTtsToggle} className="data-[state=unchecked]:!bg-amber-300 mt-0.5 shrink-0" />
+                            <div>
+                                <label htmlFor="tts-caught-up" className="text-sm font-medium text-gray-700 dark:text-gray-300 cursor-pointer block">
+                                    Auto-play pronunciation
+                                </label>
+                                <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">Plays each word as the card appears</p>
+                            </div>
                         </div>
                     </div>
                     <Button onClick={() => { setStudyAll(true); setStarted(true) }} className="w-full rounded-xl py-3 text-sm font-semibold">
@@ -389,17 +395,23 @@ export function FlashcardsPage() {
                     <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">{srsDeck.length} cards ready</h2>
                     <p className="text-sm text-gray-500 dark:text-gray-400">{due.length} due · {newCardIds.length} new</p>
                     <div className="w-full bg-amber-50 border border-amber-200 rounded-2xl divide-y divide-amber-200">
-                        <div className="flex items-center gap-3 px-4 py-3">
-                            <Switch id="typed-mode" checked={typedMode} onCheckedChange={setTypedMode} className="data-[state=unchecked]:!bg-amber-300" />
-                            <label htmlFor="typed-mode" className="text-sm text-gray-700 cursor-pointer">
-                                Type answers (test yourself)
-                            </label>
+                        <div className="flex items-start gap-3 px-4 py-3">
+                            <Switch id="typed-mode" checked={typedMode} onCheckedChange={setTypedMode} className="data-[state=unchecked]:!bg-amber-300 mt-0.5 shrink-0" />
+                            <div>
+                                <label htmlFor="typed-mode" className="text-sm font-medium text-gray-700 dark:text-gray-300 cursor-pointer block">
+                                    Type the translation
+                                </label>
+                                <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">Active recall — harder but more effective</p>
+                            </div>
                         </div>
-                        <div className="flex items-center gap-3 px-4 py-3">
-                            <Switch id="tts-enabled" checked={ttsEnabled} onCheckedChange={handleTtsToggle} className="data-[state=unchecked]:!bg-amber-300" />
-                            <label htmlFor="tts-enabled" className="text-sm text-gray-700 cursor-pointer">
-                                Auto-play pronunciation
-                            </label>
+                        <div className="flex items-start gap-3 px-4 py-3">
+                            <Switch id="tts-enabled" checked={ttsEnabled} onCheckedChange={handleTtsToggle} className="data-[state=unchecked]:!bg-amber-300 mt-0.5 shrink-0" />
+                            <div>
+                                <label htmlFor="tts-enabled" className="text-sm font-medium text-gray-700 dark:text-gray-300 cursor-pointer block">
+                                    Auto-play pronunciation
+                                </label>
+                                <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">Plays each word as the card appears</p>
+                            </div>
                         </div>
                     </div>
                     <Button onClick={() => setStarted(true)} className="w-full rounded-xl py-3 text-sm font-semibold">
