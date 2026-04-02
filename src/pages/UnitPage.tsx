@@ -482,8 +482,10 @@ type QuizPhase = "start" | "playing" | "done"
 
 interface MissedItem { prompt: string; correct: string; yourAnswer: string }
 
+interface IncompleteExercise { key: string; label: string; tab: "grammar" | "vocab" }
+
 function TestOutTab({ unit, langId, isMastered, nextUnit, isLastUnit, ui, cultureEpisodes,
-    readingPassages, listeningExercises,
+    readingPassages, listeningExercises, incompleteExercises, onGoToTab,
     onMastered, onBack, onNavigateNext, onNavigateLevelTest,
     onNavigateCulture, onNavigateReading, onNavigateListening }: Readonly<{
     unit: LessonUnit
@@ -495,6 +497,9 @@ function TestOutTab({ unit, langId, isMastered, nextUnit, isLastUnit, ui, cultur
     cultureEpisodes: CultureEpisode[]
     readingPassages: ReadingPassage[]
     listeningExercises: ListeningExercise[]
+    /** Required exercises not yet attempted — drives the soft gate */
+    incompleteExercises: IncompleteExercise[]
+    onGoToTab: (tab: "grammar" | "vocab") => void
     onMastered: () => void
     onBack: () => void
     onNavigateNext: (unitId: string) => void
@@ -567,12 +572,46 @@ function TestOutTab({ unit, langId, isMastered, nextUnit, isLastUnit, ui, cultur
                         {fmt(ui.levelTestDesc, { pass: passThreshold, total: questions.length, next: "" }).split(" to ")[0]}
                     </p>
                 </div>
-                <button
-                    onClick={() => setPhase("playing")}
-                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-3 text-sm transition-colors"
-                >
-                    {isMastered ? ui.retakeTest : ui.startTest}
-                </button>
+
+                {/* Soft gate — only shown on first attempt when exercises are pending */}
+                {!isMastered && incompleteExercises.length > 0 && (
+                    <div className="w-full bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-2xl px-4 py-4 flex flex-col gap-3 text-left">
+                        <p className="text-sm font-semibold text-amber-900 dark:text-amber-200">
+                            Almost ready — finish these first:
+                        </p>
+                        <div className="flex flex-col gap-1.5">
+                            {incompleteExercises.map(ex => (
+                                <button
+                                    key={ex.key}
+                                    onClick={() => onGoToTab(ex.tab)}
+                                    className="flex items-center justify-between px-3 py-2.5 rounded-xl bg-white dark:bg-gray-800 border border-amber-200 dark:border-amber-700 hover:border-amber-400 dark:hover:border-amber-500 transition-colors"
+                                >
+                                    <div className="flex items-center gap-2.5 min-w-0">
+                                        <span className="w-4 h-4 rounded-full border-2 border-gray-300 dark:border-gray-600 flex-shrink-0" />
+                                        <span className="text-sm text-gray-700 dark:text-gray-200 truncate">{ex.label}</span>
+                                    </div>
+                                    <span className="text-xs text-amber-600 dark:text-amber-400 ml-2 flex-shrink-0">Go →</span>
+                                </button>
+                            ))}
+                        </div>
+                        <button
+                            onClick={() => setPhase("playing")}
+                            className="text-xs text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 underline underline-offset-2 self-start transition-colors"
+                        >
+                            Start test anyway
+                        </button>
+                    </div>
+                )}
+
+                {/* Primary CTA — hidden when soft gate is visible (use "start anyway" instead) */}
+                {(isMastered || incompleteExercises.length === 0) && (
+                    <button
+                        onClick={() => setPhase("playing")}
+                        className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-3 text-sm transition-colors"
+                    >
+                        {isMastered ? ui.retakeTest : ui.startTest}
+                    </button>
+                )}
 
                 {/* Reading / Listening / Culture — shown directly when the unit is already mastered */}
                 {isMastered && (
@@ -882,24 +921,42 @@ export function UnitPage() {
                     </TabsContent>
 
                     <TabsContent value="test" className="tab-fade">
-                        <TestOutTab
-                            unit={unit}
-                            langId={langId}
-                            isMastered={isMastered}
-                            nextUnit={nextUnit}
-                            isLastUnit={isLastUnit}
-                            ui={ui}
-                            cultureEpisodes={cultureEpisodes}
-                            readingPassages={readingPassages}
-                            listeningExercises={listeningExercises}
-                            onMastered={() => {}}
-                            onBack={() => navigate(`/learn/${langId}`)}
-                            onNavigateNext={(id) => navigate(`/learn/${langId}/units/${id}`, { replace: true })}
-                            onNavigateLevelTest={() => navigate(`/learn/${langId}/level-test`)}
-                            onNavigateCulture={(id) => navigate(`/learn/${langId}/culture?episode=${id}`)}
-                            onNavigateReading={(id) => navigate(`/learn/${langId}/reading?passage=${id}`)}
-                            onNavigateListening={(id) => navigate(`/learn/${langId}/listening?exercise=${id}`)}
-                        />
+                        {(() => {
+                            const incompleteExercises: IncompleteExercise[] = [
+                                ...grammar
+                                    .filter(l => !reinforcement.grammarLessonIds.includes(l.id))
+                                    .map(l => ({
+                                        key: l.id,
+                                        label: `${getExerciseLabel(getGrammarExerciseType(l))} — ${l.title}`,
+                                        tab: "grammar" as const,
+                                    })),
+                                ...(vocab.length > 0 && reinforcement.vocab !== true
+                                    ? [{ key: "vocab", label: "Vocab matching", tab: "vocab" as const }]
+                                    : []),
+                            ]
+                            return (
+                                <TestOutTab
+                                    unit={unit}
+                                    langId={langId}
+                                    isMastered={isMastered}
+                                    nextUnit={nextUnit}
+                                    isLastUnit={isLastUnit}
+                                    ui={ui}
+                                    cultureEpisodes={cultureEpisodes}
+                                    readingPassages={readingPassages}
+                                    listeningExercises={listeningExercises}
+                                    incompleteExercises={incompleteExercises}
+                                    onGoToTab={tab => setActiveTab(tab)}
+                                    onMastered={() => {}}
+                                    onBack={() => navigate(`/learn/${langId}`)}
+                                    onNavigateNext={(id) => navigate(`/learn/${langId}/units/${id}`, { replace: true })}
+                                    onNavigateLevelTest={() => navigate(`/learn/${langId}/level-test`)}
+                                    onNavigateCulture={(id) => navigate(`/learn/${langId}/culture?episode=${id}`)}
+                                    onNavigateReading={(id) => navigate(`/learn/${langId}/reading?passage=${id}`)}
+                                    onNavigateListening={(id) => navigate(`/learn/${langId}/listening?exercise=${id}`)}
+                                />
+                            )
+                        })()}
                     </TabsContent>
                 </Tabs>
             </main>
