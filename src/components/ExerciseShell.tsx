@@ -6,7 +6,7 @@
 // This is the single route handler for ALL exercises registered in
 // src/exerciseTypes/index.ts — adding a new type requires zero changes here.
 
-import { useState, useEffect, useCallback, Suspense } from "react"
+import { useState, useEffect, useCallback, useMemo, Suspense } from "react"
 import { useParams, useSearchParams, Navigate, Link, useNavigate } from "react-router-dom"
 import { useProgress } from "../context/ProgressContext"
 import { completeLessonItem, completeDrillSession, completeReinforcement } from "../store/actions"
@@ -17,8 +17,9 @@ export function ExerciseShell() {
     const { langId = "", exerciseTypeId = "" } = useParams()
     const [searchParams] = useSearchParams()
     const navigate = useNavigate()
-    const { level: getLevel } = useProgress()
+    const { level: getLevel, completed: getCompleted } = useProgress()
     const level = getLevel(langId)
+    const completedIds = getCompleted(langId)
 
     // Reinforcement context — present when launched from a unit page
     const unitId   = searchParams.get("unitId")   ?? undefined
@@ -28,7 +29,7 @@ export function ExerciseShell() {
 
     const def = getExerciseType(exerciseTypeId)
 
-    const [items, setItems] = useState<unknown[]>([])
+    const [rawItems, setRawItems] = useState<unknown[]>([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(false)
 
@@ -37,9 +38,21 @@ export function ExerciseShell() {
         setLoading(true)
         setError(false)
         def.fetchItems({ langId, level, unitId })
-            .then(result => { setItems(result); setLoading(false) })
+            .then(result => { setRawItems(result); setLoading(false) })
             .catch(() => { setError(true); setLoading(false) })
     }, [def, langId, level, unitId])
+
+    // In Practice-tab mode (no unitId), only show items the learner has already
+    // encountered — prevents A1-unit-1 learners from seeing the full level corpus.
+    // Falls through to the full set if none have been completed yet (new user).
+    const items = useMemo(() => {
+        if (unitId || completedIds.length === 0) return rawItems
+        const seen = rawItems.filter((item: unknown) => {
+            const id = (item as { id?: string }).id
+            return id !== undefined && completedIds.includes(id)
+        })
+        return seen.length > 0 ? seen : rawItems
+    }, [rawItems, completedIds, unitId])
 
     // Both callbacks defined unconditionally to satisfy Rules of Hooks.
     // def is always set when they are reachable (the Navigate guard below runs first).
