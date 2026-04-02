@@ -96,6 +96,44 @@ export function getVocabForUnit(langId: string, unitId: string): VocabItem[] {
 }
 
 // ---------------------------------------------------------------------------
+// Review pools — Sprint 1 foundation for cross-unit review (Sprint 2)
+// ---------------------------------------------------------------------------
+
+/**
+ * Returns vocab items from all mastered units that come before `currentUnitId`
+ * (by unit order) within the given level.
+ *
+ * Used by ExerciseShell (Sprint 2) to inject prior-unit SRS-due items into
+ * the current exercise pool.
+ *
+ * Stage 2 (Supabase): replace body only — caller interface is unchanged.
+ */
+export function getReviewItemsForUnit(
+    langId: string,
+    currentUnitId: string,
+    level: CEFRLevel
+): VocabItem[] {
+    const mod = getModule(langId)
+    if (!mod) return []
+
+    const levelUnits = (mod.units ?? [])
+        .filter(u => u.level === level)
+        .sort((a, b) => a.order - b.order)
+
+    const currentUnit = levelUnits.find(u => u.id === currentUnitId)
+    if (!currentUnit) return []
+
+    const priorVocabIds = levelUnits
+        .filter(u => u.order < currentUnit.order)
+        .flatMap(u => u.vocabIds)
+
+    const vocabMap = new Map(mod.vocab.map(v => [v.id, v]))
+    return priorVocabIds
+        .map(id => vocabMap.get(id))
+        .filter(Boolean) as VocabItem[]
+}
+
+// ---------------------------------------------------------------------------
 // Reading
 // ---------------------------------------------------------------------------
 

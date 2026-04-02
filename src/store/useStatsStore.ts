@@ -185,6 +185,21 @@ export function getTotalReviews(data: StatsData, langId: string): number {
     return Object.values(langDays).reduce((sum, day) => sum + day.reviewed, 0)
 }
 
+/**
+ * Returns the most recent calendar date (YYYY-MM-DD) on which the user had
+ * any recorded activity for the given language, or null if none exists.
+ *
+ * "Activity" means at least one of: reviewed > 0 or acts > 0.
+ * Used by useBreakDetection to measure how long the user has been away.
+ */
+export function getLastActivityDate(data: StatsData, langId: string): string | null {
+    const langDays = data[langId] ?? {}
+    const activeDates = Object.keys(langDays)
+        .filter(d => (langDays[d].reviewed ?? 0) + (langDays[d].acts ?? 0) > 0)
+        .sort((a, b) => a.localeCompare(b))
+    return activeDates.length > 0 ? activeDates[activeDates.length - 1] : null
+}
+
 /** Overall accuracy across all quiz types for the last `days` days */
 export function getOverallAccuracy(data: StatsData, langId: string, days = 14): number {
     const langDays = data[langId] ?? {}
