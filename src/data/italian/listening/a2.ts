@@ -38,6 +38,22 @@ export const a2Listening: ListeningExercise[] = [
         title: "Alla stazione — comprare un biglietto",
         script: "Buongiorno, vorrei un biglietto per Venezia, per favore. Per quando? Per oggi, il treno delle quindici. In prima o in seconda classe? In seconda classe, grazie. Solo andata o andata e ritorno? Andata e ritorno. Il ritorno per quando? Domenica prossima, la sera se possibile. C'è un Frecciargento alle diciassette e cinquanta. Perfetto! Quanto costa? Ottantasei euro in totale. Pago con carta. Ecco i suoi biglietti. Buon viaggio!",
         translation: "Good morning, I'd like a ticket to Venice, please. For when? For today, the three o'clock train. First or second class? Second class, thank you. Single or return? Return. When for the return? Next Sunday, in the evening if possible. There's a Frecciargento at seventeen fifty. Perfect! How much is it? Eighty-six euros in total. I'll pay by card. Here are your tickets. Have a good journey!",
+        dialogue: [
+            { speaker: "Cliente", text: "Buongiorno, vorrei un biglietto per Venezia, per favore.", translation: "Good morning, I'd like a ticket to Venice, please." },
+            { speaker: "Impiegato", text: "Per quando?", translation: "For when?" },
+            { speaker: "Cliente", text: "Per oggi, il treno delle quindici.", translation: "For today, the three o'clock train." },
+            { speaker: "Impiegato", text: "In prima o in seconda classe?", translation: "First or second class?" },
+            { speaker: "Cliente", text: "In seconda classe, grazie.", translation: "Second class, thank you." },
+            { speaker: "Impiegato", text: "Solo andata o andata e ritorno?", translation: "Single or return?" },
+            { speaker: "Cliente", text: "Andata e ritorno.", translation: "Return." },
+            { speaker: "Impiegato", text: "Il ritorno per quando?", translation: "When for the return?" },
+            { speaker: "Cliente", text: "Domenica prossima, la sera se possibile.", translation: "Next Sunday, in the evening if possible." },
+            { speaker: "Impiegato", text: "C'è un Frecciargento alle diciassette e cinquanta.", translation: "There's a Frecciargento at seventeen fifty." },
+            { speaker: "Cliente", text: "Perfetto! Quanto costa?", translation: "Perfect! How much is it?" },
+            { speaker: "Impiegato", text: "Ottantasei euro in totale.", translation: "Eighty-six euros in total." },
+            { speaker: "Cliente", text: "Pago con carta.", translation: "I'll pay by card." },
+            { speaker: "Impiegato", text: "Ecco i suoi biglietti. Buon viaggio!", translation: "Here are your tickets. Have a good journey!" },
+        ],
         questions: [
             {
                 id: "it-l-a2-2-q1",
@@ -98,6 +114,11 @@ export const a2Listening: ListeningExercise[] = [
         title: "Il mio weekend — raccontare attività",
         script: "Ciao Valentina! Hai passato un bel weekend? Sì, molto! Sabato mattina ho fatto una passeggiata al parco con degli amici. Poi nel pomeriggio sono andata al cinema. Ho visto un film italiano bellissimo. Sabato sera ho cenato in un ristorante tipico con la mia famiglia. Abbiamo mangiato la pizza e i dolci erano fantastici! Domenica ha fatto brutto tempo. Allora sono rimasta a casa e ho letto un libro. E tu, cosa hai fatto nel fine settimana?",
         translation: "Hi Valentina! Did you have a nice weekend? Yes, very much! On Saturday morning I went for a walk in the park with some friends. Then in the afternoon I went to the cinema. I saw a beautiful Italian film. On Saturday evening I had dinner at a typical restaurant with my family. We ate pizza and the desserts were fantastic! On Sunday the weather was bad. So I stayed at home and read a book. And you, what did you do at the weekend?",
+        dialogue: [
+            { speaker: "Amica", text: "Ciao Valentina! Hai passato un bel weekend?", translation: "Hi Valentina! Did you have a nice weekend?" },
+            { speaker: "Valentina", text: "Sì, molto! Sabato mattina ho fatto una passeggiata al parco con degli amici. Poi nel pomeriggio sono andata al cinema. Ho visto un film italiano bellissimo. Sabato sera ho cenato in un ristorante tipico con la mia famiglia. Abbiamo mangiato la pizza e i dolci erano fantastici! Domenica ha fatto brutto tempo. Allora sono rimasta a casa e ho letto un libro.", translation: "Yes, very much! On Saturday morning I went for a walk in the park with some friends. Then in the afternoon I went to the cinema. I saw a beautiful Italian film. On Saturday evening I had dinner at a typical restaurant with my family. We ate pizza and the desserts were fantastic! On Sunday the weather was bad. So I stayed at home and read a book." },
+            { speaker: "Amica", text: "E tu, cosa hai fatto nel fine settimana?", translation: "And you, what did you do at the weekend?" },
+        ],
         questions: [
             {
                 id: "it-l-a2-4-q1",

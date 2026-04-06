@@ -8,6 +8,15 @@ export const a2Listening: ListeningExercise[] = [
         title: "El fin de semana — weekend plans dialogue",
         script: "Hola, Marcos. ¿Qué vas a hacer este fin de semana? Voy a ir al cine el sábado. Quiero ver la nueva película de acción. ¿Y tú? El sábado por la mañana voy a jugar al fútbol con mis amigos. Por la tarde voy a quedar con mi familia para comer. ¿Qué película quieres ver? La nueva de superhéroes. Dicen que es muy buena. Ah, yo también quiero verla. ¿Vamos juntos? Buena idea. Podemos ir a las seis de la tarde.",
         translation: "Hi, Marcos. What are you going to do this weekend? I'm going to go to the cinema on Saturday. I want to see the new action film. And you? On Saturday morning I'm going to play football with my friends. In the afternoon I'm going to meet up with my family for lunch. Which film do you want to see? The new superhero one. They say it's very good. Oh, I want to see it too. Shall we go together? Good idea. We can go at six in the afternoon.",
+        dialogue: [
+            { speaker: "Amigo", text: "Hola, Marcos. ¿Qué vas a hacer este fin de semana?", translation: "Hi, Marcos. What are you going to do this weekend?" },
+            { speaker: "Marcos", text: "Voy a ir al cine el sábado. Quiero ver la nueva película de acción. ¿Y tú?", translation: "I'm going to go to the cinema on Saturday. I want to see the new action film. And you?" },
+            { speaker: "Amigo", text: "El sábado por la mañana voy a jugar al fútbol con mis amigos. Por la tarde voy a quedar con mi familia para comer.", translation: "On Saturday morning I'm going to play football with my friends. In the afternoon I'm going to meet up with my family for lunch." },
+            { speaker: "Amigo", text: "¿Qué película quieres ver?", translation: "Which film do you want to see?" },
+            { speaker: "Marcos", text: "La nueva de superhéroes. Dicen que es muy buena.", translation: "The new superhero one. They say it's very good." },
+            { speaker: "Amigo", text: "Ah, yo también quiero verla. ¿Vamos juntos?", translation: "Oh, I want to see it too. Shall we go together?" },
+            { speaker: "Marcos", text: "Buena idea. Podemos ir a las seis de la tarde.", translation: "Good idea. We can go at six in the afternoon." },
+        ],
         questions: [
             {
                 id: "es-l-a2-1-q1",
@@ -68,6 +77,18 @@ export const a2Listening: ListeningExercise[] = [
         title: "Las vacaciones — travel conversation",
         script: "¡Hola, Laura! ¿Dónde fuiste de vacaciones este verano? Fui a las Islas Canarias con mi familia. ¡Qué bien! ¿Cuánto tiempo estuviste allí? Estuve dos semanas. ¿Qué hiciste? Fui a la playa todos los días, visité pueblos bonitos y comí mucha comida típica. También hice senderismo en el Teide. ¿No tuviste miedo? Un poco, porque es un volcán muy grande. Pero el paisaje era increíble. ¿Cuándo volviste? Volví el domingo pasado. Todavía tengo el bronceado.",
         translation: "Hi, Laura! Where did you go on holiday this summer? I went to the Canary Islands with my family. How great! How long were you there? I was there for two weeks. What did you do? I went to the beach every day, visited pretty villages and ate lots of typical food. I also went hiking on Mount Teide. Weren't you scared? A little, because it's a very big volcano. But the scenery was incredible. When did you get back? I came back last Sunday. I still have my tan.",
+        dialogue: [
+            { speaker: "Amigo", text: "¡Hola, Laura! ¿Dónde fuiste de vacaciones este verano?", translation: "Hi, Laura! Where did you go on holiday this summer?" },
+            { speaker: "Laura", text: "Fui a las Islas Canarias con mi familia.", translation: "I went to the Canary Islands with my family." },
+            { speaker: "Amigo", text: "¡Qué bien! ¿Cuánto tiempo estuviste allí?", translation: "How great! How long were you there?" },
+            { speaker: "Laura", text: "Estuve dos semanas.", translation: "I was there for two weeks." },
+            { speaker: "Amigo", text: "¿Qué hiciste?", translation: "What did you do?" },
+            { speaker: "Laura", text: "Fui a la playa todos los días, visité pueblos bonitos y comí mucha comida típica. También hice senderismo en el Teide.", translation: "I went to the beach every day, visited pretty villages and ate lots of typical food. I also went hiking on Mount Teide." },
+            { speaker: "Amigo", text: "¿No tuviste miedo?", translation: "Weren't you scared?" },
+            { speaker: "Laura", text: "Un poco, porque es un volcán muy grande. Pero el paisaje era increíble.", translation: "A little, because it's a very big volcano. But the scenery was incredible." },
+            { speaker: "Amigo", text: "¿Cuándo volviste?", translation: "When did you get back?" },
+            { speaker: "Laura", text: "Volví el domingo pasado. Todavía tengo el bronceado.", translation: "I came back last Sunday. I still have my tan." },
+        ],
         questions: [
             {
                 id: "es-l-a2-3-q1",
@@ -128,6 +149,21 @@ export const a2Listening: ListeningExercise[] = [
         title: "Una llamada para reservar — making a reservation",
         script: "Restaurante Casa Pepe, buenas tardes. Buenas tardes. ¿Podría hacer una reserva para esta noche? Por supuesto, ¿para cuántas personas? Somos cuatro. ¿Y a qué hora? A las nueve y media, si es posible. Déjeme comprobar... sí, tenemos una mesa disponible. ¿Me podría dar su nombre? Claro, me llamo Martínez, con acento en la i. ¿Tienen alguna preferencia de mesa? Si fuera posible, nos gustaría una mesa en la terraza. La terraza ya está completa, lo siento. ¿Les parecería bien una mesa interior cerca de la ventana? Sí, perfecto, muchas gracias. De nada. Les esperamos a las nueve y media. ¡Hasta luego!",
         translation: "Restaurant Casa Pepe, good afternoon. Good afternoon. Could I make a reservation for tonight? Of course, for how many people? There are four of us. And at what time? At half past nine, if possible. Let me check... yes, we have a table available. Could you give me your name? Of course, my name is Martínez, with an accent on the i. Do you have any table preference? If it were possible, we would like a table on the terrace. The terrace is already full, I'm sorry. Would a table inside near the window be all right for you? Yes, perfect, thank you very much. You're welcome. We'll see you at half past nine. Goodbye!",
+        dialogue: [
+            { speaker: "Recepcionista", text: "Restaurante Casa Pepe, buenas tardes.", translation: "Restaurant Casa Pepe, good afternoon." },
+            { speaker: "Cliente", text: "Buenas tardes. ¿Podría hacer una reserva para esta noche?", translation: "Good afternoon. Could I make a reservation for tonight?" },
+            { speaker: "Recepcionista", text: "Por supuesto, ¿para cuántas personas?", translation: "Of course, for how many people?" },
+            { speaker: "Cliente", text: "Somos cuatro.", translation: "There are four of us." },
+            { speaker: "Recepcionista", text: "¿Y a qué hora?", translation: "And at what time?" },
+            { speaker: "Cliente", text: "A las nueve y media, si es posible.", translation: "At half past nine, if possible." },
+            { speaker: "Recepcionista", text: "Déjeme comprobar... sí, tenemos una mesa disponible. ¿Me podría dar su nombre?", translation: "Let me check... yes, we have a table available. Could you give me your name?" },
+            { speaker: "Cliente", text: "Claro, me llamo Martínez, con acento en la i.", translation: "Of course, my name is Martínez, with an accent on the i." },
+            { speaker: "Recepcionista", text: "¿Tienen alguna preferencia de mesa?", translation: "Do you have any table preference?" },
+            { speaker: "Cliente", text: "Si fuera posible, nos gustaría una mesa en la terraza.", translation: "If it were possible, we would like a table on the terrace." },
+            { speaker: "Recepcionista", text: "La terraza ya está completa, lo siento. ¿Les parecería bien una mesa interior cerca de la ventana?", translation: "The terrace is already full, I'm sorry. Would a table inside near the window be all right for you?" },
+            { speaker: "Cliente", text: "Sí, perfecto, muchas gracias.", translation: "Yes, perfect, thank you very much." },
+            { speaker: "Recepcionista", text: "De nada. Les esperamos a las nueve y media. ¡Hasta luego!", translation: "You're welcome. We'll see you at half past nine. Goodbye!" },
+        ],
         questions: [
             {
                 id: "es-l-a2-5-q1",

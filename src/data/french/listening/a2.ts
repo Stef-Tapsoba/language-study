@@ -38,6 +38,23 @@ export const a2Listening: ListeningExercise[] = [
         title: "À la gare — acheter un billet",
         script: "Bonjour monsieur, je voudrais un billet pour Lyon, s'il vous plaît. Pour quand ? Pour aujourd'hui, le train de quatorze heures trente. En première ou en deuxième classe ? En deuxième classe, s'il vous plaît. Aller simple ou aller-retour ? Aller-retour. Le retour pour quand ? Dimanche prochain, le soir si possible. Il y a un train à dix-neuf heures quinze. Parfait ! Ça coûte combien ? Soixante-douze euros. Vous payez par carte ? Oui, s'il vous plaît. Voici vos billets. Bon voyage !",
         translation: "Good morning sir, I'd like a ticket for Lyon, please. For when? For today, the two thirty train. First or second class? Second class, please. Single or return? Return. When for the return? Next Sunday, in the evening if possible. There's a train at nineteen fifteen. Perfect! How much is it? Seventy-two euros. Paying by card? Yes, please. Here are your tickets. Have a good trip!",
+        dialogue: [
+            { speaker: "Client", text: "Bonjour monsieur, je voudrais un billet pour Lyon, s'il vous plaît.", translation: "Good morning sir, I'd like a ticket for Lyon, please." },
+            { speaker: "Employé", text: "Pour quand ?", translation: "For when?" },
+            { speaker: "Client", text: "Pour aujourd'hui, le train de quatorze heures trente.", translation: "For today, the two thirty train." },
+            { speaker: "Employé", text: "En première ou en deuxième classe ?", translation: "First or second class?" },
+            { speaker: "Client", text: "En deuxième classe, s'il vous plaît.", translation: "Second class, please." },
+            { speaker: "Employé", text: "Aller simple ou aller-retour ?", translation: "Single or return?" },
+            { speaker: "Client", text: "Aller-retour.", translation: "Return." },
+            { speaker: "Employé", text: "Le retour pour quand ?", translation: "When for the return?" },
+            { speaker: "Client", text: "Dimanche prochain, le soir si possible.", translation: "Next Sunday, in the evening if possible." },
+            { speaker: "Employé", text: "Il y a un train à dix-neuf heures quinze.", translation: "There's a train at nineteen fifteen." },
+            { speaker: "Client", text: "Parfait ! Ça coûte combien ?", translation: "Perfect! How much is it?" },
+            { speaker: "Employé", text: "Soixante-douze euros.", translation: "Seventy-two euros." },
+            { speaker: "Employé", text: "Vous payez par carte ?", translation: "Paying by card?" },
+            { speaker: "Client", text: "Oui, s'il vous plaît.", translation: "Yes, please." },
+            { speaker: "Employé", text: "Voici vos billets. Bon voyage !", translation: "Here are your tickets. Have a good trip!" },
+        ],
         questions: [
             {
                 id: "fr-l-a2-2-q1",
@@ -98,6 +115,11 @@ export const a2Listening: ListeningExercise[] = [
         title: "Mon week-end — raconter ses activités",
         script: "Salut Nathalie ! Tu as passé un bon week-end ? Oui, super ! Samedi matin, j'ai fait du sport avec des amis. On a joué au tennis pendant deux heures. L'après-midi, je suis allée au cinéma. J'ai vu un film français très intéressant. Samedi soir, j'ai dîné dans un bon restaurant avec ma famille. On a mangé des fruits de mer. C'était délicieux ! Dimanche, il a plu toute la journée. Alors je suis restée chez moi et j'ai lu un roman. Et toi, qu'est-ce que tu as fait ?",
         translation: "Hi Nathalie! Did you have a good weekend? Yes, great! On Saturday morning, I did sport with some friends. We played tennis for two hours. In the afternoon, I went to the cinema. I saw a very interesting French film. Saturday evening, I had dinner at a good restaurant with my family. We ate seafood. It was delicious! On Sunday, it rained all day. So I stayed at home and read a novel. And you, what did you do?",
+        dialogue: [
+            { speaker: "Amie", text: "Salut Nathalie ! Tu as passé un bon week-end ?", translation: "Hi Nathalie! Did you have a good weekend?" },
+            { speaker: "Nathalie", text: "Oui, super ! Samedi matin, j'ai fait du sport avec des amis. On a joué au tennis pendant deux heures. L'après-midi, je suis allée au cinéma. J'ai vu un film français très intéressant. Samedi soir, j'ai dîné dans un bon restaurant avec ma famille. On a mangé des fruits de mer. C'était délicieux ! Dimanche, il a plu toute la journée. Alors je suis restée chez moi et j'ai lu un roman.", translation: "Yes, great! On Saturday morning, I did sport with some friends. We played tennis for two hours. In the afternoon, I went to the cinema. I saw a very interesting French film. Saturday evening, I had dinner at a good restaurant with my family. We ate seafood. It was delicious! On Sunday, it rained all day. So I stayed at home and read a novel." },
+            { speaker: "Nathalie", text: "Et toi, qu'est-ce que tu as fait ?", translation: "And you, what did you do?" },
+        ],
         questions: [
             {
                 id: "fr-l-a2-4-q1",
@@ -128,6 +150,22 @@ export const a2Listening: ListeningExercise[] = [
         title: "Au restaurant — passer une commande",
         script: "Bonsoir, vous avez réservé ? Oui, une table pour deux, au nom de Dupont. Très bien, suivez-moi s'il vous plaît. Voilà votre table. Voici la carte. Vous êtes prêts à commander ? Oui. Je voudrais le menu à vingt-cinq euros. Et pour vous, madame ? Moi, je vais prendre la salade de chèvre chaud en entrée, et le saumon pour le plat principal. Est-ce que le saumon contient du gluten ? Non, il est naturellement sans gluten. Parfait, je suis intolérante au gluten. Et comme boisson ? Une carafe d'eau et une bouteille de vin rouge. Vous désirez un dessert ? Oui, la tarte tatin pour moi. Et pour monsieur ? Je prends une crème brûlée.",
         translation: "Good evening, do you have a reservation? Yes, a table for two, under the name Dupont. Very well, follow me please. Here is your table. Here is the menu. Are you ready to order? Yes. I'd like the twenty-five euro set menu. And for you, madam? I'll have the warm goat's cheese salad as a starter, and the salmon for the main course. Does the salmon contain gluten? No, it is naturally gluten-free. Perfect, I'm intolerant to gluten. And to drink? A jug of water and a bottle of red wine. Would you like a dessert? Yes, the tarte tatin for me. And for the gentleman? I'll have a crème brûlée.",
+        dialogue: [
+            { speaker: "Serveur", text: "Bonsoir, vous avez réservé ?", translation: "Good evening, do you have a reservation?" },
+            { speaker: "Client", text: "Oui, une table pour deux, au nom de Dupont.", translation: "Yes, a table for two, under the name Dupont." },
+            { speaker: "Serveur", text: "Très bien, suivez-moi s'il vous plaît. Voilà votre table. Voici la carte. Vous êtes prêts à commander ?", translation: "Very well, follow me please. Here is your table. Here is the menu. Are you ready to order?" },
+            { speaker: "Client", text: "Oui. Je voudrais le menu à vingt-cinq euros.", translation: "Yes. I'd like the twenty-five euro set menu." },
+            { speaker: "Serveur", text: "Et pour vous, madame ?", translation: "And for you, madam?" },
+            { speaker: "Client", text: "Moi, je vais prendre la salade de chèvre chaud en entrée, et le saumon pour le plat principal. Est-ce que le saumon contient du gluten ?", translation: "I'll have the warm goat's cheese salad as a starter, and the salmon for the main course. Does the salmon contain gluten?" },
+            { speaker: "Serveur", text: "Non, il est naturellement sans gluten.", translation: "No, it is naturally gluten-free." },
+            { speaker: "Client", text: "Parfait, je suis intolérante au gluten.", translation: "Perfect, I'm intolerant to gluten." },
+            { speaker: "Serveur", text: "Et comme boisson ?", translation: "And to drink?" },
+            { speaker: "Client", text: "Une carafe d'eau et une bouteille de vin rouge.", translation: "A jug of water and a bottle of red wine." },
+            { speaker: "Serveur", text: "Vous désirez un dessert ?", translation: "Would you like a dessert?" },
+            { speaker: "Client", text: "Oui, la tarte tatin pour moi.", translation: "Yes, the tarte tatin for me." },
+            { speaker: "Serveur", text: "Et pour monsieur ?", translation: "And for the gentleman?" },
+            { speaker: "Client", text: "Je prends une crème brûlée.", translation: "I'll have a crème brûlée." },
+        ],
         questions: [
             {
                 id: "fr-l-a2-5-q1",
@@ -158,6 +196,19 @@ export const a2Listening: ListeningExercise[] = [
         title: "Chez le médecin — une consultation",
         script: "Bonjour, asseyez-vous. Qu'est-ce qui vous amène aujourd'hui ? Bonjour docteur. J'ai mal à la gorge depuis trois jours et j'ai de la fièvre. Vous avez pris votre température ? Oui, j'avais trente-huit cinq hier soir. Vous toussez aussi ? Oui, un peu, surtout la nuit. Est-ce que vous avez d'autres symptômes ? J'ai aussi mal à la tête et je suis très fatigué. D'accord, je vais examiner votre gorge. Ouvrez la bouche. Ah, votre gorge est très rouge. C'est une angine bactérienne. Il faut prendre des antibiotiques pendant dix jours. Je vous fais une ordonnance. Vous devez vous reposer et boire beaucoup d'eau. Est-ce que vous êtes allergique à un médicament ? Non, pas à ma connaissance.",
         translation: "Hello, sit down. What brings you in today? Hello doctor. I've had a sore throat for three days and I have a temperature. Have you taken your temperature? Yes, I had thirty-eight point five yesterday evening. Are you coughing too? Yes, a little, especially at night. Do you have any other symptoms? I also have a headache and I'm very tired. All right, I'll examine your throat. Open your mouth. Ah, your throat is very red. It's a bacterial throat infection. You need to take antibiotics for ten days. I'll write you a prescription. You must rest and drink plenty of water. Are you allergic to any medication? No, not to my knowledge.",
+        dialogue: [
+            { speaker: "Médecin", text: "Bonjour, asseyez-vous. Qu'est-ce qui vous amène aujourd'hui ?", translation: "Hello, sit down. What brings you in today?" },
+            { speaker: "Patient", text: "Bonjour docteur. J'ai mal à la gorge depuis trois jours et j'ai de la fièvre.", translation: "Hello doctor. I've had a sore throat for three days and I have a temperature." },
+            { speaker: "Médecin", text: "Vous avez pris votre température ?", translation: "Have you taken your temperature?" },
+            { speaker: "Patient", text: "Oui, j'avais trente-huit cinq hier soir.", translation: "Yes, I had thirty-eight point five yesterday evening." },
+            { speaker: "Médecin", text: "Vous toussez aussi ?", translation: "Are you coughing too?" },
+            { speaker: "Patient", text: "Oui, un peu, surtout la nuit.", translation: "Yes, a little, especially at night." },
+            { speaker: "Médecin", text: "Est-ce que vous avez d'autres symptômes ?", translation: "Do you have any other symptoms?" },
+            { speaker: "Patient", text: "J'ai aussi mal à la tête et je suis très fatigué.", translation: "I also have a headache and I'm very tired." },
+            { speaker: "Médecin", text: "D'accord, je vais examiner votre gorge. Ouvrez la bouche. Ah, votre gorge est très rouge. C'est une angine bactérienne. Il faut prendre des antibiotiques pendant dix jours. Je vous fais une ordonnance. Vous devez vous reposer et boire beaucoup d'eau.", translation: "All right, I'll examine your throat. Open your mouth. Ah, your throat is very red. It's a bacterial throat infection. You need to take antibiotics for ten days. I'll write you a prescription. You must rest and drink plenty of water." },
+            { speaker: "Médecin", text: "Est-ce que vous êtes allergique à un médicament ?", translation: "Are you allergic to any medication?" },
+            { speaker: "Patient", text: "Non, pas à ma connaissance.", translation: "No, not to my knowledge." },
+        ],
         questions: [
             {
                 id: "fr-l-a2-6-q1",
