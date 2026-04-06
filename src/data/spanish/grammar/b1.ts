@@ -143,4 +143,84 @@ export const b1Grammar: GrammarLesson[] = [
             { native: "En definitiva, creo que esta solución es la más viable.", translation: "Ultimately, I think this solution is the most viable." },
         ]
     },
+    {
+        id: "es-g-b1-10",
+        level: "B1",
+        title: "Imperfecto de Subjuntivo",
+        explanation: {
+            native: "The imperfect subjunctive expresses hypothetical, unreal, or past-referring subjunctive situations. Formation: take the ellos/ellas form of the preterite, drop the -ron ending, then add -ra, -ras, -ra, -ramos, -rais, -ran. This applies to ALL verbs — regular and irregular — making the imperfect subjunctive perfectly systematic: hablar → hablaron → hablara; tener → tuvieron → tuviera; ser/ir → fueron → fuera; hacer → hicieron → hiciera. Key uses: (1) Si-clauses Type 2 — si + imperfecto subjuntivo + condicional: 'Si tuviera dinero, viajaría.' (2) Polite requests with querer/poder: 'Quisiera un café.' (3) Reported speech commands: 'Te dije que vinieras.' (4) After ojalá for unlikely wishes: 'Ojalá tuviera más tiempo.'",
+            target: "El imperfecto de subjuntivo expresa situaciones hipotéticas, irreales o que remiten al pasado en modo subjuntivo. Formación: se toma la forma ellos/ellas del pretérito indefinido, se elimina la terminación -ron y se añaden: -ra, -ras, -ra, -ramos, -rais, -ran. Esta regla se aplica a TODOS los verbos —regulares e irregulares— con lo que el imperfecto de subjuntivo es completamente sistemático: hablar → hablaron → hablara; tener → tuvieron → tuviera; ser/ir → fueron → fuera; hacer → hicieron → hiciera. Usos principales: (1) Oraciones condicionales tipo 2 — si + imp. subj. + condicional: «Si tuviera dinero, viajaría.» (2) Peticiones de cortesía con querer/poder: «Quisiera un café.» (3) Estilo indirecto con mandatos: «Te dije que vinieras.» (4) Ojalá para deseos difíciles de cumplir: «Ojalá tuviera más tiempo.»"
+        },
+        examples: [
+            { native: "Si tuviera más tiempo, aprendería a tocar la guitarra.", translation: "If I had more time, I would learn to play the guitar. (si-clause Type 2)" },
+            { native: "Quisiera hablar con el director, por favor.", translation: "I would like to speak with the director, please. (polite request)" },
+            { native: "Me pidió que llegara puntual.", translation: "He asked me to arrive on time. (reported command → que + imperfecto subj.)" },
+            { native: "Ojalá pudiéramos quedarnos más tiempo.", translation: "I wish we could stay longer. (ojalá + imperfecto subj. = unlikely wish)" },
+            { native: "Si fuera tú, no lo haría.", translation: "If I were you, I wouldn't do it. (ser → fueron → fuera)" },
+        ]
+    },
+    {
+        id: "es-g-b1-11",
+        level: "B1",
+        title: "Subjuntivo en Cláusulas de Relativo e Impersonales",
+        explanation: {
+            native: "The subjunctive appears in relative clauses when the antecedent (the noun being described) is unknown, hypothetical, or doesn't yet exist — as opposed to a specific, known referent. Compare: 'Busco al médico que habla inglés' (indicative — a specific known doctor) vs. 'Busco un médico que hable inglés' (subjunctive — any doctor who happens to speak English). Key triggers: buscar, necesitar, querer + an indefinite article or negative. Also used in impersonal expressions not expressing certainty: es importante que, es posible que, es necesario que, es una lástima que — all require the subjunctive. Contrast: es cierto que / es verdad que / es obvio que → indicative (certainty).",
+            target: "El subjuntivo aparece en las cláusulas de relativo cuando el antecedente (el sustantivo que se describe) es desconocido, hipotético o aún no existe, a diferencia de un referente específico y conocido. Contraste: «Busco al médico que habla inglés» (indicativo — un médico específico conocido) vs. «Busco un médico que hable inglés» (subjuntivo — cualquier médico que hable inglés). Desencadenantes clave: buscar, necesitar, querer + artículo indefinido o con negación. También se usa en expresiones impersonales que no expresan certeza: es importante que, es posible que, es necesario que, es una lástima que. Contraste: es cierto que / es verdad que / es obvio que → indicativo (certeza)."
+        },
+        examples: [
+            { native: "Busco un apartamento que tenga terraza.", translation: "I'm looking for a flat that has a terrace. (hypothetical — any flat)" },
+            { native: "No hay nadie que sepa la respuesta.", translation: "There is nobody who knows the answer. (negative antecedent → subjunctive)" },
+            { native: "Es posible que llegue tarde.", translation: "It's possible that he will arrive late. (es posible que → subjunctive)" },
+            { native: "Es cierto que el proyecto es difícil.", translation: "It's true that the project is difficult. (es cierto que → indicative — certainty)" },
+            { native: "Necesitamos a alguien que hable chino.", translation: "We need someone who speaks Chinese. (indefinite alguien → subjunctive)" },
+        ]
+    },
+    {
+        id: "es-g-b1-12",
+        level: "B1",
+        title: "Subjuntivo en Cláusulas Temporales",
+        explanation: {
+            native: "Temporal conjunctions (cuando, hasta que, en cuanto, tan pronto como, antes de que) take the subjunctive when referring to a future or hypothetical event, and the indicative when referring to habitual or past events. This is a major B1 distinction: 'Cuando llegué, llamé' (indicative — past fact) vs. 'Cuando llegues, llama' (subjunctive — future instruction). Rule of thumb: if the event hasn't happened yet, use subjunctive. Always-subjunctive conjunctions: antes de que (always future-leaning). Key set: cuando + subj. (future); hasta que + subj. (until it happens); en cuanto/tan pronto como + subj. (as soon as it happens). After a main verb in the past, antes de que always takes imperfecto de subjuntivo.",
+            target: "Las conjunciones temporales (cuando, hasta que, en cuanto, tan pronto como, antes de que) rigen subjuntivo cuando se refieren a un evento futuro o hipotético, e indicativo cuando se refieren a eventos habituales o pasados. Esta es una distinción clave en B1: «Cuando llegué, llamé» (indicativo — hecho pasado) vs. «Cuando llegues, llama» (subjuntivo — instrucción futura). Regla práctica: si el evento todavía no ha ocurrido, usa subjuntivo. Conjunciones de uso siempre subjuntivo: antes de que. Claves: cuando + subj. (futuro); hasta que + subj. (hasta que ocurra); en cuanto / tan pronto como + subj. (en cuanto ocurra). Tras un verbo principal en pasado, antes de que rige siempre imperfecto de subjuntivo."
+        },
+        examples: [
+            { native: "Cuando llegues a casa, llámame.", translation: "When you get home, call me. (future → subjunctive)" },
+            { native: "Cuando llegué a casa, llamé a mis padres.", translation: "When I got home, I called my parents. (past fact → indicative)" },
+            { native: "Esperaré hasta que termines.", translation: "I'll wait until you finish. (future → subjunctive)" },
+            { native: "En cuanto sepa algo, te aviso.", translation: "As soon as I know something, I'll let you know. (future → subjunctive)" },
+            { native: "Salió antes de que yo llegara.", translation: "She left before I arrived. (before a past event → imperfecto de subjuntivo)" },
+        ]
+    },
+    {
+        id: "es-g-b1-13",
+        level: "B1",
+        title: "La Voz Pasiva con Ser",
+        explanation: {
+            native: "Spanish has two passive constructions. The se pasivo (A2) is common in spoken/written Spanish to avoid naming the agent: 'Aquí se habla español.' The true passive with ser (B1) places the focus on the result and explicitly names the agent with por. Formation: subject + ser (any tense) + past participle + por + agent. The past participle agrees with the subject in gender and number. Common in formal writing, news reporting, and academic Spanish. Compare: 'Pablo construyó el puente.' (active) → 'El puente fue construido por Pablo.' (passive with ser). Note: estar + past participle expresses a resulting STATE (not the action itself): 'La puerta está abierta' (state) vs. 'La puerta fue abierta por el guardia' (action).",
+            target: "El español tiene dos construcciones pasivas. La pasiva con se (A2) es común para evitar nombrar al agente: «Aquí se habla español». La pasiva verdadera con ser (B1) pone el foco en el resultado y nombra explícitamente al agente con por. Formación: sujeto + ser (cualquier tiempo) + participio pasado + por + agente. El participio concuerda con el sujeto en género y número. Es frecuente en escritura formal, noticias y español académico. Contraste: «Pablo construyó el puente» (activa) → «El puente fue construido por Pablo» (pasiva con ser). Nota: estar + participio expresa un ESTADO resultante (no la acción): «La puerta está abierta» (estado) vs. «La puerta fue abierta por el guardia» (acción)."
+        },
+        examples: [
+            { native: "El libro fue escrito por García Márquez.", translation: "The book was written by García Márquez." },
+            { native: "El proyecto ha sido aprobado por el director.", translation: "The project has been approved by the director." },
+            { native: "La ciudad fue fundada en el siglo XV.", translation: "The city was founded in the 15th century. (agent omitted)" },
+            { native: "Las leyes serán revisadas por el parlamento.", translation: "The laws will be reviewed by parliament." },
+            { native: "La puerta está cerrada. (estado) / La puerta fue cerrada por el guardia. (acción)", translation: "The door is closed. (state) / The door was closed by the guard. (action)" },
+        ]
+    },
+    {
+        id: "es-g-b1-14",
+        level: "B1",
+        title: "Gerundio en Construcciones Compuestas",
+        explanation: {
+            native: "Beyond the basic progressive (estar + gerundio from A2), Spanish uses the gerund in several compound constructions that express how an action unfolds over time. Key constructions: llevar + time + gerundio (to have been doing something for a period: 'Llevo tres años estudiando español'); seguir/continuar + gerundio (to keep doing: 'Sigue lloviendo'); ir + gerundio (progressive development: 'El proyecto va mejorando'); venir + gerundio (has been happening, with background implication: 'Viene diciendo lo mismo hace meses'). The gerund itself: regular -ar verbs → -ando; -er/-ir verbs → -iendo; stem-changing -ir verbs change the stem vowel (pedir → pidiendo, dormir → durmiendo). The gerund is invariable — it never changes for gender or number.",
+            target: "Más allá del progresivo básico (estar + gerundio, A2), el español usa el gerundio en varias construcciones compuestas que expresan cómo se desarrolla una acción en el tiempo. Construcciones clave: llevar + tiempo + gerundio (llevar haciendo algo durante un período: «Llevo tres años estudiando español»); seguir/continuar + gerundio (seguir haciendo algo: «Sigue lloviendo»); ir + gerundio (desarrollo progresivo: «El proyecto va mejorando»); venir + gerundio (lleva tiempo ocurriendo: «Viene diciendo lo mismo hace meses»). El gerundio: verbos regulares -ar → -ando; -er/-ir → -iendo; verbos -ir con cambio de raíz cambian la vocal (pedir → pidiendo, dormir → durmiendo). El gerundio es invariable: nunca cambia de género ni número."
+        },
+        examples: [
+            { native: "Llevo dos horas esperando el autobús.", translation: "I have been waiting for the bus for two hours. (llevar + gerundio)" },
+            { native: "Sigue lloviendo aunque son las cuatro de la tarde.", translation: "It's still raining even though it's four in the afternoon. (seguir + gerundio)" },
+            { native: "La situación va mejorando poco a poco.", translation: "The situation is gradually improving. (ir + gerundio = progressive development)" },
+            { native: "Viene quejándose del trabajo desde hace meses.", translation: "He has been complaining about the job for months. (venir + gerundio)" },
+            { native: "Entró corriendo y gritando.", translation: "He entered running and shouting. (gerund as adverb of manner)" },
+        ]
+    },
 ]

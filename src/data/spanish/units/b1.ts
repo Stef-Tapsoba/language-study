@@ -419,6 +419,134 @@ export const esUnitsB1: LessonUnit[] = [
             { id: "es-b1-u9-q6", level: "B1", prompt: "What does 'tener en cuenta' mean?", options: ["to take into account", "to keep in mind only", "to have a point", "to count on someone"], answer: "to take into account", hint: "Tener en cuenta = to take into account / bear in mind. High-frequency B1 collocation." },
         ]
     },
+    {
+        id: "es-b1-u10",
+        level: "B1",
+        order: 10,
+        title: "Advanced Subjunctive — Imperfecto, Relative & Temporal Clauses",
+        description: "Master the imperfecto de subjuntivo — the key form behind si-clauses, polite requests, and reported commands. Then extend the subjunctive into two new contexts: relative clauses with an unknown or indefinite antecedent, and temporal clauses (cuando, hasta que, en cuanto) referring to future events.",
+        grammarIds: ["es-g-b1-10", "es-g-b1-11", "es-g-b1-12"],
+        vocabIds: ["es-v-b1-095", "es-v-b1-096", "es-v-b1-097", "es-v-b1-098"],
+        verbIds: ["es-vb-b1-1"],
+        testQuestions: [
+            {
+                id: "es-b1-u10-q1", level: "B1",
+                prompt: "Form the imperfecto de subjuntivo of 'tener' (yo).",
+                options: ["tuviera", "tuvera", "teniera", "tuvara"],
+                answer: "tuviera",
+                hint: "Tener → ellos preterite: tuvieron → drop -ron → tuvie- + -ra = tuviera."
+            },
+            {
+                id: "es-b1-u10-q2", level: "B1",
+                prompt: "Complete: 'Busco un piso que ___ (tener) terraza.' (you don't have one yet)",
+                options: ["tiene", "tenga", "tuviera", "tendrá"],
+                answer: "tenga",
+                hint: "Indefinite/hypothetical antecedent (any flat that has a terrace) → subjunctive (present: tenga)."
+            },
+            {
+                id: "es-b1-u10-q3", level: "B1",
+                prompt: "Complete: 'Cuando ___ (terminar, tú) el informe, mándamelo.'",
+                options: ["terminas", "termines", "terminarás", "terminabas"],
+                answer: "termines",
+                hint: "Future instruction with 'cuando' → subjunctive. The event hasn't happened yet."
+            },
+            {
+                id: "es-b1-u10-q4", level: "B1",
+                prompt: "Which sentence uses the subjunctive correctly?",
+                options: [
+                    "Es cierto que viene mañana.",
+                    "Es posible que venga mañana.",
+                    "Es verdad que viene mañana.",
+                    "Es obvio que viene mañana."
+                ],
+                answer: "Es posible que venga mañana.",
+                hint: "Es posible que → subjunctive (uncertainty). Es cierto/verdad/obvio que → indicative (certainty)."
+            },
+            {
+                id: "es-b1-u10-q5", level: "B1",
+                prompt: "Complete: 'Esperaré hasta que ___ (llegar, ellos).'",
+                options: ["llegan", "llegaron", "lleguen", "llegarían"],
+                answer: "lleguen",
+                hint: "Hasta que + future event → subjunctive."
+            },
+            {
+                id: "es-b1-u10-q6", level: "B1",
+                prompt: "What does 'quisiera' signal in 'Quisiera hablar con el director'?",
+                options: ["A past wish that was not fulfilled", "A polite request using the imperfecto de subjuntivo of querer", "A condition introduced by si", "A reported command"],
+                answer: "A polite request using the imperfecto de subjuntivo of querer",
+                hint: "Quisiera (imperfecto subj. of querer) softens requests more than querría (conditional) — very common in formal and polite register."
+            },
+        ]
+    },
+    {
+        id: "es-b1-u11",
+        level: "B1",
+        order: 11,
+        title: "Passive Voice & Gerundio Constructions",
+        description: "Use the true passive with ser + past participle to report events with an explicit agent — the construction of news, formal writing, and academic Spanish. Then master the gerundio in time-span constructions (llevar, seguir, ir, venir + gerundio) that describe ongoing or developing situations.",
+        grammarIds: ["es-g-b1-13", "es-g-b1-14"],
+        vocabIds: ["es-v-b1-099", "es-v-b1-100", "es-v-b1-076", "es-v-b1-079", "es-v-b1-080"],
+        verbIds: ["es-vb-b1-3"],
+        testQuestions: [
+            {
+                id: "es-b1-u11-q1", level: "B1",
+                prompt: "Transform to passive: 'El gobierno aprobó la ley.' → 'La ley ___ ___ el gobierno.'",
+                options: ["fue aprobada por", "fue aprobado por", "es aprobada de", "ha sido aprobado por"],
+                answer: "fue aprobada por",
+                hint: "Passive with ser: fue (pretérito of ser) + aprobada (feminine, agrees with 'la ley') + por."
+            },
+            {
+                id: "es-b1-u11-q2", level: "B1",
+                prompt: "Which sentence correctly uses 'llevar + gerundio'?",
+                options: [
+                    "Llevo esperando dos horas al autobús.",
+                    "Llevo dos horas esperando al autobús.",
+                    "Llevo dos horas que espero al autobús.",
+                    "Llevo por dos horas esperando."
+                ],
+                answer: "Llevo dos horas esperando al autobús.",
+                hint: "Llevar + time + gerundio — the time expression comes between llevar and the gerundio."
+            },
+            {
+                id: "es-b1-u11-q3", level: "B1",
+                prompt: "What is the difference between 'La puerta está cerrada' and 'La puerta fue cerrada por el guardia'?",
+                options: [
+                    "No difference — both mean the door was closed",
+                    "'Está cerrada' = current state; 'fue cerrada' = the action of closing",
+                    "'Fue cerrada' is more informal than 'está cerrada'",
+                    "'Está cerrada' describes the past; 'fue cerrada' the present"
+                ],
+                answer: "'Está cerrada' = current state; 'fue cerrada' = the action of closing",
+                hint: "Estar + participio = resulting STATE. Ser + participio = the ACTION (passive event)."
+            },
+            {
+                id: "es-b1-u11-q4", level: "B1",
+                prompt: "Complete: 'El proyecto ___ (ir) mejorando semana a semana.'",
+                options: ["está", "va", "lleva", "sigue"],
+                answer: "va",
+                hint: "Ir + gerundio = gradual progressive development — the project is progressively improving."
+            },
+            {
+                id: "es-b1-u11-q5", level: "B1",
+                prompt: "What does 'seguir + gerundio' express?",
+                options: ["An action that happened suddenly", "A continuous action that keeps going / is still happening", "An action that happened before another", "A polite request"],
+                answer: "A continuous action that keeps going / is still happening",
+                hint: "Seguir + gerundio = to keep doing / to still be doing. Sigue lloviendo = it's still raining."
+            },
+            {
+                id: "es-b1-u11-q6", level: "B1",
+                prompt: "Translate: 'The new hospital was inaugurated by the mayor.'",
+                options: [
+                    "El nuevo hospital se inauguró por el alcalde.",
+                    "El nuevo hospital fue inaugurado por el alcalde.",
+                    "El nuevo hospital estaba inaugurado por el alcalde.",
+                    "El nuevo hospital inauguró el alcalde."
+                ],
+                answer: "El nuevo hospital fue inaugurado por el alcalde.",
+                hint: "True passive with ser: fue inaugurado + por + agent."
+            },
+        ]
+    },
 ]
 
 // Alias for backward compatibility with index.ts assembler
