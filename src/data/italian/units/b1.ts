@@ -137,6 +137,7 @@ export const b1Units: LessonUnit[] = [
         vocabIds: ["it-v-b1-090", "it-v-b1-091", "it-v-b1-092", "it-v-b1-093", "it-v-b1-094"],
         verbIds: [],
         readingIds: ["it-r-b1-3"],
+        listeningIds: ["it-l-b1-4"],
         testQuestions: [
             { id: "it-uq-b1-8-1", level: "B1", prompt: "What does 'rendersi conto di' mean?", options: ["to render useless", "to realise / become aware of", "to count on", "to report on"], answer: "to realise / become aware of", hint: "Rendersi conto di = to realise. The correct collocation — not capire or scoprire in this sense." },
             { id: "it-uq-b1-8-2", level: "B1", prompt: "How do you say 'on the one hand… on the other hand'?", options: ["di più… di meno", "da una parte… dall'altra", "in primo luogo… in secondo luogo", "prima… poi"], answer: "da una parte… dall'altra", hint: "Da una parte / dall'altra (parte) = on the one hand / on the other." },
@@ -144,6 +145,62 @@ export const b1Units: LessonUnit[] = [
             { id: "it-uq-b1-8-4", level: "B1", prompt: "What does 'non ci piove' mean as a colloquial expression?", options: ["it's not raining", "there's no doubt about it", "it doesn't matter", "it's not true"], answer: "there's no doubt about it", hint: "Non ci piove is a fixed Italian idiom meaning 'there's no doubt about it' — listed in the B1 guide." },
             { id: "it-uq-b1-8-5", level: "B1", prompt: "Complete the collocation: '___ una decisione' (to make a decision)", options: ["fare", "avere", "prendere", "mettere"], answer: "prendere", hint: "Prendere una decisione = to make a decision. Always prendere, not fare." },
             { id: "it-uq-b1-8-6", level: "B1", prompt: "Which phrase signals a conclusion in Italian?", options: ["da una parte", "tuttavia", "in conclusione / in sintesi", "d'altronde"], answer: "in conclusione / in sintesi", hint: "In conclusione or in sintesi = in conclusion / in summary." },
+        ]
+    },
+    {
+        id: "it-b1-u9",
+        level: "B1",
+        order: 9,
+        title: "Complex Past Narration — Imperfetto vs Passato Prossimo",
+        description: "Master the interplay between the imperfetto (background, states, habits) and the passato prossimo (completed events) in sustained storytelling. This is the defining B1 narration skill in Italian — producing connected past narratives where both tenses work together naturally.",
+        grammarIds: ["it-g-b1-10"],
+        vocabIds: ["it-v-b1-007", "it-v-b1-009", "it-v-b1-010", "it-v-b1-067", "it-v-b1-068", "it-v-b1-070"],
+        verbIds: ["it-vb-b1-1", "it-vb-b1-3"],
+        readingIds: ["it-r-b1-4"],
+        listeningIds: ["it-l-b1-4"],
+        testQuestions: [
+            {
+                id: "it-uq-b1-9-1", level: "B1",
+                prompt: "Complete: 'Io ___ (leggere) quando ha suonato il telefono.'",
+                options: ["leggevo", "ho letto", "leggerò", "leggo"],
+                answer: "leggevo",
+                hint: "Ongoing background action (reading) → imperfetto. The phone ringing is the interrupting event → passato prossimo."
+            },
+            {
+                id: "it-uq-b1-9-2", level: "B1",
+                prompt: "Complete: 'Un giorno, mentre ___ (camminare) per il centro, ___ (incontrare) un vecchio amico.'",
+                options: ["camminavo / ho incontrato", "ho camminato / incontravo", "camminavo / incontravo", "ho camminato / ho incontrato"],
+                answer: "camminavo / ho incontrato",
+                hint: "Camminare = ongoing action in background → imperfetto. Incontrare = specific completed event that occurred during it → passato prossimo."
+            },
+            {
+                id: "it-uq-b1-9-3", level: "B1",
+                prompt: "Which tense expresses a habitual action in the past?",
+                options: ["Passato prossimo", "Futuro semplice", "Imperfetto", "Trapassato prossimo"],
+                answer: "Imperfetto",
+                hint: "Habitual past actions (used to do, would always do) → imperfetto. Signal words: sempre, di solito, ogni giorno."
+            },
+            {
+                id: "it-uq-b1-9-4", level: "B1",
+                prompt: "Choose the correct tense: 'All'improvviso ___ (cominciare) a piovere.' (sudden event)",
+                options: ["cominciava", "comincerà", "ha cominciato", "comincerebbe"],
+                answer: "ha cominciato",
+                hint: "All'improvviso (suddenly) signals a sudden, specific completed event → passato prossimo."
+            },
+            {
+                id: "it-uq-b1-9-5", level: "B1",
+                prompt: "Complete the narration: 'Quando ero piccolo, ___ (andare) al mare ogni estate.'",
+                options: ["sono andato", "andavo", "andrò", "andassi"],
+                answer: "andavo",
+                hint: "Repeated habitual past action ('every summer') → imperfetto."
+            },
+            {
+                id: "it-uq-b1-9-6", level: "B1",
+                prompt: "What does 'il rischio' mean?",
+                options: ["result", "risk", "objective", "phenomenon"],
+                answer: "risk",
+                hint: "Il rischio = risk. C'è un rischio concreto = there is a real risk."
+            },
         ]
     },
 ]
