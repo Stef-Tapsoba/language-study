@@ -226,7 +226,7 @@ export const a2Grammar: GrammarLesson[] = [
             { native: "Nous nous sommes couchés tôt.", translation: "We went to bed early. (plural agreement)" },
             { native: "Il ne s'est pas rasé aujourd'hui.", translation: "He didn't shave today. (negative)" },
             { native: "Elles se sont retrouvées au café.", translation: "They met up at the café." },
-            { native: "Tu t'es souvenu(e) de son anniversaire ?", translation: "Did you remember his/her birthday?" },
+            { native: "Tu t'es souvenu(e) de son anniversaire ?", speakText:"Tu t'es souvenu de son anniversaire ?", translation: "Did you remember his/her birthday?" },
         ],
         inlineVocab: [
             { word: "se lever", translation: "to get up" },
@@ -248,8 +248,8 @@ export const a2Grammar: GrammarLesson[] = [
             target: "Les pronoms COI remplacent à + personne. Lui remplace à + une personne ; leur remplace à + plusieurs personnes. Ils se placent avant le verbe conjugué. Verbes courants suivis de à + personne : donner, dire, demander, téléphoner, écrire, envoyer, répondre, parler. Au passé composé : Je lui ai parlé."
         },
         examples: [
-            { native: "Je lui téléphone ce soir. (à Marc)", translation: "I'll phone him this evening." },
-            { native: "Elle leur a dit la vérité. (aux enfants)", translation: "She told them the truth." },
+            { native: "Je lui téléphone ce soir. (à Marc)", speakText:"Je lui téléphone ce soir.", translation: "I'll phone him this evening." },
+            { native: "Elle leur a dit la vérité. (aux enfants)", speakText:"Elle leur a dit la vérité.", translation: "She told them the truth." },
             { native: "Tu peux lui demander de l'aide ?", translation: "Can you ask him/her for help?" },
             { native: "Je lui ai envoyé un message hier.", translation: "I sent him/her a message yesterday." },
             { native: "Nous leur écrivons chaque semaine.", translation: "We write to them every week." },
