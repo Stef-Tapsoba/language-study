@@ -8,6 +8,14 @@ export const b1Listening: ListeningExercise[] = [
         title: "Cervelli in fuga — intervista a una giovane italiana a Londra",
         script: "Ciao Alessia, vivi a Londra da tre anni. Com'è andata? Bene, anche se i primi mesi sono stati difficili. Ho lasciato Torino dopo la laurea in ingegneria perché non riuscivo a trovare lavoro nella mia città. Qui a Londra ho trovato un posto fisso dopo due mesi. Guadagno il doppio di quello che avrei guadagnato in Italia per lo stesso lavoro. Ti manca l'Italia? Tantissimo. Mi mancano la famiglia, il cibo, il sole. Qui piove sempre! Ma mi manca anche la qualità della vita italiana — la piazza, i bar, il ritmo più lento. Pensi di tornare? È complicato. Tornare significherebbe rinunciare alla stabilità economica che ho costruito. Però mi piacerebbe contribuire a cambiare le cose in Italia. Forse tra qualche anno, se la situazione migliorerà.",
         translation: "Hi Alessia, you've been living in London for three years. How has it gone? Well, although the first few months were difficult. I left Turin after graduating in engineering because I couldn't find work in my city. Here in London I found a permanent job after two months. I earn double what I would have earned in Italy for the same job. Do you miss Italy? Enormously. I miss my family, the food, the sunshine. It always rains here! But I also miss the Italian quality of life — the piazza, the bars, the slower pace. Are you thinking of going back? It's complicated. Going back would mean giving up the economic stability I've built. But I would like to contribute to changing things in Italy. Maybe in a few years, if the situation improves.",
+        dialogue: [
+            { speaker: "Intervistatrice", text: "Ciao Alessia, vivi a Londra da tre anni. Com'è andata?", translation: "Hi Alessia, you've been living in London for three years. How has it gone?" },
+            { speaker: "Alessia", text: "Bene, anche se i primi mesi sono stati difficili. Ho lasciato Torino dopo la laurea in ingegneria perché non riuscivo a trovare lavoro nella mia città. Qui a Londra ho trovato un posto fisso dopo due mesi. Guadagno il doppio di quello che avrei guadagnato in Italia per lo stesso lavoro.", translation: "Well, although the first few months were difficult. I left Turin after graduating in engineering because I couldn't find work in my city. Here in London I found a permanent job after two months. I earn double what I would have earned in Italy for the same job." },
+            { speaker: "Intervistatrice", text: "Ti manca l'Italia?", translation: "Do you miss Italy?" },
+            { speaker: "Alessia", text: "Tantissimo. Mi mancano la famiglia, il cibo, il sole. Qui piove sempre! Ma mi manca anche la qualità della vita italiana — la piazza, i bar, il ritmo più lento.", translation: "Enormously. I miss my family, the food, the sunshine. It always rains here! But I also miss the Italian quality of life — the piazza, the bars, the slower pace." },
+            { speaker: "Intervistatrice", text: "Pensi di tornare?", translation: "Are you thinking of going back?" },
+            { speaker: "Alessia", text: "È complicato. Tornare significherebbe rinunciare alla stabilità economica che ho costruito. Però mi piacerebbe contribuire a cambiare le cose in Italia. Forse tra qualche anno, se la situazione migliorerà.", translation: "It's complicated. Going back would mean giving up the economic stability I've built. But I would like to contribute to changing things in Italy. Maybe in a few years, if the situation improves." },
+        ],
         questions: [
             {
                 id: "it-l-b1-1-q1",
@@ -68,6 +76,18 @@ export const b1Listening: ListeningExercise[] = [
         title: "In ritardo — conversazione alla stazione ferroviaria",
         script: "Buongiorno, scusi. Il treno delle quattordici e trenta per Milano è in ritardo? Sì, purtroppo. C'è un guasto tecnico alla linea tra Bologna e Firenze. Il treno è previsto con circa sessanta minuti di ritardo. Sessanta minuti? E non c'è nessun altro treno per Milano nel frattempo? Sì, c'è un Intercity che parte tra venti minuti dal binario sette. Arriva a Milano Centrale alle diciotto e dieci, circa mezz'ora dopo il suo treno originale. Devo comprare un nuovo biglietto? No, con il suo biglietto può salire sull'Intercity senza pagare supplementi. Tenga il biglietto originale con sé. C'è il vagone ristorante sull'Intercity? No, non c'è il vagone ristorante, ma c'è un servizio di carrello con bevande e snack. Grazie mille. Prego, e mi scusi per il disagio.",
         translation: "Good morning, excuse me. Is the two thirty train to Milan delayed? Yes, unfortunately. There's a technical fault on the line between Bologna and Florence. The train is expected to be about sixty minutes late. Sixty minutes? And isn't there any other train to Milan in the meantime? Yes, there's an Intercity leaving in twenty minutes from platform seven. It arrives at Milan Centrale at eighteen ten, about half an hour after your original train. Do I need to buy a new ticket? No, with your ticket you can board the Intercity without paying supplements. Keep your original ticket with you. Is there a dining car on the Intercity? No, there is no dining car, but there is a trolley service with drinks and snacks. Thank you very much. You're welcome, and I apologise for the inconvenience.",
+        dialogue: [
+            { speaker: "Passeggero", text: "Buongiorno, scusi. Il treno delle quattordici e trenta per Milano è in ritardo?", translation: "Good morning, excuse me. Is the two thirty train to Milan delayed?" },
+            { speaker: "Impiegato", text: "Sì, purtroppo. C'è un guasto tecnico alla linea tra Bologna e Firenze. Il treno è previsto con circa sessanta minuti di ritardo.", translation: "Yes, unfortunately. There's a technical fault on the line between Bologna and Florence. The train is expected to be about sixty minutes late." },
+            { speaker: "Passeggero", text: "Sessanta minuti? E non c'è nessun altro treno per Milano nel frattempo?", translation: "Sixty minutes? And isn't there any other train to Milan in the meantime?" },
+            { speaker: "Impiegato", text: "Sì, c'è un Intercity che parte tra venti minuti dal binario sette. Arriva a Milano Centrale alle diciotto e dieci, circa mezz'ora dopo il suo treno originale.", translation: "Yes, there's an Intercity leaving in twenty minutes from platform seven. It arrives at Milan Centrale at eighteen ten, about half an hour after your original train." },
+            { speaker: "Passeggero", text: "Devo comprare un nuovo biglietto?", translation: "Do I need to buy a new ticket?" },
+            { speaker: "Impiegato", text: "No, con il suo biglietto può salire sull'Intercity senza pagare supplementi. Tenga il biglietto originale con sé.", translation: "No, with your ticket you can board the Intercity without paying supplements. Keep your original ticket with you." },
+            { speaker: "Passeggero", text: "C'è il vagone ristorante sull'Intercity?", translation: "Is there a dining car on the Intercity?" },
+            { speaker: "Impiegato", text: "No, non c'è il vagone ristorante, ma c'è un servizio di carrello con bevande e snack.", translation: "No, there is no dining car, but there is a trolley service with drinks and snacks." },
+            { speaker: "Passeggero", text: "Grazie mille.", translation: "Thank you very much." },
+            { speaker: "Impiegato", text: "Prego, e mi scusi per il disagio.", translation: "You're welcome, and I apologise for the inconvenience." },
+        ],
         questions: [
             {
                 id: "it-l-b1-3-q1",
@@ -96,40 +116,19 @@ export const b1Listening: ListeningExercise[] = [
         id: "it-l-b1-4",
         level: "B1",
         title: "Il telelavoro — intervista radiofonica",
-        script: `Conduttore: Buongiorno e benvenuti. Oggi parliamo di telelavoro con due ospiti che hanno esperienze molto diverse. Giulia, cominciamo da te. Tu hai sempre lavorato in ufficio e poi sei passata al telelavoro. Com'è andata?
-
-Giulia: Bene, anche se all'inizio è stato uno shock. Quando lavoravo in ufficio, la mia giornata aveva una struttura molto chiara: mi alzavo, prendevo il treno, arrivavo, lavoravo, tornavo a casa. Con il telelavoro quella struttura è scomparsa e ho dovuto ricrearla da sola.
-
-Conduttore: E ci sei riuscita?
-
-Giulia: Sì, piano piano. Ho capito che bisognava mantenere gli stessi orari di prima, fare pause regolari e, soprattutto, avere uno spazio dedicato al lavoro in casa. Adesso non tornerei indietro.
-
-Conduttore: Stefano, tu invece hai avuto un'esperienza diversa.
-
-Stefano: Sì, io ho provato il telelavoro per sei mesi e alla fine ho chiesto di tornare in ufficio. Non riuscivo a staccare. Finivo sempre per controllare le email anche di sera, anche nel weekend. Il confine tra vita privata e vita professionale si era completamente cancellato.
-
-Conduttore: Qual è, secondo voi, la soluzione ideale?
-
-Giulia: Il modello ibrido funziona per me. Due o tre giorni a casa, il resto in ufficio.
-
-Stefano: Sono d'accordo. La chiave è che ogni persona possa scegliere in base alle proprie esigenze, non che l'azienda imponga un modello unico.`,
-        translation: `Host: Good morning and welcome. Today we are talking about remote working with two guests who have very different experiences. Giulia, let's start with you. You always worked in an office and then switched to remote working. How did it go?
-
-Giulia: Well, even though it was a shock at first. When I worked in the office, my day had a very clear structure: I got up, took the train, arrived, worked, came home. With remote working that structure disappeared and I had to rebuild it myself.
-
-Host: And did you manage it?
-
-Giulia: Yes, gradually. I understood that I needed to keep the same hours as before, take regular breaks and, above all, have a dedicated workspace at home. Now I wouldn't go back.
-
-Host: Stefano, you had a different experience.
-
-Stefano: Yes, I tried remote working for six months and in the end I asked to go back to the office. I couldn't switch off. I always ended up checking emails in the evening too, even at weekends. The boundary between private and professional life had completely disappeared.
-
-Host: What is the ideal solution, in your view?
-
-Giulia: The hybrid model works for me. Two or three days at home, the rest in the office.
-
-Stefano: I agree. The key is that each person can choose based on their own needs, rather than the company imposing a single model on everyone.`,
+        script: "Buongiorno e benvenuti. Oggi parliamo di telelavoro con due ospiti che hanno esperienze molto diverse. Giulia, cominciamo da te. Tu hai sempre lavorato in ufficio e poi sei passata al telelavoro. Com'è andata? Bene, anche se all'inizio è stato uno shock. Quando lavoravo in ufficio, la mia giornata aveva una struttura molto chiara: mi alzavo, prendevo il treno, arrivavo, lavoravo, tornavo a casa. Con il telelavoro quella struttura è scomparsa e ho dovuto ricrearla da sola. E ci sei riuscita? Sì, piano piano. Ho capito che bisognava mantenere gli stessi orari di prima, fare pause regolari e, soprattutto, avere uno spazio dedicato al lavoro in casa. Adesso non tornerei indietro. Stefano, tu invece hai avuto un'esperienza diversa. Sì, io ho provato il telelavoro per sei mesi e alla fine ho chiesto di tornare in ufficio. Non riuscivo a staccare. Finivo sempre per controllare le email anche di sera, anche nel weekend. Il confine tra vita privata e vita professionale si era completamente cancellato. Qual è, secondo voi, la soluzione ideale? Il modello ibrido funziona per me. Due o tre giorni a casa, il resto in ufficio. Sono d'accordo. La chiave è che ogni persona possa scegliere in base alle proprie esigenze, non che l'azienda imponga un modello unico.",
+        translation: "Good morning and welcome. Today we are talking about remote working with two guests who have very different experiences. Giulia, let's start with you. You always worked in an office and then switched to remote working. How did it go? Well, even though it was a shock at first. When I worked in the office, my day had a very clear structure: I got up, took the train, arrived, worked, came home. With remote working that structure disappeared and I had to rebuild it myself. And did you manage it? Yes, gradually. I understood that I needed to keep the same hours as before, take regular breaks and, above all, have a dedicated workspace at home. Now I wouldn't go back. Stefano, you had a different experience. Yes, I tried remote working for six months and in the end I asked to go back to the office. I couldn't switch off. I always ended up checking emails in the evening too, even at weekends. The boundary between private and professional life had completely disappeared. What is the ideal solution, in your view? The hybrid model works for me. Two or three days at home, the rest in the office. I agree. The key is that each person can choose based on their own needs, rather than the company imposing a single model on everyone.",
+        dialogue: [
+            { speaker: "Conduttore", text: "Buongiorno e benvenuti. Oggi parliamo di telelavoro con due ospiti che hanno esperienze molto diverse. Giulia, cominciamo da te. Tu hai sempre lavorato in ufficio e poi sei passata al telelavoro. Com'è andata?", translation: "Good morning and welcome. Today we are talking about remote working with two guests who have very different experiences. Giulia, let's start with you. You always worked in an office and then switched to remote working. How did it go?" },
+            { speaker: "Giulia", text: "Bene, anche se all'inizio è stato uno shock. Quando lavoravo in ufficio, la mia giornata aveva una struttura molto chiara: mi alzavo, prendevo il treno, arrivavo, lavoravo, tornavo a casa. Con il telelavoro quella struttura è scomparsa e ho dovuto ricrearla da sola.", translation: "Well, even though it was a shock at first. When I worked in the office, my day had a very clear structure: I got up, took the train, arrived, worked, came home. With remote working that structure disappeared and I had to rebuild it myself." },
+            { speaker: "Conduttore", text: "E ci sei riuscita?", translation: "And did you manage it?" },
+            { speaker: "Giulia", text: "Sì, piano piano. Ho capito che bisognava mantenere gli stessi orari di prima, fare pause regolari e, soprattutto, avere uno spazio dedicato al lavoro in casa. Adesso non tornerei indietro.", translation: "Yes, gradually. I understood that I needed to keep the same hours as before, take regular breaks and, above all, have a dedicated workspace at home. Now I wouldn't go back." },
+            { speaker: "Conduttore", text: "Stefano, tu invece hai avuto un'esperienza diversa.", translation: "Stefano, you had a different experience." },
+            { speaker: "Stefano", text: "Sì, io ho provato il telelavoro per sei mesi e alla fine ho chiesto di tornare in ufficio. Non riuscivo a staccare. Finivo sempre per controllare le email anche di sera, anche nel weekend. Il confine tra vita privata e vita professionale si era completamente cancellato.", translation: "Yes, I tried remote working for six months and in the end I asked to go back to the office. I couldn't switch off. I always ended up checking emails in the evening too, even at weekends. The boundary between private and professional life had completely disappeared." },
+            { speaker: "Conduttore", text: "Qual è, secondo voi, la soluzione ideale?", translation: "What is the ideal solution, in your view?" },
+            { speaker: "Giulia", text: "Il modello ibrido funziona per me. Due o tre giorni a casa, il resto in ufficio.", translation: "The hybrid model works for me. Two or three days at home, the rest in the office." },
+            { speaker: "Stefano", text: "Sono d'accordo. La chiave è che ogni persona possa scegliere in base alle proprie esigenze, non che l'azienda imponga un modello unico.", translation: "I agree. The key is that each person can choose based on their own needs, rather than the company imposing a single model on everyone." },
+        ],
         questions: [
             {
                 id: "it-l-b1-4-q1",
