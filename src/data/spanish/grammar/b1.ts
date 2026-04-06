@@ -112,6 +112,22 @@ export const b1Grammar: GrammarLesson[] = [
         ]
     },
     {
+        id: "es-g-b1-9",
+        level: "B1",
+        title: "El Pluscuamperfecto (Pluperfect)",
+        explanation: {
+            native: "The pluperfect (pluscuamperfecto de indicativo) expresses an action that had already been completed before another past action. Formation: imperfect of haber (había, habías, había, habíamos, habíais, habían) + past participle. It always points back behind another past event. Key signal words: ya (already), todavía no (not yet), antes de que, cuando (when — anchoring to a later event). The pluperfect vs. preterite pair works exactly like the English 'had done' vs. 'did'.",
+            target: "El pluscuamperfecto de indicativo expresa una acción que ya se había completado antes de otra acción pasada. Formación: imperfecto de haber + participio pasado. Las formas de haber son: había, habías, había, habíamos, habíais, habían. Este tiempo siempre mira hacia atrás, a un evento anterior a otro ya pasado. Palabras clave: ya (already), todavía no (not yet), antes de que, cuando (anchoring to the later event). La relación pluscuamperfecto / pretérito funciona exactamente igual que 'had done' / 'did' en inglés."
+        },
+        examples: [
+            { native: "Cuando llegué, él ya se había ido.", translation: "When I arrived, he had already left." },
+            { native: "No pude entrar porque había olvidado las llaves.", translation: "I couldn't get in because I had forgotten the keys." },
+            { native: "Ella nunca había viajado al extranjero antes de ese viaje.", translation: "She had never travelled abroad before that trip." },
+            { native: "Cuando empezó la película, ya habíamos comprado las entradas.", translation: "By the time the film started, we had already bought the tickets." },
+            { native: "Me di cuenta de que había cometido un error.", translation: "I realised that I had made a mistake." },
+        ]
+    },
+    {
         id: "es-g-b1-8",
         level: "B1",
         title: "Discourse Markers & Collocations",

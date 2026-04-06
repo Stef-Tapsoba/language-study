@@ -10,7 +10,7 @@ export const esUnitsB1: LessonUnit[] = [
         order: 1,
         title: "Complex Past Narration — Preterite, Imperfect & Pluperfect",
         description: "Move beyond isolated tense practice to sustained storytelling. Combine preterite (completed events), imperfect (background and states), and pluperfect (what had already happened) in multi-clause narratives — the full past tense system working together.",
-        grammarIds: ["es-g-b1-2"],
+        grammarIds: ["es-g-b1-2", "es-g-b1-9"],
         vocabIds: [
             "es-v-b1-068", "es-v-b1-010", "es-v-b1-076",
             "es-v-b1-039", "es-v-b1-086", "es-v-b1-084"
