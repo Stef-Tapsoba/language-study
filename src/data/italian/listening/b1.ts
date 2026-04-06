@@ -91,5 +91,82 @@ export const b1Listening: ListeningExercise[] = [
                 answer: "Un servizio di carrello con bevande e snack"
             }
         ]
+    },
+    {
+        id: "it-l-b1-4",
+        level: "B1",
+        title: "Il telelavoro — intervista radiofonica",
+        script: `Conduttore: Buongiorno e benvenuti. Oggi parliamo di telelavoro con due ospiti che hanno esperienze molto diverse. Giulia, cominciamo da te. Tu hai sempre lavorato in ufficio e poi sei passata al telelavoro. Com'è andata?
+
+Giulia: Bene, anche se all'inizio è stato uno shock. Quando lavoravo in ufficio, la mia giornata aveva una struttura molto chiara: mi alzavo, prendevo il treno, arrivavo, lavoravo, tornavo a casa. Con il telelavoro quella struttura è scomparsa e ho dovuto ricrearla da sola.
+
+Conduttore: E ci sei riuscita?
+
+Giulia: Sì, piano piano. Ho capito che bisognava mantenere gli stessi orari di prima, fare pause regolari e, soprattutto, avere uno spazio dedicato al lavoro in casa. Adesso non tornerei indietro.
+
+Conduttore: Stefano, tu invece hai avuto un'esperienza diversa.
+
+Stefano: Sì, io ho provato il telelavoro per sei mesi e alla fine ho chiesto di tornare in ufficio. Non riuscivo a staccare. Finivo sempre per controllare le email anche di sera, anche nel weekend. Il confine tra vita privata e vita professionale si era completamente cancellato.
+
+Conduttore: Qual è, secondo voi, la soluzione ideale?
+
+Giulia: Il modello ibrido funziona per me. Due o tre giorni a casa, il resto in ufficio.
+
+Stefano: Sono d'accordo. La chiave è che ogni persona possa scegliere in base alle proprie esigenze, non che l'azienda imponga un modello unico.`,
+        translation: `Host: Good morning and welcome. Today we are talking about remote working with two guests who have very different experiences. Giulia, let's start with you. You always worked in an office and then switched to remote working. How did it go?
+
+Giulia: Well, even though it was a shock at first. When I worked in the office, my day had a very clear structure: I got up, took the train, arrived, worked, came home. With remote working that structure disappeared and I had to rebuild it myself.
+
+Host: And did you manage it?
+
+Giulia: Yes, gradually. I understood that I needed to keep the same hours as before, take regular breaks and, above all, have a dedicated workspace at home. Now I wouldn't go back.
+
+Host: Stefano, you had a different experience.
+
+Stefano: Yes, I tried remote working for six months and in the end I asked to go back to the office. I couldn't switch off. I always ended up checking emails in the evening too, even at weekends. The boundary between private and professional life had completely disappeared.
+
+Host: What is the ideal solution, in your view?
+
+Giulia: The hybrid model works for me. Two or three days at home, the rest in the office.
+
+Stefano: I agree. The key is that each person can choose based on their own needs, rather than the company imposing a single model on everyone.`,
+        questions: [
+            {
+                id: "it-l-b1-4-q1",
+                level: "B1",
+                prompt: "Qual era il problema principale di Giulia quando ha cominciato il telelavoro?",
+                options: [
+                    "Non aveva una connessione internet stabile a casa",
+                    "I suoi colleghi non la contattavano abbastanza",
+                    "Aveva perso la struttura fissa della giornata lavorativa",
+                    "Non riusciva a usare gli strumenti digitali dell'azienda"
+                ],
+                answer: "Aveva perso la struttura fissa della giornata lavorativa"
+            },
+            {
+                id: "it-l-b1-4-q2",
+                level: "B1",
+                prompt: "Perché Stefano ha deciso di tornare in ufficio?",
+                options: [
+                    "Perché il suo capo non era favorevole al telelavoro",
+                    "Perché non riusciva a separare la vita professionale da quella privata",
+                    "Perché preferisce lavorare in gruppo con i colleghi",
+                    "Perché la sua connessione internet era troppo lenta"
+                ],
+                answer: "Perché non riusciva a separare la vita professionale da quella privata"
+            },
+            {
+                id: "it-l-b1-4-q3",
+                level: "B1",
+                prompt: "Su cosa sono d'accordo Giulia e Stefano alla fine?",
+                options: [
+                    "Che il telelavoro completo è sempre meglio dell'ufficio",
+                    "Che il telelavoro non funziona e bisognerebbe abolirlo",
+                    "Che ogni persona dovrebbe poter scegliere il modello più adatto a sé",
+                    "Che le aziende grandi devono imporre regole uguali per tutti"
+                ],
+                answer: "Che ogni persona dovrebbe poter scegliere il modello più adatto a sé"
+            }
+        ]
     }
 ]

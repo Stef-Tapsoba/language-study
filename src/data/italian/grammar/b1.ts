@@ -122,6 +122,22 @@ export const b1Grammar: GrammarLesson[] = [
         ]
     },
     {
+        id: "it-g-b1-10",
+        level: "B1",
+        title: "Imperfetto vs. Passato Prossimo in Narrazione",
+        explanation: {
+            native: "Both tenses describe past events, but they have distinct roles in narration. The passato prossimo (ho mangiato, sono andato) reports a specific completed event — it advances the story. The imperfetto (mangiavo, andavo) provides the background: ongoing states, habitual actions, descriptions of how things were, or interrupted actions. They frequently appear in the same sentence: the imperfetto sets the stage, the passato prossimo brings the key event. Key contrast: 'Leggevo' (I was reading — ongoing) vs. 'Ho letto il libro' (I read the book — completed). Signal words for imperfetto: sempre, di solito, ogni giorno, mentre, quando (+ ongoing). Signal words for passato prossimo: improvvisamente, all'improvviso, un giorno, and most specific time expressions.",
+            target: "Entrambi i tempi descrivono il passato, ma hanno ruoli distinti nella narrazione. Il passato prossimo (ho mangiato, sono andato) racconta un evento completato specifico — fa avanzare il racconto. L'imperfetto (mangiavo, andavo) fornisce lo sfondo: stati continuativi, azioni abituali, descrizioni di come erano le cose, o azioni interrotte. Spesso compaiono nella stessa frase: l'imperfetto prepara la scena, il passato prossimo porta l'evento chiave. Contrasto fondamentale: «Leggevo» (stavo leggendo — in corso) vs. «Ho letto il libro» (ho letto il libro — completato). Segnali per l'imperfetto: sempre, di solito, ogni giorno, mentre, quando (+ azione in corso). Segnali per il passato prossimo: improvvisamente, all'improvviso, un giorno, e la maggior parte delle espressioni di tempo specifiche."
+        },
+        examples: [
+            { native: "Leggevo quando ha suonato il telefono.", translation: "I was reading when the phone rang. (imperfetto = ongoing; passato prossimo = interrupting event)" },
+            { native: "Faceva bel tempo quando siamo usciti.", translation: "The weather was nice when we went out. (imperfetto = background; passato prossimo = specific action)" },
+            { native: "Da bambino andavo al mare ogni estate.", translation: "As a child I used to go to the sea every summer. (imperfetto = habitual past)" },
+            { native: "Un giorno ho incontrato una persona straordinaria.", translation: "One day I met an extraordinary person. (passato prossimo = single completed event)" },
+            { native: "Era stanca, quindi si è fermata a riposare.", translation: "She was tired, so she stopped to rest. (imperfetto = state; passato prossimo = resulting action)" },
+        ]
+    },
+    {
         id: "it-g-b1-9",
         level: "B1",
         title: "Discourse Markers & Key Collocations",

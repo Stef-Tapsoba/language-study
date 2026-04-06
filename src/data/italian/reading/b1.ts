@@ -145,5 +145,73 @@ export const b1Reading: ReadingPassage[] = [
                 answer: "In un agriturismo vicino a Montalcino"
             }
         ]
+    },
+    {
+        id: "it-r-b1-4",
+        level: "B1",
+        category: "dialogue",
+        title: "Una decisione difficile",
+        body: {
+            target: "Luca: Allora, hai deciso? Accetti il nuovo lavoro a Milano o resti qui?\n\nSara: Non è facile. L'offerta era ottima, ma quando l'ho ricevuta mi sono resa conto che non avevo ancora parlato con Marco. Abitiamo insieme da tre anni e una cosa del genere cambia tutto.\n\nLuca: È ovvio che ci vogliono due sì. Cosa ha detto Marco?\n\nSara: All'inizio era entusiasta. Diceva che era un'opportunità straordinaria, che non dovevo lasciarla perdere. Poi, però, ci ha pensato di più e ha cominciato a preoccuparsi. Il suo lavoro qui non si sposta, e trovarne uno uguale a Milano non sarebbe semplice.\n\nLuca: Lo capisco. Comunque, anche se lui non trovasse subito lavoro a Milano, per un po' potreste fare la settimana corta — qualche giorno lì, qualche giorno qua.\n\nSara: È quello che abbiamo proposto anche noi. Ma non sono sicura che si trovi bene in quella situazione a lungo termine. Io invece penso che se non colgo questa occasione adesso, potrei rimpiangere la decisione tra cinque anni.\n\nLuca: Quindi hai già deciso?\n\nSara: Quasi. Domani parliamo ancora con calma, e poi decido. Una cosa però è certa: qualunque decisione prenda, è importante che la prenda in modo consapevole, senza fretta.",
+            native: "Luca: So, have you decided? Will you accept the new job in Milan or stay here?\n\nSara: It's not easy. The offer was excellent, but when I received it I realised I hadn't yet spoken to Marco. We've been living together for three years and something like this changes everything.\n\nLuca: It's obvious you need two yes's. What did Marco say?\n\nSara: At first he was enthusiastic. He was saying it was an extraordinary opportunity, that I shouldn't let it slip. But then he thought about it more and started to worry. His job here can't move, and finding an equivalent one in Milan wouldn't be simple.\n\nLuca: I understand that. Anyway, even if he didn't find work in Milan straight away, for a while you could do the short week — a few days there, a few days here.\n\nSara: That's what we proposed too. But I'm not sure he'd be comfortable in that situation long-term. I, on the other hand, think that if I don't seize this opportunity now, I might regret the decision in five years' time.\n\nLuca: So you've already decided?\n\nSara: Almost. Tomorrow we'll talk calmly again, and then I'll decide. One thing is certain though: whatever decision I make, it's important that I make it consciously, without rushing."
+        },
+        vocabGloss: [
+            { word: "rendersi conto", translation: "to realise (reflexive verb)" },
+            { word: "entusiasta", translation: "enthusiastic" },
+            { word: "la settimana corta", translation: "short week — commuting arrangement: some days in one city, some in another" },
+            { word: "cogliere un'occasione", translation: "to seize an opportunity" },
+            { word: "rimpiangere", translation: "to regret" },
+            { word: "consapevole", translation: "conscious, aware, deliberate" }
+        ],
+        questions: [
+            {
+                id: "it-r-b1-4-q1",
+                level: "B1",
+                prompt: "Di cosa si è resa conto Sara quando ha ricevuto l'offerta?",
+                options: [
+                    "Che il lavoro era troppo difficile per lei",
+                    "Che non aveva ancora parlato con Marco della cosa",
+                    "Che Milano era troppo lontana dalla sua famiglia",
+                    "Che lo stipendio offerto era insufficiente"
+                ],
+                answer: "Che non aveva ancora parlato con Marco della cosa"
+            },
+            {
+                id: "it-r-b1-4-q2",
+                level: "B1",
+                prompt: "Come ha reagito Marco inizialmente all'offerta di lavoro di Sara?",
+                options: [
+                    "Era contrario fin dall'inizio",
+                    "Era indifferente e non ha dato la sua opinione",
+                    "Era entusiasta e pensava che Sara dovesse accettare",
+                    "Aveva già trovato un lavoro equivalente a Milano"
+                ],
+                answer: "Era entusiasta e pensava che Sara dovesse accettare"
+            },
+            {
+                id: "it-r-b1-4-q3",
+                level: "B1",
+                prompt: "Cosa teme Sara riguardo al futuro?",
+                options: [
+                    "Di non riuscire a fare bene il nuovo lavoro",
+                    "Di rimpiangere la decisione se non coglie l'opportunità adesso",
+                    "Di perdere l'amicizia di Luca se si trasferisce a Milano",
+                    "Di non adattarsi alla vita in una città grande"
+                ],
+                answer: "Di rimpiangere la decisione se non coglie l'opportunità adesso"
+            },
+            {
+                id: "it-r-b1-4-q4",
+                level: "B1",
+                prompt: "Cosa intende Sara con 'prendere una decisione consapevole'?",
+                options: [
+                    "Scegliere quello che vogliono le persone intorno a lei",
+                    "Decidere rapidamente per non perdere tempo",
+                    "Prendere la decisione in modo riflessivo, senza fretta",
+                    "Consultare un esperto di carriera prima di scegliere"
+                ],
+                answer: "Prendere la decisione in modo riflessivo, senza fretta"
+            }
+        ]
     }
 ]
