@@ -1,6 +1,6 @@
 # language-study — Implementation Plan
 
-*Last updated: April 2, 2026 — v2.5.x (unit reinforcement, tagging, UI modernization, smart exercises)*
+*Last updated: April 6, 2026 — v2.5.0 (B1+B2 curriculum complete FR/ES/IT/KO, review tab, bundle split, placement test expansion)*
 
 ## Context
 
