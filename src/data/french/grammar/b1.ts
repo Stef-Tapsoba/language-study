@@ -156,4 +156,84 @@ export const b1Grammar: GrammarLesson[] = [
             { native: "'Où habites-tu ?' → Il m'a demandé où j'habitais.", translation: "'Where do you live?' → He asked me where I lived. (question word retained)" },
         ]
     },
+    {
+        id: "fr-g-b1-11",
+        level: "B1",
+        title: "Le Gérondif (en + participe présent)",
+        explanation: {
+            native: "The gérondif (gerund) is formed with en + the present participle. Form the present participle by taking the nous form of the present tense, dropping -ons, and adding -ant: travailler → travaillons → travaillant → en travaillant. Three irregular present participles: être → étant, avoir → ayant, savoir → sachant. The gérondif expresses: (1) Simultaneity — two actions by the same subject at the same time: 'Il écoute la radio en conduisant.' (2) Manner — how the main action is done: 'Elle a répondu en souriant.' (3) Condition or cause: 'En travaillant plus, tu réussiras.' Critical rule: the subject of the gérondif MUST be the same as the subject of the main clause. The gérondif is invariable — it never changes form.",
+            target: "Le gérondif se forme avec en + le participe présent. Pour former le participe présent : on prend la forme nous du présent, on supprime -ons et on ajoute -ant : travailler → travaillons → travaillant → en travaillant. Trois participes présents irréguliers : être → étant, avoir → ayant, savoir → sachant. Le gérondif exprime : (1) La simultanéité — deux actions du même sujet en même temps : « Il écoute la radio en conduisant. » (2) La manière — comment se fait l'action principale : « Elle a répondu en souriant. » (3) La condition ou la cause : « En travaillant plus, tu réussiras. » Règle essentielle : le sujet du gérondif DOIT être le même que le sujet de la proposition principale. Le gérondif est invariable."
+        },
+        examples: [
+            { native: "Il écoute la radio en conduisant.", translation: "He listens to the radio while driving. (simultaneity)" },
+            { native: "Elle a répondu en souriant.", translation: "She answered smiling / with a smile. (manner)" },
+            { native: "En travaillant davantage, tu obtiendras de meilleurs résultats.", translation: "By working harder, you will get better results. (condition/cause)" },
+            { native: "C'est en forgeant qu'on devient forgeron.", translation: "Practice makes perfect. (lit.: It's by forging that one becomes a blacksmith — fixed expression)" },
+            { native: "Tout en comprenant ses raisons, je ne suis pas d'accord.", translation: "While understanding his reasons, I disagree. (tout en = concession — even while)" },
+        ]
+    },
+    {
+        id: "fr-g-b1-12",
+        level: "B1",
+        title: "Le Subjonctif après les Conjonctions",
+        explanation: {
+            native: "Beyond verbs of will and emotion, the subjunctive is required after a specific set of conjunctions. These must be memorised in groups. Always subjunctive: bien que / quoique (although), pour que / afin que (so that / in order that), avant que (before — note: requires ne explétif in careful writing), à moins que (unless), à condition que (on the condition that), de peur que (for fear that). Always indicative (for contrast): parce que, puisque, quand, lorsque, pendant que, dès que. Key distinction: quand takes indicative (or future), avant que takes subjunctive. In English both are followed by indicative, making this a common learner error.",
+            target: "Au-delà des verbes de volonté et d'émotion, le subjonctif est requis après un ensemble précis de conjonctions, qu'il faut mémoriser par groupes. Toujours subjonctif : bien que / quoique (although), pour que / afin que (so that), avant que (before — requiert le ne explétif en français soigné), à moins que (unless), à condition que (on the condition that), de peur que (for fear that). Toujours indicatif (pour contraste) : parce que, puisque, quand, lorsque, pendant que, dès que. Distinction clé : quand prend l'indicatif (ou le futur), avant que prend le subjonctif. En anglais les deux sont suivis de l'indicatif, ce qui est une source fréquente d'erreurs."
+        },
+        examples: [
+            { native: "Il parle doucement pour que tout le monde comprenne.", translation: "He speaks quietly so that everyone understands. (pour que + subjonctif)" },
+            { native: "Bien qu'il soit fatigué, il continue à travailler.", translation: "Although he is tired, he continues to work. (bien que + subjonctif)" },
+            { native: "Pars avant qu'il ne soit trop tard.", translation: "Leave before it's too late. (avant que + subjonctif + ne explétif)" },
+            { native: "Je sortirai à moins qu'il ne pleuve.", translation: "I'll go out unless it rains. (à moins que + subjonctif)" },
+            { native: "Je resterai jusqu'à ce que tu arrives.", translation: "I'll stay until you arrive. (jusqu'à ce que — always subjunctive)" },
+        ]
+    },
+    {
+        id: "fr-g-b1-13",
+        level: "B1",
+        title: "Le Futur Antérieur",
+        explanation: {
+            native: "The futur antérieur (future perfect) expresses an action that will have been completed before another future action or point in time. Formation: avoir or être in the futur simple + past participle (same choice and agreement rules as the passé composé). Common use 1 — sequence of future events: 'Quand tu arriveras, j'aurai déjà mangé' (the eating will be completed before the arrival). Common use 2 — conjunctions that trigger it: quand, lorsque, dès que, aussitôt que, une fois que + futur antérieur (not plus-que-parfait as in English). Common use 3 — supposition about the past: 'Il n'est pas là — il aura oublié' (He must have forgotten). This probabilistic use is equivalent to 'must have done' in English.",
+            target: "Le futur antérieur exprime une action qui sera accomplie avant une autre action future ou un moment futur. Formation : avoir ou être au futur simple + participe passé (mêmes règles de choix et d'accord qu'au passé composé). Usage 1 — séquence d'événements futurs : « Quand tu arriveras, j'aurai déjà mangé » (le repas sera terminé avant l'arrivée). Usage 2 — conjonctions qui le déclenchent : quand, lorsque, dès que, aussitôt que, une fois que + futur antérieur (et non le plus-que-parfait comme en anglais). Usage 3 — supposition sur le passé : « Il n'est pas là — il aura oublié » (il a dû oublier). Cet usage probabiliste correspond à « must have done » en anglais."
+        },
+        examples: [
+            { native: "Quand tu arriveras, j'aurai déjà préparé le dîner.", translation: "When you arrive, I will have already prepared dinner. (sequence)" },
+            { native: "Dès qu'elle aura fini, elle t'appellera.", translation: "As soon as she has finished, she will call you. (dès que + futur antérieur)" },
+            { native: "Dans deux ans, tu auras terminé tes études.", translation: "In two years, you will have finished your studies. (point in future)" },
+            { native: "Il n'a pas répondu — il aura oublié.", translation: "He hasn't replied — he must have forgotten. (supposition about past)" },
+            { native: "Une fois que nous aurons signé le contrat, le projet pourra commencer.", translation: "Once we have signed the contract, the project can begin." },
+        ]
+    },
+    {
+        id: "fr-g-b1-14",
+        level: "B1",
+        title: "Ne…que et les Négations Composées",
+        explanation: {
+            native: "Beyond the basic negations (ne…pas, ne…plus, ne…jamais, ne…rien from A2), B1 introduces ne…que (restriction = only) and double negatives. Ne…que is not a true negation — it restricts the meaning to 'only'. Position: ne goes before the verb, que goes directly before the restricted element: 'Je ne mange que des légumes' (I only eat vegetables). Ne…ni…ni (neither…nor) negates two elements simultaneously: 'Il ne boit ni café ni thé.' Ne…guère (hardly/scarcely — formal) and ne…nulle part (nowhere) are also B1. Double negation combinations: ne…plus jamais (never again), ne…plus rien (nothing anymore), ne…plus personne (nobody anymore). In spoken French, ne is often dropped, but the second element remains: 'Je mange que des légumes' / 'Il boit ni café ni thé'.",
+            target: "Au-delà des négations de base (ne…pas, ne…plus, ne…jamais, ne…rien, A2), le B1 introduit ne…que (restriction = seulement) et les négations doubles. Ne…que n'est pas une vraie négation : elle restreint le sens à « seulement ». Position : ne se place avant le verbe, que se place directement avant l'élément restreint : « Je ne mange que des légumes. » Ne…ni…ni (neither…nor) nie deux éléments simultanément : « Il ne boit ni café ni thé. » Ne…guère (à peine — soutenu) et ne…nulle part (nowhere) sont aussi du niveau B1. Négations doubles : ne…plus jamais (never again), ne…plus rien (nothing anymore), ne…plus personne (nobody anymore). À l'oral, ne est souvent omis, mais le deuxième élément reste : « Je mange que des légumes. »"
+        },
+        examples: [
+            { native: "Je ne bois que de l'eau.", translation: "I only drink water. (ne…que = restriction)" },
+            { native: "Il ne parle ni français ni espagnol.", translation: "He speaks neither French nor Spanish. (ne…ni…ni)" },
+            { native: "Elle ne va plus jamais au cinéma.", translation: "She never goes to the cinema anymore. (ne…plus jamais)" },
+            { native: "Il ne reste plus rien dans le frigo.", translation: "There's nothing left in the fridge. (ne…plus rien)" },
+            { native: "Je ne l'ai cherché nulle part.", translation: "I looked for it nowhere / I didn't look for it anywhere. (ne…nulle part)" },
+        ]
+    },
+    {
+        id: "fr-g-b1-15",
+        level: "B1",
+        title: "L'Accord du Participe Passé",
+        explanation: {
+            native: "The past participle agrees in gender and number in three situations. (1) Être verbs — the participle agrees with the subject: 'Elle est arrivée.' 'Ils sont partis.' (2) Reflexive verbs — agreement with the reflexive pronoun if it is the direct object: 'Elle s'est lavée.' But no agreement if the reflexive is an indirect object: 'Elle s'est lavé les mains' (les mains is the direct object, not se). (3) Avoir verbs — the participle agrees with the direct object ONLY when the direct object comes BEFORE the verb: 'La lettre que j'ai écrite' (que = la lettre, feminine, precedes écrit). No agreement if the object follows: 'J'ai écrit la lettre.' Common triggers for pre-verb objects: relative pronoun que, direct object pronouns (la, les, l', m', t'), and the question word combien de.",
+            target: "Le participe passé s'accorde en genre et en nombre dans trois situations. (1) Verbes avec être : le participe s'accorde avec le sujet : « Elle est arrivée. » « Ils sont partis. » (2) Verbes pronominaux : accord avec le pronom réfléchi s'il est complément d'objet direct : « Elle s'est lavée. » Mais pas d'accord si le réfléchi est COI : « Elle s'est lavé les mains » (les mains est le COD, pas se). (3) Verbes avec avoir : le participe s'accorde avec le COD UNIQUEMENT quand le COD est placé AVANT le verbe : « La lettre que j'ai écrite » (que = la lettre, féminin, précède écrit). Pas d'accord si l'objet suit : « J'ai écrit la lettre. » Principaux déclencheurs d'un COD antéposé : pronom relatif que, pronoms COD (la, les, l', m', t'), et combien de."
+        },
+        examples: [
+            { native: "Elle est arrivée en retard.", translation: "She arrived late. (être verb — agreement with subject, feminine)" },
+            { native: "Ils se sont regardés en silence.", translation: "They looked at each other in silence. (reflexive — se is direct object → agreement)" },
+            { native: "Elle s'est lavé les mains.", translation: "She washed her hands. (reflexive — se is indirect object, les mains is COD → no agreement)" },
+            { native: "La chanson que j'ai entendue était magnifique.", translation: "The song that I heard was magnificent. (que = la chanson, feminine, precedes the verb → agreement)" },
+            { native: "J'ai entendu une chanson magnifique.", translation: "I heard a magnificent song. (COD after verb → no agreement)" },
+        ]
+    },
 ]
