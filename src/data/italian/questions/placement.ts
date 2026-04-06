@@ -15,7 +15,7 @@ export const placementQuestions: QuizQuestion[] = [
 
     // --- B2 ---
     { id: "it-p-b2-1", level: "B2", prompt: "Complete (condizionale passato): 'Se avessi saputo, ___ venuto.' (essere — io)", options: ["sarei", "sarò", "sono", "ero"], answer: "sarei" },
-    { id: "it-p-b2-2", level: "B2", prompt: "Which tense describes ongoing past actions that provide background?", options: ["Passato prossimo", "Imperfetto", "Passato remoto", "Trapassato"], answer: "Imperfetto" },
+    { id: "it-p-b2-2", level: "B2", prompt: "Complete (congiuntivo trapassato — past regret): 'Se ___ (partire, noi) prima, avremmo preso il treno.'", options: ["partivamo", "fossimo partiti", "eravamo partiti", "saremmo partiti"], answer: "fossimo partiti" },
 
     // --- C1 ---
     { id: "it-p-c1-1", level: "C1", prompt: "Which sentence correctly uses the congiuntivo passato?", options: ["Penso che sia venuto.", "Penso che è venuto.", "Penso che venga.", "Penso che venisse."], answer: "Penso che sia venuto." },

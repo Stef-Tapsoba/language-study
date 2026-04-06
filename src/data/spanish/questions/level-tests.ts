@@ -223,6 +223,43 @@ export const levelTestQuestions: QuizQuestion[] = [
         hint: "Imperative in reported speech → imperfecto de subjuntivo. Ven → viniera."
     },
 
+    // --- B1 additions (es-lt-b1-21 through es-lt-b1-25) — new grammar lessons ---
+    {
+        id: "es-lt-b1-21", level: "B1",
+        prompt: "Form the imperfecto de subjuntivo of 'tener' (yo).",
+        options: ["tuviera", "tuvera", "teniera", "tuvara"],
+        answer: "tuviera",
+        hint: "Imperfecto de subjuntivo: tener → ellos preterite: tuvieron → drop -ron → tuvie- + ra = tuviera."
+    },
+    {
+        id: "es-lt-b1-22", level: "B1",
+        prompt: "Complete: 'Busco un piso que ___ (tener) terraza.' (you don't have one yet — any flat)",
+        options: ["tiene", "tenga", "tuviera", "tendrá"],
+        answer: "tenga",
+        hint: "Indefinite/hypothetical antecedent → subjunctive present. The flat may not exist yet → tenga."
+    },
+    {
+        id: "es-lt-b1-23", level: "B1",
+        prompt: "Complete: 'Cuando ___ (llegar, tú) a casa, llámame.' (future instruction)",
+        options: ["llegas", "llegues", "llegarás", "llegabas"],
+        answer: "llegues",
+        hint: "Cuando + future event → subjunctive. The event hasn't happened yet → llegues."
+    },
+    {
+        id: "es-lt-b1-24", level: "B1",
+        prompt: "Transform to passive: 'El gobierno aprobó la ley.' → 'La ley ___ ___ el gobierno.'",
+        options: ["fue aprobada por", "fue aprobado por", "es aprobada de", "estaba aprobada por"],
+        answer: "fue aprobada por",
+        hint: "Passive with ser: fue (pretérito of ser, fem. agrees with 'la ley') + aprobada + por + agent."
+    },
+    {
+        id: "es-lt-b1-25", level: "B1",
+        prompt: "Complete: 'Llevo dos horas ___ el informe.' (esperar — waiting for)",
+        options: ["esperando", "esperar", "esperé", "espere"],
+        answer: "esperando",
+        hint: "Llevar + time + gerundio: llevo dos horas esperando = I have been waiting for two hours."
+    },
+
     // -----------------------------------------------------------------------
     // B2 — additions (es-lt-b2-16 through -20)
     // -----------------------------------------------------------------------

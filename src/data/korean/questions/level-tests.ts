@@ -189,6 +189,43 @@ export const levelTestQuestions: QuizQuestion[] = [
         hint: "~기 시작하다 = to start doing. 운동하기 시작했어요 = started exercising."
     },
 
+    // --- B1 additions (ko-lt-b1-21 through ko-lt-b1-25) — new grammar lessons ---
+    {
+        id: "ko-lt-b1-21", level: "B1",
+        prompt: "Complete: '오늘 비가 ___ 것 같아요.' (future supposition: it will/might rain)",
+        options: ["오는", "온", "올", "와서"],
+        answer: "올",
+        hint: "Future supposition → ~ㄹ/을 것 같다. 오다 → vowel stem → ~ㄹ 것 같다 → 올 것 같아요."
+    },
+    {
+        id: "ko-lt-b1-22", level: "B1",
+        prompt: "What does '한국어가 점점 쉬워지고 있어요' mean?",
+        options: ["Korean is very easy", "Korean is getting easier gradually", "I want Korean to become easier", "Korean used to be easier"],
+        answer: "Korean is getting easier gradually",
+        hint: "쉬워지다 = ~아/어지다 attached to 쉽다 (easy) = become/get easier. 점점 = gradually."
+    },
+    {
+        id: "ko-lt-b1-23", level: "B1",
+        prompt: "Complete: '내년에 한국에 ___ 했어요.' (decided to go — ~기로 하다)",
+        options: ["가기로", "가서", "가려고", "가면"],
+        answer: "가기로",
+        hint: "~기로 하다 = decided to do. 가다 → 가기로 했어요 = I decided to go."
+    },
+    {
+        id: "ko-lt-b1-24", level: "B1",
+        prompt: "Complete: '어디에 ___ 알아요?' (Do you know where it is?)",
+        options: ["있는지", "있어서", "있으면", "있지만"],
+        answer: "있는지",
+        hint: "Embedded question: 어디에 있는지 = where it is (indirect question). Action verb present → ~는지."
+    },
+    {
+        id: "ko-lt-b1-25", level: "B1",
+        prompt: "What is the passive (피동) form of '닫다' (to close)?",
+        options: ["닫이다", "닫히다", "닫리다", "닫기다"],
+        answer: "닫히다",
+        hint: "닫다 → 닫히다 (~히 passive). Common passives must be memorised: 닫다→닫히다, 팔다→팔리다, 보다→보이다."
+    },
+
     // ── B2 additions ─────────────────────────────────────────────────────────
     {
         id: "ko-lt-b2-16", level: "B2",
