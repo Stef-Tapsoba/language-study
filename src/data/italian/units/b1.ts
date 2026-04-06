@@ -203,4 +203,142 @@ export const b1Units: LessonUnit[] = [
             },
         ]
     },
+    {
+        id: "it-b1-u10",
+        level: "B1",
+        order: 10,
+        title: "Congiuntivo Avanzato — Imperfetto, Infinito vs Congiuntivo, Cláusole Relative",
+        description: "Master the congiuntivo imperfetto — the form that powers hypothetical si-clauses and past-context subjunctive. Then learn the critical same/different subject rule (infinito vs che + congiuntivo), and extend the congiuntivo into relative clauses with hypothetical or non-existent antecedents.",
+        grammarIds: ["it-g-b1-11", "it-g-b1-12", "it-g-b1-13"],
+        vocabIds: ["it-v-b1-095", "it-v-b1-096", "it-v-b1-067", "it-v-b1-068", "it-v-b1-069"],
+        verbIds: ["it-vb-b1-4", "it-vb-b1-5"],
+        testQuestions: [
+            {
+                id: "it-uq-b1-10-1", level: "B1",
+                prompt: "Form the congiuntivo imperfetto of 'essere' (io).",
+                options: ["essi", "fosse", "fossi", "stessi"],
+                answer: "fossi",
+                hint: "Essere → congiuntivo imperfetto: fossi, fossi, fosse, fossimo, foste, fossero. Irregular — must be memorised."
+            },
+            {
+                id: "it-uq-b1-10-2", level: "B1",
+                prompt: "Complete: 'Se ___ (avere, io) più soldi, comprerei una macchina nuova.'",
+                options: ["avessi", "ho", "avrò", "avrei"],
+                answer: "avessi",
+                hint: "Hypothetical si-clause: se + congiuntivo imperfetto → condizionale. Avere → avessi."
+            },
+            {
+                id: "it-uq-b1-10-3", level: "B1",
+                prompt: "Choose the correct sentence (same subject → infinitive).",
+                options: [
+                    "Voglio che vado al cinema.",
+                    "Voglio andare al cinema.",
+                    "Voglio che vada al cinema.",
+                    "Voglio di andare al cinema."
+                ],
+                answer: "Voglio andare al cinema.",
+                hint: "Same subject (I want / I go) → infinitive. Different subject → che + congiuntivo."
+            },
+            {
+                id: "it-uq-b1-10-4", level: "B1",
+                prompt: "Choose the correct sentence (different subjects → che + congiuntivo).",
+                options: [
+                    "Voglio venire tu alla festa.",
+                    "Voglio che tu venissi alla festa.",
+                    "Voglio che tu venga alla festa.",
+                    "Voglio di venire tu alla festa."
+                ],
+                answer: "Voglio che tu venga alla festa.",
+                hint: "Different subjects (I want / you come) → che + congiuntivo presente."
+            },
+            {
+                id: "it-uq-b1-10-5", level: "B1",
+                prompt: "Complete: 'Cerco un appartamento che ___ (avere) il balcone.' (hypothetical — any flat)",
+                options: ["ha", "abbia", "avesse", "avrà"],
+                answer: "abbia",
+                hint: "Hypothetical/non-specific antecedent → congiuntivo presente (abbia). Specific known flat → indicativo."
+            },
+            {
+                id: "it-uq-b1-10-6", level: "B1",
+                prompt: "What does 'magari' signal when followed by congiuntivo imperfetto?",
+                options: [
+                    "A certain future event",
+                    "An unrealisable wish or regret",
+                    "A polite command",
+                    "A reported statement"
+                ],
+                answer: "An unrealisable wish or regret",
+                hint: "Magari + cong. imperfetto = I wish (but it's unlikely or impossible). Magari venisse = I wish he'd come."
+            },
+        ]
+    },
+    {
+        id: "it-b1-u11",
+        level: "B1",
+        order: 11,
+        title: "La Forma Passiva & Il Gerundio Complesso",
+        description: "Use the passive (essere + participio) in formal and written Italian — news, history, official language. Then expand the gerundio beyond the basic stare + gerundio (A2) to complex constructions: manner, cause, concession with pur, and the compound gerund (avendo/essendo + participio) for prior completed actions.",
+        grammarIds: ["it-g-b1-14", "it-g-b1-15"],
+        vocabIds: ["it-v-b1-097", "it-v-b1-098", "it-v-b1-099", "it-v-b1-100", "it-v-b1-071"],
+        verbIds: ["it-vb-b1-1", "it-vb-b1-6"],
+        testQuestions: [
+            {
+                id: "it-uq-b1-11-1", level: "B1",
+                prompt: "Transform to passive: 'Leonardo ha dipinto la Gioconda.' → 'La Gioconda ___ ___ da Leonardo.'",
+                options: ["è stata dipinta", "è stato dipinto", "fu dipinta", "veniva dipinta"],
+                answer: "è stata dipinta",
+                hint: "Passive with essere in passato prossimo: è stata dipinta (feminine, agrees with la Gioconda) + da + agent."
+            },
+            {
+                id: "it-uq-b1-11-2", level: "B1",
+                prompt: "Which sentence correctly uses the passive with 'venire'?",
+                options: [
+                    "I risultati sono venuti annunciati.",
+                    "I risultati verranno annunciati domani.",
+                    "I risultati vengono stati annunciati.",
+                    "I risultati venivano stati annunciati."
+                ],
+                answer: "I risultati verranno annunciati domani.",
+                hint: "Venire + participio (in simple tenses) = active passive. Verranno annunciati = will be announced."
+            },
+            {
+                id: "it-uq-b1-11-3", level: "B1",
+                prompt: "What does 'Pur essendo stanca, ha lavorato tutta la notte' mean?",
+                options: [
+                    "Because she was tired, she worked all night",
+                    "Even though she was tired, she worked all night",
+                    "She was so tired that she worked all night",
+                    "She stopped working because she was tired"
+                ],
+                answer: "Even though she was tired, she worked all night",
+                hint: "Pur + gerundio = even though / although. Concessiva (concession)."
+            },
+            {
+                id: "it-uq-b1-11-4", level: "B1",
+                prompt: "What does 'Avendo finito il lavoro, siamo usciti' express?",
+                options: [
+                    "We finished the work and then we went out (prior action)",
+                    "We were finishing the work while going out",
+                    "We want to finish the work before going out",
+                    "We could not go out because we hadn't finished"
+                ],
+                answer: "We finished the work and then we went out (prior action)",
+                hint: "Avendo + participio passato = compound gerund = having done. The finishing happened BEFORE the going out."
+            },
+            {
+                id: "it-uq-b1-11-5", level: "B1",
+                prompt: "Complete: 'La situazione ___ migliorando con il passare del tempo.'",
+                options: ["sta", "va", "viene", "è"],
+                answer: "va",
+                hint: "Andare + gerundio = gradual progressive development over time."
+            },
+            {
+                id: "it-uq-b1-11-6", level: "B1",
+                prompt: "What does 'affrontare' mean?",
+                options: ["to avoid", "to face / to tackle", "to improve", "to involve"],
+                answer: "to face / to tackle",
+                hint: "Affrontare = to face / tackle a challenge or problem. Dobbiamo affrontare questo problema."
+            },
+        ]
+    },
 ]
