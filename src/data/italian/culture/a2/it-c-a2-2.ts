@@ -107,5 +107,9 @@ export const itCA22: CultureEpisode = {
                 target: "Hai una festa nel tuo paese che riunisce tutti in modo simile? Cosa la rende speciale?"
             }
         }
-    ]
+    ],
+    didYouKnow: {
+        native: "Italy has sixteen national public holidays — one of the highest totals in Europe. Italians call the days between a public holiday and the weekend a 'ponte' (bridge), and it is common practice to take the bridge days off work as well, creating a long weekend. The most famous ponte is the one around Ferragosto (August 15): many Italians take the entire week off, and Italian cities can feel remarkably quiet and empty in the middle of August.",
+        target: "L'Italia ha sedici festività nazionali — uno dei totali più alti in Europa. Gli italiani chiamano i giorni compresi tra una festività e il fine settimana un 'ponte', ed è pratica comune prendere anche i giorni del ponte, creando così un lungo fine settimana. Il ponte più famoso è quello attorno al Ferragosto (15 agosto): molti italiani prendono l'intera settimana di ferie, e le città italiane possono sembrare straordinariamente silenziose e vuote nel mezzo di agosto."
+    }
 }

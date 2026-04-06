@@ -107,5 +107,9 @@ export const itCA21: CultureEpisode = {
                 target: "Hai un rituale quotidiano legato al cibo o alle bevande nella tua cultura? Come si confronta con il rituale del caffè italiano?"
             }
         }
-    ]
+    ],
+    didYouKnow: {
+        native: "Italy consumes around six billion espressos per year — roughly 100 per person. The price of an espresso at the bar counter (al bancone) is one of the most politically sensitive consumer prices in Italy: when bar owners try to raise it above the €1–1.20 range, it makes national news. In Naples, the espresso is typically cheaper than anywhere else in Italy and is considered a point of civic pride. The Neapolitan caffè sospeso — a prepaid coffee for a stranger — has spread to other cities and even other countries as a symbol of solidarity.",
+        target: "L'Italia consuma circa sei miliardi di espressi all'anno — circa cento a persona. Il prezzo di un espresso al bancone è uno dei prezzi al consumo politicamente più sensibili in Italia: quando i titolari di bar cercano di portarlo oltre la soglia di 1–1,20 euro, la notizia finisce sui giornali nazionali. A Napoli, l'espresso è in genere più economico che in qualsiasi altra città italiana ed è considerato un motivo di orgoglio civico. Il caffè sospeso napoletano — un caffè pagato in anticipo per uno sconosciuto — si è diffuso in altre città e persino in altri paesi come simbolo di solidarietà."
+    }
 }
