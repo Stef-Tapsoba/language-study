@@ -2,6 +2,7 @@
 import { useState, FormEvent } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { registerUser } from "../auth/mockAuthApi"
+import { signUpWithSupabase } from "../auth/supabaseAuthApi"
 import { useAuth } from "../auth/AuthContext"
 import { validateRequired, validateEmail, validatePassword } from "@myorg/validation"
 import { Button } from "../components/ui/button"
@@ -33,7 +34,11 @@ export function RegisterPage() {
 
         setLoading(true)
         try {
-            registerUser(email, name, password)
+            if (import.meta.env.VITE_SUPABASE_URL) {
+                await signUpWithSupabase(email, name, password)
+            } else {
+                registerUser(email, name, password)
+            }
             await login(email, password)
             navigate("/home", { replace: true })
         } catch (err) {
