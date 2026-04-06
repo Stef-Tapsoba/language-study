@@ -19,7 +19,7 @@ export const placementQuestions: QuizQuestion[] = [
     { id: "ko-p-b1-2", level: "B1", prompt: "Complete: '배가 고파___ 밥을 먹었어요.' (so/because)", options: ["지만", "서", "으면", "기 때문에"], answer: "서" },
 
     // B2
-    { id: "ko-p-b2-1", level: "B2", prompt: "Which ending expresses indirect speech (reported speech)?", options: ["~다고 하다", "~아/어서", "~지만", "~도록"], answer: "~다고 하다" },
+    { id: "ko-p-b2-1", level: "B2", prompt: "What does '그때 더 열심히 공부했더라면 좋았을 텐데' express?", options: ["A future plan", "A past regret / counterfactual", "A current obligation", "A polite request"], answer: "A past regret / counterfactual" },
     { id: "ko-p-b2-2", level: "B2", prompt: "What does ~ㄹ/을 뻔했다 express?", options: ["Something that definitely happened", "Something that almost happened", "A future certainty", "A regret about the past"], answer: "Something that almost happened" },
 
     // C1

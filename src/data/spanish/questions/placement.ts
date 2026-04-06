@@ -51,9 +51,9 @@ export const placementQuestions: QuizQuestion[] = [
     {
         id: "es-p-b2-1",
         level: "B2",
-        prompt: "What does 'sin embargo' mean?",
-        options: ["therefore", "however", "although", "in addition"],
-        answer: "however"
+        prompt: "Complete (past regret): 'Si ___ (saber, yo) la verdad, no habría venido.'",
+        options: ["sabía", "supiera", "hubiera sabido", "habría sabido"],
+        answer: "hubiera sabido"
     },
     {
         id: "es-p-b2-2",

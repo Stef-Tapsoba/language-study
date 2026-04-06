@@ -213,6 +213,43 @@ export const levelQuestions: QuizQuestion[] = [
         hint: "Il est indéniable que = it is undeniable that — a strong B1 assertion phrase for argumentation."
     },
 
+    // --- B1 additions (fr-lt-b1-21 through fr-lt-b1-25) — new grammar lessons ---
+    {
+        id: "fr-lt-b1-21", level: "B1",
+        prompt: "Form the gérondif of 'finir'.",
+        options: ["en finissant", "en finisant", "en finant", "finissant"],
+        answer: "en finissant",
+        hint: "Gérondif: nous form → finissons → drop -ons → finiss- → finissant → en finissant."
+    },
+    {
+        id: "fr-lt-b1-22", level: "B1",
+        prompt: "Complete: 'Il parle doucement ___ tout le monde comprenne.'",
+        options: ["parce que", "pour que", "bien que", "quand"],
+        answer: "pour que",
+        hint: "Pour que (so that) takes the subjunctive — it expresses purpose."
+    },
+    {
+        id: "fr-lt-b1-23", level: "B1",
+        prompt: "Complete: 'Dès qu'elle ___ (finir) le rapport, elle te contactera.'",
+        options: ["finit", "finira", "aura fini", "finissait"],
+        answer: "aura fini",
+        hint: "Dès que + futur antérieur: the finishing will be completed before the contacting. Sequence of two future events."
+    },
+    {
+        id: "fr-lt-b1-24", level: "B1",
+        prompt: "Translate: 'I only drink water.' using ne…que.",
+        options: ["Je ne bois pas d'eau.", "Je ne bois que de l'eau.", "Je bois seulement l'eau.", "Je ne bois de l'eau."],
+        answer: "Je ne bois que de l'eau.",
+        hint: "Ne…que = only (restriction, not negation). Ne before the verb, que directly before the restricted element."
+    },
+    {
+        id: "fr-lt-b1-25", level: "B1",
+        prompt: "Does the participle agree in 'Les films que j'ai vus'?",
+        options: ["No — films comes after the participle", "Yes — que refers to 'les films' (m.pl.) and precedes the verb → vus", "Only if films is the subject", "No — avoir verbs never agree"],
+        answer: "Yes — que refers to 'les films' (m.pl.) and precedes the verb → vus",
+        hint: "Avoir verbs: participle agrees with a preceding direct object. Que = les films (m.pl.), comes before the verb → vus."
+    },
+
     // --- B2 additions (fr-lt-b2-16 through -20) ---
     {
         id: "fr-lt-b2-16", level: "B2",

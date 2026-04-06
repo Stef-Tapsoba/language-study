@@ -195,6 +195,43 @@ export const levelQuestions: QuizQuestion[] = [
         hint: "Affinché (so that / in order that) always triggers congiuntivo presente."
     },
 
+    // --- B1 additions (it-lt-b1-21 through it-lt-b1-25) — new grammar lessons ---
+    {
+        id: "it-lt-b1-21", level: "B1",
+        prompt: "Form the congiuntivo imperfetto of 'essere' (io).",
+        options: ["essi", "fosse", "fossi", "stessi"],
+        answer: "fossi",
+        hint: "Essere → congiuntivo imperfetto: fossi, fossi, fosse, fossimo, foste, fossero. Irregular — must be memorised."
+    },
+    {
+        id: "it-lt-b1-22", level: "B1",
+        prompt: "Which sentence correctly uses the infinitive instead of the congiuntivo (same subject)?",
+        options: ["Voglio che vada al cinema.", "Voglio andare al cinema.", "Voglio di andare al cinema.", "Voglio che vado al cinema."],
+        answer: "Voglio andare al cinema.",
+        hint: "Same subject (I want / I go) → infinitive. Different subjects → che + congiuntivo."
+    },
+    {
+        id: "it-lt-b1-23", level: "B1",
+        prompt: "Complete: 'Cerco un lavoro che ___ (permettere) di viaggiare.' (hypothetical — any job)",
+        options: ["permette", "permetta", "permettesse", "permetterà"],
+        answer: "permetta",
+        hint: "Indefinite/hypothetical antecedent → congiuntivo presente (permetta). No specific job yet."
+    },
+    {
+        id: "it-lt-b1-24", level: "B1",
+        prompt: "Transform to passive (passato prossimo): 'Calvino ha scritto questo romanzo.' → 'Questo romanzo ___'",
+        options: ["è stato scritto da Calvino", "è scritto da Calvino", "fu scritto da Calvino", "viene scritto da Calvino"],
+        answer: "è stato scritto da Calvino",
+        hint: "Passive in passato prossimo: è stato (essere passato prossimo, m.s.) + scritto + da + agent."
+    },
+    {
+        id: "it-lt-b1-25", level: "B1",
+        prompt: "What does 'Avendo finito il lavoro, sono uscito' express?",
+        options: ["I finished work while going out", "Having finished the work, I went out (prior completed action)", "I want to finish work before going out", "I went out because I couldn't finish the work"],
+        answer: "Having finished the work, I went out (prior completed action)",
+        hint: "Avendo + participio passato = compound gerund = having done. The finishing happened BEFORE the going out."
+    },
+
     // --- B2 additions (it-lt-b2-16 → it-lt-b2-20) ---
     {
         id: "it-lt-b2-16", level: "B2",

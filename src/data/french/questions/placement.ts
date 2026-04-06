@@ -9,7 +9,7 @@ export const placementQuestions: QuizQuestion[] = [
     { id: "fr-p-b1-1", level: "B1", prompt: "Complete using the subjunctive: 'Il faut que tu ___ (venir).'", options: ["viens", "viendras", "viennes", "venais"], answer: "viennes" },
     { id: "fr-p-b1-2", level: "B1", prompt: "What does 'cependant' mean?", options: ["therefore", "however", "although", "because"], answer: "however" },
     { id: "fr-p-b2-1", level: "B2", prompt: "Complete using the past conditional: 'Si j'avais su, je ___ venu.'", options: ["serai", "suis", "serais", "serez"], answer: "serais" },
-    { id: "fr-p-b2-2", level: "B2", prompt: "Which tense describes an ongoing or habitual action in the past?", options: ["Passé composé", "Imparfait", "Passé simple", "Plus-que-parfait"], answer: "Imparfait" },
+    { id: "fr-p-b2-2", level: "B2", prompt: "Complete using the subjonctif passé: 'Bien qu'il ___ (partir) tôt, il est quand même arrivé en retard.'", options: ["est parti", "soit parti", "partait", "ait parti"], answer: "soit parti" },
     { id: "fr-p-c1-1", level: "C1", prompt: "Which sentence correctly uses the past subjunctive?", options: ["Je doute qu'il a fini.", "Je doute qu'il ait fini.", "Je doute qu'il aura fini.", "Je doute qu'il avait fini."], answer: "Je doute qu'il ait fini." },
     { id: "fr-p-c1-2", level: "C1", prompt: "What is the French equivalent of 'in spite of'?", options: ["grâce à", "à cause de", "malgré", "afin de"], answer: "malgré" },
 ]
