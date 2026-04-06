@@ -99,6 +99,15 @@ export const frVocabB1: VocabItem[] = [
     { id: "fr-v-b1-078", level: "B1", word: "avoir l'air", translation: "to seem / to look", category: "abstract concepts", example: { native: "Elle a l'air fatiguée ce matin.", translation: "She looks tired this morning." } },
     { id: "fr-v-b1-079", level: "B1", word: "faire face à", translation: "to face / to deal with", category: "abstract concepts", example: { native: "Nous devons faire face à de nombreux défis.", translation: "We have to face many challenges." } },
     { id: "fr-v-b1-080", level: "B1", word: "tenir compte de", translation: "to take into account", category: "abstract concepts", example: { native: "Il faut tenir compte de l'avis de tout le monde.", translation: "We must take everyone's opinion into account." } },
+    // --- gérondif & advanced grammar ---
+    { id: "fr-v-b1-081", level: "B1", word: "en + participe présent", translation: "while/by doing (gérondif)", category: "abstract concepts", example: { native: "Il a appris le français en regardant des films.", translation: "He learned French by watching films." } },
+    { id: "fr-v-b1-082", level: "B1", word: "bien que + subjonctif", translation: "although / even though", category: "opinions & debate", example: { native: "Bien qu'il soit tard, je veux continuer.", translation: "Although it's late, I want to continue." } },
+    { id: "fr-v-b1-083", level: "B1", word: "pour que + subjonctif", translation: "so that / in order that", category: "opinions & debate", example: { native: "Je répète pour que tout le monde comprenne.", translation: "I'm repeating so that everyone understands." } },
+    { id: "fr-v-b1-084", level: "B1", word: "à moins que + subjonctif", translation: "unless", category: "abstract concepts", example: { native: "Je viendrai, à moins que tu ne préfères rester.", translation: "I'll come, unless you'd rather stay." } },
+    { id: "fr-v-b1-085", level: "B1", word: "jusqu'à ce que + subjonctif", translation: "until", category: "abstract concepts", example: { native: "Il a travaillé jusqu'à ce qu'il finisse.", translation: "He worked until he finished." } },
+    { id: "fr-v-b1-086", level: "B1", word: "ne…que", translation: "only (restriction)", category: "abstract concepts", example: { native: "Je ne bois que de l'eau.", translation: "I only drink water." } },
+    { id: "fr-v-b1-087", level: "B1", word: "ne…ni…ni", translation: "neither…nor", category: "abstract concepts", example: { native: "Il ne parle ni français ni anglais.", translation: "He speaks neither French nor English." } },
+    { id: "fr-v-b1-088", level: "B1", word: "dès que + futur antérieur", translation: "as soon as (+ future perfect)", category: "abstract concepts", example: { native: "Dès qu'elle aura fini, elle appellera.", translation: "As soon as she has finished, she will call." } },
 ]
 
 // Re-export under legacy name so existing imports keep working

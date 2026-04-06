@@ -179,6 +179,7 @@ export const b1Units: LessonUnit[] = [
             "fr-v-b1-067", "fr-v-b1-068", "fr-v-b1-069"
         ],
         verbIds: ["fr-vb-b1-7"],
+        readingIds: ["fr-r-b1-4"],
         testQuestions: [
             {
                 id: "fr-uq-b1-10-1", level: "B1",
@@ -221,6 +222,150 @@ export const b1Units: LessonUnit[] = [
                 options: ["dire que", "demander si", "dire de + infinitif", "affirmer que"],
                 answer: "dire de + infinitif",
                 hint: "Commands use dire de + infinitif (or ordonner de, demander de). Not que + subjonctif."
+            },
+        ]
+    },
+    {
+        id: "fr-b1-u11",
+        level: "B1",
+        order: 11,
+        title: "Le Gérondif & le Subjonctif après Conjonctions",
+        description: "Master the gérondif (en + present participle) for expressing simultaneity, manner, and cause with the same subject. Then extend the subjunctive beyond verbs to a core set of conjunctions (bien que, pour que, avant que, à moins que) that always require it — a key B1 writing and argumentation skill.",
+        grammarIds: ["fr-g-b1-11", "fr-g-b1-12"],
+        vocabIds: ["fr-v-b1-081", "fr-v-b1-082", "fr-v-b1-083", "fr-v-b1-084", "fr-v-b1-085"],
+        verbIds: ["fr-vb-b1-1"],
+        listeningIds: ["fr-l-b1-4"],
+        testQuestions: [
+            {
+                id: "fr-uq-b1-11-1", level: "B1",
+                prompt: "Form the gérondif of 'finir'.",
+                options: ["en finissant", "en finisant", "en finant", "en finissent"],
+                answer: "en finissant",
+                hint: "Gérondif: nous form → finissons → drop -ons → finiss- + ant → finissant → en finissant."
+            },
+            {
+                id: "fr-uq-b1-11-2", level: "B1",
+                prompt: "What does 'Il a appris l'espagnol en regardant des films' mean?",
+                options: [
+                    "He learned Spanish, and then he watched films",
+                    "He learned Spanish by watching films (manner/means)",
+                    "He was watching films when he learned Spanish",
+                    "He stopped watching films to learn Spanish"
+                ],
+                answer: "He learned Spanish by watching films (manner/means)",
+                hint: "En + present participle = by doing / while doing. Here it expresses the means."
+            },
+            {
+                id: "fr-uq-b1-11-3", level: "B1",
+                prompt: "Complete: 'Bien qu'il ___ (être) fatigué, il a continué à travailler.'",
+                options: ["est", "sera", "soit", "serait"],
+                answer: "soit",
+                hint: "Bien que always takes the subjunctive. Être in subjunctive = soit."
+            },
+            {
+                id: "fr-uq-b1-11-4", level: "B1",
+                prompt: "Which conjunction takes the indicative (not subjunctive)?",
+                options: ["bien que", "pour que", "parce que", "à moins que"],
+                answer: "parce que",
+                hint: "Parce que (because) always takes the indicative — it states a fact. Bien que, pour que, à moins que → all require subjunctive."
+            },
+            {
+                id: "fr-uq-b1-11-5", level: "B1",
+                prompt: "Complete: 'Je parle lentement pour que tu ___ (comprendre).'",
+                options: ["comprends", "comprendrais", "comprenais", "comprennes"],
+                answer: "comprennes",
+                hint: "Pour que (so that) triggers the subjunctive. Comprendre → que tu comprennes."
+            },
+            {
+                id: "fr-uq-b1-11-6", level: "B1",
+                prompt: "What does 'tout en + gérondif' add to the meaning?",
+                options: [
+                    "It means 'immediately after doing'",
+                    "It adds a concessive sense: 'even while / even though'",
+                    "It makes the action negative",
+                    "It expresses a future action"
+                ],
+                answer: "It adds a concessive sense: 'even while / even though'",
+                hint: "Tout en + gérondif = even while / even though (concession). Tout en comprenant, je suis en désaccord = even though I understand, I disagree."
+            },
+        ]
+    },
+    {
+        id: "fr-b1-u12",
+        level: "B1",
+        order: 12,
+        title: "Le Futur Antérieur, Ne…que & l'Accord du Participe Passé",
+        description: "Three precision tools of written French. The futur antérieur sequences future events and expresses probability about the past. Ne…que restricts meaning without being a true negation. And the accord du participe passé — the rule that trips up even advanced learners — governs when and why the past participle changes form.",
+        grammarIds: ["fr-g-b1-13", "fr-g-b1-14", "fr-g-b1-15"],
+        vocabIds: ["fr-v-b1-086", "fr-v-b1-087", "fr-v-b1-088", "fr-v-b1-014", "fr-v-b1-016"],
+        verbIds: ["fr-vb-b1-6"],
+        testQuestions: [
+            {
+                id: "fr-uq-b1-12-1", level: "B1",
+                prompt: "Complete: 'Dès qu'elle ___ (finir) le rapport, elle te contactera.'",
+                options: ["finira", "a fini", "aura fini", "finissait"],
+                answer: "aura fini",
+                hint: "Dès que + futur antérieur (she will have finished) → then the main action happens. Sequence of two future events."
+            },
+            {
+                id: "fr-uq-b1-12-2", level: "B1",
+                prompt: "Translate: 'He hasn't called back — he must have forgotten.'",
+                options: [
+                    "Il n'a pas rappelé — il a oublié.",
+                    "Il n'a pas rappelé — il aurait oublié.",
+                    "Il n'a pas rappelé — il aura oublié.",
+                    "Il n'a pas rappelé — il oubliera."
+                ],
+                answer: "Il n'a pas rappelé — il aura oublié.",
+                hint: "Futur antérieur as supposition about the past: il aura oublié = he must have forgotten."
+            },
+            {
+                id: "fr-uq-b1-12-3", level: "B1",
+                prompt: "Translate: 'I only speak French here.'",
+                options: [
+                    "Je parle seulement français ici.",
+                    "Je ne parle que français ici.",
+                    "Je ne parle pas français ici.",
+                    "Je ne parle jamais français ici."
+                ],
+                answer: "Je ne parle que français ici.",
+                hint: "Ne…que = only. Ne goes before the verb, que goes before the restricted element."
+            },
+            {
+                id: "fr-uq-b1-12-4", level: "B1",
+                prompt: "Does the past participle agree in 'J'ai vu les films'?",
+                options: [
+                    "Yes — 'J'ai vus les films' (masculine plural)",
+                    "No — direct object follows the verb, so no agreement",
+                    "Yes — always agrees in avoir verbs",
+                    "Only if films is feminine"
+                ],
+                answer: "No — direct object follows the verb, so no agreement",
+                hint: "Avoir verbs: agreement ONLY when COD precedes the verb. Here 'les films' follows → no agreement → vu."
+            },
+            {
+                id: "fr-uq-b1-12-5", level: "B1",
+                prompt: "Does the past participle agree in 'Les films que j'ai vus étaient excellents'?",
+                options: [
+                    "No — films comes before the verb",
+                    "Yes — 'que' refers to 'les films' (masculine plural) and precedes the verb → vus",
+                    "Yes — but only because films is plural",
+                    "No — que is not a direct object"
+                ],
+                answer: "Yes — 'que' refers to 'les films' (masculine plural) and precedes the verb → vus",
+                hint: "Que = les films (masculine plural) and it comes BEFORE the verb → agreement → vus."
+            },
+            {
+                id: "fr-uq-b1-12-6", level: "B1",
+                prompt: "Which is correct: 'Elle s'est lavée' or 'Elle s'est lavé les mains'?",
+                options: [
+                    "Both are wrong",
+                    "'Elle s'est lavée' is wrong; 'elle s'est lavé les mains' is correct",
+                    "Both are correct — se is always the COD in reflexive verbs",
+                    "Both are correct — 'se' is COD in the first, 'les mains' is COD in the second"
+                ],
+                answer: "Both are correct — 'se' is COD in the first, 'les mains' is COD in the second",
+                hint: "'S'est lavée': se = COD → agreement. 'S'est lavé les mains': les mains = COD (follows verb) → no agreement with se."
             },
         ]
     },
