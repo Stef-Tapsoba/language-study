@@ -32,7 +32,7 @@ import { Button } from "../components/ui/button"
 import { Badge } from "../components/ui/badge"
 import { Progress } from "../components/ui/progress"
 
-type DashTab = "path" | "study" | "practice" | "test" | "stats"
+type DashTab = "path" | "study" | "practice" | "review" | "test" | "stats"
 
 // ---------------------------------------------------------------------------
 // SectionCard — used by Practice tab
@@ -270,6 +270,7 @@ export function DashboardPage() {
         { id: "path", label: ui.tabPath, badge: levelUnits.length > 0 ? `${masteredCount}/${levelUnits.length}` : undefined },
         { id: "study", label: ui.tabStudy },
         { id: "practice", label: ui.tabPractice },
+        { id: "review", label: "Review", badge: dueCount > 0 ? String(dueCount) : undefined },
         { id: "test", label: ui.tabTest },
         { id: "stats", label: "Stats" },
     ]
@@ -526,6 +527,45 @@ export function DashboardPage() {
                                 to={`/learn/${langId}/exercise/speaking`}
                             />
                         </div>
+                    </TabsContent>
+
+                    {/* ── REVIEW ───────────────────────────────────────────── */}
+                    <TabsContent value="review" className="tab-fade">
+                        {dueCount > 0 ? (
+                            <div className="flex flex-col gap-4">
+                                <div className="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-2xl p-6">
+                                    <div className="flex items-center gap-4 mb-5">
+                                        <span className="text-4xl">🔁</span>
+                                        <div>
+                                            <h3 className="font-semibold text-gray-900 dark:text-white text-lg">
+                                                {dueCount} {dueCount === 1 ? "item" : "items"} due
+                                            </h3>
+                                            <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
+                                                Spaced repetition keeps your vocabulary fresh
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <Button
+                                        className="w-full"
+                                        onClick={() => navigate(`/learn/${langId}/review`)}
+                                    >
+                                        Start Review Session
+                                    </Button>
+                                </div>
+                                {breakDetection.daysSince > 1 && (
+                                    <p className="text-xs text-center text-gray-400 dark:text-gray-500">
+                                        Last session {breakDetection.daysSince} days ago — great time to review
+                                    </p>
+                                )}
+                            </div>
+                        ) : (
+                            <div className="text-center py-16 text-gray-400 dark:text-gray-500">
+                                <p className="text-4xl mb-3">✅</p>
+                                <p className="font-medium text-gray-700 dark:text-gray-300">All caught up!</p>
+                                <p className="text-sm mt-1">No vocabulary is due for review right now.</p>
+                                <p className="text-sm mt-1">Keep studying to build your review queue.</p>
+                            </div>
+                        )}
                     </TabsContent>
 
                     {/* ── STATS ────────────────────────────────────────────── */}
