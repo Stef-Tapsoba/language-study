@@ -6,8 +6,8 @@ import { ExerciseShell } from "./components/ExerciseShell"
 import { DebugBadge } from "./components/DebugBadge"
 import { TooltipProvider } from "./components/ui/tooltip"
 import { ProtectedRoute } from "./auth/ProtectedRoute"
-import { ProgressProvider } from "./context/ProgressContext"
-import { getModule, loadModule } from "./data/modules"
+import { ProgressProvider, useProgress } from "./context/ProgressContext"
+import { getModule, loadModule, loadAdvancedModule, isAdvancedLoaded } from "./data/modules"
 
 const LandingPage        = lazy(() => import("./pages/LandingPage").then(m => ({ default: m.LandingPage })))
 const LoginPage          = lazy(() => import("./pages/LoginPage").then(m => ({ default: m.LoginPage })))
@@ -34,15 +34,32 @@ const ReviewPage         = lazy(() => import("./pages/ReviewPage").then(m => ({ 
 const GoalPickerPage     = lazy(() => import("./pages/GoalPickerPage").then(m => ({ default: m.GoalPickerPage })))
 
 // Ensures the language data chunk is loaded before any /learn/:langId page renders.
-// getModule() is synchronous and reads from cache — this gate means it never returns null
-// for the active language.
+// For B2+ users, also waits for the advanced (B2–C1) chunk to merge before rendering,
+// so components always receive complete data for the active level.
 function LanguageLoader() {
     const { langId } = useParams<{ langId: string }>()
-    const [ready, setReady] = useState(() => Boolean(langId && getModule(langId)))
+    const { level: getLevel } = useProgress()
+
+    const isFullyLoaded = (id: string) => {
+        if (!getModule(id)) return false
+        const lv = getLevel(id)
+        return (lv !== "B2" && lv !== "C1") || isAdvancedLoaded(id)
+    }
+
+    const [ready, setReady] = useState(() => Boolean(langId && isFullyLoaded(langId)))
 
     useEffect(() => {
-        if (!langId || getModule(langId)) { setReady(true); return }
-        loadModule(langId).then(() => setReady(true))
+        if (!langId) return
+        if (isFullyLoaded(langId)) { setReady(true); return }
+
+        async function load() {
+            await loadModule(langId!)
+            const lv = getLevel(langId!)
+            if (lv === "B2" || lv === "C1") await loadAdvancedModule(langId!)
+            setReady(true)
+        }
+        load()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [langId])
 
     if (!ready) return (

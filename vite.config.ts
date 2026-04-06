@@ -15,15 +15,22 @@ export default defineConfig({
     },
     plugins: [react()],
     build: {
-        // Language data chunks are lazy-loaded per-language (~200 kB gzip each).
-        // The 500 kB default threshold fires on minified size, not gzip, and doesn't
-        // account for on-demand loading — raise it to silence the false positive.
+        // Language data chunks are lazy-loaded per-language, now split into:
+        //   lang-{id}          — A1-B1 base data (loaded on language selection)
+        //   lang-{id}-advanced — B2-C1 data (loaded only when user reaches B2)
+        // The 500 kB default threshold fires on minified size, not gzip — raise it.
         chunkSizeWarningLimit: 750,
         rollupOptions: {
             output: {
-                // Give each language data chunk a stable, predictable name so that
-                // only the changed language's chunk is cache-busted on redeploy.
+                // Stable chunk names so only changed chunks are cache-busted on redeploy.
                 manualChunks(id) {
+                    // Advanced (B2–C1) patterns must come before base patterns.
+                    if (id.includes("/data/french")   && (id.includes("/b2") || id.includes("/c1") || id.includes("index-advanced"))) return "lang-fr-advanced"
+                    if (id.includes("/data/spanish")  && (id.includes("/b2") || id.includes("/c1") || id.includes("index-advanced"))) return "lang-es-advanced"
+                    if (id.includes("/data/italian")  && (id.includes("/b2") || id.includes("/c1") || id.includes("index-advanced"))) return "lang-it-advanced"
+                    if (id.includes("/data/japanese") && (id.includes("/b2") || id.includes("/c1") || id.includes("index-advanced"))) return "lang-ja-advanced"
+                    if (id.includes("/data/korean")   && (id.includes("/b2") || id.includes("/c1") || id.includes("index-advanced"))) return "lang-ko-advanced"
+                    // Base (A1–B1) chunks
                     if (id.includes("/data/spanish"))  return "lang-es"
                     if (id.includes("/data/french"))   return "lang-fr"
                     if (id.includes("/data/italian"))  return "lang-it"
