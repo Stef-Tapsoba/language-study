@@ -194,4 +194,44 @@ export const b2Reading: ReadingPassage[] = [
             }
         ]
     },
+    {
+        id: "fr-r-b2-5",
+        level: "B2",
+        category: "literature",
+        title: "La presse française et le débat public",
+        body: {
+            target: `Le journaliste est souvent décrit comme le « chien de garde » de la démocratie. Bien qu'il soit admis que la presse ait perdu une partie de sa crédibilité à l'ère des réseaux sociaux, peu contestent le fait qu'elle demeure indispensable à la vie civique. Sans journalistes qui enquêtent, qui dénoncent et qui transmettent, comment les citoyens pourraient-ils exercer leur rôle dans une démocratie ?
+
+Or, le modèle économique de la presse traditionnelle s'est effondré. La publicité, qui finançait autrefois les rédactions, est désormais captée par les grandes plateformes numériques. Les journaux ont perdu la moitié de leurs lecteurs en vingt ans. Certaines rédactions régionales ont fermé leurs portes, laissant des déserts médiatiques dans des zones entières du pays.
+
+Face à cette crise, des solutions diverses ont émergé. Des journaux ont adopté le modèle de l'abonnement numérique. D'autres ont fondé des associations à but non lucratif pour garantir leur indépendance vis-à-vis des actionnaires. Quelques titres ont même trouvé un financement participatif auprès de leurs lecteurs, convaincus qu'il valait mieux qu'une presse indépendante existât plutôt que de disparaître.
+
+Le débat sur la régulation des plateformes numériques est désormais au cœur des enjeux. Bien que certains estiment que les géants du numérique devraient contribuer au financement du journalisme, d'autres craignent que toute intervention étatique ne risque de compromettre la liberté de la presse. Il est improbable qu'une solution simple soit trouvée dans les prochaines années.
+
+Le journalisme de demain sera différent, c'est certain. Mais pour qu'il survive, il faut que les sociétés reconnaissent sa valeur — non pas comme un service commercial, mais comme un bien commun essentiel à la démocratie.`,
+            native: `The journalist is often described as the "watchdog" of democracy. Although it is acknowledged that the press has lost some of its credibility in the age of social networks, few dispute the fact that it remains indispensable to civic life. Without journalists who investigate, expose and transmit, how could citizens exercise their role in a democracy?
+
+Yet the economic model of the traditional press has collapsed. Advertising, which once financed newsrooms, is now captured by the major digital platforms. Newspapers have lost half their readers over twenty years. Some regional newsrooms have closed their doors, leaving media deserts across entire areas of the country.
+
+In the face of this crisis, diverse solutions have emerged. Some newspapers have adopted the digital subscription model. Others have founded non-profit organisations to guarantee their independence from shareholders. A few titles have even found crowdfunding from their readers, convinced that it was better for an independent press to exist rather than disappear.
+
+The debate on the regulation of digital platforms is now at the heart of the issues. Although some believe that the digital giants should contribute to the funding of journalism, others fear that any state intervention might risk compromising the freedom of the press. It is unlikely that a simple solution will be found in the coming years.
+
+The journalism of tomorrow will be different, that is certain. But for it to survive, societies must recognise its value — not as a commercial service, but as a common good essential to democracy.`
+        },
+        vocabGloss: [
+            { word: "le chien de garde", translation: "watchdog (literally 'guard dog') — used figuratively for the press's role in democracy" },
+            { word: "la rédaction", translation: "newsroom, editorial team" },
+            { word: "le désert médiatique", translation: "media desert — area with no local press coverage" },
+            { word: "à but non lucratif", translation: "non-profit, not-for-profit" },
+            { word: "le financement participatif", translation: "crowdfunding" },
+            { word: "un bien commun", translation: "a common good — something considered shared public property" }
+        ],
+        questions: [
+            { id: "fr-r-b2-5-q1", level: "B2", prompt: "Quelle est la principale cause de l'effondrement du modèle économique de la presse traditionnelle mentionnée dans le texte ?", options: ["La baisse de qualité du journalisme", "La captation de la publicité par les plateformes numériques", "La concurrence des chaînes télévisées", "La hausse du prix du papier"], answer: "La captation de la publicité par les plateformes numériques" },
+            { id: "fr-r-b2-5-q2", level: "B2", prompt: "Quelle solution certains titres de presse ont-ils adoptée pour garantir leur indépendance ?", options: ["Dépendre uniquement des aides de l'État", "Créer des associations à but non lucratif", "Fusionner avec des plateformes numériques", "Réduire leur équipe de journalistes"], answer: "Créer des associations à but non lucratif" },
+            { id: "fr-r-b2-5-q3", level: "B2", prompt: "Quelle est la position de l'auteur sur la valeur du journalisme ?", options: ["C'est un service commercial comme les autres", "C'est une industrie en déclin irrémédiable", "C'est un bien commun essentiel à la démocratie", "C'est un luxe réservé aux classes éduquées"], answer: "C'est un bien commun essentiel à la démocratie" },
+            { id: "fr-r-b2-5-q4", level: "B2", prompt: "Identifiez le mode verbal dans : 'il valait mieux qu'une presse indépendante existât'. Quel temps est 'existât' ?", options: ["Subjonctif présent", "Imparfait du subjonctif", "Conditionnel présent", "Passé simple"], answer: "Imparfait du subjonctif" }
+        ]
+    },
 ]

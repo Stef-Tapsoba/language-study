@@ -7,6 +7,18 @@ export const b2Listening: ListeningExercise[] = [
         title: "Intervista radiofonica: Il lavoro nel futuro",
         script: "Buongiorno e benvenuti a 'Economia Oggi'. Con me oggi c'è la professoressa Martini, esperta di mercato del lavoro. Professoressa, come cambierà il lavoro nei prossimi vent'anni? Grazie per l'invito. Le trasformazioni saranno profonde. L'intelligenza artificiale e l'automazione sostituiranno molte mansioni ripetitive, ma al contempo creeranno nuove professioni che oggi non esistono ancora. È fondamentale che i lavoratori si adattino continuamente aggiornando le proprie competenze. La formazione permanente diventerà una necessità, non un'opzione. I settori che cresceranno maggiormente saranno quelli legati alla tecnologia, alla cura delle persone e alla sostenibilità ambientale. Le imprese che investono nelle risorse umane saranno quelle in grado di competere globalmente.",
         translation: "Good morning and welcome to 'Economy Today'. With me today is Professor Martini, an expert in the labour market. Professor, how will work change in the next twenty years? Thank you for the invitation. The transformations will be profound. Artificial intelligence and automation will replace many repetitive tasks, but at the same time will create new professions that do not yet exist today. It is essential that workers adapt continuously by updating their skills. Lifelong learning will become a necessity, not an option. The sectors that will grow most will be those related to technology, care for people, and environmental sustainability. The companies that invest in human resources will be those able to compete globally.",
+        dialogue: [
+            {
+                speaker: "Conduttrice",
+                text: "Buongiorno e benvenuti a 'Economia Oggi'. Con me oggi c'è la professoressa Martini, esperta di mercato del lavoro. Professoressa, come cambierà il lavoro nei prossimi vent'anni?",
+                translation: "Good morning and welcome to 'Economy Today'. With me today is Professor Martini, an expert in the labour market. Professor, how will work change in the next twenty years?"
+            },
+            {
+                speaker: "Prof. Martini",
+                text: "Grazie per l'invito. Le trasformazioni saranno profonde. L'intelligenza artificiale e l'automazione sostituiranno molte mansioni ripetitive, ma al contempo creeranno nuove professioni che oggi non esistono ancora. È fondamentale che i lavoratori si adattino continuamente aggiornando le proprie competenze. La formazione permanente diventerà una necessità, non un'opzione. I settori che cresceranno maggiormente saranno quelli legati alla tecnologia, alla cura delle persone e alla sostenibilità ambientale. Le imprese che investono nelle risorse umane saranno quelle in grado di competere globalmente.",
+                translation: "Thank you for the invitation. The transformations will be profound. Artificial intelligence and automation will replace many repetitive tasks, but at the same time will create new professions that do not yet exist today. It is essential that workers adapt continuously by updating their skills. Lifelong learning will become a necessity, not an option. The sectors that will grow most will be those related to technology, care for people, and environmental sustainability. The companies that invest in human resources will be those able to compete globally."
+            }
+        ],
         questions: [
             {
                 id: "it-l-b2-1-q1",
@@ -65,8 +77,20 @@ export const b2Listening: ListeningExercise[] = [
         id: "it-l-b2-3",
         level: "B2",
         title: "Dibattito politico: L'immigrazione",
-        script: "Moderatore: Benvenuti al nostro dibattito settimanale. Oggi discutiamo di immigrazione. Onorevole Ferretti, qual è la sua posizione? Ferretti: La gestione dell'immigrazione è una delle questioni più complesse che l'Italia si trovi ad affrontare. Da un lato, il nostro Paese ha bisogno di lavoratori stranieri per sostenere settori essenziali come l'agricoltura, l'edilizia e l'assistenza agli anziani. Dall'altro, una gestione disordinata dei flussi migratori crea tensioni sociali e mette sotto pressione i servizi pubblici. Per quanto riguarda la mia proposta, credo sia necessario un sistema di immigrazione regolare basato su quote lavorative, accompagnato da politiche di integrazione efficaci. Senza integrazione, l'immigrazione diventa un problema; con l'integrazione, può diventare una risorsa per il Paese.",
-        translation: "Moderator: Welcome to our weekly debate. Today we discuss immigration. Honourable Ferretti, what is your position? Ferretti: The management of immigration is one of the most complex issues that Italy faces. On the one hand, our country needs foreign workers to support essential sectors such as agriculture, construction, and care for the elderly. On the other hand, disorderly management of migration flows creates social tensions and puts pressure on public services. As regards my proposal, I believe a system of regular immigration based on work quotas is necessary, accompanied by effective integration policies. Without integration, immigration becomes a problem; with integration, it can become a resource for the country.",
+        script: "Benvenuti al nostro dibattito settimanale. Oggi discutiamo di immigrazione. Onorevole Ferretti, qual è la sua posizione? La gestione dell'immigrazione è una delle questioni più complesse che l'Italia si trovi ad affrontare. Da un lato, il nostro Paese ha bisogno di lavoratori stranieri per sostenere settori essenziali come l'agricoltura, l'edilizia e l'assistenza agli anziani. Dall'altro, una gestione disordinata dei flussi migratori crea tensioni sociali e mette sotto pressione i servizi pubblici. Per quanto riguarda la mia proposta, credo sia necessario un sistema di immigrazione regolare basato su quote lavorative, accompagnato da politiche di integrazione efficaci. Senza integrazione, l'immigrazione diventa un problema; con l'integrazione, può diventare una risorsa per il Paese.",
+        translation: "Welcome to our weekly debate. Today we discuss immigration. Honourable Ferretti, what is your position? The management of immigration is one of the most complex issues that Italy faces. On the one hand, our country needs foreign workers to support essential sectors such as agriculture, construction, and care for the elderly. On the other hand, disorderly management of migration flows creates social tensions and puts pressure on public services. As regards my proposal, I believe a system of regular immigration based on work quotas is necessary, accompanied by effective integration policies. Without integration, immigration becomes a problem; with integration, it can become a resource for the country.",
+        dialogue: [
+            {
+                speaker: "Moderatore",
+                text: "Benvenuti al nostro dibattito settimanale. Oggi discutiamo di immigrazione. Onorevole Ferretti, qual è la sua posizione?",
+                translation: "Welcome to our weekly debate. Today we discuss immigration. Honourable Ferretti, what is your position?"
+            },
+            {
+                speaker: "Ferretti",
+                text: "La gestione dell'immigrazione è una delle questioni più complesse che l'Italia si trovi ad affrontare. Da un lato, il nostro Paese ha bisogno di lavoratori stranieri per sostenere settori essenziali come l'agricoltura, l'edilizia e l'assistenza agli anziani. Dall'altro, una gestione disordinata dei flussi migratori crea tensioni sociali e mette sotto pressione i servizi pubblici. Per quanto riguarda la mia proposta, credo sia necessario un sistema di immigrazione regolare basato su quote lavorative, accompagnato da politiche di integrazione efficaci. Senza integrazione, l'immigrazione diventa un problema; con l'integrazione, può diventare una risorsa per il Paese.",
+                translation: "The management of immigration is one of the most complex issues that Italy faces. On the one hand, our country needs foreign workers to support essential sectors such as agriculture, construction, and care for the elderly. On the other hand, disorderly management of migration flows creates social tensions and puts pressure on public services. As regards my proposal, I believe a system of regular immigration based on work quotas is necessary, accompanied by effective integration policies. Without integration, immigration becomes a problem; with integration, it can become a resource for the country."
+            }
+        ],
         questions: [
             {
                 id: "it-l-b2-3-q1",
@@ -88,6 +112,58 @@ export const b2Listening: ListeningExercise[] = [
                 prompt: "Qual è la proposta di Ferretti per gestire l'immigrazione?",
                 options: ["Chiudere le frontiere completamente", "Un sistema basato su quote lavorative con politiche di integrazione", "Affidare la gestione all'Unione Europea", "Aumentare i fondi per i rimpatri"],
                 answer: "Un sistema basato su quote lavorative con politiche di integrazione"
+            }
+        ]
+    },
+    {
+        id: "it-l-b2-5",
+        level: "B2",
+        title: "Italiano scritto e italiano parlato — la distanza nascosta",
+        script: "Benvenuti a 'Lingua in ascolto'. Oggi affrontiamo un tema che sorprende molti apprendenti dell'italiano: la grande distanza tra l'italiano scritto formale e quello parlato quotidiano. Professoressa Conti, in cosa consiste questa distanza? È una distanza strutturale, non solo stilistica. L'italiano scritto formale usa costruzioni passive, nominalizazioni, congiuntivi, periodi ipotetici complessi. L'italiano parlato, invece, evita le passivazioni, preferisce le costruzioni attive e usa il condizionale al posto del congiuntivo. Ad esempio, in una relazione accademica scriviamo 'è stato rilevato che' — passivo nominalizzato. Parlando, diremmo semplicemente 'hanno scoperto che'. Capisco. Questo crea problemi agli studenti? Enormi. Chi impara l'italiano dai libri di testo produce frasi accademicamente corrette ma innaturali nel parlato. E chi lo impara dalle serie televisive non sa scrivere un'email formale. Il segreto è esporre gli studenti a entrambi i registri deliberatamente. Come la musica classica e il jazz: stesso strumento, linguaggi diversi.",
+        translation: "Welcome to 'Lingua in ascolto'. Today we tackle a theme that surprises many Italian learners: the great distance between formal written Italian and everyday spoken Italian. Professor Conti, what does this distance consist of? It is a structural distance, not just a stylistic one. Formal written Italian uses passive constructions, nominalisations, subjunctives, complex hypothetical periods. Spoken Italian, on the other hand, avoids passivisation, prefers active constructions and uses the conditional instead of the subjunctive. For example, in an academic report we write 'è stato rilevato che' — passivised nominalisation. Speaking, we would simply say 'hanno scoperto che'. I see. Does this create problems for students? Enormous ones. Those who learn Italian from textbooks produce academically correct but unnatural sentences in speech. And those who learn it from TV series cannot write a formal email. The secret is to expose students to both registers deliberately. Like classical music and jazz: same instrument, different languages.",
+        dialogue: [
+            {
+                speaker: "Conduttore",
+                text: "Benvenuti a 'Lingua in ascolto'. Oggi affrontiamo un tema che sorprende molti apprendenti dell'italiano: la grande distanza tra l'italiano scritto formale e quello parlato quotidiano. Professoressa Conti, in cosa consiste questa distanza?",
+                translation: "Welcome to 'Lingua in ascolto'. Today we tackle a theme that surprises many Italian learners: the great distance between formal written Italian and everyday spoken Italian. Professor Conti, what does this distance consist of?"
+            },
+            {
+                speaker: "Prof. Conti",
+                text: "È una distanza strutturale, non solo stilistica. L'italiano scritto formale usa costruzioni passive, nominalizazioni, congiuntivi, periodi ipotetici complessi. L'italiano parlato, invece, evita le passivazioni, preferisce le costruzioni attive e usa il condizionale al posto del congiuntivo. Ad esempio, in una relazione accademica scriviamo 'è stato rilevato che' — passivo nominalizzato. Parlando, diremmo semplicemente 'hanno scoperto che'.",
+                translation: "It is a structural distance, not just a stylistic one. Formal written Italian uses passive constructions, nominalisations, subjunctives, complex hypothetical periods. Spoken Italian, on the other hand, avoids passivisation, prefers active constructions and uses the conditional instead of the subjunctive. For example, in an academic report we write 'è stato rilevato che' — passivised nominalisation. Speaking, we would simply say 'hanno scoperto che'."
+            },
+            {
+                speaker: "Conduttore",
+                text: "Capisco. Questo crea problemi agli studenti?",
+                translation: "I see. Does this create problems for students?"
+            },
+            {
+                speaker: "Prof. Conti",
+                text: "Enormi. Chi impara l'italiano dai libri di testo produce frasi accademicamente corrette ma innaturali nel parlato. E chi lo impara dalle serie televisive non sa scrivere un'email formale. Il segreto è esporre gli studenti a entrambi i registri deliberatamente. Come la musica classica e il jazz: stesso strumento, linguaggi diversi.",
+                translation: "Enormous ones. Those who learn Italian from textbooks produce academically correct but unnatural sentences in speech. And those who learn it from TV series cannot write a formal email. The secret is to expose students to both registers deliberately. Like classical music and jazz: same instrument, different languages."
+            }
+        ],
+        questions: [
+            {
+                id: "it-l-b2-5-q1",
+                level: "B2",
+                prompt: "Secondo la professoressa Conti, l'italiano scritto formale differisce da quello parlato principalmente per:",
+                options: ["La pronuncia e l'accento regionale", "L'uso di costruzioni passive, nominalizazioni e congiuntivi", "Il vocabolario usato per i saluti", "La lunghezza delle frasi"],
+                answer: "L'uso di costruzioni passive, nominalizazioni e congiuntivi"
+            },
+            {
+                id: "it-l-b2-5-q2",
+                level: "B2",
+                prompt: "Quale esempio usa la professoressa per illustrare la differenza tra scritto e parlato?",
+                options: ["'Buongiorno' vs 'Ciao'", "'è stato rilevato che' (scritto) vs 'hanno scoperto che' (parlato)", "'vorrei' (scritto) vs 'voglio' (parlato)", "'pertanto' (scritto) vs 'allora' (parlato)"],
+                answer: "'è stato rilevato che' (scritto) vs 'hanno scoperto che' (parlato)"
+            },
+            {
+                id: "it-l-b2-5-q3",
+                level: "B2",
+                prompt: "Qual è il consiglio della professoressa Conti per insegnare l'italiano efficacemente?",
+                options: ["Concentrarsi solo sull'italiano scritto formale per garantire la correttezza", "Esporre gli studenti deliberatamente a entrambi i registri scritto e parlato", "Privilegiare l'italiano parlato perché è quello più usato", "Insegnare prima il dialetto regionale prima dell'italiano standard"],
+                answer: "Esporre gli studenti deliberatamente a entrambi i registri scritto e parlato"
             }
         ]
     },

@@ -698,4 +698,74 @@ export const b2Units: LessonUnit[] = [
             }
         ]
     },
+    {
+        id: "es-b2-u13",
+        level: "B2",
+        order: 13,
+        title: "Como si — Contrasting with Unreality",
+        description: "Master 'como si' + imperfecto/pluscuamperfecto de subjuntivo — the structure for describing behaviour or appearance contrary to reality. Essential for literary analysis, nuanced narration, and idiom at B2.",
+        grammarIds: ["es-g-b2-14"],
+        vocabIds: ["es-v-b2-105", "es-v-b2-106", "es-v-b2-107", "es-v-b2-086"],
+        verbIds: ["es-vb-b2-3"],
+        testQuestions: [
+            {
+                id: "es-b2-u13-q1",
+                level: "B2",
+                prompt: "Complete: 'Habla ___ supiera todo.'",
+                options: ["como si", "como que", "como", "así que"],
+                answer: "como si",
+                hint: "As if = como si, always followed by subjunctive. 'Como que' is informal and takes indicative; 'como si' is the correct counterfactual form."
+            },
+            {
+                id: "es-b2-u13-q2",
+                level: "B2",
+                prompt: "Choose the correct form: 'Actuó como si nada ___ (pasar).'",
+                options: ["hubiera pasado", "pasara", "ha pasado", "pasó"],
+                answer: "hubiera pasado",
+                hint: "Past contrary to reality requires pluscuamperfecto de subjuntivo (hubiera + participio). The action preceded the main verb 'actuó'."
+            },
+            {
+                id: "es-b2-u13-q3",
+                level: "B2",
+                prompt: "Complete: 'Me miró como si no me ___ (conocer).'",
+                options: ["conociera", "hubiera conocido", "conoce", "conocía"],
+                answer: "conociera",
+                hint: "Present contrary to reality → imperfecto de subjuntivo (conociera). The speaker and listener know each other now, so the unreality is current."
+            },
+            {
+                id: "es-b2-u13-q4",
+                level: "B2",
+                prompt: "Why can't 'como si' take the indicative in Spanish?",
+                options: [
+                    "Because it always describes a condition contrary to reality (counterfactual)",
+                    "Because it is always in the past tense",
+                    "Because it only occurs in formal writing",
+                    "Because it is only used with third-person subjects"
+                ],
+                answer: "Because it always describes a condition contrary to reality (counterfactual)",
+                hint: "Como si is inherently counterfactual — it asserts something is NOT true. Spanish counterfactuals always require subjunctive; indicative is impossible."
+            },
+            {
+                id: "es-b2-u13-q5",
+                level: "B2",
+                prompt: "Complete: 'Gastaron como si el dinero no ___ (tener) fin.'",
+                options: ["tuviera", "hubiera tenido", "tiene", "tendría"],
+                answer: "tuviera",
+                hint: "Ongoing/current contrary-to-reality condition → imperfecto de subjuntivo (tuviera). The spending is described as a present/ongoing behaviour."
+            },
+            {
+                id: "es-b2-u13-q6",
+                level: "B2",
+                prompt: "Translate: 'She sang as if she had never been nervous.'",
+                options: [
+                    "Cantó como si nunca hubiera tenido nervios.",
+                    "Cantó como si nunca tuviera nervios.",
+                    "Cantó como si no está nerviosa.",
+                    "Cantó como que nunca estuvo nerviosa."
+                ],
+                answer: "Cantó como si nunca hubiera tenido nervios.",
+                hint: "Past contrary to reality (nervousness before she sang) → pluscuamperfecto de subjuntivo: hubiera tenido. The reference point is prior to the main verb 'cantó'."
+            }
+        ]
+    },
 ]

@@ -257,5 +257,41 @@ export const b2Reading: ReadingPassage[] = [
                 answer: "Más del cuarenta por ciento"
             }
         ]
+    },
+    {
+        id: "es-r-b2-5",
+        level: "B2",
+        category: "literature",
+        title: "Federico García Lorca y la Generación del 27",
+        body: {
+            target: `La Generación del 27 es considerada una de las más brillantes de la literatura española del siglo XX. Este grupo de poetas y dramaturgos, activos en torno al año 1927 — cuando se celebró el tercer centenario de la muerte de Góngora —, compartía la voluntad de renovar la poesía en castellano, buscando un equilibrio entre la tradición popular y las corrientes vanguardistas europeas.
+
+Federico García Lorca es, sin duda, la figura más universal del grupo. Nacido en Granada en 1898, Lorca conjuga en su obra la herencia del flamenco y el romancero con técnicas simbolistas y surrealistas. Su «Romancero gitano» (1928) es una de las obras más vendidas de la poesía española del siglo XX. En él, la figura del gitano no es un estereotipo pintoresco, sino un símbolo de la marginalidad, de la libertad imposible y del enfrentamiento con una sociedad opresora.
+
+Su teatro alcanzó aún mayor intensidad. En obras como «Bodas de sangre» (1932), «Yerma» (1934) y «La casa de Bernarda Alba» (1936), Lorca exploró los conflictos entre el individuo y las normas sociales, entre el deseo y la represión, con una poesía dramática de extraordinaria fuerza. Aunque estas obras se escribieran en el contexto de la Segunda República española, su resonancia universal las ha convertido en referentes del teatro moderno en todo el mundo.
+
+En agosto de 1936, al inicio de la Guerra Civil española, Lorca fue detenido y fusilado por las fuerzas franquistas en las afueras de Granada. Tenía treinta y ocho años. Los motivos exactos de su asesinato siguen siendo objeto de investigación histórica, pero su muerte simbolizó para muchos el silenciamiento brutal de la cultura y la libertad durante el franquismo.`,
+            native: `The Generation of 27 is considered one of the most brilliant of 20th-century Spanish literature. This group of poets and playwrights, active around 1927 — when the third centenary of Góngora's death was celebrated — shared the desire to renew poetry in Castilian, seeking a balance between popular tradition and European avant-garde movements.
+
+Federico García Lorca is, without doubt, the most universal figure of the group. Born in Granada in 1898, Lorca brings together in his work the heritage of flamenco and the romancero with Symbolist and Surrealist techniques. His 'Romancero gitano' (1928) is one of the best-selling works of 20th-century Spanish poetry. In it, the figure of the gypsy is not a picturesque stereotype, but a symbol of marginality, of impossible freedom, and of confrontation with an oppressive society.
+
+His theatre reached even greater intensity. In works such as 'Blood Wedding' (1932), 'Yerma' (1934) and 'The House of Bernarda Alba' (1936), Lorca explored the conflicts between the individual and social norms, between desire and repression, with a dramatic poetry of extraordinary force. Although these works were written in the context of the Spanish Second Republic, their universal resonance has made them touchstones of modern theatre throughout the world.
+
+In August 1936, at the start of the Spanish Civil War, Lorca was arrested and shot by Francoist forces on the outskirts of Granada. He was thirty-eight years old. The exact reasons for his murder remain the subject of historical investigation, but his death symbolised for many the brutal silencing of culture and freedom during Francoism.`
+        },
+        vocabGloss: [
+            { word: "el romancero", translation: "collection of traditional Spanish ballads" },
+            { word: "vanguardista", translation: "avant-garde" },
+            { word: "la marginalidad", translation: "social marginality, being on the margins of society" },
+            { word: "el franquismo", translation: "Francoism — the political regime of Francisco Franco (1939-1975)" },
+            { word: "fusilar", translation: "to execute by firing squad" },
+            { word: "un referente", translation: "a point of reference, a touchstone" }
+        ],
+        questions: [
+            { id: "es-r-b2-5-q1", level: "B2", prompt: "¿Qué caracteriza la poesía de García Lorca según el texto?", options: ["La separación total de la tradición popular", "La fusión de la herencia del flamenco y el romancero con técnicas vanguardistas", "El rechazo de toda influencia extranjera en su obra", "El uso exclusivo del verso libre sin métrica tradicional"], answer: "La fusión de la herencia del flamenco y el romancero con técnicas vanguardistas" },
+            { id: "es-r-b2-5-q2", level: "B2", prompt: "¿Qué representa el gitano en el Romancero gitano según el texto?", options: ["Un estereotipo pintoresco de Andalucía", "Un símbolo de la marginalidad y la libertad imposible", "Un personaje histórico real del siglo XIX", "Un héroe que triunfa sobre la sociedad opresora"], answer: "Un símbolo de la marginalidad y la libertad imposible" },
+            { id: "es-r-b2-5-q3", level: "B2", prompt: "¿Cuál es la importancia del teatro de Lorca según el autor del texto?", options: ["Es importante solo en el contexto español", "Exploró conflictos universales y se convirtió en referente del teatro moderno mundial", "Fue rechazado por el público de su época", "Se centró únicamente en temas folclóricos andaluces"], answer: "Exploró conflictos universales y se convirtió en referente del teatro moderno mundial" },
+            { id: "es-r-b2-5-q4", level: "B2", prompt: "¿Qué simbolizó la muerte de Lorca para muchos según el texto?", options: ["El fin de la Guerra Civil española", "El triunfo de la República sobre el fascismo", "El silenciamiento brutal de la cultura y la libertad bajo el franquismo", "La decadencia de la poesía española del siglo XX"], answer: "El silenciamiento brutal de la cultura y la libertad bajo el franquismo" }
+        ]
     }
 ]

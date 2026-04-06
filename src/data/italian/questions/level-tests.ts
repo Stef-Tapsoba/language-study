@@ -274,6 +274,13 @@ export const levelQuestions: QuizQuestion[] = [
         hint: "Affinché = so that (purpose) → sempre + congiuntivo. Present context → congiuntivo presente."
     },
 
+    // --- B2 additions (it-lt-b2-21 through it-lt-b2-25) — new grammar lessons ---
+    { id: "it-lt-b2-21", level: "B2", prompt: "Complete (congiuntivo passato): 'Sono contento che lei ___ (venire) alla riunione.'", options: ["è venuta", "venga", "sia venuta", "venisse"], answer: "sia venuta", hint: "Congiuntivo passato: main clause present + che + essere/avere at congiuntivo presente + past participle. Venire → sia venuta." },
+    { id: "it-lt-b2-22", level: "B2", prompt: "Complete (congiuntivo trapassato): 'Era felice che ___ (arrivare, loro) in tempo.'", options: ["siano arrivati", "arrivassero", "fossero arrivati", "arrivarono"], answer: "fossero arrivati", hint: "Main clause past + che + essere at congiuntivo imperfetto + past participle = congiuntivo trapassato. Essere → fossero arrivati." },
+    { id: "it-lt-b2-23", level: "B2", prompt: "Which sentence correctly uses the formal nominalisation 'lo sviluppo'?", options: ["Lo sviluppare dell'economia è importante.", "Lo sviluppo economico dipende da molti fattori.", "Sviluppare l'economia è lo sviluppo.", "Il fatto sviluppare economico è fondamentale."], answer: "Lo sviluppo economico dipende da molti fattori.", hint: "Nominalisation: sviluppare → lo sviluppo. Used as subject of a formal sentence — standard in academic/journalistic Italian." },
+    { id: "it-lt-b2-24", level: "B2", prompt: "What does 'si ritiene che' express in formal Italian?", options: ["It is forbidden that", "It is believed / considered that (impersonal)", "It is certain that (indicative required)", "It is hoped that (personal opinion)"], answer: "It is believed / considered that (impersonal)", hint: "Si + verb (impersonal) = formal academic/journalistic 'it is believed/reported/considered that'. Requires subjunctive: si ritiene che + congiuntivo." },
+    { id: "it-lt-b2-25", level: "B2", prompt: "What is the journalistic conditional in 'Il governo avrebbe preso una decisione'?", options: ["A past regret about a government decision", "Reporting unverified information — the government is reported to have made a decision", "A hypothetical about what the government should have done", "A formal future prediction"], answer: "Reporting unverified information — the government is reported to have made a decision", hint: "Condizionale giornalistico: avrebbe + past participle distances the writer from the claim. Standard in Italian quality journalism." },
+
     // --- C1 additions (it-lt-c1-16 → it-lt-c1-20) ---
     {
         id: "it-lt-c1-16", level: "C1",

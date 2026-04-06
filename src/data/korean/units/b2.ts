@@ -369,5 +369,23 @@ export const b2Units: LessonUnit[] = [
             { id: "ko-b2-u12-q5", level: "B2", prompt: "How do you say 'My parents made me study'?", options: ["부모님이 제가 공부시켰어요.", "부모님이 저를 공부하게 했어요.", "부모님이 저에게 공부하라고 했어요.", "부모님이 제가 공부했어요."], answer: "부모님이 저를 공부하게 했어요.", hint: "~게 하다 causative: 부모님이 저를 공부하게 했어요. The caused person (저) takes 을/를. -라고 하다 is indirect speech (command), not a causative." },
             { id: "ko-b2-u12-q6", level: "B2", prompt: "What is the causative form of 입다 (to wear)?", options: ["입이다", "입히다", "입기다", "입리다"], answer: "입히다", hint: "입다 → 입히다 (to dress someone / make wear). ~히 suffix: 입- + 히다. 엄마가 아이에게 옷을 입혔어요 = The mother dressed the child." }
         ]
+    },
+    {
+        id: "ko-b2-u13",
+        level: "B2",
+        order: 13,
+        title: "TOPIK II 쓰기 — Academic Essay Connectors",
+        description: "Master the discourse connectors required for TOPIK II Band 3-4 writing: cause/result (이로 인해, 이에 따라), contrast (반면에, 이에 반해), clarification (즉, 이는), and conclusion (결론적으로, 이러한 점에서). These structures transform functional Korean into academic-register Korean.",
+        grammarIds: ["ko-g-b2-14"],
+        vocabIds: ["ko-v-b2-107", "ko-v-b2-108", "ko-v-b2-109", "ko-v-b2-110", "ko-v-b2-111", "ko-v-b2-084", "ko-v-b2-091"],
+        verbIds: ["ko-vb-b2-2"],
+        testQuestions: [
+            { id: "ko-b2-u13-q1", level: "B2", prompt: "Which connector means 'as a result of this'?", options: ["이로 인해", "이에 따라", "결론적으로", "다시 말해"], answer: "이로 인해", hint: "이로 인해 = as a result of this / due to this. 이로 = from this / by this; 인해 = due to / because of. It introduces the consequence of a previously stated cause." },
+            { id: "ko-b2-u13-q2", level: "B2", prompt: "Which connector means 'accordingly / in response to this'?", options: ["이에 따라", "이로 인해", "이러한 점에서", "결국"], answer: "이에 따라", hint: "이에 따라 = accordingly / in response to this / in line with this. 이에 = to/in this; 따라 = following / in accordance with. Used after introducing a new development or policy." },
+            { id: "ko-b2-u13-q3", level: "B2", prompt: "Which connector means 'that is to say / in other words'?", options: ["즉", "따라서", "결론적으로", "이에 따라"], answer: "즉", hint: "즉 = namely / that is to say / in other words. It introduces a reformulation, clarification, or expansion of the previous statement. Common in academic and formal writing." },
+            { id: "ko-b2-u13-q4", level: "B2", prompt: "Which connector means 'from this perspective / in this regard'?", options: ["이러한 점에서", "이로 인해", "다시 말해", "반면에"], answer: "이러한 점에서", hint: "이러한 점에서 = from this perspective / in this regard / in light of this. Often used to open a conclusion or implication drawn from the preceding argument." },
+            { id: "ko-b2-u13-q5", level: "B2", prompt: "Which connector means 'on the other hand' (formal contrast)?", options: ["반면에 / 이에 반해", "이로 인해", "결론적으로", "다시 말해"], answer: "반면에 / 이에 반해", hint: "반면에 and 이에 반해 both mark explicit formal contrast. 반면에 = on the other hand / whereas; 이에 반해 = in contrast to this. Both signal an opposing viewpoint." },
+            { id: "ko-b2-u13-q6", level: "B2", prompt: "Complete the essay conclusion: '___, 이 문제는 사회 전체가 함께 해결해야 할 과제이다.'", options: ["결론적으로", "이로 인해", "이에 따라", "다시 말해"], answer: "결론적으로", hint: "결론적으로 = in conclusion. It signals the final summary or wrap-up of an essay argument. Mandatory for TOPIK II writing conclusions." }
+        ]
     }
 ]

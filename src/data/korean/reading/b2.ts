@@ -148,6 +148,66 @@ export const b2Reading: ReadingPassage[] = [
         ]
     },
     {
+        id: "ko-r-b2-5",
+        level: "B2",
+        category: "history",
+        title: "한국의 민주화 운동: 광주에서 6월 항쟁까지",
+        body: {
+            target: `1979년 박정희 대통령이 암살된 이후, 전두환을 중심으로 한 신군부 세력이 쿠데타를 통해 권력을 장악하였다. 이에 따라 한국은 다시 군부 독재 체제 아래 놓이게 되었으며, 민주주의를 요구하는 시민들의 저항은 더욱 거세어졌다.
+
+1980년 5월, 광주 시민들은 민주화를 요구하며 거리로 나섰다. 그러나 계엄군이 시위대를 무력으로 진압하면서 수백 명의 무고한 시민이 희생되었다. 이 사건은 '5·18 광주민주화운동'으로 불리며, 한국 민주화 운동의 상징적인 사건으로 역사에 기록되었다. 광주 시민들이 보여 준 용기와 희생은 이후 민주화 운동의 정신적 토대가 되었으므로, 그 역사적 의의는 매우 크다고 할 수 있다.
+
+1987년 6월에는 전국에서 수백만 명의 시민이 직선제 개헌을 요구하며 거리로 나섰다. 이른바 '6월 민주항쟁'이다. 반면에 정권은 초기에 강경 진압을 시도하였으나, 시위의 규모와 국제 사회의 압력에 따라 결국 노태우 대통령 후보가 직선제 수용을 선언하였다. 이를 계기로 한국은 국민이 직접 대통령을 선출하는 직선제를 도입하게 되었다.
+
+이 두 사건은 한국이 권위주의 체제에서 민주주의 사회로 전환하는 데 결정적인 역할을 하였다. 오늘날 한국은 아시아에서 가장 안정된 민주주의 국가 중 하나로 평가받고 있으며, 그 민주주의의 뿌리는 수많은 시민들의 희생과 저항 위에 놓여 있다.`,
+            native: `After President Park Chung-hee was assassinated in 1979, a new military faction led by Chun Doo-hwan seized power through a coup. As a result, Korea again fell under military dictatorship, and citizens' resistance demanding democracy grew ever stronger.
+
+In May 1980, the citizens of Gwangju took to the streets demanding democratization. However, martial law troops suppressed the protesters by force, and hundreds of innocent citizens were killed. This event, recorded as the 'May 18th Gwangju Democracy Movement' (5·18 광주민주화운동), became a symbolic moment in Korea's democracy movement. The courage and sacrifice shown by the citizens of Gwangju became the spiritual foundation for subsequent democracy movements, and its historical significance cannot be overstated.
+
+In June 1987, millions of citizens nationwide took to the streets demanding constitutional revision to introduce direct presidential elections — the so-called 'June Democracy Movement' (6월 민주항쟁). While the regime initially attempted a crackdown, in response to the scale of the protests and international pressure, presidential candidate Roh Tae-woo ultimately declared his acceptance of the direct election system. This became the turning point through which Korea adopted the direct election system by which citizens elect the president themselves.
+
+These two events played a decisive role in Korea's transition from an authoritarian system to a democratic society. Today Korea is regarded as one of Asia's most stable democracies, and the roots of that democracy rest on the sacrifice and resistance of countless citizens.`
+        },
+        vocabGloss: [
+            { word: "민주화 운동", translation: "democracy movement, democratization movement", romanized: "minjuwa undong" },
+            { word: "군부 독재", translation: "military dictatorship", romanized: "gunbu dokjae" },
+            { word: "5·18 광주민주화운동", translation: "the May 18th Gwangju Democracy Movement", romanized: "o-il-pal Gwangju minjuwa undong" },
+            { word: "6월 민주항쟁", translation: "the June Democracy Movement (1987)", romanized: "yuwol minju hangjjaeng" },
+            { word: "직선제", translation: "direct election system (for president)", romanized: "jikseonje" },
+            { word: "민주주의", translation: "democracy", romanized: "minjujuui" }
+        ],
+        questions: [
+            {
+                id: "ko-r-b2-5-q1",
+                level: "B2",
+                prompt: "What event triggered the return of military rule in Korea in 1979?",
+                options: ["The assassination of President Park Chung-hee", "A popular referendum that failed", "An economic crisis that destabilized the government", "A foreign invasion from the north"],
+                answer: "The assassination of President Park Chung-hee"
+            },
+            {
+                id: "ko-r-b2-5-q2",
+                level: "B2",
+                prompt: "What happened to the pro-democracy protesters in Gwangju in May 1980?",
+                options: ["They were suppressed by force by martial law troops, with hundreds killed", "They successfully negotiated with the government and won concessions", "They were peacefully dispersed without casualties", "They were imprisoned but later released in an amnesty"],
+                answer: "They were suppressed by force by martial law troops, with hundreds killed"
+            },
+            {
+                id: "ko-r-b2-5-q3",
+                level: "B2",
+                prompt: "What was the key democratic demand of the June 1987 Movement?",
+                options: ["A direct presidential election system", "The abolition of the military", "Free trade agreements with the West", "Reunification with North Korea"],
+                answer: "A direct presidential election system"
+            },
+            {
+                id: "ko-r-b2-5-q4",
+                level: "B2",
+                prompt: "How does the passage characterise Korea's democracy today?",
+                options: ["One of Asia's most stable democracies, rooted in citizens' sacrifice and resistance", "A fragile democracy still threatened by military interests", "A democracy imposed by foreign powers after the Korean War", "A democracy in name only, still controlled by elites"],
+                answer: "One of Asia's most stable democracies, rooted in citizens' sacrifice and resistance"
+            }
+        ]
+    },
+    {
         id: "ko-r-b2-4",
         level: "B2",
         category: "culture",

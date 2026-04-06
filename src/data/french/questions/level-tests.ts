@@ -307,6 +307,13 @@ export const levelQuestions: QuizQuestion[] = [
         hint: "Nominalisation: parce qu'il était absent → en raison de son absence. Core B2 formal writing skill."
     },
 
+    // --- B2 additions (fr-lt-b2-21 through fr-lt-b2-25) — new grammar lessons ---
+    { id: "fr-lt-b2-21", level: "B2", prompt: "Identify the tense in: 'Il souhaitait que la réunion se terminât vite.'", options: ["Subjonctif présent", "Imparfait du subjonctif", "Conditionnel présent", "Passé simple"], answer: "Imparfait du subjonctif", hint: "se terminât = subj. imparfait of se terminer (il/elle form: terminât). Triggered by souhaitait (past tense) + que." },
+    { id: "fr-lt-b2-22", level: "B2", prompt: "Which is the correct nominalised form of 'réduire les émissions'?", options: ["La réduction des émissions", "Le réduire des émissions", "La réduisance des émissions", "Le fait réduire des émissions"], answer: "La réduction des émissions", hint: "Nominalisation: réduire → la réduction. Standard noun suffix for -ir verbs expressing a process." },
+    { id: "fr-lt-b2-23", level: "B2", prompt: "Complete: '___, un tel projet nécessitera des années.' (Formal: using peut-être + inversion)", options: ["Peut-être que un tel projet", "Peut-être un tel projet nécessitera", "Peut-être un tel projet nécessite-t-il", "Peut-être, un tel projet nécessitera"], answer: "Peut-être un tel projet nécessite-t-il", hint: "Peut-être triggers inversion. Noun subject stays first, verb inverts with pronoun: peut-être + noun + verb-t-pronoun." },
+    { id: "fr-lt-b2-24", level: "B2", prompt: "What is the journalistic conditional used for in 'Le premier ministre aurait démissionné'?", options: ["To describe a habitual past action", "To report unverified information while distancing the writer from the claim", "To express polite regret", "To form a past conditional hypothetical"], answer: "To report unverified information while distancing the writer from the claim", hint: "Conditionnel journalistique: aurait + past participle reports news as unconfirmed — 'is said to have', 'reportedly'." },
+    { id: "fr-lt-b2-25", level: "B2", prompt: "Complete: 'C'est la seule option qui ___ (être) vraiment efficace.' (superlative → subjunctive)", options: ["est", "soit", "serait", "fût"], answer: "soit", hint: "After seul/unique + relative clause → subjunctive (the uniqueness creates a superlative trigger). Subjonctif présent: soit." },
+
     // --- C1 additions (fr-lt-c1-16 through -20) ---
     {
         id: "fr-lt-c1-16", level: "C1",
