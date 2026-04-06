@@ -23,10 +23,10 @@ POSITION — adjectives usually come AFTER the noun:
 
 A few common adjectives go BEFORE: bueno/a, malo/a, gran (before noun = great).`,
     examples: [
-      { native: "un chico alto / una chica alta", translation: "a tall boy / a tall girl", speakText: "un chico alto, una chica alta" },
-      { native: "unos chicos altos / unas chicas altas", translation: "tall boys / tall girls", speakText: "unos chicos altos, unas chicas altas" },
-      { native: "el libro rojo / la manzana roja", translation: "the red book / the red apple", speakText: "el libro rojo, la manzana roja" },
-      { native: "un coche grande / una casa grande", translation: "a big car / a big house (no gender change)", speakText: "un coche grande, una casa grande" },
+      { native: "un chico alto / una chica alta", translation: "a tall boy / a tall girl" },
+      { native: "unos chicos altos / unas chicas altas", translation: "tall boys / tall girls" },
+      { native: "el libro rojo / la manzana roja", translation: "the red book / the red apple" },
+      { native: "un coche grande / una casa grande", translation: "a big car / a big house (no gender change)" },
     ],
     inlineVocab: [
       { word: "alto", translation: "tall" },

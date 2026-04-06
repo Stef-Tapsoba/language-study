@@ -40,7 +40,7 @@ QUESTION WORDS — always at the start of the sentence:
   quanti/e      → how many    Quanti anni hai?      (How old are you?)
   quale/i       → which       Quale preferisci?     (Which do you prefer?)`,
         examples: [
-            { native: "Parli italiano? (rising intonation)", translation: "Do you speak Italian?" },
+            { native: "Parli italiano? (rising intonation)", speakText: "Parli italiano?", translation: "Do you speak Italian?" },
             { native: "Come ti chiami?", translation: "What is your name? (lit. How do you call yourself?)" },
             { native: "Dove abiti?", translation: "Where do you live?" },
             { native: "Quando arrivi?", translation: "When do you arrive?" },
@@ -127,7 +127,7 @@ FAMILY MEMBER EXCEPTION — NO article with singular, unmodified family members:
         examples: [
             { native: "il mio libro", translation: "my book (masc. sg.)", speakText: "il mio libro" },
             { native: "la mia macchina", translation: "my car (fem. sg.)", speakText: "la mia macchina" },
-            { native: "mio padre / mia madre", translation: "my father / my mother — no article for singular family", speakText: "mio padre, mia madre" },
+            { native: "mio padre / mia madre", translation: "my father / my mother — no article for singular family" },
             { native: "i miei genitori", translation: "my parents — article returns for plural family" },
             { native: "la loro sorella", translation: "their sister — 'loro' always takes the article" },
         ],
@@ -235,8 +235,8 @@ WHEN TO USE
         explanation: `C'è and ci sono are the Italian equivalents of 'there is' and 'there are'. Unlike il y a in French, Italian uses two different forms depending on whether the noun is singular or plural.
 
 FORMS
-  c'è    — there is    (singular)    c'è = ci + è, contraction of ci è
-  ci sono — there are  (plural)
+  c'è — there is    (singular)    c'è = ci + è, contraction of ci è
+  ci sono — there are      (plural)
 
   C'è un bar qui vicino.        There is a bar nearby.
   Ci sono molti turisti.        There are many tourists.
@@ -259,9 +259,9 @@ C'è is also used to ask whether something or someone is present — equivalent 
 
 C'È / CI SONO vs È / SONO
   c'è / ci sono  → signals existence or presence (there is)
-  è / sono       → links subject to description (is / are)
+  è / sono  → links subject to description (is / are)
   C'è un ristorante.    There is a restaurant.   (existence)
-  È un buon ristorante. It is a good restaurant. (description)
+  È un buon ristorante.     It is a good restaurant. (description)
 
 ECCO — here is / here are (pointing)
 A related expression worth knowing: ecco introduces or points out something visible.
@@ -274,7 +274,7 @@ A related expression worth knowing: ecco introduces or points out something visi
             { native: "Ci sono molti ristoranti in questa via.", translation: "There are many restaurants on this street." },
             { native: "Non c'è latte nel frigo.", translation: "There is no milk in the fridge." },
             { native: "Non ci sono posti liberi.", translation: "There are no free seats." },
-            { native: "C'è Marco? — No, non c'è.", translation: "Is Marco here? — No, he's not here.", speakText: "C'è Marco? No, non c'è." },
+            { native: "C'è Marco? — No, non c'è.", translation: "Is Marco here? — No, he's not here." },
             { native: "Ecco il conto.", translation: "Here is the bill." },
         ],
         inlineVocab: [

@@ -11,7 +11,7 @@ THE GOLDEN RULE
 Always learn a noun together with its article:
   **le** / **un**   → masculine
   **la** / **une**  → feminine
-  **l'**            → either gender (used before a vowel sound)
+  **l'**   → either gender (used before a vowel sound)
 
 So do not just learn 'table'. Learn **la table**. Do not just learn 'livre'. Learn **le livre**.
 
@@ -20,19 +20,19 @@ These are tendencies, not absolute rules — exceptions exist.
 
 Endings that are often **feminine**:
   **-e**      →  la lampe, la robe, la banque   (but: le livre, le musée, le lycée)
-  **-tion**   →  la nation, la situation, la solution
+  **-tion**     →  la nation, la situation, la solution
   **-ité**    →  la cité, la qualité, l'université
   **-ure**    →  la voiture, la culture, la nature
 
 Endings that are often **masculine**:
-  **-ment**   →  le moment, le gouvernement, le bâtiment
+  **-ment**     →  le moment, le gouvernement, le bâtiment
   **-age**    →  le village, le voyage, le fromage   (but: la plage, la cage)
   **-oir**    →  le couloir, le soir, le miroir
   **-eau**    →  le gâteau, le chapeau, le bateau
 
 GENDER AGREEMENT
 Gender matters beyond just the article — **adjectives and articles must agree** with the noun's gender:
-  le petit chat (masculine)   →   la petite chatte (feminine)
+  le petit chat (masculine)     →   la petite chatte (feminine)
   un bon repas (masculine)    →   une bonne soirée (feminine)
 
 PRACTICAL ADVICE
@@ -41,7 +41,7 @@ Do not try to guess. When you learn a new noun, always write and say it with its
             { native: "le livre / la lampe", translation: "the book (masc.) / the lamp (fem.)" },
             { native: "un bâtiment / une nation", translation: "a building (masc.) / a nation (fem.)" },
             { native: "le voyage / la plage", translation: "the trip (masc.) / the beach (fem.) — both end in -age, different genders" },
-            { native: "Il est petit. / Elle est petite.", translation: "He/It is small. (masc.) / She/It is small. (fem.) — adjective agrees with noun", speakText: "Il est petit. Elle est petite." },
+            { native: "Il est petit. / Elle est petite.", translation: "He/It is small. (masc.) / She/It is small. (fem.) — adjective agrees with noun" },
             { native: "un bon repas / une bonne soirée", translation: "a good meal (masc.) / a good evening (fem.) — article and adjective both agree" }
         ],
         inlineVocab: [
@@ -74,26 +74,23 @@ Note: 'vous' is used both for one person (polite) and for a group.
 ON — the informal 'we'
 In everyday spoken French, **on** is used constantly instead of nous:
   On mange.         → We eat. / One eats.
-  On va au cinéma.  → We're going to the cinema.
-  On est fatigués.  → We're tired.
+  On va au cinéma.     → We're going to the cinema.
+  On est fatigués.     → We're tired.
 On conjugates exactly like il/elle (third person singular), even when it means 'we'.
 You will see and hear on far more often than nous in casual speech.`,
         examples: [
             { native: "Je parle français.", translation: "I speak French." },
             { native: "Tu es étudiant.", translation: "You are a student. (informal)" },
-            { native: "Il/Elle travaille ici.", speakText: "Il travaille ici.", translation: "He/She works here." },
+            { native: "Il/Elle travaille ici.", speakText: "Il travaille ici. Elle travaille ici", translation: "He/She works here." },
             { native: "Nous habitons à Paris.", translation: "We live in Paris." },
             { native: "Vous êtes professeur.", translation: "You are a teacher. (formal/plural)" },
-            { native: "Ils/Elles sont amis.", speakText: "Ils sont amis.", translation: "They are friends." },
+            { native: "Ils/Elles sont ami(e)s.", speakText: "Ils sont amis. Elles sont amies", translation: "They are friends." },
             { native: "On mange ensemble ce soir?", translation: "Are we eating together tonight? (on = nous in casual speech)" },
         ],
         inlineVocab: [
-            { word: "parle", translation: "speak / speaks" },
-            { word: "étudiant", translation: "student" },
-            { word: "travaille", translation: "work / works" },
-            { word: "habitons", translation: "we live / we reside" },
-            { word: "professeur", translation: "teacher / professor" },
-            { word: "amis", translation: "friends" },
+            { word: "mange", translation: "to eat" },
+            { word: "cinéma", translation: "cinema / movie theater" },
+            { word: "fatigués", translation: "tired" },
         ]
     },
     {

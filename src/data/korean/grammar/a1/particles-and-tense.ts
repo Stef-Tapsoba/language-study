@@ -146,7 +146,7 @@ The pattern is: [Location]에 [Thing/Person]이/가 있어요
   책상 위에 책이 있어요.    There is a book on the desk.
   집에 있어요.              I am at home. / (Someone) is at home.
   어디에 있어요?            Where is it? / Where are you?
-  지하철역이 어디에 있어요? Where is the subway station?
+  지하철역이 어디에 있어요?    Where is the subway station?
 
 Note: 에 marks the location with 있어요/없어요, exactly as you learned in lesson 7.
 사람 and animals are also있어요 — Korean does not distinguish animate from
@@ -156,12 +156,12 @@ POSSESSION — to have
 있어요/없어요 also expresses having or not having something.
 The thing possessed takes 이/가:
   시간이 있어요?            Do you have time?
-  네, 있어요. / 아니요, 없어요.  Yes, I do. / No, I don't.
+  네, 있어요. / 아니요, 없어요.     Yes, I do. / No, I don't.
   돈이 없어요.              I don't have any money.
   질문이 있어요.            I have a question.
 
 ASKING WHERE SOMETHING IS
-  [Thing]이/가 어디에 있어요?   Where is [thing]?
+  [Thing]이/가 어디에 있어요?     Where is [thing]?
   → [Location]에 있어요.        It is at [location].
 
   가방이 어디에 있어요?     Where is the bag?

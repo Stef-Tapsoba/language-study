@@ -32,7 +32,7 @@ TIME — when?
             { native: "Aujourd'hui je travaille à la maison.", translation: "Today I'm working from home." },
             { native: "Tu as déjà vu ce film?", translation: "Have you already seen this film?" },
             { native: "Il est encore au bureau.", translation: "He is still at the office." },
-            { native: "On mange ici ou là-bas?", translation: "Are we eating here or over there?", speakText: "On mange ici ou là-bas?" },
+            { native: "On mange ici ou là-bas?", translation: "Are we eating here or over there?" },
         ],
         inlineVocab: [
             { word: "banque", translation: "bank" },
@@ -116,7 +116,7 @@ SEQUENCE:
             { native: "J'aime le café mais je préfère le thé.", translation: "I like coffee but I prefer tea." },
             { native: "Je reste à la maison parce qu'il pleut.", translation: "I stay at home because it's raining." },
             { native: "Si tu veux, on peut aller au cinéma.", translation: "If you want, we can go to the cinema." },
-            { native: "D'abord je mange, ensuite je travaille.", translation: "First I eat, then I work.", speakText: "D'abord je mange, ensuite je travaille." },
+            { native: "D'abord je mange, ensuite je travaille.", translation: "First I eat, then I work." },
             { native: "Il est tard, donc je dois partir.", translation: "It's late, so I have to leave." },
         ],
         inlineVocab: [

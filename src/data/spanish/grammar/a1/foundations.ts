@@ -128,8 +128,8 @@ CONTRACTIONS
   a + el → al    Voy al banco.            (I'm going to the bank.)
   de + el → del  El libro del profesor.   (The teacher's book.)`,
     examples: [
-      { native: "el libro / los libros", translation: "the book / the books (masc.)", speakText: "el libro, los libros" },
-      { native: "la casa / las casas", translation: "the house / the houses (fem.)", speakText: "la casa, las casas" },
+      { native: "el libro / los libros", translation: "the book / the books (masc.)" },
+      { native: "la casa / las casas", translation: "the house / the houses (fem.)" },
       { native: "un estudiante", translation: "a student (masc.)" },
       { native: "una profesora", translation: "a teacher (fem.)" },
       { native: "Voy al banco.", translation: "I'm going to the bank. (a + el = al)" },
