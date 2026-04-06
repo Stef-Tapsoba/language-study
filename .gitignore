@@ -4,3 +4,7 @@ node_modules
 package-lock.json
 .claude/
 releases/
+# Environment variables
+.env
+.env.local
+.env.*
