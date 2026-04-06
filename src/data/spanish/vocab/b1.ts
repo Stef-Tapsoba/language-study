@@ -127,6 +127,13 @@ export const esVocabB1: VocabItem[] = [
     { id: "es-v-b1-092", level: "B1", word: "echar de menos", translation: "to miss (someone/something)", category: "emotions", example: { native: "Echo mucho de menos a mis amigos.", translation: "I miss my friends a lot." } },
     { id: "es-v-b1-093", level: "B1", word: "llevarse bien con", translation: "to get on well with", category: "social interactions", example: { native: "Me llevo muy bien con mis compañeros de trabajo.", translation: "I get on very well with my work colleagues." } },
     { id: "es-v-b1-094", level: "B1", word: "tener en cuenta", translation: "to bear in mind / take into account", category: "abstract concepts", example: { native: "Hay que tener en cuenta todos los factores.", translation: "We must take all the factors into account." } },
+    // --- advanced subjunctive & grammar contexts ---
+    { id: "es-v-b1-095", level: "B1", word: "quisiera", translation: "I would like (polite)", category: "social interactions", example: { native: "Quisiera reservar una mesa para dos.", translation: "I would like to reserve a table for two." } },
+    { id: "es-v-b1-096", level: "B1", word: "ojalá", translation: "hopefully / I wish (+ subjunctive)", category: "opinions", example: { native: "Ojalá pudiera viajar más.", translation: "I wish I could travel more." } },
+    { id: "es-v-b1-097", level: "B1", word: "en cuanto", translation: "as soon as", category: "Connectors", example: { native: "En cuanto llegues, llámame.", translation: "As soon as you arrive, call me." } },
+    { id: "es-v-b1-098", level: "B1", word: "tan pronto como", translation: "as soon as", category: "Connectors", example: { native: "Tan pronto como sepa algo, te aviso.", translation: "As soon as I know something, I'll let you know." } },
+    { id: "es-v-b1-099", level: "B1", word: "llevar + gerundio", translation: "to have been doing (duration)", category: "abstract concepts", example: { native: "Llevo tres años aprendiendo español.", translation: "I have been learning Spanish for three years." } },
+    { id: "es-v-b1-100", level: "B1", word: "seguir + gerundio", translation: "to keep doing / to still be doing", category: "abstract concepts", example: { native: "Sigue estudiando aunque está cansado.", translation: "He keeps studying even though he is tired." } },
 ]
 
 // Alias for backward compatibility with index.ts assembler
