@@ -4,10 +4,12 @@ node_modules
 package-lock.json
 .claude/
 releases/
-# Environment variables
+# Environment variables (secrets — never commit)
 .env
 .env.local
 .env.*
+!.env.test
+# .env.test is intentionally committed — no secrets, just clears Supabase vars for CI/tests
 
 # Local working files
 Conversation-transcript.txt
