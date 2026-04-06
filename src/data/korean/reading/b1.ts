@@ -219,5 +219,65 @@ After work, Jiu heads to Hongdae. The streets are full of busking musicians and 
                 answer: "Hongdae"
             }
         ]
+    },
+    {
+        id: "ko-r-b1-4",
+        level: "B1",
+        category: "dialogue",
+        title: "직업 선택 — 친구와의 대화 (Choosing a Career — A Conversation Between Friends)",
+        body: {
+            target: "민수: 요즘 취업 준비는 잘 되고 있어?\n지원: 솔직히 말하면 잘 모르겠어. 처음에는 대기업에 가기로 했는데, 요즘은 스타트업도 괜찮겠다 싶어서.\n민수: 그래? 왜 생각이 바뀐 거야?\n지원: 대기업은 안정적이지만 자유도가 낮다고 하더라고. 스타트업은 힘들지만 배우는 게 많다는 말을 들었어.\n민수: 나는 스타트업에서 인턴을 했는데, 처음에는 엄청 힘들었어. 그런데 지금은 그 경험 덕분에 많이 성장한 것 같아.\n지원: 부럽다. 나도 일단 다양한 경험을 쌓는 게 중요할 것 같아서 인턴을 알아보기로 했어.\n민수: 잘 생각했다. 어디 지원할 건데?\n지원: 아직 모르겠어. 어디에 지원해야 할지 생각 중이야.",
+            native: "Minsu: How is the job preparation going these days?\nJiwon: Honestly, I'm not sure. At first I had decided to go to a large company, but lately I've been thinking a start-up might not be bad either.\nMinsu: Really? Why did your thinking change?\nJiwon: I heard that large companies are stable but have low autonomy. I heard that start-ups are tough but you learn a lot.\nMinsu: I did an internship at a start-up, and at first it was incredibly hard. But now I think I've grown a lot thanks to that experience.\nJiwon: I'm envious. I also think it'll be important to build up various experiences first, so I've decided to look into internships.\nMinsu: You thought well. Where are you going to apply?\nJiwon: I'm not sure yet. I'm in the middle of thinking about where I should apply."
+        },
+        vocabGloss: [
+            { word: "취업 준비", romanized: "chwieop junbi", translation: "job-hunting preparation" },
+            { word: "대기업", romanized: "daegieop", translation: "large corporation / conglomerate" },
+            { word: "스타트업", romanized: "seutateueop", translation: "start-up company" },
+            { word: "자유도", romanized: "jayudo", translation: "degree of freedom / autonomy" },
+            { word: "인턴", romanized: "inteon", translation: "intern / internship" },
+            { word: "경험을 쌓다", romanized: "gyeongheomeul ssat-da", translation: "to build up / accumulate experience" }
+        ],
+        questions: [
+            { id: "ko-r-b1-4-q1", level: "B1", prompt: "What was Jiwon's original career plan?", options: ["To go to a large company", "To start her own business", "To study abroad first", "To work at a start-up"], answer: "To go to a large company" },
+            { id: "ko-r-b1-4-q2", level: "B1", prompt: "What does Jiwon say about start-ups?", options: ["They are tough but you learn a lot", "They pay better than large companies", "They have no job security at all", "They are very stable and structured"], answer: "They are tough but you learn a lot" },
+            { id: "ko-r-b1-4-q3", level: "B1", prompt: "What has Jiwon decided to do?", options: ["Look into internships to build diverse experience", "Apply directly to large companies", "Give up on job-hunting for now", "Start her own company"], answer: "Look into internships to build diverse experience" },
+            { id: "ko-r-b1-4-q4", level: "B1", prompt: "Which grammar pattern from ko-g-b1-12 appears in the last line?", options: ["~는지 (embedded question with 알아보다)", "~기 때문에 (formal because)", "~지만 (contrast)", "~다고 하다 (reported speech)"], answer: "~는지 (embedded question with 알아보다)" }
+        ]
+    },
+    {
+        id: "ko-r-b1-5",
+        level: "B1",
+        category: "history",
+        title: "한국의 경제 성장 — '한강의 기적' (Korea's Economic Growth — 'The Miracle on the Han River')",
+        body: {
+            target: `한국은 20세기 후반 세계에서 가장 빠른 경제 성장을 이룬 나라 중 하나입니다. 1950년대 한국전쟁 이후, 한국은 세계에서 가장 가난한 나라 중 하나였습니다. 1인당 GDP가 몇십 달러에 불과했고, 농업이 주요 산업이었습니다.
+
+그러나 1960~1980년대에 걸쳐 정부 주도의 강력한 경제 개발 계획이 시작되었습니다. 수출 중심 산업화가 핵심 전략이었습니다. 삼성, 현대, LG와 같은 대기업 그룹인 '재벌'이 이 시기에 크게 성장했습니다. 노동자들은 낮은 임금을 받으며 긴 시간 일했지만, 경제는 빠르게 발전했습니다.
+
+이러한 급격한 경제 성장을 '한강의 기적'이라고 부릅니다. 한강은 서울을 가로지르는 강으로, 이 표현은 한국이 극빈국에서 선진국으로 도약한 것을 상징합니다. 불과 반세기 만에 1인당 GDP가 수백 달러에서 3만 달러 이상으로 늘어난 것입니다.
+
+오늘날 한국은 세계 10위권의 경제 대국이 되었습니다. 반도체, 자동차, 조선, K-콘텐츠 등 다양한 산업에서 세계적인 경쟁력을 갖추고 있습니다. 그러나 경제 성장과 함께 빈부격차, 높은 청년 실업률, 과도한 경쟁 등의 사회적 문제도 함께 나타났습니다.`,
+            native: `Korea is one of the countries that achieved the fastest economic growth in the world in the second half of the 20th century. After the Korean War in the 1950s, Korea was one of the poorest countries in the world. GDP per capita was only a few tens of dollars, and agriculture was the main industry.
+
+However, starting from the 1960s through to the 1980s, powerful government-led economic development plans began. Export-oriented industrialisation was the core strategy. Large corporate conglomerates known as 'chaebol', such as Samsung, Hyundai and LG, grew enormously during this period. Workers received low wages and worked long hours, but the economy developed rapidly.
+
+This rapid economic growth is called the 'Miracle on the Han River'. The Han River flows through Seoul, and this expression symbolises Korea's leap from an extremely poor country to a developed nation. In just half a century, GDP per capita grew from a few hundred dollars to over thirty thousand dollars.
+
+Today Korea has become one of the world's top ten economies. It has world-class competitiveness across diverse industries including semiconductors, automobiles, shipbuilding, and K-content. However, alongside economic growth, social problems have also appeared — including wealth inequality, a high youth unemployment rate, and excessive competition.`
+        },
+        vocabGloss: [
+            { word: "한강의 기적", romanized: "Han-gang-ui gijeok", translation: "Miracle on the Han River — Korea's rapid economic development" },
+            { word: "재벌", romanized: "jaebeol", translation: "chaebol — large family-owned Korean conglomerate" },
+            { word: "수출 중심 산업화", romanized: "suchul jungsin saneophwa", translation: "export-oriented industrialisation" },
+            { word: "1인당 GDP", romanized: "ilindan GDP", translation: "GDP per capita" },
+            { word: "빈부격차", romanized: "binbu gyeokcha", translation: "wealth gap / inequality between rich and poor" },
+            { word: "청년 실업률", romanized: "cheongnyeon sireomnyul", translation: "youth unemployment rate" }
+        ],
+        questions: [
+            { id: "ko-r-b1-5-q1", level: "B1", prompt: "What was Korea's economic situation after the Korean War?", options: ["It was one of the poorest countries in the world", "It was already beginning to industrialise", "It had strong agriculture and manufacturing", "It was receiving large amounts of foreign aid from China"], answer: "It was one of the poorest countries in the world" },
+            { id: "ko-r-b1-5-q2", level: "B1", prompt: "What was the core strategy of Korea's economic development plan?", options: ["Export-oriented industrialisation", "Developing domestic consumption", "Agricultural modernisation", "Foreign investment in tourism"], answer: "Export-oriented industrialisation" },
+            { id: "ko-r-b1-5-q3", level: "B1", prompt: "What does the expression '한강의 기적' symbolise?", options: ["Korea's transformation from an extremely poor nation to a developed one", "The construction of bridges over the Han River", "South Korea's victory in the Korean War", "The founding of companies like Samsung and Hyundai"], answer: "Korea's transformation from an extremely poor nation to a developed one" },
+            { id: "ko-r-b1-5-q4", level: "B1", prompt: "What social problems are mentioned alongside Korea's economic success?", options: ["Wealth inequality, high youth unemployment, and excessive competition", "Environmental pollution, housing shortages, and low birth rates only", "Corruption, crime, and political instability", "Declining education standards and brain drain"], answer: "Wealth inequality, high youth unemployment, and excessive competition" }
+        ]
     }
 ]

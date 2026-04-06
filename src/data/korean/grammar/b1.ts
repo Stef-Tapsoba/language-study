@@ -125,4 +125,79 @@ export const b1Grammar: GrammarLesson[] = [
             { native: "어쩔 수 없어요. 그냥 받아들여야 해요.", romanized: "Eojjeol su eopseoyo. Geunyang badadeulryeoya haeyo.", translation: "It can't be helped. We just have to accept it." },
         ]
     },
+    {
+        id: "ko-g-b1-9",
+        level: "B1",
+        title: "~(으)ㄴ/는 것 같다 / ~ㄹ/을 것 같다: Conjecture & Appearance",
+        explanation: {
+            native: "Expresses the speaker's guess, conjecture, or impression — \"it seems like\", \"I think\", \"it looks like\". Three main forms depending on tense: (1) Present/ongoing: verb stem + ~는 것 같다; (2) Past/completed: verb stem + ~(으)ㄴ 것 같다; (3) Future/supposition: verb stem + ~ㄹ/을 것 같다. For adjectives: present uses ~(으)ㄴ 것 같다. Important distinction: ~ㄹ/을 것 같다 expresses what the speaker thinks WILL happen or supposes is the case; ~(이)라고 생각해요 is a more confident opinion. This pattern is essential for polite, non-assertive communication in Korean.",
+            target: "화자의 추측, 짐작, 인상을 나타내는 표현으로 '~인 것 같다', '~할 것 같다'를 의미합니다. 시제에 따라 세 가지 형태가 있습니다. (1) 현재/진행: 동사 어간 + ~는 것 같다; (2) 과거/완료: 동사 어간 + ~(으)ㄴ 것 같다; (3) 미래/추측: 동사 어간 + ~ㄹ/을 것 같다. 형용사의 현재는 ~(으)ㄴ 것 같다를 씁니다. 중요한 차이: ~ㄹ/을 것 같다는 앞으로 일어날 일이나 현재에 대한 추측을 나타내고, ~(이)라고 생각해요는 더 확신에 찬 의견을 나타냅니다. 정중하고 단정적이지 않은 표현을 위해 필수적인 패턴입니다."
+        },
+        examples: [
+            { native: "오늘 비가 올 것 같아요.", romanized: "Oneul biga ol geot gatayo.", translation: "It seems like it will rain today. (future supposition)" },
+            { native: "그 사람이 피곤한 것 같아요.", romanized: "Geu sarami pigonhan geot gatayo.", translation: "It seems like that person is tired. (present adjective)" },
+            { native: "그 영화를 본 것 같아요.", romanized: "Geu yeonghwareul bon geot gatayo.", translation: "It seems like I've seen that film. (past)" },
+            { native: "내일 늦을 것 같아서 미리 연락했어요.", romanized: "Naeil neujeul geot gataseo miri yeonraekaesseoyo.", translation: "I thought I'd be late tomorrow, so I contacted you in advance." }
+        ]
+    },
+    {
+        id: "ko-g-b1-10",
+        level: "B1",
+        title: "~아/어지다: Change of State (Becomes / Gets)",
+        explanation: {
+            native: "Expresses a change of state over time — something \"becomes\" or \"gets\" a certain way. Attach ~아/어지다 to adjective stems. ~아/어지다 acts like a verb (takes tense, aspect markers normally). The change implies a gradual or noticeable shift. Very common with adjectives: 좋아지다 (get better), 많아지다 (increase), 쉬워지다 (get easier), 힘들어지다 (get harder). Also used with some verbs to indicate an uncontrolled state change: 알아지다 (become known), 보여지다 (come to be seen — though 보이다 is more natural). Compare with ~게 되다 (lesson 11) which expresses a situation-based change rather than a quality change.",
+            target: "시간이 지나면서 어떤 상태로 변해 가는 것을 나타냅니다. 형용사 어간에 '아/어지다'를 붙여 씁니다. '아/어지다'는 동사처럼 시제와 상 표지를 자연스럽게 취합니다. 이 변화는 점진적이거나 눈에 띄는 변화를 의미합니다. 형용사와 함께 매우 자주 씁니다: 좋아지다, 많아지다, 쉬워지다, 힘들어지다 등. 일부 동사와 함께 써서 통제할 수 없는 상태 변화를 나타내기도 합니다: 알려지다, 보이다. ~게 되다(11과)와 비교: ~게 되다는 상황에 의한 변화이고, ~아/어지다는 질적인 변화입니다."
+        },
+        examples: [
+            { native: "한국어가 점점 쉬워지고 있어요.", romanized: "Hangugeoga jeomjeom swiwojigo isseoyo.", translation: "Korean is gradually getting easier." },
+            { native: "날씨가 따뜻해졌어요.", romanized: "Nalssiga ttatteutaejyeosseoyo.", translation: "The weather has gotten warm." },
+            { native: "건강이 좋아질 거예요.", romanized: "Geongangi joajil geoyeyo.", translation: "Your health will get better." },
+            { native: "한국에 오고 나서 많이 달라졌어요.", romanized: "Hanguge ogo naseo mani tallajeosseoyo.", translation: "I've changed a lot since coming to Korea." }
+        ]
+    },
+    {
+        id: "ko-g-b1-11",
+        level: "B1",
+        title: "~기로 하다 / ~게 되다: Decision & Development",
+        explanation: {
+            native: "Two patterns for talking about planned changes and developments. ~기로 하다 expresses a deliberate decision: \"I decided to / We decided to\". Attach ~기로 하다 to the verb stem. Past tense: ~기로 했어요. Can also be ~기로 결정하다 (decide formally). ~게 되다 expresses a change of situation — \"come to do / end up doing / it turned out that\". It implies the change happened due to circumstances rather than a deliberate personal choice. Common in contexts where the speaker describes a life development, a new job, moving to a new place. Compare: 한국에 살기로 했어요 (I decided to live in Korea — personal choice) vs 한국에 살게 됐어요 (I came to live in Korea — due to circumstances).",
+            target: "계획된 변화와 상황에 따른 발전을 나타내는 두 가지 패턴입니다. ~기로 하다는 의도적인 결정을 나타냅니다: '~하기로 했어요'. 동사 어간에 '기로 하다'를 붙이며, 과거형은 '기로 했어요'입니다. ~기로 결정하다로도 쓸 수 있습니다. ~게 되다는 상황의 변화를 나타냅니다 — '~하게 되다', '결국 ~하게 되다', '~하게 됐어요'. 개인의 선택보다는 상황으로 인해 변화가 일어났음을 의미합니다. 인생의 발전이나 새 직장, 이사 등을 설명할 때 자주 씁니다. 비교: 한국에 살기로 했어요(개인 선택) vs 한국에 살게 됐어요(상황에 따른 결과)."
+        },
+        examples: [
+            { native: "내년에 대학원에 진학하기로 했어요.", romanized: "Naenyeone daehakwone jinhakagi ro haesseoyo.", translation: "I decided to go to graduate school next year." },
+            { native: "새 회사에서 일하게 됐어요.", romanized: "Sae hoesaeseo irake dwaesseoyo.", translation: "I came to work at a new company (due to circumstances)." },
+            { native: "다이어트를 시작하기로 결정했어요.", romanized: "Daioteureul sijakagiро gyeoljeonghaesseoyo.", translation: "I decided to start a diet." },
+            { native: "한국에 오게 된 건 정말 우연이에요.", romanized: "Hanguge oge doen geon jeongmal uyeonieyo.", translation: "How I came to Korea was really by chance." }
+        ]
+    },
+    {
+        id: "ko-g-b1-12",
+        level: "B1",
+        title: "~는지 / ~(으)ㄴ지: Embedded Questions (Whether / What / How)",
+        explanation: {
+            native: "Embedded questions (indirect questions) in Korean use ~는지 for action verbs and ~(으)ㄴ지 for descriptive verbs and past tense. They are used in constructions like \"I know whether/what/how\", \"I wonder whether\", \"I don't know how\", \"Please tell me where\". Patterns: (1) Action verb present: ~는지; (2) Descriptive verb present: ~(으)ㄴ지; (3) Past tense: ~았/었는지. Common constructions: 알다/모르다 + ~는지 (know/don't know whether), 궁금하다 + ~는지 (wonder whether), 가르쳐 주다 + ~는지 (tell me whether), 물어보다 + ~는지 (ask whether). Question words (뭐, 어디, 왜, 언제, 어떻게, 얼마나) combine naturally with these forms. Key difference from ~다고 하다: that reports what someone SAID; ~는지 reports an unknown or embedded QUESTION.",
+            target: "간접 의문문(내포 의문문)에서 쓰는 표현으로, 동작동사 현재형에는 ~는지를, 상태동사 현재형에는 ~(으)ㄴ지를 씁니다. 과거에는 ~았/었는지를 씁니다. '~인지 알다/모르다', '~인지 궁금하다', '~인지 가르쳐 주다', '~인지 물어보다' 등의 구조로 활용됩니다. 의문사(뭐, 어디, 왜, 언제, 어떻게, 얼마나)와 자연스럽게 결합합니다. ~다고 하다와의 차이: 그 표현은 누가 무언가를 말했음을 전달하고, ~는지는 알려지지 않은 질문이나 내포된 의문을 나타냅니다."
+        },
+        examples: [
+            { native: "어디에 있는지 알아요?", romanized: "Eodie inneun ji arayo?", translation: "Do you know where it is?" },
+            { native: "뭘 먹을지 모르겠어요.", romanized: "Mwol meogeul ji moreugessoyo.", translation: "I don't know what to eat." },
+            { native: "왜 늦었는지 설명해 주세요.", romanized: "Wae neuteosneunji seolmyeonghae juseyo.", translation: "Please explain why you were late." },
+            { native: "얼마나 걸리는지 궁금해요.", romanized: "Eolmana geolineunji gunggeumhaeyo.", translation: "I'm curious how long it takes." }
+        ]
+    },
+    {
+        id: "ko-g-b1-13",
+        level: "B1",
+        title: "피동 (被動): Passive Voice (~이/히/리/기)",
+        explanation: {
+            native: "Korean passive voice is formed by adding one of four suffixes ~이, ~히, ~리, ~기 directly to verb stems — the correct suffix depends on the specific verb (there is no rule, they must be memorised). Common examples: 보다→보이다(be seen), 닫다→닫히다(be closed), 팔다→팔리다(be sold), 안다→안기다(be hugged). The passive subject takes the subject marker ~이/가, and the agent (if mentioned) takes ~에게/에 의해. Korean also uses 되다-passive: verb stem + ~이/히/리/기 + 다, or noun + 되다 (공개되다 = be disclosed). For formal writing, ~에 의해 is used for the agent (more common in written/news contexts than spoken). Contrast with active: 엄마가 아이를 안았어요 (active) → 아이가 엄마에게 안겼어요 (passive). At B1, focus on high-frequency lexical passives that must be memorised as vocabulary items.",
+            target: "한국어 피동은 동사 어간에 ~이, ~히, ~리, ~기 중 하나를 붙여 만듭니다. 어떤 접미사를 붙일지는 해당 동사에 따라 다르므로 개별적으로 외워야 합니다. 주요 예시: 보다→보이다, 닫다→닫히다, 팔다→팔리다, 안다→안기다. 피동문에서 피동 주어는 ~이/가를 취하고, 행위자는 ~에게/에 의해로 나타냅니다. 또한 '되다 피동'도 있습니다: 동사 어간 + ~이/히/리/기 + 다, 또는 명사 + 되다(예: 공개되다). 격식체 글쓰기에서 행위자를 나타낼 때는 ~에 의해를 씁니다. 능동과 비교: 엄마가 아이를 안았어요(능동) → 아이가 엄마에게 안겼어요(피동). B1에서는 빈도가 높은 어휘적 피동 표현을 어휘 항목으로 외우는 데 집중합니다."
+        },
+        examples: [
+            { native: "문이 닫혔어요.", romanized: "Muni dachyeosseoyo.", translation: "The door was closed." },
+            { native: "그 책이 많이 팔렸어요.", romanized: "Geu chaegi mani pallyeosseoyo.", translation: "That book sold a lot (was sold a lot)." },
+            { native: "아이가 엄마에게 안겼어요.", romanized: "Aiga eommaege angyeosseoyo.", translation: "The child was held by their mother." },
+            { native: "그 뉴스가 인터넷에서 많이 보였어요.", romanized: "Geu nyuseuga inteoneseo mani boyeosseoyo.", translation: "That news was seen a lot on the internet." }
+        ]
+    },
 ]
