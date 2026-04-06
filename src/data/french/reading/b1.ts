@@ -242,5 +242,101 @@ In Avignon, I step out onto the sunlit platform. The air smells of lavender and 
                 answer: "Une façon de voir le pays se dérouler lentement, province par province"
             }
         ]
+    },
+
+    {
+        id: "fr-r-b1-4",
+        level: "B1",
+        category: "dialogue",
+        title: "Faut-il partir à l'étranger pour réussir ?",
+        body: {
+            target: `Journaliste : Vous avez quitté la France à vingt-deux ans pour vous installer à Singapour. Vous ne regrettez pas cette décision ?
+
+Alexandre : Pas du tout. Quand je cherchais du travail après mon master, j'avais envoyé des dizaines de CV sans résultat. À Singapour, j'avais eu une réponse en deux semaines. Pour moi, la question ne s'est pas vraiment posée.
+
+Journaliste : Vous pensez que les jeunes Français ont tort de rester en France ?
+
+Alexandre : Je ne dirais pas ça. Je pense que cela dépend des priorités de chacun. Si vous voulez construire une carrière internationale dans la finance ou la tech, partir est presque indispensable. Mais si vous attachez de l'importance à votre réseau familial, à votre langue, à vos racines culturelles, rester est un choix tout à fait légitime.
+
+Journaliste : Et la France, elle perd quelque chose dans cette fuite des cerveaux ?
+
+Alexandre : Évidemment. On parle souvent de « fuite des cerveaux », mais il ne faut pas oublier que beaucoup de ces expatriés reviennent après quelques années avec une expérience internationale précieuse. Si j'avais su au départ que je reviendrais m'installer à Lyon à quarante ans, j'aurais peut-être moins culpabilisé de partir. Le départ n'est pas forcément définitif.
+
+Journaliste : Un dernier conseil pour les jeunes qui hésitent ?
+
+Alexandre : Partez, même si c'est difficile. Ce que vous apprendrez sur vous-mêmes vaut plus que n'importe quel diplôme. Et si ça ne se passe pas comme prévu, vous aurez au moins essayé.`,
+            native: `Journalist: You left France at twenty-two to settle in Singapore. Do you regret that decision?
+
+Alexandre: Not at all. When I was looking for work after my master's degree, I had sent dozens of CVs without any result. In Singapore, I had received a response within two weeks. For me, the question didn't really arise.
+
+Journalist: Do you think young French people are wrong to stay in France?
+
+Alexandre: I wouldn't say that. I think it depends on each person's priorities. If you want to build an international career in finance or tech, leaving is almost essential. But if you attach importance to your family network, your language, your cultural roots, staying is a perfectly legitimate choice.
+
+Journalist: And France — does it lose something from this brain drain?
+
+Alexandre: Obviously. People often talk about 'brain drain', but we must not forget that many of these expatriates return after a few years with valuable international experience. If I had known from the start that I would come back to settle in Lyon at forty, I might have felt less guilty about leaving. Leaving is not necessarily permanent.
+
+Journalist: One last piece of advice for young people who are hesitating?
+
+Alexandre: Go, even if it's hard. What you will learn about yourselves is worth more than any degree. And if it doesn't go as planned, you will at least have tried.`
+        },
+        vocabGloss: [
+            { word: "la fuite des cerveaux", translation: "brain drain" },
+            { word: "les racines culturelles", translation: "cultural roots" },
+            { word: "l'expatrié / l'expatriée", translation: "expatriate (person working abroad)" },
+            { word: "culpabiliser", translation: "to feel guilty" },
+            { word: "définitif / définitive", translation: "permanent, final" },
+        ],
+        questions: [
+            {
+                id: "fr-r-b1-4-q1",
+                level: "B1",
+                prompt: "Pourquoi Alexandre a-t-il décidé de partir à Singapour ?",
+                options: [
+                    "Il avait reçu une bourse d'études internationale",
+                    "Il cherchait une aventure personnelle loin de sa famille",
+                    "Il n'avait pas trouvé de travail en France malgré de nombreuses candidatures",
+                    "Il voulait apprendre une nouvelle langue étrangère"
+                ],
+                answer: "Il n'avait pas trouvé de travail en France malgré de nombreuses candidatures"
+            },
+            {
+                id: "fr-r-b1-4-q2",
+                level: "B1",
+                prompt: "Selon Alexandre, dans quels cas est-il presque indispensable de partir à l'étranger ?",
+                options: [
+                    "Quand on veut apprendre une nouvelle culture",
+                    "Quand on souhaite construire une carrière internationale dans la finance ou la tech",
+                    "Quand on a déjà beaucoup d'expérience professionnelle en France",
+                    "Quand on ne parle pas suffisamment bien l'anglais"
+                ],
+                answer: "Quand on souhaite construire une carrière internationale dans la finance ou la tech"
+            },
+            {
+                id: "fr-r-b1-4-q3",
+                level: "B1",
+                prompt: "Quelle nuance apporte Alexandre sur la notion de « fuite des cerveaux » ?",
+                options: [
+                    "C'est un phénomène positif car la France a trop de diplômés",
+                    "Beaucoup d'expatriés reviennent avec une expérience internationale précieuse",
+                    "Seuls les personnes sans talent vrai quittent la France",
+                    "La France ne souffre pas vraiment de ce phénomène"
+                ],
+                answer: "Beaucoup d'expatriés reviennent avec une expérience internationale précieuse"
+            },
+            {
+                id: "fr-r-b1-4-q4",
+                level: "B1",
+                prompt: "Quel est le conseil final d'Alexandre pour les jeunes qui hésitent à partir ?",
+                options: [
+                    "D'attendre d'avoir plus d'expérience avant de partir",
+                    "De partir seulement si on parle déjà la langue du pays d'accueil",
+                    "De partir malgré les difficultés, car l'expérience en vaut la peine",
+                    "De rester en France et de chercher des opportunités locales"
+                ],
+                answer: "De partir malgré les difficultés, car l'expérience en vaut la peine"
+            }
+        ]
     }
 ]
