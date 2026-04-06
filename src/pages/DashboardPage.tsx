@@ -10,6 +10,7 @@ import { isOnboardingVisible, dismissOnboarding, getGoal, getNewLevel, clearNewL
 import { useBreakDetection } from "../hooks/useBreakDetection"
 import { ReviewPromptCard } from "../components/ReviewPromptCard"
 import { HydrationErrorBanner } from "../components/HydrationErrorBanner"
+import { MigrationBanner } from "../components/MigrationBanner"
 import { scoreUnitForGoal, USER_GOALS, type GoalId } from "../data/goalConfig"
 
 import { useProgress } from "../context/ProgressContext"
@@ -260,6 +261,7 @@ export function DashboardPage() {
             {/* AppLayout provides the sidebar/bottom nav — no NavBar here */}
 
             <main className="max-w-3xl mx-auto px-4 py-6">
+                <MigrationBanner />
                 <HydrationErrorBanner />
                 {/* Level header */}
                 <div className="bg-surface-card rounded-2xl border border-border-subtle p-4 mb-5 flex items-center gap-4">
