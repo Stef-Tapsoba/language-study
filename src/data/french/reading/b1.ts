@@ -250,36 +250,8 @@ In Avignon, I step out onto the sunlit platform. The air smells of lavender and 
         category: "dialogue",
         title: "Faut-il partir à l'étranger pour réussir ?",
         body: {
-            target: `Journaliste : Vous avez quitté la France à vingt-deux ans pour vous installer à Singapour. Vous ne regrettez pas cette décision ?
-
-Alexandre : Pas du tout. Quand je cherchais du travail après mon master, j'avais envoyé des dizaines de CV sans résultat. À Singapour, j'avais eu une réponse en deux semaines. Pour moi, la question ne s'est pas vraiment posée.
-
-Journaliste : Vous pensez que les jeunes Français ont tort de rester en France ?
-
-Alexandre : Je ne dirais pas ça. Je pense que cela dépend des priorités de chacun. Si vous voulez construire une carrière internationale dans la finance ou la tech, partir est presque indispensable. Mais si vous attachez de l'importance à votre réseau familial, à votre langue, à vos racines culturelles, rester est un choix tout à fait légitime.
-
-Journaliste : Et la France, elle perd quelque chose dans cette fuite des cerveaux ?
-
-Alexandre : Évidemment. On parle souvent de « fuite des cerveaux », mais il ne faut pas oublier que beaucoup de ces expatriés reviennent après quelques années avec une expérience internationale précieuse. Si j'avais su au départ que je reviendrais m'installer à Lyon à quarante ans, j'aurais peut-être moins culpabilisé de partir. Le départ n'est pas forcément définitif.
-
-Journaliste : Un dernier conseil pour les jeunes qui hésitent ?
-
-Alexandre : Partez, même si c'est difficile. Ce que vous apprendrez sur vous-mêmes vaut plus que n'importe quel diplôme. Et si ça ne se passe pas comme prévu, vous aurez au moins essayé.`,
-            native: `Journalist: You left France at twenty-two to settle in Singapore. Do you regret that decision?
-
-Alexandre: Not at all. When I was looking for work after my master's degree, I had sent dozens of CVs without any result. In Singapore, I had received a response within two weeks. For me, the question didn't really arise.
-
-Journalist: Do you think young French people are wrong to stay in France?
-
-Alexandre: I wouldn't say that. I think it depends on each person's priorities. If you want to build an international career in finance or tech, leaving is almost essential. But if you attach importance to your family network, your language, your cultural roots, staying is a perfectly legitimate choice.
-
-Journalist: And France — does it lose something from this brain drain?
-
-Alexandre: Obviously. People often talk about 'brain drain', but we must not forget that many of these expatriates return after a few years with valuable international experience. If I had known from the start that I would come back to settle in Lyon at forty, I might have felt less guilty about leaving. Leaving is not necessarily permanent.
-
-Journalist: One last piece of advice for young people who are hesitating?
-
-Alexandre: Go, even if it's hard. What you will learn about yourselves is worth more than any degree. And if it doesn't go as planned, you will at least have tried.`
+            target: "Journaliste : Vous avez quitté la France à vingt-deux ans pour vous installer à Singapour. Vous ne regrettez pas cette décision ?\nAlexandre : Pas du tout. Quand je cherchais du travail après mon master, j'avais envoyé des dizaines de CV sans résultat. À Singapour, j'avais eu une réponse en deux semaines. Pour moi, la question ne s'est pas vraiment posée.\nJournaliste : Vous pensez que les jeunes Français ont tort de rester en France ?\nAlexandre : Je ne dirais pas ça. Je pense que cela dépend des priorités de chacun. Si vous voulez construire une carrière internationale dans la finance ou la tech, partir est presque indispensable. Mais si vous attachez de l'importance à votre réseau familial, à votre langue, à vos racines culturelles, rester est un choix tout à fait légitime.\nJournaliste : Et la France, elle perd quelque chose dans cette fuite des cerveaux ?\nAlexandre : Évidemment. On parle souvent de « fuite des cerveaux », mais il ne faut pas oublier que beaucoup de ces expatriés reviennent après quelques années avec une expérience internationale précieuse. Si j'avais su au départ que je reviendrais m'installer à Lyon à quarante ans, j'aurais peut-être moins culpabilisé de partir. Le départ n'est pas forcément définitif.\nJournaliste : Un dernier conseil pour les jeunes qui hésitent ?\nAlexandre : Partez, même si c'est difficile. Ce que vous apprendrez sur vous-mêmes vaut plus que n'importe quel diplôme. Et si ça ne se passe pas comme prévu, vous aurez au moins essayé.",
+            native: "Journalist: You left France at twenty-two to settle in Singapore. Do you regret that decision?\nAlexandre: Not at all. When I was looking for work after my master's degree, I had sent dozens of CVs without any result. In Singapore, I had received a response within two weeks. For me, the question didn't really arise.\nJournalist: Do you think young French people are wrong to stay in France?\nAlexandre: I wouldn't say that. I think it depends on each person's priorities. If you want to build an international career in finance or tech, leaving is almost essential. But if you attach importance to your family network, your language, your cultural roots, staying is a perfectly legitimate choice.\nJournalist: And France — does it lose something from this brain drain?\nAlexandre: Obviously. People often talk about 'brain drain', but we must not forget that many of these expatriates return after a few years with valuable international experience. If I had known from the start that I would come back to settle in Lyon at forty, I might have felt less guilty about leaving. Leaving is not necessarily permanent.\nJournalist: One last piece of advice for young people who are hesitating?\nAlexandre: Go, even if it's hard. What you will learn about yourselves is worth more than any degree. And if it doesn't go as planned, you will at least have tried."
         },
         vocabGloss: [
             { word: "la fuite des cerveaux", translation: "brain drain" },
