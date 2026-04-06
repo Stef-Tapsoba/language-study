@@ -118,5 +118,80 @@ export const b2Grammar: GrammarLesson[] = [
             { native: "Nonostante le difficoltà, il progetto è andato avanti.", translation: "Despite the difficulties, the project went ahead. (nominalisation)" },
             { native: "Se la cava benissimo in situazioni difficili.", translation: "She manages very well in difficult situations." },
         ]
+    },
+    {
+        id: "it-g-b2-9",
+        level: "B2",
+        title: "Congiuntivo Passato e Trapassato — Strutture Complesse",
+        explanation: {
+            native: "The congiuntivo passato expresses an action that was completed before the main clause action, when the main clause trigger is in the present or future. Formation: avere/essere in congiuntivo presente + past participle. The congiuntivo trapassato expresses a completed action that happened before another past action, when the main clause trigger is in a past tense. Formation: avere/essere in congiuntivo imperfetto + past participle. Key tense sequence: main clause present/future + che + congiuntivo passato (completed past action); main clause past + che + congiuntivo trapassato (past-in-past action). Common triggers: pensare, credere, sperare, temere, nonostante, benché, sebbene, prima che, senza che.",
+            target: "Il congiuntivo passato esprime un'azione già completata prima dell'azione della frase principale, quando il predicato reggente è al presente o al futuro. Formazione: avere/essere al congiuntivo presente + participio passato. Il congiuntivo trapassato esprime un'azione conclusa avvenuta prima di un'altra azione passata, quando il predicato reggente è a un tempo passato. Formazione: avere/essere al congiuntivo imperfetto + participio passato. Sequenza dei tempi principale: frase principale al presente/futuro + che + congiuntivo passato; frase principale al passato + che + congiuntivo trapassato. Reggenti comuni: pensare, credere, sperare, temere, nonostante, benché, prima che, senza che."
+        },
+        examples: [
+            { native: "Sono contento che tu sia venuto alla festa.", translation: "I'm glad that you came to the party. (congiuntivo passato: main present, subordinate completed)" },
+            { native: "Credo che abbiano già deciso.", translation: "I believe they have already decided. (congiuntivo passato after credere)" },
+            { native: "Nonostante avesse studiato molto, non superò l'esame.", translation: "Although he had studied a lot, he didn't pass the exam. (congiuntivo trapassato after nonostante with past main)" },
+            { native: "Era felice che fossero arrivati in tempo.", translation: "He was happy that they had arrived on time. (congiuntivo trapassato: main past + completed prior arrival)" }
+        ]
+    },
+    {
+        id: "it-g-b2-10",
+        level: "B2",
+        title: "La Nominalizzazione — Italiano Accademico e Formale",
+        explanation: {
+            native: "Nominalisation in formal Italian converts verbs and adjectives into noun phrases, producing the dense, impersonal style of academic and journalistic writing. Key patterns: verb → noun (sviluppare → lo sviluppo, ridurre → la riduzione, attuare → l'attuazione); adjective → noun (libero → la libertà, giusto → la giustizia). The structure \"il fatto che + congiuntivo\" is a key formal construction. Impersonal formal structures: \"è opportuno sottolineare che\", \"occorre precisare che\", \"va tenuto presente che\". The infinitive as subject in formal register: \"risolvere questo problema richiede tempo\" (solving this problem takes time). Gerund in formal argumentation: \"pur ammettendo che...\" (while admitting that...).",
+            target: "La nominalizzazione nell'italiano formale trasforma verbi e aggettivi in sintagmi nominali, producendo lo stile denso e impersonale della scrittura accademica e giornalistica. Schemi principali: verbo → nome (sviluppare → lo sviluppo, ridurre → la riduzione, attuare → l'attuazione); aggettivo → nome (libero → la libertà). La struttura «il fatto che + congiuntivo» è una costruzione formale fondamentale. Strutture impersonali formali: «è opportuno sottolineare che», «occorre precisare che», «va tenuto presente che». L'infinito come soggetto nel registro formale: «risolvere questo problema richiede tempo». Il gerundio nell'argomentazione: «pur ammettendo che...»."
+        },
+        examples: [
+            { native: "Lo sviluppo economico dipende da molteplici fattori.", translation: "Economic development depends on multiple factors. (nominalisation: sviluppare → lo sviluppo)" },
+            { native: "Il fatto che i prezzi continuino a salire preoccupa i consumatori.", translation: "The fact that prices continue to rise worries consumers. (il fatto che + congiuntivo)" },
+            { native: "È opportuno sottolineare che i dati presentati sono preliminari.", translation: "It is appropriate to point out that the data presented are preliminary. (formal: è opportuno sottolineare)" },
+            { native: "Pur ammettendo le difficoltà, bisogna trovare una soluzione.", translation: "While admitting the difficulties, a solution must be found. (pur + gerundio = concession)" }
+        ]
+    },
+    {
+        id: "it-g-b2-11",
+        level: "B2",
+        title: "Strutture Impersonali — Distanza e Oggettività nel Discorso Formale",
+        explanation: {
+            native: "Formal Italian regularly uses impersonal structures to achieve objectivity and distance. Key patterns: (1) Si + active verb for impersonal generalisations: \"Si ritiene che...\", \"Si prevede che...\", \"Si osserva che...\" — used extensively in academic/journalistic writing. (2) The formal passive with venire: venire + past participle in simple tenses (NOT compound): \"I risultati vengono analizzati\" (The results are being analysed). (3) Formal impersonal expressions: \"è necessario che + congiuntivo\", \"risulta opportuno + infinito\", \"appare evidente che + indicativo\". (4) Modal constructions for formal hedging: \"sembrerebbe che + congiuntivo\" (it would seem that), \"si potrebbe ipotizzare che\" (one might hypothesise that).",
+            target: "L'italiano formale usa regolarmente strutture impersonali per ottenere oggettività e distanza. Schemi principali: (1) Si + verbo attivo per generalizzazioni impersonali: «Si ritiene che...», «Si prevede che...», «Si osserva che...». (2) Passivo formale con venire: venire + participio passato nei tempi semplici (NON composti): «I risultati vengono analizzati». (3) Espressioni impersonali formali: «è necessario che + congiuntivo», «risulta opportuno + infinito», «appare evidente che + indicativo». (4) Costruzioni modali per l'attenuazione formale: «sembrerebbe che + congiuntivo», «si potrebbe ipotizzare che»."
+        },
+        examples: [
+            { native: "Si ritiene che il cambiamento climatico rappresenti una minaccia esistenziale.", translation: "It is believed that climate change represents an existential threat. (si + active = impersonal)" },
+            { native: "I dati vengono raccolti e analizzati ogni trimestre.", translation: "The data is collected and analysed every quarter. (venire + past participle = formal passive)" },
+            { native: "Risulta opportuno precisare i limiti di questa analisi.", translation: "It is appropriate to specify the limits of this analysis. (risulta opportuno = formal hedging)" },
+            { native: "Sembrerebbe che la situazione stia migliorando.", translation: "It would seem that the situation is improving. (sembrerebbe che + congiuntivo = cautious assertion)" }
+        ]
+    },
+    {
+        id: "it-g-b2-12",
+        level: "B2",
+        title: "La Concordanza dei Tempi nelle Proposizioni Subordinate",
+        explanation: {
+            native: "The sequence of tenses (concordanza dei tempi) governs which tense appears in a subordinate clause based on the tense of the main clause. In Italian, this is particularly important with the congiuntivo. General rule: if the main clause is present or future → use congiuntivo presente or passato in the subordinate clause. If the main clause is past (imperfetto, passato prossimo, passato remoto) → use congiuntivo imperfetto or trapassato. Summary table: main present → sub congiuntivo presente (simultaneous) / passato (prior); main past → sub congiuntivo imperfetto (simultaneous or subsequent) / trapassato (prior to main action). This rule produces naturalness in complex Italian sentences and is heavily tested in Italian certification exams.",
+            target: "La concordanza dei tempi regola quale tempo compare nella proposizione subordinata in base al tempo della frase principale. In italiano è particolarmente importante con il congiuntivo. Regola generale: se la frase principale è al presente o al futuro → si usa il congiuntivo presente o passato nella subordinata. Se la frase principale è al passato (imperfetto, passato prossimo, passato remoto) → si usa il congiuntivo imperfetto o trapassato. Tavola riassuntiva: principale al presente → subordinata al congiuntivo presente (contemporaneità) / passato (anteriorità); principale al passato → subordinata al congiuntivo imperfetto (contemporaneità o posteriorità) / trapassato (anteriorità). Questa regola è fondamentale per la naturalezza delle frasi complesse italiane."
+        },
+        examples: [
+            { native: "Penso che Marco lavori ancora.", translation: "I think Marco is still working. (main: present; sub: congiuntivo presente — simultaneous)" },
+            { native: "Penso che Marco abbia già finito.", translation: "I think Marco has already finished. (main: present; sub: congiuntivo passato — prior action)" },
+            { native: "Pensavo che Marco lavorasse ancora.", translation: "I thought Marco was still working. (main: imperfetto; sub: congiuntivo imperfetto — simultaneous)" },
+            { native: "Pensavo che Marco avesse già finito.", translation: "I thought Marco had already finished. (main: imperfetto; sub: congiuntivo trapassato — prior to main)" }
+        ]
+    },
+    {
+        id: "it-g-b2-13",
+        level: "B2",
+        title: "Condizionale Avanzato — Usi Giornalistici e Retorici",
+        explanation: {
+            native: "Italian uses the conditional in two important B2 contexts beyond hypothesis. (1) The journalistic conditional (condizionale giornalistico): the condizionale presente is used to report unverified information, distancing the writer from direct assertion: \"Il governo avrebbe preso una decisione importante\" (The government is reported to have made an important decision). The condizionale passato is also used: \"Il ministro avrebbe già rassegnato le dimissioni\" (The minister is said to have already resigned). This is a standard convention in quality Italian journalism. (2) The modal/rhetorical conditional for formal distancing or polite assertion: \"Sarebbe opportuno esaminare le prove\" (It would be appropriate to examine the evidence) — no explicit condition, the conditional itself creates the softening effect.",
+            target: "L'italiano usa il condizionale in due importanti contesti B2 oltre all'ipotesi. (1) Il condizionale giornalistico: il condizionale presente è usato per riportare informazioni non verificate, distanziando il giornalista dall'affermazione diretta: «Il governo avrebbe preso una decisione importante». Si usa anche il condizionale passato: «Il ministro avrebbe già rassegnato le dimissioni». È una convenzione standard nel giornalismo di qualità italiano. (2) Il condizionale modale/retorico per l'attenuazione formale o un'affermazione educata: «Sarebbe opportuno esaminare le prove» — senza condizione esplicita, il condizionale stesso crea l'effetto di distanza."
+        },
+        examples: [
+            { native: "Il governo avrebbe deciso di posticipare le elezioni, secondo fonti attendibili.", translation: "The government is reported to have decided to postpone elections, according to reliable sources. (journalistic conditional)" },
+            { native: "Il presidente avrebbe firmato il decreto nella giornata di ieri.", translation: "The president is said to have signed the decree yesterday. (journalistic past conditional)" },
+            { native: "Sarebbe opportuno condurre ulteriori indagini prima di trarre conclusioni.", translation: "It would be appropriate to conduct further investigations before drawing conclusions. (modal conditional)" },
+            { native: "Ci vorrebbe più coraggio da parte dei leader politici.", translation: "More courage would be needed from political leaders. (modal: volere → vorrebbe)" }
+        ]
     }
 ]

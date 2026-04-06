@@ -144,5 +144,78 @@ export const b2Units: LessonUnit[] = [
             { id: "it-b2-u8-q5", level: "B2", prompt: "What does 'in merito a' mean?", options: ["on merit", "with regard to / concerning (formal)", "because of", "in addition to"], answer: "with regard to / concerning (formal)", hint: "In merito a = riguardo a = with regard to. Formal register — used in business and official writing." },
             { id: "it-b2-u8-q6", level: "B2", prompt: "What does 'cavarsela' mean?", options: ["to hide oneself", "to manage / to get by / to cope", "to escape", "to find something"], answer: "to manage / to get by / to cope", hint: "Cavarsela = to manage / get by. Se la cava = he/she manages. Colloquial but very frequent." },
         ]
+    },
+    {
+        id: "it-b2-u9",
+        level: "B2",
+        order: 9,
+        title: "Congiuntivo Passato e Trapassato",
+        description: "Master the compound subjunctive tenses: use the congiuntivo passato for completed actions with a present main clause, and the congiuntivo trapassato for past-in-past actions.",
+        grammarIds: ["it-g-b2-9"],
+        vocabIds: ["it-v-b2-075", "it-v-b2-076", "it-v-b2-086", "it-v-b2-087", "it-v-b2-073"],
+        verbIds: [],
+        testQuestions: [
+            { id: "it-b2-u9-q1", level: "B2", prompt: "Complete (congiuntivo passato): 'Sono contento che tu ___ alla festa.' (venire)", options: ["venissi", "sei venuto", "sia venuto", "venivi"], answer: "sia venuto", hint: "Main clause: present (sono contento) → completed prior action → congiuntivo passato: sia venuto." },
+            { id: "it-b2-u9-q2", level: "B2", prompt: "Complete (congiuntivo passato): 'Credo che loro ___ già.' (decidere)", options: ["decidevano", "abbiano deciso", "avessero deciso", "decisero"], answer: "abbiano deciso", hint: "Credere (present) + completed action → congiuntivo passato: abbiano deciso." },
+            { id: "it-b2-u9-q3", level: "B2", prompt: "Complete (congiuntivo trapassato): 'Nonostante ___ molto, non superò l'esame.' (studiare — lui)", options: ["studiasse", "studi", "avesse studiato", "abbia studiato"], answer: "avesse studiato", hint: "Nonostante + past main clause → prior completed action → congiuntivo trapassato: avesse studiato." },
+            { id: "it-b2-u9-q4", level: "B2", prompt: "Complete (congiuntivo trapassato): 'Era felice che loro ___ in tempo.' (arrivare)", options: ["arrivassero", "siano arrivati", "fossero arrivati", "arrivarono"], answer: "fossero arrivati", hint: "Main clause past (era felice) + completed prior arrival → congiuntivo trapassato: fossero arrivati." },
+            { id: "it-b2-u9-q5", level: "B2", prompt: "Which rule governs the choice between congiuntivo passato and congiuntivo trapassato?", options: ["Whether the subject is singular or plural", "The tense of the main clause trigger", "Whether the verb is transitive or intransitive", "The gender of the subject"], answer: "The tense of the main clause trigger", hint: "Main clause present/future → congiuntivo passato; main clause past → congiuntivo trapassato." },
+            { id: "it-b2-u9-q6", level: "B2", prompt: "What does 'la resilienza' mean?", options: ["Remorse", "Resilience", "Empathy", "Ambivalence"], answer: "Resilience" }
+        ]
+    },
+    {
+        id: "it-b2-u10",
+        level: "B2",
+        order: 10,
+        title: "Nominalizzazione",
+        description: "Convert verbs and adjectives into noun phrases to write in the dense, impersonal style of academic and journalistic Italian. Use key formal constructions including 'il fatto che' and 'è opportuno sottolineare che'.",
+        grammarIds: ["it-g-b2-10"],
+        vocabIds: ["it-v-b2-096", "it-v-b2-097", "it-v-b2-098", "it-v-b2-099", "it-v-b2-100", "it-v-b2-101"],
+        verbIds: [],
+        testQuestions: [
+            { id: "it-b2-u10-q1", level: "B2", prompt: "Which is the nominalisation of 'sviluppare'?", options: ["lo sviluppatore", "lo sviluppo", "lo sviluppato", "l'atto di sviluppare"], answer: "lo sviluppo", hint: "Nominalisation: sviluppare → lo sviluppo. Pattern: -are verb → a corresponding noun form." },
+            { id: "it-b2-u10-q2", level: "B2", prompt: "Complete: 'Il fatto che i prezzi ___ a salire preoccupa i consumatori.' (continuare — present congiuntivo)", options: ["continuano", "continuino", "continuassero", "continuavano"], answer: "continuino", hint: "Il fatto che always triggers the congiuntivo: continuino (3rd person plural congiuntivo presente)." },
+            { id: "it-b2-u10-q3", level: "B2", prompt: "Which formal structure introduces a hedged academic statement?", options: ["ma devo dire che", "è opportuno sottolineare che", "comunque sia", "mi sembra che"], answer: "è opportuno sottolineare che", hint: "È opportuno sottolineare che = it is appropriate to point out that. Core formal academic phrase." },
+            { id: "it-b2-u10-q4", level: "B2", prompt: "What does 'pur ammettendo' introduce?", options: ["A result", "A purpose", "A concession (while admitting)", "A condition"], answer: "A concession (while admitting)", hint: "Pur + gerundio = concession: pur ammettendo le difficoltà = while admitting the difficulties." },
+            { id: "it-b2-u10-q5", level: "B2", prompt: "What is the nominalisation of 'ridurre'?", options: ["la riduzione", "il ridotto", "la riduttività", "il ridurre"], answer: "la riduzione", hint: "Ridurre → la riduzione. Italian nominalisations of -ure verbs often take the -zione suffix." },
+            { id: "it-b2-u10-q6", level: "B2", prompt: "What does 'occorre precisare che' mean?", options: ["it is possible to specify", "it is necessary to specify / it must be noted that", "we have already specified", "it seems that"], answer: "it is necessary to specify / it must be noted that", hint: "Occorre precisare che = it is necessary to specify / it must be noted that. Formal academic marker." }
+        ]
+    },
+    {
+        id: "it-b2-u11",
+        level: "B2",
+        order: 11,
+        title: "Strutture Impersonali & Concordanza dei Tempi",
+        description: "Combine mastery of formal impersonal constructions — si + verb, venire + participle, sembrerebbe che — with full control of sequence-of-tenses rules governing congiuntivo in subordinate clauses.",
+        grammarIds: ["it-g-b2-11", "it-g-b2-12"],
+        vocabIds: ["it-v-b2-102", "it-v-b2-103", "it-v-b2-104", "it-v-b2-069", "it-v-b2-070"],
+        verbIds: [],
+        testQuestions: [
+            { id: "it-b2-u11-q1", level: "B2", prompt: "Complete: 'Si ___ che il cambiamento climatico rappresenti una minaccia.' (ritenere — impersonal present)", options: ["ritiene", "ha ritenuto", "ritenga", "riterebbe"], answer: "ritiene", hint: "Si ritiene che = it is believed that. The si + verb form gives impersonal meaning; the main verb stays indicative." },
+            { id: "it-b2-u11-q2", level: "B2", prompt: "Which sentence uses the formal passive with 'venire' correctly?", options: ["I dati sono stati raccolti venire.", "I dati vengono raccolti ogni mese.", "I dati venivano stati analizzati.", "I dati verranno stati pubblicati."], answer: "I dati vengono raccolti ogni mese.", hint: "Venire + past participle replaces essere in simple tenses only (present, imperfect, future simple)." },
+            { id: "it-b2-u11-q3", level: "B2", prompt: "Complete (concordanza dei tempi): 'Penso che Marco ___ ancora.' (lavorare — simultaneous present)", options: ["lavora", "lavorasse", "lavori", "lavorerà"], answer: "lavori", hint: "Main clause present + simultaneous action → congiuntivo presente: lavori." },
+            { id: "it-b2-u11-q4", level: "B2", prompt: "Complete (concordanza dei tempi): 'Pensavo che Marco ___ già.' (finire — prior to main past)", options: ["finisca", "abbia finito", "avesse finito", "finisse"], answer: "avesse finito", hint: "Main clause past + action prior to that past moment → congiuntivo trapassato: avesse finito." },
+            { id: "it-b2-u11-q5", level: "B2", prompt: "Complete: '___ opportuno precisare i limiti di questa analisi.' (formal hedging)", options: ["Sembra", "Risulta", "Appare chiaro", "Risulta"], answer: "Risulta", hint: "Risulta opportuno + infinito = it is appropriate to (formal hedging). Note: 'Risulta' fits naturally here." },
+            { id: "it-b2-u11-q6", level: "B2", prompt: "What does 'sembrerebbe che' signal?", options: ["A firm assertion", "A cautious or hedged assertion", "A past completed fact", "A necessary condition"], answer: "A cautious or hedged assertion", hint: "Sembrerebbe che + congiuntivo = it would seem that. The conditional sembrerebbe signals the writer's distancing from the claim." }
+        ]
+    },
+    {
+        id: "it-b2-u12",
+        level: "B2",
+        order: 12,
+        title: "Condizionale Giornalistico",
+        description: "Use the journalistic conditional to report unverified information in the style of quality Italian journalism, and deploy the modal conditional to make formally distanced or politely hedged statements.",
+        grammarIds: ["it-g-b2-13"],
+        vocabIds: ["it-v-b2-093", "it-v-b2-094", "it-v-b2-095", "it-v-b2-096", "it-v-b2-097"],
+        verbIds: [],
+        readingIds: ["it-r-b2-4"],
+        testQuestions: [
+            { id: "it-b2-u12-q1", level: "B2", prompt: "What does the sentence 'Il governo avrebbe deciso di posticipare le elezioni' convey?", options: ["The government definitely decided to postpone elections.", "The government is reported to have decided to postpone elections (unverified).", "The government will decide to postpone elections.", "The government had decided to postpone elections."], answer: "The government is reported to have decided to postpone elections (unverified).", hint: "Avrebbe deciso = condizionale passato used journalistically to signal unconfirmed information." },
+            { id: "it-b2-u12-q2", level: "B2", prompt: "Which form is used in Italian journalism to signal unverified current information?", options: ["Indicativo presente", "Condizionale presente (avrebbe, sarebbe, ecc.)", "Congiuntivo imperfetto", "Futuro anteriore"], answer: "Condizionale presente (avrebbe, sarebbe, ecc.)", hint: "The condizionale (especially passato forms like avrebbe + participio) signals alleged or unconfirmed information in Italian journalism." },
+            { id: "it-b2-u12-q3", level: "B2", prompt: "Complete: 'Il presidente ___ il decreto nella giornata di ieri.' (firmare — journalistic past conditional)", options: ["ha firmato", "avrebbe firmato", "firmerebbe", "firmasse"], answer: "avrebbe firmato", hint: "Avrebbe firmato = journalistic conditional passato: the president is said to have signed. Signals unverified past action." },
+            { id: "it-b2-u12-q4", level: "B2", prompt: "Complete (modal conditional): '___ opportuno condurre ulteriori indagini prima di concludere.'", options: ["È", "Sarebbe", "Sia", "Fosse"], answer: "Sarebbe", hint: "Sarebbe opportuno = it would be appropriate to. Modal conditional for formal hedging — no explicit if-clause needed." },
+            { id: "it-b2-u12-q5", level: "B2", prompt: "What does 'secondo fonti attendibili' mean?", options: ["according to the official statement", "according to reliable sources", "according to previous reports", "according to public opinion"], answer: "according to reliable sources", hint: "Secondo fonti attendibili = according to reliable sources. Fixed journalistic phrase used with the journalistic conditional." },
+            { id: "it-b2-u12-q6", level: "B2", prompt: "What does 'risulterebbe che' signal in a news article?", options: ["A confirmed fact", "An official denial", "An alleged or unverified situation", "A historical event"], answer: "An alleged or unverified situation", hint: "Risulterebbe che = it would appear that. Journalistic hedge signalling the information is not officially confirmed." }
+        ]
     }
 ]

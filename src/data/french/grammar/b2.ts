@@ -123,4 +123,80 @@ export const b2Grammar: GrammarLesson[] = [
             { native: "Il m'a cassé les pieds avec ses plaintes incessantes.", translation: "He drove me crazy with his incessant complaints." },
         ]
     },
+    {
+        id: "fr-g-b2-9",
+        level: "B2",
+        title: "L'Imparfait du Subjonctif — Registre Littéraire et Formel",
+        explanation: {
+            native: "The imparfait du subjonctif is a literary/formal tense now rarely used in spoken French. It appears in literature, formal writing, and historical texts. At B2, recognition is the primary goal. Formation: take the passé simple (ils/elles form), drop the -rent ending, add: -sse, -sses, -^t (circumflex on the vowel before t), -ssions, -ssiez, -ssent. The hat (^) appears only on the il/elle/on form. Key forms: être → fût, avoir → eût, faire → fît, aller → allât, vouloir → voulût. Used in subordinate clauses after triggers that require the subjunctive in the past, in formal writing where the reporting verb is in a past tense. Compare to modern spoken alternative: use the subjonctif présent instead.",
+            target: "L'imparfait du subjonctif est un temps littéraire et soutenu, rarement utilisé à l'oral de nos jours. On le trouve dans la littérature, les textes formels et les écrits historiques. Au niveau B2, la reconnaissance est l'objectif principal. Formation : on prend la forme ils/elles du passé simple, on supprime -rent, et on ajoute : -sse, -sses, -^t (accent circonflexe sur la voyelle avant t), -ssions, -ssiez, -ssent. Le chapeau (^) n'apparaît qu'à la 3e personne du singulier. Formes clés : être → fût, avoir → eût, faire → fît, aller → allât, vouloir → voulût. Utilisé dans les propositions subordonnées après des déclencheurs qui exigent le subjonctif au passé, dans les écrits formels où le verbe introducteur est au passé."
+        },
+        examples: [
+            { native: "Il fallait qu'il partît avant l'aube.", translation: "It was necessary that he leave before dawn. (literary: imparfait du subj. after falloir in past)" },
+            { native: "Elle souhaitait que la cérémonie se déroulât dans le calme.", translation: "She wished that the ceremony would proceed calmly." },
+            { native: "Bien qu'il eût travaillé dur, il n'obtint pas le poste.", translation: "Although he had worked hard, he did not get the position." },
+            { native: "On craignait que la situation ne s'empirât.", translation: "They feared the situation might worsen." },
+        ]
+    },
+    {
+        id: "fr-g-b2-10",
+        level: "B2",
+        title: "La Nominalisation — Écriture Formelle et Académique",
+        explanation: {
+            native: "Nominalisation — the conversion of verbs and adjectives into noun forms — is a defining feature of formal, academic, and journalistic French. Rather than \"Le gouvernement a décidé de...\", formal writing prefers \"La décision du gouvernement de...\". Key patterns: verb → noun (décider → la décision, réformer → la réforme, développer → le développement, permettre → la permission); adjective → noun (libre → la liberté, juste → la justice). The structure \"le fait que + subjonctif\" is a key nominalisation trigger in formal argumentation. \"Il convient de + infinitive\" and \"force est de constater que\" are key impersonal nominal structures. Nominalisation makes writing more formal, concise, and impersonal.",
+            target: "La nominalisation — transformation de verbes et d'adjectifs en formes nominales — est une caractéristique majeure du français formel, académique et journalistique. Au lieu de «Le gouvernement a décidé de…», l'écrit formel préfère «La décision du gouvernement de…». Schémas clés : verbe → nom (décider → la décision, réformer → la réforme, développer → le développement) ; adjectif → nom (libre → la liberté, juste → la justice). La structure «le fait que + subjonctif» est un déclencheur de nominalisation clé en argumentation formelle. «Il convient de + infinitif» et «force est de constater que» sont des structures impersonnelles nominalisées importantes."
+        },
+        examples: [
+            { native: "La réduction des émissions de CO₂ est indispensable.", translation: "The reduction of CO₂ emissions is essential. (Nominalisation of: réduire les émissions)" },
+            { native: "Le fait que certains pays refusent de coopérer constitue un obstacle majeur.", translation: "The fact that certain countries refuse to cooperate is a major obstacle. (le fait que + subjonctif)" },
+            { native: "Il convient de souligner les limites de cette approche.", translation: "It is appropriate to highlight the limitations of this approach. (formal: il convient de)" },
+            { native: "La mise en place de nouvelles mesures prendra du temps.", translation: "The implementation of new measures will take time. (nominalisation: mettre en place → la mise en place)" },
+            { native: "Force est de constater que les résultats sont décevants.", translation: "One must acknowledge that the results are disappointing. (fixed idiom: force est de constater)" },
+        ]
+    },
+    {
+        id: "fr-g-b2-11",
+        level: "B2",
+        title: "L'Inversion Stylistique — Questions et Registre Écrit",
+        explanation: {
+            native: "Subject-verb inversion in French has multiple formal uses beyond basic question formation (A2). Complex inversion: in formal/written questions, the noun subject is placed after the verb with a redundant pronoun: \"La France a-t-elle réellement changé?\" (\"La France\" + a + -t-elle). This structure is obligatory in formal written questions. Inversion after adverbials: certain discourse adverbs placed at the start of a clause trigger inversion: ainsi dit-il (so he said), peut-être est-il (perhaps he is), aussi doit-on (thus one must). Key adverbs that trigger inversion: ainsi, peut-être, à peine, encore, sans doute, aussi (in the sense of 'therefore'). Inverted quotation: \"Je viendrai demain, dit-il\" (he said).",
+            target: "L'inversion du sujet en français a plusieurs usages formels au-delà de la formation interrogative de base (A2). L'inversion complexe : dans les questions formelles et écrites, le sujet nominal est placé après le verbe avec un pronom de reprise : «La France a-t-elle réellement changé ?». Cette structure est obligatoire dans les questions écrites formelles. L'inversion après un adverbe : certains adverbes de discours en tête de phrase déclenchent l'inversion : ainsi dit-il, peut-être est-il vrai que, aussi doit-on. Adverbes déclencheurs clés : ainsi, peut-être, à peine, encore, sans doute, aussi (au sens de «donc»). L'inversion dans les incises de dialogue : «Je viendrai demain, dit-il.»"
+        },
+        examples: [
+            { native: "La société a-t-elle vraiment progressé ces dernières années ?", translation: "Has society really progressed in recent years? (complex inversion: noun subject + verb + pronoun)" },
+            { native: "Peut-être faudra-t-il reconsidérer cette politique.", translation: "Perhaps this policy will need to be reconsidered. (peut-être + inversion)" },
+            { native: "Ainsi parla-t-il devant toute l'assemblée.", translation: "Thus he spoke before the entire assembly. (ainsi + inversion — literary/formal)" },
+            { native: "À peine avait-il commencé que les problèmes surgirent.", translation: "He had barely started when problems arose. (à peine + inversion — literary)" },
+        ]
+    },
+    {
+        id: "fr-g-b2-12",
+        level: "B2",
+        title: "Subjonctif Avancé — Propositions Relatives et Structures Impersonnelles",
+        explanation: {
+            native: "At B2, the subjunctive extends beyond basic trigger phrases to: (1) Relative clauses with an indefinite, hypothetical or superlative antecedent: \"Je cherche quelqu'un qui puisse m'aider\" (anyone who can — possibility); \"C'est la seule solution qui soit viable\" (superlative/exclusive trigger). (2) Independent/optative subjunctive expressing a wish or prayer (formal register): \"Que la paix règne!\" \"Vive la République!\" (3) After certain conjunctions not yet covered: de peur que (for fear that), de crainte que, à supposer que (supposing that), pourvu que (provided that). (4) Subjunctive vs indicative contrast after verbs of thought in negative/interrogative: \"Je pense qu'il est là\" (positive → indicative) vs \"Je ne pense pas qu'il soit là\" (negative → subjunctive).",
+            target: "Au niveau B2, le subjonctif s'étend au-delà des déclencheurs de base : (1) Propositions relatives avec antécédent indéfini, hypothétique ou superlatif : «Je cherche quelqu'un qui puisse m'aider» ; «C'est la seule solution qui soit viable». (2) Subjonctif optatif indépendant exprimant un souhait ou une prière (registre soutenu) : «Que la paix règne !» «Vive la République !». (3) Après certaines conjonctions encore non couvertes : de peur que, de crainte que, à supposer que, pourvu que. (4) Contraste subjonctif/indicatif avec les verbes de pensée selon qu'ils sont affirmatifs, négatifs ou interrogatifs : «Je pense qu'il est là» (affirmatif → indicatif) vs «Je ne pense pas qu'il soit là» (négatif → subjonctif)."
+        },
+        examples: [
+            { native: "Je cherche un appartement qui soit proche du métro.", translation: "I'm looking for a flat that is close to the metro. (indefinite antecedent → subjunctive)" },
+            { native: "C'est la seule personne qui comprenne vraiment ce problème.", translation: "She is the only person who truly understands this problem. (superlative + seul → subjunctive)" },
+            { native: "Pourvu qu'il arrive à temps !", translation: "Provided he arrives on time! / Let's hope he arrives on time! (pourvu que = provided/hopefully)" },
+            { native: "Je ne crois pas que cette solution soit suffisante.", translation: "I don't believe that this solution is sufficient. (ne pas croire que → subjunctive)" },
+        ]
+    },
+    {
+        id: "fr-g-b2-13",
+        level: "B2",
+        title: "Le Conditionnel — Usages Journalistiques et Rhétoriques",
+        explanation: {
+            native: "Beyond the conditional in si-clauses, French uses the conditional in two important B2 contexts. (1) The journalistic conditional (conditionnel journalistique): used to report unverified information or to distance the writer from a claim: \"Le premier ministre aurait décidé de démissionner\" (it is reported that the prime minister has decided to resign — the writer is not confirming this). This is an obligatory convention in quality journalism. (2) The rhetorical/modal conditional: expressing polite distancing, hypothetical possibility, or nuanced statement not tied to a si-clause: \"Ce serait une erreur de tout arrêter\" (it would be a mistake); \"Il conviendrait d'examiner...\" (it would be appropriate to examine). These uses have no explicit condition — the conditional itself creates the softening effect.",
+            target: "Au-delà du conditionnel dans les phrases hypothétiques, le français utilise le conditionnel dans deux contextes B2 importants. (1) Le conditionnel journalistique : il est employé pour rapporter des informations non vérifiées ou pour se distancier d'une affirmation : «Le premier ministre aurait décidé de démissionner.» C'est une convention obligatoire dans la presse de qualité. (2) Le conditionnel rhétorique et modal : il exprime une prise de distance polie, une possibilité hypothétique ou un énoncé nuancé sans lien avec une proposition en si : «Ce serait une erreur de tout arrêter» ; «Il conviendrait d'examiner cette question plus en profondeur.» Ces emplois n'ont pas de condition explicite — c'est le conditionnel lui-même qui crée l'effet d'atténuation."
+        },
+        examples: [
+            { native: "Selon nos sources, le gouvernement aurait préparé un plan d'urgence.", translation: "According to our sources, the government reportedly prepared an emergency plan. (journalistic conditional)" },
+            { native: "Des milliers de personnes auraient manifesté dans la capitale.", translation: "Thousands of people are said to have demonstrated in the capital. (journalistic: unverified figure)" },
+            { native: "Il conviendrait de mener des investigations plus approfondies.", translation: "It would be appropriate to conduct more in-depth investigations. (modal conditional in formal writing)" },
+            { native: "Ce serait méconnaître la complexité du problème que d'accepter cette conclusion.", translation: "To accept this conclusion would be to misunderstand the complexity of the problem. (rhetorical conditional)" },
+        ]
+    },
 ]

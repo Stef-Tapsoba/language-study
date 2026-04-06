@@ -1,6 +1,6 @@
 import { VocabItem } from "../../../types"
 
-// B2 vocabulary — 80 items.
+// B2 vocabulary — 104 items.
 
 export const b2Vocab: VocabItem[] = [
     // --- Politics & Society (10) ---
@@ -114,4 +114,24 @@ export const b2Vocab: VocabItem[] = [
     { id: "es-v-b2-090", level: "B2", word: "estar en las nubes", translation: "to be daydreaming / have one's head in the clouds", category: "Idioms & Collocations", example: { native: "Siempre está en las nubes durante las reuniones.", translation: "He's always daydreaming during meetings." } },
     { id: "es-v-b2-091", level: "B2", word: "no hay mal que por bien no venga", translation: "every cloud has a silver lining", category: "Idioms & Collocations", example: { native: "Perdí ese trabajo, pero encontré uno mejor. No hay mal que por bien no venga.", translation: "I lost that job, but found a better one. Every cloud has a silver lining." } },
     { id: "es-v-b2-092", level: "B2", word: "no dar palo al agua", translation: "to not lift a finger / to do absolutely nothing", category: "Idioms & Collocations", example: { native: "No da palo al agua en todo el día.", translation: "He doesn't lift a finger all day." } },
+
+    // --- Journalistic & Evidential Language (4) ---
+    { id: "es-v-b2-093", level: "B2", word: "según fuentes", translation: "according to sources", category: "Journalistic Language", example: { native: "Según fuentes cercanas al gobierno, el ministro habría dimitido.", translation: "According to sources close to the government, the minister is said to have resigned." } },
+    { id: "es-v-b2-094", level: "B2", word: "al parecer", translation: "apparently / it seems", category: "Journalistic Language", example: { native: "Al parecer, las negociaciones habrían fracasado.", translation: "Apparently, the negotiations are said to have broken down." } },
+    { id: "es-v-b2-095", level: "B2", word: "presuntamente", translation: "allegedly / purportedly", category: "Journalistic Language", example: { native: "El acusado habría presuntamente falsificado los documentos.", translation: "The accused allegedly falsified the documents." } },
+    { id: "es-v-b2-096", level: "B2", word: "dimitir", translation: "to resign (from a post)", category: "Journalistic Language", example: { native: "El director habría decidido dimitir tras el escándalo.", translation: "The director is said to have decided to resign following the scandal." } },
+
+    // --- Nominalisation & Academic Structures (4) ---
+    { id: "es-v-b2-097", level: "B2", word: "el hecho de que", translation: "the fact that (+ subjunctive)", category: "Formal Academic Connectors", example: { native: "El hecho de que no haya respuesta es significativo.", translation: "The fact that there is no response is significant." } },
+    { id: "es-v-b2-098", level: "B2", word: "hay que tener en cuenta que", translation: "it must be borne in mind that / one must consider that", category: "Formal Academic Connectors", example: { native: "Hay que tener en cuenta que los datos son preliminares.", translation: "It must be borne in mind that the data are preliminary." } },
+    { id: "es-v-b2-099", level: "B2", word: "lo que más llama la atención", translation: "what is most striking / what stands out most", category: "Formal Academic Connectors", example: { native: "Lo que más llama la atención es la velocidad del cambio.", translation: "What is most striking is the speed of the change." } },
+    { id: "es-v-b2-100", level: "B2", word: "la implementación", translation: "implementation", category: "Formal Academic Connectors", example: { native: "La implementación del plan requiere coordinación entre departamentos.", translation: "The implementation of the plan requires coordination between departments." } },
+
+    // --- Emphasis & Cleft Structures (2) ---
+    { id: "es-v-b2-101", level: "B2", word: "es...lo que / es...quien", translation: "it is...that / it is...who (cleft sentence)", category: "Formal Academic Connectors", example: { native: "Es la comunicación lo que más valoran los empleados.", translation: "It is communication that employees value most." } },
+    { id: "es-v-b2-102", level: "B2", word: "fue...cuando", translation: "it was...when (emphatic cleft)", category: "Formal Academic Connectors", example: { native: "Fue en ese instante cuando comprendimos la gravedad.", translation: "It was at that moment that we understood the gravity of the situation." } },
+
+    // --- Ser/Estar Idiomatic Pairs (2) ---
+    { id: "es-v-b2-103", level: "B2", word: "estar vivo / ser vivo", translation: "to be alive (state) / to be sharp/clever (characteristic)", category: "Ser & Estar Pairs", example: { native: "Está vivo gracias a los médicos. / Es muy vivo — aprende todo enseguida.", translation: "He is alive thanks to the doctors. / He is very sharp — he picks everything up instantly." } },
+    { id: "es-v-b2-104", level: "B2", word: "estar listo / ser listo", translation: "to be ready (state) / to be clever (characteristic)", category: "Ser & Estar Pairs", example: { native: "La cena ya está lista. / Es muy lista — siempre encuentra la solución.", translation: "Dinner is already ready. / She is very clever — she always finds the solution." } },
 ]

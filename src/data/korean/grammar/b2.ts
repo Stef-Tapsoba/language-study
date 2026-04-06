@@ -119,5 +119,80 @@ export const b2Grammar: GrammarLesson[] = [
             { native: "반면에, 긍정적인 결과도 나타났다.", romanized: "Banmyeone, geungjeongjeok in gyeolgwado natannatda.", translation: "On the other hand, positive results also appeared." },
             { native: "이 현상은 복잡한 사회적 요인에 기인함을 알 수 있다.", romanized: "I hyeonsang eun bokjap an sahoejeogyoin e giin ham eul al su itda.", translation: "It can be understood that this phenomenon is attributable to complex social factors. (formal -(으)ㅁ nominalisation)" },
         ]
+    },
+    {
+        id: "ko-g-b2-9",
+        level: "B2",
+        title: "-(으)므로: Formal Causal Connector (Academic Writing)",
+        explanation: {
+            native: "~(으)므로 is a formal written causal connector meaning \"because\" or \"therefore\", used almost exclusively in academic writing, official documents, news and formal reports. It is NEVER used in casual conversation (use ~아/어서 or ~기 때문에 for spoken contexts). Attachment: verb/adjective stem + (으)므로. Consonant-ending stems: add ~으므로; vowel-ending stems: add ~므로. It can link two clauses within a sentence or appear at the end of a clause. Key distinction: ~기 때문에 (B1 — causal, can be used in conversation) vs ~(으)므로 (B2 — formal written only). Common contexts: legal documents, academic papers, news articles, official announcements.",
+            target: "~(으)므로는 '때문에' 또는 '그러므로'를 의미하는 격식체 인과 접속어로, 학술 글쓰기, 공문서, 뉴스, 공식 보고서에서만 사용됩니다. 일상 대화에서는 절대 사용하지 않으며(구어체에서는 ~아/어서나 ~기 때문에를 사용), 자음으로 끝나는 어간에는 ~으므로를, 모음으로 끝나는 어간에는 ~므로를 붙입니다. 문장 내 두 절을 연결하거나 절 끝에 올 수 있습니다. 핵심 구별: ~기 때문에(B1 — 인과, 대화에서도 사용 가능) vs ~(으)므로(B2 — 격식 문어체 전용). 주요 맥락: 법률 문서, 학술 논문, 뉴스 기사, 공식 발표문."
+        },
+        examples: [
+            { native: "이 연구는 표본 수가 충분하지 않으므로 결과를 일반화하기 어렵다.", romanized: "I yeonguneun pyobon suga chungbunhaji aneulmuro gyeolwareul ilbanhwahagi eoryeopda.", translation: "Because this study has an insufficient sample size, it is difficult to generalise the results." },
+            { native: "날씨가 좋지 않으므로 야외 행사는 취소되었습니다.", romanized: "Nalssiga jochi aneulmuro yaoe haengsaneun chwisodoeeotsseumnida.", translation: "Since the weather is not good, the outdoor event has been cancelled." },
+            { native: "이 법은 모든 시민에게 적용되므로 예외는 없습니다.", romanized: "I beobeun modeun simineoge jeogyongdoemeurog yewoineun eopseumnida.", translation: "Since this law applies to all citizens, there are no exceptions." },
+            { native: "비용이 초과되었으므로 예산 조정이 필요합니다.", romanized: "Biyongi chogwadoeotsseulmuro yesan jojeoni pilyoamnida.", translation: "Since costs have been exceeded, budget adjustment is needed." }
+        ]
+    },
+    {
+        id: "ko-g-b2-10",
+        level: "B2",
+        title: "-(으)ㅁ: Formal Nominalisation in Academic Korean",
+        explanation: {
+            native: "~(으)ㅁ is a formal nominalising suffix that converts a verb or adjective into a noun form used in written/formal registers. It creates a more formal, literary noun compared to ~기 (B1) or ~는 것 (B1). Attachment: verb/adjective stem + ㅁ (after vowel) or 음 (after consonant). Examples: 알다 → 앎 (knowledge), 살다 → 삶 (life/living), 죽다 → 죽음 (death), 믿다 → 믿음 (faith/trust). Many ~(으)ㅁ forms have lexicalised into standard nouns. Use in formal sentences: as subject/object in academic writing: \"자유란 스스로 결정할 수 있음을 의미한다\" (Freedom means being able to decide for oneself). Contrast: ~기 (infinitival — process-focused) vs ~(으)ㅁ (nominal — result/fact-focused, more formal).",
+            target: "~(으)ㅁ은 동사나 형용사를 문어체·격식체에서 사용하는 명사 형태로 바꾸는 격식 명사화 접미사입니다. ~기(B1)나 ~는 것(B1)보다 더 격식적이고 문어적인 명사를 만듭니다. 붙이는 방법: 모음 어간 + ㅁ, 자음 어간 + 음. 예: 알다 → 앎, 살다 → 삶, 죽다 → 죽음, 믿다 → 믿음. 많은 ~(으)ㅁ 형태는 일반 명사로 굳어졌습니다. 격식체 문장에서 주어나 목적어로 쓰입니다: «자유란 스스로 결정할 수 있음을 의미한다». 비교: ~기(부정사 — 과정 중심) vs ~(으)ㅁ(명사 — 결과/사실 중심, 더 격식적)."
+        },
+        examples: [
+            { native: "삶이란 선택의 연속이다.", romanized: "Sami-ran seonteagui yeonsokida.", translation: "Life is a series of choices. (삶 = lexicalised ~(으)ㅁ form of 살다)" },
+            { native: "그의 죽음은 많은 사람에게 충격을 주었다.", romanized: "Geuui jugeumeon manheun saramege chunggyeogeul jueotsda.", translation: "His death was a shock to many people. (죽음 = ~(으)ㅁ form of 죽다)" },
+            { native: "자유란 스스로 결정할 수 있음을 의미한다.", romanized: "Jayuran seuseuro gyeoljeonghal su isseumeul uimihanda.", translation: "Freedom means being able to decide for oneself. (~(으)ㅁ as object in formal definition)" },
+            { native: "이 문제의 해결됨이 확인되었다.", romanized: "I munjeui haegyeoldoeomi hwagindoeotsda.", translation: "The resolution of this problem was confirmed. (formal academic usage)" }
+        ]
+    },
+    {
+        id: "ko-g-b2-11",
+        level: "B2",
+        title: "~에 따라 / ~에 따르면: Academic Citation and Formal Conditionality",
+        explanation: {
+            native: "~에 따라 (depending on / according to / in accordance with) and ~에 따르면 (according to) are essential formal structures in academic Korean. ~에 따라: attaches to nouns; expresses \"depending on X\" or \"in accordance with X\": \"상황에 따라 대응 방법이 달라질 수 있다\" (the response method can vary depending on the situation). ~에 따르면: used specifically for citation and attribution — \"연구에 따르면\" (according to the study), \"전문가에 따르면\" (according to experts). These differ from ~에 의하면 (also citation-like but slightly more formal/written). ~에 따라 vs ~에 의해: 에 따라 = dependent on/in line with; 에 의해 = passive agent marker (by X). Both appear constantly in news, research papers, and formal reports.",
+            target: "~에 따라와 ~에 따르면은 학술 한국어에서 필수적인 격식 표현입니다. ~에 따라: 명사에 붙어 '~에 따르면' 또는 '~에 맞춰'를 의미합니다: «상황에 따라 대응 방법이 달라질 수 있다». ~에 따르면: 인용과 출처 밝히기에 사용됩니다 — «연구에 따르면», «전문가에 따르면». ~에 의하면과는 구별됩니다(~에 의하면은 더 격식적이고 문어적). ~에 따라 vs ~에 의해: 에 따라 = ~에 따라서/~에 맞춰; 에 의해 = 피동 행위자 표시(~에 의해). 뉴스, 연구 논문, 공식 보고서에 빈번하게 등장합니다."
+        },
+        examples: [
+            { native: "연구에 따르면, 수면 부족은 인지 기능에 부정적인 영향을 미친다.", romanized: "Yeongu e ttareumyeon, sumyeon bujogeun inji ginung e bujeongjeog-in yeonghyang-eul michinda.", translation: "According to the study, sleep deprivation has a negative effect on cognitive function." },
+            { native: "상황에 따라 적절한 전략이 달라진다.", romanized: "Sanghwang e ttara jeokcheolhan jeonryagi dallaajinda.", translation: "The appropriate strategy varies depending on the situation." },
+            { native: "정부 정책에 따라 기업들은 새로운 기준을 따라야 한다.", romanized: "Jeongbu jeongchaeg e ttara gieopdeureun saeroun gijeoneul ttarayahanda.", translation: "Companies must follow new standards in accordance with government policy." },
+            { native: "전문가에 따르면, 이 문제는 단기적으로 해결되기 어렵다.", romanized: "Jeonmunga e ttareumyeon, i munjeneun dangijeog-euro haegyeoldoegi eoryeopda.", translation: "According to experts, this problem is difficult to resolve in the short term." }
+        ]
+    },
+    {
+        id: "ko-g-b2-12",
+        level: "B2",
+        title: "~한편 / ~반면에: Academic Contrast and Balanced Argumentation",
+        explanation: {
+            native: "~한편 (on the other hand / meanwhile / at the same time) and ~반면에 (on the other hand / in contrast) are essential discourse connectors for balanced academic argumentation in Korean. ~한편 introduces an additional perspective, an alternative aspect, or a simultaneous development: \"경제는 성장하고 있다. 한편, 불평등은 심화되고 있다.\" ~반면에 explicitly contrasts two opposing elements: \"A국의 출산율은 증가하고 있는 반면에, B국의 출산율은 감소하고 있다.\" Both appear constantly in formal Korean writing, news commentary, and TOPIK writing tasks. Compare to the conversational equivalent: 그런데 (but/however — casual/neutral); 하지만 (but — neutral, B1). These B2 connectors signal a more formal, analytical register.",
+            target: "~한편과 ~반면에는 한국어 학술 글쓰기의 균형 잡힌 논증에 필수적인 담화 접속어입니다. ~한편은 추가적인 관점, 다른 측면, 또는 동시에 일어나는 발전을 소개합니다: «경제는 성장하고 있다. 한편, 불평등은 심화되고 있다.» ~반면에는 두 가지 대립되는 요소를 명시적으로 대조합니다: «A국의 출산율은 증가하고 있는 반면에, B국은 감소하고 있다.» 둘 다 격식체 한국어 글쓰기, 뉴스 논평, TOPIK 쓰기 과제에 자주 나타납니다. 구어체 대응어: 그런데(일상/중립), 하지만(중립, B1). 이 B2 접속어들은 더 격식적이고 분석적인 문체를 나타냅니다."
+        },
+        examples: [
+            { native: "경제 성장률은 회복세를 보이고 있다. 한편, 실업률은 여전히 높은 수준을 유지하고 있다.", romanized: "Gyeongje seongjangnyureun hoeboksereul boigo itda. Hanpyeon, sireomnyureun yeojeonhi nop-eun sujeoneul yujiaegoitda.", translation: "The economic growth rate is showing signs of recovery. On the other hand, the unemployment rate remains at a high level." },
+            { native: "도시 지역의 인구는 급격히 증가하고 있는 반면에, 농촌 지역은 인구 감소를 겪고 있다.", romanized: "Dosi jigyeog-ui inggoneun geupgyeokhi jeunggahago itneun banmyeon-e, nongchon jigyeogeun inggu gamsoreul gyeokgo itda.", translation: "While urban areas are experiencing rapid population growth, rural areas are suffering population decline." },
+            { native: "이 기술은 생산성을 높이는 반면에, 일자리 감소를 초래할 수 있다.", romanized: "I gisureun saengsanseong-eul nop-ineun banmyeon-e, iljari gamsoreul choraehal su itda.", translation: "While this technology increases productivity, it may lead to job losses." },
+            { native: "한편으로는 개인의 자유가 중요하고, 다른 한편으로는 사회적 책임도 중요하다.", romanized: "Hanpyeon-euroneun gaeinui jayuga jungyohago, dareun hanpyeon-euroneun sahoejeok chaegimdo jungyohada.", translation: "On one hand, individual freedom is important; on the other hand, social responsibility is also important." }
+        ]
+    },
+    {
+        id: "ko-g-b2-13",
+        level: "B2",
+        title: "사동 (使動): Causative Verbs — Active Production",
+        explanation: {
+            native: "Causative verbs (사동사) express \"making/letting/having someone do something\". Korean has two causative types. (1) Morphological causatives: formed by adding ~이, ~히, ~리, ~기, ~우, ~추 suffixes to verb stems. These must be memorised as vocabulary items: 먹다 → 먹이다 (to feed), 입다 → 입히다 (to dress someone), 읽다 → 읽히다 (to make/have someone read), 앉다 → 앉히다 (to seat someone), 웃다 → 웃기다 (to make someone laugh). (2) Analytical causative: verb stem + ~게 하다 — general productive causative usable with any verb: \"공부하게 하다\" (to make/let study), \"일하게 하다\" (to make/let work). The suffix causative is often more natural for basic verbs; ~게 하다 is used for others. In context: subject + object marker(을/를) + causative verb. The caused person takes either 에게 or 을/를 depending on the verb.",
+            target: "사동사는 '누군가에게 어떤 행동을 하게 만들다/시키다'를 표현합니다. 한국어 사동에는 두 가지 유형이 있습니다. (1) 형태적 사동: 동사 어간에 ~이, ~히, ~리, ~기, ~우, ~추 접미사를 붙입니다. 어휘 항목으로 외워야 합니다: 먹다 → 먹이다, 입다 → 입히다, 읽다 → 읽히다, 앉다 → 앉히다, 웃다 → 웃기다. (2) 분석적 사동: 동사 어간 + ~게 하다 — 모든 동사에 사용 가능한 생산적 사동: «공부하게 하다», «일하게 하다». 접미사 사동은 기본 동사에 더 자연스럽고, ~게 하다는 다른 동사에 사용됩니다. 문맥에서: 주어 + 목적어(을/를) + 사동사. 피사동자는 동사에 따라 에게 또는 을/를 취합니다."
+        },
+        examples: [
+            { native: "엄마가 아이에게 밥을 먹였어요.", romanized: "Eomma ga ai ege bab eul meogyeosseoyo.", translation: "The mother fed the child. (먹다 → 먹이다: ~이 causative)" },
+            { native: "선생님이 학생들을 앉혔어요.", romanized: "Seonsaengnimi haksaengdeureul anjeosseoyo.", translation: "The teacher seated the students. (앉다 → 앉히다: ~히 causative)" },
+            { native: "부모님이 저를 공부하게 했어요.", romanized: "Bumonnimi jeoreul gongbuhage haesseoyo.", translation: "My parents made me study. (~게 하다 analytical causative)" },
+            { native: "그 농담이 모두를 웃겼어요.", romanized: "Geu nongdami modureul utgyeosseoyo.", translation: "That joke made everyone laugh. (웃다 → 웃기다: ~기 causative)" }
+        ]
     }
 ]

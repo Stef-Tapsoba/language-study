@@ -146,4 +146,77 @@ export const b2Units: LessonUnit[] = [
             { id: "fr-b2-u8-q6", level: "B2", prompt: "What does 'avoir le vent en poupe' mean?", options: ["to be in trouble", "to be sailing into the wind", "to be doing very well / to have the wind in your sails", "to be undecided"], answer: "to be doing very well / to have the wind in your sails", hint: "Avoir le vent en poupe = to be on a winning streak. Idiomatic — can't be guessed from the parts." },
         ]
     },
+    {
+        id: "fr-b2-u9",
+        level: "B2",
+        order: 9,
+        title: "L'Imparfait du Subjonctif",
+        description: "Recognise the literary imparfait du subjonctif in formal and historical texts, understand its formation, and distinguish it from the subjonctif présent.",
+        grammarIds: ["fr-g-b2-9"],
+        vocabIds: ["fr-v-b2-071", "fr-v-b2-072", "fr-v-b2-073"],
+        verbIds: ["fr-vb-b2-1"],
+        testQuestions: [
+            { id: "fr-b2-u9-q1", level: "B2", prompt: "Which form is the imparfait du subjonctif of 'être' (il/elle)?", options: ["soit", "fût", "fut", "serait"], answer: "fût", hint: "être → passé simple: fut → drop -t, add circumflex → fût. The hat (^) marks the il/elle/on form." },
+            { id: "fr-b2-u9-q2", level: "B2", prompt: "Which form is the imparfait du subjonctif of 'avoir' (il/elle)?", options: ["ait", "avait", "eût", "eut"], answer: "eût", hint: "avoir → passé simple: eut → add circumflex → eût. Distinguish from passé simple eut (no accent)." },
+            { id: "fr-b2-u9-q3", level: "B2", prompt: "Identify the imparfait du subjonctif in: 'Il fallait qu'il partît avant l'aube.'", options: ["fallait", "partît", "avant", "aube"], answer: "partît", hint: "Partît = imparfait du subj. of partir (il). Circumflex on -î- before -t is the key marker." },
+            { id: "fr-b2-u9-q4", level: "B2", prompt: "In modern spoken French, what replaces the imparfait du subjonctif?", options: ["L'imparfait de l'indicatif", "Le subjonctif présent", "Le conditionnel présent", "Le passé composé"], answer: "Le subjonctif présent", hint: "Modern spoken French uses subjonctif présent where formal/literary texts use imparfait du subjonctif." },
+            { id: "fr-b2-u9-q5", level: "B2", prompt: "In which register is the imparfait du subjonctif still found today?", options: ["Casual conversation", "Text messages", "Literary and formal written texts", "Everyday journalism"], answer: "Literary and formal written texts", hint: "The imparfait du subjonctif is a literary/soutenu tense. It survives in classic literature and very formal prose." },
+            { id: "fr-b2-u9-q6", level: "B2", prompt: "What does 'bien que' require in both modern and literary French?", options: ["Indicatif", "Conditionnel", "Subjonctif (présent in modern; imparfait du subj. in literary)", "Infinitif"], answer: "Subjonctif (présent in modern; imparfait du subj. in literary)", hint: "Bien que always triggers the subjonctif. In formal/literary past contexts: imparfait du subjonctif." },
+        ]
+    },
+    {
+        id: "fr-b2-u10",
+        level: "B2",
+        order: 10,
+        title: "La Nominalisation et l'Écriture Formelle",
+        description: "Transform verbs and adjectives into noun phrases to write with the concise, impersonal style of academic and journalistic French.",
+        grammarIds: ["fr-g-b2-10"],
+        vocabIds: ["fr-v-b2-074", "fr-v-b2-075", "fr-v-b2-076", "fr-v-b2-077"],
+        verbIds: ["fr-vb-b2-2"],
+        testQuestions: [
+            { id: "fr-b2-u10-q1", level: "B2", prompt: "Which is the nominalised form of 'réformer'?", options: ["la réforme", "le réformateur", "la réformation", "réformatoire"], answer: "la réforme", hint: "réformer → la réforme. Nominalisation converts a verb into its corresponding noun form." },
+            { id: "fr-b2-u10-q2", level: "B2", prompt: "Nominalise: 'Le gouvernement a décidé de...' → '___ du gouvernement de...'", options: ["La décision", "Le décideur", "Le décidement", "La déclaration"], answer: "La décision", hint: "décider → la décision. Nominalisation replaces a verb clause with a noun phrase in formal writing." },
+            { id: "fr-b2-u10-q3", level: "B2", prompt: "What verb mood does 'le fait que' trigger in formal argumentation?", options: ["Indicatif", "Conditionnel", "Subjonctif", "Infinitif"], answer: "Subjonctif", hint: "Le fait que + subjonctif is the standard construction in formal written French." },
+            { id: "fr-b2-u10-q4", level: "B2", prompt: "What does 'il convient de + infinitif' mean in formal French?", options: ["it is convenient to", "it is appropriate / it is fitting to", "it is necessary that", "it is said that"], answer: "it is appropriate / it is fitting to", hint: "Il convient de = it is appropriate / it is fitting to. A key impersonal formal structure." },
+            { id: "fr-b2-u10-q5", level: "B2", prompt: "What does the fixed phrase 'force est de constater que' mean?", options: ["it is forbidden to note that", "one is forced to acknowledge that / one must note that", "it is hoped that", "it is denied that"], answer: "one is forced to acknowledge that / one must note that", hint: "Force est de constater que = one cannot help but acknowledge. A fixed formal idiom." },
+            { id: "fr-b2-u10-q6", level: "B2", prompt: "Which sentence uses nominalisation correctly?", options: ["La mise en place de nouvelles mesures prendra du temps.", "Mettre en place de nouvelles mesures prendront du temps.", "Le fait mettre des mesures en place est long.", "Il faut qu'on mette place les mesures."], answer: "La mise en place de nouvelles mesures prendra du temps.", hint: "Mettre en place → la mise en place. Nominalisation: verb phrase becomes noun phrase, formal and concise." },
+        ]
+    },
+    {
+        id: "fr-b2-u11",
+        level: "B2",
+        order: 11,
+        title: "L'Inversion et le Subjonctif Avancé",
+        description: "Master complex subject-verb inversion in formal questions and after adverbials, and extend your subjunctive use to relative clauses and advanced conjunctions.",
+        grammarIds: ["fr-g-b2-11", "fr-g-b2-12"],
+        vocabIds: ["fr-v-b2-078", "fr-v-b2-079", "fr-v-b2-080"],
+        verbIds: ["fr-vb-b2-3"],
+        testQuestions: [
+            { id: "fr-b2-u11-q1", level: "B2", prompt: "Which is the correctly formed complex inversion question?", options: ["La France a-t-elle réellement changé ?", "La France a réellement changé ?", "A-t-elle La France réellement changé ?", "Est-ce que La France a réellement changé ?"], answer: "La France a-t-elle réellement changé ?", hint: "Complex inversion: noun subject + verb + redundant pronoun (a-t-elle). Obligatory in formal written questions." },
+            { id: "fr-b2-u11-q2", level: "B2", prompt: "Complete with correct inversion: 'Peut-être ___ reconsidérer cette politique.'", options: ["faudra-t-il", "il faudra", "faudrait-il", "il faudrait"], answer: "faudra-t-il", hint: "Peut-être at the start of a clause triggers inversion: Peut-être faudra-t-il = Perhaps it will be necessary." },
+            { id: "fr-b2-u11-q3", level: "B2", prompt: "Which adverb at the start of a clause does NOT normally trigger subject-verb inversion?", options: ["Ainsi", "Peut-être", "Pourtant", "Sans doute"], answer: "Pourtant", hint: "Pourtant (however) does not trigger inversion. Ainsi, peut-être, sans doute, à peine, and aussi (= therefore) do." },
+            { id: "fr-b2-u11-q4", level: "B2", prompt: "Why is the subjunctive used in: 'Je cherche un appartement qui soit proche du métro'?", options: ["Because chercher requires subjunctive", "Because the antecedent is indefinite/hypothetical", "Because proximity requires subjunctive", "Because it is a superlative clause"], answer: "Because the antecedent is indefinite/hypothetical", hint: "Indefinite antecedent (any apartment matching the condition) → subjunctive in the relative clause." },
+            { id: "fr-b2-u11-q5", level: "B2", prompt: "Complete: 'C'est la seule personne qui ___ vraiment ce problème.' (comprendre)", options: ["comprend", "comprendrait", "comprenne", "comprendra"], answer: "comprenne", hint: "Seul/unique/premier/dernier as antecedent trigger subjunctive in the relative clause: comprenne." },
+            { id: "fr-b2-u11-q6", level: "B2", prompt: "What does 'pourvu que' mean and what mood does it take?", options: ["provided that + subjonctif", "although + indicatif", "given that + subjonctif", "so that + conditionnel"], answer: "provided that + subjonctif", hint: "Pourvu que = provided that / let's hope that. Always takes the subjonctif." },
+        ]
+    },
+    {
+        id: "fr-b2-u12",
+        level: "B2",
+        order: 12,
+        title: "Le Conditionnel Journalistique et Récapitulation B2",
+        description: "Use the journalistic and rhetorical conditional to report unverified claims and create formal distancing — and consolidate the full B2 grammar range.",
+        grammarIds: ["fr-g-b2-13"],
+        vocabIds: ["fr-v-b2-081", "fr-v-b2-082", "fr-v-b2-083", "fr-v-b2-084"],
+        verbIds: ["fr-vb-b2-4"],
+        readingIds: ["fr-r-b2-4"],
+        testQuestions: [
+            { id: "fr-b2-u12-q1", level: "B2", prompt: "What does the journalistic conditional signal in: 'Le gouvernement aurait préparé un plan d'urgence'?", options: ["A confirmed past event", "A hypothetical future event", "Unverified / alleged information reported at a distance", "A regret about the past"], answer: "Unverified / alleged information reported at a distance", hint: "Conditionnel journalistique = the writer distances themselves from unconfirmed information. 'Reportedly'." },
+            { id: "fr-b2-u12-q2", level: "B2", prompt: "Which sentence uses the journalistic conditional correctly?", options: ["Le président a démissionné hier.", "Le président aurait démissionné hier.", "Le président démissionnait hier.", "Le président va démissionner hier."], answer: "Le président aurait démissionné hier.", hint: "Aurait + past participle = conditionnel passé used journalistically. The information is unconfirmed." },
+            { id: "fr-b2-u12-q3", level: "B2", prompt: "What is the difference between 'Le ministre a signé l'accord' and 'Le ministre aurait signé l'accord'?", options: ["No difference — both mean the same", "The first is confirmed; the second is alleged/reported", "The first is past; the second is future", "The first is formal; the second is colloquial"], answer: "The first is confirmed; the second is alleged/reported", hint: "Indicatif = confirmed fact. Conditionnel journalistique = reported but not verified. A crucial press distinction." },
+            { id: "fr-b2-u12-q4", level: "B2", prompt: "What does 'il conviendrait de + infinitif' express?", options: ["A confirmed obligation", "A strong command", "A polite / distanced recommendation (it would be appropriate to)", "A past regret"], answer: "A polite / distanced recommendation (it would be appropriate to)", hint: "Il conviendrait de = modal/rhetorical conditional expressing a softened, formal recommendation." },
+            { id: "fr-b2-u12-q5", level: "B2", prompt: "What does 'selon nos sources' signal in a news article?", options: ["The information is confirmed by official documents", "The information comes from unidentified sources and may be unverified", "The information is the journalist's personal opinion", "The information is historical"], answer: "The information comes from unidentified sources and may be unverified", hint: "Selon nos sources + conditionnel journalistique = classic press formula for unverified sourced claims." },
+            { id: "fr-b2-u12-q6", level: "B2", prompt: "Which sentence is an example of the rhetorical/modal conditional (no explicit si-clause)?", options: ["Si j'avais su, j'aurais refusé.", "Ce serait une erreur de rejeter cette proposition.", "Il viendrait si tu l'invitais.", "Elle aurait réussi si elle avait étudié."], answer: "Ce serait une erreur de rejeter cette proposition.", hint: "Rhetorical conditional: no si-clause — the conditional itself creates the distancing/hypothetical nuance." },
+        ]
+    },
 ]
