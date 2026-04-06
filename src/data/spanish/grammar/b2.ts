@@ -1,6 +1,6 @@
 import { GrammarLesson } from "../../../types"
 
-// B2 grammar — 5 lessons.
+// B2 grammar — 13 lessons.
 
 export const b2Grammar: GrammarLesson[] = [
     {
@@ -119,6 +119,81 @@ export const b2Grammar: GrammarLesson[] = [
             { native: "Habida cuenta de los resultados, se impone una revisión de la estrategia.", translation: "Given the results, a review of the strategy is necessary. (formal)" },
             { native: "No obstante las dificultades, el proyecto avanzó.", translation: "Nevertheless the difficulties, the project moved forward." },
             { native: "Al final, no hay mal que por bien no venga — el accidente nos hizo más prudentes.", translation: "In the end, every cloud has a silver lining — the accident made us more careful." },
+        ]
+    },
+    {
+        id: "es-g-b2-9",
+        level: "B2",
+        title: "El Subjuntivo Imperfecto — Más Allá de las Condicionales",
+        explanation: {
+            native: "At B2, the imperfecto de subjuntivo extends beyond si-clauses to: (1) Independent/optative use expressing wishes, laments or polite requests: '¡Ojalá pudiera quedarme!' / '¡Quién supiera la respuesta!' / 'Quisiera hablar contigo' (quisiera = very polite form of querer). (2) Reported speech with a past reporting verb: 'Le dijo que viniera' (He told her to come) — the imperative shifts to imperfecto de subjuntivo in reported commands with past-tense trigger. (3) Concessive clauses: 'Por mucho que trabajara, nunca lo conseguiría' (No matter how hard he worked...). (4) Temporal clauses with past reference: 'Esperó hasta que llegara' (He waited until she arrived — past temporal with subjunctive).",
+            target: "En B2, el imperfecto de subjuntivo se extiende más allá de las oraciones condicionales: (1) Uso optativo independiente para expresar deseos o lamentos: «¡Ojalá pudiera quedarme!» / «Quisiera hablar contigo». (2) Estilo indirecto con verbo introductor en pasado: «Le dijo que viniera» — el imperativo se transforma en imperfecto de subjuntivo en los mandatos reportados con tiempo pasado. (3) Oraciones concesivas: «Por mucho que trabajara, nunca lo conseguiría». (4) Oraciones temporales con referencia pasada: «Esperó hasta que llegara»."
+        },
+        examples: [
+            { native: "¡Ojalá tuviéramos más tiempo para hablar!", translation: "I wish we had more time to talk! (optative ojalá + imperf. subj.)" },
+            { native: "Le pidió que trajeran los documentos al día siguiente.", translation: "She asked them to bring the documents the next day. (reported command → imperfecto subj.)" },
+            { native: "Por difícil que fuera la situación, siguieron adelante.", translation: "However difficult the situation was, they carried on. (concessive por + adjective + que)" },
+            { native: "Quisiera pedirte un favor, si no es mucha molestia.", translation: "I would like to ask you a favour, if it's not too much trouble. (quisiera = very polite request)" }
+        ]
+    },
+    {
+        id: "es-g-b2-10",
+        level: "B2",
+        title: "La Nominalización — Español Académico y Formal",
+        explanation: {
+            native: "Nominalisation converts verbs and adjectives into noun forms, producing the dense, impersonal style of formal written Spanish. Key patterns: verb → noun (desarrollar → el desarrollo, reducir → la reducción, implementar → la implementación); adjective → noun (libre → la libertad, justo → la justicia). The structure 'el hecho de que + subjuntivo' is a key nominalisation trigger in formal argumentation. 'El que/la que + subjuntivo' also nominalises clauses. Impersonal nominalisations: 'es importante señalar que', 'cabe destacar que', 'hay que tener en cuenta que'. Relative nominalisations using lo: 'lo que más llama la atención es...' (what is most striking is...).",
+            target: "La nominalización convierte verbos y adjetivos en formas nominales, produciendo el estilo denso e impersonal del español escrito formal. Patrones clave: verbo → nombre (desarrollar → el desarrollo, reducir → la reducción, implementar → la implementación); adjetivo → nombre (libre → la libertad). La estructura «el hecho de que + subjuntivo» es un detonante clave en la argumentación formal. «El que/la que + subjuntivo» también nominaliza cláusulas. Nominalizaciones impersonales: «es importante señalar que», «cabe destacar que», «hay que tener en cuenta que». La nominalización con lo: «lo que más llama la atención es...»."
+        },
+        examples: [
+            { native: "El desarrollo sostenible es una prioridad global.", translation: "Sustainable development is a global priority. (nominalisation: desarrollar → el desarrollo)" },
+            { native: "El hecho de que no se hayan tomado medidas es preocupante.", translation: "The fact that no measures have been taken is worrying. (el hecho de que + subj.)" },
+            { native: "Cabe destacar que los resultados superaron todas las expectativas.", translation: "It is worth noting that the results exceeded all expectations. (formal: cabe destacar que)" },
+            { native: "Lo que más sorprende es la rapidez del cambio.", translation: "What is most surprising is the speed of the change. (lo que = nominalised clause)" }
+        ]
+    },
+    {
+        id: "es-g-b2-11",
+        level: "B2",
+        title: "Estructuras de Énfasis — Las Perífrasis de Relativo y el Estilo Formal",
+        explanation: {
+            native: "Spanish uses cleft sentences and emphatic structures to focus attention on a particular element. Types: (1) Es + noun/adjective + que/quien: 'Es el desempleo lo que más preocupa' (It is unemployment that worries most). Note: lo que is used when the focus is on a clause; quien is used for people. (2) Lo que...es: 'Lo que no entiendo es por qué dimitió' (What I don't understand is why he resigned). (3) El/la/los/las + noun + que: 'La razón por la que dimitió fue...' (The reason for which he resigned was...). (4) Ser + participio + por: passive emphasis — 'Fue elegido por unanimidad' with emphatic por. These structures are common in journalism, academic writing, and formal spoken argumentation.",
+            target: "El español usa oraciones escindidas y estructuras enfáticas para concentrar la atención en un elemento específico. Tipos: (1) Es + nombre/adjetivo + que/quien: «Es el desempleo lo que más preocupa». Nota: lo que se usa cuando el foco es una cláusula; quien se usa para personas. (2) Lo que...es: «Lo que no entiendo es por qué dimitió». (3) El/la/los/las + nombre + que: «La razón por la que dimitió fue...». (4) Ser + participio + por para el énfasis pasivo. Estas estructuras son comunes en el periodismo, la escritura académica y la argumentación oral formal."
+        },
+        examples: [
+            { native: "Es la falta de inversión lo que frena el desarrollo del sector.", translation: "It is the lack of investment that is holding back the development of the sector. (cleft with lo que)" },
+            { native: "Fue precisamente en ese momento cuando todo cambió.", translation: "It was precisely at that moment that everything changed. (emphatic: fue...cuando)" },
+            { native: "Lo que distingue a esta propuesta es su enfoque innovador.", translation: "What distinguishes this proposal is its innovative approach. (lo que structure)" },
+            { native: "Son los ciudadanos quienes deben tomar esta decisión.", translation: "It is the citizens who must make this decision. (ser + quienes for people)" }
+        ]
+    },
+    {
+        id: "es-g-b2-12",
+        level: "B2",
+        title: "Ser vs. Estar — Dominio Completo y Usos Abstractos",
+        explanation: {
+            native: "At B2, ser vs. estar distinctions reach full mastery, including subtle and abstract uses. Ser with adjectives expressing permanent/defining characteristics: 'Es inteligente' (He is intelligent — as a defining trait). Estar with adjectives for states, changes, or subjective evaluation: 'Está inteligente hoy' (He seems sharp today — unusual, subjective). Key advanced distinctions: ser aburrido (to be a boring person) vs estar aburrido (to be bored right now). Estar used for location of EVENTS (as well as people and things): 'El partido está en el estadio'. Ser for inherent, unchanging aspects; estar for the result of a process of change: 'Está muerto' (He is dead — resulted from dying). With past participles: estar marks a current state resulting from an action; ser marks a passive action. 'La puerta está abierta' (state, open now) vs 'La puerta es abierta por el guardia' (passive: guard opens it).",
+            target: "En B2, las distinciones entre ser y estar alcanzan dominio completo, incluidos los usos sutiles y abstractos. Ser con adjetivos que expresan características permanentes o definitorias: «Es inteligente». Estar con adjetivos para estados, cambios o evaluación subjetiva: «Está inteligente hoy». Distinciones clave avanzadas: ser aburrido (ser una persona aburrida) vs estar aburrido (sentirse aburrido en este momento). Estar para la ubicación de EVENTOS: «El partido está en el estadio». Ser para aspectos inherentes; estar para el resultado de un proceso de cambio: «Está muerto». Con participios: estar marca un estado actual; ser marca una acción pasiva: «La puerta está abierta» (estado) vs «La puerta es abierta» (pasiva)."
+        },
+        examples: [
+            { native: "Es muy aburrida en las reuniones — siempre habla de lo mismo.", translation: "She is very boring in meetings — she always talks about the same things. (ser aburrida = boring personality)" },
+            { native: "Está muy aburrida esperando — la reunión lleva dos horas.", translation: "She is very bored waiting — the meeting has been going for two hours. (estar aburrida = feeling bored now)" },
+            { native: "El castillo es medieval, pero está muy bien conservado.", translation: "The castle is medieval, but it is very well preserved. (ser: inherent; estar: resulting state)" },
+            { native: "La decisión fue tomada por el consejo.", translation: "The decision was taken by the board. (ser + participio = passive action)" }
+        ]
+    },
+    {
+        id: "es-g-b2-13",
+        level: "B2",
+        title: "El Condicional Compuesto — Regret, Crítica y Condicional Periodístico",
+        explanation: {
+            native: "The condicional compuesto (habría/habrían + past participle) has three B2 uses beyond the si-clause hypothetical. (1) Past regret: 'Debería haber estudiado más' (I should have studied more — self-criticism about past). (2) Critical reproach: 'Habrías podido llamar' (You could have called — implicit criticism). (3) The condicional periodístico/de evidencialidad: used to report unverified claims: 'El ministro habría presentado su dimisión' (The minister is said to have resigned — the writer distances themselves from the claim). This journalistic use parallels French conditionnel journalistique and is mandatory in quality Spanish journalism. Key phrase signals: según fuentes, presuntamente, al parecer.",
+            target: "El condicional compuesto (habría/habrían + participio) tiene tres usos B2 más allá de la hipótesis con si. (1) Lamento o reproche sobre el pasado: «Debería haber estudiado más». (2) Reproche crítico: «Habrías podido llamar». (3) El condicional periodístico/de evidencialidad: para informar sobre hechos no verificados: «El ministro habría presentado su dimisión» — el periodista se distancia de la afirmación. Este uso periodístico es obligatorio en el periodismo de calidad español. Señales clave: según fuentes, presuntamente, al parecer."
+        },
+        examples: [
+            { native: "Tendría que haber llegado antes — la reunión ya había empezado.", translation: "I should have arrived earlier — the meeting had already started. (past regret)" },
+            { native: "Podrías haberme avisado con más tiempo.", translation: "You could have given me more notice. (reproach)" },
+            { native: "Según fuentes policiales, el sospechoso habría huido al extranjero.", translation: "According to police sources, the suspect is said to have fled abroad. (journalistic: unverified)" },
+            { native: "Los precios habrían subido un cinco por ciento, según el informe preliminar.", translation: "Prices are reported to have risen by five per cent, according to the preliminary report. (journalistic: hedging)" }
         ]
     },
 ]

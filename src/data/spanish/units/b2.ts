@@ -1,6 +1,6 @@
 import { LessonUnit } from "../../../types"
 
-// B2 units — 5 units with test questions.
+// B2 units — 12 units with test questions.
 
 export const b2Units: LessonUnit[] = [
     {
@@ -400,6 +400,302 @@ export const b2Units: LessonUnit[] = [
             { id: "es-b2-u8-q4", level: "B2", prompt: "What does 'estar en las nubes' mean?", options: ["to be in the clouds (weather)", "to be daydreaming / absent-minded", "to be very happy", "to be ambitious"], answer: "to be daydreaming / absent-minded", hint: "Estar en las nubes = to have one's head in the clouds / be miles away. Listed in the B2 guide." },
             { id: "es-b2-u8-q5", level: "B2", prompt: "What does 'habida cuenta de' mean in formal writing?", options: ["bearing in mind / taking into account", "according to", "despite", "as soon as"], answer: "bearing in mind / taking into account", hint: "Habida cuenta de = teniendo en cuenta = given / bearing in mind. Formal written register." },
             { id: "es-b2-u8-q6", level: "B2", prompt: "What does 'no hay mal que por bien no venga' mean?", options: ["every cloud has a silver lining", "bad luck comes in threes", "the grass is always greener", "too many cooks spoil the broth"], answer: "every cloud has a silver lining", hint: "No hay mal que por bien no venga = there's no bad without good / every cloud has a silver lining." },
+        ]
+    },
+    {
+        id: "es-b2-u9",
+        level: "B2",
+        order: 9,
+        title: "Advanced Subjuntivo — Optative, Concessive & Temporal",
+        description: "Extend your imperfect subjunctive beyond si-clauses: express wishes and polite requests with ojalá and quisiera, form concessive and temporal clauses, and convert reported commands with a past trigger.",
+        grammarIds: ["es-g-b2-9"],
+        vocabIds: ["es-v-b2-001", "es-v-b2-065", "es-v-b2-068", "es-v-b2-073", "es-v-b2-076"],
+        verbIds: ["es-vb-b2-1"],
+        testQuestions: [
+            {
+                id: "es-b2-u9-q1",
+                level: "B2",
+                prompt: "Which sentence expresses an optative wish with 'ojalá' + imperfect subjunctive?",
+                options: [
+                    "¡Ojalá tuviéramos más tiempo para hablar!",
+                    "¡Ojalá tenemos más tiempo para hablar!",
+                    "¡Ojalá tendremos más tiempo para hablar!",
+                    "¡Ojalá tengamos más tiempo para hablar!"
+                ],
+                answer: "¡Ojalá tuviéramos más tiempo para hablar!",
+                hint: "Ojalá expressing an unlikely or impossible wish uses the imperfect subjunctive (tuviéramos)."
+            },
+            {
+                id: "es-b2-u9-q2",
+                level: "B2",
+                prompt: "What register does 'quisiera' convey compared to 'quiero'?",
+                options: [
+                    "A very polite, softened request (imperfect subjunctive of querer)",
+                    "A past completed action",
+                    "An order or command",
+                    "A future intention"
+                ],
+                answer: "A very polite, softened request (imperfect subjunctive of querer)",
+                hint: "Quisiera = I would like — the imperfect subjunctive of querer used as a standalone polite form."
+            },
+            {
+                id: "es-b2-u9-q3",
+                level: "B2",
+                prompt: "Convert the reported command: 'Ven aquí.' → 'Le dijo que ___'",
+                options: ["viniera.", "viene.", "venga.", "vendría."],
+                answer: "viniera.",
+                hint: "Reported commands with a past reporting verb use the imperfect subjunctive: le dijo que viniera."
+            },
+            {
+                id: "es-b2-u9-q4",
+                level: "B2",
+                prompt: "Identify the concessive clause: 'Por difícil que ___ la situación, siguieron adelante.'",
+                options: ["fuera", "fue", "es", "será"],
+                answer: "fuera",
+                hint: "Por + adjective/adverb + que triggers the imperfect subjunctive (fuera) for concessive meaning."
+            },
+            {
+                id: "es-b2-u9-q5",
+                level: "B2",
+                prompt: "Complete the temporal clause: 'Esperó hasta que ___ (llegar, ella).'",
+                options: ["llegara", "llegó", "llega", "llegará"],
+                answer: "llegara",
+                hint: "Hasta que with past-reference temporal meaning uses the imperfect subjunctive (llegara)."
+            },
+            {
+                id: "es-b2-u9-q6",
+                level: "B2",
+                prompt: "What does 'resiliencia' mean?",
+                options: ["the ability to overcome adversity", "a formal academic argument", "a polite request", "a concessive clause"],
+                answer: "the ability to overcome adversity",
+                hint: "Resiliencia = resilience — the capacity to recover and adapt after difficulty."
+            }
+        ]
+    },
+    {
+        id: "es-b2-u10",
+        level: "B2",
+        order: 10,
+        title: "La Nominalización — Formal & Academic Style",
+        description: "Master the dense, impersonal style of formal written Spanish by converting verbs and adjectives into noun forms, and using key nominalisation structures such as 'el hecho de que', 'lo que' and 'cabe destacar'.",
+        grammarIds: ["es-g-b2-10"],
+        vocabIds: ["es-v-b2-097", "es-v-b2-098", "es-v-b2-099", "es-v-b2-100", "es-v-b2-071"],
+        verbIds: ["es-vb-b2-3"],
+        testQuestions: [
+            {
+                id: "es-b2-u10-q1",
+                level: "B2",
+                prompt: "Which is the nominalised form of the verb 'desarrollar'?",
+                options: ["el desarrollo", "el desarrollar", "la desarrollación", "lo desarrollado"],
+                answer: "el desarrollo",
+                hint: "Verb → noun: desarrollar → el desarrollo (suffix -o / -ción / -miento are common patterns)."
+            },
+            {
+                id: "es-b2-u10-q2",
+                level: "B2",
+                prompt: "Complete: 'El hecho de que no se hayan tomado medidas ___ preocupante.'",
+                options: ["es", "sea", "está", "esté"],
+                answer: "es",
+                hint: "El hecho de que + subjuntivo forms the nominal clause; the main verb after it uses indicative."
+            },
+            {
+                id: "es-b2-u10-q3",
+                level: "B2",
+                prompt: "What mood follows 'el hecho de que' in formal argumentation?",
+                options: ["subjunctive", "indicative", "conditional", "infinitive"],
+                answer: "subjunctive",
+                hint: "El hecho de que acts as a nominalisation trigger and requires the subjunctive in the embedded clause."
+            },
+            {
+                id: "es-b2-u10-q4",
+                level: "B2",
+                prompt: "Which phrase uses 'lo' as a nominaliser?",
+                options: [
+                    "Lo que más sorprende es la rapidez del cambio.",
+                    "El que más sorprende es la rapidez.",
+                    "Cabe destacar que el cambio es rápido.",
+                    "Hay que señalar el cambio rápido."
+                ],
+                answer: "Lo que más sorprende es la rapidez del cambio.",
+                hint: "Lo que + verb phrase = nominalised clause: 'what is most surprising' — lo que functions as a noun."
+            },
+            {
+                id: "es-b2-u10-q5",
+                level: "B2",
+                prompt: "What does the formal phrase 'cabe destacar que' introduce?",
+                options: [
+                    "A point the writer considers worth noting",
+                    "A concession or contrast",
+                    "A consequence or result",
+                    "A reported unverified claim"
+                ],
+                answer: "A point the writer considers worth noting",
+                hint: "Cabe destacar que = it is worth noting that — used to foreground a key piece of information."
+            },
+            {
+                id: "es-b2-u10-q6",
+                level: "B2",
+                prompt: "What does 'la implementación' mean?",
+                options: ["implementation", "innovation", "investigation", "improvisation"],
+                answer: "implementation",
+                hint: "Implementar → la implementación — the process of putting a plan or system into effect."
+            }
+        ]
+    },
+    {
+        id: "es-b2-u11",
+        level: "B2",
+        order: 11,
+        title: "Emphasis Structures & Ser vs. Estar — Full Mastery",
+        description: "Deploy cleft sentences (es...lo que, fue...cuando, son...quienes) to foreground key information, and consolidate the full ser/estar distinction including abstract, stative, and participial uses.",
+        grammarIds: ["es-g-b2-11", "es-g-b2-12"],
+        vocabIds: ["es-v-b2-101", "es-v-b2-102", "es-v-b2-103", "es-v-b2-104", "es-v-b2-086"],
+        verbIds: ["es-vb-b2-2"],
+        testQuestions: [
+            {
+                id: "es-b2-u11-q1",
+                level: "B2",
+                prompt: "Complete the cleft sentence: 'Es la falta de inversión ___ frena el desarrollo del sector.'",
+                options: ["lo que", "quien", "que", "la que"],
+                answer: "lo que",
+                hint: "When the focused element is a clause or abstract concept, use lo que in the cleft structure."
+            },
+            {
+                id: "es-b2-u11-q2",
+                level: "B2",
+                prompt: "Complete: 'Son los ciudadanos ___ deben tomar esta decisión.'",
+                options: ["quienes", "los que", "lo que", "que"],
+                answer: "quienes",
+                hint: "For people in a cleft with ser + plural subject, quienes is the preferred formal form."
+            },
+            {
+                id: "es-b2-u11-q3",
+                level: "B2",
+                prompt: "What does 'Es muy aburrida' mean vs 'Está muy aburrida'?",
+                options: [
+                    "Es aburrida = she is a boring person; está aburrida = she is bored right now",
+                    "Both mean she is bored right now",
+                    "Es aburrida = she is bored; está aburrida = she is a boring person",
+                    "No difference — both use the same meaning"
+                ],
+                answer: "Es aburrida = she is a boring person; está aburrida = she is bored right now",
+                hint: "Ser marks a characteristic/trait; estar marks a current state. The adjective's meaning shifts accordingly."
+            },
+            {
+                id: "es-b2-u11-q4",
+                level: "B2",
+                prompt: "Complete: 'La puerta ___ abierta por el guardia cada mañana.' (passive action)",
+                options: ["es", "está", "fue", "estuvo"],
+                answer: "es",
+                hint: "Ser + past participle = passive voice (action performed by agent). Estar + participio = resultant state."
+            },
+            {
+                id: "es-b2-u11-q5",
+                level: "B2",
+                prompt: "What does 'estar listo' mean compared to 'ser listo'?",
+                options: [
+                    "Estar listo = to be ready; ser listo = to be clever",
+                    "Both mean to be ready",
+                    "Estar listo = to be clever; ser listo = to be ready",
+                    "Both mean to be clever"
+                ],
+                answer: "Estar listo = to be ready; ser listo = to be clever",
+                hint: "Classic ser/estar pair: estar listo (state: ready) vs ser listo (characteristic: clever)."
+            },
+            {
+                id: "es-b2-u11-q6",
+                level: "B2",
+                prompt: "Which sentence correctly uses 'fue...cuando' for emphasis?",
+                options: [
+                    "Fue precisamente en ese momento cuando todo cambió.",
+                    "Fue precisamente en ese momento que todo cambió.",
+                    "Era en ese momento cuando todo cambió.",
+                    "Fue en ese momento lo que todo cambió."
+                ],
+                answer: "Fue precisamente en ese momento cuando todo cambió.",
+                hint: "Temporal cleft: fue + time expression + cuando — not que. 'Fue cuando' is the standard emphatic form."
+            }
+        ]
+    },
+    {
+        id: "es-b2-u12",
+        level: "B2",
+        order: 12,
+        title: "El Condicional Compuesto Avanzado — Regret, Reproach & Journalistic Use",
+        description: "Go beyond Type-3 conditionals and use the condicional compuesto to express past regret, critical reproach, and — crucially — to report unverified information in the journalistic style found in quality Spanish media.",
+        grammarIds: ["es-g-b2-13"],
+        vocabIds: ["es-v-b2-093", "es-v-b2-094", "es-v-b2-095", "es-v-b2-096", "es-v-b2-069"],
+        verbIds: ["es-vb-b2-4"],
+        readingIds: ["es-r-b2-4"],
+        testQuestions: [
+            {
+                id: "es-b2-u12-q1",
+                level: "B2",
+                prompt: "Which sentence expresses past regret using the condicional compuesto?",
+                options: [
+                    "Tendría que haber llegado antes — la reunión ya había empezado.",
+                    "Tendré que llegar antes la próxima vez.",
+                    "Tenía que llegar antes pero no pude.",
+                    "Hay que llegar antes para la reunión."
+                ],
+                answer: "Tendría que haber llegado antes — la reunión ya había empezado.",
+                hint: "Tendría que haber + participio = should have done (past regret). The situation is already over."
+            },
+            {
+                id: "es-b2-u12-q2",
+                level: "B2",
+                prompt: "What does 'Podrías haberme avisado con más tiempo' express?",
+                options: [
+                    "A critical reproach — you could have warned me earlier (but didn't)",
+                    "A future possibility",
+                    "A polite request for the future",
+                    "A past habit"
+                ],
+                answer: "A critical reproach — you could have warned me earlier (but didn't)",
+                hint: "Poder + condicional compuesto (podrías haber + participio) signals an implicit criticism of inaction."
+            },
+            {
+                id: "es-b2-u12-q3",
+                level: "B2",
+                prompt: "In the sentence 'El sospechoso habría huido al extranjero', what does 'habría huido' signal?",
+                options: [
+                    "An alleged / unconfirmed event — the journalist distances themselves from the claim",
+                    "A definite past event confirmed by the police",
+                    "A hypothetical future escape",
+                    "A past habit of the suspect"
+                ],
+                answer: "An alleged / unconfirmed event — the journalist distances themselves from the claim",
+                hint: "Condicional periodístico: habría + participio = reportedly / is said to have. Used when the source is unverified."
+            },
+            {
+                id: "es-b2-u12-q4",
+                level: "B2",
+                prompt: "Which signal phrase is typically paired with the journalistic conditional?",
+                options: [
+                    "según fuentes / al parecer / presuntamente",
+                    "definitivamente / sin duda / es seguro que",
+                    "ojalá / quisiera / aunque",
+                    "dado que / por lo tanto / en consecuencia"
+                ],
+                answer: "según fuentes / al parecer / presuntamente",
+                hint: "Journalistic conditional co-occurs with hedging phrases: según fuentes, al parecer, presuntamente."
+            },
+            {
+                id: "es-b2-u12-q5",
+                level: "B2",
+                prompt: "What does 'dimitir' mean?",
+                options: ["to resign (from a post)", "to investigate", "to allege", "to report"],
+                answer: "to resign (from a post)",
+                hint: "Dimitir = to resign from a position — frequently used with the journalistic conditional: habría dimitido."
+            },
+            {
+                id: "es-b2-u12-q6",
+                level: "B2",
+                prompt: "What does 'en consecuencia' mean?",
+                options: ["consequently / as a result", "nevertheless", "apparently", "according to sources"],
+                answer: "consequently / as a result",
+                hint: "En consecuencia introduces the logical outcome or result of a previous statement."
+            }
         ]
     },
 ]

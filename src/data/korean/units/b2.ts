@@ -296,5 +296,78 @@ export const b2Units: LessonUnit[] = [
             { id: "ko-b2-u8-q5", level: "B2", prompt: "Which construction is the formal written equivalent of the spoken 해서 (because)?", options: ["-기 때문에 / -(으)므로", "-고", "-지만", "-아/어요"], answer: "-기 때문에 / -(으)므로", hint: "-기 때문에 and -(으)므로 are the formal written causal connectors. -(으)므로 is more formal, used in official documents and academic writing." },
             { id: "ko-b2-u8-q6", level: "B2", prompt: "What does '나아가' mean in formal writing?", options: ["looking back / retrospectively", "furthermore / going further", "as a result", "despite this"], answer: "furthermore / going further", hint: "나아가 = furthermore / going one step further. Used to add a stronger or additional point in formal argumentation." },
         ]
+    },
+    {
+        id: "ko-b2-u9",
+        level: "B2",
+        order: 9,
+        title: "-(으)므로: Formal Causal Connector",
+        description: "Master the formal written causal connector -(으)므로, used in academic essays, official documents, and news articles. Understand when it is appropriate and how it differs from spoken causal connectors.",
+        grammarIds: ["ko-g-b2-9"],
+        vocabIds: ["ko-v-b2-083", "ko-v-b2-093", "ko-v-b2-094", "ko-v-b2-095"],
+        verbIds: [],
+        testQuestions: [
+            { id: "ko-b2-u9-q1", level: "B2", prompt: "In which context is -(으)므로 appropriate?", options: ["Casual chat with a friend", "Academic essays and official documents", "Text messages", "Ordering food at a restaurant"], answer: "Academic essays and official documents", hint: "-(으)므로 is a formal written register marker. It is never used in casual conversation — use -아/어서 or -기 때문에 instead." },
+            { id: "ko-b2-u9-q2", level: "B2", prompt: "Complete the formal sentence: '예산이 부족하___ 계획을 수정해야 합니다.'", options: ["으므로", "어서", "기 때문에", "니까"], answer: "으므로", hint: "부족하다 ends in a vowel stem (하), so attach -므로. But note: 부족하- is treated as ending in 하, which is -으므로 in formal writing." },
+            { id: "ko-b2-u9-q3", level: "B2", prompt: "What is the key distinction between ~기 때문에 (B1) and ~(으)므로 (B2)?", options: ["No difference", "~(으)므로 is formal written only; ~기 때문에 can also be used in conversation", "~기 때문에 is more formal", "~(으)므로 is only for adjectives"], answer: "~(으)므로 is formal written only; ~기 때문에 can also be used in conversation", hint: "~기 때문에 is acceptable in both spoken and written Korean. ~(으)므로 belongs to the formal written register only — academic papers, legal documents, official announcements." },
+            { id: "ko-b2-u9-q4", level: "B2", prompt: "Which sentence correctly uses -(으)므로?", options: ["피곤하므로 집에 일찍 갔어요. (to a friend)", "이 법안은 헌법에 위반되므로 폐기되어야 한다.", "배고프므로 밥 먹을게.", "날씨가 좋으므로 놀러 가자."], answer: "이 법안은 헌법에 위반되므로 폐기되어야 한다.", hint: "The correct usage is in a formal written statement — legal / official context. The other options use -(으)므로 in casual conversational contexts, which is incorrect." },
+            { id: "ko-b2-u9-q5", level: "B2", prompt: "What does '일반화하다' mean?", options: ["to summarise", "to generalise", "to verify", "to hypothesise"], answer: "to generalise", hint: "일반화하다 = to generalise. Common in academic contexts: 결과를 일반화하기 어렵다 = it is difficult to generalise the results." },
+            { id: "ko-b2-u9-q6", level: "B2", prompt: "What does '표본' mean in academic Korean?", options: ["hypothesis", "sample (for research)", "conclusion", "experiment"], answer: "sample (for research)", hint: "표본 = sample / specimen. Used in academic and research contexts: 표본 수가 충분하지 않다 = the sample size is insufficient." }
+        ]
+    },
+    {
+        id: "ko-b2-u10",
+        level: "B2",
+        order: 10,
+        title: "-(으)ㅁ: Formal Nominalisation",
+        description: "Learn to use the formal nominalising suffix -(으)ㅁ in academic and written Korean. Understand how lexicalised -(으)ㅁ nouns (삶, 죽음, 믿음) differ from productive nominalisations in formal definitions and arguments.",
+        grammarIds: ["ko-g-b2-10"],
+        vocabIds: ["ko-v-b2-096", "ko-v-b2-097", "ko-v-b2-098", "ko-v-b2-099"],
+        verbIds: [],
+        testQuestions: [
+            { id: "ko-b2-u10-q1", level: "B2", prompt: "What does the suffix -(으)ㅁ do to a verb or adjective?", options: ["Turns it into a passive verb", "Turns it into a formal noun form", "Adds an honorific meaning", "Creates a causative"], answer: "Turns it into a formal noun form", hint: "-(으)ㅁ is a nominalising suffix — it converts a verb or adjective into a noun. It produces a more formal, written-register noun than -기 or -는 것." },
+            { id: "ko-b2-u10-q2", level: "B2", prompt: "What is the -(으)ㅁ form of 죽다 (to die)?", options: ["죽기", "죽는 것", "죽음", "죽히다"], answer: "죽음", hint: "죽다 → 죽음 (death). This is a lexicalised -(으)ㅁ form. The consonant-final stem 죽- takes -음." },
+            { id: "ko-b2-u10-q3", level: "B2", prompt: "What is the -(으)ㅁ form of 살다 (to live)?", options: ["삶", "살기", "살음", "사는 것"], answer: "삶", hint: "살다 → 삶 (life/living). Note the irregular contraction: 살- + ㅁ = 삶. This is one of the most common lexicalised -(으)ㅁ nouns." },
+            { id: "ko-b2-u10-q4", level: "B2", prompt: "Which sentence uses -(으)ㅁ correctly in formal academic style?", options: ["자유란 스스로 결정할 수 있음을 의미한다.", "자유란 스스로 결정하기를 의미한다.", "자유란 스스로 결정는 것을 의미한다.", "자유란 스스로 결정하므로를 의미한다."], answer: "자유란 스스로 결정할 수 있음을 의미한다.", hint: "결정할 수 있음 = the fact/state of being able to decide. -(으)ㅁ here nominalises the verb phrase for use as the object of 의미하다 in a formal definition." },
+            { id: "ko-b2-u10-q5", level: "B2", prompt: "How does -(으)ㅁ differ from -기 as a nominaliser?", options: ["No difference", "-(으)ㅁ is result/fact-focused and more formal; -기 is process-focused and more conversational", "-기 is more formal than -(으)ㅁ", "-(으)ㅁ can only be used with adjectives"], answer: "-(으)ㅁ is result/fact-focused and more formal; -기 is process-focused and more conversational", hint: "-기 focuses on the process or activity (공부하기 = studying); -(으)ㅁ focuses on the result or established fact and belongs to the formal written register." },
+            { id: "ko-b2-u10-q6", level: "B2", prompt: "What does '믿음' mean?", options: ["trust / faith", "understanding", "knowledge", "wisdom"], answer: "trust / faith", hint: "믿음 = trust / faith / belief. It is the lexicalised -(으)ㅁ form of 믿다 (to believe/trust)." }
+        ]
+    },
+    {
+        id: "ko-b2-u11",
+        level: "B2",
+        order: 11,
+        title: "~에 따라 + ~한편/반면에: Academic Discourse",
+        description: "Build the academic discourse toolkit with ~에 따라/~에 따르면 for citation and conditionality, and ~한편/~반면에 for balanced contrast. Essential for TOPIK writing tasks and Korean academic essays.",
+        grammarIds: ["ko-g-b2-11", "ko-g-b2-12"],
+        vocabIds: ["ko-v-b2-092", "ko-v-b2-100", "ko-v-b2-101", "ko-v-b2-102"],
+        verbIds: [],
+        testQuestions: [
+            { id: "ko-b2-u11-q1", level: "B2", prompt: "What does ~에 따르면 signal?", options: ["in contrast to", "according to (citation / attribution)", "depending on the result", "in addition to"], answer: "according to (citation / attribution)", hint: "~에 따르면 is used to cite a source: 연구에 따르면 = according to the study; 전문가에 따르면 = according to experts." },
+            { id: "ko-b2-u11-q2", level: "B2", prompt: "Complete: '상황___ 적절한 전략이 달라진다.' (varies depending on the situation)", options: ["에 따라", "에 따르면", "에 의해", "에 관하여"], answer: "에 따라", hint: "~에 따라 = depending on / in accordance with. 상황에 따라 = depending on the situation. It attaches to nouns to express conditionality." },
+            { id: "ko-b2-u11-q3", level: "B2", prompt: "What is the difference between ~에 따라 and ~에 의해?", options: ["No difference", "~에 따라 = in line with / depending on; ~에 의해 = passive agent marker (by X)", "~에 의해 means 'according to'", "~에 따라 is only for citation"], answer: "~에 따라 = in line with / depending on; ~에 의해 = passive agent marker (by X)", hint: "법에 따라 = in accordance with the law; 법에 의해 처벌받다 = be punished by the law (passive agent). Different functions." },
+            { id: "ko-b2-u11-q4", level: "B2", prompt: "Which connector introduces an additional or parallel perspective (not a direct contrast)?", options: ["반면에", "한편", "그러나", "하지만"], answer: "한편", hint: "한편 = on the other hand / meanwhile / additionally. It introduces a parallel or additional angle. 반면에 = explicit opposition/contrast between two things." },
+            { id: "ko-b2-u11-q5", level: "B2", prompt: "Complete: '도시 인구는 증가하고 있는 ___, 농촌은 감소하고 있다.' (in contrast)", options: ["반면에", "한편", "따라서", "나아가"], answer: "반면에", hint: "~는 반면에 explicitly contrasts two opposing trends in the same sentence. 증가하고 있는 반면에 = while on the one hand it is increasing..." },
+            { id: "ko-b2-u11-q6", level: "B2", prompt: "What does '출산율' mean?", options: ["mortality rate", "literacy rate", "birth rate / fertility rate", "unemployment rate"], answer: "birth rate / fertility rate", hint: "출산율 = birth rate / fertility rate. 출산 = childbirth, -율 = rate. Used in demographic and social policy discussions." }
+        ]
+    },
+    {
+        id: "ko-b2-u12",
+        level: "B2",
+        order: 12,
+        title: "사동 (使動): Causative Verbs",
+        description: "Produce causative verbs actively using both morphological suffix causatives (~이/히/리/기/우/추) and the analytical ~게 하다 construction. Learn to distinguish which verbs take which suffix and when to use ~게 하다 instead.",
+        grammarIds: ["ko-g-b2-13"],
+        vocabIds: ["ko-v-b2-103", "ko-v-b2-104", "ko-v-b2-105", "ko-v-b2-106"],
+        verbIds: ["ko-vb-b2-1"],
+        readingIds: ["ko-r-b2-4"],
+        testQuestions: [
+            { id: "ko-b2-u12-q1", level: "B2", prompt: "What is the causative form of 먹다 (to eat)?", options: ["먹히다", "먹이다", "먹어지다", "먹게 하다"], answer: "먹이다", hint: "먹다 → 먹이다 (to feed / make eat). The ~이 suffix is added to the stem 먹-. 엄마가 아이에게 밥을 먹였어요 = The mother fed the child." },
+            { id: "ko-b2-u12-q2", level: "B2", prompt: "What is the causative form of 앉다 (to sit)?", options: ["앉이다", "앉기다", "앉히다", "앉리다"], answer: "앉히다", hint: "앉다 → 앉히다 (to seat / make sit). The ~히 suffix is added: 앉- + 히다. 선생님이 학생들을 앉혔어요 = The teacher seated the students." },
+            { id: "ko-b2-u12-q3", level: "B2", prompt: "What is the causative form of 웃다 (to laugh)?", options: ["웃이다", "웃히다", "웃기다", "웃우다"], answer: "웃기다", hint: "웃다 → 웃기다 (to make laugh). The ~기 suffix is added. 그 농담이 모두를 웃겼어요 = That joke made everyone laugh." },
+            { id: "ko-b2-u12-q4", level: "B2", prompt: "When should ~게 하다 be used as a causative?", options: ["Only with Sino-Korean verbs", "Only with adjectives", "With any verb, especially when no morphological causative suffix exists", "Only in formal writing"], answer: "With any verb, especially when no morphological causative suffix exists", hint: "~게 하다 is the productive analytical causative. If a verb has no standard suffix causative form, use ~게 하다: 공부하게 하다 = to make study; 일하게 하다 = to make work." },
+            { id: "ko-b2-u12-q5", level: "B2", prompt: "How do you say 'My parents made me study'?", options: ["부모님이 제가 공부시켰어요.", "부모님이 저를 공부하게 했어요.", "부모님이 저에게 공부하라고 했어요.", "부모님이 제가 공부했어요."], answer: "부모님이 저를 공부하게 했어요.", hint: "~게 하다 causative: 부모님이 저를 공부하게 했어요. The caused person (저) takes 을/를. -라고 하다 is indirect speech (command), not a causative." },
+            { id: "ko-b2-u12-q6", level: "B2", prompt: "What is the causative form of 입다 (to wear)?", options: ["입이다", "입히다", "입기다", "입리다"], answer: "입히다", hint: "입다 → 입히다 (to dress someone / make wear). ~히 suffix: 입- + 히다. 엄마가 아이에게 옷을 입혔어요 = The mother dressed the child." }
+        ]
     }
 ]
