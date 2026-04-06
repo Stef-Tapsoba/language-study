@@ -250,5 +250,83 @@ Mathieu: Deal!`,
                 answer: "Chloé réserve le train et l'appartement, Mathieu s'occupe du Museum Pass"
             }
         ]
+    },
+
+    {
+        id: "fr-l-b1-4",
+        level: "B1",
+        title: "Le bénévolat — portrait d'une association",
+        script: `Présentatrice : Ce soir, nous vous emmenons à la rencontre des Restos du Cœur, l'une des associations caritatives les plus connues de France. Fondée en 1985 par le comédien Coluche, l'association distribue des repas gratuits aux personnes dans le besoin pendant les mois d'hiver.
+
+Nous avons rencontré Sandrine, bénévole depuis sept ans, dans un centre de distribution à Lille.
+
+Sandrine : J'ai commencé parce qu'une amie m'en avait parlé. Je ne savais pas vraiment à quoi m'attendre. La première fois que j'y suis allée, j'étais un peu intimidée. Et puis, au bout de quelques semaines, c'est devenu une habitude que j'attends chaque année.
+
+Présentatrice : Qu'est-ce que cette expérience vous a apporté ?
+
+Sandrine : Elle m'a d'abord appris la réalité de la précarité. Avant, je savais que la pauvreté existait, mais d'une façon abstraite. Ici, on voit des gens qui ont perdu leur emploi, des familles qui ne s'en sortent pas à la fin du mois, des personnes âgées isolées. C'est concret. Et ça change la façon dont on voit les autres.
+
+Présentatrice : L'association a-t-elle changé depuis ses débuts ?
+
+Sandrine : Beaucoup. Le nombre de bénéficiaires a augmenté de façon considérable, surtout depuis la crise de 2008. Aujourd'hui, plus d'un million de personnes reçoivent l'aide des Restos chaque hiver. Et les profils ont changé : ce ne sont plus seulement des personnes sans abri. Il y a beaucoup de travailleurs pauvres, de jeunes en difficulté, de retraités avec de petites pensions.
+
+Présentatrice : Un dernier mot pour ceux qui hésitent à se lancer dans le bénévolat ?
+
+Sandrine : Venez, c'est tout. On trouve toujours une place pour tout le monde. Et vous verrez, on reçoit au moins autant qu'on donne.`,
+        translation: `Presenter: This evening, we take you to meet Les Restos du Cœur, one of the best-known charitable organisations in France. Founded in 1985 by the comedian Coluche, the organisation distributes free meals to people in need during the winter months.
+
+We met Sandrine, a volunteer for seven years, at a distribution centre in Lille.
+
+Sandrine: I started because a friend had told me about it. I didn't really know what to expect. The first time I went, I was a little intimidated. And then, after a few weeks, it became a habit that I look forward to every year.
+
+Presenter: What has this experience brought you?
+
+Sandrine: It first taught me the reality of precarious living. Before, I knew that poverty existed, but in an abstract way. Here, you see people who have lost their jobs, families who can't make ends meet at the end of the month, isolated elderly people. It's concrete. And it changes the way you see others.
+
+Presenter: Has the organisation changed since its beginnings?
+
+Sandrine: A lot. The number of beneficiaries has increased considerably, especially since the 2008 crisis. Today, more than a million people receive help from Les Restos every winter. And the profiles have changed: it's no longer only homeless people. There are many working poor, young people in difficulty, retirees with small pensions.
+
+Presenter: A final word for those who are hesitating to get involved in volunteering?
+
+Sandrine: Come, that's all. There is always room for everyone. And you'll see — you receive at least as much as you give.`,
+        questions: [
+            {
+                id: "fr-l-b1-4-q1",
+                level: "B1",
+                prompt: "Qui a fondé les Restos du Cœur et en quelle année ?",
+                options: [
+                    "Nicolas Hulot, en 1990",
+                    "Coluche, en 1985",
+                    "Abbé Pierre, en 1954",
+                    "Simone Veil, en 1975"
+                ],
+                answer: "Coluche, en 1985"
+            },
+            {
+                id: "fr-l-b1-4-q2",
+                level: "B1",
+                prompt: "Qu'est-ce que l'expérience de bénévolat a appris à Sandrine en premier lieu ?",
+                options: [
+                    "Comment préparer des repas pour un grand nombre de personnes",
+                    "La réalité concrète de la précarité et de la pauvreté",
+                    "Comment gérer une association caritative",
+                    "L'importance de la solidarité entre collègues"
+                ],
+                answer: "La réalité concrète de la précarité et de la pauvreté"
+            },
+            {
+                id: "fr-l-b1-4-q3",
+                level: "B1",
+                prompt: "Comment le profil des bénéficiaires a-t-il évolué selon Sandrine ?",
+                options: [
+                    "Il y a maintenant moins de bénéficiaires qu'avant 2008",
+                    "Seuls les sans-abri reçoivent encore l'aide des Restos",
+                    "On compte maintenant beaucoup de travailleurs pauvres, de jeunes et de retraités",
+                    "Les bénéficiaires sont principalement des familles immigrées"
+                ],
+                answer: "On compte maintenant beaucoup de travailleurs pauvres, de jeunes et de retraités"
+            }
+        ]
     }
 ]
