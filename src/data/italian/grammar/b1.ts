@@ -153,4 +153,84 @@ export const b1Grammar: GrammarLesson[] = [
             { native: "In conclusione, ritengo che questa sia la soluzione migliore.", translation: "In conclusion, I believe this is the best solution." },
         ]
     },
+    {
+        id: "it-g-b1-11",
+        level: "B1",
+        title: "Congiuntivo Imperfetto",
+        explanation: {
+            native: "The congiuntivo imperfetto is used in hypothetical si-clauses, polite requests, and after certain conjunctions in past-referring contexts. Formation: regular verbs — drop the infinitive ending and add: -assi, -assi, -asse, -assimo, -aste, -assero (for -are verbs: parlare → parlassi); -essi, -essi, -esse, -essimo, -este, -essero (for -ere verbs: credere → credessi); -issi, -issi, -isse, -issimo, -iste, -issero (for -ire verbs: finire → finissi). Irregular verbs follow their imperfetto indicativo stem: essere → fossi, avere → avessi, fare → facessi, stare → stessi, dire → dicessi. Key uses: (1) Hypothetical si-clauses: se + cong. imperfetto + condizionale. (2) Polite requests: 'Volessi un caffè' — more formal than vorrei. (3) Wishes with magari/se solo/speravo: 'Magari avessi più tempo!' (4) After benché/sebbene/nonostante in past context.",
+            target: "Il congiuntivo imperfetto si usa nelle frasi ipotetiche con se, nelle richieste cortesi e dopo certe congiunzioni in contesti passati. Formazione: verbi regolari — si elimina la terminazione dell'infinito e si aggiunge: -assi, -assi, -asse, -assimo, -aste, -assero (verbi in -are: parlare → parlassi); -essi, -essi, -esse, -essimo, -este, -essero (verbi in -ere: credere → credessi); -issi, -issi, -isse, -issimo, -iste, -issero (verbi in -ire: finire → finissi). I verbi irregolari seguono il tema dell'imperfetto indicativo: essere → fossi, avere → avessi, fare → facessi, stare → stessi, dire → dicessi. Usi principali: (1) Frasi ipotetiche con se: se + cong. imperfetto + condizionale. (2) Richieste cortesi: «Volessi un caffè» — più formale di vorrei. (3) Desideri con magari / se solo / speravo: «Magari avessi più tempo!» (4) Dopo benché / sebbene / nonostante in contesti passati."
+        },
+        examples: [
+            { native: "Se avessi più tempo, viaggerei di più.", translation: "If I had more time, I would travel more. (se + cong. imperfetto + condizionale)" },
+            { native: "Se fossi te, non lo direi a nessuno.", translation: "If I were you, I wouldn't tell anyone. (essere → fossi)" },
+            { native: "Magari potessi restare di più!", translation: "I wish I could stay longer! (magari + cong. imperfetto = unrealisable wish)" },
+            { native: "Benché fosse stanca, ha continuato a lavorare.", translation: "Although she was tired, she kept working. (benché + cong. imperfetto in past context)" },
+            { native: "Speravo che tu venissi alla festa.", translation: "I was hoping you would come to the party. (speravo + che + cong. imperfetto)" },
+        ]
+    },
+    {
+        id: "it-g-b1-12",
+        level: "B1",
+        title: "Infinito vs. Congiuntivo — Stesso o Diverso Soggetto",
+        explanation: {
+            native: "A critical B1 distinction: when the subject of the main clause and the subordinate clause are the SAME, Italian uses the infinitive. When the subjects are DIFFERENT, use che + congiuntivo. Rule: same subject → infinitive; different subjects → che + congiuntivo. Examples: 'Voglio andare' (I want to go — same subject: io/io → infinitive) vs. 'Voglio che tu vada' (I want you to go — different subjects: io/tu → che + congiuntivo). This applies to: volere, sperare, preferire, desiderare, avere paura, essere contento, essere necessario, and many more. With impersonal expressions + same reference: 'È importante studiare' (general truth → infinitive) vs. 'È importante che tu studi' (specific person → che + congiuntivo).",
+            target: "Una distinzione fondamentale del B1: quando il soggetto della frase principale e quello della subordinata sono LO STESSO, l'italiano usa l'infinito. Quando i soggetti sono DIVERSI, si usa che + congiuntivo. Regola: stesso soggetto → infinito; soggetti diversi → che + congiuntivo. Esempi: «Voglio andare» (voglio andare io → stesso soggetto: io/io → infinito) vs. «Voglio che tu vada» (voglio io, vai tu → soggetti diversi → che + congiuntivo). Si applica a: volere, sperare, preferire, desiderare, avere paura, essere contento, essere necessario, e molti altri. Con espressioni impersonali + riferimento generico: «È importante studiare» (verità generale → infinito) vs. «È importante che tu studi» (persona specifica → che + congiuntivo)."
+        },
+        examples: [
+            { native: "Voglio andare in vacanza. (io / io → infinito)", translation: "I want to go on holiday. (same subject: I want / I go → infinitive)" },
+            { native: "Voglio che Marco vada in vacanza. (io / Marco → che + congiuntivo)", translation: "I want Marco to go on holiday. (different subjects → che + congiuntivo)" },
+            { native: "Spero di farcela. (io spero / io ce la faccio → infinito)", translation: "I hope to make it. (same subject → di + infinitive after sperare)" },
+            { native: "Spero che tu stia bene. (io / tu → che + congiuntivo)", translation: "I hope you are well. (different subjects → che + congiuntivo)" },
+            { native: "È importante studiare ogni giorno. (generale → infinito)", translation: "It's important to study every day. (general truth → infinitive)" },
+        ]
+    },
+    {
+        id: "it-g-b1-13",
+        level: "B1",
+        title: "Congiuntivo in Cláusulas Relativas e Impersonali",
+        explanation: {
+            native: "Just as in Spanish, the Italian congiuntivo appears in relative clauses when the antecedent is unknown, hypothetical, or non-existent — as opposed to a specific known person or thing. Compare: 'Cerco il medico che parla inglese' (indicative — a specific known doctor) vs. 'Cerco un medico che parli inglese' (congiuntivo — any doctor who speaks English; the person may not exist yet). Key triggers for congiuntivo in relative clauses: indefinite or non-specific noun (un…, qualcuno che…), negative antecedent (non c'è nessuno che…, non conosco nessuno che…). Impersonal expressions with certainty → indicativo; with doubt/emotion/necessity → congiuntivo. Compare: 'È certo che piove' vs. 'È possibile che piova'.",
+            target: "Come in spagnolo, il congiuntivo italiano appare nelle proposizioni relative quando l'antecedente è sconosciuto, ipotetico o inesistente, a differenza di una persona o cosa specifica e nota. Contrasto: «Cerco il medico che parla inglese» (indicativo — un medico specifico noto) vs. «Cerco un medico che parli inglese» (congiuntivo — qualsiasi medico che parli inglese; potrebbe non esistere). Principali costruzioni che richiedono il congiuntivo nelle relative: nome indefinito o non specifico (un…, qualcuno che…), antecedente negativo (non c'è nessuno che…, non conosco nessuno che…). Espressioni impersonali di certezza → indicativo; di dubbio / emozione / necessità → congiuntivo. Contrasto: «È certo che piove» vs. «È possibile che piova»."
+        },
+        examples: [
+            { native: "Cerco un lavoro che mi permetta di viaggiare.", translation: "I'm looking for a job that allows me to travel. (hypothetical — doesn't exist yet)" },
+            { native: "Non c'è nessuno che sappia la risposta.", translation: "There is nobody who knows the answer. (negative antecedent → congiuntivo)" },
+            { native: "È possibile che arrivi tardi.", translation: "It's possible that he'll arrive late. (possibility → congiuntivo)" },
+            { native: "È certo che arriverà tardi.", translation: "It's certain that he'll arrive late. (certainty → indicativo)" },
+            { native: "Hai qualcosa che mi possa aiutare?", translation: "Do you have something that could help me? (vague/hypothetical → congiuntivo)" },
+        ]
+    },
+    {
+        id: "it-g-b1-14",
+        level: "B1",
+        title: "La Forma Passiva",
+        explanation: {
+            native: "The Italian passive is formed with essere (any tense) + past participle. The past participle agrees in gender and number with the grammatical subject. The agent (the doer) is introduced by da. Passive in the present: 'Il libro è scritto da Eco.' Past: 'Il libro è stato scritto da Eco.' Imperfect: 'Il libro veniva letto da molti.' In formal Italian, venire can replace essere in simple tenses to emphasise the action rather than the state. The si passivante (A2) is more common in spoken Italian; the essere passive is more typical in written and formal contexts — news articles, historical writing, official announcements. Note: the passive cannot be formed with intransitive verbs (verbs that don't take a direct object).",
+            target: "Il passivo italiano si forma con essere (a qualsiasi tempo) + participio passato. Il participio concorda in genere e numero con il soggetto grammaticale. L'agente (chi compie l'azione) è introdotto da da. Passivo al presente: «Il libro è scritto da Eco». Al passato: «Il libro è stato scritto da Eco». All'imperfetto: «Il libro veniva letto da molti». Nel registro formale, venire può sostituire essere nei tempi semplici per sottolineare l'azione piuttosto che lo stato. Il si passivante (A2) è più comune nel parlato; la forma passiva con essere è più tipica dello scritto e del registro formale — articoli di giornale, testi storici, comunicati ufficiali. Nota: il passivo non si forma con i verbi intransitivi (verbi senza complemento oggetto diretto)."
+        },
+        examples: [
+            { native: "Il romanzo è stato scritto da Italo Calvino.", translation: "The novel was written by Italo Calvino." },
+            { native: "I risultati verranno annunciati domani.", translation: "The results will be announced tomorrow. (venire in future = announcement tone)" },
+            { native: "La legge è stata approvata dal parlamento.", translation: "The law has been approved by parliament." },
+            { native: "La città fu fondata dai Romani nel I secolo a.C.", translation: "The city was founded by the Romans in the 1st century BC. (passato remoto in historical writing)" },
+            { native: "Il progetto viene revisionato ogni anno.", translation: "The project is reviewed every year. (venire = habitual action)" },
+        ]
+    },
+    {
+        id: "it-g-b1-15",
+        level: "B1",
+        title: "Gerundio in Costruzioni Complesse",
+        explanation: {
+            native: "Beyond stare + gerundio (A2), Italian uses the gerund in several advanced constructions. The gerund can express: manner ('Ha risposto sorridendo' — He answered smiling), simultaneous action ('Leggendo il libro, ho imparato molte cose' — Reading the book, I learned a lot), cause ('Non sapendo la risposta, si è fatto aiutare' — Not knowing the answer, he got help). Compound constructions: andare + gerundio (progressive development — 'La situazione va migliorando'); continuare + gerundio (to keep doing — 'Continua a piovere' also works as continua piovendo). Important: the gerund always refers to the subject of the main clause. The compound gerund (avendo + past participle / essendo + past participle) expresses a completed prior action: 'Avendo finito il lavoro, è uscito' (Having finished the work, he went out). Pur + gerundio = even though/although: 'Pur essendo stanco, ha continuato.'",
+            target: "Oltre a stare + gerundio (A2), l'italiano usa il gerundio in diverse costruzioni avanzate. Il gerundio può esprimere: modo («Ha risposto sorridendo»), azione simultanea («Leggendo il libro, ho imparato molte cose»), causa («Non sapendo la risposta, si è fatto aiutare»). Costruzioni complesste: andare + gerundio (sviluppo progressivo — «La situazione va migliorando»); continuare + gerundio (continuare a fare qualcosa — «Continua piovendo»). Importante: il gerundio si riferisce sempre al soggetto della frase principale. Il gerundio composto (avendo + participio passato / essendo + participio passato) esprime un'azione precedente già compiuta: «Avendo finito il lavoro, è uscito». Pur + gerundio = sebbene / anche se: «Pur essendo stanco, ha continuato»."
+        },
+        examples: [
+            { native: "Ha risposto sorridendo.", translation: "He answered smiling. (gerund = manner)" },
+            { native: "Leggendo questo libro, ho capito molte cose.", translation: "By reading this book, I understood many things. (gerund = simultaneous cause)" },
+            { native: "La situazione va migliorando giorno per giorno.", translation: "The situation is gradually improving day by day. (andare + gerundio)" },
+            { native: "Avendo finito il lavoro, siamo usciti a festeggiare.", translation: "Having finished the work, we went out to celebrate. (compound gerund = prior action)" },
+            { native: "Pur essendo stanca, ha continuato a lavorare.", translation: "Even though she was tired, she kept working. (pur + gerundio = concession)" },
+        ]
+    },
 ]
