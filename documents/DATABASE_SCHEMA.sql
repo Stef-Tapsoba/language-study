@@ -385,6 +385,35 @@ $$;
 
 
 -- ============================================================
+-- HELPER RPC: increment_daily_stat
+-- Atomically increments daily_stats counters. Avoids lost-update races from
+-- multiple tabs. Called by SupabaseStatsStorage on every study event.
+-- ============================================================
+CREATE OR REPLACE FUNCTION public.increment_daily_stat(
+    p_user_id   UUID,
+    p_lang_id   TEXT,
+    p_date      DATE,
+    p_reviewed  INTEGER DEFAULT 0,
+    p_correct   INTEGER DEFAULT 0,
+    p_acts      INTEGER DEFAULT 0,
+    p_q_total   INTEGER DEFAULT 0,
+    p_q_correct INTEGER DEFAULT 0
+) RETURNS VOID LANGUAGE plpgsql SECURITY DEFINER SET search_path = public AS $$
+BEGIN
+    INSERT INTO daily_stats (user_id, lang_id, study_date, reviewed, correct, acts, q_total, q_correct)
+    VALUES (p_user_id, p_lang_id, p_date, p_reviewed, p_correct, p_acts, p_q_total, p_q_correct)
+    ON CONFLICT (user_id, lang_id, study_date) DO UPDATE SET
+        reviewed  = daily_stats.reviewed  + EXCLUDED.reviewed,
+        correct   = daily_stats.correct   + EXCLUDED.correct,
+        acts      = daily_stats.acts      + EXCLUDED.acts,
+        q_total   = daily_stats.q_total   + EXCLUDED.q_total,
+        q_correct = daily_stats.q_correct + EXCLUDED.q_correct,
+        updated_at = now();
+END;
+$$;
+
+
+-- ============================================================
 -- WHAT STAYS CLIENT-SIDE (not in DB)
 -- ============================================================
 -- Grammar lessons, vocab, verbs, units, passages, exercises, prompts → TypeScript bundle

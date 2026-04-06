@@ -1,11 +1,78 @@
-// main.tsx — React entry point; mounts App into the DOM
+// main.tsx — React entry point.
+//
+// When VITE_SUPABASE_URL is set, configures the Supabase adapters before
+// the React tree mounts so registry.progress/srs/stats use Supabase from
+// the first render. Falls back to localStorage adapters (Stage 1) otherwise.
+
 import React from "react"
 import ReactDOM from "react-dom/client"
 import App from "./App"
 import "./index.css"
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>
-)
+async function bootstrap() {
+    if (import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY) {
+        // Stage 2 — Supabase adapters
+        const [
+            { supabase },
+            { SupabaseProgressStorage },
+            { SupabaseSRSStorage },
+            { SupabaseStatsStorage },
+            { supabaseAuthApi },
+            { AuthService },
+            { LocalStorageAdapter },
+            { authRegistry },
+            { registry },
+        ] = await Promise.all([
+            import("./lib/supabaseClient"),
+            import("./store/SupabaseProgressStorage"),
+            import("./store/SupabaseSRSStorage"),
+            import("./store/SupabaseStatsStorage"),
+            import("./auth/supabaseAuthApi"),
+            import("@myorg/auth-core"),
+            import("@myorg/storage"),
+            import("./auth/authRegistry"),
+            import("./store/registry"),
+        ])
+
+        const progressStorage = new SupabaseProgressStorage(supabase)
+        const srsStorage      = new SupabaseSRSStorage(supabase)
+        const statsStorage    = new SupabaseStatsStorage(supabase)
+
+        // Wire the adapters into the registry
+        registry.configure({ progress: progressStorage, srs: srsStorage, stats: statsStorage })
+
+        // Wire Supabase auth
+        authRegistry.configure(new AuthService(supabaseAuthApi, new LocalStorageAdapter("ls")))
+
+        // When the user logs in, hydrate SRS + stats caches for their account
+        const { data: { session } } = await supabase.auth.getSession()
+        if (session?.user.id) {
+            srsStorage.setUserId(session.user.id)
+            statsStorage.setUserId(session.user.id)
+            await Promise.all([
+                srsStorage.hydrate(),
+            ])
+        }
+
+        // Keep adapters informed when auth state changes (login/logout)
+        supabase.auth.onAuthStateChange((_event, newSession) => {
+            const uid = newSession?.user.id ?? null
+            if (uid) {
+                srsStorage.setUserId(uid)
+                statsStorage.setUserId(uid)
+                progressStorage.initSession(uid).catch(err =>
+                    console.error("[bootstrap] initSession failed", err)
+                )
+            }
+        })
+    }
+    // Stage 1 (no Supabase URL) — registry already defaults to localStorage adapters
+
+    ReactDOM.createRoot(document.getElementById("root")!).render(
+        <React.StrictMode>
+            <App />
+        </React.StrictMode>
+    )
+}
+
+bootstrap()
