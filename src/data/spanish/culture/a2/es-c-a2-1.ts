@@ -102,5 +102,21 @@ export const esCA21: CultureEpisode = {
           "¿Cómo es el transporte público de tu país comparado con el sistema español? ¿Qué cambiarías?",
       },
     },
+    {
+      id: "es-c-a2-1-q3",
+      type: "reflection",
+      prompt: {
+        native:
+          "Spain has one of the most extensive high-speed rail networks in the world, yet car ownership is also very high. Do you think investing in public transport changes how people live and move in cities? How does transport in your country compare?",
+        target:
+          "España tiene una de las redes ferroviarias de alta velocidad más extensas del mundo, pero el número de coches también es muy alto. ¿Crees que invertir en transporte público cambia la forma en que las personas viven y se desplazan en las ciudades? ¿Cómo es el transporte en tu país en comparación?",
+      },
+    },
   ],
+  didYouKnow: {
+    native:
+      "Spain has the longest high-speed rail network in Europe and the second longest in the world after China, with over 3,600 kilometres of AVE track. Despite this, Spain's car ownership rate is among the highest in the EU. The two coexist because Spain's geography — vast distances between major cities and sparse rural populations — makes both necessary. A Madrid–Barcelona journey that takes 2.5 hours by AVE would take 6 hours by car.",
+    target:
+      "España tiene la red ferroviaria de alta velocidad más larga de Europa y la segunda más larga del mundo después de China, con más de 3.600 kilómetros de vía AVE. A pesar de esto, la tasa de posesión de automóviles en España es una de las más altas de la UE. Ambas realidades coexisten porque la geografía de España —las grandes distancias entre las ciudades principales y una población rural dispersa— hace que ambas sean necesarias. Un viaje de Madrid a Barcelona que dura 2,5 horas en AVE tardaría 6 horas en coche.",
+  },
 };

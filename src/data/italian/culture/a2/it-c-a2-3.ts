@@ -107,5 +107,9 @@ export const itCA23: CultureEpisode = {
                 target: "C'è un piatto della tua famiglia o della tua cultura che non si cambia mai — una ricetta tramandata così com'è? Cosa significa il cibo nella tua cultura?"
             }
         }
-    ]
+    ],
+    didYouKnow: {
+        native: "Italy has the highest number of UNESCO-recognised traditional food products in the world, with over 300 products holding DOP (Protected Designation of Origin) or IGP (Protected Geographical Indication) status. These include Parmigiano Reggiano, Prosciutto di Parma, mozzarella di bufala campana and aceto balsamico di Modena. The protections mean that these products can only be made in their specific regions using traditional methods — a Parmesan made in Wisconsin cannot legally be sold as 'Parmigiano Reggiano' in Europe.",
+        target: "L'Italia ha il numero più alto al mondo di prodotti alimentari tradizionali riconosciuti dall'UNESCO, con oltre 300 prodotti che detengono la certificazione DOP (Denominazione di Origine Protetta) o IGP (Indicazione Geografica Protetta). Tra questi figurano il Parmigiano Reggiano, il Prosciutto di Parma, la mozzarella di bufala campana e l'aceto balsamico di Modena. Queste protezioni significano che tali prodotti possono essere fabbricati solo nelle loro specifiche regioni con metodi tradizionali — un parmigiano prodotto nel Wisconsin non può essere legalmente venduto come 'Parmigiano Reggiano' in Europa."
+    }
 }
