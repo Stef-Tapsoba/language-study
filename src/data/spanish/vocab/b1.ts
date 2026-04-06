@@ -5,16 +5,16 @@ import { VocabItem } from "../../../types"
 
 export const esVocabB1: VocabItem[] = [
     // --- Connectors / discourse markers (es-v-b1-001..010 kept) ---
-    { id: "es-v-b1-1", level: "B1", word: "además", translation: "furthermore / also", category: "Connectors", example: { native: "Además, hay que considerar el costo.", translation: "Furthermore, the cost must be considered." } },
-    { id: "es-v-b1-2", level: "B1", word: "sin embargo", translation: "however / nevertheless", category: "Connectors", example: { native: "Es caro; sin embargo, vale la pena.", translation: "It's expensive; however, it's worth it." } },
-    { id: "es-v-b1-3", level: "B1", word: "por lo tanto", translation: "therefore / so", category: "Connectors", example: { native: "Llovía; por lo tanto, nos quedamos.", translation: "It was raining; therefore, we stayed." } },
-    { id: "es-v-b1-4", level: "B1", word: "aunque", translation: "although / even though", category: "Connectors", example: { native: "Aunque estoy cansado, sigo trabajando.", translation: "Although I'm tired, I keep working." } },
-    { id: "es-v-b1-5", level: "B1", word: "mientras", translation: "while / whereas", category: "Connectors", example: { native: "Escucho música mientras estudio.", translation: "I listen to music while I study." } },
-    { id: "es-v-b1-6", level: "B1", word: "ambiente", translation: "environment / atmosphere", category: "Society", example: { native: "El ambiente en la oficina es muy bueno.", translation: "The atmosphere in the office is very good." } },
-    { id: "es-v-b1-7", level: "B1", word: "desarrollo", translation: "development / growth", category: "Society", example: { native: "El desarrollo sostenible es clave.", translation: "Sustainable development is key." } },
-    { id: "es-v-b1-8", level: "B1", word: "sociedad", translation: "society", category: "Society", example: { native: "La sociedad ha cambiado mucho.", translation: "Society has changed a lot." } },
-    { id: "es-v-b1-9", level: "B1", word: "actualmente", translation: "currently / nowadays", category: "Time", example: { native: "Actualmente trabajo desde casa.", translation: "Currently I work from home." } },
-    { id: "es-v-b1-10", level: "B1", word: "de repente", translation: "suddenly", category: "Time", example: { native: "De repente empezó a llover.", translation: "Suddenly it started to rain." } },
+    { id: "es-v-b1-001", level: "B1", word: "además", translation: "furthermore / also", category: "Connectors", example: { native: "Además, hay que considerar el costo.", translation: "Furthermore, the cost must be considered." } },
+    { id: "es-v-b1-002", level: "B1", word: "sin embargo", translation: "however / nevertheless", category: "Connectors", example: { native: "Es caro; sin embargo, vale la pena.", translation: "It's expensive; however, it's worth it." } },
+    { id: "es-v-b1-003", level: "B1", word: "por lo tanto", translation: "therefore / so", category: "Connectors", example: { native: "Llovía; por lo tanto, nos quedamos.", translation: "It was raining; therefore, we stayed." } },
+    { id: "es-v-b1-004", level: "B1", word: "aunque", translation: "although / even though", category: "Connectors", example: { native: "Aunque estoy cansado, sigo trabajando.", translation: "Although I'm tired, I keep working." } },
+    { id: "es-v-b1-005", level: "B1", word: "mientras", translation: "while / whereas", category: "Connectors", example: { native: "Escucho música mientras estudio.", translation: "I listen to music while I study." } },
+    { id: "es-v-b1-006", level: "B1", word: "ambiente", translation: "environment / atmosphere", category: "Society", example: { native: "El ambiente en la oficina es muy bueno.", translation: "The atmosphere in the office is very good." } },
+    { id: "es-v-b1-007", level: "B1", word: "desarrollo", translation: "development / growth", category: "Society", example: { native: "El desarrollo sostenible es clave.", translation: "Sustainable development is key." } },
+    { id: "es-v-b1-008", level: "B1", word: "sociedad", translation: "society", category: "Society", example: { native: "La sociedad ha cambiado mucho.", translation: "Society has changed a lot." } },
+    { id: "es-v-b1-009", level: "B1", word: "actualmente", translation: "currently / nowadays", category: "Time", example: { native: "Actualmente trabajo desde casa.", translation: "Currently I work from home." } },
+    { id: "es-v-b1-010", level: "B1", word: "de repente", translation: "suddenly", category: "Time", example: { native: "De repente empezó a llover.", translation: "Suddenly it started to rain." } },
 
     // --- Opinions & debates ---
     { id: "es-v-b1-011", level: "B1", word: "opinar", translation: "to have an opinion / to think", category: "Opinions", example: { native: "¿Qué opinas sobre el cambio climático?", translation: "What do you think about climate change?" } },

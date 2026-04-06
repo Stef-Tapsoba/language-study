@@ -206,4 +206,145 @@ export const b1Reading: ReadingPassage[] = [
       },
     ],
   },
+
+  {
+    id: "es-r-b1-4",
+    level: "B1",
+    category: "history",
+    title: "El Camino de Santiago",
+    body: {
+      target:
+        "El Camino de Santiago es una red de rutas de peregrinación que convergen en la ciudad de Santiago de Compostela, en el noroeste de España. Según la tradición cristiana, la catedral de Santiago guarda los restos del apóstol Santiago el Mayor. Desde la Edad Media, miles de peregrinos han recorrido estas rutas a pie, a caballo o en bicicleta para llegar a la catedral.\n\nEl camino más conocido es el Camino Francés, que comienza en los Pirineos y atraviesa el norte de España durante aproximadamente ochocientos kilómetros. Cada peregrino lleva una credencial — una especie de pasaporte — que se sella en iglesias, albergues y bares a lo largo del camino. Al llegar a Santiago, el peregrino puede solicitar la «Compostela», un certificado que acredita haber completado el recorrido.\n\nHoy en día, el Camino de Santiago no es solo una peregrinación religiosa. Cada año, más de cuatrocientas mil personas lo recorren por razones muy diversas: espiritualidad, deporte, aventura o simplemente la necesidad de tomarse un tiempo para reflexionar. Muchos caminantes dicen que el camino les cambió la vida. No es raro que personas en momentos de transición — un cambio de trabajo, una separación, la jubilación — elijan el Camino como forma de encontrar claridad y perspectiva.",
+      native:
+        "The Camino de Santiago is a network of pilgrimage routes that converge on the city of Santiago de Compostela in northwestern Spain. According to Christian tradition, the cathedral of Santiago holds the remains of the apostle James the Greater. Since the Middle Ages, thousands of pilgrims have walked, ridden or cycled these routes to reach the cathedral.\n\nThe best-known route is the Camino Francés, which begins in the Pyrenees and crosses northern Spain for approximately eight hundred kilometres. Each pilgrim carries a credencial — a kind of passport — which is stamped in churches, hostels and bars along the way. On arriving in Santiago, the pilgrim can request the 'Compostela', a certificate confirming completion of the route.\n\nToday, the Camino de Santiago is not only a religious pilgrimage. Each year, more than four hundred thousand people walk it for very different reasons: spirituality, sport, adventure or simply the need to take time for reflection. Many walkers say the camino changed their lives. It is not uncommon for people at moments of transition — a job change, a separation, retirement — to choose the Camino as a way to find clarity and perspective.",
+    },
+    vocabGloss: [
+      { word: "la peregrinación", translation: "pilgrimage" },
+      { word: "el apóstol", translation: "apostle" },
+      { word: "la credencial", translation: "pilgrim passport / credential" },
+      { word: "el albergue", translation: "hostel, pilgrim shelter" },
+      { word: "la Compostela", translation: "official certificate of completion of the Camino" },
+      { word: "la jubilación", translation: "retirement" },
+    ],
+    questions: [
+      {
+        id: "es-r-b1-4-q1",
+        level: "B1",
+        prompt: "¿Cuál es la ruta más conocida del Camino de Santiago?",
+        options: [
+          "El Camino del Norte",
+          "El Camino Portugués",
+          "El Camino Francés",
+          "El Camino Primitivo",
+        ],
+        answer: "El Camino Francés",
+      },
+      {
+        id: "es-r-b1-4-q2",
+        level: "B1",
+        prompt: "¿Para qué sirve la credencial del peregrino?",
+        options: [
+          "Para entrar gratuitamente a los museos de Santiago",
+          "Para que la sellen en los lugares del camino y demostrar que lo has recorrido",
+          "Para reservar albergues con descuento",
+          "Para obtener el permiso oficial de andar por las rutas privadas",
+        ],
+        answer: "Para que la sellen en los lugares del camino y demostrar que lo has recorrido",
+      },
+      {
+        id: "es-r-b1-4-q3",
+        level: "B1",
+        prompt: "Según el texto, ¿qué tipo de personas suele elegir el Camino de Santiago hoy en día?",
+        options: [
+          "Solo peregrinos religiosos que quieren cumplir una promesa",
+          "Únicamente atletas y deportistas profesionales",
+          "Personas de todo tipo por razones muy diversas, incluidas las personales",
+          "Solo turistas que quieren ver el norte de España",
+        ],
+        answer: "Personas de todo tipo por razones muy diversas, incluidas las personales",
+      },
+      {
+        id: "es-r-b1-4-q4",
+        level: "B1",
+        prompt: "¿Qué es la «Compostela»?",
+        options: [
+          "El nombre del albergue más famoso del camino",
+          "Un certificado que se entrega al terminar el recorrido",
+          "La ciudad de llegada al final del Camino Francés",
+          "Una cadena de sellos especiales para la credencial",
+        ],
+        answer: "Un certificado que se entrega al terminar el recorrido",
+      },
+    ],
+  },
+
+  {
+    id: "es-r-b1-5",
+    level: "B1",
+    category: "dialogue",
+    title: "Una conversación sobre el futuro",
+    body: {
+      target:
+        "Miguel: Oye, Sofía. Acabo de ver que abrieron una convocatoria para una beca de investigación en Berlín. ¿No te interesaría solicitarla?\n\nSofía: ¿En Berlín? No lo sé. Ya había pensado en quedarme aquí para el doctorado. ¿Tú qué harías?\n\nMiguel: Sinceramente, yo lo haría sin dudarlo. Cuando era estudiante de máster, siempre me arrepentí de no haber salido al extranjero. Si hubiera tenido esa oportunidad, la habría aprovechado.\n\nSofía: Es que me preocupa el idioma. Nunca había estudiado alemán, y el nivel que piden es básico, pero aun así...\n\nMiguel: Ese no sería un problema real. En los entornos de investigación, el idioma de trabajo es casi siempre el inglés. Además, si vivías allí, aprenderías alemán mucho más rápido de lo que crees.\n\nSofía: Puede que tengas razón. Y la beca cubre el alojamiento, ¿no?\n\nMiguel: Sí, y también incluye un estipendio mensual. Según el anuncio, es suficiente para vivir bien en la ciudad.\n\nSofía: Mira, me lo voy a pensar. A veces uno toma una decisión y después se da cuenta de que habría sido mejor esperar más. Pero en este caso, si no solicito la beca ahora, puede que pierda la oportunidad para siempre.\n\nMiguel: Exacto. Y además, ¿qué es lo peor que puede pasar? Si no te la dan, sigues con tu plan original.",
+      native:
+        "Miguel: Hey, Sofía. I just saw that they've opened applications for a research scholarship in Berlin. Wouldn't you be interested in applying?\n\nSofía: In Berlin? I don't know. I had already been thinking about staying here for my doctorate. What would you do?\n\nMiguel: Honestly, I'd do it without hesitation. When I was a master's student, I always regretted not having gone abroad. If I'd had that opportunity, I would have taken it.\n\nSofía: The thing is I'm worried about the language. I had never studied German, and the level they require is basic, but even so...\n\nMiguel: That wouldn't be a real problem. In research settings, the working language is almost always English. Besides, if you lived there, you'd learn German much faster than you think.\n\nSofía: Maybe you're right. And the scholarship covers accommodation, doesn't it?\n\nMiguel: Yes, and it also includes a monthly stipend. According to the announcement, it's enough to live comfortably in the city.\n\nSofía: Look, I'll think about it. Sometimes you make a decision and then realise it would have been better to wait longer. But in this case, if I don't apply for the scholarship now, I might lose the opportunity forever.\n\nMiguel: Exactly. And besides, what's the worst that can happen? If they don't give it to you, you carry on with your original plan.",
+    },
+    vocabGloss: [
+      { word: "la convocatoria", translation: "call for applications, announcement" },
+      { word: "el doctorado", translation: "doctorate, PhD" },
+      { word: "arrepentirse de", translation: "to regret (doing something)" },
+      { word: "el estipendio", translation: "stipend, monthly allowance" },
+      { word: "el entorno", translation: "setting, environment" },
+    ],
+    questions: [
+      {
+        id: "es-r-b1-5-q1",
+        level: "B1",
+        prompt: "¿Qué había pensado hacer Sofía antes de que Miguel le hablara de la beca?",
+        options: [
+          "Solicitar una beca en Berlín por su cuenta",
+          "Quedarse en su ciudad para hacer el doctorado",
+          "Aprender alemán en una academia",
+          "Trabajar en una empresa de investigación",
+        ],
+        answer: "Quedarse en su ciudad para hacer el doctorado",
+      },
+      {
+        id: "es-r-b1-5-q2",
+        level: "B1",
+        prompt: "¿Por qué Miguel dice que el alemán no sería un problema real?",
+        options: [
+          "Porque Sofía ya había estudiado alemán en el pasado",
+          "Porque el alemán es un idioma muy fácil para los hispanohablantes",
+          "Porque en los entornos de investigación se trabaja casi siempre en inglés",
+          "Porque la beca incluye clases de alemán gratuitas",
+        ],
+        answer: "Porque en los entornos de investigación se trabaja casi siempre en inglés",
+      },
+      {
+        id: "es-r-b1-5-q3",
+        level: "B1",
+        prompt: "¿Qué argumenta Sofía sobre tomar decisiones importantes?",
+        options: [
+          "Que siempre es mejor actuar rápido sin pensar demasiado",
+          "Que a veces uno toma una decisión y luego se da cuenta de que era mejor esperar",
+          "Que nunca hay que arriesgarse cuando hay una alternativa segura",
+          "Que es mejor pedir consejo a mucha gente antes de decidir",
+        ],
+        answer: "Que a veces uno toma una decisión y luego se da cuenta de que era mejor esperar",
+      },
+      {
+        id: "es-r-b1-5-q4",
+        level: "B1",
+        prompt: "¿Cuál es el argumento final de Miguel para convencer a Sofía?",
+        options: [
+          "Que si no solicita la beca, perderá la amistad de Miguel",
+          "Que la peor consecuencia de intentarlo es simplemente seguir con el plan original",
+          "Que Berlín es mucho mejor que cualquier universidad española",
+          "Que la beca es muy fácil de conseguir y casi todos la reciben",
+        ],
+        answer: "Que la peor consecuencia de intentarlo es simplemente seguir con el plan original",
+      },
+    ],
+  },
 ];

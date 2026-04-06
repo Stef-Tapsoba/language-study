@@ -137,4 +137,52 @@ export const b1Listening: ListeningExercise[] = [
       },
     ],
   },
+
+  {
+    id: "es-l-b1-4",
+    level: "B1",
+    title: "El debate del teletrabajo — conversación de radio",
+    script:
+      "Presentador: Buenas tardes. Hoy debatimos sobre el teletrabajo. Tenemos a dos invitados con opiniones distintas. Carmen, tú estás a favor. ¿Por qué?\n\nCarmen: Porque el teletrabajo me da una flexibilidad que antes era imposible. Trabajo desde casa tres días a la semana y he ganado casi dos horas diarias que antes perdía en el transporte. Eso se traduce en más tiempo para mi familia y para mí.\n\nPresentador: Y tú, Raúl, no estás tan convencido.\n\nRaúl: No, la verdad es que no. Cuando trabajo desde casa, me cuesta mucho concentrarme. Los niños, el ruido, las distracciones... Además, echo de menos el contacto con los compañeros. En la oficina, muchas ideas surgían de conversaciones informales en el pasillo.\n\nCarmen: Entiendo ese punto, pero creo que depende mucho de cada persona y de cada tipo de trabajo. En mi caso, las reuniones importantes las hago en la oficina. El resto, desde casa.\n\nRaúl: El problema es que las empresas a veces imponen el teletrabajo sin tener en cuenta si el empleado tiene las condiciones adecuadas en casa. No todo el mundo tiene una habitación tranquila para trabajar.\n\nPresentador: Buen punto. Carmen, ¿tú crees que el modelo híbrido es la solución?\n\nCarmen: Sí, creo que es lo más razonable. Ni todo en casa ni todo en la oficina. Cada equipo debería poder decidir qué modelo le funciona mejor.\n\nRaúl: Con eso sí estoy de acuerdo. Lo importante es que haya flexibilidad real, no solo en el papel.",
+    translation:
+      "Presenter: Good afternoon. Today we are debating remote working. We have two guests with different opinions. Carmen, you are in favour. Why?\n\nCarmen: Because remote working gives me a flexibility that was previously impossible. I work from home three days a week and I've gained almost two hours a day that I used to lose commuting. That translates into more time for my family and for myself.\n\nPresenter: And you, Raúl, you are not so convinced.\n\nRaúl: No, to be honest I'm not. When I work from home, I find it very hard to concentrate. The children, the noise, the distractions... Besides, I miss the contact with colleagues. In the office, many ideas came out of informal conversations in the corridor.\n\nCarmen: I understand that point, but I think it depends a lot on each person and each type of work. In my case, I hold important meetings in the office. The rest, from home.\n\nRaúl: The problem is that companies sometimes impose remote working without taking into account whether the employee has suitable conditions at home. Not everyone has a quiet room to work in.\n\nPresenter: Good point. Carmen, do you think the hybrid model is the solution?\n\nCarmen: Yes, I think it is the most reasonable approach. Not everything at home or everything in the office. Each team should be able to decide which model works best for them.\n\nRaúl: I do agree with that. The important thing is that there is real flexibility, not just on paper.",
+    questions: [
+      {
+        id: "es-l-b1-4-q1",
+        level: "B1",
+        prompt: "¿Cuál es el principal beneficio del teletrabajo para Carmen?",
+        options: [
+          "Ganar más dinero al evitar gastos de la oficina",
+          "Poder trabajar en un horario completamente libre",
+          "Recuperar el tiempo que antes perdía en el transporte",
+          "No tener que asistir a ninguna reunión presencial",
+        ],
+        answer: "Recuperar el tiempo que antes perdía en el transporte",
+      },
+      {
+        id: "es-l-b1-4-q2",
+        level: "B1",
+        prompt: "¿Cuál es la principal crítica de Raúl al teletrabajo?",
+        options: [
+          "Que reduce el salario de los empleados",
+          "Que las empresas lo imponen sin considerar las condiciones de cada empleado",
+          "Que es perjudicial para la salud mental de los trabajadores",
+          "Que solo funciona en empresas grandes",
+        ],
+        answer: "Que las empresas lo imponen sin considerar las condiciones de cada empleado",
+      },
+      {
+        id: "es-l-b1-4-q3",
+        level: "B1",
+        prompt: "¿En qué están de acuerdo Carmen y Raúl al final del debate?",
+        options: [
+          "En que el teletrabajo completo es siempre mejor que ir a la oficina",
+          "En que hay que eliminar el teletrabajo porque crea más problemas que soluciones",
+          "En que es importante que haya flexibilidad real, no solo en teoría",
+          "En que solo los equipos directivos deberían poder teletrabajar",
+        ],
+        answer: "En que es importante que haya flexibilidad real, no solo en teoría",
+      },
+    ],
+  },
 ];
