@@ -108,7 +108,7 @@ FEMININE PLURAL
             { native: "lo studente", translation: "the student (masc., starts with st-)" },
             { native: "l'amico", translation: "the friend (masc., starts with vowel)" },
             { native: "la casa", translation: "the house (fem., starts with consonant)" },
-            { native: "gli studenti / le case", translation: "the students / the houses (plurals)", speakText: "gli studenti, le case" }
+            { native: "gli studenti / le case", translation: "the students / the houses (plurals)" }
         ],
         inlineVocab: [
             { word: "libro", translation: "book" },
@@ -173,11 +173,11 @@ POSITION
 • Position can change meaning:
     un grande uomo = a great man  |  un uomo grande = a big/tall man`,
         examples: [
-            { native: "un libro interessante / una storia interessante", translation: "an interesting book / an interesting story", speakText: "un libro interessante, una storia interessante" },
-            { native: "Il ragazzo alto / La ragazza alta", translation: "The tall boy / The tall girl", speakText: "Il ragazzo alto, La ragazza alta" },
-            { native: "I libri rossi / Le case rosse", translation: "The red books / The red houses", speakText: "I libri rossi, Le case rosse" },
-            { native: "un bel ragazzo / una bella ragazza", translation: "a handsome boy / a beautiful girl (before noun)", speakText: "un bel ragazzo, una bella ragazza" },
-            { native: "un grande uomo / un uomo grande", translation: "a great man / a big man (position changes meaning)", speakText: "un grande uomo, un uomo grande" }
+            { native: "un libro interessante / una storia interessante", translation: "an interesting book / an interesting story" },
+            { native: "Il ragazzo alto / La ragazza alta", translation: "The tall boy / The tall girl" },
+            { native: "I libri rossi / Le case rosse", translation: "The red books / The red houses" },
+            { native: "un bel ragazzo / una bella ragazza", translation: "a handsome boy / a beautiful girl (before noun)" },
+            { native: "un grande uomo / un uomo grande", translation: "a great man / a big man (position changes meaning)" }
         ],
         inlineVocab: [
             { word: "rosso", translation: "red" },

@@ -155,7 +155,7 @@ ACCENTS AND THE E SOUNDS
 
 VOWEL SOUNDS — COMPLETE CHART
   Spelling          Approximate sound                    Examples
-  ──────────────────────────────────────────────────────────────
+  ─────────────────────────────────────────────────────────
   é                 'ay' (closed, tense)                 café, été, étudiant
   è / ê / ai / ei   'eh' (open, relaxed)                 très, être, mais, neige
   e (mid-word)      'uh' (schwa)                         le, fenêtre, demain
@@ -164,7 +164,7 @@ VOWEL SOUNDS — COMPLETE CHART
   ou                'oo'                                 vous, rouge, tour
   o / ô / au / eau  'oh'                                 or, rôle, aussi, beau
   eu / œu           rounded 'uh' (lips rounded forward)  bleu, peur, cœur
-  ──────────────────────────────────────────────────────────────
+  ─────────────────────────────────────────────────────────
 
 NASAL VOWELS — COMPLETE CHART
   Spelling          Sound    Examples
@@ -189,19 +189,33 @@ THE U vs OU DISTINCTION
             { native: "é → café / è → très / ê → être", speakText: "café, très, être", translation: "Three e-sounds: 'ay' (é), 'eh' (è/ê) — accent changes the sound" },
             { native: "tu vs vous / sur vs rouge", speakText: "tu, vous, sur, rouge", translation: "u vs ou — two very different rounded vowels" },
             { native: "un enfant en France", translation: "Three different nasal vowels: un / en / an — all distinct" },
-            { native: "France, bonne, vin", speakText: "France, bonne, vin", translation: "France = nasal an; bonne = NOT nasal (double n); vin = nasal in" },
+            { native: "France, bonne, vin", translation: "France = nasal an; bonne = NOT nasal (double n); vin = nasal in" },
         ],
         inlineVocab: [
             { word: "café", translation: "café / coffee" },
             { word: "étudiant", translation: "student" },
+            { word: "été", translation: "summer" },
             { word: "très", translation: "very" },
+            { word: "mais", translation: "but" },
+            { word: "neige", translation: "snow" },
             { word: "après", translation: "after" },
             { word: "être", translation: "to be" },
             { word: "fête", translation: "party / celebration" },
             { word: "fenêtre", translation: "window" },
+            { word: "le", translation: "the (masc.)" },
+            { word: "demain", translation: "tomorrow" },
+            { word: "ici", translation: "here" },
+            { word: "livre", translation: "book" },
+            { word: "typique", translation: "typical" },
             { word: "sur", translation: "on / over / about" },
             { word: "rue", translation: "street" },
+            { word: "tu", translation: "you" },
             { word: "tour", translation: "tower / tour / turn" },
+            { word: "vous", translation: "you (pl.)" },
+            { word: "rouge", translation: "red" },
+            { word: "aussi", translation: "too" },
+            { word: "beau", translation: "handsome" },
+            { word: "rôle", translation: "role" },
             { word: "bleu", translation: "blue" },
             { word: "peur", translation: "fear" },
             { word: "cœur", translation: "heart" },
