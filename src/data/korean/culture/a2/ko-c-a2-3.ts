@@ -129,5 +129,9 @@ Korea's seasonal food culture centres on seasonal ingredients. Samgyetang is the
                 target: "여러분의 문화에도 추석이나 설날과 비슷한 계절 축제나 가족 모임이 있나요? 어떤 의식이나 음식이 중심이 되나요?"
             }
         }
-    ]
+    ],
+    didYouKnow: {
+        native: "South Korea has one of the highest rates of cosmetic surgery per capita in the world. Seoul's Gangnam district — particularly the area around Apgujeong — is home to hundreds of clinics and has become a global destination for medical tourism. Procedures such as double-eyelid surgery (쌍꺼풀 수술) and jaw reduction are especially common. Korea's cosmetic surgery industry attracts visitors from across Asia, the United States, and beyond, making it a significant part of the country's medical tourism economy.",
+        target: "한국은 세계에서 1인당 성형 수술 비율이 가장 높은 나라 중 하나입니다. 서울의 강남구, 특히 압구정동 일대에는 수백 개의 클리닉이 모여 있어 글로벌 의료 관광지로 자리 잡았습니다. 쌍꺼풀 수술이나 턱 축소 수술이 특히 일반적입니다. 한국의 성형 산업은 아시아 전역과 미국 등지에서 방문객을 끌어들이며, 한국 의료 관광 경제의 중요한 축을 이루고 있습니다."
+    }
 }

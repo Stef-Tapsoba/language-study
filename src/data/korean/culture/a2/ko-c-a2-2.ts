@@ -125,5 +125,9 @@ Koreans feel pride about Hallyu, but also hold complex emotions. Questions like 
                 target: "한류의 영향을 받은 적이 있나요? 케이팝, 드라마, 음식, 언어 중 어떤 부분이 가장 흥미롭고 그 이유는 무엇인가요?"
             }
         }
-    ]
+    ],
+    didYouKnow: {
+        native: "Chuseok is one of the most significant travel days of the year in Korea. Every year, tens of millions of Koreans travel to their hometowns to celebrate with family — creating traffic jams that can last ten hours or more on major motorways. The mass migration is so large that the government publishes real-time road condition forecasts days in advance. Many Koreans book train tickets months ahead, and the fastest KTX rail tickets sell out within minutes of going on sale.",
+        target: "추석은 한국에서 한 해 중 가장 중요한 이동의 날입니다. 매년 수천만 명의 한국인이 가족과 함께 명절을 보내기 위해 고향으로 향하며, 주요 고속도로에서 10시간 이상 이어지는 교통 체증이 발생합니다. 이 대규모 이동이 워낙 거대해 정부는 며칠 전부터 실시간 도로 상황 예보를 발표합니다. 많은 한국인이 몇 달 전부터 기차표를 예매하며, 가장 빠른 KTX 표는 판매 시작 후 수 분 만에 매진됩니다."
+    }
 }

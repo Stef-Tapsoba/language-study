@@ -51,24 +51,19 @@ export const b1Listening: ListeningExercise[] = [
         id: "ko-l-b1-2",
         level: "B1",
         title: "유학생 인터뷰 — interview with a university student about studying abroad",
-        script: `기자: 안녕하세요. 현재 해외 유학을 준비 중이시라고 들었어요. 어느 나라로 가실 예정인가요?
-민준: 네, 내년 봄 학기에 캐나다 토론토 대학교에 교환학생으로 갈 예정이에요.
-기자: 왜 캐나다를 선택하셨나요?
-민준: 영어 실력도 키우고 싶고, 캐나다는 다문화 사회라서 다양한 사람들을 만날 수 있을 것 같아서요. 그리고 토론토 대학교는 제 전공인 컴퓨터공학으로 세계적으로 유명하거든요.
-기자: 준비하면서 어려운 점은 없었나요?
-민준: 비자 신청 서류가 정말 복잡했어요. 성적 증명서, 재정 보증 서류, 추천서 등 준비할 게 엄청 많았거든요. 영어 면접도 있었는데 많이 긴장했어요.
-기자: 유학 가서 가장 기대되는 것은 무엇인가요?
-민준: 다양한 나라에서 온 친구들과 함께 공부하고 교류하는 것이 가장 기대돼요. 그리고 한국에서와는 다른 교육 방식을 직접 경험해 보고 싶어요.
-기자: 좋은 경험이 되길 바랍니다. 감사합니다.`,
-        translation: `Reporter: Hello. I heard you are currently preparing to study abroad. Which country are you planning to go to?
-Minjun: Yes, I'm planning to go to the University of Toronto in Canada as an exchange student in the spring semester next year.
-Reporter: Why did you choose Canada?
-Minjun: I want to improve my English skills, and Canada is a multicultural society so I thought I'd be able to meet diverse people. Also, the University of Toronto is world-renowned for my major, which is computer science.
-Reporter: Were there any difficulties while preparing?
-Minjun: The visa application documents were really complicated. There was a huge amount to prepare — transcripts, financial guarantee documents, letters of recommendation, and more. There was also an English interview, which made me very nervous.
-Reporter: What are you most looking forward to when you go to study abroad?
-Minjun: I'm most looking forward to studying and interacting with friends from various countries. I also want to experience directly an education style different from what we have in Korea.
-Reporter: I hope it's a great experience. Thank you.`,
+        script: "안녕하세요. 현재 해외 유학을 준비 중이시라고 들었어요. 어느 나라로 가실 예정인가요? 네, 내년 봄 학기에 캐나다 토론토 대학교에 교환학생으로 갈 예정이에요. 왜 캐나다를 선택하셨나요? 영어 실력도 키우고 싶고, 캐나다는 다문화 사회라서 다양한 사람들을 만날 수 있을 것 같아서요. 그리고 토론토 대학교는 제 전공인 컴퓨터공학으로 세계적으로 유명하거든요. 준비하면서 어려운 점은 없었나요? 비자 신청 서류가 정말 복잡했어요. 성적 증명서, 재정 보증 서류, 추천서 등 준비할 게 엄청 많았거든요. 영어 면접도 있었는데 많이 긴장했어요. 유학 가서 가장 기대되는 것은 무엇인가요? 다양한 나라에서 온 친구들과 함께 공부하고 교류하는 것이 가장 기대돼요. 그리고 한국에서와는 다른 교육 방식을 직접 경험해 보고 싶어요. 좋은 경험이 되길 바랍니다. 감사합니다.",
+        translation: "Hello. I heard you are currently preparing to study abroad. Which country are you planning to go to? Yes, I'm planning to go to the University of Toronto in Canada as an exchange student in the spring semester next year. Why did you choose Canada? I want to improve my English skills, and Canada is a multicultural society so I thought I'd be able to meet diverse people. Also, the University of Toronto is world-renowned for my major, which is computer science. Were there any difficulties while preparing? The visa application documents were really complicated. There was a huge amount to prepare — transcripts, financial guarantee documents, letters of recommendation, and more. There was also an English interview, which made me very nervous. What are you most looking forward to when you go to study abroad? I'm most looking forward to studying and interacting with friends from various countries. I also want to experience directly an education style different from what we have in Korea. I hope it's a great experience. Thank you.",
+        dialogue: [
+            { speaker: "기자", text: "안녕하세요. 현재 해외 유학을 준비 중이시라고 들었어요. 어느 나라로 가실 예정인가요?", translation: "Hello. I heard you are currently preparing to study abroad. Which country are you planning to go to?" },
+            { speaker: "민준", text: "네, 내년 봄 학기에 캐나다 토론토 대학교에 교환학생으로 갈 예정이에요.", translation: "Yes, I'm planning to go to the University of Toronto in Canada as an exchange student in the spring semester next year." },
+            { speaker: "기자", text: "왜 캐나다를 선택하셨나요?", translation: "Why did you choose Canada?" },
+            { speaker: "민준", text: "영어 실력도 키우고 싶고, 캐나다는 다문화 사회라서 다양한 사람들을 만날 수 있을 것 같아서요. 그리고 토론토 대학교는 제 전공인 컴퓨터공학으로 세계적으로 유명하거든요.", translation: "I want to improve my English skills, and Canada is a multicultural society so I thought I'd be able to meet diverse people. Also, the University of Toronto is world-renowned for my major, which is computer science." },
+            { speaker: "기자", text: "준비하면서 어려운 점은 없었나요?", translation: "Were there any difficulties while preparing?" },
+            { speaker: "민준", text: "비자 신청 서류가 정말 복잡했어요. 성적 증명서, 재정 보증 서류, 추천서 등 준비할 게 엄청 많았거든요. 영어 면접도 있었는데 많이 긴장했어요.", translation: "The visa application documents were really complicated. There was a huge amount to prepare — transcripts, financial guarantee documents, letters of recommendation, and more. There was also an English interview, which made me very nervous." },
+            { speaker: "기자", text: "유학 가서 가장 기대되는 것은 무엇인가요?", translation: "What are you most looking forward to when you go to study abroad?" },
+            { speaker: "민준", text: "다양한 나라에서 온 친구들과 함께 공부하고 교류하는 것이 가장 기대돼요. 그리고 한국에서와는 다른 교육 방식을 직접 경험해 보고 싶어요.", translation: "I'm most looking forward to studying and interacting with friends from various countries. I also want to experience directly an education style different from what we have in Korea." },
+            { speaker: "기자", text: "좋은 경험이 되길 바랍니다. 감사합니다.", translation: "I hope it's a great experience. Thank you." }
+        ],
         questions: [
             {
                 id: "ko-l-b1-2-q1",
@@ -112,32 +107,23 @@ Reporter: I hope it's a great experience. Thank you.`,
         id: "ko-l-b1-3",
         level: "B1",
         title: "제주도 여행 계획 — planning a trip to Jeju Island",
-        script: `수아: 여보세요?
-태영: 어, 수아야! 나 태영이야. 잘 지냈어?
-수아: 응, 잘 지냈어. 무슨 일이야?
-태영: 다음 달 연휴에 제주도 여행 갈 건데, 같이 갈래?
-수아: 오, 좋아! 몇 박 몇 일이야?
-태영: 3박 4일 생각하고 있어. 비행기는 이미 알아봤는데, 김포에서 제주까지 왕복 이십만 원 정도 나오더라고.
-수아: 괜찮은데. 숙소는?
-태영: 성산 일출봉 근처에 게스트하우스 어때? 하루에 사만 원 정도야. 아니면 서귀포 쪽 호텔로 할까?
-수아: 게스트하우스 좋아. 거기서 일출도 보고 싶어. 뭐 타고 다닐 거야?
-태영: 렌터카 빌리려고. 제주도는 대중교통이 불편하거든. 하루에 오만 원 정도면 될 것 같아.
-수아: 그거 좋겠다. 올레길도 걷고 흑돼지도 먹고!
-태영: 맞아, 꼭 가야지! 한라산 등산도 계획에 넣어놨어.
-수아: 완벽하다. 그럼 자세한 건 나중에 다시 이야기하자.`,
-        translation: `Sua: Hello?
-Taeyoung: Oh, Sua! It's Taeyoung. How have you been?
-Sua: Good, I've been fine. What's up?
-Taeyoung: I'm going on a trip to Jeju Island over the holiday next month — do you want to come?
-Sua: Oh, great! How many nights?
-Taeyoung: I'm thinking three nights and four days. I've already looked into flights — it's about 200,000 won return from Gimpo to Jeju.
-Sua: That's reasonable. What about accommodation?
-Taeyoung: How about a guesthouse near Seongsan Ilchulbong? It's about 40,000 won a day. Or should we do a hotel in Seogwipo?
-Sua: I like the guesthouse. I want to watch the sunrise there too. How are we getting around?
-Taeyoung: I'm going to rent a car. Public transport on Jeju is inconvenient. I think about 50,000 won a day will do.
-Sua: That sounds great. Walk the Jeju Olle trail and eat black pork too!
-Taeyoung: Right, we definitely have to! I've also put Hallasan mountain hiking in the plan.
-Sua: Perfect. Let's talk again about the details later then.`,
+        script: "여보세요? 어, 수아야! 나 태영이야. 잘 지냈어? 응, 잘 지냈어. 무슨 일이야? 다음 달 연휴에 제주도 여행 갈 건데, 같이 갈래? 오, 좋아! 몇 박 몇 일이야? 3박 4일 생각하고 있어. 비행기는 이미 알아봤는데, 김포에서 제주까지 왕복 이십만 원 정도 나오더라고. 괜찮은데. 숙소는? 성산 일출봉 근처에 게스트하우스 어때? 하루에 사만 원 정도야. 아니면 서귀포 쪽 호텔로 할까? 게스트하우스 좋아. 거기서 일출도 보고 싶어. 뭐 타고 다닐 거야? 렌터카 빌리려고. 제주도는 대중교통이 불편하거든. 하루에 오만 원 정도면 될 것 같아. 그거 좋겠다. 올레길도 걷고 흑돼지도 먹고! 맞아, 꼭 가야지! 한라산 등산도 계획에 넣어놨어. 완벽하다. 그럼 자세한 건 나중에 다시 이야기하자.",
+        translation: "Hello? Oh, Sua! It's Taeyoung. How have you been? Good, I've been fine. What's up? I'm going on a trip to Jeju Island over the holiday next month — do you want to come? Oh, great! How many nights? I'm thinking three nights and four days. I've already looked into flights — it's about 200,000 won return from Gimpo to Jeju. That's reasonable. What about accommodation? How about a guesthouse near Seongsan Ilchulbong? It's about 40,000 won a day. Or should we do a hotel in Seogwipo? I like the guesthouse. I want to watch the sunrise there too. How are we getting around? I'm going to rent a car. Public transport on Jeju is inconvenient. I think about 50,000 won a day will do. That sounds great. Walk the Jeju Olle trail and eat black pork too! Right, we definitely have to! I've also put Hallasan mountain hiking in the plan. Perfect. Let's talk again about the details later then.",
+        dialogue: [
+            { speaker: "수아", text: "여보세요?", translation: "Hello?" },
+            { speaker: "태영", text: "어, 수아야! 나 태영이야. 잘 지냈어?", translation: "Oh, Sua! It's Taeyoung. How have you been?" },
+            { speaker: "수아", text: "응, 잘 지냈어. 무슨 일이야?", translation: "Good, I've been fine. What's up?" },
+            { speaker: "태영", text: "다음 달 연휴에 제주도 여행 갈 건데, 같이 갈래?", translation: "I'm going on a trip to Jeju Island over the holiday next month — do you want to come?" },
+            { speaker: "수아", text: "오, 좋아! 몇 박 몇 일이야?", translation: "Oh, great! How many nights?" },
+            { speaker: "태영", text: "3박 4일 생각하고 있어. 비행기는 이미 알아봤는데, 김포에서 제주까지 왕복 이십만 원 정도 나오더라고.", translation: "I'm thinking three nights and four days. I've already looked into flights — it's about 200,000 won return from Gimpo to Jeju." },
+            { speaker: "수아", text: "괜찮은데. 숙소는?", translation: "That's reasonable. What about accommodation?" },
+            { speaker: "태영", text: "성산 일출봉 근처에 게스트하우스 어때? 하루에 사만 원 정도야. 아니면 서귀포 쪽 호텔로 할까?", translation: "How about a guesthouse near Seongsan Ilchulbong? It's about 40,000 won a day. Or should we do a hotel in Seogwipo?" },
+            { speaker: "수아", text: "게스트하우스 좋아. 거기서 일출도 보고 싶어. 뭐 타고 다닐 거야?", translation: "I like the guesthouse. I want to watch the sunrise there too. How are we getting around?" },
+            { speaker: "태영", text: "렌터카 빌리려고. 제주도는 대중교통이 불편하거든. 하루에 오만 원 정도면 될 것 같아.", translation: "I'm going to rent a car. Public transport on Jeju is inconvenient. I think about 50,000 won a day will do." },
+            { speaker: "수아", text: "그거 좋겠다. 올레길도 걷고 흑돼지도 먹고!", translation: "That sounds great. Walk the Jeju Olle trail and eat black pork too!" },
+            { speaker: "태영", text: "맞아, 꼭 가야지! 한라산 등산도 계획에 넣어놨어.", translation: "Right, we definitely have to! I've also put Hallasan mountain hiking in the plan." },
+            { speaker: "수아", text: "완벽하다. 그럼 자세한 건 나중에 다시 이야기하자.", translation: "Perfect. Let's talk again about the details later then." }
+        ],
         questions: [
             {
                 id: "ko-l-b1-3-q1",
@@ -175,6 +161,28 @@ Sua: Perfect. Let's talk again about the details later then.`,
                 ],
                 answer: "Walking the Olle trail, eating black pork, and hiking Hallasan"
             }
+        ]
+    },
+    {
+        id: "ko-l-b1-4",
+        level: "B1",
+        title: "환경 문제 토론 — Discussion about environmental issues",
+        script: "선생님, 오늘 환경 문제에 대해 이야기해 볼게요. 먼저 지현 씨, 요즘 가장 심각한 환경 문제가 뭐라고 생각해요? 저는 플라스틱 쓰레기 문제가 가장 심각한 것 같아요. 특히 바다에 버려지는 플라스틱이 해양 생태계를 파괴하고 있거든요. 맞아요. 그럼 민철 씨는요? 저는 기후변화가 더 근본적인 문제라고 생각해요. 플라스틱도 중요하지만, 온도가 올라가면 더 큰 재앙이 올 것 같아요. 두 의견 모두 중요하네요. 그럼 해결책은 뭐가 있을까요? 개인적으로는 일회용품 사용을 줄이고 대중교통을 이용하는 것이 중요한 것 같아요. 정부 차원에서는 신재생에너지 개발에 더 투자해야 한다고 생각해요. 좋은 의견이에요. 환경 문제는 개인과 정부가 함께 노력해야 해결될 수 있어요.",
+        translation: "Teacher, let's talk about environmental issues today. First, Jihyeon, what do you think is the most serious environmental problem these days? I think the plastic waste problem is the most serious. Especially, the plastic being dumped into the sea is destroying marine ecosystems. That's right. What about you, Mincheol? I think climate change is a more fundamental problem. Plastic is important too, but I think if temperatures rise, a bigger disaster will come. Both opinions are important. Then what solutions might there be? Personally, I think it's important to reduce single-use products and use public transport. At the government level, I think we need to invest more in renewable energy development. Good points. Environmental problems can only be solved if individuals and the government make efforts together.",
+        dialogue: [
+            { speaker: "선생님", text: "오늘 환경 문제에 대해 이야기해 볼게요. 먼저 지현 씨, 요즘 가장 심각한 환경 문제가 뭐라고 생각해요?", translation: "Let's talk about environmental issues today. First, Jihyeon, what do you think is the most serious environmental problem these days?" },
+            { speaker: "지현", text: "저는 플라스틱 쓰레기 문제가 가장 심각한 것 같아요. 특히 바다에 버려지는 플라스틱이 해양 생태계를 파괴하고 있거든요.", translation: "I think the plastic waste problem is the most serious. Especially, the plastic being dumped into the sea is destroying marine ecosystems." },
+            { speaker: "선생님", text: "맞아요. 그럼 민철 씨는요?", translation: "That's right. What about you, Mincheol?" },
+            { speaker: "민철", text: "저는 기후변화가 더 근본적인 문제라고 생각해요. 플라스틱도 중요하지만, 온도가 올라가면 더 큰 재앙이 올 것 같아요.", translation: "I think climate change is a more fundamental problem. Plastic is important too, but I think if temperatures rise, a bigger disaster will come." },
+            { speaker: "선생님", text: "두 의견 모두 중요하네요. 그럼 해결책은 뭐가 있을까요?", translation: "Both opinions are important. Then what solutions might there be?" },
+            { speaker: "지현", text: "개인적으로는 일회용품 사용을 줄이고 대중교통을 이용하는 것이 중요한 것 같아요.", translation: "Personally, I think it's important to reduce single-use products and use public transport." },
+            { speaker: "민철", text: "정부 차원에서는 신재생에너지 개발에 더 투자해야 한다고 생각해요.", translation: "At the government level, I think we need to invest more in renewable energy development." },
+            { speaker: "선생님", text: "좋은 의견이에요. 환경 문제는 개인과 정부가 함께 노력해야 해결될 수 있어요.", translation: "Good points. Environmental problems can only be solved if individuals and the government make efforts together." }
+        ],
+        questions: [
+            { id: "ko-l-b1-4-q1", level: "B1", prompt: "What does Jihyeon identify as the most serious environmental problem?", options: ["Plastic waste, especially in the oceans", "Climate change and rising temperatures", "Air pollution in cities", "Deforestation"], answer: "Plastic waste, especially in the oceans" },
+            { id: "ko-l-b1-4-q2", level: "B1", prompt: "What is Mincheol's view on the main problem?", options: ["Climate change is a more fundamental issue", "Individual behaviour is more important than government action", "Plastic pollution is more serious than climate change", "The ocean is the biggest concern"], answer: "Climate change is a more fundamental issue" },
+            { id: "ko-l-b1-4-q3", level: "B1", prompt: "What does Mincheol suggest the government should do?", options: ["Invest more in renewable energy development", "Ban all single-use plastics immediately", "Impose higher taxes on pollution", "Educate citizens about recycling"], answer: "Invest more in renewable energy development" }
         ]
     }
 ]

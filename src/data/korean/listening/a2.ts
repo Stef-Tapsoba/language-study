@@ -38,6 +38,22 @@ export const a2Listening: ListeningExercise[] = [
         title: "기차역에서 — at the train station",
         script: "어서 오세요. 부산까지 표 한 장 주세요. 어른 한 명이요? 네. KTX랑 무궁화호가 있는데 어느 걸로 드릴까요? KTX가 더 빠른가요? KTX가 무궁화호보다 두 시간 정도 빨라요. 그럼 KTX로 주세요. 편도예요 왕복이에요? 편도로 주세요. 얼마예요? 오만이천 원이에요. 카드 되나요? 네, 됩니다. 감사합니다. 좋은 여행 되세요!",
         translation: "Welcome. One ticket to Busan please. One adult? Yes. There is the KTX and the Mugunghwa, which would you like? Is the KTX faster? The KTX is about two hours faster than the Mugunghwa. Then I'll take the KTX please. Single or return? Single please. How much is it? It is fifty-two thousand won. Can I pay by card? Yes, you can. Thank you. Have a good trip!",
+        dialogue: [
+            { speaker: "직원", text: "어서 오세요.", translation: "Welcome." },
+            { speaker: "손님", text: "부산까지 표 한 장 주세요.", translation: "One ticket to Busan please." },
+            { speaker: "직원", text: "어른 한 명이요?", translation: "One adult?" },
+            { speaker: "손님", text: "네.", translation: "Yes." },
+            { speaker: "직원", text: "KTX랑 무궁화호가 있는데 어느 걸로 드릴까요?", translation: "There is the KTX and the Mugunghwa, which would you like?" },
+            { speaker: "손님", text: "KTX가 더 빠른가요?", translation: "Is the KTX faster?" },
+            { speaker: "직원", text: "KTX가 무궁화호보다 두 시간 정도 빨라요.", translation: "The KTX is about two hours faster than the Mugunghwa." },
+            { speaker: "손님", text: "그럼 KTX로 주세요.", translation: "Then I'll take the KTX please." },
+            { speaker: "직원", text: "편도예요 왕복이에요?", translation: "Single or return?" },
+            { speaker: "손님", text: "편도로 주세요.", translation: "Single please." },
+            { speaker: "손님", text: "얼마예요?", translation: "How much is it?" },
+            { speaker: "직원", text: "오만이천 원이에요.", translation: "It is fifty-two thousand won." },
+            { speaker: "손님", text: "카드 되나요?", translation: "Can I pay by card?" },
+            { speaker: "직원", text: "네, 됩니다. 감사합니다. 좋은 여행 되세요!", translation: "Yes, you can. Thank you. Have a good trip!" }
+        ],
         questions: [
             {
                 id: "ko-l-a2-2-q1",
@@ -68,6 +84,18 @@ export const a2Listening: ListeningExercise[] = [
         title: "여름 방학 계획 — summer holiday plans",
         script: "여름 방학에 뭐 할 거예요? 가족이랑 제주도에 갈 거예요. 제주도요? 좋겠다! 바다에서 예쁜 물고기를 보고 싶어요. 스노클링을 할 거예요? 네, 처음이라서 조금 떨리지만 기대돼요. 친구는요? 친구는 한국을 떠나서 해외여행을 한다고 해요. 어디에 가요? 유럽에 간다고 해요. 좋겠다.",
         translation: "What are you going to do during summer vacation? I'm going to go to Jeju Island with my family. Jeju Island? That sounds great! I want to see beautiful fish in the sea. Are you going to go snorkelling? Yes, it's my first time so I'm a little nervous but I'm looking forward to it. What about your friend? I heard my friend is leaving Korea and travelling abroad. Where are they going? I heard they're going to Europe. That sounds nice.",
+        dialogue: [
+            { speaker: "친구 A", text: "여름 방학에 뭐 할 거예요?", translation: "What are you going to do during summer vacation?" },
+            { speaker: "친구 B", text: "가족이랑 제주도에 갈 거예요.", translation: "I'm going to go to Jeju Island with my family." },
+            { speaker: "친구 A", text: "제주도요? 좋겠다! 바다에서 예쁜 물고기를 보고 싶어요.", translation: "Jeju Island? That sounds great! I want to see beautiful fish in the sea." },
+            { speaker: "친구 A", text: "스노클링을 할 거예요?", translation: "Are you going to go snorkelling?" },
+            { speaker: "친구 B", text: "네, 처음이라서 조금 떨리지만 기대돼요.", translation: "Yes, it's my first time so I'm a little nervous but I'm looking forward to it." },
+            { speaker: "친구 A", text: "친구는요?", translation: "What about your friend?" },
+            { speaker: "친구 B", text: "친구는 한국을 떠나서 해외여행을 한다고 해요.", translation: "I heard my friend is leaving Korea and travelling abroad." },
+            { speaker: "친구 A", text: "어디에 가요?", translation: "Where are they going?" },
+            { speaker: "친구 B", text: "유럽에 간다고 해요.", translation: "I heard they're going to Europe." },
+            { speaker: "친구 A", text: "좋겠다.", translation: "That sounds nice." }
+        ],
         questions: [
             {
                 id: "ko-l-a2-3-q1",
@@ -98,6 +126,19 @@ export const a2Listening: ListeningExercise[] = [
         title: "지난 주말 — last weekend",
         script: "지난 주말에 뭐 했어요? 토요일에 친구들이랑 영화를 봤어요. 어떤 영화였어요? 한국 로맨스 영화였어요. 정말 재미있었어요. 일요일에는요? 일요일에는 비가 와서 집에 있었어요. 집에서 뭐 했어요? 어머니랑 요리를 했어요. 뭘 만들었어요? 김치찌개를 만들었어요. 맛있었어요. 저도 해 보고 싶다!",
         translation: "What did you do last weekend? On Saturday I watched a film with friends. What kind of film was it? It was a Korean romance film. It was really interesting. What about Sunday? On Sunday it was raining so I stayed at home. What did you do at home? I cooked with my mother. What did you make? We made kimchi jjigae (kimchi stew). It was delicious. I want to try making it too!",
+        dialogue: [
+            { speaker: "친구", text: "지난 주말에 뭐 했어요?", translation: "What did you do last weekend?" },
+            { speaker: "나", text: "토요일에 친구들이랑 영화를 봤어요.", translation: "On Saturday I watched a film with friends." },
+            { speaker: "친구", text: "어떤 영화였어요?", translation: "What kind of film was it?" },
+            { speaker: "나", text: "한국 로맨스 영화였어요. 정말 재미있었어요.", translation: "It was a Korean romance film. It was really interesting." },
+            { speaker: "친구", text: "일요일에는요?", translation: "What about Sunday?" },
+            { speaker: "나", text: "일요일에는 비가 와서 집에 있었어요.", translation: "On Sunday it was raining so I stayed at home." },
+            { speaker: "친구", text: "집에서 뭐 했어요?", translation: "What did you do at home?" },
+            { speaker: "나", text: "어머니랑 요리를 했어요.", translation: "I cooked with my mother." },
+            { speaker: "친구", text: "뭘 만들었어요?", translation: "What did you make?" },
+            { speaker: "나", text: "김치찌개를 만들었어요. 맛있었어요.", translation: "We made kimchi jjigae (kimchi stew). It was delicious." },
+            { speaker: "친구", text: "저도 해 보고 싶다!", translation: "I want to try making it too!" }
+        ],
         questions: [
             {
                 id: "ko-l-a2-4-q1",
