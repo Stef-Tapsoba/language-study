@@ -1,6 +1,6 @@
 import { VocabItem } from "../../../types"
 
-// B2 vocabulary — 104 items.
+// B2 vocabulary — 108 items.
 
 export const b2Vocab: VocabItem[] = [
     // --- Politics & Society (10) ---
@@ -134,4 +134,10 @@ export const b2Vocab: VocabItem[] = [
     // --- Ser/Estar Idiomatic Pairs (2) ---
     { id: "es-v-b2-103", level: "B2", word: "estar vivo / ser vivo", translation: "to be alive (state) / to be sharp/clever (characteristic)", category: "Ser & Estar Pairs", example: { native: "Está vivo gracias a los médicos. / Es muy vivo — aprende todo enseguida.", translation: "He is alive thanks to the doctors. / He is very sharp — he picks everything up instantly." } },
     { id: "es-v-b2-104", level: "B2", word: "estar listo / ser listo", translation: "to be ready (state) / to be clever (characteristic)", category: "Ser & Estar Pairs", example: { native: "La cena ya está lista. / Es muy lista — siempre encuentra la solución.", translation: "Dinner is already ready. / She is very clever — she always finds the solution." } },
+
+    // --- Como si + Subjuntivo (4) ---
+    { id: "es-v-b2-105", level: "B2", word: "como si", translation: "as if / as though (always + subjunctive)", category: "Abstract & Philosophical", example: { native: "Habla como si supiera todo, pero no sabe nada.", translation: "He talks as if he knew everything, but he knows nothing." } },
+    { id: "es-v-b2-106", level: "B2", word: "actuar / comportarse como si", translation: "to act / to behave as if", category: "Social Interactions", example: { native: "Se comporta como si fuera el dueño del lugar.", translation: "He behaves as if he were the owner of the place." } },
+    { id: "es-v-b2-107", level: "B2", word: "hacerse el/la + adj", translation: "to pretend to be / to play dumb / to act as if", category: "Social Interactions", example: { native: "Se hizo el tonto para no tener que responder.", translation: "He played dumb so as not to have to answer." } },
+    { id: "es-v-b2-108", level: "B2", word: "a pesar de las apariencias", translation: "despite appearances", category: "Abstract & Philosophical", example: { native: "A pesar de las apariencias, la situación era muy grave.", translation: "Despite appearances, the situation was very serious." } },
 ]

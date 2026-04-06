@@ -1,6 +1,6 @@
 import { GrammarLesson } from "../../../types"
 
-// B2 grammar — 13 lessons.
+// B2 grammar — 14 lessons.
 
 export const b2Grammar: GrammarLesson[] = [
     {
@@ -194,6 +194,21 @@ export const b2Grammar: GrammarLesson[] = [
             { native: "Podrías haberme avisado con más tiempo.", translation: "You could have given me more notice. (reproach)" },
             { native: "Según fuentes policiales, el sospechoso habría huido al extranjero.", translation: "According to police sources, the suspect is said to have fled abroad. (journalistic: unverified)" },
             { native: "Los precios habrían subido un cinco por ciento, según el informe preliminar.", translation: "Prices are reported to have risen by five per cent, according to the preliminary report. (journalistic: hedging)" }
+        ]
+    },
+    {
+        id: "es-g-b2-14",
+        level: "B2",
+        title: "Como si + Imperfecto / Pluscuamperfecto de Subjuntivo",
+        explanation: {
+            native: "\"Como si\" (as if / as though) ALWAYS takes the subjunctive — it never takes the indicative. It has two forms depending on the time frame. (1) Como si + imperfecto de subjuntivo: describes a current or ongoing condition that is contrary to reality: \"Habla como si fuera el jefe\" (He talks as if he were the boss — he is not). \"Gastan como si tuvieran todo el dinero del mundo\" (They spend as if they had all the money in the world). (2) Como si + pluscuamperfecto de subjuntivo: describes a past condition contrary to reality, referring to an action that preceded the main verb: \"Actuó como si nunca hubiera pasado nada\" (He acted as if nothing had ever happened). Common with verbs of behaviour and appearance: hablar, actuar, comportarse, mirar, tratar a alguien. Note: the English \"as if\" can also take indicative in colloquial usage; Spanish never allows this — \"como si\" is always followed by subjunctive.",
+            target: "«Como si» toma SIEMPRE el subjuntivo, nunca el indicativo. Tiene dos formas según el marco temporal. (1) Como si + imperfecto de subjuntivo: describe una condición actual contraria a la realidad: «Habla como si fuera el jefe» (pero no lo es). «Gastan como si tuvieran todo el dinero del mundo». (2) Como si + pluscuamperfecto de subjuntivo: describe una condición pasada contraria a la realidad, anterior al verbo principal: «Actuó como si nunca hubiera pasado nada». Común con verbos de comportamiento y apariencia: hablar, actuar, comportarse, mirar, tratar a alguien. Nota: el inglés «as if» puede ir en indicativo coloquialmente; en español «como si» SIEMPRE rige subjuntivo."
+        },
+        examples: [
+            { native: "Habla como si supiera todo, pero en realidad no sabe nada.", translation: "He talks as if he knew everything, but in reality he knows nothing. (como si + imperfecto subj.)" },
+            { native: "Me trataba como si fuera un extraño, a pesar de que nos conocemos desde la infancia.", translation: "He treated me as if I were a stranger, even though we've known each other since childhood." },
+            { native: "Actuó como si no hubiera dicho nada.", translation: "She acted as if she hadn't said anything. (como si + pluscuamperfecto subj.)" },
+            { native: "Sonrió como si todo estuviera bien, aunque sabía que no era así.", translation: "She smiled as if everything were fine, even though she knew it wasn't." }
         ]
     },
 ]

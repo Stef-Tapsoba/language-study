@@ -1,4 +1,4 @@
-// Korean B2 grammar lessons
+// Korean B2 grammar lessons — 14 lessons
 // data/korean/grammar/b2.ts
 import { GrammarLesson } from "../../../types"
 
@@ -193,6 +193,22 @@ export const b2Grammar: GrammarLesson[] = [
             { native: "선생님이 학생들을 앉혔어요.", romanized: "Seonsaengnimi haksaengdeureul anjeosseoyo.", translation: "The teacher seated the students. (앉다 → 앉히다: ~히 causative)" },
             { native: "부모님이 저를 공부하게 했어요.", romanized: "Bumonnimi jeoreul gongbuhage haesseoyo.", translation: "My parents made me study. (~게 하다 analytical causative)" },
             { native: "그 농담이 모두를 웃겼어요.", romanized: "Geu nongdami modureul utgyeosseoyo.", translation: "That joke made everyone laugh. (웃다 → 웃기다: ~기 causative)" }
+        ]
+    },
+    {
+        id: "ko-g-b2-14",
+        level: "B2",
+        title: "TOPIK II 쓰기: Essay Connectors and Academic Sentence Structures",
+        explanation: {
+            native: "TOPIK II Level 4 explicitly tests the ability to write structured argumentative essays of 200-300+ characters. The following connectors and structures are tested and expected at this level. Connectors for cause and result: 이로 인해 (as a result of this), 이에 따라 (accordingly, in response to this), 따라서 (therefore). Connectors for addition/elaboration: 또한 (also, in addition), 더불어 (furthermore, together with), 아울러 (in addition — slightly more formal). Connectors for contrast: 반면에 (on the other hand), 그러나 (however — formal), 이에 반해 (in contrast to this). Connectors for explanation/clarification: 즉 (that is to say, in other words), 다시 말해 (in other words), 이는 (this means, this refers to). Connectors for conclusion: 결론적으로 (in conclusion), 결국 (in the end, ultimately), 이러한 점에서 (from this perspective, in this regard). Topic-sentence openers: 이 글에서는 ~에 대해 살펴보고자 한다 (In this essay, I will examine ~), ~은/는 ~(으)ㄹ 수 있다 (~ can be said to be ~). These structures are mandatory for TOPIK II writing Band 3-4 scores.",
+            target: "TOPIK II 4급은 200-300자 이상의 논증 에세이를 쓰는 능력을 직접 평가합니다. 다음 접속어와 구조들이 이 수준에서 시험에 나오고 요구됩니다. 인과·결과 접속어: 이로 인해, 이에 따라, 따라서. 추가·부연 접속어: 또한, 더불어, 아울러. 대조 접속어: 반면에, 그러나(격식체), 이에 반해. 설명·명료화 접속어: 즉, 다시 말해, 이는. 결론 접속어: 결론적으로, 결국, 이러한 점에서. 주제문 시작 표현: «이 글에서는 ~에 대해 살펴보고자 한다», «~은/는 ~(으)ㄹ 수 있다». 이러한 구조들은 TOPIK II 쓰기 3-4등급 점수를 위해 필수적입니다."
+        },
+        examples: [
+            { native: "스마트폰 사용량이 급증하였다. 이로 인해 청소년들의 수면 시간이 감소하고 있다.", romanized: "Seumateupon sayongnyani geupjeunghaeotsda. Iro inhae cheongsonnyeondeureui sumyeon sigani gamsohago itda.", translation: "Smartphone usage has surged. As a result of this, the sleep time of teenagers is decreasing." },
+            { native: "여성의 사회 진출이 증가하고 있다. 이에 따라 기업들도 육아 지원 제도를 확대하고 있다.", romanized: "Yeoseongui sahoe jinchuri jeunggahago itda. Ie ttara gieopdeuldo yugga jiwon jedoreul hwakdaehago itda.", translation: "Women's participation in society is increasing. Accordingly, companies are also expanding childcare support systems." },
+            { native: "대도시는 취업 기회가 많다. 반면에 농촌 지역은 인력 부족 문제를 겪고 있다.", romanized: "Daedosineun chwieop gihoega manta. Banmyeon-e nongchon jigyeogeun inryeok bujok munjereul gyeokgo itda.", translation: "Large cities have many job opportunities. On the other hand, rural areas are experiencing a labour shortage." },
+            { native: "인공지능이 발전하고 있다. 즉, 많은 직업이 자동화될 가능성이 높아지고 있다.", romanized: "Ingongjineungi baljeonhago itda. Jeuk, manheun jigeobi jadongwadoel ganeungseong-i nopajigo itda.", translation: "Artificial intelligence is advancing. That is to say, the likelihood that many jobs will be automated is increasing." },
+            { native: "이러한 점에서 정부의 적극적인 정책 개입이 필요하다고 볼 수 있다.", romanized: "Ireohan jeomeoseo jeongbuui jeokgeukjeog-in jeongchaek gaeibi pilyohada go bol su itda.", translation: "From this perspective, it can be seen that active government policy intervention is necessary." }
         ]
     }
 ]

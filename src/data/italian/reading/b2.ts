@@ -146,6 +146,66 @@ export const b2Reading: ReadingPassage[] = [
         ]
     },
     {
+        id: "it-r-b2-5",
+        level: "B2",
+        category: "history",
+        title: "Il Risorgimento e la nascita dell'Italia unita",
+        body: {
+            target: `Il Risorgimento fu il processo politico, culturale e militare attraverso il quale gli stati italiani preunitari si unificarono in un unico regno tra il 1848 e il 1870. Prima dell'unificazione, la penisola era frammentata in numerosi stati: il Regno delle Due Sicilie al sud, lo Stato Pontificio al centro, il Regno di Sardegna al nord-ovest, e una serie di ducati e domini austriaci nel resto della penisola.
+
+Il movimento risorgimentale fu alimentato da una generazione di intellettuali e patrioti convinti che gli italiani formassero una nazione culturale e linguistica che meritasse di diventare anche uno stato politico. Figure come Giuseppe Mazzini, teorico dell'unità repubblicana, Camillo Benso conte di Cavour, abile diplomatico piemontese, e Giuseppe Garibaldi, eroe popolare delle «Camicie Rosse», incarnarono le diverse anime del movimento.
+
+L'unificazione fu realizzata in gran parte attraverso l'azione del Regno di Sardegna, guidato dalla monarchia sabauda. Cavour strinse alleanze con Napoleone III di Francia e riuscì a far dichiarare guerra all'Austria nel 1859. Garibaldi, nel 1860, sbarcò in Sicilia con mille volontari — la famosa «Spedizione dei Mille» — e risalì la penisola conquistando il Mezzogiorno. Il 17 marzo 1861, venne proclamato il Regno d'Italia. La capitale fu trasferita prima a Torino, poi a Firenze e infine a Roma nel 1871, dopo la caduta dello Stato Pontificio.
+
+Nonostante l'entusiasmo ideale, l'unificazione lasciò irrisolte profonde tensioni. Il Sud, che aveva vissuto secoli sotto la monarchia borbonica, faticò a integrarsi nel nuovo stato. Le differenze economiche, linguistiche e culturali tra nord e sud — «la questione meridionale» — avrebbero segnato tutta la storia italiana successiva.`,
+            native: `The Risorgimento was the political, cultural and military process through which the pre-unification Italian states unified into a single kingdom between 1848 and 1870. Before unification, the peninsula was fragmented into numerous states: the Kingdom of the Two Sicilies in the south, the Papal States in the centre, the Kingdom of Sardinia in the north-west, and a series of duchies and Austrian domains in the rest of the peninsula.
+
+The Risorgimento movement was fuelled by a generation of intellectuals and patriots convinced that Italians formed a cultural and linguistic nation that deserved to become a political state. Figures such as Giuseppe Mazzini, theorist of republican unity, Camillo Benso Count of Cavour, a skilled Piedmontese diplomat, and Giuseppe Garibaldi, popular hero of the 'Red Shirts', embodied the different souls of the movement.
+
+Unification was achieved largely through the action of the Kingdom of Sardinia, guided by the Savoy monarchy. Cavour forged alliances with Napoleon III of France and succeeded in bringing about a declaration of war on Austria in 1859. Garibaldi, in 1860, landed in Sicily with a thousand volunteers — the famous 'Expedition of the Thousand' — and marched up the peninsula, conquering the Mezzogiorno. On 17 March 1861, the Kingdom of Italy was proclaimed. The capital was moved first to Turin, then to Florence and finally to Rome in 1871, after the fall of the Papal States.
+
+Despite the idealistic enthusiasm, unification left deep tensions unresolved. The South, which had lived for centuries under the Bourbon monarchy, struggled to integrate into the new state. The economic, linguistic and cultural differences between north and south — 'the Southern Question' — would mark all subsequent Italian history.`
+        },
+        vocabGloss: [
+            { word: "il Risorgimento", translation: "the Risorgimento — Italy's 19th-century unification movement (literally 'resurgence')" },
+            { word: "preunitario", translation: "pre-unification — relating to the period before Italian unification" },
+            { word: "la Spedizione dei Mille", translation: "the Expedition of the Thousand — Garibaldi's 1860 expedition to Sicily" },
+            { word: "lo Stato Pontificio", translation: "the Papal States — territories under Church rule until 1870" },
+            { word: "la questione meridionale", translation: "the Southern Question — Italy's historic north-south divide" },
+            { word: "incarnare", translation: "to embody, to incarnate" }
+        ],
+        questions: [
+            {
+                id: "it-r-b2-5-q1",
+                level: "B2",
+                prompt: "Quale delle seguenti figure fu un teorico dell'unità repubblicana?",
+                options: ["Cavour", "Garibaldi", "Mazzini", "Napoleone III"],
+                answer: "Mazzini"
+            },
+            {
+                id: "it-r-b2-5-q2",
+                level: "B2",
+                prompt: "Quale fu il ruolo di Garibaldi nell'unificazione?",
+                options: ["Organizzò la diplomazia con la Francia", "Sbarcò in Sicilia e conquistò il Mezzogiorno risalendo la penisola", "Guidò le truppe contro l'Austria nel 1859", "Proclamò il Regno d'Italia a Torino"],
+                answer: "Sbarcò in Sicilia e conquistò il Mezzogiorno risalendo la penisola"
+            },
+            {
+                id: "it-r-b2-5-q3",
+                level: "B2",
+                prompt: "Che cosa fu 'la questione meridionale'?",
+                options: ["Il problema della difesa delle frontiere meridionali del nuovo stato", "Le differenze economiche, linguistiche e culturali tra nord e sud Italia", "La questione della capitale: dove collocare Roma", "Il conflitto tra Garibaldi e Cavour sullo stile di governo"],
+                answer: "Le differenze economiche, linguistiche e culturali tra nord e sud Italia"
+            },
+            {
+                id: "it-r-b2-5-q4",
+                level: "B2",
+                prompt: "Quando fu proclamato il Regno d'Italia?",
+                options: ["Il 17 marzo 1848", "Il 17 marzo 1861", "Il 17 marzo 1870", "Il 17 marzo 1871"],
+                answer: "Il 17 marzo 1861"
+            }
+        ]
+    },
+    {
         id: "it-r-b2-4",
         level: "B2",
         category: "culture",

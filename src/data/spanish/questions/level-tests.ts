@@ -309,6 +309,13 @@ export const levelTestQuestions: QuizQuestion[] = [
         hint: "Estar en las nubes = to have one's head in the clouds / be daydreaming. Key B2 idiom."
     },
 
+    // --- B2 additions (es-lt-b2-21 through es-lt-b2-25) — new grammar lessons ---
+    { id: "es-lt-b2-21", level: "B2", prompt: "Complete: 'Habla ___ supiera todo, pero en realidad no sabe nada.'", options: ["como si", "como que", "como si que", "igual que"], answer: "como si", hint: "Como si = as if. Always takes subjunctive (imperfecto or pluscuamperfecto). Never indicative." },
+    { id: "es-lt-b2-22", level: "B2", prompt: "Complete: 'Actuó ___ nada hubiera pasado.' (past contrary to reality)", options: ["como si", "como si que", "aunque", "a pesar de que"], answer: "como si", hint: "Como si + pluscuamperfecto de subjuntivo (hubiera pasado) = as if nothing had happened. Past counterfactual." },
+    { id: "es-lt-b2-23", level: "B2", prompt: "Which sentence uses a cleft structure (estructura de énfasis) correctly?", options: ["Es la pobreza que preocupa más.", "Es la pobreza lo que más preocupa.", "Lo que preocupa es la pobreza que.", "La pobreza es lo que más preocupa que."], answer: "Es la pobreza lo que más preocupa.", hint: "Cleft: es + noun + lo que/quien. 'Lo que' for things/clauses, 'quien/quienes' for people." },
+    { id: "es-lt-b2-24", level: "B2", prompt: "Translate: 'The minister is reported to have resigned.' (journalistic conditional)", options: ["El ministro había dimitido.", "El ministro habría dimitido.", "El ministro debería dimitir.", "El ministro habría de dimitir."], answer: "El ministro habría dimitido.", hint: "Condicional compuesto periodístico: habría + participio = reportedly / is said to have. No explicit condition — signals unverified information." },
+    { id: "es-lt-b2-25", level: "B2", prompt: "Complete the nominalised structure: '___ que no se hayan tomado medidas es preocupante.'", options: ["El hecho de", "El hecho que", "El hecho", "El hecho de que"], answer: "El hecho de que", hint: "El hecho de que + subjuntivo = the fact that. The full phrase is: el hecho de que + verb in subjuntivo (hayan tomado)." },
+
     // -----------------------------------------------------------------------
     // C1 — additions (es-lt-c1-16 through -20)
     // -----------------------------------------------------------------------

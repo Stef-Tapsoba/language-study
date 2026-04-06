@@ -263,6 +263,13 @@ export const levelTestQuestions: QuizQuestion[] = [
         hint: "께 = to a respected person (honorific dative). 선생님께 드렸어요 = I gave it to the teacher (respectfully)."
     },
 
+    // --- B2 additions (ko-lt-b2-21 through ko-lt-b2-25) — new grammar lessons ---
+    { id: "ko-lt-b2-21", level: "B2", prompt: "Complete the formal academic sentence: '이 연구는 표본 수가 부족___ 결과를 일반화하기 어렵다.'", options: ["해서", "기 때문에", "므로", "으므로"], answer: "으므로", hint: "~(으)므로 = formal written causal. 부족하다 ends in consonant ㅎ → 부족하므로. NEVER used in spoken Korean." },
+    { id: "ko-lt-b2-22", level: "B2", prompt: "What is the ~(으)ㅁ nominalised form of '살다' (to live)?", options: ["사는 것", "살기", "삶", "살음"], answer: "삶", hint: "삶 is the ~(으)ㅁ nominalisation of 살다 — a lexicalised form meaning 'life/living'. More formal than 사는 것 or 살기." },
+    { id: "ko-lt-b2-23", level: "B2", prompt: "Which connector means 'according to the research' in formal academic Korean?", options: ["연구 때문에", "연구에 따르면", "연구에서", "연구를 통해서"], answer: "연구에 따르면", hint: "~에 따르면 = according to (citation/attribution). 연구에 따르면 = according to the research. Standard in academic writing and news." },
+    { id: "ko-lt-b2-24", level: "B2", prompt: "Which Korean connector introduces a contrasting point in formal academic writing?", options: ["그래서", "그러므로", "반면에", "따라서"], answer: "반면에", hint: "반면에 = on the other hand (explicit formal contrast). 그래서/따라서/그러므로 all signal cause-result, not contrast." },
+    { id: "ko-lt-b2-25", level: "B2", prompt: "What does '웃기다' mean, and how is it related to '웃다'?", options: ["To laugh (same meaning as 웃다)", "To make someone laugh (causative of 웃다)", "To stop laughing (cessative)", "To want to laugh (desiderative)"], answer: "To make someone laugh (causative of 웃다)", hint: "웃다 → 웃기다: ~기 causative suffix. 사동: making/causing someone to do something. 그 농담이 모두를 웃겼어요." },
+
     // ── C1 additions ─────────────────────────────────────────────────────────
     {
         id: "ko-lt-c1-16", level: "C1",
