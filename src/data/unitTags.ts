@@ -211,27 +211,32 @@ export const UNIT_TAGS: Record<string, TopicTag[]> = {
     "ja-a2-u20": ["home", "social"],
 
     // ── KOREAN A1 ───────────────────────────────────────────────────────────────
-    "ko-a1-u1":  ["greetings", "identity"],
-    "ko-a1-u2":  ["identity", "work"],
-    "ko-a1-u3":  ["identity", "social"],
-    "ko-a1-u4":  ["numbers", "social"],
-    "ko-a1-u5":  ["numbers"],
-    "ko-a1-u6":  ["identity", "social"],
-    "ko-a1-u7":  ["social"],
-    "ko-a1-u8":  ["food", "social"],
-    "ko-a1-u9":  ["identity", "nature"],
-    "ko-a1-u10": ["social"],
-    "ko-a1-u11": ["food", "social"],
-    "ko-a1-u12": ["travel", "social"],
-    "ko-a1-u13": ["nature", "social"],
-    "ko-a1-u14": ["social"],
-    "ko-a1-u15": ["shopping", "social"],
-    "ko-a1-u16": ["travel", "food"],
-    "ko-a1-u17": ["social"],
-    "ko-a1-u18": ["travel", "social"],
-    "ko-a1-u19": ["food", "social"],
-    "ko-a1-u20": ["social", "travel"],
-    "ko-a1-u21": ["social"],
+    "ko-a1-u1":  ["identity"],                    // Block 0: vowels & syllable blocks
+    "ko-a1-u2":  ["identity"],                    // Block 0: consonants
+    "ko-a1-u3":  ["identity"],                    // Block 0: reading first words
+    "ko-a1-u4":  ["greetings", "social"],         // Block 1: greetings, goodbyes, politeness
+    "ko-a1-u5":  ["identity"],                    // Block 1: I am... (copula)
+    "ko-a1-u6":  ["identity", "social"],          // Block 1: name, origin, age
+    "ko-a1-u7":  ["work", "social"],              // Block 1: job, studies, possession
+    "ko-a1-u8":  ["family", "social"],            // Block 2: family vocabulary
+    "ko-a1-u9":  ["social"],                      // Block 2: likes/dislikes
+    "ko-a1-u10": ["social"],                      // Block 2: daily routine, present tense
+    "ko-a1-u11": ["travel", "social"],            // Block 2: location with 에
+    "ko-a1-u12": ["social"],                      // Block 2: adjectives, descriptions
+    "ko-a1-u13": ["social"],                      // Block 3: time words, daily routine
+    "ko-a1-u14": ["social"],                      // Block 3: likes/preferences
+    "ko-a1-u15": ["social"],                      // Block 3: negation, asking/answering
+    "ko-a1-u16": ["social"],                      // Block 3: frequency adverbs
+    "ko-a1-u17": ["social"],                      // Block 3: past tense
+    "ko-a1-u18": ["travel"],                      // Block 4: getting around, directions
+    "ko-a1-u19": ["food", "social"],              // Block 4: food and ordering
+    "ko-a1-u20": ["shopping", "social"],          // Block 4: shopping and prices
+    "ko-a1-u21": ["social"],                      // Block 4: asking for help/things
+    "ko-a1-u22": ["social"],                      // Block 4: suggestions, plans
+    "ko-a1-u23": ["social"],                      // Block 5: future tense
+    "ko-a1-u24": ["social"],                      // Block 5: sentence connectors
+    "ko-a1-u25": ["social"],                      // Block 5: conditional
+    "ko-a1-u26": ["social"],                      // Block 5: capstone review
 
     // ── KOREAN A2 ───────────────────────────────────────────────────────────────
     "ko-a2-u1":  ["travel", "work"],

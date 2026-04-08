@@ -1,12 +1,16 @@
 import { GrammarLesson } from "../../../../types"
-import { scriptAndFoundationsLessons } from "./script-and-foundations"
-import { particlesAndTenseLessons } from "./particles-and-tense"
-import { vocabularyAndStructuresLessons } from "./vocabulary-and-structures"
-import { adverbsAndDiscourseLessons } from "./adverbs-and-discourse"
+import { block0Lessons } from "./block0"
+import { block1Lessons } from "./block1"
+import { block2Lessons } from "./block2"
+import { block3Lessons } from "./block3"
+import { block4Lessons } from "./block4"
+import { block5Lessons } from "./block5"
 
 export const a1Grammar: GrammarLesson[] = [
-    ...scriptAndFoundationsLessons,
-    ...particlesAndTenseLessons,
-    ...vocabularyAndStructuresLessons,
-    ...adverbsAndDiscourseLessons,
+    ...block0Lessons,
+    ...block1Lessons,
+    ...block2Lessons,
+    ...block3Lessons,
+    ...block4Lessons,
+    ...block5Lessons,
 ]
