@@ -82,6 +82,44 @@ export interface GrammarLesson {
 }
 
 // ---------------------------------------------------------------------------
+// Phrase lessons — communicative phrase-first lessons (no grammar table)
+// ---------------------------------------------------------------------------
+
+/**
+ * A single row in a phrase lesson's phrase table.
+ * `context` is the "when to use it" column shown alongside each phrase.
+ */
+export interface PhraseEntry {
+    native: string
+    translation: string
+    context: string
+    pronunciation?: string   // romanisation or IPA hint for non-Latin scripts
+}
+
+/**
+ * A phrase-first lesson: scene setter → phrase table → optional mini-dialogue
+ * → optional single embedded practice question → speak-aloud prompt.
+ *
+ * Used for communicative phrase lessons in redesigned A1 curricula.
+ * Rendered differently from GrammarLesson (no conjugation table, no rule box).
+ */
+export interface PhraseLesson {
+    id: string
+    language?: string   // stamped by createLanguageModule(); not set in data files
+    level: CEFRLevel
+    title: string
+    /** Contextual hook shown before the phrase table — sets the scene. */
+    sceneSetter?: string
+    phrases: PhraseEntry[]
+    /** Structured speaker turns for the mini-dialogue, if any. */
+    miniDialogue?: DialogueLine[]
+    /** Single embedded multiple-choice check. */
+    practiceQuestion?: QuizQuestion
+    /** "Say it out loud" self-production prompt shown at lesson end. */
+    speakAloud?: string
+}
+
+// ---------------------------------------------------------------------------
 // Vocabulary
 // ---------------------------------------------------------------------------
 export interface VocabItem {
@@ -183,6 +221,17 @@ export interface LessonUnit {
      * Optional during migration — units without tags are shown to all learners.
      */
     topicTags?: TopicTag[]
+    /**
+     * Ordered list of phrase lesson IDs shown before grammar lessons in the unit flow.
+     * Populated in redesigned A1 curricula that use phrase-first pedagogy.
+     */
+    phraseLessonIds?: string[]
+    /**
+     * If set, this unit is the last unit of a curriculum block. The checkpoint with
+     * this ID must be completed before the next unit in sequence unlocks.
+     * In debug mode (VITE_DEBUG=true) this gate is bypassed automatically.
+     */
+    checkpointId?: string
 }
 
 // ---------------------------------------------------------------------------
@@ -313,6 +362,33 @@ export interface SpeakingPrompt {
 }
 
 // ---------------------------------------------------------------------------
+// Checkpoint — speaking/listening gate at end of each curriculum block
+// ---------------------------------------------------------------------------
+
+/**
+ * A checkpoint gates the next curriculum block: the learner must complete it
+ * before any unit in the following block unlocks.
+ *
+ * The unit that carries `checkpointId` is the last unit of its block.
+ * After mastering that unit the checkpoint card becomes active in the Path tab.
+ */
+export interface Checkpoint {
+    id: string
+    language?: string   // stamped by createLanguageModule(); not set in data files
+    level: CEFRLevel
+    /** Block number this checkpoint closes (1-based). */
+    block: number
+    title: string
+    /** Scenario description shown to the learner (markdown). */
+    scenario: string
+    /** What the learner should be able to produce — one prompt per bullet. */
+    speakingPrompts: string[]
+    /** Linked listening exercise ID for listening checkpoints (e.g. KO CP3b). */
+    listeningId?: string
+    type: "speaking" | "listening" | "both"
+}
+
+// ---------------------------------------------------------------------------
 // Language module — what each data/*/index.ts assembles and exports
 // ---------------------------------------------------------------------------
 export interface LanguageModule {
@@ -326,6 +402,8 @@ export interface LanguageModule {
     listeningExercises?: ListeningExercise[]
     cultureEpisodes?: CultureEpisode[]
     speakingPrompts?: SpeakingPrompt[]
+    phraseLessons?: PhraseLesson[]
+    checkpoints?: Checkpoint[]
 }
 
 // ---------------------------------------------------------------------------
@@ -378,6 +456,12 @@ export interface UserProgress {
      * Stage 2: maps to profiles.learning_goal column.
      */
     goal?: GoalId
+    /**
+     * Completed checkpoint IDs, keyed by langId.
+     * Absent key = no checkpoints done yet (safe default — no migration needed).
+     * Stage 2: maps to checkpoint_completions table.
+     */
+    completedCheckpoints?: Record<string, string[]>
 }
 
 // ---------------------------------------------------------------------------
