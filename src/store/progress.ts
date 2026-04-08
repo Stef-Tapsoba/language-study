@@ -299,6 +299,29 @@ export function setGoalInProgress(goalId: GoalId): void {
     save({ ...p, goal: goalId })
 }
 
+// ---------------------------------------------------------------------------
+// Checkpoint completion helpers
+// ---------------------------------------------------------------------------
+
+/** Returns completed checkpoint IDs for a language, or empty array. */
+export function getCompletedCheckpoints(langId: string): string[] {
+    return loadProgress().completedCheckpoints?.[langId] ?? []
+}
+
+/** Marks a checkpoint as completed for a language. Idempotent. */
+export function markCheckpointDone(langId: string, checkpointId: string): void {
+    const p = loadProgress()
+    const existing = p.completedCheckpoints?.[langId] ?? []
+    if (existing.includes(checkpointId)) return
+    save({
+        ...p,
+        completedCheckpoints: {
+            ...p.completedCheckpoints,
+            [langId]: [...existing, checkpointId],
+        },
+    })
+}
+
 // Re-exported here so existing imports (e.g. progress.test.ts) keep working.
 // New code should import directly from ./progressUtils.
 export { isUnitUnlocked } from "./progressUtils"
