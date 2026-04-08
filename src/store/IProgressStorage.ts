@@ -90,6 +90,22 @@ export interface IProgressStorage {
     setGoal(goalId: GoalId): Promise<void>
 
     // ---------------------------------------------------------------------------
+    // Checkpoint completion
+    // ---------------------------------------------------------------------------
+
+    /**
+     * Mark a checkpoint as completed for a language. Idempotent.
+     * Stage 2 (Supabase): upsert row in checkpoint_completions keyed by (user_id, lang_id, checkpoint_id).
+     */
+    markCheckpointComplete(langId: string, checkpointId: string): Promise<void>
+
+    /**
+     * Returns the list of completed checkpoint IDs for a language.
+     * Synchronous — reads from the write-through cache.
+     */
+    getCompletedCheckpoints(langId: string): string[]
+
+    // ---------------------------------------------------------------------------
     // Reinforcement exercise completion
     // ---------------------------------------------------------------------------
 

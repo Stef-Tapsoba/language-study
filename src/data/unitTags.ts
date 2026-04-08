@@ -66,33 +66,28 @@ export const UNIT_TAGS: Record<string, TopicTag[]> = {
     "es-a2-u22": ["social"],
 
     // ── FRENCH A1 ───────────────────────────────────────────────────────────────
-    "fr-a1-u1":  ["greetings", "identity"],
-    "fr-a1-u2":  ["identity", "work"],
-    "fr-a1-u3":  ["identity", "social"],
-    "fr-a1-u4":  ["social"],
-    "fr-a1-u5":  ["work", "social"],
-    "fr-a1-u6":  ["social"],
-    "fr-a1-u7":  ["travel", "social"],
-    "fr-a1-u8":  ["identity", "shopping"],
-    "fr-a1-u9":  ["travel", "social"],
-    "fr-a1-u10": ["food", "nature"],
-    "fr-a1-u11": ["food", "shopping"],
-    "fr-a1-u12": ["identity", "home"],
-    "fr-a1-u13": ["shopping", "social"],
-    "fr-a1-u14": ["numbers", "social"],
-    "fr-a1-u15": ["numbers", "nature"],
-    "fr-a1-u16": ["work", "social"],
-    "fr-a1-u17": ["shopping", "travel"],
-    "fr-a1-u18": ["social"],
-    "fr-a1-u19": ["food", "social"],
-    "fr-a1-u20": ["identity", "social"],
-    "fr-a1-u21": ["food"],
-    "fr-a1-u22": ["food", "shopping"],
-    "fr-a1-u23": ["travel", "work"],
-    "fr-a1-u24": ["social", "work"],
-    "fr-a1-u25": ["identity", "social"],
-    "fr-a1-u26": ["nature"],
-    "fr-a1-u27": ["travel", "social"],
+    "fr-a1-u1":  ["greetings", "social"],         // Block 1: greetings, goodbyes, politeness
+    "fr-a1-u2":  ["identity", "social"],          // Block 1: name, origin, nationality — être
+    "fr-a1-u3":  ["identity"],                    // Block 1: age, numbers — avoir
+    "fr-a1-u4":  ["work", "social"],              // Block 1: job, studies — -er verbs
+    "fr-a1-u5":  ["identity", "social"],           // Block 2: family vocabulary + possessives
+    "fr-a1-u6":  ["social"],                      // Block 2: adjective agreement, descriptions
+    "fr-a1-u7":  ["social"],                      // Block 2: likes/dislikes + negation
+    "fr-a1-u8":  ["travel", "social"],            // Block 2: where I live, aller, prepositions
+    "fr-a1-u9":  ["home", "social"],              // Block 2: home description + articles reveal
+    "fr-a1-u10": ["social"],                      // Block 3: daily routine, reflexive verbs
+    "fr-a1-u11": ["social"],                      // Block 3: telling time, schedule
+    "fr-a1-u12": ["social"],                      // Block 3: frequency, full -er verbs
+    "fr-a1-u13": ["social"],                      // Block 3: question formation
+    "fr-a1-u14": ["social"],                      // Block 3: connectors, discourse markers
+    "fr-a1-u15": ["food", "social"],              // Block 4: ordering food, partitive articles
+    "fr-a1-u16": ["shopping", "social"],          // Block 4: shopping and prices
+    "fr-a1-u17": ["travel", "social"],            // Block 4: directions + imperative
+    "fr-a1-u18": ["social"],                      // Block 4: making plans + futur proche
+    "fr-a1-u19": ["social"],                      // Block 4: modals (vouloir/pouvoir/devoir)
+    "fr-a1-u20": ["social"],                      // Block 5: passé composé (avoir)
+    "fr-a1-u21": ["travel", "social"],            // Block 5: passé composé (être) — movement verbs
+    "fr-a1-u22": ["social"],                      // Block 5: -ir/-re verbs + capstone
 
     // ── FRENCH A2 ───────────────────────────────────────────────────────────────
     "fr-a2-u1":  ["food", "travel"],

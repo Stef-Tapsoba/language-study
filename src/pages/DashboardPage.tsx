@@ -20,7 +20,7 @@ import { StatsTab } from "../components/StatsTab"
 import { Flag } from "../components/Flag"
 import { LevelBadge } from "../components/LevelBadge"
 import { ProgressBar } from "../components/ProgressBar"
-import { CEFR_LEVELS, CEFRLevel, LessonUnit } from "../types"
+import { CEFR_LEVELS, CEFRLevel, LessonUnit, Checkpoint } from "../types"
 import { SECTION_CONFIG, StudySection } from "../data/sectionConfig"
 import { useProgressStats } from "../hooks/useProgressStats"
 import { resolvePrimary } from "../utils/localizedText"
@@ -97,13 +97,13 @@ const StudyCard = memo(function StudyCard({ section, title, countDesc, done, tot
 // ---------------------------------------------------------------------------
 // UnitRow — one row in the Learning Path list
 // ---------------------------------------------------------------------------
-const UnitRow = memo(function UnitRow({ unit, langId, level, mastered, allUnits, completed, goalScore }: Readonly<{
+const UnitRow = memo(function UnitRow({ unit, langId, level, mastered, allUnits, completed, goalScore, completedCheckpoints }: Readonly<{
     unit: LessonUnit; langId: string; level: CEFRLevel
     mastered: string[]; allUnits: LessonUnit[]; completed: ReadonlySet<string>
-    goalScore: number
+    goalScore: number; completedCheckpoints: string[]
 }>) {
     const isMastered = mastered.includes(unit.id)
-    const unlocked = DEBUG || isUnitUnlocked(unit.id, allUnits, mastered)
+    const unlocked = DEBUG || isUnitUnlocked(unit.id, allUnits, mastered, completedCheckpoints)
 
     let rowState = "border-gray-100 dark:border-gray-700 border-l-4 border-l-gray-200 dark:border-l-gray-600 bg-gray-50 dark:bg-gray-700/50 opacity-50 cursor-default"
     if (isMastered) rowState = "border-green-200 border-l-4 border-l-green-500 bg-green-50/40 hover:border-green-300"
@@ -158,10 +158,15 @@ const UnitRow = memo(function UnitRow({ unit, langId, level, mastered, allUnits,
                 )}
             </div>
             {!unlocked && (() => {
-                const prevUnit = allUnits.find(u => u.order === unit.order - 1)
-                const tipText = prevUnit
-                    ? `Complete "${prevUnit.title}" to unlock`
-                    : "Complete the previous unit to unlock"
+                const sorted = [...allUnits].sort((a, b) => a.order - b.order)
+                const idx = sorted.findIndex(u => u.id === unit.id)
+                const prevUnit = idx > 0 ? sorted[idx - 1] : undefined
+                const checkpointGated = prevUnit?.checkpointId
+                    && mastered.includes(prevUnit.id)
+                    && !completedCheckpoints.includes(prevUnit.checkpointId)
+                let tipText = "Complete the previous unit to unlock"
+                if (checkpointGated) tipText = "Complete the checkpoint to unlock"
+                else if (prevUnit) tipText = `Complete "${prevUnit.title}" to unlock`
                 return (
                     <Tooltip>
                         <TooltipTrigger asChild>
@@ -178,6 +183,65 @@ const UnitRow = memo(function UnitRow({ unit, langId, level, mastered, allUnits,
 
     if (!unlocked) return inner
     return <Link to={`/learn/${langId}/units/${unit.id}`} className="block">{inner}</Link>
+})
+
+// ---------------------------------------------------------------------------
+// CheckpointRow — block-end gate card in the Learning Path list
+// ---------------------------------------------------------------------------
+const CheckpointRow = memo(function CheckpointRow({ checkpoint, langId, gatePassed, isDone }: Readonly<{
+    checkpoint: Checkpoint; langId: string
+    /** True when the preceding (block-closing) unit is mastered. */
+    gatePassed: boolean
+    isDone: boolean
+}>) {
+    let state: "locked" | "available" | "done" = "locked"
+    if (isDone) state = "done"
+    else if (gatePassed) state = "available"
+
+    const rowCls = [
+        "flex items-center gap-4 px-5 py-3 rounded-2xl border-y border-r transition-all",
+        state === "done"      && "border-green-200 border-l-4 border-l-green-500 bg-green-50/40",
+        state === "available" && "border-amber-200 dark:border-amber-700 border-l-4 border-l-amber-500 bg-amber-50/60 dark:bg-amber-900/20 hover:shadow-sm",
+        state === "locked"    && "border-gray-100 dark:border-gray-700 border-l-4 border-l-gray-200 dark:border-l-gray-600 bg-gray-50 dark:bg-gray-700/50 opacity-50 cursor-default",
+    ].filter(Boolean).join(" ")
+
+    const iconCls = [
+        "shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm",
+        state === "done"      && "bg-green-500 text-white",
+        state === "available" && "bg-amber-500 text-white",
+        state === "locked"    && "bg-gray-200 dark:bg-gray-600 text-gray-400 dark:text-gray-500",
+    ].filter(Boolean).join(" ")
+
+    const inner = (
+        <div className={rowCls}>
+            <span className={iconCls} aria-hidden="true">
+                {state === "done" ? "✓" : "🎯"}
+            </span>
+            <div className="flex-1 min-w-0">
+                <p className={`font-semibold text-sm truncate ${state === "locked" ? "text-gray-400 dark:text-gray-500" : "text-gray-900 dark:text-gray-100"}`}>
+                    {checkpoint.title}
+                </p>
+                <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">
+                    {state === "done" && "Checkpoint complete"}
+                    {state === "available" && "Ready — tap to begin"}
+                    {state === "locked" && "Complete the previous unit to unlock"}
+                </p>
+            </div>
+            {state === "done" && (
+                <Badge variant="outline" className="text-xs text-green-600 dark:text-green-400 border-green-300 dark:border-green-700 bg-green-50 dark:bg-green-900/20 shrink-0">
+                    Done
+                </Badge>
+            )}
+            {state === "locked" && (
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-300 dark:text-gray-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-label="Locked">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+            )}
+        </div>
+    )
+
+    if (state !== "available") return inner
+    return <Link to={`/learn/${langId}/checkpoints/${checkpoint.id}`} className="block">{inner}</Link>
 })
 
 function levelName(level: CEFRLevel, ui: UIStrings): string {
@@ -198,10 +262,11 @@ export function DashboardPage() {
     const navigate = useNavigate()
     const language = getLanguage(langId)
     const mod = getModule(langId)
-    const { level: getLevel, mastered: getMastered } = useProgress()
+    const { level: getLevel, mastered: getMastered, completedCheckpoints: getCompletedCheckpoints } = useProgress()
     const level = getLevel(langId)
     const ui = getUI(langId, level)
     const mastered = getMastered(langId)
+    const completedCheckpoints = getCompletedCheckpoints(langId)
 
     // All progress via the shared hook — single source of truth
     const { grammar, vocab, verbs, reading, listening, isDone } = useProgressStats(langId, level)
@@ -230,6 +295,12 @@ export function DashboardPage() {
         () => mod ? getDueCount(langId, mod.vocab.filter(v => v.level === level).map(v => v.id)) : 0,
         [langId, mod, level]
     )
+
+    // Map checkpointId → Checkpoint for O(1) lookup when interleaving the Path list
+    const checkpointById = useMemo<Record<string, Checkpoint>>(() => {
+        if (!mod?.checkpoints) return {}
+        return Object.fromEntries(mod.checkpoints.map(cp => [cp.id, cp]))
+    }, [mod])
 
     const breakDetection = useBreakDetection(langId)
     const [showOnboarding, setShowOnboarding] = useState(() => isOnboardingVisible(langId))
@@ -379,16 +450,26 @@ export function DashboardPage() {
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     {sortedLevelUnits.map(unit => (
-                                        <UnitRow
-                                            key={unit.id}
-                                            unit={unit}
-                                            langId={langId}
-                                            level={level}
-                                            mastered={mastered}
-                                            allUnits={levelUnits}
-                                            completed={completed}
-                                            goalScore={scoreUnitForGoal(unit.topicTags, goalId)}
-                                        />
+                                        <div key={unit.id}>
+                                            <UnitRow
+                                                unit={unit}
+                                                langId={langId}
+                                                level={level}
+                                                mastered={mastered}
+                                                allUnits={levelUnits}
+                                                completed={completed}
+                                                goalScore={scoreUnitForGoal(unit.topicTags, goalId)}
+                                                completedCheckpoints={completedCheckpoints}
+                                            />
+                                            {unit.checkpointId && checkpointById[unit.checkpointId] && (
+                                                <CheckpointRow
+                                                    checkpoint={checkpointById[unit.checkpointId]}
+                                                    langId={langId}
+                                                    gatePassed={DEBUG || mastered.includes(unit.id)}
+                                                    isDone={DEBUG || completedCheckpoints.includes(unit.checkpointId)}
+                                                />
+                                            )}
+                                        </div>
                                     ))}
                                 </div>
                             </>

@@ -32,6 +32,7 @@ const CategoryReadingPage = lazy(() => import("./pages/CategoryReadingPage").the
 const GrammarLessonPage  = lazy(() => import("./pages/GrammarLessonPage").then(m => ({ default: m.GrammarLessonPage })))
 const ReviewPage         = lazy(() => import("./pages/ReviewPage").then(m => ({ default: m.ReviewPage })))
 const GoalPickerPage     = lazy(() => import("./pages/GoalPickerPage").then(m => ({ default: m.GoalPickerPage })))
+const CheckpointPage     = lazy(() => import("./pages/CheckpointPage").then(m => ({ default: m.CheckpointPage })))
 
 // Ensures the language data chunk is loaded before any /learn/:langId page renders.
 // For B2+ users, also waits for the advanced (B2–C1) chunk to merge before rendering,
@@ -121,6 +122,8 @@ export default function App() {
                         <Route path="exercise/:exerciseTypeId" element={<ExerciseShell />} />
                         {/* Break-return review session */}
                         <Route path="review" element={<ReviewPage />} />
+                        {/* Block-end speaking checkpoints */}
+                        <Route path="checkpoints/:checkpointId" element={<CheckpointPage />} />
                         {/* Learning goal picker */}
                         <Route path="goal" element={<GoalPickerPage />} />
                     </Route>
