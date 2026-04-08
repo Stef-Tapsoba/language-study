@@ -17,6 +17,8 @@ import type {
     ListeningExercise,
     CultureEpisode,
     SpeakingPrompt,
+    PhraseLesson,
+    Checkpoint,
 } from "../types"
 
 export interface LanguageModuleSlices {
@@ -31,6 +33,8 @@ export interface LanguageModuleSlices {
     listeningExercises?: ListeningExercise[][]
     cultureEpisodes?: CultureEpisode[][]
     speakingPrompts?: SpeakingPrompt[][]
+    phraseLessons?: PhraseLesson[][]
+    checkpoints?: Checkpoint[][]
 }
 
 function stamp<T extends { language?: string }>(items: T[], langId: string): T[] {
@@ -50,5 +54,7 @@ export function createLanguageModule(slices: LanguageModuleSlices): LanguageModu
         listeningExercises: slices.listeningExercises ? stamp(slices.listeningExercises.flat(), langId) : undefined,
         cultureEpisodes: slices.cultureEpisodes ? stamp(slices.cultureEpisodes.flat(), langId) : undefined,
         speakingPrompts: slices.speakingPrompts ? stamp(slices.speakingPrompts.flat(), langId) : undefined,
+        phraseLessons: slices.phraseLessons ? stamp(slices.phraseLessons.flat(), langId) : undefined,
+        checkpoints: slices.checkpoints ? stamp(slices.checkpoints.flat(), langId) : undefined,
     }
 }

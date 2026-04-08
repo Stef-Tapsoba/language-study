@@ -168,6 +168,17 @@ export function ProgressProvider({ children }: Readonly<{ children: ReactNode }>
         (langId: string): string[] => progress.masteredUnits[langId] ?? [],
         [progress]
     )
+    const completedCheckpoints = useCallback(
+        (langId: string): string[] => progress.completedCheckpoints?.[langId] ?? [],
+        [progress]
+    )
+
+    const completeCheckpoint = useCallback(async (langId: string, checkpointId: string): Promise<void> => {
+        try {
+            await registry.progress.markCheckpointComplete(langId, checkpointId)
+            refresh()
+        } catch (err) { handleMutationError(err) }
+    }, [refresh, handleMutationError])
 
     const completedCheckpoints = useCallback(
         (langId: string): string[] => progress.completedCheckpoints?.[langId] ?? [],
