@@ -9,7 +9,7 @@ import { loadModule } from "../data/modules"
 import { useProgress } from "../context/ProgressContext"
 import { resetLanguageData, removeLanguageData, exportProgressSnapshot, importProgressSnapshot } from "../store/actions"
 import { useGlobalStreak } from "../hooks/useGlobalStreak"
-import { NavBar } from "../components/NavBar"
+import { StreakChip } from "../components/StreakChip"
 import { Flag } from "../components/Flag"
 import { LEVEL_LABELS, CEFR_LEVELS } from "../types"
 import { SECTION_CONFIG } from "../data/sectionConfig"
@@ -255,8 +255,8 @@ export function ProfilePage() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-            <NavBar title="Profile" backTo="/home" />
+        <div className="bg-surface-app">
+            {/* AppLayout provides the sidebar/bottom nav — no NavBar here */}
 
             <main className="max-w-2xl mx-auto px-4 py-8 flex flex-col gap-6">
 
@@ -265,6 +265,13 @@ export function ProfilePage() {
                     className="rounded-2xl p-6 shadow-sm text-white"
                     style={{ background: "linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%)" }}
                 >
+                    {/* Streak chip above name */}
+                    {streak > 0 && (
+                        <div className="mb-4">
+                            <StreakChip streak={streak} />
+                        </div>
+                    )}
+
                     <div className="flex items-center gap-4">
                         <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center
                                         text-white text-xl font-bold shrink-0">
@@ -276,9 +283,9 @@ export function ProfilePage() {
                         </div>
                     </div>
 
-                    {/* Stats row */}
+                    {/* Stats row — streak removed, now shown above */}
                     {startedIds.length > 0 && (
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-5">
+                        <div className="grid grid-cols-3 gap-2 mt-5">
                             <div className="bg-white/15 rounded-xl p-3 text-center">
                                 <p className="text-lg font-bold text-white">{totalDone}</p>
                                 <p className="text-xs text-violet-200">learned</p>
@@ -290,10 +297,6 @@ export function ProfilePage() {
                             <div className="bg-white/15 rounded-xl p-3 text-center">
                                 <p className="text-lg font-bold text-white">{highestLevel}</p>
                                 <p className="text-xs text-violet-200">top level</p>
-                            </div>
-                            <div className="bg-white/15 rounded-xl p-3 text-center">
-                                <p className="text-lg font-bold text-white">{streak > 0 ? `${streak}🔥` : "—"}</p>
-                                <p className="text-xs text-violet-200">streak</p>
                             </div>
                         </div>
                     )}

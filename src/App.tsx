@@ -34,6 +34,8 @@ const ReviewPage         = lazy(() => import("./pages/ReviewPage").then(m => ({ 
 const GoalPickerPage     = lazy(() => import("./pages/GoalPickerPage").then(m => ({ default: m.GoalPickerPage })))
 const CheckpointPage        = lazy(() => import("./pages/CheckpointPage").then(m => ({ default: m.CheckpointPage })))
 const PracticePage          = lazy(() => import("./pages/PracticePage").then(m => ({ default: m.PracticePage })))
+const StudyPage             = lazy(() => import("./pages/StudyPage").then(m => ({ default: m.StudyPage })))
+const StatsPage             = lazy(() => import("./pages/StatsPage").then(m => ({ default: m.StatsPage })))
 
 import { AppLayout } from "./components/layout/AppLayout"
 
@@ -101,8 +103,10 @@ export default function App() {
                         <Route path="/learn/:langId" element={<LanguageLoader />}>
                             <Route index element={<DashboardPage />} />
                             <Route path="path" element={<DashboardPage />} />
+                            <Route path="study" element={<StudyPage />} />
                             <Route path="practice" element={<PracticePage />} />
                             <Route path="review" element={<ReviewPage />} />
+                            <Route path="stats" element={<StatsPage />} />
                         </Route>
                     </Route>
 
