@@ -127,6 +127,14 @@ export function getVocabForUnit(langId: string, unitId: string): VocabItem[] {
     return unit.vocabIds.map(id => vocab.find(v => v.id === id)).filter(Boolean) as VocabItem[]
 }
 
+/** Returns only the listening exercises that belong to the given unit. */
+export function getListeningForUnit(langId: string, unitId: string): ListeningExercise[] {
+    const unit = getUnit(langId, unitId)
+    if (!unit?.listeningIds?.length) return []
+    const listening = getModule(langId)?.listeningExercises ?? []
+    return unit.listeningIds.map(id => listening.find(e => e.id === id)).filter(Boolean) as ListeningExercise[]
+}
+
 // ---------------------------------------------------------------------------
 // Review pools — Sprint 1 foundation for cross-unit review (Sprint 2)
 // ---------------------------------------------------------------------------

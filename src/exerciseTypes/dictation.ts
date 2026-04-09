@@ -7,7 +7,7 @@
 
 import { lazy } from "react"
 import { registerExerciseType } from "./registry"
-import { getListeningForLevel } from "../data/repo"
+import { getListeningForLevel, getListeningForUnit } from "../data/repo"
 import type { ListeningExercise } from "../types"
 
 const DictationPage = lazy(() => import("../pages/DictationPage"))
@@ -23,8 +23,10 @@ registerExerciseType<ListeningExercise>({
     // Verbatim reproduction.
     matchMode: "dictation",
 
-    fetchItems: async ({ langId, level }) =>
-        Promise.resolve(getListeningForLevel(langId, level)),
+    fetchItems: async ({ langId, level, unitId }) => {
+        if (unitId) return getListeningForUnit(langId, unitId)
+        return getListeningForLevel(langId, level)
+    },
 
     component: DictationPage,
 })

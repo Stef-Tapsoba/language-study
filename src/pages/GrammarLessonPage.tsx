@@ -14,7 +14,7 @@ import { useVocabTooltip } from "../hooks/useVocabTooltip"
 import type { GrammarNote } from "../types"
 import { isDialogueExample } from "../types"
 
-const NOTE_STYLES: Record<GrammarNote["type"], { wrapper: string; label: string; labelText: string }> = {
+const NOTE_STYLES = {
     tip: {
         wrapper: "bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800",
         label: "text-indigo-600 dark:text-indigo-400",
@@ -35,7 +35,7 @@ const NOTE_STYLES: Record<GrammarNote["type"], { wrapper: string; label: string;
         label: "text-green-600 dark:text-green-400",
         labelText: "Culture",
     },
-}
+} satisfies Record<GrammarNote["type"], { wrapper: string; label: string; labelText: string }>
 
 export function GrammarLessonPage() {
     const { langId = "", lessonId = "" } = useParams()

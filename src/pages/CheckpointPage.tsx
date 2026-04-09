@@ -19,7 +19,7 @@ export function CheckpointPage() {
     const navigate = useNavigate()
     const mod = getModule(langId)
     const { completeCheckpoint, completedCheckpoints: getCompletedCheckpoints } = useProgress()
-    const [confirming, setConfirming] = useState(false)
+    const [phase, setPhase] = useState<"idle" | "confirming" | "practised">("idle")
 
     const checkpoint = mod?.checkpoints?.find(cp => cp.id === checkpointId)
     const alreadyDone = DEBUG || getCompletedCheckpoints(langId).includes(checkpointId)
@@ -71,10 +71,10 @@ export function CheckpointPage() {
                         What you should be able to say
                     </h2>
                     <ul className="flex flex-col gap-2">
-                        {checkpoint.speakingPrompts.map((prompt, i) => (
-                            <li key={i} className="flex items-start gap-3">
+                        {checkpoint.speakingPrompts.map((prompt) => (
+                            <li key={prompt} className="flex items-start gap-3">
                                 <span className="shrink-0 w-5 h-5 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 flex items-center justify-center text-xs font-bold mt-0.5">
-                                    {i + 1}
+                                    {checkpoint.speakingPrompts.indexOf(prompt) + 1}
                                 </span>
                                 <span className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
                                     {prompt}
@@ -92,15 +92,15 @@ export function CheckpointPage() {
                 </p>
 
                 {/* Action */}
-                {alreadyDone ? (
+                {alreadyDone && (
                     <div className="flex flex-col gap-3">
-                        {confirming ? (
+                        {phase === "practised" ? (
                             <p className="text-sm text-center text-gray-600 dark:text-gray-400 font-medium">
                                 Good practice! This checkpoint is already complete.
                             </p>
                         ) : (
                             <Button
-                                onClick={() => setConfirming(true)}
+                                onClick={() => setPhase("practised")}
                                 className="w-full bg-amber-500 hover:bg-amber-600 text-white"
                             >
                                 Practise again
@@ -114,7 +114,8 @@ export function CheckpointPage() {
                             Back to path
                         </Button>
                     </div>
-                ) : confirming ? (
+                )}
+                {!alreadyDone && phase === "confirming" && (
                     <div className="flex flex-col gap-3">
                         <p className="text-sm text-center text-gray-600 dark:text-gray-400 font-medium">
                             Were you able to complete the scenario?
@@ -122,7 +123,7 @@ export function CheckpointPage() {
                         <div className="flex gap-3">
                             <Button
                                 variant="outline"
-                                onClick={() => setConfirming(false)}
+                                onClick={() => setPhase("idle")}
                                 className="flex-1"
                             >
                                 Not yet
@@ -135,9 +136,10 @@ export function CheckpointPage() {
                             </Button>
                         </div>
                     </div>
-                ) : (
+                )}
+                {!alreadyDone && phase === "idle" && (
                     <Button
-                        onClick={() => setConfirming(true)}
+                        onClick={() => setPhase("confirming")}
                         className="w-full bg-amber-500 hover:bg-amber-600 text-white"
                     >
                         I've practised — mark as done
