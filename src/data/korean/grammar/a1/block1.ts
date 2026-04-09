@@ -26,6 +26,7 @@ export const block1Lessons: GrammarLesson[] = [
             {
                 type: "forward-ref",
                 content: "저는 is treated here as a fixed chunk meaning 'I (polite)'. The particle 는 is explained in the lesson on topic markers.",
+                refId: "ko-g-a1-13",
             },
         ],
         fixedPhrases: [
@@ -85,6 +86,7 @@ export const block1Lessons: GrammarLesson[] = [
             {
                 type: "forward-ref",
                 content: "이 사람은 has 은 after 이 사람. You'll see 은/는 constantly from here on — it's the topic marker, explained in the topic markers lesson.",
+                refId: "ko-g-a1-13",
             },
         ],
         fixedPhrases: [
@@ -94,14 +96,21 @@ export const block1Lessons: GrammarLesson[] = [
                 translation: "This person is my friend",
                 note: "이 사람은 = this person (intro chunk); 제 = my (polite)",
             },
+            {
+                native: "어디에서 왔어요?",
+                romanized: "eodieseo wasseoyo?",
+                translation: "Where are you from?",
+                note: "에서 = from · 왔어요 = came (past of 오다) — both explained later",
+            },
         ],
         examples: [
-            { native: "이름이 뭐예요? — 저는 민준이에요.", romanized: "Ireumi mwoyeyo? — Jeoneun minjunieyo.", translation: "What's your name? — I'm Minjun." },
-            { native: "어디에서 왔어요? — 영국에서 왔어요.", romanized: "Eodieseo wasseoyo? — Yeonggugeso wasseoyo.", translation: "Where are you from? — I'm from the UK." },
-            { native: "학생이에요? — 아니요, 저는 회사원이에요.", romanized: "Haksaengieyo? — Aniyo, jeoneun hoesawonieyo.", translation: "Are you a student? — No, I'm an office worker." },
+            { native: "이름이 뭐예요?", romanized: "Ireumi mwoyeyo?", translation: "What's your name?", speaker: "A" },
+            { native: "저는 민준이에요.", romanized: "Jeoneun minjunieyo.", translation: "I'm Minjun.", speaker: "B" },
+            { native: "학생이에요?", romanized: "Haksaengieyo?", translation: "Are you a student?", speaker: "A" },
+            { native: "아니요, 저는 회사원이에요.", romanized: "Aniyo, jeoneun hoesawonieyo.", translation: "No, I'm an office worker.", speaker: "B" },
             { native: "이 사람은 제 친구예요.", romanized: "I sarameun je chinguyeyo.", translation: "This person is my friend." },
-            { native: "누구예요? — 제 동생이에요.", romanized: "Nuguyeyo? — Je dongsaengieyo.", translation: "Who is it? — It's my younger sibling." },
-            { native: "만나서 반가워요! — 저도 반가워요!", romanized: "Mannaseo bangawoyo! — Jeodo bangawoyo!", translation: "Nice to meet you! — Nice to meet you too!" },
+            { native: "누구예요?", romanized: "Nuguyeyo?", translation: "Who is it?", speaker: "A" },
+            { native: "제 동생이에요.", romanized: "Je dongsaengieyo.", translation: "It's my younger sibling.", speaker: "B" },
         ],
         inlineVocab: [
             { word: "뭐예요?", romanized: "mwoyeyo?", translation: "What is it?" },
@@ -110,7 +119,6 @@ export const block1Lessons: GrammarLesson[] = [
             { word: "제", romanized: "je", translation: "my (polite — short form of 저의)" },
             { word: "이 사람", romanized: "i saram", translation: "this person" },
             { word: "친구", romanized: "chingu", translation: "friend" },
-            { word: "어디에서 왔어요?", romanized: "Eodieseo wasseoyo?", translation: "Where are you from?" },
         ],
     },
     {
@@ -134,10 +142,12 @@ export const block1Lessons: GrammarLesson[] = [
             {
                 type: "forward-ref",
                 content: "에서 is used here as part of a fixed phrase. Its full use as the 'action location' and 'from' particle is explained in the lesson on 에 vs 에서.",
+                refId: "ko-g-a1-30",
             },
             {
                 type: "forward-ref",
                 content: "왔어요 (came) is past tense of 오다 (to come). Past tense is explained in the lesson on past tense ~았어요/었어요.",
+                refId: "ko-g-a1-28",
             },
             {
                 type: "culture",
@@ -189,6 +199,7 @@ export const block1Lessons: GrammarLesson[] = [
             {
                 type: "forward-ref",
                 content: "Age in Korean uses a completely different system — native Korean numbers. That system is covered in the next lesson.",
+                refId: "ko-g-a1-7b",
             },
         ],
         examples: [
@@ -245,6 +256,7 @@ export const block1Lessons: GrammarLesson[] = [
             {
                 type: "forward-ref",
                 content: "Native Korean numbers are also used with counters for people (명), objects (개), bottles (병), and more — covered in the counters lesson.",
+                refId: "ko-g-a1-32",
             },
         ],
         fixedPhrases: [
@@ -355,6 +367,7 @@ export const block1Lessons: GrammarLesson[] = [
             {
                 type: "forward-ref",
                 content: "이/가 are subject markers — you'll see them constantly from here on. They're fully explained in the lesson on subject markers 이/가.",
+                refId: "ko-g-a1-25",
             },
         ],
         examples: [
