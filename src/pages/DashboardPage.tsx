@@ -10,6 +10,7 @@ import { isOnboardingVisible, dismissOnboarding, getGoal } from "../store/prefer
 import { useBreakDetection } from "../hooks/useBreakDetection"
 import { ReviewPromptCard } from "../components/ReviewPromptCard"
 import { HydrationErrorBanner } from "../components/HydrationErrorBanner"
+import { MigrationBanner } from "../components/MigrationBanner"
 import { scoreUnitForGoal, USER_GOALS, type GoalId } from "../data/goalConfig"
 
 import { useProgress } from "../context/ProgressContext"
@@ -280,6 +281,7 @@ export function DashboardPage() {
             <NavBar title={language.name} level={level} backTo="/home" />
 
             <main className="max-w-3xl mx-auto px-4 py-6">
+                <MigrationBanner />
                 <HydrationErrorBanner />
                 {/* Level header */}
                 <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-4 mb-5 flex items-center gap-4">
