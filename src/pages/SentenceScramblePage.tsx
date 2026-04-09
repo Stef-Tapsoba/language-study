@@ -22,7 +22,7 @@ import { isDialogueExample } from "../types"
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
-interface ScrambleItem {
+export interface ScrambleItem {
     lessonId: string
     lessonTitle: string
     prompt: string           // English translation of what to assemble
@@ -57,7 +57,7 @@ function tokenize(sentence: string): string[] {
 
 // ── Build items ───────────────────────────────────────────────────────────────
 
-function exampleToItem(ex: GrammarLesson["examples"][number], lessonId: string, lessonTitle: string, langId: string): ScrambleItem | null {
+export function exampleToItem(ex: GrammarLesson["examples"][number], lessonId: string, lessonTitle: string, langId: string): ScrambleItem | null {
     if (isDialogueExample(ex)) {
         const [a, b] = ex.exchanges
         if (tokenize(b.native).length < 3) return null
