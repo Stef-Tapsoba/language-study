@@ -195,7 +195,7 @@ const CheckpointRow = memo(function CheckpointRow({ checkpoint, langId, gatePass
 
     const rowCls = [
         "flex items-center gap-4 px-5 py-3 rounded-2xl border-y border-r transition-all",
-        state === "done"      && "border-green-200 border-l-4 border-l-green-500 bg-green-50/40",
+        state === "done"      && "border-green-200 dark:border-green-800 border-l-4 border-l-green-500 bg-green-50/40 dark:bg-green-900/20",
         state === "available" && "border-amber-200 dark:border-amber-700 border-l-4 border-l-amber-500 bg-amber-50/60 dark:bg-amber-900/20 hover:shadow-sm",
         state === "locked"    && "border-gray-100 dark:border-gray-700 border-l-4 border-l-gray-200 dark:border-l-gray-600 bg-gray-50 dark:bg-gray-700/50 opacity-50 cursor-default",
     ].filter(Boolean).join(" ")
