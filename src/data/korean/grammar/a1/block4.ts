@@ -5,42 +5,30 @@ export const block4Lessons: GrammarLesson[] = [
         id: "ko-g-a1-30",
         level: "A1",
         title: "에 vs 에서 fully explained — destination/existence vs action location",
-        explanation: `You have been using both 에 and 에서 since Block 2. You were told to notice the difference and wait. You have now used both dozens of times across units. Here is what they have been doing all along.
-
-Look at these sentence pairs — you have said most of them already:
-
-학교에 가요. — I go to school.
-학교에서 공부해요. — I study at school.
-
-집에 있어요. — I'm at home.
-집에서 요리해요. — I cook at home.
-
-서울에 살아요. — I live in Seoul.
-서울에서 일해요. — I work in Seoul.
-
-카페에 왔어요. — I came to the café.
-카페에서 커피를 마셔요. — I drink coffee at the café.
-
-What is 에 doing? Look at the verbs: 가요 (go), 있어요 (be/exist), 살아요 (live), 왔어요 (came). Either the place is a destination you are heading to, or something is simply located there.
-
-What is 에서 doing? Look at the verbs: 공부해요 (study), 요리해요 (cook), 일해요 (work), 마셔요 (drink). An action is happening, and the place is where that action takes place.
-
-Here is the complete rule:
-
-에 — destination or static existence:
-• With movement verbs (가다, 오다, 돌아오다): marks where you are going to
-• With 있다 / 없다: marks where something is located (static)
-
-에서 — location where an action takes place:
-• With any action verb (먹다, 마시다, 공부하다, 일하다, 운동하다): marks where the action happens
-
-The test: ask yourself — is this place a destination I am heading toward, or the place where an action is happening? Destination or existence = 에. Action location = 에서.
-
-One more function of 에서 you have already used: it means "from" when combined with a movement verb pointing away:
-집에서 나왔어요. — I left from home.
-어디에서 왔어요? — Where did you come from?
-
-You have been using this since very early units. The pattern is now complete.`,
+        explanation: `에 and 에서 have been in your sentences since Block 2. Here is the complete rule: 에 marks destinations and static locations; 에서 marks where actions take place. A third use of 에서 — meaning "from" — covers the direction away from a place.`,
+        rules: [
+            {
+                condition: "Destination (moving toward) or static existence (있다/없다)",
+                result: "에",
+                examples: ["학교에 가요", "집에 있어요", "서울에 살아요"],
+            },
+            {
+                condition: "Location where an action takes place",
+                result: "에서",
+                examples: ["학교에서 공부해요", "집에서 요리해요", "카페에서 친구를 만나요"],
+            },
+            {
+                condition: "Origin — coming FROM a place",
+                result: "에서 (with movement verb pointing away)",
+                examples: ["어디에서 왔어요?", "집에서 나왔어요", "영국에서 왔어요"],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "Quick test: is the place a destination or where something IS? → 에. Is the place where an action is HAPPENING? → 에서.",
+            },
+        ],
         examples: [
             { native: "도서관에 가요. 도서관에서 책을 읽어요.", romanized: "Doseogwane gayo. Doseogwaneseo chaegeul ilgeoyo.", translation: "I go to the library. I read books at the library. (에 = destination; 에서 = action location)" },
             { native: "집에 있어요. 집에서 요리해요.", romanized: "Jibe isseoyo. Jibeseo yorihaeyo.", translation: "I'm at home. I cook at home. (에 = existence; 에서 = action location)" },
@@ -64,27 +52,35 @@ You have been using this since very early units. The pattern is now complete.`,
         id: "ko-g-a1-31",
         level: "A1",
         title: "Transport vocabulary: 타다/걷다/가다 with particles",
-        explanation: `Getting around a Korean city requires a small but precise vocabulary set. The three core transport verbs are 타다 (to ride/board), 내리다 (to get off), and 걷다 (to walk). Each works with specific particles.
-
-The particle ~(으)로 marks the means of transport — the "by" of how you travel. You saw this first in directions (왼쪽으로 = towards the left) and now it appears again for transport. It is the same particle doing the same job: expressing the method or direction:
-
-지하철로 가요. — I go by subway.
-버스로 가요. — I go by bus.
-택시로 가요. — I go by taxi.
-
-로 attaches after a vowel or ㄹ; 으로 attaches after a consonant. So: 지하철 ends in ㄹ → 지하철로, 버스 ends in vowel → 버스로, 택시 ends in vowel → 택시로.
-
-For walking, Korean uses a different form: 걸어서 가요 (I walk there / I go on foot). The 서 here is from ~아/어서 (by means of). 걸어서 = "by walking" — a natural chunk.
-
-The verb 타다 means to ride or board any vehicle: 지하철을 타요 (ride the subway), 버스를 타요 (take the bus), 택시를 타요 (take a taxi). The object particle 을/를 marks what you are boarding.
-
-Useful transport phrases:
-___ 역에서 내리세요. — Get off at ___ station.
-___ 역에서 갈아타세요. — Transfer at ___ station.
-여기에서 세워 주세요. — Please stop here. (to a taxi driver)
-얼마나 걸려요? — How long does it take?
-
-The same ~(으)로 particle appears in three contexts across Block 4: directions (왼쪽으로), transport (지하철로), and payment (카드로). Each time, 로/으로 is expressing method or direction. Noticing this connection will help you use it naturally across all three situations.`,
+        explanation: `Korean transport uses three core verbs: 타다 (board), 내리다 (get off), 걷다 (walk). The particle (으)로 marks the means of transport — the "by" of how you travel.`,
+        rules: [
+            {
+                condition: "Means of transport (by/via)",
+                result: "(으)로 — 로 after vowel or ㄹ, 으로 after consonant",
+                examples: ["지하철로 가요", "버스로 가요", "택시로 가요"],
+            },
+            {
+                condition: "Boarding a vehicle",
+                result: "[vehicle]을/를 타요",
+                examples: ["지하철을 타요", "버스를 타요", "택시를 타요"],
+            },
+            {
+                condition: "Going on foot",
+                result: "걸어서 가요",
+                examples: ["걸어서 가요", "걸어서 10분이에요", "가까워서 걸어서 가요"],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "(으)로 expresses method in three contexts: direction (왼쪽으로 = toward the left), transport (지하철로 = by subway), payment (카드로 = by card). Same particle, same job.",
+            },
+        ],
+        fixedPhrases: [
+            { native: "___ 역에서 내리세요.", romanized: "___ yeokeseo naeriseyo.", translation: "Get off at ___ station." },
+            { native: "얼마나 걸려요?", romanized: "eolmana geollyeoyo?", translation: "How long does it take?" },
+            { native: "여기에서 세워 주세요.", romanized: "yeogieseo sewo juseyo.", translation: "Please stop here. (to taxi driver)" },
+        ],
         examples: [
             { native: "지하철로 가요. 빠르고 편해요.", romanized: "Jihacheolro gayo. Ppareukko pyeonhaeyo.", translation: "I go by subway. It's fast and convenient." },
             { native: "버스 타면 얼마나 걸려요?", romanized: "Beosu tamyeon eolmana geollyeoyo?", translation: "How long does it take by bus?" },
@@ -108,32 +104,29 @@ The same ~(으)로 particle appears in three contexts across Block 4: directions
         id: "ko-g-a1-32",
         level: "A1",
         title: "Native Korean numbers in context: counters 개/명/잔/그릇",
-        explanation: `You have been using native Korean numbers since Unit 6 — 한 살 (one year old), 두 살, 세 살. Now those same numbers do real work in ordering food, counting people, and handling everyday quantities.
-
-Korean uses two number systems, and the choice depends on what you are counting. Native Korean numbers (하나, 둘, 셋...) pair with counters for people, objects, glasses, bowls, and most physical things you encounter in daily life.
-
-Before a counter, the first four native numbers change form:
-하나 (one alone) → 한 잔, 한 개 (before a counter)
-둘 (two alone) → 두 잔, 두 개
-셋 (three alone) → 세 잔, 세 개
-넷 (four alone) → 네 잔, 네 개
-다섯 and above: no change — 다섯 잔, 여섯 개
-
-You already know 한/두/세/네 from counting age: 스물한 살, 스물두 살. Same numbers, same contractions — this is not a new rule.
-
-The essential counters:
-개 — general objects (anything you can count individually): 만두 세 개 (three dumplings), 사과 두 개 (two apples)
-명 — people: 세 명 (three people), 두 명이요 (two people — at a restaurant)
-잔 — glasses or cups of liquid: 커피 두 잔 (two coffees), 물 한 잔 (one glass of water)
-그릇 — bowls: 라면 두 그릇 (two bowls of ramen)
-병 — bottles: 소주 한 병 (one bottle of soju)
-인분 — portions/servings: 삼겹살 이 인분 (two portions of samgyeopsal — note: 인분 uses Sino-Korean numbers: 이 인분, 삼 인분)
-
-The counter pattern: number + counter comes after the noun in Korean:
-커피 두 잔 주세요. — Two coffees, please.
-사람이 몇 명이에요? — How many people are there?
-
-Knowing these six counters covers the vast majority of situations you will encounter ordering food, shopping, and socialising.`,
+        explanation: `Native Korean numbers pair with most everyday counters for people, objects, and drinks. Before a counter, the first four numbers change form: 하나/둘/셋/넷 → 한/두/세/네.`,
+        rules: [
+            {
+                condition: "하나/둘/셋/넷 before a counter",
+                result: "Shorten to 한/두/세/네",
+                examples: ["한 잔", "두 명", "세 개", "네 그릇"],
+            },
+            {
+                condition: "다섯 and above before a counter",
+                result: "No change",
+                examples: ["다섯 잔", "여섯 개", "일곱 명"],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "Counter pattern: noun + number + counter (comes AFTER the noun). 커피 두 잔 주세요 = Two coffees, please. Not 두 잔 커피 주세요.",
+            },
+            {
+                type: "tip",
+                content: "인분 (portions) uses SINO-Korean numbers, not native: 이 인분 (two portions), 삼 인분 (three portions).",
+            },
+        ],
         examples: [
             { native: "만두 세 개 주세요.", romanized: "Mandu se gae juseyo.", translation: "Three dumplings, please. (개 = general objects)" },
             { native: "커피 두 잔이랑 물 한 잔 주세요.", romanized: "Keopi du jamirang mul han jan juseyo.", translation: "Two coffees and one water, please. (잔 = cups/glasses)" },
@@ -157,35 +150,34 @@ Knowing these six counters covers the vast majority of situations you will encou
         id: "ko-g-a1-33",
         level: "A1",
         title: "Sino-Korean numbers for money + 원; reading prices",
-        explanation: `You have used Sino-Korean numbers for minutes (십 분, 삼십 분) and in a few counters. Now those same numbers do their most important everyday job: prices. In Korea, you encounter large numbers constantly — and the good news is that the Sino-Korean system is completely regular.
-
-You already know the building blocks: 일(1), 이(2), 삼(3), 사(4), 오(5), 육(6), 칠(7), 팔(8), 구(9), 십(10). Now add:
-백 — 100
-천 — 1,000
-만 — 10,000
-
-The most important adjustment from English thinking: Korean counts in units of 만 (10,000), not 1,000. This is the main shift to make.
-
-10,000 = 만 (not 십천 — there is no such form)
-15,000 = 만 오천
-23,000 = 이만 삼천
-50,000 = 오만
-120,000 = 십이만
-
-The pattern is completely regular. You stack the units: 이만 삼천 오백 = 23,500.
-
-Prices in practice — 원 (₩) is the Korean currency:
-천 원 (₩1,000), 삼천오백 원 (₩3,500), 만 이천 원 (₩12,000), 삼만 오천 원 (₩35,000).
-
-Essential price questions:
-이거 얼마예요? — How much is this? (the single most useful question in any Korean shop)
-저거 얼마예요? — How much is that (over there)?
-너무 비싸요. — It's too expensive.
-조금 싸게 해 주세요. — Please make it a little cheaper.
-
-The demonstrative set is now complete: 이거 (this, near me), 그거 (that, near you), 저거 (that, far from both). You have been using 이거 since the restaurant unit — here is the full picture.
-
-One small cultural note: traditional Korean markets (재래시장) often accept friendly bargaining (흥정). The phrase 조금 싸게 해 주세요 is natural and expected there. In ordinary shops and convenience stores, prices are fixed.`,
+        explanation: `Sino-Korean numbers handle all prices in Korean. The system is fully regular — you already know 일 through 십. Now add 백 (100), 천 (1,000), and 만 (10,000).`,
+        rules: [
+            {
+                condition: "Hundreds, thousands, ten-thousands",
+                result: "백(100) · 천(1,000) · 만(10,000)",
+                examples: ["오백 원 (₩500)", "삼천 원 (₩3,000)", "만 원 (₩10,000)"],
+            },
+            {
+                condition: "Numbers above 10,000 (Korean units of 만)",
+                result: "Stack: [만단위] + 만 + [천/백/십/일]",
+                examples: ["만 오천 (15,000)", "이만 삼천 (23,000)", "오십만 (500,000)"],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "Korean counts in units of 만 (10,000), not 1,000. 10,000 = 만 (not 십천). 20,000 = 이만. 50,000 = 오만. This is the main mental shift from English.",
+            },
+            {
+                type: "culture",
+                content: "재래시장 (traditional markets) often accept friendly bargaining (흥정). 조금 싸게 해 주세요 (please make it a little cheaper) is natural there. Ordinary shops have fixed prices.",
+            },
+        ],
+        fixedPhrases: [
+            { native: "이거 얼마예요?", romanized: "igeo eolmayeyo?", translation: "How much is this?", note: "The most useful question in any Korean shop" },
+            { native: "너무 비싸요.", romanized: "neomu bissayo.", translation: "It's too expensive." },
+            { native: "조금 싸게 해 주세요.", romanized: "jogeum ssage hae juseyo.", translation: "Please make it a little cheaper." },
+        ],
         examples: [
             { native: "이거 얼마예요? — 만 이천 원이에요.", romanized: "Igeo eolmayeyo? — Man icheon wonieyeo.", translation: "How much is this? — It's 12,000 won." },
             { native: "저거는 삼만 오천 원이에요.", romanized: "Jeogeoneun samman ocheon wonieyeo.", translation: "That one over there is 35,000 won." },
@@ -209,26 +201,33 @@ One small cultural note: traditional Korean markets (재래시장) often accept 
         id: "ko-g-a1-34",
         level: "A1",
         title: "Polite instruction ~(으)세요 (please do / do this)",
-        explanation: `You have been hearing and using ~(으)세요 throughout this course. In the directions unit you heard 직진하세요 (go straight), 왼쪽으로 도세요 (turn left), 내리세요 (get off). In the restaurant you heard 앉으세요 (please sit). You were using the polite instruction form before knowing its name.
-
-Here is the pattern:
-
-After a vowel: ~세요 → 가세요, 오세요, 보세요, 주세요
-After a consonant: ~으세요 → 앉으세요, 읽으세요, 닫으세요
-
-| Verb | ~(으)세요 form | Meaning |
-| 가다 | 가세요 | Please go / Go |
-| 오다 | 오세요 | Please come |
-| 앉다 | 앉으세요 | Please sit |
-| 읽다 | 읽으세요 | Please read |
-| 기다리다 | 기다리세요 | Please wait |
-| 드시다 | 드세요 | Please eat/have (honorific) |
-
-~(으)세요 is both a polite instruction (please do X) and a polite invitation (do X, you're welcome to). The tone is warm and respectful — not commanding. When a shopkeeper says 앉으세요, they are inviting you to sit, not ordering you to.
-
-You have also been using 주세요 constantly — now you see that 주세요 is simply the ~어 주세요 request form of 주다 (give), which you will learn fully in the next lesson. The 세요 you have been using in directions and the 주세요 you use in shops both follow the same underlying pattern.
-
-~(으)세요 is a direct instruction or invitation. In the next lesson you will learn ~아/어 주세요, which is slightly different: it is a request that specifically asks someone to do something for you. Both are polite; the difference is subtle at A1 level. Use ~(으)세요 when giving instructions, inviting someone to do something, or following a direction prompt.`,
+        explanation: `~(으)세요 is the polite instruction/invitation form. You have been hearing it throughout the course — in directions (직진하세요), at restaurants (앉으세요), and requests (기다리세요).`,
+        rules: [
+            {
+                condition: "Verb stem ends in vowel or ㄹ",
+                result: "~세요",
+                examples: ["가세요", "오세요", "보세요", "주세요"],
+            },
+            {
+                condition: "Verb stem ends in consonant",
+                result: "~으세요",
+                examples: ["앉으세요", "읽으세요", "기다리세요"],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "~(으)세요 is a warm invitation, not a command. When a shopkeeper says 앉으세요, they're inviting you to sit, not ordering you.",
+            },
+            {
+                type: "forward-ref",
+                content: "주세요 (please give me) is ~어 주세요 from 주다 (give). The next lesson explains the full ~아/어 주세요 request pattern.",
+            },
+        ],
+        fixedPhrases: [
+            { native: "이쪽으로 오세요.", romanized: "ijjogeuro oseyo.", translation: "Please come this way." },
+            { native: "잠깐만 기다리세요.", romanized: "jamkkanman gidarieseyo.", translation: "Please wait just a moment." },
+        ],
         examples: [
             { native: "이쪽으로 오세요. 여기 앉으세요.", romanized: "Ijjogeuro oseyo. Yeogi anjeuseyo.", translation: "Please come this way. Please sit here." },
             { native: "직진하세요. 그다음에 왼쪽으로 도세요.", romanized: "Jikjinhaseyo. Geudeaeume oenjjogeuro doseyo.", translation: "Go straight. Then turn left." },
@@ -252,40 +251,29 @@ You have also been using 주세요 constantly — now you see that 주세요 is 
         id: "ko-g-a1-35",
         level: "A1",
         title: "~아/어 주세요 (please do this for me) + the 해요체 register payoff",
-        explanation: `Since Unit 4, every verb ending you have learned has finished with 요. 가요, 먹어요, 좋아해요, 했어요, 있어요. You were told: this is how you say things in Korean. Here is the full explanation — and it is more satisfying than you might expect.
-
-Korean has multiple speech levels — different verb endings depending on your relationship with the person you are talking to. The main levels are:
-
-해요체 — Polite informal. Warm, natural, universally appropriate in everyday interactions with strangers, acquaintances, shopkeepers, language partners, workplaces, restaurants, taxis, cafés. This is what you have been speaking since Unit 4.
-
-합쇼체 — Formal polite. TV news, announcements, very formal situations. You will hear it but rarely need to produce it at A1.
-
-반말 — Casual / informal. Close friends, younger people, family. Not for strangers.
-
-You have been speaking 해요체 this whole time. And this was the right choice.
-
-해요체 is appropriate in 95% of real-life conversations you will have as a learner — and it is never rude. You can use it with anyone you have just met, in any service context, at any age difference. When in doubt, 해요체 is correct.
-
-Now, ~아/어 주세요. You have been using 주세요 since the restaurant unit, and before that: 기다려 주세요, 추천해 주세요, 세워 주세요, 포장해 주세요. These are all the same pattern:
-
-[verb stem] + 아/어 주세요
-
-주다 = to give. ~아/어 주세요 = please do [something] for me.
-
-The form before 주세요 uses the same vowel harmony as the present tense:
-기다리다 → 기다려요 → 기다려 주세요
-말하다 → 말해요 → 말해 주세요
-열다 → 열어요 → 열어 주세요
-
-You see? The form you put before 주세요 is the same ~아/어 form from the present tense. You have been building toward this without knowing it. The connection is satisfying once you see it.
-
-Immediately useful requests to practise:
-한 번 더 말해 주세요. — Please say it one more time.
-천천히 말해 주세요. — Please speak slowly.
-사진 찍어 주세요. — Please take a photo.
-도와 주세요! — Please help me!
-
-These phrases — especially the first two — are practical survival tools every Korean learner needs.`,
+        explanation: `~아/어 주세요 asks someone to do something for you. You have been using it since the restaurant unit (주세요, 기다려 주세요) — here is the full pattern.`,
+        rules: [
+            {
+                condition: "Forming ~아/어 주세요",
+                result: "Present tense form (without 요) + 주세요",
+                examples: ["말해 주세요 (from 말해요)", "기다려 주세요 (from 기다려요)", "열어 주세요 (from 열어요)"],
+            },
+        ],
+        notes: [
+            {
+                type: "culture",
+                content: "해요체 (the ~요 ending you've been using since Unit 4) is appropriate for 95% of real-life conversations — strangers, shops, restaurants, workplaces. Never rude. When in doubt, use it.",
+            },
+            {
+                type: "tip",
+                content: "The form before 주세요 is the same ~아/어 form from the present tense without 요. 기다려요 → 기다려 주세요. You already know the building block.",
+            },
+        ],
+        fixedPhrases: [
+            { native: "한 번 더 말해 주세요.", romanized: "han beon deo malhae juseyo.", translation: "Please say it one more time.", note: "Essential survival phrase for learners" },
+            { native: "천천히 말해 주세요.", romanized: "cheoncheonhi malhae juseyo.", translation: "Please speak slowly.", note: "Essential survival phrase for learners" },
+            { native: "도와 주세요!", romanized: "dowa juseyo!", translation: "Please help me!" },
+        ],
         examples: [
             { native: "한 번 더 말해 주세요.", romanized: "Han beon deo malhae juseyo.", translation: "Please say it one more time." },
             { native: "천천히 말해 주세요. 빨라요.", romanized: "Cheoncheonhi malhae juseyo. Ppallayo.", translation: "Please speak slowly. It's too fast." },
@@ -309,37 +297,33 @@ These phrases — especially the first two — are practical survival tools ever
         id: "ko-g-a1-36",
         level: "A1",
         title: "~(으)ㄹ까요? — suggestion/question form (Shall we? What do you think?)",
-        explanation: `You want to suggest doing something with someone. In English you might say "Shall we go?" or "How about eating here?" Korean has a clean, versatile pattern for exactly this.
-
-You have actually been hearing this pattern already. It appeared in earlier unit dialogues — 뭐 먹을까요? (What shall we eat?), 갈까요? — and in the taxi unit when the driver said 한 20분쯤 걸릴 거예요. The underlying pattern is now ready to be revealed.
-
-Formation:
-After a vowel or ㄹ: ~ㄹ까요?
-After a consonant: ~을까요?
-
-| Verb | ~(으)ㄹ까요? | Meaning |
-| 가다 | 갈까요? | Shall we go? |
-| 먹다 | 먹을까요? | Shall we eat? |
-| 보다 | 볼까요? | Shall we watch / see? |
-| 마시다 | 마실까요? | Shall we drink? |
-| 앉다 | 앉을까요? | Shall we sit? |
-| 만나다 | 만날까요? | Shall we meet? |
-
-Two uses to know:
-
-1. Suggestion directed at another person: 갈까요? = Shall we go? You are proposing a shared activity.
-2. Wondering aloud or to yourself: 뭐 먹을까요... = What should I eat / I wonder what to eat. The same form, used with falling intonation while thinking.
-
-Context tells you which meaning is intended. Directed at someone = suggestion. Said while looking at a menu or thinking = wondering.
-
-Natural responses to suggestions:
-좋아요! — Sounds good!
-좋은데요. — That sounds good. (slightly warmer, slightly tentative)
-그래요, 같이 가요. — Yes, let's go together.
-저도요! — Me too! / I agree!
-아, 그날은 좀... — Oh, that day isn't great... (natural, polite decline — trailing off with 좀)
-
-That last one is worth memorising: trailing off with 좀 is one of the most natural ways to decline in Korean. No full excuse is required.`,
+        explanation: `~(으)ㄹ까요? suggests doing something together or wonders aloud. It was already in your ear — in dialogues: 뭐 먹을까요?, 갈까요?`,
+        rules: [
+            {
+                condition: "Verb stem ends in vowel or ㄹ",
+                result: "~ㄹ까요?",
+                examples: ["갈까요?", "볼까요?", "만날까요?"],
+            },
+            {
+                condition: "Verb stem ends in consonant",
+                result: "~을까요?",
+                examples: ["먹을까요?", "앉을까요?", "읽을까요?"],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "Two uses: directed at someone = suggestion (갈까요? = Shall we go?); said to yourself = wondering aloud (뭐 먹을까요... = hmm, what should I eat?). Same form, different intonation.",
+            },
+            {
+                type: "tip",
+                content: "Natural responses to suggestions: 좋아요! (Great!), 그래요 (Yes, let's), 저도요! (Me too!), or trail off with 좀... to decline politely.",
+            },
+        ],
+        fixedPhrases: [
+            { native: "같이 갈까요?", romanized: "gachi galkkayo?", translation: "Shall we go together?" },
+            { native: "뭐 먹을까요?", romanized: "mwo meogeulkkayo?", translation: "What shall we eat?" },
+        ],
         examples: [
             { native: "같이 갈까요?", romanized: "Gachi galkkayo?", translation: "Shall we go together?" },
             { native: "뭐 먹을까요? — 비빔밥 어때요?", romanized: "Mwo meogeulkkayo? — Bibimbap eottaeyo?", translation: "What shall we eat? — How about bibimbap?" },
@@ -363,32 +347,25 @@ That last one is worth memorising: trailing off with 좀 is one of the most natu
         id: "ko-g-a1-37",
         level: "A1",
         title: "~고 싶어요 (I want to...) + ~고 싶어해요 (he/she wants to...)",
-        explanation: `You already used this pattern in Unit 15: 언젠가 한국에 가고 싶어요 (I want to go to Korea someday). It appeared as a useful chunk then. Now you can see the full pattern and use it freely.
-
-Formation:
-[verb stem] + 고 싶어요
-
-The 고 here is the same connector you will learn in Block 5 for linking clauses (먹고 마셔요 = eat and drink). 싶어요 comes from 싶다 (to want / to feel like). Together: 가고 싶어요 literally means something like "(going) and (I) want it" — but think of it as a unit meaning "I want to go."
-
-Core examples:
-가다 → 가고 싶어요 (I want to go)
-먹다 → 먹고 싶어요 (I want to eat)
-보다 → 보고 싶어요 (I want to see / I miss — see note below)
-배우다 → 배우고 싶어요 (I want to learn)
-사다 → 사고 싶어요 (I want to buy)
-쉬다 → 쉬고 싶어요 (I want to rest)
-
-Negating: 가고 싶지 않아요 (I don't want to go). The pattern uses ~지 않아요 for negation rather than 안 — file this away for later; at A1, using 안 before 싶어요 also sounds natural in informal speech.
-
-Special meaning of 보고 싶어요: 보다 means "to see/watch." But 보고 싶어요 directed at a person means "I miss you" — literally "I want to see you." This is one of the most emotionally important phrases in Korean and a favourite line in dramas.
-영화를 보고 싶어요. — I want to watch a movie.
-엄마가 보고 싶어요. — I miss my mum.
-
-Talking about what someone else wants: replace 싶어요 with 싶어해요. This form is used when describing another person's desire (a third-person form):
-친구가 한국에 가고 싶어해요. — My friend wants to go to Korea.
-동생이 강아지를 사고 싶어해요. — My younger sibling wants to buy a dog.
-
-For your own desires: ~고 싶어요. For someone else's: ~고 싶어해요.`,
+        explanation: `~고 싶어요 expresses what you want to do. The stem + 고 is the same clause connector as in Block 5; 싶어요 means "want/feel like." For someone else's desire, use ~고 싶어해요.`,
+        rules: [
+            {
+                condition: "First person desire (I want to)",
+                result: "verb stem + 고 싶어요",
+                examples: ["가고 싶어요", "먹고 싶어요", "배우고 싶어요", "쉬고 싶어요"],
+            },
+            {
+                condition: "Third person desire (he/she wants to)",
+                result: "verb stem + 고 싶어해요",
+                examples: ["친구가 가고 싶어해요", "동생이 사고 싶어해요"],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "보고 싶어요 directed at a person = 'I miss you' (literally 'I want to see you'). This is one of the most emotionally important phrases in Korean. 영화를 보고 싶어요 = I want to watch a movie. 엄마가 보고 싶어요 = I miss my mum.",
+            },
+        ],
         examples: [
             { native: "언젠가 한국에 가고 싶어요.", romanized: "Eonjenga hanguge gago sipeoyo.", translation: "I want to go to Korea someday." },
             { native: "오늘은 삼겹살을 먹고 싶어요!", romanized: "Oneureun samgyeopsareul meokgo sipeoyo!", translation: "I want to eat samgyeopsal today!" },
