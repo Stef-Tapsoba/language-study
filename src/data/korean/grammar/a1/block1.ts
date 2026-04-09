@@ -104,13 +104,19 @@ export const block1Lessons: GrammarLesson[] = [
             },
         ],
         examples: [
-            { native: "이름이 뭐예요?", romanized: "Ireumi mwoyeyo?", translation: "What's your name?", speaker: "A" },
-            { native: "저는 민준이에요.", romanized: "Jeoneun minjunieyo.", translation: "I'm Minjun.", speaker: "B" },
-            { native: "학생이에요?", romanized: "Haksaengieyo?", translation: "Are you a student?", speaker: "A" },
-            { native: "아니요, 저는 회사원이에요.", romanized: "Aniyo, jeoneun hoesawonieyo.", translation: "No, I'm an office worker.", speaker: "B" },
+            { type: "dialogue", exchanges: [
+                { native: "이름이 뭐예요?", romanized: "Ireumi mwoyeyo?", translation: "What's your name?" },
+                { native: "저는 민준이에요.", romanized: "Jeoneun minjunieyo.", translation: "I'm Minjun." },
+            ]},
+            { type: "dialogue", exchanges: [
+                { native: "학생이에요?", romanized: "Haksaengieyo?", translation: "Are you a student?" },
+                { native: "아니요, 저는 회사원이에요.", romanized: "Aniyo, jeoneun hoesawonieyo.", translation: "No, I'm an office worker." },
+            ]},
             { native: "이 사람은 제 친구예요.", romanized: "I sarameun je chinguyeyo.", translation: "This person is my friend." },
-            { native: "누구예요?", romanized: "Nuguyeyo?", translation: "Who is it?", speaker: "A" },
-            { native: "제 동생이에요.", romanized: "Je dongsaengieyo.", translation: "It's my younger sibling.", speaker: "B" },
+            { type: "dialogue", exchanges: [
+                { native: "누구예요?", romanized: "Nuguyeyo?", translation: "Who is it?" },
+                { native: "제 동생이에요.", romanized: "Je dongsaengieyo.", translation: "It's my younger sibling." },
+            ]},
         ],
         inlineVocab: [
             { word: "뭐예요?", romanized: "mwoyeyo?", translation: "What is it?" },
