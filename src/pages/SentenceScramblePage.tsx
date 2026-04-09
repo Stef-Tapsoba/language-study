@@ -17,7 +17,7 @@ import { shuffle } from "../utils/arrayUtils"
 import { getUI, fmt } from "../i18n"
 import { useStatsStore } from "../store/useStatsStore"
 import type { ExerciseComponentProps } from "../exerciseTypes/registry"
-import type { GrammarLesson } from "../types"
+import type { GrammarLesson, Example } from "../types"
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -53,7 +53,7 @@ function tokenize(sentence: string): string[] {
 function buildItems(lessons: GrammarLesson[], langId: string): ScrambleItem[] {
     const items: ScrambleItem[] = []
     for (const lesson of lessons) {
-        for (const ex of lesson.examples) {
+        for (const ex of lesson.examples.filter((e): e is Example => !("type" in e))) {
             const tokens = tokenize(ex.native)
             // Need at least 3 tokens for a meaningful scramble
             if (tokens.length < 3) continue

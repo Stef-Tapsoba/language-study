@@ -18,7 +18,7 @@ import { shuffle } from "../utils/arrayUtils"
 import { getUI, fmt } from "../i18n"
 import { useStatsStore } from "../store/useStatsStore"
 import type { ExerciseComponentProps } from "../exerciseTypes/registry"
-import type { GrammarLesson } from "../types"
+import type { GrammarLesson, Example } from "../types"
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -121,7 +121,7 @@ function buildErrorItems(lessons: GrammarLesson[]): ErrorItem[] {
     const items: ErrorItem[] = []
 
     for (const lesson of lessons) {
-        for (const ex of lesson.examples) {
+        for (const ex of lesson.examples.filter((e): e is Example => !("type" in e))) {
             // Need at least 3 words for a meaningful error
             const wordCount = ex.native.trim().split(/\s+/).length
             if (wordCount < 3) continue

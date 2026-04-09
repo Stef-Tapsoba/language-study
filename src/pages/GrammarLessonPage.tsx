@@ -11,7 +11,7 @@ import { VocabTooltip } from "../components/VocabTooltip"
 import { resolvePrimary } from "../utils/localizedText"
 import { renderExplanation, renderInline } from "../utils/renderExplanation"
 import { useVocabTooltip } from "../hooks/useVocabTooltip"
-import type { GrammarNote } from "../types"
+import type { GrammarNote, Example } from "../types"
 
 const NOTE_STYLES: Record<GrammarNote["type"], { wrapper: string; label: string; labelText: string }> = {
     tip: {
@@ -159,23 +159,52 @@ export function GrammarLessonPage() {
                     <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5">
                         <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500 mb-3">Examples</h2>
                         <div className="flex flex-col gap-3">
-                            {lesson.examples.map((ex) => (
-                                <div key={ex.native} className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4 flex items-start gap-2">
-                                    <div className="flex-1">
-                                        <div className="flex items-center gap-2">
-                                            <p className="font-semibold text-gray-900 dark:text-gray-100">{ex.native}</p>
-                                            <SpeakButton text={ex.speakText ?? ex.native} langId={langId} />
+                            {lesson.examples.map((ex) => {
+                                if ("type" in ex && ex.type === "dialogue") {
+                                    const [a, b] = ex.exchanges
+                                    return (
+                                        <div key={a.native} className="bg-gray-50 dark:bg-gray-700/50 rounded-xl overflow-hidden">
+                                            {/* A turn — prompt */}
+                                            <div className="px-4 pt-4 pb-2 border-b border-gray-200 dark:border-gray-600">
+                                                <div className="flex items-center gap-2">
+                                                    <p className="text-sm text-gray-600 dark:text-gray-300">{a.native}</p>
+                                                    <SpeakButton text={a.native} langId={langId} />
+                                                </div>
+                                                {a.romanized && <p className="text-xs text-indigo-400 mt-0.5">{a.romanized}</p>}
+                                                <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">{a.translation}</p>
+                                            </div>
+                                            {/* B turn — response */}
+                                            <div className="px-4 pt-2 pb-4">
+                                                <div className="flex items-center gap-2">
+                                                    <p className="font-semibold text-gray-900 dark:text-gray-100">{b.native}</p>
+                                                    <SpeakButton text={b.native} langId={langId} />
+                                                </div>
+                                                {b.romanized && <p className="text-xs text-indigo-500 mt-0.5">{b.romanized}</p>}
+                                                <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{b.translation}</p>
+                                            </div>
+                                            {ex.annotation && (
+                                                <p className="px-4 pb-3 text-xs text-gray-400 dark:text-gray-500 italic -mt-2">{ex.annotation}</p>
+                                            )}
                                         </div>
-                                        {ex.romanized && (
-                                            <p className="text-xs text-indigo-500 mt-0.5">{ex.romanized}</p>
+                                    )
+                                }
+                                const sentence = ex as Example
+                                return (
+                                    <div key={sentence.native} className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
+                                        <div className="flex items-center gap-2">
+                                            <p className="font-semibold text-gray-900 dark:text-gray-100">{sentence.native}</p>
+                                            <SpeakButton text={sentence.speakText ?? sentence.native} langId={langId} />
+                                        </div>
+                                        {sentence.romanized && (
+                                            <p className="text-xs text-indigo-500 mt-0.5">{sentence.romanized}</p>
                                         )}
-                                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{ex.translation}</p>
-                                        {ex.annotation && (
-                                            <p className="text-xs text-gray-400 dark:text-gray-500 italic mt-1">{ex.annotation}</p>
+                                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{sentence.translation}</p>
+                                        {sentence.annotation && (
+                                            <p className="text-xs text-gray-400 dark:text-gray-500 italic mt-1">{sentence.annotation}</p>
                                         )}
                                     </div>
-                                </div>
-                            ))}
+                                )
+                            })}
                         </div>
                     </div>
                 )}
