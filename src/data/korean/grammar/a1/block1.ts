@@ -163,48 +163,116 @@ export const block1Lessons: GrammarLesson[] = [
     {
         id: "ko-g-a1-7",
         level: "A1",
-        title: "Numbers 1–20 (Sino-Korean) + age with 살",
-        explanation: `Korean has two number systems. The Sino-Korean system (borrowed from Chinese) is used for prices, phone numbers, floors, and months. Learn these 20 numbers now — they appear everywhere. Age uses a different system covered briefly below.`,
+        title: "Sino-Korean numbers 1–20",
+        explanation: `Korean has two separate number systems — Sino-Korean (borrowed from Chinese) and native Korean. This lesson covers Sino-Korean. Use these numbers for prices, phone numbers, floor numbers, and months. The pattern is simple: learn 1–10, then 11–20 follows automatically.`,
         rules: [
             {
                 condition: "Sino-Korean 1–10",
                 result: "일 이 삼 사 오 육 칠 팔 구 십",
-                examples: ["삼 (3)", "오 (5)", "십 (10)"],
+                examples: ["삼 (3)", "육 (6)", "십 (10)"],
             },
             {
-                condition: "Sino-Korean 11–20 (십 + digit pattern)",
+                condition: "Sino-Korean 11–20 (십 + digit)",
                 result: "십일 십이 십삼 ... 이십",
                 examples: ["십일 (11)", "십오 (15)", "이십 (20)"],
-            },
-            {
-                condition: "Stating age (native Korean numbers + 살)",
-                result: "저는 ___살이에요",
-                examples: ["스물여섯 살이에요 (26)", "서른 살이에요 (30)", "열아홉 살이에요 (19)"],
             },
         ],
         notes: [
             {
                 type: "tip",
-                content: "The Sino-Korean pattern is fully regular: 십오 = 10+5, 이십 = 2×10. No irregulars up to 99.",
+                content: "The pattern is fully regular: 십오 = 10+5, 이십 = 2×10. No irregulars up to 99 — just combine tens and units.",
+            },
+            {
+                type: "tip",
+                content: "Sino-Korean is used for: prices (오천 원 = 5,000 won), phone numbers (010-...), floor numbers (삼 층 = 3rd floor), and months (삼월 = March).",
             },
             {
                 type: "forward-ref",
-                content: "Age uses native Korean numbers (스물, 서른...) from a second number system. Both systems are covered in full in the lesson on native Korean numbers and counters.",
+                content: "Age in Korean uses a completely different system — native Korean numbers. That system is covered in the next lesson.",
             },
         ],
         examples: [
-            { native: "저는 스물여섯 살이에요.", romanized: "Jeoneun seumulyeoseot sarieyo.", translation: "I'm 26 years old.", annotation: "스물 = 20, 여섯 = 6 (native Korean numbers)" },
-            { native: "몇 살이에요? — 서른두 살이에요.", romanized: "Myeot sarieyo? — Seoreundu sarieyo.", translation: "How old are you? — I'm 32." },
-            { native: "삼십이에요? — 아니요, 이십팔이에요.", romanized: "Samsibieyo? — Aniyo, isippalie yo.", translation: "Is it 30? — No, it's 28.", annotation: "Sino-Korean for non-age numbers" },
-            { native: "전화번호가 뭐예요? — 010-사-오삼-이칠이에요.", romanized: "Jeonhwabeonhoga mwoyeyo?", translation: "What's your phone number? — 010-4-53-27", annotation: "Sino-Korean for phone numbers" },
-            { native: "지금 몇 시예요? — 열두 시예요.", romanized: "Jigeum myeot siyeyo? — Yeoldu siyeyo.", translation: "What time is it? — It's 12 o'clock." },
+            { native: "전화번호가 뭐예요? — 010-오-삼이-칠육이에요.", romanized: "Jeonhwabeonhoga mwoyeyo?", translation: "What's your phone number? — 010-5-32-76", annotation: "Sino-Korean for all phone digits" },
+            { native: "몇 층이에요? — 삼 층이에요.", romanized: "Myeot cheungieyo? — Sam cheungieyo.", translation: "Which floor? — Third floor." },
+            { native: "얼마예요? — 이천오백 원이에요.", romanized: "Eolmayeyo? — Icheonobaekg wonieyo.", translation: "How much? — 2,500 won." },
+            { native: "지금 몇 월이에요? — 십이 월이에요.", romanized: "Jigeum myeot worieyo? — Sibi worieyo.", translation: "What month is it? — December.", annotation: "십이 = 12 (Sino-Korean)" },
+            { native: "이십이에요? — 아니요, 십팔이에요.", romanized: "Isibieyo? — Aniyo, sipparieyo.", translation: "Is it 20? — No, it's 18." },
         ],
         inlineVocab: [
             { word: "일 이 삼 사 오 육 칠 팔 구 십", romanized: "il i sam sa o yuk chil pal gu sip", translation: "1 2 3 4 5 6 7 8 9 10 (Sino-Korean)" },
-            { word: "살", romanized: "sal", translation: "counter for years of age (uses native Korean numbers)" },
-            { word: "스물 / 서른 / 마흔", romanized: "seumul / seoreun / maheun", translation: "20 / 30 / 40 (native Korean decades for age)" },
-            { word: "몇 살이에요?", romanized: "Myeot sarieyo?", translation: "How old are you?" },
-            { word: "한 / 두 / 세 / 네", romanized: "han / du / se / ne", translation: "1 / 2 / 3 / 4 (native Korean before a counter)" },
+            { word: "층", romanized: "cheung", translation: "floor / storey" },
+            { word: "원", romanized: "won", translation: "Korean currency unit" },
+            { word: "월", romanized: "wol", translation: "month (Sino-Korean number + 월)" },
+            { word: "얼마예요?", romanized: "eolmayeyo?", translation: "How much is it?" },
+        ],
+    },
+    {
+        id: "ko-g-a1-7b",
+        level: "A1",
+        title: "Native Korean numbers + age with 살",
+        explanation: `Native Korean numbers are the other counting system — used for stating age, counting objects with most counters, and everyday quantities up to 99. They are completely different words from Sino-Korean. Learn 1–10 first, then the tens pattern for the ages you'll actually say.`,
+        rules: [
+            {
+                condition: "Native Korean 1–10",
+                result: "하나 둘 셋 넷 다섯 여섯 일곱 여덟 아홉 열",
+                examples: ["하나 (1)", "다섯 (5)", "열 (10)"],
+            },
+            {
+                condition: "Teens: 열 + unit",
+                result: "열하나 열둘 열셋 ... 열아홉",
+                examples: ["열하나 (11)", "열다섯 (15)", "열아홉 (19)"],
+            },
+            {
+                condition: "Key decades for age",
+                result: "스물 (20) · 서른 (30) · 마흔 (40) · 쉰 (50)",
+                examples: ["스물다섯 (25)", "서른셋 (33)", "마흔일곱 (47)"],
+            },
+            {
+                condition: "Stating age",
+                result: "저는 [native number] 살이에요",
+                examples: ["저는 스물여섯 살이에요", "열아홉 살이에요", "서른 살이에요"],
+            },
+        ],
+        notes: [
+            {
+                type: "warning",
+                content: "Age always uses native Korean numbers — never Sino-Korean. 저는 이십육 살이에요 is wrong. 저는 스물여섯 살이에요 is correct.",
+            },
+            {
+                type: "tip",
+                content: "Before a counter, 하나/둘/셋/넷 shorten: 하나 → 한, 둘 → 두, 셋 → 세, 넷 → 네. So '1 year old' is 한 살, not 하나 살.",
+            },
+            {
+                type: "forward-ref",
+                content: "Native Korean numbers are also used with counters for people (명), objects (개), bottles (병), and more — covered in the counters lesson.",
+            },
+        ],
+        fixedPhrases: [
+            {
+                native: "몇 살이에요?",
+                romanized: "myeot sarieyo?",
+                translation: "How old are you?",
+                note: "몇 = how many — works with both number systems depending on context",
+            },
+            {
+                native: "저는 ___살이에요.",
+                romanized: "jeoneun ___sarieyo.",
+                translation: "I am ___ years old.",
+            },
+        ],
+        examples: [
+            { native: "저는 스물여섯 살이에요.", romanized: "Jeoneun seumulyeoseot sarieyo.", translation: "I'm 26 years old.", annotation: "스물(20) + 여섯(6) = 26" },
+            { native: "몇 살이에요? — 서른두 살이에요.", romanized: "Myeot sarieyo? — Seoreundu sarieyo.", translation: "How old are you? — I'm 32.", annotation: "서른(30) + 둘(2) = 32" },
+            { native: "열아홉 살이에요.", romanized: "Yeolaraheop sarieyo.", translation: "I'm 19 years old.", annotation: "열(10) + 아홉(9) = 19" },
+            { native: "저는 마흔 살이에요.", romanized: "Jeoneun maheun sarieyo.", translation: "I'm 40 years old." },
+            { native: "한 살이에요.", romanized: "Han sarieyo.", translation: "They're 1 year old.", annotation: "하나 → 한 before 살" },
+        ],
+        inlineVocab: [
+            { word: "하나 둘 셋 넷 다섯", romanized: "hana dul set net daseot", translation: "1 2 3 4 5 (native Korean)" },
+            { word: "여섯 일곱 여덟 아홉 열", romanized: "yeoseot ilgop yeodeol ahop yeol", translation: "6 7 8 9 10 (native Korean)" },
+            { word: "스물 / 서른 / 마흔 / 쉰", romanized: "seumul / seoreun / maheun / swin", translation: "20 / 30 / 40 / 50 (native Korean decades)" },
+            { word: "살", romanized: "sal", translation: "years of age (counter — always native Korean numbers)" },
+            { word: "한 / 두 / 세 / 네", romanized: "han / du / se / ne", translation: "1 / 2 / 3 / 4 — shortened forms used before counters" },
         ],
     },
     {
