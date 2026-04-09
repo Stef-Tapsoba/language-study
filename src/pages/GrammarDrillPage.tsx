@@ -17,7 +17,7 @@ import { useDrill } from "../hooks/useDrill"
 import { getUI, fmt } from "../i18n"
 import { answerMatches } from "../utils/answerMatch"
 import { GrammarLesson } from "../types"
-import type { Example } from "../types"
+import { isDialogueExample } from "../types"
 
 interface DrillQuestion {
     prompt: string    // displayed in the amber banner
@@ -35,7 +35,7 @@ type DrillHandle = ReturnType<typeof useDrill>
 function buildQuestions(lessons: GrammarLesson[], level: string): DrillQuestion[] {
     // Tag each example with its lesson id so we can prefer same-lesson distractors
     const tagged = lessons
-        .flatMap(g => g.examples.filter((ex): ex is Example => !("type" in ex)).map(ex => ({ ...ex, lessonId: g.id })))
+        .flatMap(g => g.examples.filter(ex => !isDialogueExample(ex)).map(ex => ({ ...ex, lessonId: g.id })))
         .filter((ex, i, arr) => arr.findIndex(e => e.native === ex.native) === i)
 
     if (tagged.length < 4) return []
