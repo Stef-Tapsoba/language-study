@@ -53,6 +53,18 @@
 
         /* Streak (amber/gold) */
         --accent-streak: #d97706;
+        --streak-surface: #fff8e7;
+        --streak-border:  #fde68a;
+        --streak-muted:   #92400e;
+
+        /* Shadows */
+        --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.05);
+        --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+        --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
+
+        /* Fonts — system stack; override per-deployment if custom fonts are loaded */
+        --font-body:    ui-sans-serif, system-ui, -apple-system, sans-serif;
+        --font-heading: ui-sans-serif, system-ui, -apple-system, sans-serif;
 
         /* shadcn CSS variables — violet/gray palette to match app design */
         --background:         30 20% 96%;      /* warm off-white #f7f5f2 */
@@ -129,6 +141,14 @@
         --accent-culture-border:  #0a5c50;
 
         --accent-streak: #f5c842;
+        --streak-surface: #1e1a10;
+        --streak-border:  #3d3010;
+        --streak-muted:   #8a7a30;
+
+        /* Shadows — slightly stronger in dark mode */
+        --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.3);
+        --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.4), 0 2px 4px -2px rgba(0,0,0,0.3);
+        --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.5), 0 4px 6px -4px rgba(0,0,0,0.3);
 
         --background:         222 47% 7%;       /* #060d1f dark navy */
         --foreground:         210 20% 96%;      /* near-white */
@@ -160,14 +180,9 @@
     }
 
     body {
-        background-color: #f7f5f2;
-        @apply text-gray-900;
+        background-color: var(--surface-app);
+        color: var(--text-primary);
         -webkit-font-smoothing: antialiased;
-    }
-
-    .dark body {
-        background-color: #0c1120;
-        @apply text-gray-100;
     }
 }
 
