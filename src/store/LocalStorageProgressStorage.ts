@@ -19,6 +19,8 @@ import {
     removeLanguage as storeRemove,
     markReinforcementDone as storeMark2,
     getReinforcementState as storeGetReinforcement,
+    markCheckpointDone,
+    getCompletedCheckpoints as storeGetCheckpoints,
     setGoalInProgress,
 } from "./progress"
 
@@ -73,6 +75,14 @@ export class LocalStorageProgressStorage implements IProgressStorage {
 
     getReinforcementState(langId: string, unitId: string): UnitReinforcementState {
         return storeGetReinforcement(langId, unitId)
+    }
+
+    async markCheckpointComplete(langId: string, checkpointId: string): Promise<void> {
+        markCheckpointDone(langId, checkpointId)
+    }
+
+    getCompletedCheckpoints(langId: string): string[] {
+        return storeGetCheckpoints(langId)
     }
 
     async setGoal(goalId: GoalId): Promise<void> {

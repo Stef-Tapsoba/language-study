@@ -63,6 +63,8 @@ interface ProgressContextValue {
     masterUnit: (langId: string, unitId: string) => Promise<void>
     resetLanguage: (langId: string) => Promise<void>
     removeLanguage: (langId: string) => Promise<void>
+    completedCheckpoints: (langId: string) => string[]
+    completeCheckpoint: (langId: string, checkpointId: string) => Promise<void>
 }
 
 const ProgressContext = createContext<ProgressContextValue | null>(null)
@@ -167,6 +169,18 @@ export function ProgressProvider({ children }: Readonly<{ children: ReactNode }>
         [progress]
     )
 
+    const completedCheckpoints = useCallback(
+        (langId: string): string[] => progress.completedCheckpoints?.[langId] ?? [],
+        [progress]
+    )
+
+    const completeCheckpoint = useCallback(async (langId: string, checkpointId: string): Promise<void> => {
+        try {
+            await registry.progress.markCheckpointComplete(langId, checkpointId)
+            refresh()
+        } catch (err) { handleMutationError(err) }
+    }, [refresh, handleMutationError])
+
     const value = useMemo<ProgressContextValue>(() => ({
         progress,
         isHydrating,
@@ -186,11 +200,13 @@ export function ProgressProvider({ children }: Readonly<{ children: ReactNode }>
         masterUnit,
         resetLanguage,
         removeLanguage,
+        completedCheckpoints,
+        completeCheckpoint,
     }), [
         progress, isHydrating, hydrateError, refresh, mutationError, clearMutationError,
-        level, completed, mastered,
+        level, completed, mastered, completedCheckpoints,
         initUserSession, setSelectedLanguage, setCurrentLevel,
-        markLessonComplete, masterUnit, resetLanguage, removeLanguage,
+        markLessonComplete, masterUnit, resetLanguage, removeLanguage, completeCheckpoint,
     ])
 
     return (

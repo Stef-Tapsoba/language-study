@@ -18,12 +18,20 @@
  */
 export function isUnitUnlocked(
     unitId: string,
-    allUnits: { id: string; order: number }[],
-    masteredIds: string[]
+    allUnits: { id: string; order: number; checkpointId?: string }[],
+    masteredIds: string[],
+    /** Lang-scoped completed checkpoint IDs. When omitted, checkpoint gates are skipped. */
+    completedCheckpoints?: string[]
 ): boolean {
     const sorted = [...allUnits].sort((a, b) => a.order - b.order)
     const idx = sorted.findIndex(u => u.id === unitId)
     if (idx < 0) return false
     if (idx === 0) return true
-    return masteredIds.includes(sorted[idx - 1].id)
+    const prev = sorted[idx - 1]
+    if (!masteredIds.includes(prev.id)) return false
+    // If the preceding unit closes a block, require the checkpoint to be done.
+    if (prev.checkpointId && completedCheckpoints && !completedCheckpoints.includes(prev.checkpointId)) {
+        return false
+    }
+    return true
 }

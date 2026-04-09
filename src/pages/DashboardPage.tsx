@@ -20,7 +20,7 @@ import { StatsTab } from "../components/StatsTab"
 import { Flag } from "../components/Flag"
 import { LevelBadge } from "../components/LevelBadge"
 import { ProgressBar } from "../components/ProgressBar"
-import { CEFR_LEVELS, CEFRLevel, LessonUnit } from "../types"
+import { CEFR_LEVELS, CEFRLevel, LessonUnit, Checkpoint } from "../types"
 import { SECTION_CONFIG, StudySection } from "../data/sectionConfig"
 import { useProgressStats } from "../hooks/useProgressStats"
 import { resolvePrimary } from "../utils/localizedText"
@@ -97,13 +97,13 @@ const StudyCard = memo(function StudyCard({ section, title, countDesc, done, tot
 // ---------------------------------------------------------------------------
 // UnitRow — one row in the Learning Path list
 // ---------------------------------------------------------------------------
-const UnitRow = memo(function UnitRow({ unit, langId, level, mastered, allUnits, completed, goalScore }: Readonly<{
+const UnitRow = memo(function UnitRow({ unit, langId, level, mastered, allUnits, completed, goalScore, completedCheckpoints }: Readonly<{
     unit: LessonUnit; langId: string; level: CEFRLevel
     mastered: string[]; allUnits: LessonUnit[]; completed: ReadonlySet<string>
-    goalScore: number
+    goalScore: number; completedCheckpoints: string[]
 }>) {
     const isMastered = mastered.includes(unit.id)
-    const unlocked = DEBUG || isUnitUnlocked(unit.id, allUnits, mastered)
+    const unlocked = DEBUG || isUnitUnlocked(unit.id, allUnits, mastered, completedCheckpoints)
 
     let rowState = "border-gray-100 dark:border-gray-700 border-l-4 border-l-gray-200 dark:border-l-gray-600 bg-gray-50 dark:bg-gray-700/50 opacity-50 cursor-default"
     if (isMastered) rowState = "border-green-200 border-l-4 border-l-green-500 bg-green-50/40 hover:border-green-300"
@@ -257,10 +257,11 @@ export function DashboardPage() {
     const navigate = useNavigate()
     const language = getLanguage(langId)
     const mod = getModule(langId)
-    const { level: getLevel, mastered: getMastered } = useProgress()
+    const { level: getLevel, mastered: getMastered, completedCheckpoints: getCompletedCheckpoints } = useProgress()
     const level = getLevel(langId)
     const ui = getUI(langId, level)
     const mastered = getMastered(langId)
+    const completedCheckpoints = getCompletedCheckpoints(langId)
 
     // All progress via the shared hook — single source of truth
     const { grammar, vocab, verbs, reading, listening, isDone } = useProgressStats(langId, level)
@@ -447,6 +448,7 @@ export function DashboardPage() {
                                             allUnits={levelUnits}
                                             completed={completed}
                                             goalScore={scoreUnitForGoal(unit.topicTags, goalId)}
+                                            completedCheckpoints={completedCheckpoints}
                                         />
                                     ))}
                                 </div>
