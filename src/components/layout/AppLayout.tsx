@@ -18,6 +18,7 @@ import { useGlobalStreak } from "../../hooks/useGlobalStreak"
 import { useDarkMode } from "../../hooks/useDarkMode"
 import { getLanguage } from "../../data/languages"
 import { Flag } from "../Flag"
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip"
 
 const SIDEBAR_KEY = "ls:sidebar-collapsed"
 
@@ -56,7 +57,10 @@ const NAV_ITEMS: NavItem[] = [
         label: "Practice",
         icon: Zap,
         href: (l) => l ? `/learn/${l}?tab=practice` : "/home",
-        isActive: (p) => p.includes("?tab=practice"),
+        isActive: (p) => {
+            const [path, search] = p.split("?")
+            return /^\/learn\/[^/]+$/.test(path) && new URLSearchParams(search).get("tab") === "practice"
+        },
     },
     {
         id: "review",
@@ -78,14 +82,14 @@ const NAV_ITEMS: NavItem[] = [
 
 export function AppLayout() {
     const [collapsed, setCollapsed] = useState(readCollapsed)
-    const { selectedLanguage } = useProgress()
+    const { selectedLanguage, level: getLevel } = useProgress()
     const streak = useGlobalStreak()
     const [dark, toggleDark] = useDarkMode()
     const location = useLocation()
     const navigate = useNavigate()
 
     const currentLang = selectedLanguage ? getLanguage(selectedLanguage) : null
-    const currentLevel = useProgress().level(selectedLanguage ?? "")
+    const currentLevel = getLevel(selectedLanguage ?? "")
 
     const toggleCollapsed = useCallback(() => {
         setCollapsed(c => {
@@ -122,26 +126,35 @@ export function AppLayout() {
                 </div>
 
                 {/* Language picker */}
-                <button
-                    onClick={() => navigate("/languages")}
-                    className={`flex items-center gap-3 mx-2 mt-3 mb-1 px-2 py-2 rounded-lg hover:bg-surface-inset transition-colors ${collapsed ? "justify-center" : ""}`}
-                    aria-label="Switch language"
-                >
-                    {currentLang
-                        ? <Flag langId={currentLang.id} size="sm" className="shrink-0" />
-                        : <Globe size={16} className="text-text-sec shrink-0" />
-                    }
-                    {!collapsed && (
-                        <div className="text-left min-w-0">
-                            <p className="text-xs font-medium text-text-pri truncate leading-tight">
-                                {currentLang?.name ?? "Select language"}
-                            </p>
-                            {currentLang && (
-                                <p className="text-[10px] text-text-sec leading-tight">{currentLevel}</p>
+                <Tooltip>
+                    <TooltipTrigger asChild>
+                        <button
+                            onClick={() => navigate("/languages")}
+                            className={`flex items-center gap-3 mx-2 mt-3 mb-1 px-2 py-2 rounded-lg hover:bg-surface-inset transition-colors ${collapsed ? "justify-center" : ""}`}
+                            aria-label={collapsed ? (currentLang?.name ?? "Select language") : undefined}
+                        >
+                            {currentLang
+                                ? <Flag langId={currentLang.id} size="sm" className="shrink-0" />
+                                : <Globe size={16} className="text-text-sec shrink-0" />
+                            }
+                            {!collapsed && (
+                                <div className="text-left min-w-0">
+                                    <p className="text-xs font-medium text-text-pri truncate leading-tight">
+                                        {currentLang?.name ?? "Select language"}
+                                    </p>
+                                    {currentLang && (
+                                        <p className="text-[10px] text-text-sec leading-tight">{currentLevel}</p>
+                                    )}
+                                </div>
                             )}
-                        </div>
+                        </button>
+                    </TooltipTrigger>
+                    {collapsed && (
+                        <TooltipContent side="right">
+                            {currentLang ? `${currentLang.name} · ${currentLevel}` : "Select language"}
+                        </TooltipContent>
                     )}
-                </button>
+                </Tooltip>
 
                 {/* Divider */}
                 <div className="mx-3 border-t border-border-subtle my-1" />
@@ -151,9 +164,8 @@ export function AppLayout() {
                     {NAV_ITEMS.map(item => {
                         const active = item.isActive(location.pathname + location.search)
                         const Icon = item.icon
-                        return (
+                        const link = (
                             <Link
-                                key={item.id}
                                 to={item.href(selectedLanguage)}
                                 className={`
                                     flex items-center gap-3 px-2 py-2 rounded-lg text-sm font-medium
@@ -165,23 +177,39 @@ export function AppLayout() {
                                     }
                                 `}
                                 aria-current={active ? "page" : undefined}
+                                aria-label={collapsed ? item.label : undefined}
                             >
                                 <Icon size={16} className="shrink-0" />
                                 {!collapsed && <span>{item.label}</span>}
                             </Link>
                         )
+                        return collapsed ? (
+                            <Tooltip key={item.id}>
+                                <TooltipTrigger asChild>{link}</TooltipTrigger>
+                                <TooltipContent side="right">{item.label}</TooltipContent>
+                            </Tooltip>
+                        ) : (
+                            <span key={item.id}>{link}</span>
+                        )
                     })}
                 </nav>
 
                 {/* Bottom section: streak + dark mode */}
-                <div className={`px-3 py-3 border-t border-border-subtle flex items-center ${collapsed ? "justify-center" : "justify-between"}`}>
+                <div className={`px-3 py-3 border-t border-border-subtle flex items-center ${collapsed ? "justify-center flex-col gap-2" : "justify-between"}`}>
                     {streak > 0 && (
-                        <div className={`flex items-center gap-1.5 ${collapsed ? "" : "flex-1"}`}>
-                            <Flame size={14} className="text-streak shrink-0" />
-                            {!collapsed && (
-                                <span className="text-xs font-medium text-streak">{streak} day{streak !== 1 ? "s" : ""}</span>
+                        <Tooltip>
+                            <TooltipTrigger asChild>
+                                <div className={`flex items-center gap-1.5 ${collapsed ? "" : "flex-1"}`}>
+                                    <Flame size={14} className="text-streak shrink-0" />
+                                    {!collapsed && (
+                                        <span className="text-xs font-medium text-streak">{streak} day{streak !== 1 ? "s" : ""}</span>
+                                    )}
+                                </div>
+                            </TooltipTrigger>
+                            {collapsed && (
+                                <TooltipContent side="right">{streak} day streak</TooltipContent>
                             )}
-                        </div>
+                        </Tooltip>
                     )}
                     <button
                         onClick={toggleDark}
@@ -224,7 +252,7 @@ export function AppLayout() {
                         )}
                         <button
                             onClick={toggleDark}
-                            className="w-7 h-7 rounded-md flex items-center justify-center text-text-sec"
+                            className="w-7 h-7 rounded-md flex items-center justify-center text-text-sec hover:bg-surface-inset transition-colors"
                             aria-label={dark ? "Light mode" : "Dark mode"}
                         >
                             {dark ? <Sun size={14} /> : <Moon size={14} />}
