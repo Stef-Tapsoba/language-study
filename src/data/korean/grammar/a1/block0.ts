@@ -35,6 +35,12 @@ Stroke order follows two rules: top to bottom, left to right. These two rules co
 
 With ㅇ and the ten vowels, you can already read: 아 어 오 우 으 이 애 에 야 여
 Say them aloud. This is not vocabulary yet — pure sound practice.`,
+        notes: [
+            {
+                type: "tip",
+                content: "ㅇ plays two roles: silent placeholder at the start of a syllable (아 = ㅇ + ㅏ, sounds like 'a'), and the 'ng' sound at the end (방 = ba-ng). Same shape, different position, different job.",
+            },
+        ],
         examples: [
             { native: "아", romanized: "a", translation: "ㅇ (silent) + ㅏ — your first syllable block" },
             { native: "오", romanized: "o", translation: "ㅇ on top, ㅗ below (horizontal vowel → consonant above, vowel below)" },
@@ -60,21 +66,13 @@ Say them aloud. This is not vocabulary yet — pure sound practice.`,
 
 The 14 basic consonants in groups:
 
-**Group 1 — Easy sounds:**
-ㄴ (n), ㅁ (m), ㅅ (s), ㅎ (h)
+| Group | Consonants |
+|-------|-----------|
+| Easy sounds | ㄴ (n), ㅁ (m), ㅅ (s), ㅎ (h) |
+| Familiar sounds, unfamiliar shapes | ㄱ (g/k), ㄷ (d/t), ㄹ (r/l flap), ㅂ (b/p), ㅈ (j) |
+| Aspirated (puff of air) | ㅋ (k puff), ㅌ (t puff), ㅍ (p puff), ㅊ (ch puff) |
 
-**Group 2 — Familiar sounds, unfamiliar shapes:**
-ㄱ (g/k), ㄷ (d/t), ㄹ (r/l flap), ㅂ (b/p), ㅈ (j)
-
-**Group 3 — Aspirated (puff of air):**
-ㅋ (k puff), ㅌ (t puff), ㅍ (p puff), ㅊ (ch puff)
-
-**ㄹ — the most important note:**
-Not an r or an l — a light tongue flap, like the "tt" in American English *butter* said quickly. Practice: 라 리 루 레 로
-
-Building syllables:
-- Consonant + vertical vowel → side by side: 가 나 다 라 마 바 사 자 하
-- Consonant + horizontal vowel → stacked: 고 노 도 모 보 소 조 호
+Building syllables: consonant + vertical vowel → side by side (가 나 다…); consonant + horizontal vowel → stacked (고 노 도…).
 
 Practice grid — read aloud, don't worry about meaning:
 
@@ -87,6 +85,16 @@ Practice grid — read aloud, don't worry about meaning:
 
 Two-syllable words — read aloud (meaning comes later):
 나라 (na-ra) · 바나나 (ba-na-na) · 사자 (sa-ja) · 가수 (ga-su)`,
+        notes: [
+            {
+                type: "warning",
+                content: "ㄹ is the trickiest consonant: not an r, not an l — a light tongue flap, like the 'tt' in American English butter said quickly. Practice syllable by syllable: 라 리 루 레 로.",
+            },
+            {
+                type: "tip",
+                content: "Aspirated consonants (ㅋ ㅌ ㅍ ㅊ) are just their plain counterparts (ㄱ ㄷ ㅂ ㅈ) with a puff of air. Hold your hand in front of your mouth — you should feel a burst on the aspirated ones.",
+            },
+        ],
         examples: [
             { native: "가나다라마바사아자하", romanized: "ga-na-da-ra-ma-ba-sa-a-ja-ha", translation: "The first ten consonants + ㅏ — say them through twice" },
             { native: "라 리 루 레 로", romanized: "ra/la ri/li ru/lu re/le ro/lo", translation: "ㄹ practice — light flap sound, between r and l" },
@@ -122,17 +130,41 @@ Final consonants are not released — they close the syllable rather than finish
 | p | ㅂ | 앞 (ap — front) |
 | ng | ㅇ | 방 (bang — room) |
 
-**Loanwords — words you already know:**
-Korean borrowed heavily from English. The words are reshaped to Korean phonology (no "f", no "v", no final consonant clusters):
-
-커피 (keo-pi = coffee) · 피자 (pi-ja = pizza) · 택시 (taek-si = taxi) · 버스 (beo-seu = bus) · 호텔 (ho-tel = hotel) · 주스 (ju-seu = juice) · 아이스크림 (a-i-seu-keu-rim = ice cream) · 스마트폰 (seu-ma-teu-pon = smartphone)
-
-You can now walk into a Korean café and read the menu. That is a real skill, right now.
-
-**Preview — Block 1 phrases (read them, don't memorise yet):**
-안녕하세요 · 감사합니다 · 괜찮아요 · 저는 학생이에요
-
 From here: no romanization. You don't need it anymore.`,
+        notes: [
+            {
+                type: "culture",
+                content: "Korean borrowed heavily from English. The words are reshaped to Korean phonology — no 'f', no 'v', no final consonant clusters: 커피 (coffee) · 피자 (pizza) · 택시 (taxi) · 버스 (bus) · 호텔 (hotel) · 아이스크림 (ice cream) · 스마트폰 (smartphone). You can walk into a Korean café and read the menu. That is a real skill, right now.",
+            },
+            {
+                type: "tip",
+                content: "연음 (linking): when a 받침 is followed by a syllable starting with ㅇ (silent placeholder), the final consonant moves across and sounds as the initial of the next syllable. 한국어 sounds like '한구거', not '한국어'.",
+            },
+        ],
+        fixedPhrases: [
+            {
+                native: "안녕하세요",
+                romanized: "an-nyeong-ha-se-yo",
+                translation: "Hello",
+                note: "Read it now — you'll use this with a real person in Block 1",
+            },
+            {
+                native: "감사합니다",
+                romanized: "gam-sa-ham-ni-da",
+                translation: "Thank you (formal)",
+            },
+            {
+                native: "괜찮아요",
+                romanized: "gwaen-cha-na-yo",
+                translation: "It's okay / I'm fine",
+            },
+            {
+                native: "저는 학생이에요",
+                romanized: "jeo-neun hak-saeng-i-e-yo",
+                translation: "I am a student",
+                note: "Your first full Korean sentence — Block 1 will explain how it works",
+            },
+        ],
         examples: [
             { native: "한국", romanized: "han-guk", translation: "Korea — 한 (han) has ㄴ받침, 국 (guk) has ㄱ받침" },
             { native: "방 봄 글 앞", romanized: "bang / bom / geul / ap", translation: "Four common final consonant sounds — feel the syllable close" },

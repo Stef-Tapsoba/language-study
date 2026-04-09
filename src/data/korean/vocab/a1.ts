@@ -2,7 +2,7 @@ import { VocabItem } from "../../../types"
 
 // Korean A1 vocabulary — redesigned curriculum
 // Organised by block and unit; reflects communicative pedagogy.
-// Block 0 (U1–U3): script focus — no traditional vocab items.
+// Block 0 (U1–U3): script reading practice — vowel/CV/받침 scoped items (s1–s24).
 // Block 1 (U4–U7): greetings, identity, numbers, professions.
 // Block 2 (U8–U12): family, things, daily verbs, location, adjectives.
 // Block 3 (U13–U17): time, negation, questions, frequency.
@@ -10,6 +10,41 @@ import { VocabItem } from "../../../types"
 // Block 5 (U23–U26): future, connectors, conditionals.
 
 export const a1Vocab: VocabItem[] = [
+
+    // ── BLOCK 0 / U1 — Vowel-only reading practice (s1–s8) ───────────────────
+    // Only ㅇ (silent) + a basic vowel — no real consonants. Used by the
+    // script-reading exercise so it stays scoped to what U1 has taught.
+    { id: "ko-v-a1-s1", level: "A1", word: "아이", romanized: "a-i", translation: "child", category: "Script Practice", example: { native: "아이가 있어요.", romanized: "Aiga isseoyo.", translation: "There is a child." } },
+    { id: "ko-v-a1-s2", level: "A1", word: "오이", romanized: "o-i", translation: "cucumber", category: "Script Practice", example: { native: "오이예요.", romanized: "Oiyeyo.", translation: "It's a cucumber." } },
+    { id: "ko-v-a1-s3", level: "A1", word: "우유", romanized: "u-yu", translation: "milk", category: "Script Practice", example: { native: "우유 주세요.", romanized: "Uyu juseyo.", translation: "Milk, please." } },
+    { id: "ko-v-a1-s4", level: "A1", word: "여우", romanized: "yeo-u", translation: "fox", category: "Script Practice", example: { native: "여우예요.", romanized: "Yeouiyeyo.", translation: "It's a fox." } },
+    { id: "ko-v-a1-s5", level: "A1", word: "아야", romanized: "a-ya", translation: "Ouch!", category: "Script Practice", example: { native: "아야! 아파요.", romanized: "Aya! Apayo.", translation: "Ouch! It hurts." } },
+    { id: "ko-v-a1-s6", level: "A1", word: "이유", romanized: "i-yu", translation: "reason", category: "Script Practice", example: { native: "이유가 있어요.", romanized: "Iyuga isseoyo.", translation: "There is a reason." } },
+    { id: "ko-v-a1-s7", level: "A1", word: "아우", romanized: "a-u", translation: "younger sibling (archaic)", category: "Script Practice", example: { native: "아우가 있어요.", romanized: "Auga isseoyo.", translation: "I have a younger sibling." } },
+    { id: "ko-v-a1-s8", level: "A1", word: "유아", romanized: "yu-a", translation: "infant / toddler", category: "Script Practice", example: { native: "유아예요.", romanized: "Yuayeyo.", translation: "They're a toddler." } },
+
+    // ── BLOCK 0 / U2 — Consonant + simple vowel practice (s9–s16) ────────────
+    // Uses only the 14 basic consonants + simple ㅏ/ㅓ/ㅣ/ㅗ/ㅜ vowels.
+    // No diphthongs (ㅘ, ㅞ, ㅚ etc.), no 받침 — scoped to what U2 has taught.
+    { id: "ko-v-a1-s9",  level: "A1", word: "나라", romanized: "na-ra", translation: "country", category: "Script Practice", example: { native: "어느 나라예요?", romanized: "Eoneu narayeyo?", translation: "Which country is it?" } },
+    { id: "ko-v-a1-s10", level: "A1", word: "가수", romanized: "ga-su", translation: "singer", category: "Script Practice", example: { native: "가수예요.", romanized: "Gasuyeyo.", translation: "They're a singer." } },
+    { id: "ko-v-a1-s11", level: "A1", word: "바나나", romanized: "ba-na-na", translation: "banana", category: "Script Practice", example: { native: "바나나 주세요.", romanized: "Banana juseyo.", translation: "Banana, please." } },
+    { id: "ko-v-a1-s12", level: "A1", word: "사자", romanized: "sa-ja", translation: "lion", category: "Script Practice", example: { native: "사자예요.", romanized: "Sajayeyo.", translation: "It's a lion." } },
+    { id: "ko-v-a1-s13", level: "A1", word: "하나", romanized: "ha-na", translation: "one (native Korean)", category: "Script Practice", example: { native: "하나 주세요.", romanized: "Hana juseyo.", translation: "One, please." } },
+    { id: "ko-v-a1-s14", level: "A1", word: "도시", romanized: "do-si", translation: "city", category: "Script Practice", example: { native: "도시예요.", romanized: "Dosiyeyo.", translation: "It's a city." } },
+    { id: "ko-v-a1-s15", level: "A1", word: "지도", romanized: "ji-do", translation: "map", category: "Script Practice", example: { native: "지도 있어요?", romanized: "Jido isseoyo?", translation: "Is there a map?" } },
+    { id: "ko-v-a1-s16", level: "A1", word: "마리", romanized: "ma-ri", translation: "counter for animals", category: "Script Practice", example: { native: "고양이 두 마리예요.", romanized: "Goyangi du mariyeyo.", translation: "Two cats." } },
+
+    // ── BLOCK 0 / U3 — 받침 (final consonant) reading practice (s17–s24) ──────
+    // Words with 받침 — loanwords from the lesson + common Korean words.
+    { id: "ko-v-a1-s17", level: "A1", word: "한국", romanized: "han-guk", translation: "Korea", category: "Script Practice", example: { native: "저는 한국 사람이에요.", romanized: "Jeoneun hanguk saram-ieyo.", translation: "I'm Korean." } },
+    { id: "ko-v-a1-s18", level: "A1", word: "한글", romanized: "han-geul", translation: "Korean writing system", category: "Script Practice", example: { native: "한글이에요.", romanized: "Hangeulieyo.", translation: "It's Hangul." } },
+    { id: "ko-v-a1-s19", level: "A1", word: "택시", romanized: "taek-si", translation: "taxi", category: "Script Practice", example: { native: "택시 타요.", romanized: "Taeksi tayo.", translation: "Taking a taxi." } },
+    { id: "ko-v-a1-s20", level: "A1", word: "커피", romanized: "keo-pi", translation: "coffee", category: "Script Practice", example: { native: "커피 주세요.", romanized: "Keopi juseyo.", translation: "Coffee, please." } },
+    { id: "ko-v-a1-s21", level: "A1", word: "호텔", romanized: "ho-tel", translation: "hotel", category: "Script Practice", example: { native: "호텔이에요.", romanized: "Hotelieyo.", translation: "It's a hotel." } },
+    { id: "ko-v-a1-s22", level: "A1", word: "방", romanized: "bang", translation: "room", category: "Script Practice", example: { native: "방이 있어요.", romanized: "Bangi isseoyo.", translation: "There is a room." } },
+    { id: "ko-v-a1-s23", level: "A1", word: "봄", romanized: "bom", translation: "spring (season)", category: "Script Practice", example: { native: "봄이에요.", romanized: "Bomieyo.", translation: "It's spring." } },
+    { id: "ko-v-a1-s24", level: "A1", word: "책", romanized: "chaek", translation: "book", category: "Script Practice", example: { native: "책이에요.", romanized: "Chaegieyo.", translation: "It's a book." } },
 
     // ── BLOCK 1 / U4 — Greetings & Politeness (1–15) ─────────────────────────
     { id: "ko-v-a1-1",  level: "A1", word: "안녕하세요",      romanized: "annyeonghaseyo",      translation: "Hello (polite)", category: "Greetings", example: { native: "안녕하세요! 잘 지내요?", romanized: "Annyeonghaseyo! Jal jinaeyo?", translation: "Hello! How are you?" } },

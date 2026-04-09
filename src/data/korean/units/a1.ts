@@ -17,7 +17,7 @@ export const a1Units: LessonUnit[] = [
         title: "Vowels and the syllable block",
         description: "Discover how Korean writing works — syllable blocks, not letter-by-letter. Learn the 10 basic vowels, stroke order, and read your first 10 syllables.",
         grammarIds: ["ko-g-a1-1"],
-        vocabIds: [],
+        vocabIds: ["ko-v-a1-s1", "ko-v-a1-s2", "ko-v-a1-s3", "ko-v-a1-s4", "ko-v-a1-s5", "ko-v-a1-s6", "ko-v-a1-s7", "ko-v-a1-s8"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a1-1-1", level: "A1", prompt: "Korean is written in...", options: ["Individual letters like the Roman alphabet", "Syllable blocks — one block per spoken beat", "Characters like Chinese", "Words with no spaces"], answer: "Syllable blocks — one block per spoken beat" },
@@ -33,7 +33,7 @@ export const a1Units: LessonUnit[] = [
         title: "Consonants — building real syllables",
         description: "Learn the 14 basic consonants including the ㄹ flap and aspirated sounds. Build consonant-vowel syllable combinations and read two-syllable Korean words.",
         grammarIds: ["ko-g-a1-2"],
-        vocabIds: [],
+        vocabIds: ["ko-v-a1-s9", "ko-v-a1-s10", "ko-v-a1-s11", "ko-v-a1-s12", "ko-v-a1-s13", "ko-v-a1-s14", "ko-v-a1-s15", "ko-v-a1-s16"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a1-2-1", level: "A1", prompt: "The consonant ㄹ sounds like...", options: ["A clear English 'r'", "A clear English 'l'", "A light tongue flap between r and l", "The 'ng' sound"], answer: "A light tongue flap between r and l" },
@@ -49,7 +49,7 @@ export const a1Units: LessonUnit[] = [
         title: "Reading your first Korean words",
         description: "Learn about 받침 (final consonants), read loanwords you already know in Korean script, and preview the phrases coming in Block 1. From here: no romanization.",
         grammarIds: ["ko-g-a1-3"],
-        vocabIds: [],
+        vocabIds: ["ko-v-a1-s17", "ko-v-a1-s18", "ko-v-a1-s19", "ko-v-a1-s20", "ko-v-a1-s21", "ko-v-a1-s22", "ko-v-a1-s23", "ko-v-a1-s24"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a1-3-1", level: "A1", prompt: "받침 is...", options: ["The first consonant in a syllable", "The vowel in a syllable", "The final consonant at the bottom of a syllable block", "A separate syllable"], answer: "The final consonant at the bottom of a syllable block" },
