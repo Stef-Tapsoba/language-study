@@ -14,7 +14,7 @@ import { getVocabForLevel } from "../data/repo"
 import { useProgress } from "../context/ProgressContext"
 import { getDueCards, updateCard } from "../store/srs"
 import { useBreakDetection } from "../hooks/useBreakDetection"
-import { NavBar } from "../components/NavBar"
+
 import { SpeakButton } from "../components/SpeakButton"
 import { Button } from "../components/ui/button"
 import { Card, CardContent } from "../components/ui/card"
@@ -75,8 +75,8 @@ export function ReviewPage() {
     // Empty state — no due cards
     if (reviewItems.length === 0) {
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-                <NavBar title="Review" level={level} backTo={`/learn/${langId}`} />
+            <div className="bg-surface-app">
+                
                 <main className="max-w-md mx-auto px-4 py-16 text-center flex flex-col items-center gap-4">
                     <p className="text-5xl">🎉</p>
                     <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">You're all caught up!</h2>
@@ -96,8 +96,8 @@ export function ReviewPage() {
         if (pct >= 80) resultEmoji = "🌟"
         else if (pct >= 50) resultEmoji = "👍"
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-                <NavBar title="Review" level={level} backTo={`/learn/${langId}`} />
+            <div className="bg-surface-app">
+                
                 <main className="max-w-md mx-auto px-4 py-16 text-center flex flex-col items-center gap-4">
                     <p className="text-5xl">{resultEmoji}</p>
                     <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">Review complete!</h2>
@@ -122,8 +122,8 @@ export function ReviewPage() {
     const progress = ((index) / reviewItems.length) * 100
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-            <NavBar title="Review" level={level} backTo={`/learn/${langId}`} />
+        <div className="bg-surface-app">
+            
             <main className="max-w-md mx-auto px-4 py-8 flex flex-col gap-6">
 
                 {/* Progress */}
