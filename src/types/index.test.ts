@@ -29,7 +29,7 @@ describe("isDialogueExample", () => {
 
     it("narrows type so the else branch gives access to Example fields", () => {
         const items: Array<Example | DialogueExample> = [sentence, dialogue, sentence]
-        const sentences = items.filter(ex => !isDialogueExample(ex))
+        const sentences = items.filter((ex): ex is Example => !isDialogueExample(ex))
         // TypeScript narrows these to Example — accessing .native must compile
         expect(sentences.map(ex => ex.native)).toEqual([sentence.native, sentence.native])
     })
