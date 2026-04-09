@@ -70,7 +70,7 @@ const NAV_ITEMS: NavItem[] = [
         label: "Review",
         icon: RotateCcw,
         href: (l) => l ? `/learn/${l}/review` : "/home",
-        isActive: (p) => p.endsWith("/review"),
+        isActive: (p) => p.endsWith("/review") || p.endsWith("/review/session"),
     },
     {
         id: "path",
@@ -78,7 +78,8 @@ const NAV_ITEMS: NavItem[] = [
         icon: Map,
         href: (l) => l ? `/learn/${l}/path` : "/home",
         // Active on path page AND unit detail pages
-        isActive: (p) => p.endsWith("/path") || /^\/learn\/[^/]+\/units\//.test(p),
+        // Active on the explicit /path route, the index /learn/:langId, and unit detail pages
+        isActive: (p) => p.endsWith("/path") || /^\/learn\/[^/]+$/.test(p) || /^\/learn\/[^/]+\/units\//.test(p),
         desktopOnly: true,
     },
     {
@@ -246,7 +247,7 @@ function SidebarContent({
                             aria-label={collapsed ? item.label : undefined}
                         >
                             <Icon size={16} className={`shrink-0 ${active ? "text-grammar" : ""}`} />
-                            <span className={`transition-opacity duration-150 ${collapsed ? "opacity-0 w-0 overflow-hidden" : "opacity-100"}`}>
+                            <span aria-hidden={collapsed} className={`transition-opacity duration-150 ${collapsed ? "opacity-0 w-0 overflow-hidden" : "opacity-100"}`}>
                                 {item.label}
                             </span>
                         </Link>
@@ -262,22 +263,9 @@ function SidebarContent({
                 })}
             </nav>
 
-            {/* Bottom: profile + streak + dark toggle */}
+            {/* Bottom: streak + dark toggle (above profile, matching mockup) */}
             <div className={`border-t border-hairline border-border-subtle px-3 pt-3 pb-4 flex flex-col gap-2`}>
-                {/* Profile row */}
-                <Link
-                    to="/profile"
-                    className={`flex items-center gap-2.5 px-2 py-2 rounded-lg hover:bg-surface-inset transition-colors ${collapsed ? "justify-center" : ""}`}
-                >
-                    <div className="w-7 h-7 rounded-full bg-grammar-surface border-hairline border border-grammar-border flex items-center justify-center text-xs font-semibold text-grammar shrink-0">
-                        {firstName ? firstName[0].toUpperCase() : <User size={12} />}
-                    </div>
-                    {collapsed ? null : (
-                        <span className="text-xs font-medium text-text-sec truncate">{firstName || "Profile"}</span>
-                    )}
-                </Link>
-
-                {/* Streak + dark toggle */}
+                {/* Streak + dark toggle row */}
                 <div className={`flex items-center ${collapsed ? "flex-col gap-2 justify-center" : "justify-between px-1"}`}>
                     {streak > 0 && (
                         <Tooltip>
@@ -297,6 +285,19 @@ function SidebarContent({
                         {dark ? <Sun size={14} /> : <Moon size={14} />}
                     </button>
                 </div>
+
+                {/* Profile row — below streak, matching desktop mockup */}
+                <Link
+                    to="/profile"
+                    className={`flex items-center gap-2.5 px-2 py-2 rounded-lg hover:bg-surface-inset transition-colors ${collapsed ? "justify-center" : ""}`}
+                >
+                    <div className="w-7 h-7 rounded-full bg-grammar-surface border-hairline border border-grammar-border flex items-center justify-center text-xs font-semibold text-grammar shrink-0">
+                        {firstName ? firstName[0].toUpperCase() : <User size={12} />}
+                    </div>
+                    {collapsed ? null : (
+                        <span className="text-xs font-medium text-text-sec truncate">{firstName || "Profile"}</span>
+                    )}
+                </Link>
             </div>
         </>
     )

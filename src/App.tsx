@@ -8,6 +8,7 @@ import { TooltipProvider } from "./components/ui/tooltip"
 import { ProtectedRoute } from "./auth/ProtectedRoute"
 import { ProgressProvider, useProgress } from "./context/ProgressContext"
 import { getModule, loadModule, loadAdvancedModule, isAdvancedLoaded } from "./data/modules"
+import { AppLayout } from "./components/layout/AppLayout"
 
 const LandingPage        = lazy(() => import("./pages/LandingPage").then(m => ({ default: m.LandingPage })))
 const LoginPage          = lazy(() => import("./pages/LoginPage").then(m => ({ default: m.LoginPage })))
@@ -31,13 +32,12 @@ const CulturePage        = lazy(() => import("./pages/CulturePage").then(m => ({
 const CategoryReadingPage = lazy(() => import("./pages/CategoryReadingPage").then(m => ({ default: m.CategoryReadingPage })))
 const GrammarLessonPage  = lazy(() => import("./pages/GrammarLessonPage").then(m => ({ default: m.GrammarLessonPage })))
 const ReviewPage         = lazy(() => import("./pages/ReviewPage").then(m => ({ default: m.ReviewPage })))
+const ReviewLandingPage  = lazy(() => import("./pages/ReviewLandingPage").then(m => ({ default: m.ReviewLandingPage })))
 const GoalPickerPage     = lazy(() => import("./pages/GoalPickerPage").then(m => ({ default: m.GoalPickerPage })))
 const CheckpointPage        = lazy(() => import("./pages/CheckpointPage").then(m => ({ default: m.CheckpointPage })))
 const PracticePage          = lazy(() => import("./pages/PracticePage").then(m => ({ default: m.PracticePage })))
 const StudyPage             = lazy(() => import("./pages/StudyPage").then(m => ({ default: m.StudyPage })))
 const StatsPage             = lazy(() => import("./pages/StatsPage").then(m => ({ default: m.StatsPage })))
-
-import { AppLayout } from "./components/layout/AppLayout"
 
 // Ensures the language data chunk is loaded before any /learn/:langId page renders.
 // For B2+ users, also waits for the advanced (B2–C1) chunk to merge before rendering,
@@ -94,26 +94,31 @@ export default function App() {
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/register" element={<RegisterPage />} />
 
-                    {/* ── Main nav pages — inside AppLayout (sidebar + bottom nav) ── */}
+                    {/* ── Non-language pages — AppLayout chrome, no LanguageLoader ── */}
                     <Route element={<ProtectedRoute><AppLayout /></ProtectedRoute>}>
                         <Route path="/home" element={<HomePage />} />
                         <Route path="/languages" element={<LanguageSelectPage />} />
                         <Route path="/profile" element={<ProfilePage />} />
-                        {/* Dashboard index — shows inside layout chrome */}
-                        <Route path="/learn/:langId" element={<LanguageLoader />}>
+                    </Route>
+
+                    {/* ── All /learn/:langId routes — single LanguageLoader ─────── */}
+                    {/* AppLayout is an inner wrapper only for the pages that need nav chrome.
+                        Full-screen pages (exercises, lesson detail, etc.) render without it.
+                        This ensures LanguageLoader mounts exactly once per language visit. */}
+                    <Route path="/learn/:langId" element={
+                        <ProtectedRoute><LanguageLoader /></ProtectedRoute>
+                    }>
+                        {/* With AppLayout chrome (sidebar + bottom nav) */}
+                        <Route element={<AppLayout />}>
                             <Route index element={<DashboardPage />} />
                             <Route path="path" element={<DashboardPage />} />
                             <Route path="study" element={<StudyPage />} />
                             <Route path="practice" element={<PracticePage />} />
-                            <Route path="review" element={<ReviewPage />} />
+                            <Route path="review" element={<ReviewLandingPage />} />
                             <Route path="stats" element={<StatsPage />} />
                         </Route>
-                    </Route>
 
-                    {/* ── Full-screen pages — own NavBar, no layout chrome ─────── */}
-                    <Route path="/learn/:langId" element={
-                        <ProtectedRoute><LanguageLoader /></ProtectedRoute>
-                    }>
+                        {/* Full-screen — own NavBar, no layout chrome */}
                         <Route path="placement" element={<PlacementPage />} />
                         <Route path="grammar" element={<GrammarPage />} />
                         <Route path="grammar/:lessonId" element={<GrammarLessonPage />} />
@@ -129,6 +134,7 @@ export default function App() {
                         <Route path="listening" element={<ListeningPage />} />
                         <Route path="culture" element={<CulturePage />} />
                         <Route path="exercise/:exerciseTypeId" element={<ExerciseShell />} />
+                        <Route path="review/session" element={<ReviewPage />} />
                         <Route path="goal" element={<GoalPickerPage />} />
                         <Route path="checkpoints/:checkpointId" element={<CheckpointPage />} />
                     </Route>

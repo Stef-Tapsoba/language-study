@@ -1,6 +1,6 @@
-// pages/DashboardPage.tsx — Per-language dashboard with tabbed navigation (Path, Study, Practice, Test, Stats)
+// pages/DashboardPage.tsx — Learning path view (unit list) for the current CEFR level.
 import { useState, useMemo, memo } from "react"
-import { useParams, useNavigate, useSearchParams, Link } from "react-router-dom"
+import { useParams, useNavigate, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { getUnitsForLevel, getUnitsForGoal } from "../data/repo"
@@ -14,83 +14,17 @@ import { scoreUnitForGoal, USER_GOALS, type GoalId } from "../data/goalConfig"
 
 import { useProgress } from "../context/ProgressContext"
 import { getDueCount } from "../store/srs"
-import { useStatsStore, getHistory } from "../store/useStatsStore"
-import { NavBar } from "../components/NavBar"
-import { StatsTab } from "../components/StatsTab"
 import { Flag } from "../components/Flag"
 import { LevelBadge } from "../components/LevelBadge"
-import { ProgressBar } from "../components/ProgressBar"
 import { CEFR_LEVELS, CEFRLevel, LessonUnit, Checkpoint } from "../types"
-import { SECTION_CONFIG, StudySection } from "../data/sectionConfig"
 import { useProgressStats } from "../hooks/useProgressStats"
 import { resolvePrimary } from "../utils/localizedText"
 import { getUI, UIStrings } from "../i18n"
-import { Alert, AlertDescription } from "../components/ui/alert"
 import { Tooltip, TooltipContent, TooltipTrigger } from "../components/ui/tooltip"
 import { Button } from "../components/ui/button"
 import { Badge } from "../components/ui/badge"
 import { Progress } from "../components/ui/progress"
 
-
-// ---------------------------------------------------------------------------
-// SectionCard — used by Practice tab
-// ---------------------------------------------------------------------------
-const SectionCard = memo(function SectionCard({ emoji, title, description, to, progress, badge }: Readonly<{
-    emoji: string; title: string; description: string; to: string; progress?: number; badge?: number
-}>) {
-    return (
-        <Link
-            to={to}
-            className="card-lift bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-5 flex flex-col gap-2 hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
-        >
-            <div className="flex items-start justify-between">
-                <span className="text-3xl">{emoji}</span>
-                {badge !== undefined && (
-                    <Badge variant="destructive" className="text-xs font-bold rounded-full">
-                        {badge}
-                    </Badge>
-                )}
-            </div>
-            <p className="font-semibold text-gray-900 dark:text-gray-100">{title}</p>
-            <p className="text-sm text-gray-500 dark:text-gray-400">{description}</p>
-            {progress !== undefined && <ProgressBar value={progress} className="mt-1" color="default" />}
-        </Link>
-    )
-})
-
-// ---------------------------------------------------------------------------
-// StudyCard — color-coded cards for the Study tab
-// ---------------------------------------------------------------------------
-const StudyCard = memo(function StudyCard({ section, title, countDesc, done, total, to }: Readonly<{
-    section: StudySection; title: string; countDesc: string
-    done?: number; total?: number; to: string
-}>) {
-    const c = SECTION_CONFIG[section]
-    const pct = (done !== undefined && total) ? done / total * 100 : 0
-    const ariaLabel = done !== undefined && total !== undefined
-        ? `${title} — ${done} of ${total} complete`
-        : title
-    return (
-        <Link to={to} aria-label={ariaLabel} className="card-lift bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden flex flex-col">
-            <div className={`h-1.5 ${c.gradient}`} />
-            <div className="p-4 flex flex-col gap-2 flex-1">
-                <div className={`w-9 h-9 rounded-xl ${c.iconBg} flex items-center justify-center text-xl leading-none`}>
-                    {c.emoji}
-                </div>
-                <p className="font-semibold text-gray-900 dark:text-gray-100 text-sm">{title}</p>
-                <p className={`text-xs ${c.iconText} font-medium`}>{countDesc}</p>
-                {done !== undefined && total !== undefined && total > 0 && (
-                    <div className="mt-1">
-                        <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">{done} of {total} complete</p>
-                        <div className="h-1.5 bg-gray-200/70 rounded-full overflow-hidden">
-                            <div className={`h-full ${c.gradient} rounded-full transition-[width] duration-700 ease-out`} style={{ width: `${pct}%` }} />
-                        </div>
-                    </div>
-                )}
-            </div>
-        </Link>
-    )
-})
 
 // ---------------------------------------------------------------------------
 // UnitRow — one row in the Learning Path list
@@ -262,10 +196,7 @@ export function DashboardPage() {
     const completedCheckpoints = getCompletedCheckpoints(langId)
 
     // All progress via the shared hook — single source of truth
-    const { grammar, vocab, verbs, reading, listening, isDone } = useProgressStats(langId, level)
-    const statsData = useStatsStore(s => s.data)
-
-    const [searchParams, setSearchParams] = useSearchParams()
+    const { isDone } = useProgressStats(langId, level)
     // Use repo.getUnitsForLevel — auto-merges topicTags from unitTags.ts lookup
     const levelUnits = useMemo(
         () => getUnitsForLevel(langId, level),

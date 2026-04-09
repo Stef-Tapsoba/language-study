@@ -81,7 +81,7 @@ export function ReviewPage() {
                     <p className="text-5xl">🎉</p>
                     <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">You're all caught up!</h2>
                     <p className="text-sm text-gray-500 dark:text-gray-400">No cards are due for review right now.</p>
-                    <Button onClick={() => navigate(`/learn/${langId}`)} className="mt-2 rounded-xl px-6 py-2.5 text-sm font-semibold">
+                    <Button onClick={() => navigate(`/learn/${langId}/review`)} className="mt-2 rounded-xl px-6 py-2.5 text-sm font-semibold">
                         Back to lessons
                     </Button>
                 </main>
@@ -108,7 +108,7 @@ export function ReviewPage() {
                         Good job getting back on track. Your review intervals have been updated.
                     </p>
                     <Button
-                        onClick={() => navigate(`/learn/${langId}`)}
+                        onClick={() => navigate(`/learn/${langId}/review`)}
                         className="mt-2 rounded-xl px-6 py-2.5 text-sm font-semibold"
                     >
                         Continue to lessons →
@@ -122,9 +122,19 @@ export function ReviewPage() {
     const progress = ((index) / reviewItems.length) * 100
 
     return (
-        <div className="bg-surface-app">
-            
-            <main className="max-w-md mx-auto px-4 py-8 flex flex-col gap-6">
+        <div className="bg-surface-app min-h-screen">
+            {/* Exit button — ReviewPage is full-screen outside AppLayout */}
+            <div className="flex items-center justify-between max-w-md mx-auto px-4 pt-6 pb-2">
+                <button
+                    onClick={() => navigate(`/learn/${langId}/review`)}
+                    className="text-xs text-text-sec hover:text-text-pri transition-colors"
+                >
+                    ← Exit
+                </button>
+                <span className="text-xs text-text-sec">{index + 1} / {reviewItems.length}</span>
+            </div>
+
+            <main className="max-w-md mx-auto px-4 pb-8 flex flex-col gap-6">
 
                 {/* Progress */}
                 <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">

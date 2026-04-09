@@ -7,7 +7,7 @@
 // side="right"  — dropdown opens to the right of the trigger (sidebar use)
 // side="bottom" — dropdown opens below the trigger (mobile top bar use)
 
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef, useEffect, useMemo } from "react"
 import { useNavigate } from "react-router-dom"
 import { Plus } from "lucide-react"
 import { LANGUAGES } from "../data/languages"
@@ -39,6 +39,18 @@ export function LanguagePickerDropdown({
         mastered: getMastered,
         setSelectedLanguage,
     } = useProgress()
+
+    // Memoised so computeProgressStats (O(n) per language) only reruns when
+    // the enrolled-language list or progress data changes, not on every open/close.
+    const langStats = useMemo(() =>
+        started.map(id => ({
+            id,
+            lang: LANGUAGES.find(l => l.id === id),
+            level: getLevel(id),
+            pct: computeProgressStats(id, getLevel(id), getCompleted(id), getMastered(id)).overallPct,
+        })).filter(s => s.lang !== undefined),
+    [started, selectedLanguage, getLevel, getCompleted, getMastered] // eslint-disable-line react-hooks/exhaustive-deps
+    )
 
     // Close on outside click
     useEffect(() => {
@@ -93,13 +105,8 @@ export function LanguagePickerDropdown({
                     </p>
 
                     <div className="flex flex-col p-1">
-                        {started.map(langId => {
-                            const lang = LANGUAGES.find(l => l.id === langId)
-                            if (!lang) return null
-                            const level = getLevel(langId)
-                            const pct = computeProgressStats(
-                                langId, level, getCompleted(langId), getMastered(langId)
-                            ).overallPct
+                        {langStats.map(({ id: langId, lang: langObj, level, pct }) => {
+                            const lang = langObj!
                             const active = langId === selectedLanguage
 
                             return (

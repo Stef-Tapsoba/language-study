@@ -11,12 +11,11 @@ interface CheckpointStripProps {
     state: "upcoming" | "ready"
 }
 
+const sharedCls = "flex items-center gap-3 px-3 py-3 rounded-2xl border-hairline border border-grammar-border bg-grammar-surface transition-colors"
+
 export function CheckpointStrip({ title, subtitle, href, state }: Readonly<CheckpointStripProps>) {
-    return (
-        <Link
-            to={href}
-            className="flex items-center gap-3 px-3 py-3 rounded-2xl border-hairline border border-grammar-border bg-grammar-surface hover:bg-grammar-surface/80 transition-colors"
-        >
+    const inner = (
+        <>
             {/* Orb */}
             <div className="w-8 h-8 rounded-full bg-surface-card border-hairline border border-grammar-border flex items-center justify-center shrink-0">
                 {state === "ready" ? (
@@ -29,14 +28,22 @@ export function CheckpointStrip({ title, subtitle, href, state }: Readonly<Check
                     </svg>
                 )}
             </div>
-
-            {/* Text */}
             <div className="flex-1 min-w-0">
                 <p className="text-xs font-semibold text-text-pri leading-tight truncate">{title}</p>
                 <p className="text-[10px] text-text-sec leading-tight mt-0.5">{subtitle}</p>
             </div>
-
             <span className="text-grammar text-sm shrink-0">→</span>
+        </>
+    )
+
+    // upcoming = informational only, not yet actionable
+    if (state === "upcoming") {
+        return <div className={`${sharedCls} opacity-80 cursor-default`}>{inner}</div>
+    }
+
+    return (
+        <Link to={href} className={`${sharedCls} hover:bg-grammar-surface/80`}>
+            {inner}
         </Link>
     )
 }
