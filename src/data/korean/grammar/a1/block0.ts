@@ -6,44 +6,53 @@ export const block0Lessons: GrammarLesson[] = [
         level: "A1",
         title: "Korean writing: syllable blocks and the ten basic vowels",
         exerciseType: "script-reading",
-        explanation: `Korean is not written letter by letter. It is written in syllable blocks — each block is one spoken beat, and the letters inside are arranged together:
-
-한 글 — two blocks, two beats: "han" + "geul"
-
-Every block has at least two parts: a consonant and a vowel. The consonant sits at the top-left. The vowel goes to its right (if vertical) or below it (if horizontal).
-
-When a syllable starts with a vowel sound, Korean writes ㅇ as a silent placeholder:
-아 = ㅇ (silent) + ㅏ → sounds like "a"
-이 = ㅇ (silent) + ㅣ → sounds like "i"
-
-The ten basic vowels:
-
-| Vowel | Sound | Position |
-|-------|-------|----------|
-| ㅏ | "a" (father) | right of consonant |
-| ㅓ | "eo" (sun) | right of consonant |
-| ㅗ | "o" (go) | below consonant |
-| ㅜ | "u" (moon) | below consonant |
-| ㅡ | "eu" (no English equivalent — lips flat, back of throat) | below consonant |
-| ㅣ | "i" (see) | right of consonant |
-| ㅑ | "ya" (yard) | right of consonant |
-| ㅕ | "yeo" (quick "yuh") | right of consonant |
-| ㅛ | "yo" (yo-yo) | below consonant |
-| ㅠ | "yu" (you) | below consonant |
-
-The four "y-" vowels (ㅑ ㅕ ㅛ ㅠ) are each their plain counterpart with an extra stroke: ㅑ doubles ㅏ, ㅕ doubles ㅓ, ㅛ doubles ㅗ, ㅠ doubles ㅜ.
-
-Stroke order follows two rules: top to bottom, left to right. These two rules cover almost everything in Korean.
-
-With ㅇ and the ten vowels, you can already read: 아 어 오 우 으 이 야 여 요 유
-Say them aloud. This is not vocabulary yet — pure sound practice.`,
+        explanation: `Korean is written in syllable blocks — each block is one spoken beat. Every block has at least two parts: a consonant and a vowel. The vowel's position depends on its shape: vertical vowels go to the right of the consonant; horizontal vowels go below it. When a syllable starts with a vowel sound, ㅇ acts as a silent placeholder. Stroke order follows two rules: top to bottom, left to right.`,
+        rules: [
+            {
+                condition: "Vertical vowels (ㅏ ㅓ ㅣ ㅑ ㅕ)",
+                result: "Go to the RIGHT of the consonant",
+                examples: [
+                    { native: "가", romanized: "ga", translation: "ㄱ+ㅏ — vertical vowel sits right of consonant" },
+                    { native: "서", romanized: "seo", translation: "ㅅ+ㅓ — vertical vowel sits right of consonant" },
+                    { native: "시", romanized: "si", translation: "ㅅ+ㅣ — vertical vowel sits right of consonant" },
+                ],
+            },
+            {
+                condition: "Horizontal vowels (ㅗ ㅜ ㅡ ㅛ ㅠ)",
+                result: "Go BELOW the consonant",
+                examples: [
+                    { native: "고", romanized: "go", translation: "ㄱ+ㅗ — horizontal vowel sits below consonant" },
+                    { native: "구", romanized: "gu", translation: "ㄱ+ㅜ — horizontal vowel sits below consonant" },
+                    { native: "그", romanized: "geu", translation: "ㄱ+ㅡ — horizontal vowel sits below consonant" },
+                ],
+            },
+            {
+                condition: "Syllable begins with a vowel sound",
+                result: "Use ㅇ as silent placeholder",
+                examples: [
+                    { native: "아", romanized: "a", translation: "ㅇ+ㅏ — ㅇ is silent; syllable sounds like 'a'" },
+                    { native: "이", romanized: "i", translation: "ㅇ+ㅣ — ㅇ is silent; syllable sounds like 'i'" },
+                    { native: "오", romanized: "o", translation: "ㅇ+ㅗ — ㅇ is silent; syllable sounds like 'o'" },
+                ],
+            },
+            {
+                condition: "The four y-vowels (ㅑ ㅕ ㅛ ㅠ)",
+                result: "Each is the plain counterpart with an extra stroke",
+                examples: [
+                    { native: "ㅑ", romanized: "ya", translation: "ㅏ with an extra stroke — adds 'y' glide" },
+                    { native: "ㅕ", romanized: "yeo", translation: "ㅓ with an extra stroke — adds 'y' glide" },
+                    { native: "ㅛ", romanized: "yo", translation: "ㅗ with an extra stroke — adds 'y' glide" },
+                    { native: "ㅠ", romanized: "yu", translation: "ㅜ with an extra stroke — adds 'y' glide" },
+                ],
+            },
+        ],
         notes: [
             {
                 type: "tip",
                 content: "ㅇ plays two roles: silent placeholder at the start of a syllable (아 = ㅇ + ㅏ, sounds like 'a'), and the 'ng' sound at the end (방 = ba-ng). Same shape, different position, different job.",
             },
             {
-                type: "forward-ref",
+                type: "tip",
                 content: "ㅐ (ae) and ㅔ (e) look like basic vowels but are compound vowels — they combine two basic shapes and sound identical in modern Korean. You will meet them in the compound vowels lesson.",
             },
         ],
@@ -71,29 +80,36 @@ Say them aloud. This is not vocabulary yet — pure sound practice.`,
         level: "A1",
         title: "The 14 consonants and building Korean syllables",
         exerciseType: "script-reading",
-        explanation: `You have vowels. Now add consonants — and syllable blocks become real words.
-
-The 14 basic consonants in groups:
-
-| Group | Consonants |
-|-------|-----------|
-| Easy sounds | ㄴ (n), ㅁ (m), ㅅ (s), ㅎ (h) |
-| Familiar sounds, unfamiliar shapes | ㄱ (g/k), ㄷ (d/t), ㄹ (r/l flap), ㅂ (b/p), ㅈ (j) |
-| Aspirated (puff of air) | ㅋ (k puff), ㅌ (t puff), ㅍ (p puff), ㅊ (ch puff) |
-
-Building syllables: consonant + vertical vowel → side by side (가 나 다…); consonant + horizontal vowel → stacked (고 노 도…).
-
-Practice grid — read aloud, don't worry about meaning:
-
-| | ㅏ (a) | ㅓ (eo) | ㅣ (i) | ㅗ (o) |
-|--|--------|---------|--------|--------|
-| ㄱ | 가 | 거 | 기 | 고 |
-| ㄴ | 나 | 너 | 니 | 노 |
-| ㅅ | 사 | 서 | 시 | 소 |
-| ㅎ | 하 | 허 | 히 | 호 |
-
-Two-syllable words — read aloud (meaning comes later):
-나라 (na-ra) · 바나나 (ba-na-na) · 사자 (sa-ja) · 가수 (ga-su)`,
+        explanation: `You have vowels — now add consonants and syllable blocks become real words. The 14 basic consonants fall into three groups by how they sound. Consonant + vertical vowel sits side by side (가 나 다…); consonant + horizontal vowel stacks vertically (고 노 도…).`,
+        rules: [
+            {
+                condition: "Easy sounds (close to English)",
+                result: "ㄴ (n) · ㅁ (m) · ㅅ (s) · ㅎ (h)",
+                examples: [
+                    { native: "나", romanized: "na", translation: "ㄴ+ㅏ" },
+                    { native: "마", romanized: "ma", translation: "ㅁ+ㅏ" },
+                    { native: "사", romanized: "sa", translation: "ㅅ+ㅏ" },
+                ],
+            },
+            {
+                condition: "Familiar sounds, unfamiliar shapes",
+                result: "ㄱ (g/k) · ㄷ (d/t) · ㄹ (r/l) · ㅂ (b/p) · ㅈ (j)",
+                examples: [
+                    { native: "가", romanized: "ga", translation: "ㄱ+ㅏ" },
+                    { native: "다", romanized: "da", translation: "ㄷ+ㅏ" },
+                    { native: "바", romanized: "ba", translation: "ㅂ+ㅏ" },
+                ],
+            },
+            {
+                condition: "Aspirated consonants (strong puff of air)",
+                result: "ㅋ (k) · ㅌ (t) · ㅍ (p) · ㅊ (ch)",
+                examples: [
+                    { native: "카", romanized: "ka", translation: "ㅋ+ㅏ — aspirated ㄱ" },
+                    { native: "타", romanized: "ta", translation: "ㅌ+ㅏ — aspirated ㄷ" },
+                    { native: "파", romanized: "pa", translation: "ㅍ+ㅏ — aspirated ㅂ" },
+                ],
+            },
+        ],
         notes: [
             {
                 type: "warning",
@@ -109,7 +125,7 @@ Two-syllable words — read aloud (meaning comes later):
             { native: "라 리 루 레 로", romanized: "ra/la ri/li ru/lu re/le ro/lo", translation: "ㄹ practice — light flap sound, between r and l" },
             { native: "바나나", romanized: "ba-na-na", translation: "banana — a real Korean word, just a loanword" },
             { native: "고 기 구 가", romanized: "go gi gu ga", translation: "ㄱ + four vowels — notice how ㄱ changes position" },
-            { native: "ㅋ vs ㄱ", romanized: "k-puff vs g/k", translation: "aspirated ㅋ has a burst of breath — hold your hand in front of your mouth" },
+            { native: "카 vs 가", romanized: "ka vs ga", translation: "aspirated ㅋ vs plain ㄱ — hold your hand in front of your mouth and feel the puff of air on 카" },
         ],
         inlineVocab: [
             { word: "ㄹ", romanized: "r/l flap", translation: "light tongue flap — not r, not l. American English 'butter' tt sound" },
@@ -122,24 +138,65 @@ Two-syllable words — read aloud (meaning comes later):
         level: "A1",
         title: "받침 (final consonants), loanwords, and your first Korean phrases",
         exerciseType: "script-reading",
-        explanation: `Most syllable blocks have a final consonant at the bottom — called 받침 (batchim, "support"). A syllable with 받침 has three parts:
-
-한 = ㅎ (top-left) + ㅏ (right) + ㄴ (bottom)
-방 = ㅂ (top-left) + ㅏ (right) + ㅇ (bottom → "ng" sound)
-
-Final consonants are not released — they close the syllable rather than finishing fully. The seven possible final sounds:
-
-| Sound | Consonants | Example |
-|-------|-----------|---------|
-| k | ㄱ | 국 (guk — soup) |
-| n | ㄴ | 한 (han) |
-| t | ㄷ, ㅅ, others | 옷 (ot — clothes) |
-| l | ㄹ | 글 (geul) |
-| m | ㅁ | 봄 (bom — spring) |
-| p | ㅂ | 앞 (ap — front) |
-| ng | ㅇ | 방 (bang — room) |
-
-From here: no romanization. You don't need it anymore.`,
+        explanation: `Most syllable blocks have a final consonant at the bottom — called 받침 (batchim). A three-part syllable has an initial consonant, a vowel, and a 받침 at the base. Final consonants are not released — they close the syllable. Only seven distinct sounds are possible as 받침, regardless of which consonant is written.`,
+        rules: [
+            {
+                condition: "받침 sound: k",
+                result: "Written ㄱ (also ㄲ, ㅋ)",
+                examples: [
+                    { native: "국", romanized: "guk", translation: "soup — ㄱ받침" },
+                    { native: "역", romanized: "yeok", translation: "station — ㄱ받침" },
+                ],
+            },
+            {
+                condition: "받침 sound: n",
+                result: "Written ㄴ",
+                examples: [
+                    { native: "한", romanized: "han", translation: "ㄴ받침" },
+                    { native: "산", romanized: "san", translation: "mountain — ㄴ받침" },
+                ],
+            },
+            {
+                condition: "받침 sound: t",
+                result: "Written ㄷ, ㅅ, ㅆ, ㅈ, ㅊ, ㅌ, ㅎ",
+                examples: [
+                    { native: "옷", romanized: "ot", translation: "clothes — ㅅ받침 sounds like t" },
+                    { native: "꽃", romanized: "kkot", translation: "flower — ㅊ받침 sounds like t" },
+                ],
+            },
+            {
+                condition: "받침 sound: l",
+                result: "Written ㄹ",
+                examples: [
+                    { native: "글", romanized: "geul", translation: "writing — ㄹ받침" },
+                    { native: "말", romanized: "mal", translation: "speech/language — ㄹ받침" },
+                ],
+            },
+            {
+                condition: "받침 sound: m",
+                result: "Written ㅁ",
+                examples: [
+                    { native: "봄", romanized: "bom", translation: "spring — ㅁ받침" },
+                    { native: "밤", romanized: "bam", translation: "night — ㅁ받침" },
+                ],
+            },
+            {
+                condition: "받침 sound: p",
+                result: "Written ㅂ (also ㅍ)",
+                examples: [
+                    { native: "앞", romanized: "ap", translation: "front — ㅍ받침 sounds like p" },
+                    { native: "입", romanized: "ip", translation: "mouth — ㅂ받침" },
+                ],
+            },
+            {
+                condition: "받침 sound: ng",
+                result: "Written ㅇ",
+                examples: [
+                    { native: "방", romanized: "bang", translation: "room — ㅇ받침 sounds like ng" },
+                    { native: "강", romanized: "gang", translation: "river — ㅇ받침" },
+                ],
+            },
+        ],
         notes: [
             {
                 type: "culture",
@@ -155,7 +212,7 @@ From here: no romanization. You don't need it anymore.`,
                 native: "안녕하세요",
                 romanized: "an-nyeong-ha-se-yo",
                 translation: "Hello",
-                note: "Read it now — you'll use this with a real person in Block 1",
+                note: "Read it now — you'll use this with a real person in the very next lesson",
             },
             {
                 native: "감사합니다",
@@ -171,19 +228,19 @@ From here: no romanization. You don't need it anymore.`,
                 native: "저는 학생이에요",
                 romanized: "jeo-neun hak-saeng-i-e-yo",
                 translation: "I am a student",
-                note: "Your first full Korean sentence — Block 1 will explain how it works",
+                note: "Your first full Korean sentence — explained in the 저는 이에요/예요 lesson",
             },
         ],
         examples: [
             { native: "한국", romanized: "han-guk", translation: "Korea — 한 (han) has ㄴ받침, 국 (guk) has ㄱ받침" },
             { native: "방 봄 글 앞", romanized: "bang / bom / geul / ap", translation: "Four common final consonant sounds — feel the syllable close" },
-            { native: "커피 주세요", romanized: "keopireul juseyo", translation: "One coffee, please — you can read this before learning what it means" },
+            { native: "커피 주세요", romanized: "keo-pi ju-se-yo", translation: "One coffee, please — you can read this before knowing what it means" },
             { native: "안녕하세요", romanized: "an-nyeong-ha-se-yo", translation: "Hello — read it three times. This is the first Korean phrase you'll use with a real person." },
             { native: "감사합니다", romanized: "gam-sa-ham-ni-da", translation: "Thank you — notice 합 links to 니 in speech (연음 linking)" },
         ],
         inlineVocab: [
             { word: "받침", romanized: "batchim", translation: "final consonant — the bottom element of a three-part syllable block" },
-            { word: "한글", romanized: "han-geul", translation: "Korean writing system — you can read this now. That is the goal of Block 0." },
+            { word: "한글", romanized: "han-geul", translation: "Korean writing system — you can now read it" },
             { word: "연음", romanized: "yeon-eum", translation: "linking — final consonant moves to the next syllable's empty ㅇ slot in natural speech" },
         ],
     },

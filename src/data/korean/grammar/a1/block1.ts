@@ -10,12 +10,20 @@ export const block1Lessons: GrammarLesson[] = [
             {
                 condition: "Word ends in a consonant (has 받침)",
                 result: "이에요",
-                examples: ["학생이에요", "회사원이에요", "선생님이에요"],
+                examples: [
+                    { native: "학생이에요", romanized: "haksaengieyo", translation: "I am a student (학생 ends in consonant ㅇ)" },
+                    { native: "회사원이에요", romanized: "hoesawonieyo", translation: "I am an office worker (회사원 ends in consonant ㄴ)" },
+                    { native: "선생님이에요", romanized: "seonsaengnimieyo", translation: "I am a teacher (선생님 ends in consonant ㅁ)" },
+                ],
             },
             {
                 condition: "Word ends in a vowel (no 받침)",
                 result: "예요",
-                examples: ["의사예요", "소피예요", "디자이너예요"],
+                examples: [
+                    { native: "의사예요", romanized: "uisayeyo", translation: "I am a doctor (의사 ends in vowel)" },
+                    { native: "소피예요", romanized: "sopiyeyo", translation: "I am Sophie (소피 ends in vowel)" },
+                    { native: "디자이너예요", romanized: "dijaineoeyeo", translation: "I am a designer (디자이너 ends in vowel)" },
+                ],
             },
         ],
         notes: [
@@ -70,12 +78,20 @@ export const block1Lessons: GrammarLesson[] = [
             {
                 condition: "Asking what something is",
                 result: "뭐예요?",
-                examples: ["이름이 뭐예요?", "이게 뭐예요?", "직업이 뭐예요?"],
+                examples: [
+                    { native: "이름이 뭐예요?", romanized: "ireumi mwoyeyo?", translation: "What is your name?" },
+                    { native: "이게 뭐예요?", romanized: "ige mwoyeyo?", translation: "What is this?" },
+                    { native: "직업이 뭐예요?", romanized: "jigeopi mwoyeyo?", translation: "What is your job?" },
+                ],
             },
             {
                 condition: "Asking who someone is",
                 result: "누구예요?",
-                examples: ["누구예요?", "저 사람 누구예요?", "선생님이 누구예요?"],
+                examples: [
+                    { native: "누구예요?", romanized: "nuguyeyo?", translation: "Who is it?" },
+                    { native: "저 사람 누구예요?", romanized: "jeo saram nuguyeyo?", translation: "Who is that person?" },
+                    { native: "선생님이 누구예요?", romanized: "seonsaengnimi nuguyeyo?", translation: "Who is the teacher?" },
+                ],
             },
         ],
         notes: [
@@ -136,12 +152,20 @@ export const block1Lessons: GrammarLesson[] = [
             {
                 condition: "Stating nationality",
                 result: "[country] + 사람이에요",
-                examples: ["영국 사람이에요", "한국 사람이에요", "미국 사람이에요"],
+                examples: [
+                    { native: "영국 사람이에요", romanized: "yeongguk saramieyo", translation: "I am British (영국 = UK)" },
+                    { native: "한국 사람이에요", romanized: "hanguk saramieyo", translation: "I am Korean (한국 = Korea)" },
+                    { native: "미국 사람이에요", romanized: "miguk saramieyo", translation: "I am American (미국 = USA)" },
+                ],
             },
             {
                 condition: "Stating origin",
                 result: "[place] + 에서 왔어요",
-                examples: ["런던에서 왔어요", "서울에서 왔어요", "파리에서 왔어요"],
+                examples: [
+                    { native: "런던에서 왔어요", romanized: "reondoneseo wasseoyo", translation: "I came from London" },
+                    { native: "서울에서 왔어요", romanized: "seoureseo wasseoyo", translation: "I came from Seoul" },
+                    { native: "파리에서 왔어요", romanized: "parieseo wasseoyo", translation: "I came from Paris" },
+                ],
             },
         ],
         notes: [
@@ -185,12 +209,20 @@ export const block1Lessons: GrammarLesson[] = [
             {
                 condition: "Sino-Korean 1–10",
                 result: "일 이 삼 사 오 육 칠 팔 구 십",
-                examples: ["삼 (3)", "육 (6)", "십 (10)"],
+                examples: [
+                    { native: "삼", romanized: "sam", translation: "3 (Sino-Korean)" },
+                    { native: "육", romanized: "yuk", translation: "6 (Sino-Korean)" },
+                    { native: "십", romanized: "sip", translation: "10 (Sino-Korean)" },
+                ],
             },
             {
                 condition: "Sino-Korean 11–20 (십 + digit)",
                 result: "십일 십이 십삼 ... 이십",
-                examples: ["십일 (11)", "십오 (15)", "이십 (20)"],
+                examples: [
+                    { native: "십일", romanized: "sibil", translation: "11 — 십(10) + 일(1)" },
+                    { native: "십오", romanized: "sibo", translation: "15 — 십(10) + 오(5)" },
+                    { native: "이십", romanized: "isip", translation: "20 — 이(2) × 십(10)" },
+                ],
             },
         ],
         notes: [
@@ -232,22 +264,38 @@ export const block1Lessons: GrammarLesson[] = [
             {
                 condition: "Native Korean 1–10",
                 result: "하나 둘 셋 넷 다섯 여섯 일곱 여덟 아홉 열",
-                examples: ["하나 (1)", "다섯 (5)", "열 (10)"],
+                examples: [
+                    { native: "하나", romanized: "hana", translation: "1 (native Korean)" },
+                    { native: "다섯", romanized: "daseot", translation: "5 (native Korean)" },
+                    { native: "열", romanized: "yeol", translation: "10 (native Korean)" },
+                ],
             },
             {
                 condition: "Teens: 열 + unit",
                 result: "열하나 열둘 열셋 ... 열아홉",
-                examples: ["열하나 (11)", "열다섯 (15)", "열아홉 (19)"],
+                examples: [
+                    { native: "열하나", romanized: "yeolhana", translation: "11 — 열(10) + 하나(1)" },
+                    { native: "열다섯", romanized: "yeoldaseot", translation: "15 — 열(10) + 다섯(5)" },
+                    { native: "열아홉", romanized: "yeolaraheop", translation: "19 — 열(10) + 아홉(9)" },
+                ],
             },
             {
                 condition: "Key decades for age",
                 result: "스물 (20) · 서른 (30) · 마흔 (40) · 쉰 (50)",
-                examples: ["스물다섯 (25)", "서른셋 (33)", "마흔일곱 (47)"],
+                examples: [
+                    { native: "스물다섯", romanized: "seumuldaseot", translation: "25 — 스물(20) + 다섯(5)" },
+                    { native: "서른셋", romanized: "seoreunset", translation: "33 — 서른(30) + 셋(3)" },
+                    { native: "마흔일곱", romanized: "maheunilgop", translation: "47 — 마흔(40) + 일곱(7)" },
+                ],
             },
             {
                 condition: "Stating age",
                 result: "저는 [native number] 살이에요",
-                examples: ["저는 스물여섯 살이에요", "열아홉 살이에요", "서른 살이에요"],
+                examples: [
+                    { native: "저는 스물여섯 살이에요", romanized: "jeoneun seumulyeoseot sarieyo", translation: "I am 26 years old" },
+                    { native: "열아홉 살이에요", romanized: "yeolaraheop sarieyo", translation: "I am 19 years old" },
+                    { native: "서른 살이에요", romanized: "seoreun sarieyo", translation: "I am 30 years old" },
+                ],
             },
         ],
         notes: [
@@ -352,17 +400,28 @@ export const block1Lessons: GrammarLesson[] = [
             {
                 condition: "Possession — do you have something?",
                 result: "[thing] + 이/가 있어요 / 없어요",
-                examples: ["시간이 있어요", "돈이 없어요", "형이 있어요"],
+                examples: [
+                    { native: "시간이 있어요", romanized: "sigani isseoyo", translation: "I have time (possession)" },
+                    { native: "돈이 없어요", romanized: "doni eopseoyo", translation: "I don't have money (possession)" },
+                    { native: "형이 있어요", romanized: "hyeongi isseoyo", translation: "I have an older brother (possession)" },
+                ],
             },
             {
                 condition: "Existence / location — is something there?",
                 result: "[thing] + 이/가 있어요 / 없어요",
-                examples: ["화장실이 있어요?", "카페가 있어요", "지하철역이 없어요"],
+                examples: [
+                    { native: "화장실이 있어요?", romanized: "hwajangsiri isseoyo?", translation: "Is there a bathroom? (existence)" },
+                    { native: "카페가 있어요", romanized: "kafega isseoyo", translation: "There is a café (existence)" },
+                    { native: "지하철역이 없어요", romanized: "jihacheolyeogi eopseoyo", translation: "There is no subway station (existence)" },
+                ],
             },
             {
                 condition: "Choosing 이 or 가",
                 result: "이 after consonant · 가 after vowel",
-                examples: ["시간이 있어요 (시간 ends in ㄴ)", "카페가 있어요 (카페 ends in vowel)"],
+                examples: [
+                    { native: "시간이 있어요", romanized: "sigani isseoyo", translation: "시간 ends in consonant ㄴ → use 이" },
+                    { native: "카페가 있어요", romanized: "kafega isseoyo", translation: "카페 ends in vowel → use 가" },
+                ],
             },
         ],
         notes: [
