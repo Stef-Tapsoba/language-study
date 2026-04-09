@@ -243,6 +243,41 @@ describe("isUnitUnlocked", () => {
         masterUnit("es", "u2")
         expect(isUnitUnlocked("u3", unsorted, getMasteredUnits("es"))).toBe(true)
     })
+
+    // Checkpoint gate tests
+    const unitsWithCheckpoint = [
+        { id: "u1", order: 1 },
+        { id: "u2", order: 2, checkpointId: "cp-1" },  // u2 closes block 1
+        { id: "u3", order: 3 },
+    ]
+
+    it("locks the unit after a checkpoint-carrying unit when checkpoint is incomplete", () => {
+        masterUnit("ko", "u1")
+        masterUnit("ko", "u2")
+        // u3 is after u2 which carries checkpointId — checkpoint not done
+        expect(isUnitUnlocked("u3", unitsWithCheckpoint, getMasteredUnits("ko"), [])).toBe(false)
+    })
+
+    it("unlocks the unit after a checkpoint-carrying unit once checkpoint is complete", () => {
+        masterUnit("ko", "u1")
+        masterUnit("ko", "u2")
+        markCheckpointDone("ko", "cp-1")
+        expect(isUnitUnlocked("u3", unitsWithCheckpoint, getMasteredUnits("ko"), getCompletedCheckpoints("ko"))).toBe(true)
+    })
+
+    it("skips checkpoint gate when completedCheckpoints param is omitted", () => {
+        masterUnit("ko", "u1")
+        masterUnit("ko", "u2")
+        // No checkpoint arg — gate bypassed for backwards compat
+        expect(isUnitUnlocked("u3", unitsWithCheckpoint, getMasteredUnits("ko"))).toBe(true)
+    })
+
+    it("does not gate a unit whose preceding unit has no checkpointId", () => {
+        masterUnit("ko", "u1")
+        // u2 has no checkpointId — u3 (if it existed) would not be gated
+        const noCheckpoint = [{ id: "u1", order: 1 }, { id: "u2", order: 2 }]
+        expect(isUnitUnlocked("u2", noCheckpoint, getMasteredUnits("ko"), [])).toBe(true)
+    })
 })
 
 describe("resetLanguageProgress", () => {
@@ -336,7 +371,7 @@ describe("schema migration", () => {
     it("stamps schemaVersion=3 on a fresh write", () => {
         setSelectedLanguage("es")
         const p = loadProgress()
-        expect(p.schemaVersion).toBe(3)
+        expect(p.schemaVersion).toBe(4)
     })
 
     it("migrates v0 data: adds missing masteredUnits", () => {
@@ -348,7 +383,7 @@ describe("schema migration", () => {
         }))
         const p = loadProgress()
         expect(p.masteredUnits).toEqual({})
-        expect(p.schemaVersion).toBe(3)
+        expect(p.schemaVersion).toBe(4)
         // Original data preserved
         expect(p.selectedLanguage).toBe("es")
         expect(p.levels.es).toBe("A2")
@@ -375,7 +410,85 @@ describe("schema migration", () => {
             masteredUnits: {},
         }))
         const p = loadProgress()
-        expect(p.schemaVersion).toBe(3)
+        expect(p.schemaVersion).toBe(4)
         expect(p.selectedLanguage).toBe("ja")
+    })
+})
+
+// ---------------------------------------------------------------------------
+// Checkpoint helpers
+// ---------------------------------------------------------------------------
+
+import { markCheckpointDone, getCompletedCheckpoints } from "./progress"
+
+describe("getCompletedCheckpoints", () => {
+    it("returns empty array for unknown langId", () => {
+        expect(getCompletedCheckpoints("ko")).toEqual([])
+    })
+
+    it("returns completed checkpoint IDs for a language", () => {
+        markCheckpointDone("ko", "ko-cp-a1-1")
+        expect(getCompletedCheckpoints("ko")).toContain("ko-cp-a1-1")
+    })
+
+    it("does not return checkpoints from a different language", () => {
+        markCheckpointDone("ko", "ko-cp-a1-1")
+        expect(getCompletedCheckpoints("fr")).toEqual([])
+    })
+})
+
+describe("markCheckpointDone", () => {
+    it("is idempotent — calling twice does not duplicate the entry", () => {
+        markCheckpointDone("ko", "ko-cp-a1-1")
+        markCheckpointDone("ko", "ko-cp-a1-1")
+        expect(getCompletedCheckpoints("ko").filter(id => id === "ko-cp-a1-1")).toHaveLength(1)
+    })
+
+    it("persists multiple checkpoints across the same language", () => {
+        markCheckpointDone("ko", "ko-cp-a1-1")
+        markCheckpointDone("ko", "ko-cp-a1-2")
+        const done = getCompletedCheckpoints("ko")
+        expect(done).toContain("ko-cp-a1-1")
+        expect(done).toContain("ko-cp-a1-2")
+    })
+})
+
+describe("resetLanguageProgress clears completedCheckpoints", () => {
+    it("removes checkpoints for the reset language", () => {
+        markCheckpointDone("ko", "ko-cp-a1-1")
+        resetLanguageProgress("ko")
+        expect(getCompletedCheckpoints("ko")).toEqual([])
+    })
+
+    it("does not remove checkpoints for other languages", () => {
+        markCheckpointDone("ko", "ko-cp-a1-1")
+        markCheckpointDone("fr", "fr-cp-a1-1")
+        resetLanguageProgress("ko")
+        expect(getCompletedCheckpoints("fr")).toContain("fr-cp-a1-1")
+    })
+})
+
+describe("removeLanguage clears completedCheckpoints", () => {
+    it("removes checkpoints when the language is removed", () => {
+        setCurrentLevel("ko", "A1")
+        markCheckpointDone("ko", "ko-cp-a1-1")
+        removeLanguage("ko")
+        expect(getCompletedCheckpoints("ko")).toEqual([])
+    })
+})
+
+describe("schema migration — v3 data without completedCheckpoints", () => {
+    it("hydrates without crashing and returns empty completedCheckpoints", () => {
+        localStorage.setItem("ls:progress", JSON.stringify({
+            schemaVersion: 3,
+            selectedLanguage: "ko",
+            levels: { ko: "A1" },
+            completedLessons: {},
+            masteredUnits: {},
+            // no completedCheckpoints field — simulates pre-v4 save
+        }))
+        const p = loadProgress()
+        expect(p.schemaVersion).toBe(4)
+        expect(getCompletedCheckpoints("ko")).toEqual([])
     })
 })
