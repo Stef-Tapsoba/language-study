@@ -17,7 +17,8 @@ import { shuffle } from "../utils/arrayUtils"
 import { getUI, fmt } from "../i18n"
 import { useStatsStore } from "../store/useStatsStore"
 import type { ExerciseComponentProps } from "../exerciseTypes/registry"
-import type { GrammarLesson, Example } from "../types"
+import type { GrammarLesson } from "../types"
+import { isDialogueExample } from "../types"
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -57,7 +58,7 @@ function tokenize(sentence: string): string[] {
 // ── Build items ───────────────────────────────────────────────────────────────
 
 function exampleToItem(ex: GrammarLesson["examples"][number], lessonId: string, lessonTitle: string, langId: string): ScrambleItem | null {
-    if ("type" in ex && ex.type === "dialogue") {
+    if (isDialogueExample(ex)) {
         const [a, b] = ex.exchanges
         if (tokenize(b.native).length < 3) return null
         return {
@@ -68,9 +69,8 @@ function exampleToItem(ex: GrammarLesson["examples"][number], lessonId: string, 
             context: { native: a.native, romanized: a.romanized, translation: a.translation },
         }
     }
-    const sentence = ex as Example
-    if (tokenize(sentence.native).length < 3) return null
-    return { lessonId, lessonTitle, langId, prompt: sentence.translation, correct: sentence.native, romanized: sentence.romanized }
+    if (tokenize(ex.native).length < 3) return null
+    return { lessonId, lessonTitle, langId, prompt: ex.translation, correct: ex.native, romanized: ex.romanized }
 }
 
 function buildItems(lessons: GrammarLesson[], langId: string): ScrambleItem[] {
@@ -237,10 +237,10 @@ export default function SentenceScramblePage({ items, langId, level, config, onC
         setIsCorrect(correct)
         setSubmitted(true)
         useStatsStore.getState().recordQuizAnswer(langId, correct)
+        onComplete(q.lessonId)  // always mark attempted — score tracks correctness separately
         if (correct) {
             playCorrect()
             setScore(s => s + 1)
-            onComplete(q.lessonId)
         } else {
             playWrong()
             setMissed(prev => [...prev, { prompt: q.prompt, correct: q.correct, yourAnswer: userAnswer }])

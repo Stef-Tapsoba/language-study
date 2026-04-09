@@ -87,15 +87,30 @@ export type GrammarExerciseType = "sentence-scramble" | "dictation"
 export interface GrammarRule {
     condition: string
     result: string
-    examples: string[]
+    /**
+     * Quick illustrative examples for the rule.
+     * Uses Example[] so Korean/Japanese examples can carry romanization and TTS.
+     * Note: rule examples are display-only — sentence-scramble uses lesson.examples, not these.
+     */
+    examples: Example[]
 }
 
-/** A short callout rendered distinctly from explanation prose. */
-export interface GrammarNote {
-    type: "tip" | "warning" | "forward-ref" | "culture"
-    content: string
-    /** For forward-ref notes: the lesson id this resolves to */
-    refId?: string
+/**
+ * A short typed callout rendered distinctly from explanation prose.
+ * Discriminated union: refId is required on forward-ref notes and absent on all others,
+ * so the compiler enforces the coupling rather than relying on convention.
+ */
+export type GrammarNote =
+    | { type: "tip" | "warning" | "culture"; content: string }
+    | { type: "forward-ref"; content: string; refId: string }
+
+/**
+ * Type guard for the discriminated union on GrammarLesson.examples.
+ * Use this instead of `"type" in ex` inline checks to avoid `as` casts
+ * and ensure future union members are handled exhaustively.
+ */
+export function isDialogueExample(ex: Example | DialogueExample): ex is DialogueExample {
+    return "type" in ex && ex.type === "dialogue"
 }
 
 /** A phrase presented as an unanalysed chunk — learn it whole, grammar deferred. */

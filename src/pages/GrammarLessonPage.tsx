@@ -11,7 +11,8 @@ import { VocabTooltip } from "../components/VocabTooltip"
 import { resolvePrimary } from "../utils/localizedText"
 import { renderExplanation, renderInline } from "../utils/renderExplanation"
 import { useVocabTooltip } from "../hooks/useVocabTooltip"
-import type { GrammarNote, Example } from "../types"
+import type { GrammarNote } from "../types"
+import { isDialogueExample } from "../types"
 
 const NOTE_STYLES: Record<GrammarNote["type"], { wrapper: string; label: string; labelText: string }> = {
     tip: {
@@ -102,7 +103,7 @@ export function GrammarLessonPage() {
                                     </div>
                                     <div className="flex flex-wrap gap-1.5">
                                         {rule.examples.map((ex) => (
-                                            <span key={ex} className="text-xs bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 px-2 py-1 rounded-lg font-medium">{ex}</span>
+                                            <span key={ex.native} className="text-xs bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 px-2 py-1 rounded-lg font-medium">{ex.native}</span>
                                         ))}
                                     </div>
                                 </div>
@@ -160,7 +161,7 @@ export function GrammarLessonPage() {
                         <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500 mb-3">Examples</h2>
                         <div className="flex flex-col gap-3">
                             {lesson.examples.map((ex) => {
-                                if ("type" in ex && ex.type === "dialogue") {
+                                if (isDialogueExample(ex)) {
                                     const [a, b] = ex.exchanges
                                     return (
                                         <div key={a.native} className="bg-gray-50 dark:bg-gray-700/50 rounded-xl overflow-hidden">
@@ -188,19 +189,18 @@ export function GrammarLessonPage() {
                                         </div>
                                     )
                                 }
-                                const sentence = ex as Example
                                 return (
-                                    <div key={sentence.native} className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
+                                    <div key={ex.native} className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
                                         <div className="flex items-center gap-2">
-                                            <p className="font-semibold text-gray-900 dark:text-gray-100">{sentence.native}</p>
-                                            <SpeakButton text={sentence.speakText ?? sentence.native} langId={langId} />
+                                            <p className="font-semibold text-gray-900 dark:text-gray-100">{ex.native}</p>
+                                            <SpeakButton text={ex.speakText ?? ex.native} langId={langId} />
                                         </div>
-                                        {sentence.romanized && (
-                                            <p className="text-xs text-indigo-500 mt-0.5">{sentence.romanized}</p>
+                                        {ex.romanized && (
+                                            <p className="text-xs text-indigo-500 mt-0.5">{ex.romanized}</p>
                                         )}
-                                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{sentence.translation}</p>
-                                        {sentence.annotation && (
-                                            <p className="text-xs text-gray-400 dark:text-gray-500 italic mt-1">{sentence.annotation}</p>
+                                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{ex.translation}</p>
+                                        {ex.annotation && (
+                                            <p className="text-xs text-gray-400 dark:text-gray-500 italic mt-1">{ex.annotation}</p>
                                         )}
                                     </div>
                                 )

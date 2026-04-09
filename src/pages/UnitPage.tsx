@@ -739,14 +739,6 @@ export function UnitPage() {
     }
     const [vocabFilter, setVocabFilter] = useState<"all" | "todo" | "done">("all")
 
-    // Per-tab completion flags (content + required exercises)
-    const grammarAllDone = grammar.length > 0
-        && grammar.every(l => completed.includes(l.id))
-        && grammar.every(l => reinforcement.grammarLessonIds.includes(l.id))
-    const vocabAllDone = vocab.length > 0
-        && isVocabExerciseUnlocked(unit!, completed)
-        && reinforcement.vocab === true
-
     if (!language || !mod || !unit) {
         return (
             <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -758,6 +750,14 @@ export function UnitPage() {
             </div>
         )
     }
+
+    // Per-tab completion flags — unit is guaranteed non-null after the guard above
+    const grammarAllDone = grammar.length > 0
+        && grammar.every(l => completed.includes(l.id))
+        && grammar.every(l => reinforcement.grammarLessonIds.includes(l.id))
+    const vocabAllDone = vocab.length > 0
+        && isVocabExerciseUnlocked(unit, completed)
+        && reinforcement.vocab === true
 
     const isMastered = mastered.includes(unit.id)
     const levelUnits = units.filter(u => u.level === unit.level).sort((a, b) => a.order - b.order)
