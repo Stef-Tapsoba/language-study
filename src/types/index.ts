@@ -88,7 +88,7 @@ export interface InlineVocabEntry {
  * Defaults to "sentence-scramble" when absent.
  * Set to "dictation" for pronunciation/phonetics/sounds lessons.
  */
-export type GrammarExerciseType = "sentence-scramble" | "dictation"
+export type GrammarExerciseType = "sentence-scramble" | "dictation" | "script-reading"
 
 /** A single rule card — condition/result pair with quick examples. */
 export interface GrammarRule {
@@ -255,10 +255,61 @@ export interface LessonUnit {
      * Optional during migration — units without tags are shown to all learners.
      */
     topicTags?: TopicTag[]
-    /** Phrase lesson IDs shown before grammar in redesigned A1 curricula. */
+    /**
+     * Ordered list of phrase lesson IDs shown before grammar lessons in the unit flow.
+     * Populated in redesigned A1 curricula that use phrase-first pedagogy.
+     */
     phraseLessonIds?: string[]
-    /** Checkpoint ID this unit closes — must be completed before next block unlocks. */
+    /**
+     * If set, this unit is the last unit of a curriculum block. The checkpoint with
+     * this ID must be completed before the next unit in sequence unlocks.
+     */
     checkpointId?: string
+}
+
+// ---------------------------------------------------------------------------
+// Phrase lessons — communicative phrase-first lessons (no grammar table)
+// ---------------------------------------------------------------------------
+
+/**
+ * A single row in a phrase lesson's phrase table.
+ * `context` is the "when to use it" column shown alongside each phrase.
+ */
+export interface PhraseEntry {
+    native: string
+    translation: string
+    context: string
+    pronunciation?: string   // romanisation or IPA hint for non-Latin scripts
+}
+
+/** A single speaker turn in a phrase lesson's mini-dialogue. */
+export interface PhraseDialogueLine {
+    speaker: string
+    native: string
+    romanized?: string
+    translation: string
+}
+
+/**
+ * A phrase-first lesson: scene setter → phrase table → optional mini-dialogue
+ * → optional single embedded practice question → speak-aloud prompt.
+ *
+ * Used for communicative phrase lessons in redesigned A1 curricula.
+ */
+export interface PhraseLesson {
+    id: string
+    language?: string   // stamped by createLanguageModule(); not set in data files
+    level: CEFRLevel
+    title: string
+    /** Contextual hook shown before the phrase table — sets the scene. */
+    sceneSetter?: string
+    phrases: PhraseEntry[]
+    /** Structured speaker turns for the mini-dialogue, if any. */
+    miniDialogue?: PhraseDialogueLine[]
+    /** Single embedded multiple-choice check. */
+    practiceQuestion?: QuizQuestion
+    /** "Say it out loud" self-production prompt shown at lesson end. */
+    speakAloud?: string
 }
 
 // ---------------------------------------------------------------------------
@@ -427,6 +478,7 @@ export interface LanguageModule {
     listeningExercises?: ListeningExercise[]
     cultureEpisodes?: CultureEpisode[]
     speakingPrompts?: SpeakingPrompt[]
+    phraseLessons?: PhraseLesson[]
     checkpoints?: Checkpoint[]
 }
 
