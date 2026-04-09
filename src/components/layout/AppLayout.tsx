@@ -10,7 +10,7 @@ import { useState, useCallback } from "react"
 import { Outlet, useLocation, Link } from "react-router-dom"
 import {
     Home, BookOpen, Zap, RotateCcw, User,
-    ChevronLeft, ChevronRight, Globe, Flame,
+    ChevronLeft, ChevronRight, Globe,
     Sun, Moon, Map, BarChart2,
 } from "lucide-react"
 import { useProgress } from "../../context/ProgressContext"
@@ -55,8 +55,8 @@ const NAV_ITEMS: NavItem[] = [
         id: "study",
         label: "Study",
         icon: BookOpen,
-        href: (l) => l ? `/learn/${l}` : "/home",
-        isActive: (p) => /^\/learn\/[^/]+$/.test(p),
+        href: (l) => l ? `/learn/${l}/study` : "/home",
+        isActive: (p) => p.endsWith("/study"),
     },
     {
         id: "practice",
@@ -85,8 +85,8 @@ const NAV_ITEMS: NavItem[] = [
         id: "stats",
         label: "Stats",
         icon: BarChart2,
-        href: (l) => l ? `/learn/${l}` : "/home",
-        isActive: () => false,  // no dedicated stats page yet
+        href: (l) => l ? `/learn/${l}/stats` : "/home",
+        isActive: (p) => p.endsWith("/stats"),
         desktopOnly: true,
     },
 ]
@@ -98,6 +98,77 @@ const MOBILE_PROFILE_ITEM: NavItem = {
     icon: User,
     href: () => "/profile",
     isActive: (p) => p === "/profile",
+}
+
+// ── Language picker trigger components (extracted to avoid inline-component warnings) ──
+
+function SidebarLangTrigger({ open, onClick, collapsed, langId, currentLangName, currentLevel }: Readonly<{
+    open: boolean; onClick: () => void
+    collapsed: boolean; langId: string | null; currentLangName: string | null; currentLevel: string
+}>) {
+    return (
+        <Tooltip>
+            <TooltipTrigger asChild>
+                <button
+                    onClick={onClick}
+                    className={`w-full flex items-center gap-3 px-2 py-2 rounded-lg hover:bg-surface-inset transition-colors ${collapsed ? "justify-center" : ""} ${open ? "bg-surface-inset" : ""}`}
+                    aria-label={collapsed ? (currentLangName ?? "Select language") : undefined}
+                    aria-expanded={open}
+                >
+                    {currentLangName && langId
+                        ? (
+                            <div className="w-8 h-8 rounded-full bg-surface-inset flex items-center justify-center shrink-0 overflow-hidden">
+                                <Flag langId={langId} size="sm" />
+                            </div>
+                        )
+                        : <Globe size={16} className="text-text-sec shrink-0" />
+                    }
+                    {collapsed ? null : (
+                        <div className="text-left min-w-0">
+                            <p className="text-xs font-medium text-text-pri truncate leading-tight">
+                                {currentLangName ?? "Select language"}
+                            </p>
+                            {currentLangName && (
+                                <p className="text-[10px] text-text-sec leading-tight">{currentLevel}</p>
+                            )}
+                        </div>
+                    )}
+                </button>
+            </TooltipTrigger>
+            {collapsed && (
+                <TooltipContent side="right">
+                    {currentLangName ? `${currentLangName} · ${currentLevel}` : "Select language"}
+                </TooltipContent>
+            )}
+        </Tooltip>
+    )
+}
+
+function MobileLangTrigger({ open, onClick, selectedLanguage, currentLangName, currentLevel }: Readonly<{
+    open: boolean; onClick: () => void
+    selectedLanguage: string | null; currentLangName: string | null; currentLevel: string
+}>) {
+    return (
+        <button
+            onClick={onClick}
+            className="flex items-center gap-2"
+            aria-label="Switch language"
+            aria-expanded={open}
+        >
+            <div className="w-7 h-7 rounded-full bg-surface-inset flex items-center justify-center overflow-hidden">
+                {currentLangName && selectedLanguage
+                    ? <Flag langId={selectedLanguage} size="sm" />
+                    : <Globe size={14} className="text-text-sec" />
+                }
+            </div>
+            <div className="text-left">
+                <p className="text-xs font-medium text-text-pri leading-tight">{currentLangName ?? "Select"}</p>
+                {currentLangName && (
+                    <p className="text-[10px] text-text-sec leading-tight">{currentLevel}</p>
+                )}
+            </div>
+        </button>
+    )
 }
 
 // ── Sub-components ────────────────────────────────────────────────────────────
@@ -145,40 +216,11 @@ function SidebarContent({
                 side="right"
                 className="mx-2 mt-3 mb-1"
                 trigger={({ open, onClick }) => (
-                    <Tooltip>
-                        <TooltipTrigger asChild>
-                            <button
-                                onClick={onClick}
-                                className={`w-full flex items-center gap-3 px-2 py-2 rounded-lg hover:bg-surface-inset transition-colors ${collapsed ? "justify-center" : ""} ${open ? "bg-surface-inset" : ""}`}
-                                aria-label={collapsed ? (currentLangName ?? "Select language") : undefined}
-                                aria-expanded={open}
-                            >
-                                {currentLangName
-                                    ? (
-                                        <div className="w-8 h-8 rounded-full bg-surface-inset flex items-center justify-center shrink-0 overflow-hidden">
-                                            <Flag langId={langId!} size="sm" />
-                                        </div>
-                                    )
-                                    : <Globe size={16} className="text-text-sec shrink-0" />
-                                }
-                                {collapsed ? null : (
-                                    <div className="text-left min-w-0">
-                                        <p className="text-xs font-medium text-text-pri truncate leading-tight">
-                                            {currentLangName ?? "Select language"}
-                                        </p>
-                                        {currentLangName && (
-                                            <p className="text-[10px] text-text-sec leading-tight">{currentLevel}</p>
-                                        )}
-                                    </div>
-                                )}
-                            </button>
-                        </TooltipTrigger>
-                        {collapsed && (
-                            <TooltipContent side="right">
-                                {currentLangName ? `${currentLangName} · ${currentLevel}` : "Select language"}
-                            </TooltipContent>
-                        )}
-                    </Tooltip>
+                    <SidebarLangTrigger
+                        open={open} onClick={onClick}
+                        collapsed={collapsed} langId={langId}
+                        currentLangName={currentLangName} currentLevel={currentLevel}
+                    />
                 )}
             />
 
@@ -273,25 +315,11 @@ function MobileTopBar({ selectedLanguage, currentLangName, currentLevel, streak 
             <LanguagePickerDropdown
                 side="bottom"
                 trigger={({ open, onClick }) => (
-                    <button
-                        onClick={onClick}
-                        className="flex items-center gap-2"
-                        aria-label="Switch language"
-                        aria-expanded={open}
-                    >
-                        <div className="w-7 h-7 rounded-full bg-surface-inset flex items-center justify-center overflow-hidden">
-                            {currentLangName
-                                ? <Flag langId={selectedLanguage!} size="sm" />
-                                : <Globe size={14} className="text-text-sec" />
-                            }
-                        </div>
-                        <div className="text-left">
-                            <p className="text-xs font-medium text-text-pri leading-tight">{currentLangName ?? "Select"}</p>
-                            {currentLangName && (
-                                <p className="text-[10px] text-text-sec leading-tight">{currentLevel}</p>
-                            )}
-                        </div>
-                    </button>
+                    <MobileLangTrigger
+                        open={open} onClick={onClick}
+                        selectedLanguage={selectedLanguage}
+                        currentLangName={currentLangName} currentLevel={currentLevel}
+                    />
                 )}
             />
             {streak > 0 && <StreakChip streak={streak} compact />}
