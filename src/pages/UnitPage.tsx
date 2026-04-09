@@ -715,7 +715,7 @@ export function UnitPage() {
     const tabs = useMemo<{ id: Tab; label: string; count?: number }[]>(() => [
         ...(grammar.length > 0 ? [{ id: "grammar" as Tab, label: ui.unitTabGrammar, count: grammar.length }] : []),
         ...(vocab.length > 0 ? [{ id: "vocab" as Tab, label: ui.unitTabVocab, count: vocab.length }] : []),
-        { id: "verbs" as Tab, label: ui.unitTabVerbs, count: verbs.length > 0 ? verbs.length : undefined },
+        ...(verbs.length > 0 ? [{ id: "verbs" as Tab, label: ui.unitTabVerbs, count: verbs.length }] : []),
         { id: "test" as Tab, label: ui.unitTabTest },
     ], [grammar, vocab, verbs, ui])
 
