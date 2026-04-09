@@ -45,6 +45,13 @@ export interface Example {
     translation: string
     speakText?: string   // override what TTS speaks — use when native contains annotations, paired forms, or non-speakable text
     annotation?: string  // grammar/phonetic note displayed separately from the translation
+    /**
+     * Explicit scramble tokens for the sentence-scramble exercise.
+     * When absent, SentenceScramblePage falls back to whitespace tokenization.
+     * Use this when the natural split is morphological rather than by spaces:
+     * e.g. "저는 학생이에요." → tokens: ["저는", "학생", "이에요."]
+     */
+    tokens?: string[]
 }
 
 /** A single turn in a dialogue exchange. */
