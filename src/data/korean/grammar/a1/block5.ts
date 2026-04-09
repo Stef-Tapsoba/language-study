@@ -10,17 +10,17 @@ export const block5Lessons: GrammarLesson[] = [
             {
                 condition: "Verb stem ends in vowel or ㄹ",
                 result: "~ㄹ 거예요",
-                examples: ["갈 거예요 (가다)", "볼 거예요 (보다)", "만날 거예요 (만나다)"],
+                examples: [{ native: "갈 거예요 (가다)", translation: "" }, { native: "볼 거예요 (보다)", translation: "" }, { native: "만날 거예요 (만나다)", translation: "" }],
             },
             {
                 condition: "Verb stem ends in consonant",
                 result: "~을 거예요",
-                examples: ["먹을 거예요 (먹다)", "읽을 거예요 (읽다)", "앉을 거예요 (앉다)"],
+                examples: [{ native: "먹을 거예요 (먹다)", translation: "" }, { native: "읽을 거예요 (읽다)", translation: "" }, { native: "앉을 거예요 (앉다)", translation: "" }],
             },
             {
                 condition: "하다 verbs",
                 result: "~할 거예요",
-                examples: ["공부할 거예요", "운동할 거예요", "요리할 거예요"],
+                examples: [{ native: "공부할 거예요", translation: "" }, { native: "운동할 거예요", translation: "" }, { native: "요리할 거예요", translation: "" }],
             },
         ],
         notes: [
@@ -64,27 +64,27 @@ export const block5Lessons: GrammarLesson[] = [
             {
                 condition: "Adding information or narrating sequence",
                 result: "그리고 (and / and then)",
-                examples: ["오늘 공부했어요. 그리고 운동도 했어요."],
+                examples: [{ native: "오늘 공부했어요. 그리고 운동도 했어요.", translation: "" }],
             },
             {
                 condition: "Strong contrast",
                 result: "하지만 (but / however)",
-                examples: ["한국어가 어려워요. 하지만 재미있어요."],
+                examples: [{ native: "한국어가 어려워요. 하지만 재미있어요.", translation: "" }],
             },
             {
                 condition: "Result or consequence",
                 result: "그래서 (so / therefore)",
-                examples: ["피곤했어요. 그래서 일찍 잤어요."],
+                examples: [{ native: "피곤했어요. 그래서 일찍 잤어요.", translation: "" }],
             },
             {
                 condition: "Soft contrast or topic shift",
                 result: "그런데 (but / by the way)",
-                examples: ["오늘 바빠요. 그런데 내일은 괜찮아요."],
+                examples: [{ native: "오늘 바빠요. 그런데 내일은 괜찮아요.", translation: "" }],
             },
             {
                 condition: "Drawing a logical next step",
                 result: "그러면 / 그럼 (then / in that case)",
-                examples: ["시간 있어요? 그럼 같이 가요!"],
+                examples: [{ native: "시간 있어요? 그럼 같이 가요!", translation: "" }],
             },
         ],
         notes: [
@@ -121,17 +121,17 @@ export const block5Lessons: GrammarLesson[] = [
             {
                 condition: "~고 (and / and then) — no vowel harmony",
                 result: "verb stem + 고",
-                examples: ["먹고 가요", "아침을 먹고 학교에 가요", "커피를 마시고 공부해요"],
+                examples: [{ native: "먹고 가요", translation: "" }, { native: "아침을 먹고 학교에 가요", translation: "" }, { native: "커피를 마시고 공부해요", translation: "" }],
             },
             {
                 condition: "~지만 (but) — no vowel harmony",
                 result: "verb/adjective stem + 지만",
-                examples: ["어렵지만 재미있어요", "한국어를 좋아하지만 어려워요", "맛있지만 너무 매워요"],
+                examples: [{ native: "어렵지만 재미있어요", translation: "" }, { native: "한국어를 좋아하지만 어려워요", translation: "" }, { native: "맛있지만 너무 매워요", translation: "" }],
             },
             {
                 condition: "~아서/어서 (because/so) — same vowel harmony as present tense",
                 result: "ㅏ/ㅗ stems → 아서, others → 어서, 하다 → 해서",
-                examples: ["바빠서 못 갔어요", "맛있어서 많이 먹었어요", "피곤해서 일찍 잤어요"],
+                examples: [{ native: "바빠서 못 갔어요", translation: "" }, { native: "맛있어서 많이 먹었어요", translation: "" }, { native: "피곤해서 일찍 잤어요", translation: "" }],
             },
         ],
         notes: [
@@ -140,7 +140,7 @@ export const block5Lessons: GrammarLesson[] = [
                 content: "~아서/어서 rule: the cause clause does NOT take past tense. Past tense goes on the result clause only. 바빠서 못 갔어요 ✓ / 바빴어서 못 갔어요 ✗. This is one of the most common A1/A2 errors.",
             },
             {
-                type: "forward-ref",
+                type: "tip",
                 content: "~고 is the same connector in ~고 싶어요 (want to do): 가고 싶어요 = go + 고 + want. You've been using this clause connector all along.",
             },
         ],
@@ -172,12 +172,12 @@ export const block5Lessons: GrammarLesson[] = [
             {
                 condition: "Verb stem ends in vowel or ㄹ",
                 result: "~면",
-                examples: ["가면 (if you go)", "오면 (if you come)", "하면 (if you do)"],
+                examples: [{ native: "가면 (if you go)", translation: "" }, { native: "오면 (if you come)", translation: "" }, { native: "하면 (if you do)", translation: "" }],
             },
             {
                 condition: "Verb stem ends in consonant",
                 result: "~으면",
-                examples: ["먹으면 (if you eat)", "있으면 (if there is)", "없으면 (if there isn't)"],
+                examples: [{ native: "먹으면 (if you eat)", translation: "" }, { native: "있으면 (if there is)", translation: "" }, { native: "없으면 (if there isn't)", translation: "" }],
             },
         ],
         notes: [
@@ -224,7 +224,7 @@ export const block5Lessons: GrammarLesson[] = [
                 content: "A1 fluency checkpoint: can you produce three or four connected sentences about your daily life using past, present, and future tense with connectors? If yes, you are ready for A2.",
             },
             {
-                type: "forward-ref",
+                type: "tip",
                 content: "Every A2 pattern has already appeared as a chunk in this course: ~는데/은데, ~(으)ㄹ 수 있어요, ~고 있어요, and 반말. A2 is explanation for things already in your ear.",
             },
         ],

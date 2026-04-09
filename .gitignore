@@ -8,3 +8,8 @@ releases/
 .env
 .env.local
 .env.*
+
+# Local working files
+Conversation-transcript.txt
+ISSUES.md
+suggestions/

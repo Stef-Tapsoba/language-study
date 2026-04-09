@@ -10,12 +10,12 @@ export const block3Lessons: GrammarLesson[] = [
             {
                 condition: "Specific time (clock, day, part of day)",
                 result: "time word + 에",
-                examples: ["아침에", "월요일에", "여섯 시에", "주말에"],
+                examples: [{ native: "아침에", translation: "" }, { native: "월요일에", translation: "" }, { native: "여섯 시에", translation: "" }, { native: "주말에", translation: "" }],
             },
             {
                 condition: "Relative time reference (today, now, every day)",
                 result: "no 에",
-                examples: ["오늘", "매일", "지금", "어제", "내일"],
+                examples: [{ native: "오늘", translation: "" }, { native: "매일", translation: "" }, { native: "지금", translation: "" }, { native: "어제", translation: "" }, { native: "내일", translation: "" }],
             },
         ],
         notes: [
@@ -54,17 +54,17 @@ export const block3Lessons: GrammarLesson[] = [
             {
                 condition: "Hours (시)",
                 result: "Native Korean numbers + 시",
-                examples: ["한 시 (1:00)", "세 시 (3:00)", "열두 시 (12:00)"],
+                examples: [{ native: "한 시 (1:00)", translation: "" }, { native: "세 시 (3:00)", translation: "" }, { native: "열두 시 (12:00)", translation: "" }],
             },
             {
                 condition: "Minutes (분)",
                 result: "Sino-Korean numbers + 분",
-                examples: ["십 분 (10 min)", "삼십 분 (30 min)", "오십오 분 (55 min)"],
+                examples: [{ native: "십 분 (10 min)", translation: "" }, { native: "삼십 분 (30 min)", translation: "" }, { native: "오십오 분 (55 min)", translation: "" }],
             },
             {
                 condition: "Half past",
                 result: "[hour] + 시 반",
-                examples: ["세 시 반 (3:30)", "열 시 반 (10:30)"],
+                examples: [{ native: "세 시 반 (3:30)", translation: "" }, { native: "열 시 반 (10:30)", translation: "" }],
             },
         ],
         notes: [
@@ -107,12 +107,12 @@ export const block3Lessons: GrammarLesson[] = [
             {
                 condition: "Most verbs and adjectives",
                 result: "안 + verb/adjective",
-                examples: ["안 가요", "안 먹어요", "안 좋아요", "안 비싸요"],
+                examples: [{ native: "안 가요", translation: "" }, { native: "안 먹어요", translation: "" }, { native: "안 좋아요", translation: "" }, { native: "안 비싸요", translation: "" }],
             },
             {
                 condition: "하다 compound verbs (noun + 하다)",
                 result: "noun + 안 + 해요",
-                examples: ["공부 안 해요", "운동 안 해요", "요리 안 해요"],
+                examples: [{ native: "공부 안 해요", translation: "" }, { native: "운동 안 해요", translation: "" }, { native: "요리 안 해요", translation: "" }],
             },
         ],
         notes: [
@@ -121,7 +121,7 @@ export const block3Lessons: GrammarLesson[] = [
                 content: "하다 compounds: 안 goes BETWEEN the noun and 하다, not before the whole word. 공부 안 해요 ✓ / 안 공부해요 ✗. This is one of the most common A1 errors.",
             },
             {
-                type: "forward-ref",
+                type: "tip",
                 content: "안 covers choice or absence. 못 covers inability — introduced in the next lesson.",
             },
         ],
@@ -152,12 +152,12 @@ export const block3Lessons: GrammarLesson[] = [
             {
                 condition: "Most verbs",
                 result: "못 + verb",
-                examples: ["못 가요", "못 자요", "못 봐요", "못 먹어요"],
+                examples: [{ native: "못 가요", translation: "" }, { native: "못 자요", translation: "" }, { native: "못 봐요", translation: "" }, { native: "못 먹어요", translation: "" }],
             },
             {
                 condition: "하다 compound verbs",
                 result: "noun + 못 + 해요",
-                examples: ["운동 못 해요", "공부 못 해요", "요리 못 해요"],
+                examples: [{ native: "운동 못 해요", translation: "" }, { native: "공부 못 해요", translation: "" }, { native: "요리 못 해요", translation: "" }],
             },
         ],
         notes: [
@@ -230,12 +230,12 @@ export const block3Lessons: GrammarLesson[] = [
             {
                 condition: "Who as subject (doing the action)",
                 result: "누가",
-                examples: ["누가 왔어요?", "누가 전화했어요?", "누가 만들었어요?"],
+                examples: [{ native: "누가 왔어요?", translation: "" }, { native: "누가 전화했어요?", translation: "" }, { native: "누가 만들었어요?", translation: "" }],
             },
             {
                 condition: "Who in other positions (after 은/는, 랑, 한테 etc.)",
                 result: "누구",
-                examples: ["이 사람은 누구예요?", "누구랑 갔어요?", "누구한테 줬어요?"],
+                examples: [{ native: "이 사람은 누구예요?", translation: "" }, { native: "누구랑 갔어요?", translation: "" }, { native: "누구한테 줬어요?", translation: "" }],
             },
         ],
         notes: [
@@ -272,12 +272,12 @@ export const block3Lessons: GrammarLesson[] = [
             {
                 condition: "항상/늘 → 자주 → 가끔 (positive adverbs)",
                 result: "Place before verb — no special rules",
-                examples: ["항상 아침을 먹어요", "자주 카페에 가요", "가끔 한국 영화를 봐요"],
+                examples: [{ native: "항상 아침을 먹어요", translation: "" }, { native: "자주 카페에 가요", translation: "" }, { native: "가끔 한국 영화를 봐요", translation: "" }],
             },
             {
                 condition: "별로 · 거의 · 절대로 (inherently negative adverbs)",
                 result: "Must pair with 안 or 못",
-                examples: ["별로 안 해요", "거의 안 가요", "절대로 안 해요"],
+                examples: [{ native: "별로 안 해요", translation: "" }, { native: "거의 안 가요", translation: "" }, { native: "절대로 안 해요", translation: "" }],
             },
         ],
         notes: [
@@ -314,7 +314,7 @@ export const block3Lessons: GrammarLesson[] = [
             {
                 condition: "절대로 (never / absolutely not)",
                 result: "절대로 + 안/못 + verb",
-                examples: ["절대로 안 해요", "절대로 못 가요", "절대로 안 잊을게요"],
+                examples: [{ native: "절대로 안 해요", translation: "" }, { native: "절대로 못 가요", translation: "" }, { native: "절대로 안 잊을게요", translation: "" }],
             },
         ],
         notes: [
@@ -355,17 +355,17 @@ export const block3Lessons: GrammarLesson[] = [
             {
                 condition: "Stem last vowel is ㅏ or ㅗ (same as ~아요 verbs)",
                 result: "~았어요",
-                examples: ["가다 → 갔어요", "보다 → 봤어요", "좋다 → 좋았어요"],
+                examples: [{ native: "가다 → 갔어요", translation: "" }, { native: "보다 → 봤어요", translation: "" }, { native: "좋다 → 좋았어요", translation: "" }],
             },
             {
                 condition: "Stem has any other vowel (same as ~어요 verbs)",
                 result: "~었어요",
-                examples: ["먹다 → 먹었어요", "마시다 → 마셨어요", "오다 → 왔어요"],
+                examples: [{ native: "먹다 → 먹었어요", translation: "" }, { native: "마시다 → 마셨어요", translation: "" }, { native: "오다 → 왔어요", translation: "" }],
             },
             {
                 condition: "하다 verbs",
                 result: "~했어요 (always)",
-                examples: ["공부했어요", "운동했어요", "일했어요"],
+                examples: [{ native: "공부했어요", translation: "" }, { native: "운동했어요", translation: "" }, { native: "일했어요", translation: "" }],
             },
         ],
         notes: [
@@ -406,17 +406,17 @@ export const block3Lessons: GrammarLesson[] = [
             {
                 condition: "ㅂ-irregular adjectives in past tense",
                 result: "Same as present: ㅂ → 워 before vowel, then + 었어요",
-                examples: ["춥다→추웠어요", "덥다→더웠어요", "맵다→매웠어요", "즐겁다→즐거웠어요"],
+                examples: [{ native: "춥다→추웠어요", translation: "" }, { native: "덥다→더웠어요", translation: "" }, { native: "맵다→매웠어요", translation: "" }, { native: "즐겁다→즐거웠어요", translation: "" }],
             },
             {
                 condition: "Past copula after consonant",
                 result: "이었어요",
-                examples: ["학생이었어요 (was a student)", "회사원이었어요"],
+                examples: [{ native: "학생이었어요 (was a student)", translation: "" }, { native: "회사원이었어요", translation: "" }],
             },
             {
                 condition: "Past copula after vowel",
                 result: "였어요",
-                examples: ["의사였어요 (was a doctor)", "학교였어요"],
+                examples: [{ native: "의사였어요 (was a doctor)", translation: "" }, { native: "학교였어요", translation: "" }],
             },
         ],
         notes: [

@@ -10,17 +10,17 @@ export const block4Lessons: GrammarLesson[] = [
             {
                 condition: "Destination (moving toward) or static existence (있다/없다)",
                 result: "에",
-                examples: ["학교에 가요", "집에 있어요", "서울에 살아요"],
+                examples: [{ native: "학교에 가요", translation: "" }, { native: "집에 있어요", translation: "" }, { native: "서울에 살아요", translation: "" }],
             },
             {
                 condition: "Location where an action takes place",
                 result: "에서",
-                examples: ["학교에서 공부해요", "집에서 요리해요", "카페에서 친구를 만나요"],
+                examples: [{ native: "학교에서 공부해요", translation: "" }, { native: "집에서 요리해요", translation: "" }, { native: "카페에서 친구를 만나요", translation: "" }],
             },
             {
                 condition: "Origin — coming FROM a place",
                 result: "에서 (with movement verb pointing away)",
-                examples: ["어디에서 왔어요?", "집에서 나왔어요", "영국에서 왔어요"],
+                examples: [{ native: "어디에서 왔어요?", translation: "" }, { native: "집에서 나왔어요", translation: "" }, { native: "영국에서 왔어요", translation: "" }],
             },
         ],
         notes: [
@@ -57,17 +57,17 @@ export const block4Lessons: GrammarLesson[] = [
             {
                 condition: "Means of transport (by/via)",
                 result: "(으)로 — 로 after vowel or ㄹ, 으로 after consonant",
-                examples: ["지하철로 가요", "버스로 가요", "택시로 가요"],
+                examples: [{ native: "지하철로 가요", translation: "" }, { native: "버스로 가요", translation: "" }, { native: "택시로 가요", translation: "" }],
             },
             {
                 condition: "Boarding a vehicle",
                 result: "[vehicle]을/를 타요",
-                examples: ["지하철을 타요", "버스를 타요", "택시를 타요"],
+                examples: [{ native: "지하철을 타요", translation: "" }, { native: "버스를 타요", translation: "" }, { native: "택시를 타요", translation: "" }],
             },
             {
                 condition: "Going on foot",
                 result: "걸어서 가요",
-                examples: ["걸어서 가요", "걸어서 10분이에요", "가까워서 걸어서 가요"],
+                examples: [{ native: "걸어서 가요", translation: "" }, { native: "걸어서 10분이에요", translation: "" }, { native: "가까워서 걸어서 가요", translation: "" }],
             },
         ],
         notes: [
@@ -109,12 +109,12 @@ export const block4Lessons: GrammarLesson[] = [
             {
                 condition: "하나/둘/셋/넷 before a counter",
                 result: "Shorten to 한/두/세/네",
-                examples: ["한 잔", "두 명", "세 개", "네 그릇"],
+                examples: [{ native: "한 잔", translation: "" }, { native: "두 명", translation: "" }, { native: "세 개", translation: "" }, { native: "네 그릇", translation: "" }],
             },
             {
                 condition: "다섯 and above before a counter",
                 result: "No change",
-                examples: ["다섯 잔", "여섯 개", "일곱 명"],
+                examples: [{ native: "다섯 잔", translation: "" }, { native: "여섯 개", translation: "" }, { native: "일곱 명", translation: "" }],
             },
         ],
         notes: [
@@ -155,12 +155,12 @@ export const block4Lessons: GrammarLesson[] = [
             {
                 condition: "Hundreds, thousands, ten-thousands",
                 result: "백(100) · 천(1,000) · 만(10,000)",
-                examples: ["오백 원 (₩500)", "삼천 원 (₩3,000)", "만 원 (₩10,000)"],
+                examples: [{ native: "오백 원 (₩500)", translation: "" }, { native: "삼천 원 (₩3,000)", translation: "" }, { native: "만 원 (₩10,000)", translation: "" }],
             },
             {
                 condition: "Numbers above 10,000 (Korean units of 만)",
                 result: "Stack: [만단위] + 만 + [천/백/십/일]",
-                examples: ["만 오천 (15,000)", "이만 삼천 (23,000)", "오십만 (500,000)"],
+                examples: [{ native: "만 오천 (15,000)", translation: "" }, { native: "이만 삼천 (23,000)", translation: "" }, { native: "오십만 (500,000)", translation: "" }],
             },
         ],
         notes: [
@@ -206,12 +206,12 @@ export const block4Lessons: GrammarLesson[] = [
             {
                 condition: "Verb stem ends in vowel or ㄹ",
                 result: "~세요",
-                examples: ["가세요", "오세요", "보세요", "주세요"],
+                examples: [{ native: "가세요", translation: "" }, { native: "오세요", translation: "" }, { native: "보세요", translation: "" }, { native: "주세요", translation: "" }],
             },
             {
                 condition: "Verb stem ends in consonant",
                 result: "~으세요",
-                examples: ["앉으세요", "읽으세요", "기다리세요"],
+                examples: [{ native: "앉으세요", translation: "" }, { native: "읽으세요", translation: "" }, { native: "기다리세요", translation: "" }],
             },
         ],
         notes: [
@@ -220,7 +220,7 @@ export const block4Lessons: GrammarLesson[] = [
                 content: "~(으)세요 is a warm invitation, not a command. When a shopkeeper says 앉으세요, they're inviting you to sit, not ordering you.",
             },
             {
-                type: "forward-ref",
+                type: "tip",
                 content: "주세요 (please give me) is ~어 주세요 from 주다 (give). The next lesson explains the full ~아/어 주세요 request pattern.",
             },
         ],
@@ -256,7 +256,7 @@ export const block4Lessons: GrammarLesson[] = [
             {
                 condition: "Forming ~아/어 주세요",
                 result: "Present tense form (without 요) + 주세요",
-                examples: ["말해 주세요 (from 말해요)", "기다려 주세요 (from 기다려요)", "열어 주세요 (from 열어요)"],
+                examples: [{ native: "말해 주세요 (from 말해요)", translation: "" }, { native: "기다려 주세요 (from 기다려요)", translation: "" }, { native: "열어 주세요 (from 열어요)", translation: "" }],
             },
         ],
         notes: [
@@ -302,12 +302,12 @@ export const block4Lessons: GrammarLesson[] = [
             {
                 condition: "Verb stem ends in vowel or ㄹ",
                 result: "~ㄹ까요?",
-                examples: ["갈까요?", "볼까요?", "만날까요?"],
+                examples: [{ native: "갈까요?", translation: "" }, { native: "볼까요?", translation: "" }, { native: "만날까요?", translation: "" }],
             },
             {
                 condition: "Verb stem ends in consonant",
                 result: "~을까요?",
-                examples: ["먹을까요?", "앉을까요?", "읽을까요?"],
+                examples: [{ native: "먹을까요?", translation: "" }, { native: "앉을까요?", translation: "" }, { native: "읽을까요?", translation: "" }],
             },
         ],
         notes: [
@@ -352,12 +352,12 @@ export const block4Lessons: GrammarLesson[] = [
             {
                 condition: "First person desire (I want to)",
                 result: "verb stem + 고 싶어요",
-                examples: ["가고 싶어요", "먹고 싶어요", "배우고 싶어요", "쉬고 싶어요"],
+                examples: [{ native: "가고 싶어요", translation: "" }, { native: "먹고 싶어요", translation: "" }, { native: "배우고 싶어요", translation: "" }, { native: "쉬고 싶어요", translation: "" }],
             },
             {
                 condition: "Third person desire (he/she wants to)",
                 result: "verb stem + 고 싶어해요",
-                examples: ["친구가 가고 싶어해요", "동생이 사고 싶어해요"],
+                examples: [{ native: "친구가 가고 싶어해요", translation: "" }, { native: "동생이 사고 싶어해요", translation: "" }],
             },
         ],
         notes: [
