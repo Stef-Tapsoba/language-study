@@ -26,35 +26,41 @@ The ten basic vowels:
 | ㅜ | "u" (moon) | below consonant |
 | ㅡ | "eu" (no English equivalent — lips flat, back of throat) | below consonant |
 | ㅣ | "i" (see) | right of consonant |
-| ㅐ | "ae" (bed) | right of consonant |
-| ㅔ | "e" (same as ㅐ in modern Korean) | right of consonant |
 | ㅑ | "ya" (yard) | right of consonant |
 | ㅕ | "yeo" (quick "yuh") | right of consonant |
+| ㅛ | "yo" (yo-yo) | below consonant |
+| ㅠ | "yu" (you) | below consonant |
+
+The four "y-" vowels (ㅑ ㅕ ㅛ ㅠ) are each their plain counterpart with an extra stroke: ㅑ doubles ㅏ, ㅕ doubles ㅓ, ㅛ doubles ㅗ, ㅠ doubles ㅜ.
 
 Stroke order follows two rules: top to bottom, left to right. These two rules cover almost everything in Korean.
 
-With ㅇ and the ten vowels, you can already read: 아 어 오 우 으 이 애 에 야 여
+With ㅇ and the ten vowels, you can already read: 아 어 오 우 으 이 야 여 요 유
 Say them aloud. This is not vocabulary yet — pure sound practice.`,
         notes: [
             {
                 type: "tip",
                 content: "ㅇ plays two roles: silent placeholder at the start of a syllable (아 = ㅇ + ㅏ, sounds like 'a'), and the 'ng' sound at the end (방 = ba-ng). Same shape, different position, different job.",
             },
+            {
+                type: "forward-ref",
+                content: "ㅐ (ae) and ㅔ (e) look like basic vowels but are compound vowels — they combine two basic shapes and sound identical in modern Korean. You will meet them in the compound vowels lesson.",
+            },
         ],
         examples: [
             { native: "아", romanized: "a", translation: "ㅇ (silent) + ㅏ — your first syllable block" },
             { native: "오", romanized: "o", translation: "ㅇ on top, ㅗ below (horizontal vowel → consonant above, vowel below)" },
             { native: "이", romanized: "i", translation: "ㅇ to left, ㅣ to right (vertical vowel → consonant left, vowel right)" },
-            { native: "야", romanized: "ya", translation: "ㅑ = two right-pointing strokes (like ㅏ doubled)" },
-            { native: "여", romanized: "yeo", translation: "ㅕ = two left-pointing strokes (like ㅓ doubled)" },
-            { native: "한글", romanized: "han-geul", translation: "Korean writing system — two blocks, two beats" },
+            { native: "야", romanized: "ya", translation: "ㅑ = extra stroke on ㅏ (vertical → right of consonant)" },
+            { native: "여", romanized: "yeo", translation: "ㅕ = extra stroke on ㅓ (vertical → right of consonant)" },
+            { native: "요", romanized: "yo", translation: "ㅛ = extra stroke on ㅗ (horizontal → below consonant)" },
+            { native: "유", romanized: "yu", translation: "ㅠ = extra stroke on ㅜ (horizontal → below consonant)" },
         ],
         inlineVocab: [
-            { word: "ㅏ / ㅓ", romanized: "a / eo", translation: "vertical vowels — go to the RIGHT of the consonant" },
-            { word: "ㅗ / ㅜ / ㅡ", romanized: "o / u / eu", translation: "horizontal vowels — go BELOW the consonant" },
+            { word: "ㅏ / ㅓ / ㅑ / ㅕ", romanized: "a / eo / ya / yeo", translation: "vertical vowels — go to the RIGHT of the consonant" },
+            { word: "ㅗ / ㅜ / ㅡ / ㅛ / ㅠ", romanized: "o / u / eu / yo / yu", translation: "horizontal vowels — go BELOW the consonant" },
             { word: "ㅣ", romanized: "i", translation: "vertical — to the right" },
             { word: "ㅇ", romanized: "(silent)", translation: "silent placeholder when syllable starts with a vowel sound" },
-            { word: "ㅐ / ㅔ", romanized: "ae / e", translation: "pronounced identically in modern Korean — don't stress the difference" },
         ],
     },
     {
