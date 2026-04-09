@@ -10,17 +10,17 @@ export const block2Lessons: GrammarLesson[] = [
             {
                 condition: "Female speaker",
                 result: "오빠 (older brother) · 언니 (older sister)",
-                examples: ["오빠가 있어요", "언니는 선생님이에요", "언니는 스물아홉 살이에요"],
+                examples: [{ native: "오빠가 있어요", translation: "" }, { native: "언니는 선생님이에요", translation: "" }, { native: "언니는 스물아홉 살이에요", translation: "" }],
             },
             {
                 condition: "Male speaker",
                 result: "형 (older brother) · 누나 (older sister)",
-                examples: ["형이 있어요", "누나는 의사예요", "형은 회사원이에요"],
+                examples: [{ native: "형이 있어요", translation: "" }, { native: "누나는 의사예요", translation: "" }, { native: "형은 회사원이에요", translation: "" }],
             },
             {
                 condition: "Any speaker — younger siblings",
                 result: "동생 · 남동생 · 여동생",
-                examples: ["남동생이 한 명 있어요", "여동생이 없어요", "동생이 있어요?"],
+                examples: [{ native: "남동생이 한 명 있어요", translation: "" }, { native: "여동생이 없어요", translation: "" }, { native: "동생이 있어요?", translation: "" }],
             },
         ],
         notes: [
@@ -61,7 +61,7 @@ export const block2Lessons: GrammarLesson[] = [
                 content: "제 is the polite spoken form of 'my.' 저의 is the full form — it exists but sounds stiff. Always use 제 in conversation.",
             },
             {
-                type: "forward-ref",
+                type: "tip",
                 content: "은/는 after a family member marks them as the topic: 제 어머니는, 아버지는, 남동생은. Topic marker 은/는 (은 after consonant, 는 after vowel) is explained fully in Block 3.",
             },
         ],
@@ -94,17 +94,17 @@ export const block2Lessons: GrammarLesson[] = [
             {
                 condition: "Expressing a like or dislike",
                 result: "저는 ___를/을 좋아해요 / 싫어해요",
-                examples: ["커피를 좋아해요", "한국 음식을 좋아해요", "운동을 별로 안 좋아해요"],
+                examples: [{ native: "커피를 좋아해요", translation: "" }, { native: "한국 음식을 좋아해요", translation: "" }, { native: "운동을 별로 안 좋아해요", translation: "" }],
             },
             {
                 condition: "Object particle — word ends in vowel",
                 result: "를",
-                examples: ["커피를", "드라마를", "음료를"],
+                examples: [{ native: "커피를", translation: "" }, { native: "드라마를", translation: "" }, { native: "음료를", translation: "" }],
             },
             {
                 condition: "Object particle — word ends in consonant",
                 result: "을",
-                examples: ["음악을", "밥을", "한국 음식을"],
+                examples: [{ native: "음악을", translation: "" }, { native: "밥을", translation: "" }, { native: "한국 음식을", translation: "" }],
             },
         ],
         notes: [
@@ -139,12 +139,12 @@ export const block2Lessons: GrammarLesson[] = [
             {
                 condition: "Word ends in vowel",
                 result: "를",
-                examples: ["커피를", "드라마를", "영화를"],
+                examples: [{ native: "커피를", translation: "" }, { native: "드라마를", translation: "" }, { native: "영화를", translation: "" }],
             },
             {
                 condition: "Word ends in consonant",
                 result: "을",
-                examples: ["음악을", "밥을", "책을"],
+                examples: [{ native: "음악을", translation: "" }, { native: "밥을", translation: "" }, { native: "책을", translation: "" }],
             },
         ],
         notes: [
@@ -182,17 +182,17 @@ export const block2Lessons: GrammarLesson[] = [
             {
                 condition: "Stem last vowel is ㅏ or ㅗ",
                 result: "~아요",
-                examples: ["가다 → 가요", "보다 → 봐요", "좋다 → 좋아요"],
+                examples: [{ native: "가다 → 가요", translation: "" }, { native: "보다 → 봐요", translation: "" }, { native: "좋다 → 좋아요", translation: "" }],
             },
             {
                 condition: "Stem has any other vowel",
                 result: "~어요",
-                examples: ["먹다 → 먹어요", "읽다 → 읽어요", "마시다 → 마셔요"],
+                examples: [{ native: "먹다 → 먹어요", translation: "" }, { native: "읽다 → 읽어요", translation: "" }, { native: "마시다 → 마셔요", translation: "" }],
             },
             {
                 condition: "하다 verbs (noun + 하다)",
                 result: "~해요 (always)",
-                examples: ["공부해요", "운동해요", "요리해요", "일해요"],
+                examples: [{ native: "공부해요", translation: "" }, { native: "운동해요", translation: "" }, { native: "요리해요", translation: "" }, { native: "일해요", translation: "" }],
             },
         ],
         notes: [
@@ -231,12 +231,12 @@ export const block2Lessons: GrammarLesson[] = [
             {
                 condition: "Specific time (clock, day of week, part of day)",
                 result: "time word + 에",
-                examples: ["아침에", "일곱 시에", "금요일에", "주말에"],
+                examples: [{ native: "아침에", translation: "" }, { native: "일곱 시에", translation: "" }, { native: "금요일에", translation: "" }, { native: "주말에", translation: "" }],
             },
             {
                 condition: "Relative time reference",
                 result: "no 에 needed",
-                examples: ["매일", "오늘", "보통", "지금"],
+                examples: [{ native: "매일", translation: "" }, { native: "오늘", translation: "" }, { native: "보통", translation: "" }, { native: "지금", translation: "" }],
             },
         ],
         notes: [
@@ -245,7 +245,7 @@ export const block2Lessons: GrammarLesson[] = [
                 content: "ㄷ irregular: 듣다 (listen) and 걷다 (walk) drop ㄷ before a vowel ending → 들어요, 걸어요. These are two of the most common ㄷ-irregular verbs.",
             },
             {
-                type: "forward-ref",
+                type: "tip",
                 content: "이/가 is the subject marker: 수업이 있어요 (I have class), 친구가 와요 (a friend is coming). 이 after consonant, 가 after vowel. It's explained fully in Block 3.",
             },
         ],
@@ -275,17 +275,17 @@ export const block2Lessons: GrammarLesson[] = [
             {
                 condition: "Location where something exists / someone is",
                 result: "[place]에 있어요",
-                examples: ["카페에 있어요", "2층에 있어요", "집에 있어요"],
+                examples: [{ native: "카페에 있어요", translation: "" }, { native: "2층에 있어요", translation: "" }, { native: "집에 있어요", translation: "" }],
             },
             {
                 condition: "Destination (moving toward a place)",
                 result: "[place]에 가요 / 와요",
-                examples: ["학교에 가요", "카페에 와요", "여기에 오세요"],
+                examples: [{ native: "학교에 가요", translation: "" }, { native: "카페에 와요", translation: "" }, { native: "여기에 오세요", translation: "" }],
             },
         ],
         notes: [
             {
-                type: "forward-ref",
+                type: "tip",
                 content: "에 vs 에서: 에 is for where something IS or where you're GOING TO. 에서 is for where an action TAKES PLACE (카페에서 공부해요). The full distinction is explained in Block 4.",
             },
         ],
@@ -322,12 +322,12 @@ export const block2Lessons: GrammarLesson[] = [
             {
                 condition: "ㅡ-drop: stem ends in ㅡ",
                 result: "Drop ㅡ, then apply 아요/어요 rule",
-                examples: ["크다→커요", "나쁘다→나빠요", "예쁘다→예뻐요", "바쁘다→바빠요"],
+                examples: [{ native: "크다→커요", translation: "" }, { native: "나쁘다→나빠요", translation: "" }, { native: "예쁘다→예뻐요", translation: "" }, { native: "바쁘다→바빠요", translation: "" }],
             },
             {
                 condition: "ㅂ irregular: stem ends in ㅂ",
                 result: "ㅂ → 워 before a vowel ending",
-                examples: ["덥다→더워요", "춥다→추워요", "어렵다→어려워요"],
+                examples: [{ native: "덥다→더워요", translation: "" }, { native: "춥다→추워요", translation: "" }, { native: "어렵다→어려워요", translation: "" }],
             },
         ],
         notes: [
@@ -336,7 +336,7 @@ export const block2Lessons: GrammarLesson[] = [
                 content: "오늘 날씨가 어때요? (How's the weather today?) + 추워요/더워요/좋아요 is the most-used adjective exchange you'll have. Practise it as a chunk.",
             },
             {
-                type: "forward-ref",
+                type: "tip",
                 content: "~지만 (but) connects two clauses: 조금 어렵지만 재미있어요 = A little difficult but interesting. This clause connector is explained fully in Block 5.",
             },
         ],

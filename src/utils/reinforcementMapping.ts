@@ -3,7 +3,7 @@
 // All logic is pure / side-effect-free so it is trivially testable and can be
 // called from both UnitPage (UI) and ExerciseShell (routing) without risk.
 
-import type { GrammarLesson, LessonUnit } from "../types"
+import type { GrammarLesson, GrammarExerciseType, LessonUnit } from "../types"
 
 // ---------------------------------------------------------------------------
 // Vocab unlock threshold
@@ -44,7 +44,7 @@ export function isVocabExerciseUnlocked(
  * Returns the exercise type to pair with a grammar lesson.
  * Reads lesson.exerciseType when set; defaults to "sentence-scramble".
  */
-export function getGrammarExerciseType(lesson: GrammarLesson): "sentence-scramble" | "dictation" {
+export function getGrammarExerciseType(lesson: GrammarLesson): GrammarExerciseType {
     return lesson.exerciseType ?? "sentence-scramble"
 }
 

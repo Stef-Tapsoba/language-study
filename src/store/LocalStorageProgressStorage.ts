@@ -22,8 +22,6 @@ import {
     markCheckpointDone,
     getCompletedCheckpoints as storeGetCheckpoints,
     setGoalInProgress,
-    markCheckpointDone,
-    getCompletedCheckpoints as storeGetCheckpoints,
 } from "./progress"
 
 export class LocalStorageProgressStorage implements IProgressStorage {
@@ -89,13 +87,5 @@ export class LocalStorageProgressStorage implements IProgressStorage {
 
     async setGoal(goalId: GoalId): Promise<void> {
         setGoalInProgress(goalId)
-    }
-
-    async markCheckpointComplete(langId: string, checkpointId: string): Promise<void> {
-        markCheckpointDone(langId, checkpointId)
-    }
-
-    getCompletedCheckpoints(langId: string): string[] {
-        return storeGetCheckpoints(langId)
     }
 }
