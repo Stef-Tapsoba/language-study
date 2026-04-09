@@ -5,26 +5,25 @@ export const block3Lessons: GrammarLesson[] = [
         id: "ko-g-a1-20",
         level: "A1",
         title: "Time Particle 에: hours, days, and time words",
-        explanation: `You already know 에 as a location particle — 학교에 가요 (I go to school). But 에 does a second job: it marks points in time. And the good news is that the rule is exactly the same: 에 attaches to the specific time and you're done.
-
-Look at these sentences you could say right now:
-
-아침에 일어나요. — I get up in the morning.
-월요일에 수업이 있어요. — I have class on Monday.
-여섯 시에 만나요. — We meet at six.
-
-In every case, 에 is attached to the specific time expression — 아침 (morning), 월요일 (Monday), 여섯 시 (six o'clock). The verb follows naturally at the end.
-
-The parts of the day all take 에: 아침에 (in the morning), 오전에 (in the AM), 점심에 (at lunchtime), 오후에 (in the afternoon), 저녁에 (in the evening), 밤에 (at night).
-
-Days of the week also take 에: 월요일에 (on Monday), 화요일에 (on Tuesday), 수요일에 (on Wednesday), 목요일에 (on Thursday), 금요일에 (on Friday), 토요일에 (on Saturday), 일요일에 (on Sunday). The word 요일 means "day of the week" — the days are built on the five classical elements plus sun and moon, which gives them a slightly poetic feel.
-
-However — and this is important — some time words do NOT take 에. The natural time reference words 오늘 (today), 어제 (yesterday), 내일 (tomorrow), 지금 (now), 매일 (every day), and 언제 (when) all stand alone without 에. They are already complete.
-
-So: 오늘 뭐 해요? (What are you doing today?) — no 에.
-But: 월요일에 뭐 해요? (What are you doing on Monday?) — 에 needed.
-
-The quick test: if it is a specific named point on the calendar or clock, add 에. If it is a relative reference like "today" or "now," leave it bare.`,
+        explanation: `에 marks specific points in time, just as it marks locations. Attach 에 to any named time expression — parts of the day, days of the week, clock times.`,
+        rules: [
+            {
+                condition: "Specific time (clock, day, part of day)",
+                result: "time word + 에",
+                examples: ["아침에", "월요일에", "여섯 시에", "주말에"],
+            },
+            {
+                condition: "Relative time reference (today, now, every day)",
+                result: "no 에",
+                examples: ["오늘", "매일", "지금", "어제", "내일"],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "Quick test: if it's a specific named point on the calendar or clock, add 에. If it's a relative reference like 'today' or 'now,' leave it bare.",
+            },
+        ],
         examples: [
             { native: "아침에 커피를 마셔요.", romanized: "Achime keopireul masyeoyo.", translation: "I drink coffee in the morning." },
             { native: "금요일에 친구를 만나요.", romanized: "Geumyoire chingureul mannayo.", translation: "I meet a friend on Friday." },
@@ -50,32 +49,34 @@ The quick test: if it is a specific named point on the calendar or clock, add �
         id: "ko-g-a1-21",
         level: "A1",
         title: "Telling the time: 시 (hour) + 분 (minute), 오전/오후",
-        explanation: `지금 몇 시예요? — What time is it now? Telling the time in Korean uses both number systems, but once you see the pattern it is completely regular and quite satisfying.
-
-Here is the one rule you need: hours use native Korean numbers, minutes use Sino-Korean numbers.
-
-Hours (시) — native Korean:
-한 시 (1:00), 두 시 (2:00), 세 시 (3:00), 네 시 (4:00), 다섯 시 (5:00), 여섯 시 (6:00), 일곱 시 (7:00), 여덟 시 (8:00), 아홉 시 (9:00), 열 시 (10:00), 열한 시 (11:00), 열두 시 (12:00).
-
-Minutes (분) — Sino-Korean: 오 분 (5), 십 분 (10), 십오 분 (15), 이십 분 (20), 삼십 분 (30), 사십오 분 (45).
-
-The single most useful shortcut: 반 means "half." 세 시 반 = 3:30. You will say this far more often than 세 시 삼십 분 — both are correct, but 반 is natural and quick. Learn 반 first.
-
-For AM and PM, put 오전 (before noon) or 오후 (afternoon/PM) before the time:
-오전 아홉 시 = 9 AM
-오후 세 시 = 3 PM
-
-The time particle 에 attaches to the whole time expression:
-오전 열 시에 = at 10 AM
-오후 두 시 반에 = at 2:30 PM
-
-Two essential question patterns:
-지금 몇 시예요? — What time is it now?
-몇 시에 만나요? — What time do we meet?
-
-The word 몇 means "how many" or "what number" — it appears before any counter. 몇 시 = what o'clock, 몇 분 = how many minutes, 몇 명 = how many people. You will use 몇 constantly.
-
-One useful phrase: 얼마나 걸려요? means "how long does it take?" — not a clock time question, but a duration question you will need whenever asking about journeys or waiting.`,
+        explanation: `Telling the time in Korean uses both number systems in a regular pattern: hours use native Korean numbers, minutes use Sino-Korean numbers.`,
+        rules: [
+            {
+                condition: "Hours (시)",
+                result: "Native Korean numbers + 시",
+                examples: ["한 시 (1:00)", "세 시 (3:00)", "열두 시 (12:00)"],
+            },
+            {
+                condition: "Minutes (분)",
+                result: "Sino-Korean numbers + 분",
+                examples: ["십 분 (10 min)", "삼십 분 (30 min)", "오십오 분 (55 min)"],
+            },
+            {
+                condition: "Half past",
+                result: "[hour] + 시 반",
+                examples: ["세 시 반 (3:30)", "열 시 반 (10:30)"],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "반 (half) is far more natural than 삼십 분 for :30. Learn 세 시 반 first — you'll say it constantly.",
+            },
+        ],
+        fixedPhrases: [
+            { native: "지금 몇 시예요?", romanized: "jigeum myeot sieyeo?", translation: "What time is it now?" },
+            { native: "몇 시에 만나요?", romanized: "myeot sie mannayo?", translation: "What time do we meet?" },
+        ],
         examples: [
             { native: "지금 몇 시예요?", romanized: "Jigeum myeot sieyeo?", translation: "What time is it now?" },
             { native: "오후 세 시 반이에요.", romanized: "Ohu se si banieyo.", translation: "It's 3:30 PM." },
@@ -101,31 +102,29 @@ One useful phrase: 얼마나 걸려요? means "how long does it take?" — not a
         id: "ko-g-a1-22",
         level: "A1",
         title: "Negation with 안 (simple negation before verb or adjective)",
-        explanation: `You have already been using 안 — it appeared in 안 해요 and 별로 안 좋아해요 in earlier units. Now let's see the full picture of how it works.
-
-안 is the straightforward negation word. It simply means "not" or "don't," and it goes directly in front of the verb or adjective you want to negate.
-
-For most verbs and adjectives, the rule is beautifully simple: 안 + verb/adjective:
-
-가요 → 안 가요 (don't go)
-먹어요 → 안 먹어요 (don't eat)
-마셔요 → 안 마셔요 (don't drink)
-좋아요 → 안 좋아요 (not good)
-비싸요 → 안 비싸요 (not expensive)
-
-안 can express either a choice (I choose not to do X) or simply the absence of X (it is not the case that X). The distinction between choice and inability is handled by a different word — 못 — which you will meet in the very next lesson.
-
-One important exception: 하다 compound verbs. These are verbs made of a noun plus 하다, such as 공부하다 (study), 운동하다 (exercise), 요리하다 (cook). For these, 안 goes between the noun and 하다 — not before the whole word:
-
-✅ 공부 안 해요 — I don't study
-❌ 안 공부해요 — incorrect placement
-
-✅ 운동 안 해요 — I don't exercise
-❌ 안 운동해요 — incorrect placement
-
-Why? Because 공부하다 is really 공부 (the noun "studying") + 하다 (to do). The negation slots in between them — between the noun and the doing.
-
-This is one of the most common errors at A1 level, so noticing it now puts you ahead. When you see a verb that ends in 하다 and contains a recognisable noun, split them and put 안 in the middle.`,
+        explanation: `안 is the straightforward negation word — it means 'don't' or 'not,' and sits directly before the verb or adjective. One exception applies to 하다 compound verbs.`,
+        rules: [
+            {
+                condition: "Most verbs and adjectives",
+                result: "안 + verb/adjective",
+                examples: ["안 가요", "안 먹어요", "안 좋아요", "안 비싸요"],
+            },
+            {
+                condition: "하다 compound verbs (noun + 하다)",
+                result: "noun + 안 + 해요",
+                examples: ["공부 안 해요", "운동 안 해요", "요리 안 해요"],
+            },
+        ],
+        notes: [
+            {
+                type: "warning",
+                content: "하다 compounds: 안 goes BETWEEN the noun and 하다, not before the whole word. 공부 안 해요 ✓ / 안 공부해요 ✗. This is one of the most common A1 errors.",
+            },
+            {
+                type: "forward-ref",
+                content: "안 covers choice or absence. 못 covers inability — introduced in the next lesson.",
+            },
+        ],
         examples: [
             { native: "저는 고기를 안 먹어요.", romanized: "Jeoneun gogireul an meogeoyo.", translation: "I don't eat meat." },
             { native: "오늘은 학교에 안 가요.", romanized: "Oneureun hakgyoe an gayo.", translation: "I'm not going to school today." },
@@ -148,33 +147,29 @@ This is one of the most common errors at A1 level, so noticing it now puts you a
         id: "ko-g-a1-23",
         level: "A1",
         title: "못 (inability negation) + 하다 verbs: 안 해요 vs 못 해요",
-        explanation: `Korean has two negation words, and they are not interchangeable. 안 covers choice and general negation. 못 covers inability — you want to do something but you physically or circumstantially cannot.
-
-Look at this pair:
-
-저는 고기를 안 먹어요. — I don't eat meat. (choice — perhaps vegetarian)
-저는 고기를 못 먹어요. — I can't eat meat. (inability — perhaps an allergy)
-
-Exactly the same structure, completely different meaning. Getting this right actually matters in real life: if someone offers you food and you say 안 먹어요, they hear "I choose not to." If you say 못 먹어요, they hear "I am unable to" — which matters if you have a medical condition or allergy.
-
-못 sits in exactly the same position as 안 — directly before the verb:
-
-못 가요 (can't go), 못 자요 (can't sleep), 못 봐요 (can't see/watch).
-
-For 하다 compound verbs, the same split rule applies — 못 goes between the noun and 하다:
-
-✅ 운동 못 해요 — I can't exercise
-❌ 못 운동해요 — incorrect
-
-✅ 공부 못 해요 — I can't study
-❌ 못 공부해요 — incorrect
-
-못 can also carry the sense of "not managing to" or "failing to." If you planned to go but something came up, you would say 못 갔어요 (couldn't go / didn't manage to go) rather than 안 갔어요 (chose not to go). In context, this distinction is usually natural and clear.
-
-Summary to remember:
-안 + verb = don't / not (choice or simply not the case)
-못 + verb = can't (inability, something prevents it)
-For 하다 compounds: noun + 안/못 + 해요 — always split them`,
+        explanation: `Korean has two negation words: 안 for choice or absence, 못 for inability. The position rules are identical — 못 sits directly before the verb, or between noun and 하다 for compound verbs.`,
+        rules: [
+            {
+                condition: "Most verbs",
+                result: "못 + verb",
+                examples: ["못 가요", "못 자요", "못 봐요", "못 먹어요"],
+            },
+            {
+                condition: "하다 compound verbs",
+                result: "noun + 못 + 해요",
+                examples: ["운동 못 해요", "공부 못 해요", "요리 못 해요"],
+            },
+        ],
+        notes: [
+            {
+                type: "warning",
+                content: "안 vs 못 matters in real life: 고기를 안 먹어요 (I choose not to eat meat — maybe vegetarian) vs 고기를 못 먹어요 (I can't eat meat — maybe an allergy). The distinction signals your situation to the listener.",
+            },
+            {
+                type: "tip",
+                content: "못 갔어요 = couldn't go / didn't manage to go. This implies something came up, not a choice. Use it instead of 안 갔어요 when plans fell through.",
+            },
+        ],
         examples: [
             { native: "저는 새우를 못 먹어요. 알레르기가 있어요.", romanized: "Jeoneun saewureul mot meogeoyo. Allereugie isseoyo.", translation: "I can't eat shrimp. I have an allergy." },
             { native: "오늘 못 가요. 일이 있어요.", romanized: "Oneul mot gayo. Iri isseoyo.", translation: "I can't go today. I have something on." },
@@ -198,38 +193,13 @@ For 하다 compounds: noun + 안/못 + 해요 — always split them`,
         id: "ko-g-a1-24",
         level: "A1",
         title: "Question words: 뭐/무엇, 어디, 언제, 누구, 어떻게, 왜 — in-situ questions",
-        explanation: `In English, forming a question involves moving things around. "You are going where?" becomes "Where are you going?" — the question word jumps to the front and the verb shifts too. Korean does neither of these things.
-
-In Korean, the question word simply replaces the piece of information you are asking about, and everything else stays exactly in place. The verb stays at the end. Nothing moves. This is called an in-situ question — the question word sits in the position where the answer would be.
-
-Compare these pairs:
-
-저는 학교에 가요. → 어디에 가요?
-I go to school. → Where are you going?
-
-저는 커피를 마셔요. → 뭐를 마셔요? (or just: 뭐 마셔요?)
-I drink coffee. → What do you drink?
-
-버스로 가요. → 어떻게 가요?
-I go by bus. → How do you go?
-
-In every case, the question word slots in where the answer would sit. The rest of the sentence structure is identical to a regular statement. This means that once you know the question words, you can ask almost any question by replacing one piece of information.
-
-Here are the essential question words:
-뭐 / 무엇 — what (뭐 is the everyday spoken form; 무엇 appears in writing — use 뭐 in speech)
-어디 — where
-언제 — when
-누구 — who
-어떻게 — how
-왜 — why
-얼마 — how much (price)
-몇 — how many / what number (always before a counter: 몇 시, 몇 명)
-
-Two more useful patterns:
-어떤 + noun = "what kind of" (어떤 음악 = what kind of music)
-얼마나 = "how long / how much" for degree or duration — not price (얼마나 걸려요? = how long does it take?)
-
-Because the verb always stays at the end, Korean questions and statements use the same word order. The question word itself tells the listener it is a question; intonation rises slightly at the end.`,
+        explanation: `In Korean, question words sit exactly where the answer would go — no word order change. The question word replaces the piece of information you are asking about, and the verb stays at the end.`,
+        notes: [
+            {
+                type: "tip",
+                content: "Korean questions use the same word order as statements — the question word simply replaces the information you're asking about. Nothing moves. 저는 학교에 가요 → 어디에 가요?",
+            },
+        ],
         examples: [
             { native: "뭐 먹어요?", romanized: "Mwo meogeoyo?", translation: "What are you eating?" },
             { native: "어디에 가요?", romanized: "Eodie gayo?", translation: "Where are you going?" },
@@ -255,29 +225,25 @@ Because the verb always stays at the end, Korean questions and statements use th
         id: "ko-g-a1-25",
         level: "A1",
         title: "누구 → 누가 rule; question intonation vs statement",
-        explanation: `You have just learned 누구 (who). But when "who" is the subject of the sentence — when it is asking who is doing the action — it changes form. It becomes 누가.
-
-This happens because Korean marks the grammatical subject with a particle: 이/가. When 누구 needs the subject particle 가, the two merge together:
-
-누구 + 가 → 누가 (not 누구가 — the forms fuse into a single word)
-
-So:
-누가 왔어요? — Who came? (who is the subject — who did the coming)
-누가 전화했어요? — Who called? (who is the subject — who did the calling)
-
-Compare this to when 누구 is not the subject:
-이 사람은 누구예요? — Who is this person? (누구 is the complement after 은/는, not the subject)
-누구랑 갔어요? — Who did you go with? (누구 is after 랑, not the subject)
-
-You have already encountered 이/가 in different contexts — 이에요/예요 and in earlier grammar points. 누가 is the most vivid preview of the full 이/가 picture, which is explained properly at A2. For now: when "who" is doing the action, use 누가.
-
-A second thing worth knowing: in Korean, questions and statements use the same word order. The only difference is intonation. A statement ends with falling intonation; a yes/no question ends with rising intonation. With a question word present, the word order already signals a question — but you still raise your voice slightly at the end in natural speech.
-
-One more very practical pattern: adding 요 alone to a key word makes a polite short answer:
-— 어디에 가요? (Where are you going?)
-— 도서관에요. (To the library — short for 도서관에 가요)
-
-This is one of the most natural features of Korean conversation. A single word plus 요 is a complete, polite, friendly answer. Use it freely.`,
+        explanation: `누구 (who) changes to 누가 when 'who' is the grammatical subject — 누구 + the subject particle 가 fuse into a single word. In other positions, 누구 stays unchanged.`,
+        rules: [
+            {
+                condition: "Who as subject (doing the action)",
+                result: "누가",
+                examples: ["누가 왔어요?", "누가 전화했어요?", "누가 만들었어요?"],
+            },
+            {
+                condition: "Who in other positions (after 은/는, 랑, 한테 etc.)",
+                result: "누구",
+                examples: ["이 사람은 누구예요?", "누구랑 갔어요?", "누구한테 줬어요?"],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "Adding 요 alone to a key word makes a complete, polite short answer: 어디에 가요? → 도서관에요. (To the library.) This is one of the most natural features of Korean conversation.",
+            },
+        ],
         examples: [
             { native: "누가 왔어요?", romanized: "Nuga wasseoyo?", translation: "Who came?" },
             { native: "누가 전화했어요?", romanized: "Nuga jeonhwahaesseoyo?", translation: "Who called?" },
@@ -301,35 +267,25 @@ This is one of the most natural features of Korean conversation. A single word p
         id: "ko-g-a1-26",
         level: "A1",
         title: "Positive frequency adverbs: 항상, 자주, 가끔, 별로 안, 거의 안",
-        explanation: `How often do you do things? Korean has a clean set of frequency adverbs arranged on a scale from always down to never. Most of them work exactly as you would expect — place them before the verb and you are done.
-
-Here is the frequency scale from high to low:
-
-항상 / 늘 — always
-보통 — usually
-자주 — often
-가끔 — sometimes
-별로 안 — not really
-거의 안 — hardly ever
-
-The first four work with positive verbs naturally:
-항상 아침을 먹어요. — I always eat breakfast.
-보통 여덟 시에 일어나요. — I usually get up at eight.
-자주 카페에 가요. — I often go to a café.
-가끔 한국 영화를 봐요. — I sometimes watch Korean films.
-
-Position in the sentence is flexible. Frequency adverbs can come directly before the verb or at the start of the sentence — both positions are natural and the meaning does not change:
-저는 자주 운동해요. = 자주 저는 운동해요. Both are fine.
-
-Now the critical boundary. 별로 and 거의 are different from the others. These adverbs carry a built-in negative meaning — "not really" and "hardly." Because of that meaning, they cannot appear with a positive verb. They require 안 (or 못) to complete the sentence:
-
-✅ 저는 운동을 별로 안 해요. — I don't really exercise.
-❌ 저는 운동을 별로 해요. — grammatically broken
-
-✅ 저는 거의 안 자요. — I hardly sleep.
-❌ 저는 거의 자요. — grammatically broken
-
-You have already been using 별로 안 해요 since earlier units — you were using it correctly all along. Now you know why: 별로 needs a negative verb to complete its meaning. The adverb and the negation work as a unit.`,
+        explanation: `Korean has a clean frequency scale from always down to never. The top end (항상, 자주, 가끔) pairs naturally with positive verbs. The bottom end (별로, 거의) carries built-in negative meaning and requires 안 or 못.`,
+        rules: [
+            {
+                condition: "항상/늘 → 자주 → 가끔 (positive adverbs)",
+                result: "Place before verb — no special rules",
+                examples: ["항상 아침을 먹어요", "자주 카페에 가요", "가끔 한국 영화를 봐요"],
+            },
+            {
+                condition: "별로 · 거의 · 절대로 (inherently negative adverbs)",
+                result: "Must pair with 안 or 못",
+                examples: ["별로 안 해요", "거의 안 가요", "절대로 안 해요"],
+            },
+        ],
+        notes: [
+            {
+                type: "warning",
+                content: "별로 and 거의 cannot appear with a positive verb — the meaning is already negative, so the verb must be negative too. 별로 해요 is grammatically broken. 별로 안 해요 is correct.",
+            },
+        ],
         examples: [
             { native: "항상 아침을 먹어요.", romanized: "Hangsang achimeul meogeoyo.", translation: "I always eat breakfast." },
             { native: "보통 여덟 시에 일어나요.", romanized: "Botong yeodeol sie ireonayo.", translation: "I usually get up at eight." },
@@ -353,29 +309,24 @@ You have already been using 별로 안 해요 since earlier units — you were u
         id: "ko-g-a1-27",
         level: "A1",
         title: "절대로 안/못 (never) + adverbs that require a negative verb",
-        explanation: `You have seen that 별로 and 거의 require a negative verb because their meaning is inherently negative. There is one more frequency adverb that works the same way, and it is the strongest of all: 절대로.
-
-절대로 means "never" or "absolutely not." Like 별로 and 거의, it cannot stand with a positive verb — the meaning is inherently negative, so the verb must match:
-
-✅ 저는 거짓말을 절대로 안 해요. — I never lie. (absolutely don't lie)
-❌ 저는 거짓말을 절대로 해요. — broken and confusing
-
-✅ 절대로 못 가요. — I absolutely cannot go. (strong inability)
-❌ 절대로 가요. — broken
-
-절대로 also pairs naturally with 못 when expressing strong inability:
-절대로 못 먹어요. — There is absolutely no way I can eat that.
-
-Here is the complete set of adverbs that require a negative verb:
-별로 안/못 — not really
-거의 안/못 — hardly ever
-절대로 안/못 — never / absolutely not
-
-These three form a natural grouping. The test is simple: if the adverb already contains the meaning "not," the verb must also be negative. You cannot have a positive verb completing a negative adverb.
-
-Everything else on the frequency scale — 항상, 보통, 자주, 가끔 — works with positive verbs.
-
-A helpful way to remember: the further down the frequency scale, the more likely the adverb is to need a negative verb. Positive-end adverbs (항상, 자주) go with positive verbs. Negative-end adverbs (별로, 거의, 절대로) go with negative verbs. Consistent and logical once you see it.`,
+        explanation: `절대로 is the strongest frequency adverb — 'never' or 'absolutely not.' Like 별로 and 거의, its inherently negative meaning requires the verb to also be negative.`,
+        rules: [
+            {
+                condition: "절대로 (never / absolutely not)",
+                result: "절대로 + 안/못 + verb",
+                examples: ["절대로 안 해요", "절대로 못 가요", "절대로 안 잊을게요"],
+            },
+        ],
+        notes: [
+            {
+                type: "warning",
+                content: "절대로 requires a negative verb — 절대로 가요 is grammatically broken. Think: the further down the frequency scale, the more certain you need 안/못.",
+            },
+            {
+                type: "tip",
+                content: "Full frequency scale: 항상 / 자주 / 가끔 → 별로 안 → 거의 안 → 절대로 안. The bottom three all require 안 or 못.",
+            },
+        ],
         examples: [
             { native: "저는 거짓말을 절대로 안 해요.", romanized: "Jeoneun geojinmareul jeoldaero an haeyo.", translation: "I never lie. (절대로 requires 안)" },
             { native: "그 음식은 절대로 못 먹어요.", romanized: "Geu eumsigeun jeoldaero mot meogeoyo.", translation: "There is absolutely no way I can eat that food." },
@@ -399,38 +350,34 @@ A helpful way to remember: the further down the frequency scale, the more likely
         id: "ko-g-a1-28",
         level: "A1",
         title: "Past tense ~았어요/었어요 — discovering the pattern",
-        explanation: `You already know how to say what you do right now. Now look at the following pairs — present on the left, something new on the right. Do not read ahead yet. Just look at the pairs and notice what changed.
-
-먹어요 → 먹었어요
-가요 → 갔어요
-마셔요 → 마셨어요
-공부해요 → 공부했어요
-봐요 → 봤어요
-와요 → 왔어요
-만나요 → 만났어요
-좋아요 → 좋았어요
-
-Did you notice? Something has been added before the 어요 ending. And that something looks familiar — because it is. The past tense uses the same vowel harmony rule as the present tense. The rule you already know, applied one step further.
-
-Here is the rule clearly:
-If the last vowel in the stem is ㅏ or ㅗ → add 았어요 (same stems that use 아요 in the present)
-Any other vowel → add 었어요 (same stems that use 어요 in the present)
-하다 verbs → always 했어요 (same as: present tense is always 해요)
-
-The same contractions you know from the present tense also apply in the past:
-가 + 았어요 → 갔어요 (not 가았어요)
-오 + 았어요 → 왔어요
-보 + 았어요 → 봤어요
-마시 + 었어요 → 마셨어요
-
-If you know the present tense, you already know the past tense. Same vowel harmony, one more step.
-
-Negating the past works exactly like the present — 안 or 못 before the verb:
-안 먹었어요 (didn't eat), 못 갔어요 (couldn't go), 공부 안 했어요 (didn't study).
-
-Two essential questions for past conversation:
-어제 뭐 했어요? — What did you do yesterday?
-어땠어요? — How was it? (past form of 어때요? — a question you already know)`,
+        explanation: `Past tense uses the same vowel harmony rule as present tense — the only change is adding 았/었 before 어요. If you know the present tense, you already know the rule.`,
+        rules: [
+            {
+                condition: "Stem last vowel is ㅏ or ㅗ (same as ~아요 verbs)",
+                result: "~았어요",
+                examples: ["가다 → 갔어요", "보다 → 봤어요", "좋다 → 좋았어요"],
+            },
+            {
+                condition: "Stem has any other vowel (same as ~어요 verbs)",
+                result: "~었어요",
+                examples: ["먹다 → 먹었어요", "마시다 → 마셨어요", "오다 → 왔어요"],
+            },
+            {
+                condition: "하다 verbs",
+                result: "~했어요 (always)",
+                examples: ["공부했어요", "운동했어요", "일했어요"],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "The same contractions from present tense apply: 가+았어요→갔어요, 오+았어요→왔어요, 마시+었어요→마셨어요. If you know the present contractions, you know the past contractions.",
+            },
+        ],
+        fixedPhrases: [
+            { native: "어제 뭐 했어요?", romanized: "eoje mwo haesseoyo?", translation: "What did you do yesterday?" },
+            { native: "주말 어땠어요?", romanized: "jumal eottaesseoyo?", translation: "How was your weekend?" },
+        ],
         examples: [
             { native: "어제 친구를 만났어요.", romanized: "Eoje chingureul mannasseoyo.", translation: "I met a friend yesterday." },
             { native: "지난 주말에 서울에 갔어요.", romanized: "Jinan jumare seoure gasseoyo.", translation: "I went to Seoul last weekend." },
@@ -454,28 +401,30 @@ Two essential questions for past conversation:
         id: "ko-g-a1-29",
         level: "A1",
         title: "Past tense irregular patterns + 하다 → 했어요",
-        explanation: `The regular past tense pattern — vowel harmony with 았/었 — covers most verbs. But Korean has some irregular verb families, and you have already met the most important one: ㅂ-irregulars.
-
-In the present tense you learned: 춥다 → 추워요, 덥다 → 더워요, 맵다 → 매워요. The same irregularity applies in the past — ㅂ drops and 우 appears, then 었어요 attaches:
-
-춥다 → 추워요 → 추웠어요 (was cold)
-덥다 → 더워요 → 더웠어요 (was hot)
-맵다 → 매워요 → 매웠어요 (was spicy)
-즐겁다 → 즐거워요 → 즐거웠어요 (was fun / enjoyable)
-
-Remember ㅂ-irregular adjectives from earlier? It works exactly the same way in the past. No new rule — the same irregularity one step further.
-
-The past copula — "was":
-이에요/예요 (is/am/are) also has a past form. This one is slightly different from verb conjugation:
-학생이에요 → 학생이었어요 (was a student) — after a consonant: 이었어요
-의사예요 → 의사였어요 (was a doctor) — after a vowel: 였어요
-
-하다 verbs in the past deserve special attention because they are the most common verb type in Korean. 하다 in the past always becomes 했어요 — no exceptions, no variation:
-공부했어요 (studied), 운동했어요 (exercised), 일했어요 (worked), 쇼핑했어요 (shopped), 요리했어요 (cooked).
-
-Learning 했어요 thoroughly is one of the most valuable things you can do for past tense fluency. The majority of compound verbs you will ever encounter follow this pattern. Once 했어요 is automatic, a huge portion of past tense is covered.
-
-Note: these irregular patterns exist in the present tense too. The past tense is not introducing new irregularity — it is applying the same patterns one step further. If you already know 매워요, you already know most of what you need for 매웠어요.`,
+        explanation: `The ㅂ-irregular pattern from adjective conjugation applies equally in the past tense. The copula (이에요/예요) also has a past form: 이었어요/였어요.`,
+        rules: [
+            {
+                condition: "ㅂ-irregular adjectives in past tense",
+                result: "Same as present: ㅂ → 워 before vowel, then + 었어요",
+                examples: ["춥다→추웠어요", "덥다→더웠어요", "맵다→매웠어요", "즐겁다→즐거웠어요"],
+            },
+            {
+                condition: "Past copula after consonant",
+                result: "이었어요",
+                examples: ["학생이었어요 (was a student)", "회사원이었어요"],
+            },
+            {
+                condition: "Past copula after vowel",
+                result: "였어요",
+                examples: ["의사였어요 (was a doctor)", "학교였어요"],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "If you know 추워요 (present), you already know 추웠어요 (past). The irregularity is the same — just one step further. No new rule.",
+            },
+        ],
         examples: [
             { native: "지난주에 날씨가 너무 더웠어요.", romanized: "Jinan jue nalssiga neomu deowosseoyo.", translation: "The weather was too hot last week. (ㅂ-irregular: 덥다 → 더웠어요)" },
             { native: "그 음식은 정말 매웠어요!", romanized: "Geu eumsigeun jeongmal maewosseoyo!", translation: "That food was really spicy! (ㅂ-irregular: 맵다 → 매웠어요)" },

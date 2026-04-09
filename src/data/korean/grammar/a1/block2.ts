@@ -5,32 +5,34 @@ export const block2Lessons: GrammarLesson[] = [
         id: "ko-g-a1-10",
         level: "A1",
         title: "Family vocabulary + 있어요/없어요 for family members",
-        explanation: `Korean family terms encode the speaker's gender and the relationship directly. The same biological relationship has different words depending on who is speaking.
-
-| Term | Meaning | Said by |
-|------|---------|---------|
-| 아버지 | father | anyone |
-| 어머니 | mother | anyone |
-| 오빠 | older brother | female speaker |
-| 형 | older brother | male speaker |
-| 언니 | older sister | female speaker |
-| 누나 | older sister | male speaker |
-| 동생 | younger sibling | anyone |
-| 남동생 | younger brother | anyone |
-| 여동생 | younger sister | anyone |
-
-오빠 doesn't just mean "older brother" — it means "my older brother, and I am female." This feels unusual at first and then completely natural. It reflects how deeply Korean encodes relationships.
-
-부모님 = parents (formal/polite plural — 님 suffix adds respect)
-가족 = family
-
-Talking about your family uses the 있어요/없어요 pattern from Unit 7:
-저는 남동생이 있어요. — I have a younger brother.
-저는 언니가 두 명 있어요. — I have two older sisters. (명 = counter for people)
-저는 형이 없어요. — I don't have an older brother.
-
-To say how many: 한 명 (1 person), 두 명 (2), 세 명 (3), 네 명 (4)...
-저는 가족이 네 명이에요. — My family has four people.`,
+        explanation: `Korean family terms encode the speaker's gender directly — the same biological relationship has different words depending on who is speaking. 있어요/없어요 states who you have: 저는 남동생이 있어요 (I have a younger brother).`,
+        rules: [
+            {
+                condition: "Female speaker",
+                result: "오빠 (older brother) · 언니 (older sister)",
+                examples: ["오빠가 있어요", "언니는 선생님이에요", "언니는 스물아홉 살이에요"],
+            },
+            {
+                condition: "Male speaker",
+                result: "형 (older brother) · 누나 (older sister)",
+                examples: ["형이 있어요", "누나는 의사예요", "형은 회사원이에요"],
+            },
+            {
+                condition: "Any speaker — younger siblings",
+                result: "동생 · 남동생 · 여동생",
+                examples: ["남동생이 한 명 있어요", "여동생이 없어요", "동생이 있어요?"],
+            },
+        ],
+        notes: [
+            {
+                type: "culture",
+                content: "오빠 doesn't just mean 'older brother' — it encodes that the speaker is female. Korean family terms reflect relationship and the speaker's gender, not just biology. This feels unusual at first and then completely natural.",
+            },
+            {
+                type: "tip",
+                content: "명 is the counter for people: 한 명 (1), 두 명 (2), 세 명 (3), 네 명 (4). 저는 가족이 네 명이에요 = My family has four people.",
+            },
+        ],
         examples: [
             { native: "저는 부모님이랑 남동생이 있어요.", romanized: "Jeoneun bumonnimirang namdongsaengi isseoyo.", translation: "I have my parents and a younger brother. (이랑 = and/with — casual connector)" },
             { native: "저는 언니가 있어요. 오빠는 없어요.", romanized: "Jeoneun eonniga isseoyo. Oppaneun eopseoyo.", translation: "I have an older sister (female speaking). I don't have an older brother." },
@@ -52,24 +54,22 @@ To say how many: 한 명 (1 person), 두 명 (2), 세 명 (3), 네 명 (4)...
         id: "ko-g-a1-11",
         level: "A1",
         title: "Describing family members — combining what you know",
-        explanation: `You now have the copula (이에요/예요), numbers, professions, and age. All of these work for family members. Put them together.
-
-Combining frames:
-제 어머니는 선생님이에요. — My mother is a teacher.
-아버지는 회사원이에요. — My father is an office worker.
-남동생은 대학생이에요. — My younger brother is a university student.
-언니는 스물아홉 살이에요. — My older sister is 29.
-
-제 vs 저의:
-Both mean "my." 제 is the short form used in speech. 저의 exists but sounds formal and stiff — always use 제 in conversation.
-
-Topic chaining with 은/는:
-Notice in these sentences the topic marker 은/는 keeps appearing: 제 어머니**는**, 아버지**는**, 남동생**은**. When you introduce a person as the topic, 은/는 marks them. This is the beginning of a pattern that will be explained fully in Block 3. For now: topic 은/는 = "as for ___" or "speaking of ___". 은 after a consonant, 는 after a vowel.
-
-Asking about family:
-가족이 어떻게 돼요? — What's your family like?
-형제가 있어요? — Do you have siblings?
-몇 명이에요? — How many people?`,
+        explanation: `You now have the copula, numbers, professions, and age — all of these work with family members using the same frames. 제 (my, polite) + family term + 은/는 is the standard pattern.`,
+        notes: [
+            {
+                type: "tip",
+                content: "제 is the polite spoken form of 'my.' 저의 is the full form — it exists but sounds stiff. Always use 제 in conversation.",
+            },
+            {
+                type: "forward-ref",
+                content: "은/는 after a family member marks them as the topic: 제 어머니는, 아버지는, 남동생은. Topic marker 은/는 (은 after consonant, 는 after vowel) is explained fully in Block 3.",
+            },
+        ],
+        fixedPhrases: [
+            { native: "가족이 어떻게 돼요?", romanized: "gagogi eotteoke dwaeyo?", translation: "What's your family like?" },
+            { native: "형제가 있어요?", romanized: "hyeongjega isseoyo?", translation: "Do you have siblings?" },
+            { native: "몇 명이에요?", romanized: "myeot myeong-ieyo?", translation: "How many people?" },
+        ],
         examples: [
             { native: "제 어머니는 선생님이에요. 정말 멋있어요!", romanized: "Je eomeonineun seonsaengnimieyo. Jeongmal meositsseoyo!", translation: "My mother is a teacher. She's really cool!" },
             { native: "아버지는 의사예요. 병원에서 일해요.", romanized: "Abeojineun uisayeyo. Byeongoneseo ilhaeyo.", translation: "My father is a doctor. He works at a hospital." },
@@ -89,25 +89,30 @@ Asking about family:
         id: "ko-g-a1-12",
         level: "A1",
         title: "좋아해요 / 싫어해요 — likes and dislikes + first sight of 을/를",
-        explanation: `Your first real action verb: 좋아해요 (I like). Before this unit, everything was state-based (이에요, 있어요). 좋아해요 is a true action verb — you perform liking something.
-
-The frames:
-저는 ___ 를/을 좋아해요. — I like ___.
-저는 ___ 를/을 싫어해요. — I dislike / don't like ___.
-저는 ___ 를/을 정말 좋아해요. — I really like ___.
-저는 ___ 를/을 별로 안 좋아해요. — I don't really like ___.
-
-After the thing you like, something small appears: 를 or 을.
-커피**를** 좋아해요. — like coffee (커피 ends in vowel → 를)
-음악**을** 좋아해요. — like music (음악 ends in consonant → 을)
-한국 음식**을** 좋아해요. — like Korean food (음식 ends in consonant → 을)
-
-You've now seen this pattern twice — in Unit 7 (공부해요) and here. Look at what these small particles have in common: they always appear between the thing and the verb. They mark the object — the thing the verb is acting on. The name for this: object particle. Vowel ending → 를. Consonant ending → 을.
-
-Things to like:
-커피 · 음악 · 한국 음식 · 여행 · 드라마 · 영화 · 운동 · 요리 · 동물 · 독서
-
-도 (also): 저는 여행도 좋아해요. — I also like travel. (도 replaces 를/을 for "also")`,
+        explanation: `Your first real action verb: 좋아해요 (I like). You perform liking something — and the thing you like gets marked with the object particle 를/을.`,
+        rules: [
+            {
+                condition: "Expressing a like or dislike",
+                result: "저는 ___를/을 좋아해요 / 싫어해요",
+                examples: ["커피를 좋아해요", "한국 음식을 좋아해요", "운동을 별로 안 좋아해요"],
+            },
+            {
+                condition: "Object particle — word ends in vowel",
+                result: "를",
+                examples: ["커피를", "드라마를", "음료를"],
+            },
+            {
+                condition: "Object particle — word ends in consonant",
+                result: "을",
+                examples: ["음악을", "밥을", "한국 음식을"],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "도 (also) replaces 를/을 when adding 'too': 저는 여행도 좋아해요 = I also like travel. 도 replaces the object particle entirely.",
+            },
+        ],
         examples: [
             { native: "저는 한국 음식을 정말 좋아해요!", romanized: "Jeoneun hanguk eumsigul jeongmal joahaeyo!", translation: "I really like Korean food!" },
             { native: "뭐 좋아해요? — 저는 드라마를 좋아해요.", romanized: "Mwo joahaeyo? — Jeoneun deuramareul joahaeyo.", translation: "What do you like? — I like dramas." },
@@ -129,35 +134,33 @@ Things to like:
         id: "ko-g-a1-13",
         level: "A1",
         title: "을/를 fully named + the object particle in action",
-        explanation: `In Unit 9, you saw 를/을 appearing between the thing and the verb. Now name it: this is the object particle.
-
-The object particle marks the direct object of an action verb — the thing the verb acts on.
-
-을/를 rule:
-- 를 after a word ending in a vowel: 커피를, 드라마를, 여행을... wait — 여행 ends in ㅇ which is a consonant
-- 을 after a word ending in a consonant: 음악을, 운동을, 밥을, 책을
-
-Let's practice with the verbs you know:
-커피를 마셔요. — drink coffee (마시다 = to drink)
-밥을 먹어요. — eat rice/food (먹다 = to eat)
-책을 읽어요. — read a book (읽다 = to read)
-음악을 들어요. — listen to music (듣다/들다 = to listen)
-영화를 봐요. — watch a movie (보다 = to watch/see)
-
-These verbs are new — don't memorise them individually yet. See how 을/를 works across different verbs. The particle is constant; only the verb changes.
-
-Object particle vs topic particle (을/를 vs 은/는):
-These two particles are often confused. A quick contrast:
-커피를 좋아해요. — I like coffee. (커피 is the object — what I like)
-커피는 좋아해요. — As for coffee, I like it. (커피 is the topic — implies contrast or emphasis)
-
-At A1, use 를/을 as your default after things. The 은/는 nuance will develop naturally.
-
-One important note: in spoken Korean, 를/을 and even 이/가 are frequently dropped in casual speech. 커피 좋아해요 is perfectly natural. But learning them now helps you produce clear, complete sentences.`,
+        explanation: `을/를 is the object particle — it marks the direct object of an action verb. It works with any action verb: 먹다, 마시다, 듣다, 보다, 읽다.`,
+        rules: [
+            {
+                condition: "Word ends in vowel",
+                result: "를",
+                examples: ["커피를", "드라마를", "영화를"],
+            },
+            {
+                condition: "Word ends in consonant",
+                result: "을",
+                examples: ["음악을", "밥을", "책을"],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "을/를 vs 은/는: 커피를 좋아해요 = I like coffee (coffee is the object). 커피는 좋아해요 = As for coffee, I like it (topic — implies contrast). At A1, use 를/을 as your default after things you like, eat, or drink.",
+            },
+            {
+                type: "tip",
+                content: "In casual spoken Korean, 를/을 is frequently dropped. 커피 좋아해요 is natural. Learning the particle now builds correct instincts.",
+            },
+        ],
         examples: [
-            { native: "저는 매일 아침에 커피를 마셔요.", romanized: "Jeoneun maeil achime keopireul masyeoyo.", translation: "I drink coffee every morning. (커피를 = coffee as object)" },
+            { native: "저는 매일 아침에 커피를 마셔요.", romanized: "Jeoneun maeil achime keopireul masyeoyo.", translation: "I drink coffee every morning. (커피를 = coffee as object)", annotation: "커피를 = coffee as direct object" },
             { native: "밥을 먹어요? — 네, 지금 먹어요.", romanized: "Bapeul meogeoyo? — Ne, jigeum meogeoyo.", translation: "Are you eating? — Yes, I'm eating now." },
-            { native: "음악을 들어요. 특히 K-pop을 좋아해요.", romanized: "Eumagul deoreoyo. Teukhi K-popeul joahaeyo.", translation: "I listen to music. I especially like K-pop." },
+            { native: "음악을 들어요. 특히 K-pop을 좋아해요.", romanized: "Eumagul deoreoyo. Teukhi K-popeul joahaeyo.", translation: "I listen to music. I especially like K-pop.", annotation: "음악을 = music as direct object" },
             { native: "책을 자주 읽어요? — 별로 안 읽어요.", romanized: "Chageul jaju ilgeoyo? — Byeolro an ilgeoyo.", translation: "Do you often read books? — Not really." },
             { native: "영화를 좋아해요. 매주 봐요.", romanized: "Yeonghwareul joahaeyo. Maejo bwayo.", translation: "I like movies. I watch them every week." },
         ],
@@ -174,27 +177,34 @@ One important note: in spoken Korean, 를/을 and even 이/가 are frequently dr
         id: "ko-g-a1-14",
         level: "A1",
         title: "Present tense ~아요/어요 — the Korean verb system revealed",
-        explanation: `Look at the verbs you've been using. Every single one ends in ~요. This is not a coincidence. It's the entire Korean present tense system — and it's simpler than you think.
-
-The discovery: look at these sentences and notice the endings:
-저는 커피를 마셔**요**. 저는 밥을 먹어**요**. 저는 학교에 가**요**. 저는 집에 있어**요**. 저는 드라마를 봐**요**.
-
-Two things every sentence has in common:
-1. The verb comes **last**. Always. Subject → object → time → verb. This is the most important structural fact about Korean.
-2. Verbs end in **~아요** or **~어요**.
-
-The rule for ~아요/~어요:
-- Last vowel in the verb stem is ㅏ or ㅗ → ~아요: 가다 → 가**요** (가+아요 contracted)
-- Any other vowel → ~어요: 먹다 → 먹**어요**
-- 하다 verbs → **~해요** (always): 공부하다 → 공부**해요**
-
-하다 verbs are enormously productive: any noun + 하다 = a verb. 공부해요, 운동해요, 요리해요, 일해요... thousands of verbs follow this pattern.
-
-Common contractions (don't sound out the full uncontracted form — it's never used):
-가다 → 가요 (가+아요 → 가요)
-오다 → 와요 (오+아요 → 와요)
-마시다 → 마셔요 (마시+어요 → 마셔요)
-보다 → 봐요 (보+아요 → 봐요)`,
+        explanation: `Every Korean present tense verb ends in ~요. The vowel before ~요 follows a simple harmony rule based on the verb stem.`,
+        rules: [
+            {
+                condition: "Stem last vowel is ㅏ or ㅗ",
+                result: "~아요",
+                examples: ["가다 → 가요", "보다 → 봐요", "좋다 → 좋아요"],
+            },
+            {
+                condition: "Stem has any other vowel",
+                result: "~어요",
+                examples: ["먹다 → 먹어요", "읽다 → 읽어요", "마시다 → 마셔요"],
+            },
+            {
+                condition: "하다 verbs (noun + 하다)",
+                result: "~해요 (always)",
+                examples: ["공부해요", "운동해요", "요리해요", "일해요"],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "Verb comes LAST. Always. Subject → object → time/place → verb. 저는 아침에 커피를 마셔요, not 저는 마셔요 아침에 커피를. This never changes.",
+            },
+            {
+                type: "tip",
+                content: "Common contractions — use these, never the uncontracted forms: 가+아요→가요, 오+아요→와요, 마시+어요→마셔요, 보+아요→봐요.",
+            },
+        ],
         examples: [
             { native: "저는 아침에 커피를 마셔요.", romanized: "Jeoneun achime keopireul masyeoyo.", translation: "I drink coffee in the morning." },
             { native: "매일 저녁에 운동해요.", romanized: "Maeil jeonyeoge undonghaeyo.", translation: "I exercise every evening. (운동하다 → 운동해요)" },
@@ -216,38 +226,29 @@ Common contractions (don't sound out the full uncontracted form — it's never u
         id: "ko-g-a1-15",
         level: "A1",
         title: "Daily routine verbs + present tense in context",
-        explanation: `The present tense pattern is real and productive. Let's fill it with the daily life verbs you need most.
-
-Core daily verbs (with present tense forms):
-일어나다 → 일어나요 — wake up / get up
-자다 → 자요 — sleep
-먹다 → 먹어요 — eat
-마시다 → 마셔요 — drink
-가다 → 가요 — go
-오다 → 와요 — come
-만나다 → 만나요 — meet
-보다 → 봐요 — watch / see
-듣다 → 들어요 — listen (ㄷ irregular — drops ㄷ before vowel)
-읽다 → 읽어요 — read
-쉬다 → 쉬어요 → 쉬어요 — rest
-운동하다 → 운동해요 — exercise
-공부하다 → 공부해요 — study
-요리하다 → 요리해요 — cook
-
-Time words used with routines (no 에 on relative words):
-매일 — every day
-보통 — usually / normally
-오늘 — today
-아침에 — in the morning (에 needed on specific times)
-저녁에 — in the evening
-
-Building a routine sentence:
-[Time] + [place or object] + [verb]
-저는 아침에 커피를 마셔요. — I drink coffee in the morning.
-저는 보통 저녁에 드라마를 봐요. — I usually watch dramas in the evening.
-
-**이/가 — the subject marker:**
-You've seen 이/가 since Block 1. Here it appears again: 수업**이** 있어요, 친구**가** 와요. 이/가 marks the subject — who or what is doing or being something. 이 after consonant, 가 after vowel. You don't need to fully control this yet — just notice it.`,
+        explanation: `The present tense pattern now fills with daily life verbs. These are the verbs you need for talking about your routine — learn them as stems, the ~아요/어요 ending follows automatically.`,
+        rules: [
+            {
+                condition: "Specific time (clock, day of week, part of day)",
+                result: "time word + 에",
+                examples: ["아침에", "일곱 시에", "금요일에", "주말에"],
+            },
+            {
+                condition: "Relative time reference",
+                result: "no 에 needed",
+                examples: ["매일", "오늘", "보통", "지금"],
+            },
+        ],
+        notes: [
+            {
+                type: "warning",
+                content: "ㄷ irregular: 듣다 (listen) and 걷다 (walk) drop ㄷ before a vowel ending → 들어요, 걸어요. These are two of the most common ㄷ-irregular verbs.",
+            },
+            {
+                type: "forward-ref",
+                content: "이/가 is the subject marker: 수업이 있어요 (I have class), 친구가 와요 (a friend is coming). 이 after consonant, 가 after vowel. It's explained fully in Block 3.",
+            },
+        ],
         examples: [
             { native: "보통 몇 시에 일어나요? — 일곱 시에 일어나요.", romanized: "Botong myeot sie ireonayo? — Ilgop sie ireonayo.", translation: "What time do you usually get up? — I get up at 7." },
             { native: "저는 매일 아침에 운동해요. 여섯 시에 일어나요.", romanized: "Jeoneun maeil achime undonghaeyo. Yeoseot sie ireonayo.", translation: "I exercise every morning. I get up at 6." },
@@ -269,35 +270,33 @@ You've seen 이/가 since Block 1. Here it appears again: 수업**이** 있어�
         id: "ko-g-a1-16",
         level: "A1",
         title: "있어요 for location + 에 particle for place",
-        explanation: `있어요 has already done two jobs: possession (저는 형이 있어요) and existence (카페가 있어요). Now it does its third and most important job: location.
-
-있어요 for location:
-화장실이 어디에 있어요? — Where is the bathroom?
-카페가 2층에 있어요. — The café is on the 2nd floor.
-저는 집에 있어요. — I'm at home. / I'm in the house.
-지금 어디에 있어요? — Where are you right now?
-
-The particle 에 marks the location where something exists (있어요) or where you're heading (가요). You've been using it since Block 1. Here it's named:
-
-에 — location of existence or destination:
-집**에** 있어요. — (is) at home
-학교**에** 가요. — go to school
-카페**에** 와요. — come to the café
-
-Essential location words:
-여기 — here
-거기 — there (near the listener)
-저기 — over there (far from both)
-어디 — where
-
-이쪽 / 저쪽 — this side / that side
-위 / 아래 / 옆 / 앞 / 뒤 — above/below/beside/in front/behind
-
-Asking where things are:
-___이/가 어디에 있어요? — Where is ___?
-___이/가 어디 있어요? — same, 에 often omitted in speech
-
-You'll learn the full 에 vs 에서 distinction in Block 4 when it becomes the big payoff moment. For now: 에 + 있어요 = location where something IS.`,
+        explanation: `있어요 does three jobs: possession, existence, and location. When paired with 에, it expresses where something IS — as distinct from 에서 which is for where actions happen.`,
+        rules: [
+            {
+                condition: "Location where something exists / someone is",
+                result: "[place]에 있어요",
+                examples: ["카페에 있어요", "2층에 있어요", "집에 있어요"],
+            },
+            {
+                condition: "Destination (moving toward a place)",
+                result: "[place]에 가요 / 와요",
+                examples: ["학교에 가요", "카페에 와요", "여기에 오세요"],
+            },
+        ],
+        notes: [
+            {
+                type: "forward-ref",
+                content: "에 vs 에서: 에 is for where something IS or where you're GOING TO. 에서 is for where an action TAKES PLACE (카페에서 공부해요). The full distinction is explained in Block 4.",
+            },
+        ],
+        fixedPhrases: [
+            {
+                native: "___이/가 어디에 있어요?",
+                romanized: "___i/ga eodie isseoyo?",
+                translation: "Where is ___?",
+                note: "에 is often dropped in speech: 어디 있어요? is equally natural",
+            },
+        ],
         examples: [
             { native: "화장실이 어디에 있어요? — 저기 있어요.", romanized: "Hwajangsiri eodie isseoyo? — Jeogi isseoyo.", translation: "Where is the bathroom? — It's over there." },
             { native: "지금 어디에 있어요? — 카페에 있어요.", romanized: "Jigeum eodie isseoyo? — Kapeee isseoyo.", translation: "Where are you right now? — I'm at a café." },
@@ -318,31 +317,29 @@ You'll learn the full 에 vs 에서 distinction in Block 4 when it becomes the b
         id: "ko-g-a1-17",
         level: "A1",
         title: "Adjective conjugation — adjectives work like verbs",
-        explanation: `In Korean, adjectives are a type of verb. They conjugate exactly like action verbs — with the same ~아요/어요 ending. This is one of the most surprising and useful features of Korean grammar.
-
-크다 (big) → 커요. 작다 (small) → 작아요. 좋다 (good/nice) → 좋아요. 나쁘다 (bad) → 나빠요. 예쁘다 (pretty) → 예뻐요.
-
-The same rule: ㅏ/ㅗ vowel → ~아요, other vowels → ~어요, and ㅡ drops before the ending.
-
-**ㅡ-drop irregular:**
-Any verb or adjective ending in ㅡ drops ㅡ before ~아요/어요:
-크다 (big): 크 + 어요 → ㅡ drops → 커요
-나쁘다 (bad): 나쁘 + 아요 → ㅡ drops → 나빠요
-예쁘다 (pretty): 예쁘 + 어요 → ㅡ drops → 예뻐요
-바쁘다 (busy): 바쁘 + 아요 → ㅡ drops → 바빠요
-슬프다 (sad): 슬프 + 어요 → ㅡ drops → 슬퍼요
-
-**ㅂ irregular:**
-Some adjectives ending in ㅂ change ㅂ → 워 before a vowel:
-덥다 (hot) → 더워요. 춥다 (cold) → 추워요. 어렵다 (difficult) → 어려워요. 가깝다 (close/near) → 가까워요.
-
-Adjectives in sentences:
-오늘 날씨가 어때요? — What's the weather like today?
-추워요. / 더워요. / 좋아요. — It's cold / hot / nice.
-한국어가 어려워요? — Is Korean difficult?
-조금 어렵지만 재미있어요! — A little difficult but interesting!
-
-**~지만 = but** (first glimpse of a clause connector — more in Block 5).`,
+        explanation: `Korean adjectives conjugate exactly like action verbs — they take the same ~아요/어요 endings. Two irregular patterns affect many common adjectives.`,
+        rules: [
+            {
+                condition: "ㅡ-drop: stem ends in ㅡ",
+                result: "Drop ㅡ, then apply 아요/어요 rule",
+                examples: ["크다→커요", "나쁘다→나빠요", "예쁘다→예뻐요", "바쁘다→바빠요"],
+            },
+            {
+                condition: "ㅂ irregular: stem ends in ㅂ",
+                result: "ㅂ → 워 before a vowel ending",
+                examples: ["덥다→더워요", "춥다→추워요", "어렵다→어려워요"],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "오늘 날씨가 어때요? (How's the weather today?) + 추워요/더워요/좋아요 is the most-used adjective exchange you'll have. Practise it as a chunk.",
+            },
+            {
+                type: "forward-ref",
+                content: "~지만 (but) connects two clauses: 조금 어렵지만 재미있어요 = A little difficult but interesting. This clause connector is explained fully in Block 5.",
+            },
+        ],
         examples: [
             { native: "오늘 날씨가 어때요? — 정말 추워요!", romanized: "Oneul nalssiga eottaeyo? — Jeongmal chuwoyo!", translation: "How's the weather today? — It's really cold!" },
             { native: "한국어가 어려워요? — 네, 조금 어렵지만 재미있어요.", romanized: "Hangugeoga eoryeowoyo? — Ne, jogeum eoryeopjiman jaemiisseoyo.", translation: "Is Korean difficult? — Yes, a little difficult but interesting." },
