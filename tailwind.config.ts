@@ -52,13 +52,12 @@ export default {
     				surface: 'var(--accent-culture-surface)',
     				border:  'var(--accent-culture-border)',
     			},
-    			streak: 'var(--accent-streak)',
-    			/* ── Legacy aliases (keep for backwards compat) ──────────────────── */
-    			primary: 'var(--color-primary)',
-    			secondary: 'var(--color-secondary)',
-    			bg: 'var(--color-bg)',
-    			danger: 'var(--color-danger)',
-    			success: 'var(--color-success)',
+    			streak: {
+    				DEFAULT: 'var(--accent-streak)',
+    				surface: 'var(--streak-surface)',
+    				border:  'var(--streak-border)',
+    				muted:   'var(--streak-muted)',
+    			},
     			border: 'hsl(var(--border))',
     			input: 'hsl(var(--input))',
     			ring: 'hsl(var(--ring))',
@@ -97,6 +96,9 @@ export default {
     			lg: 'var(--radius)',
     			md: 'calc(var(--radius) - 2px)',
     			sm: 'calc(var(--radius) - 4px)'
+    		},
+    		borderWidth: {
+    			hairline: '0.5px',
     		},
     		boxShadow: {
     			sm: 'var(--shadow-sm)',
