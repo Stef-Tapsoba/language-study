@@ -29,6 +29,8 @@ export interface ScrambleItem {
     correct: string          // correct native sentence (B turn for dialogues)
     romanized?: string
     langId: string
+    /** Pre-resolved scramble tokens — uses ex.tokens when set, otherwise whitespace split. */
+    tokens: string[]
     /** Set for dialogue items — A's question shown as context above the prompt */
     context?: {
         native: string
@@ -57,20 +59,32 @@ function tokenize(sentence: string): string[] {
 
 // ── Build items ───────────────────────────────────────────────────────────────
 
+/**
+ * Returns the scramble tokens for an Example.
+ * Uses ex.tokens when explicitly provided (morpheme-aware splits for Korean/Japanese).
+ * Falls back to whitespace tokenization otherwise.
+ */
+function getTokens(native: string, explicit?: string[]): string[] {
+    return explicit ?? tokenize(native)
+}
+
 export function exampleToItem(ex: GrammarLesson["examples"][number], lessonId: string, lessonTitle: string, langId: string): ScrambleItem | null {
     if (isDialogueExample(ex)) {
         const [a, b] = ex.exchanges
-        if (tokenize(b.native).length < 3) return null
+        const bTokens = tokenize(b.native)
+        if (bTokens.length < 3) return null
         return {
             lessonId, lessonTitle, langId,
             prompt: b.translation,
             correct: b.native,
             romanized: b.romanized,
+            tokens: bTokens,
             context: { native: a.native, romanized: a.romanized, translation: a.translation },
         }
     }
-    if (tokenize(ex.native).length < 3) return null
-    return { lessonId, lessonTitle, langId, prompt: ex.translation, correct: ex.native, romanized: ex.romanized }
+    const tokens = getTokens(ex.native, ex.tokens)
+    if (tokens.length < 3) return null
+    return { lessonId, lessonTitle, langId, prompt: ex.translation, correct: ex.native, romanized: ex.romanized, tokens }
 }
 
 function buildItems(lessons: GrammarLesson[], langId: string): ScrambleItem[] {
@@ -168,7 +182,7 @@ export default function SentenceScramblePage({ items, langId, level, config, onC
     useEffect(() => {
         if (questions.length === 0) return
         const q = questions[index]
-        setBankTokens(shuffle(tokenize(q.correct)))
+        setBankTokens(shuffle([...q.tokens]))
         setAssembled([])
         setSubmitted(false)
         setIsCorrect(false)
@@ -226,7 +240,7 @@ export default function SentenceScramblePage({ items, langId, level, config, onC
 
     function handleClear() {
         if (submitted) return
-        setBankTokens(shuffle(tokenize(q.correct)))
+        setBankTokens(shuffle([...q.tokens]))
         setAssembled([])
     }
 
