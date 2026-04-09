@@ -6,12 +6,57 @@ export default {
     theme: {
     	extend: {
     		colors: {
+    			/* ── Semantic surface tokens ─────────────────────────────────────── */
+    			surface: {
+    				app:      'var(--surface-app)',
+    				card:     'var(--surface-card)',
+    				elevated: 'var(--surface-elevated)',
+    				inset:    'var(--surface-inset)',
+    			},
+    			/* ── Border tokens ───────────────────────────────────────────────── */
+    			'border-subtle':  'var(--border-subtle)',
+    			'border-default': 'var(--border-default)',
+    			'border-strong':  'var(--border-strong)',
+    			/* ── Text tokens ─────────────────────────────────────────────────── */
+    			'text-pri': 'var(--text-primary)',
+    			'text-sec': 'var(--text-secondary)',
+    			'text-ter': 'var(--text-tertiary)',
+    			/* ── Semantic accents ────────────────────────────────────────────── */
+    			grammar: {
+    				DEFAULT: 'var(--accent-grammar)',
+    				surface: 'var(--accent-grammar-surface)',
+    				border:  'var(--accent-grammar-border)',
+    			},
+    			vocab: {
+    				DEFAULT: 'var(--accent-vocab)',
+    				surface: 'var(--accent-vocab-surface)',
+    				border:  'var(--accent-vocab-border)',
+    			},
+    			verbs: {
+    				DEFAULT: 'var(--accent-verbs)',
+    				surface: 'var(--accent-verbs-surface)',
+    				border:  'var(--accent-verbs-border)',
+    			},
+    			reading: {
+    				DEFAULT: 'var(--accent-reading)',
+    				surface: 'var(--accent-reading-surface)',
+    				border:  'var(--accent-reading-border)',
+    			},
+    			listening: {
+    				DEFAULT: 'var(--accent-listening)',
+    				surface: 'var(--accent-listening-surface)',
+    				border:  'var(--accent-listening-border)',
+    			},
+    			culture: {
+    				DEFAULT: 'var(--accent-culture)',
+    				surface: 'var(--accent-culture-surface)',
+    				border:  'var(--accent-culture-border)',
+    			},
+    			streak: 'var(--accent-streak)',
+    			/* ── Legacy aliases (keep for backwards compat) ──────────────────── */
     			primary: 'var(--color-primary)',
     			secondary: 'var(--color-secondary)',
     			bg: 'var(--color-bg)',
-    			surface: 'var(--color-surface)',
-    			'text-primary': 'var(--color-text-primary)',
-    			'text-secondary': 'var(--color-text-secondary)',
     			danger: 'var(--color-danger)',
     			success: 'var(--color-success)',
     			border: 'hsl(var(--border))',
