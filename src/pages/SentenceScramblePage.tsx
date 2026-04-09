@@ -24,10 +24,16 @@ import type { GrammarLesson, Example } from "../types"
 interface ScrambleItem {
     lessonId: string
     lessonTitle: string
-    prompt: string           // English translation
-    correct: string          // correct native sentence
+    prompt: string           // English translation of what to assemble
+    correct: string          // correct native sentence (B turn for dialogues)
     romanized?: string
     langId: string
+    /** Set for dialogue items — A's question shown as context above the prompt */
+    context?: {
+        native: string
+        romanized?: string
+        translation: string
+    }
 }
 
 // ── Token segmentation ────────────────────────────────────────────────────────
@@ -50,21 +56,29 @@ function tokenize(sentence: string): string[] {
 
 // ── Build items ───────────────────────────────────────────────────────────────
 
+function exampleToItem(ex: GrammarLesson["examples"][number], lessonId: string, lessonTitle: string, langId: string): ScrambleItem | null {
+    if ("type" in ex && ex.type === "dialogue") {
+        const [a, b] = ex.exchanges
+        if (tokenize(b.native).length < 3) return null
+        return {
+            lessonId, lessonTitle, langId,
+            prompt: b.translation,
+            correct: b.native,
+            romanized: b.romanized,
+            context: { native: a.native, romanized: a.romanized, translation: a.translation },
+        }
+    }
+    const sentence = ex as Example
+    if (tokenize(sentence.native).length < 3) return null
+    return { lessonId, lessonTitle, langId, prompt: sentence.translation, correct: sentence.native, romanized: sentence.romanized }
+}
+
 function buildItems(lessons: GrammarLesson[], langId: string): ScrambleItem[] {
     const items: ScrambleItem[] = []
     for (const lesson of lessons) {
-        for (const ex of lesson.examples.filter((e): e is Example => !("type" in e))) {
-            const tokens = tokenize(ex.native)
-            // Need at least 3 tokens for a meaningful scramble
-            if (tokens.length < 3) continue
-            items.push({
-                lessonId: lesson.id,
-                lessonTitle: lesson.title,
-                prompt: ex.translation,
-                correct: ex.native,
-                romanized: ex.romanized,
-                langId,
-            })
+        for (const ex of lesson.examples) {
+            const item = exampleToItem(ex, lesson.id, lesson.title, langId)
+            if (item) items.push(item)
         }
     }
     return shuffle(items)
@@ -259,6 +273,18 @@ export default function SentenceScramblePage({ items, langId, level, config, onC
                         return <div key={`${q.lessonId}:${q.correct}`} className={`h-1.5 flex-1 rounded-full transition-colors ${cls}`} />
                     })}
                 </div>
+
+                {/* Dialogue context — A's question shown when assembling B's response */}
+                {q.context && (
+                    <div className="bg-gray-100 dark:bg-gray-700/60 rounded-2xl px-5 py-3">
+                        <p className="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wide mb-1">Context</p>
+                        <p className="text-sm font-medium text-gray-800 dark:text-gray-200">{q.context.native}</p>
+                        {q.context.romanized && (
+                            <p className="text-xs text-indigo-500 mt-0.5">{q.context.romanized}</p>
+                        )}
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{q.context.translation}</p>
+                    </div>
+                )}
 
                 {/* Prompt */}
                 <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-2xl px-5 py-4">
