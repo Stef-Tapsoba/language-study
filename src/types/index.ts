@@ -44,6 +44,27 @@ export interface Example {
     romanized?: string   // for Japanese / Korean
     translation: string
     speakText?: string   // override what TTS speaks — use when native contains annotations, paired forms, or non-speakable text
+    annotation?: string  // grammar/phonetic note displayed separately from the translation
+}
+
+/** A single turn in a dialogue exchange. */
+export interface DialogueTurn {
+    native: string
+    romanized?: string
+    translation: string
+}
+
+/**
+ * A paired dialogue exchange rendered as a grouped card.
+ * exchanges[0] is the prompt (A); exchanges[1] is the response (B).
+ * The sentence-scramble exercise uses the B turn as its scramble target,
+ * with the A turn shown as context.
+ * Use a discriminated union check: `"type" in ex && ex.type === "dialogue"`.
+ */
+export interface DialogueExample {
+    type: "dialogue"
+    exchanges: [DialogueTurn, DialogueTurn]
+    annotation?: string
 }
 
 // ---------------------------------------------------------------------------
@@ -62,13 +83,42 @@ export interface InlineVocabEntry {
  */
 export type GrammarExerciseType = "sentence-scramble" | "dictation"
 
+/** A single rule card — condition/result pair with quick examples. */
+export interface GrammarRule {
+    condition: string
+    result: string
+    examples: string[]
+}
+
+/** A short callout rendered distinctly from explanation prose. */
+export interface GrammarNote {
+    type: "tip" | "warning" | "forward-ref" | "culture"
+    content: string
+    /** For forward-ref notes: the lesson id this resolves to */
+    refId?: string
+}
+
+/** A phrase presented as an unanalysed chunk — learn it whole, grammar deferred. */
+export interface FixedPhrase {
+    native: string
+    romanized?: string
+    translation: string
+    note?: string
+}
+
 export interface GrammarLesson {
     id: string
     language?: string    // e.g. "fr" — stamped by createLanguageModule(); always set on assembled items
     level: CEFRLevel
     title: string
     explanation: string | LocalizedText
-    examples: Example[]
+    /** Structured rule cards — replaces markdown tables in explanation. */
+    rules?: GrammarRule[]
+    /** Short typed callouts: tips, warnings, forward references, culture notes. */
+    notes?: GrammarNote[]
+    /** Phrases to learn as unanalysed chunks at this lesson's level. */
+    fixedPhrases?: FixedPhrase[]
+    examples: Array<Example | DialogueExample>
     inlineVocab?: InlineVocabEntry[]
     /**
      * Exercise type paired with this lesson in the unit Grammar tab.
