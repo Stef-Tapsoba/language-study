@@ -180,6 +180,65 @@ const UnitRow = memo(function UnitRow({ unit, langId, level, mastered, allUnits,
     return <Link to={`/learn/${langId}/units/${unit.id}`} className="block">{inner}</Link>
 })
 
+// ---------------------------------------------------------------------------
+// CheckpointRow — block-end gate card in the Learning Path list
+// ---------------------------------------------------------------------------
+const CheckpointRow = memo(function CheckpointRow({ checkpoint, langId, gatePassed, isDone }: Readonly<{
+    checkpoint: Checkpoint; langId: string
+    /** True when the preceding (block-closing) unit is mastered. */
+    gatePassed: boolean
+    isDone: boolean
+}>) {
+    let state: "locked" | "available" | "done" = "locked"
+    if (isDone) state = "done"
+    else if (gatePassed) state = "available"
+
+    const rowCls = [
+        "flex items-center gap-4 px-5 py-3 rounded-2xl border-y border-r transition-all",
+        state === "done"      && "border-green-200 border-l-4 border-l-green-500 bg-green-50/40",
+        state === "available" && "border-amber-200 dark:border-amber-700 border-l-4 border-l-amber-500 bg-amber-50/60 dark:bg-amber-900/20 hover:shadow-sm",
+        state === "locked"    && "border-gray-100 dark:border-gray-700 border-l-4 border-l-gray-200 dark:border-l-gray-600 bg-gray-50 dark:bg-gray-700/50 opacity-50 cursor-default",
+    ].filter(Boolean).join(" ")
+
+    const iconCls = [
+        "shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm",
+        state === "done"      && "bg-green-500 text-white",
+        state === "available" && "bg-amber-500 text-white",
+        state === "locked"    && "bg-gray-200 dark:bg-gray-600 text-gray-400 dark:text-gray-500",
+    ].filter(Boolean).join(" ")
+
+    const inner = (
+        <div className={rowCls}>
+            <span className={iconCls} aria-hidden="true">
+                {state === "done" ? "✓" : "🎯"}
+            </span>
+            <div className="flex-1 min-w-0">
+                <p className={`font-semibold text-sm truncate ${state === "locked" ? "text-gray-400 dark:text-gray-500" : "text-gray-900 dark:text-gray-100"}`}>
+                    {checkpoint.title}
+                </p>
+                <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">
+                    {state === "done" && "Checkpoint complete"}
+                    {state === "available" && "Ready — tap to begin"}
+                    {state === "locked" && "Complete the previous unit to unlock"}
+                </p>
+            </div>
+            {state === "done" && (
+                <Badge variant="outline" className="text-xs text-green-600 dark:text-green-400 border-green-300 dark:border-green-700 bg-green-50 dark:bg-green-900/20 shrink-0">
+                    Done
+                </Badge>
+            )}
+            {state === "locked" && (
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-300 dark:text-gray-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-label="Locked">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+            )}
+        </div>
+    )
+
+    if (state === "locked") return inner
+    return <Link to={`/learn/${langId}/checkpoints/${checkpoint.id}`} className="block">{inner}</Link>
+})
+
 function levelName(level: CEFRLevel, ui: UIStrings): string {
     switch (level) {
         case "A1": return ui.levelBeginner

@@ -9,8 +9,32 @@ import { LevelBadge } from "../components/LevelBadge"
 import { SpeakButton } from "../components/SpeakButton"
 import { VocabTooltip } from "../components/VocabTooltip"
 import { resolvePrimary } from "../utils/localizedText"
-import { renderExplanation } from "../utils/renderExplanation"
+import { renderExplanation, renderInline } from "../utils/renderExplanation"
 import { useVocabTooltip } from "../hooks/useVocabTooltip"
+import type { GrammarNote } from "../types"
+
+const NOTE_STYLES: Record<GrammarNote["type"], { wrapper: string; label: string; labelText: string }> = {
+    tip: {
+        wrapper: "bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800",
+        label: "text-indigo-600 dark:text-indigo-400",
+        labelText: "Tip",
+    },
+    warning: {
+        wrapper: "bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800",
+        label: "text-amber-600 dark:text-amber-400",
+        labelText: "Note",
+    },
+    "forward-ref": {
+        wrapper: "bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800",
+        label: "text-purple-600 dark:text-purple-400",
+        labelText: "Coming up",
+    },
+    culture: {
+        wrapper: "bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800",
+        label: "text-green-600 dark:text-green-400",
+        labelText: "Culture",
+    },
+}
 
 export function GrammarLessonPage() {
     const { langId = "", lessonId = "" } = useParams()
@@ -65,6 +89,71 @@ export function GrammarLessonPage() {
 
                 <VocabTooltip activeWord={activeWord} onDismiss={dismissTooltip} />
 
+                {/* Rules */}
+                {lesson.rules && lesson.rules.length > 0 && (
+                    <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5">
+                        <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500 mb-3">Rules</h2>
+                        <div className="flex flex-col gap-3">
+                            {lesson.rules.map((rule) => (
+                                <div key={rule.condition} className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
+                                    <div className="flex items-baseline gap-2 mb-2">
+                                        <span className="text-sm text-gray-500 dark:text-gray-400 flex-1">{rule.condition}</span>
+                                        <span className="text-sm font-bold text-indigo-600 dark:text-indigo-400 shrink-0">{rule.result}</span>
+                                    </div>
+                                    <div className="flex flex-wrap gap-1.5">
+                                        {rule.examples.map((ex) => (
+                                            <span key={ex} className="text-xs bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 px-2 py-1 rounded-lg font-medium">{ex}</span>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {/* Notes */}
+                {lesson.notes && lesson.notes.length > 0 && (
+                    <div className="flex flex-col gap-2">
+                        {lesson.notes.map((note) => {
+                            const s = NOTE_STYLES[note.type]
+                            return (
+                                <div key={note.content} className={`rounded-xl p-4 ${s.wrapper}`}>
+                                    <span className={`text-xs font-semibold uppercase tracking-wide ${s.label}`}>{s.labelText}</span>
+                                    <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">
+                                        {renderInline(note.content, { inlineVocab: lesson.inlineVocab, onVocabClick: handleVocabClick })}
+                                    </p>
+                                </div>
+                            )
+                        })}
+                    </div>
+                )}
+
+                {/* Fixed phrases */}
+                {lesson.fixedPhrases && lesson.fixedPhrases.length > 0 && (
+                    <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5">
+                        <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500 mb-3">Learn as chunks</h2>
+                        <div className="flex flex-col gap-3">
+                            {lesson.fixedPhrases.map((phrase) => (
+                                <div key={phrase.native} className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
+                                    <div className="flex items-center gap-2">
+                                        <p className="font-semibold text-gray-900 dark:text-gray-100">{phrase.native}</p>
+                                        <SpeakButton text={phrase.native} langId={langId} />
+                                    </div>
+                                    {phrase.romanized && (
+                                        <p className="text-xs text-indigo-500 mt-0.5">{phrase.romanized}</p>
+                                    )}
+                                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
+                                        {renderInline(phrase.translation, { inlineVocab: lesson.inlineVocab, onVocabClick: handleVocabClick })}
+                                    </p>
+                                    {phrase.note && (
+                                        <p className="text-xs text-gray-400 dark:text-gray-500 italic mt-1">{phrase.note}</p>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
                 {/* Examples */}
                 {lesson.examples.length > 0 && (
                     <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5">
@@ -81,6 +170,9 @@ export function GrammarLessonPage() {
                                             <p className="text-xs text-indigo-500 mt-0.5">{ex.romanized}</p>
                                         )}
                                         <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{ex.translation}</p>
+                                        {ex.annotation && (
+                                            <p className="text-xs text-gray-400 dark:text-gray-500 italic mt-1">{ex.annotation}</p>
+                                        )}
                                     </div>
                                 </div>
                             ))}

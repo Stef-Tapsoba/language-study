@@ -95,6 +95,20 @@ export function renderBold(text: string, keyPrefix = "b"): React.ReactNode[] {
 }
 
 /**
+ * Renders a single line of text with **bold** markers and optional inline vocab highlights.
+ * Returns inline nodes (no wrapping element) — suitable for <p> or <span> content.
+ */
+export function renderInline(
+    text: string,
+    opts: { inlineVocab?: InlineVocabEntry[]; onVocabClick?: VocabClickHandler } = {}
+): React.ReactNode[] {
+    const vocabMap = opts.inlineVocab && opts.onVocabClick
+        ? new Map(opts.inlineVocab.map(e => [e.word.toLowerCase(), e.translation]))
+        : undefined
+    return renderRichText(text, "il-", vocabMap, opts.onVocabClick)
+}
+
+/**
  * Splits a trimmed line at its widest whitespace gap (≥4 spaces).
  * Returns null if no significant column gap is found.
  * Normalises remaining internal whitespace (multi-spaces → single space).

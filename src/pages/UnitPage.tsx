@@ -682,12 +682,12 @@ function TestOutTab({ unit, langId, isMastered, nextUnit, isLastUnit, ui, cultur
 // ---------------------------------------------------------------------------
 export function UnitPage() {
     const { langId = "", unitId = "" } = useParams()
-    const [searchParams] = useSearchParams()
+    const [searchParams, setSearchParams] = useSearchParams()
     const navigate = useNavigate()
 
     const language = getLanguage(langId)
     const mod = getModule(langId)
-    const { level: getLevel, completed: getCompleted, mastered: getMastered } = useProgress()
+    const { level: getLevel, completed: getCompleted, mastered: getMastered, masterUnit } = useProgress()
     const level = getLevel(langId)
     const ui = getUI(langId, level)
     const completed = getCompleted(langId)
@@ -729,6 +729,13 @@ export function UnitPage() {
     }
     const [activeTab, setActiveTab] = useState<Tab>(firstTab)
     useEffect(() => { setActiveTab(firstTab()) }, [unitId])
+
+    function handleTabChange(tab: Tab) {
+        setActiveTab(tab)
+        const next = new URLSearchParams(searchParams)
+        next.set("tab", tab)
+        setSearchParams(next, { replace: true })
+    }
     const [vocabFilter, setVocabFilter] = useState<"all" | "todo" | "done">("all")
 
     // Per-tab completion flags (content + required exercises)
@@ -802,7 +809,7 @@ export function UnitPage() {
                 </div>
 
                 {/* Tab bar */}
-                <Tabs value={activeTab} onValueChange={v => setActiveTab(v as Tab)} className="mb-0">
+                <Tabs value={activeTab} onValueChange={v => handleTabChange(v as Tab)} className="mb-0">
                     <TabsList className="w-full h-auto p-1 bg-gray-100 dark:bg-gray-700 rounded-xl mb-6">
                         {tabs.map(tab => {
                             const TAB_COLORS: Record<Tab, string> = {
@@ -938,8 +945,8 @@ export function UnitPage() {
                                     readingPassages={readingPassages}
                                     listeningExercises={listeningExercises}
                                     incompleteExercises={incompleteExercises}
-                                    onGoToTab={tab => setActiveTab(tab)}
-                                    onMastered={() => {}}
+                                    onGoToTab={tab => handleTabChange(tab)}
+                                    onMastered={() => masterUnit(langId, unit.id)}
                                     onBack={() => navigate(`/learn/${langId}`)}
                                     onNavigateNext={(id) => navigate(`/learn/${langId}/units/${id}`, { replace: true })}
                                     onNavigateLevelTest={() => navigate(`/learn/${langId}/level-test`)}
