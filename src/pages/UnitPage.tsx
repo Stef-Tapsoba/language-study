@@ -687,11 +687,12 @@ export function UnitPage() {
 
     const language = getLanguage(langId)
     const mod = getModule(langId)
-    const { level: getLevel, completed: getCompleted, mastered: getMastered, masterUnit } = useProgress()
+    const { level: getLevel, completed: getCompleted, mastered: getMastered, masterUnit, completedCheckpoints: getCompletedCheckpoints } = useProgress()
     const level = getLevel(langId)
     const ui = getUI(langId, level)
     const completed = getCompleted(langId)
     const mastered = getMastered(langId)
+    const completedCheckpoints = getCompletedCheckpoints(langId)
 
     const units = mod?.units ?? []
     const unit = units.find(u => u.id === unitId)
@@ -760,7 +761,7 @@ export function UnitPage() {
 
     const isMastered = mastered.includes(unit.id)
     const levelUnits = units.filter(u => u.level === unit.level).sort((a, b) => a.order - b.order)
-    const isLocked = !DEBUG && !isUnitUnlocked(unit.id, levelUnits, mastered)
+    const isLocked = !DEBUG && !isUnitUnlocked(unit.id, levelUnits, mastered, completedCheckpoints)
     const totalUnits = levelUnits.length
     const isLastUnit = unit.order === totalUnits
     const nextUnit = levelUnits.find(u => u.order === unit.order + 1) ?? null

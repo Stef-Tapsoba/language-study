@@ -16,14 +16,15 @@ const userKey = (userId: string) => `ls:progress:${userId}`
 
 // Bump this whenever a breaking schema change is made (field rename, removal, type change).
 // Add a migration branch in `migrate()` for each version increment.
-const SCHEMA_VERSION = 3
+const SCHEMA_VERSION = 4
 
 const DEFAULT: UserProgress = {
     schemaVersion: SCHEMA_VERSION,
     selectedLanguage: null,
     levels: {},
     completedLessons: {},
-    masteredUnits: {}
+    masteredUnits: {},
+    completedCheckpoints: {},
 }
 
 /**
@@ -44,6 +45,8 @@ function migrate(raw: Record<string, unknown>): UserProgress {
     // v1 → v2: completedReinforcement introduced. No field migration needed.
     // v2 → v3: goal field introduced. No field migration needed —
     // the field is optional; absent = falls back to ls:goal for migration compat.
+    // v3 → v4: completedCheckpoints introduced. No field migration needed —
+    // absent key = no checkpoints done yet, which is the correct default.
 
     return { ...DEFAULT, ...raw, schemaVersion: SCHEMA_VERSION }
 }
@@ -160,13 +163,16 @@ export function resetLanguageProgress(langId: string): void {
     const p = loadProgress()
     const completedLessons = { ...p.completedLessons }
     const masteredUnits = { ...p.masteredUnits }
+    const completedCheckpoints = { ...p.completedCheckpoints }
     delete completedLessons[langId]
     delete masteredUnits[langId]
+    delete completedCheckpoints[langId]
     save({
         ...p,
         levels: { ...p.levels, [langId]: "A1" },
         completedLessons,
         masteredUnits,
+        completedCheckpoints,
     })
 }
 
@@ -176,11 +182,13 @@ export function removeLanguage(langId: string): void {
     const levels = { ...p.levels }
     const completedLessons = { ...p.completedLessons }
     const masteredUnits = { ...p.masteredUnits }
+    const completedCheckpoints = { ...p.completedCheckpoints }
     delete levels[langId]
     delete completedLessons[langId]
     delete masteredUnits[langId]
+    delete completedCheckpoints[langId]
     const selectedLanguage = p.selectedLanguage === langId ? null : p.selectedLanguage
-    save({ ...p, selectedLanguage, levels, completedLessons, masteredUnits })
+    save({ ...p, selectedLanguage, levels, completedLessons, masteredUnits, completedCheckpoints })
 }
 
 // ---------------------------------------------------------------------------
@@ -249,6 +257,29 @@ export function markReinforcementDone(
         completedReinforcement: {
             ...p.completedReinforcement,
             [langId]: { ...langMap, [unitId]: next },
+        },
+    })
+}
+
+// ---------------------------------------------------------------------------
+// Checkpoint completion helpers
+// ---------------------------------------------------------------------------
+
+/** Returns completed checkpoint IDs for a language, or empty array. */
+export function getCompletedCheckpoints(langId: string): string[] {
+    return loadProgress().completedCheckpoints?.[langId] ?? []
+}
+
+/** Marks a checkpoint as completed for a language. Idempotent. */
+export function markCheckpointDone(langId: string, checkpointId: string): void {
+    const p = loadProgress()
+    const existing = p.completedCheckpoints?.[langId] ?? []
+    if (existing.includes(checkpointId)) return
+    save({
+        ...p,
+        completedCheckpoints: {
+            ...p.completedCheckpoints,
+            [langId]: [...existing, checkpointId],
         },
     })
 }

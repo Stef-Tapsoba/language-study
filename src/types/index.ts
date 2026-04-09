@@ -363,6 +363,31 @@ export interface SpeakingPrompt {
 }
 
 // ---------------------------------------------------------------------------
+// Checkpoint — block-end gate requiring learner self-assessment before next block
+// ---------------------------------------------------------------------------
+
+/**
+ * A block-end checkpoint. The preceding unit carries `checkpointId` pointing here.
+ * After mastering that unit the checkpoint card becomes active in the Path tab.
+ * The learner reads the scenario, practises aloud, then self-assesses completion.
+ */
+export interface Checkpoint {
+    id: string
+    language?: string   // stamped by createLanguageModule(); not set in data files
+    level: CEFRLevel
+    /** Block number this checkpoint closes (1-based). */
+    block: number
+    title: string
+    /** Scenario description shown to the learner. */
+    scenario: string
+    /** What the learner should be able to produce — one bullet per string. */
+    speakingPrompts: string[]
+    /** Linked listening exercise ID for listening checkpoints. */
+    listeningId?: string
+    type: "speaking" | "listening" | "both"
+}
+
+// ---------------------------------------------------------------------------
 // Language module — what each data/*/index.ts assembles and exports
 // ---------------------------------------------------------------------------
 export interface LanguageModule {
@@ -376,6 +401,7 @@ export interface LanguageModule {
     listeningExercises?: ListeningExercise[]
     cultureEpisodes?: CultureEpisode[]
     speakingPrompts?: SpeakingPrompt[]
+    checkpoints?: Checkpoint[]
 }
 
 // ---------------------------------------------------------------------------
@@ -421,6 +447,12 @@ export interface UserProgress {
      * Stage 2: maps to reinforcement_grammar + reinforcement_sections Supabase tables.
      */
     completedReinforcement?: Record<string, Record<string, UnitReinforcementState>>
+    /**
+     * Completed checkpoint IDs, keyed by language.
+     * Absent key = no checkpoints done yet (safe default — no migration needed).
+     * Stage 2: maps to checkpoint_completions table.
+     */
+    completedCheckpoints?: Record<string, string[]>
     /**
      * User's selected learning goal (traveller / social / culture / general).
      * Stored here so it syncs cross-device via IProgressStorage in Stage 2.
