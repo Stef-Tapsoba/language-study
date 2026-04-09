@@ -118,7 +118,7 @@ export const a1Units: LessonUnit[] = [
         description: "Professions vocabulary, 무슨 일 해요?, the 있어요/없어요 pattern for possession and existence, and 잘 부탁드립니다 for new relationships.",
         grammarIds: ["ko-g-a1-8", "ko-g-a1-9"],
         phraseLessonIds: ["ko-pl-a1-6"],
-        vocabIds: ["ko-v-a1-39", "ko-v-a1-40", "ko-v-a1-41", "ko-v-a1-42", "ko-v-a1-43", "ko-v-a1-44", "ko-v-a1-45", "ko-v-a1-46", "ko-v-a1-47", "ko-v-a1-48", "ko-v-a1-49", "ko-v-a1-50", "ko-v-a1-51", "ko-v-a1-52"],
+        vocabIds: ["ko-v-a1-39", "ko-v-a1-40", "ko-v-a1-41", "ko-v-a1-42", "ko-v-a1-43", "ko-v-a1-44", "ko-v-a1-45", "ko-v-a1-46", "ko-v-a1-47", "ko-v-a1-48", "ko-v-a1-49", "ko-v-a1-50", "ko-v-a1-51", "ko-v-a1-52", "ko-v-a1-169", "ko-v-a1-170", "ko-v-a1-171", "ko-v-a1-172", "ko-v-a1-173", "ko-v-a1-174", "ko-v-a1-175", "ko-v-a1-176"],
         verbIds: [],
         checkpointId: "ko-cp-a1-1",
         testQuestions: [
