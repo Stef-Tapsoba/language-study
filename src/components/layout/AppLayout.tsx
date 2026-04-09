@@ -10,12 +10,13 @@ import { useState, useCallback } from "react"
 import { Outlet, useLocation, Link } from "react-router-dom"
 import {
     Home, BookOpen, Zap, RotateCcw, User,
-    ChevronLeft, ChevronRight, Globe,
-    Sun, Moon,
+    ChevronLeft, ChevronRight, Globe, Flame,
+    Sun, Moon, Map, BarChart2,
 } from "lucide-react"
 import { useProgress } from "../../context/ProgressContext"
 import { useGlobalStreak } from "../../hooks/useGlobalStreak"
 import { useDarkMode } from "../../hooks/useDarkMode"
+import { useCurrentUser } from "../../hooks/useCurrentUser"
 import { getLanguage } from "../../data/languages"
 import { Flag } from "../Flag"
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip"
@@ -36,8 +37,12 @@ interface NavItem {
     icon: React.ElementType
     href: (langId: string | null) => string
     isActive: (pathname: string, search: string) => boolean
+    /** Only show in desktop sidebar, not mobile bottom nav */
+    desktopOnly?: boolean
 }
 
+// Desktop sidebar: Home / Study / Practice / Review / Path / Stats (6)
+// Mobile bottom nav: Home / Study / Practice / Review / Profile (5)
 const NAV_ITEMS: NavItem[] = [
     {
         id: "home",
@@ -57,8 +62,8 @@ const NAV_ITEMS: NavItem[] = [
         id: "practice",
         label: "Practice",
         icon: Zap,
-        href: (l) => l ? `/learn/${l}?tab=practice` : "/home",
-        isActive: (p, s) => /^\/learn\/[^/]+$/.test(p) && new URLSearchParams(s).get("tab") === "practice",
+        href: (l) => l ? `/learn/${l}/practice` : "/home",
+        isActive: (p) => p.endsWith("/practice"),
     },
     {
         id: "review",
@@ -68,13 +73,32 @@ const NAV_ITEMS: NavItem[] = [
         isActive: (p) => p.endsWith("/review"),
     },
     {
-        id: "profile",
-        label: "Profile",
-        icon: User,
-        href: () => "/profile",
-        isActive: (p) => p === "/profile",
+        id: "path",
+        label: "Path",
+        icon: Map,
+        href: (l) => l ? `/learn/${l}/path` : "/home",
+        // Active on path page AND unit detail pages
+        isActive: (p) => p.endsWith("/path") || /^\/learn\/[^/]+\/units\//.test(p),
+        desktopOnly: true,
+    },
+    {
+        id: "stats",
+        label: "Stats",
+        icon: BarChart2,
+        href: (l) => l ? `/learn/${l}` : "/home",
+        isActive: () => false,  // no dedicated stats page yet
+        desktopOnly: true,
     },
 ]
+
+// Mobile bottom nav gets Profile instead of the desktop-only items
+const MOBILE_PROFILE_ITEM: NavItem = {
+    id: "profile",
+    label: "Profile",
+    icon: User,
+    href: () => "/profile",
+    isActive: (p) => p === "/profile",
+}
 
 // ── Sub-components ────────────────────────────────────────────────────────────
 
@@ -89,13 +113,14 @@ interface SidebarProps {
     onToggleDark: () => void
     activePath: string
     activeSearch: string
+    firstName: string
 }
 
 function SidebarContent({
     collapsed, onToggle,
     selectedLanguage, currentLangName, currentLevel,
     streak, dark, onToggleDark,
-    activePath, activeSearch,
+    activePath, activeSearch, firstName,
 }: Readonly<SidebarProps>) {
     const langId = selectedLanguage
 
@@ -195,27 +220,41 @@ function SidebarContent({
                 })}
             </nav>
 
-            {/* Bottom: streak + dark toggle */}
-            <div className={`px-3 py-3 border-t border-hairline border-border-subtle flex items-center ${collapsed ? "flex-col justify-center gap-2" : "justify-between"}`}>
-                {streak > 0 && (
-                    <Tooltip>
-                        <TooltipTrigger asChild>
-                            <div>
-                                <StreakChip streak={streak} compact={collapsed} />
-                            </div>
-                        </TooltipTrigger>
-                        {collapsed && (
-                            <TooltipContent side="right">{streak} day streak</TooltipContent>
-                        )}
-                    </Tooltip>
-                )}
-                <button
-                    onClick={onToggleDark}
-                    className="w-7 h-7 rounded-md flex items-center justify-center text-text-sec hover:bg-surface-inset transition-colors"
-                    aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
+            {/* Bottom: profile + streak + dark toggle */}
+            <div className={`border-t border-hairline border-border-subtle px-3 pt-3 pb-4 flex flex-col gap-2`}>
+                {/* Profile row */}
+                <Link
+                    to="/profile"
+                    className={`flex items-center gap-2.5 px-2 py-2 rounded-lg hover:bg-surface-inset transition-colors ${collapsed ? "justify-center" : ""}`}
                 >
-                    {dark ? <Sun size={14} /> : <Moon size={14} />}
-                </button>
+                    <div className="w-7 h-7 rounded-full bg-grammar-surface border-hairline border border-grammar-border flex items-center justify-center text-xs font-semibold text-grammar shrink-0">
+                        {firstName ? firstName[0].toUpperCase() : <User size={12} />}
+                    </div>
+                    {collapsed ? null : (
+                        <span className="text-xs font-medium text-text-sec truncate">{firstName || "Profile"}</span>
+                    )}
+                </Link>
+
+                {/* Streak + dark toggle */}
+                <div className={`flex items-center ${collapsed ? "flex-col gap-2 justify-center" : "justify-between px-1"}`}>
+                    {streak > 0 && (
+                        <Tooltip>
+                            <TooltipTrigger asChild>
+                                <div><StreakChip streak={streak} compact={collapsed} /></div>
+                            </TooltipTrigger>
+                            {collapsed && (
+                                <TooltipContent side="right">{streak} day streak</TooltipContent>
+                            )}
+                        </Tooltip>
+                    )}
+                    <button
+                        onClick={onToggleDark}
+                        className="w-7 h-7 rounded-md flex items-center justify-center text-text-sec hover:bg-surface-inset transition-colors"
+                        aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
+                    >
+                        {dark ? <Sun size={14} /> : <Moon size={14} />}
+                    </button>
+                </div>
             </div>
         </>
     )
@@ -267,6 +306,7 @@ export function AppLayout() {
     const { selectedLanguage, level: getLevel } = useProgress()
     const streak = useGlobalStreak()
     const [dark, toggleDark] = useDarkMode()
+    const { firstName } = useCurrentUser()
     const location = useLocation()
 
     const currentLang = selectedLanguage ? getLanguage(selectedLanguage) : null
@@ -305,6 +345,7 @@ export function AppLayout() {
                     onToggleDark={toggleDark}
                     activePath={location.pathname}
                     activeSearch={location.search}
+                    firstName={firstName}
                 />
             </aside>
 
@@ -323,10 +364,10 @@ export function AppLayout() {
                     <Outlet />
                 </main>
 
-                {/* Mobile bottom nav */}
+                {/* Mobile bottom nav — desktop-only items replaced by Profile */}
                 <nav aria-label="Bottom navigation" className="lg:hidden bg-surface-card border-t border-hairline border-border-subtle pb-safe shrink-0">
                     <div className="flex">
-                        {NAV_ITEMS.map(item => {
+                        {[...NAV_ITEMS.filter(i => !i.desktopOnly), MOBILE_PROFILE_ITEM].map(item => {
                             const active = item.isActive(location.pathname, location.search)
                             const Icon = item.icon
                             return (

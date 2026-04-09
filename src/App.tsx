@@ -32,7 +32,8 @@ const CategoryReadingPage = lazy(() => import("./pages/CategoryReadingPage").the
 const GrammarLessonPage  = lazy(() => import("./pages/GrammarLessonPage").then(m => ({ default: m.GrammarLessonPage })))
 const ReviewPage         = lazy(() => import("./pages/ReviewPage").then(m => ({ default: m.ReviewPage })))
 const GoalPickerPage     = lazy(() => import("./pages/GoalPickerPage").then(m => ({ default: m.GoalPickerPage })))
-const CheckpointPage     = lazy(() => import("./pages/CheckpointPage").then(m => ({ default: m.CheckpointPage })))
+const CheckpointPage        = lazy(() => import("./pages/CheckpointPage").then(m => ({ default: m.CheckpointPage })))
+const PracticePage          = lazy(() => import("./pages/PracticePage").then(m => ({ default: m.PracticePage })))
 
 import { AppLayout } from "./components/layout/AppLayout"
 
@@ -99,6 +100,9 @@ export default function App() {
                         {/* Dashboard index — shows inside layout chrome */}
                         <Route path="/learn/:langId" element={<LanguageLoader />}>
                             <Route index element={<DashboardPage />} />
+                            <Route path="path" element={<DashboardPage />} />
+                            <Route path="practice" element={<PracticePage />} />
+                            <Route path="review" element={<ReviewPage />} />
                         </Route>
                     </Route>
 
@@ -121,7 +125,6 @@ export default function App() {
                         <Route path="listening" element={<ListeningPage />} />
                         <Route path="culture" element={<CulturePage />} />
                         <Route path="exercise/:exerciseTypeId" element={<ExerciseShell />} />
-                        <Route path="review" element={<ReviewPage />} />
                         <Route path="goal" element={<GoalPickerPage />} />
                         <Route path="checkpoints/:checkpointId" element={<CheckpointPage />} />
                     </Route>
