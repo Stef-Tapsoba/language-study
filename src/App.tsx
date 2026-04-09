@@ -32,6 +32,9 @@ const CategoryReadingPage = lazy(() => import("./pages/CategoryReadingPage").the
 const GrammarLessonPage  = lazy(() => import("./pages/GrammarLessonPage").then(m => ({ default: m.GrammarLessonPage })))
 const ReviewPage         = lazy(() => import("./pages/ReviewPage").then(m => ({ default: m.ReviewPage })))
 const GoalPickerPage     = lazy(() => import("./pages/GoalPickerPage").then(m => ({ default: m.GoalPickerPage })))
+const CheckpointPage     = lazy(() => import("./pages/CheckpointPage").then(m => ({ default: m.CheckpointPage })))
+
+import { AppLayout } from "./components/layout/AppLayout"
 
 // Ensures the language data chunk is loaded before any /learn/:langId page renders.
 // For B2+ users, also waits for the advanced (B2–C1) chunk to merge before rendering,
@@ -83,26 +86,26 @@ export default function App() {
                     </div>
                 }>
                 <Routes>
-                    {/* Public */}
+                    {/* Public — no layout chrome */}
                     <Route path="/" element={<LandingPage />} />
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/register" element={<RegisterPage />} />
 
-                    {/* Authenticated home */}
-                    <Route path="/home" element={
-                        <ProtectedRoute><HomePage /></ProtectedRoute>
-                    } />
+                    {/* ── Main nav pages — inside AppLayout (sidebar + bottom nav) ── */}
+                    <Route element={<ProtectedRoute><AppLayout /></ProtectedRoute>}>
+                        <Route path="/home" element={<HomePage />} />
+                        <Route path="/languages" element={<LanguageSelectPage />} />
+                        <Route path="/profile" element={<ProfilePage />} />
+                        {/* Dashboard index — shows inside layout chrome */}
+                        <Route path="/learn/:langId" element={<LanguageLoader />}>
+                            <Route index element={<DashboardPage />} />
+                        </Route>
+                    </Route>
 
-                    {/* Language selection (add / switch) */}
-                    <Route path="/languages" element={
-                        <ProtectedRoute><LanguageSelectPage /></ProtectedRoute>
-                    } />
-
-                    {/* Per-language routes — protected once, module loaded before any child renders */}
+                    {/* ── Full-screen pages — own NavBar, no layout chrome ─────── */}
                     <Route path="/learn/:langId" element={
                         <ProtectedRoute><LanguageLoader /></ProtectedRoute>
                     }>
-                        <Route index element={<DashboardPage />} />
                         <Route path="placement" element={<PlacementPage />} />
                         <Route path="grammar" element={<GrammarPage />} />
                         <Route path="grammar/:lessonId" element={<GrammarLessonPage />} />
@@ -117,18 +120,11 @@ export default function App() {
                         <Route path="reading/:category" element={<CategoryReadingPage />} />
                         <Route path="listening" element={<ListeningPage />} />
                         <Route path="culture" element={<CulturePage />} />
-                        {/* Registry-based exercises — ExerciseShell looks up the type and renders it */}
                         <Route path="exercise/:exerciseTypeId" element={<ExerciseShell />} />
-                        {/* Break-return review session */}
                         <Route path="review" element={<ReviewPage />} />
-                        {/* Learning goal picker */}
                         <Route path="goal" element={<GoalPickerPage />} />
+                        <Route path="checkpoints/:checkpointId" element={<CheckpointPage />} />
                     </Route>
-
-                    {/* Profile */}
-                    <Route path="/profile" element={
-                        <ProtectedRoute><ProfilePage /></ProtectedRoute>
-                    } />
 
                     {/* Fallback */}
                     <Route path="*" element={<Navigate to="/home" replace />} />

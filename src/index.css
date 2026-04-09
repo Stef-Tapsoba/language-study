@@ -4,6 +4,56 @@
 
 @layer base {
     :root {
+        /* ── Semantic surface tokens ──────────────────────────────────────────── */
+        --surface-app:     #f7f5f2;
+        --surface-card:    #ffffff;
+        --surface-elevated:#f9f8f7;
+        --surface-inset:   #f1efec;
+
+        /* ── Border tokens ───────────────────────────────────────────────────── */
+        --border-subtle:   #d8d5d1;
+        --border-default:  #c4c1bd;
+        --border-strong:   #8a8680;
+
+        /* ── Text tokens ─────────────────────────────────────────────────────── */
+        --text-primary:    #1a1814;
+        --text-secondary:  #6b6560;
+        --text-tertiary:   #a09a94;
+
+        /* ── Semantic accents — one per content type ─────────────────────────── */
+        /* Grammar (green) */
+        --accent-grammar:         #16a34a;
+        --accent-grammar-surface: #f0fdf4;
+        --accent-grammar-border:  #bbf7d0;
+
+        /* Vocab (amber) */
+        --accent-vocab:         #d97706;
+        --accent-vocab-surface: #fffbeb;
+        --accent-vocab-border:  #fde68a;
+
+        /* Verbs (red) */
+        --accent-verbs:         #dc2626;
+        --accent-verbs-surface: #fef2f2;
+        --accent-verbs-border:  #fecaca;
+
+        /* Reading (blue) */
+        --accent-reading:         #2563eb;
+        --accent-reading-surface: #eff6ff;
+        --accent-reading-border:  #bfdbfe;
+
+        /* Listening (purple) */
+        --accent-listening:         #7c3aed;
+        --accent-listening-surface: #f5f3ff;
+        --accent-listening-border:  #ddd6fe;
+
+        /* Culture (teal) */
+        --accent-culture:         #0d9488;
+        --accent-culture-surface: #f0fdfa;
+        --accent-culture-border:  #99f6e4;
+
+        /* Streak (amber/gold) */
+        --accent-streak: #d97706;
+
         /* shadcn CSS variables — violet/gray palette to match app design */
         --background:         30 20% 96%;      /* warm off-white #f7f5f2 */
         --foreground:         220 9% 11%;       /* gray-900 #111827 */
@@ -37,6 +87,49 @@
     }
 
     .dark {
+        /* ── Semantic surface tokens ──────────────────────────────────────────── */
+        --surface-app:     #0e0e11;
+        --surface-card:    #141418;
+        --surface-elevated:#1c1c22;
+        --surface-inset:   #252530;
+
+        /* ── Border tokens ───────────────────────────────────────────────────── */
+        --border-subtle:   #252530;
+        --border-default:  #3a3a4a;
+        --border-strong:   #5a5a6a;
+
+        /* ── Text tokens ─────────────────────────────────────────────────────── */
+        --text-primary:    #f0ede8;
+        --text-secondary:  #8a8590;
+        --text-tertiary:   #5a5a6a;
+
+        /* ── Semantic accents ────────────────────────────────────────────────── */
+        --accent-grammar:         #3ecf8e;
+        --accent-grammar-surface: #0f2a1c;
+        --accent-grammar-border:  #1f5c3c;
+
+        --accent-vocab:         #f5c842;
+        --accent-vocab-surface: #2a1e00;
+        --accent-vocab-border:  #4a3600;
+
+        --accent-verbs:         #e24b4a;
+        --accent-verbs-surface: #2a1010;
+        --accent-verbs-border:  #4a1c1c;
+
+        --accent-reading:         #378add;
+        --accent-reading-surface: #101a2a;
+        --accent-reading-border:  #1c3050;
+
+        --accent-listening:         #7f77dd;
+        --accent-listening-surface: #15152a;
+        --accent-listening-border:  #282560;
+
+        --accent-culture:         #2dd4bf;
+        --accent-culture-surface: #052e28;
+        --accent-culture-border:  #0a5c50;
+
+        --accent-streak: #f5c842;
+
         --background:         222 47% 7%;       /* #060d1f dark navy */
         --foreground:         210 20% 96%;      /* near-white */
 
