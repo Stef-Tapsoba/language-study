@@ -25,14 +25,12 @@ import { SECTION_CONFIG, StudySection } from "../data/sectionConfig"
 import { useProgressStats } from "../hooks/useProgressStats"
 import { resolvePrimary } from "../utils/localizedText"
 import { getUI, UIStrings } from "../i18n"
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "../components/ui/tabs"
 import { Alert, AlertDescription } from "../components/ui/alert"
 import { Tooltip, TooltipContent, TooltipTrigger } from "../components/ui/tooltip"
 import { Button } from "../components/ui/button"
 import { Badge } from "../components/ui/badge"
 import { Progress } from "../components/ui/progress"
 
-type DashTab = "path" | "study" | "practice" | "review" | "test" | "stats"
 
 // ---------------------------------------------------------------------------
 // SectionCard — used by Practice tab
@@ -273,8 +271,6 @@ export function DashboardPage() {
         () => getUnitsForLevel(langId, level),
         [langId, level]
     )
-    const defaultTab: DashTab = levelUnits.length > 0 ? "path" : "study"
-    const [tab, setTab] = useState<DashTab>((searchParams.get("tab") as DashTab | null) ?? defaultTab)
 
     // completed Set for O(1) UnitRow pill checks
     const completed = useMemo<ReadonlySet<string>>(() => {
@@ -299,14 +295,6 @@ export function DashboardPage() {
         setShowOnboarding(false)
     }
 
-    function switchTab(t: DashTab) {
-        setTab(t)
-        setSearchParams({ tab: t }, { replace: true })
-        // Auto-dismiss the onboarding banner the first time the user navigates —
-        // switching tabs means they've read it and started exploring.
-        if (showOnboarding) handleDismissOnboarding()
-    }
-
     if (!language || !mod) {
         return (
             <div className="min-h-screen flex items-center justify-center">
@@ -326,18 +314,10 @@ export function DashboardPage() {
         [langId, level, goalId]
     )
 
-    const tabs: { id: DashTab; label: string; badge?: string }[] = [
-        { id: "path", label: ui.tabPath, badge: levelUnits.length > 0 ? `${masteredCount}/${levelUnits.length}` : undefined },
-        { id: "study", label: ui.tabStudy },
-        { id: "practice", label: ui.tabPractice },
-        { id: "review", label: "Review", badge: dueCount > 0 ? String(dueCount) : undefined },
-        { id: "test", label: ui.tabTest },
-        { id: "stats", label: "Stats" },
-    ]
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-            <NavBar title={language.name} level={level} backTo="/home" />
+        <div className="min-h-screen bg-surface-app">
+            {/* AppLayout provides the sidebar/bottom nav — no NavBar here */}
 
             <main className="max-w-3xl mx-auto px-4 py-6">
                 <HydrationErrorBanner />
@@ -396,29 +376,8 @@ export function DashboardPage() {
                     </div>
                 )}
 
-                {/* Tab bar — scrollable on narrow phones so badges and target-language labels don't overflow */}
-                <Tabs value={tab} onValueChange={v => switchTab(v as DashTab)} className="mb-6">
-                    <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
-                        <TabsList className="min-w-full w-max h-auto p-1 bg-gray-100 dark:bg-gray-700 rounded-xl flex">
-                            {tabs.map(t => (
-                                <TabsTrigger
-                                    key={t.id}
-                                    value={t.id}
-                                    className="flex-1 min-w-[3.5rem] py-2 px-2 text-xs sm:text-sm flex items-center justify-center gap-1.5 whitespace-nowrap"
-                                >
-                                    {t.label}
-                                    {t.badge && (
-                                        <span className="inline-flex text-xs font-normal rounded-full px-1.5 py-0.5 bg-indigo-100 text-indigo-600 data-[state=inactive]:bg-gray-200 data-[state=inactive]:text-gray-500">
-                                            {t.badge}
-                                        </span>
-                                    )}
-                                </TabsTrigger>
-                            ))}
-                        </TabsList>
-                    </div>
-
-                    {/* ── PATH ─────────────────────────────────────────────── */}
-                    <TabsContent value="path" className="tab-fade">
+                {/* ── Learning path ──────────────────────────────────────── */}
+                <div>
                         <ReviewPromptCard
                             langId={langId}
                             tier={breakDetection.tier}
@@ -454,258 +413,12 @@ export function DashboardPage() {
                                 </div>
                             </>
                         ) : (
-                            <div className="text-center py-16 text-gray-400 dark:text-gray-500">
+                            <div className="text-center py-16 text-text-sec">
                                 <p className="text-4xl mb-3">🚧</p>
-                                <p className="font-medium">Guided units coming soon for {language.name}.</p>
-                                <p className="text-sm mt-1">Use the Study tab to browse content directly.</p>
+                                <p className="font-medium text-text-pri">Guided units coming soon for {language.name}.</p>
                             </div>
                         )}
-                    </TabsContent>
-
-                    {/* ── STUDY ────────────────────────────────────────────── */}
-                    <TabsContent value="study" className="tab-fade">
-                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                            <StudyCard
-                                section="grammar"
-                                title={ui.sectionGrammar}
-                                countDesc={`${grammar.total} lessons at ${level}`}
-                                done={grammar.done} total={grammar.total}
-                                to={`/learn/${langId}/grammar`}
-                            />
-                            <StudyCard
-                                section="vocab"
-                                title={ui.sectionVocab}
-                                countDesc={`${vocab.total} words at ${level}`}
-                                done={vocab.done} total={vocab.total}
-                                to={`/learn/${langId}/vocab`}
-                            />
-                            <StudyCard
-                                section="verbs"
-                                title={ui.sectionVerbs}
-                                countDesc={`${verbs.total} verbs at ${level}`}
-                                done={verbs.done} total={verbs.total}
-                                to={`/learn/${langId}/verbs`}
-                            />
-                            <StudyCard
-                                section="reading"
-                                title={ui.sectionReading}
-                                countDesc={`${reading.total} passages at ${level}`}
-                                done={reading.done} total={reading.total}
-                                to={`/learn/${langId}/reading`}
-                            />
-                            <StudyCard
-                                section="listening"
-                                title={ui.sectionListening}
-                                countDesc={`${listening.total} exercises at ${level}`}
-                                done={listening.done} total={listening.total}
-                                to={`/learn/${langId}/listening`}
-                            />
-                            <StudyCard
-                                section="culture"
-                                title={ui.sectionCulture}
-                                countDesc={ui.sectionCultureDesc}
-                                to={`/learn/${langId}/culture`}
-                            />
-                        </div>
-                    </TabsContent>
-
-                    {/* ── PRACTICE ─────────────────────────────────────────── */}
-                    <TabsContent value="practice" className="tab-fade">
-                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                            <SectionCard
-                                emoji="🃏"
-                                title={ui.sectionFlashcards}
-                                description={ui.sectionFlashcardsDesc}
-                                to={`/learn/${langId}/flashcards`}
-                                badge={dueCount > 0 ? dueCount : undefined}
-                            />
-                            <SectionCard
-                                emoji="🔡"
-                                title={ui.sectionVerbDrill}
-                                description={ui.sectionVerbDrillDesc}
-                                to={`/learn/${langId}/verb-drill`}
-                            />
-                            <SectionCard
-                                emoji="✏️"
-                                title={ui.sectionGrammarDrill}
-                                description={ui.sectionGrammarDrillDesc}
-                                to={`/learn/${langId}/grammar-drill`}
-                            />
-                            <SectionCard
-                                emoji="🔀"
-                                title="Sentence Scramble"
-                                description="Put shuffled words back in the right order"
-                                to={`/learn/${langId}/exercise/sentence-scramble`}
-                            />
-                            <SectionCard
-                                emoji="🎯"
-                                title="Vocab Matching"
-                                description="Match words with their translations"
-                                to={`/learn/${langId}/exercise/vocab-matching`}
-                            />
-                            <SectionCard
-                                emoji="📖"
-                                title="Cloze"
-                                description="Fill in the missing word from a passage"
-                                to={`/learn/${langId}/exercise/cloze`}
-                            />
-                            <SectionCard
-                                emoji="🎧"
-                                title="Dictation"
-                                description="Listen and type what you hear"
-                                to={`/learn/${langId}/exercise/dictation`}
-                            />
-                            {language?.script !== "latin" && (
-                                <SectionCard
-                                    emoji="🈳"
-                                    title="Script Reading"
-                                    description="Identify the correct reading of a word"
-                                    to={`/learn/${langId}/exercise/script-reading`}
-                                />
-                            )}
-                            <SectionCard
-                                emoji="💬"
-                                title="Dialogue Completion"
-                                description="Choose the missing line in a conversation"
-                                to={`/learn/${langId}/exercise/dialogue-completion`}
-                            />
-                            <SectionCard
-                                emoji="🔍"
-                                title="Vocab in Context"
-                                description="Guess a word's meaning from a passage"
-                                to={`/learn/${langId}/exercise/vocab-in-context`}
-                            />
-                            <SectionCard
-                                emoji="🔧"
-                                title="Error Correction"
-                                description="Find and fix the grammar mistake"
-                                to={`/learn/${langId}/exercise/error-correction`}
-                            />
-                            <SectionCard
-                                emoji="🎤"
-                                title="Speaking"
-                                description="Hear a phrase, then say it aloud"
-                                to={`/learn/${langId}/exercise/speaking`}
-                            />
-                        </div>
-                    </TabsContent>
-
-                    {/* ── REVIEW ───────────────────────────────────────────── */}
-                    <TabsContent value="review" className="tab-fade">
-                        {dueCount > 0 ? (
-                            <div className="flex flex-col gap-4">
-                                <div className="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-2xl p-6">
-                                    <div className="flex items-center gap-4 mb-5">
-                                        <span className="text-4xl">🔁</span>
-                                        <div>
-                                            <h3 className="font-semibold text-gray-900 dark:text-white text-lg">
-                                                {dueCount} {dueCount === 1 ? "item" : "items"} due
-                                            </h3>
-                                            <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
-                                                Spaced repetition keeps your vocabulary fresh
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <Button
-                                        className="w-full"
-                                        onClick={() => navigate(`/learn/${langId}/review`)}
-                                    >
-                                        Start Review Session
-                                    </Button>
-                                </div>
-                                {breakDetection.daysSince > 1 && (
-                                    <p className="text-xs text-center text-gray-400 dark:text-gray-500">
-                                        Last session {breakDetection.daysSince} days ago — great time to review
-                                    </p>
-                                )}
-                            </div>
-                        ) : (
-                            <div className="text-center py-16 text-gray-400 dark:text-gray-500">
-                                <p className="text-4xl mb-3">✅</p>
-                                <p className="font-medium text-gray-700 dark:text-gray-300">All caught up!</p>
-                                <p className="text-sm mt-1">No vocabulary is due for review right now.</p>
-                                <p className="text-sm mt-1">Keep studying to build your review queue.</p>
-                            </div>
-                        )}
-                    </TabsContent>
-
-                    {/* ── STATS ────────────────────────────────────────────── */}
-                    <TabsContent value="stats" className="tab-fade">
-                        <StatsTab langId={langId} level={level} />
-                    </TabsContent>
-
-                    {/* ── TEST ─────────────────────────────────────────────── */}
-                    <TabsContent value="test" className="tab-fade">
-                        {canAdvance ? (() => {
-                            const nextLevel = CEFR_LEVELS[levelIndex + 1]
-                            const history14 = getHistory(statsData, langId, 14)
-                            const reviewed14 = history14.reduce((s, d) => s + d.reviewed, 0)
-                            const correct14 = history14.reduce((s, d) => s + d.correct, 0)
-                            const srsAcc = reviewed14 ? Math.round(correct14 / reviewed14 * 100) : 0
-                            return (
-                                <div className="flex flex-col gap-4">
-                                    {/* Hero */}
-                                    <div className="bg-gradient-to-br from-violet-600 to-violet-800 rounded-2xl p-6 text-white">
-                                        <p className="text-sm font-medium text-violet-200 mb-1">{level} → {nextLevel}</p>
-                                        <h2 className="text-2xl font-bold mb-0.5">Level test</h2>
-                                        <p className="text-violet-200 text-sm">15 questions · pass 12 to advance</p>
-                                    </div>
-                                    {/* Readiness */}
-                                    <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5">
-                                        <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wide mb-4">Readiness</p>
-                                        <div className="flex flex-col gap-3">
-                                            {[
-                                                { label: "Grammar covered",    done: grammar.done, total: grammar.total, suffix: "" },
-                                                { label: "Vocabulary learned",  done: vocab.done,   total: vocab.total,   suffix: "" },
-                                                { label: "Flashcard accuracy",  done: srsAcc,       total: 100,           suffix: "%" },
-                                            ].map(r => (
-                                                <div key={r.label} className="flex items-center gap-3">
-                                                    <span className="text-sm text-gray-600 dark:text-gray-400 flex-1">{r.label}</span>
-                                                    <Progress
-                                                        value={r.total ? r.done / r.total * 100 : 0}
-                                                        className="w-28 h-2"
-                                                        aria-label={`${r.label}: ${r.suffix ? `${r.done}${r.suffix}` : `${r.done} of ${r.total}`}`}
-                                                    />
-                                                    <span className="text-xs text-gray-500 dark:text-gray-400 w-14 text-right shrink-0">
-                                                        {r.suffix ? `${r.done}${r.suffix}` : `${r.done}/${r.total}`}
-                                                    </span>
-                                                </div>
-                                            ))}
-                                        </div>
-                                        <Button
-                                            onClick={() => navigate(`/learn/${langId}/level-test`)}
-                                            className="mt-5 w-full bg-violet-600 hover:bg-violet-700 rounded-xl py-3 text-sm font-semibold"
-                                        >
-                                            Start level test →
-                                        </Button>
-                                    </div>
-                                    {/* Tip */}
-                                    <Alert className="border-amber-200 bg-amber-50 text-amber-800">
-                                        <AlertDescription className="flex gap-3">
-                                            <span className="text-amber-500 shrink-0">💡</span>
-                                            <span>
-                                                You can take the test at any time — but covering more units first improves your chances.
-                                                You need 12/15 (80%) to advance to {nextLevel}.
-                                            </span>
-                                        </AlertDescription>
-                                    </Alert>
-                                </div>
-                            )
-                        })() : (
-                            <div className="flex flex-col items-center text-center py-16 gap-4 text-gray-400 dark:text-gray-500">
-                                <p className="text-4xl">🏆</p>
-                                <p className="font-medium text-gray-700 dark:text-gray-300">You've reached the highest level!</p>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">Keep your skills sharp with daily practice.</p>
-                                <Button
-                                    onClick={() => switchTab("practice")}
-                                    className="mt-2 rounded-xl px-6 text-sm font-semibold"
-                                >
-                                    Go to Practice
-                                </Button>
-                            </div>
-                        )}
-                    </TabsContent>
-                </Tabs>
+                    </div>
             </main>
         </div>
     )

@@ -255,6 +255,10 @@ export interface LessonUnit {
      * Optional during migration — units without tags are shown to all learners.
      */
     topicTags?: TopicTag[]
+    /** Phrase lesson IDs shown before grammar in redesigned A1 curricula. */
+    phraseLessonIds?: string[]
+    /** Checkpoint ID this unit closes — must be completed before next block unlocks. */
+    checkpointId?: string
 }
 
 // ---------------------------------------------------------------------------
