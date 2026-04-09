@@ -325,8 +325,7 @@ export function ProfilePage() {
                         {/* Warning */}
                         <Alert className="border-0 border-b border-amber-100 rounded-none bg-amber-50 text-amber-800 px-5 py-4">
                             <AlertDescription>
-                                Your progress is saved on this device only. Clearing your browser
-                                data or switching devices will lose it. Export a backup to keep it safe.
+                                Export a backup to keep your progress safe across devices.
                             </AlertDescription>
                         </Alert>
                         {/* Export button */}

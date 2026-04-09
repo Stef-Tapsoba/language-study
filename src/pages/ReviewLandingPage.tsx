@@ -1,4 +1,4 @@
-// pages/ReviewLandingPage.tsx — Review hub at /learn/:langId/review-hub
+// pages/ReviewLandingPage.tsx — Review hub at /learn/:langId/review
 // Rendered inside AppLayout (sidebar/bottom nav provided — no NavBar here).
 // Shows due item count and launches the full-screen SRS session.
 
@@ -68,7 +68,7 @@ export function ReviewLandingPage() {
 
                 {hasDue && (
                     <button
-                        onClick={() => navigate(`/learn/${langId}/review`)}
+                        onClick={() => navigate(`/learn/${langId}/review/session`)}
                         className="w-full py-2.5 rounded-xl bg-grammar text-surface-card text-sm font-semibold hover:opacity-90 transition-opacity"
                     >
                         Start review session

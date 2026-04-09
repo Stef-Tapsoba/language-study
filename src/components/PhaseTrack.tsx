@@ -66,6 +66,8 @@ function DetailTrack({
                 return (
                     <Tag
                         key={phase.label}
+                        // type="button" prevents accidental form submission when nested in a form
+                        {...(onPhaseClick ? { type: "button" as const } : {})}
                         onClick={onPhaseClick ? () => onPhaseClick(i) : undefined}
                         className={[
                             "flex-1 flex flex-col gap-0.5 px-2.5 py-2 rounded-xl border-hairline border",
@@ -111,6 +113,20 @@ import type { UnitReinforcementState } from "../types"
  * Derives the 4-phase state array for a given unit from progress data.
  * Used by UnitCard (home screen) and UnitPage (detail).
  */
+// ── Phase computation helpers ─────────────────────────────────────────────────
+
+function phaseStatus(done: boolean, active: boolean): PhaseStatus {
+    if (done)   return "done"
+    if (active) return "active"
+    return "locked"
+}
+
+function progressDetail(done: boolean, count: number, total: number): string {
+    if (done)  return "Done"
+    if (total) return `${count} / ${total}`
+    return "—"
+}
+
 export function computeUnitPhases(
     unit: LessonUnit,
     completed: ReadonlySet<string>,
@@ -124,40 +140,41 @@ export function computeUnitPhases(
     const grammarRead = !hasGrammar || unit.grammarIds.every(id => completed.has(id))
     const grammarEx   = !hasGrammar || reinforcement.grammarLessonIds.length >= unit.grammarIds.length
     const grammarDone = grammarRead && grammarEx
-
-    const vocabDone  = !hasVocab  || reinforcement.vocab === true
-    const verbsDone  = !hasVerbs  || reinforcement.verbs === true
+    // Phases with no content are treated as done (nothing to complete)
+    const vocabDone  = !hasVocab || reinforcement.vocab === true
+    const verbsDone  = !hasVerbs || reinforcement.verbs === true
     const testDone   = mastered.includes(unit.id)
 
-    // Active = previous phases done, this one not
     const grammarActive = !grammarDone
-    const vocabActive   = grammarDone && !vocabDone && hasVocab
-    const verbsActive   = grammarDone && vocabDone  && !verbsDone && hasVerbs
-    const testActive    = grammarDone && vocabDone  && verbsDone  && !testDone
+    const vocabActive   = grammarDone && !vocabDone
+    const verbsActive   = grammarDone && vocabDone && !verbsDone
+    const testActive    = grammarDone && vocabDone && verbsDone && !testDone
 
     const grammarDoneCount = unit.grammarIds.filter(id => completed.has(id)).length
     const vocabDoneCount   = unit.vocabIds.filter(id => completed.has(id)).length
+    const verbsDetail = verbsDone ? "Done" : verbsActive ? "In progress" : "—"
+    const testDetail  = testDone  ? "Done" : testActive  ? "Ready"       : "—"
 
     return [
         {
             label: "Grammar",
-            status: grammarDone ? "done" : grammarActive ? "active" : "locked",
-            detail: grammarDone ? "Done" : hasGrammar ? `${grammarDoneCount} / ${unit.grammarIds.length}` : "—",
+            status: phaseStatus(grammarDone, grammarActive),
+            detail: progressDetail(grammarDone, grammarDoneCount, unit.grammarIds.length),
         },
         {
             label: "Vocab",
-            status: !hasVocab ? "locked" : vocabDone ? "done" : vocabActive ? "active" : "locked",
-            detail: !hasVocab ? "—" : vocabDone ? "Done" : `${vocabDoneCount} / ${unit.vocabIds.length}`,
+            status: phaseStatus(vocabDone, vocabActive),
+            detail: hasVocab ? progressDetail(vocabDone, vocabDoneCount, unit.vocabIds.length) : "—",
         },
         {
             label: "Verbs",
-            status: !hasVerbs ? "locked" : verbsDone ? "done" : verbsActive ? "active" : "locked",
-            detail: !hasVerbs ? "—" : verbsDone ? "Done" : verbsActive ? "In progress" : "—",
+            status: phaseStatus(verbsDone, verbsActive),
+            detail: hasVerbs ? verbsDetail : "—",
         },
         {
             label: "Test",
-            status: testDone ? "done" : testActive ? "active" : "locked",
-            detail: testDone ? "Done" : testActive ? "Ready" : "—",
+            status: phaseStatus(testDone, testActive),
+            detail: testDetail,
         },
     ]
 }
