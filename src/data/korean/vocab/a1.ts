@@ -20,7 +20,7 @@ export const a1Vocab: VocabItem[] = [
     { id: "ko-v-a1-s4", level: "A1", word: "여우", romanized: "yeo-u", translation: "fox", category: "Script Practice", example: { native: "여우예요.", romanized: "Yeouiyeyo.", translation: "It's a fox." } },
     { id: "ko-v-a1-s5", level: "A1", word: "아야", romanized: "a-ya", translation: "Ouch!", category: "Script Practice", example: { native: "아야! 아파요.", romanized: "Aya! Apayo.", translation: "Ouch! It hurts." } },
     { id: "ko-v-a1-s6", level: "A1", word: "이유", romanized: "i-yu", translation: "reason", category: "Script Practice", example: { native: "이유가 있어요.", romanized: "Iyuga isseoyo.", translation: "There is a reason." } },
-    { id: "ko-v-a1-s7", level: "A1", word: "아우", romanized: "a-u", translation: "younger sibling (archaic)", category: "Script Practice", example: { native: "아우가 있어요.", romanized: "Auga isseoyo.", translation: "I have a younger sibling." } },
+    { id: "ko-v-a1-s7", level: "A1", word: "요요", romanized: "yo-yo", translation: "yo-yo (toy)", category: "Script Practice", example: { native: "요요예요.", romanized: "Yoyoyeyo.", translation: "It's a yo-yo." } },
     { id: "ko-v-a1-s8", level: "A1", word: "유아", romanized: "yu-a", translation: "infant / toddler", category: "Script Practice", example: { native: "유아예요.", romanized: "Yuayeyo.", translation: "They're a toddler." } },
 
     // ── BLOCK 0 / U2 — Consonant + simple vowel practice (s9–s16) ────────────
