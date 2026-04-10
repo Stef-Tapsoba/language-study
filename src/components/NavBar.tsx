@@ -113,7 +113,7 @@ export function NavBar({ title = "Language Study", level, backTo, fallbackRoute,
     }
 
     return (
-        <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-10">
+        <nav className="bg-surface-card border-b border-border-subtle sticky top-0 z-10">
             <div className="max-w-3xl mx-auto px-4 md:px-6 pl-[max(1rem,env(safe-area-inset-left))] pr-[max(1rem,env(safe-area-inset-right))] h-14 flex items-center gap-2">
 
                 {/* Back button */}
@@ -124,21 +124,21 @@ export function NavBar({ title = "Language Study", level, backTo, fallbackRoute,
                         onClick={handleBack}
                         aria-label="Go back"
                         data-testid="nav-back"
-                        className="-ml-2 mr-0 text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
+                        className="-ml-2 mr-0 text-text-sec hover:text-text-pri"
                     >
                         <BackIcon />
                     </Button>
                 )}
 
                 {/* Title */}
-                <span className="font-semibold text-gray-900 dark:text-gray-100 flex-1 truncate">{title}</span>
+                <span className="font-semibold text-text-pri flex-1 truncate">{title}</span>
 
                 {showLanguagePicker && <LanguagePicker />}
                 {level && <LevelBadge level={level} />}
 
                 {/* Streak chip */}
                 {streak > 0 && (
-                    <span className={`flex text-xs font-semibold text-orange-500 bg-orange-50 dark:bg-orange-900/20 rounded-full px-2 py-0.5 shrink-0 ${streakBumped ? "animate-bounce" : ""}`}>
+                    <span className={`flex text-xs font-semibold text-streak bg-streak-surface border border-streak-border rounded-full px-2 py-0.5 shrink-0 ${streakBumped ? "animate-bounce" : ""}`}>
                         🔥 {streak}d
                     </span>
                 )}
@@ -152,7 +152,7 @@ export function NavBar({ title = "Language Study", level, backTo, fallbackRoute,
                                 size="icon"
                                 onClick={toggleDark}
                                 aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
-                                className="text-gray-400 hover:text-gray-700 dark:text-gray-500 dark:hover:text-gray-300"
+                                className="text-text-ter hover:text-text-pri"
                             >
                                 {dark ? <SunIcon /> : <MoonIcon />}
                             </Button>
@@ -165,7 +165,7 @@ export function NavBar({ title = "Language Study", level, backTo, fallbackRoute,
                                 variant="ghost"
                                 size="icon"
                                 asChild
-                                className="text-gray-400 hover:text-gray-700 dark:text-gray-500 dark:hover:text-gray-300"
+                                className="text-text-ter hover:text-text-pri"
                             >
                                 <Link to="/profile" aria-label="View profile">
                                     <ProfileIcon />
@@ -184,7 +184,7 @@ export function NavBar({ title = "Language Study", level, backTo, fallbackRoute,
                                 variant="ghost"
                                 size="icon"
                                 aria-label="Open menu"
-                                className="text-gray-400 hover:text-gray-700 dark:text-gray-500 dark:hover:text-gray-300"
+                                className="text-text-ter hover:text-text-pri"
                             >
                                 <MenuIcon />
                             </Button>
@@ -193,14 +193,14 @@ export function NavBar({ title = "Language Study", level, backTo, fallbackRoute,
                             <div className="flex flex-col py-4">
                                 <button
                                     onClick={toggleDark}
-                                    className="flex items-center gap-3 px-5 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors text-left"
+                                    className="flex items-center gap-3 px-5 py-3 text-sm text-text-sec hover:bg-surface-inset transition-colors text-left"
                                 >
                                     {dark ? <SunIcon /> : <MoonIcon />}
                                     {dark ? "Light mode" : "Dark mode"}
                                 </button>
                                 <Link
                                     to="/profile"
-                                    className="flex items-center gap-3 px-5 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                                    className="flex items-center gap-3 px-5 py-3 text-sm text-text-sec hover:bg-surface-inset transition-colors"
                                 >
                                     <ProfileIcon size={16} />
                                     Profile
@@ -212,7 +212,7 @@ export function NavBar({ title = "Language Study", level, backTo, fallbackRoute,
 
             </div>
             {breadcrumb && (
-                <div className="max-w-3xl mx-auto px-4 md:px-6 pl-[max(1rem,env(safe-area-inset-left))] pr-[max(1rem,env(safe-area-inset-right))] pb-1.5">
+                <div className="max-w-3xl mx-auto px-4 md:px-6 pl-[max(1rem,env(safe-area-inset-left))] pr-[max(1rem,env(safe-area-inset-right))] pb-1.5 overflow-hidden">
                     <Breadcrumb>
                         <BreadcrumbList>
                             {breadcrumb.split(" › ").map((segment, i, arr) => (

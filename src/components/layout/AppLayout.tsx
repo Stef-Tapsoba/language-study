@@ -407,7 +407,7 @@ export function AppLayout() {
                                     aria-current={active ? "page" : undefined}
                                 >
                                     <Icon size={18} />
-                                    <span className="text-[9px] font-medium tracking-wide uppercase leading-none">{item.label}</span>
+                                    <span className="text-[11px] font-medium tracking-wide uppercase leading-none">{item.label}</span>
                                     {active && <div className="w-1 h-1 rounded-full bg-grammar" />}
                                 </Link>
                             )
