@@ -42,7 +42,7 @@ interface NavItem {
 }
 
 // Desktop sidebar: Home / Study / Practice / Review / Path / Stats (6)
-// Mobile bottom nav: Home / Study / Practice / Review / Profile (5)
+// Mobile bottom nav: Home / Study / Practice / Review / Path / Profile (6)
 const NAV_ITEMS: NavItem[] = [
     {
         id: "home",

@@ -19,9 +19,9 @@
 export function isUnitUnlocked(
     unitId: string,
     allUnits: { id: string; order: number; checkpointId?: string }[],
-    masteredIds: string[],
+    masteredIds: readonly string[],
     /** Lang-scoped completed checkpoint IDs. When omitted, checkpoint gates are skipped. */
-    completedCheckpoints?: string[]
+    completedCheckpoints?: readonly string[]
 ): boolean {
     const sorted = [...allUnits].sort((a, b) => a.order - b.order)
     const idx = sorted.findIndex(u => u.id === unitId)

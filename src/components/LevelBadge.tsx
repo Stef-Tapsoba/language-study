@@ -10,7 +10,7 @@ const colours: Record<CEFRLevel, string> = {
     C1: "bg-orange-100 text-orange-800",
 }
 
-const levelNames: Record<CEFRLevel, string> = {
+export const levelNames: Record<CEFRLevel, string> = {
     A1: "Beginner",
     A2: "Elementary",
     B1: "Intermediate",

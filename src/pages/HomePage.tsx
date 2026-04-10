@@ -19,7 +19,7 @@ import { useProgress } from "../context/ProgressContext"
 import { useStatsStore, getTotalReviews } from "../store/useStatsStore"
 import { isUnitUnlocked } from "../store/progressUtils"
 import { Flag } from "../components/Flag"
-import { LevelBadge } from "../components/LevelBadge"
+import { LevelBadge, levelNames } from "../components/LevelBadge"
 import { PhaseTrack, computeUnitPhases } from "../components/PhaseTrack"
 import { CheckpointStrip } from "../components/CheckpointStrip"
 import { QuickPracticeCard } from "../components/QuickPracticeCard"
@@ -44,10 +44,26 @@ function checkpointSubtitle(unitsUntil: number | null): string {
     return `${unitsUntil ?? 0} units away`
 }
 
-const LEVEL_LABEL: Record<CEFRLevel, string> = {
-    A1: "Beginner", A2: "Elementary",
-    B1: "Intermediate", B2: "Upper Intermediate", C1: "Advanced",
-}
+
+// ─── Practice icon SVGs (shared between desktop sidebar and mobile row) ──────
+
+const FlashcardsIcon = () => (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <rect x="2" y="3" width="5" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.3" className="text-verbs" />
+        <rect x="9" y="3" width="5" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.3" className="text-verbs" />
+    </svg>
+)
+const VerbDrillIcon = () => (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M3 5h10M3 8h7M3 11h5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" className="text-listening" />
+    </svg>
+)
+const GrammarDrillIcon = () => (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <circle cx="8" cy="8" r="5" stroke="currentColor" strokeWidth="1.3" className="text-reading" />
+        <path d="M6 8l1.5 1.5L10 6" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" className="text-reading" />
+    </svg>
+)
 
 /** Groups level units into checkpoint blocks using the gate-unit pattern. */
 function computeBlocks(levelUnits: LessonUnit[], checkpoints: Checkpoint[]) {
@@ -186,7 +202,7 @@ function UpcomingUnits({ langId, currentUnit, levelUnits, mastered, completedChe
             </p>
             <div className="flex flex-col divide-y divide-border-subtle">
                 {after.map(unit => {
-                    const unlocked = isUnitUnlocked(unit.id, levelUnits, [...mastered], [...completedCheckpoints])
+                    const unlocked = isUnitUnlocked(unit.id, levelUnits, mastered, completedCheckpoints)
                     const done = mastered.includes(unit.id)
                     let badgeCls = "bg-border-default text-text-ter"
                     if (done)    badgeCls = "bg-grammar text-white"
@@ -344,7 +360,7 @@ function SidebarPanel({
                 <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
                         <LevelBadge level={level} />
-                        <span className="text-xs text-text-sec">{LEVEL_LABEL[level]}</span>
+                        <span className="text-xs text-text-sec">{levelNames[level]}</span>
                     </div>
                     <span className="text-xs text-text-ter tabular-nums">{masteredCount} / {totalUnits} units</span>
                 </div>
@@ -380,10 +396,7 @@ function SidebarPanel({
                 <div className="flex flex-col divide-y divide-border-subtle">
                     <Link to={`/learn/${langId}/flashcards`} className="flex items-center gap-3 px-4 py-3 hover:bg-surface-elevated transition-colors">
                         <div className="w-8 h-8 bg-verbs-surface rounded-lg flex items-center justify-center shrink-0">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <rect x="2" y="3" width="5" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.3" className="text-verbs" />
-                                <rect x="9" y="3" width="5" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.3" className="text-verbs" />
-                            </svg>
+                            <FlashcardsIcon />
                         </div>
                         <div className="flex-1 min-w-0">
                             <p className="text-sm font-medium text-text-pri">Flashcards</p>
@@ -393,9 +406,7 @@ function SidebarPanel({
                     </Link>
                     <Link to={`/learn/${langId}/verb-drill`} className="flex items-center gap-3 px-4 py-3 hover:bg-surface-elevated transition-colors">
                         <div className="w-8 h-8 bg-listening-surface rounded-lg flex items-center justify-center shrink-0">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M3 5h10M3 8h7M3 11h5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" className="text-listening" />
-                            </svg>
+                            <VerbDrillIcon />
                         </div>
                         <div className="flex-1 min-w-0">
                             <p className="text-sm font-medium text-text-pri">Verb drill</p>
@@ -405,10 +416,7 @@ function SidebarPanel({
                     </Link>
                     <Link to={`/learn/${langId}/grammar-drill`} className="flex items-center gap-3 px-4 py-3 hover:bg-surface-elevated transition-colors">
                         <div className="w-8 h-8 bg-reading-surface rounded-lg flex items-center justify-center shrink-0">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <circle cx="8" cy="8" r="5" stroke="currentColor" strokeWidth="1.3" className="text-reading" />
-                                <path d="M6 8l1.5 1.5L10 6" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" className="text-reading" />
-                            </svg>
+                            <GrammarDrillIcon />
                         </div>
                         <div className="flex-1 min-w-0">
                             <p className="text-sm font-medium text-text-pri">Grammar drill</p>
@@ -523,33 +531,19 @@ function ReturningHome({ firstName, langId }: Readonly<{ firstName: string; lang
                                 iconBg="bg-verbs-surface"
                                 badge={totalReviews > 0 ? `${totalReviews} due` : undefined}
                                 badgeColor="text-verbs"
-                                icon={
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                        <rect x="2" y="3" width="5" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.3" className="text-verbs" />
-                                        <rect x="9" y="3" width="5" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.3" className="text-verbs" />
-                                    </svg>
-                                }
+                                icon={<FlashcardsIcon />}
                             />
                             <QuickPracticeCard
                                 label="Verb drill"
                                 href={`/learn/${langId}/verb-drill`}
                                 iconBg="bg-listening-surface"
-                                icon={
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                        <path d="M3 5h10M3 8h7M3 11h5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" className="text-listening" />
-                                    </svg>
-                                }
+                                icon={<VerbDrillIcon />}
                             />
                             <QuickPracticeCard
                                 label="Grammar drill"
                                 href={`/learn/${langId}/grammar-drill`}
                                 iconBg="bg-reading-surface"
-                                icon={
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                        <circle cx="8" cy="8" r="5" stroke="currentColor" strokeWidth="1.3" className="text-reading" />
-                                        <path d="M6 8l1.5 1.5L10 6" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" className="text-reading" />
-                                    </svg>
-                                }
+                                icon={<GrammarDrillIcon />}
                             />
                         </div>
                     </div>
