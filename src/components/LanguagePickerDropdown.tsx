@@ -4,16 +4,82 @@
 // the user's enrolled languages. Selecting one switches the active language and
 // navigates to its dashboard. "Add language" navigates to /languages.
 //
-// side="right"  — dropdown opens to the right of the trigger (sidebar use)
-// side="bottom" — dropdown opens below the trigger (mobile top bar use)
+// side="right"  — dropdown opens to the right of the trigger (sidebar use).
+//                 Rendered via createPortal so the sidebar's overflow:hidden
+//                 doesn't clip it.
+// side="bottom" — dropdown opens below the trigger (mobile top bar use).
 
-import { useState, useRef, useEffect, useMemo } from "react"
+import { useState, useRef, useEffect, useLayoutEffect, useMemo } from "react"
+import { createPortal } from "react-dom"
 import { useNavigate } from "react-router-dom"
 import { Plus } from "lucide-react"
 import { LANGUAGES } from "../data/languages"
 import { Flag } from "./Flag"
 import { useProgress } from "../context/ProgressContext"
 import { computeProgressStats } from "../hooks/useProgressStats"
+
+interface DropdownContentProps {
+    dropdownRef: React.RefObject<HTMLDivElement>
+    langStats: { id: string; lang: (typeof LANGUAGES)[number]; level: string; pct: number }[]
+    selectedLanguage: string | null
+    style?: React.CSSProperties
+    onSwitch: (langId: string) => void
+    onAdd: () => void
+}
+
+function DropdownContent({ dropdownRef, langStats, selectedLanguage, style, onSwitch, onAdd }: Readonly<DropdownContentProps>) {
+    return (
+        <div
+            ref={dropdownRef}
+            role="menu"
+            style={style}
+            className="min-w-[200px] bg-surface-card border-hairline border border-border-default rounded-2xl shadow-lg overflow-hidden"
+        >
+            <p className="text-[10px] font-semibold text-text-ter uppercase tracking-widest px-3 pt-3 pb-1">
+                Your courses
+            </p>
+            <div className="flex flex-col p-1">
+                {langStats.map(({ id: langId, lang, level, pct }) => {
+                    const active = langId === selectedLanguage
+                    return (
+                        <button
+                            key={langId}
+                            onClick={() => onSwitch(langId)}
+                            role="menuitem"
+                            className={`flex items-center gap-3 px-2 py-2 rounded-xl text-left transition-colors ${active ? "bg-grammar-surface" : "hover:bg-surface-inset"}`}
+                        >
+                            <div className="w-8 h-8 rounded-full bg-surface-inset flex items-center justify-center shrink-0 overflow-hidden">
+                                <Flag langId={langId} size="sm" />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                                <p className={`text-xs font-medium leading-tight truncate ${active ? "text-grammar" : "text-text-pri"}`}>
+                                    {lang.name}
+                                </p>
+                                <p className="text-[10px] text-text-sec leading-tight mt-0.5">
+                                    {level} · {pct}%
+                                </p>
+                                <div className="w-full bg-border-subtle rounded-full h-[2px] mt-1.5">
+                                    <div className="bg-grammar h-[2px] rounded-full transition-all" style={{ width: `${pct}%` }} />
+                                </div>
+                            </div>
+                            {active && <div className="w-1.5 h-1.5 rounded-full bg-grammar shrink-0" />}
+                        </button>
+                    )
+                })}
+                <button
+                    onClick={onAdd}
+                    role="menuitem"
+                    className="flex items-center gap-3 px-2 py-2 rounded-xl hover:bg-surface-inset transition-colors mt-0.5"
+                >
+                    <div className="w-8 h-8 rounded-full border-hairline border border-border-subtle flex items-center justify-center shrink-0">
+                        <Plus size={13} className="text-text-ter" />
+                    </div>
+                    <span className="text-xs text-text-sec">Add a language</span>
+                </button>
+            </div>
+        </div>
+    )
+}
 
 interface LanguagePickerDropdownProps {
     /** Render prop for the trigger — receives open state so it can style accordingly. */
@@ -29,7 +95,9 @@ export function LanguagePickerDropdown({
 }: Readonly<LanguagePickerDropdownProps>) {
     const navigate = useNavigate()
     const [open, setOpen] = useState(false)
-    const ref = useRef<HTMLDivElement>(null)
+    const wrapperRef = useRef<HTMLDivElement>(null)
+    const dropdownRef = useRef<HTMLDivElement>(null)
+    const [portalPos, setPortalPos] = useState<{ top: number; left: number } | null>(null)
 
     const {
         startedLanguages: started,
@@ -52,11 +120,20 @@ export function LanguagePickerDropdown({
     [started, selectedLanguage, getLevel, getCompleted, getMastered] // eslint-disable-line react-hooks/exhaustive-deps
     )
 
-    // Close on outside click
+    // When side="right", measure the trigger to position the portaled dropdown.
+    useLayoutEffect(() => {
+        if (!open || side !== "right" || !wrapperRef.current) return
+        const rect = wrapperRef.current.getBoundingClientRect()
+        setPortalPos({ top: rect.top, left: rect.right + 8 })
+    }, [open, side])
+
+    // Close on outside click — must check both wrapper and portaled dropdown.
     useEffect(() => {
         if (!open) return
         function handle(e: MouseEvent) {
-            if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false)
+            const inWrapper  = wrapperRef.current?.contains(e.target as Node)
+            const inDropdown = dropdownRef.current?.contains(e.target as Node)
+            if (!inWrapper && !inDropdown) setOpen(false)
         }
         document.addEventListener("mousedown", handle)
         return () => document.removeEventListener("mousedown", handle)
@@ -83,86 +160,22 @@ export function LanguagePickerDropdown({
         navigate("/languages")
     }
 
-    const positionCls = side === "right"
-        ? "left-full top-0 ml-2"
-        : "top-full left-0 mt-1"
+    const sharedProps = { dropdownRef, langStats: langStats as DropdownContentProps["langStats"], selectedLanguage, onSwitch: switchTo, onAdd: addLanguage }
 
     return (
-        <div ref={ref} className={`relative ${className}`}>
+        <div ref={wrapperRef} className={`relative ${className}`}>
             {trigger({ open, onClick: () => setOpen(v => !v) })}
 
-            {open && (
-                <div
-                    className={`
-                        absolute ${positionCls} z-50 min-w-[200px]
-                        bg-surface-card border-hairline border border-border-default
-                        rounded-2xl shadow-lg overflow-hidden
-                    `}
-                    role="menu"
-                >
-                    <p className="text-[10px] font-semibold text-text-ter uppercase tracking-widest px-3 pt-3 pb-1">
-                        Your courses
-                    </p>
+            {/* side="right" (sidebar): portal to document.body so <aside> overflow:hidden doesn't clip */}
+            {open && side === "right" && portalPos && createPortal(
+                <DropdownContent {...sharedProps} style={{ position: "fixed", top: portalPos.top, left: portalPos.left, zIndex: 50 }} />,
+                document.body
+            )}
 
-                    <div className="flex flex-col p-1">
-                        {langStats.map(({ id: langId, lang: langObj, level, pct }) => {
-                            const lang = langObj!
-                            const active = langId === selectedLanguage
-
-                            return (
-                                <button
-                                    key={langId}
-                                    onClick={() => switchTo(langId)}
-                                    role="menuitem"
-                                    className={`
-                                        flex items-center gap-3 px-2 py-2 rounded-xl text-left
-                                        transition-colors
-                                        ${active
-                                            ? "bg-grammar-surface"
-                                            : "hover:bg-surface-inset"
-                                        }
-                                    `}
-                                >
-                                    {/* Circular flag container matching mockup */}
-                                    <div className="w-8 h-8 rounded-full bg-surface-inset flex items-center justify-center shrink-0 overflow-hidden">
-                                        <Flag langId={langId} size="sm" />
-                                    </div>
-
-                                    <div className="flex-1 min-w-0">
-                                        <p className={`text-xs font-medium leading-tight truncate ${active ? "text-grammar" : "text-text-pri"}`}>
-                                            {lang.name}
-                                        </p>
-                                        <p className="text-[10px] text-text-sec leading-tight mt-0.5">
-                                            {level} · {pct}%
-                                        </p>
-                                        {/* Progress bar */}
-                                        <div className="w-full bg-border-subtle rounded-full h-[2px] mt-1.5">
-                                            <div
-                                                className="bg-grammar h-[2px] rounded-full transition-all"
-                                                style={{ width: `${pct}%` }}
-                                            />
-                                        </div>
-                                    </div>
-
-                                    {active && (
-                                        <div className="w-1.5 h-1.5 rounded-full bg-grammar shrink-0" />
-                                    )}
-                                </button>
-                            )
-                        })}
-
-                        {/* Add language */}
-                        <button
-                            onClick={addLanguage}
-                            role="menuitem"
-                            className="flex items-center gap-3 px-2 py-2 rounded-xl hover:bg-surface-inset transition-colors mt-0.5"
-                        >
-                            <div className="w-8 h-8 rounded-full border-hairline border border-border-subtle flex items-center justify-center shrink-0">
-                                <Plus size={13} className="text-text-ter" />
-                            </div>
-                            <span className="text-xs text-text-sec">Add a language</span>
-                        </button>
-                    </div>
+            {/* side="bottom" (mobile top bar): inline absolute, no clipping issue here */}
+            {open && side === "bottom" && (
+                <div className="absolute top-full left-0 mt-1 z-50">
+                    <DropdownContent {...sharedProps} />
                 </div>
             )}
         </div>
