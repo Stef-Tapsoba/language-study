@@ -6,7 +6,7 @@ import { getModule } from "../data/modules"
 import { getUnitsForLevel, getUnitsForGoal } from "../data/repo"
 import { isUnitUnlocked } from "../store/progressUtils"
 import { DEBUG } from "../auth/debugSession"
-import { isOnboardingVisible, dismissOnboarding, getGoal } from "../store/preferences"
+import { isOnboardingVisible, dismissOnboarding, getGoal, getNewLevel, clearNewLevel } from "../store/preferences"
 import { useBreakDetection } from "../hooks/useBreakDetection"
 import { ReviewPromptCard } from "../components/ReviewPromptCard"
 import { HydrationErrorBanner } from "../components/HydrationErrorBanner"
@@ -220,6 +220,11 @@ export function DashboardPage() {
 
     const breakDetection = useBreakDetection(langId)
     const [showOnboarding, setShowOnboarding] = useState(() => isOnboardingVisible(langId))
+    const [welcomeLevel, setWelcomeLevel] = useState<string | null>(() => {
+        const nl = getNewLevel(langId)
+        if (nl) { clearNewLevel(langId); return nl }
+        return null
+    })
 
     function handleDismissOnboarding() {
         dismissOnboarding(langId)
@@ -281,6 +286,48 @@ export function DashboardPage() {
                         </Button>
                     </div>
                 </div>
+
+                {/* Level-up welcome banner — shown once after advancing to a new level */}
+                {welcomeLevel && (
+                    <div className="bg-grammar-surface border border-grammar-border rounded-2xl p-4 mb-5 flex gap-4 items-start">
+                        <span className="text-2xl shrink-0">🎉</span>
+                        <div className="flex-1 min-w-0">
+                            <p className="font-semibold text-text-pri text-sm">Welcome to {welcomeLevel}!</p>
+                            <p className="text-xs text-text-sec mt-0.5">
+                                Your path has been updated with new units. Keep up the momentum.
+                            </p>
+                        </div>
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={() => setWelcomeLevel(null)}
+                            aria-label="Dismiss"
+                            className="w-7 h-7 shrink-0 text-grammar hover:text-grammar"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </Button>
+                    </div>
+                )}
+
+                {/* Level-complete banner — shown when all units are mastered and advancement is available */}
+                {masteredCount === levelUnits.length && levelUnits.length > 0 && canAdvance && (
+                    <div className="rounded-2xl border border-grammar-border bg-grammar-surface p-4 mb-5 flex items-center gap-4">
+                        <span className="text-2xl shrink-0">🏆</span>
+                        <div className="flex-1 min-w-0">
+                            <p className="font-semibold text-text-pri text-sm">All {level} units complete</p>
+                            <p className="text-xs text-text-sec mt-0.5">You're ready to take the level test and advance.</p>
+                        </div>
+                        <Button
+                            size="sm"
+                            onClick={() => navigate(`/learn/${langId}/level-test`)}
+                            className="shrink-0 rounded-xl"
+                        >
+                            Level test →
+                        </Button>
+                    </div>
+                )}
 
                 {/* First-visit onboarding card */}
                 {showOnboarding && (
