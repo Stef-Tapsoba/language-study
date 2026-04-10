@@ -201,7 +201,7 @@ export default function VocabMatchingPage({ items, langId, level, config, onComp
         const pct = totalItems > 0 ? Math.round((totalScore / totalItems) * 100) : 0
         return (
             <div className="min-h-screen bg-surface-app">
-                <NavBar title="Vocab Matching" level={level} backTo={`/learn/${langId}`} />
+                <NavBar title="Vocab Matching" level={level} backTo="back" fallbackRoute={`/learn/${langId}`} />
                 <main className="max-w-sm mx-auto px-4 py-12 flex flex-col items-center gap-6 text-center">
                     <div className="text-5xl">{pct >= 70 ? "🏆" : "💪"}</div>
                     <h2 className="text-2xl font-bold text-text-pri">{ui.drillComplete}</h2>
@@ -231,7 +231,7 @@ export default function VocabMatchingPage({ items, langId, level, config, onComp
 
     return (
         <div className="min-h-screen bg-surface-app">
-            <NavBar title="Vocab Matching" level={level} backTo={`/learn/${langId}`} />
+            <NavBar title="Vocab Matching" level={level} backTo="back" fallbackRoute={`/learn/${langId}`} />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col gap-6">
                 {/* Header */}
                 <div className="flex items-center justify-between text-sm text-text-sec">

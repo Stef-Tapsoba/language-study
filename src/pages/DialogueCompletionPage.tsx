@@ -104,7 +104,7 @@ export default function DialogueCompletionPage({ items, langId, level, config: _
     if (questions.length === 0) {
         return (
             <div className="min-h-screen bg-surface-app">
-                <NavBar title="Dialogue Completion" level={level} backTo={`/learn/${langId}`} />
+                <NavBar title="Dialogue Completion" level={level} backTo="back" fallbackRoute={`/learn/${langId}`} />
                 <div className="flex flex-col items-center justify-center py-24 text-text-ter px-4 text-center">
                     <p className="text-4xl mb-3">🚧</p>
                     <p className="font-medium">No dialogue passages at {level} yet</p>
@@ -122,7 +122,7 @@ export default function DialogueCompletionPage({ items, langId, level, config: _
                 navTitle="Dialogue Completion"
                 ui={ui}
                 onRestart={handleRestart}
-                backTo={`/learn/${langId}`}
+                backTo="back" fallbackRoute={`/learn/${langId}`}
                 missed={missed}
             />
         )
@@ -160,7 +160,7 @@ export default function DialogueCompletionPage({ items, langId, level, config: _
 
     return (
         <div className="min-h-screen bg-surface-app">
-            <NavBar title="Dialogue Completion" level={level} backTo={`/learn/${langId}`} />
+            <NavBar title="Dialogue Completion" level={level} backTo="back" fallbackRoute={`/learn/${langId}`} />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col items-center gap-6">
                 {/* Progress */}
                 <div className="w-full flex items-center justify-between text-sm text-text-sec">

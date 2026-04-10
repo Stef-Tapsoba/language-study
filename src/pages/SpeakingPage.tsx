@@ -145,7 +145,7 @@ export default function SpeakingPage({
     if (questions.length === 0) {
         return (
             <div className="min-h-screen bg-surface-app">
-                <NavBar title="Speaking" level={level} backTo={`/learn/${langId}`} />
+                <NavBar title="Speaking" level={level} backTo="back" fallbackRoute={`/learn/${langId}`} />
                 <div className="flex flex-col items-center justify-center py-24 text-text-ter">
                     <p className="text-4xl mb-3">🚧</p>
                     <p className="font-medium">No speaking exercises at {level} yet</p>
@@ -163,7 +163,7 @@ export default function SpeakingPage({
                 navTitle="Speaking"
                 ui={ui}
                 onRestart={handleRestart}
-                backTo={`/learn/${langId}`}
+                backTo="back" fallbackRoute={`/learn/${langId}`}
                 missed={missed}
             />
         )
@@ -176,7 +176,7 @@ export default function SpeakingPage({
 
     return (
         <div className="min-h-screen bg-surface-app">
-            <NavBar title="Speaking" level={level} backTo={`/learn/${langId}`} />
+            <NavBar title="Speaking" level={level} backTo="back" fallbackRoute={`/learn/${langId}`} />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col gap-6">
 
                 {/* Progress counter + segment bar */}

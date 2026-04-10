@@ -21,20 +21,22 @@ interface DrillDoneScreenProps {
     ui: UIStrings
     onRestart: () => void
     missed?: MissedReviewItem[]
-    /** Where the back button should navigate. Pass `/learn/${langId}` from the caller. */
+    /** Where the back button should navigate. Use "back" for browser-history semantics. */
     backTo?: string
+    /** Fallback route when backTo="back" and history is shallow. */
+    fallbackRoute?: string
     /** Optional contextual encouragement message shown below the score panel. */
     encouragement?: string
 }
 
 
-export function DrillDoneScreen({ score, total, level, navTitle, ui, onRestart, missed = [], backTo = "/home", encouragement }: Readonly<DrillDoneScreenProps>) {
+export function DrillDoneScreen({ score, total, level, navTitle, ui, onRestart, missed = [], backTo = "/home", fallbackRoute, encouragement }: Readonly<DrillDoneScreenProps>) {
     const pct = Math.round((score / total) * 100)
     const message = encouragement ?? adaptiveMessage(pct)
 
     return (
         <div className="min-h-screen bg-surface-app">
-            <NavBar title={navTitle} level={level} backTo={backTo} />
+            <NavBar title={navTitle} level={level} backTo={backTo} fallbackRoute={fallbackRoute} />
             <main className="max-w-sm mx-auto px-4 py-12 flex flex-col items-center gap-6 text-center">
                 <div className="text-5xl">{pct >= 70 ? "🏆" : "💪"}</div>
                 <h2 className="text-2xl font-bold text-text-pri">{ui.drillComplete}</h2>

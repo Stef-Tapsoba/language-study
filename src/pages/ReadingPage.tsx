@@ -303,7 +303,7 @@ export function ReadingPage() {
             <NavBar
                 title={selectedPassage ? selectedPassage.title : ui.sectionReading}
                 level={level}
-                backTo={`/learn/${langId}`}
+                backTo="back" fallbackRoute={`/learn/${langId}`}
                 onBack={handleBack}
             />
             <main className="max-w-xl mx-auto px-4 py-6">

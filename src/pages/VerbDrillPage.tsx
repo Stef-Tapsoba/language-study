@@ -94,7 +94,7 @@ export function VerbDrillPage() {
         const prevLevel = prevLevelMap[level] ?? null
         return (
             <div className="min-h-screen bg-surface-app">
-                <NavBar title={ui.sectionVerbDrill} level={level} backTo={`/learn/${langId}`} />
+                <NavBar title={ui.sectionVerbDrill} level={level} backTo="back" fallbackRoute={`/learn/${langId}`} />
                 <div className="flex flex-col items-center justify-center py-24 text-text-ter px-4 text-center">
                     <p className="text-4xl mb-3">🚧</p>
                     <p className="font-medium text-text-sec mb-1">
@@ -134,7 +134,7 @@ export function VerbDrillPage() {
                 navTitle={ui.sectionVerbDrill}
                 ui={ui}
                 onRestart={drill.restart}
-                backTo={`/learn/${langId}`}
+                backTo="back" fallbackRoute={`/learn/${langId}`}
                 encouragement={encouragement}
                 missed={drill.missed.map(m => ({
                     prompt: `${m.question.verb.infinitive} — ${m.question.tense} — ${m.question.pronoun}`,
@@ -149,7 +149,7 @@ export function VerbDrillPage() {
 
     return (
         <div className="min-h-screen bg-surface-app">
-            <NavBar title={ui.sectionVerbDrill} level={level} backTo={`/learn/${langId}`} />
+            <NavBar title={ui.sectionVerbDrill} level={level} backTo="back" fallbackRoute={`/learn/${langId}`} />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col items-center gap-6">
                 <div className="w-full flex items-center justify-between text-sm text-text-sec">
                     <span>{fmt(ui.questionOf, { n: drill.index + 1, total: questions.length })}</span>
