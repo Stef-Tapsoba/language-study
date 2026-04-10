@@ -399,7 +399,7 @@ export function DashboardPage() {
                                                     <CheckpointRow
                                                         checkpoint={checkpoint}
                                                         langId={langId}
-                                                        gatePassed={mastered.includes(unit.id)}
+                                                        gatePassed={DEBUG || mastered.includes(unit.id)}
                                                         isDone={completedCheckpoints.includes(checkpoint.id)}
                                                     />
                                                 )}
