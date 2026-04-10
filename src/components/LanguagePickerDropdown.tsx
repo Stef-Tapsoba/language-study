@@ -117,7 +117,7 @@ export function LanguagePickerDropdown({
             level: getLevel(id),
             pct: computeProgressStats(id, getLevel(id), getCompleted(id), getMastered(id)).overallPct,
         })).filter(s => s.lang !== undefined),
-    [started, selectedLanguage, getLevel, getCompleted, getMastered] // eslint-disable-line react-hooks/exhaustive-deps
+    [started, getLevel, getCompleted, getMastered] // eslint-disable-line react-hooks/exhaustive-deps
     )
 
     // When side="right", measure the trigger to position the portaled dropdown.

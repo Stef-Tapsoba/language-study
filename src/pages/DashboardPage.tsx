@@ -1,5 +1,5 @@
 // pages/DashboardPage.tsx — Learning path view (unit list) for the current CEFR level.
-import { useState, useMemo, memo } from "react"
+import { useState, useMemo, memo, useEffect } from "react"
 import { useParams, useNavigate, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
@@ -220,11 +220,15 @@ export function DashboardPage() {
 
     const breakDetection = useBreakDetection(langId)
     const [showOnboarding, setShowOnboarding] = useState(() => isOnboardingVisible(langId))
-    const [welcomeLevel, setWelcomeLevel] = useState<string | null>(() => {
+    const [welcomeLevel, setWelcomeLevel] = useState<string | null>(null)
+
+    // Re-read both per-language flags whenever the active language changes.
+    useEffect(() => {
+        setShowOnboarding(isOnboardingVisible(langId))
         const nl = getNewLevel(langId)
-        if (nl) { clearNewLevel(langId); return nl }
-        return null
-    })
+        if (nl) { clearNewLevel(langId); setWelcomeLevel(nl) }
+        else setWelcomeLevel(null)
+    }, [langId])
 
     function handleDismissOnboarding() {
         dismissOnboarding(langId)
