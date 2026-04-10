@@ -52,27 +52,27 @@ function ResultsScreen({ correct, incorrect, pct, newCardsScheduled, reviewMode,
     return (
         <main className="max-w-sm mx-auto px-4 py-12 flex flex-col items-center gap-6 text-center">
             <div className="text-5xl">{pct >= 80 ? "🎉" : "💪"}</div>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+            <h2 className="text-2xl font-bold text-text-pri">
                 {reviewMode ? ui.reviewComplete : ui.roundComplete}
             </h2>
-            <p className="text-sm text-gray-500 dark:text-gray-400 italic -mt-2">{adaptiveMessage(pct)}</p>
-            <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5 w-full flex justify-around">
+            <p className="text-sm text-text-sec italic -mt-2">{adaptiveMessage(pct)}</p>
+            <div className="bg-surface-card rounded-2xl border border-border-subtle p-5 w-full flex justify-around">
                 <div>
-                    <p className="text-3xl font-bold text-green-600">{correct}</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{ui.scoreCorrect}</p>
+                    <p className="text-3xl font-bold text-grammar">{correct}</p>
+                    <p className="text-xs text-text-sec mt-1">{ui.scoreCorrect}</p>
                 </div>
                 <div>
-                    <p className="text-3xl font-bold text-red-500">{incorrect}</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{ui.scoreWrong}</p>
+                    <p className="text-3xl font-bold text-verbs">{incorrect}</p>
+                    <p className="text-xs text-text-sec mt-1">{ui.scoreWrong}</p>
                 </div>
                 <div>
-                    <p className="text-3xl font-bold text-indigo-600">{pct}%</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{ui.scoreLabel}</p>
+                    <p className="text-3xl font-bold text-reading">{pct}%</p>
+                    <p className="text-xs text-text-sec mt-1">{ui.scoreLabel}</p>
                 </div>
             </div>
 
             {newCardsScheduled > 0 && (
-                <p className="text-sm text-indigo-600">
+                <p className="text-sm text-grammar">
                     {newCardsScheduled} new card{newCardsScheduled === 1 ? "" : "s"} added to your schedule
                 </p>
             )}
@@ -96,17 +96,17 @@ function ResultsScreen({ correct, incorrect, pct, newCardsScheduled, reviewMode,
 function MissedWordReview({ missed }: Readonly<{ missed: VocabItem[] }>) {
     if (missed.length === 0) return null
     return (
-        <Accordion type="single" collapsible className="w-full bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700">
+        <Accordion type="single" collapsible className="w-full bg-surface-card rounded-2xl border border-border-subtle">
             <AccordionItem value="missed" className="border-0 px-5">
-                <AccordionTrigger className="text-sm font-semibold text-gray-700 dark:text-gray-300 py-3 hover:no-underline">
+                <AccordionTrigger className="text-sm font-semibold text-text-sec py-3 hover:no-underline">
                     Review missed words ({missed.length})
                 </AccordionTrigger>
                 <AccordionContent>
-                    <div className="divide-y divide-gray-100 dark:divide-gray-700">
+                    <div className="divide-y divide-border-subtle">
                         {missed.map(item => (
                             <div key={item.id} className="py-3 flex items-center justify-between gap-4">
-                                <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">{item.word}</span>
-                                <span className="text-sm text-green-700">{item.translation}</span>
+                                <span className="text-sm font-semibold text-text-pri">{item.word}</span>
+                                <span className="text-sm text-grammar">{item.translation}</span>
                             </div>
                         ))}
                     </div>
@@ -121,7 +121,7 @@ function dotColor(i: number, index: number, results: Result[]): string {
         return results[i] === "correct" ? "bg-green-400" : "bg-red-300"
     }
     if (i === index) return "bg-indigo-300"
-    return "bg-gray-200 dark:bg-gray-600"
+    return "bg-border-default"
 }
 
 function FlipCard({ item, flipped, onClick, translationMode, translationShown, ui, langId,
@@ -152,10 +152,10 @@ function FlipCard({ item, flipped, onClick, translationMode, translationShown, u
         >
             <div className={`card-inner relative w-full h-full ${flipped ? "flipped" : ""}`} style={{ willChange: "transform" }}>
                 {/* Front */}
-                <div className="card-face absolute inset-0 bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-600
+                <div className="card-face absolute inset-0 bg-surface-card rounded-2xl border-2 border-border-default
                                 flex flex-col items-center justify-center gap-2 p-6 shadow-md">
                     <div className="flex items-start justify-center gap-2 w-full min-w-0">
-                        <p className="text-3xl font-bold text-gray-900 dark:text-gray-100 text-center break-words flex-1 min-w-0">{item.word}</p>
+                        <p className="text-3xl font-bold text-text-pri text-center break-words flex-1 min-w-0">{item.word}</p>
                         <div className="shrink-0 pt-1">
                             <SpeakButton text={item.word} langId={langId} />
                         </div>
@@ -181,7 +181,7 @@ function FlipCard({ item, flipped, onClick, translationMode, translationShown, u
                             </Button>
                         </form>
                     ) : (
-                        <p className="text-xs text-gray-400 dark:text-gray-500 mt-2">{ui.tapToReveal}</p>
+                        <p className="text-xs text-text-ter mt-2">{ui.tapToReveal}</p>
                     )}
                 </div>
 
@@ -207,14 +207,14 @@ function FlipCard({ item, flipped, onClick, translationMode, translationShown, u
                     )}
 
                     {/* Example sentence — always shown */}
-                    <div className="bg-white dark:bg-gray-700 rounded-xl px-4 py-2 text-center relative">
-                        <p className="text-sm text-gray-700 dark:text-gray-300">{item.example.native}</p>
+                    <div className="bg-surface-card/80 rounded-xl px-4 py-2 text-center relative">
+                        <p className="text-sm text-text-sec">{item.example.native}</p>
                         {item.example.romanized && (
                             <p className="text-xs text-indigo-400 mt-0.5">{item.example.romanized}</p>
                         )}
                         {/* Example gloss: shown at A1/A2/B1, hidden at B2+ */}
                         {translationMode !== "hidden" && (
-                            <p className="text-xs text-gray-400 mt-0.5">{item.example.translation}</p>
+                            <p className="text-xs text-text-ter mt-0.5">{item.example.translation}</p>
                         )}
                         <SpeakButton text={item.example.native} langId={langId} className="absolute top-1 right-1" />
                     </div>
@@ -313,9 +313,9 @@ export function FlashcardsPage() {
     // would treat every card as "new", discarding real scheduling data.
     if (isHydrating) {
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <div className="min-h-screen bg-surface-app">
                 <NavBar title={ui.sectionFlashcards} level={level} backTo={`/learn/${langId}`} />
-                <div className="flex items-center justify-center py-24 text-gray-400 dark:text-gray-500">
+                <div className="flex items-center justify-center py-24 text-text-ter">
                     <p className="text-sm">Loading your cards…</p>
                 </div>
             </div>
@@ -330,9 +330,9 @@ export function FlashcardsPage() {
     // No vocabulary at this level yet
     if (allVocab.length === 0) {
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <div className="min-h-screen bg-surface-app">
                 <NavBar title={ui.sectionFlashcards} level={level} backTo={`/learn/${langId}`} />
-                <div className="flex flex-col items-center justify-center py-24 text-gray-400 dark:text-gray-500">
+                <div className="flex flex-col items-center justify-center py-24 text-text-ter">
                     <p className="text-4xl mb-3">🚧</p>
                     <p className="font-medium">No vocabulary at {level} yet</p>
                 </div>
@@ -348,32 +348,32 @@ export function FlashcardsPage() {
             : null
 
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <div className="min-h-screen bg-surface-app">
                 <NavBar title={ui.sectionFlashcards} level={level} backTo={`/learn/${langId}`} />
                 <main className="max-w-sm mx-auto px-4 py-16 flex flex-col items-center gap-5 text-center">
                     <p className="text-5xl">✅</p>
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">All caught up!</h2>
-                    <p className="text-gray-500 dark:text-gray-400 text-sm">No cards due today.</p>
+                    <h2 className="text-2xl font-bold text-text-pri">All caught up!</h2>
+                    <p className="text-text-sec text-sm">No cards due today.</p>
                     {nextStr && (
-                        <p className="text-gray-400 dark:text-gray-500 text-xs">Next review: {nextStr}</p>
+                        <p className="text-text-ter text-xs">Next review: {nextStr}</p>
                     )}
                     <div className="w-full mt-2 bg-amber-50 border border-amber-200 rounded-2xl divide-y divide-amber-200">
                         <div className="flex items-start gap-3 px-4 py-3">
                             <Switch id="typed-mode-caught-up" checked={typedMode} onCheckedChange={setTypedMode} className="data-[state=unchecked]:!bg-amber-300 mt-0.5 shrink-0" />
                             <div>
-                                <label htmlFor="typed-mode-caught-up" className="text-sm font-medium text-gray-700 dark:text-gray-300 cursor-pointer block">
+                                <label htmlFor="typed-mode-caught-up" className="text-sm font-medium text-text-pri cursor-pointer block">
                                     Type the translation
                                 </label>
-                                <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">Active recall — harder but more effective</p>
+                                <p className="text-xs text-text-ter mt-0.5">Active recall — harder but more effective</p>
                             </div>
                         </div>
                         <div className="flex items-start gap-3 px-4 py-3">
                             <Switch id="tts-caught-up" checked={ttsEnabled} onCheckedChange={handleTtsToggle} className="data-[state=unchecked]:!bg-amber-300 mt-0.5 shrink-0" />
                             <div>
-                                <label htmlFor="tts-caught-up" className="text-sm font-medium text-gray-700 dark:text-gray-300 cursor-pointer block">
+                                <label htmlFor="tts-caught-up" className="text-sm font-medium text-text-pri cursor-pointer block">
                                     Auto-play pronunciation
                                 </label>
-                                <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">Plays each word as the card appears</p>
+                                <p className="text-xs text-text-ter mt-0.5">Plays each word as the card appears</p>
                             </div>
                         </div>
                     </div>
@@ -388,29 +388,29 @@ export function FlashcardsPage() {
     // Start screen — shown before first card of a new session
     if (!started) {
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <div className="min-h-screen bg-surface-app">
                 <NavBar title={ui.sectionFlashcards} level={level} backTo={`/learn/${langId}`} />
                 <main className="max-w-sm mx-auto px-4 py-16 flex flex-col items-center gap-5 text-center">
                     <p className="text-5xl">🃏</p>
-                    <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">{srsDeck.length} cards ready</h2>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">{due.length} due · {newCardIds.length} new</p>
+                    <h2 className="text-xl font-bold text-text-pri">{srsDeck.length} cards ready</h2>
+                    <p className="text-sm text-text-sec">{due.length} due · {newCardIds.length} new</p>
                     <div className="w-full bg-amber-50 border border-amber-200 rounded-2xl divide-y divide-amber-200">
                         <div className="flex items-start gap-3 px-4 py-3">
                             <Switch id="typed-mode" checked={typedMode} onCheckedChange={setTypedMode} className="data-[state=unchecked]:!bg-amber-300 mt-0.5 shrink-0" />
                             <div>
-                                <label htmlFor="typed-mode" className="text-sm font-medium text-gray-700 dark:text-gray-300 cursor-pointer block">
+                                <label htmlFor="typed-mode" className="text-sm font-medium text-text-pri cursor-pointer block">
                                     Type the translation
                                 </label>
-                                <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">Active recall — harder but more effective</p>
+                                <p className="text-xs text-text-ter mt-0.5">Active recall — harder but more effective</p>
                             </div>
                         </div>
                         <div className="flex items-start gap-3 px-4 py-3">
                             <Switch id="tts-enabled" checked={ttsEnabled} onCheckedChange={handleTtsToggle} className="data-[state=unchecked]:!bg-amber-300 mt-0.5 shrink-0" />
                             <div>
-                                <label htmlFor="tts-enabled" className="text-sm font-medium text-gray-700 dark:text-gray-300 cursor-pointer block">
+                                <label htmlFor="tts-enabled" className="text-sm font-medium text-text-pri cursor-pointer block">
                                     Auto-play pronunciation
                                 </label>
-                                <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">Plays each word as the card appears</p>
+                                <p className="text-xs text-text-ter mt-0.5">Plays each word as the card appears</p>
                             </div>
                         </div>
                     </div>
@@ -487,7 +487,7 @@ export function FlashcardsPage() {
         const missedItems = deck.filter((_, i) => results[i] === "incorrect")
 
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <div className="min-h-screen bg-surface-app">
                 <NavBar title={ui.sectionFlashcards} level={level} backTo={`/learn/${langId}`} />
                 <ResultsScreen
                     correct={correct}
@@ -507,12 +507,12 @@ export function FlashcardsPage() {
     const card = deck[index]
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="min-h-screen bg-surface-app">
             <NavBar title={ui.sectionFlashcards} level={level} backTo={`/learn/${langId}`}
                 breadcrumb={`${language.name} › Practice`} />
             <main className="max-w-sm mx-auto px-4 py-8 flex flex-col items-center gap-6">
                 {/* Progress */}
-                <div className="w-full flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+                <div className="w-full flex items-center justify-between text-sm text-text-sec">
                     <span>
                         {reviewMode && <span className="text-indigo-600 font-medium mr-2">↺</span>}
                         {index + 1} / {deck.length}
@@ -570,7 +570,7 @@ export function FlashcardsPage() {
                     </div>
                 )}
                 {!flipped && !typedMode && (
-                    <p className="text-sm text-gray-400 dark:text-gray-500">{ui.tapToReveal}</p>
+                    <p className="text-sm text-text-ter">{ui.tapToReveal}</p>
                 )}
             </main>
         </div>

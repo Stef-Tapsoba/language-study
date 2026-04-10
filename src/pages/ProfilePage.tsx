@@ -46,42 +46,42 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
     ]
 
     return (
-        <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+        <div className="bg-surface-card rounded-2xl border border-border-subtle overflow-hidden">
             {/* Main content */}
             <div className="p-5">
                 {/* Header */}
                 <div className="flex items-center gap-3 mb-4">
                     <Flag langId={langId} size="lg" />
                     <div className="flex-1">
-                        <p className="font-semibold text-gray-900 dark:text-gray-100">{lang.name}</p>
-                        <p className="text-xs text-gray-400 dark:text-gray-500">{lang.nativeName}</p>
+                        <p className="font-semibold text-text-pri">{lang.name}</p>
+                        <p className="text-xs text-text-ter">{lang.nativeName}</p>
                     </div>
-                    <span className="text-xs font-semibold bg-violet-100 text-violet-700 px-2.5 py-1 rounded-full">
+                    <span className="text-xs font-semibold bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 px-2.5 py-1 rounded-full">
                         {level} · {LEVEL_LABELS[level]}
                     </span>
                 </div>
 
                 {/* Overall bar */}
                 <div className="flex items-center gap-2 mb-4">
-                    <div className="flex-1 h-2 bg-gray-200/70 rounded-full overflow-hidden">
+                    <div className="flex-1 h-2 bg-border-subtle rounded-full overflow-hidden">
                         <div className="h-full bg-gradient-to-r from-violet-400 to-violet-600 rounded-full transition-[width] duration-700 ease-out"
                             style={{ width: `${overallPct}%` }} />
                     </div>
-                    <span className="text-xs font-semibold text-violet-600 w-10 text-right shrink-0">
+                    <span className="text-xs font-semibold text-violet-600 dark:text-violet-400 w-10 text-right shrink-0">
                         {overallPct}%
                     </span>
                 </div>
 
                 {/* Colored breakdown bars */}
-                <div className="flex flex-col gap-2 pt-3 border-t border-gray-100 dark:border-gray-700">
+                <div className="flex flex-col gap-2 pt-3 border-t border-border-subtle">
                     {breakdown.map(({ label, done, total, color }) => (
                         <div key={label} className="flex items-center gap-3">
-                            <span className="text-xs text-gray-500 dark:text-gray-400 w-20 shrink-0">{label}</span>
-                            <div className="flex-1 h-1.5 bg-gray-200/70 rounded-full overflow-hidden">
+                            <span className="text-xs text-text-sec w-20 shrink-0">{label}</span>
+                            <div className="flex-1 h-1.5 bg-border-subtle rounded-full overflow-hidden">
                                 <div className={`h-full ${color} rounded-full transition-[width] duration-700 ease-out`}
                                     style={{ width: `${total ? (done / total) * 100 : 0}%` }} />
                             </div>
-                            <span className="text-xs text-gray-400 dark:text-gray-500 w-10 text-right shrink-0">{done}/{total}</span>
+                            <span className="text-xs text-text-ter w-10 text-right shrink-0">{done}/{total}</span>
                         </div>
                     ))}
                 </div>
@@ -90,8 +90,8 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
             {/* Manage course — collapsed trigger */}
             <button
                 onClick={() => setManageOpen(v => !v)}
-                className="w-full flex items-center justify-between px-5 py-3 text-sm text-gray-500 dark:text-gray-400
-                           hover:bg-gray-50 dark:hover:bg-gray-700/50 border-t border-gray-100 dark:border-gray-700 transition-colors"
+                className="w-full flex items-center justify-between px-5 py-3 text-sm text-text-sec
+                           hover:bg-surface-elevated border-t border-border-subtle transition-colors"
             >
                 <span className="font-medium">Manage course</span>
                 <svg
@@ -108,8 +108,8 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
                 <div className="border-t border-red-100 bg-red-50 px-5 py-4 flex flex-col gap-3">
                     <div className="flex items-start justify-between gap-4">
                         <div>
-                            <p className="text-sm font-semibold text-gray-800 dark:text-gray-200">Reset progress</p>
-                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                            <p className="text-sm font-semibold text-text-pri">Reset progress</p>
+                            <p className="text-xs text-text-sec mt-0.5">
                                 Clears all completed lessons and mastered units. Level returns to A1.
                             </p>
                         </div>
@@ -139,8 +139,8 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
                     </div>
                     <div className="flex items-start justify-between gap-4 pt-3 border-t border-red-200">
                         <div>
-                            <p className="text-sm font-semibold text-gray-800 dark:text-gray-200">Remove language</p>
-                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                            <p className="text-sm font-semibold text-text-pri">Remove language</p>
+                            <p className="text-xs text-text-sec mt-0.5">
                                 Removes this course entirely. Cannot be undone.
                             </p>
                         </div>
@@ -305,7 +305,7 @@ export function ProfilePage() {
                 {/* ── Language cards ── */}
                 {startedIds.length > 0 && (
                     <div>
-                        <h2 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-3">
+                        <h2 className="text-sm font-semibold text-text-ter uppercase tracking-wide mb-3">
                             Your languages
                         </h2>
                         <div key={tick} className="flex flex-col gap-4">
@@ -318,10 +318,10 @@ export function ProfilePage() {
 
                 {/* ── Data & backup ── */}
                 <div>
-                    <h2 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-3">
+                    <h2 className="text-sm font-semibold text-text-ter uppercase tracking-wide mb-3">
                         Data & backup
                     </h2>
-                    <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+                    <div className="bg-surface-card rounded-2xl border border-border-subtle overflow-hidden">
                         {/* Warning */}
                         <Alert className="border-0 border-b border-amber-100 rounded-none bg-amber-50 text-amber-800 px-5 py-4">
                             <AlertDescription>
@@ -332,10 +332,10 @@ export function ProfilePage() {
                         <button
                             onClick={() => exportProgress().catch(console.error)}
                             className="w-full flex items-center justify-between px-5 py-4 text-sm
-                                       text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors border-b border-gray-100 dark:border-gray-700"
+                                       text-text-sec hover:bg-surface-elevated transition-colors border-b border-border-subtle"
                         >
                             <span className="font-medium">Export progress backup</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-400 dark:text-gray-500" fill="none"
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-text-ter" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                 <path strokeLinecap="round" strokeLinejoin="round"
                                     d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -344,14 +344,14 @@ export function ProfilePage() {
                         {/* Import button + confirmation dialog */}
                         <label
                             className="w-full flex items-center justify-between px-5 py-4 text-sm
-                                       text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors cursor-pointer"
+                                       text-text-sec hover:bg-surface-elevated transition-colors cursor-pointer"
                         >
                             <span className="font-medium">
                                 {importStatus === "success" && "✓ Imported — reloading…"}
                                 {importStatus === "error"   && `⚠ ${importError}`}
                                 {importStatus === "idle"    && "Import progress backup"}
                             </span>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-400 dark:text-gray-500" fill="none"
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-text-ter" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                 <path strokeLinecap="round" strokeLinejoin="round"
                                     d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
@@ -365,7 +365,7 @@ export function ProfilePage() {
                                 <AlertDialogHeader>
                                     <AlertDialogTitle>Import backup?</AlertDialogTitle>
                                     <AlertDialogDescription asChild>
-                                        <div className="flex flex-col gap-2 text-sm text-gray-600 dark:text-gray-400">
+                                        <div className="flex flex-col gap-2 text-sm text-text-sec">
                                             <p>
                                                 Your existing progress will be <strong>merged</strong> with the backup —
                                                 completed lessons and mastered units are never downgraded.
@@ -390,10 +390,10 @@ export function ProfilePage() {
 
                 {/* ── Account ── */}
                 <div>
-                    <h2 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-3">
+                    <h2 className="text-sm font-semibold text-text-ter uppercase tracking-wide mb-3">
                         Account
                     </h2>
-                    <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+                    <div className="bg-surface-card rounded-2xl border border-border-subtle overflow-hidden">
                         <button
                             onClick={handleLogout}
                             className="w-full flex items-center justify-between px-5 py-4 text-sm

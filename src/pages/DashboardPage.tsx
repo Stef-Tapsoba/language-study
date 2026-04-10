@@ -37,24 +37,24 @@ const UnitRow = memo(function UnitRow({ unit, langId, level, mastered, allUnits,
     const isMastered = mastered.includes(unit.id)
     const unlocked = DEBUG || isUnitUnlocked(unit.id, allUnits, mastered, completedCheckpoints)
 
-    let rowState = "border-gray-100 dark:border-gray-700 border-l-4 border-l-gray-200 dark:border-l-gray-600 bg-gray-50 dark:bg-gray-700/50 opacity-50 cursor-default"
-    if (isMastered) rowState = "border-green-200 border-l-4 border-l-green-500 bg-green-50/40 hover:border-green-300"
-    else if (unlocked) rowState = "border-gray-200 dark:border-gray-700 border-l-4 border-l-violet-500 bg-white dark:bg-gray-800 hover:shadow-sm"
+    let rowState = "border-border-subtle border-l-4 border-l-border-default bg-surface-elevated opacity-50 cursor-default"
+    if (isMastered) rowState = "border-grammar-border border-l-4 border-l-grammar bg-grammar-surface/40 hover:border-grammar"
+    else if (unlocked) rowState = "border-border-default border-l-4 border-l-violet-500 bg-surface-card hover:shadow-sm"
     const rowCls = `flex items-start gap-4 px-5 py-4 rounded-2xl border-y border-r transition-all ${rowState}`
 
-    let badgeState = "bg-gray-200 dark:bg-gray-600 text-gray-400 dark:text-gray-500"
-    if (isMastered) badgeState = "bg-green-500 text-white"
+    let badgeState = "bg-border-default text-text-ter"
+    if (isMastered) badgeState = "bg-grammar text-white"
     else if (unlocked) badgeState = "bg-violet-600 text-white"
     const badgeCls = `shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mt-0.5 ${badgeState}`
 
     // Content pills shown on unlocked units
     const pills = [
-        ...(unit.grammarIds.length > 0 ? [{ label: "Grammar", done: unit.grammarIds.every(id => completed.has(id)), cls: "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300" }] : []),
-        ...(unit.vocabIds.length > 0 ? [{ label: "Vocab", done: unit.vocabIds.every(id => completed.has(id)), cls: "bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300" }] : []),
-        ...(unit.verbIds.length > 0 ? [{ label: "Verbs", done: unit.verbIds.every(id => completed.has(id)), cls: "bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400" }] : []),
-        ...((unit.readingIds?.length ?? 0) > 0 ? [{ label: "Reading", done: (unit.readingIds ?? []).every(id => completed.has(id)), cls: "bg-sky-100 dark:bg-sky-900/30 text-sky-700 dark:text-sky-300" }] : []),
-        ...((unit.listeningIds?.length ?? 0) > 0 ? [{ label: "Listening", done: (unit.listeningIds ?? []).every(id => completed.has(id)), cls: "bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300" }] : []),
-        ...((unit.cultureIds?.length ?? 0) > 0 ? [{ label: "Culture", done: (unit.cultureIds ?? []).every(id => completed.has(id)), cls: "bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300" }] : []),
+        ...(unit.grammarIds.length > 0 ? [{ label: "Grammar", done: unit.grammarIds.every(id => completed.has(id)), cls: "bg-grammar-surface text-grammar" }] : []),
+        ...(unit.vocabIds.length > 0 ? [{ label: "Vocab", done: unit.vocabIds.every(id => completed.has(id)), cls: "bg-vocab-surface text-vocab" }] : []),
+        ...(unit.verbIds.length > 0 ? [{ label: "Verbs", done: unit.verbIds.every(id => completed.has(id)), cls: "bg-verbs-surface text-verbs" }] : []),
+        ...((unit.readingIds?.length ?? 0) > 0 ? [{ label: "Reading", done: (unit.readingIds ?? []).every(id => completed.has(id)), cls: "bg-reading-surface text-reading" }] : []),
+        ...((unit.listeningIds?.length ?? 0) > 0 ? [{ label: "Listening", done: (unit.listeningIds ?? []).every(id => completed.has(id)), cls: "bg-listening-surface text-listening" }] : []),
+        ...((unit.cultureIds?.length ?? 0) > 0 ? [{ label: "Culture", done: (unit.cultureIds ?? []).every(id => completed.has(id)), cls: "bg-culture-surface text-culture" }] : []),
         { label: "Test", done: isMastered, cls: "bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300" },
     ]
 
@@ -65,7 +65,7 @@ const UnitRow = memo(function UnitRow({ unit, langId, level, mastered, allUnits,
             </span>
             <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 min-w-0">
-                    <p className={`font-semibold truncate ${unlocked ? "text-gray-900 dark:text-gray-100" : "text-gray-400 dark:text-gray-500"}`}>
+                    <p className={`font-semibold truncate ${unlocked ? "text-text-pri" : "text-text-ter"}`}>
                         {unit.title}
                     </p>
                     {goalScore > 0 && unlocked && (
@@ -74,7 +74,7 @@ const UnitRow = memo(function UnitRow({ unit, langId, level, mastered, allUnits,
                         </Badge>
                     )}
                 </div>
-                <p className="text-xs text-gray-400 dark:text-gray-500 truncate mt-0.5">{resolvePrimary(unit.description, level)}</p>
+                <p className="text-xs text-text-ter truncate mt-0.5">{resolvePrimary(unit.description, level)}</p>
                 {unlocked && (
                     <div className="flex flex-wrap gap-1.5 mt-2">
                         {pills.map(p => (
@@ -129,14 +129,14 @@ const CheckpointRow = memo(function CheckpointRow({ checkpoint, langId, gatePass
         "flex items-center gap-4 px-5 py-3 rounded-2xl border-y border-r transition-all",
         state === "done"      && "border-green-200 dark:border-green-800 border-l-4 border-l-green-500 bg-green-50/40 dark:bg-green-900/20",
         state === "available" && "border-amber-200 dark:border-amber-700 border-l-4 border-l-amber-500 bg-amber-50/60 dark:bg-amber-900/20 hover:shadow-sm",
-        state === "locked"    && "border-gray-100 dark:border-gray-700 border-l-4 border-l-gray-200 dark:border-l-gray-600 bg-gray-50 dark:bg-gray-700/50 opacity-50 cursor-default",
+        state === "locked"    && "border-border-subtle border-l-4 border-l-border-default bg-surface-elevated opacity-50 cursor-default",
     ].filter(Boolean).join(" ")
 
     const iconCls = [
         "shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm",
         state === "done"      && "bg-green-500 text-white",
         state === "available" && "bg-amber-500 text-white",
-        state === "locked"    && "bg-gray-200 dark:bg-gray-600 text-gray-400 dark:text-gray-500",
+        state === "locked"    && "bg-border-default text-text-ter",
     ].filter(Boolean).join(" ")
 
     const inner = (
@@ -145,10 +145,10 @@ const CheckpointRow = memo(function CheckpointRow({ checkpoint, langId, gatePass
                 {state === "done" ? "✓" : "🎯"}
             </span>
             <div className="flex-1 min-w-0">
-                <p className={`font-semibold text-sm truncate ${state === "locked" ? "text-gray-400 dark:text-gray-500" : "text-gray-900 dark:text-gray-100"}`}>
+                <p className={`font-semibold text-sm truncate ${state === "locked" ? "text-text-ter" : "text-text-pri"}`}>
                     {checkpoint.title}
                 </p>
-                <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">
+                <p className="text-xs text-text-ter mt-0.5">
                     {state === "done" && "Checkpoint complete"}
                     {state === "available" && "Ready — tap to begin"}
                     {state === "locked" && "Complete the previous unit to unlock"}
@@ -229,7 +229,7 @@ export function DashboardPage() {
     if (!language || !mod) {
         return (
             <div className="min-h-screen flex items-center justify-center">
-                <p className="text-gray-500 dark:text-gray-400">Language not found.</p>
+                <p className="text-text-sec">Language not found.</p>
             </div>
         )
     }
@@ -253,13 +253,13 @@ export function DashboardPage() {
             <main className="max-w-3xl mx-auto px-4 py-6">
                 <HydrationErrorBanner />
                 {/* Level header */}
-                <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-4 mb-5 flex items-center gap-4">
+                <div className="bg-surface-card rounded-2xl border border-border-subtle p-4 mb-5 flex items-center gap-4">
                     <Flag langId={langId} size="lg" />
                     <div className="flex-1">
-                        <p className="text-xs text-gray-400 dark:text-gray-500 mb-0.5">{ui.currentLevel}</p>
+                        <p className="text-xs text-text-ter mb-0.5">{ui.currentLevel}</p>
                         <div className="flex items-center gap-2">
                             <LevelBadge level={level} />
-                            <span className="text-gray-700 dark:text-gray-300 text-sm">{levelName(level, ui)}</span>
+                            <span className="text-text-sec text-sm">{levelName(level, ui)}</span>
                         </div>
                     </div>
                     <div className="flex flex-col items-end gap-1 shrink-0">
@@ -275,7 +275,7 @@ export function DashboardPage() {
                             variant="link"
                             size="sm"
                             onClick={() => navigate(`/learn/${langId}/goal?returnTo=/learn/${langId}`)}
-                            className="text-xs p-0 h-auto text-gray-400 dark:text-gray-500 hover:text-indigo-500"
+                            className="text-xs p-0 h-auto text-text-ter hover:text-grammar"
                         >
                             {USER_GOALS[goalId]?.icon} Goal
                         </Button>
@@ -319,13 +319,13 @@ export function DashboardPage() {
                             <>
                                 {/* Level progress bar */}
                                 <div className="flex items-center gap-3 mb-4">
-                                    <span className="text-xs text-gray-500 dark:text-gray-400 shrink-0">{level} progress</span>
+                                    <span className="text-xs text-text-sec shrink-0">{level} progress</span>
                                     <Progress
                                         value={levelUnits.length ? masteredCount / levelUnits.length * 100 : 0}
                                         className="flex-1 h-2"
                                         aria-label={`${level} level progress — ${masteredCount} of ${levelUnits.length} units complete`}
                                     />
-                                    <span className="text-xs text-gray-500 dark:text-gray-400 shrink-0">{masteredCount} of {levelUnits.length}</span>
+                                    <span className="text-xs text-text-sec shrink-0">{masteredCount} of {levelUnits.length}</span>
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     {sortedLevelUnits.map(unit => (

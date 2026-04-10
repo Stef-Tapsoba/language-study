@@ -21,8 +21,8 @@ function buildVariant(tier: BreakTier, daysSince: number, dueCount: number): Var
     const items = dueCount > 0 ? ` ${dueCount} item${dueCount === 1 ? "" : "s"} ready.` : ""
     if (tier === "medium") {
         return {
-            bg:      "bg-indigo-50 dark:bg-indigo-900/20",
-            border:  "border-indigo-200 dark:border-indigo-700",
+            bg:      "bg-reading-surface",
+            border:  "border-reading-border",
             icon:    "👋",
             heading: "Welcome back!",
             body:    `You've been away ${daysSince} day${daysSince === 1 ? "" : "s"}.${items} A quick review will help before continuing.`,
@@ -30,8 +30,8 @@ function buildVariant(tier: BreakTier, daysSince: number, dueCount: number): Var
     }
     if (tier === "heavy") {
         return {
-            bg:      "bg-amber-50 dark:bg-amber-900/20",
-            border:  "border-amber-300 dark:border-amber-700",
+            bg:      "bg-vocab-surface",
+            border:  "border-vocab-border",
             icon:    "🔔",
             heading: `It's been ${daysSince} days`,
             body:    `Your memory needs a refresh.${items} A short review now will save you relearning later.`,
@@ -39,8 +39,8 @@ function buildVariant(tier: BreakTier, daysSince: number, dueCount: number): Var
     }
     // critical
     return {
-        bg:      "bg-orange-50 dark:bg-orange-900/20",
-        border:  "border-orange-300 dark:border-orange-700",
+        bg:      "bg-verbs-surface",
+        border:  "border-verbs-border",
         icon:    "📚",
         heading: "It's been a while",
         body:    `You've been away over a month.${items} We recommend reviewing before continuing so you don't lose your progress.`,
@@ -64,18 +64,18 @@ export function ReviewPromptCard({ langId, tier, daysSince, dueCount }: Readonly
         <div className={`${v.bg} border ${v.border} rounded-2xl p-4 mb-5 flex gap-3 items-start`}>
             <span className="text-2xl shrink-0 mt-0.5" aria-hidden="true">{v.icon}</span>
             <div className="flex-1 min-w-0">
-                <p className="font-semibold text-gray-900 dark:text-gray-100 text-sm">{v.heading}</p>
-                <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5 leading-relaxed">{v.body}</p>
+                <p className="font-semibold text-text-pri text-sm">{v.heading}</p>
+                <p className="text-xs text-text-sec mt-0.5 leading-relaxed">{v.body}</p>
                 <div className="flex items-center gap-4 mt-3">
                     <button
                         onClick={() => navigate(`/learn/${langId}/review`)}
-                        className="text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-200 transition-colors"
+                        className="text-sm font-semibold text-grammar hover:text-grammar/80 transition-colors"
                     >
                         Start review →
                     </button>
                     <button
                         onClick={handleDismiss}
-                        className="text-xs text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                        className="text-xs text-text-ter hover:text-text-sec transition-colors"
                     >
                         Skip for now
                     </button>
@@ -84,7 +84,7 @@ export function ReviewPromptCard({ langId, tier, daysSince, dueCount }: Readonly
             <button
                 onClick={handleDismiss}
                 aria-label="Dismiss"
-                className="text-gray-300 dark:text-gray-600 hover:text-gray-500 dark:hover:text-gray-400 shrink-0 p-1 transition-colors"
+                className="text-border-default hover:text-text-sec shrink-0 p-1 transition-colors"
             >
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
