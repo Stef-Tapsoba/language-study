@@ -80,7 +80,6 @@ const NAV_ITEMS: NavItem[] = [
         // Active on path page AND unit detail pages
         // Active on the explicit /path route, the index /learn/:langId, and unit detail pages
         isActive: (p) => p.endsWith("/path") || /^\/learn\/[^/]+$/.test(p) || /^\/learn\/[^/]+\/units\//.test(p),
-        desktopOnly: true,
     },
     {
         id: "stats",
@@ -308,9 +307,11 @@ interface MobileTopBarProps {
     currentLangName: string | null
     currentLevel: string
     streak: number
+    dark: boolean
+    onToggleDark: () => void
 }
 
-function MobileTopBar({ selectedLanguage, currentLangName, currentLevel, streak }: Readonly<MobileTopBarProps>) {
+function MobileTopBar({ selectedLanguage, currentLangName, currentLevel, streak, dark, onToggleDark }: Readonly<MobileTopBarProps>) {
     return (
         <header className="lg:hidden flex items-center justify-between h-12 px-4 bg-surface-card border-b border-hairline border-border-subtle shrink-0">
             <LanguagePickerDropdown
@@ -323,7 +324,16 @@ function MobileTopBar({ selectedLanguage, currentLangName, currentLevel, streak 
                     />
                 )}
             />
-            {streak > 0 && <StreakChip streak={streak} compact />}
+            <div className="flex items-center gap-1">
+                {streak > 0 && <StreakChip streak={streak} compact />}
+                <button
+                    onClick={onToggleDark}
+                    className="w-8 h-8 rounded-md flex items-center justify-center text-text-sec hover:bg-surface-inset transition-colors"
+                    aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
+                >
+                    {dark ? <Sun size={16} /> : <Moon size={16} />}
+                </button>
+            </div>
         </header>
     )
 }
@@ -386,15 +396,17 @@ export function AppLayout() {
                     currentLangName={currentLangName}
                     currentLevel={currentLevel}
                     streak={streak}
+                    dark={dark}
+                    onToggleDark={toggleDark}
                 />
 
-                {/* Page content */}
-                <main className="flex-1 overflow-y-auto">
+                {/* Page content — pb-14 clears the fixed mobile nav; reset to 0 on desktop */}
+                <main className="flex-1 overflow-y-auto pb-14 lg:pb-0">
                     <Outlet />
                 </main>
 
-                {/* Mobile bottom nav — desktop-only items replaced by Profile */}
-                <nav aria-label="Bottom navigation" className="lg:hidden bg-surface-card border-t border-hairline border-border-subtle pb-safe shrink-0">
+                {/* Mobile bottom nav — fixed so it stays above the virtual keyboard */}
+                <nav aria-label="Bottom navigation" className="lg:hidden fixed bottom-0 inset-x-0 z-10 bg-surface-card border-t border-hairline border-border-subtle pb-safe">
                     <div className="flex">
                         {[...NAV_ITEMS.filter(i => !i.desktopOnly), MOBILE_PROFILE_ITEM].map(item => {
                             const active = item.isActive(location.pathname, location.search)
