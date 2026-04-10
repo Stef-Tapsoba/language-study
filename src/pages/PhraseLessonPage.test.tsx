@@ -147,9 +147,11 @@ describe("PhraseLessonPage — content rendering", () => {
 
     it("renders the practice question and all options", () => {
         renderPage()
-        expect(screen.getByText(LESSON.practiceQuestion.question)).toBeInTheDocument()
+        const pq = LESSON.practiceQuestion
+        if (!pq) throw new Error("fixture missing practiceQuestion")
+        expect(screen.getByText(pq.question)).toBeInTheDocument()
         // options may share text with phrases/dialogue, so check at least one instance each
-        for (const option of LESSON.practiceQuestion.options) {
+        for (const option of pq.options) {
             expect(screen.getAllByText(option).length).toBeGreaterThan(0)
         }
     })
@@ -188,7 +190,8 @@ describe("PhraseLessonPage — practice question", () => {
         const user = userEvent.setup()
         renderPage()
         await user.click(screen.getByRole("button", { name: "안녕" }))
-        const allAnswerBtns = screen.getAllByRole("button").filter(b => LESSON.practiceQuestion.options.includes(b.textContent?.replaceAll(/[✓✗]/g, "").trim() ?? ""))
+        const opts = LESSON.practiceQuestion?.options ?? []
+        const allAnswerBtns = screen.getAllByRole("button").filter(b => opts.includes(b.textContent?.replaceAll(/[✓✗]/g, "").trim() ?? ""))
         for (const btn of allAnswerBtns) {
             expect(btn).toBeDisabled()
         }
