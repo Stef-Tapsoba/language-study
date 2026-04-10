@@ -131,6 +131,38 @@ function CurrentUnitCard({ unit, langId, level, completed, mastered }: Readonly<
     )
 }
 
+// ─── Level-complete card ─────────────────────────────────────────────────────
+
+function LevelCompleteCard({ langId, level }: Readonly<{ langId: string; level: string }>) {
+    return (
+        <div className="bg-surface-card border-hairline border border-border-subtle rounded-2xl overflow-hidden">
+            <div className="px-4 pt-4 pb-3 flex flex-col gap-2.5">
+                <div className="flex items-center gap-2">
+                    <span className="text-[10px] text-text-ter uppercase tracking-widest">{level}</span>
+                    <span className="text-[10px] font-semibold bg-grammar-surface text-grammar px-2 py-0.5 rounded-full">
+                        ✓ All units complete
+                    </span>
+                </div>
+                <div>
+                    <p className="text-sm font-semibold text-text-pri leading-snug">
+                        You've finished all {level} units!
+                    </p>
+                    <p className="text-[11px] text-text-sec mt-0.5 leading-relaxed">
+                        Take the level test to advance to the next level.
+                    </p>
+                </div>
+                <div className="w-full h-1.5 bg-grammar rounded-full" />
+            </div>
+            <Link
+                to={`/learn/${langId}/level-test`}
+                className="block mx-4 mb-4 px-4 py-2.5 bg-grammar border-hairline border border-grammar-border rounded-xl text-white text-[13px] font-medium text-center hover:opacity-90 transition-colors"
+            >
+                Take the {level} Level Test →
+            </Link>
+        </div>
+    )
+}
+
 // ─── Returning-user home ─────────────────────────────────────────────────────
 
 function ReturningHome({ firstName, langId }: Readonly<{ firstName: string; langId: string }>) {
@@ -154,11 +186,15 @@ function ReturningHome({ firstName, langId }: Readonly<{ firstName: string; lang
         .filter(u => u.level === level)
         .sort((a, b) => a.order - b.order)
 
-    // Current unit: first unlocked non-mastered
-    const currentUnit = levelUnits.find(u =>
-        !mastered.includes(u.id) &&
-        isUnitUnlocked(u.id, levelUnits, mastered, completedCheckpoints)
-    ) ?? levelUnits[levelUnits.length - 1]
+    const allLevelMastered = levelUnits.length > 0 && levelUnits.every(u => mastered.includes(u.id))
+
+    // Current unit: first unlocked non-mastered (null when all units are done)
+    const currentUnit = allLevelMastered
+        ? null
+        : levelUnits.find(u =>
+            !mastered.includes(u.id) &&
+            isUnitUnlocked(u.id, levelUnits, mastered, completedCheckpoints)
+          ) ?? levelUnits[levelUnits.length - 1]
 
     // Upcoming checkpoint (the next one not yet completed)
     const upcomingCheckpoint = mod.checkpoints?.find(cp =>
@@ -188,16 +224,19 @@ function ReturningHome({ firstName, langId }: Readonly<{ firstName: string; lang
                 </h1>
             </div>
 
-            {/* Current unit card */}
-            {currentUnit && (
-                <CurrentUnitCard
-                    unit={currentUnit}
-                    langId={langId}
-                    level={level}
-                    completed={completed}
-                    mastered={mastered}
-                />
-            )}
+            {/* Current unit card — or level-complete CTA when all units are done */}
+            {allLevelMastered
+                ? <LevelCompleteCard langId={langId} level={level} />
+                : currentUnit && (
+                    <CurrentUnitCard
+                        unit={currentUnit}
+                        langId={langId}
+                        level={level}
+                        completed={completed}
+                        mastered={mastered}
+                    />
+                )
+            }
 
             {/* Checkpoint strip — show when ≤2 units away or ready */}
             {upcomingCheckpoint && (unitsUntilCheckpoint !== null && unitsUntilCheckpoint <= 2) && (
@@ -275,7 +314,11 @@ export function HomePage() {
         return <NewUserWelcome displayName={firstName} onPick={handlePick} />
     }
 
-    const langId = selectedLanguage ?? startedLanguages[0]
+    // Guard: selectedLanguage may be set to a language that was never started
+    // (e.g. user picked French then abandoned placement). Fall back to the first
+    // language that has actually been started.
+    const isSelectedStarted = Boolean(selectedLanguage && startedLanguages.includes(selectedLanguage))
+    const langId = isSelectedStarted ? selectedLanguage! : startedLanguages[0]
     const lang = getLanguage(langId)
     if (!lang) return null
 

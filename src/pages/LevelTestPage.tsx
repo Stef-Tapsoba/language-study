@@ -10,6 +10,7 @@ import { LevelBadge } from "../components/LevelBadge"
 import { CEFR_LEVELS, CEFRLevel, QuizQuestion } from "../types"
 import { getUI, fmt, UIStrings } from "../i18n"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "../components/ui/dialog"
+import { setNewLevel } from "../store/preferences"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion"
 import { Button } from "../components/ui/button"
 import confetti from "canvas-confetti"
@@ -114,6 +115,7 @@ function ResultsActions({ passed, nextLevel, langId, ui, onRetry }: Readonly<{
     function handleAdvance() {
         if (nextLevel) {
             setCurrentLevel(langId, nextLevel)
+            setNewLevel(langId, nextLevel)
             setShowOverlay(true)
         } else {
             navigate(`/learn/${langId}`)

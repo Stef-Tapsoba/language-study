@@ -25,7 +25,7 @@ export function PlacementPage() {
     const { langId = "" } = useParams()
     const navigate = useNavigate()
     const language = getLanguage(langId)
-    const { setCurrentLevel } = useProgress()
+    const { setCurrentLevel, startedLanguages } = useProgress()
 
     const [tab, setTab] = useState<Tab>("test")
     const [introSeen, setIntroSeen] = useState(false)
@@ -61,10 +61,11 @@ export function PlacementPage() {
     }
 
     function confirmLevel(level: CEFRLevel) {
+        const isNewLanguage = !startedLanguages.includes(langId)
         setCurrentLevel(langId, level)
-        // First-time users: route through goal picker before hitting the dashboard.
-        // Returning users who are changing level skip the picker (goal already set).
-        if (!isGoalSet()) {
+        // Always show goal picker for a new language (even if a goal was previously set
+        // for another language). First-time users also route through it.
+        if (!isGoalSet() || isNewLanguage) {
             navigate(`/learn/${langId}/goal?returnTo=/learn/${langId}`, { replace: true })
         } else {
             navigate(`/learn/${langId}`)

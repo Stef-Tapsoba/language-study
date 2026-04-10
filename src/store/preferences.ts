@@ -57,6 +57,24 @@ export function dismissReviewPrompt(langId: string): void {
     localStorage.setItem(todayKey(langId), "1")
 }
 
+// ── Level-up welcome ──────────────────────────────────────────────────────────
+// Written by LevelTestPage on advance, read+cleared by DashboardPage on first render.
+
+/** Signal that the user just advanced to a new level (shown as a welcome banner). */
+export function setNewLevel(langId: string, level: string): void {
+    localStorage.setItem(`ls:new-level:${langId}`, level)
+}
+
+/** Returns the new level if a level-up is pending for this language, otherwise null. */
+export function getNewLevel(langId: string): string | null {
+    return localStorage.getItem(`ls:new-level:${langId}`)
+}
+
+/** Clear the pending level-up signal (called after the banner is shown). */
+export function clearNewLevel(langId: string): void {
+    localStorage.removeItem(`ls:new-level:${langId}`)
+}
+
 // ── Learning goal ─────────────────────────────────────────────────────────────
 // Goal is stored in UserProgress (via IProgressStorage) for cross-device sync in
 // Stage 2. The ls:goal key is retained as a fast local cache and migration fallback.
