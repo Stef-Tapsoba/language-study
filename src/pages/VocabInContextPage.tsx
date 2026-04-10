@@ -8,6 +8,7 @@ import { useState, useMemo, useEffect } from "react"
 import { NavBar } from "../components/NavBar"
 import { DrillDoneScreen } from "../components/DrillDoneScreen"
 import { QuizCard } from "../components/QuizCard"
+import { Button } from "../components/ui/button"
 import { shuffle } from "../utils/arrayUtils"
 import { getUI, fmt } from "../i18n"
 import { useStatsStore } from "../store/useStatsStore"
@@ -188,8 +189,8 @@ export default function VocabInContextPage({ items, langId, level, config: _conf
                 <div className="w-full flex gap-1">
                     {questions.map((_, i) => {
                         let cls = "bg-border-default"
-                        if (i < index) cls = "bg-indigo-500"
-                        else if (i === index) cls = "bg-indigo-300"
+                        if (i < index) cls = "bg-grammar"
+                        else if (i === index) cls = "bg-grammar opacity-40"
                         return <div key={i} className={`h-1.5 flex-1 rounded-full transition-colors ${cls}`} />
                     })}
                 </div>
@@ -221,12 +222,12 @@ export default function VocabInContextPage({ items, langId, level, config: _conf
                 </p>
 
                 {revealed && (
-                    <button
+                    <Button
                         onClick={handleNext}
-                        className="w-full max-w-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-3 transition-colors"
+                        className="w-full max-w-xl rounded-xl py-3"
                     >
                         {isLast ? ui.seeResults : ui.nextQuestion}
-                    </button>
+                    </Button>
                 )}
             </main>
         </div>

@@ -34,7 +34,7 @@ export function LocalizedExplanation({ text, level, langId = "", className = "",
         return (
             <div className={className}>
                 {renderExplanation(display.primary, vocabOpts)}
-                <div className="mt-2 pl-3 border-l-2 border-indigo-200">
+                <div className="mt-2 pl-3 border-l-2 border-grammar-border">
                     {renderExplanation(display.secondary)}
                 </div>
             </div>

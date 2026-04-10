@@ -18,8 +18,8 @@ import { playLevelUp } from "../utils/sound"
 const PASS_THRESHOLD = 12  // out of 15
 
 function progressDotClass(i: number, current: number): string {
-    if (i < current) return "bg-indigo-500"
-    if (i === current) return "bg-indigo-300"
+    if (i < current) return "bg-grammar"
+    if (i === current) return "bg-grammar opacity-40"
     return "bg-border-default"
 }
 

@@ -13,6 +13,7 @@ import { useState, useMemo, useEffect } from "react"
 import { NavBar } from "../components/NavBar"
 import { DrillDoneScreen } from "../components/DrillDoneScreen"
 import { SpeakButton } from "../components/SpeakButton"
+import { Button } from "../components/ui/button"
 import { answerMatches } from "../utils/answerMatch"
 import { shuffle } from "../utils/arrayUtils"
 import { getUI, fmt } from "../i18n"
@@ -251,8 +252,8 @@ export default function ErrorCorrectionPage({ items, langId, level, config: _con
                 <div className="flex gap-1">
                     {questions.map((_, i) => {
                         let cls = "bg-border-default"
-                        if (i < index) cls = "bg-indigo-500"
-                        else if (i === index) cls = "bg-indigo-300"
+                        if (i < index) cls = "bg-grammar"
+                        else if (i === index) cls = "bg-grammar opacity-40"
                         return <div key={i} className={`h-1.5 flex-1 rounded-full transition-colors ${cls}`} />
                     })}
                 </div>
@@ -320,20 +321,13 @@ export default function ErrorCorrectionPage({ items, langId, level, config: _con
 
                 {/* Actions */}
                 {submitState === "idle" ? (
-                    <button
-                        onClick={handleSubmit}
-                        disabled={!input.trim()}
-                        className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-40 text-white font-semibold rounded-xl py-3 text-sm transition-colors"
-                    >
+                    <Button onClick={handleSubmit} disabled={!input.trim()} className="w-full rounded-xl py-3">
                         Check
-                    </button>
+                    </Button>
                 ) : (
-                    <button
-                        onClick={handleNext}
-                        className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-3 text-sm transition-colors"
-                    >
+                    <Button onClick={handleNext} className="w-full rounded-xl py-3">
                         {isLast ? ui.seeResults : ui.nextQuestion}
-                    </button>
+                    </Button>
                 )}
 
                 <p className="hidden sm:block text-xs text-text-ter text-center">

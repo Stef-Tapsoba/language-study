@@ -11,6 +11,7 @@ import { QuizCard } from "../components/QuizCard"
 import { ListeningPlayer } from "../components/ListeningPlayer"
 import { ListeningExercise } from "../types"
 import { getUI, fmt } from "../i18n"
+import { Button } from "../components/ui/button"
 
 type TranscriptMode = "shown" | "toggle" | "hidden"
 
@@ -36,7 +37,7 @@ function ExerciseBrowse({ exercises, completed, onSelect, ui }: Readonly<{
                     key={ex.id}
                     onClick={() => onSelect(ex)}
                     className="w-full text-left bg-surface-card rounded-2xl border border-border-default p-4
-                               hover:border-indigo-300 hover:shadow-sm transition-all"
+                               hover:border-grammar hover:shadow-sm transition-all"
                 >
                     <div className="flex items-center justify-between gap-2">
                         <div className="flex-1">
@@ -66,7 +67,7 @@ function TranscriptContent({ exercise }: Readonly<{ exercise: ListeningExercise 
             <div className="px-5 pb-4 flex flex-col gap-2.5">
                 {exercise.dialogue.map((line) => (
                     <div key={`${line.speaker}-${line.text.slice(0, 20)}`} className="flex gap-3 text-sm">
-                        <span className="font-semibold text-indigo-600 shrink-0 w-14 pt-0.5 text-right">
+                        <span className="font-semibold text-grammar shrink-0 w-14 pt-0.5 text-right">
                             {line.speaker}
                         </span>
                         <div className="flex-1">
@@ -142,12 +143,9 @@ function ComprehensionQuiz({ exercise, onAnswer, onComplete, ui }: Readonly<{
                 onSelect={handleSelect}
             />
             {revealed && (
-                <button
-                    onClick={handleNext}
-                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-3 transition-colors"
-                >
+                <Button onClick={handleNext} className="w-full rounded-xl py-3">
                     {quizIndex + 1 >= exercise.questions.length ? ui.seeResults : ui.nextQuestion}
-                </button>
+                </Button>
             )}
         </div>
     )
@@ -244,7 +242,7 @@ function ExerciseListen({ exercise, langId, level, completed, onBack, ui }: Read
                         disabled={markedListened}
                         className={`w-full font-semibold rounded-xl py-3 text-sm transition-colors border ${markedListened
                                 ? "border-grammar-border text-grammar bg-grammar-surface cursor-default"
-                                : "border-indigo-600 bg-indigo-600 text-white hover:bg-indigo-700"
+                                : "border-grammar bg-grammar text-white hover:opacity-90"
                             }`}
                     >
                         {markedListened ? `✓ ${ui.listeningComplete}` : ui.markAsListened}

@@ -1,6 +1,7 @@
 // components/ListeningPlayer.tsx — TTS audio player for listening exercises with play/stop and slow/normal rate
 import { useState, useEffect } from "react"
 import { UIStrings } from "../i18n"
+import { Button } from "./ui/button"
 
 const LANG_MAP: Record<string, string> = {
     es: "es-ES",
@@ -42,14 +43,15 @@ export function ListeningPlayer({ script, langId, ui, onEnded }: Readonly<Props>
     }
 
     return (
-        <div className="w-full bg-white rounded-2xl border border-gray-200 p-4 flex items-center gap-3">
+        <div className="w-full bg-surface-card rounded-2xl border border-border-default p-4 flex items-center gap-3">
             {/* Play / Stop button */}
-            <button
+            <Button
                 onClick={playing ? handleStop : handlePlay}
-                className={`flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-sm transition-colors ${playing
+                className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm ${playing
                         ? "bg-red-50 text-red-600 border border-red-200 hover:bg-red-100"
-                        : "bg-indigo-600 text-white hover:bg-indigo-700"
+                        : ""
                     }`}
+                variant={playing ? "ghost" : "default"}
             >
                 {playing ? (
                     <>
@@ -66,14 +68,14 @@ export function ListeningPlayer({ script, langId, ui, onEnded }: Readonly<Props>
                         {ui.playAudio}
                     </>
                 )}
-            </button>
+            </Button>
 
             {/* Speed toggle */}
             <button
                 onClick={() => { handleStop(); setSlow(s => !s) }}
                 className={`px-3 py-2 rounded-xl text-sm font-medium border transition-colors ${slow
-                        ? "border-indigo-300 text-indigo-700 bg-indigo-50"
-                        : "border-gray-200 text-gray-500 hover:border-indigo-300"
+                        ? "border-grammar text-grammar bg-grammar-surface"
+                        : "border-border-default text-text-sec hover:border-grammar"
                     }`}
             >
                 {slow ? ui.slowSpeed : ui.normalSpeed}
@@ -81,7 +83,7 @@ export function ListeningPlayer({ script, langId, ui, onEnded }: Readonly<Props>
 
             {/* Playing indicator */}
             {playing && (
-                <span className="ml-auto text-xs text-indigo-500 animate-pulse">
+                <span className="ml-auto text-xs text-grammar animate-pulse">
                     ▶ {ui.playAudio}…
                 </span>
             )}

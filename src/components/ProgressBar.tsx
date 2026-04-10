@@ -10,8 +10,8 @@ interface ProgressBarProps {
     animate?: boolean                     // animate fill on mount (default: true)
 }
 
-const DEFAULT_GRADIENT = "bg-gradient-to-r from-indigo-400 to-indigo-600"
-const DEFAULT_TEXT     = "text-indigo-600"
+const DEFAULT_GRADIENT = "bg-grammar"
+const DEFAULT_TEXT     = "text-grammar"
 
 export function ProgressBar({ value, className = "", label, color, animate = true }: Readonly<ProgressBarProps>) {
     const pct = Math.max(0, Math.min(100, value))

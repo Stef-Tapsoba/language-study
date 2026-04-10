@@ -16,6 +16,7 @@ import { useSpeechRecognition } from "../hooks/useSpeechRecognition"
 import { getLanguage } from "../data/languages"
 import { getUI, fmt } from "../i18n"
 import { useStatsStore } from "../store/useStatsStore"
+import { Button } from "../components/ui/button"
 import type { ExerciseComponentProps } from "../exerciseTypes/registry"
 import type { SpeakingPrompt } from "../types"
 
@@ -186,8 +187,8 @@ export default function SpeakingPage({
                 <div className="flex gap-1">
                     {questions.map((q, i) => {
                         let cls = "bg-border-default"
-                        if (i < index) cls = "bg-indigo-500"
-                        else if (i === index) cls = "bg-indigo-300"
+                        if (i < index) cls = "bg-grammar"
+                        else if (i === index) cls = "bg-grammar opacity-40"
                         return <div key={q.id} className={`h-1.5 flex-1 rounded-full transition-colors ${cls}`} />
                     })}
                 </div>
@@ -226,13 +227,13 @@ export default function SpeakingPage({
                         <button
                             onClick={handleReplay}
                             aria-label="Replay pronunciation"
-                            className="shrink-0 p-2 min-h-[44px] min-w-[44px] rounded-lg text-indigo-400 hover:text-indigo-600 hover:bg-indigo-100 dark:hover:bg-indigo-800/40 transition-colors"
+                            className="shrink-0 p-2 min-h-[44px] min-w-[44px] rounded-lg text-grammar hover:bg-grammar-surface transition-colors"
                         >
                             <SpeakerIcon className="w-5 h-5" />
                         </button>
                     </div>
                     {item.hint && (
-                        <p className="text-xs text-indigo-400 dark:text-indigo-500 mt-1">{item.hint}</p>
+                        <p className="text-xs text-text-ter mt-1">{item.hint}</p>
                     )}
                 </div>
 
@@ -245,10 +246,10 @@ export default function SpeakingPage({
                             disabled={recState === "listening"}
                             className={[
                                 "relative w-20 h-20 rounded-full flex items-center justify-center",
-                                "transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500",
+                                "transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-grammar",
                                 recState === "listening"
                                     ? "bg-red-500 text-white cursor-default"
-                                    : "bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white shadow-lg",
+                                    : "bg-grammar hover:opacity-90 active:opacity-75 text-white shadow-lg",
                             ].join(" ")}
                         >
                             {recState === "listening" && (
@@ -295,12 +296,9 @@ export default function SpeakingPage({
 
                 {/* Next button — appears after result */}
                 {showResult && (
-                    <button
-                        onClick={handleNext}
-                        className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-3 text-sm transition-colors"
-                    >
+                    <Button onClick={handleNext} className="w-full rounded-xl py-3">
                         {isLast ? ui.seeResults : ui.nextQuestion}
-                    </button>
+                    </Button>
                 )}
 
                 {!showResult && isSupported && (

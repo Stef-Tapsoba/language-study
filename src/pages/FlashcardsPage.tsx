@@ -120,7 +120,7 @@ function dotColor(i: number, index: number, results: Result[]): string {
     if (i < index) {
         return results[i] === "correct" ? "bg-green-400" : "bg-red-300"
     }
-    if (i === index) return "bg-indigo-300"
+    if (i === index) return "bg-grammar opacity-40"
     return "bg-border-default"
 }
 

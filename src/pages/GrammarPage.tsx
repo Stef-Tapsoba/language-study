@@ -1,5 +1,6 @@
 // pages/GrammarPage.tsx — Grammar lesson browser for the current CEFR level
 import { useParams, Link } from "react-router-dom"
+import { Button } from "../components/ui/button"
 import { getLanguage } from "../data/languages"
 import { getGrammarForLevel } from "../data/repo"
 import { useProgress } from "../context/ProgressContext"
@@ -78,12 +79,9 @@ export function GrammarPage() {
                             In the meantime, practise what you know with the Grammar Drill or explore Reading.
                         </p>
                         <div className="flex flex-col gap-2 w-full max-w-xs mt-2">
-                            <Link
-                                to={`/learn/${langId}/grammar-drill`}
-                                className="block w-full text-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 text-sm font-medium"
-                            >
-                                Go to Grammar Drill
-                            </Link>
+                            <Button asChild className="w-full rounded-lg">
+                                <Link to={`/learn/${langId}/grammar-drill`}>Go to Grammar Drill</Link>
+                            </Button>
                             <Link
                                 to={`/learn/${langId}`}
                                 className="block w-full text-center px-4 py-2 border border-border-default text-text-sec rounded-lg hover:bg-surface-elevated text-sm font-medium"
