@@ -4,10 +4,11 @@
 //
 // Two branches:
 //   NewUserWelcome — no languages started yet, shows language picker
-//   ReturningHome  — shows current unit card + checkpoint + quick practice
+//   ReturningHome  — responsive 2-column layout on desktop, single column on mobile
 
 import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
+import { ChevronRight } from "lucide-react"
 import { useAppBootstrap } from "../hooks/useAppBootstrap"
 import { useCurrentUser } from "../hooks/useCurrentUser"
 import { VISIBLE_LANGUAGES, getLanguage } from "../data/languages"
@@ -17,10 +18,11 @@ import { useProgress } from "../context/ProgressContext"
 import { useStatsStore, getTotalReviews } from "../store/useStatsStore"
 import { isUnitUnlocked } from "../store/progressUtils"
 import { Flag } from "../components/Flag"
+import { LevelBadge } from "../components/LevelBadge"
 import { PhaseTrack, computeUnitPhases } from "../components/PhaseTrack"
 import { CheckpointStrip } from "../components/CheckpointStrip"
 import { QuickPracticeCard } from "../components/QuickPracticeCard"
-import type { LessonUnit, LanguageModule } from "../types"
+import type { CEFRLevel, LessonUnit, LanguageModule } from "../types"
 
 // ─── Greeting ────────────────────────────────────────────────────────────────
 
@@ -33,6 +35,17 @@ function timeOfDay(h: number): string {
 
 function greeting(name: string): string {
     return `${timeOfDay(new Date().getHours())}, ${name}`
+}
+
+function checkpointSubtitle(unitsUntil: number | null): string {
+    if (unitsUntil === 0) return "Ready to attempt"
+    if (unitsUntil === 1) return "1 unit away"
+    return `${unitsUntil ?? 0} units away`
+}
+
+const LEVEL_LABEL: Record<CEFRLevel, string> = {
+    A1: "Beginner", A2: "Elementary",
+    B1: "Intermediate", B2: "Upper Intermediate", C1: "Advanced",
 }
 
 // ─── New-user welcome ────────────────────────────────────────────────────────
@@ -82,7 +95,6 @@ function CurrentUnitCard({ unit, langId, level, completed, mastered }: Readonly<
     const reinforcement = getReinforcementState(langId, unit.id)
     const phases = computeUnitPhases(unit, completed, reinforcement, mastered)
 
-    // Determine CTA label from the active phase
     const activePhase = phases.find(p => p.status === "active")
     let ctaLabel: string
     if (activePhase) {
@@ -96,7 +108,6 @@ function CurrentUnitCard({ unit, langId, level, completed, mastered }: Readonly<
     return (
         <div className="bg-surface-card border-hairline border border-border-subtle rounded-2xl overflow-hidden">
             <div className="px-4 pt-4 pb-3 flex flex-col gap-2.5">
-                {/* Eyebrow */}
                 <div className="flex items-center gap-2">
                     <span className="text-[10px] text-text-ter uppercase tracking-widest">
                         {level} · Unit {unit.order}
@@ -105,8 +116,6 @@ function CurrentUnitCard({ unit, langId, level, completed, mastered }: Readonly<
                         In progress
                     </span>
                 </div>
-
-                {/* Title + description */}
                 <div>
                     <p className="text-sm font-semibold text-text-pri leading-snug">{unit.title}</p>
                     {unit.description && typeof unit.description === "string" && (
@@ -115,12 +124,8 @@ function CurrentUnitCard({ unit, langId, level, completed, mastered }: Readonly<
                         </p>
                     )}
                 </div>
-
-                {/* Phase track */}
                 <PhaseTrack phases={phases} variant="compact" />
             </div>
-
-            {/* CTA */}
             <Link
                 to={`/learn/${langId}/units/${unit.id}`}
                 className="block mx-4 mb-4 px-4 py-2.5 bg-grammar-surface border-hairline border border-grammar-border rounded-xl text-grammar text-[13px] font-medium text-center hover:bg-grammar-surface/80 transition-colors"
@@ -163,6 +168,100 @@ function LevelCompleteCard({ langId, level }: Readonly<{ langId: string; level: 
     )
 }
 
+// ─── Desktop sidebar panel ───────────────────────────────────────────────────
+
+interface SidebarPanelProps {
+    langId: string
+    level: CEFRLevel
+    masteredCount: number
+    totalUnits: number
+    totalReviews: number
+}
+
+function SidebarPanel({ langId, level, masteredCount, totalUnits, totalReviews }: Readonly<SidebarPanelProps>) {
+    const pct = totalUnits > 0 ? Math.round(masteredCount / totalUnits * 100) : 0
+
+    return (
+        <div className="flex flex-col gap-4">
+            {/* Level progress */}
+            <div className="bg-surface-card border border-border-subtle rounded-2xl p-4">
+                <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-2">
+                        <LevelBadge level={level} />
+                        <span className="text-xs text-text-sec">{LEVEL_LABEL[level]}</span>
+                    </div>
+                    <span className="text-xs text-text-ter tabular-nums">{masteredCount} / {totalUnits} units</span>
+                </div>
+                <div className="w-full h-2 bg-border-default rounded-full overflow-hidden">
+                    <div
+                        className="h-2 bg-grammar rounded-full transition-[width] duration-500"
+                        style={{ width: `${pct}%` }}
+                    />
+                </div>
+                <p className="text-[11px] text-text-ter mt-1.5">{pct}% of this level complete</p>
+            </div>
+
+            {/* Practice */}
+            <div className="bg-surface-card border border-border-subtle rounded-2xl overflow-hidden">
+                <p className="text-[10px] font-semibold text-text-ter uppercase tracking-widest px-4 pt-4 pb-2">
+                    Quick practice
+                </p>
+                <div className="flex flex-col divide-y divide-border-subtle">
+                    <Link
+                        to={`/learn/${langId}/flashcards`}
+                        className="flex items-center gap-3 px-4 py-3 hover:bg-surface-elevated transition-colors"
+                    >
+                        <div className="w-8 h-8 bg-verbs-surface rounded-lg flex items-center justify-center shrink-0">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <rect x="2" y="3" width="5" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.3" className="text-verbs" />
+                                <rect x="9" y="3" width="5" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.3" className="text-verbs" />
+                            </svg>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                            <p className="text-sm font-medium text-text-pri">Flashcards</p>
+                            <p className="text-xs text-text-sec">
+                                {totalReviews > 0 ? `${totalReviews} due today` : "All caught up"}
+                            </p>
+                        </div>
+                        <ChevronRight size={14} className="text-text-ter shrink-0" />
+                    </Link>
+                    <Link
+                        to={`/learn/${langId}/verb-drill`}
+                        className="flex items-center gap-3 px-4 py-3 hover:bg-surface-elevated transition-colors"
+                    >
+                        <div className="w-8 h-8 bg-listening-surface rounded-lg flex items-center justify-center shrink-0">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M3 5h10M3 8h7M3 11h5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" className="text-listening" />
+                            </svg>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                            <p className="text-sm font-medium text-text-pri">Verb drill</p>
+                            <p className="text-xs text-text-sec">Conjugation practice</p>
+                        </div>
+                        <ChevronRight size={14} className="text-text-ter shrink-0" />
+                    </Link>
+                    <Link
+                        to={`/learn/${langId}/grammar-drill`}
+                        className="flex items-center gap-3 px-4 py-3 hover:bg-surface-elevated transition-colors"
+                    >
+                        <div className="w-8 h-8 bg-reading-surface rounded-lg flex items-center justify-center shrink-0">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <circle cx="8" cy="8" r="5" stroke="currentColor" strokeWidth="1.3" className="text-reading" />
+                                <path d="M6 8l1.5 1.5L10 6" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" className="text-reading" />
+                            </svg>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                            <p className="text-sm font-medium text-text-pri">Grammar drill</p>
+                            <p className="text-xs text-text-sec">Multiple choice questions</p>
+                        </div>
+                        <ChevronRight size={14} className="text-text-ter shrink-0" />
+                    </Link>
+                </div>
+            </div>
+        </div>
+    )
+}
+
 // ─── Returning-user home ─────────────────────────────────────────────────────
 
 function ReturningHome({ firstName, langId }: Readonly<{ firstName: string; langId: string }>) {
@@ -186,9 +285,9 @@ function ReturningHome({ firstName, langId }: Readonly<{ firstName: string; lang
         .filter(u => u.level === level)
         .sort((a, b) => a.order - b.order)
 
+    const masteredCount = levelUnits.filter(u => mastered.includes(u.id)).length
     const allLevelMastered = levelUnits.length > 0 && levelUnits.every(u => mastered.includes(u.id))
 
-    // Current unit: first unlocked non-mastered (null when all units are done)
     const currentUnit = allLevelMastered
         ? null
         : levelUnits.find(u =>
@@ -196,103 +295,110 @@ function ReturningHome({ firstName, langId }: Readonly<{ firstName: string; lang
             isUnitUnlocked(u.id, levelUnits, mastered, completedCheckpoints)
           ) ?? levelUnits[levelUnits.length - 1]
 
-    // Upcoming checkpoint (the next one not yet completed)
     const upcomingCheckpoint = mod.checkpoints?.find(cp =>
         cp.level === level && !completedCheckpoints.includes(cp.id)
     )
-
-    // Which unit closes this checkpoint's block? (findLast polyfill — reverse + find)
     const gateUnit = upcomingCheckpoint
         ? [...levelUnits].reverse().find((u: LessonUnit) => u.checkpointId === upcomingCheckpoint.id) ?? null
         : null
-
     const unitsUntilCheckpoint = gateUnit
         ? Math.max(0, gateUnit.order - (currentUnit?.order ?? 0))
         : null
 
     return (
-        <div className="min-h-full flex flex-col justify-center">
-        <div className="max-w-md mx-auto w-full px-4 py-6 flex flex-col gap-4">
+        <div className="max-w-3xl mx-auto w-full px-4 py-6 lg:py-10">
 
             {/* Greeting */}
-            <div>
+            <div className="mb-6">
                 <p className="text-[11px] text-text-ter uppercase tracking-widest mb-1">
                     {greeting(firstName)}
                 </p>
-                <h1 className="text-xl font-semibold text-text-pri leading-tight">
-                    Pick up where<br />you left off.
+                <h1 className="text-xl lg:text-2xl font-semibold text-text-pri leading-tight">
+                    Pick up where you left off.
                 </h1>
             </div>
 
-            {/* Current unit card — or level-complete CTA when all units are done */}
-            {allLevelMastered
-                ? <LevelCompleteCard langId={langId} level={level} />
-                : currentUnit && (
-                    <CurrentUnitCard
-                        unit={currentUnit}
+            {/* 2-column grid on desktop, single column on mobile */}
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_288px] gap-4 lg:gap-6 items-start">
+
+                {/* ── Primary column ─────────────────────────────────────── */}
+                <div className="flex flex-col gap-4">
+
+                    {allLevelMastered
+                        ? <LevelCompleteCard langId={langId} level={level} />
+                        : currentUnit && (
+                            <CurrentUnitCard
+                                unit={currentUnit}
+                                langId={langId}
+                                level={level}
+                                completed={completed}
+                                mastered={mastered}
+                            />
+                        )
+                    }
+
+                    {upcomingCheckpoint && unitsUntilCheckpoint !== null && unitsUntilCheckpoint <= 2 && (
+                        <CheckpointStrip
+                            title={upcomingCheckpoint.title}
+                            subtitle={checkpointSubtitle(unitsUntilCheckpoint)}
+                            href={`/learn/${langId}/checkpoints/${upcomingCheckpoint.id}`}
+                            state={unitsUntilCheckpoint === 0 ? "ready" : "upcoming"}
+                        />
+                    )}
+
+                    {/* Quick practice — mobile only (sidebar panel handles desktop) */}
+                    <div className="lg:hidden">
+                        <p className="text-[10px] text-text-ter uppercase tracking-widest mb-2">Quick practice</p>
+                        <div className="flex gap-2">
+                            <QuickPracticeCard
+                                label="Flashcards"
+                                href={`/learn/${langId}/flashcards`}
+                                iconBg="bg-verbs-surface"
+                                badge={totalReviews > 0 ? `${totalReviews} due` : undefined}
+                                badgeColor="text-verbs"
+                                icon={
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <rect x="2" y="3" width="5" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.3" className="text-verbs" />
+                                        <rect x="9" y="3" width="5" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.3" className="text-verbs" />
+                                    </svg>
+                                }
+                            />
+                            <QuickPracticeCard
+                                label="Verb drill"
+                                href={`/learn/${langId}/verb-drill`}
+                                iconBg="bg-listening-surface"
+                                icon={
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M3 5h10M3 8h7M3 11h5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" className="text-listening" />
+                                    </svg>
+                                }
+                            />
+                            <QuickPracticeCard
+                                label="Grammar drill"
+                                href={`/learn/${langId}/grammar-drill`}
+                                iconBg="bg-reading-surface"
+                                icon={
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <circle cx="8" cy="8" r="5" stroke="currentColor" strokeWidth="1.3" className="text-reading" />
+                                        <path d="M6 8l1.5 1.5L10 6" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" className="text-reading" />
+                                    </svg>
+                                }
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                {/* ── Sidebar column (desktop only) ──────────────────────── */}
+                <div className="hidden lg:block">
+                    <SidebarPanel
                         langId={langId}
                         level={level}
-                        completed={completed}
-                        mastered={mastered}
-                    />
-                )
-            }
-
-            {/* Checkpoint strip — show when ≤2 units away or ready */}
-            {upcomingCheckpoint && (unitsUntilCheckpoint !== null && unitsUntilCheckpoint <= 2) && (
-                <CheckpointStrip
-                    title={upcomingCheckpoint.title}
-                    subtitle={
-                        unitsUntilCheckpoint === 0
-                            ? "Ready to attempt"
-                            : `${unitsUntilCheckpoint} unit${unitsUntilCheckpoint !== 1 ? "s" : ""} away`
-                    }
-                    href={`/learn/${langId}/checkpoints/${upcomingCheckpoint.id}`}
-                    state={unitsUntilCheckpoint === 0 ? "ready" : "upcoming"}
-                />
-            )}
-
-            {/* Quick practice row */}
-            <div>
-                <p className="text-[10px] text-text-ter uppercase tracking-widest mb-2">Quick practice</p>
-                <div className="flex gap-2">
-                    <QuickPracticeCard
-                        label="Flashcards"
-                        href={`/learn/${langId}/flashcards`}
-                        iconBg="bg-verbs-surface"
-                        badge={totalReviews > 0 ? `${totalReviews} due` : undefined}
-                        badgeColor="text-verbs"
-                        icon={
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <rect x="2" y="3" width="5" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.3" className="text-verbs" />
-                                <rect x="9" y="3" width="5" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.3" className="text-verbs" />
-                            </svg>
-                        }
-                    />
-                    <QuickPracticeCard
-                        label="Verb drill"
-                        href={`/learn/${langId}/verb-drill`}
-                        iconBg="bg-listening-surface"
-                        icon={
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M3 5h10M3 8h7M3 11h5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" className="text-listening" />
-                            </svg>
-                        }
-                    />
-                    <QuickPracticeCard
-                        label="Grammar drill"
-                        href={`/learn/${langId}/grammar-drill`}
-                        iconBg="bg-reading-surface"
-                        icon={
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <circle cx="8" cy="8" r="5" stroke="currentColor" strokeWidth="1.3" className="text-reading" />
-                                <path d="M6 8l1.5 1.5L10 6" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" className="text-reading" />
-                            </svg>
-                        }
+                        masteredCount={masteredCount}
+                        totalUnits={levelUnits.length}
+                        totalReviews={totalReviews}
                     />
                 </div>
             </div>
-        </div>
         </div>
     )
 }
@@ -314,9 +420,6 @@ export function HomePage() {
         return <NewUserWelcome displayName={firstName} onPick={handlePick} />
     }
 
-    // Guard: selectedLanguage may be set to a language that was never started
-    // (e.g. user picked French then abandoned placement). Fall back to the first
-    // language that has actually been started.
     const isSelectedStarted = Boolean(selectedLanguage && startedLanguages.includes(selectedLanguage))
     const langId = isSelectedStarted ? selectedLanguage! : startedLanguages[0]
     const lang = getLanguage(langId)
