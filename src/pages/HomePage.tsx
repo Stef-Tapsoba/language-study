@@ -310,12 +310,10 @@ function ReturningHome({ firstName, langId }: Readonly<{ firstName: string; lang
 
             {/* Greeting */}
             <div className="mb-6">
-                <p className="text-[11px] text-text-ter uppercase tracking-widest mb-1">
+                <h1 className="text-2xl lg:text-3xl font-semibold text-text-pri leading-tight">
                     {greeting(firstName)}
-                </p>
-                <h1 className="text-xl lg:text-2xl font-semibold text-text-pri leading-tight">
-                    Pick up where you left off.
                 </h1>
+                <p className="text-sm text-text-sec mt-1">Pick up where you left off.</p>
             </div>
 
             {/* 2-column grid on desktop, single column on mobile */}
