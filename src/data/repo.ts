@@ -21,6 +21,7 @@ import {
     CultureEpisode,
     QuizQuestion,
     SpeakingPrompt,
+    PhraseLesson,
 } from "../types"
 import { scoreUnitForGoal, USER_GOALS, type GoalId } from "./goalConfig"
 import { UNIT_TAGS } from "./unitTags"
@@ -117,6 +118,14 @@ export function getGrammarForUnit(langId: string, unitId: string): GrammarLesson
     if (!unit) return []
     const grammar = getModule(langId)?.grammar ?? []
     return unit.grammarIds.map(id => grammar.find(g => g.id === id)).filter(Boolean) as GrammarLesson[]
+}
+
+/** Returns phrase lessons for the given unit, in phraseLessonIds order. */
+export function getPhraseLessonsForUnit(langId: string, unitId: string): PhraseLesson[] {
+    const unit = getUnit(langId, unitId)
+    if (!unit?.phraseLessonIds?.length) return []
+    const phraseLessons = getModule(langId)?.phraseLessons ?? []
+    return unit.phraseLessonIds.map(id => phraseLessons.find(p => p.id === id)).filter(Boolean) as PhraseLesson[]
 }
 
 /** Returns only the vocab items that belong to the given unit. */

@@ -35,6 +35,7 @@ const ReviewPage         = lazy(() => import("./pages/ReviewPage").then(m => ({ 
 const ReviewLandingPage  = lazy(() => import("./pages/ReviewLandingPage").then(m => ({ default: m.ReviewLandingPage })))
 const GoalPickerPage     = lazy(() => import("./pages/GoalPickerPage").then(m => ({ default: m.GoalPickerPage })))
 const CheckpointPage        = lazy(() => import("./pages/CheckpointPage").then(m => ({ default: m.CheckpointPage })))
+const PhraseLessonPage      = lazy(() => import("./pages/PhraseLessonPage").then(m => ({ default: m.PhraseLessonPage })))
 const PracticePage          = lazy(() => import("./pages/PracticePage").then(m => ({ default: m.PracticePage })))
 const StudyPage             = lazy(() => import("./pages/StudyPage").then(m => ({ default: m.StudyPage })))
 const StatsPage             = lazy(() => import("./pages/StatsPage").then(m => ({ default: m.StatsPage })))
@@ -137,6 +138,7 @@ export default function App() {
                         <Route path="review/session" element={<ReviewPage />} />
                         <Route path="goal" element={<GoalPickerPage />} />
                         <Route path="checkpoints/:checkpointId" element={<CheckpointPage />} />
+                        <Route path="phrases/:phraseLessonId" element={<PhraseLessonPage />} />
                     </Route>
 
                     {/* Fallback */}
