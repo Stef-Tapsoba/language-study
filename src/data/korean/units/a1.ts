@@ -1,514 +1,455 @@
-// data/korean/units/a1.ts
+// data/korean/units/a1.ts — Korean A1 redesign (26 units, 5 blocks + Block 0)
+// Functional/communicative syllabus.
+// Block 0 (U1-U3): Reading Korean (script)
+// Block 1 (U4-U7): Who I am
+// Block 2 (U8-U12): My World
+// Block 3 (U13-U17): Daily Life
+// Block 4 (U18-U22): Out in the World
+// Block 5 (U23-U26): Talking about Time
 import { LessonUnit } from "../../../types"
 
-// 21 ordered A1 units for Korean.
-//
-// CHANGES FROM PREVIOUS VERSION (was 12 units):
-// U1  — Added ko-g-a1-2 (Hangul: Reading Korean) — was missing entirely.
-//        Title updated. Now: How Korean Works + Hangul Reading + Greetings.
-// U2  — Fixed grammar overload. Removed ko-g-a1-14 (Speech Levels).
-//        Now: Basic Sentence (ko-g-a1-3) + Greetings expressions (ko-g-a1-4) only.
-// U3  — NEW: Speech Levels (ko-g-a1-14) — standalone unit. Too important to bury.
-// U4  — Sino-Korean Numbers (was U3) — renumbered, unchanged.
-// U5  — Native Numbers ONLY (split from old U4 which mixed numbers + family).
-// U6  — NEW: Family & People — family vocab split from old U4.
-// U7  — Particles: Subject & Object (was U5) — renumbered.
-// U8  — Present Tense (was U6) — renumbered.
-// U9  — Adjective Conjugation (ko-g-a1-13) — MOVED UP from U11.
-//        Adjectives conjugate like verbs in Korean; this belongs right after present tense.
-// U10 — Negation (ko-g-a1-10) — MOVED UP from U10 (now earlier in sequence).
-//        Simple negation with 안/못 belongs right after learners know present tense + adjectives.
-// U11 — 하다 Compounds & 좋아하다 (ko-g-a1-15 NEW) — was U8 with duplicate grammar.
-//        Fixed: now references new ko-g-a1-15 instead of duplicate ko-g-a1-8.
-// U12 — Location Particles 에/에서 (was U7) — renumbered.
-// U13 — Past Tense (was U9) — renumbered.
-// U14 — Question Words (ko-g-a1-12) — split from old U10 (was combined with negation).
-// U15 — A1 Review (was U12) — renumbered.
-
 export const a1Units: LessonUnit[] = [
+    // ─── Block 0: Reading Korean ───────────────────────────────────────────
     {
         id: "ko-a1-u1",
         level: "A1",
         order: 1,
-        title: "How Korean Works, Hangul & First Greetings",
-        description: "Get the big picture of how Korean is structured — SOV word order, particles, speech levels, and the alphabet. Learn to read Hangul: how syllable blocks are built from consonants and vowels. Practise with your first greetings.",
-        grammarIds: ["ko-g-a1-1", "ko-g-a1-2"],
-        vocabIds: [
-            "ko-v-a1-1", "ko-v-a1-2", "ko-v-a1-3", "ko-v-a1-4", "ko-v-a1-5",
-            "ko-v-a1-6", "ko-v-a1-7", "ko-v-a1-8", "ko-v-a1-9", "ko-v-a1-10",
-            "ko-v-a1-11", "ko-v-a1-12", "ko-v-a1-13", "ko-v-a1-14", "ko-v-a1-15"
-        ],
+        title: "Vowels and the syllable block",
+        description: "Discover how Korean writing works — syllable blocks, not letter-by-letter. Learn the 10 basic vowels, stroke order, and read your first 10 syllables.",
+        grammarIds: ["ko-g-a1-1"],
+        vocabIds: ["ko-v-a1-s1", "ko-v-a1-s2", "ko-v-a1-s3", "ko-v-a1-s4", "ko-v-a1-s5", "ko-v-a1-s6", "ko-v-a1-s7", "ko-v-a1-s8"],
         verbIds: [],
         testQuestions: [
-            { id: "ko-uq-a1-1-1", level: "A1", prompt: "How does Hangul work? Each character represents...", options: ["A single letter like the Roman alphabet", "A whole word", "A syllable block made of consonants and vowels", "A meaning like Chinese characters"], answer: "A syllable block made of consonants and vowels" },
-            { id: "ko-uq-a1-1-2", level: "A1", prompt: "What does '안녕하세요' mean?", options: ["Thank you", "Goodbye", "Hello", "I'm sorry"], answer: "Hello" },
-            { id: "ko-uq-a1-1-3", level: "A1", prompt: "What is the basic word order in Korean?", options: ["SVO (Subject-Verb-Object)", "VSO (Verb-Subject-Object)", "SOV (Subject-Object-Verb)", "OVS (Object-Verb-Subject)"], answer: "SOV (Subject-Object-Verb)" },
-            { id: "ko-uq-a1-1-4", level: "A1", prompt: "What does '감사합니다' mean?", options: ["Hello", "Goodbye", "I'm sorry", "Thank you"], answer: "Thank you" },
-            { id: "ko-uq-a1-1-5", level: "A1", prompt: "How many basic vowels does Hangul have?", options: ["8", "10", "12", "14"], answer: "10" },
-            { id: "ko-uq-a1-1-6", level: "A1", prompt: "Which is the correct polite way to say 'I'm sorry'?", options: ["감사합니다", "죄송합니다", "괜찮아요", "네"], answer: "죄송합니다" },
-        ]
+            { id: "ko-uq-a1-1-1", level: "A1", prompt: "Korean is written in...", options: ["Individual letters like the Roman alphabet", "Syllable blocks — one block per spoken beat", "Characters like Chinese", "Words with no spaces"], answer: "Syllable blocks — one block per spoken beat" },
+            { id: "ko-uq-a1-1-2", level: "A1", prompt: "When a syllable starts with a vowel sound, Korean writes ___ as a silent placeholder.", options: ["ㄱ", "ㄴ", "ㅇ", "ㅎ"], answer: "ㅇ" },
+            { id: "ko-uq-a1-1-3", level: "A1", prompt: "Horizontal vowels like ㅗ, ㅜ, ㅡ are written...", options: ["To the right of the consonant", "Below the consonant", "Above the consonant", "Before the consonant"], answer: "Below the consonant" },
+            { id: "ko-uq-a1-1-4", level: "A1", prompt: "What is the stroke order rule in Korean writing?", options: ["Bottom to top, right to left", "Right to left only", "Top to bottom, left to right", "No fixed order"], answer: "Top to bottom, left to right" },
+        ],
     },
     {
         id: "ko-a1-u2",
         level: "A1",
         order: 2,
-        title: "Introductions: X은/는 Y이에요",
-        description: "Introduce yourself and say what things are using the topic particle 은/는 and the copula 이에요/예요. Learn key personal vocabulary.",
-        grammarIds: ["ko-g-a1-3", "ko-g-a1-4"],
-        vocabIds: [
-            "ko-v-a1-16", "ko-v-a1-17", "ko-v-a1-18", "ko-v-a1-19", "ko-v-a1-20",
-            "ko-v-a1-21", "ko-v-a1-22", "ko-v-a1-23", "ko-v-a1-24", "ko-v-a1-25"
-        ],
+        title: "Consonants — building real syllables",
+        description: "Learn the 14 basic consonants including the ㄹ flap and aspirated sounds. Build consonant-vowel syllable combinations and read two-syllable Korean words.",
+        grammarIds: ["ko-g-a1-2"],
+        vocabIds: ["ko-v-a1-s9", "ko-v-a1-s10", "ko-v-a1-s11", "ko-v-a1-s12", "ko-v-a1-s13", "ko-v-a1-s14", "ko-v-a1-s15", "ko-v-a1-s16"],
         verbIds: [],
-        readingIds: ["ko-r-a1-3"],
-        listeningIds: ["ko-l-a1-1"],
         testQuestions: [
-            { id: "ko-uq-a1-2-1", level: "A1", prompt: "How do you say 'I am a student'?", options: ["학생는 저이에요.", "저를 학생이에요.", "저는 학생이에요.", "학생이에요 저."], answer: "저는 학생이에요." },
-            { id: "ko-uq-a1-2-2", level: "A1", prompt: "Which particle marks the topic of a sentence?", options: ["이/가", "을/를", "에서", "은/는"], answer: "은/는" },
-            { id: "ko-uq-a1-2-3", level: "A1", prompt: "What does '저' mean?", options: ["You", "He/She", "I (polite)", "We"], answer: "I (polite)" },
-            { id: "ko-uq-a1-2-4", level: "A1", prompt: "Which ending do you use after a consonant to mean 'is'?", options: ["예요", "이에요", "이요", "에요"], answer: "이에요" },
-            { id: "ko-uq-a1-2-5", level: "A1", prompt: "How do you ask 'What is your name?'", options: ["이름이 어때요?", "이름이 뭐예요?", "이름이 어디예요?", "이름이 있어요?"], answer: "이름이 뭐예요?" },
-            { id: "ko-uq-a1-2-6", level: "A1", prompt: "What does '선생님' mean?", options: ["Student", "Friend", "Teacher", "Doctor"], answer: "Teacher" },
-        ]
+            { id: "ko-uq-a1-2-1", level: "A1", prompt: "The consonant ㄹ sounds like...", options: ["A clear English 'r'", "A clear English 'l'", "A light tongue flap between r and l", "The 'ng' sound"], answer: "A light tongue flap between r and l" },
+            { id: "ko-uq-a1-2-2", level: "A1", prompt: "How do you write the syllable 'mo'?", options: ["ㅁ to the left, ㅗ to the right", "ㅗ below ㅁ — 모", "ㅁ below ㅗ", "ㅗ then ㅁ side by side"], answer: "ㅗ below ㅁ — 모" },
+            { id: "ko-uq-a1-2-3", level: "A1", prompt: "ㅋ is the aspirated version of ㄱ. This means...", options: ["It sounds softer", "It has a puff of breath", "It is silent", "It sounds like 'ng'"], answer: "It has a puff of breath" },
+            { id: "ko-uq-a1-2-4", level: "A1", prompt: "ㅇ at the END of a syllable sounds like...", options: ["Silent — no sound", "'s' as in sun", "'ng' as in sing", "'h' as in hat"], answer: "'ng' as in sing" },
+        ],
     },
     {
         id: "ko-a1-u3",
         level: "A1",
         order: 3,
-        title: "Hangul in Action: Reading & Writing Practice",
-        description: "Build on U1's Hangul introduction with focused reading and writing practice. Work through syllable block combinations, common consonant clusters, and short words you already know. Reinforce the alphabet through active recognition rather than passive memorisation.",
-        grammarIds: [],
-        vocabIds: [
-            "ko-v-a1-16",  // 저
-            "ko-v-a1-17",  // 나
-            "ko-v-a1-24",  // 학생
-            "ko-v-a1-25",  // 선생님
-            "ko-v-a1-1",   // 안녕하세요
-            "ko-v-a1-2",   // 안녕히 가세요
-        ],
+        title: "Reading your first Korean words",
+        description: "Learn about 받침 (final consonants), read loanwords you already know in Korean script, and preview the phrases coming in Block 1. From here: no romanization.",
+        grammarIds: ["ko-g-a1-3"],
+        vocabIds: ["ko-v-a1-s17", "ko-v-a1-s18", "ko-v-a1-s19", "ko-v-a1-s20", "ko-v-a1-s21", "ko-v-a1-s22", "ko-v-a1-s23", "ko-v-a1-s24"],
         verbIds: [],
-        cultureIds: ["ko-c-a1-1"],
         testQuestions: [
-            { id: "ko-uq-a1-3-1", level: "A1", prompt: "Which Hangul vowel represents the sound 'a' as in 'father'?", options: ["ㅓ", "ㅏ", "ㅡ", "ㅣ"], answer: "ㅏ" },
-            { id: "ko-uq-a1-3-2", level: "A1", prompt: "Which syllable block is correctly formed?", options: ["ㅎ+ㅏ+ㄴ = 핮", "ㄱ+ㅏ = 가", "ㅏ+ㄱ = 가", "ㄱ+ㅏ+ㅡ = 갸"], answer: "ㄱ+ㅏ = 가" },
-            { id: "ko-uq-a1-3-3", level: "A1", prompt: "What does '학교' mean?", options: ["Home", "School", "Work", "Hospital"], answer: "School" },
-            { id: "ko-uq-a1-3-4", level: "A1", prompt: "How many syllables does '안녕하세요' have?", options: ["3", "4", "5", "6"], answer: "5" },
-            { id: "ko-uq-a1-3-5", level: "A1", prompt: "Which consonant is silent when it appears at the START of a syllable block?", options: ["ㄱ", "ㄴ", "ㅇ", "ㄷ"], answer: "ㅇ" },
-        ]
+            { id: "ko-uq-a1-3-1", level: "A1", prompt: "받침 is...", options: ["The first consonant in a syllable", "The vowel in a syllable", "The final consonant at the bottom of a syllable block", "A separate syllable"], answer: "The final consonant at the bottom of a syllable block" },
+            { id: "ko-uq-a1-3-2", level: "A1", prompt: "Which of these is the Korean spelling for 'taxi'?", options: ["타시", "택시", "탁시", "택사"], answer: "택시" },
+            { id: "ko-uq-a1-3-3", level: "A1", prompt: "In 한글, what is the 받침 of 한?", options: ["ㅎ", "ㅏ", "ㄴ", "ㄹ"], answer: "ㄴ" },
+            { id: "ko-uq-a1-3-4", level: "A1", prompt: "커피 is the Korean word for...", options: ["Cola", "Tea", "Coffee", "Juice"], answer: "Coffee" },
+        ],
     },
+
+    // ─── Block 1: Who I Am ─────────────────────────────────────────────────
     {
         id: "ko-a1-u4",
         level: "A1",
         order: 4,
-        title: "Sino-Korean Numbers & Demonstratives: 이/그/저",
-        description: "Count with Sino-Korean numbers — used for dates, money, phone numbers, and minutes. Then learn to point to things near you, near the listener, or far away using Korean's three demonstrative series 이/그/저. Combine numbers with demonstratives in natural phrases.",
-        grammarIds: ["ko-g-a1-11", "ko-g-a1-16"],
-        vocabIds: [
-            "ko-v-a1-46", "ko-v-a1-47", "ko-v-a1-48", "ko-v-a1-49", "ko-v-a1-50",
-            "ko-v-a1-51", "ko-v-a1-52", "ko-v-a1-53", "ko-v-a1-54", "ko-v-a1-55",
-            "ko-v-a1-56", "ko-v-a1-57", "ko-v-a1-58", "ko-v-a1-59", "ko-v-a1-60"
-        ],
+        title: "Say hello, say goodbye, be polite",
+        description: "Master essential greetings, the two goodbye phrases, and polite expressions for every situation. Pure phrase learning — no grammar analysis.",
+        grammarIds: [],
+        phraseLessonIds: ["ko-pl-a1-1", "ko-pl-a1-2", "ko-pl-a1-3"],
+        vocabIds: ["ko-v-a1-1", "ko-v-a1-2", "ko-v-a1-3", "ko-v-a1-4", "ko-v-a1-5", "ko-v-a1-6", "ko-v-a1-7", "ko-v-a1-8", "ko-v-a1-9", "ko-v-a1-10", "ko-v-a1-11", "ko-v-a1-12", "ko-v-a1-13"],
         verbIds: [],
-        listeningIds: ["ko-l-a1-2"],
         testQuestions: [
-            { id: "ko-uq-a1-4-1", level: "A1", prompt: "What is 3 in Sino-Korean?", options: ["셋", "삼", "三", "사"], answer: "삼" },
-            { id: "ko-uq-a1-4-2", level: "A1", prompt: "Sino-Korean numbers are used for which of these?", options: ["Counting objects", "Telling the hour", "People's ages", "Dates and money"], answer: "Dates and money" },
-            { id: "ko-uq-a1-4-3", level: "A1", prompt: "What does '오늘' mean?", options: ["Yesterday", "Tomorrow", "Today", "Now"], answer: "Today" },
-            { id: "ko-uq-a1-4-4", level: "A1", prompt: "What is '월요일'?", options: ["Tuesday", "Wednesday", "Monday", "Thursday"], answer: "Monday" },
-            { id: "ko-uq-a1-4-5", level: "A1", prompt: "What does '주말' mean?", options: ["Weekday", "Weekend", "Holiday", "Morning"], answer: "Weekend" },
-        ]
+            { id: "ko-uq-a1-4-1", level: "A1", prompt: "You are leaving a Korean shop. The staff are staying. You say:", options: ["안녕히 가세요", "안녕히 계세요", "안녕", "또 봐요"], answer: "안녕히 계세요" },
+            { id: "ko-uq-a1-4-2", level: "A1", prompt: "What does 괜찮아요 mean?", options: ["Thank you", "I'm sorry", "It's okay / I'm fine", "Excuse me"], answer: "It's okay / I'm fine" },
+            { id: "ko-uq-a1-4-3", level: "A1", prompt: "Which greeting do you use with a stranger?", options: ["안녕", "안녕하세요", "어서 오세요", "잠깐만요"], answer: "안녕하세요" },
+            { id: "ko-uq-a1-4-4", level: "A1", prompt: "What does 감사합니다 mean?", options: ["I'm sorry", "Thank you", "Goodbye", "Hello"], answer: "Thank you" },
+        ],
     },
     {
         id: "ko-a1-u5",
         level: "A1",
         order: 5,
-        title: "Native Korean Numbers",
-        description: "Learn the native Korean number system — used for counting objects, telling the hour, and ages. Understand how native numbers change before counters.",
-        grammarIds: ["ko-g-a1-11"],
-        vocabIds: [
-            "ko-v-a1-36", "ko-v-a1-37", "ko-v-a1-38", "ko-v-a1-39", "ko-v-a1-40",
-            "ko-v-a1-41", "ko-v-a1-42", "ko-v-a1-43", "ko-v-a1-44", "ko-v-a1-45"
-        ],
+        title: "I am...",
+        description: "Build your first Korean sentence: 저는 ___이에요/예요. Learn the copula, how to check which ending to use, and ask questions with rising intonation.",
+        grammarIds: ["ko-g-a1-4", "ko-g-a1-5"],
+        vocabIds: ["ko-v-a1-14", "ko-v-a1-15", "ko-v-a1-16", "ko-v-a1-17", "ko-v-a1-18", "ko-v-a1-19", "ko-v-a1-20", "ko-v-a1-21", "ko-v-a1-22", "ko-v-a1-23", "ko-v-a1-24", "ko-v-a1-25"],
         verbIds: [],
-        listeningIds: ["ko-l-a1-3"],
         testQuestions: [
-            { id: "ko-uq-a1-5-1", level: "A1", prompt: "What is 'five' in native Korean?", options: ["오", "넷", "다섯", "여섯"], answer: "다섯" },
-            { id: "ko-uq-a1-5-2", level: "A1", prompt: "How does 둘 (two) change before a counter?", options: ["이", "둘", "두", "둘이"], answer: "두" },
-            { id: "ko-uq-a1-5-3", level: "A1", prompt: "Native Korean numbers are used for:", options: ["Dates", "Money", "Phone numbers", "Counting objects and hours"], answer: "Counting objects and hours" },
-            { id: "ko-uq-a1-5-4", level: "A1", prompt: "What is '열'?", options: ["Eight", "Nine", "Ten", "Seven"], answer: "Ten" },
-            { id: "ko-uq-a1-5-5", level: "A1", prompt: "What is 'nine' in native Korean?", options: ["여덟", "일곱", "아홉", "열"], answer: "아홉" },
-        ]
+            { id: "ko-uq-a1-5-1", level: "A1", prompt: "How do you say 'I'm a teacher'?", options: ["저는 선생님예요.", "저는 선생님이에요.", "저를 선생님이에요.", "선생님은 저이에요."], answer: "저는 선생님이에요." },
+            { id: "ko-uq-a1-5-2", level: "A1", prompt: "Your name is 소피. How do you say 'I'm Sophie'?", options: ["저는 소피이에요.", "저는 소피예요.", "저는 소피에요.", "저를 소피예요."], answer: "저는 소피예요." },
+            { id: "ko-uq-a1-5-3", level: "A1", prompt: "How do you say 'Nice to meet you' in Korean?", options: ["안녕하세요", "감사합니다", "만나서 반가워요", "괜찮아요"], answer: "만나서 반가워요" },
+            { id: "ko-uq-a1-5-4", level: "A1", prompt: "누구예요? means:", options: ["What is it?", "Who is it?", "Where is it?", "How is it?"], answer: "Who is it?" },
+        ],
     },
     {
         id: "ko-a1-u6",
         level: "A1",
         order: 6,
-        title: "Family & People",
-        description: "Talk about your family members. Korean family terms differ depending on whether the speaker is male or female — learn the key distinctions. Use the copula 이에요/예요 to say who family members are.",
-        grammarIds: ["ko-g-a1-3"],
-        vocabIds: [
-            "ko-v-a1-26", "ko-v-a1-27", "ko-v-a1-28", "ko-v-a1-29", "ko-v-a1-30",
-            "ko-v-a1-31", "ko-v-a1-32", "ko-v-a1-33", "ko-v-a1-34", "ko-v-a1-35"
-        ],
+        title: "My name, where I'm from, my age",
+        description: "Complete personal introduction: name phrases, origin with ___에서 왔어요, and age with 살. Covers both number systems: Sino-Korean 1–20 and native Korean numbers for age.",
+        grammarIds: ["ko-g-a1-6", "ko-g-a1-7", "ko-g-a1-7b"],
+        phraseLessonIds: ["ko-pl-a1-4", "ko-pl-a1-5"],
+        vocabIds: ["ko-v-a1-26", "ko-v-a1-27", "ko-v-a1-28", "ko-v-a1-29", "ko-v-a1-30", "ko-v-a1-31", "ko-v-a1-32", "ko-v-a1-33", "ko-v-a1-34", "ko-v-a1-35", "ko-v-a1-36", "ko-v-a1-37", "ko-v-a1-38"],
         verbIds: [],
-        readingIds: ["ko-r-a1-1"],
-        listeningIds: ["ko-l-a1-4"],
         testQuestions: [
-            { id: "ko-uq-a1-6-1", level: "A1", prompt: "What does '가족' mean?", options: ["Friend", "Family", "Teacher", "Person"], answer: "Family" },
-            { id: "ko-uq-a1-6-2", level: "A1", prompt: "What does '동생' mean?", options: ["Older brother", "Older sister", "Younger sibling", "Husband"], answer: "Younger sibling" },
-            { id: "ko-uq-a1-6-3", level: "A1", prompt: "A woman says '오빠'. Who is she referring to?", options: ["Her younger brother", "Her older brother", "Her older sister", "Her husband"], answer: "Her older brother" },
-            { id: "ko-uq-a1-6-4", level: "A1", prompt: "A man says '누나'. Who is he referring to?", options: ["His younger sister", "His older brother", "His older sister", "His wife"], answer: "His older sister" },
-            { id: "ko-uq-a1-6-5", level: "A1", prompt: "How do you say 'My father is a teacher'?", options: ["아버지는 학생이에요.", "아버지는 선생님이에요.", "어머니는 선생님이에요.", "아버지가 선생님이에요?"], answer: "아버지는 선생님이에요." },
-        ]
+            { id: "ko-uq-a1-6-1", level: "A1", prompt: "How do you say 'I'm from the UK'?", options: ["저는 영국이에요.", "저는 영국에서 왔어요.", "저를 영국 왔어요.", "영국에서 나왔어요."], answer: "저는 영국에서 왔어요." },
+            { id: "ko-uq-a1-6-2", level: "A1", prompt: "How do you say 'I'm 27 years old'?", options: ["저는 이십칠 살이에요.", "저는 스물일곱 살이에요.", "저는 27이에요.", "저는 이칠 살이에요."], answer: "저는 스물일곱 살이에요." },
+            { id: "ko-uq-a1-6-3", level: "A1", prompt: "What does ___씨 mean after a name?", options: ["Mr/Ms — a polite suffix for names", "Friend", "Older person", "Doctor"], answer: "Mr/Ms — a polite suffix for names" },
+            { id: "ko-uq-a1-6-4", level: "A1", prompt: "What is 14 in Sino-Korean?", options: ["십사", "열넷", "이사", "사십"], answer: "십사" },
+        ],
     },
     {
         id: "ko-a1-u7",
         level: "A1",
         order: 7,
-        title: "Particles: Subject, Object, Connective & Possessive",
-        description: "Mark subjects with 이/가 and objects with 을/를. Understand when to use 이/가 vs 은/는. Connect nouns with 와/과/하고/랑 (and/with) and choose between 나/이나 (or). Also: the possessive particle 의 (my father's name, a friend's bag).",
-        grammarIds: ["ko-g-a1-5", "ko-g-a1-6", "ko-g-a1-30", "ko-g-a1-34", "ko-g-a1-31"],
-        vocabIds: [
-            "ko-v-a1-131", "ko-v-a1-132", "ko-v-a1-133", "ko-v-a1-134", "ko-v-a1-135",
-            "ko-v-a1-136", "ko-v-a1-137", "ko-v-a1-138", "ko-v-a1-139", "ko-v-a1-140"
-        ],
-        verbIds: ["ko-vb-a1-10", "ko-vb-a1-11"],
+        title: "My job and studies",
+        description: "Professions vocabulary, 무슨 일 해요?, the 있어요/없어요 pattern for possession and existence, and 잘 부탁드립니다 for new relationships.",
+        grammarIds: ["ko-g-a1-8", "ko-g-a1-9"],
+        phraseLessonIds: ["ko-pl-a1-6"],
+        vocabIds: ["ko-v-a1-39", "ko-v-a1-40", "ko-v-a1-41", "ko-v-a1-42", "ko-v-a1-43", "ko-v-a1-44", "ko-v-a1-45", "ko-v-a1-46", "ko-v-a1-47", "ko-v-a1-48", "ko-v-a1-49", "ko-v-a1-50", "ko-v-a1-51", "ko-v-a1-52", "ko-v-a1-169", "ko-v-a1-170", "ko-v-a1-171", "ko-v-a1-172", "ko-v-a1-173", "ko-v-a1-174", "ko-v-a1-175", "ko-v-a1-176"],
+        verbIds: [],
+        checkpointId: "ko-cp-a1-1",
         testQuestions: [
-            { id: "ko-uq-a1-7-1", level: "A1", prompt: "Which particle marks the direct object?", options: ["은/는", "이/가", "을/를", "에서"], answer: "을/를" },
-            { id: "ko-uq-a1-7-2", level: "A1", prompt: "Complete: '한국어___ 공부해요.' (I study Korean — 한국어 ends in vowel)", options: ["를", "을", "가", "는"], answer: "를" },
-            { id: "ko-uq-a1-7-3", level: "A1", prompt: "Complete: '친구___ 왔어요.' (A friend came — 친구 ends in vowel)", options: ["이", "가", "를", "은"], answer: "가" },
-            { id: "ko-uq-a1-7-4", level: "A1", prompt: "What does '공부' mean?", options: ["Work", "Music", "Studying", "Exercise"], answer: "Studying" },
-            { id: "ko-uq-a1-7-5", level: "A1", prompt: "Complete: '밥___ 먹어요.' (I eat rice — 밥 ends in consonant)", options: ["를", "을", "이", "은"], answer: "을" },
-            { id: "ko-uq-a1-7-6", level: "A1", prompt: "What does '친구' mean?", options: ["Family", "Teacher", "Friend", "Colleague"], answer: "Friend" },
-        ]
+            { id: "ko-uq-a1-7-1", level: "A1", prompt: "저는 여동생이 있어요 means:", options: ["My younger sister is a student.", "I have a younger sister.", "My younger sister is here.", "I want a younger sister."], answer: "I have a younger sister." },
+            { id: "ko-uq-a1-7-2", level: "A1", prompt: "Which is correct for 'Do you have time?'", options: ["시간이 없어요?", "시간이 있어요?", "시간을 있어요?", "시간은 있어요?"], answer: "시간이 있어요?" },
+            { id: "ko-uq-a1-7-3", level: "A1", prompt: "잘 부탁드립니다 is said when...", options: ["Saying goodbye", "Starting a new class or meeting a colleague", "Apologising", "Ordering food"], answer: "Starting a new class or meeting a colleague" },
+            { id: "ko-uq-a1-7-4", level: "A1", prompt: "이/가 after a noun marks it as...", options: ["The object", "The subject", "The location", "The time"], answer: "The subject" },
+        ],
     },
+
+    // ─── Block 2: My World ─────────────────────────────────────────────────
     {
         id: "ko-a1-u8",
         level: "A1",
         order: 8,
-        title: "Present Tense: ~아요/어요 & Speech Levels",
-        description: "Conjugate verbs in polite present tense (해요체) using ~아요/어요. Understand why Korean verbs change depending on who you're speaking to. Learn the three speech levels — 반말, 해요체, and 합쇼체 — and when each is used.",
-        grammarIds: ["ko-g-a1-8", "ko-g-a1-14"],
-        vocabIds: [
-            "ko-v-a1-61", "ko-v-a1-62", "ko-v-a1-63", "ko-v-a1-64", "ko-v-a1-65",
-            "ko-v-a1-66", "ko-v-a1-67", "ko-v-a1-68", "ko-v-a1-69", "ko-v-a1-70",
-            "ko-v-a1-71", "ko-v-a1-72", "ko-v-a1-73", "ko-v-a1-74", "ko-v-a1-75"
-        ],
-        verbIds: ["ko-vb-a1-1", "ko-vb-a1-3"],
-        readingIds: ["ko-r-a1-2"],
+        title: "My family",
+        description: "Korean family vocabulary with its speaker-dependent terms, 있어요/없어요 for family possession, and how to describe family members using what you know.",
+        grammarIds: ["ko-g-a1-10", "ko-g-a1-11"],
+        phraseLessonIds: ["ko-pl-a1-7"],
+        vocabIds: ["ko-v-a1-53", "ko-v-a1-54", "ko-v-a1-55", "ko-v-a1-56", "ko-v-a1-57", "ko-v-a1-58", "ko-v-a1-59", "ko-v-a1-60", "ko-v-a1-61", "ko-v-a1-62", "ko-v-a1-63"],
+        verbIds: [],
         testQuestions: [
-            { id: "ko-uq-a1-8-1", level: "A1", prompt: "How do you say 'I eat' (polite informal)?", options: ["먹습니다", "먹었어요", "먹어요", "먹다"], answer: "먹어요" },
-            { id: "ko-uq-a1-8-2", level: "A1", prompt: "How do you conjugate 가다 (to go) in polite present?", options: ["가어요", "가아요", "가요", "갑니다 only"], answer: "가요" },
-            { id: "ko-uq-a1-8-3", level: "A1", prompt: "What does '물' mean?", options: ["Juice", "Milk", "Tea", "Water"], answer: "Water" },
-            { id: "ko-uq-a1-8-4", level: "A1", prompt: "How do you say 'I drink' (polite)?", options: ["마시요", "마셔요", "마시어요", "마십니다 only"], answer: "마셔요" },
-            { id: "ko-uq-a1-8-5", level: "A1", prompt: "하다 verbs in present polite become:", options: ["하여요", "하아요", "해요", "합니다 only"], answer: "해요" },
-            { id: "ko-uq-a1-8-6", level: "A1", prompt: "What does '음식' mean?", options: ["Drink", "Food", "Water", "Tea"], answer: "Food" },
-        ]
+            { id: "ko-uq-a1-8-1", level: "A1", prompt: "A female speaker says 오빠. This means:", options: ["Her younger brother", "Her older brother", "Her older sister", "Her younger sister"], answer: "Her older brother" },
+            { id: "ko-uq-a1-8-2", level: "A1", prompt: "저는 가족이 다섯 명이에요 means:", options: ["My family is happy.", "My family has five people.", "I have five siblings.", "I am 5 years old."], answer: "My family has five people." },
+            { id: "ko-uq-a1-8-3", level: "A1", prompt: "부모님 means:", options: ["Children", "Siblings", "Parents (polite)", "Family"], answer: "Parents (polite)" },
+            { id: "ko-uq-a1-8-4", level: "A1", prompt: "A male speaker would say ___ for 'older sister'.", options: ["언니", "누나", "오빠", "동생"], answer: "누나" },
+        ],
     },
     {
         id: "ko-a1-u9",
         level: "A1",
         order: 9,
-        title: "Adjective Conjugation",
-        description: "In Korean, adjectives work like verbs — they conjugate directly. Learn how to use descriptive adjectives in sentences, including the important ㅂ-irregular pattern.",
-        grammarIds: ["ko-g-a1-13"],
-        vocabIds: [
-            "ko-v-a1-106", "ko-v-a1-107", "ko-v-a1-108", "ko-v-a1-109",
-            "ko-v-a1-110", "ko-v-a1-111", "ko-v-a1-112", "ko-v-a1-113",
-            "ko-v-a1-121", "ko-v-a1-122", "ko-v-a1-123", "ko-v-a1-124",
-            "ko-v-a1-125", "ko-v-a1-126", "ko-v-a1-127", "ko-v-a1-128",
-            "ko-v-a1-129", "ko-v-a1-130",
-            "ko-v-a1-145", "ko-v-a1-146",
-        ],
-        verbIds: ["ko-vb-a1-5", "ko-vb-a1-6"],
+        title: "Things I like",
+        description: "좋아해요 — your first action verb. The object particle 을/를 appears and is named. I like/dislike X, really like, don't really like.",
+        grammarIds: ["ko-g-a1-12", "ko-g-a1-13"],
+        vocabIds: ["ko-v-a1-64", "ko-v-a1-65", "ko-v-a1-66", "ko-v-a1-67", "ko-v-a1-68", "ko-v-a1-69", "ko-v-a1-70", "ko-v-a1-71", "ko-v-a1-72", "ko-v-a1-73", "ko-v-a1-74"],
+        verbIds: [],
         testQuestions: [
-            { id: "ko-uq-a1-9-1", level: "A1", prompt: "How do you say 'There are many people'?", options: ["사람이 있어요.", "사람이 많아요.", "사람이 커요.", "사람이 좋아요."], answer: "사람이 많아요." },
-            { id: "ko-uq-a1-9-2", level: "A1", prompt: "What does '빨간색' mean?", options: ["Blue", "Green", "Yellow", "Red"], answer: "Red" },
-            { id: "ko-uq-a1-9-3", level: "A1", prompt: "How does 춥다 (cold) conjugate in polite present?", options: ["춥어요", "추어요", "추워요", "춥아요"], answer: "추워요" },
-            { id: "ko-uq-a1-9-4", level: "A1", prompt: "How does 예쁘다 (pretty) conjugate in polite present?", options: ["예쁘어요", "예뻐요", "예쁘아요", "예쁘요"], answer: "예뻐요" },
-            { id: "ko-uq-a1-9-5", level: "A1", prompt: "What does '파란색' mean?", options: ["White", "Black", "Purple", "Blue"], answer: "Blue" },
-            { id: "ko-uq-a1-9-6", level: "A1", prompt: "How do you say 'The weather is not good'?", options: ["날씨가 좋아요.", "날씨가 없어요.", "날씨가 안 좋아요.", "날씨가 못 좋아요."], answer: "날씨가 안 좋아요." },
-        ]
+            { id: "ko-uq-a1-9-1", level: "A1", prompt: "저는 커피를 좋아해요 — which particle follows 커피?", options: ["이", "을", "를", "에"], answer: "를" },
+            { id: "ko-uq-a1-9-2", level: "A1", prompt: "저는 음악을 좋아해요. Why 을 after 음악?", options: ["음악 ends in a vowel", "음악 ends in a consonant", "Random choice", "음악 is a place"], answer: "음악 ends in a consonant" },
+            { id: "ko-uq-a1-9-3", level: "A1", prompt: "별로 안 좋아해요 means:", options: ["I really like it", "I like it a lot", "I don't really like it", "I hate it"], answer: "I don't really like it" },
+            { id: "ko-uq-a1-9-4", level: "A1", prompt: "The object particle 을/를 marks...", options: ["The location", "The topic", "The thing the verb acts on", "The subject"], answer: "The thing the verb acts on" },
+        ],
     },
     {
         id: "ko-a1-u10",
         level: "A1",
         order: 10,
-        title: "Negation: 안 and 못",
-        description: "Say 'don't' with 안 and 'can't' with 못. Learn the special placement rule for 하다 compound verbs.",
-        grammarIds: ["ko-g-a1-10"],
-        vocabIds: [
-            "ko-v-a1-147", "ko-v-a1-148", "ko-v-a1-149", "ko-v-a1-150",
-            "ko-v-a1-131", "ko-v-a1-133", "ko-v-a1-135", "ko-v-a1-139"
-        ],
+        title: "What I do every day",
+        description: "The Korean verb system revealed: ~아요/어요 present tense, verb-final word order, 하다 verbs, contractions. Daily routine verbs in context.",
+        grammarIds: ["ko-g-a1-14", "ko-g-a1-15"],
+        vocabIds: ["ko-v-a1-75", "ko-v-a1-76", "ko-v-a1-77", "ko-v-a1-78", "ko-v-a1-79", "ko-v-a1-80", "ko-v-a1-81", "ko-v-a1-82", "ko-v-a1-83", "ko-v-a1-84", "ko-v-a1-85"],
         verbIds: [],
         testQuestions: [
-            { id: "ko-uq-a1-10-1", level: "A1", prompt: "How do you say 'I don't eat it'?", options: ["못 먹어요.", "안 먹어요.", "먹지 않아요. only", "안 먹습니다. only"], answer: "안 먹어요." },
-            { id: "ko-uq-a1-10-2", level: "A1", prompt: "How do you say 'I can't do it' (inability)?", options: ["안 해요.", "못 해요.", "하지 않아요.", "안 할 거예요."], answer: "못 해요." },
-            { id: "ko-uq-a1-10-3", level: "A1", prompt: "For 하다 compound verbs, where does 안 go?", options: ["Before the whole verb", "Between noun and 하다", "After 해요", "After 하다"], answer: "Between noun and 하다" },
-            { id: "ko-uq-a1-10-4", level: "A1", prompt: "How do you say 'I can't study'?", options: ["안 공부해요.", "공부 못 해요.", "못 공부해요.", "공부 안 할 수 있어요."], answer: "공부 못 해요." },
-            { id: "ko-uq-a1-10-5", level: "A1", prompt: "What is the difference between 안 and 못?", options: ["They mean the same thing", "안 = won't/don't (choice); 못 = can't (inability)", "못 = won't; 안 = can't", "안 is formal, 못 is casual"], answer: "안 = won't/don't (choice); 못 = can't (inability)" },
-        ]
+            { id: "ko-uq-a1-10-1", level: "A1", prompt: "What is the present tense of 먹다 (eat)?", options: ["먹아요", "먹어요", "먹해요", "먹요"], answer: "먹어요" },
+            { id: "ko-uq-a1-10-2", level: "A1", prompt: "Where does the verb go in a Korean sentence?", options: ["At the beginning", "In the middle", "At the end — always", "After the subject"], answer: "At the end — always" },
+            { id: "ko-uq-a1-10-3", level: "A1", prompt: "공부하다 is a 하다 verb. Its present tense is:", options: ["공부아요", "공부어요", "공부해요", "공부하요"], answer: "공부해요" },
+            { id: "ko-uq-a1-10-4", level: "A1", prompt: "보다 (to see/watch) contracts to:", options: ["보어요", "봐요", "보아요", "봐아요"], answer: "봐요" },
+        ],
     },
     {
         id: "ko-a1-u11",
         level: "A1",
         order: 11,
-        title: "하다 Compounds, 좋아하다 & Polite Requests",
-        description: "Use 하다 compound verbs — one of Korean's most productive patterns. Express likes with 좋아하다 and understand the special negation rule for 하다 verbs. Also: make polite honorific requests and commands with ~(으)세요.",
-        grammarIds: ["ko-g-a1-15", "ko-g-a1-27"],
-        vocabIds: [
-            "ko-v-a1-96", "ko-v-a1-97", "ko-v-a1-98", "ko-v-a1-99", "ko-v-a1-100",
-            "ko-v-a1-101", "ko-v-a1-102", "ko-v-a1-103", "ko-v-a1-104", "ko-v-a1-105"
-        ],
-        verbIds: ["ko-vb-a1-4", "ko-vb-a1-8"],
-        readingIds: ["ko-r-a1-5"],
-        cultureIds: ["ko-c-a1-2"],
+        title: "Where things are",
+        description: "있어요 for location, the 에 particle for place (named here after inductive exposure), and essential location vocabulary. 어디에 있어요?",
+        grammarIds: ["ko-g-a1-16"],
+        phraseLessonIds: ["ko-pl-a1-8"],
+        vocabIds: ["ko-v-a1-86", "ko-v-a1-87", "ko-v-a1-88", "ko-v-a1-89", "ko-v-a1-90", "ko-v-a1-91", "ko-v-a1-92", "ko-v-a1-93", "ko-v-a1-94", "ko-v-a1-95"],
+        verbIds: [],
         testQuestions: [
-            { id: "ko-uq-a1-11-1", level: "A1", prompt: "How do you say 'I like Korean food'?", options: ["한국 음식이 좋아요.", "한국 음식을 좋아해요.", "한국 음식이 있어요.", "한국 음식을 먹어요."], answer: "한국 음식을 좋아해요." },
-            { id: "ko-uq-a1-11-2", level: "A1", prompt: "How do you say 'I exercise'?", options: ["운동이에요.", "운동을 좋아해요.", "운동해요.", "운동 있어요."], answer: "운동해요." },
-            { id: "ko-uq-a1-11-3", level: "A1", prompt: "'공부 안 해요' means:", options: ["I study", "I don't study", "I can't study", "I want to study"], answer: "I don't study" },
-            { id: "ko-uq-a1-11-4", level: "A1", prompt: "What particle does 좋아하다 take to mark the thing you like?", options: ["이/가", "은/는", "에서", "을/를"], answer: "을/를" },
-            { id: "ko-uq-a1-11-5", level: "A1", prompt: "What does '가방' mean?", options: ["Shoes", "Hat", "Bag", "Coat"], answer: "Bag" },
-            { id: "ko-uq-a1-11-6", level: "A1", prompt: "How do you form a 하다 compound verb?", options: ["Add 해요 to any verb", "Take a noun + add 하다", "Add 하다 only to action verbs", "Only sino-Korean words can take 하다"], answer: "Take a noun + add 하다" },
-        ]
+            { id: "ko-uq-a1-11-1", level: "A1", prompt: "화장실이 어디에 있어요? means:", options: ["Is there a bathroom?", "Where is the bathroom?", "The bathroom is here.", "I need a bathroom."], answer: "Where is the bathroom?" },
+            { id: "ko-uq-a1-11-2", level: "A1", prompt: "카페에 있어요 uses 에 because:", options: ["카페 ends in a vowel", "에 marks the location where something exists", "에 marks the object", "에 is always used with 있어요"], answer: "에 marks the location where something exists" },
+            { id: "ko-uq-a1-11-3", level: "A1", prompt: "여기 / 거기 / 저기 mean:", options: ["here / there (far) / over there (near you)", "here / there (near you) / over there (far)", "front / back / side", "right / left / straight"], answer: "here / there (near you) / over there (far)" },
+            { id: "ko-uq-a1-11-4", level: "A1", prompt: "의자 위에 있어요 means:", options: ["It's behind the chair.", "It's in front of the chair.", "It's on top of the chair.", "It's beside the chair."], answer: "It's on top of the chair." },
+        ],
     },
     {
         id: "ko-a1-u12",
         level: "A1",
         order: 12,
-        title: "Going Places: Location & Direction Particles",
-        description: "Use 에 for destinations and existence; 에서 for action locations. Then add 에게/한테 (to a person) and 부터/까지 (from...to) for time ranges and routes.",
-        grammarIds: ["ko-g-a1-7", "ko-g-a1-32", "ko-g-a1-33"],
-        vocabIds: [
-            "ko-v-a1-76", "ko-v-a1-77", "ko-v-a1-78", "ko-v-a1-79", "ko-v-a1-80",
-            "ko-v-a1-81", "ko-v-a1-82", "ko-v-a1-83", "ko-v-a1-84", "ko-v-a1-85",
-            "ko-v-a1-86", "ko-v-a1-87", "ko-v-a1-88", "ko-v-a1-89", "ko-v-a1-90",
-            "ko-v-a1-91", "ko-v-a1-92", "ko-v-a1-93", "ko-v-a1-94", "ko-v-a1-95"
-        ],
-        verbIds: ["ko-vb-a1-2", "ko-vb-a1-7", "ko-vb-a1-9"],
-        readingIds: ["ko-r-a1-4"],
+        title: "Describing things",
+        description: "Adjectives conjugate exactly like verbs in Korean. The ㅡ-drop and ㅂ-irregular patterns. Describe weather, places, and things around you.",
+        grammarIds: ["ko-g-a1-17"],
+        vocabIds: ["ko-v-a1-96", "ko-v-a1-97", "ko-v-a1-98", "ko-v-a1-99", "ko-v-a1-100", "ko-v-a1-101", "ko-v-a1-102", "ko-v-a1-103", "ko-v-a1-104", "ko-v-a1-105"],
+        verbIds: [],
+        checkpointId: "ko-cp-a1-2",
         testQuestions: [
-            { id: "ko-uq-a1-12-1", level: "A1", prompt: "Complete: '학교___ 가요.' (I go to school — destination)", options: ["에서", "에", "이", "을"], answer: "에" },
-            { id: "ko-uq-a1-12-2", level: "A1", prompt: "Complete: '카페___ 공부해요.' (I study at the café — action location)", options: ["에", "에서", "이", "을"], answer: "에서" },
-            { id: "ko-uq-a1-12-3", level: "A1", prompt: "What does '집' mean?", options: ["School", "Restaurant", "Café", "Home / House"], answer: "Home / House" },
-            { id: "ko-uq-a1-12-4", level: "A1", prompt: "How do you say 'I came' (past tense of 오다)?", options: ["와요", "오았어요", "왔어요", "올 거예요"], answer: "왔어요" },
-            { id: "ko-uq-a1-12-5", level: "A1", prompt: "What does '지하철' mean?", options: ["Bus", "Taxi", "Subway", "Car"], answer: "Subway" },
-            { id: "ko-uq-a1-12-6", level: "A1", prompt: "Which particle do you use with 있다 to mean 'be at a place'?", options: ["에서", "에", "을", "이"], answer: "에" },
-        ]
+            { id: "ko-uq-a1-12-1", level: "A1", prompt: "크다 (big) in present tense is:", options: ["크아요", "크어요", "커요", "크요"], answer: "커요" },
+            { id: "ko-uq-a1-12-2", level: "A1", prompt: "덥다 (hot) is a ㅂ irregular. Its present tense is:", options: ["덥아요", "더워요", "덥어요", "더버요"], answer: "더워요" },
+            { id: "ko-uq-a1-12-3", level: "A1", prompt: "How do you say 'The weather is nice today'?", options: ["오늘 날씨가 좋어요.", "오늘 날씨가 좋아요.", "오늘 날씨가 좋이에요.", "오늘 날씨가 좋해요."], answer: "오늘 날씨가 좋아요." },
+            { id: "ko-uq-a1-12-4", level: "A1", prompt: "어렵지만 재미있어요 means:", options: ["It's easy and boring.", "It's difficult but interesting.", "It's not difficult or interesting.", "It's interesting so it's difficult."], answer: "It's difficult but interesting." },
+        ],
     },
+
+    // ─── Block 3: Daily Life ───────────────────────────────────────────────
     {
         id: "ko-a1-u13",
         level: "A1",
         order: 13,
-        title: "Past Tense & Progressive: ~았/었어요 & ~고 있어요",
-        description: "Talk about things that already happened using ~았어요/었어요, and express ongoing actions with ~고 있어요. Contrast completed past ('I ate') with the progressive ('I am eating' / 'I was eating') — a key distinction for natural Korean.",
-        grammarIds: ["ko-g-a1-9", "ko-g-a1-35"],
-        vocabIds: [
-            "ko-v-a1-141", "ko-v-a1-142", "ko-v-a1-143", "ko-v-a1-144",
-            "ko-v-a1-145", "ko-v-a1-146"
-        ],
-        verbIds: ["ko-vb-a1-1", "ko-vb-a1-2", "ko-vb-a1-3", "ko-vb-a1-4", "ko-vb-a1-7", "ko-vb-a1-12", "ko-vb-a1-13", "ko-vb-a1-14"],
+        title: "My day — time and routine",
+        description: "Time expressions, days of the week, telling the time. 에 for specific times vs no 에 for relative words like 오늘, 매일. Build a full daily routine.",
+        grammarIds: ["ko-g-a1-20", "ko-g-a1-21"],
+        phraseLessonIds: ["ko-pl-a1-9"],
+        vocabIds: ["ko-v-a1-106", "ko-v-a1-107", "ko-v-a1-108", "ko-v-a1-109", "ko-v-a1-110"],
+        verbIds: [],
         testQuestions: [
-            { id: "ko-uq-a1-13-1", level: "A1", prompt: "What is the past tense of 가다 (to go)?", options: ["가아요", "가었어요", "갔어요", "가요"], answer: "갔어요" },
-            { id: "ko-uq-a1-13-2", level: "A1", prompt: "What is the past tense of 하다 (to do)?", options: ["해요", "하었어요", "했어요", "하겠어요"], answer: "했어요" },
-            { id: "ko-uq-a1-13-3", level: "A1", prompt: "What does '비가 와요' mean?", options: ["It rained", "It is raining", "It will rain", "It doesn't rain"], answer: "It is raining" },
-            { id: "ko-uq-a1-13-4", level: "A1", prompt: "What is the past tense of 먹다 (to eat)?", options: ["먹어요", "먹을 거예요", "먹었어요", "먹겠어요"], answer: "먹었어요" },
-            { id: "ko-uq-a1-13-5", level: "A1", prompt: "What does '날씨' mean?", options: ["Rain", "Wind", "Weather", "Snow"], answer: "Weather" },
-            { id: "ko-uq-a1-13-6", level: "A1", prompt: "How do you say 'It was cold'?", options: ["추워요", "추울 거예요", "추웠어요", "춥다"], answer: "추웠어요" },
-        ]
+            { id: "ko-uq-a1-13-1", level: "A1", prompt: "아침에 일어나요 — why does 아침 take 에?", options: ["All time words take 에", "아침 is a specific named time period (not relative like 오늘)", "아침 ends in a consonant", "에 is always used with 일어나요"], answer: "아침 is a specific named time period (not relative like 오늘)" },
+            { id: "ko-uq-a1-13-2", level: "A1", prompt: "오늘 바빠요 — does 오늘 take 에?", options: ["Yes — 오늘에 바빠요", "No — 오늘 is a relative time word and stands alone", "Optional", "Only in formal speech"], answer: "No — 오늘 is a relative time word and stands alone" },
+            { id: "ko-uq-a1-13-3", level: "A1", prompt: "How do you ask 'What time is it?'", options: ["몇 분이에요?", "지금 몇 시예요?", "언제예요?", "시간이 있어요?"], answer: "지금 몇 시예요?" },
+            { id: "ko-uq-a1-13-4", level: "A1", prompt: "Monday in Korean is:", options: ["일요일", "토요일", "월요일", "화요일"], answer: "월요일" },
+        ],
     },
     {
         id: "ko-a1-u14",
         level: "A1",
         order: 14,
-        title: "Question Words",
-        description: "Ask who, what, where, when, why, and how in Korean. Master the six essential question words and how they work in sentences.",
-        grammarIds: ["ko-g-a1-12"],
-        vocabIds: [
-            "ko-v-a1-114", "ko-v-a1-115", "ko-v-a1-116", "ko-v-a1-117",
-            "ko-v-a1-118", "ko-v-a1-119", "ko-v-a1-120"
-        ],
+        title: "I like this, I don't like that",
+        description: "Negation with 안 (choice) vs 못 (inability). 하다 verb negation rule: 안/못 before 해요. 아니에요 for noun negation.",
+        grammarIds: ["ko-g-a1-22", "ko-g-a1-23"],
+        vocabIds: ["ko-v-a1-111", "ko-v-a1-112", "ko-v-a1-113", "ko-v-a1-114", "ko-v-a1-115"],
         verbIds: [],
-        readingIds: ["ko-r-a1-7"],
-        listeningIds: ["ko-l-a1-7"],
         testQuestions: [
-            { id: "ko-uq-a1-14-1", level: "A1", prompt: "What does '어디' mean?", options: ["When", "What", "Where", "Why"], answer: "Where" },
-            { id: "ko-uq-a1-14-2", level: "A1", prompt: "What does '뭐' mean?", options: ["Where", "When", "Who", "What"], answer: "What" },
-            { id: "ko-uq-a1-14-3", level: "A1", prompt: "How do you ask 'Where do you live?'", options: ["어디에서 살아요?", "뭐 살아요?", "언제 살아요?", "어떻게 살아요?"], answer: "어디에서 살아요?" },
-            { id: "ko-uq-a1-14-4", level: "A1", prompt: "What question word means 'why'?", options: ["어디", "언제", "누구", "왜"], answer: "왜" },
-            { id: "ko-uq-a1-14-5", level: "A1", prompt: "What does '손' mean?", options: ["Foot", "Head", "Eye", "Hand"], answer: "Hand" },
-            { id: "ko-uq-a1-14-6", level: "A1", prompt: "How do you ask 'How are you?'", options: ["어떻게 있어요?", "어떻게 가요?", "어떻게 지내요?", "어디에요?"], answer: "어떻게 지내요?" },
-        ]
+            { id: "ko-uq-a1-14-1", level: "A1", prompt: "운동을 안 해요 means:", options: ["I can't exercise.", "I don't exercise (by choice).", "I don't like exercise.", "Exercise is not good."], answer: "I don't exercise (by choice)." },
+            { id: "ko-uq-a1-14-2", level: "A1", prompt: "오늘 못 가요 means:", options: ["I don't want to go today.", "I can't go today.", "I won't go today.", "I'm not going today by choice."], answer: "I can't go today." },
+            { id: "ko-uq-a1-14-3", level: "A1", prompt: "For 하다 verbs like 공부하다, negation goes:", options: ["공부안해요", "안공부해요", "공부 안 해요", "공부 해안요"], answer: "공부 안 해요" },
+            { id: "ko-uq-a1-14-4", level: "A1", prompt: "학생이 아니에요 means:", options: ["I am a student.", "I am not a student.", "Are you a student?", "I was a student."], answer: "I am not a student." },
+        ],
     },
     {
         id: "ko-a1-u15",
         level: "A1",
         order: 15,
-        title: "Demonstrative Pronouns in Context: 이것/그것/저것",
-        description: "Deepen your use of the 이/그/저 system introduced in U4. Focus on the standalone pronoun forms 이것/그것/저것 and their casual equivalents 이거/그거/저거. Practise in real shopping and pointing situations.",
-        grammarIds: [],
-        vocabIds: [],
+        title: "Asking and answering",
+        description: "Question words 뭐/어디/언제/누구/어떻게/왜 in Korean in-situ questions. The 누구→누가 rule. Questions sound like statements — just use rising intonation.",
+        grammarIds: ["ko-g-a1-24", "ko-g-a1-25"],
+        vocabIds: ["ko-v-a1-116", "ko-v-a1-117", "ko-v-a1-118", "ko-v-a1-119", "ko-v-a1-120"],
         verbIds: [],
         testQuestions: [
-            { id: "ko-uq-a1-15-1", level: "A1", prompt: "How do you say 'this book'?", options: ["그 책", "저 책", "이 책", "것 책"], answer: "이 책" },
-            { id: "ko-uq-a1-15-2", level: "A1", prompt: "Which demonstrative refers to something far from BOTH speaker and listener?", options: ["이-", "그-", "저-", "여기-"], answer: "저-" },
-            { id: "ko-uq-a1-15-3", level: "A1", prompt: "What does '그것' refer to?", options: ["Something near the speaker", "Something near the listener", "Something far from both", "An unknown thing"], answer: "Something near the listener" },
-            { id: "ko-uq-a1-15-4", level: "A1", prompt: "What is the casual form of 이것?", options: ["이거", "이것이", "이게", "이걸"], answer: "이거" },
-            { id: "ko-uq-a1-15-5", level: "A1", prompt: "How do you say 'What is that (far away)?'", options: ["이것이 뭐예요?", "그것이 뭐예요?", "저것이 뭐예요?", "여기가 뭐예요?"], answer: "저것이 뭐예요?" },
-            { id: "ko-uq-a1-15-6", level: "A1", prompt: "'그거 얼마예요?' means:", options: ["How much is this?", "How much is that (near you)?", "How much is that (far away)?", "What is that?"], answer: "How much is that (near you)?" },
-        ]
+            { id: "ko-uq-a1-15-1", level: "A1", prompt: "How do you ask 'What are you doing?'", options: ["뭐를 해요?", "뭐 해요?", "어디 해요?", "언제 해요?"], answer: "뭐 해요?" },
+            { id: "ko-uq-a1-15-2", level: "A1", prompt: "In 이게 누구예요? — why 누구 not 누가?", options: ["누구 is always used in questions", "누구 is after 이/가 subject marker — so no extra 이/가", "Random variation", "누가 is only for statements"], answer: "누구 is after 이/가 subject marker — so no extra 이/가" },
+            { id: "ko-uq-a1-15-3", level: "A1", prompt: "어디에서 왔어요? uses 에서 because:", options: ["에서 always marks where you came from", "에서 marks the origin/source (from)", "에서 is used with all question words", "어디 requires 에서"], answer: "에서 marks the origin/source (from)" },
+            { id: "ko-uq-a1-15-4", level: "A1", prompt: "왜 means:", options: ["when", "where", "why", "how"], answer: "why" },
+        ],
     },
     {
         id: "ko-a1-u16",
         level: "A1",
         order: 16,
-        title: "Future & Desire: ~(으)ㄹ 거예요 & ~고 싶어요",
-        description: "Talk about future plans with ~(으)ㄹ 거예요 and express what you want to do with ~고 싶어요. Two essential patterns for everyday communication.",
-        grammarIds: ["ko-g-a1-17", "ko-g-a1-18"],
-        vocabIds: [],
+        title: "How often?",
+        description: "Frequency adverbs: 항상/자주/가끔/별로/거의/절대로. Key rule: 별로, 거의, 절대로 require a negative verb — they cannot stand alone with a positive verb.",
+        grammarIds: ["ko-g-a1-26", "ko-g-a1-27"],
+        vocabIds: ["ko-v-a1-121", "ko-v-a1-122", "ko-v-a1-123", "ko-v-a1-124", "ko-v-a1-125"],
         verbIds: [],
         testQuestions: [
-            { id: "ko-uq-a1-16-1", level: "A1", prompt: "How do you say 'I will eat'?", options: ["먹어요", "먹었어요", "먹을 거예요", "먹고 싶어요"], answer: "먹을 거예요" },
-            { id: "ko-uq-a1-16-2", level: "A1", prompt: "How do you form the future of 가다 (to go)?", options: ["가을 거예요", "갈 거예요", "가을 것이에요", "갔어요"], answer: "갈 거예요" },
-            { id: "ko-uq-a1-16-3", level: "A1", prompt: "How do you say 'I want to go to Korea'?", options: ["한국에 갈 거예요.", "한국에 가고 싶어요.", "한국에 가고 싶었어요.", "한국에 가요."], answer: "한국에 가고 싶어요." },
-            { id: "ko-uq-a1-16-4", level: "A1", prompt: "How do you say 'I don't want to go'?", options: ["안 가고 싶어요.", "가고 싶지 않아요.", "가고 안 싶어요.", "가기 싫어요."], answer: "가고 싶지 않아요." },
-            { id: "ko-uq-a1-16-5", level: "A1", prompt: "How do you say 'I won't go today'?", options: ["오늘 안 갈 거예요.", "오늘 못 갔어요.", "오늘 가고 싶지 않아요.", "오늘 가지 않아요."], answer: "오늘 안 갈 거예요." },
-            { id: "ko-uq-a1-16-6", level: "A1", prompt: "'뭐 먹고 싶어요?' means:", options: ["What did you eat?", "What do you want to eat?", "What are you eating?", "What will you eat?"], answer: "What do you want to eat?" },
-        ]
+            { id: "ko-uq-a1-16-1", level: "A1", prompt: "Which sentence is correct?", options: ["저는 별로 운동해요.", "저는 별로 안 운동해요.", "저는 별로 운동 안을 해요.", "저는 운동을 별로 안 해요."], answer: "저는 운동을 별로 안 해요." },
+            { id: "ko-uq-a1-16-2", level: "A1", prompt: "절대로 means:", options: ["sometimes", "usually", "never (with a negative verb)", "often"], answer: "never (with a negative verb)" },
+            { id: "ko-uq-a1-16-3", level: "A1", prompt: "저는 커피를 자주 마셔요 means:", options: ["I never drink coffee.", "I rarely drink coffee.", "I often drink coffee.", "I sometimes drink coffee."], answer: "I often drink coffee." },
+            { id: "ko-uq-a1-16-4", level: "A1", prompt: "보통 means:", options: ["always", "usually / normally", "sometimes", "never"], answer: "usually / normally" },
+        ],
     },
     {
         id: "ko-a1-u17",
         level: "A1",
         order: 17,
-        title: "Time, Frequency & Discourse Connectors",
-        description: "Say when and how often things happen. Learn time adverbs (오늘/아직/이미/먼저), frequency words (항상/자주/가끔/별로/절대로), and discourse connectors that link sentences (그리고/하지만/그래서/그런데).",
-        grammarIds: ["ko-g-a1-19", "ko-g-a1-20", "ko-g-a1-22"],
-        vocabIds: [],
+        title: "What happened?",
+        description: "Past tense ~았어요/었어요 — the same vowel harmony rule as present. 하다 → 했어요. Irregular past forms. Telling a simple story in Korean.",
+        grammarIds: ["ko-g-a1-28", "ko-g-a1-29"],
+        vocabIds: ["ko-v-a1-126", "ko-v-a1-127", "ko-v-a1-128", "ko-v-a1-129", "ko-v-a1-130", "ko-v-a1-131"],
         verbIds: [],
-        cultureIds: ["ko-c-a1-3"],
+        checkpointId: "ko-cp-a1-3",
         testQuestions: [
-            { id: "ko-uq-a1-17-1", level: "A1", prompt: "What does '아직 안 먹었어요' mean?", options: ["I already ate", "I haven't eaten yet", "I don't want to eat", "I always eat"], answer: "I haven't eaten yet" },
-            { id: "ko-uq-a1-17-2", level: "A1", prompt: "Which word requires a negative verb?", options: ["항상", "자주", "가끔", "별로"], answer: "별로" },
-            { id: "ko-uq-a1-17-3", level: "A1", prompt: "Which connector means 'therefore / so' at the start of a new sentence?", options: ["하지만", "그리고", "그래서", "그런데"], answer: "그래서" },
-            { id: "ko-uq-a1-17-4", level: "A1", prompt: "'먼저 손을 씻어요' means:", options: ["I finally wash my hands", "First I wash my hands", "I quickly wash my hands", "I wash my hands slowly"], answer: "First I wash my hands" },
-            { id: "ko-uq-a1-17-5", level: "A1", prompt: "What does '이미' mean?", options: ["Not yet", "Sometimes", "Already", "Never"], answer: "Already" },
-            { id: "ko-uq-a1-17-6", level: "A1", prompt: "Which connector means 'but / however' at the start of a sentence?", options: ["그리고", "그래서", "그런데", "왜냐하면"], answer: "그런데" },
-        ]
+            { id: "ko-uq-a1-17-1", level: "A1", prompt: "What is the past tense of 먹다 (eat)?", options: ["먹았어요", "먹었어요", "먹했어요", "먹었요"], answer: "먹었어요" },
+            { id: "ko-uq-a1-17-2", level: "A1", prompt: "공부하다 in past tense is:", options: ["공부하았어요", "공부했어요", "공부하었어요", "공부이었어요"], answer: "공부했어요" },
+            { id: "ko-uq-a1-17-3", level: "A1", prompt: "가다 (go) in past tense is:", options: ["갔어요", "가었어요", "가았어요", "갔요"], answer: "갔어요" },
+            { id: "ko-uq-a1-17-4", level: "A1", prompt: "어제 뭐 했어요? means:", options: ["What are you doing today?", "What did you do yesterday?", "What will you do tomorrow?", "What do you do every day?"], answer: "What did you do yesterday?" },
+        ],
     },
+
+    // ─── Block 4: Out in the World ─────────────────────────────────────────
     {
         id: "ko-a1-u18",
         level: "A1",
         order: 18,
-        title: "Also, Not, Direction: 도, 이/가 아니에요, ~(으)로",
-        description: "Add 도 to say 'also / too', negate nouns with 이/가 아니에요 ('it is not...'), and use ~(으)로 to express direction or means of transport.",
-        grammarIds: ["ko-g-a1-23", "ko-g-a1-24", "ko-g-a1-26", "ko-g-a1-28"],
-        listeningIds: ["ko-l-a1-6"],
-        vocabIds: [
-            // Location words — used directly with 있어요/없어요 ("여기 있어요", "거기 있어요")
-            "ko-v-a1-147", "ko-v-a1-148", "ko-v-a1-149",
-            // 시간 — "시간이 없어요" (test question in this unit)
-            "ko-v-a1-50",
-            // Transport — 버스로/지하철로/택시로 가요 (으로 particle direction/means)
-            "ko-v-a1-91", "ko-v-a1-92", "ko-v-a1-93", "ko-v-a1-94",
-            // Places — things you say 있어요/없어요 about, + 에/으로 direction context
-            "ko-v-a1-79", "ko-v-a1-80", "ko-v-a1-85", "ko-v-a1-86",
-            // 도 particle and negation context vocab
-            "ko-v-a1-131", "ko-v-a1-140",
-        ],
-        verbIds: [
-            "ko-vb-a1-5",  // 있다 — core verb for 있어요 (existence, possession, location)
-            "ko-vb-a1-6",  // 없다 — core verb for 없어요 (non-existence, lack)
-        ],
+        title: "Getting around",
+        description: "에 vs 에서 explained — the inductive payoff for 7+ units of exposure. Transport vocabulary with ~(으)로 for means. Direction phrases.",
+        grammarIds: ["ko-g-a1-30", "ko-g-a1-31"],
+        phraseLessonIds: ["ko-pl-a1-10"],
+        vocabIds: ["ko-v-a1-132", "ko-v-a1-133", "ko-v-a1-134", "ko-v-a1-135"],
+        verbIds: [],
         testQuestions: [
-            { id: "ko-uq-a1-18-1", level: "A1", prompt: "Which sentence means 'There is a cat in the room'?", options: ["방에 고양이가 없어요.", "방에 고양이가 있어요.", "방이 고양이예요.", "방에 고양이를 가요."], answer: "방에 고양이가 있어요." },
-            { id: "ko-uq-a1-18-2", level: "A1", prompt: "How do you say 'I don't have time'? (시간 = time)", options: ["시간이 있어요.", "시간이 없어요.", "시간이 아니에요.", "시간도 가요."], answer: "시간이 없어요." },
-            { id: "ko-uq-a1-18-3", level: "A1", prompt: "What does '저도 한국어를 공부해요' mean?", options: ["I don't study Korean.", "I study Korean only.", "I also study Korean.", "I study Korean here."], answer: "I also study Korean." },
-            { id: "ko-uq-a1-18-4", level: "A1", prompt: "Which sentence correctly uses 이/가 아니에요?", options: ["저는 선생님이 있어요.", "저는 선생님이 아니에요.", "저는 선생님도 없어요.", "저는 선생님을 아니에요."], answer: "저는 선생님이 아니에요." },
-            { id: "ko-uq-a1-18-5", level: "A1", prompt: "What does ~(으)로 express in '버스로 가요'?", options: ["Destination", "Means of transport", "Location of action", "Possession"], answer: "Means of transport" },
-            { id: "ko-uq-a1-18-6", level: "A1", prompt: "How do you say 'Turn left' (왼쪽 = left)?", options: ["왼쪽에 가요.", "왼쪽에서 가요.", "왼쪽으로 가요.", "왼쪽을 가요."], answer: "왼쪽으로 가요." },
-        ]
+            { id: "ko-uq-a1-18-1", level: "A1", prompt: "도서관**에** 가요 vs 도서관**에서** 공부해요 — what is the difference?", options: ["에 = location of action, 에서 = destination", "에 = destination/existence, 에서 = location of action", "They mean the same thing", "에서 is more formal"], answer: "에 = destination/existence, 에서 = location of action" },
+            { id: "ko-uq-a1-18-2", level: "A1", prompt: "지하철로 가요 uses 로 because:", options: ["지하철 ends in ㄹ", "로/으로 marks means or direction", "Both — the 로 form is used after ㄹ and it marks the method of transport", "지하철 is a place"], answer: "Both — the 로 form is used after ㄹ and it marks the method of transport" },
+            { id: "ko-uq-a1-18-3", level: "A1", prompt: "How do you say 'Go straight'?", options: ["왼쪽으로 가세요", "직진하세요", "오른쪽으로 가세요", "내리세요"], answer: "직진하세요" },
+            { id: "ko-uq-a1-18-4", level: "A1", prompt: "걸어서 갈 수 있어요? means:", options: ["Can we take the subway?", "How far is it?", "Can I walk there?", "How long does it take?"], answer: "Can I walk there?" },
+        ],
     },
     {
         id: "ko-a1-u19",
         level: "A1",
         order: 19,
-        title: "Counters, Suggestions & Favours",
-        description: "Count objects with Korean counters (개, 명, 권, 잔…), suggest or wonder with ~(으)ㄹ까요?, and ask for favours with ~아/어 주세요.",
-        grammarIds: ["ko-g-a1-25", "ko-g-a1-29", "ko-g-a1-36"],
-        readingIds: ["ko-r-a1-6"],
-        listeningIds: ["ko-l-a1-5"],
-        vocabIds: [
-            // Native Korean numbers — used directly with counters (하나/둘/셋… → 한/두/세 before counter)
-            "ko-v-a1-36", "ko-v-a1-37", "ko-v-a1-38", "ko-v-a1-39", "ko-v-a1-40",
-            "ko-v-a1-41", "ko-v-a1-42", "ko-v-a1-43", "ko-v-a1-44", "ko-v-a1-45",
-            // Food/drink — canonical counter examples: "사과 하나", "커피 한 잔", "물 주세요"
-            "ko-v-a1-61", "ko-v-a1-62", "ko-v-a1-67", "ko-v-a1-68",
-            "ko-v-a1-72", "ko-v-a1-73", "ko-v-a1-75",
-            // People — 명 counter: "두 명", "친구 세 명"
-            "ko-v-a1-21", "ko-v-a1-139",
-            // Daily life — natural suggestion targets: 공부할까요?, 운동할까요?
-            "ko-v-a1-131", "ko-v-a1-135",
-        ],
-        verbIds: [
-            "ko-vb-a1-1",   // 먹다 — 먹으세요 (request), 먹을까요? (suggestion)
-            "ko-vb-a1-2",   // 가다 — 가세요 (request), 갈까요? (suggestion)
-            "ko-vb-a1-4",   // 하다 — 하세요 / 할까요? — most productive pattern
-            "ko-vb-a1-7",   // 오다 — 오세요 (request to come), 올까요? (suggestion)
-            "ko-vb-a1-15",  // 요리하다 — 요리하세요 / 요리할까요? — concrete 하다 compound
-        ],
+        title: "Food and ordering",
+        description: "Restaurant vocabulary, ordering with 주세요, native Korean counters 개/명/잔/그릇. 잘 먹겠습니다/잘 먹었습니다 — essential meal phrases.",
+        grammarIds: ["ko-g-a1-32"],
+        phraseLessonIds: ["ko-pl-a1-11"],
+        vocabIds: ["ko-v-a1-136", "ko-v-a1-137", "ko-v-a1-138", "ko-v-a1-139"],
+        verbIds: [],
         testQuestions: [
-            { id: "ko-uq-a1-19-1", level: "A1", prompt: "Which counter is used for people?", options: ["개", "권", "명", "마리"], answer: "명" },
-            { id: "ko-uq-a1-19-2", level: "A1", prompt: "How do you say 'two books'? (책 = book, 권 = counter for books)", options: ["책 이권", "책 두 권", "책 둘 권", "책 이개"], answer: "책 두 권" },
-            { id: "ko-uq-a1-19-3", level: "A1", prompt: "What does '앉으세요' mean?", options: ["Please sit down.", "Do you sit?", "I will sit.", "Sit tomorrow."], answer: "Please sit down." },
-            { id: "ko-uq-a1-19-4", level: "A1", prompt: "Which ending makes a polite honorific command from 드시다 (to eat/drink, honorific)?", options: ["드시어요", "드시세요", "드시지요", "드시까요"], answer: "드시세요" },
-            { id: "ko-uq-a1-19-5", level: "A1", prompt: "What does '같이 먹을까요?' mean?", options: ["Did we eat together?", "Shall we eat together?", "We should eat together.", "I wonder what to eat."], answer: "Shall we eat together?" },
-            { id: "ko-uq-a1-19-6", level: "A1", prompt: "How do you say 'What shall we do?' (하다 = to do)", options: ["뭐 해요?", "뭐 할까요?", "뭐 하세요?", "뭐 했어요?"], answer: "뭐 할까요?" },
-        ]
+            { id: "ko-uq-a1-19-1", level: "A1", prompt: "커피 두 잔 주세요 — what does 잔 mean here?", options: ["cups/glasses (counter for liquid)", "bottles", "portions", "bowls"], answer: "cups/glasses (counter for liquid)" },
+            { id: "ko-uq-a1-19-2", level: "A1", prompt: "몇 명이세요? is asked by restaurant staff. It means:", options: ["What would you like to order?", "How many people?", "What's your name?", "Do you have a reservation?"], answer: "How many people?" },
+            { id: "ko-uq-a1-19-3", level: "A1", prompt: "What do you say BEFORE eating?", options: ["잘 먹었습니다", "잘 먹겠습니다", "감사합니다", "주세요"], answer: "잘 먹겠습니다" },
+            { id: "ko-uq-a1-19-4", level: "A1", prompt: "만두 세 개 주세요 — 개 is used for:", options: ["people", "glasses", "general objects", "bowls"], answer: "general objects" },
+        ],
     },
     {
         id: "ko-a1-u20",
         level: "A1",
         order: 20,
-        title: "A1 Review: Putting It Together",
-        description: "Review all A1 grammar, vocabulary, and verbs through integrated sentences.",
-        grammarIds: [],
-        cultureIds: ["ko-c-a1-4"],
-        vocabIds: [
-            "ko-v-a1-1", "ko-v-a1-16", "ko-v-a1-26", "ko-v-a1-46", "ko-v-a1-47",
-            "ko-v-a1-48", "ko-v-a1-62", "ko-v-a1-68", "ko-v-a1-76", "ko-v-a1-77",
-            "ko-v-a1-83", "ko-v-a1-123", "ko-v-a1-128", "ko-v-a1-131", "ko-v-a1-139",
-            "ko-v-a1-141",
-        ],
-        verbIds: [
-            "ko-vb-a1-1", "ko-vb-a1-2", "ko-vb-a1-3",
-            "ko-vb-a1-4", "ko-vb-a1-7", "ko-vb-a1-8",
-        ],
+        title: "Shopping and prices",
+        description: "Sino-Korean numbers for money (백/천/만 in context). 원 (₩). 이거 얼마예요? The demonstrative set 이거/그거/저거. Reading prices.",
+        grammarIds: ["ko-g-a1-33"],
+        phraseLessonIds: ["ko-pl-a1-12"],
+        vocabIds: ["ko-v-a1-140", "ko-v-a1-141", "ko-v-a1-142", "ko-v-a1-143"],
+        verbIds: [],
         testQuestions: [
-            { id: "ko-uq-a1-20-1", level: "A1", prompt: "How do you say 'I went to school yesterday'?", options: ["어제 학교에 가요.", "어제 학교에서 갔어요.", "어제 학교에 갔어요.", "어제 학교를 갔어요."], answer: "어제 학교에 갔어요." },
-            { id: "ko-uq-a1-20-2", level: "A1", prompt: "Complete: '저는 한국 음식___ 좋아해요.' (I like Korean food)", options: ["이", "가", "을", "는"], answer: "을" },
-            { id: "ko-uq-a1-20-3", level: "A1", prompt: "What does '어제' mean?", options: ["Today", "Tomorrow", "Yesterday", "Now"], answer: "Yesterday" },
-            { id: "ko-uq-a1-20-4", level: "A1", prompt: "How do you say 'It is snowing'? (눈 = snow)", options: ["눈이 와요.", "눈이 있어요.", "눈이 가요.", "눈이 많아요."], answer: "눈이 와요." },
-            { id: "ko-uq-a1-20-5", level: "A1", prompt: "Which particle is used to mark where an action takes place?", options: ["에", "에서", "을/를", "은/는"], answer: "에서" },
-            { id: "ko-uq-a1-20-6", level: "A1", prompt: "How do you say 'I study at the café'?", options: ["카페에 공부해요.", "카페에서 공부해요.", "카페를 공부해요.", "카페가 공부해요."], answer: "카페에서 공부해요." },
-        ]
+            { id: "ko-uq-a1-20-1", level: "A1", prompt: "이만 오천 원 = ₩", options: ["₩2,500", "₩20,500", "₩25,000", "₩250,000"], answer: "₩25,000" },
+            { id: "ko-uq-a1-20-2", level: "A1", prompt: "이거 얼마예요? means:", options: ["Is this good?", "Do you have this?", "How much is this?", "Can I have this?"], answer: "How much is this?" },
+            { id: "ko-uq-a1-20-3", level: "A1", prompt: "In Korean, 10,000 is expressed as:", options: ["십천", "일만 — just 만", "천십", "일만천"], answer: "일만 — just 만" },
+            { id: "ko-uq-a1-20-4", level: "A1", prompt: "저거 means:", options: ["This (near me)", "That (near you)", "That (far from both)", "Which one?"], answer: "That (far from both)" },
+        ],
     },
     {
         id: "ko-a1-u21",
         level: "A1",
         order: 21,
-        title: "Sentence Connectors & Conditionals: ~고, ~지만, ~아서, ~(으)면",
-        description: "Link clauses and sentences with the four key connectors: ~고 (and, then — neutral addition or sequence), ~지만 (but — contrast), ~아서/어서 (so, because — cause and result), and ~(으)면 (if / when — conditional). These patterns are essential for moving beyond single-clause sentences.",
-        grammarIds: ["ko-g-a1-21", "ko-g-a1-37"],
-        vocabIds: [],
+        title: "Asking for things",
+        description: "~(으)세요 for polite instructions/invitations. ~아/어 주세요 for requests. The 해요체 register payoff: why you've been saying 요 since Unit 4.",
+        grammarIds: ["ko-g-a1-34", "ko-g-a1-35"],
+        phraseLessonIds: ["ko-pl-a1-13"],
+        vocabIds: ["ko-v-a1-144", "ko-v-a1-145", "ko-v-a1-146", "ko-v-a1-147"],
         verbIds: [],
         testQuestions: [
-            { id: "ko-uq-a1-21-1", level: "A1", prompt: "What does ~지만 express?", options: ["Cause and result", "Neutral addition", "Contrast (but)", "Conditional (if)"], answer: "Contrast (but)" },
-            { id: "ko-uq-a1-21-2", level: "A1", prompt: "How do you say 'I was tired so I slept'? (피곤하다 = tired, 자다 = sleep)", options: ["피곤하지만 잤어요.", "피곤하고 잤어요.", "피곤해서 잤어요.", "피곤하면 잤어요."], answer: "피곤해서 잤어요." },
-            { id: "ko-uq-a1-21-3", level: "A1", prompt: "How do you say 'I ate and then drank coffee'? (먹다 = eat, 커피를 마시다 = drink coffee)", options: ["먹지만 커피를 마셨어요.", "먹어서 커피를 마셨어요.", "먹고 커피를 마셨어요.", "먹으면 커피를 마셔요."], answer: "먹고 커피를 마셨어요." },
-            { id: "ko-uq-a1-21-4", level: "A1", prompt: "Which ending expresses a conditional 'if / when'?", options: ["~고", "~지만", "~아서", "~(으)면"], answer: "~(으)면" },
-            { id: "ko-uq-a1-21-5", level: "A1", prompt: "How do you say 'If it rains, I won't go'? (비가 오다 = it rains, 안 갈 거예요 = won't go)", options: ["비가 오지만 안 갈 거예요.", "비가 오고 안 갈 거예요.", "비가 오면 안 갈 거예요.", "비가 와서 안 갈 거예요."], answer: "비가 오면 안 갈 거예요." },
-            { id: "ko-uq-a1-21-6", level: "A1", prompt: "'한국어가 어렵지만 재미있어요' means:", options: ["Korean is difficult because it is interesting.", "Korean is difficult and interesting.", "Korean is difficult but interesting.", "Korean is difficult so it is interesting."], answer: "Korean is difficult but interesting." },
-        ]
+            { id: "ko-uq-a1-21-1", level: "A1", prompt: "앉으세요 means:", options: ["Please eat", "Please sit", "Please go", "Please wait"], answer: "Please sit" },
+            { id: "ko-uq-a1-21-2", level: "A1", prompt: "한 번 더 말해 주세요 means:", options: ["Please write it down", "Please say it slowly", "Please say it one more time", "Please help me"], answer: "Please say it one more time" },
+            { id: "ko-uq-a1-21-3", level: "A1", prompt: "해요체 (the speech level you've been using) is appropriate:", options: ["Only with close friends", "Only in formal settings like TV", "In almost all everyday interactions with strangers and acquaintances", "Only with people older than you"], answer: "In almost all everyday interactions with strangers and acquaintances" },
+            { id: "ko-uq-a1-21-4", level: "A1", prompt: "천천히 말해 주세요 — what does 천천히 mean?", options: ["again", "slowly", "one more time", "clearly"], answer: "slowly" },
+        ],
+    },
+    {
+        id: "ko-a1-u22",
+        level: "A1",
+        order: 22,
+        title: "Shall we? Want to?",
+        description: "~(으)ㄹ까요? for suggestions and wondering aloud. ~고 싶어요 for desire (I want to). ~고 싶어해요 for third person. 보고 싶어요 = I miss you.",
+        grammarIds: ["ko-g-a1-36", "ko-g-a1-37"],
+        phraseLessonIds: ["ko-pl-a1-14"],
+        vocabIds: ["ko-v-a1-148", "ko-v-a1-149", "ko-v-a1-150"],
+        verbIds: [],
+        checkpointId: "ko-cp-a1-4",
+        testQuestions: [
+            { id: "ko-uq-a1-22-1", level: "A1", prompt: "갈까요? means:", options: ["I want to go.", "I went.", "Shall we go?", "I'm going to go."], answer: "Shall we go?" },
+            { id: "ko-uq-a1-22-2", level: "A1", prompt: "저는 한국어를 배우고 싶어요 means:", options: ["I learned Korean.", "I want to learn Korean.", "I am learning Korean.", "Korean is interesting."], answer: "I want to learn Korean." },
+            { id: "ko-uq-a1-22-3", level: "A1", prompt: "보고 싶어요 when directed at a person means:", options: ["I want to watch you.", "I miss you.", "I see you.", "Do you want to see?"], answer: "I miss you." },
+            { id: "ko-uq-a1-22-4", level: "A1", prompt: "뭐 먹을까요? is a suggestion ending in ~을까요 because:", options: ["먹다 ends in ㄹ", "먹다 ends in a consonant (ㄱ) → 을까요", "Random", "먹다 ends in a vowel"], answer: "먹다 ends in a consonant (ㄱ) → 을까요" },
+        ],
+    },
+
+    // ─── Block 5: Talking about Time ──────────────────────────────────────
+    {
+        id: "ko-a1-u23",
+        level: "A1",
+        order: 23,
+        title: "What I'm going to do",
+        description: "Future tense ~(으)ㄹ 거예요 for plans and predictions. The full three-tense axis: 먹었어요 / 먹어요 / 먹을 거예요. Time words for the future.",
+        grammarIds: ["ko-g-a1-38"],
+        vocabIds: ["ko-v-a1-151", "ko-v-a1-152", "ko-v-a1-153", "ko-v-a1-154", "ko-v-a1-155"],
+        verbIds: [],
+        testQuestions: [
+            { id: "ko-uq-a1-23-1", level: "A1", prompt: "내일 부산에 갈 거예요 means:", options: ["I went to Busan yesterday.", "I am in Busan.", "I'm going to go to Busan tomorrow.", "I want to go to Busan."], answer: "I'm going to go to Busan tomorrow." },
+            { id: "ko-uq-a1-23-2", level: "A1", prompt: "먹을 거예요 — why 을 거예요 not ㄹ 거예요?", options: ["먹다 ends in a vowel", "먹다 ends in a consonant → 을 거예요", "Random variation", "먹다 is irregular"], answer: "먹다 ends in a consonant → 을 거예요" },
+            { id: "ko-uq-a1-23-3", level: "A1", prompt: "비가 올 거예요 — what does this sentence mean?", options: ["It rained.", "It is raining.", "It's going to rain.", "I hope it rains."], answer: "It's going to rain." },
+            { id: "ko-uq-a1-23-4", level: "A1", prompt: "내일 means:", options: ["today", "yesterday", "tomorrow", "the day after tomorrow"], answer: "tomorrow" },
+        ],
+    },
+    {
+        id: "ko-a1-u24",
+        level: "A1",
+        order: 24,
+        title: "Connecting ideas",
+        description: "Sentence connectors (그리고/하지만/그래서/그런데/그럼) and clause connectors (~고/~지만/~아서/어서). The difference between sentence-level and clause-level linking.",
+        grammarIds: ["ko-g-a1-39", "ko-g-a1-40"],
+        vocabIds: ["ko-v-a1-156", "ko-v-a1-157", "ko-v-a1-158", "ko-v-a1-159", "ko-v-a1-160"],
+        verbIds: [],
+        testQuestions: [
+            { id: "ko-uq-a1-24-1", level: "A1", prompt: "비가 왔어요. 그래서 집에 있었어요 — 그래서 means:", options: ["but", "so / therefore", "and", "by the way"], answer: "so / therefore" },
+            { id: "ko-uq-a1-24-2", level: "A1", prompt: "바빠서 못 갔어요 — the ~아서/어서 form of 바쁘다 is 바빠서 because:", options: ["바쁘다 is irregular", "ㅡ drops before 아서/어서 (ㅡ-drop rule)", "바빠서 is a special form", "바쁘다 ends in a vowel"], answer: "ㅡ drops before 아서/어서 (ㅡ-drop rule)" },
+            { id: "ko-uq-a1-24-3", level: "A1", prompt: "피곤해서 일찍 잤어요 — which rule must you remember about ~아서/어서?", options: ["The cause clause takes past tense", "The cause clause stays in base form — only the result gets past tense", "Both clauses take past tense", "Neither clause takes past tense"], answer: "The cause clause stays in base form — only the result gets past tense" },
+            { id: "ko-uq-a1-24-4", level: "A1", prompt: "그런데 is the most versatile connector because:", options: ["It always means 'but'", "It can contrast OR shift topic, and sounds more natural than 하지만 in everyday speech", "It's the formal version of 하지만", "It's used only at the start of stories"], answer: "It can contrast OR shift topic, and sounds more natural than 하지만 in everyday speech" },
+        ],
+    },
+    {
+        id: "ko-a1-u25",
+        level: "A1",
+        order: 25,
+        title: "If and when",
+        description: "Conditional ~(으)면 — if/when. Simpler than expected: no vowel harmony, just vowel/ㄹ → 면, consonant → 으면. ~(으)면 좋겠어요 for hopes and wishes.",
+        grammarIds: ["ko-g-a1-41"],
+        vocabIds: ["ko-v-a1-161", "ko-v-a1-162", "ko-v-a1-163", "ko-v-a1-164"],
+        verbIds: [],
+        testQuestions: [
+            { id: "ko-uq-a1-25-1", level: "A1", prompt: "시간이 있으면 같이 가요 means:", options: ["If you have time, let's go together.", "I want to have time to go.", "We went together when we had time.", "Do you have time to go together?"], answer: "If you have time, let's go together." },
+            { id: "ko-uq-a1-25-2", level: "A1", prompt: "먹다 + 으면 = ?", options: ["먹면", "먹으면", "먹이면", "먹으ㄹ"], answer: "먹으면" },
+            { id: "ko-uq-a1-25-3", level: "A1", prompt: "날씨가 좋으면 좋겠어요 means:", options: ["The weather is nice.", "I hope the weather is nice.", "If the weather is nice, it's good.", "The weather was nice."], answer: "I hope the weather is nice." },
+            { id: "ko-uq-a1-25-4", level: "A1", prompt: "가다 + (으)면 = ? (goes straight to 면 because...)", options: ["가으면 — consonant rule", "가면 — 가다 ends in vowel → 면 directly", "갈면 — ㄹ rule", "가이면 — vowel harmony"], answer: "가면 — 가다 ends in vowel → 면 directly" },
+        ],
+    },
+    {
+        id: "ko-a1-u26",
+        level: "A1",
+        order: 26,
+        title: "Putting it all together",
+        description: "Capstone unit: all three tenses, connectors, conditionals, and natural discourse working together. A full narrative in Korean. You are ready for A2.",
+        grammarIds: ["ko-g-a1-42"],
+        vocabIds: ["ko-v-a1-165", "ko-v-a1-166", "ko-v-a1-167", "ko-v-a1-168"],
+        verbIds: [],
+        checkpointId: "ko-cp-a1-5",
+        testQuestions: [
+            { id: "ko-uq-a1-26-1", level: "A1", prompt: "지난주에는 바빠서 공부 못 했어요. 이번 주에는 열심히 할 거예요 — this sentence uses:", options: ["Past tense only", "Future tense only", "Past tense + reason clause (~아서) + future tense", "Present tense + conditional"], answer: "Past tense + reason clause (~아서) + future tense" },
+            { id: "ko-uq-a1-26-2", level: "A1", prompt: "시간이 있으면 같이 공부해요. 저도 배우고 싶어요! — this uses:", options: ["Conditional + desire expression", "Past tense + future tense", "Negation + question words", "Connectors + adjectives"], answer: "Conditional + desire expression" },
+            { id: "ko-uq-a1-26-3", level: "A1", prompt: "At A1, you speak in 해요체. This is appropriate:", options: ["Only with friends", "Only in formal situations", "In almost all real-life interactions — it is never rude", "Only with older people"], answer: "In almost all real-life interactions — it is never rude" },
+            { id: "ko-uq-a1-26-4", level: "A1", prompt: "A2 is not starting over — it builds on A1 because:", options: ["A2 uses a completely different grammar", "Many A2 patterns (고 있어요, ㄹ 수 있어요, 반말) already appeared as chunks in A1 units", "A2 teaches the same grammar again more slowly", "A1 and A2 have the same vocabulary"], answer: "Many A2 patterns (고 있어요, ㄹ 수 있어요, 반말) already appeared as chunks in A1 units" },
+        ],
     },
 ]

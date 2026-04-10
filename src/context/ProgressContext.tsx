@@ -168,7 +168,6 @@ export function ProgressProvider({ children }: Readonly<{ children: ReactNode }>
         (langId: string): string[] => progress.masteredUnits[langId] ?? [],
         [progress]
     )
-
     const completedCheckpoints = useCallback(
         (langId: string): string[] => progress.completedCheckpoints?.[langId] ?? [],
         [progress]

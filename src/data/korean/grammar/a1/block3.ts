@@ -1,0 +1,447 @@
+import { GrammarLesson } from "../../../../types"
+
+export const block3Lessons: GrammarLesson[] = [
+    {
+        id: "ko-g-a1-20",
+        level: "A1",
+        title: "Time Particle 에: hours, days, and time words",
+        explanation: `에 marks specific points in time, just as it marks locations. Attach 에 to any named time expression — parts of the day, days of the week, clock times.`,
+        rules: [
+            {
+                condition: "Specific time (clock, day, part of day)",
+                result: "time word + 에",
+                examples: [{ native: "아침에", translation: "" }, { native: "월요일에", translation: "" }, { native: "여섯 시에", translation: "" }, { native: "주말에", translation: "" }],
+            },
+            {
+                condition: "Relative time reference (today, now, every day)",
+                result: "no 에",
+                examples: [{ native: "오늘", translation: "" }, { native: "매일", translation: "" }, { native: "지금", translation: "" }, { native: "어제", translation: "" }, { native: "내일", translation: "" }],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "Quick test: if it's a specific named point on the calendar or clock, add 에. If it's a relative reference like 'today' or 'now,' leave it bare.",
+            },
+        ],
+        examples: [
+            { native: "아침에 커피를 마셔요.", romanized: "Achime keopireul masyeoyo.", translation: "I drink coffee in the morning." },
+            { native: "금요일에 친구를 만나요.", romanized: "Geumyoire chingureul mannayo.", translation: "I meet a friend on Friday." },
+            { native: "저녁에 뭐 해요?", romanized: "Jeonyeoge mwo haeyo?", translation: "What do you do in the evening?" },
+            { native: "오늘 바빠요. 내일 시간 있어요.", romanized: "Oneul bappayo. Naeil sigan isseoyo.", translation: "I'm busy today. I have time tomorrow. (no 에 on 오늘/내일)" },
+            { native: "주말에 보통 집에서 쉬어요.", romanized: "Jumare botong jibeseo swieoyo.", translation: "I usually rest at home on weekends." },
+            { native: "매일 한국어를 공부해요.", romanized: "Maeil hangugeoreul gongbuhaeyo.", translation: "I study Korean every day. (no 에 on 매일)" },
+        ],
+        inlineVocab: [
+            { word: "아침", romanized: "achim", translation: "morning" },
+            { word: "오전", romanized: "ojeon", translation: "AM / before noon" },
+            { word: "점심", romanized: "jeomsim", translation: "lunchtime / noon" },
+            { word: "오후", romanized: "ohu", translation: "afternoon / PM" },
+            { word: "저녁", romanized: "jeonyeok", translation: "evening" },
+            { word: "밤", romanized: "bam", translation: "night" },
+            { word: "주말", romanized: "jumal", translation: "weekend" },
+            { word: "평일", romanized: "pyeongil", translation: "weekday" },
+            { word: "매일", romanized: "maeil", translation: "every day (no 에)" },
+            { word: "오늘 / 어제 / 내일", romanized: "oneul / eoje / naeil", translation: "today / yesterday / tomorrow (no 에)" },
+        ],
+    },
+    {
+        id: "ko-g-a1-21",
+        level: "A1",
+        title: "Telling the time: 시 (hour) + 분 (minute), 오전/오후",
+        explanation: `Telling the time in Korean uses both number systems in a regular pattern: hours use native Korean numbers, minutes use Sino-Korean numbers.`,
+        rules: [
+            {
+                condition: "Hours (시)",
+                result: "Native Korean numbers + 시",
+                examples: [{ native: "한 시 (1:00)", translation: "" }, { native: "세 시 (3:00)", translation: "" }, { native: "열두 시 (12:00)", translation: "" }],
+            },
+            {
+                condition: "Minutes (분)",
+                result: "Sino-Korean numbers + 분",
+                examples: [{ native: "십 분 (10 min)", translation: "" }, { native: "삼십 분 (30 min)", translation: "" }, { native: "오십오 분 (55 min)", translation: "" }],
+            },
+            {
+                condition: "Half past",
+                result: "[hour] + 시 반",
+                examples: [{ native: "세 시 반 (3:30)", translation: "" }, { native: "열 시 반 (10:30)", translation: "" }],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "반 (half) is far more natural than 삼십 분 for :30. Learn 세 시 반 first — you'll say it constantly.",
+            },
+        ],
+        fixedPhrases: [
+            { native: "지금 몇 시예요?", romanized: "jigeum myeot sieyeo?", translation: "What time is it now?" },
+            { native: "몇 시에 만나요?", romanized: "myeot sie mannayo?", translation: "What time do we meet?" },
+        ],
+        examples: [
+            { native: "지금 몇 시예요?", romanized: "Jigeum myeot sieyeo?", translation: "What time is it now?" },
+            { native: "오후 세 시 반이에요.", romanized: "Ohu se si banieyo.", translation: "It's 3:30 PM." },
+            { native: "오전 열한 시에 미팅이 있어요.", romanized: "Ojeon yeolhan sie mitingi isseoyo.", translation: "I have a meeting at 11 AM." },
+            { native: "일곱 시에 저녁을 먹어요.", romanized: "Ilgop sie jeonyeogeul meogeoyo.", translation: "I eat dinner at seven." },
+            { native: "몇 시에 일어나요? — 여덟 시에 일어나요.", romanized: "Myeot sie ireonayo? — Yeodeol sie ireonayo.", translation: "What time do you get up? — I get up at eight." },
+            { native: "오후 두 시 십오 분이에요.", romanized: "Ohu du si sibo bunieyo.", translation: "It's 2:15 PM." },
+        ],
+        inlineVocab: [
+            { word: "시", romanized: "si", translation: "o'clock (hours — uses native Korean numbers)" },
+            { word: "분", romanized: "bun", translation: "minute (uses Sino-Korean numbers)" },
+            { word: "반", romanized: "ban", translation: "half (세 시 반 = 3:30 — learn this first)" },
+            { word: "오전", romanized: "ojeon", translation: "AM / before noon" },
+            { word: "오후", romanized: "ohu", translation: "PM / afternoon" },
+            { word: "지금", romanized: "jigeum", translation: "now (no 에)" },
+            { word: "몇 시", romanized: "myeot si", translation: "what time / what o'clock" },
+            { word: "쯤", romanized: "jjeum", translation: "approximately / about" },
+            { word: "얼마나 걸려요?", romanized: "Eolmana geollyeoyo?", translation: "How long does it take?" },
+            { word: "빨리", romanized: "ppalli", translation: "quickly / fast" },
+        ],
+    },
+    {
+        id: "ko-g-a1-22",
+        level: "A1",
+        title: "Negation with 안 (simple negation before verb or adjective)",
+        explanation: `안 is the straightforward negation word — it means 'don't' or 'not,' and sits directly before the verb or adjective. One exception applies to 하다 compound verbs.`,
+        rules: [
+            {
+                condition: "Most verbs and adjectives",
+                result: "안 + verb/adjective",
+                examples: [{ native: "안 가요", translation: "" }, { native: "안 먹어요", translation: "" }, { native: "안 좋아요", translation: "" }, { native: "안 비싸요", translation: "" }],
+            },
+            {
+                condition: "하다 compound verbs (noun + 하다)",
+                result: "noun + 안 + 해요",
+                examples: [{ native: "공부 안 해요", translation: "" }, { native: "운동 안 해요", translation: "" }, { native: "요리 안 해요", translation: "" }],
+            },
+        ],
+        notes: [
+            {
+                type: "warning",
+                content: "하다 compounds: 안 goes BETWEEN the noun and 하다, not before the whole word. 공부 안 해요 ✓ / 안 공부해요 ✗. This is one of the most common A1 errors.",
+            },
+            {
+                type: "tip",
+                content: "안 covers choice or absence. 못 covers inability — introduced in the next lesson.",
+            },
+        ],
+        examples: [
+            { native: "저는 고기를 안 먹어요.", romanized: "Jeoneun gogireul an meogeoyo.", translation: "I don't eat meat." },
+            { native: "오늘은 학교에 안 가요.", romanized: "Oneureun hakgyoe an gayo.", translation: "I'm not going to school today." },
+            { native: "이 음식은 안 매워요.", romanized: "I eumsigeun an maeweoyo.", translation: "This food is not spicy." },
+            { native: "저는 술을 안 마셔요.", romanized: "Jeoneun sureul an masyeoyo.", translation: "I don't drink alcohol." },
+            { native: "공부 안 해요. 오늘은 쉬어요.", romanized: "Gongbu an haeyo. Oneureun swieoyo.", translation: "I'm not studying. I'm resting today. (하다 compound: 안 between noun and 하다)" },
+            { native: "운동 안 해요? 왜요?", romanized: "Undong an haeyo? Waeyo?", translation: "You don't exercise? Why? (하다 compound — same pattern)" },
+        ],
+        inlineVocab: [
+            { word: "안", romanized: "an", translation: "not / don't (negation — choice or absence)" },
+            { word: "공부 안 해요", romanized: "gongbu an haeyo", translation: "don't study (하다 compound: 안 between noun and 하다)" },
+            { word: "운동 안 해요", romanized: "undong an haeyo", translation: "don't exercise (same pattern)" },
+            { word: "안 가요", romanized: "an gayo", translation: "don't go / not going" },
+            { word: "안 먹어요", romanized: "an meogeoyo", translation: "don't eat" },
+            { word: "안 좋아요", romanized: "an joayo", translation: "not good" },
+            { word: "하다 compound", romanized: "(hada compound)", translation: "noun + 하다 verb — 안/못 goes between noun and 하다" },
+        ],
+    },
+    {
+        id: "ko-g-a1-23",
+        level: "A1",
+        title: "못 (inability negation) + 하다 verbs: 안 해요 vs 못 해요",
+        explanation: `Korean has two negation words: 안 for choice or absence, 못 for inability. The position rules are identical — 못 sits directly before the verb, or between noun and 하다 for compound verbs.`,
+        rules: [
+            {
+                condition: "Most verbs",
+                result: "못 + verb",
+                examples: [{ native: "못 가요", translation: "" }, { native: "못 자요", translation: "" }, { native: "못 봐요", translation: "" }, { native: "못 먹어요", translation: "" }],
+            },
+            {
+                condition: "하다 compound verbs",
+                result: "noun + 못 + 해요",
+                examples: [{ native: "운동 못 해요", translation: "" }, { native: "공부 못 해요", translation: "" }, { native: "요리 못 해요", translation: "" }],
+            },
+        ],
+        notes: [
+            {
+                type: "warning",
+                content: "안 vs 못 matters in real life: 고기를 안 먹어요 (I choose not to eat meat — maybe vegetarian) vs 고기를 못 먹어요 (I can't eat meat — maybe an allergy). The distinction signals your situation to the listener.",
+            },
+            {
+                type: "tip",
+                content: "못 갔어요 = couldn't go / didn't manage to go. This implies something came up, not a choice. Use it instead of 안 갔어요 when plans fell through.",
+            },
+        ],
+        examples: [
+            { native: "저는 새우를 못 먹어요. 알레르기가 있어요.", romanized: "Jeoneun saewureul mot meogeoyo. Allereugie isseoyo.", translation: "I can't eat shrimp. I have an allergy." },
+            { native: "오늘 못 가요. 일이 있어요.", romanized: "Oneul mot gayo. Iri isseoyo.", translation: "I can't go today. I have something on." },
+            { native: "카페인 때문에 커피를 못 마셔요.", romanized: "Kapeein ttaemune keopireul mot masyeoyo.", translation: "I can't drink coffee because of caffeine." },
+            { native: "너무 바빠서 운동 못 해요.", romanized: "Neomu bappaseo undong mot haeyo.", translation: "I'm too busy so I can't exercise. (하다 compound)" },
+            { native: "어제 못 잤어요. 너무 시끄러웠어요.", romanized: "Eoje mot jasseoyo. Neomu sikkeureowoosseoyo.", translation: "I couldn't sleep yesterday. It was too noisy." },
+            { native: "공부 안 해요 vs 공부 못 해요", romanized: "Gongbu an haeyo vs gongbu mot haeyo", translation: "I don't study (by choice) vs I can't study (inability)" },
+        ],
+        inlineVocab: [
+            { word: "못", romanized: "mot", translation: "can't (inability negation)" },
+            { word: "안 vs 못", romanized: "an vs mot", translation: "don't (choice) vs can't (inability)" },
+            { word: "운동 못 해요", romanized: "undong mot haeyo", translation: "can't exercise (하다 compound — 못 between noun and 하다)" },
+            { word: "새우", romanized: "saewu", translation: "shrimp" },
+            { word: "알레르기", romanized: "allereugi", translation: "allergy" },
+            { word: "때문에", romanized: "ttaemune", translation: "because of / due to" },
+            { word: "그냥", romanized: "geunyang", translation: "just / plain / as it is" },
+            { word: "괜찮아요", romanized: "gwaenchanayo", translation: "I'm fine / no thanks / it's okay (polite soft decline)" },
+        ],
+    },
+    {
+        id: "ko-g-a1-24",
+        level: "A1",
+        title: "Question words: 뭐/무엇, 어디, 언제, 누구, 어떻게, 왜 — in-situ questions",
+        explanation: `In Korean, question words sit exactly where the answer would go — no word order change. The question word replaces the piece of information you are asking about, and the verb stays at the end.`,
+        notes: [
+            {
+                type: "tip",
+                content: "Korean questions use the same word order as statements — the question word simply replaces the information you're asking about. Nothing moves. 저는 학교에 가요 → 어디에 가요?",
+            },
+        ],
+        examples: [
+            { native: "뭐 먹어요?", romanized: "Mwo meogeoyo?", translation: "What are you eating?" },
+            { native: "어디에 가요?", romanized: "Eodie gayo?", translation: "Where are you going?" },
+            { native: "언제 와요?", romanized: "Eonje wayo?", translation: "When are you coming?" },
+            { native: "어떻게 가요? — 지하철로 가요.", romanized: "Eotteoke gayo? — Jihacheolro gayo.", translation: "How do you go? — I go by subway." },
+            { native: "왜 안 와요?", romanized: "Wae an wayo?", translation: "Why aren't you coming?" },
+            { native: "어떤 음악을 좋아해요?", romanized: "Eotteon eumageul joahaeyo?", translation: "What kind of music do you like?" },
+        ],
+        inlineVocab: [
+            { word: "뭐 / 무엇", romanized: "mwo / mueot", translation: "what (뭐 = spoken; 무엇 = written/formal)" },
+            { word: "어디", romanized: "eodi", translation: "where" },
+            { word: "언제", romanized: "eonje", translation: "when" },
+            { word: "누구", romanized: "nugu", translation: "who" },
+            { word: "어떻게", romanized: "eotteoke", translation: "how" },
+            { word: "왜", romanized: "wae", translation: "why" },
+            { word: "얼마", romanized: "eolma", translation: "how much (price)" },
+            { word: "얼마나", romanized: "eolmana", translation: "how long / how much (degree or duration)" },
+            { word: "몇", romanized: "myeot", translation: "how many / what number (before a counter)" },
+            { word: "어떤", romanized: "eotteon", translation: "what kind of (before a noun)" },
+        ],
+    },
+    {
+        id: "ko-g-a1-25",
+        level: "A1",
+        title: "누구 → 누가 rule; question intonation vs statement",
+        explanation: `누구 (who) changes to 누가 when 'who' is the grammatical subject — 누구 + the subject particle 가 fuse into a single word. In other positions, 누구 stays unchanged.`,
+        rules: [
+            {
+                condition: "Who as subject (doing the action)",
+                result: "누가",
+                examples: [{ native: "누가 왔어요?", translation: "" }, { native: "누가 전화했어요?", translation: "" }, { native: "누가 만들었어요?", translation: "" }],
+            },
+            {
+                condition: "Who in other positions (after 은/는, 랑, 한테 etc.)",
+                result: "누구",
+                examples: [{ native: "이 사람은 누구예요?", translation: "" }, { native: "누구랑 갔어요?", translation: "" }, { native: "누구한테 줬어요?", translation: "" }],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "Adding 요 alone to a key word makes a complete, polite short answer: 어디에 가요? → 도서관에요. (To the library.) This is one of the most natural features of Korean conversation.",
+            },
+        ],
+        examples: [
+            { native: "누가 왔어요?", romanized: "Nuga wasseoyo?", translation: "Who came?" },
+            { native: "누가 전화했어요?", romanized: "Nuga jeonhwahaesseoyo?", translation: "Who called?" },
+            { native: "이 사람은 누구예요?", romanized: "I sarameun nugueyeo?", translation: "Who is this person? (누구 as complement — not the subject)" },
+            { native: "누구랑 갔어요?", romanized: "Nugurang gasseoyo?", translation: "Who did you go with?" },
+            { native: "— 어디 가요? — 카페에요.", romanized: "Eodi gayo? — Kapeeyeo.", translation: "— Where are you going? — A café. (short polite answer: key word + 요)" },
+            { native: "— 뭐 먹었어요? — 비빔밥이요.", romanized: "Mwo meogeosseoyo? — Bibimbabiyeo.", translation: "— What did you eat? — Bibimbap. (key word + 요)" },
+        ],
+        inlineVocab: [
+            { word: "누구", romanized: "nugu", translation: "who (not the subject)" },
+            { word: "누가", romanized: "nuga", translation: "who (as subject — 누구 + 가 fused)" },
+            { word: "이/가", romanized: "i/ga", translation: "subject particle — marks who or what is doing the action" },
+            { word: "요즘", romanized: "yojeum", translation: "lately / these days" },
+            { word: "잘 지내요", romanized: "jal jinaeyo", translation: "I'm doing well" },
+            { word: "어떻게 지내요?", romanized: "Eotteoke jinaeyo?", translation: "How are you doing? (natural greeting after first meeting)" },
+            { word: "열심히", romanized: "yeolsimhi", translation: "hard / diligently" },
+            { word: "언젠가", romanized: "eonjenga", translation: "someday" },
+        ],
+    },
+    {
+        id: "ko-g-a1-26",
+        level: "A1",
+        title: "Positive frequency adverbs: 항상, 자주, 가끔, 별로 안, 거의 안",
+        explanation: `Korean has a clean frequency scale from always down to never. The top end (항상, 자주, 가끔) pairs naturally with positive verbs. The bottom end (별로, 거의) carries built-in negative meaning and requires 안 or 못.`,
+        rules: [
+            {
+                condition: "항상/늘 → 자주 → 가끔 (positive adverbs)",
+                result: "Place before verb — no special rules",
+                examples: [{ native: "항상 아침을 먹어요", translation: "" }, { native: "자주 카페에 가요", translation: "" }, { native: "가끔 한국 영화를 봐요", translation: "" }],
+            },
+            {
+                condition: "별로 · 거의 · 절대로 (inherently negative adverbs)",
+                result: "Must pair with 안 or 못",
+                examples: [{ native: "별로 안 해요", translation: "" }, { native: "거의 안 가요", translation: "" }, { native: "절대로 안 해요", translation: "" }],
+            },
+        ],
+        notes: [
+            {
+                type: "warning",
+                content: "별로 and 거의 cannot appear with a positive verb — the meaning is already negative, so the verb must be negative too. 별로 해요 is grammatically broken. 별로 안 해요 is correct.",
+            },
+        ],
+        examples: [
+            { native: "항상 아침을 먹어요.", romanized: "Hangsang achimeul meogeoyo.", translation: "I always eat breakfast." },
+            { native: "보통 여덟 시에 일어나요.", romanized: "Botong yeodeol sie ireonayo.", translation: "I usually get up at eight." },
+            { native: "자주 카페에 가요.", romanized: "Jaju kapee gayo.", translation: "I often go to a café." },
+            { native: "가끔 한국 영화를 봐요.", romanized: "Gakkeum hanguk yeonghwareul bwayo.", translation: "I sometimes watch Korean films." },
+            { native: "저는 술을 별로 안 마셔요.", romanized: "Jeoneun sureul byeolro an masyeoyo.", translation: "I don't really drink alcohol. (별로 requires 안)" },
+            { native: "저는 아침을 거의 안 먹어요. 바빠서요.", romanized: "Jeoneun achimeul geoui an meogeoyo. Bappaseoyo.", translation: "I hardly eat breakfast. Because I'm busy. (거의 requires 안)" },
+        ],
+        inlineVocab: [
+            { word: "항상 / 늘", romanized: "hangsang / neul", translation: "always" },
+            { word: "보통", romanized: "botong", translation: "usually" },
+            { word: "자주", romanized: "jaju", translation: "often" },
+            { word: "가끔", romanized: "gakkeum", translation: "sometimes" },
+            { word: "별로 안", romanized: "byeolro an", translation: "not really (별로 requires a negative verb)" },
+            { word: "거의 안", romanized: "geoui an", translation: "hardly ever (거의 requires a negative verb)" },
+            { word: "제일", romanized: "jeil", translation: "the most / number one" },
+            { word: "중요해요", romanized: "jungyohaeyo", translation: "important (from 중요하다)" },
+        ],
+    },
+    {
+        id: "ko-g-a1-27",
+        level: "A1",
+        title: "절대로 안/못 (never) + adverbs that require a negative verb",
+        explanation: `절대로 is the strongest frequency adverb — 'never' or 'absolutely not.' Like 별로 and 거의, its inherently negative meaning requires the verb to also be negative.`,
+        rules: [
+            {
+                condition: "절대로 (never / absolutely not)",
+                result: "절대로 + 안/못 + verb",
+                examples: [{ native: "절대로 안 해요", translation: "" }, { native: "절대로 못 가요", translation: "" }, { native: "절대로 안 잊을게요", translation: "" }],
+            },
+        ],
+        notes: [
+            {
+                type: "warning",
+                content: "절대로 requires a negative verb — 절대로 가요 is grammatically broken. Think: the further down the frequency scale, the more certain you need 안/못.",
+            },
+            {
+                type: "tip",
+                content: "Full frequency scale: 항상 / 자주 / 가끔 → 별로 안 → 거의 안 → 절대로 안. The bottom three all require 안 or 못.",
+            },
+        ],
+        examples: [
+            { native: "저는 거짓말을 절대로 안 해요.", romanized: "Jeoneun geojinmareul jeoldaero an haeyo.", translation: "I never lie. (절대로 requires 안)" },
+            { native: "그 음식은 절대로 못 먹어요.", romanized: "Geu eumsigeun jeoldaero mot meogeoyo.", translation: "There is absolutely no way I can eat that food." },
+            { native: "저는 별로 안 바빠요.", romanized: "Jeoneun byeolro an bappayo.", translation: "I'm not really busy." },
+            { native: "주말에는 거의 안 나가요.", romanized: "Jumarengeun geoui an nagayo.", translation: "I hardly ever go out on weekends." },
+            { native: "절대로 안 잊을게요!", romanized: "Jeoldaero an ijeulgeyo!", translation: "I will absolutely never forget!" },
+            { native: "항상 가요 → 자주 가요 → 가끔 가요 → 별로 안 가요 → 거의 안 가요 → 절대로 안 가요", romanized: "hangsang gayo → jaju gayo → gakkeum gayo → byeolro an gayo → geoui an gayo → jeoldaero an gayo", translation: "always go → often go → sometimes go → don't really go → hardly go → never go" },
+        ],
+        inlineVocab: [
+            { word: "절대로", romanized: "jeoldaero", translation: "never / absolutely not (requires negative verb)" },
+            { word: "거짓말", romanized: "geojinmal", translation: "lie / untruth" },
+            { word: "별로", romanized: "byeolro", translation: "not really (requires 안/못)" },
+            { word: "거의", romanized: "geoui", translation: "hardly / almost (requires 안/못)" },
+            { word: "간단하게", romanized: "gandanhage", translation: "simply / lightly" },
+            { word: "빵", romanized: "ppang", translation: "bread" },
+            { word: "과일", romanized: "gwail", translation: "fruit" },
+            { word: "술", romanized: "sul", translation: "alcohol" },
+        ],
+    },
+    {
+        id: "ko-g-a1-28",
+        level: "A1",
+        title: "Past tense ~았어요/었어요 — discovering the pattern",
+        explanation: `Past tense uses the same vowel harmony rule as present tense — the only change is adding 았/었 before 어요. If you know the present tense, you already know the rule.`,
+        rules: [
+            {
+                condition: "Stem last vowel is ㅏ or ㅗ (same as ~아요 verbs)",
+                result: "~았어요",
+                examples: [{ native: "가다 → 갔어요", translation: "" }, { native: "보다 → 봤어요", translation: "" }, { native: "좋다 → 좋았어요", translation: "" }],
+            },
+            {
+                condition: "Stem has any other vowel (same as ~어요 verbs)",
+                result: "~었어요",
+                examples: [{ native: "먹다 → 먹었어요", translation: "" }, { native: "마시다 → 마셨어요", translation: "" }, { native: "오다 → 왔어요", translation: "" }],
+            },
+            {
+                condition: "하다 verbs",
+                result: "~했어요 (always)",
+                examples: [{ native: "공부했어요", translation: "" }, { native: "운동했어요", translation: "" }, { native: "일했어요", translation: "" }],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "The same contractions from present tense apply: 가+았어요→갔어요, 오+았어요→왔어요, 마시+었어요→마셨어요. If you know the present contractions, you know the past contractions.",
+            },
+        ],
+        fixedPhrases: [
+            { native: "어제 뭐 했어요?", romanized: "eoje mwo haesseoyo?", translation: "What did you do yesterday?" },
+            { native: "주말 어땠어요?", romanized: "jumal eottaesseoyo?", translation: "How was your weekend?" },
+        ],
+        examples: [
+            { native: "어제 친구를 만났어요.", romanized: "Eoje chingureul mannasseoyo.", translation: "I met a friend yesterday." },
+            { native: "지난 주말에 서울에 갔어요.", romanized: "Jinan jumare seoure gasseoyo.", translation: "I went to Seoul last weekend." },
+            { native: "점심을 먹었어요? — 네, 비빔밥을 먹었어요.", romanized: "Jeomsimeul meogeosseoyo? — Ne, bibimbapeul meogeosseoyo.", translation: "Did you eat lunch? — Yes, I ate bibimbap." },
+            { native: "어제 공부 안 했어요. 너무 피곤했어요.", romanized: "Eoje gongbu an haesseoyo. Neomu pigonhaesseoyo.", translation: "I didn't study yesterday. I was too tired." },
+            { native: "주말 어땠어요? — 정말 좋았어요!", romanized: "Jumal eottaesseoyo? — Jeongmal joasseoyo!", translation: "How was your weekend? — It was really great!" },
+            { native: "못 갔어요. 일이 있었어요.", romanized: "Mot gasseoyo. Iri isseosseoyo.", translation: "I couldn't go. I had something on." },
+        ],
+        inlineVocab: [
+            { word: "~았어요 / ~었어요", romanized: "~asseoyo / ~eosseoyo", translation: "past tense ending (same vowel harmony as present)" },
+            { word: "~했어요", romanized: "~haesseoyo", translation: "past of all 하다 verbs (always 했어요)" },
+            { word: "어제", romanized: "eoje", translation: "yesterday" },
+            { word: "지난주", romanized: "jinanju", translation: "last week" },
+            { word: "지난 주말", romanized: "jinan jumal", translation: "last weekend" },
+            { word: "아까", romanized: "akka", translation: "a little while ago" },
+            { word: "어땠어요?", romanized: "Eottaesseoyo?", translation: "How was it? (past of 어때요?)" },
+            { word: "잘 보냈어요?", romanized: "Jal bonaesseoyo?", translation: "Did you have a good time? (lit. spend it well?)" },
+        ],
+    },
+    {
+        id: "ko-g-a1-29",
+        level: "A1",
+        title: "Past tense irregular patterns + 하다 → 했어요",
+        explanation: `The ㅂ-irregular pattern from adjective conjugation applies equally in the past tense. The copula (이에요/예요) also has a past form: 이었어요/였어요.`,
+        rules: [
+            {
+                condition: "ㅂ-irregular adjectives in past tense",
+                result: "Same as present: ㅂ → 워 before vowel, then + 었어요",
+                examples: [{ native: "춥다→추웠어요", translation: "" }, { native: "덥다→더웠어요", translation: "" }, { native: "맵다→매웠어요", translation: "" }, { native: "즐겁다→즐거웠어요", translation: "" }],
+            },
+            {
+                condition: "Past copula after consonant",
+                result: "이었어요",
+                examples: [{ native: "학생이었어요 (was a student)", translation: "" }, { native: "회사원이었어요", translation: "" }],
+            },
+            {
+                condition: "Past copula after vowel",
+                result: "였어요",
+                examples: [{ native: "의사였어요 (was a doctor)", translation: "" }, { native: "학교였어요", translation: "" }],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "If you know 추워요 (present), you already know 추웠어요 (past). The irregularity is the same — just one step further. No new rule.",
+            },
+        ],
+        examples: [
+            { native: "지난주에 날씨가 너무 더웠어요.", romanized: "Jinan jue nalssiga neomu deowosseoyo.", translation: "The weather was too hot last week. (ㅂ-irregular: 덥다 → 더웠어요)" },
+            { native: "그 음식은 정말 매웠어요!", romanized: "Geu eumsigeun jeongmal maewosseoyo!", translation: "That food was really spicy! (ㅂ-irregular: 맵다 → 매웠어요)" },
+            { native: "여행이 정말 즐거웠어요.", romanized: "Yeohaengi jeongmal jeulgeowoosseoyo.", translation: "The trip was really fun. (ㅂ-irregular: 즐겁다 → 즐거웠어요)" },
+            { native: "어제 회사에서 열심히 일했어요.", romanized: "Eoje hwisaeseo yeolsimhi ilhaesseoyo.", translation: "I worked hard at the office yesterday. (하다 → 했어요)" },
+            { native: "지난달에 학생이었어요. 지금은 회사원이에요.", romanized: "Jinan dare haksaengieosseoyo. Jigeumeun hwisawonieyeo.", translation: "Last month I was a student. Now I'm an office worker. (past copula after consonant: 이었어요)" },
+            { native: "정말 즐거운 하루였어요!", romanized: "Jeongmal jeulgeoun haruyeosseoyo!", translation: "It was a really fun day! (past copula after vowel: 였어요)" },
+        ],
+        inlineVocab: [
+            { word: "추웠어요", romanized: "chuwosseoyo", translation: "was cold (ㅂ-irregular past)" },
+            { word: "더웠어요", romanized: "deowosseoyo", translation: "was hot (ㅂ-irregular past)" },
+            { word: "매웠어요", romanized: "maewosseoyo", translation: "was spicy (ㅂ-irregular past)" },
+            { word: "즐거웠어요", romanized: "jeulgeowosseoyo", translation: "was fun/enjoyable (ㅂ-irregular past)" },
+            { word: "이었어요 / 였어요", romanized: "ieosseoyo / yeosseoyo", translation: "was (past copula: 이었어요 after consonant, 였어요 after vowel)" },
+            { word: "했어요", romanized: "haesseoyo", translation: "did (past of all 하다 verbs)" },
+            { word: "하루", romanized: "haru", translation: "one day" },
+            { word: "처음으로", romanized: "cheoeumeuro", translation: "for the first time" },
+        ],
+    },
+]
