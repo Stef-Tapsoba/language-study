@@ -9,6 +9,7 @@ import { ProtectedRoute } from "./auth/ProtectedRoute"
 import { ProgressProvider, useProgress } from "./context/ProgressContext"
 import { getModule, loadModule, loadAdvancedModule, isAdvancedLoaded } from "./data/modules"
 import { AppLayout } from "./components/layout/AppLayout"
+import { useAppBootstrap } from "./hooks/useAppBootstrap"
 
 const LandingPage        = lazy(() => import("./pages/LandingPage").then(m => ({ default: m.LandingPage })))
 const LoginPage          = lazy(() => import("./pages/LoginPage").then(m => ({ default: m.LoginPage })))
@@ -45,7 +46,8 @@ const StatsPage             = lazy(() => import("./pages/StatsPage").then(m => (
 // so components always receive complete data for the active level.
 function LanguageLoader() {
     const { langId } = useParams<{ langId: string }>()
-    const { level: getLevel } = useProgress()
+    const { level: getLevel, setSelectedLanguage } = useProgress()
+    useAppBootstrap()
 
     const isFullyLoaded = (id: string) => {
         if (!getModule(id)) return false
@@ -57,6 +59,9 @@ function LanguageLoader() {
 
     useEffect(() => {
         if (!langId) return
+        // Keep selectedLanguage in sync with the URL so the navbar always
+        // reflects the active language even after a hard refresh.
+        setSelectedLanguage(langId)
         if (isFullyLoaded(langId)) { setReady(true); return }
 
         async function load() {
