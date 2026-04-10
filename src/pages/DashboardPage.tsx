@@ -1,5 +1,5 @@
 // pages/DashboardPage.tsx — Learning path view (unit list) for the current CEFR level.
-import { useState, useMemo, memo, useEffect } from "react"
+import { useState, useMemo, memo, useEffect, Fragment } from "react"
 import { useParams, useNavigate, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
@@ -379,19 +379,33 @@ export function DashboardPage() {
                                     <span className="text-xs text-text-sec shrink-0">{masteredCount} of {levelUnits.length}</span>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    {sortedLevelUnits.map(unit => (
-                                        <UnitRow
-                                            key={unit.id}
-                                            unit={unit}
-                                            langId={langId}
-                                            level={level}
-                                            mastered={mastered}
-                                            allUnits={levelUnits}
-                                            completed={completed}
-                                            goalScore={scoreUnitForGoal(unit.topicTags, goalId)}
-                                            completedCheckpoints={completedCheckpoints}
-                                        />
-                                    ))}
+                                    {sortedLevelUnits.map(unit => {
+                                        const checkpoint = unit.checkpointId
+                                            ? (mod.checkpoints ?? []).find(cp => cp.id === unit.checkpointId) ?? null
+                                            : null
+                                        return (
+                                            <Fragment key={unit.id}>
+                                                <UnitRow
+                                                    unit={unit}
+                                                    langId={langId}
+                                                    level={level}
+                                                    mastered={mastered}
+                                                    allUnits={levelUnits}
+                                                    completed={completed}
+                                                    goalScore={scoreUnitForGoal(unit.topicTags, goalId)}
+                                                    completedCheckpoints={completedCheckpoints}
+                                                />
+                                                {checkpoint && (
+                                                    <CheckpointRow
+                                                        checkpoint={checkpoint}
+                                                        langId={langId}
+                                                        gatePassed={mastered.includes(unit.id)}
+                                                        isDone={completedCheckpoints.includes(checkpoint.id)}
+                                                    />
+                                                )}
+                                            </Fragment>
+                                        )
+                                    })}
                                 </div>
                             </>
                         ) : (
