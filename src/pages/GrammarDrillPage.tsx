@@ -352,7 +352,7 @@ export function GrammarDrillPage() {
     if (questions.length === 0) {
         return (
             <div className="min-h-screen bg-surface-app">
-                <NavBar title={ui.sectionGrammarDrill} level={level} backTo={`/learn/${langId}`} />
+                <NavBar title={ui.sectionGrammarDrill} level={level} backTo="back" fallbackRoute={`/learn/${langId}`} />
                 <div className="flex flex-col items-center justify-center py-24 text-text-ter">
                     <p className="text-4xl mb-3">🚧</p>
                     <p className="font-medium">Not enough grammar examples at {level} yet</p>
@@ -364,7 +364,7 @@ export function GrammarDrillPage() {
     if (!started) {
         return (
             <div className="min-h-screen bg-surface-app">
-                <NavBar title={ui.sectionGrammarDrill} level={level} backTo={`/learn/${langId}`} />
+                <NavBar title={ui.sectionGrammarDrill} level={level} backTo="back" fallbackRoute={`/learn/${langId}`} />
                 <GrammarDrillStartScreen
                     level={level}
                     ui={ui}
@@ -386,7 +386,7 @@ export function GrammarDrillPage() {
                 navTitle={ui.sectionGrammarDrill}
                 ui={ui}
                 onRestart={drill.restart}
-                backTo={`/learn/${langId}`}
+                backTo="back" fallbackRoute={`/learn/${langId}`}
                 missed={drill.missed.map(m => ({
                     prompt: m.question.prompt,
                     correct: m.question.correct,
@@ -400,7 +400,7 @@ export function GrammarDrillPage() {
 
     return (
         <div className="min-h-screen bg-surface-app">
-            <NavBar title={ui.sectionGrammarDrill} level={level} backTo={`/learn/${langId}`} />
+            <NavBar title={ui.sectionGrammarDrill} level={level} backTo="back" fallbackRoute={`/learn/${langId}`} />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col items-center gap-6">
                 <div className="w-full flex items-center justify-between text-sm text-text-sec">
                     <span>{fmt(ui.questionOf, { n: drill.index + 1, total: questions.length })}</span>

@@ -60,7 +60,7 @@ export function GrammarPage() {
             <NavBar
                 title={ui.sectionGrammar}
                 level={level}
-                backTo={`/learn/${langId}`}
+                backTo="back" fallbackRoute={`/learn/${langId}`}
             />
             <main className="max-w-3xl mx-auto px-4 py-6">
                 <div className="flex items-center gap-2 mb-6">

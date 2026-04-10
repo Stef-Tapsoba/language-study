@@ -84,7 +84,7 @@ export function VerbsPage() {
 
     return (
         <div className="min-h-screen bg-surface-app">
-            <NavBar title={ui.sectionVerbs} level={level} backTo={`/learn/${langId}`} />
+            <NavBar title={ui.sectionVerbs} level={level} backTo="back" fallbackRoute={`/learn/${langId}`} />
             <main className="max-w-3xl mx-auto px-4 py-6">
                 <div className="flex items-center gap-2 mb-6">
                     <h1 className="text-xl font-bold text-text-pri">{ui.sectionVerbs}</h1>

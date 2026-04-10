@@ -567,7 +567,7 @@ export function CulturePage() {
             <NavBar
                 title={selectedEpisode ? (selectedEpisode.title.target ?? selectedEpisode.title.native) : ui.sectionCulture}
                 level={level}
-                backTo={`/learn/${langId}`}
+                backTo="back" fallbackRoute={`/learn/${langId}`}
                 onBack={handleBack}
             />
 

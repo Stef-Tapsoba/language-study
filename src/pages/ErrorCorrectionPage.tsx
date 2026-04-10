@@ -181,7 +181,7 @@ export default function ErrorCorrectionPage({ items, langId, level, config: _con
     if (questions.length === 0) {
         return (
             <div className="min-h-screen bg-surface-app">
-                <NavBar title="Error Correction" level={level} backTo={`/learn/${langId}`} />
+                <NavBar title="Error Correction" level={level} backTo="back" fallbackRoute={`/learn/${langId}`} />
                 <div className="flex flex-col items-center justify-center py-24 text-text-ter px-4 text-center">
                     <p className="text-4xl mb-3">🚧</p>
                     <p className="font-medium">Not enough grammar examples at {level} yet</p>
@@ -199,7 +199,7 @@ export default function ErrorCorrectionPage({ items, langId, level, config: _con
                 navTitle="Error Correction"
                 ui={ui}
                 onRestart={handleRestart}
-                backTo={`/learn/${langId}`}
+                backTo="back" fallbackRoute={`/learn/${langId}`}
                 missed={missed}
             />
         )
@@ -242,7 +242,7 @@ export default function ErrorCorrectionPage({ items, langId, level, config: _con
 
     return (
         <div className="min-h-screen bg-surface-app">
-            <NavBar title="Error Correction" level={level} backTo={`/learn/${langId}`} />
+            <NavBar title="Error Correction" level={level} backTo="back" fallbackRoute={`/learn/${langId}`} />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col gap-6">
                 {/* Progress */}
                 <div className="flex items-center justify-between text-sm text-text-sec">
