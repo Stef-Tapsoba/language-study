@@ -76,7 +76,7 @@ function highlightVocab(
             <button
                 key={`${keyPrefix}v${n++}`}
                 onClick={e => onVocabClick(matched, translation, e.currentTarget.getBoundingClientRect())}
-                className="text-indigo-600 underline decoration-dotted underline-offset-2 cursor-pointer"
+                className="text-grammar underline decoration-dotted underline-offset-2 cursor-pointer"
             >
                 {matched}
             </button>

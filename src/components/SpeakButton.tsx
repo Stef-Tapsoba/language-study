@@ -33,7 +33,7 @@ export function SpeakButton({ text, langId, className = "" }: Readonly<SpeakButt
                     onClick={handleSpeak}
                     aria-label="Listen"
                     className={`shrink-0 p-2 min-h-[44px] min-w-[44px] rounded-lg transition-colors ${speaking
-                            ? "text-indigo-600 bg-indigo-50"
+                            ? "text-grammar bg-grammar-surface"
                             : "text-gray-300 hover:text-indigo-500 hover:bg-gray-100"
                         } ${className}`}
                 >

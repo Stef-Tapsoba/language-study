@@ -5,6 +5,7 @@
 //        This shifts the exercise from production-cued to comprehension-cued.
 import { useMemo, useEffect, useState } from "react"
 import { useParams, Link } from "react-router-dom"
+import { Button } from "../components/ui/button"
 import { getLanguage } from "../data/languages"
 import { getGrammarForLevel, getUnitsForLevel } from "../data/repo"
 import { useProgress } from "../context/ProgressContext"
@@ -103,7 +104,7 @@ function ModeOption({ icon, label, description, selected, onClick }: ModeOptionP
                     <p className={`text-sm font-semibold ${labelCls}`}>{label}</p>
                     <p className="text-xs text-text-sec mt-0.5">{description}</p>
                 </div>
-                {selected && <span className="ml-auto text-indigo-600 text-sm self-center">✓</span>}
+                {selected && <span className="ml-auto text-grammar text-sm self-center">✓</span>}
             </div>
         </button>
     )
@@ -147,12 +148,12 @@ function GrammarDrillStartScreen({ level, ui, questionCount, drillMode, setDrill
                     onClick={() => setDrillMode("fill-in")}
                 />
             </div>
-            <button
+            <Button
                 onClick={onStart}
-                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-3 text-sm transition-colors"
+                className="w-full rounded-xl py-3"
             >
                 Start
-            </button>
+            </Button>
         </main>
     )
 }
@@ -164,7 +165,7 @@ function LessonLink({ langId, lessonId, lessonTitle }: Readonly<{ langId: string
     return (
         <p className="text-xs text-center text-text-sec">
             📖{" "}
-            <Link to={`/learn/${langId}/grammar/${lessonId}`} className="text-indigo-600 hover:underline">
+            <Link to={`/learn/${langId}/grammar/${lessonId}`} className="text-grammar hover:underline">
                 {lessonTitle}
             </Link>
         </p>
@@ -234,22 +235,22 @@ function FillInMode({ langId, question, isFlipped, languageName, ui, drill, ques
                 </div>
             )}
             {fillState === "idle" ? (
-                <button
+                <Button
                     onClick={onSubmit}
                     disabled={!fillInput.trim()}
-                    className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-40 text-white font-semibold rounded-xl py-3 text-sm transition-colors"
+                    className="w-full rounded-xl py-3"
                 >
                     Check
-                </button>
+                </Button>
             ) : (
                 <>
                     <LessonLink langId={langId} lessonId={question.lessonId} lessonTitle={question.lessonTitle} />
-                    <button
+                    <Button
                         onClick={onNext}
-                        className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-3 transition-colors"
+                        className="w-full rounded-xl py-3"
                     >
                         {isLast ? ui.seeResults : ui.nextQuestion}
-                    </button>
+                    </Button>
                 </>
             )}
             <p className="hidden sm:block text-xs text-text-ter text-center">Enter to check · Enter again to continue</p>
@@ -284,12 +285,12 @@ function MultipleChoiceMode({ langId, question, isFlipped, ui, drill, questionsL
             {drill.revealed && (
                 <>
                     <LessonLink langId={langId} lessonId={question.lessonId} lessonTitle={question.lessonTitle} />
-                    <button
+                    <Button
                         onClick={onNext}
-                        className="w-full max-w-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-3 transition-colors"
+                        className="w-full max-w-xl rounded-xl py-3"
                     >
                         {isLast ? ui.seeResults : ui.nextQuestion}
-                    </button>
+                    </Button>
                 </>
             )}
         </>
@@ -410,8 +411,8 @@ export function GrammarDrillPage() {
                 <div className="w-full flex gap-1">
                     {questions.map((item, i) => {
                         let dotCls = "bg-border-default"
-                        if (i < drill.index) dotCls = "bg-indigo-500"
-                        else if (i === drill.index) dotCls = "bg-indigo-300"
+                        if (i < drill.index) dotCls = "bg-grammar"
+                        else if (i === drill.index) dotCls = "bg-grammar opacity-40"
                         return <div key={item.prompt} className={`h-1.5 flex-1 rounded-full transition-colors ${dotCls}`} />
                     })}
                 </div>

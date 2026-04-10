@@ -69,7 +69,7 @@ const UnitRow = memo(function UnitRow({ unit, langId, level, mastered, allUnits,
                         {unit.title}
                     </p>
                     {goalScore > 0 && unlocked && (
-                        <Badge variant="outline" className="text-[10px] font-medium shrink-0 text-indigo-600 dark:text-indigo-400 border-indigo-200 dark:border-indigo-700 bg-indigo-50 dark:bg-indigo-900/20">
+                        <Badge variant="outline" className="text-[10px] font-medium shrink-0 text-grammar border-grammar-border bg-grammar-surface">
                             For you
                         </Badge>
                     )}
@@ -267,7 +267,7 @@ export function DashboardPage() {
                             variant="link"
                             size="sm"
                             onClick={() => navigate(`/learn/${langId}/placement`)}
-                            className="text-xs p-0 h-auto text-indigo-600 dark:text-indigo-400"
+                            className="text-xs p-0 h-auto text-grammar"
                         >
                             {ui.changeLevel}
                         </Button>
@@ -284,11 +284,11 @@ export function DashboardPage() {
 
                 {/* First-visit onboarding card */}
                 {showOnboarding && (
-                    <div className="bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700 rounded-2xl p-4 mb-5 flex gap-4 items-start">
+                    <div className="bg-grammar-surface border border-grammar-border rounded-2xl p-4 mb-5 flex gap-4 items-start">
                         <span className="text-2xl shrink-0">👋</span>
                         <div className="flex-1 min-w-0">
-                            <p className="font-semibold text-indigo-900 dark:text-indigo-100 text-sm">Start here</p>
-                            <p className="text-xs text-indigo-700 dark:text-indigo-300 mt-0.5">
+                            <p className="font-semibold text-text-pri text-sm">Start here</p>
+                            <p className="text-xs text-text-sec mt-0.5">
                                 Head to the <strong>Path</strong> tab for a guided tour, or jump straight into <strong>Study</strong> to browse lessons.
                                 Practice with flashcards and drills, then take a <strong>Level Test</strong> when you're ready to advance.
                             </p>
@@ -298,7 +298,7 @@ export function DashboardPage() {
                             size="icon"
                             onClick={handleDismissOnboarding}
                             aria-label="Dismiss"
-                            className="w-7 h-7 shrink-0 text-indigo-400 hover:text-indigo-600 dark:text-indigo-500 dark:hover:text-indigo-300"
+                            className="w-7 h-7 shrink-0 text-grammar hover:text-grammar"
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />

@@ -10,6 +10,7 @@ import { LevelBadge } from "../components/LevelBadge"
 import { QuizCard } from "../components/QuizCard"
 import { ReadingPassage, PassageCategory } from "../types"
 import { getUI, fmt } from "../i18n"
+import { Button } from "../components/ui/button"
 
 // Category badge colour map
 const CATEGORY_COLORS: Record<PassageCategory, string> = {
@@ -58,7 +59,7 @@ function PassageBrowse({ passages, completed, onSelect, category, ui }: Readonly
                     key={p.id}
                     onClick={() => onSelect(p)}
                     className="w-full text-left bg-surface-card rounded-2xl border border-border-default p-4
-                               hover:border-indigo-300 hover:shadow-sm transition-all"
+                               hover:border-grammar hover:shadow-sm transition-all"
                 >
                     <div className="flex items-start justify-between gap-2">
                         <div className="flex-1">
@@ -203,13 +204,9 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
 
             {/* Comprehension quiz */}
             {!quizOpen ? (
-                <button
-                    onClick={() => setQuizOpen(true)}
-                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold
-                               rounded-xl py-2.5 text-sm transition-colors"
-                >
+                <Button onClick={() => setQuizOpen(true)} className="w-full rounded-xl py-2.5">
                     {ui.checkUnderstanding}
-                </button>
+                </Button>
             ) : quizDone ? (
                 <div className="bg-surface-card rounded-2xl border border-border-default p-5 text-center">
                     <div className="text-3xl mb-2">
@@ -233,13 +230,9 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
                         onSelect={handleSelect}
                     />
                     {revealed && (
-                        <button
-                            onClick={handleNext}
-                            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white
-                                       font-semibold rounded-xl py-3 transition-colors"
-                        >
+                        <Button onClick={handleNext} className="w-full rounded-xl py-3">
                             {quizIndex + 1 >= passage.questions.length ? ui.seeResults : ui.nextQuestion}
-                        </button>
+                        </Button>
                     )}
                 </div>
             )}
@@ -252,7 +245,7 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
                         disabled={markedRead}
                         className={`w-full font-semibold rounded-xl py-3 text-sm transition-colors border ${markedRead
                                 ? "border-grammar-border text-grammar bg-grammar-surface cursor-default"
-                                : "border-indigo-600 bg-indigo-600 text-white hover:bg-indigo-700"
+                                : "border-grammar bg-grammar text-white hover:opacity-90"
                             }`}
                     >
                         {markedRead ? `✓ ${ui.passageComplete}` : ui.markAsRead}

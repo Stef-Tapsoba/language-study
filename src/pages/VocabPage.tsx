@@ -8,6 +8,7 @@ import { NavBar } from "../components/NavBar"
 import { MarkCompleteButton } from "../components/MarkCompleteButton"
 import { LevelBadge } from "../components/LevelBadge"
 import { SpeakButton } from "../components/SpeakButton"
+import { Button } from "../components/ui/button"
 import { VocabItem } from "../types"
 import { getUI } from "../i18n"
 
@@ -109,8 +110,8 @@ export function VocabPage() {
                                 onClick={() => setFilter(f)}
                                 className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors capitalize
                                     ${filter === f
-                                        ? "bg-indigo-600 text-white"
-                                        : "bg-surface-card border border-border-default text-text-sec hover:border-indigo-400"}`}
+                                        ? "bg-grammar-surface border border-grammar text-grammar"
+                                        : "bg-surface-card border border-border-default text-text-sec hover:border-grammar"}`}
                             >
                                 {f}
                             </button>
@@ -126,12 +127,9 @@ export function VocabPage() {
                             Keep reviewing with Flashcards or explore Reading passages while you wait.
                         </p>
                         <div className="flex flex-col gap-2 w-full max-w-xs mt-2">
-                            <Link
-                                to={`/learn/${langId}/flashcards`}
-                                className="block w-full text-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 text-sm font-medium"
-                            >
-                                Go to Flashcards
-                            </Link>
+                            <Button asChild className="w-full rounded-lg">
+                                <Link to={`/learn/${langId}/flashcards`}>Go to Flashcards</Link>
+                            </Button>
                             <Link
                                 to={`/learn/${langId}`}
                                 className="block w-full text-center px-4 py-2 border border-border-default text-text-sec rounded-lg hover:bg-surface-elevated text-sm font-medium"

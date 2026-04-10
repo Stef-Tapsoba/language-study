@@ -1,6 +1,7 @@
 // pages/CulturePage.tsx — Culture episode page (upgraded for CultureEpisode type)
 import { useState } from "react"
 import { useParams, useSearchParams } from "react-router-dom"
+import { Button } from "../components/ui/button"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { useProgress } from "../context/ProgressContext"
@@ -225,7 +226,7 @@ function ReflectionCard({ question }: { question: CultureEpisode["questions"][nu
             {!answered ? (
                 <button
                     onClick={() => setAnswered(true)}
-                    className="text-xs text-indigo-600 hover:underline font-medium"
+                    className="text-xs text-grammar hover:underline font-medium"
                 >
                     I've thought about this →
                 </button>
@@ -307,13 +308,12 @@ function QuizSection({
                                 onSelect={handleSelect}
                             />
                             {revealed && (
-                                <button
+                                <Button
                                     onClick={handleNext}
-                                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white
-                                               font-semibold rounded-xl py-3 transition-colors"
+                                    className="w-full rounded-xl py-3"
                                 >
                                     {quizIndex + 1 >= compQs.length ? ui.seeResults : ui.nextQuestion}
-                                </button>
+                                </Button>
                             )}
                         </div>
                     )}

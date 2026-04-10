@@ -1,6 +1,7 @@
 // pages/VerbDrillPage.tsx — Conjugation fill-in-the-blank drill
 import { useMemo, useEffect } from "react"
 import { useParams, Link } from "react-router-dom"
+import { Button } from "../components/ui/button"
 import { getLanguage } from "../data/languages"
 import { getVerbsForLevel, getUnitsForLevel } from "../data/repo"
 import { useProgress } from "../context/ProgressContext"
@@ -52,8 +53,8 @@ function buildQuestions(verbs: Verb[]): DrillQuestion[] {
 }
 
 function progressDotClass(i: number, index: number): string {
-    if (i < index) return "bg-indigo-500"
-    if (i === index) return "bg-indigo-300"
+    if (i < index) return "bg-grammar"
+    if (i === index) return "bg-grammar opacity-40"
     return "bg-border-default"
 }
 
@@ -105,12 +106,9 @@ export function VerbDrillPage() {
                             : "In the meantime, explore Reading and Culture."}
                     </p>
                     <div className="flex flex-col gap-3 w-full max-w-xs">
-                        <Link
-                            to={`/learn/${langId}/reading`}
-                            className="block w-full text-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 text-sm font-medium"
-                        >
-                            Go to Reading
-                        </Link>
+                        <Button asChild className="w-full rounded-lg">
+                            <Link to={`/learn/${langId}/reading`}>Go to Reading</Link>
+                        </Button>
                         <Link
                             to={`/learn/${langId}`}
                             className="block w-full text-center px-4 py-2 border border-border-default text-text-sec rounded-lg hover:bg-surface-elevated text-sm font-medium"
@@ -200,13 +198,9 @@ export function VerbDrillPage() {
                 <p className="hidden sm:block text-xs text-text-ter">1–4 to select · Enter to continue</p>
 
                 {drill.revealed && (
-                    <button
-                        onClick={drill.handleNext}
-                        className="w-full max-w-xl bg-indigo-600 hover:bg-indigo-700 text-white
-                                   font-semibold rounded-xl py-3 transition-colors"
-                    >
+                    <Button onClick={drill.handleNext} className="w-full max-w-xl rounded-xl py-3">
                         {drill.index + 1 >= questions.length ? ui.seeResults : ui.nextQuestion}
-                    </button>
+                    </Button>
                 )}
             </main>
         </div>

@@ -282,8 +282,8 @@ export default function SentenceScramblePage({ items, langId, level, config, onC
                 <div className="flex gap-1">
                     {questions.map((q, i) => {
                         let cls = "bg-border-default"
-                        if (i < index) cls = "bg-indigo-500"
-                        else if (i === index) cls = "bg-indigo-300"
+                        if (i < index) cls = "bg-grammar"
+                        else if (i === index) cls = "bg-grammar opacity-40"
                         return <div key={`${q.lessonId}:${q.correct}`} className={`h-1.5 flex-1 rounded-full transition-colors ${cls}`} />
                     })}
                 </div>

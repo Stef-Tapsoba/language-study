@@ -88,7 +88,7 @@ export function LoginPage() {
 
                 <p className="text-center text-sm text-text-sec mt-4">
                     No account?{" "}
-                    <Link to="/register" className="text-indigo-600 hover:underline font-medium">
+                    <Link to="/register" className="text-grammar hover:underline font-medium">
                         Create one
                     </Link>
                 </p>

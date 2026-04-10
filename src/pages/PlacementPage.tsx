@@ -166,8 +166,8 @@ export function PlacementPage() {
                         <div className="w-full flex gap-1">
                             {questions.map((question, i) => {
                                 let cls = "h-1.5 flex-1 rounded-full transition-colors "
-                                if (i < current) cls += "bg-indigo-500"
-                                else if (i === current) cls += "bg-indigo-300"
+                                if (i < current) cls += "bg-grammar"
+                                else if (i === current) cls += "bg-grammar opacity-40"
                                 else cls += "bg-border-default"
                                 return <div key={question.id} className={cls} />
                             })}

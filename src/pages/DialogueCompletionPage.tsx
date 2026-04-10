@@ -12,6 +12,7 @@ import { QuizCard } from "../components/QuizCard"
 import { shuffle } from "../utils/arrayUtils"
 import { getUI, fmt } from "../i18n"
 import { useStatsStore } from "../store/useStatsStore"
+import { Button } from "../components/ui/button"
 import type { ExerciseComponentProps } from "../exerciseTypes/registry"
 import type { ReadingPassage } from "../types"
 
@@ -169,8 +170,8 @@ export default function DialogueCompletionPage({ items, langId, level, config: _
                 <div className="w-full flex gap-1">
                     {questions.map((_, i) => {
                         let cls = "bg-border-default"
-                        if (i < index) cls = "bg-indigo-500"
-                        else if (i === index) cls = "bg-indigo-300"
+                        if (i < index) cls = "bg-grammar"
+                        else if (i === index) cls = "bg-grammar opacity-40"
                         return <div key={i} className={`h-1.5 flex-1 rounded-full transition-colors ${cls}`} />
                     })}
                 </div>
@@ -217,12 +218,9 @@ export default function DialogueCompletionPage({ items, langId, level, config: _
                 </p>
 
                 {revealed && (
-                    <button
-                        onClick={handleNext}
-                        className="w-full max-w-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-3 transition-colors"
-                    >
+                    <Button onClick={handleNext} className="w-full max-w-xl rounded-xl py-3">
                         {isLast ? ui.seeResults : ui.nextQuestion}
-                    </button>
+                    </Button>
                 )}
             </main>
         </div>

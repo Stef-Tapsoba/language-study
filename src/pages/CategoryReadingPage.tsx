@@ -1,6 +1,7 @@
 // pages/CategoryReadingPage.tsx — Dedicated reading page for non-culture passage categories
 import { useState } from "react"
 import { useParams } from "react-router-dom"
+import { Button } from "../components/ui/button"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { useProgress } from "../context/ProgressContext"
@@ -220,12 +221,12 @@ function ComprehensionQuiz({ passage, theme, ui }: Readonly<{
                 onSelect={handleSelect}
             />
             {revealed && (
-                <button
+                <Button
                     onClick={handleNext}
-                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl py-3 transition-colors"
+                    className="w-full rounded-xl py-3"
                 >
                     {quizIndex + 1 >= passage.questions.length ? ui.seeResults : ui.nextQuestion}
-                </button>
+                </Button>
             )}
         </div>
     )
@@ -282,7 +283,7 @@ function CategoryRead({ passage, langId, level, label, completed, theme, ui }: R
                     <div className="mt-4 pt-4 border-t border-border-subtle">
                         <button
                             onClick={() => setTranslationShown(v => !v)}
-                            className="text-sm text-indigo-600 hover:underline mb-2"
+                            className="text-sm text-grammar hover:underline mb-2"
                         >
                             {translationShown ? ui.hideEnglish : ui.showEnglish}
                         </button>
