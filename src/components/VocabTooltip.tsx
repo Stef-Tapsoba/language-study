@@ -34,10 +34,10 @@ export function VocabTooltip({ activeWord, onDismiss }: Readonly<Props>) {
                     width: TOOLTIP_W,
                     zIndex: 51,
                 }}
-                className="rounded-xl bg-white dark:bg-gray-800 shadow-xl border border-gray-200 dark:border-gray-700 px-3 py-2.5"
+                className="rounded-xl bg-surface-card shadow-xl border border-border-default px-3 py-2.5"
             >
-                <p className="font-bold text-gray-900 dark:text-gray-100 text-sm">{activeWord.word}</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{activeWord.translation}</p>
+                <p className="font-bold text-text-pri text-sm">{activeWord.word}</p>
+                <p className="text-xs text-text-sec mt-0.5">{activeWord.translation}</p>
             </div>
         </>
     )

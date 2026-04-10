@@ -123,9 +123,9 @@ export default function ClozePage({ items, langId, level, config: _config, onCom
 
     if (questions.length === 0) {
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <div className="min-h-screen bg-surface-app">
                 <NavBar title="Cloze" level={level} backTo={`/learn/${langId}`} />
-                <div className="flex flex-col items-center justify-center py-24 text-gray-400 dark:text-gray-500">
+                <div className="flex flex-col items-center justify-center py-24 text-text-ter">
                     <p className="text-4xl mb-3">🚧</p>
                     <p className="font-medium">Not enough reading passages at {level} yet</p>
                 </div>
@@ -178,26 +178,26 @@ export default function ClozePage({ items, langId, level, config: _config, onCom
     }
 
     const inputCls: Record<SubmitState, string> = {
-        idle: "border-gray-300 dark:border-gray-600 focus:border-indigo-400 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100",
-        correct: "border-green-500 bg-green-50 dark:bg-green-900/20 text-green-900 dark:text-green-100",
-        wrong: "border-red-400 bg-red-50 dark:bg-red-900/20 text-gray-500 dark:text-gray-400 line-through",
+        idle: "border-border-default focus:border-grammar bg-surface-card text-text-pri",
+        correct: "border-grammar bg-grammar-surface text-text-pri",
+        wrong: "border-verbs bg-verbs-surface text-text-sec line-through",
     }
 
     // Build display sentence with blank highlighted
     const parts = q.sentenceWithBlank.split("_____")
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="min-h-screen bg-surface-app">
             <NavBar title="Cloze" level={level} backTo={`/learn/${langId}`} />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col gap-6">
                 {/* Progress */}
-                <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+                <div className="flex items-center justify-between text-sm text-text-sec">
                     <span>{fmt(ui.questionOf, { n: index + 1, total: questions.length })}</span>
                     <span className="font-medium">{ui.scoreLabel}: {score}</span>
                 </div>
                 <div className="flex gap-1">
                     {questions.map((q, i) => {
-                        let cls = "bg-gray-200 dark:bg-gray-600"
+                        let cls = "bg-border-default"
                         if (i < index) cls = "bg-indigo-500"
                         else if (i === index) cls = "bg-indigo-300"
                         return <div key={`${q.passageId}:${q.targetWord}`} className={`h-1.5 flex-1 rounded-full transition-colors ${cls}`} />
@@ -205,24 +205,24 @@ export default function ClozePage({ items, langId, level, config: _config, onCom
                 </div>
 
                 {/* Context: English sentence translation */}
-                <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-2xl px-5 py-4">
-                    <p className="text-xs text-blue-500 dark:text-blue-400 font-medium uppercase tracking-wide mb-1">
+                <div className="bg-reading-surface border border-reading-border rounded-2xl px-5 py-4">
+                    <p className="text-xs text-reading font-medium uppercase tracking-wide mb-1">
                         English — from "{q.passageTitle}"
                     </p>
-                    <p className="text-base text-blue-900 dark:text-blue-100 leading-relaxed">
+                    <p className="text-base text-text-pri leading-relaxed">
                         {q.sentenceTranslation}
                     </p>
-                    <p className="text-xs text-blue-500 dark:text-blue-400 mt-2">
+                    <p className="text-xs text-reading mt-2">
                         Missing word meaning: <span className="font-semibold">{q.targetTranslation}</span>
                     </p>
                 </div>
 
                 {/* Target sentence with blank */}
-                <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-2xl px-5 py-4">
-                    <p className="text-xs text-amber-600 dark:text-amber-400 font-medium uppercase tracking-wide mb-2">
+                <div className="bg-vocab-surface border border-vocab-border rounded-2xl px-5 py-4">
+                    <p className="text-xs text-vocab font-medium uppercase tracking-wide mb-2">
                         Fill in the missing word
                     </p>
-                    <p className="text-base font-medium text-amber-900 dark:text-amber-100 leading-relaxed">
+                    <p className="text-base font-medium text-text-pri leading-relaxed">
                         {parts[0]}
                         <span className="inline-block bg-amber-200 dark:bg-amber-800 rounded px-2 mx-0.5 font-bold text-amber-800 dark:text-amber-200 min-w-[4rem] text-center">
                             {submitState === "idle" ? "?????" : q.targetWord}
@@ -252,19 +252,19 @@ export default function ClozePage({ items, langId, level, config: _config, onCom
 
                 {/* Feedback */}
                 {submitState === "correct" && (
-                    <div className="flex items-center gap-2 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 rounded-xl px-4 py-2.5">
-                        <span className="text-green-600">✓</span>
-                        <p className="text-sm font-medium text-green-800 dark:text-green-300">Correct!</p>
+                    <div className="flex items-center gap-2 bg-grammar-surface border border-grammar-border rounded-xl px-4 py-2.5">
+                        <span className="text-grammar">✓</span>
+                        <p className="text-sm font-medium text-grammar">Correct!</p>
                         <SpeakButton text={q.fullSentence} langId={langId} />
                     </div>
                 )}
                 {submitState === "wrong" && (
-                    <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-700 rounded-xl px-4 py-3 flex flex-col gap-0.5">
-                        <p className="text-xs text-red-500 dark:text-red-400 font-medium">Correct word:</p>
+                    <div className="bg-verbs-surface border border-verbs-border rounded-xl px-4 py-3 flex flex-col gap-0.5">
+                        <p className="text-xs text-verbs font-medium">Correct word:</p>
                         <div className="flex items-center gap-2">
-                            <p className="text-sm font-semibold text-red-800 dark:text-red-300">{q.targetWord}</p>
+                            <p className="text-sm font-semibold text-verbs">{q.targetWord}</p>
                             {q.romanized && (
-                                <p className="text-xs text-gray-500 dark:text-gray-400">({q.romanized})</p>
+                                <p className="text-xs text-text-sec">({q.romanized})</p>
                             )}
                             <SpeakButton text={q.fullSentence} langId={langId} />
                         </div>
@@ -289,7 +289,7 @@ export default function ClozePage({ items, langId, level, config: _config, onCom
                     </button>
                 )}
 
-                <p className="hidden sm:block text-xs text-gray-400 dark:text-gray-500 text-center">
+                <p className="hidden sm:block text-xs text-text-ter text-center">
                     Enter to check · Enter again to continue
                 </p>
             </main>

@@ -14,23 +14,23 @@ function VerbCard({ verb, langId }: Readonly<{ verb: Verb; langId: string }>) {
     const [open, setOpen] = useState(false)
 
     return (
-        <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden">
+        <div className="bg-surface-card border border-border-default rounded-2xl overflow-hidden">
             <button
                 onClick={() => setOpen(o => !o)}
                 className="w-full px-5 py-4 flex items-center gap-3 text-left"
             >
                 <div className="flex-1 flex items-center gap-1.5">
-                    <span className="font-semibold text-gray-900 dark:text-gray-100">{verb.infinitive}</span>
+                    <span className="font-semibold text-text-pri">{verb.infinitive}</span>
                     {verb.romanized && (
                         <span className="text-xs text-indigo-500">{verb.romanized}</span>
                     )}
                     <SpeakButton text={verb.infinitive} langId={langId} />
-                    <span className="text-sm text-gray-500 dark:text-gray-400">— {verb.meaning}</span>
+                    <span className="text-sm text-text-sec">— {verb.meaning}</span>
                 </div>
                 <LevelBadge level={verb.level} />
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className={`w-4 h-4 text-gray-400 dark:text-gray-500 transition-transform shrink-0 ${open ? "rotate-180" : ""}`}
+                    className={`w-4 h-4 text-text-ter transition-transform shrink-0 ${open ? "rotate-180" : ""}`}
                     fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
                 >
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
@@ -38,22 +38,22 @@ function VerbCard({ verb, langId }: Readonly<{ verb: Verb; langId: string }>) {
             </button>
 
             {open && (
-                <div className="px-5 pb-5 border-t border-gray-100 dark:border-gray-700">
+                <div className="px-5 pb-5 border-t border-border-subtle">
                     {verb.conjugations.map(conj => (
                         <div key={conj.tense} className="mt-4">
-                            <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wide mb-2">
+                            <p className="text-xs font-semibold text-text-ter uppercase tracking-wide mb-2">
                                 {conj.tense}
                             </p>
                             <div className="overflow-x-auto">
-                            <div className="rounded-xl border border-gray-100 dark:border-gray-700 overflow-hidden min-w-[300px]">
+                            <div className="rounded-xl border border-border-subtle overflow-hidden min-w-[300px]">
                                 {conj.forms.map((f, i) => (
                                     <div
                                         key={i}
-                                        className={`flex items-center px-4 py-2.5 text-sm ${i % 2 === 0 ? "bg-white dark:bg-gray-800" : "bg-gray-50 dark:bg-gray-700/30"
+                                        className={`flex items-center px-4 py-2.5 text-sm ${i % 2 === 0 ? "bg-surface-card" : "bg-surface-elevated"
                                             }`}
                                     >
-                                        <span className="text-gray-500 dark:text-gray-400 w-28 shrink-0">{f.pronoun}</span>
-                                        <span className="font-medium text-gray-900 dark:text-gray-100">{f.form}</span>
+                                        <span className="text-text-sec w-28 shrink-0">{f.pronoun}</span>
+                                        <span className="font-medium text-text-pri">{f.form}</span>
                                         {f.romanized && (
                                             <span className="ml-2 text-xs text-indigo-400">{f.romanized}</span>
                                         )}
@@ -82,20 +82,20 @@ export function VerbsPage() {
     const coming = verbs.length === 0
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="min-h-screen bg-surface-app">
             <NavBar title={ui.sectionVerbs} level={level} backTo={`/learn/${langId}`} />
             <main className="max-w-3xl mx-auto px-4 py-6">
                 <div className="flex items-center gap-2 mb-6">
-                    <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">{ui.sectionVerbs}</h1>
+                    <h1 className="text-xl font-bold text-text-pri">{ui.sectionVerbs}</h1>
                     <LevelBadge level={level} />
-                    <span className="text-sm text-gray-500 dark:text-gray-400 ml-1">{verbs.length} verbs</span>
+                    <span className="text-sm text-text-sec ml-1">{verbs.length} verbs</span>
                 </div>
 
                 {coming ? (
-                    <div className="flex flex-col items-center text-center py-16 text-gray-400 dark:text-gray-500 gap-3">
+                    <div className="flex flex-col items-center text-center py-16 text-text-ter gap-3">
                         <p className="text-4xl">🚧</p>
-                        <p className="font-medium text-gray-600 dark:text-gray-400">{level} verbs are coming soon!</p>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                        <p className="font-medium text-text-sec">{level} verbs are coming soon!</p>
+                        <p className="text-sm text-text-sec">
                             In the meantime, try the Verb Drill or review your vocabulary with Flashcards.
                         </p>
                         <div className="flex flex-col gap-2 w-full max-w-xs mt-2">
@@ -107,7 +107,7 @@ export function VerbsPage() {
                             </Link>
                             <Link
                                 to={`/learn/${langId}`}
-                                className="block w-full text-center px-4 py-2 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/50 text-sm font-medium"
+                                className="block w-full text-center px-4 py-2 border border-border-default text-text-sec rounded-lg hover:bg-surface-elevated text-sm font-medium"
                             >
                                 Back to Dashboard
                             </Link>

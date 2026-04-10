@@ -26,9 +26,9 @@ export function CheckpointPage() {
 
     if (!checkpoint) {
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <div className="min-h-screen bg-surface-app">
                 <NavBar title="Checkpoint" backTo={`/learn/${langId}`} />
-                <main className="max-w-2xl mx-auto px-4 py-8 text-center text-gray-500 dark:text-gray-400">
+                <main className="max-w-2xl mx-auto px-4 py-8 text-center text-text-sec">
                     <p>Checkpoint not found.</p>
                 </main>
             </div>
@@ -41,42 +41,42 @@ export function CheckpointPage() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="min-h-screen bg-surface-app">
             <NavBar title={checkpoint.title} backTo={`/learn/${langId}?tab=path`} />
 
             <main className="max-w-2xl mx-auto px-4 py-8 flex flex-col gap-6">
                 {/* Block badge */}
                 <div className="flex items-center gap-2">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-vocab-surface text-vocab">
                         🎯 Block {checkpoint.block} Checkpoint
                     </span>
                     {alreadyDone && (
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300">
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-grammar-surface text-grammar">
                             ✓ Complete
                         </span>
                     )}
                 </div>
 
                 {/* Scenario */}
-                <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6">
-                    <h2 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">Your scenario</h2>
-                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-wrap">
+                <div className="bg-surface-card rounded-2xl border border-border-default p-6">
+                    <h2 className="font-semibold text-text-pri mb-3">Your scenario</h2>
+                    <p className="text-text-sec leading-relaxed whitespace-pre-wrap">
                         {checkpoint.scenario}
                     </p>
                 </div>
 
                 {/* Speaking prompts */}
-                <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6">
-                    <h2 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">
+                <div className="bg-surface-card rounded-2xl border border-border-default p-6">
+                    <h2 className="font-semibold text-text-pri mb-3">
                         What you should be able to say
                     </h2>
                     <ul className="flex flex-col gap-2">
                         {checkpoint.speakingPrompts.map((prompt) => (
                             <li key={prompt} className="flex items-start gap-3">
-                                <span className="shrink-0 w-5 h-5 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 flex items-center justify-center text-xs font-bold mt-0.5">
+                                <span className="shrink-0 w-5 h-5 rounded-full bg-vocab-surface text-vocab flex items-center justify-center text-xs font-bold mt-0.5">
                                     {checkpoint.speakingPrompts.indexOf(prompt) + 1}
                                 </span>
-                                <span className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                                <span className="text-text-sec text-sm leading-relaxed">
                                     {prompt}
                                 </span>
                             </li>
@@ -85,7 +85,7 @@ export function CheckpointPage() {
                 </div>
 
                 {/* Instruction */}
-                <p className="text-sm text-gray-500 dark:text-gray-400 text-center">
+                <p className="text-sm text-text-sec text-center">
                     {alreadyDone
                         ? "You've already completed this checkpoint. Practise again any time."
                         : "Practise speaking aloud using the prompts above. When you're ready, mark the checkpoint as done to unlock the next block."}
@@ -95,7 +95,7 @@ export function CheckpointPage() {
                 {alreadyDone && (
                     <div className="flex flex-col gap-3">
                         {phase === "practised" ? (
-                            <p className="text-sm text-center text-gray-600 dark:text-gray-400 font-medium">
+                            <p className="text-sm text-center text-text-sec font-medium">
                                 Good practice! This checkpoint is already complete.
                             </p>
                         ) : (
@@ -117,7 +117,7 @@ export function CheckpointPage() {
                 )}
                 {!alreadyDone && phase === "confirming" && (
                     <div className="flex flex-col gap-3">
-                        <p className="text-sm text-center text-gray-600 dark:text-gray-400 font-medium">
+                        <p className="text-sm text-center text-text-sec font-medium">
                             Were you able to complete the scenario?
                         </p>
                         <div className="flex gap-3">

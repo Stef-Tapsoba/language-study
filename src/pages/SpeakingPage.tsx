@@ -143,9 +143,9 @@ export default function SpeakingPage({
 
     if (questions.length === 0) {
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <div className="min-h-screen bg-surface-app">
                 <NavBar title="Speaking" level={level} backTo={`/learn/${langId}`} />
-                <div className="flex flex-col items-center justify-center py-24 text-gray-400 dark:text-gray-500">
+                <div className="flex flex-col items-center justify-center py-24 text-text-ter">
                     <p className="text-4xl mb-3">🚧</p>
                     <p className="font-medium">No speaking exercises at {level} yet</p>
                 </div>
@@ -174,18 +174,18 @@ export default function SpeakingPage({
     const showResult = resultState !== "idle"
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="min-h-screen bg-surface-app">
             <NavBar title="Speaking" level={level} backTo={`/learn/${langId}`} />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col gap-6">
 
                 {/* Progress counter + segment bar */}
-                <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+                <div className="flex items-center justify-between text-sm text-text-sec">
                     <span>{fmt(ui.questionOf, { n: index + 1, total: questions.length })}</span>
                     <span className="font-medium">{ui.scoreLabel}: {score}</span>
                 </div>
                 <div className="flex gap-1">
                     {questions.map((q, i) => {
-                        let cls = "bg-gray-200 dark:bg-gray-600"
+                        let cls = "bg-border-default"
                         if (i < index) cls = "bg-indigo-500"
                         else if (i === index) cls = "bg-indigo-300"
                         return <div key={q.id} className={`h-1.5 flex-1 rounded-full transition-colors ${cls}`} />
@@ -203,20 +203,20 @@ export default function SpeakingPage({
                 )}
 
                 {/* English cue card */}
-                <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl px-5 py-5 shadow-sm">
-                    <p className="text-xs text-gray-400 dark:text-gray-500 font-medium uppercase tracking-wide mb-2">
+                <div className="bg-surface-card border border-border-default rounded-2xl px-5 py-5 shadow-sm">
+                    <p className="text-xs text-text-ter font-medium uppercase tracking-wide mb-2">
                         Say in {langName}
                     </p>
-                    <p className="text-2xl font-bold text-gray-900 dark:text-gray-100 leading-snug">
+                    <p className="text-2xl font-bold text-text-pri leading-snug">
                         {item.translation}
                     </p>
                 </div>
 
                 {/* Target phrase + replay button */}
-                <div className="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-700 rounded-2xl px-5 py-4 flex flex-col gap-1">
+                <div className="bg-grammar-surface border border-grammar-border rounded-2xl px-5 py-4 flex flex-col gap-1">
                     <div className="flex items-start justify-between gap-3">
                         <div className="flex flex-col gap-0.5 min-w-0">
-                            <p className="text-lg font-semibold text-indigo-900 dark:text-indigo-100 leading-snug break-words">
+                            <p className="text-lg font-semibold text-grammar leading-snug break-words">
                                 {item.phrase}
                             </p>
                             {item.romanized && (
@@ -256,7 +256,7 @@ export default function SpeakingPage({
                             )}
                             <MicIcon className="w-8 h-8 relative z-10" />
                         </button>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                        <p className="text-sm text-text-sec">
                             {recState === "listening" ? "Listening…" : "Tap to speak"}
                         </p>
                     </div>
@@ -264,31 +264,31 @@ export default function SpeakingPage({
 
                 {/* Correct feedback */}
                 {showResult && resultState === "correct" && (
-                    <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 rounded-xl px-4 py-3 flex flex-col gap-1">
+                    <div className="bg-grammar-surface border border-grammar-border rounded-xl px-4 py-3 flex flex-col gap-1">
                         <div className="flex items-center gap-2">
-                            <span className="text-green-600 font-bold">✓</span>
-                            <p className="text-sm font-semibold text-green-800 dark:text-green-300">Great pronunciation!</p>
+                            <span className="text-grammar font-bold">✓</span>
+                            <p className="text-sm font-semibold text-grammar">Great pronunciation!</p>
                         </div>
                         {transcript && (
-                            <p className="text-xs text-green-700 dark:text-green-400">Heard: <span className="italic">{transcript}</span></p>
+                            <p className="text-xs text-grammar">Heard: <span className="italic">{transcript}</span></p>
                         )}
                     </div>
                 )}
 
                 {/* Wrong feedback */}
                 {showResult && resultState === "wrong" && (
-                    <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-700 rounded-xl px-4 py-3 flex flex-col gap-1.5">
+                    <div className="bg-verbs-surface border border-verbs-border rounded-xl px-4 py-3 flex flex-col gap-1.5">
                         <div className="flex items-center gap-2">
-                            <span className="text-red-500 font-bold">✗</span>
-                            <p className="text-sm font-semibold text-red-800 dark:text-red-300">Not quite — try again next time</p>
+                            <span className="text-verbs font-bold">✗</span>
+                            <p className="text-sm font-semibold text-verbs">Not quite — try again next time</p>
                         </div>
                         {transcript && (
-                            <p className="text-xs text-red-600 dark:text-red-400">Heard: <span className="italic">{transcript}</span></p>
+                            <p className="text-xs text-verbs">Heard: <span className="italic">{transcript}</span></p>
                         )}
-                        <p className="text-xs text-red-500 dark:text-red-400 font-medium mt-0.5">Correct phrase:</p>
-                        <p className="text-sm font-semibold text-red-800 dark:text-red-300">{item.phrase}</p>
+                        <p className="text-xs text-verbs font-medium mt-0.5">Correct phrase:</p>
+                        <p className="text-sm font-semibold text-verbs">{item.phrase}</p>
                         {item.romanized && (
-                            <p className="text-xs text-gray-500 dark:text-gray-400 italic">{item.romanized}</p>
+                            <p className="text-xs text-text-sec italic">{item.romanized}</p>
                         )}
                     </div>
                 )}
@@ -304,7 +304,7 @@ export default function SpeakingPage({
                 )}
 
                 {!showResult && isSupported && (
-                    <p className="hidden sm:block text-xs text-gray-400 dark:text-gray-500 text-center">
+                    <p className="hidden sm:block text-xs text-text-ter text-center">
                         Tap the microphone and say the phrase out loud
                     </p>
                 )}

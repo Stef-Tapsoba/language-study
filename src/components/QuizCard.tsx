@@ -14,8 +14,8 @@ interface QuizCardProps {
 export function QuizCard({ question, options, selected, correct, onSelect }: Readonly<QuizCardProps>) {
     const revealed = correct !== null
     return (
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-md p-6 w-full max-w-xl">
-            <p className="text-lg font-medium text-gray-900 dark:text-gray-100 mb-6">{question}</p>
+        <div className="bg-surface-card rounded-2xl shadow-md p-6 w-full max-w-xl">
+            <p className="text-lg font-medium text-text-pri mb-6">{question}</p>
             <RadioGroup value={selected ?? ""} onValueChange={val => !revealed && onSelect(val)}>
                 {options.map((opt, i) => {
                     const letter = ["A", "B", "C", "D"][i]
@@ -26,11 +26,11 @@ export function QuizCard({ question, options, selected, correct, onSelect }: Rea
                         <label
                             key={opt}
                             className={cn(
-                                "flex items-center gap-3 w-full px-3 sm:px-4 py-3 rounded-xl border-2 cursor-pointer transition-all text-sm text-gray-800 dark:text-gray-200",
-                                !revealed && "border-gray-200 dark:border-gray-600 hover:border-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/30",
-                                revealed && isCorrect && "border-green-500 bg-green-50 text-green-800 dark:bg-green-900/30 dark:text-green-300",
-                                revealed && isSelected && !isCorrect && "border-red-400 bg-red-50 text-red-800 dark:bg-red-900/30 dark:text-red-300",
-                                revealed && !isSelected && !isCorrect && "border-gray-100 dark:border-gray-700 text-gray-400 dark:text-gray-500",
+                                "flex items-center gap-3 w-full px-3 sm:px-4 py-3 rounded-xl border-2 cursor-pointer transition-all text-sm text-text-pri",
+                                !revealed && "border-border-default hover:border-grammar hover:bg-grammar-surface",
+                                revealed && isCorrect && "border-grammar bg-grammar-surface text-grammar",
+                                revealed && isSelected && !isCorrect && "border-verbs bg-verbs-surface text-verbs",
+                                revealed && !isSelected && !isCorrect && "border-border-subtle text-text-ter",
                             )}
                         >
                             <RadioGroupItem

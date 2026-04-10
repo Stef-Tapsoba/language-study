@@ -74,15 +74,15 @@ export function PlacementPage() {
     // Pre-intro screen — shown before the first question of the placement test
     if (!introSeen && tab === "test") {
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <div className="min-h-screen bg-surface-app">
                 <NavBar title={`${language.name} — Placement Test`} backTo="/home" />
                 <main className="max-w-xl mx-auto px-4 py-12 flex flex-col items-center gap-5 text-center">
                     <p className="text-5xl">🎯</p>
-                    <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">Find your level</h2>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm max-w-sm">
+                    <h2 className="text-xl font-bold text-text-pri">Find your level</h2>
+                    <p className="text-text-sec text-sm max-w-sm">
                         Starting at the right level keeps lessons challenging without being overwhelming — and it means you won't waste time on content you already know.
                     </p>
-                    <ul className="text-sm text-gray-500 dark:text-gray-400 space-y-1.5 text-left w-full max-w-xs">
+                    <ul className="text-sm text-text-sec space-y-1.5 text-left w-full max-w-xs">
                         <li className="flex items-start gap-2"><span className="text-indigo-400 mt-px">✓</span>{questions.length} quick multiple-choice questions</li>
                         <li className="flex items-start gap-2"><span className="text-indigo-400 mt-px">✓</span>No penalty for wrong answers — just answer honestly</li>
                         <li className="flex items-start gap-2"><span className="text-indigo-400 mt-px">✓</span>You can override the suggestion or change level any time</li>
@@ -102,23 +102,23 @@ export function PlacementPage() {
 
     if (done) {
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <div className="min-h-screen bg-surface-app">
                 <NavBar title={language.name} backTo="/home" />
                 <main className="max-w-xl mx-auto px-4 py-12 flex flex-col items-center gap-6 text-center">
                     <div className="text-5xl">🎉</div>
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Placement complete!</h2>
-                    <p className="text-gray-600 dark:text-gray-400">
+                    <h2 className="text-2xl font-bold text-text-pri">Placement complete!</h2>
+                    <p className="text-text-sec">
                         You answered <strong>{score}</strong> out of <strong>{questions.length}</strong> correctly.
                     </p>
-                    <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5 w-full">
-                        <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">Suggested level</p>
+                    <div className="bg-surface-card rounded-2xl border border-border-default p-5 w-full">
+                        <p className="text-sm text-text-sec mb-3">Suggested level</p>
                         <div className="flex justify-center mb-4">
                             <LevelBadge level={suggested} />
                         </div>
                         <Button onClick={() => confirmLevel(suggested)} className="w-full rounded-xl py-2.5 text-sm font-semibold mb-3">
                             Start at {suggested}
                         </Button>
-                        <p className="text-xs text-gray-400 dark:text-gray-500 mb-2">
+                        <p className="text-xs text-text-ter mb-2">
                             Not quite right? You know your level better than any test — pick freely:
                         </p>
                         <div className="flex justify-center gap-2 flex-wrap">
@@ -128,14 +128,14 @@ export function PlacementPage() {
                                     onClick={() => confirmLevel(l)}
                                     className={`px-3 py-1 rounded-full text-sm font-medium border transition-colors
                                         ${l === suggested
-                                            ? "border-indigo-500 bg-indigo-50 text-indigo-700"
-                                            : "border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-400 hover:border-indigo-400"}`}
+                                            ? "border-grammar bg-grammar-surface text-grammar"
+                                            : "border-border-default text-text-sec hover:border-grammar"}`}
                                 >
                                     {l}
                                 </button>
                             ))}
                         </div>
-                        <p className="text-xs text-gray-400 dark:text-gray-500 mt-3">You can also change your level any time from the dashboard.</p>
+                        <p className="text-xs text-text-ter mt-3">You can also change your level any time from the dashboard.</p>
                     </div>
                 </main>
             </div>
@@ -145,7 +145,7 @@ export function PlacementPage() {
     const q = questions[current]
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="min-h-screen bg-surface-app">
             <NavBar title={`${language.name} — Placement Test`} backTo="/home" />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col items-center gap-6">
                 <Tabs value={tab} onValueChange={v => setTab(v as Tab)} className="w-full">
@@ -155,7 +155,7 @@ export function PlacementPage() {
                     </TabsList>
 
                     <TabsContent value="test" className="flex flex-col items-center gap-6">
-                        <div className="w-full flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+                        <div className="w-full flex items-center justify-between text-sm text-text-sec">
                             <span>Question {current + 1} of {questions.length}</span>
                             <Button variant="link" onClick={() => setTab("manual")} className="p-0 h-auto text-sm text-indigo-600 dark:text-indigo-400">
                                 Set level manually
@@ -168,7 +168,7 @@ export function PlacementPage() {
                                 let cls = "h-1.5 flex-1 rounded-full transition-colors "
                                 if (i < current) cls += "bg-indigo-500"
                                 else if (i === current) cls += "bg-indigo-300"
-                                else cls += "bg-gray-200 dark:bg-gray-600"
+                                else cls += "bg-border-default"
                                 return <div key={question.id} className={cls} />
                             })}
                         </div>
@@ -189,9 +189,9 @@ export function PlacementPage() {
                     </TabsContent>
 
                     <TabsContent value="manual">
-                        <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 w-full">
-                            <h2 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Choose your level</h2>
-                            <p className="text-sm text-gray-500 dark:text-gray-400 mb-5">
+                        <div className="bg-surface-card rounded-2xl border border-border-default p-6 w-full">
+                            <h2 className="font-semibold text-text-pri mb-2">Choose your level</h2>
+                            <p className="text-sm text-text-sec mb-5">
                                 Pick the level that best matches where you are now. You can change it any time.
                             </p>
                             <div className="flex flex-col gap-3">
@@ -199,12 +199,11 @@ export function PlacementPage() {
                                     <button
                                         key={l}
                                         onClick={() => confirmLevel(l)}
-                                        className="border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-left
-                                                   hover:border-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-colors"
+                                        className="border border-border-default rounded-xl px-4 py-3 text-left hover:border-grammar hover:bg-grammar-surface transition-colors"
                                     >
                                         <div className="flex items-baseline gap-2">
-                                            <span className="font-semibold text-gray-900 dark:text-gray-100">{l}</span>
-                                            <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
+                                            <span className="font-semibold text-text-pri">{l}</span>
+                                            <span className="text-sm font-medium text-text-sec">
                                                 {l === "A1" && "Beginner"}
                                                 {l === "A2" && "Elementary"}
                                                 {l === "B1" && "Intermediate"}
@@ -212,7 +211,7 @@ export function PlacementPage() {
                                                 {l === "C1" && "Advanced"}
                                             </span>
                                         </div>
-                                        <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">
+                                        <p className="text-xs text-text-ter mt-0.5">
                                             {l === "A1" && "No prior knowledge — start from the very basics."}
                                             {l === "A2" && "Know greetings and simple phrases; can handle basic everyday situations."}
                                             {l === "B1" && "Can hold simple conversations on familiar topics; understand main points of clear speech."}

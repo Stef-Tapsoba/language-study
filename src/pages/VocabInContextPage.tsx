@@ -77,7 +77,7 @@ function HighlightedExcerpt({ excerpt, word }: Readonly<{ excerpt: string; word:
     const parts = excerpt.split(regex)
 
     return (
-        <p className="text-base text-gray-800 dark:text-gray-200 leading-relaxed">
+        <p className="text-base text-text-pri leading-relaxed">
             {parts.map((part, i) =>
                 regex.test(part) ? (
                     <mark key={i} className="bg-yellow-200 dark:bg-yellow-700 text-gray-900 dark:text-yellow-100 rounded px-0.5 font-semibold">
@@ -121,9 +121,9 @@ export default function VocabInContextPage({ items, langId, level, config: _conf
 
     if (questions.length === 0) {
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <div className="min-h-screen bg-surface-app">
                 <NavBar title="Vocabulary in Context" level={level} backTo={`/learn/${langId}`} />
-                <div className="flex flex-col items-center justify-center py-24 text-gray-400 dark:text-gray-500 px-4 text-center">
+                <div className="flex flex-col items-center justify-center py-24 text-text-ter px-4 text-center">
                     <p className="text-4xl mb-3">🚧</p>
                     <p className="font-medium">Not enough vocab in context at {level} yet</p>
                 </div>
@@ -177,17 +177,17 @@ export default function VocabInContextPage({ items, langId, level, config: _conf
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="min-h-screen bg-surface-app">
             <NavBar title="Vocabulary in Context" level={level} backTo={`/learn/${langId}`} />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col items-center gap-6">
                 {/* Progress */}
-                <div className="w-full flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+                <div className="w-full flex items-center justify-between text-sm text-text-sec">
                     <span>{fmt(ui.questionOf, { n: index + 1, total: questions.length })}</span>
                     <span className="font-medium">{ui.scoreLabel}: {score}</span>
                 </div>
                 <div className="w-full flex gap-1">
                     {questions.map((_, i) => {
-                        let cls = "bg-gray-200 dark:bg-gray-600"
+                        let cls = "bg-border-default"
                         if (i < index) cls = "bg-indigo-500"
                         else if (i === index) cls = "bg-indigo-300"
                         return <div key={i} className={`h-1.5 flex-1 rounded-full transition-colors ${cls}`} />
@@ -195,15 +195,15 @@ export default function VocabInContextPage({ items, langId, level, config: _conf
                 </div>
 
                 {/* Instruction banner */}
-                <div className="w-full bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-2xl px-5 py-3">
-                    <p className="text-xs text-amber-600 dark:text-amber-400 font-medium uppercase tracking-wide mb-1">
+                <div className="w-full bg-vocab-surface border border-vocab-border rounded-2xl px-5 py-3">
+                    <p className="text-xs text-vocab font-medium uppercase tracking-wide mb-1">
                         What does the highlighted word mean?
                     </p>
-                    <p className="text-sm text-amber-700 dark:text-amber-300">{q.passageTitle}</p>
+                    <p className="text-sm text-vocab">{q.passageTitle}</p>
                 </div>
 
                 {/* Passage excerpt */}
-                <div className="w-full bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5">
+                <div className="w-full bg-surface-card rounded-2xl border border-border-default p-5">
                     <HighlightedExcerpt excerpt={q.excerpt} word={q.word} />
                 </div>
 
@@ -216,7 +216,7 @@ export default function VocabInContextPage({ items, langId, level, config: _conf
                     onSelect={handleSelect}
                 />
 
-                <p className="hidden sm:block text-xs text-gray-400 dark:text-gray-500">
+                <p className="hidden sm:block text-xs text-text-ter">
                     1–4 to select · Enter to continue
                 </p>
 

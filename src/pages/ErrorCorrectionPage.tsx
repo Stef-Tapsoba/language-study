@@ -179,9 +179,9 @@ export default function ErrorCorrectionPage({ items, langId, level, config: _con
 
     if (questions.length === 0) {
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <div className="min-h-screen bg-surface-app">
                 <NavBar title="Error Correction" level={level} backTo={`/learn/${langId}`} />
-                <div className="flex flex-col items-center justify-center py-24 text-gray-400 dark:text-gray-500 px-4 text-center">
+                <div className="flex flex-col items-center justify-center py-24 text-text-ter px-4 text-center">
                     <p className="text-4xl mb-3">🚧</p>
                     <p className="font-medium">Not enough grammar examples at {level} yet</p>
                 </div>
@@ -234,23 +234,23 @@ export default function ErrorCorrectionPage({ items, langId, level, config: _con
     }
 
     const inputCls: Record<SubmitState, string> = {
-        idle: "border-gray-300 dark:border-gray-600 focus:border-indigo-400 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100",
-        correct: "border-green-500 bg-green-50 dark:bg-green-900/20 text-green-900 dark:text-green-100",
-        wrong: "border-red-400 bg-red-50 dark:bg-red-900/20 text-gray-500 dark:text-gray-400",
+        idle: "border-border-default focus:border-grammar bg-surface-card text-text-pri",
+        correct: "border-grammar bg-grammar-surface text-text-pri",
+        wrong: "border-verbs bg-verbs-surface text-text-sec",
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="min-h-screen bg-surface-app">
             <NavBar title="Error Correction" level={level} backTo={`/learn/${langId}`} />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col gap-6">
                 {/* Progress */}
-                <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+                <div className="flex items-center justify-between text-sm text-text-sec">
                     <span>{fmt(ui.questionOf, { n: index + 1, total: questions.length })}</span>
                     <span className="font-medium">{ui.scoreLabel}: {score}</span>
                 </div>
                 <div className="flex gap-1">
                     {questions.map((_, i) => {
-                        let cls = "bg-gray-200 dark:bg-gray-600"
+                        let cls = "bg-border-default"
                         if (i < index) cls = "bg-indigo-500"
                         else if (i === index) cls = "bg-indigo-300"
                         return <div key={i} className={`h-1.5 flex-1 rounded-full transition-colors ${cls}`} />
@@ -258,16 +258,16 @@ export default function ErrorCorrectionPage({ items, langId, level, config: _con
                 </div>
 
                 {/* Instruction banner */}
-                <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-2xl px-5 py-4">
-                    <p className="text-xs text-amber-600 dark:text-amber-400 font-medium uppercase tracking-wide mb-1">
+                <div className="bg-vocab-surface border border-vocab-border rounded-2xl px-5 py-4">
+                    <p className="text-xs text-vocab font-medium uppercase tracking-wide mb-1">
                         Fix the error · {q.lessonTitle}
                     </p>
-                    <p className="text-xs text-amber-500 dark:text-amber-500 mb-2">
+                    <p className="text-xs text-vocab mb-2">
                         Hint: {q.errorHint}
                     </p>
                     {/* Error sentence with strikethrough-style visual cue */}
                     <div className="flex items-start gap-2">
-                        <p className="text-lg font-semibold text-amber-900 dark:text-amber-100 flex-1">
+                        <p className="text-lg font-semibold text-text-pri flex-1">
                             {q.errorSentence}
                         </p>
                     </div>
@@ -275,7 +275,7 @@ export default function ErrorCorrectionPage({ items, langId, level, config: _con
 
                 {/* Input */}
                 <div>
-                    <label className="block text-xs text-gray-500 dark:text-gray-400 font-medium mb-1.5">
+                    <label className="block text-xs text-text-sec font-medium mb-1.5">
                         Type the corrected sentence:
                     </label>
                     <form onSubmit={e => { e.preventDefault(); handleSubmit() }}>
@@ -299,21 +299,21 @@ export default function ErrorCorrectionPage({ items, langId, level, config: _con
 
                 {/* Feedback */}
                 {submitState === "correct" && (
-                    <div className="flex items-center gap-2 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 rounded-xl px-4 py-2.5">
-                        <span className="text-green-600">✓</span>
-                        <p className="text-sm font-medium text-green-800 dark:text-green-300">Correct!</p>
+                    <div className="flex items-center gap-2 bg-grammar-surface border border-grammar-border rounded-xl px-4 py-2.5">
+                        <span className="text-grammar">✓</span>
+                        <p className="text-sm font-medium text-grammar">Correct!</p>
                         <SpeakButton text={q.correct} langId={langId} />
                     </div>
                 )}
                 {submitState === "wrong" && (
-                    <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-700 rounded-xl px-4 py-3 flex flex-col gap-1">
-                        <p className="text-xs text-red-500 dark:text-red-400 font-medium">Correct sentence:</p>
+                    <div className="bg-verbs-surface border border-verbs-border rounded-xl px-4 py-3 flex flex-col gap-1">
+                        <p className="text-xs text-verbs font-medium">Correct sentence:</p>
                         <div className="flex items-center gap-2">
-                            <p className="text-sm font-semibold text-red-800 dark:text-red-300">{q.correct}</p>
+                            <p className="text-sm font-semibold text-verbs">{q.correct}</p>
                             <SpeakButton text={q.correct} langId={langId} />
                         </div>
                         {q.romanized && (
-                            <p className="text-xs text-gray-500 dark:text-gray-400">{q.romanized}</p>
+                            <p className="text-xs text-text-sec">{q.romanized}</p>
                         )}
                     </div>
                 )}
@@ -336,7 +336,7 @@ export default function ErrorCorrectionPage({ items, langId, level, config: _con
                     </button>
                 )}
 
-                <p className="hidden sm:block text-xs text-gray-400 dark:text-gray-500 text-center">
+                <p className="hidden sm:block text-xs text-text-ter text-center">
                     Enter to check · Enter again to continue
                 </p>
             </main>

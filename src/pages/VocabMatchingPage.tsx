@@ -58,10 +58,10 @@ interface ItemButtonProps {
 
 function ItemButton({ label, state, onClick }: Readonly<ItemButtonProps>) {
     const cls: Record<ItemState, string> = {
-        idle: "bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100 hover:border-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 cursor-pointer",
-        selected: "bg-indigo-100 dark:bg-indigo-900/40 border-2 border-indigo-500 text-indigo-900 dark:text-indigo-100 cursor-pointer",
-        matched: "bg-green-50 dark:bg-green-900/20 border border-green-300 dark:border-green-700 text-green-700 dark:text-green-300 cursor-default opacity-60",
-        wrong: "bg-red-50 dark:bg-red-900/20 border-2 border-red-400 text-red-700 dark:text-red-300 cursor-pointer animate-shake",
+        idle: "bg-surface-card border border-border-default text-text-pri hover:border-grammar hover:bg-grammar-surface cursor-pointer",
+        selected: "bg-grammar-surface border-2 border-grammar text-grammar cursor-pointer",
+        matched: "bg-grammar-surface border border-grammar-border text-grammar cursor-default opacity-60",
+        wrong: "bg-verbs-surface border-2 border-verbs text-verbs cursor-pointer animate-shake",
     }
     return (
         <button
@@ -69,7 +69,7 @@ function ItemButton({ label, state, onClick }: Readonly<ItemButtonProps>) {
             disabled={state === "matched"}
             className={`w-full rounded-xl px-3 py-2.5 text-sm font-medium text-left transition-all ${cls[state]}`}
         >
-            {state === "matched" && <span className="mr-1 text-green-500">✓</span>}
+            {state === "matched" && <span className="mr-1 text-grammar">✓</span>}
             {label}
         </button>
     )
@@ -200,23 +200,23 @@ export default function VocabMatchingPage({ items, langId, level, config, onComp
     if (done) {
         const pct = totalItems > 0 ? Math.round((totalScore / totalItems) * 100) : 0
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <div className="min-h-screen bg-surface-app">
                 <NavBar title="Vocab Matching" level={level} backTo={`/learn/${langId}`} />
                 <main className="max-w-sm mx-auto px-4 py-12 flex flex-col items-center gap-6 text-center">
                     <div className="text-5xl">{pct >= 70 ? "🏆" : "💪"}</div>
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{ui.drillComplete}</h2>
-                    <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5 w-full flex justify-around">
+                    <h2 className="text-2xl font-bold text-text-pri">{ui.drillComplete}</h2>
+                    <div className="bg-surface-card rounded-2xl border border-border-default p-5 w-full flex justify-around">
                         <div>
-                            <p className="text-3xl font-bold text-green-600">{totalScore}</p>
-                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{ui.scoreCorrect}</p>
+                            <p className="text-3xl font-bold text-grammar">{totalScore}</p>
+                            <p className="text-xs text-text-sec mt-1">{ui.scoreCorrect}</p>
                         </div>
                         <div>
-                            <p className="text-3xl font-bold text-red-500">{totalItems - totalScore}</p>
-                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{ui.scoreWrong}</p>
+                            <p className="text-3xl font-bold text-verbs">{totalItems - totalScore}</p>
+                            <p className="text-xs text-text-sec mt-1">{ui.scoreWrong}</p>
                         </div>
                         <div>
-                            <p className="text-3xl font-bold text-indigo-600">{pct}%</p>
-                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{ui.scoreLabel}</p>
+                            <p className="text-3xl font-bold text-grammar">{pct}%</p>
+                            <p className="text-xs text-text-sec mt-1">{ui.scoreLabel}</p>
                         </div>
                     </div>
                     <Button onClick={handleRestart} className="w-full rounded-xl py-2.5 text-sm font-semibold">
@@ -230,22 +230,22 @@ export default function VocabMatchingPage({ items, langId, level, config, onComp
     const pairMap = Object.fromEntries(round.pairs.map(p => [p.id, p]))
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="min-h-screen bg-surface-app">
             <NavBar title="Vocab Matching" level={level} backTo={`/learn/${langId}`} />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col gap-6">
                 {/* Header */}
-                <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+                <div className="flex items-center justify-between text-sm text-text-sec">
                     <span>Round {roundNum}</span>
                     <span>{matchedIds.size}/{round.pairs.length} matched</span>
                 </div>
 
                 {/* Instruction banner */}
-                <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-2xl px-5 py-3 text-center">
-                    <p className="text-sm text-amber-700 dark:text-amber-300 font-medium">
+                <div className="bg-vocab-surface border border-vocab-border rounded-2xl px-5 py-3 text-center">
+                    <p className="text-sm text-vocab font-medium">
                         Match each word with its English translation
                     </p>
                     {remainingAfterRound > 0 && (
-                        <p className="text-xs text-amber-500 dark:text-amber-500 mt-0.5">
+                        <p className="text-xs text-vocab mt-0.5">
                             {remainingAfterRound} more words after this round
                         </p>
                     )}
@@ -255,7 +255,7 @@ export default function VocabMatchingPage({ items, langId, level, config, onComp
                 <div className="grid grid-cols-2 gap-3">
                     {/* Left column: target-language words */}
                     <div className="flex flex-col gap-2">
-                        <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wide text-center mb-1">
+                        <p className="text-xs font-semibold text-text-ter uppercase tracking-wide text-center mb-1">
                             Word
                         </p>
                         {round.leftOrder.map(id => (
@@ -270,7 +270,7 @@ export default function VocabMatchingPage({ items, langId, level, config, onComp
 
                     {/* Right column: English translations (shuffled) */}
                     <div className="flex flex-col gap-2">
-                        <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wide text-center mb-1">
+                        <p className="text-xs font-semibold text-text-ter uppercase tracking-wide text-center mb-1">
                             Meaning
                         </p>
                         {round.rightOrder.map(id => (
@@ -285,7 +285,7 @@ export default function VocabMatchingPage({ items, langId, level, config, onComp
                 </div>
 
                 {/* Score strip */}
-                <p className="text-xs text-center text-gray-400 dark:text-gray-500">
+                <p className="text-xs text-center text-text-ter">
                     {fmt(ui.youAnswered, { score: totalScore, total: totalItems })}
                 </p>
 

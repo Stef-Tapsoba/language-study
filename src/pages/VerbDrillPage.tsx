@@ -54,7 +54,7 @@ function buildQuestions(verbs: Verb[]): DrillQuestion[] {
 function progressDotClass(i: number, index: number): string {
     if (i < index) return "bg-indigo-500"
     if (i === index) return "bg-indigo-300"
-    return "bg-gray-200 dark:bg-gray-600"
+    return "bg-border-default"
 }
 
 export function VerbDrillPage() {
@@ -92,14 +92,14 @@ export function VerbDrillPage() {
         const prevLevelMap: Record<string, string> = { A2: "A1", B1: "A2", B2: "B1", C1: "B2" }
         const prevLevel = prevLevelMap[level] ?? null
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <div className="min-h-screen bg-surface-app">
                 <NavBar title={ui.sectionVerbDrill} level={level} backTo={`/learn/${langId}`} />
-                <div className="flex flex-col items-center justify-center py-24 text-gray-400 dark:text-gray-500 px-4 text-center">
+                <div className="flex flex-col items-center justify-center py-24 text-text-ter px-4 text-center">
                     <p className="text-4xl mb-3">🚧</p>
-                    <p className="font-medium text-gray-600 dark:text-gray-400 mb-1">
+                    <p className="font-medium text-text-sec mb-1">
                         {level} content is coming soon!
                     </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+                    <p className="text-sm text-text-sec mb-6">
                         {prevLevel
                             ? `In the meantime, review your ${prevLevel} knowledge or explore Reading and Culture.`
                             : "In the meantime, explore Reading and Culture."}
@@ -113,7 +113,7 @@ export function VerbDrillPage() {
                         </Link>
                         <Link
                             to={`/learn/${langId}`}
-                            className="block w-full text-center px-4 py-2 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/50 text-sm font-medium"
+                            className="block w-full text-center px-4 py-2 border border-border-default text-text-sec rounded-lg hover:bg-surface-elevated text-sm font-medium"
                         >
                             Back to Dashboard
                         </Link>
@@ -150,10 +150,10 @@ export function VerbDrillPage() {
     const q = questions[drill.index]
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="min-h-screen bg-surface-app">
             <NavBar title={ui.sectionVerbDrill} level={level} backTo={`/learn/${langId}`} />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col items-center gap-6">
-                <div className="w-full flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+                <div className="w-full flex items-center justify-between text-sm text-text-sec">
                     <span>{fmt(ui.questionOf, { n: drill.index + 1, total: questions.length })}</span>
                     <span className="font-medium">{ui.scoreLabel}: {drill.score}</span>
                 </div>
@@ -169,11 +169,11 @@ export function VerbDrillPage() {
                 </div>
 
                 {/* Verb context banner */}
-                <div className="w-full bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 px-5 py-3 flex
+                <div className="w-full bg-surface-card rounded-2xl border border-border-default px-5 py-3 flex
                                 items-center gap-3">
                     <div className="flex-1">
-                        <span className="inline-block text-xs font-semibold px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-700 mb-1">{q.tense}</span>
-                        <p className="font-semibold text-gray-900 dark:text-gray-100">
+                        <span className="inline-block text-xs font-semibold px-2 py-0.5 rounded-full bg-grammar-surface text-grammar mb-1">{q.tense}</span>
+                        <p className="font-semibold text-text-pri">
                             {q.verb.infinitive}
                             {q.verb.romanized && (
                                 <span className="ml-2 text-sm font-normal text-indigo-500">
@@ -183,7 +183,7 @@ export function VerbDrillPage() {
                         </p>
                         {/* English meaning: shown at A1/A2, hidden at B1+ */}
                         {showMeaning && (
-                            <p className="text-sm text-gray-500 dark:text-gray-400">{q.verb.meaning}</p>
+                            <p className="text-sm text-text-sec">{q.verb.meaning}</p>
                         )}
                     </div>
                     <LevelBadge level={q.verb.level} />
@@ -197,7 +197,7 @@ export function VerbDrillPage() {
                     onSelect={drill.handleSelect}
                 />
 
-                <p className="hidden sm:block text-xs text-gray-400 dark:text-gray-500">1–4 to select · Enter to continue</p>
+                <p className="hidden sm:block text-xs text-text-ter">1–4 to select · Enter to continue</p>
 
                 {drill.revealed && (
                     <button

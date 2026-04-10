@@ -94,9 +94,9 @@ export default function DictationPage({ items, langId, level, config: _config, o
 
     if (questions.length === 0) {
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <div className="min-h-screen bg-surface-app">
                 <NavBar title="Dictation" level={level} backTo={`/learn/${langId}`} />
-                <div className="flex flex-col items-center justify-center py-24 text-gray-400 dark:text-gray-500">
+                <div className="flex flex-col items-center justify-center py-24 text-text-ter">
                     <p className="text-4xl mb-3">🚧</p>
                     <p className="font-medium">No listening exercises at {level} yet</p>
                 </div>
@@ -151,23 +151,23 @@ export default function DictationPage({ items, langId, level, config: _config, o
     }
 
     const inputCls: Record<SubmitState, string> = {
-        idle: "border-gray-300 dark:border-gray-600 focus:border-indigo-400 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100",
-        correct: "border-green-500 bg-green-50 dark:bg-green-900/20 text-green-900 dark:text-green-100",
-        wrong: "border-red-400 bg-red-50 dark:bg-red-900/20 text-gray-500 dark:text-gray-400",
+        idle: "border-border-default focus:border-grammar bg-surface-card text-text-pri",
+        correct: "border-grammar bg-grammar-surface text-text-pri",
+        wrong: "border-verbs bg-verbs-surface text-text-sec",
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="min-h-screen bg-surface-app">
             <NavBar title="Dictation" level={level} backTo={`/learn/${langId}`} />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col gap-6">
                 {/* Progress */}
-                <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+                <div className="flex items-center justify-between text-sm text-text-sec">
                     <span>{fmt(ui.questionOf, { n: index + 1, total: questions.length })}</span>
                     <span className="font-medium">{ui.scoreLabel}: {score}</span>
                 </div>
                 <div className="flex gap-1">
                     {questions.map((_, i) => {
-                        let cls = "bg-gray-200 dark:bg-gray-600"
+                        let cls = "bg-border-default"
                         if (i < index) cls = "bg-indigo-500"
                         else if (i === index) cls = "bg-indigo-300"
                         return <div key={i} className={`h-1.5 flex-1 rounded-full transition-colors ${cls}`} />
@@ -175,11 +175,11 @@ export default function DictationPage({ items, langId, level, config: _config, o
                 </div>
 
                 {/* Instruction banner */}
-                <div className="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-700 rounded-2xl px-5 py-4 text-center">
-                    <p className="text-sm font-semibold text-indigo-700 dark:text-indigo-300">
+                <div className="bg-grammar-surface border border-grammar-border rounded-2xl px-5 py-4 text-center">
+                    <p className="text-sm font-semibold text-grammar">
                         {q.title}
                     </p>
-                    <p className="text-xs text-indigo-500 dark:text-indigo-400 mt-1">
+                    <p className="text-xs text-grammar mt-1">
                         {hasPlayed ? "Type what you heard" : "Listen to the audio, then type what you hear"}
                     </p>
                 </div>
@@ -215,15 +215,15 @@ export default function DictationPage({ items, langId, level, config: _config, o
 
                         {/* Feedback */}
                         {submitState === "correct" && (
-                            <div className="flex items-center gap-2 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 rounded-xl px-4 py-2.5">
-                                <span className="text-green-600">✓</span>
-                                <p className="text-sm font-medium text-green-800 dark:text-green-300">Correct!</p>
+                            <div className="flex items-center gap-2 bg-grammar-surface border border-grammar-border rounded-xl px-4 py-2.5">
+                                <span className="text-grammar">✓</span>
+                                <p className="text-sm font-medium text-grammar">Correct!</p>
                             </div>
                         )}
                         {submitState === "wrong" && (
-                            <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-700 rounded-xl px-4 py-3 flex flex-col gap-1">
-                                <p className="text-xs text-red-500 dark:text-red-400 font-medium">Correct transcript:</p>
-                                <p className="text-sm font-semibold text-red-800 dark:text-red-300">{q.sentence}</p>
+                            <div className="bg-verbs-surface border border-verbs-border rounded-xl px-4 py-3 flex flex-col gap-1">
+                                <p className="text-xs text-verbs font-medium">Correct transcript:</p>
+                                <p className="text-sm font-semibold text-verbs">{q.sentence}</p>
                             </div>
                         )}
 
@@ -245,14 +245,14 @@ export default function DictationPage({ items, langId, level, config: _config, o
                             </button>
                         )}
 
-                        <p className="hidden sm:block text-xs text-gray-400 dark:text-gray-500 text-center">
+                        <p className="hidden sm:block text-xs text-text-ter text-center">
                             Enter to check · Enter again to continue
                         </p>
                     </>
                 )}
 
                 {!hasPlayed && (
-                    <p className="text-sm text-center text-gray-400 dark:text-gray-500">
+                    <p className="text-sm text-center text-text-ter">
                         Play the audio first to reveal the input field.
                     </p>
                 )}

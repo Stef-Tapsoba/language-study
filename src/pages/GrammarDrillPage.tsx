@@ -90,18 +90,18 @@ interface ModeOptionProps {
 
 function ModeOption({ icon, label, description, selected, onClick }: ModeOptionProps) {
     const borderCls = selected
-        ? "border-indigo-500 bg-indigo-50 dark:bg-indigo-900/30"
-        : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-600"
+        ? "border-grammar bg-grammar-surface"
+        : "border-border-default bg-surface-card hover:border-border-strong"
     const labelCls = selected
-        ? "text-indigo-900 dark:text-indigo-100"
-        : "text-gray-900 dark:text-gray-100"
+        ? "text-grammar"
+        : "text-text-pri"
     return (
         <button onClick={onClick} className={`w-full rounded-2xl border-2 px-5 py-4 text-left transition-colors ${borderCls}`}>
             <div className="flex items-start gap-3">
                 <span className="text-xl mt-0.5">{icon}</span>
                 <div>
                     <p className={`text-sm font-semibold ${labelCls}`}>{label}</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{description}</p>
+                    <p className="text-xs text-text-sec mt-0.5">{description}</p>
                 </div>
                 {selected && <span className="ml-auto text-indigo-600 text-sm self-center">✓</span>}
             </div>
@@ -125,11 +125,11 @@ function GrammarDrillStartScreen({ level, ui, questionCount, drillMode, setDrill
         <main className="max-w-sm mx-auto px-4 py-12 flex flex-col items-center gap-6 text-center">
             <p className="text-4xl">📝</p>
             <div>
-                <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">{ui.sectionGrammarDrill}</h2>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{questionCount} questions · {level}</p>
+                <h2 className="text-xl font-bold text-text-pri">{ui.sectionGrammarDrill}</h2>
+                <p className="text-sm text-text-sec mt-1">{questionCount} questions · {level}</p>
             </div>
             <div className="w-full flex flex-col gap-3">
-                <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide text-left">
+                <p className="text-xs font-semibold text-text-sec uppercase tracking-wide text-left">
                     Choose a mode
                 </p>
                 <ModeOption
@@ -162,7 +162,7 @@ function GrammarDrillStartScreen({ level, ui, questionCount, drillMode, setDrill
 function LessonLink({ langId, lessonId, lessonTitle }: Readonly<{ langId: string; lessonId: string; lessonTitle: string }>) {
     if (!lessonTitle) return null
     return (
-        <p className="text-xs text-center text-gray-500 dark:text-gray-400">
+        <p className="text-xs text-center text-text-sec">
             📖{" "}
             <Link to={`/learn/${langId}/grammar/${lessonId}`} className="text-indigo-600 hover:underline">
                 {lessonTitle}
@@ -194,9 +194,9 @@ function FillInMode({ langId, question, isFlipped, languageName, ui, drill, ques
         : `Type the sentence in ${languageName}… (accents and punctuation optional)`
 
     const inputClsMap: Record<FillState, string> = {
-        "idle": "border-gray-300 dark:border-gray-600 focus:border-indigo-400 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100",
-        "submitted-correct": "border-green-500 bg-green-50 text-green-900",
-        "submitted-wrong": "border-red-400 bg-red-50 text-gray-500 line-through",
+        "idle": "border-border-default focus:border-grammar bg-surface-card text-text-pri",
+        "submitted-correct": "border-grammar bg-grammar-surface text-text-pri",
+        "submitted-wrong": "border-verbs bg-verbs-surface text-text-sec line-through",
     }
     const inputCls = inputClsMap[fillState]
 
@@ -222,15 +222,15 @@ function FillInMode({ langId, question, isFlipped, languageName, ui, drill, ques
                 />
             </form>
             {fillState === "submitted-correct" && (
-                <div className="w-full bg-green-50 border border-green-200 rounded-xl px-4 py-2.5 flex items-center gap-2">
-                    <span className="text-green-600 text-base">✓</span>
-                    <p className="text-sm font-medium text-green-800">Correct!</p>
+                <div className="w-full bg-grammar-surface border border-grammar-border rounded-xl px-4 py-2.5 flex items-center gap-2">
+                    <span className="text-grammar text-base">✓</span>
+                    <p className="text-sm font-medium text-grammar">Correct!</p>
                 </div>
             )}
             {fillState === "submitted-wrong" && (
-                <div className="w-full bg-red-50 border border-red-200 rounded-xl px-4 py-3 flex flex-col gap-0.5">
-                    <p className="text-xs text-red-500 font-medium">Correct answer:</p>
-                    <p className="text-sm font-semibold text-red-800">{question.correct}</p>
+                <div className="w-full bg-verbs-surface border border-verbs-border rounded-xl px-4 py-3 flex flex-col gap-0.5">
+                    <p className="text-xs text-verbs font-medium">Correct answer:</p>
+                    <p className="text-sm font-semibold text-verbs">{question.correct}</p>
                 </div>
             )}
             {fillState === "idle" ? (
@@ -252,7 +252,7 @@ function FillInMode({ langId, question, isFlipped, languageName, ui, drill, ques
                     </button>
                 </>
             )}
-            <p className="hidden sm:block text-xs text-gray-400 dark:text-gray-500 text-center">Enter to check · Enter again to continue</p>
+            <p className="hidden sm:block text-xs text-text-ter text-center">Enter to check · Enter again to continue</p>
         </div>
     )
 }
@@ -280,7 +280,7 @@ function MultipleChoiceMode({ langId, question, isFlipped, ui, drill, questionsL
                 correct={drill.revealed ? question.correct : null}
                 onSelect={drill.handleSelect}
             />
-            <p className="hidden sm:block text-xs text-gray-400 dark:text-gray-500">1–4 to select · Enter to continue</p>
+            <p className="hidden sm:block text-xs text-text-ter">1–4 to select · Enter to continue</p>
             {drill.revealed && (
                 <>
                     <LessonLink langId={langId} lessonId={question.lessonId} lessonTitle={question.lessonTitle} />
@@ -350,9 +350,9 @@ export function GrammarDrillPage() {
 
     if (questions.length === 0) {
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <div className="min-h-screen bg-surface-app">
                 <NavBar title={ui.sectionGrammarDrill} level={level} backTo={`/learn/${langId}`} />
-                <div className="flex flex-col items-center justify-center py-24 text-gray-400 dark:text-gray-500">
+                <div className="flex flex-col items-center justify-center py-24 text-text-ter">
                     <p className="text-4xl mb-3">🚧</p>
                     <p className="font-medium">Not enough grammar examples at {level} yet</p>
                 </div>
@@ -362,7 +362,7 @@ export function GrammarDrillPage() {
 
     if (!started) {
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <div className="min-h-screen bg-surface-app">
                 <NavBar title={ui.sectionGrammarDrill} level={level} backTo={`/learn/${langId}`} />
                 <GrammarDrillStartScreen
                     level={level}
@@ -398,10 +398,10 @@ export function GrammarDrillPage() {
     const q = questions[drill.index]
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="min-h-screen bg-surface-app">
             <NavBar title={ui.sectionGrammarDrill} level={level} backTo={`/learn/${langId}`} />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col items-center gap-6">
-                <div className="w-full flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+                <div className="w-full flex items-center justify-between text-sm text-text-sec">
                     <span>{fmt(ui.questionOf, { n: drill.index + 1, total: questions.length })}</span>
                     <span className="font-medium">{ui.scoreLabel}: {drill.score}</span>
                 </div>
@@ -409,7 +409,7 @@ export function GrammarDrillPage() {
                 {/* Progress strip */}
                 <div className="w-full flex gap-1">
                     {questions.map((item, i) => {
-                        let dotCls = "bg-gray-200 dark:bg-gray-600"
+                        let dotCls = "bg-border-default"
                         if (i < drill.index) dotCls = "bg-indigo-500"
                         else if (i === drill.index) dotCls = "bg-indigo-300"
                         return <div key={item.prompt} className={`h-1.5 flex-1 rounded-full transition-colors ${dotCls}`} />
@@ -417,11 +417,11 @@ export function GrammarDrillPage() {
                 </div>
 
                 {/* Instruction banner */}
-                <div className="w-full bg-amber-50 border border-amber-200 rounded-2xl px-5 py-3 text-center">
-                    <p className="text-xs text-amber-600 font-medium uppercase tracking-wide mb-1">
+                <div className="w-full bg-vocab-surface border border-vocab-border rounded-2xl px-5 py-3 text-center">
+                    <p className="text-xs text-vocab font-medium uppercase tracking-wide mb-1">
                         {isFlipped ? ui.grammarDrillInstructionB1 : ui.grammarDrillInstruction}
                     </p>
-                    <p className="text-lg font-semibold text-amber-900">{q.prompt}</p>
+                    <p className="text-lg font-semibold text-text-pri">{q.prompt}</p>
                 </div>
 
                 {drillMode === "fill-in" ? (

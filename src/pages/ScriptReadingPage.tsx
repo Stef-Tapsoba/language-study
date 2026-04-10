@@ -85,9 +85,9 @@ export default function ScriptReadingPage({ items, langId, level, config: _confi
     // Not applicable for Latin-script languages
     if (language && language.script === "latin") {
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <div className="min-h-screen bg-surface-app">
                 <NavBar title="Script Reading" level={level} backTo={`/learn/${langId}`} />
-                <div className="flex flex-col items-center justify-center py-24 text-gray-400 dark:text-gray-500 px-4 text-center">
+                <div className="flex flex-col items-center justify-center py-24 text-text-ter px-4 text-center">
                     <p className="text-4xl mb-3">🔤</p>
                     <p className="font-medium">Script Reading is only available for Japanese and Korean.</p>
                 </div>
@@ -97,9 +97,9 @@ export default function ScriptReadingPage({ items, langId, level, config: _confi
 
     if (questions.length === 0) {
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <div className="min-h-screen bg-surface-app">
                 <NavBar title="Script Reading" level={level} backTo={`/learn/${langId}`} />
-                <div className="flex flex-col items-center justify-center py-24 text-gray-400 dark:text-gray-500 px-4 text-center">
+                <div className="flex flex-col items-center justify-center py-24 text-text-ter px-4 text-center">
                     <p className="text-4xl mb-3">🚧</p>
                     <p className="font-medium">Not enough vocab with romanized readings at {level} yet</p>
                 </div>
@@ -153,17 +153,17 @@ export default function ScriptReadingPage({ items, langId, level, config: _confi
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="min-h-screen bg-surface-app">
             <NavBar title="Script Reading" level={level} backTo={`/learn/${langId}`} />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col items-center gap-6">
                 {/* Progress */}
-                <div className="w-full flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+                <div className="w-full flex items-center justify-between text-sm text-text-sec">
                     <span>{fmt(ui.questionOf, { n: index + 1, total: questions.length })}</span>
                     <span className="font-medium">{ui.scoreLabel}: {score}</span>
                 </div>
                 <div className="w-full flex gap-1">
                     {questions.map((_, i) => {
-                        let cls = "bg-gray-200 dark:bg-gray-600"
+                        let cls = "bg-border-default"
                         if (i < index) cls = "bg-indigo-500"
                         else if (i === index) cls = "bg-indigo-300"
                         return <div key={i} className={`h-1.5 flex-1 rounded-full transition-colors ${cls}`} />
@@ -171,16 +171,16 @@ export default function ScriptReadingPage({ items, langId, level, config: _confi
                 </div>
 
                 {/* Word display */}
-                <div className="bg-white dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-sm px-8 py-8 text-center w-full">
-                    <p className="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wide mb-3">
+                <div className="bg-surface-card rounded-3xl border border-border-default shadow-sm px-8 py-8 text-center w-full">
+                    <p className="text-xs text-text-ter uppercase tracking-wide mb-3">
                         How do you read this?
                     </p>
                     <div className="flex items-center justify-center gap-3">
-                        <p className="text-5xl font-bold text-gray-900 dark:text-gray-100">{q.word}</p>
+                        <p className="text-5xl font-bold text-text-pri">{q.word}</p>
                         <SpeakButton text={q.word} langId={langId} />
                     </div>
                     {revealed && (
-                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-3">{q.translation}</p>
+                        <p className="text-sm text-text-sec mt-3">{q.translation}</p>
                     )}
                 </div>
 
@@ -193,7 +193,7 @@ export default function ScriptReadingPage({ items, langId, level, config: _confi
                     onSelect={handleSelect}
                 />
 
-                <p className="hidden sm:block text-xs text-gray-400 dark:text-gray-500">
+                <p className="hidden sm:block text-xs text-text-ter">
                     1–4 to select · Enter to continue
                 </p>
 
