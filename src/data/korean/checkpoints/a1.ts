@@ -56,9 +56,8 @@ Then ask them at least two questions about their life.`,
         id: "ko-cp-a1-3",
         level: "A1",
         block: 3,
-        type: "both",
-        listeningId: "ko-l-a1-cp3b",
-        title: "Describe your routine + listening check",
+        type: "speaking",
+        title: "Describe your routine",
         scenario: `Part A — Speaking:
 You're catching up with a Korean language partner you met online. It's been two weeks since you last spoke. They ask how you've been.
 
