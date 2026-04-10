@@ -47,7 +47,7 @@ export function LocalizedExplanation({ text, level, langId = "", className = "",
             {renderExplanation(display.primary, vocabOpts)}
             <button
                 onClick={() => setExpanded(e => !e)}
-                className="mt-2 text-xs text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400 flex items-center gap-1 transition-colors"
+                className="mt-2 text-xs text-text-ter hover:text-text-sec flex items-center gap-1 transition-colors"
             >
                 <svg xmlns="http://www.w3.org/2000/svg"
                     className={`w-3 h-3 transition-transform ${expanded ? "rotate-180" : ""}`}
@@ -57,7 +57,7 @@ export function LocalizedExplanation({ text, level, langId = "", className = "",
                 {expanded ? ui.hideEnglish : ui.showEnglish}
             </button>
             {expanded && (
-                <div className="mt-1 pl-3 border-l-2 border-gray-200 dark:border-gray-600">
+                <div className="mt-1 pl-3 border-l-2 border-border-default">
                     {renderExplanation(display.secondary)}
                 </div>
             )}

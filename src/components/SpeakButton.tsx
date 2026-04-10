@@ -34,7 +34,7 @@ export function SpeakButton({ text, langId, className = "" }: Readonly<SpeakButt
                     aria-label="Listen"
                     className={`shrink-0 p-2 min-h-[44px] min-w-[44px] rounded-lg transition-colors ${speaking
                             ? "text-grammar bg-grammar-surface"
-                            : "text-gray-300 hover:text-indigo-500 hover:bg-gray-100"
+                            : "text-text-ter hover:text-grammar hover:bg-grammar-surface"
                         } ${className}`}
                 >
                     {speaking ? (

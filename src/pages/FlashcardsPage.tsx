@@ -118,7 +118,7 @@ function MissedWordReview({ missed }: Readonly<{ missed: VocabItem[] }>) {
 
 function dotColor(i: number, index: number, results: Result[]): string {
     if (i < index) {
-        return results[i] === "correct" ? "bg-green-400" : "bg-red-300"
+        return results[i] === "correct" ? "bg-grammar" : "bg-verbs"
     }
     if (i === index) return "bg-grammar opacity-40"
     return "bg-border-default"
