@@ -3,14 +3,15 @@
 // Rendered inside AppLayout (sidebar/bottom nav already provided — no NavBar here).
 //
 // Two branches:
-//   NewUserWelcome — no languages started yet, shows language picker
-//   ReturningHome  — responsive 2-column layout on desktop, single column on mobile
+//   NewUserWelcome — no languages started yet
+//   ReturningHome  — 2-column desktop layout, single column on mobile
 
 import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { ChevronRight } from "lucide-react"
 import { useAppBootstrap } from "../hooks/useAppBootstrap"
 import { useCurrentUser } from "../hooks/useCurrentUser"
+import { useGlobalStreak } from "../hooks/useGlobalStreak"
 import { VISIBLE_LANGUAGES, getLanguage } from "../data/languages"
 import { getModule, loadModule } from "../data/modules"
 import { getReinforcementState } from "../store/progress"
@@ -22,9 +23,9 @@ import { LevelBadge } from "../components/LevelBadge"
 import { PhaseTrack, computeUnitPhases } from "../components/PhaseTrack"
 import { CheckpointStrip } from "../components/CheckpointStrip"
 import { QuickPracticeCard } from "../components/QuickPracticeCard"
-import type { CEFRLevel, LessonUnit, LanguageModule } from "../types"
+import type { CEFRLevel, Checkpoint, LessonUnit, LanguageModule } from "../types"
 
-// ─── Greeting ────────────────────────────────────────────────────────────────
+// ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function timeOfDay(h: number): string {
     if (h >= 5  && h < 12) return "Good morning"
@@ -48,6 +49,22 @@ const LEVEL_LABEL: Record<CEFRLevel, string> = {
     B1: "Intermediate", B2: "Upper Intermediate", C1: "Advanced",
 }
 
+/** Groups level units into checkpoint blocks using the gate-unit pattern. */
+function computeBlocks(levelUnits: LessonUnit[], checkpoints: Checkpoint[]) {
+    const blocks: { checkpoint: Checkpoint; units: LessonUnit[] }[] = []
+    let start = 0
+    levelUnits.forEach((unit, i) => {
+        if (unit.checkpointId) {
+            const cp = checkpoints.find(c => c.id === unit.checkpointId)
+            if (cp) {
+                blocks.push({ checkpoint: cp, units: levelUnits.slice(start, i + 1) })
+                start = i + 1
+            }
+        }
+    })
+    return blocks
+}
+
 // ─── New-user welcome ────────────────────────────────────────────────────────
 
 function NewUserWelcome({ displayName, onPick }: Readonly<{ displayName: string; onPick: (id: string) => void }>) {
@@ -57,7 +74,6 @@ function NewUserWelcome({ displayName, onPick }: Readonly<{ displayName: string;
                 <h1 className="text-2xl font-semibold text-text-pri mb-1">Welcome, {displayName}!</h1>
                 <p className="text-sm text-text-sec">Choose the language you want to learn.</p>
             </div>
-
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {VISIBLE_LANGUAGES.map(lang => (
                     <button
@@ -73,7 +89,6 @@ function NewUserWelcome({ displayName, onPick }: Readonly<{ displayName: string;
                     </button>
                 ))}
             </div>
-
             <p className="text-center text-xs text-text-ter mt-4">
                 Pick a language → short placement test → start learning
             </p>
@@ -84,44 +99,30 @@ function NewUserWelcome({ displayName, onPick }: Readonly<{ displayName: string;
 // ─── Current unit card ───────────────────────────────────────────────────────
 
 interface UnitCardProps {
-    unit: LessonUnit
-    langId: string
-    level: string
-    completed: ReadonlySet<string>
-    mastered: readonly string[]
+    unit: LessonUnit; langId: string; level: string
+    completed: ReadonlySet<string>; mastered: readonly string[]
 }
 
 function CurrentUnitCard({ unit, langId, level, completed, mastered }: Readonly<UnitCardProps>) {
     const reinforcement = getReinforcementState(langId, unit.id)
     const phases = computeUnitPhases(unit, completed, reinforcement, mastered)
-
     const activePhase = phases.find(p => p.status === "active")
     let ctaLabel: string
-    if (activePhase) {
-        ctaLabel = `Continue — ${activePhase.label.toLowerCase()}`
-    } else if (mastered.includes(unit.id)) {
-        ctaLabel = "Review unit"
-    } else {
-        ctaLabel = "Start unit"
-    }
+    if (activePhase)             ctaLabel = `Continue — ${activePhase.label.toLowerCase()}`
+    else if (mastered.includes(unit.id)) ctaLabel = "Review unit"
+    else                         ctaLabel = "Start unit"
 
     return (
         <div className="bg-surface-card border-hairline border border-border-subtle rounded-2xl overflow-hidden">
             <div className="px-4 pt-4 pb-3 flex flex-col gap-2.5">
                 <div className="flex items-center gap-2">
-                    <span className="text-[10px] text-text-ter uppercase tracking-widest">
-                        {level} · Unit {unit.order}
-                    </span>
-                    <span className="text-[10px] font-semibold bg-grammar-surface text-grammar px-2 py-0.5 rounded-full">
-                        In progress
-                    </span>
+                    <span className="text-[10px] text-text-ter uppercase tracking-widest">{level} · Unit {unit.order}</span>
+                    <span className="text-[10px] font-semibold bg-grammar-surface text-grammar px-2 py-0.5 rounded-full">In progress</span>
                 </div>
                 <div>
                     <p className="text-sm font-semibold text-text-pri leading-snug">{unit.title}</p>
                     {unit.description && typeof unit.description === "string" && (
-                        <p className="text-[11px] text-text-sec mt-0.5 leading-relaxed line-clamp-2">
-                            {unit.description}
-                        </p>
+                        <p className="text-[11px] text-text-sec mt-0.5 leading-relaxed line-clamp-2">{unit.description}</p>
                     )}
                 </div>
                 <PhaseTrack phases={phases} variant="compact" />
@@ -144,17 +145,11 @@ function LevelCompleteCard({ langId, level }: Readonly<{ langId: string; level: 
             <div className="px-4 pt-4 pb-3 flex flex-col gap-2.5">
                 <div className="flex items-center gap-2">
                     <span className="text-[10px] text-text-ter uppercase tracking-widest">{level}</span>
-                    <span className="text-[10px] font-semibold bg-grammar-surface text-grammar px-2 py-0.5 rounded-full">
-                        ✓ All units complete
-                    </span>
+                    <span className="text-[10px] font-semibold bg-grammar-surface text-grammar px-2 py-0.5 rounded-full">✓ All units complete</span>
                 </div>
                 <div>
-                    <p className="text-sm font-semibold text-text-pri leading-snug">
-                        You've finished all {level} units!
-                    </p>
-                    <p className="text-[11px] text-text-sec mt-0.5 leading-relaxed">
-                        Take the level test to advance to the next level.
-                    </p>
+                    <p className="text-sm font-semibold text-text-pri leading-snug">You've finished all {level} units!</p>
+                    <p className="text-[11px] text-text-sec mt-0.5 leading-relaxed">Take the level test to advance to the next level.</p>
                 </div>
                 <div className="w-full h-1.5 bg-grammar rounded-full" />
             </div>
@@ -168,6 +163,159 @@ function LevelCompleteCard({ langId, level }: Readonly<{ langId: string; level: 
     )
 }
 
+// ─── Upcoming units (left column, desktop only) ───────────────────────────────
+
+interface UpcomingUnitsProps {
+    langId: string
+    currentUnit: LessonUnit | null
+    levelUnits: LessonUnit[]
+    mastered: readonly string[]
+    completedCheckpoints: readonly string[]
+}
+
+function UpcomingUnits({ langId, currentUnit, levelUnits, mastered, completedCheckpoints }: Readonly<UpcomingUnitsProps>) {
+    const after = currentUnit
+        ? levelUnits.filter(u => u.order > currentUnit.order).slice(0, 3)
+        : []
+    if (after.length === 0) return null
+
+    return (
+        <div className="bg-surface-card border border-border-subtle rounded-2xl overflow-hidden">
+            <p className="text-[10px] font-semibold text-text-ter uppercase tracking-widest px-4 pt-4 pb-2">
+                Coming up
+            </p>
+            <div className="flex flex-col divide-y divide-border-subtle">
+                {after.map(unit => {
+                    const unlocked = isUnitUnlocked(unit.id, levelUnits, [...mastered], [...completedCheckpoints])
+                    const done = mastered.includes(unit.id)
+                    let badgeCls = "bg-border-default text-text-ter"
+                    if (done)    badgeCls = "bg-grammar text-white"
+                    else if (unlocked) badgeCls = "bg-violet-600 text-white"
+                    let unitStatus = "Locked"
+                    if (done)    unitStatus = "Completed"
+                    else if (unlocked) unitStatus = "Ready to start"
+                    return (
+                        <div key={unit.id} className={`flex items-center gap-3 px-4 py-3 ${unlocked && !done ? "hover:bg-surface-elevated transition-colors" : ""}`}>
+                            <div className={`w-7 h-7 rounded-full shrink-0 flex items-center justify-center text-xs font-bold ${badgeCls}`}>
+                                {done ? "✓" : unit.order}
+                            </div>
+                            <div className="flex-1 min-w-0">
+                                <p className={`text-sm font-medium truncate ${unlocked || done ? "text-text-pri" : "text-text-ter"}`}>
+                                    {unit.title}
+                                </p>
+                                <p className="text-[11px] text-text-ter">{unitStatus}</p>
+                            </div>
+                            {unlocked && !done && (
+                                <Link to={`/learn/${langId}/units/${unit.id}`} className="shrink-0">
+                                    <ChevronRight size={14} className="text-text-ter" />
+                                </Link>
+                            )}
+                        </div>
+                    )
+                })}
+            </div>
+        </div>
+    )
+}
+
+// ─── Checkpoint timeline (right sidebar) ─────────────────────────────────────
+
+interface CheckpointTimelineProps {
+    levelCheckpoints: Checkpoint[]
+    levelUnits: LessonUnit[]
+    mastered: readonly string[]
+    completedCheckpoints: readonly string[]
+    langId: string
+    level: CEFRLevel
+}
+
+function CheckpointTimeline({ levelCheckpoints, levelUnits, mastered, completedCheckpoints, langId, level }: Readonly<CheckpointTimelineProps>) {
+    if (levelCheckpoints.length === 0) return null
+
+    const blocks = computeBlocks(levelUnits, levelCheckpoints)
+
+    return (
+        <div className="bg-surface-card border border-border-subtle rounded-2xl overflow-hidden">
+            <p className="text-[10px] font-semibold text-text-ter uppercase tracking-widest px-4 pt-4 pb-2">
+                Checkpoints
+            </p>
+            <div className="flex flex-col p-2 gap-0.5">
+                {blocks.map(({ checkpoint: cp, units: blockUnits }) => {
+                    const done = completedCheckpoints.includes(cp.id)
+                    const masteredInBlock = blockUnits.filter(u => mastered.includes(u.id)).length
+                    const blockPct = blockUnits.length > 0 ? masteredInBlock / blockUnits.length : 0
+                    const isActive = !done && masteredInBlock > 0
+                    const isLocked = !done && masteredInBlock === 0
+
+                    const rowCls = isActive ? "bg-surface-elevated" : ""
+                    let dotCls = "border-2 border-border-default text-text-ter"
+                    if (done)    dotCls = "bg-grammar text-white"
+                    else if (isActive) dotCls = "bg-grammar-surface border-2 border-grammar text-grammar"
+                    let titleCls = "text-text-ter"
+                    if (done)    titleCls = "text-text-sec line-through decoration-text-ter"
+                    else if (isActive) titleCls = "text-text-pri"
+
+                    return (
+                        <div key={cp.id} className={`flex items-start gap-3 px-2 py-2.5 rounded-xl ${rowCls}`}>
+                            {/* State indicator */}
+                            <div className={`w-5 h-5 rounded-full shrink-0 mt-0.5 flex items-center justify-center text-[10px] font-bold ${dotCls}`}>
+                                {done ? "✓" : cp.block}
+                            </div>
+
+                            <div className="flex-1 min-w-0">
+                                <p className={`text-xs font-medium leading-snug ${titleCls}`}>
+                                    {cp.title}
+                                </p>
+
+                                {/* Block progress bar for active checkpoint */}
+                                {isActive && (
+                                    <div className="mt-1.5">
+                                        <div className="w-full h-1 bg-border-default rounded-full overflow-hidden">
+                                            <div
+                                                className="h-1 bg-grammar rounded-full transition-[width]"
+                                                style={{ width: `${blockPct * 100}%` }}
+                                            />
+                                        </div>
+                                        <p className="text-[10px] text-text-ter mt-0.5">
+                                            {masteredInBlock} of {blockUnits.length} units
+                                        </p>
+                                    </div>
+                                )}
+
+                                {done && (
+                                    <p className="text-[10px] text-grammar mt-0.5">Completed</p>
+                                )}
+
+                                {isLocked && (
+                                    <p className="text-[10px] text-text-ter mt-0.5">Not started</p>
+                                )}
+                            </div>
+
+                            {/* Take checkpoint link for completed blocks that are ready */}
+                            {!done && masteredInBlock === blockUnits.length && (
+                                <Link
+                                    to={`/learn/${langId}/checkpoints/${cp.id}`}
+                                    className="shrink-0 text-[10px] font-semibold text-grammar bg-grammar-surface px-2 py-0.5 rounded-full hover:opacity-80 transition-opacity"
+                                >
+                                    Ready →
+                                </Link>
+                            )}
+                        </div>
+                    )
+                })}
+            </div>
+            <div className="px-4 pb-3">
+                <Link
+                    to={`/learn/${langId}/path`}
+                    className="text-[11px] text-text-ter hover:text-grammar transition-colors"
+                >
+                    View full path →
+                </Link>
+            </div>
+        </div>
+    )
+}
+
 // ─── Desktop sidebar panel ───────────────────────────────────────────────────
 
 interface SidebarPanelProps {
@@ -176,14 +324,22 @@ interface SidebarPanelProps {
     masteredCount: number
     totalUnits: number
     totalReviews: number
+    streak: number
+    levelCheckpoints: Checkpoint[]
+    levelUnits: LessonUnit[]
+    mastered: readonly string[]
+    completedCheckpoints: readonly string[]
 }
 
-function SidebarPanel({ langId, level, masteredCount, totalUnits, totalReviews }: Readonly<SidebarPanelProps>) {
+function SidebarPanel({
+    langId, level, masteredCount, totalUnits, totalReviews, streak,
+    levelCheckpoints, levelUnits, mastered, completedCheckpoints,
+}: Readonly<SidebarPanelProps>) {
     const pct = totalUnits > 0 ? Math.round(masteredCount / totalUnits * 100) : 0
 
     return (
         <div className="flex flex-col gap-4">
-            {/* Level progress */}
+            {/* Level progress + streak */}
             <div className="bg-surface-card border border-border-subtle rounded-2xl p-4">
                 <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
@@ -198,19 +354,31 @@ function SidebarPanel({ langId, level, masteredCount, totalUnits, totalReviews }
                         style={{ width: `${pct}%` }}
                     />
                 </div>
-                <p className="text-[11px] text-text-ter mt-1.5">{pct}% of this level complete</p>
+                <div className="flex items-center justify-between mt-2">
+                    <p className="text-[11px] text-text-ter">{pct}% complete</p>
+                    {streak > 0 && (
+                        <p className="text-[11px] text-streak font-medium">🔥 {streak} day streak</p>
+                    )}
+                </div>
             </div>
 
-            {/* Practice */}
+            {/* Checkpoint timeline */}
+            <CheckpointTimeline
+                levelCheckpoints={levelCheckpoints}
+                levelUnits={levelUnits}
+                mastered={mastered}
+                completedCheckpoints={completedCheckpoints}
+                langId={langId}
+                level={level}
+            />
+
+            {/* Quick practice */}
             <div className="bg-surface-card border border-border-subtle rounded-2xl overflow-hidden">
                 <p className="text-[10px] font-semibold text-text-ter uppercase tracking-widest px-4 pt-4 pb-2">
                     Quick practice
                 </p>
                 <div className="flex flex-col divide-y divide-border-subtle">
-                    <Link
-                        to={`/learn/${langId}/flashcards`}
-                        className="flex items-center gap-3 px-4 py-3 hover:bg-surface-elevated transition-colors"
-                    >
+                    <Link to={`/learn/${langId}/flashcards`} className="flex items-center gap-3 px-4 py-3 hover:bg-surface-elevated transition-colors">
                         <div className="w-8 h-8 bg-verbs-surface rounded-lg flex items-center justify-center shrink-0">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                 <rect x="2" y="3" width="5" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.3" className="text-verbs" />
@@ -219,16 +387,11 @@ function SidebarPanel({ langId, level, masteredCount, totalUnits, totalReviews }
                         </div>
                         <div className="flex-1 min-w-0">
                             <p className="text-sm font-medium text-text-pri">Flashcards</p>
-                            <p className="text-xs text-text-sec">
-                                {totalReviews > 0 ? `${totalReviews} due today` : "All caught up"}
-                            </p>
+                            <p className="text-xs text-text-sec">{totalReviews > 0 ? `${totalReviews} due today` : "All caught up"}</p>
                         </div>
                         <ChevronRight size={14} className="text-text-ter shrink-0" />
                     </Link>
-                    <Link
-                        to={`/learn/${langId}/verb-drill`}
-                        className="flex items-center gap-3 px-4 py-3 hover:bg-surface-elevated transition-colors"
-                    >
+                    <Link to={`/learn/${langId}/verb-drill`} className="flex items-center gap-3 px-4 py-3 hover:bg-surface-elevated transition-colors">
                         <div className="w-8 h-8 bg-listening-surface rounded-lg flex items-center justify-center shrink-0">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                 <path d="M3 5h10M3 8h7M3 11h5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" className="text-listening" />
@@ -240,10 +403,7 @@ function SidebarPanel({ langId, level, masteredCount, totalUnits, totalReviews }
                         </div>
                         <ChevronRight size={14} className="text-text-ter shrink-0" />
                     </Link>
-                    <Link
-                        to={`/learn/${langId}/grammar-drill`}
-                        className="flex items-center gap-3 px-4 py-3 hover:bg-surface-elevated transition-colors"
-                    >
+                    <Link to={`/learn/${langId}/grammar-drill`} className="flex items-center gap-3 px-4 py-3 hover:bg-surface-elevated transition-colors">
                         <div className="w-8 h-8 bg-reading-surface rounded-lg flex items-center justify-center shrink-0">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                 <circle cx="8" cy="8" r="5" stroke="currentColor" strokeWidth="1.3" className="text-reading" />
@@ -273,6 +433,7 @@ function ReturningHome({ firstName, langId }: Readonly<{ firstName: string; lang
     const completed = new Set(completedArr)
     const statsData = useStatsStore(s => s.data)
     const totalReviews = getTotalReviews(statsData, langId)
+    const streak = useGlobalStreak()
 
     const [mod, setMod] = useState<LanguageModule | null>(() => getModule(langId))
     useEffect(() => {
@@ -281,10 +442,8 @@ function ReturningHome({ firstName, langId }: Readonly<{ firstName: string; lang
 
     if (!mod) return null
 
-    const levelUnits = mod.units
-        .filter(u => u.level === level)
-        .sort((a, b) => a.order - b.order)
-
+    const levelUnits = mod.units.filter(u => u.level === level).sort((a, b) => a.order - b.order)
+    const levelCheckpoints = (mod.checkpoints ?? []).filter(cp => cp.level === level)
     const masteredCount = levelUnits.filter(u => mastered.includes(u.id)).length
     const allLevelMastered = levelUnits.length > 0 && levelUnits.every(u => mastered.includes(u.id))
 
@@ -292,7 +451,7 @@ function ReturningHome({ firstName, langId }: Readonly<{ firstName: string; lang
         ? null
         : levelUnits.find(u =>
             !mastered.includes(u.id) &&
-            isUnitUnlocked(u.id, levelUnits, mastered, completedCheckpoints)
+            isUnitUnlocked(u.id, levelUnits, [...mastered], [...completedCheckpoints])
           ) ?? levelUnits[levelUnits.length - 1]
 
     const upcomingCheckpoint = mod.checkpoints?.find(cp =>
@@ -316,12 +475,11 @@ function ReturningHome({ firstName, langId }: Readonly<{ firstName: string; lang
                 <p className="text-sm text-text-sec mt-1">Pick up where you left off.</p>
             </div>
 
-            {/* 2-column grid on desktop, single column on mobile */}
+            {/* Responsive grid */}
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_288px] gap-4 lg:gap-6 items-start">
 
                 {/* ── Primary column ─────────────────────────────────────── */}
                 <div className="flex flex-col gap-4">
-
                     {allLevelMastered
                         ? <LevelCompleteCard langId={langId} level={level} />
                         : currentUnit && (
@@ -344,7 +502,18 @@ function ReturningHome({ firstName, langId }: Readonly<{ firstName: string; lang
                         />
                     )}
 
-                    {/* Quick practice — mobile only (sidebar panel handles desktop) */}
+                    {/* Coming up — desktop only */}
+                    <div className="hidden lg:block">
+                        <UpcomingUnits
+                            langId={langId}
+                            currentUnit={currentUnit}
+                            levelUnits={levelUnits}
+                            mastered={mastered}
+                            completedCheckpoints={completedCheckpoints}
+                        />
+                    </div>
+
+                    {/* Quick practice — mobile only */}
                     <div className="lg:hidden">
                         <p className="text-[10px] text-text-ter uppercase tracking-widest mb-2">Quick practice</p>
                         <div className="flex gap-2">
@@ -386,7 +555,7 @@ function ReturningHome({ firstName, langId }: Readonly<{ firstName: string; lang
                     </div>
                 </div>
 
-                {/* ── Sidebar column (desktop only) ──────────────────────── */}
+                {/* ── Sidebar (desktop only) ─────────────────────────────── */}
                 <div className="hidden lg:block">
                     <SidebarPanel
                         langId={langId}
@@ -394,6 +563,11 @@ function ReturningHome({ firstName, langId }: Readonly<{ firstName: string; lang
                         masteredCount={masteredCount}
                         totalUnits={levelUnits.length}
                         totalReviews={totalReviews}
+                        streak={streak}
+                        levelCheckpoints={levelCheckpoints}
+                        levelUnits={levelUnits}
+                        mastered={mastered}
+                        completedCheckpoints={completedCheckpoints}
                     />
                 </div>
             </div>
