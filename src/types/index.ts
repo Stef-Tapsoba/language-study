@@ -214,7 +214,7 @@ export interface QuizQuestion {
 
 export const TOPIC_TAGS = [
     "identity", "greetings", "food", "shopping", "travel",
-    "social", "home", "health", "work", "culture", "numbers", "nature",
+    "social", "home", "health", "work", "culture", "numbers", "nature", "family",
 ] as const
 
 export const FUNCTION_TAGS = [
@@ -287,7 +287,14 @@ export interface PhraseDialogueLine {
     speaker: string
     native: string
     romanized?: string
-    translation: string
+    translation?: string
+}
+
+/** Lightweight multiple-choice check embedded inside a phrase lesson. */
+export interface PhrasePracticeQuestion {
+    question: string
+    options: string[]
+    correctIndex: number
 }
 
 /**
@@ -307,7 +314,7 @@ export interface PhraseLesson {
     /** Structured speaker turns for the mini-dialogue, if any. */
     miniDialogue?: PhraseDialogueLine[]
     /** Single embedded multiple-choice check. */
-    practiceQuestion?: QuizQuestion
+    practiceQuestion?: PhrasePracticeQuestion
     /** "Say it out loud" self-production prompt shown at lesson end. */
     speakAloud?: string
 }
