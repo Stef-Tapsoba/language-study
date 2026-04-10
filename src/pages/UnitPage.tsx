@@ -167,13 +167,16 @@ function GrammarExerciseRow({ lesson, state, langId, unitId, nav }: Readonly<{
     )
 }
 
-function GrammarSequenceList({ grammar, langId, unitId, completed, reinforcedLessonIds, nav }: Readonly<{
+function GrammarSequenceList({ grammar, langId, unitId, completed, reinforcedLessonIds, nav, onGoToTest }: Readonly<{
     grammar: GrammarLesson[]; langId: string; unitId: string
     completed: string[]; reinforcedLessonIds: string[]; nav: (to: string) => void
+    onGoToTest?: () => void
 }>) {
     const currentIdx  = grammar.findIndex(l => !completed.includes(l.id))
     const donePairs   = currentIdx > 0 ? grammar.slice(0, currentIdx) : currentIdx === -1 ? grammar : []
     const activePairs = currentIdx === -1 ? [] : grammar.slice(currentIdx)
+    const allLessonsDone = currentIdx === -1
+    const allExercisesDone = grammar.every(l => reinforcedLessonIds.includes(l.id))
 
     // exState: a lesson in activePairs can never have an "available" exercise, even if
     // its lesson was completed via the Study tab out of unit sequence. Only lessons
@@ -210,6 +213,17 @@ function GrammarSequenceList({ grammar, langId, unitId, completed, reinforcedLes
                         )
                     })}
                 </>
+            )}
+
+            {/* Test nudge — shown when all lessons and exercises are done */}
+            {allLessonsDone && allExercisesDone && onGoToTest && (
+                <button
+                    onClick={onGoToTest}
+                    className="mt-4 w-full flex items-center justify-between px-4 py-3 rounded-2xl bg-grammar-surface border border-grammar-border hover:border-grammar transition-colors"
+                >
+                    <span className="text-sm font-semibold text-grammar">Grammar complete — take the test</span>
+                    <span className="text-grammar text-sm">→</span>
+                </button>
             )}
         </div>
     )
@@ -852,6 +866,7 @@ export function UnitPage() {
                             completed={completed}
                             reinforcedLessonIds={reinforcement.grammarLessonIds}
                             nav={navigate}
+                            onGoToTest={() => handleTabChange("test")}
                         />
                     </TabsContent>
 
