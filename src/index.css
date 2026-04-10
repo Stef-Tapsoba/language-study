@@ -56,6 +56,7 @@
         --streak-surface: #fff8e7;
         --streak-border:  #fde68a;
         --streak-muted:   #92400e;
+        --accent-romanized: #6366f1;
 
         /* Shadows */
         --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.05);
@@ -144,6 +145,7 @@
         --streak-surface: #1e1a10;
         --streak-border:  #3d3010;
         --streak-muted:   #8a7a30;
+        --accent-romanized: #818cf8;
 
         /* Shadows — slightly stronger in dark mode */
         --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.3);

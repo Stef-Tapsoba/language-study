@@ -16,13 +16,13 @@ import { isDialogueExample } from "../types"
 
 const NOTE_STYLES = {
     tip: {
-        wrapper: "bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800",
-        label: "text-indigo-600 dark:text-indigo-400",
+        wrapper: "bg-grammar-surface border border-grammar-border",
+        label: "text-grammar",
         labelText: "Tip",
     },
     warning: {
-        wrapper: "bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800",
-        label: "text-amber-600 dark:text-amber-400",
+        wrapper: "bg-vocab-surface border border-vocab-border",
+        label: "text-vocab",
         labelText: "Note",
     },
     "forward-ref": {
@@ -31,8 +31,8 @@ const NOTE_STYLES = {
         labelText: "Coming up",
     },
     culture: {
-        wrapper: "bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800",
-        label: "text-green-600 dark:text-green-400",
+        wrapper: "bg-grammar-surface border border-grammar-border",
+        label: "text-grammar",
         labelText: "Culture",
     },
 } satisfies Record<GrammarNote["type"], { wrapper: string; label: string; labelText: string }>
@@ -54,9 +54,9 @@ export function GrammarLessonPage() {
 
     if (!lesson) {
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <div className="min-h-screen bg-surface-app">
                 <NavBar title="Grammar" level={level} backTo={grammarBack} />
-                <main className="max-w-xl mx-auto px-4 py-16 text-center text-gray-400 dark:text-gray-500">
+                <main className="max-w-xl mx-auto px-4 py-16 text-center text-text-ter">
                     <p className="text-4xl mb-3">🔍</p>
                     <p className="font-medium">Lesson not found</p>
                 </main>
@@ -68,20 +68,20 @@ export function GrammarLessonPage() {
     const explanation = resolvePrimary(lesson.explanation, level)
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="min-h-screen bg-surface-app">
             <NavBar title={lesson.title} level={level} backTo={grammarBack}
                 breadcrumb={`${language.name} › Grammar`} />
             <main className="max-w-xl mx-auto px-4 py-6 flex flex-col gap-5">
 
                 {/* Title + level badge */}
                 <div className="flex items-start justify-between gap-3">
-                    <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100 leading-tight">{lesson.title}</h1>
+                    <h1 className="text-2xl font-bold text-text-pri leading-tight">{lesson.title}</h1>
                     <LevelBadge level={lesson.level} />
                 </div>
 
                 {/* Explanation */}
-                <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5">
-                    <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-white-500 mb-2">Explanation</h2>
+                <div className="bg-surface-card rounded-2xl border border-border-default p-5">
+                    <h2 className="text-xs font-semibold uppercase tracking-wide text-text-ter mb-2">Explanation</h2>
                     {renderExplanation(explanation, {
                         inlineVocab: lesson.inlineVocab,
                         onVocabClick: handleVocabClick,
@@ -92,18 +92,18 @@ export function GrammarLessonPage() {
 
                 {/* Rules */}
                 {lesson.rules && lesson.rules.length > 0 && (
-                    <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5">
-                        <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500 mb-3">Rules</h2>
+                    <div className="bg-surface-card rounded-2xl border border-border-default p-5">
+                        <h2 className="text-xs font-semibold uppercase tracking-wide text-text-ter mb-3">Rules</h2>
                         <div className="flex flex-col gap-3">
                             {lesson.rules.map((rule) => (
-                                <div key={rule.condition} className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
+                                <div key={rule.condition} className="bg-surface-elevated rounded-xl p-4">
                                     <div className="flex items-baseline gap-2 mb-2">
-                                        <span className="text-sm text-gray-500 dark:text-gray-400 flex-1">{rule.condition}</span>
-                                        <span className="text-sm font-bold text-indigo-600 dark:text-indigo-400 shrink-0">{rule.result}</span>
+                                        <span className="text-sm text-text-sec flex-1">{rule.condition}</span>
+                                        <span className="text-sm font-bold text-grammar shrink-0">{rule.result}</span>
                                     </div>
                                     <div className="flex flex-wrap gap-1.5">
                                         {rule.examples.map((ex) => (
-                                            <span key={ex.native} className="text-xs bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 px-2 py-1 rounded-lg font-medium">{ex.native}</span>
+                                            <span key={ex.native} className="text-xs bg-grammar-surface text-grammar px-2 py-1 rounded-lg font-medium">{ex.native}</span>
                                         ))}
                                     </div>
                                 </div>
@@ -120,7 +120,7 @@ export function GrammarLessonPage() {
                             return (
                                 <div key={note.content} className={`rounded-xl p-4 ${s.wrapper}`}>
                                     <span className={`text-xs font-semibold uppercase tracking-wide ${s.label}`}>{s.labelText}</span>
-                                    <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">
+                                    <p className="text-sm text-text-sec mt-1">
                                         {renderInline(note.content, { inlineVocab: lesson.inlineVocab, onVocabClick: handleVocabClick })}
                                     </p>
                                 </div>
@@ -131,23 +131,23 @@ export function GrammarLessonPage() {
 
                 {/* Fixed phrases */}
                 {lesson.fixedPhrases && lesson.fixedPhrases.length > 0 && (
-                    <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5">
-                        <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500 mb-3">Learn as chunks</h2>
+                    <div className="bg-surface-card rounded-2xl border border-border-default p-5">
+                        <h2 className="text-xs font-semibold uppercase tracking-wide text-text-ter mb-3">Learn as chunks</h2>
                         <div className="flex flex-col gap-3">
                             {lesson.fixedPhrases.map((phrase) => (
-                                <div key={phrase.native} className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
+                                <div key={phrase.native} className="bg-surface-elevated rounded-xl p-4">
                                     <div className="flex items-center gap-2">
-                                        <p className="font-semibold text-gray-900 dark:text-gray-100">{phrase.native}</p>
+                                        <p className="font-semibold text-text-pri">{phrase.native}</p>
                                         <SpeakButton text={phrase.native} langId={langId} />
                                     </div>
                                     {phrase.romanized && (
                                         <p className="text-xs text-indigo-500 mt-0.5">{phrase.romanized}</p>
                                     )}
-                                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
+                                    <p className="text-sm text-text-sec mt-0.5">
                                         {renderInline(phrase.translation, { inlineVocab: lesson.inlineVocab, onVocabClick: handleVocabClick })}
                                     </p>
                                     {phrase.note && (
-                                        <p className="text-xs text-gray-400 dark:text-gray-500 italic mt-1">{phrase.note}</p>
+                                        <p className="text-xs text-text-ter italic mt-1">{phrase.note}</p>
                                     )}
                                 </div>
                             ))}
@@ -157,50 +157,50 @@ export function GrammarLessonPage() {
 
                 {/* Examples */}
                 {lesson.examples.length > 0 && (
-                    <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5">
-                        <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500 mb-3">Examples</h2>
+                    <div className="bg-surface-card rounded-2xl border border-border-default p-5">
+                        <h2 className="text-xs font-semibold uppercase tracking-wide text-text-ter mb-3">Examples</h2>
                         <div className="flex flex-col gap-3">
                             {lesson.examples.map((ex) => {
                                 if (isDialogueExample(ex)) {
                                     const [a, b] = ex.exchanges
                                     return (
-                                        <div key={a.native} className="bg-gray-50 dark:bg-gray-700/50 rounded-xl overflow-hidden">
+                                        <div key={a.native} className="bg-surface-elevated rounded-xl overflow-hidden">
                                             {/* A turn — prompt */}
-                                            <div className="px-4 pt-4 pb-2 border-b border-gray-200 dark:border-gray-600">
+                                            <div className="px-4 pt-4 pb-2 border-b border-border-default">
                                                 <div className="flex items-center gap-2">
-                                                    <p className="text-sm text-gray-600 dark:text-gray-300">{a.native}</p>
+                                                    <p className="text-sm text-text-sec">{a.native}</p>
                                                     <SpeakButton text={a.native} langId={langId} />
                                                 </div>
                                                 {a.romanized && <p className="text-xs text-indigo-400 mt-0.5">{a.romanized}</p>}
-                                                <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">{a.translation}</p>
+                                                <p className="text-xs text-text-ter mt-0.5">{a.translation}</p>
                                             </div>
                                             {/* B turn — response */}
                                             <div className="px-4 pt-2 pb-4">
                                                 <div className="flex items-center gap-2">
-                                                    <p className="font-semibold text-gray-900 dark:text-gray-100">{b.native}</p>
+                                                    <p className="font-semibold text-text-pri">{b.native}</p>
                                                     <SpeakButton text={b.native} langId={langId} />
                                                 </div>
                                                 {b.romanized && <p className="text-xs text-indigo-500 mt-0.5">{b.romanized}</p>}
-                                                <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{b.translation}</p>
+                                                <p className="text-sm text-text-sec mt-0.5">{b.translation}</p>
                                             </div>
                                             {ex.annotation && (
-                                                <p className="px-4 pb-3 text-xs text-gray-400 dark:text-gray-500 italic -mt-2">{ex.annotation}</p>
+                                                <p className="px-4 pb-3 text-xs text-text-ter italic -mt-2">{ex.annotation}</p>
                                             )}
                                         </div>
                                     )
                                 }
                                 return (
-                                    <div key={ex.native} className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
+                                    <div key={ex.native} className="bg-surface-elevated rounded-xl p-4">
                                         <div className="flex items-center gap-2">
-                                            <p className="font-semibold text-gray-900 dark:text-gray-100">{ex.native}</p>
+                                            <p className="font-semibold text-text-pri">{ex.native}</p>
                                             <SpeakButton text={ex.speakText ?? ex.native} langId={langId} />
                                         </div>
                                         {ex.romanized && (
                                             <p className="text-xs text-indigo-500 mt-0.5">{ex.romanized}</p>
                                         )}
-                                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{ex.translation}</p>
+                                        <p className="text-sm text-text-sec mt-0.5">{ex.translation}</p>
                                         {ex.annotation && (
-                                            <p className="text-xs text-gray-400 dark:text-gray-500 italic mt-1">{ex.annotation}</p>
+                                            <p className="text-xs text-text-ter italic mt-1">{ex.annotation}</p>
                                         )}
                                     </div>
                                 )

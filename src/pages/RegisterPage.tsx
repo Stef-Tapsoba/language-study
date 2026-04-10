@@ -44,20 +44,20 @@ export function RegisterPage() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col items-center justify-center px-4">
+        <div className="min-h-screen bg-surface-app flex flex-col items-center justify-center px-4">
             <div className="w-full max-w-sm lg:max-w-md">
-                <h1 className="text-3xl font-bold text-center text-gray-900 dark:text-gray-100 mb-2">Language Study</h1>
-                <p className="text-center text-gray-500 dark:text-gray-400 mb-8">Create your account</p>
+                <h1 className="text-3xl font-bold text-center text-text-pri mb-2">Language Study</h1>
+                <p className="text-center text-text-sec mb-8">Create your account</p>
 
-                <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-800 rounded-2xl shadow-md p-6 flex flex-col gap-4">
+                <form onSubmit={handleSubmit} className="bg-surface-card rounded-2xl shadow-md p-6 flex flex-col gap-4">
                     {formErrors.length > 0 && (
-                        <ul className="text-sm text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-700 rounded-lg px-3 py-2 flex flex-col gap-1 list-disc list-inside">
+                        <ul className="text-sm text-verbs bg-verbs-surface border border-verbs-border rounded-lg px-3 py-2 flex flex-col gap-1 list-disc list-inside">
                             {formErrors.map(msg => <li key={msg}>{msg}</li>)}
                         </ul>
                     )}
 
                     <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
+                        <label htmlFor="name" className="block text-sm font-medium text-text-sec mb-1">Name</label>
                         <Input
                             id="name"
                             type="text"
@@ -70,7 +70,7 @@ export function RegisterPage() {
                     </div>
 
                     <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+                        <label htmlFor="email" className="block text-sm font-medium text-text-sec mb-1">Email</label>
                         <Input
                             id="email"
                             type="email"
@@ -83,7 +83,7 @@ export function RegisterPage() {
                     </div>
 
                     <div>
-                        <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Password</label>
+                        <label htmlFor="password" className="block text-sm font-medium text-text-sec mb-1">Password</label>
                         <Input
                             id="password"
                             type="password"
@@ -104,7 +104,7 @@ export function RegisterPage() {
                     </Button>
                 </form>
 
-                <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4">
+                <p className="text-center text-sm text-text-sec mt-4">
                     Already have an account?{" "}
                     <Link to="/login" className="text-indigo-600 hover:underline font-medium">
                         Sign in

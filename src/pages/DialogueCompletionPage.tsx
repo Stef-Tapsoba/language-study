@@ -102,9 +102,9 @@ export default function DialogueCompletionPage({ items, langId, level, config: _
 
     if (questions.length === 0) {
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <div className="min-h-screen bg-surface-app">
                 <NavBar title="Dialogue Completion" level={level} backTo={`/learn/${langId}`} />
-                <div className="flex flex-col items-center justify-center py-24 text-gray-400 dark:text-gray-500 px-4 text-center">
+                <div className="flex flex-col items-center justify-center py-24 text-text-ter px-4 text-center">
                     <p className="text-4xl mb-3">🚧</p>
                     <p className="font-medium">No dialogue passages at {level} yet</p>
                 </div>
@@ -158,17 +158,17 @@ export default function DialogueCompletionPage({ items, langId, level, config: _
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="min-h-screen bg-surface-app">
             <NavBar title="Dialogue Completion" level={level} backTo={`/learn/${langId}`} />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col items-center gap-6">
                 {/* Progress */}
-                <div className="w-full flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+                <div className="w-full flex items-center justify-between text-sm text-text-sec">
                     <span>{fmt(ui.questionOf, { n: index + 1, total: questions.length })}</span>
                     <span className="font-medium">{ui.scoreLabel}: {score}</span>
                 </div>
                 <div className="w-full flex gap-1">
                     {questions.map((_, i) => {
-                        let cls = "bg-gray-200 dark:bg-gray-600"
+                        let cls = "bg-border-default"
                         if (i < index) cls = "bg-indigo-500"
                         else if (i === index) cls = "bg-indigo-300"
                         return <div key={i} className={`h-1.5 flex-1 rounded-full transition-colors ${cls}`} />
@@ -176,30 +176,30 @@ export default function DialogueCompletionPage({ items, langId, level, config: _
                 </div>
 
                 {/* Instruction */}
-                <div className="w-full bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-2xl px-5 py-3">
-                    <p className="text-xs text-amber-600 dark:text-amber-400 font-medium uppercase tracking-wide mb-1">
+                <div className="w-full bg-vocab-surface border border-vocab-border rounded-2xl px-5 py-3">
+                    <p className="text-xs text-vocab font-medium uppercase tracking-wide mb-1">
                         Complete the dialogue
                     </p>
-                    <p className="text-sm font-medium text-amber-800 dark:text-amber-200">{q.passageTitle}</p>
+                    <p className="text-sm font-medium text-text-pri">{q.passageTitle}</p>
                 </div>
 
                 {/* Dialogue context */}
-                <div className="w-full bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-4 flex flex-col gap-2">
+                <div className="w-full bg-surface-card rounded-2xl border border-border-default p-4 flex flex-col gap-2">
                     {q.contextLines.map((line, i) => (
-                        <p key={i} className="text-sm text-gray-800 dark:text-gray-200 leading-relaxed">{line}</p>
+                        <p key={i} className="text-sm text-text-pri leading-relaxed">{line}</p>
                     ))}
 
                     {/* Blank line */}
-                    <div className="bg-indigo-50 dark:bg-indigo-900/30 border-2 border-dashed border-indigo-300 dark:border-indigo-600 rounded-xl px-3 py-2.5">
+                    <div className="bg-grammar-surface border-2 border-dashed border-grammar rounded-xl px-3 py-2.5">
                         {revealed ? (
-                            <p className="text-sm font-semibold text-indigo-800 dark:text-indigo-200">{q.correct}</p>
+                            <p className="text-sm font-semibold text-grammar">{q.correct}</p>
                         ) : (
-                            <p className="text-sm text-indigo-300 dark:text-indigo-500 italic">???</p>
+                            <p className="text-sm text-grammar/50 italic">???</p>
                         )}
                     </div>
 
                     {q.afterLines.length > 0 && revealed && q.afterLines.map((line, i) => (
-                        <p key={i} className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{line}</p>
+                        <p key={i} className="text-sm text-text-sec leading-relaxed">{line}</p>
                     ))}
                 </div>
 
@@ -212,7 +212,7 @@ export default function DialogueCompletionPage({ items, langId, level, config: _
                     onSelect={handleSelect}
                 />
 
-                <p className="hidden sm:block text-xs text-gray-400 dark:text-gray-500">
+                <p className="hidden sm:block text-xs text-text-ter">
                     1–4 to select · Enter to continue
                 </p>
 

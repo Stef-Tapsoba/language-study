@@ -137,8 +137,8 @@ interface TokenButtonProps {
 function TokenButton({ token, onClick, variant, disabled = false }: Readonly<TokenButtonProps>) {
     const cls =
         variant === "bank"
-            ? "bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-500 text-gray-900 dark:text-gray-100 hover:border-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/30"
-            : "bg-indigo-100 dark:bg-indigo-900/40 border border-indigo-300 dark:border-indigo-500 text-indigo-900 dark:text-indigo-100 hover:bg-indigo-200"
+            ? "bg-surface-card border border-border-default text-text-pri hover:border-grammar hover:bg-grammar-surface"
+            : "bg-grammar-surface border border-grammar text-grammar hover:bg-grammar-surface/80"
     return (
         <button
             onClick={onClick}
@@ -198,9 +198,9 @@ export default function SentenceScramblePage({ items, langId, level, config, onC
 
     if (questions.length === 0) {
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <div className="min-h-screen bg-surface-app">
                 <NavBar title="Sentence Scramble" level={level} backTo={`/learn/${langId}`} />
-                <div className="flex flex-col items-center justify-center py-24 text-gray-400 dark:text-gray-500">
+                <div className="flex flex-col items-center justify-center py-24 text-text-ter">
                     <p className="text-4xl mb-3">🚧</p>
                     <p className="font-medium">Not enough grammar examples at {level} yet</p>
                 </div>
@@ -271,17 +271,17 @@ export default function SentenceScramblePage({ items, langId, level, config, onC
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="min-h-screen bg-surface-app">
             <NavBar title="Sentence Scramble" level={level} backTo={`/learn/${langId}`} />
             <main className="max-w-xl mx-auto px-4 py-8 flex flex-col gap-6">
                 {/* Progress */}
-                <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+                <div className="flex items-center justify-between text-sm text-text-sec">
                     <span>{fmt(ui.questionOf, { n: index + 1, total: questions.length })}</span>
                     <span className="font-medium">{ui.scoreLabel}: {score}</span>
                 </div>
                 <div className="flex gap-1">
                     {questions.map((q, i) => {
-                        let cls = "bg-gray-200 dark:bg-gray-600"
+                        let cls = "bg-border-default"
                         if (i < index) cls = "bg-indigo-500"
                         else if (i === index) cls = "bg-indigo-300"
                         return <div key={`${q.lessonId}:${q.correct}`} className={`h-1.5 flex-1 rounded-full transition-colors ${cls}`} />
@@ -290,32 +290,32 @@ export default function SentenceScramblePage({ items, langId, level, config, onC
 
                 {/* Dialogue context — A's question shown when assembling B's response */}
                 {q.context && (
-                    <div className="bg-gray-100 dark:bg-gray-700/60 rounded-2xl px-5 py-3">
-                        <p className="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wide mb-1">Context</p>
-                        <p className="text-sm font-medium text-gray-800 dark:text-gray-200">{q.context.native}</p>
+                    <div className="bg-surface-elevated rounded-2xl px-5 py-3">
+                        <p className="text-xs text-text-sec font-medium uppercase tracking-wide mb-1">Context</p>
+                        <p className="text-sm font-medium text-text-pri">{q.context.native}</p>
                         {q.context.romanized && (
                             <p className="text-xs text-indigo-500 mt-0.5">{q.context.romanized}</p>
                         )}
-                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{q.context.translation}</p>
+                        <p className="text-xs text-text-sec mt-0.5">{q.context.translation}</p>
                     </div>
                 )}
 
                 {/* Prompt */}
-                <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-2xl px-5 py-4">
-                    <p className="text-xs text-amber-600 dark:text-amber-400 font-medium uppercase tracking-wide mb-1">
+                <div className="bg-vocab-surface border border-vocab-border rounded-2xl px-5 py-4">
+                    <p className="text-xs text-vocab font-medium uppercase tracking-wide mb-1">
                         Arrange the words in the correct order
                     </p>
-                    <p className="text-lg font-semibold text-amber-900 dark:text-amber-100">{q.prompt}</p>
+                    <p className="text-lg font-semibold text-text-pri">{q.prompt}</p>
                 </div>
 
                 {/* Assembly area */}
-                <div className="bg-white dark:bg-gray-800 border-2 border-dashed border-gray-200 dark:border-gray-600 rounded-2xl px-4 py-4 min-h-[72px]">
-                    <p className="text-xs text-gray-400 dark:text-gray-500 mb-2 font-medium uppercase tracking-wide">
+                <div className="bg-surface-card border-2 border-dashed border-border-default rounded-2xl px-4 py-4 min-h-[72px]">
+                    <p className="text-xs text-text-ter mb-2 font-medium uppercase tracking-wide">
                         Your sentence
                     </p>
                     <div className="flex flex-wrap gap-2">
                         {assembled.length === 0 && (
-                            <p className="text-sm text-gray-300 dark:text-gray-600 italic">
+                            <p className="text-sm text-text-ter italic">
                                 Click words below to build the sentence…
                             </p>
                         )}
@@ -347,20 +347,20 @@ export default function SentenceScramblePage({ items, langId, level, config, onC
                 {/* Feedback */}
                 {submitted && (
                     <div className={`rounded-2xl border px-4 py-3 flex flex-col gap-1 ${isCorrect
-                        ? "bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-700"
-                        : "bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-700"
+                        ? "bg-grammar-surface border-grammar-border"
+                        : "bg-verbs-surface border-verbs-border"
                     }`}>
                         {isCorrect ? (
-                            <p className="text-sm font-semibold text-green-800 dark:text-green-300">Correct!</p>
+                            <p className="text-sm font-semibold text-grammar">Correct!</p>
                         ) : (
                             <>
-                                <p className="text-xs text-red-500 dark:text-red-400 font-medium">Correct answer:</p>
+                                <p className="text-xs text-verbs font-medium">Correct answer:</p>
                                 <div className="flex items-center gap-2">
-                                    <p className="text-sm font-semibold text-red-800 dark:text-red-300">{q.correct}</p>
+                                    <p className="text-sm font-semibold text-verbs">{q.correct}</p>
                                     <SpeakButton text={q.correct} langId={langId} />
                                 </div>
                                 {q.romanized && (
-                                    <p className="text-xs text-gray-500 dark:text-gray-400">{q.romanized}</p>
+                                    <p className="text-xs text-text-sec">{q.romanized}</p>
                                 )}
                             </>
                         )}
@@ -393,7 +393,7 @@ export default function SentenceScramblePage({ items, langId, level, config, onC
                         </Button>
                     )}
                 </div>
-                <p className="hidden sm:block text-xs text-gray-400 dark:text-gray-500 text-center">
+                <p className="hidden sm:block text-xs text-text-ter text-center">
                     Click a word to add it · click it again to remove
                 </p>
             </main>

@@ -35,7 +35,7 @@ function ExerciseBrowse({ exercises, completed, onSelect, ui }: Readonly<{
                 <button
                     key={ex.id}
                     onClick={() => onSelect(ex)}
-                    className="w-full text-left bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-4
+                    className="w-full text-left bg-surface-card rounded-2xl border border-border-default p-4
                                hover:border-indigo-300 hover:shadow-sm transition-all"
                 >
                     <div className="flex items-center justify-between gap-2">
@@ -43,11 +43,11 @@ function ExerciseBrowse({ exercises, completed, onSelect, ui }: Readonly<{
                             <div className="flex items-center gap-2 mb-0.5">
                                 <span className="text-indigo-500 text-lg">🎧</span>
                                 {completed.includes(ex.id) && (
-                                    <span className="text-xs text-green-600 font-medium">✓</span>
+                                    <span className="text-xs text-grammar font-medium">✓</span>
                                 )}
                             </div>
-                            <p className="font-semibold text-gray-900 dark:text-gray-100">{ex.title}</p>
-                            <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">{ex.questions.length} Q</p>
+                            <p className="font-semibold text-text-pri">{ex.title}</p>
+                            <p className="text-xs text-text-ter mt-0.5">{ex.questions.length} Q</p>
                         </div>
                         <LevelBadge level={ex.level} />
                     </div>
@@ -70,9 +70,9 @@ function TranscriptContent({ exercise }: Readonly<{ exercise: ListeningExercise 
                             {line.speaker}
                         </span>
                         <div className="flex-1">
-                            <p className="text-gray-900 dark:text-gray-100">{line.text}</p>
+                            <p className="text-text-pri">{line.text}</p>
                             {line.translation && (
-                                <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">{line.translation}</p>
+                                <p className="text-xs text-text-ter mt-0.5">{line.translation}</p>
                             )}
                         </div>
                     </div>
@@ -81,7 +81,7 @@ function TranscriptContent({ exercise }: Readonly<{ exercise: ListeningExercise 
         )
     }
     return (
-        <p className="px-5 pb-4 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+        <p className="px-5 pb-4 text-sm text-text-sec leading-relaxed">
             {exercise.script}
         </p>
     )
@@ -118,9 +118,9 @@ function ComprehensionQuiz({ exercise, onAnswer, onComplete, ui }: Readonly<{
 
     if (quizDone) {
         return (
-            <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5 text-center">
+            <div className="bg-surface-card rounded-2xl border border-border-default p-5 text-center">
                 <div className="text-3xl mb-2">{quizScore === exercise.questions.length ? "🎉" : "💪"}</div>
-                <p className="font-semibold text-gray-900 dark:text-gray-100">
+                <p className="font-semibold text-text-pri">
                     {fmt(ui.youAnswered, { score: quizScore, total: exercise.questions.length })}
                 </p>
             </div>
@@ -130,7 +130,7 @@ function ComprehensionQuiz({ exercise, onAnswer, onComplete, ui }: Readonly<{
     const q = exercise.questions[quizIndex]
     return (
         <div className="flex flex-col gap-4">
-            <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+            <div className="flex items-center justify-between text-sm text-text-sec">
                 <span>{fmt(ui.questionOf, { n: quizIndex + 1, total: exercise.questions.length })}</span>
                 <span>{ui.scoreLabel}: {quizScore}</span>
             </div>
@@ -180,7 +180,7 @@ function ExerciseListen({ exercise, langId, level, completed, onBack, ui }: Read
         <div className="flex flex-col gap-5 pb-24">
             {/* Header */}
             <div className="flex items-start justify-between gap-2">
-                <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">{exercise.title}</h2>
+                <h2 className="text-xl font-bold text-text-pri">{exercise.title}</h2>
                 <LevelBadge level={exercise.level} />
             </div>
 
@@ -194,13 +194,13 @@ function ExerciseListen({ exercise, langId, level, completed, onBack, ui }: Read
 
             {/* Transcript — A1: shown by default; A2: hidden by default; B1+: not shown */}
             {transcriptMode !== "hidden" && (
-                <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+                <div className="bg-surface-card rounded-2xl border border-border-default overflow-hidden">
                     <button
                         onClick={() => setTranscriptShown(v => !v)}
-                        className="w-full flex items-center justify-between px-5 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50"
+                        className="w-full flex items-center justify-between px-5 py-3 text-sm font-medium text-text-sec hover:bg-surface-elevated"
                     >
                         <span>{transcriptShown ? ui.hideTranscript : ui.showTranscript}</span>
-                        <span className="text-gray-400 dark:text-gray-500">{transcriptShown ? "▲" : "▼"}</span>
+                        <span className="text-text-ter">{transcriptShown ? "▲" : "▼"}</span>
                     </button>
                     {transcriptShown && <TranscriptContent exercise={exercise} />}
                 </div>
@@ -208,16 +208,16 @@ function ExerciseListen({ exercise, langId, level, completed, onBack, ui }: Read
 
             {/* English translation — A1/A2: available; B1+: not shown */}
             {(level === "A1" || level === "A2") && (
-                <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+                <div className="bg-surface-card rounded-2xl border border-border-default overflow-hidden">
                     <button
                         onClick={() => setTranslationShown(v => !v)}
-                        className="w-full flex items-center justify-between px-5 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50"
+                        className="w-full flex items-center justify-between px-5 py-3 text-sm font-medium text-text-sec hover:bg-surface-elevated"
                     >
                         <span>{translationShown ? ui.hideEnglish : ui.showEnglish}</span>
-                        <span className="text-gray-400 dark:text-gray-500">{translationShown ? "▲" : "▼"}</span>
+                        <span className="text-text-ter">{translationShown ? "▲" : "▼"}</span>
                     </button>
                     {translationShown && (
-                        <p className="px-5 pb-4 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                        <p className="px-5 pb-4 text-sm text-text-sec leading-relaxed">
                             {exercise.translation}
                         </p>
                     )}
@@ -230,20 +230,20 @@ function ExerciseListen({ exercise, langId, level, completed, onBack, ui }: Read
             ) : (
                 <button
                     onClick={() => setQuizOpen(true)}
-                    className="w-full border border-indigo-300 text-indigo-700 font-semibold rounded-xl py-2.5 text-sm transition-colors hover:bg-indigo-50"
+                    className="w-full border border-grammar-border text-grammar font-semibold rounded-xl py-2.5 text-sm transition-colors hover:bg-grammar-surface"
                 >
                     {ui.showQuestions}
                 </button>
             )}
 
             {/* Sticky bottom bar — mark as listened */}
-            <div className="fixed bottom-0 left-0 right-0 z-20 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 px-4 pt-3 pb-safe">
+            <div className="fixed bottom-0 left-0 right-0 z-20 bg-surface-card border-t border-border-default px-4 pt-3 pb-safe">
                 <div className="max-w-xl mx-auto">
                     <button
                         onClick={markedListened ? undefined : handleMarkListened}
                         disabled={markedListened}
                         className={`w-full font-semibold rounded-xl py-3 text-sm transition-colors border ${markedListened
-                                ? "border-green-300 text-green-700 bg-green-50 cursor-default"
+                                ? "border-grammar-border text-grammar bg-grammar-surface cursor-default"
                                 : "border-indigo-600 bg-indigo-600 text-white hover:bg-indigo-700"
                             }`}
                     >
@@ -280,9 +280,9 @@ export function ListeningPage() {
 
     if (exercises.length === 0) {
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <div className="min-h-screen bg-surface-app">
                 <NavBar title={ui.sectionListening} level={level} backTo={`/learn/${langId}`} />
-                <div className="flex flex-col items-center justify-center py-24 text-gray-400 dark:text-gray-500">
+                <div className="flex flex-col items-center justify-center py-24 text-text-ter">
                     <p className="text-4xl mb-3">🚧</p>
                     <p className="font-medium">{fmt(ui.noExercisesYet, { level })}</p>
                 </div>
@@ -293,7 +293,7 @@ export function ListeningPage() {
     const handleBack = selectedExercise ? () => setSelectedExercise(null) : undefined
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="min-h-screen bg-surface-app">
             <NavBar
                 title={selectedExercise ? selectedExercise.title : ui.sectionListening}
                 level={level}

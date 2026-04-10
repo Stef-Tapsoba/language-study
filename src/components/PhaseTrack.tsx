@@ -22,28 +22,37 @@ interface PhaseTrackProps {
     className?: string
 }
 
-// ── Compact variant — bars + labels ──────────────────────────────────────────
+// ── Compact variant — bars + single summary line ─────────────────────────────
 
-function CompactTrack({ phases, className = "" }: { phases: Phase[]; className?: string }) {
+function phaseBarClass(status: PhaseStatus): string {
+    if (status === "done")   return "bg-grammar"
+    if (status === "active") return "bg-grammar opacity-40"
+    return "bg-border-default"
+}
+
+function CompactTrack({ phases, className = "" }: Readonly<{ phases: Phase[]; className?: string }>) {
+    const doneCount = phases.filter(p => p.status === "done").length
+    const activePhase = phases.find(p => p.status === "active")
+    let summary: string
+    if (activePhase) {
+        summary = `${activePhase.label} · ${doneCount} of ${phases.length} done`
+    } else if (doneCount === phases.length) {
+        summary = "All phases complete"
+    } else {
+        summary = `${doneCount} of ${phases.length} done`
+    }
+
     return (
-        <div className={`flex gap-1 ${className}`}>
-            {phases.map((phase) => (
-                <div key={phase.label} className="flex-1 flex flex-col items-center gap-1">
+        <div className={`flex flex-col gap-1.5 ${className}`}>
+            <div className="flex gap-1">
+                {phases.map((phase) => (
                     <div
-                        className={[
-                            "w-full h-[3px] rounded-full transition-all",
-                            phase.status === "done"   ? "bg-grammar" :
-                            phase.status === "active" ? "bg-grammar opacity-40" :
-                            "bg-border-default",
-                        ].join(" ")}
+                        key={phase.label}
+                        className={`flex-1 h-1.5 rounded-full transition-all ${phaseBarClass(phase.status)}`}
                     />
-                    <span className={`text-[9px] leading-none whitespace-nowrap ${
-                        phase.status === "locked" ? "text-text-ter" : "text-grammar"
-                    }`}>
-                        {phase.label}
-                    </span>
-                </div>
-            ))}
+                ))}
+            </div>
+            <p className="text-[10px] text-text-ter leading-none">{summary}</p>
         </div>
     )
 }

@@ -58,6 +58,7 @@ export default {
     				border:  'var(--streak-border)',
     				muted:   'var(--streak-muted)',
     			},
+    			romanized: 'var(--accent-romanized)',
     			border: 'hsl(var(--border))',
     			input: 'hsl(var(--input))',
     			ring: 'hsl(var(--ring))',

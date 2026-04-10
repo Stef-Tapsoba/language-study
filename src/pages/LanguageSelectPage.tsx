@@ -20,17 +20,17 @@ export function LanguageSelectPage() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="min-h-screen bg-surface-app">
             <NavBar
                 title={isReturning ? "Add a language" : "Language Study"}
                 backTo={isReturning ? "back" : undefined}
             />
 
             <main className="max-w-3xl mx-auto px-4 py-10">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+                <h2 className="text-2xl font-bold text-text-pri mb-2">
                     {isReturning ? "Add a language" : "Choose a language to learn"}
                 </h2>
-                <p className="text-gray-500 dark:text-gray-400 mb-8">
+                <p className="text-text-sec mb-8">
                     {isReturning
                         ? "Pick another language to start learning alongside your current ones."
                         : "Select a language to get started."}
@@ -41,13 +41,13 @@ export function LanguageSelectPage() {
                         <button
                             key={lang.id}
                             onClick={() => pick(lang.id)}
-                            className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-5 flex items-center gap-4
-                                       hover:border-indigo-400 dark:hover:border-indigo-500 hover:shadow-md transition-all text-left"
+                            className="bg-surface-card border border-border-default rounded-2xl p-5 flex items-center gap-4
+                                       hover:border-grammar hover:shadow-md transition-all text-left"
                         >
                             <Flag langId={lang.id} size="lg" />
                             <div>
-                                <p className="font-semibold text-gray-900 dark:text-gray-100 text-lg">{lang.name}</p>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">{lang.nativeName}</p>
+                                <p className="font-semibold text-text-pri text-lg">{lang.name}</p>
+                                <p className="text-sm text-text-sec">{lang.nativeName}</p>
                             </div>
                         </button>
                     ))}
