@@ -15,10 +15,11 @@ import { Button } from "../components/ui/button"
 import { LevelBadge } from "../components/LevelBadge"
 import { QuizCard } from "../components/QuizCard"
 import { SpeakButton } from "../components/SpeakButton"
-import { GrammarLesson, LessonUnit, VocabItem, Verb, CEFRLevel, CultureEpisode, ReadingPassage, ListeningExercise } from "../types"
+import { GrammarLesson, LessonUnit, VocabItem, Verb, CEFRLevel, CultureEpisode, ReadingPassage, ListeningExercise, PhraseLesson } from "../types"
 import { getUI, fmt, UIStrings } from "../i18n"
 import { resolvePrimary } from "../utils/localizedText"
 import { getGrammarExerciseType, getExerciseLabel, getVocabUnlockThreshold, isVocabExerciseUnlocked } from "../utils/reinforcementMapping"
+import { getPhraseLessonsForUnit } from "../data/repo"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "../components/ui/tabs"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion"
 
@@ -75,6 +76,35 @@ function ContentLinkSection({ theme, heading, links, onNavigate }: Readonly<{
 }
 
 // ---------------------------------------------------------------------------
+// Phrase lesson row — shown at the top of the grammar tab for redesigned A1 units
+// ---------------------------------------------------------------------------
+
+function PhraseLessonRow({ lesson, langId, unitId, isDone, nav }: Readonly<{
+    lesson: PhraseLesson; langId: string; unitId: string; isDone: boolean; nav: (to: string) => void
+}>) {
+    const returnTo = encodeURIComponent(`/learn/${langId}/units/${unitId}?tab=grammar`)
+    const content = (
+        <div className={[
+            "flex items-center gap-3 px-4 py-3 rounded-2xl transition-colors",
+            isDone
+                ? "border border-grammar-border bg-surface-card"
+                : "border-t border-r border-b border-l-2 border-t-grammar-border border-r-grammar-border border-b-grammar-border border-l-grammar bg-grammar-surface shadow-sm",
+        ].join(" ")}>
+            <GrammarStateIcon state={isDone ? "done" : "current"} />
+            <div className="flex-1 min-w-0">
+                <p className="text-sm font-medium truncate text-text-pri">{lesson.title}</p>
+                <p className="text-xs text-text-ter">Phrases</p>
+            </div>
+            {isDone && <span className="text-xs font-medium text-grammar bg-grammar-surface rounded-full px-2 py-0.5 flex-shrink-0">Done</span>}
+        </div>
+    )
+    return (
+        <button onClick={() => nav(`/learn/${langId}/phrases/${lesson.id}?returnTo=${returnTo}`)} className="w-full text-left">
+            {content}
+        </button>
+    )
+}
+
 // Grammar sequential list
 // ---------------------------------------------------------------------------
 
@@ -167,8 +197,8 @@ function GrammarExerciseRow({ lesson, state, langId, unitId, nav }: Readonly<{
     )
 }
 
-function GrammarSequenceList({ grammar, langId, unitId, completed, reinforcedLessonIds, nav, onGoToTest }: Readonly<{
-    grammar: GrammarLesson[]; langId: string; unitId: string
+function GrammarSequenceList({ phraseLessons, grammar, langId, unitId, completed, reinforcedLessonIds, nav, onGoToTest }: Readonly<{
+    phraseLessons: PhraseLesson[]; grammar: GrammarLesson[]; langId: string; unitId: string
     completed: string[]; reinforcedLessonIds: string[]; nav: (to: string) => void
     onGoToTest?: () => void
 }>) {
@@ -189,9 +219,24 @@ function GrammarSequenceList({ grammar, langId, unitId, completed, reinforcedLes
 
     return (
         <div className="flex flex-col gap-2">
+            {phraseLessons.length > 0 && (
+                <>
+                    <p className="text-[10px] font-semibold uppercase tracking-widest text-text-ter px-1 mt-1 mb-0.5">Phrases</p>
+                    {phraseLessons.map(lesson => (
+                        <PhraseLessonRow
+                            key={lesson.id}
+                            lesson={lesson}
+                            langId={langId}
+                            unitId={unitId}
+                            isDone={completed.includes(lesson.id)}
+                            nav={nav}
+                        />
+                    ))}
+                </>
+            )}
             {donePairs.length > 0 && (
                 <>
-                    <p className="text-[10px] font-semibold uppercase tracking-widest text-text-ter px-1 mt-1 mb-0.5">Lessons</p>
+                    <p className={`text-[10px] font-semibold uppercase tracking-widest text-text-ter px-1 mb-0.5 ${phraseLessons.length > 0 ? "mt-4" : "mt-1"}`}>Lessons</p>
                     {donePairs.map(lesson => (
                         <div key={lesson.id} className="flex flex-col gap-1.5">
                             <GrammarLessonRow lesson={lesson} state="done" langId={langId} unitId={unitId} nav={nav} />
@@ -202,7 +247,7 @@ function GrammarSequenceList({ grammar, langId, unitId, completed, reinforcedLes
             )}
             {activePairs.length > 0 && (
                 <>
-                    <p className={`text-[10px] font-semibold uppercase tracking-widest text-text-ter px-1 mb-0.5 ${donePairs.length > 0 ? "mt-4" : "mt-1"}`}>Up Next</p>
+                    <p className={`text-[10px] font-semibold uppercase tracking-widest text-text-ter px-1 mb-0.5 ${donePairs.length > 0 || phraseLessons.length > 0 ? "mt-4" : "mt-1"}`}>Up Next</p>
                     {activePairs.map((lesson, i) => {
                         const lState: LessonState = i === 0 ? "current" : "locked"
                         return (
@@ -719,6 +764,7 @@ export function UnitPage() {
     // Reinforcement state — read from write-through cache; fresh on every remount (navigation back from exercise)
     const reinforcement = unit ? getReinforcementState(langId, unitId) : { grammarLessonIds: [] }
 
+    const phraseLessons = useMemo(() => getPhraseLessonsForUnit(langId, unitId), [langId, unitId])
     const grammar = useMemo(() => mod?.grammar.filter(g => unit?.grammarIds.includes(g.id)) ?? [], [mod, unit])
     const vocab = useMemo(() => mod?.vocab.filter(v => unit?.vocabIds.includes(v.id)) ?? [], [mod, unit])
     const verbs = useMemo(() => mod?.verbs.filter(v => unit?.verbIds.includes(v.id)) ?? [], [mod, unit])
@@ -860,6 +906,7 @@ export function UnitPage() {
                     {/* Tab content */}
                     <TabsContent value="grammar" className="tab-fade">
                         <GrammarSequenceList
+                            phraseLessons={phraseLessons}
                             grammar={grammar}
                             langId={langId}
                             unitId={unitId}
