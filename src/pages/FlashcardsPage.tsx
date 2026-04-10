@@ -507,71 +507,78 @@ export function FlashcardsPage() {
     const card = deck[index]
 
     return (
-        <div className="min-h-screen bg-surface-app">
+        <div className="h-screen flex flex-col bg-surface-app overflow-hidden">
             <NavBar title={ui.sectionFlashcards} level={level} backTo={`/learn/${langId}`}
                 breadcrumb={`${language.name} › Practice`} />
-            <main className="max-w-sm mx-auto px-4 py-8 flex flex-col items-center gap-6">
-                {/* Progress */}
-                <div className="w-full flex items-center justify-between text-sm text-text-sec">
-                    <span>
-                        {reviewMode && <span className="text-indigo-600 font-medium mr-2">↺</span>}
-                        {index + 1} / {deck.length}
-                    </span>
-                    <LevelBadge level={level} />
-                </div>
-                <div className="w-full flex gap-1">
-                    {deck.map((v, i) => (
-                        <div key={v.id} className={`h-1.5 flex-1 rounded-full ${dotColor(i, index, results)}`} />
-                    ))}
-                </div>
-
-                {/* Card */}
-                <FlipCard
-                    item={card}
-                    flipped={flipped}
-                    onClick={flipped ? undefined : () => setFlipped(true)}
-                    translationMode={translationMode}
-                    translationShown={translationShown}
-                    ui={ui}
-                    langId={langId}
-                    typedMode={typedMode}
-                    typedAnswer={typedAnswer}
-                    onTypedChange={setTypedAnswer}
-                    onTypedSubmit={handleTypedSubmit}
-                    typedResult={typedResult}
-                />
-
-                {/* B2+ translation toggle — shown after flip */}
-                {flipped && translationMode === "hidden" && (
-                    <Button variant="link" onClick={() => setTranslationShown(v => !v)} className="text-sm p-0 h-auto">
-                        {translationShown ? ui.hideTranslation : ui.showTranslation}
-                    </Button>
-                )}
-
-                {/* Self-rating buttons — only after flip */}
-                {flipped && (
-                    <div className="flex gap-3 w-full max-w-sm">
-                        <Button
-                            variant="outline"
-                            disabled={transitioning}
-                            onClick={() => handleResult("incorrect")}
-                            className="flex-1 rounded-xl py-3 border-2 border-red-300 text-red-600 hover:bg-red-50 hover:text-red-600 dark:border-red-800 dark:text-red-400 dark:hover:bg-red-900/20"
-                        >
-                            ✗ {ui.notYet}
-                        </Button>
-                        <Button
-                            variant="outline"
-                            disabled={transitioning}
-                            onClick={() => handleResult("correct")}
-                            className="flex-1 rounded-xl py-3 border-2 border-green-400 text-green-700 hover:bg-green-50 hover:text-green-700 dark:border-green-700 dark:text-green-400 dark:hover:bg-green-900/20"
-                        >
-                            ✓ {ui.gotIt}
-                        </Button>
+            <main className="flex-1 flex flex-col min-h-0 max-w-sm mx-auto w-full px-4">
+                {/* Progress header */}
+                <div className="shrink-0 pt-6 pb-2 flex flex-col gap-2">
+                    <div className="flex items-center justify-between text-sm text-text-sec">
+                        <span>
+                            {reviewMode && <span className="text-grammar font-medium mr-2">↺</span>}
+                            {index + 1} / {deck.length}
+                        </span>
+                        <LevelBadge level={level} />
                     </div>
-                )}
-                {!flipped && !typedMode && (
-                    <p className="text-sm text-text-ter">{ui.tapToReveal}</p>
-                )}
+                    <div className="w-full flex gap-1">
+                        {deck.map((v, i) => (
+                            <div key={v.id} className={`h-1.5 flex-1 rounded-full ${dotColor(i, index, results)}`} />
+                        ))}
+                    </div>
+                </div>
+
+                {/* Card — fills remaining space, centered vertically */}
+                <div className="flex-1 flex items-center justify-center min-h-0 py-4">
+                    <FlipCard
+                        item={card}
+                        flipped={flipped}
+                        onClick={flipped ? undefined : () => setFlipped(true)}
+                        translationMode={translationMode}
+                        translationShown={translationShown}
+                        ui={ui}
+                        langId={langId}
+                        typedMode={typedMode}
+                        typedAnswer={typedAnswer}
+                        onTypedChange={setTypedAnswer}
+                        onTypedSubmit={handleTypedSubmit}
+                        typedResult={typedResult}
+                    />
+                </div>
+
+                {/* Bottom actions — always visible, never scrolled away */}
+                <div className="shrink-0 pb-safe flex flex-col items-center gap-3 pb-6">
+                    {/* B2+ translation toggle */}
+                    {flipped && translationMode === "hidden" && (
+                        <Button variant="link" onClick={() => setTranslationShown(v => !v)} className="text-sm p-0 h-auto">
+                            {translationShown ? ui.hideTranslation : ui.showTranslation}
+                        </Button>
+                    )}
+
+                    {/* Self-rating buttons */}
+                    {flipped && (
+                        <div className="flex gap-3 w-full">
+                            <Button
+                                variant="outline"
+                                disabled={transitioning}
+                                onClick={() => handleResult("incorrect")}
+                                className="flex-1 rounded-xl py-3 border-2 border-verbs-border text-verbs hover:bg-verbs-surface dark:hover:bg-verbs-surface"
+                            >
+                                ✗ {ui.notYet}
+                            </Button>
+                            <Button
+                                variant="outline"
+                                disabled={transitioning}
+                                onClick={() => handleResult("correct")}
+                                className="flex-1 rounded-xl py-3 border-2 border-grammar-border text-grammar hover:bg-grammar-surface dark:hover:bg-grammar-surface"
+                            >
+                                ✓ {ui.gotIt}
+                            </Button>
+                        </div>
+                    )}
+                    {!flipped && !typedMode && (
+                        <p className="text-sm text-text-ter">{ui.tapToReveal}</p>
+                    )}
+                </div>
             </main>
         </div>
     )

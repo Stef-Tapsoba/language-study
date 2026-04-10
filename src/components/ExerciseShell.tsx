@@ -139,9 +139,9 @@ export function ExerciseShell() {
 
     if (loading) {
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            <div className="min-h-screen bg-surface-app">
                 {/* NavBar skeleton */}
-                <div className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 h-14 flex items-center px-4 gap-3">
+                <div className="bg-surface-card border-b border-border-subtle h-14 flex items-center px-4 gap-3">
                     <Skeleton className="h-8 w-8 rounded" />
                     <Skeleton className="h-4 w-36 rounded" />
                     <div className="flex-1" />
@@ -167,14 +167,14 @@ export function ExerciseShell() {
 
     if (error) {
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col items-center justify-center gap-4 px-4">
+            <div className="min-h-screen bg-surface-app flex flex-col items-center justify-center gap-4 px-4">
                 <p className="text-4xl">⚠️</p>
-                <p className="text-base font-medium text-gray-700 dark:text-gray-300">
+                <p className="text-base font-medium text-text-sec">
                     Failed to load exercise content.
                 </p>
                 <Link
                     to={`/learn/${langId}`}
-                    className="text-sm text-indigo-600 dark:text-indigo-400 hover:underline"
+                    className="text-sm text-grammar hover:underline"
                 >
                     ← Back to dashboard
                 </Link>
@@ -184,8 +184,8 @@ export function ExerciseShell() {
 
     return (
         <Suspense fallback={
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-                <div className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 h-14 flex items-center px-4 gap-3">
+            <div className="min-h-screen bg-surface-app">
+                <div className="bg-surface-card border-b border-border-subtle h-14 flex items-center px-4 gap-3">
                     <Skeleton className="h-8 w-8 rounded" />
                     <Skeleton className="h-4 w-36 rounded" />
                     <div className="flex-1" />
