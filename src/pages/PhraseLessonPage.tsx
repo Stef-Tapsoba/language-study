@@ -159,7 +159,7 @@ export function PhraseLessonPage() {
                 {/* Mark complete */}
                 <MarkCompleteButton
                     done={isDone}
-                    onClick={() => { markLessonComplete(langId, lesson.id, "grammar").catch(() => {}) }}
+                    onClick={() => markLessonComplete(langId, lesson.id, "grammar")}
                 />
 
             </main>
