@@ -12,10 +12,9 @@ THE KEY RULE: The form follows the gender of the **noun being described** — no
 This means a woman says **mon père** (not *ma père*) because *père* is masculine. A man says **ma mère** (not *mon mère*) because *mère* is feminine. The noun decides the form, not the speaker.
 
 MY / YOUR (informal) / HIS OR HER:
-  |               | Masculine noun | Feminine noun | Plural noun |
-  | my            | mon            | ma            | mes         |
-  | your (tu)     | ton            | ta            | tes         |
-  | his / her     | son            | sa            | ses         |
+  my:           mon (masculine noun) · ma (feminine noun) · mes (plural)
+  your (tu):    ton (masculine noun) · ta (feminine noun) · tes (plural)
+  his / her:    son (masculine noun) · sa (feminine noun) · ses (plural)
 
 Examples:
   mon père (masculine) — my father
@@ -138,14 +137,13 @@ THE BASIC RULES:
 When the masculine form already ends in -e (like **sympa**, **drôle**, **timide**), it stays the same in the feminine.
 
 COMMON IRREGULAR PATTERNS:
-  | Masculine  | Feminine   | Pattern        |
-  | sportif    | sportive   | -f → -ve       |
-  | actif      | active     | -f → -ve       |
-  | sérieux    | sérieuse   | -x → -se       |
-  | vieux      | vieille    | irregular      |
-  | beau       | belle      | irregular      |
-  | nouveau    | nouvelle   | irregular      |
-  | gentil     | gentille   | -l → -lle      |
+  sportif → sportive   (-f → -ve)
+  actif → active       (-f → -ve)
+  sérieux → sérieuse   (-x → -se)
+  vieux → vieille      (irregular)
+  beau → belle         (irregular)
+  nouveau → nouvelle   (irregular)
+  gentil → gentille    (-l → -lle)
 
 ADJECTIVE POSITION: In French, most adjectives come **after** the noun — the opposite of English:
   une femme intelligente (not *une intelligente femme*)
@@ -344,15 +342,7 @@ The pattern feels mechanical at first, but after a few weeks of exposure it beco
         id: "fr-g-a1-7",
         level: "A1",
         title: "Aller + destinations — going places",
-        explanation: `The verb **aller** (to go) is one of the most useful in French. Despite ending in -er, it is completely irregular — it doesn't follow the -er verb pattern you already know. Memorise these forms directly:
-
-ALLER — TO GO
-  je        → **vais**     Je vais au marché.
-  tu        → **vas**      Tu vas où ?
-  il / elle / on → **va**  Il va au travail.
-  nous      → **allons**   Nous allons à la plage.
-  vous      → **allez**    Vous allez où ?
-  ils / elles  → **vont**  Ils vont en ville.
+        explanation: `The verb **aller** (to go) is one of the most useful in French. Despite ending in -er, it is completely irregular — it doesn't follow the -er verb pattern you already know. Memorise these forms directly. The full conjugation is in the table below.
 
 PREPOSITIONS WITH DESTINATIONS — one rule, all places:
   **à** + city:             à Paris, à Rome, à Tokyo
@@ -440,6 +430,12 @@ This is one of the most natural ways to talk about near-future plans in French �
             { native: "On va au café ?", translation: "Shall we go to the café?", note: "On = nous in casual speech. This is how suggestions are made in French." },
             { native: "Je viens de Londres.", translation: "I'm from London.", note: "Venir de expresses origin — more specific than être de." },
         ],
+        conjugationTable: {
+            pronouns: ["je", "tu", "il / elle / on", "nous", "vous", "ils / elles"],
+            verbs: [
+                { infinitive: "aller", forms: ["vais", "vas", "va", "allons", "allez", "vont"] },
+            ],
+        },
     },
     {
         id: "fr-g-a1-8",
@@ -455,16 +451,14 @@ There are two main types of article, and the difference is about **what you're r
 
 INDEFINITE ARTICLES — un / une / des (a / an / some):
 Used for something not yet specified, one of many, or first mention.
-  | Masculine | Feminine | Plural |
-  | un        | une      | des    |
+  un (masculine) · une (feminine) · des (plural)
   un café — a coffee (any coffee)
   une maison — a house (not a specific one)
   des enfants — (some) children
 
 DEFINITE ARTICLES — le / la / l' / les (the):
 Used for something specific, already known, or — this is the key insight — **general statements**.
-  | Masculine | Feminine | Before vowel | Plural |
-  | le        | la       | l'           | les    |
+  le (masculine) · la (feminine) · l' (before vowel or silent h) · les (plural)
   le café — the café (a specific one we both know)
   la famille — the family (this family, or family as a concept)
   l'université — the university (vowel triggers l')

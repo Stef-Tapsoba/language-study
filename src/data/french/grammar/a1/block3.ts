@@ -8,21 +8,10 @@ export const block3Lessons: GrammarLesson[] = [
         explanation: `You've been using **je m'appelle** since your very first French lesson — now you know why it works the way it does. It's a reflexive verb: an action you do **to yourself**.
 
 **What makes a verb reflexive?**
-Reflexive verbs have two parts: the ordinary verb + a **reflexive pronoun** (me, te, se, nous, vous, se) that bounces the action back to the subject — like a mirror. The pronoun must always match the subject.
+Reflexive verbs have two parts: the ordinary verb + a **reflexive pronoun** (me, te, se, nous, vous, se) that bounces the action back to the subject — like a mirror. The pronoun must always match the subject:
+  je → me (m' before a vowel) · tu → te (t' before a vowel) · il/elle/on → se (s' before a vowel) · nous → nous · vous → vous · ils/elles → se
 
-REFLEXIVE PRONOUNS
-  je → **me** (m' before a vowel)   — Je **me** lève.
-  tu → **te** (t' before a vowel)   — Tu **te** lèves.
-  il/elle/on → **se** (s' before a vowel) — Il **se** lève.
-  nous → **nous**                   — Nous **nous** levons.
-  vous → **vous**                   — Vous **vous** levez.
-  ils/elles → **se**                — Ils **se** lèvent.
-
-FULL CONJUGATION — SE LEVER (to get up)
-  je me lève  /  tu te lèves  /  il se lève
-  nous nous levons  /  vous vous levez  /  ils se lèvent
-
-Note the accent: the stem changes to **lève** in the singular and ils/elles forms. This is a spelling pattern you'll see with several -er verbs.
+The full conjugation of **se lever** (to get up) is in the table below. Note the accent: the stem changes to **lève** in the singular and ils/elles forms — a spelling pattern you'll see with several -er verbs.
 
 DAILY ROUTINE REFLEXIVE VERBS
   se réveiller — to wake up
@@ -106,6 +95,12 @@ The pronoun never escapes to the outside of the negation — remember, it travel
             { native: "Je me couche vers onze heures.", translation: "I go to bed around eleven o'clock.", note: "Vers (around) makes it sound natural rather than mechanical." },
             { native: "Je m'en vais.", translation: "I'm leaving. / I'm off.", note: "A very natural way to announce you're leaving — more polite than 'je pars'." },
         ],
+        conjugationTable: {
+            pronouns: ["je", "tu", "il / elle / on", "nous", "vous", "ils / elles"],
+            verbs: [
+                { infinitive: "se lever", forms: ["me lève", "te lèves", "se lève", "nous levons", "vous levez", "se lèvent"] },
+            ],
+        },
     },
     {
         id: "fr-g-a1-10",
@@ -113,15 +108,7 @@ The pronoun never escapes to the outside of the negation — remember, it travel
         title: "The Full -er Verb System",
         explanation: `Here's one of the most powerful things you can learn in French: master the -er verb pattern and you can talk about almost everything. Want to describe your work, your hobbies, your weekends, your relationships? Almost every verb you reach for is an -er verb.
 
-You already know the first three forms. Here's the complete picture:
-
-THE SIX FORMS — using **travailler** (to work)
-  je travaille        — I work / I'm working
-  tu travailles       — you work
-  il / elle travaille — he/she works
-  nous **travaillons** — we work
-  vous **travaillez**  — you work (formal/plural)
-  ils / elles **travaillent** — they work
+You already know the first three forms. The complete six-form conjugation is in the table below.
 
 The key moment: the **nous** and **vous** forms stand out. They sound completely different from the others — and that's useful.
 
@@ -166,6 +153,7 @@ After this lesson, you can conjugate any regular -er verb with all six persons. 
             {
                 condition: "Conjugating any regular -er verb — all six persons",
                 result: "Remove -er; add: -e / -es / -e / -ons / -ez / -ent",
+                heuristic: "travailler → travaill- + ending · parler → parl- + ending · manger → mang- + ending",
                 examples: [
                     { native: "Je parle, tu parles, il parle.", translation: "I speak, you speak, he speaks." },
                     { native: "Nous travaillons, vous travaillez, ils travaillent.", translation: "We work, you work, they work." },
@@ -207,6 +195,14 @@ After this lesson, you can conjugate any regular -er verb with all six persons. 
             { native: "Ils écoutent tout.", translation: "They listen to everything.", note: "Useful reminder: écouter takes a direct object (pas de à)." },
             { native: "Nous mangeons ensemble le dimanche.", translation: "We eat together on Sundays.", note: "Note mangeons — the -ge- rule in action." },
         ],
+        conjugationTable: {
+            pronouns: ["je", "tu", "il / elle", "nous", "vous", "ils / elles"],
+            verbs: [
+                { infinitive: "travailler", forms: ["travaille", "travailles", "travaille", "travaillons", "travaillez", "travaillent"] },
+                { infinitive: "parler", forms: ["parle", "parles", "parle", "parlons", "parlez", "parlent"] },
+                { infinitive: "manger", forms: ["mange", "manges", "mange", "mangeons", "mangez", "mangent"] },
+            ],
+        },
     },
     {
         id: "fr-g-a1-11",
