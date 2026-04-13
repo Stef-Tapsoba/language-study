@@ -1230,4 +1230,179 @@ export const a1PhraseLessons: PhraseLesson[] = [
     speakAloud:
       "Invite a friend to do something this weekend. Suggest the activity, a day, and a time to meet. Use ça te dit de..., on se retrouve à..., and one acceptance or refusal phrase.",
   },
+
+  // ── fr-pl-a1-21 : U6 Describing people and things ───────────────────────
+  {
+    id: 'fr-pl-a1-21',
+    level: 'A1',
+    title: 'Describing people',
+    sceneSetter:
+      "Your French friend is about to meet someone important to you — a sibling, a best friend. They ask: elle est comment ? What do you say?",
+    phrases: [
+      {
+        native: 'grand(e) / petit(e) / mince / costaud(e)',
+        translation: 'tall / short / slim / stocky',
+        context:
+          'Add -e for a woman: grande, petite. Costaud is often used as invariable in speech.',
+      },
+      {
+        native: 'beau / belle · mignon / mignonne',
+        translation: 'handsome, beautiful · cute',
+        context:
+          'Beau → belle (feminine). Mignon → mignonne (double-n).',
+      },
+      {
+        native: 'sympa · gentil / gentille · drôle · bavard(e)',
+        translation: 'nice · kind · funny · talkative',
+        context:
+          'Sympa is invariable — same for male and female. Gentil → gentille (double-l).',
+      },
+      {
+        native: 'timide · sérieux / sérieuse · travailleur / travailleuse',
+        translation: 'shy · serious · hardworking',
+        context:
+          '-eux → -euse in feminine: sérieux → sérieuse. -eur → -euse: travailleur → travailleuse.',
+      },
+      {
+        native: 'Il / Elle est comment ?',
+        translation: 'What is he / she like?',
+        context:
+          'The most natural question to ask about someone\'s appearance or personality.',
+      },
+      {
+        native: 'Il / Elle est plutôt... mais aussi...',
+        translation: 'He / She is rather... but also...',
+        context:
+          'Plutôt = rather / quite. Mais aussi = but also. Great for balanced descriptions.',
+      },
+      {
+        native: "Il / Elle a l'air très sympa.",
+        translation: 'He / She seems very nice.',
+        context:
+          "Avoir l'air + adjective = to seem / look like. The adjective agrees with the subject.",
+      },
+    ],
+    miniDialogue: [
+      {
+        speaker: '',
+        native: '— Ta sœur, elle est comment ?',
+        translation: "What's your sister like?",
+      },
+      {
+        speaker: '',
+        native:
+          '— Elle est grande et très sympa. Un peu timide au début, mais elle est super drôle.',
+        translation:
+          "She's tall and very nice. A bit shy at first, but she's really funny.",
+      },
+      {
+        speaker: '',
+        native: '— Elle ressemble à toi ?',
+        translation: 'Does she look like you?',
+      },
+      {
+        speaker: '',
+        native:
+          '— Un peu ! On est grandes toutes les deux, mais elle est plus bavarde que moi.',
+        translation:
+          "A bit! We're both tall, but she's more talkative than me.",
+      },
+    ],
+    practiceQuestion: {
+      question:
+        'How do you describe a female friend who is hardworking and funny?',
+      options: [
+        'Elle est travailleur et drôle.',
+        'Elle est travailleuse et drôle.',
+        'Elle est travailleuses et drôle.',
+        'Elle est travailler et drôle.',
+      ],
+      correctIndex: 1,
+    },
+    speakAloud:
+      "Describe someone you know well — a friend, sibling, or parent. Give two physical details and two personality traits. Try to include a contrast: il/elle est... mais aussi...",
+  },
+
+  // ── fr-pl-a1-22 : U12 Talking about habits and what you do regularly ─────
+  {
+    id: 'fr-pl-a1-22',
+    level: 'A1',
+    title: 'Talking about habits',
+    sceneSetter:
+      "Qu'est-ce que tu fais le week-end ? Someone wants to know about your life outside work or study. Here's how to talk about what you do regularly — and how often.",
+    phrases: [
+      {
+        native: 'toujours · souvent · parfois · rarement · jamais',
+        translation: 'always · often · sometimes · rarely · never',
+        context:
+          'These go directly after the verb: Je mange souvent au restaurant. Je ne sors jamais le lundi.',
+      },
+      {
+        native: 'regarder des séries · écouter de la musique · lire',
+        translation: 'watch TV shows · listen to music · read',
+        context:
+          'All -er verbs except lire. Je regarde souvent des séries le soir.',
+      },
+      {
+        native: 'cuisiner · travailler de chez moi · faire du sport',
+        translation: 'cook · work from home · do sport',
+        context:
+          'Cuisiner and travailler are regular -er. Faire du sport is a fixed phrase — du stays the same.',
+      },
+      {
+        native: 'sortir avec des amis · aller au cinéma · se promener',
+        translation: 'go out with friends · go to the cinema · go for a walk',
+        context:
+          'Sortir and aller are irregular — you will meet them in a later unit. Use them as phrases for now.',
+      },
+      {
+        native: 'Le week-end, je... / En semaine, je...',
+        translation: 'At the weekend, I... / During the week, I...',
+        context:
+          'Use these to frame your routine before adding the activity.',
+      },
+      {
+        native: "Qu'est-ce que tu fais le week-end ?",
+        translation: 'What do you do at the weekend?',
+        context: "The question you'll hear constantly. Learn it as one chunk.",
+      },
+    ],
+    miniDialogue: [
+      {
+        speaker: '',
+        native: "— Qu'est-ce que tu fais le week-end généralement ?",
+        translation: 'What do you usually do at the weekend?',
+      },
+      {
+        speaker: '',
+        native:
+          "— Le samedi, je fais souvent du sport le matin, et l'après-midi je retrouve des amis. Et le dimanche, je cuisine — j'adore ça.",
+        translation:
+          "On Saturday I often do sport in the morning, and in the afternoon I meet up with friends. And on Sunday I cook — I love it.",
+      },
+      {
+        speaker: '',
+        native: '— Tu regardes des séries aussi ?',
+        translation: 'Do you watch TV shows too?',
+      },
+      {
+        speaker: '',
+        native: '— Rarement. Je préfère lire le soir. Et toi ?',
+        translation: 'Rarely. I prefer to read in the evenings. And you?',
+      },
+    ],
+    practiceQuestion: {
+      question:
+        "How do you say 'I never watch TV but I often read'?",
+      options: [
+        "Je ne regarde jamais la télé mais je lis souvent.",
+        "Je regarde jamais la télé mais je lis souvent.",
+        "Je ne regarde pas jamais la télé mais je lis souvent.",
+        "Je jamais regarde la télé mais je lis souvent.",
+      ],
+      correctIndex: 0,
+    },
+    speakAloud:
+      "Describe your typical weekend. Say what you always do, what you often do, and at least one thing you never do. Use toujours, souvent, and jamais.",
+  },
 ]
