@@ -90,6 +90,40 @@ export function GrammarLessonPage() {
 
                 <VocabTooltip activeWord={activeWord} onDismiss={dismissTooltip} />
 
+                {/* Conjugation table */}
+                {lesson.conjugationTable && (() => {
+                    const { pronouns, verbs } = lesson.conjugationTable
+                    return (
+                        <div className="bg-surface-card rounded-2xl border border-border-default p-5 overflow-x-auto">
+                            <h2 className="text-xs font-semibold uppercase tracking-wide text-text-ter mb-3">Conjugation</h2>
+                            <table className="w-full text-sm border-collapse">
+                                <thead>
+                                    <tr>
+                                        <th className="text-left text-xs text-text-ter font-medium pb-2 pr-4 w-24"></th>
+                                        {verbs.map(v => (
+                                            <th key={v.infinitive} className="text-left text-xs font-semibold text-grammar pb-2 pr-4">
+                                                {v.infinitive}
+                                            </th>
+                                        ))}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {pronouns.map((pronoun, i) => (
+                                        <tr key={pronoun} className={i % 2 === 0 ? "bg-surface-elevated rounded" : ""}>
+                                            <td className="text-text-ter text-xs py-1.5 pr-4 font-medium">{pronoun}</td>
+                                            {verbs.map(v => (
+                                                <td key={v.infinitive} className="text-text-pri font-semibold py-1.5 pr-4">
+                                                    {v.forms[i]}
+                                                </td>
+                                            ))}
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    )
+                })()}
+
                 {/* Rules */}
                 {lesson.rules && lesson.rules.length > 0 && (
                     <div className="bg-surface-card rounded-2xl border border-border-default p-5">
@@ -101,6 +135,9 @@ export function GrammarLessonPage() {
                                         <span className="text-sm text-text-sec flex-1">{rule.condition}</span>
                                         <span className="text-sm font-bold text-grammar shrink-0">{rule.result}</span>
                                     </div>
+                                    {rule.heuristic && (
+                                        <p className="text-xs font-mono text-text-sec bg-surface-app rounded-lg px-3 py-1.5 mb-2">{rule.heuristic}</p>
+                                    )}
                                     <div className="flex flex-wrap gap-1.5">
                                         {rule.examples.map((ex) => (
                                             <span key={ex.native} className="text-xs bg-grammar-surface text-grammar px-2 py-1 rounded-lg font-medium">{ex.native}</span>
