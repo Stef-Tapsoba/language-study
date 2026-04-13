@@ -60,6 +60,55 @@ This feels odd for English speakers at first — just learn it as the pattern an
             { word: "une nationalité", translation: "a nationality" },
             { word: "un pays", translation: "a country" },
         ],
+        rules: [
+            {
+                condition: "Talking about origin (city)",
+                result: "Use être + de + city name",
+                examples: [
+                    { native: "Je suis de Paris.", translation: "I'm from Paris." },
+                    { native: "Elle est de Rome.", translation: "She's from Rome." },
+                    { native: "Tu es d'où ?", translation: "Where are you from?" },
+                ],
+            },
+            {
+                condition: "Talking about nationality or profession",
+                result: "Use être with no article",
+                examples: [
+                    { native: "Il est français.", translation: "He's French." },
+                    { native: "Je suis médecin.", translation: "I'm a doctor." },
+                    { native: "Elle est étudiante.", translation: "She's a student." },
+                ],
+            },
+            {
+                condition: "Addressing one person formally or more than one person",
+                result: "Use vous êtes",
+                examples: [
+                    { native: "Vous êtes anglais ?", translation: "Are you English? (formal or plural)" },
+                    { native: "Vous êtes d'où ?", translation: "Where are you from? (formal)" },
+                ],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "The three forms you need most — je suis, tu es, il/elle est — all sound different. Say them out loud together until the rhythm is automatic: 'swee / eh / eh'.",
+            },
+            {
+                type: "warning",
+                content: "Don't add an article before nationalities and professions: 'Je suis médecin' (not 'Je suis un médecin'). This is one of the most common early mistakes.",
+            },
+            {
+                type: "forward-ref",
+                content: "The nous (sommes) and ils/elles (sont) forms come up naturally as you learn more vocabulary — you'll meet them in Unit 3.",
+                refId: "fr-g-a1-3",
+            },
+        ],
+        fixedPhrases: [
+            { native: "Je suis de Londres.", translation: "I'm from London.", note: "Replace Londres with your own city." },
+            { native: "Tu es d'où ?", translation: "Where are you from?", note: "Essential question for any first conversation." },
+            { native: "Enchanté(e).", translation: "Pleased to meet you.", note: "Use after introducing yourself — add -e if you are female." },
+            { native: "Je suis désolé(e).", translation: "I'm sorry.", note: "Works as an apology or to express sympathy." },
+        ],
     },
     {
         id: "fr-g-a1-2",
@@ -123,6 +172,55 @@ Beyond age, avoir is used for: having things (J'ai une voiture), having family m
             { word: "l'âge (m)", translation: "age" },
             { word: "quel âge", translation: "what age / how old" },
         ],
+        rules: [
+            {
+                condition: "Saying your age in French",
+                result: "Use avoir (not être) + number + ans",
+                examples: [
+                    { native: "J'ai vingt ans.", translation: "I am twenty years old." },
+                    { native: "Il a trente ans.", translation: "He is thirty years old." },
+                    { native: "Tu as quel âge ?", translation: "How old are you?" },
+                ],
+            },
+            {
+                condition: "Talking about possession",
+                result: "Use avoir + object",
+                examples: [
+                    { native: "Tu as un frère ?", translation: "Do you have a brother?" },
+                    { native: "J'ai une voiture.", translation: "I have a car." },
+                    { native: "Vous avez l'heure ?", translation: "Do you have the time?" },
+                ],
+            },
+            {
+                condition: "Expressing hunger, thirst, or physical states",
+                result: "Use avoir (where English uses 'to be')",
+                examples: [
+                    { native: "J'ai faim.", translation: "I'm hungry. (lit: I have hunger)" },
+                    { native: "Tu as soif ?", translation: "Are you thirsty?" },
+                    { native: "J'ai froid.", translation: "I'm cold." },
+                ],
+            },
+        ],
+        notes: [
+            {
+                type: "warning",
+                content: "Never say 'Je suis vingt ans'. Age always uses avoir in French — 'J'ai vingt ans'. Mixing up être and avoir here is the most frequent beginner error.",
+            },
+            {
+                type: "tip",
+                content: "Hunger, thirst, heat, cold, and fear all use avoir in French (j'ai faim, j'ai soif, j'ai chaud, j'ai froid, j'ai peur). Think of them as things you 'have', not states you 'are'.",
+            },
+            {
+                type: "culture",
+                content: "Asking 'Tu as quel âge ?' is casual and perfectly fine between people who are already on informal terms. With strangers or seniors, this topic is generally avoided — as in much of Europe.",
+            },
+        ],
+        fixedPhrases: [
+            { native: "J'ai vingt ans.", translation: "I'm twenty years old.", note: "Replace vingt with your own age." },
+            { native: "Tu as quel âge ?", translation: "How old are you?", note: "Casual register — use with friends." },
+            { native: "J'ai faim.", translation: "I'm hungry.", note: "Avoir-based expression — not être." },
+            { native: "Vous avez l'heure ?", translation: "Do you have the time?", note: "Polite way to ask a stranger for the time." },
+        ],
     },
     {
         id: "fr-g-a1-3",
@@ -172,6 +270,53 @@ The full paradigm (nous/vous/ils/elles forms) comes in Unit 12. For now, these t
             { word: "une entreprise", translation: "a company" },
             { word: "un bureau", translation: "an office" },
             { word: "les langues (f pl)", translation: "languages" },
+        ],
+        rules: [
+            {
+                condition: "Conjugating any regular -er verb for je / tu / il / elle",
+                result: "Remove -er, add: -e (je), -es (tu), -e (il/elle)",
+                examples: [
+                    { native: "Je parle français.", translation: "I speak French." },
+                    { native: "Tu travailles où ?", translation: "Where do you work?" },
+                    { native: "Elle étudie le droit.", translation: "She studies law." },
+                ],
+            },
+            {
+                condition: "Before a vowel, je becomes j'",
+                result: "Drop the -e of je (elision)",
+                examples: [
+                    { native: "J'étudie le français.", translation: "I study French." },
+                    { native: "J'aime beaucoup la musique.", translation: "I really like music." },
+                ],
+            },
+            {
+                condition: "Je, tu, il, elle forms in spoken French",
+                result: "They all sound identical — only the pronoun signals the difference",
+                examples: [
+                    { native: "Je travaille. Tu travailles. Il travaille.", translation: "I work. You work. He works. — same sound." },
+                ],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "About 90% of French verbs are -er verbs. Every new -er verb you learn, you can already conjugate. You're not learning individual verbs — you're learning a system.",
+            },
+            {
+                type: "warning",
+                content: "Don't forget elision: it's 'j'aime' and 'j'étudie', never 'je aime' or 'je étudie'. French avoids two vowel sounds bumping together.",
+            },
+            {
+                type: "forward-ref",
+                content: "The nous (travaillons), vous (travaillez), and ils/elles (travaillent) forms are covered fully in the Block 3 lesson on the complete -er verb system.",
+                refId: "fr-g-a1-10",
+            },
+        ],
+        fixedPhrases: [
+            { native: "Je parle un peu français.", translation: "I speak a little French.", note: "Useful and accurate for most beginners — honest and immediately understood." },
+            { native: "Qu'est-ce que tu fais dans la vie ?", translation: "What do you do for a living?", note: "The most natural way to ask about someone's job." },
+            { native: "Je travaille dans une école.", translation: "I work in a school.", note: "Template — replace école with your own workplace." },
+            { native: "J'aime beaucoup ça.", translation: "I really like that.", note: "Ça (that/it) is a conversational workhorse — use it freely." },
         ],
     },
 ]
