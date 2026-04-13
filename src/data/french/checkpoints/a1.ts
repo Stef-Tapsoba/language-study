@@ -48,10 +48,10 @@ export const a1Checkpoints: Checkpoint[] = [
     id: 'fr-cp-a1-3',
     level: 'A1',
     block: 3,
-    type: 'both',
-    title: 'Describe your routine + listening check',
+    type: 'speaking',
+    title: 'Describe your routine',
     scenario:
-      "Your French pen pal wants to understand what your typical day looks like. They've sent you a voice message describing their own routine — now it's your turn.\n\nFirst, listen to and answer questions about Camille's daily routine (Checkpoint 3a — listening).\n\nThen describe your own typical weekday. Include: what time you get up and your morning routine, what you do during the day (work, study, activities), what you do in the evening, something you do regularly (with a frequency adverb), and connect at least 3 ideas with sequence connectors.",
+      "Your French pen pal wants to understand what your typical day looks like. Describe your own typical weekday. Include: what time you get up and your morning routine, what you do during the day (work, study, activities), what you do in the evening, something you do regularly (with a frequency adverb), and connect at least 3 ideas with sequence connectors.\n\nTip: if you stumble on a verb form, self-correct and keep going — that's exactly what a real conversation looks like.",
     speakingPrompts: [
       "Use at least 2 reflexive verbs (Je me lève à..., je me couche à...)",
       "Give specific times (Je commence à 9h, je finis à...)",
@@ -62,7 +62,6 @@ export const a1Checkpoints: Checkpoint[] = [
       "Use -er verbs correctly across persons (je parle, il travaille...)",
       "Sound connected and natural — ideas flowing from one to the next",
     ],
-    listeningId: 'fr-l-a1-cp3a',
   },
 
   // ── fr-cp-a1-4 : Block 4 — Navigate a day in a French city (after U19) ───
