@@ -299,6 +299,4 @@ export function setGoalInProgress(goalId: GoalId): void {
     save({ ...p, goal: goalId })
 }
 
-// Re-exported here so existing imports (e.g. progress.test.ts) keep working.
-// New code should import directly from ./progressUtils.
-export { isUnitUnlocked } from "./progressUtils"
+export { isUnitUnlocked } from "../domain/unitUnlock"

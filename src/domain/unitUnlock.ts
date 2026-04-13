@@ -1,8 +1,8 @@
-// store/progressUtils.ts — Pure unit-unlock logic with no storage dependencies.
+// domain/unitUnlock.ts — Pure unit-unlock logic with no storage dependencies.
 //
-// Keeping this in its own file ensures that Stage 2 (Supabase) storage adapters
-// never accidentally read from the legacy progress.ts cache. Pages and components
-// import isUnitUnlocked from here; progress.ts re-exports it for backwards compat.
+// Domain rule: a unit is available when the preceding unit is mastered (and
+// its checkpoint, if any, is completed). Nothing here reads from storage —
+// callers pass the mastered/completed sets explicitly.
 
 /**
  * Returns true if the unit is available to study.

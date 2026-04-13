@@ -1,4 +1,4 @@
-// utils/exerciseConfig.ts — Smart exercise configuration and item selection.
+// domain/exerciseConfig.ts — Smart exercise configuration and item selection.
 //
 // PURPOSE
 // -------

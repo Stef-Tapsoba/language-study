@@ -1,4 +1,4 @@
-// utils/reinforcementMapping.ts — Derive reinforcement exercise assignments from content.
+// domain/reinforcementMapping.ts — Derive reinforcement exercise assignments from content.
 //
 // All logic is pure / side-effect-free so it is trivially testable and can be
 // called from both UnitPage (UI) and ExerciseShell (routing) without risk.

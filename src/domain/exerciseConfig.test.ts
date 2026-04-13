@@ -1,6 +1,6 @@
-// utils/exerciseConfig.test.ts
+// domain/exerciseConfig.test.ts
 
-import { describe, it, expect, beforeEach, vi } from "vitest"
+import { describe, it, expect, beforeEach } from "vitest"
 import { getExerciseConfig, selectItems } from "./exerciseConfig"
 import { registry } from "../store/registry"
 

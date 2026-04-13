@@ -40,13 +40,14 @@ language-study/
     components/           — Shared UI components
     context/              — React context providers
     data/                 — Content + data-access layer (see §4)
+    domain/               — Pure domain rules: unit unlock, exercise config, reinforcement (see §5)
     hooks/                — App-level custom hooks (re-exports + compositions)
     i18n/                 — UI string translations (not content)
     lib/                  — shadcn/ui utilities
     pages/                — One file per route, thin orchestration layer
-    store/                — Zustand stores + storage adapters (see §5)
+    store/                — Storage adapters, Zustand stores, use-case actions (see §6)
     types/                — Shared TypeScript interfaces
-    utils/                — Pure utility functions
+    utils/                — Pure utility functions (shuffle, answer matching, TTS, sound)
 
   packages/               — Internal monorepo packages (see §7)
   documents/              — Architecture + content guides
@@ -162,7 +163,27 @@ Examples: `es-g-a1-3`, `ja-v-a2-12`, `fr-c-a1-1`
 
 ---
 
-## 5. Store Layer
+## 5. Domain Layer
+
+`src/domain/` contains pure functions that encode the rules of the app — logic that is true regardless of storage backend, UI framework, or deployment stage.
+
+| File | What it encodes |
+|---|---|
+| `unitUnlock.ts` | A unit is unlocked when the preceding unit is mastered and its checkpoint (if any) is passed. |
+| `exerciseConfig.ts` | Exercise sizing by context (unit / practice / review) and the 4-tier SRS item selection system (due → weak → new → random). |
+| `reinforcementMapping.ts` | The vocab unlock threshold (default: 5 items learned), grammar exercise type resolution, and exercise label display strings. |
+
+**Rules for `src/domain/`:**
+- No imports from `src/store/registry.ts` or any storage adapter
+- No React imports, no hooks
+- All functions accept explicit parameters — no hidden reads from localStorage or Zustand
+- Every file has a corresponding `.test.ts`
+
+See `documents/ARCHITECTURE_DIAGRAM.md` §5 for a visual map of which pages consume which domain functions.
+
+---
+
+## 6. Store Layer
 
 ### 5.1 Storage Adapter Seam
 
@@ -229,7 +250,7 @@ resetLanguageProgress(langId)               // reset progress + SRS + stats
 
 ---
 
-## 6. Component Architecture
+## 7. Component Architecture
 
 ### 6.1 Shared Components
 
@@ -259,7 +280,7 @@ Keyboard shortcuts (1–4 to select answer, Enter to advance) are handled inside
 
 ---
 
-## 7. Monorepo Packages
+## 8. Monorepo Packages
 
 Located in `packages/` alongside `language-study/`. Consumed via Vite path aliases — no separate build step in dev.
 
@@ -285,7 +306,7 @@ Located in `packages/` alongside `language-study/`. Consumed via Vite path alias
 
 ---
 
-## 8. Build-Time Versioning
+## 9. Build-Time Versioning
 
 `vite.config.ts` reads `package.json` at build time and injects the version as a build-time constant:
 
@@ -305,7 +326,7 @@ Usage: `ProfilePage.tsx` exports `__APP_VERSION__` in the JSON progress snapshot
 
 ---
 
-## 9. Versioning Policy
+## 10. Versioning Policy
 
 | Change type | Version bump |
 |---|---|
@@ -318,7 +339,7 @@ Current version: **2.4** (branch `feature/a2_content_2.4`)
 
 ---
 
-## 10. Progress Export / Import
+## 11. Progress Export / Import
 
 `ProfilePage.tsx` serialises three localStorage namespaces to JSON:
 - `ls:progress` — mastered units, CEFR levels
@@ -329,7 +350,7 @@ Import applies a smart merge: data is never downgraded (higher level/more master
 
 ---
 
-## 11. Languages and Content Status
+## 12. Languages and Content Status
 
 Five languages: **Spanish (es)**, **French (fr)**, **Italian (it)**, **Japanese (ja)**, **Korean (ko)**.
 
@@ -349,7 +370,7 @@ CEFR levels implemented: **A1**, **A2**. B1 structure exists but content is part
 
 ---
 
-## 12. Deployment Stages
+## 13. Deployment Stages
 
 ### Stage 1 — Web MVP (current)
 - Static build, hosted on Vercel/Netlify
@@ -375,7 +396,7 @@ CEFR levels implemented: **A1**, **A2**. B1 structure exists but content is part
 
 ---
 
-## 13. Key Design Decisions
+## 14. Key Design Decisions
 
 ### Why TypeScript content files instead of JSON/CMS
 Content is structured and typed. The TypeScript compiler catches malformed content at build time. No server or CMS needed for Stage 1. Language chunks are tree-shaken so users only download the language they select.
