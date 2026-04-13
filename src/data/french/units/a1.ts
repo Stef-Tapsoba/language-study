@@ -104,6 +104,7 @@ export const a1Units: LessonUnit[] = [
         title: "Describe people and things",
         description: "Adjective agreement — the pattern you've been noticing since Unit 2. Masculine, feminine, plural. Personality and physical descriptions.",
         grammarIds: ["fr-g-a1-5"],
+        phraseLessonIds: ["fr-pl-a1-21"],
         vocabIds: ["fr-v-a1-98", "fr-v-a1-99", "fr-v-a1-100", "fr-v-a1-101", "fr-v-a1-102", "fr-v-a1-103", "fr-v-a1-104", "fr-v-a1-105", "fr-v-a1-165", "fr-v-a1-166", "fr-v-a1-167", "fr-v-a1-168", "fr-v-a1-169", "fr-v-a1-170", "fr-v-a1-172"],
         verbIds: [],
         testQuestions: [
@@ -208,6 +209,7 @@ export const a1Units: LessonUnit[] = [
         title: "Talk about what you do regularly",
         description: "Complete the -er verb system — all six forms. Add frequency adverbs (souvent, toujours, jamais) and talk about your weekly habits.",
         grammarIds: ["fr-g-a1-10"],
+        phraseLessonIds: ["fr-pl-a1-22"],
         vocabIds: ["fr-v-a1-152", "fr-v-a1-153", "fr-v-a1-154", "fr-v-a1-155", "fr-v-a1-228", "fr-v-a1-229", "fr-v-a1-230", "fr-v-a1-231", "fr-v-a1-232", "fr-v-a1-233", "fr-v-a1-234", "fr-v-a1-235"],
         verbIds: [],
         testQuestions: [
