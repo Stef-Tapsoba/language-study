@@ -53,6 +53,52 @@ Think of the partitive as your default when you're talking about food or drink a
             { word: "les légumes (m pl)", translation: "vegetables" },
             { word: "les frites (f pl)", translation: "chips / fries" },
         ],
+        rules: [
+            {
+                condition: "Talking about an unspecified quantity of something uncountable",
+                result: "Use du (masc.) / de la (fem.) / de l' (before vowel) / des (plural)",
+                examples: [
+                    { native: "Je mange du pain.", translation: "I eat (some) bread." },
+                    { native: "Elle boit de la bière.", translation: "She drinks (some) beer." },
+                    { native: "Vous avez de l'eau ?", translation: "Do you have (some) water?" },
+                ],
+            },
+            {
+                condition: "Making a general statement about liking something",
+                result: "Use le / la / les (definite article) — not du / de la",
+                examples: [
+                    { native: "J'aime le café. (general) / Je bois du café. (a quantity right now)", translation: "I like coffee. (general) / I'm drinking coffee. (now)" },
+                ],
+            },
+            {
+                condition: "After negation",
+                result: "All partitives become de (or d' before a vowel)",
+                examples: [
+                    { native: "Je bois du café. → Je ne bois pas de café.", translation: "I drink coffee. → I don't drink coffee." },
+                    { native: "Il y a de l'eau. → Il n'y a pas d'eau.", translation: "There is water. → There is no water." },
+                ],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "The partitive means 'some (of)'. If you can mentally insert 'some' in the English sentence, you probably need a partitive in French: 'I'm having [some] coffee' → 'Je prends du café'.",
+            },
+            {
+                type: "warning",
+                content: "Don't confuse du (partitive = some bread) with du (contraction = de + le, for example 'Je viens du Canada'). They look identical but come from completely different constructions.",
+            },
+            {
+                type: "culture",
+                content: "In French cafés, 'Un café, s'il vous plaît' (a coffee) and 'Du café, s'il vous plaît' (some coffee) are both normal, but un/une is more specific — you're ordering one coffee. Use whichever sounds natural.",
+            },
+        ],
+        fixedPhrases: [
+            { native: "Je voudrais du café et du pain, s'il vous plaît.", translation: "I'd like some coffee and some bread, please.", note: "Model café order — partitives both times." },
+            { native: "Vous avez de l'eau gazeuse ?", translation: "Do you have sparkling water?", note: "De l' before a vowel — always." },
+            { native: "Il n'y a plus de pain.", translation: "There's no more bread.", note: "Ne...plus de — combines the 'no longer' and partitive-to-de rules." },
+            { native: "Je prends des frites.", translation: "I'll have some chips.", note: "Des for plural uncountable items." },
+        ],
     },
     {
         id: "fr-g-a1-15",
@@ -111,6 +157,53 @@ USEFUL IMPERATIVE PHRASES
             { word: "traversez", translation: "cross (vous imperative of traverser)" },
             { word: "attendez", translation: "wait (vous imperative of attendre)" },
         ],
+        rules: [
+            {
+                condition: "Giving a direction or instruction to someone you address formally (vous)",
+                result: "Use the present-tense vous form without 'vous'",
+                examples: [
+                    { native: "Tournez à gauche.", translation: "Turn left." },
+                    { native: "Continuez tout droit.", translation: "Continue straight ahead." },
+                    { native: "Prenez la deuxième rue à droite.", translation: "Take the second street on the right." },
+                ],
+            },
+            {
+                condition: "Giving a direction or instruction to someone you address casually (tu)",
+                result: "Use the present-tense tu form without 'tu'; -er verbs drop the final -s",
+                examples: [
+                    { native: "Tourne à gauche !", translation: "Turn left! (tu form)" },
+                    { native: "Parle plus lentement !", translation: "Speak more slowly! (parles → parle, no -s)" },
+                ],
+            },
+            {
+                condition: "Telling someone NOT to do something",
+                result: "Add ne ... pas around the imperative verb",
+                examples: [
+                    { native: "Ne tournez pas là.", translation: "Don't turn there." },
+                    { native: "N'attendez pas — partez !", translation: "Don't wait — go!" },
+                ],
+            },
+        ],
+        notes: [
+            {
+                type: "warning",
+                content: "In the tu imperative, -er verbs drop the final -s: 'Parle !' not 'Parles !'. This only applies to the tu form — the vous form keeps its -ez ending as usual.",
+            },
+            {
+                type: "tip",
+                content: "'Allez !' is one of the most common words in French — used to say 'Come on!', 'Let's go!', or 'Right then!'. It's also the vous imperative of aller. You'll hear it everywhere from sports events to family dinners.",
+            },
+            {
+                type: "culture",
+                content: "When giving directions in France, you'll hear 'Vous allez tout droit' (statement) as often as 'Allez tout droit' (imperative). Both are perfectly natural — French people mix these forms freely.",
+            },
+        ],
+        fixedPhrases: [
+            { native: "Tournez à gauche aux feux.", translation: "Turn left at the traffic lights.", note: "Les feux (the lights) — essential directions vocabulary." },
+            { native: "Continuez tout droit jusqu'au carrefour.", translation: "Go straight ahead to the crossroads.", note: "Jusqu'au (until the) — useful directional phrase." },
+            { native: "Répétez, s'il vous plaît.", translation: "Please repeat.", note: "Polite imperative — essential for learners." },
+            { native: "Attendez une seconde !", translation: "Wait a second!", note: "High-frequency in any real interaction." },
+        ],
     },
     {
         id: "fr-g-a1-16",
@@ -163,6 +256,54 @@ Use these time expressions with the futur proche to anchor your plans clearly in
             { word: "tout à l'heure", translation: "in a little while" },
             { word: "il va pleuvoir", translation: "it's going to rain" },
             { word: "fêter", translation: "to celebrate" },
+        ],
+        rules: [
+            {
+                condition: "Talking about a future plan or intention",
+                result: "Use conjugated aller + infinitive (futur proche)",
+                examples: [
+                    { native: "Je vais travailler demain.", translation: "I'm going to work tomorrow." },
+                    { native: "Elle va partir ce soir.", translation: "She's going to leave tonight." },
+                    { native: "Nous allons voyager en Italie.", translation: "We're going to travel to Italy." },
+                ],
+            },
+            {
+                condition: "Negating a futur proche",
+                result: "Ne ... pas wraps around aller — not around the infinitive",
+                examples: [
+                    { native: "Je ne vais pas travailler demain.", translation: "I'm not going to work tomorrow." },
+                    { native: "Il ne va pas venir ce soir.", translation: "He's not going to come tonight." },
+                ],
+            },
+            {
+                condition: "Predicting what is about to happen",
+                result: "Futur proche works for impersonal predictions too",
+                examples: [
+                    { native: "Il va pleuvoir.", translation: "It's going to rain." },
+                    { native: "Ça va être difficile.", translation: "It's going to be difficult." },
+                ],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "The futur proche is the main future tense in spoken French at A1. The futur simple (je travaillerai) exists but is mostly written and formal — don't worry about it yet. Aller + infinitive covers everything you need.",
+            },
+            {
+                type: "culture",
+                content: "'Ça va aller' (literally 'that's going to go') is a common reassurance in French — similar to 'It'll be fine'. The futur proche appears naturally in many set phrases like this one.",
+            },
+            {
+                type: "forward-ref",
+                content: "The futur simple (je partirai, nous irons) is introduced at A2 and is used more in writing and formal speech. For now, the futur proche handles all your future communication needs.",
+                refId: "fr-g-a1-22",
+            },
+        ],
+        fixedPhrases: [
+            { native: "Qu'est-ce que tu vas faire ce week-end ?", translation: "What are you going to do this weekend?", note: "Natural way to ask about someone's plans." },
+            { native: "Je vais y réfléchir.", translation: "I'm going to think about it.", note: "Y replaces 'à ça' — polite way to defer a decision." },
+            { native: "Ça va aller.", translation: "It'll be fine.", note: "Reassuring, optimistic — very French." },
+            { native: "On va fêter ça !", translation: "We're going to celebrate this!", note: "Spontaneous celebration phrase." },
         ],
     },
     {
@@ -224,6 +365,53 @@ KEY COMBINATIONS
             { word: "je ne peux pas", translation: "I can't" },
             { word: "m'aider", translation: "to help me" },
         ],
+        rules: [
+            {
+                condition: "Expressing what you want (neutral / informal)",
+                result: "Use je veux + infinitive",
+                examples: [
+                    { native: "Je veux partir.", translation: "I want to leave." },
+                    { native: "Tu veux venir avec moi ?", translation: "Do you want to come with me?" },
+                ],
+            },
+            {
+                condition: "Expressing what you'd like (polite — café, shop, formal situation)",
+                result: "Use je voudrais + infinitive or noun",
+                examples: [
+                    { native: "Je voudrais réserver une table.", translation: "I'd like to reserve a table." },
+                    { native: "Je voudrais un café, s'il vous plaît.", translation: "I'd like a coffee, please." },
+                ],
+            },
+            {
+                condition: "Asking or saying whether something is possible",
+                result: "Use pouvoir + infinitive",
+                examples: [
+                    { native: "Vous pouvez répéter ?", translation: "Can you repeat?" },
+                    { native: "Je ne peux pas venir ce soir.", translation: "I can't come tonight." },
+                    { native: "On peut payer par carte ?", translation: "Can we pay by card?" },
+                ],
+            },
+        ],
+        notes: [
+            {
+                type: "warning",
+                content: "'Je veux' is grammatically fine but can sound blunt in service situations. In cafés, restaurants, and shops, always use 'je voudrais'. Between friends, 'je veux' is completely natural.",
+            },
+            {
+                type: "tip",
+                content: "'Je veux bien' does NOT mean 'I want a lot'. It means 'I'd be happy to' or 'Yes please' — it's an acceptance. Compare: 'Tu veux un café ?' / 'Je veux bien !' (Yes please!)",
+            },
+            {
+                type: "culture",
+                content: "'On peut' is extremely useful for suggesting shared actions politely: 'On peut s'asseoir ici ?' (Can we sit here?), 'On peut partager ?' (Can we share?). It's softer than 'Nous pouvons' and more natural.",
+            },
+        ],
+        fixedPhrases: [
+            { native: "Je voudrais un café, s'il vous plaît.", translation: "I'd like a coffee, please.", note: "The model polite order — use voudrais, not veux, in service contexts." },
+            { native: "Vous pouvez répéter plus lentement ?", translation: "Could you repeat more slowly?", note: "Essential learner phrase — always polite, always effective." },
+            { native: "Je ne peux pas ce soir.", translation: "I can't (make it) tonight.", note: "Idiomatic — the infinitive is implied." },
+            { native: "Je veux bien !", translation: "I'd love to! / Yes please!", note: "An enthusiastic acceptance — not 'I want a lot'." },
+        ],
     },
     {
         id: "fr-g-a1-18",
@@ -283,6 +471,53 @@ These three verbs work together in real conversation constantly — once you hav
             { word: "confirmer", translation: "to confirm" },
             { word: "occupé(e)", translation: "busy" },
             { word: "à l'avance", translation: "in advance" },
+        ],
+        rules: [
+            {
+                condition: "Expressing obligation — something you have to do",
+                result: "Use je dois + infinitive",
+                examples: [
+                    { native: "Je dois travailler ce soir.", translation: "I have to work tonight." },
+                    { native: "Tu dois confirmer la réservation.", translation: "You have to confirm the booking." },
+                ],
+            },
+            {
+                condition: "Expressing strong probability — something is almost certainly true",
+                result: "Use doit + infinitive (third person common)",
+                examples: [
+                    { native: "Il doit être fatigué.", translation: "He must be tired." },
+                    { native: "Elle doit être en réunion.", translation: "She must be in a meeting." },
+                ],
+            },
+            {
+                condition: "Explaining a conflict between desire and obligation",
+                result: "Use voudrais + mais + dois to show the tension",
+                examples: [
+                    { native: "Je voudrais venir, mais je dois travailler.", translation: "I'd like to come, but I have to work." },
+                    { native: "Il voudrait rester, mais il doit partir.", translation: "He'd like to stay, but he has to leave." },
+                ],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "The three modals do different jobs: vouloir = desire, pouvoir = ability, devoir = obligation. Once you have all three, you can explain almost any human decision in French.",
+            },
+            {
+                type: "forward-ref",
+                content: "'Je devrais' (I should) is the conditional of devoir — softer and more polite than 'je dois'. You'll study the conditional mood properly at A2, but 'je devrais' is worth learning now as a fixed phrase.",
+                refId: "fr-g-a1-22",
+            },
+            {
+                type: "culture",
+                content: "Using 'il faut' (one must / it's necessary) is very common in French for impersonal obligation: 'Il faut réserver à l'avance' (You need to book ahead). It's less personal than 'vous devez' and widely used.",
+            },
+        ],
+        fixedPhrases: [
+            { native: "Je dois partir maintenant.", translation: "I have to leave now.", note: "Direct, clear, and slightly apologetic — useful exit phrase." },
+            { native: "Il faut réserver à l'avance.", translation: "You need to book in advance.", note: "Il faut = impersonal obligation — very natural in French." },
+            { native: "Je voudrais venir, mais je dois travailler.", translation: "I'd like to come, but I have to work.", note: "The classic conflict — desire vs. obligation." },
+            { native: "Je devrais dormir plus.", translation: "I should sleep more.", note: "Je devrais = I should. Softer and more reflective than je dois." },
         ],
     },
 ]

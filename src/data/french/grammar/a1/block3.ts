@@ -57,6 +57,55 @@ The pronoun never escapes to the outside of the negation — remember, it travel
             { word: "tôt", translation: "early" },
             { word: "tard", translation: "late" },
         ],
+        rules: [
+            {
+                condition: "Conjugating a reflexive verb",
+                result: "Match the reflexive pronoun to the subject: me / te / se / nous / vous / se",
+                examples: [
+                    { native: "Je me lève à sept heures.", translation: "I get up at seven o'clock." },
+                    { native: "Tu te couches à quelle heure ?", translation: "What time do you go to bed?" },
+                    { native: "Il se douche le matin.", translation: "He showers in the morning." },
+                ],
+            },
+            {
+                condition: "The verb begins with a vowel",
+                result: "Me, te, se contract to m', t', s'",
+                examples: [
+                    { native: "Je m'appelle Marie.", translation: "My name is Marie." },
+                    { native: "Il s'habille rapidement.", translation: "He gets dressed quickly." },
+                    { native: "Elle s'appelle Claire.", translation: "Her name is Claire." },
+                ],
+            },
+            {
+                condition: "Negating a reflexive verb",
+                result: "The reflexive pronoun stays inside the ne...pas brackets",
+                examples: [
+                    { native: "Je ne me lève pas tôt.", translation: "I don't get up early." },
+                    { native: "Elle ne se couche pas avant minuit.", translation: "She doesn't go to bed before midnight." },
+                ],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "You've already been using a reflexive verb since lesson one: 'Je m'appelle'. Now you know the grammar behind it. Reflexive verbs are simply actions you do to yourself.",
+            },
+            {
+                type: "warning",
+                content: "In negation, the reflexive pronoun stays before the verb — inside the ne...pas frame. 'Je ne me lève pas' — not 'Je me ne lève pas'.",
+            },
+            {
+                type: "forward-ref",
+                content: "Reflexive verbs in the passé composé always use être as the auxiliary: 'Je me suis levé(e)'. This is covered in the Block 5 lesson on être passé composé.",
+                refId: "fr-g-a1-20",
+            },
+        ],
+        fixedPhrases: [
+            { native: "Je m'appelle...", translation: "My name is...", note: "The most important reflexive phrase — you've been using it since day one." },
+            { native: "Je me lève tôt le lundi.", translation: "I get up early on Mondays.", note: "Template for describing your weekly routine." },
+            { native: "Je me couche vers onze heures.", translation: "I go to bed around eleven o'clock.", note: "Vers (around) makes it sound natural rather than mechanical." },
+            { native: "Je m'en vais.", translation: "I'm leaving. / I'm off.", note: "A very natural way to announce you're leaving — more polite than 'je pars'." },
+        ],
     },
     {
         id: "fr-g-a1-10",
@@ -113,6 +162,51 @@ After this lesson, you can conjugate any regular -er verb with all six persons. 
             { word: "étudier", translation: "to study" },
             { word: "rester", translation: "to stay / to remain" },
         ],
+        rules: [
+            {
+                condition: "Conjugating any regular -er verb — all six persons",
+                result: "Remove -er; add: -e / -es / -e / -ons / -ez / -ent",
+                examples: [
+                    { native: "Je parle, tu parles, il parle.", translation: "I speak, you speak, he speaks." },
+                    { native: "Nous travaillons, vous travaillez, ils travaillent.", translation: "We work, you work, they work." },
+                ],
+            },
+            {
+                condition: "Verbs ending in -ger (manger, voyager, nager…)",
+                result: "Add -e before the -ons ending to keep the soft g sound",
+                examples: [
+                    { native: "Nous mangeons.", translation: "We eat. (not 'mangons')" },
+                    { native: "Nous voyageons souvent.", translation: "We travel often." },
+                ],
+            },
+            {
+                condition: "In spoken French, how many distinct sounds does a regular -er verb have?",
+                result: "Three — je/tu/il/elle/ils/elles all sound the same; nous and vous are distinct",
+                examples: [
+                    { native: "je travaille / tu travailles / il travaille / ils travaillent", translation: "All sound like 'travay' — only nous (travayON) and vous (travayAY) differ." },
+                ],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "The ils/elles ending -ent is always silent in speech. 'Ils travaillent' sounds exactly like 'il travaille'. The written -ent is purely a spelling convention — it will never affect your pronunciation.",
+            },
+            {
+                type: "culture",
+                content: "Nous is being replaced by on in casual spoken French for 'we': 'On travaille ensemble' sounds much more natural than 'Nous travaillons ensemble' in everyday conversation. Both are correct — learn to use on.",
+            },
+            {
+                type: "warning",
+                content: "Nous and vous are spelled differently from the others and sound completely different. Don't apply the silent-ending rule to them: nous travaillONS and vous travaillEZ are fully pronounced.",
+            },
+        ],
+        fixedPhrases: [
+            { native: "On travaille ensemble.", translation: "We work together.", note: "On replaces nous in casual spoken French." },
+            { native: "Vous habitez à Paris ?", translation: "Do you live in Paris?", note: "Standard polite question using vous — works for formal singular or plural." },
+            { native: "Ils écoutent tout.", translation: "They listen to everything.", note: "Useful reminder: écouter takes a direct object (pas de à)." },
+            { native: "Nous mangeons ensemble le dimanche.", translation: "We eat together on Sundays.", note: "Note mangeons — the -ge- rule in action." },
+        ],
     },
     {
         id: "fr-g-a1-11",
@@ -168,6 +262,53 @@ For A1, you need two solid strategies: intonation for quick casual questions, an
             { word: "combien", translation: "how much / how many" },
             { word: "quel / quelle", translation: "which / what (agrees with noun)" },
             { word: "qu'est-ce que", translation: "what (as object of verb)" },
+        ],
+        rules: [
+            {
+                condition: "Asking a yes/no question in casual speech",
+                result: "Keep normal word order and raise your voice at the end",
+                examples: [
+                    { native: "Tu parles français ?", translation: "Do you speak French?" },
+                    { native: "Elle est française ?", translation: "Is she French?" },
+                ],
+            },
+            {
+                condition: "Asking a yes/no question in neutral register",
+                result: "Add est-ce que before normal word order",
+                examples: [
+                    { native: "Est-ce que tu parles français ?", translation: "Do you speak French?" },
+                    { native: "Est-ce qu'elle habite ici ?", translation: "Does she live here?" },
+                ],
+            },
+            {
+                condition: "Asking a question with a question word",
+                result: "Question word + est-ce que + normal word order",
+                examples: [
+                    { native: "Où est-ce que tu habites ?", translation: "Where do you live?" },
+                    { native: "Quand est-ce qu'il arrive ?", translation: "When does he arrive?" },
+                    { native: "Pourquoi est-ce que tu pars ?", translation: "Why are you leaving?" },
+                ],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "Learn 'Qu'est-ce que tu fais ?' as a single chunk — pronounced roughly 'kess-ke tu feh'. It means 'What are you doing?' and is one of the most useful questions you'll ever ask in French.",
+            },
+            {
+                type: "culture",
+                content: "Inversion (Parles-tu ?) is formal and mainly written. In everyday speech, French people almost never use it — they use rising intonation or est-ce que. Don't stress about producing inversion at A1.",
+            },
+            {
+                type: "warning",
+                content: "Est-ce que contracts to est-ce qu' before a vowel: 'Est-ce qu'il parle ?' not 'Est-ce que il parle ?'. The elision is obligatory.",
+            },
+        ],
+        fixedPhrases: [
+            { native: "Qu'est-ce que tu fais ?", translation: "What are you doing?", note: "Learn this as one chunk — the most common 'what' question in French." },
+            { native: "Tu habites où ?", translation: "Where do you live?", note: "Casual word order — question word at the end, voice rises." },
+            { native: "C'est combien ?", translation: "How much is it?", note: "Essential shopping phrase — always works." },
+            { native: "Comment tu t'appelles ?", translation: "What's your name?", note: "Casual version of the classic first question." },
         ],
     },
     {
@@ -228,6 +369,60 @@ Start with **et, mais, donc, parce que** — they'll do most of the work. Add th
             { word: "quand", translation: "when" },
             { word: "pourtant", translation: "however / yet" },
         ],
+        rules: [
+            {
+                condition: "Adding information or continuing a thought",
+                result: "Use et (and)",
+                examples: [
+                    { native: "J'aime Paris et Lyon.", translation: "I like Paris and Lyon." },
+                    { native: "Je travaille et j'étudie.", translation: "I work and I study." },
+                ],
+            },
+            {
+                condition: "Contrasting two ideas",
+                result: "Use mais (but)",
+                examples: [
+                    { native: "Je veux venir, mais je ne peux pas.", translation: "I want to come, but I can't." },
+                    { native: "Il est sympa, mais un peu timide.", translation: "He's nice, but a little shy." },
+                ],
+            },
+            {
+                condition: "Giving a reason",
+                result: "Use parce que (because) — requires a full clause after it",
+                examples: [
+                    { native: "Je reste ici parce que j'ai du travail.", translation: "I'm staying here because I have work." },
+                    { native: "J'aime le français parce que c'est utile.", translation: "I like French because it's useful." },
+                ],
+            },
+            {
+                condition: "Giving a consequence",
+                result: "Use donc (formal) or alors (casual) for 'so / therefore'",
+                examples: [
+                    { native: "Il pleut, donc je reste à la maison.", translation: "It's raining, so I'm staying home." },
+                    { native: "Je suis fatigué, alors je vais me coucher.", translation: "I'm tired, so I'm going to bed." },
+                ],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "Start with just et, mais, donc, parce que — these four connectors will transform your French from a list of facts into actual sentences. Add alors, puis, and pourtant once those four feel automatic.",
+            },
+            {
+                type: "warning",
+                content: "Parce que introduces a full clause (subject + verb). To give a shorter reason, use 'à cause de' + noun: 'Je reste à cause de la pluie'. At A1, parce que + full clause is simpler and always correct.",
+            },
+            {
+                type: "culture",
+                content: "Alors is extremely versatile in spoken French — it can mean 'so', 'well', 'and then', or just serve as a conversation filler. You'll hear it constantly. It's less formal than donc.",
+            },
+        ],
+        fixedPhrases: [
+            { native: "C'est cher, mais c'est très bon.", translation: "It's expensive, but it's very good.", note: "Classic contrast — works for food, hotels, anything." },
+            { native: "Je ne peux pas parce que je travaille.", translation: "I can't because I'm working.", note: "The most useful excuse — concise and clear." },
+            { native: "Il fait beau, donc on va se promener.", translation: "The weather's nice, so we're going for a walk.", note: "Donc for logical consequence." },
+            { native: "Tu préfères le café ou le thé ?", translation: "Do you prefer coffee or tea?", note: "Ou (or) — note no accent, unlike où (where)." },
+        ],
     },
     {
         id: "fr-g-a1-13",
@@ -280,6 +475,51 @@ INTRODUCING A RELATIVE CLAUSE — qui
             { word: "voilà", translation: "there you go / that's it" },
             { word: "quoi", translation: "sentence-final filler (informal)" },
             { word: "qui", translation: "who / that / which (relative pronoun)" },
+        ],
+        rules: [
+            {
+                condition: "Describing a sequence of events (a routine, a story, a recipe)",
+                result: "Use d'abord … ensuite … enfin to signal first, next, finally",
+                examples: [
+                    { native: "D'abord je me lève, ensuite je prends un café, enfin je pars au travail.", translation: "First I get up, then I have a coffee, finally I leave for work." },
+                ],
+            },
+            {
+                condition: "Something happens despite expectations",
+                result: "Use quand même (all the same) or pourtant (however)",
+                examples: [
+                    { native: "C'est difficile, mais je continue quand même.", translation: "It's difficult, but I carry on all the same." },
+                    { native: "Je suis fatigué, pourtant je suis content.", translation: "I'm tired, yet I'm happy." },
+                ],
+            },
+            {
+                condition: "Correcting or nuancing what you just said",
+                result: "Use en fait (actually / in fact) to introduce the real situation",
+                examples: [
+                    { native: "En fait, c'est plus simple que ça.", translation: "Actually, it's simpler than that." },
+                    { native: "En fait, je préfère le thé.", translation: "Actually, I prefer tea." },
+                ],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "D'abord, ensuite, enfin are story-telling gold. These three words alone can take a flat list of facts and turn it into a flowing narrative. Use them every time you describe a routine or a sequence of events.",
+            },
+            {
+                type: "culture",
+                content: "'Voilà' is one of the most versatile words in French. It can conclude a thought ('That's it'), present something ('Here you go'), or fill a pause. French people use it constantly — you should too.",
+            },
+            {
+                type: "warning",
+                content: "'Enfin' is subtle — it can mean 'finally' (in a sequence), 'well...' (a hesitation), or 'I mean...' (a self-correction). Interpret it from context rather than assuming it always means 'finally'.",
+            },
+        ],
+        fixedPhrases: [
+            { native: "D'abord... ensuite... enfin...", translation: "First... then... finally...", note: "Use these three to structure any story or description." },
+            { native: "En fait, non.", translation: "Actually, no.", note: "A polite way to correct a misunderstanding or change your mind." },
+            { native: "C'est compliqué, quoi.", translation: "It's complicated, you know.", note: "Sentence-final 'quoi' signals the speaker considers the matter self-evident. Very French." },
+            { native: "Voilà, c'est tout.", translation: "That's it, that's all.", note: "Natural way to close a description or explanation." },
         ],
     },
 ]

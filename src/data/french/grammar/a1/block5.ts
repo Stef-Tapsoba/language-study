@@ -62,6 +62,53 @@ You started A1 communicating in the present. Now you can reach into the past too
             { word: "voir — vu", translation: "to see — seen (irregular)" },
             { word: "prendre — pris", translation: "to take — taken (irregular)" },
         ],
+        rules: [
+            {
+                condition: "Forming the passé composé with avoir",
+                result: "Conjugated avoir + past participle (no agreement with subject)",
+                examples: [
+                    { native: "J'ai mangé une pizza.", translation: "I ate a pizza." },
+                    { native: "Elle a travaillé toute la journée.", translation: "She worked all day." },
+                    { native: "Ils ont vu ce film hier.", translation: "They saw that film yesterday." },
+                ],
+            },
+            {
+                condition: "Forming the past participle of a regular verb",
+                result: "-er → -é | -ir → -i | -re → -u",
+                examples: [
+                    { native: "manger → mangé / finir → fini / vendre → vendu", translation: "eat → eaten / finish → finished / sell → sold" },
+                ],
+            },
+            {
+                condition: "Negating the passé composé",
+                result: "Ne ... pas wraps around avoir — the past participle stays outside",
+                examples: [
+                    { native: "Je n'ai pas mangé ce matin.", translation: "I didn't eat this morning." },
+                    { native: "Il n'a pas travaillé hier.", translation: "He didn't work yesterday." },
+                ],
+            },
+        ],
+        notes: [
+            {
+                type: "warning",
+                content: "Many very common verbs have irregular past participles: faire → fait, voir → vu, prendre → pris, boire → bu, vouloir → voulu. These must be memorised — there is no pattern to infer them from.",
+            },
+            {
+                type: "tip",
+                content: "The passé composé is the go-to past tense in spoken French. It covers both 'I ate' (simple past) and 'I have eaten' (present perfect) — French doesn't separate these the way English does.",
+            },
+            {
+                type: "forward-ref",
+                content: "The imparfait (j'habitais, c'était) describes past states and habits and is the second main past tense you'll learn at A2. For now, the passé composé handles all your storytelling needs.",
+                refId: "fr-g-a1-22",
+            },
+        ],
+        fixedPhrases: [
+            { native: "Qu'est-ce que tu as fait hier ?", translation: "What did you do yesterday?", note: "The essential past-tense conversation starter." },
+            { native: "J'ai bien mangé !", translation: "I ate well! / That was a good meal!", note: "A natural comment after any meal — très français." },
+            { native: "Tu as vu ce film ?", translation: "Have you seen that film?", note: "Vu = irrégulier. High-frequency social question." },
+            { native: "Il n'a pas répondu.", translation: "He didn't reply.", note: "Répondre → répondu (regular -re). Useful in many situations." },
+        ],
     },
     {
         id: "fr-g-a1-20",
@@ -118,6 +165,60 @@ NEGATION — ne...pas wraps around être:
             { word: "rester — resté(e)", translation: "to stay — stayed" },
             { word: "naître — né(e)", translation: "to be born — born" },
             { word: "tomber — tombé(e)", translation: "to fall — fallen" },
+        ],
+        rules: [
+            {
+                condition: "The verb expresses movement or a change of state (aller, venir, partir, arriver, etc.)",
+                result: "Use être (not avoir) as the auxiliary in the passé composé",
+                examples: [
+                    { native: "Je suis allé au marché.", translation: "I went to the market." },
+                    { native: "Elle est arrivée en retard.", translation: "She arrived late." },
+                    { native: "Ils sont partis tôt.", translation: "They left early." },
+                ],
+            },
+            {
+                condition: "Subject is feminine (with être auxiliary)",
+                result: "Add -e to the past participle",
+                examples: [
+                    { native: "Il est allé. → Elle est allée.", translation: "He went. → She went." },
+                    { native: "Il est parti. → Elle est partie.", translation: "He left. → She left." },
+                ],
+            },
+            {
+                condition: "Subject is plural (with être auxiliary)",
+                result: "Add -s (masculine) or -es (feminine plural) to the past participle",
+                examples: [
+                    { native: "Ils sont arrivés. Elles sont arrivées.", translation: "They arrived. (m) / They arrived. (f)" },
+                ],
+            },
+            {
+                condition: "The verb is reflexive (se lever, se coucher, s'habiller…)",
+                result: "Reflexive verbs always form their passé composé with être",
+                examples: [
+                    { native: "Je me suis levé(e) à sept heures.", translation: "I got up at seven." },
+                    { native: "Elle s'est couchée tard.", translation: "She went to bed late." },
+                ],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "Most être verbs come in natural opposite pairs: aller/venir, partir/arriver, entrer/sortir, monter/descendre, naître/mourir. If one of a pair uses être, the other does too. Learn them in pairs.",
+            },
+            {
+                type: "warning",
+                content: "Don't forget the agreement: with être verbs, the past participle behaves like an adjective. 'Elle est allée' (not 'allé'), 'Elles sont parties' (not 'parti'). This is a very common written error.",
+            },
+            {
+                type: "culture",
+                content: "The être verb list is fixed and finite — there are roughly 16 movement/state verbs. Every other verb uses avoir. When in doubt, use avoir — you'll be right the vast majority of the time.",
+            },
+        ],
+        fixedPhrases: [
+            { native: "Je suis allé(e) au cinéma hier soir.", translation: "I went to the cinema last night.", note: "Template for any être verb in the past — swap the destination." },
+            { native: "Elle est arrivée en retard.", translation: "She arrived late.", note: "Note the -e agreement — arrivée, not arrivé." },
+            { native: "Tu es rentré(e) à quelle heure ?", translation: "What time did you get home?", note: "Rentrer = to return home. Very high-frequency question." },
+            { native: "Je me suis bien amusé(e).", translation: "I had a great time.", note: "Reflexive verb in passé composé — être auxiliary + agreement." },
         ],
     },
     {
@@ -179,6 +280,55 @@ THE COMPLETE PICTURE — all three regular families
             { word: "entendre", translation: "to hear" },
             { word: "prendre", translation: "to take (irregular — pris)" },
         ],
+        rules: [
+            {
+                condition: "Conjugating a regular -ir verb (finir, choisir, réussir…)",
+                result: "Remove -ir; add: -is / -is / -it / -issons / -issez / -issent",
+                examples: [
+                    { native: "Je finis à dix-huit heures.", translation: "I finish at six o'clock." },
+                    { native: "Nous finissons ensemble.", translation: "We finish together." },
+                    { native: "Ils choisissent un restaurant.", translation: "They choose a restaurant." },
+                ],
+            },
+            {
+                condition: "Conjugating a regular -re verb (vendre, attendre, répondre…)",
+                result: "Remove -re; add: -s / -s / — / -ons / -ez / -ent (il/elle form has no ending)",
+                examples: [
+                    { native: "J'attends le bus.", translation: "I'm waiting for the bus." },
+                    { native: "Il répond toujours vite.", translation: "He always replies quickly." },
+                    { native: "Nous vendons des légumes.", translation: "We sell vegetables." },
+                ],
+            },
+            {
+                condition: "Using prendre (an essential irregular -re verb)",
+                result: "je prends / tu prends / il prend / nous prenons / vous prenez / ils prennent",
+                examples: [
+                    { native: "Je prends le métro.", translation: "I take the metro." },
+                    { native: "Ils prennent le bus.", translation: "They take the bus." },
+                ],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "The distinctive marker of -ir verbs is the -iss- that appears in the nous/vous/ils forms: finissons, finissez, finissent. If you see -iss-, you're looking at an -ir verb conjugation.",
+            },
+            {
+                type: "warning",
+                content: "Not all -ir verbs follow the finir pattern. Partir, sortir, venir, and tenir are irregular. When you meet a new -ir verb, check whether it uses the -iss- pattern or has its own forms.",
+            },
+            {
+                type: "forward-ref",
+                content: "Now you know all three regular verb families: -er, -ir, -re. Combined with your irregular verbs (être, avoir, aller, vouloir, pouvoir, devoir), you have a complete A1 verb toolkit.",
+                refId: "fr-g-a1-22",
+            },
+        ],
+        fixedPhrases: [
+            { native: "J'attends depuis vingt minutes.", translation: "I've been waiting for twenty minutes.", note: "Depuis + present tense = ongoing action — very natural complaint." },
+            { native: "Tu choisis quoi ?", translation: "What are you choosing?", note: "Casual ordering question — choisis sounds like 'shwa-zee'." },
+            { native: "J'ai réussi !", translation: "I passed! / I did it!", note: "Réussir = to succeed / to pass. Very satisfying to say." },
+            { native: "Je prends le métro.", translation: "I take the metro.", note: "Prendre is irregular but extremely common — memorise all forms." },
+        ],
     },
     {
         id: "fr-g-a1-22",
@@ -235,6 +385,52 @@ You have the foundation. A2 is where you build the walls.`,
             { word: "formidable", translation: "wonderful / great" },
             { word: "l'imparfait", translation: "the imperfect tense (coming at A2)" },
             { word: "un pronom", translation: "a pronoun (object pronouns coming at A2)" },
+        ],
+        rules: [
+            {
+                condition: "Describing an action that began in the past and is still ongoing",
+                result: "Use present tense + depuis (not passé composé)",
+                examples: [
+                    { native: "J'étudie le français depuis six mois.", translation: "I've been studying French for six months. (still studying now)" },
+                    { native: "Il habite à Paris depuis dix ans.", translation: "He's been living in Paris for ten years." },
+                ],
+            },
+            {
+                condition: "Describing a past event",
+                result: "Use passé composé (with avoir or être as appropriate)",
+                examples: [
+                    { native: "Le week-end dernier, je suis allé au marché.", translation: "Last weekend, I went to the market." },
+                    { native: "J'ai acheté des légumes et j'ai cuisiné.", translation: "I bought some vegetables and cooked." },
+                ],
+            },
+            {
+                condition: "Talking about a future plan",
+                result: "Use futur proche (aller + infinitive) with a future time expression",
+                examples: [
+                    { native: "La semaine prochaine, je vais partir en vacances.", translation: "Next week, I'm going to go on holiday." },
+                    { native: "Demain, on va fêter ça !", translation: "Tomorrow, we're going to celebrate!" },
+                ],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "The tense trio you now control: present (je travaille), passé composé (j'ai travaillé), futur proche (je vais travailler). These three carry you through virtually all real A1 conversation.",
+            },
+            {
+                type: "warning",
+                content: "Depuis with the present tense is a false friend for English speakers. 'J'habite ici depuis deux ans' = 'I have been living here for two years' (not 'I lived here'). The present tense signals it's still happening.",
+            },
+            {
+                type: "culture",
+                content: "French A1 is a genuine communicative level. You can introduce yourself, describe your life and family, talk about daily routines, navigate a café, give and follow directions, and tell simple stories about the past and future.",
+            },
+        ],
+        fixedPhrases: [
+            { native: "J'étudie le français depuis six mois.", translation: "I've been studying French for six months.", note: "Depuis + present = ongoing since a point in the past." },
+            { native: "C'était vraiment sympa.", translation: "It was really nice.", note: "C'était = it was (imparfait — you'll study this formally at A2)." },
+            { native: "Je suis vraiment content(e) !", translation: "I'm really happy!", note: "Vraiment intensifies any adjective — use it freely." },
+            { native: "À bientôt !", translation: "See you soon!", note: "Standard parting phrase — warmer than au revoir." },
         ],
     },
 ]
