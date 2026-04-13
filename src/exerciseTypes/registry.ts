@@ -55,7 +55,7 @@ import type { CEFRLevel } from "../types"
 import type { MatchMode } from "../utils/answerMatch"
 import type { ContentType } from "../store/IProgressStorage"
 import type { DrillSessionType } from "../store/actions"
-import type { ExerciseConfig, ExerciseContext } from "../utils/exerciseConfig"
+import type { ExerciseConfig, ExerciseContext } from "../domain/exerciseConfig"
 
 // ---------------------------------------------------------------------------
 // Params passed to fetchItems

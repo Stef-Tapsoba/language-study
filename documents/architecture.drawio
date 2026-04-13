@@ -1,0 +1,376 @@
+<mxfile host="app.diagrams.net" modified="2026-04-13T00:00:00.000Z" agent="Claude Code" version="21.0.0" type="device">
+  <diagram id="architecture-overview" name="Architecture Overview">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ═══════════════════════════════════════════════
+             LAYER 4 — UI
+        ═══════════════════════════════════════════════ -->
+        <mxCell id="10" value="Layer 4 — UI" tooltip="React only. No business logic. Pages call hooks; components render. Pages never touch Supabase or domain rules directly — they delegate."
+          style="swimlane;startSize=30;fillColor=#dbeafe;strokeColor=#3b82f6;fontColor=#1e40af;fontStyle=1;fontSize=13;arcSize=4;"
+          vertex="1" parent="1">
+          <mxGeometry x="20" y="20" width="1129" height="160" as="geometry" />
+        </mxCell>
+
+        <mxCell id="11" value="&lt;b&gt;Pages&lt;/b&gt;&lt;br/&gt;HomePage · DashboardPage · UnitPage · FlashcardsPage&lt;br/&gt;GrammarDrillPage · VerbDrillPage · ProfilePage · ReviewPage"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#3b82f6;fontSize=11;arcSize=8;"
+          vertex="1" parent="10">
+          <mxGeometry x="10" y="40" width="545" height="105" as="geometry" />
+        </mxCell>
+
+        <mxCell id="12" value="&lt;b&gt;Shared Components&lt;/b&gt;&lt;br/&gt;ExerciseShell · NavBar · QuizCard · StatsTab&lt;br/&gt;SpeakButton · DrillDoneScreen · ReviewPromptCard"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#3b82f6;fontSize=11;arcSize=8;"
+          vertex="1" parent="10">
+          <mxGeometry x="574" y="40" width="545" height="105" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════
+             LAYER 3 — APPLICATION
+        ═══════════════════════════════════════════════ -->
+        <mxCell id="20" value="Layer 3 — Application" tooltip="Use cases: the things a user can do. Each action co-locates all state mutations so Stage 2 Supabase writes have a single place to be added."
+          style="swimlane;startSize=30;fillColor=#dcfce7;strokeColor=#16a34a;fontColor=#14532d;fontStyle=1;fontSize=13;arcSize=4;"
+          vertex="1" parent="1">
+          <mxGeometry x="20" y="200" width="1129" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="21" value="&lt;b&gt;src/store/actions.ts — Use Cases&lt;/b&gt;&lt;br/&gt;completeUnit · confirmUnitMastery · completeReinforcement · completeDrillSession · exportProgressSnapshot · importProgressSnapshot · resetLanguageData"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0fdf4;strokeColor=#16a34a;fontSize=11;arcSize=8;"
+          vertex="1" parent="20">
+          <mxGeometry x="10" y="38" width="1109" height="52" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════
+             LAYER 2 — DOMAIN
+        ═══════════════════════════════════════════════ -->
+        <mxCell id="30" value="Layer 2 — Domain" tooltip="Pure functions encoding the rules of the app. No storage, no React, no side effects. All functions are pure and fully tested."
+          style="swimlane;startSize=30;fillColor=#fef9c3;strokeColor=#ca8a04;fontColor=#713f12;fontStyle=1;fontSize=13;arcSize=4;"
+          vertex="1" parent="1">
+          <mxGeometry x="20" y="320" width="1129" height="155" as="geometry" />
+        </mxCell>
+
+        <mxCell id="31" value="&lt;b&gt;domain/unitUnlock.ts&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;isUnitUnlocked()&lt;br/&gt;&lt;br/&gt;Rule: unit N unlocks when unit N-1&lt;br/&gt;is mastered and its checkpoint passed"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fefce8;strokeColor=#ca8a04;fontSize=11;arcSize=8;"
+          vertex="1" parent="30">
+          <mxGeometry x="10" y="40" width="350" height="105" as="geometry" />
+        </mxCell>
+
+        <mxCell id="32" value="&lt;b&gt;domain/exerciseConfig.ts&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;getExerciseConfig() · selectItems()&lt;br/&gt;&lt;br/&gt;Rule: 4-tier SRS item selection&lt;br/&gt;due → weak → new → random"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fefce8;strokeColor=#ca8a04;fontSize=11;arcSize=8;"
+          vertex="1" parent="30">
+          <mxGeometry x="389" y="40" width="350" height="105" as="geometry" />
+        </mxCell>
+
+        <mxCell id="33" value="&lt;b&gt;domain/reinforcementMapping.ts&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;getVocabUnlockThreshold()&lt;br/&gt;isVocabExerciseUnlocked()&lt;br/&gt;getGrammarExerciseType()&lt;br/&gt;&lt;br/&gt;Rule: vocab exercise unlocks after N items"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fefce8;strokeColor=#ca8a04;fontSize=11;arcSize=8;"
+          vertex="1" parent="30">
+          <mxGeometry x="768" y="40" width="351" height="105" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════
+             LAYER 1 — INFRASTRUCTURE
+        ═══════════════════════════════════════════════ -->
+        <mxCell id="40" value="Layer 1 — Infrastructure" tooltip="Everything external: Supabase, localStorage, content files, Web Speech API, TTS. No business logic here — this layer just moves data in and out."
+          style="swimlane;startSize=30;fillColor=#fce7f3;strokeColor=#db2777;fontColor=#831843;fontStyle=1;fontSize=13;arcSize=4;"
+          vertex="1" parent="1">
+          <mxGeometry x="20" y="495" width="1129" height="225" as="geometry" />
+        </mxCell>
+
+        <!-- Row 1: Storage -->
+        <mxCell id="41" value="&lt;b&gt;store/registry.ts&lt;/b&gt;&lt;br/&gt;DI container&lt;br/&gt;configure() at bootstrap&lt;br/&gt;progress · srs · stats"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf2f8;strokeColor=#db2777;fontSize=11;arcSize=8;"
+          vertex="1" parent="40">
+          <mxGeometry x="10" y="40" width="210" height="85" as="geometry" />
+        </mxCell>
+
+        <mxCell id="42" value="&lt;b&gt;Storage Adapters&lt;/b&gt;&lt;br/&gt;IProgressStorage&lt;br/&gt;ISRSStorage · IStatsStorage&lt;br/&gt;LocalStorage ↔ Supabase"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf2f8;strokeColor=#db2777;fontSize=11;arcSize=8;"
+          vertex="1" parent="40">
+          <mxGeometry x="230" y="40" width="210" height="85" as="geometry" />
+        </mxCell>
+
+        <mxCell id="47" value="&lt;b&gt;useStatsStore.ts&lt;/b&gt;&lt;br/&gt;Zustand store&lt;br/&gt;recordActivity()&lt;br/&gt;getHistory() · hydrate()"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf2f8;strokeColor=#db2777;fontSize=11;arcSize=8;"
+          vertex="1" parent="40">
+          <mxGeometry x="450" y="40" width="210" height="85" as="geometry" />
+        </mxCell>
+
+        <mxCell id="43" value="&lt;b&gt;store/srs.ts&lt;/b&gt;&lt;br/&gt;SRS lifecycle + policy&lt;br/&gt;getDueCards() · updateCard()&lt;br/&gt;wraps @myorg/srs"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf2f8;strokeColor=#db2777;fontSize=11;arcSize=8;"
+          vertex="1" parent="40">
+          <mxGeometry x="670" y="40" width="210" height="85" as="geometry" />
+        </mxCell>
+
+        <mxCell id="44" value="&lt;b&gt;data/repo.ts&lt;/b&gt;&lt;br/&gt;Content query layer&lt;br/&gt;getGrammarForLevel()&lt;br/&gt;getUnitsForLevel() …"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf2f8;strokeColor=#db2777;fontSize=11;arcSize=8;"
+          vertex="1" parent="40">
+          <mxGeometry x="890" y="40" width="229" height="85" as="geometry" />
+        </mxCell>
+
+        <!-- Row 2: Deeper infrastructure -->
+        <mxCell id="48" value="&lt;b&gt;auth/&lt;/b&gt;&lt;br/&gt;AuthContext · AuthGuard&lt;br/&gt;supabaseAuthApi&lt;br/&gt;@myorg/auth-core"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf2f8;strokeColor=#db2777;fontSize=11;arcSize=8;"
+          vertex="1" parent="40">
+          <mxGeometry x="10" y="142" width="210" height="73" as="geometry" />
+        </mxCell>
+
+        <mxCell id="45" value="&lt;b&gt;@myorg packages&lt;/b&gt;&lt;br/&gt;srs · tts · quiz-engine&lt;br/&gt;auth-core · storage&lt;br/&gt;validation · event-bus"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf2f8;strokeColor=#db2777;fontSize=11;arcSize=8;"
+          vertex="1" parent="40">
+          <mxGeometry x="670" y="142" width="210" height="73" as="geometry" />
+        </mxCell>
+
+        <mxCell id="46" value="&lt;b&gt;data/{lang}/&lt;/b&gt;&lt;br/&gt;TypeScript content files&lt;br/&gt;grammar · vocab · units&lt;br/&gt;culture · reading · listening"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf2f8;strokeColor=#db2777;fontSize=11;arcSize=8;"
+          vertex="1" parent="40">
+          <mxGeometry x="890" y="142" width="229" height="73" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════
+             EDGES
+        ═══════════════════════════════════════════════ -->
+
+        <!-- Pages → actions.ts -->
+        <mxCell id="60" value="call use cases"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=9;fontColor=#14532d;strokeColor=#16a34a;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.2;entryY=0;entryDx=0;entryDy=0;"
+          edge="1" source="11" target="21" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Pages → unitUnlock.ts -->
+        <mxCell id="61" value="unit unlock rules"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=9;fontColor=#713f12;strokeColor=#ca8a04;exitX=0.1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;"
+          edge="1" source="11" target="31" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Components (ExerciseShell) → exerciseConfig.ts -->
+        <mxCell id="62" value="exercise config"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=9;fontColor=#713f12;strokeColor=#ca8a04;exitX=0.4;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;"
+          edge="1" source="12" target="32" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Pages (UnitPage) → reinforcementMapping.ts -->
+        <mxCell id="63" value="reinforcement rules"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=9;fontColor=#713f12;strokeColor=#ca8a04;exitX=0.85;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;"
+          edge="1" source="11" target="33" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Pages → repo.ts (content queries) -->
+        <mxCell id="64" value="content queries"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=9;fontColor=#831843;strokeColor=#db2777;dashed=1;exitX=0.95;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;"
+          edge="1" source="11" target="44" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- actions.ts → registry.ts -->
+        <mxCell id="65" value="write"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=9;fontColor=#831843;strokeColor=#db2777;exitX=0.08;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;"
+          edge="1" source="21" target="41" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- actions.ts → useStatsStore -->
+        <mxCell id="66" value="record stats"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=9;fontColor=#831843;strokeColor=#db2777;exitX=0.4;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;"
+          edge="1" source="21" target="47" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- exerciseConfig.ts → store/srs.ts (reads SRS states when no preload given) -->
+        <mxCell id="67" value="reads SRS states"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=9;fontColor=#831843;strokeColor=#db2777;dashed=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;"
+          edge="1" source="32" target="43" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- registry.ts → Storage Adapters -->
+        <mxCell id="68" value=""
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=9;strokeColor=#db2777;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;"
+          edge="1" source="41" target="42" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- repo.ts → data/{lang}/ -->
+        <mxCell id="69" value=""
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=9;strokeColor=#db2777;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;"
+          edge="1" source="44" target="46" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- store/srs.ts → @myorg packages -->
+        <mxCell id="70" value="wraps"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=9;strokeColor=#db2777;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;"
+          edge="1" source="43" target="45" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <diagram id="storage-seam" name="Storage Adapter Seam">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title -->
+        <mxCell id="2" value="&lt;b&gt;Storage Adapter Seam — swapping localStorage for Supabase&lt;/b&gt;"
+          style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;"
+          vertex="1" parent="1">
+          <mxGeometry x="200" y="30" width="769" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Bootstrap -->
+        <mxCell id="3" value="&lt;b&gt;main.tsx (bootstrap)&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;registry.configure({&lt;br/&gt;&amp;nbsp; progress: new SupabaseProgressStorage(client),&lt;br/&gt;&amp;nbsp; srs: new SupabaseSRSStorage(client),&lt;br/&gt;&amp;nbsp; stats: new SupabaseStatsStorage(client)&lt;br/&gt;})"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0fdf4;strokeColor=#16a34a;fontSize=11;arcSize=6;align=left;"
+          vertex="1" parent="1">
+          <mxGeometry x="420" y="100" width="340" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- registry.ts -->
+        <mxCell id="4" value="&lt;b&gt;store/registry.ts&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;registry.progress&lt;br/&gt;registry.srs&lt;br/&gt;registry.stats"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce7f3;strokeColor=#db2777;fontSize=12;arcSize=6;"
+          vertex="1" parent="1">
+          <mxGeometry x="484" y="290" width="213" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Interfaces -->
+        <mxCell id="5" value="&lt;b&gt;IProgressStorage&lt;/b&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef9c3;strokeColor=#ca8a04;fontSize=12;arcSize=6;"
+          vertex="1" parent="1">
+          <mxGeometry x="200" y="460" width="200" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="6" value="&lt;b&gt;ISRSStorage&lt;/b&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef9c3;strokeColor=#ca8a04;fontSize=12;arcSize=6;"
+          vertex="1" parent="1">
+          <mxGeometry x="484" y="460" width="213" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="7" value="&lt;b&gt;IStatsStorage&lt;/b&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef9c3;strokeColor=#ca8a04;fontSize=12;arcSize=6;"
+          vertex="1" parent="1">
+          <mxGeometry x="769" y="460" width="200" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Stage 1 implementations -->
+        <mxCell id="8" value="LocalStorageProgressStorage"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#3b82f6;fontSize=11;arcSize=6;"
+          vertex="1" parent="1">
+          <mxGeometry x="60" y="590" width="220" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="9" value="LocalStorageSRSStorage"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#3b82f6;fontSize=11;arcSize=6;"
+          vertex="1" parent="1">
+          <mxGeometry x="390" y="590" width="200" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="10" value="LocalStorageStatsStorage"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#3b82f6;fontSize=11;arcSize=6;"
+          vertex="1" parent="1">
+          <mxGeometry x="710" y="590" width="220" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Stage 2 implementations -->
+        <mxCell id="11" value="SupabaseProgressStorage"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontSize=11;arcSize=6;"
+          vertex="1" parent="1">
+          <mxGeometry x="60" y="680" width="220" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="12" value="SupabaseSRSStorage"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontSize=11;arcSize=6;"
+          vertex="1" parent="1">
+          <mxGeometry x="390" y="680" width="200" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="13" value="SupabaseStatsStorage"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontSize=11;arcSize=6;"
+          vertex="1" parent="1">
+          <mxGeometry x="710" y="680" width="220" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Stage labels -->
+        <mxCell id="14" value="Stage 1 — localStorage (current)"
+          style="text;html=1;strokeColor=none;fillColor=#eff6ff;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontColor=#1d4ed8;strokeColor=#3b82f6;"
+          vertex="1" parent="1">
+          <mxGeometry x="60" y="550" width="870" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="15" value="Stage 2 — Supabase (swap in at bootstrap via registry.configure())"
+          style="text;html=1;strokeColor=none;fillColor=#dcfce7;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontColor=#14532d;strokeColor=#16a34a;"
+          vertex="1" parent="1">
+          <mxGeometry x="60" y="645" width="870" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Edges -->
+        <mxCell id="20" value="once at bootstrap"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;strokeColor=#16a34a;"
+          edge="1" source="3" target="4" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="21" value=""
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#db2777;"
+          edge="1" source="4" target="5" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="22" value=""
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#db2777;"
+          edge="1" source="4" target="6" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="23" value=""
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#db2777;"
+          edge="1" source="4" target="7" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="24" value="implements"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=9;dashed=1;strokeColor=#3b82f6;"
+          edge="1" source="8" target="5" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="25" value="implements"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=9;dashed=1;strokeColor=#3b82f6;"
+          edge="1" source="9" target="6" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="26" value="implements"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=9;dashed=1;strokeColor=#3b82f6;"
+          edge="1" source="10" target="7" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="27" value="implements"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=9;dashed=1;strokeColor=#16a34a;"
+          edge="1" source="11" target="5" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="28" value="implements"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=9;dashed=1;strokeColor=#16a34a;"
+          edge="1" source="12" target="6" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="29" value="implements"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=9;dashed=1;strokeColor=#16a34a;"
+          edge="1" source="13" target="7" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
