@@ -14,25 +14,11 @@ export const block1Lessons: GrammarLesson[] = [
   Il **est** de Tokyo.
   Vous **êtes** anglais ?
 
-The word in bold is changing. This is **être** — the verb 'to be'. You've already been using it without thinking about it. Here's the pattern you found:
-
-ÊTRE — TO BE
-  je        → **suis**     Je suis française.
-  tu        → **es**       Tu es d'où ?
-  il / elle  → **est**      Elle est canadienne.
-  vous      → **êtes**     Vous êtes anglais ?
+The word in bold is changing. This is **être** — the verb 'to be'. You've already been using it without thinking about it.
 
 Two things to notice:
-1. The verb changes form depending on who you're talking about — this is called conjugation, and it happens with every French verb.
+1. The verb changes form depending on who you're talking about — this is called **conjugation**, and it happens with every French verb.
 2. **vous** can mean 'you (formal)' when speaking to one person, or 'you (plural)' when speaking to a group. Use it with anyone you'd address as Madame or Monsieur.
-
-THE FULL TABLE (for reference — don't memorise all of it yet):
-  je        → suis
-  tu        → es
-  il / elle / on  → est
-  nous      → sommes
-  vous      → êtes
-  ils / elles   → sont
 
 For now, focus on **je suis, tu es, il/elle est** — those three will carry you through the next several units. The others will come naturally with practice.
 
@@ -109,6 +95,12 @@ This feels odd for English speakers at first — just learn it as the pattern an
             { native: "Enchanté(e).", translation: "Pleased to meet you.", note: "Use after introducing yourself — add -e if you are female." },
             { native: "Je suis désolé(e).", translation: "I'm sorry.", note: "Works as an apology or to express sympathy." },
         ],
+        conjugationTable: {
+            pronouns: ["je", "tu", "il / elle / on", "nous", "vous", "ils / elles"],
+            verbs: [
+                { infinitive: "être", forms: ["suis", "es", "est", "sommes", "êtes", "sont"] },
+            ],
+        },
     },
     {
         id: "fr-g-a1-2",
@@ -123,34 +115,12 @@ This feels odd for English speakers at first — just learn it as the pattern an
 
 The verb is changing form again — just like être. This is **avoir** — the verb 'to have'.
 
-AVOIR — TO HAVE
-  je        → **ai**      J'ai vingt ans.
-  tu        → **as**      Tu as quel âge ?
-  il / elle  → **a**       Elle a trente ans.
-  vous      → **avez**    Vous avez quel âge ?
-
-THE FULL TABLE (for reference):
-  je        → ai
-  tu        → as
-  il / elle / on  → a
-  nous      → avons
-  vous      → avez
-  ils / elles   → ont
-
-THE KEY CONSTRUCTION — SAYING YOUR AGE:
-In French, you don't *be* an age — you *have* an age:
+**Saying your age:** in French, you don't *be* an age — you *have* an age:
   J'**ai** vingt-six ans.  →  I am 26 years old. (lit: I have 26 years)
 
 Always include **ans** (years). *J'ai vingt-six* is incomplete — *J'ai vingt-six ans* is correct.
 
-ÊTRE vs AVOIR — you now know both of the most important verbs in French:
-  |          | Être (to be) | Avoir (to have) |
-  | je       | suis         | ai              |
-  | tu       | es           | as              |
-  | il/elle  | est          | a               |
-  | vous     | êtes         | avez            |
-
-Keep this comparison in mind — être and avoir together unlock most of what you'll say at A1.
+The comparison table below shows être and avoir side by side — together they unlock most of what you'll say at A1.
 
 Beyond age, avoir is used for: having things (J'ai une voiture), having family members (Tu as un frère ?), and many expressions that use 'be' in English (J'ai faim — I'm hungry, lit: I have hunger).`,
         examples: [
@@ -221,6 +191,13 @@ Beyond age, avoir is used for: having things (J'ai une voiture), having family m
             { native: "J'ai faim.", translation: "I'm hungry.", note: "Avoir-based expression — not être." },
             { native: "Vous avez l'heure ?", translation: "Do you have the time?", note: "Polite way to ask a stranger for the time." },
         ],
+        conjugationTable: {
+            pronouns: ["je", "tu", "il / elle / on", "nous", "vous", "ils / elles"],
+            verbs: [
+                { infinitive: "être", forms: ["suis", "es", "est", "sommes", "êtes", "sont"] },
+                { infinitive: "avoir", forms: ["ai", "as", "a", "avons", "avez", "ont"] },
+            ],
+        },
     },
     {
         id: "fr-g-a1-3",
@@ -237,19 +214,9 @@ Beyond age, avoir is used for: having things (J'ai une voiture), having family m
 
 What do you notice? The endings follow a pattern: **-e, -es, -e**. These verbs all end in **-er** in their dictionary form (travailler, étudier, aimer, parler). They all follow the same pattern.
 
--ER VERBS — JE / TU / IL / ELLE
-  je        → **-e**       je travaille, j'étudie, j'aime
-  tu        → **-es**      tu travailles, tu étudies, tu aimes
-  il / elle  → **-e**       il travaille, elle étudie, il aime
+**The big insight:** je, tu, and il/elle all sound **identical** when spoken. *Je travaille, tu travailles, il travaille* — same pronunciation, different spelling. This is enormously helpful for listening comprehension: even if you miss the subject pronoun, the verb sounds the same.
 
-Take the infinitive, remove **-er**, add the ending:
-  travailler → travaill- → je travaille, tu travailles, il travaille
-  parler     → parl-     → je parle, tu parles, il parle
-  étudier    → étudi-    → j'étudie, tu étudies, elle étudie
-
-THE BIG INSIGHT: je, tu, and il/elle all sound **identical** when spoken. *Je travaille, tu travailles, il travaille* — same pronunciation, different spelling. This is enormously helpful for listening comprehension: even if you miss the subject pronoun, the verb sounds the same.
-
-WHY THIS MATTERS: Most French verbs — hundreds of them — follow this -er pattern. Every new -er verb you learn, you can already conjugate for the forms you need most. You're not learning verbs one at a time. You're learning a system.
+Most French verbs — hundreds of them — follow this -er pattern. Every new -er verb you learn, you can already conjugate for the forms you need most. You're not learning verbs one at a time. You're learning a system.
 
 The full paradigm (nous/vous/ils/elles forms) comes in Unit 12. For now, these three forms are enough to hold a real conversation.`,
         examples: [
@@ -275,6 +242,7 @@ The full paradigm (nous/vous/ils/elles forms) comes in Unit 12. For now, these t
             {
                 condition: "Conjugating any regular -er verb for je / tu / il / elle",
                 result: "Remove -er, add: -e (je), -es (tu), -e (il/elle)",
+                heuristic: "travailler → travaill- + ending · parler → parl- + ending · étudier → étudi- + ending",
                 examples: [
                     { native: "Je parle français.", translation: "I speak French." },
                     { native: "Tu travailles où ?", translation: "Where do you work?" },
@@ -318,5 +286,13 @@ The full paradigm (nous/vous/ils/elles forms) comes in Unit 12. For now, these t
             { native: "Je travaille dans une école.", translation: "I work in a school.", note: "Template — replace école with your own workplace." },
             { native: "J'aime beaucoup ça.", translation: "I really like that.", note: "Ça (that/it) is a conversational workhorse — use it freely." },
         ],
+        conjugationTable: {
+            pronouns: ["je", "tu", "il / elle"],
+            verbs: [
+                { infinitive: "travailler", forms: ["travaille", "travailles", "travaille"] },
+                { infinitive: "parler", forms: ["parle", "parles", "parle"] },
+                { infinitive: "étudier", forms: ["étudie", "étudies", "étudie"] },
+            ],
+        },
     },
 ]

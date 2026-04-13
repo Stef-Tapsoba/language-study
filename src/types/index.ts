@@ -95,11 +95,29 @@ export interface GrammarRule {
     condition: string
     result: string
     /**
+     * Optional mechanical shortcut shown between result and examples.
+     * For conjugation rules: the stem-derivation step (e.g. "travailler → travaill- + ending").
+     */
+    heuristic?: string
+    /**
      * Quick illustrative examples for the rule.
      * Uses Example[] so Korean/Japanese examples can carry romanization and TTS.
      * Note: rule examples are display-only — sentence-scramble uses lesson.examples, not these.
      */
     examples: Example[]
+}
+
+/**
+ * A structured conjugation table embedded in a grammar lesson.
+ * Supports single-verb and multi-verb comparison tables.
+ * Separate from ConjugationTable on Verb (which carries tense metadata).
+ */
+export interface GrammarConjugationTable {
+    pronouns: string[]
+    verbs: Array<{
+        infinitive: string
+        forms: string[]
+    }>
 }
 
 /**
@@ -140,6 +158,11 @@ export interface GrammarLesson {
     notes?: GrammarNote[]
     /** Phrases to learn as unanalysed chunks at this lesson's level. */
     fixedPhrases?: FixedPhrase[]
+    /**
+     * Structured conjugation table — replaces markdown tables in explanation.
+     * Supports single-verb reference tables and multi-verb comparison tables.
+     */
+    conjugationTable?: GrammarConjugationTable
     examples: Array<Example | DialogueExample>
     inlineVocab?: InlineVocabEntry[]
     /**
