@@ -2,6 +2,101 @@ import { GrammarLesson } from "../../../../types"
 
 export const block1Lessons: GrammarLesson[] = [
     {
+        id: "fr-g-a1-0",
+        level: "A1",
+        title: "Subject pronouns — who is doing the action",
+        explanation: `You've already been using some of these without noticing: *Je m'appelle Sophie. Tu es d'où ?* The words before the verb — **je, tu, vous** — are called **subject pronouns**. They tell the verb who is doing the action.
+
+Here they all are:
+
+  **je** — I
+  **tu** — you (one person, informal)
+  **il / elle** — he / she
+  **on** — we (in everyday spoken French)
+  **nous** — we (formal/written)
+  **vous** — you (formal singular, or any group)
+  **ils / elles** — they (mixed/male group → ils; all-female → elles)
+
+Two things that catch English speakers off guard:
+
+**tu vs vous:** French has two words for 'you (singular)'. Use **tu** with friends, family, children, and peers your own age. Use **vous** with strangers, anyone older, or anyone you'd address as Monsieur or Madame. When in doubt, use vous — you can always switch to tu when invited. Getting this wrong in the polite direction is never rude; getting it wrong in the casual direction can be.
+
+**on:** In everyday spoken French, almost nobody says *nous*. Everyone says **on**. *On va au café ?* (Shall we go to the café?) sounds completely natural. *Nous allons au café ?* sounds like a textbook. Learn *on* from the start — you will need it immediately.
+
+One more thing: **il and elle don't just mean he and she — they also mean it.** This is because every French noun has a gender — masculine or feminine. *Le café* (masculine) → **il**. *La ville* (feminine) → **elle**. You don't need to analyse this yet, but knowing it exists explains why the same verb form (est) works for both people and things.`,
+        examples: [
+            { native: "Je parle un peu français.", translation: "I speak a little French." },
+            { native: "Tu es d'où ?", translation: "Where are you from? (informal)" },
+            { native: "Il est canadien.", translation: "He's Canadian." },
+            { native: "On va au café ?", translation: "Shall we go to the café?" },
+            { native: "Vous êtes d'où, Madame ?", translation: "Where are you from, Madame? (formal)" },
+            { native: "Ils sont français.", translation: "They're French. (mixed or male group)" },
+        ],
+        inlineVocab: [
+            { word: "je / j'", translation: "I (j' before a vowel)" },
+            { word: "tu", translation: "you (informal singular)" },
+            { word: "il / elle", translation: "he / she — also 'it' for masculine/feminine nouns" },
+            { word: "on", translation: "we (informal, everyday spoken French)" },
+            { word: "nous", translation: "we (formal/written)" },
+            { word: "vous", translation: "you (formal singular or any plural)" },
+            { word: "ils / elles", translation: "they (ils = mixed/male, elles = all female)" },
+        ],
+        rules: [
+            {
+                condition: "Talking to one person you know well (friend, peer, family)",
+                result: "Use tu",
+                examples: [
+                    { native: "Tu habites où ?", translation: "Where do you live?" },
+                    { native: "Tu as quel âge ?", translation: "How old are you?" },
+                ],
+            },
+            {
+                condition: "Talking to a stranger, someone older, or anyone you'd address formally",
+                result: "Use vous (also used for any group of 2+)",
+                examples: [
+                    { native: "Vous êtes anglais, Monsieur ?", translation: "Are you English, sir?" },
+                    { native: "Vous habitez à Paris ?", translation: "Do you live in Paris? (formal or plural)" },
+                ],
+            },
+            {
+                condition: "Saying 'we' in everyday spoken French",
+                result: "Use on (not nous — that sounds formal)",
+                examples: [
+                    { native: "On va au cinéma ce soir ?", translation: "Shall we go to the cinema tonight?" },
+                    { native: "On est en retard.", translation: "We're late." },
+                ],
+            },
+            {
+                condition: "Referring to a thing (not a person)",
+                result: "Use il (masculine noun) or elle (feminine noun)",
+                examples: [
+                    { native: "Le café ? Il est bon.", translation: "The coffee? It's good. (café is masculine)" },
+                    { native: "La ville ? Elle est belle.", translation: "The city? It's beautiful. (ville is feminine)" },
+                ],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "On is your everyday 'we'. From day one, use on va, on fait, on est — these sound natural and mean you don't need to conjugate the nous form yet. Nous is for formal writing.",
+            },
+            {
+                type: "culture",
+                content: "The tu/vous choice — called tutoiement vs vouvoiement — is a social signal, not just grammar. French people are very aware of which form they're using. Follow the other person's lead: if they use tu with you, you can switch to tu with them.",
+            },
+            {
+                type: "tip",
+                content: "French nouns all have gender — masculine or feminine — and il/elle follow that gender when referring to things. There's no shortcut for learning gender: encounter words with their article (le café, la ville) and the gender comes with them.",
+            },
+        ],
+        fixedPhrases: [
+            { native: "On y va ?", translation: "Shall we go? / Let's go?", note: "On y va is one of the most natural ways to suggest leaving or starting something." },
+            { native: "On se retrouve où ?", translation: "Where shall we meet?", note: "Essential for making plans — on for 'we', retrouver for 'to meet up'." },
+            { native: "C'est vous ?", translation: "Is that you? / Is it you?", note: "Polite identification — used on the phone or at a door." },
+            { native: "Tu viens ?", translation: "Are you coming?", note: "Casual invitation check — tu + venir is a very common pair." },
+        ],
+    },
+    {
         id: "fr-g-a1-1",
         level: "A1",
         title: "Être — to be",
