@@ -159,10 +159,17 @@ export interface GrammarLesson {
     /** Phrases to learn as unanalysed chunks at this lesson's level. */
     fixedPhrases?: FixedPhrase[]
     /**
-     * Structured conjugation table — replaces markdown tables in explanation.
-     * Supports single-verb reference tables and multi-verb comparison tables.
+     * Structured verb conjugation table — for verb forms only (present, imperative,
+     * passé composé auxiliaries, etc.). Uses the same grid shape as paradigmTable.
      */
     conjugationTable?: GrammarConjugationTable
+    /**
+     * Structured reference table for non-verb paradigms: possessives, articles,
+     * adjective agreement patterns, partitives, être-verb lists, etc.
+     * Same grid shape as conjugationTable; rendered with heading "Forms" rather
+     * than "Conjugation".
+     */
+    paradigmTable?: GrammarConjugationTable
     examples: Array<Example | DialogueExample>
     inlineVocab?: InlineVocabEntry[]
     /**

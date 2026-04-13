@@ -95,7 +95,7 @@ Think of the partitive as your default when you're talking about food or drink a
             { native: "Il n'y a plus de pain.", translation: "There's no more bread.", note: "Ne...plus de — combines the 'no longer' and partitive-to-de rules." },
             { native: "Je prends des frites.", translation: "I'll have some chips.", note: "Des for plural uncountable items." },
         ],
-        conjugationTable: {
+        paradigmTable: {
             pronouns: ["masculine", "feminine", "before vowel/h", "plural"],
             verbs: [
                 { infinitive: "partitive", forms: ["du", "de la", "de l'", "des"] },
