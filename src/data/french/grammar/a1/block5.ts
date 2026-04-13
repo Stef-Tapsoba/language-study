@@ -123,19 +123,7 @@ THE TWO DIFFERENCES WITH ÊTRE VERBS
   il est all**é** — she is all**ée** — ils sont all**és** — elles sont all**ées**
 
 THE ÊTRE VERBS — THE "HOUSE OF ÊTRE"
-These verbs all express movement or a change of state. Most come in natural pairs:
-
-  aller / allé — to go       venir / venu — to come
-  partir / parti — to leave  arriver / arrivé — to arrive
-  entrer / entré — to enter  sortir / sorti — to go out
-  monter / monté — to go up  descendre / descendu — to go down
-  rentrer / rentré — to return home
-  rester / resté — to stay
-  tomber / tombé — to fall
-  passer / passé — to pass (by)
-  naître / né — to be born
-  mourir / mort — to die
-  devenir / devenu — to become
+These verbs all express movement or a change of state. Most come in natural pairs (aller/venir, partir/arriver, entrer/sortir, monter/descendre). The full list with past participles is in the table below.
 
 MEMORY TIP: Most être verbs come in pairs (go/come, leave/arrive, enter/exit, up/down). If one of a pair uses être, so does the other.
 
@@ -220,6 +208,12 @@ NEGATION — ne...pas wraps around être:
             { native: "Tu es rentré(e) à quelle heure ?", translation: "What time did you get home?", note: "Rentrer = to return home. Very high-frequency question." },
             { native: "Je me suis bien amusé(e).", translation: "I had a great time.", note: "Reflexive verb in passé composé — être auxiliary + agreement." },
         ],
+        conjugationTable: {
+            pronouns: ["aller", "venir", "arriver", "partir", "entrer", "sortir", "naître", "mourir", "rester", "tomber", "monter", "descendre", "retourner", "passer"],
+            verbs: [
+                { infinitive: "past participle", forms: ["allé(e)", "venu(e)", "arrivé(e)", "parti(e)", "entré(e)", "sorti(e)", "né(e)", "mort(e)", "resté(e)", "tombé(e)", "monté(e)", "descendu(e)", "retourné(e)", "passé(e)"] },
+            ],
+        },
     },
     {
         id: "fr-g-a1-21",

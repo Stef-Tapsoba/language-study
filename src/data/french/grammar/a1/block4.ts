@@ -7,11 +7,7 @@ export const block4Lessons: GrammarLesson[] = [
         title: "Partitive Articles — du, de la, de l', des",
         explanation: `When you walk into a French café and order, you don't ask for "coffee" or "wine" in the abstract — you ask for **some** coffee, **some** wine. French makes this explicit with a special set of articles called **partitives**. They express an unspecified quantity of something uncountable or plural.
 
-THE PARTITIVE ARTICLES
-  **du** → masculine singular noun: du pain, du café, du vin
-  **de la** → feminine singular noun: de la soupe, de la viande, de la bière
-  **de l'** → noun starting with a vowel sound: de l'eau, de l'huile, de l'ail
-  **des** → any plural noun: des fruits, des légumes, des frites
+The partitive articles and their negated forms are in the table below.
 
 PARTITIVE VS DEFINITE ARTICLE
 There's a crucial distinction that trips up many learners:
@@ -99,6 +95,13 @@ Think of the partitive as your default when you're talking about food or drink a
             { native: "Il n'y a plus de pain.", translation: "There's no more bread.", note: "Ne...plus de — combines the 'no longer' and partitive-to-de rules." },
             { native: "Je prends des frites.", translation: "I'll have some chips.", note: "Des for plural uncountable items." },
         ],
+        conjugationTable: {
+            pronouns: ["masculine", "feminine", "before vowel/h", "plural"],
+            verbs: [
+                { infinitive: "partitive", forms: ["du", "de la", "de l'", "des"] },
+                { infinitive: "after negation", forms: ["de / d'", "de / d'", "de / d'", "de / d'"] },
+            ],
+        },
     },
     {
         id: "fr-g-a1-15",
@@ -110,17 +113,7 @@ WHAT IS THE IMPERATIVE?
 The imperative is used for instructions, directions, invitations, and commands. It drops the subject and speaks directly to the listener.
 
 FORMING THE IMPERATIVE
-For most verbs, it's simply the present tense **without the subject pronoun**:
-
-  vous form (formal / giving directions to strangers):
-    Vous tournez → **Tournez !**    Vous prenez → **Prenez !**
-
-  tu form (informal — friends, children):
-    Tu tournes → **Tourne !**    Tu prends → **Prends !**
-    Note: -er verbs drop the final -s in the tu form: **parle** (not parles), **tourne** (not tournes)
-
-  nous form (let's...):
-    Nous mangeons → **Mangeons !** (Let's eat!)
+For most verbs, it's simply the present tense **without the subject pronoun**. The table below shows the three imperative forms for key verbs. Note: -er verbs drop the final -s in the tu form (**parle** not parles, **tourne** not tournes).
 
 SPECIAL CASES
   aller: va (tu) / allons (nous) / **allez** (vous) — *Allez !* is one of the most common words in French
@@ -204,6 +197,14 @@ USEFUL IMPERATIVE PHRASES
             { native: "Répétez, s'il vous plaît.", translation: "Please repeat.", note: "Polite imperative — essential for learners." },
             { native: "Attendez une seconde !", translation: "Wait a second!", note: "High-frequency in any real interaction." },
         ],
+        conjugationTable: {
+            pronouns: ["tu", "vous", "nous"],
+            verbs: [
+                { infinitive: "parler", forms: ["parle !", "parlez !", "parlons !"] },
+                { infinitive: "finir", forms: ["finis !", "finissez !", "finissons !"] },
+                { infinitive: "aller", forms: ["va !", "allez !", "allons !"] },
+            ],
+        },
     },
     {
         id: "fr-g-a1-16",
