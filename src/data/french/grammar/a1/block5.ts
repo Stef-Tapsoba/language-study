@@ -208,7 +208,7 @@ NEGATION — ne...pas wraps around être:
             { native: "Tu es rentré(e) à quelle heure ?", translation: "What time did you get home?", note: "Rentrer = to return home. Very high-frequency question." },
             { native: "Je me suis bien amusé(e).", translation: "I had a great time.", note: "Reflexive verb in passé composé — être auxiliary + agreement." },
         ],
-        conjugationTable: {
+        paradigmTable: {
             pronouns: ["aller", "venir", "arriver", "partir", "entrer", "sortir", "naître", "mourir", "rester", "tomber", "monter", "descendre", "retourner", "passer"],
             verbs: [
                 { infinitive: "past participle", forms: ["allé(e)", "venu(e)", "arrivé(e)", "parti(e)", "entré(e)", "sorti(e)", "né(e)", "mort(e)", "resté(e)", "tombé(e)", "monté(e)", "descendu(e)", "retourné(e)", "passé(e)"] },

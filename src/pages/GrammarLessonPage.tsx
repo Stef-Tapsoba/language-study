@@ -11,8 +11,41 @@ import { VocabTooltip } from "../components/VocabTooltip"
 import { resolvePrimary } from "../utils/localizedText"
 import { renderExplanation, renderInline } from "../utils/renderExplanation"
 import { useVocabTooltip } from "../hooks/useVocabTooltip"
-import type { GrammarNote } from "../types"
+import type { GrammarNote, GrammarConjugationTable } from "../types"
 import { isDialogueExample } from "../types"
+
+function GrammarTable({ heading, table }: Readonly<{ heading: string; table: GrammarConjugationTable }>) {
+    const { pronouns, verbs } = table
+    return (
+        <div className="bg-surface-card rounded-2xl border border-border-default p-5 overflow-x-auto">
+            <h2 className="text-xs font-semibold uppercase tracking-wide text-text-ter mb-3">{heading}</h2>
+            <table className="w-full text-sm border-collapse">
+                <thead>
+                    <tr>
+                        <th className="text-left text-xs text-text-ter font-medium pb-2 pr-4 w-24"></th>
+                        {verbs.map(v => (
+                            <th key={v.infinitive} className="text-left text-xs font-semibold text-grammar pb-2 pr-4">
+                                {v.infinitive}
+                            </th>
+                        ))}
+                    </tr>
+                </thead>
+                <tbody>
+                    {pronouns.map((pronoun, i) => (
+                        <tr key={pronoun} className={i % 2 === 0 ? "bg-surface-elevated rounded" : ""}>
+                            <td className="text-text-ter text-xs py-1.5 pr-4 font-medium">{pronoun}</td>
+                            {verbs.map(v => (
+                                <td key={v.infinitive} className="text-text-pri font-semibold py-1.5 pr-4">
+                                    {v.forms[i]}
+                                </td>
+                            ))}
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    )
+}
 
 const NOTE_STYLES = {
     tip: {
@@ -90,39 +123,15 @@ export function GrammarLessonPage() {
 
                 <VocabTooltip activeWord={activeWord} onDismiss={dismissTooltip} />
 
-                {/* Conjugation table */}
-                {lesson.conjugationTable && (() => {
-                    const { pronouns, verbs } = lesson.conjugationTable
-                    return (
-                        <div className="bg-surface-card rounded-2xl border border-border-default p-5 overflow-x-auto">
-                            <h2 className="text-xs font-semibold uppercase tracking-wide text-text-ter mb-3">Conjugation</h2>
-                            <table className="w-full text-sm border-collapse">
-                                <thead>
-                                    <tr>
-                                        <th className="text-left text-xs text-text-ter font-medium pb-2 pr-4 w-24"></th>
-                                        {verbs.map(v => (
-                                            <th key={v.infinitive} className="text-left text-xs font-semibold text-grammar pb-2 pr-4">
-                                                {v.infinitive}
-                                            </th>
-                                        ))}
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {pronouns.map((pronoun, i) => (
-                                        <tr key={pronoun} className={i % 2 === 0 ? "bg-surface-elevated rounded" : ""}>
-                                            <td className="text-text-ter text-xs py-1.5 pr-4 font-medium">{pronoun}</td>
-                                            {verbs.map(v => (
-                                                <td key={v.infinitive} className="text-text-pri font-semibold py-1.5 pr-4">
-                                                    {v.forms[i]}
-                                                </td>
-                                            ))}
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
-                    )
-                })()}
+                {/* Conjugation table — verb forms only */}
+                {lesson.conjugationTable && (
+                    <GrammarTable heading="Conjugation" table={lesson.conjugationTable} />
+                )}
+
+                {/* Paradigm table — non-verb reference grids (possessives, articles, etc.) */}
+                {lesson.paradigmTable && (
+                    <GrammarTable heading="Forms" table={lesson.paradigmTable} />
+                )}
 
                 {/* Rules */}
                 {lesson.rules && lesson.rules.length > 0 && (

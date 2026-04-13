@@ -97,7 +97,7 @@ Note: **son/sa/ses** can mean either 'his' or 'her' — French doesn't distingui
             { native: "Tu as des frères et sœurs ?", translation: "Do you have brothers and sisters?", note: "Standard small-talk opener." },
             { native: "Je suis fils / fille unique.", translation: "I'm an only child.", note: "fils unique (male) / fille unique (female)" },
         ],
-        conjugationTable: {
+        paradigmTable: {
             pronouns: ["my", "your (tu)", "his / her"],
             verbs: [
                 { infinitive: "masculine", forms: ["mon", "ton", "son"] },
@@ -214,7 +214,7 @@ When spoken, masculine and feminine forms often sound the same (grand/grande sou
             { native: "Il est grand et sportif.", translation: "He is tall and sporty.", note: "Adjective chaining with et — very natural in descriptions." },
             { native: "C'est pas mal !", translation: "It's not bad! / Pretty good!", note: "Informal — very common in everyday spoken French." },
         ],
-        conjugationTable: {
+        paradigmTable: {
             pronouns: ["masc. singular", "fem. singular", "masc. plural", "fem. plural"],
             verbs: [
                 { infinitive: "regular (-e / -s)", forms: ["grand", "grande", "grands", "grandes"] },
@@ -535,7 +535,7 @@ THE GOLDEN RULE: Every French noun has a gender — masculine or feminine. Learn
             { native: "J'aime beaucoup la France.", translation: "I like France a lot.", note: "General love of a place uses le/la/les — not en or à." },
             { native: "Qu'est-ce que c'est ?", translation: "What is it? / What's that?", note: "The go-to question when you encounter something unknown." },
         ],
-        conjugationTable: {
+        paradigmTable: {
             pronouns: ["masculine", "feminine", "before vowel/h", "plural"],
             verbs: [
                 { infinitive: "indefinite", forms: ["un", "une", "un / une", "des"] },
