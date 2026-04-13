@@ -941,14 +941,24 @@ export const a1PhraseLessons: PhraseLesson[] = [
       "You walk into a café in Paris. The server looks up. You know what you want. Here's how to order it properly — and what makes the difference between sounding like a tourist and sounding like someone who knows French.",
     phrases: [
       {
+        native: 'un café / un thé / un chocolat chaud',
+        translation: 'a coffee / a tea / a hot chocolate',
+        context: 'The three most-ordered hot drinks. Un café = espresso by default — ask for un café allongé for a longer one.',
+      },
+      {
+        native: "une bière / un verre de vin / un jus d'orange / de l'eau",
+        translation: 'a beer / a glass of wine / an orange juice / water',
+        context: "de l'eau gazeuse = sparkling, de l'eau plate = still. Always free at a table in France.",
+      },
+      {
+        native: 'un croissant / une tartine / un sandwich / un croque-monsieur',
+        translation: 'a croissant / toast with butter and jam / a sandwich / a toasted ham and cheese sandwich',
+        context: 'Standard café food. Le plat du jour = dish of the day — always a safe bet at lunch.',
+      },
+      {
         native: 'Je voudrais un café.',
         translation: "I'd like a coffee.",
         context: 'Always use je voudrais — polite and natural',
-      },
-      {
-        native: 'Je veux un café.',
-        translation: 'I want a coffee.',
-        context: 'Grammatically fine but can sound blunt — prefer je voudrais',
       },
       {
         native: "Un café, s'il vous plaît.",
@@ -974,11 +984,6 @@ export const a1PhraseLessons: PhraseLesson[] = [
         native: "C'était délicieux !",
         translation: 'It was delicious!',
         context: 'Always appreciated by the server',
-      },
-      {
-        native: 'De l\'eau gazeuse, s\'il vous plaît.',
-        translation: 'Sparkling water, please.',
-        context: "de l'eau gazeuse = sparkling, de l'eau plate = still",
       },
     ],
     miniDialogue: [
