@@ -58,8 +58,7 @@ Then ask them at least two questions about their life.`,
         block: 3,
         type: "speaking",
         title: "Describe your routine",
-        scenario: `Part A — Speaking:
-You're catching up with a Korean language partner you met online. It's been two weeks since you last spoke. They ask how you've been.
+        scenario: `You're catching up with a Korean language partner you met online. It's been two weeks since you last spoke. They ask how you've been.
 
 Tell them:
 • What your week was like (past tense — at least 3 verbs)
@@ -68,8 +67,7 @@ Tell them:
 
 Then ask them at least two questions — one about their routine, one about their past week.
 
-Part B — Listening (separate exercise):
-Listen to a Korean speaker describing their typical week. Answer comprehension questions.`,
+Tip: if you stumble on a verb form, try again — self-correction is a normal part of speaking. Don't stop; keep going.`,
         speakingPrompts: [
             "Use at least three past tense verbs (갔어요, 먹었어요, 봤어요)",
             "Describe your regular routine with a frequency adverb (저는 보통 저녁에 공부해요)",
