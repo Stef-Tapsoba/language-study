@@ -52,6 +52,15 @@ const NAV_ITEMS: NavItem[] = [
         isActive: (p) => p === "/home",
     },
     {
+        id: "path",
+        label: "Path",
+        icon: Map,
+        href: (l) => l ? `/learn/${l}/path` : "/home",
+        // Active on path page AND unit detail pages
+        // Active on the explicit /path route, the index /learn/:langId, and unit detail pages
+        isActive: (p) => p.endsWith("/path") || /^\/learn\/[^/]+$/.test(p) || /^\/learn\/[^/]+\/units\//.test(p),
+    },
+    {
         id: "study",
         label: "Study",
         icon: BookOpen,
@@ -71,15 +80,6 @@ const NAV_ITEMS: NavItem[] = [
         icon: RotateCcw,
         href: (l) => l ? `/learn/${l}/review` : "/home",
         isActive: (p) => p.endsWith("/review") || p.endsWith("/review/session"),
-    },
-    {
-        id: "path",
-        label: "Path",
-        icon: Map,
-        href: (l) => l ? `/learn/${l}/path` : "/home",
-        // Active on path page AND unit detail pages
-        // Active on the explicit /path route, the index /learn/:langId, and unit detail pages
-        isActive: (p) => p.endsWith("/path") || /^\/learn\/[^/]+$/.test(p) || /^\/learn\/[^/]+\/units\//.test(p),
     },
     {
         id: "stats",
