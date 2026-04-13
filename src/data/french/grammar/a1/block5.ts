@@ -8,14 +8,7 @@ export const block5Lessons: GrammarLesson[] = [
         explanation: `This is the grammar landmark of A1 — the moment French becomes a real language for telling stories. You've been hearing past tense in dialogues since Block 3: *j'ai mangé, j'ai vu, j'ai fait*. You absorbed the sound of it long before the explanation arrived. Now let's see what's actually happening.
 
 LE PASSÉ COMPOSÉ
-Built from two parts: **avoir** (conjugated) + **past participle**
-
-  j'**ai** mangé — I ate / I have eaten
-  tu **as** regardé — you watched
-  il / elle **a** travaillé — he/she worked
-  nous **avons** fini — we finished
-  vous **avez** visité — you visited
-  ils / elles **ont** commandé — they ordered
+Built from two parts: **avoir** (conjugated) + **past participle**. The full avoir conjugation is in the table below.
 
 FORMING THE PAST PARTICIPLE
 
@@ -75,6 +68,7 @@ You started A1 communicating in the present. Now you can reach into the past too
             {
                 condition: "Forming the past participle of a regular verb",
                 result: "-er → -é | -ir → -i | -re → -u",
+                heuristic: "manger → mang- + é → mangé · finir → fin- + i → fini · vendre → vend- + u → vendu",
                 examples: [
                     { native: "manger → mangé / finir → fini / vendre → vendu", translation: "eat → eaten / finish → finished / sell → sold" },
                 ],
@@ -109,6 +103,12 @@ You started A1 communicating in the present. Now you can reach into the past too
             { native: "Tu as vu ce film ?", translation: "Have you seen that film?", note: "Vu = irrégulier. High-frequency social question." },
             { native: "Il n'a pas répondu.", translation: "He didn't reply.", note: "Répondre → répondu (regular -re). Useful in many situations." },
         ],
+        conjugationTable: {
+            pronouns: ["je", "tu", "il / elle", "nous", "vous", "ils / elles"],
+            verbs: [
+                { infinitive: "avoir (auxiliaire)", forms: ["ai", "as", "a", "avons", "avez", "ont"] },
+            ],
+        },
     },
     {
         id: "fr-g-a1-20",
@@ -225,27 +225,17 @@ NEGATION — ne...pas wraps around être:
         id: "fr-g-a1-21",
         level: "A1",
         title: "Regular -ir and -re Verbs",
-        explanation: `You've been working with -er verbs since Block 1 — they're the dominant group. But French has two other regular verb families: **-ir** and **-re**. After this lesson, you'll know all three regular conjugation patterns. That is a complete toolkit for regular verb forms.
+        explanation: `You've been working with -er verbs since Block 1 — they're the dominant group. But French has two other regular verb families: **-ir** and **-re**. After this lesson, you'll know all three regular conjugation patterns. The full conjugations are in the table below.
 
-REGULAR -IR VERBS — using **finir** (to finish) and **choisir** (to choose)
+Notice the **-iss-** that appears in the nous/vous/ils forms of -ir verbs — this is the distinctive marker of this group (finissons, finissez, finissent).
 
-  je **finis**        tu **finis**        il/elle **finit**
-  nous **finissons**  vous **finissez**   ils/elles **finissent**
-
-Notice the **-iss-** that appears in the nous/vous/ils forms — this is the distinctive feature of -ir verbs in this group.
+The -re verb il/elle form is distinctive: it has **no added ending** — the stem alone is used (il vend, not *il vende*).
 
 KEY -IR VERBS
   finir — to finish    choisir — to choose    réussir — to succeed
   réfléchir — to think / reflect    grandir — to grow up
 
 Past participle: drop -ir, add **-i** → fini, choisi, réussi
-
-REGULAR -RE VERBS — using **vendre** (to sell) and **attendre** (to wait)
-
-  je **vends**        tu **vends**        il/elle **vend** (no ending!)
-  nous **vendons**    vous **vendez**     ils/elles **vendent**
-
-Note: the il/elle form has no extra ending — the stem alone is used.
 
 KEY -RE VERBS
   vendre — to sell    attendre — to wait    répondre — to answer
@@ -284,6 +274,7 @@ THE COMPLETE PICTURE — all three regular families
             {
                 condition: "Conjugating a regular -ir verb (finir, choisir, réussir…)",
                 result: "Remove -ir; add: -is / -is / -it / -issons / -issez / -issent",
+                heuristic: "finir → fin- + ending · choisir → chois- + ending · réussir → réuss- + ending",
                 examples: [
                     { native: "Je finis à dix-huit heures.", translation: "I finish at six o'clock." },
                     { native: "Nous finissons ensemble.", translation: "We finish together." },
@@ -293,6 +284,7 @@ THE COMPLETE PICTURE — all three regular families
             {
                 condition: "Conjugating a regular -re verb (vendre, attendre, répondre…)",
                 result: "Remove -re; add: -s / -s / — / -ons / -ez / -ent (il/elle form has no ending)",
+                heuristic: "vendre → vend- + ending · attendre → attend- + ending · répondre → répond- + ending",
                 examples: [
                     { native: "J'attends le bus.", translation: "I'm waiting for the bus." },
                     { native: "Il répond toujours vite.", translation: "He always replies quickly." },
@@ -329,6 +321,13 @@ THE COMPLETE PICTURE — all three regular families
             { native: "J'ai réussi !", translation: "I passed! / I did it!", note: "Réussir = to succeed / to pass. Very satisfying to say." },
             { native: "Je prends le métro.", translation: "I take the metro.", note: "Prendre is irregular but extremely common — memorise all forms." },
         ],
+        conjugationTable: {
+            pronouns: ["je", "tu", "il / elle", "nous", "vous", "ils / elles"],
+            verbs: [
+                { infinitive: "finir", forms: ["finis", "finis", "finit", "finissons", "finissez", "finissent"] },
+                { infinitive: "vendre", forms: ["vends", "vends", "vend", "vendons", "vendez", "vendent"] },
+            ],
+        },
     },
     {
         id: "fr-g-a1-22",

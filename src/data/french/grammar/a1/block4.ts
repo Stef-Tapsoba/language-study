@@ -214,14 +214,7 @@ USEFUL IMPERATIVE PHRASES
 LE FUTUR PROCHE (the near future)
 Structure: **aller** (conjugated) + **infinitive**
 
-  je **vais** travailler — I'm going to work
-  tu **vas** venir — you're going to come
-  il / elle **va** partir — he/she is going to leave
-  nous **allons** manger — we're going to eat
-  vous **allez** voir — you're going to see
-  ils / elles **vont** arriver — they're going to arrive
-
-This is the most natural and most common way to talk about future plans in spoken French. The *futur simple* (je travaillerai) exists but is more formal and mostly written — at A1, the futur proche covers everything you need.
+The full set of forms is in the table below. This is the most natural and most common way to talk about future plans in spoken French. The *futur simple* (je travaillerai) exists but is more formal and mostly written — at A1, the futur proche covers everything you need.
 
 PRESENT VS FUTUR PROCHE
   Je travaille. — I work / I'm working. (now, habitually)
@@ -305,37 +298,25 @@ Use these time expressions with the futur proche to anchor your plans clearly in
             { native: "Ça va aller.", translation: "It'll be fine.", note: "Reassuring, optimistic — very French." },
             { native: "On va fêter ça !", translation: "We're going to celebrate this!", note: "Spontaneous celebration phrase." },
         ],
+        conjugationTable: {
+            pronouns: ["je", "tu", "il / elle / on", "nous", "vous", "ils / elles"],
+            verbs: [
+                { infinitive: "aller + infinitif", forms: ["vais + inf.", "vas + inf.", "va + inf.", "allons + inf.", "allez + inf.", "vont + inf."] },
+            ],
+        },
     },
     {
         id: "fr-g-a1-17",
         level: "A1",
         title: "Vouloir and Pouvoir — Wanting and Being Able To",
-        explanation: `Two of the most useful verbs in French — and you've been using them since the café unit. *Je voudrais* (I'd like) comes from **vouloir**. *Vous pouvez répéter ?* (Can you repeat?) comes from **pouvoir**. Let's look at both properly.
+        explanation: `Two of the most useful verbs in French — and you've been using them since the café unit. *Je voudrais* (I'd like) comes from **vouloir**. *Vous pouvez répéter ?* (Can you repeat?) comes from **pouvoir**. The full conjugations of both are in the table below.
 
-**VOULOIR** — to want
-  je **veux**       — I want
-  tu **veux**       — you want
-  il / elle **veut** — he/she wants
-  nous **voulons**   — we want
-  vous **voulez**    — you want
-  ils / elles **veulent** — they want
-
-  Always followed by an infinitive: Je veux **partir**. / Je veux **manger**.
+Both verbs are always followed by an infinitive: Je veux **partir**. / Je peux **venir**. / Tu peux **m'aider** ?
 
 JE VEUX vs JE VOUDRAIS
   *Je veux* is grammatically correct but can sound blunt in a service context.
   *Je voudrais* (the conditional form) is softer and always polite — use it in cafés, shops, and formal situations.
   Between friends: *je veux* is perfectly natural.
-
-**POUVOIR** — to be able to / can
-  je **peux**       — I can
-  tu **peux**       — you can
-  il / elle **peut** — he/she can
-  nous **pouvons**   — we can
-  vous **pouvez**    — you can
-  ils / elles **peuvent** — they can
-
-  Always followed by an infinitive: Je peux **venir**. / Tu peux **m'aider** ?
 
 ON PEUT — a high-value phrase
   *On peut* (literally "one can" — but used for "can we / is it possible") is one of the most practical phrases in French:
@@ -412,6 +393,13 @@ KEY COMBINATIONS
             { native: "Je ne peux pas ce soir.", translation: "I can't (make it) tonight.", note: "Idiomatic — the infinitive is implied." },
             { native: "Je veux bien !", translation: "I'd love to! / Yes please!", note: "An enthusiastic acceptance — not 'I want a lot'." },
         ],
+        conjugationTable: {
+            pronouns: ["je", "tu", "il / elle", "nous", "vous", "ils / elles"],
+            verbs: [
+                { infinitive: "vouloir", forms: ["veux", "veux", "veut", "voulons", "voulez", "veulent"] },
+                { infinitive: "pouvoir", forms: ["peux", "peux", "peut", "pouvons", "pouvez", "peuvent"] },
+            ],
+        },
     },
     {
         id: "fr-g-a1-18",
@@ -419,15 +407,7 @@ KEY COMBINATIONS
         title: "Devoir — Must, Have To, Should",
         explanation: `You can now say what you want (*vouloir*) and what you're able to do (*pouvoir*). The third pillar of the modal system is **devoir** — what you must or have to do. Together, these three verbs let you explain almost any human decision.
 
-**DEVOIR** — must / have to
-  je **dois**       — I must / I have to
-  tu **dois**       — you must
-  il / elle **doit** — he/she must
-  nous **devons**    — we must
-  vous **devez**     — you must
-  ils / elles **doivent** — they must
-
-  Always followed by an infinitive: Je dois **partir**. / Tu dois **appeler** ta mère.
+The full conjugation of **devoir** is in the table below. It is always followed by an infinitive: Je dois **partir**. / Tu dois **appeler** ta mère.
 
 THREE USES OF DEVOIR
 
@@ -519,5 +499,11 @@ These three verbs work together in real conversation constantly — once you hav
             { native: "Je voudrais venir, mais je dois travailler.", translation: "I'd like to come, but I have to work.", note: "The classic conflict — desire vs. obligation." },
             { native: "Je devrais dormir plus.", translation: "I should sleep more.", note: "Je devrais = I should. Softer and more reflective than je dois." },
         ],
+        conjugationTable: {
+            pronouns: ["je", "tu", "il / elle", "nous", "vous", "ils / elles"],
+            verbs: [
+                { infinitive: "devoir", forms: ["dois", "dois", "doit", "devons", "devez", "doivent"] },
+            ],
+        },
     },
 ]
