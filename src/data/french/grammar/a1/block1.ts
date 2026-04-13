@@ -20,13 +20,7 @@ Two things to notice:
 1. The verb changes form depending on who you're talking about — this is called **conjugation**, and it happens with every French verb.
 2. **vous** can mean 'you (formal)' when speaking to one person, or 'you (plural)' when speaking to a group. Use it with anyone you'd address as Madame or Monsieur.
 
-For now, focus on **je suis, tu es, il/elle est** — those three will carry you through the next several units. The others will come naturally with practice.
-
-One more thing: in French, you use être without an article for professions and nationalities:
-  Je suis médecin. (not *Je suis un médecin*)
-  Elle est française. (not *Elle est une française*)
-
-This feels odd for English speakers at first — just learn it as the pattern and it will become automatic.`,
+For now, focus on **je suis, tu es, il/elle est** — those three will carry you through the next several units. The others will come naturally with practice.`,
         examples: [
             { native: "Je suis de Londres.", translation: "I'm from London." },
             { native: "Tu es français ?", translation: "Are you French?" },
