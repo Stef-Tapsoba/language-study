@@ -11,18 +11,7 @@ THE KEY RULE: The form follows the gender of the **noun being described** — no
 
 This means a woman says **mon père** (not *ma père*) because *père* is masculine. A man says **ma mère** (not *mon mère*) because *mère* is feminine. The noun decides the form, not the speaker.
 
-MY / YOUR (informal) / HIS OR HER:
-  my:           mon (masculine noun) · ma (feminine noun) · mes (plural)
-  your (tu):    ton (masculine noun) · ta (feminine noun) · tes (plural)
-  his / her:    son (masculine noun) · sa (feminine noun) · ses (plural)
-
-Examples:
-  mon père (masculine) — my father
-  ma mère (feminine) — my mother
-  mes parents (plural) — my parents
-  son frère (masculine) — his/her brother
-  sa sœur (feminine) — his/her sister
-  ses enfants (plural) — his/her children
+The table below shows all three sets of possessives.
 
 BEFORE A VOWEL: When the noun begins with a vowel or silent h, **ma/ta/sa** become **mon/ton/son** to avoid the awkward vowel clash:
   mon amie (not *ma amie*) — my friend (female)
@@ -108,6 +97,14 @@ Note: **son/sa/ses** can mean either 'his' or 'her' — French doesn't distingui
             { native: "Tu as des frères et sœurs ?", translation: "Do you have brothers and sisters?", note: "Standard small-talk opener." },
             { native: "Je suis fils / fille unique.", translation: "I'm an only child.", note: "fils unique (male) / fille unique (female)" },
         ],
+        conjugationTable: {
+            pronouns: ["my", "your (tu)", "his / her"],
+            verbs: [
+                { infinitive: "masculine", forms: ["mon", "ton", "son"] },
+                { infinitive: "feminine", forms: ["ma", "ta", "sa"] },
+                { infinitive: "plural", forms: ["mes", "tes", "ses"] },
+            ],
+        },
     },
     {
         id: "fr-g-a1-5",
@@ -128,22 +125,9 @@ Something consistently changes when describing a woman. And when there's more th
 
 This is **adjective agreement**. In French, adjectives change their ending to match the gender and number of the noun or person they describe.
 
-THE BASIC RULES:
-  Masculine singular:  grand
-  Feminine singular:   grande   (add -e)
-  Masculine plural:    grands   (add -s)
-  Feminine plural:     grandes  (add -es)
+The agreement endings and the most common irregulars are in the table below.
 
 When the masculine form already ends in -e (like **sympa**, **drôle**, **timide**), it stays the same in the feminine.
-
-COMMON IRREGULAR PATTERNS:
-  sportif → sportive   (-f → -ve)
-  actif → active       (-f → -ve)
-  sérieux → sérieuse   (-x → -se)
-  vieux → vieille      (irregular)
-  beau → belle         (irregular)
-  nouveau → nouvelle   (irregular)
-  gentil → gentille    (-l → -lle)
 
 ADJECTIVE POSITION: In French, most adjectives come **after** the noun — the opposite of English:
   une femme intelligente (not *une intelligente femme*)
@@ -230,6 +214,15 @@ When spoken, masculine and feminine forms often sound the same (grand/grande sou
             { native: "Il est grand et sportif.", translation: "He is tall and sporty.", note: "Adjective chaining with et — very natural in descriptions." },
             { native: "C'est pas mal !", translation: "It's not bad! / Pretty good!", note: "Informal — very common in everyday spoken French." },
         ],
+        conjugationTable: {
+            pronouns: ["masc. singular", "fem. singular", "masc. plural", "fem. plural"],
+            verbs: [
+                { infinitive: "regular (-e / -s)", forms: ["grand", "grande", "grands", "grandes"] },
+                { infinitive: "-f → -ve", forms: ["sportif", "sportive", "sportifs", "sportives"] },
+                { infinitive: "-x → -se", forms: ["sérieux", "sérieuse", "sérieux", "sérieuses"] },
+                { infinitive: "irregular", forms: ["vieux", "vieille", "vieux", "vieilles"] },
+            ],
+        },
     },
     {
         id: "fr-g-a1-6",
@@ -345,10 +338,7 @@ The pattern feels mechanical at first, but after a few weeks of exposure it beco
         explanation: `The verb **aller** (to go) is one of the most useful in French. Despite ending in -er, it is completely irregular — it doesn't follow the -er verb pattern you already know. Memorise these forms directly. The full conjugation is in the table below.
 
 PREPOSITIONS WITH DESTINATIONS — one rule, all places:
-  **à** + city:             à Paris, à Rome, à Tokyo
-  **en** + feminine country (most ending in -e):  en France, en Espagne, en Italie
-  **au** + masculine country:  au Canada, au Japon, au Brésil
-  **aux** + plural country:    aux États-Unis, aux Pays-Bas
+Use **à** before cities (à Paris, à Rome, à Tokyo), **en** before feminine countries (en France, en Espagne, en Italie), **au** before masculine countries (au Canada, au Japon, au Brésil), and **aux** before plural countries (aux États-Unis, aux Pays-Bas).
 
 **au** and **aux** are contractions: *à + le = au*, *à + les = aux*. French never says *à le* — it always contracts.
 
@@ -447,22 +437,13 @@ This is one of the most natural ways to talk about near-future plans in French �
 
 You've been using them correctly without thinking about it. Now let's look at what's actually happening.
 
-There are two main types of article, and the difference is about **what you're referring to**:
+There are two main types of article, and the difference is about **what you're referring to**. The full paradigm is in the table below.
 
 INDEFINITE ARTICLES — un / une / des (a / an / some):
 Used for something not yet specified, one of many, or first mention.
-  un (masculine) · une (feminine) · des (plural)
-  un café — a coffee (any coffee)
-  une maison — a house (not a specific one)
-  des enfants — (some) children
 
 DEFINITE ARTICLES — le / la / l' / les (the):
 Used for something specific, already known, or — this is the key insight — **general statements**.
-  le (masculine) · la (feminine) · l' (before vowel or silent h) · les (plural)
-  le café — the café (a specific one we both know)
-  la famille — the family (this family, or family as a concept)
-  l'université — the university (vowel triggers l')
-  les enfants — the children (specific group)
 
 THE MOST IMPORTANT RULE FOR ENGLISH SPEAKERS:
 In French, **general statements use le/la/les** where English uses no article at all:
@@ -475,9 +456,7 @@ This is the most common article error English speakers make. When you're speakin
 THE l' RULE: Before any word starting with a vowel or silent h, le/la becomes l':
   l'appartement, l'université, l'hôtel, l'homme
 
-CONTRACTIONS (reminder from Unit 8):
-  à + le = **au**    |    de + le = **du**
-  à + les = **aux**  |    de + les = **des**
+CONTRACTIONS (reminder from Unit 8): à + le = **au**, à + les = **aux**, de + le = **du**, de + les = **des**. French never says *à le* or *de le* — these always contract.
 
 AFTER NEGATION: un/une/des → **de/d'**:
   J'ai un frère.     → Je n'ai **pas de** frère.
@@ -556,5 +535,12 @@ THE GOLDEN RULE: Every French noun has a gender — masculine or feminine. Learn
             { native: "J'aime beaucoup la France.", translation: "I like France a lot.", note: "General love of a place uses le/la/les — not en or à." },
             { native: "Qu'est-ce que c'est ?", translation: "What is it? / What's that?", note: "The go-to question when you encounter something unknown." },
         ],
+        conjugationTable: {
+            pronouns: ["masculine", "feminine", "before vowel/h", "plural"],
+            verbs: [
+                { infinitive: "indefinite", forms: ["un", "une", "un / une", "des"] },
+                { infinitive: "definite", forms: ["le", "la", "l'", "les"] },
+            ],
+        },
     },
 ]
