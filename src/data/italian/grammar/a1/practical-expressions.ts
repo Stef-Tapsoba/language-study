@@ -4,6 +4,7 @@ export const practicalExpressionsLessons: GrammarLesson[] = [
     {
         id: "it-g-a1-15",
         level: "A1",
+        exerciseType: "dictation" as const,
         title: "Numbers & Telling Time",
         explanation: `Numbers 1-20 must be memorised — they are all irregular. Learn them by heart!
 
@@ -312,6 +313,7 @@ Words with a written accent are always stressed on that syllable: città, caffè
     {
         id: "it-g-a1-18",
         level: "A1",
+        exerciseType: "dictation" as const,
         title: "Numbers 20-100",
         explanation: `From 20 onwards, Italian numbers follow a regular pattern. Learn the tens:
 
