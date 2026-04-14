@@ -4,6 +4,7 @@ export const practicalExpressionsLessons: GrammarLesson[] = [
   {
     id: "es-g-a1-6",
     level: "A1",
+    exerciseType: "dictation" as const,
     title: "Numbers & Telling Time",
     explanation: `NUMBERS 0–20
   0 cero    1 uno     2 dos      3 tres     4 cuatro    5 cinco
@@ -393,6 +394,7 @@ ASKING FOR LOCATION
   {
     id: "es-g-a1-20",
     level: "A1",
+    exerciseType: "dictation" as const,
     title: "Numbers 20-100 & Compound Numbers",
     explanation: `TENS 20-100
   20 veinte      30 treinta     40 cuarenta    50 cincuenta
