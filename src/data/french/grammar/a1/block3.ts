@@ -98,7 +98,7 @@ The pronoun never escapes to the outside of the negation — remember, it travel
         conjugationTable: {
             pronouns: ["je", "tu", "il / elle / on", "nous", "vous", "ils / elles"],
             verbs: [
-                { infinitive: "se lever", forms: ["me lève", "te lèves", "se lève", "nous levons", "vous levez", "se lèvent"] },
+                { label: "se lever", forms: ["me lève", "te lèves", "se lève", "nous levons", "vous levez", "se lèvent"] },
             ],
         },
     },
@@ -198,9 +198,9 @@ After this lesson, you can conjugate any regular -er verb with all six persons. 
         conjugationTable: {
             pronouns: ["je", "tu", "il / elle", "nous", "vous", "ils / elles"],
             verbs: [
-                { infinitive: "travailler", forms: ["travaille", "travailles", "travaille", "travaillons", "travaillez", "travaillent"] },
-                { infinitive: "parler", forms: ["parle", "parles", "parle", "parlons", "parlez", "parlent"] },
-                { infinitive: "manger", forms: ["mange", "manges", "mange", "mangeons", "mangez", "mangent"] },
+                { label: "travailler", forms: ["travaille", "travailles", "travaille", "travaillons", "travaillez", "travaillent"] },
+                { label: "parler", forms: ["parle", "parles", "parle", "parlons", "parlez", "parlent"] },
+                { label: "manger", forms: ["mange", "manges", "mange", "mangeons", "mangez", "mangent"] },
             ],
         },
     },

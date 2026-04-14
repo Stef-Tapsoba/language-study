@@ -24,8 +24,8 @@ function GrammarTable({ heading, table }: Readonly<{ heading: string; table: Gra
                     <tr>
                         <th className="text-left text-xs text-text-ter font-medium pb-2 pr-4 w-24"></th>
                         {verbs.map(v => (
-                            <th key={v.infinitive} className="text-left text-xs font-semibold text-grammar pb-2 pr-4">
-                                {v.infinitive}
+                            <th key={v.label} className="text-left text-xs font-semibold text-grammar pb-2 pr-4">
+                                {v.label}
                             </th>
                         ))}
                     </tr>
@@ -35,7 +35,7 @@ function GrammarTable({ heading, table }: Readonly<{ heading: string; table: Gra
                         <tr key={pronoun} className={i % 2 === 0 ? "bg-surface-elevated rounded" : ""}>
                             <td className="text-text-ter text-xs py-1.5 pr-4 font-medium">{pronoun}</td>
                             {verbs.map(v => (
-                                <td key={v.infinitive} className="text-text-pri font-semibold py-1.5 pr-4">
+                                <td key={v.label} className="text-text-pri font-semibold py-1.5 pr-4">
                                     {v.forms[i]}
                                 </td>
                             ))}

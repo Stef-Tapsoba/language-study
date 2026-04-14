@@ -98,8 +98,8 @@ Think of the partitive as your default when you're talking about food or drink a
         paradigmTable: {
             pronouns: ["masculine", "feminine", "before vowel/h", "plural"],
             verbs: [
-                { infinitive: "partitive", forms: ["du", "de la", "de l'", "des"] },
-                { infinitive: "after negation", forms: ["de / d'", "de / d'", "de / d'", "de / d'"] },
+                { label: "partitive", forms: ["du", "de la", "de l'", "des"] },
+                { label: "after negation", forms: ["de / d'", "de / d'", "de / d'", "de / d'"] },
             ],
         },
     },
@@ -200,9 +200,9 @@ USEFUL IMPERATIVE PHRASES
         conjugationTable: {
             pronouns: ["tu", "vous", "nous"],
             verbs: [
-                { infinitive: "parler", forms: ["parle !", "parlez !", "parlons !"] },
-                { infinitive: "finir", forms: ["finis !", "finissez !", "finissons !"] },
-                { infinitive: "aller", forms: ["va !", "allez !", "allons !"] },
+                { label: "parler", forms: ["parle !", "parlez !", "parlons !"] },
+                { label: "finir", forms: ["finis !", "finissez !", "finissons !"] },
+                { label: "aller", forms: ["va !", "allez !", "allons !"] },
             ],
         },
     },
@@ -221,7 +221,7 @@ PRESENT VS FUTUR PROCHE
   Je travaille. — I work / I'm working. (now, habitually)
   Je vais travailler. — I'm going to work. (future intention)
 
-NEGATION — ne...pas wraps around aller, not the infinitive:
+NEGATION — ne...pas wraps around aller, not the label:
   Je **ne vais pas** travailler demain. — I'm not going to work tomorrow.
   Il **ne va pas** venir ce soir. — He's not going to come tonight.
 
@@ -302,7 +302,7 @@ Use these time expressions with the futur proche to anchor your plans clearly in
         conjugationTable: {
             pronouns: ["je", "tu", "il / elle / on", "nous", "vous", "ils / elles"],
             verbs: [
-                { infinitive: "aller + infinitif", forms: ["vais + inf.", "vas + inf.", "va + inf.", "allons + inf.", "allez + inf.", "vont + inf."] },
+                { label: "aller + infinitif", forms: ["vais + inf.", "vas + inf.", "va + inf.", "allons + inf.", "allez + inf.", "vont + inf."] },
             ],
         },
     },
@@ -312,7 +312,7 @@ Use these time expressions with the futur proche to anchor your plans clearly in
         title: "Vouloir and Pouvoir — Wanting and Being Able To",
         explanation: `Two of the most useful verbs in French — and you've been using them since the café unit. *Je voudrais* (I'd like) comes from **vouloir**. *Vous pouvez répéter ?* (Can you repeat?) comes from **pouvoir**. The full conjugations of both are in the table below.
 
-Both verbs are always followed by an infinitive: Je veux **partir**. / Je peux **venir**. / Tu peux **m'aider** ?
+Both verbs are always followed by an label: Je veux **partir**. / Je peux **venir**. / Tu peux **m'aider** ?
 
 JE VEUX vs JE VOUDRAIS
   *Je veux* is grammatically correct but can sound blunt in a service context.
@@ -397,8 +397,8 @@ KEY COMBINATIONS
         conjugationTable: {
             pronouns: ["je", "tu", "il / elle", "nous", "vous", "ils / elles"],
             verbs: [
-                { infinitive: "vouloir", forms: ["veux", "veux", "veut", "voulons", "voulez", "veulent"] },
-                { infinitive: "pouvoir", forms: ["peux", "peux", "peut", "pouvons", "pouvez", "peuvent"] },
+                { label: "vouloir", forms: ["veux", "veux", "veut", "voulons", "voulez", "veulent"] },
+                { label: "pouvoir", forms: ["peux", "peux", "peut", "pouvons", "pouvez", "peuvent"] },
             ],
         },
     },
@@ -408,7 +408,7 @@ KEY COMBINATIONS
         title: "Devoir — Must, Have To, Should",
         explanation: `You can now say what you want (*vouloir*) and what you're able to do (*pouvoir*). The third pillar of the modal system is **devoir** — what you must or have to do. Together, these three verbs let you explain almost any human decision.
 
-The full conjugation of **devoir** is in the table below. It is always followed by an infinitive: Je dois **partir**. / Tu dois **appeler** ta mère.
+The full conjugation of **devoir** is in the table below. It is always followed by an label: Je dois **partir**. / Tu dois **appeler** ta mère.
 
 THREE USES OF DEVOIR
 
@@ -503,7 +503,7 @@ These three verbs work together in real conversation constantly — once you hav
         conjugationTable: {
             pronouns: ["je", "tu", "il / elle", "nous", "vous", "ils / elles"],
             verbs: [
-                { infinitive: "devoir", forms: ["dois", "dois", "doit", "devons", "devez", "doivent"] },
+                { label: "devoir", forms: ["dois", "dois", "doit", "devons", "devez", "doivent"] },
             ],
         },
     },

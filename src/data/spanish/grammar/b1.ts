@@ -39,7 +39,7 @@ export const b1Grammar: GrammarLesson[] = [
         level: "B1",
         title: "Simple Future (Futuro Simple)",
         explanation: {
-            native: "The simple future expresses what will happen. Regular verbs add endings directly to the infinitive: -é, -ás, -á, -emos, -éis, -án. Some common verbs have irregular stems: tener→tendr-, poder→podr-, venir→vendr-, salir→saldr-, hacer→har-.",
+            native: "The simple future expresses what will happen. Regular verbs add endings directly to the label: -é, -ás, -á, -emos, -éis, -án. Some common verbs have irregular stems: tener→tendr-, poder→podr-, venir→vendr-, salir→saldr-, hacer→har-.",
             target: "El futuro simple expresa lo que sucederá. Los verbos regulares añaden las terminaciones directamente al infinitivo: -é, -ás, -á, -emos, -éis, -án. Algunos verbos frecuentes tienen raíces irregulares: tener→tendr-, poder→podr-, venir→vendr-, salir→saldr-, hacer→har-.",
         },
         examples: [

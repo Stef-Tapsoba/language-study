@@ -106,7 +106,7 @@ You started A1 communicating in the present. Now you can reach into the past too
         conjugationTable: {
             pronouns: ["je", "tu", "il / elle", "nous", "vous", "ils / elles"],
             verbs: [
-                { infinitive: "avoir (auxiliaire)", forms: ["ai", "as", "a", "avons", "avez", "ont"] },
+                { label: "avoir (auxiliaire)", forms: ["ai", "as", "a", "avons", "avez", "ont"] },
             ],
         },
     },
@@ -211,7 +211,7 @@ NEGATION — ne...pas wraps around être:
         paradigmTable: {
             pronouns: ["aller", "venir", "arriver", "partir", "entrer", "sortir", "naître", "mourir", "rester", "tomber", "monter", "descendre", "retourner", "passer"],
             verbs: [
-                { infinitive: "past participle", forms: ["allé(e)", "venu(e)", "arrivé(e)", "parti(e)", "entré(e)", "sorti(e)", "né(e)", "mort(e)", "resté(e)", "tombé(e)", "monté(e)", "descendu(e)", "retourné(e)", "passé(e)"] },
+                { label: "past participle", forms: ["allé(e)", "venu(e)", "arrivé(e)", "parti(e)", "entré(e)", "sorti(e)", "né(e)", "mort(e)", "resté(e)", "tombé(e)", "monté(e)", "descendu(e)", "retourné(e)", "passé(e)"] },
             ],
         },
     },
@@ -318,8 +318,8 @@ THE COMPLETE PICTURE — all three regular families
         conjugationTable: {
             pronouns: ["je", "tu", "il / elle", "nous", "vous", "ils / elles"],
             verbs: [
-                { infinitive: "finir", forms: ["finis", "finis", "finit", "finissons", "finissez", "finissent"] },
-                { infinitive: "vendre", forms: ["vends", "vends", "vend", "vendons", "vendez", "vendent"] },
+                { label: "finir", forms: ["finis", "finis", "finit", "finissons", "finissez", "finissent"] },
+                { label: "vendre", forms: ["vends", "vends", "vend", "vendons", "vendez", "vendent"] },
             ],
         },
     },
