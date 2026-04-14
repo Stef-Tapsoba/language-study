@@ -115,7 +115,8 @@ export interface GrammarRule {
 export interface GrammarConjugationTable {
     pronouns: string[]
     verbs: Array<{
-        infinitive: string
+        /** Row header: verb infinitive for conjugationTable, descriptive label for paradigmTable. */
+        label: string
         forms: string[]
     }>
 }

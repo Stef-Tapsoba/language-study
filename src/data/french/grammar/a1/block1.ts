@@ -187,7 +187,7 @@ For now, focus on **je suis, tu es, il/elle est** — those three will carry you
         conjugationTable: {
             pronouns: ["je", "tu", "il / elle / on", "nous", "vous", "ils / elles"],
             verbs: [
-                { infinitive: "être", forms: ["suis", "es", "est", "sommes", "êtes", "sont"] },
+                { label: "être", forms: ["suis", "es", "est", "sommes", "êtes", "sont"] },
             ],
         },
     },
@@ -283,8 +283,8 @@ Beyond age, avoir is used for: having things (J'ai une voiture), having family m
         conjugationTable: {
             pronouns: ["je", "tu", "il / elle / on", "nous", "vous", "ils / elles"],
             verbs: [
-                { infinitive: "être", forms: ["suis", "es", "est", "sommes", "êtes", "sont"] },
-                { infinitive: "avoir", forms: ["ai", "as", "a", "avons", "avez", "ont"] },
+                { label: "être", forms: ["suis", "es", "est", "sommes", "êtes", "sont"] },
+                { label: "avoir", forms: ["ai", "as", "a", "avons", "avez", "ont"] },
             ],
         },
     },
@@ -378,9 +378,9 @@ The full paradigm (nous/vous/ils/elles forms) comes in Unit 12. For now, these t
         conjugationTable: {
             pronouns: ["je", "tu", "il / elle"],
             verbs: [
-                { infinitive: "travailler", forms: ["travaille", "travailles", "travaille"] },
-                { infinitive: "parler", forms: ["parle", "parles", "parle"] },
-                { infinitive: "étudier", forms: ["étudie", "étudies", "étudie"] },
+                { label: "travailler", forms: ["travaille", "travailles", "travaille"] },
+                { label: "parler", forms: ["parle", "parles", "parle"] },
+                { label: "étudier", forms: ["étudie", "étudies", "étudie"] },
             ],
         },
     },

@@ -100,9 +100,9 @@ Note: **son/sa/ses** can mean either 'his' or 'her' — French doesn't distingui
         paradigmTable: {
             pronouns: ["my", "your (tu)", "his / her"],
             verbs: [
-                { infinitive: "masculine", forms: ["mon", "ton", "son"] },
-                { infinitive: "feminine", forms: ["ma", "ta", "sa"] },
-                { infinitive: "plural", forms: ["mes", "tes", "ses"] },
+                { label: "masculine", forms: ["mon", "ton", "son"] },
+                { label: "feminine", forms: ["ma", "ta", "sa"] },
+                { label: "plural", forms: ["mes", "tes", "ses"] },
             ],
         },
     },
@@ -217,10 +217,10 @@ When spoken, masculine and feminine forms often sound the same (grand/grande sou
         paradigmTable: {
             pronouns: ["masc. singular", "fem. singular", "masc. plural", "fem. plural"],
             verbs: [
-                { infinitive: "regular (-e / -s)", forms: ["grand", "grande", "grands", "grandes"] },
-                { infinitive: "-f → -ve", forms: ["sportif", "sportive", "sportifs", "sportives"] },
-                { infinitive: "-x → -se", forms: ["sérieux", "sérieuse", "sérieux", "sérieuses"] },
-                { infinitive: "irregular", forms: ["vieux", "vieille", "vieux", "vieilles"] },
+                { label: "regular (-e / -s)", forms: ["grand", "grande", "grands", "grandes"] },
+                { label: "-f → -ve", forms: ["sportif", "sportive", "sportifs", "sportives"] },
+                { label: "-x → -se", forms: ["sérieux", "sérieuse", "sérieux", "sérieuses"] },
+                { label: "irregular", forms: ["vieux", "vieille", "vieux", "vieilles"] },
             ],
         },
     },
@@ -423,7 +423,7 @@ This is one of the most natural ways to talk about near-future plans in French �
         conjugationTable: {
             pronouns: ["je", "tu", "il / elle / on", "nous", "vous", "ils / elles"],
             verbs: [
-                { infinitive: "aller", forms: ["vais", "vas", "va", "allons", "allez", "vont"] },
+                { label: "aller", forms: ["vais", "vas", "va", "allons", "allez", "vont"] },
             ],
         },
     },
@@ -538,8 +538,8 @@ THE GOLDEN RULE: Every French noun has a gender — masculine or feminine. Learn
         paradigmTable: {
             pronouns: ["masculine", "feminine", "before vowel/h", "plural"],
             verbs: [
-                { infinitive: "indefinite", forms: ["un", "une", "un / une", "des"] },
-                { infinitive: "definite", forms: ["le", "la", "l'", "les"] },
+                { label: "indefinite", forms: ["un", "une", "un / une", "des"] },
+                { label: "definite", forms: ["le", "la", "l'", "les"] },
             ],
         },
     },

@@ -380,7 +380,7 @@ CONJUGATION (present tense):
   voi     → **dovete**   (you must)
   loro    → **devono**   (they must)
 
-Always followed by an infinitive:
+Always followed by an label:
   Devo partire.          I must leave.
   Devi mangiare.         You have to eat.
   Deve lavorare.         He/she has to work.
