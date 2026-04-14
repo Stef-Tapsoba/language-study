@@ -15,6 +15,44 @@ export const verbsLessons: GrammarLesson[] = [
   loro    → -ano  (parlano — they speak)
 
 Common -are verbs: parlare (speak), lavorare (work), abitare (live), ascoltare (listen), comprare (buy), camminare (walk), mangiare (eat).`,
+        conjugationTable: {
+            pronouns: ["io", "tu", "lui / lei", "noi", "voi", "loro"],
+            verbs: [
+                { label: "parlare", forms: ["parlo", "parli", "parla", "parliamo", "parlate", "parlano"] },
+                { label: "lavorare", forms: ["lavoro", "lavori", "lavora", "lavoriamo", "lavorate", "lavorano"] },
+            ],
+        },
+        rules: [
+            {
+                condition: "Conjugating a regular -are verb",
+                result: "Remove -are, add: -o / -i / -a / -iamo / -ate / -ano",
+                examples: [
+                    { native: "parlare → parlo, parli, parla…", translation: "to speak → I speak, you speak, he/she speaks…" },
+                    { native: "mangiare → mangio, mangi, mangia…", translation: "to eat → I eat, you eat, he/she eats…" },
+                ],
+            },
+            {
+                condition: "The io form always ends in -o",
+                result: "Like all Italian verb types, io always ends in -o",
+                examples: [
+                    { native: "parlo", translation: "I speak (-are)" },
+                    { native: "scrivo", translation: "I write (-ere)" },
+                    { native: "dormo", translation: "I sleep (-ire type 1)" },
+                    { native: "finisco", translation: "I finish (-ire type 2)" },
+                ],
+            },
+            {
+                condition: "Verbs ending in -iare",
+                result: "The tu form loses the extra -i: mangi (not *mangii)",
+                examples: [
+                    { native: "mangiare → mangio / mangi / mangia / mangiamo / mangiate / mangiano", translation: "to eat → I eat / you eat / he eats / we eat / you all eat / they eat" },
+                ],
+            },
+        ],
+        notes: [
+            { type: "tip", content: "There are hundreds of -are verbs in Italian. The pattern is completely regular — once you know it for parlare, you can conjugate any regular -are verb." },
+            { type: "forward-ref", content: "-ere and -ire verbs (two more conjugation patterns) are in lesson it-g-a1-7.", refId: "it-g-a1-7" },
+        ],
         examples: [
             { native: "Io parlo.", translation: "I speak." },
             { native: "Tu lavori a Milano?", translation: "Do you work in Milan?" },
@@ -51,6 +89,50 @@ Type 2 (finire — to finish, capire — to understand): add -isc- before the en
   finisco, finisci, finisce, finiamo, finite, finiscono
 
 Other Type 2 verbs: preferire (prefer), pulire (clean), costruire (build).`,
+        conjugationTable: {
+            pronouns: ["io", "tu", "lui / lei", "noi", "voi", "loro"],
+            verbs: [
+                { label: "scrivere (-ere)", forms: ["scrivo", "scrivi", "scrive", "scriviamo", "scrivete", "scrivono"] },
+                { label: "dormire (-ire type 1)", forms: ["dormo", "dormi", "dorme", "dormiamo", "dormite", "dormono"] },
+                { label: "finire (-ire type 2, -isc-)", forms: ["finisco", "finisci", "finisce", "finiamo", "finite", "finiscono"] },
+            ],
+        },
+        paradigmTable: {
+            pronouns: ["io", "tu", "lui/lei", "noi", "voi", "loro"],
+            verbs: [
+                { label: "-are endings", forms: ["-o", "-i", "-a", "-iamo", "-ate", "-ano"] },
+                { label: "-ere endings", forms: ["-o", "-i", "-e", "-iamo", "-ete", "-ono"] },
+                { label: "-ire type 1 endings", forms: ["-o", "-i", "-e", "-iamo", "-ite", "-ono"] },
+                { label: "-ire type 2 endings", forms: ["-isco", "-isci", "-isce", "-iamo", "-ite", "-iscono"] },
+            ],
+        },
+        rules: [
+            {
+                condition: "-ere verb",
+                result: "Remove -ere, add: -o/-i/-e/-iamo/-ete/-ono",
+                examples: [
+                    { native: "scrivere: scrivo, scrivi, scrive…", translation: "to write: I write, you write, he/she writes…" },
+                ],
+            },
+            {
+                condition: "-ire type 1",
+                result: "Remove -ire, add: -o/-i/-e/-iamo/-ite/-ono (dormire, aprire, partire, sentire)",
+                examples: [
+                    { native: "dormire: dormo, dormi, dorme…", translation: "to sleep: I sleep, you sleep, he/she sleeps…" },
+                ],
+            },
+            {
+                condition: "-ire type 2 (-isc-)",
+                result: "Add -isc- before io/tu/lui/loro endings (finire, capire, preferire, pulire)",
+                examples: [
+                    { native: "finire: finisco / finisci / finisce — finiamo / finite / finiscono (no -isc- for noi/voi!)", translation: "to finish: I finish / you finish / he finishes — we finish / you all finish / they finish" },
+                ],
+            },
+        ],
+        notes: [
+            { type: "tip", content: "The -isc- only appears in 4 of the 6 forms — NOT in noi and voi. Finiamo and finite are regular (no -isc-). This mirrors the boot/shoe pattern from stem-changing verbs." },
+            { type: "tip", content: "Common -isc- verbs to memorise: finire (finish), capire (understand), preferire (prefer), pulire (clean), costruire (build). When you learn a new -ire verb, check if it's -isc- type." },
+        ],
         examples: [
             { native: "Scrivo una lettera.", translation: "I write a letter." },
             { native: "Leggi il giornale?", translation: "Do you read the newspaper?" },
@@ -87,6 +169,56 @@ Conjugation (present tense):
 
 Note: noi/voi follow a regular-looking pattern; the other forms are irregular.
 Usage: andare + a + place → andare a scuola, andare al cinema, andare in Italia.`,
+        conjugationTable: {
+            pronouns: ["io", "tu", "lui / lei", "noi", "voi", "loro"],
+            verbs: [{ label: "andare", forms: ["vado", "vai", "va", "andiamo", "andate", "vanno"] }],
+        },
+        rules: [
+            {
+                condition: "Going to a city",
+                result: "andare + a + city",
+                examples: [
+                    { native: "Vado a Roma.", translation: "I'm going to Rome." },
+                    { native: "Vai a Milano?", translation: "Are you going to Milan?" },
+                ],
+            },
+            {
+                condition: "Going to a place with article",
+                result: "andare + a + contracted article + place",
+                examples: [
+                    { native: "Vado al cinema.", translation: "I'm going to the cinema." },
+                    { native: "Andiamo alla stazione.", translation: "We're going to the station." },
+                    { native: "Va all'aeroporto.", translation: "He/she goes to the airport." },
+                ],
+            },
+            {
+                condition: "Going to a country/region",
+                result: "andare + in + country",
+                examples: [
+                    { native: "Vado in Italia.", translation: "I'm going to Italy." },
+                    { native: "Andiamo in Francia.", translation: "We're going to France." },
+                ],
+            },
+            {
+                condition: "Going to a person or professional",
+                result: "andare + da + person",
+                examples: [
+                    { native: "Vado dal medico.", translation: "I'm going to the doctor." },
+                    { native: "Va dalla nonna.", translation: "He/she goes to grandma's." },
+                ],
+            },
+        ],
+        notes: [
+            { type: "tip", content: "Andare is highly irregular — its forms look nothing like the infinitive. Vado/vai/va/andiamo/andate/vanno. Memorise them as a set." },
+            { type: "culture", content: "Andiamo! (Let's go!) is one of the most energetic Italian expressions — used literally and as encouragement. Dai, andiamo! (Come on, let's go!)" },
+            { type: "forward-ref", content: "Andare a + infinitive = near future (going to do something). See it-g-a1-13.", refId: "it-g-a1-13" },
+        ],
+        fixedPhrases: [
+            { native: "Vado a scuola / al lavoro / a casa.", translation: "I go to school / work / home.", note: "Most common destinations." },
+            { native: "Andiamo!", translation: "Let's go!", note: "Huge frequency in Italian speech." },
+            { native: "Va bene.", translation: "OK / That's fine.", note: "va = it goes (well) — fixed expression." },
+            { native: "Come va?", translation: "How's it going?", note: "Informal greeting — not essere." },
+        ],
         examples: [
             { native: "Vado a scuola ogni giorno.", translation: "I go to school every day." },
             { native: "Vai al supermercato?", translation: "Are you going to the supermarket?" },
@@ -124,6 +256,49 @@ Common expressions with fare:
   fare la spesa        → to do the grocery shopping
   fare una passeggiata → to take a walk
   fare il bagno        → to take a bath`,
+        conjugationTable: {
+            pronouns: ["io", "tu", "lui / lei", "noi", "voi", "loro"],
+            verbs: [{ label: "fare", forms: ["faccio", "fai", "fa", "facciamo", "fate", "fanno"] }],
+        },
+        rules: [
+            {
+                condition: "Doing or making something",
+                result: "fare + noun (no article for compound expressions)",
+                examples: [
+                    { native: "Faccio colazione.", translation: "I have breakfast." },
+                    { native: "Facciamo sport.", translation: "We play sport." },
+                    { native: "Fanno una passeggiata.", translation: "They go for a walk." },
+                ],
+            },
+            {
+                condition: "Weather with fare",
+                result: "Fa + weather noun (impersonal — always fa)",
+                examples: [
+                    { native: "Fa caldo.", translation: "It's hot." },
+                    { native: "Fa freddo.", translation: "It's cold." },
+                    { native: "Fa bel tempo.", translation: "The weather is nice." },
+                ],
+            },
+            {
+                condition: "Cosa fai?",
+                result: "What are you doing? or What do you do? (same question, two readings)",
+                examples: [
+                    { native: "Cosa fai nel tempo libero?", translation: "What do you do in your free time?" },
+                    { native: "Cosa fai adesso?", translation: "What are you doing now?" },
+                ],
+            },
+        ],
+        notes: [
+            { type: "tip", content: "Fare is extremely versatile — it forms dozens of compound expressions that would require different verbs in English: fare colazione (have breakfast), fare sport (play sport), fare una domanda (ask a question), fare la spesa (do shopping)." },
+            { type: "culture", content: "In Italian, weather is often expressed with fare: fa caldo (it's hot), fa freddo (it's cold), fa bel tempo (the weather is nice). This is equivalent to Spanish hace calor/frío." },
+        ],
+        fixedPhrases: [
+            { native: "Faccio colazione alle sette.", translation: "I have breakfast at seven.", note: "Most common fare compound." },
+            { native: "Fa caldo / freddo.", translation: "It's hot / cold.", note: "Fare for weather." },
+            { native: "Cosa fai?", translation: "What are you doing? / What do you do?", note: "Extremely common question." },
+            { native: "Facciamo una passeggiata?", translation: "Shall we go for a walk?", note: "Social invitation." },
+            { native: "Non fa niente.", translation: "It doesn't matter.", note: "Fixed expression — 'it makes nothing'." },
+        ],
         examples: [
             { native: "Faccio colazione alle sette.", translation: "I have breakfast at seven." },
             { native: "Cosa fai nel tempo libero?", translation: "What do you do in your free time?" },
@@ -163,6 +338,49 @@ KEY DIFFERENCE
   Vado a partire.   → I plan to leave (not necessarily right now)
 
 Useful time words: adesso (now), subito (right away), presto (soon), dopo (later), domani (tomorrow), stasera (tonight)`,
+        conjugationTable: {
+            pronouns: ["io", "tu", "lui / lei", "noi", "voi", "loro"],
+            verbs: [
+                { label: "stare per + inf. (about to)", forms: ["sto per…", "stai per…", "sta per…", "stiamo per…", "state per…", "stanno per…"] },
+                { label: "andare a + inf. (going to)", forms: ["vado a…", "vai a…", "va a…", "andiamo a…", "andate a…", "vanno a…"] },
+            ],
+        },
+        rules: [
+            {
+                condition: "Something about to happen (imminent)",
+                result: "stare per + infinitive",
+                examples: [
+                    { native: "Sto per uscire.", translation: "I'm about to go out." },
+                    { native: "Sta per piovere.", translation: "It's about to rain." },
+                ],
+            },
+            {
+                condition: "A plan or intention",
+                result: "andare a + infinitive",
+                examples: [
+                    { native: "Vado a mangiare.", translation: "I'm going to eat." },
+                    { native: "Andiamo a vedere un film.", translation: "We're going to watch a film." },
+                ],
+            },
+            {
+                condition: "Near future with present tense",
+                result: "Italian very naturally uses present tense for near future plans",
+                examples: [
+                    { native: "Domani parto.", translation: "Tomorrow I'm leaving." },
+                    { native: "Stasera cucino io.", translation: "Tonight I'm cooking." },
+                ],
+            },
+        ],
+        notes: [
+            { type: "tip", content: "The most Italian-sounding way to talk about the near future is often just the present tense: \"Domani vado a Roma\" (Tomorrow I'm going to Rome). Andare a + infinitive is common but the present is more natural." },
+            { type: "forward-ref", content: "The futuro semplice (parlerò, mangerò…) is introduced at A2 for more distant or hypothetical future.", refId: "it-g-a1-13" },
+        ],
+        fixedPhrases: [
+            { native: "Sto per uscire.", translation: "I'm about to go out.", note: "stare per = imminent." },
+            { native: "Vado a mangiare.", translation: "I'm going to eat.", note: "andare a = planned." },
+            { native: "Domani arrivo.", translation: "I'm arriving tomorrow.", note: "Present tense for near future — very natural." },
+            { native: "Ci vediamo dopo.", translation: "See you later.", note: "Fixed farewell." },
+        ],
         examples: [
             { native: "Sto per uscire.", translation: "I am about to go out." },
             { native: "Sta per piovere.", translation: "It is about to rain." },
@@ -211,6 +429,60 @@ POTERE — to be able to / can:
 Important: always use the infinitive after these verbs.
   ✓ Voglio cucinare.   (I want to cook.)
   ✗ Voglio cucino.     (WRONG)`,
+        conjugationTable: {
+            pronouns: ["io", "tu", "lui / lei", "noi", "voi", "loro"],
+            verbs: [
+                { label: "volere (want)", forms: ["voglio", "vuoi", "vuole", "vogliamo", "volete", "vogliono"] },
+                { label: "potere (can)", forms: ["posso", "puoi", "può", "possiamo", "potete", "possono"] },
+            ],
+        },
+        rules: [
+            {
+                condition: "Wanting to do something",
+                result: "volere + infinitive (no preposition)",
+                examples: [
+                    { native: "Voglio mangiare.", translation: "I want to eat." },
+                    { native: "Vuoi venire?", translation: "Do you want to come?" },
+                    { native: "Vogliono partire.", translation: "They want to leave." },
+                ],
+            },
+            {
+                condition: "Ability or permission",
+                result: "potere + infinitive",
+                examples: [
+                    { native: "Posso aiutarti?", translation: "Can I help you?" },
+                    { native: "Non possiamo venire.", translation: "We can't come." },
+                    { native: "Puoi parlare più lentamente?", translation: "Can you speak more slowly?" },
+                ],
+            },
+            {
+                condition: "Polite request",
+                result: "Puoi / Può + infinitive (potere makes requests sound natural)",
+                examples: [
+                    { native: "Puoi ripetere?", translation: "Can you repeat?" },
+                    { native: "Può portarmi il conto?", translation: "Can you bring me the bill?" },
+                ],
+            },
+            {
+                condition: "Negative — non before the modal",
+                result: "Non voglio / Non posso",
+                examples: [
+                    { native: "Non posso venire domani.", translation: "I can't come tomorrow." },
+                    { native: "Non voglio uscire stasera.", translation: "I don't want to go out tonight." },
+                ],
+            },
+        ],
+        notes: [
+            { type: "tip", content: "Vorrei (I would like — conditional of volere) is even more polite than voglio and widely used for requests: Vorrei un caffè. / Vorrei prenotare un tavolo. Learn it as a fixed form at A1." },
+            { type: "forward-ref", content: "Dovere (must/have to) completes the modal trio and is introduced in lesson it-g-a1-33.", refId: "it-g-a1-33" },
+        ],
+        fixedPhrases: [
+            { native: "Voglio imparare l'italiano.", translation: "I want to learn Italian.", note: "volere + infinitive." },
+            { native: "Puoi aiutarmi?", translation: "Can you help me?", note: "potere for requests." },
+            { native: "Non posso venire.", translation: "I can't come.", note: "Polite refusal." },
+            { native: "Vorrei un caffè.", translation: "I'd like a coffee.", note: "vorrei = polite conditional of volere." },
+            { native: "Posso?", translation: "May I? / Can I?", note: "One-word permission request." },
+        ],
         examples: [
             { native: "Voglio imparare l'italiano.", translation: "I want to learn Italian." },
             { native: "Puoi aiutarmi?", translation: "Can you help me?" },
@@ -252,6 +524,51 @@ COMMON REFLEXIVE VERBS
   svegliarsi      to wake up           Si sveglia presto.
 
 Note: The infinitive always ends in -si. Remove -si, then conjugate the verb normally and add the pronoun before.`,
+        conjugationTable: {
+            pronouns: ["io", "tu", "lui / lei", "noi", "voi", "loro"],
+            verbs: [
+                { label: "pronoun", forms: ["mi", "ti", "si", "ci", "vi", "si"] },
+                { label: "alzarsi", forms: ["mi alzo", "ti alzi", "si alza", "ci alziamo", "vi alzate", "si alzano"] },
+                { label: "chiamarsi", forms: ["mi chiamo", "ti chiami", "si chiama", "ci chiamiamo", "vi chiamate", "si chiamano"] },
+            ],
+        },
+        rules: [
+            {
+                condition: "Forming a reflexive verb",
+                result: "Reflexive pronoun (mi/ti/si/ci/vi/si) goes BEFORE the conjugated verb",
+                examples: [
+                    { native: "Mi chiamo Luca.", translation: "My name is Luca." },
+                    { native: "Ti alzi tardi.", translation: "You get up late." },
+                    { native: "Si veste in fretta.", translation: "He/she gets dressed in a hurry." },
+                ],
+            },
+            {
+                condition: "Infinitive of reflexive verbs",
+                result: "Ends in -si — remove -si, conjugate normally, add matching pronoun before",
+                examples: [
+                    { native: "alzarsi → mi alzo", translation: "to get up → I get up" },
+                    { native: "vestirsi → mi visto", translation: "to get dressed → I get dressed" },
+                ],
+            },
+            {
+                condition: "With infinitive",
+                result: "Pronoun attaches to the end of the infinitive OR goes before conjugated verb",
+                examples: [
+                    { native: "Voglio alzarmi.", translation: "I want to get up." },
+                    { native: "Mi voglio alzare.", translation: "I want to get up. (same meaning)" },
+                ],
+            },
+        ],
+        notes: [
+            { type: "tip", content: "Mi chiamo (My name is) is literally \"I call myself.\" It's the standard way to give your name in Italian — always use chiamarsi, not \"il mio nome è\" (which is very formal/written)." },
+            { type: "forward-ref", content: "Reflexive verbs in the imperative: the pronoun attaches to the end. Alzati! Get up! See lesson it-g-a1-32.", refId: "it-g-a1-32" },
+        ],
+        fixedPhrases: [
+            { native: "Mi chiamo…", translation: "My name is…", note: "Standard self-introduction." },
+            { native: "Come ti chiami?", translation: "What's your name?", note: "Reflexive question." },
+            { native: "Mi alzo alle sette.", translation: "I get up at seven.", note: "Most common reflexive routine sentence." },
+            { native: "Siediti! / Accomodati!", translation: "Sit down! / Make yourself comfortable!", note: "Very common hospitality phrases." },
+        ],
         examples: [
             { native: "Mi chiamo Marta.", translation: "My name is Marta." },
             { native: "Mi alzo alle sette ogni mattina.", translation: "I get up at seven every morning." },
@@ -345,6 +662,68 @@ COMMON IMPERATIVE EXPRESSIONS
   Dimmi!                   Tell me! (Di' + mi)
   Fammi vedere!            Let me see! (Fa' + mi)
   Stai tranquillo!         Calm down!`,
+        conjugationTable: {
+            pronouns: ["tu (informal)", "noi (let's)", "voi (plural)"],
+            verbs: [
+                { label: "parlare (-are)", forms: ["Parla!", "Parliamo!", "Parlate!"] },
+                { label: "scrivere (-ere)", forms: ["Scrivi!", "Scriviamo!", "Scrivete!"] },
+                { label: "dormire (-ire type 1)", forms: ["Dormi!", "Dormiamo!", "Dormite!"] },
+                { label: "finire (-ire type 2)", forms: ["Finisci!", "Finiamo!", "Finite!"] },
+                { label: "essere (irregular)", forms: ["Sii!", "Siamo!", "Siate!"] },
+                { label: "avere (irregular)", forms: ["Abbi!", "Abbiamo!", "Abbiate!"] },
+                { label: "andare (irregular)", forms: ["Vai! / Va'!", "Andiamo!", "Andate!"] },
+                { label: "fare (irregular)", forms: ["Fai! / Fa'!", "Facciamo!", "Fate!"] },
+            ],
+        },
+        rules: [
+            {
+                condition: "Tu imperative for -are verbs",
+                result: "Remove -are, add -a (NOT -i)",
+                examples: [
+                    { native: "parlare → Parla!", translation: "to speak → Speak!" },
+                    { native: "comprare → Compra!", translation: "to buy → Buy!" },
+                    { native: "mangiare → Mangia!", translation: "to eat → Eat!" },
+                ],
+            },
+            {
+                condition: "Tu imperative for -ere and -ire verbs",
+                result: "Same as tu present tense form",
+                examples: [
+                    { native: "scrivere: tu scrivi → Scrivi!", translation: "to write: you write → Write!" },
+                    { native: "dormire: tu dormi → Dormi!", translation: "to sleep: you sleep → Sleep!" },
+                ],
+            },
+            {
+                condition: "Negative imperative (tu only)",
+                result: "non + infinitive (NOT the imperative form)",
+                examples: [
+                    { native: "Non parlare!", translation: "Don't speak!" },
+                    { native: "Non mangiare!", translation: "Don't eat!" },
+                    { native: "Non uscire!", translation: "Don't go out!" },
+                ],
+            },
+            {
+                condition: "Reflexive verbs — affirmative",
+                result: "Pronoun attaches to the end",
+                examples: [
+                    { native: "Alzati!", translation: "Get up!" },
+                    { native: "Siediti!", translation: "Sit down!" },
+                    { native: "Lavati le mani!", translation: "Wash your hands!" },
+                ],
+            },
+        ],
+        notes: [
+            { type: "tip", content: "The key rule for tu: -are verbs get -a (Parla!), NOT -i. Everything else (tu negative and noi/voi) is straightforward." },
+            { type: "tip", content: "Short irregular forms Va', Fa', Di', Sta' have an apostrophe marking the dropped syllable. They're common in casual speech." },
+            { type: "culture", content: "Italian imperatives are used far more casually than English ones — \"Guarda!\" \"Ascolta!\" \"Dimmi!\" are everyday friendly expressions, not rude commands." },
+        ],
+        fixedPhrases: [
+            { native: "Parla più lentamente!", translation: "Speak more slowly!", note: "Essential for language learners." },
+            { native: "Dimmi!", translation: "Tell me!", note: "Di' + mi = Dimmi (contracted)." },
+            { native: "Andiamo!", translation: "Let's go!", note: "noi imperative — very common." },
+            { native: "Non ti preoccupare!", translation: "Don't worry!", note: "Negative reflexive — pronoun before infinitive." },
+            { native: "Aspetta!", translation: "Wait!", note: "-are verb: aspettare → Aspetta!" },
+        ],
         examples: [
             { native: "Parla più lentamente, per favore.", translation: "Speak more slowly, please. (tu — informal)" },
             { native: "Ascoltate bene!", translation: "Listen carefully! (voi — plural)" },
@@ -380,7 +759,7 @@ CONJUGATION (present tense):
   voi     → **dovete**   (you must)
   loro    → **devono**   (they must)
 
-Always followed by an label:
+Always followed by an infinitive:
   Devo partire.          I must leave.
   Devi mangiare.         You have to eat.
   Deve lavorare.         He/she has to work.
@@ -415,6 +794,62 @@ Note the important distinction:
   Non posso   → I can't (no ability/permission)
   Non devo fumare.   I don't have to smoke. (it's not required)
   Non posso fumare.  I can't smoke. (it's not allowed / I'm unable to)`,
+        conjugationTable: {
+            pronouns: ["io", "tu", "lui / lei", "noi", "voi", "loro"],
+            verbs: [{ label: "dovere", forms: ["devo", "devi", "deve", "dobbiamo", "dovete", "devono"] }],
+        },
+        paradigmTable: {
+            pronouns: ["modal", "meaning", "example"],
+            verbs: [
+                { label: "dovere", forms: ["dovere", "must / have to / should", "Devo partire. (I must leave.)"] },
+                { label: "potere", forms: ["potere", "can / be able to / may", "Posso partire. (I can leave.)"] },
+                { label: "volere", forms: ["volere", "want to", "Voglio partire. (I want to leave.)"] },
+            ],
+        },
+        rules: [
+            {
+                condition: "Obligation (must/have to)",
+                result: "dovere + infinitive",
+                examples: [
+                    { native: "Devo andare dal medico.", translation: "I have to go to the doctor." },
+                    { native: "Dovete prenotare in anticipo.", translation: "You must book in advance." },
+                ],
+            },
+            {
+                condition: "Moral duty (should/ought to)",
+                result: "dovere + infinitive",
+                examples: [
+                    { native: "Devi chiamare tua madre.", translation: "You should call your mother." },
+                    { native: "Dobbiamo rispettare gli altri.", translation: "We should respect others." },
+                ],
+            },
+            {
+                condition: "Logical deduction (must be)",
+                result: "dovere + infinitive or essere",
+                examples: [
+                    { native: "Deve essere stanca.", translation: "She must be tired." },
+                    { native: "Deve dormire — non risponde.", translation: "He must be sleeping — he's not answering." },
+                ],
+            },
+            {
+                condition: "Non devo vs non posso",
+                result: "'Non devo' = I don't have to (no obligation). 'Non posso' = I can't (no ability/permission).",
+                examples: [
+                    { native: "Non devo lavorare domani.", translation: "I don't have to work tomorrow. (no obligation)" },
+                    { native: "Non posso fumare qui.", translation: "I can't smoke here. (not allowed)" },
+                ],
+            },
+        ],
+        notes: [
+            { type: "warning", content: "Non devo ≠ non posso. Non devo = I don't have to (there is no obligation). Non posso = I can't (it's not possible/allowed). Don't confuse them." },
+            { type: "forward-ref", content: "Volere and potere are in lesson it-g-a1-19. Together, dovere/potere/volere form the core Italian modal verb system.", refId: "it-g-a1-19" },
+        ],
+        fixedPhrases: [
+            { native: "Devo studiare stasera.", translation: "I have to study tonight.", note: "dovere + infinitive for obligation." },
+            { native: "Non devo lavorare domani.", translation: "I don't have to work tomorrow.", note: "no obligation." },
+            { native: "Deve essere tardi.", translation: "It must be late.", note: "dovere for logical deduction." },
+            { native: "Dobbiamo andare.", translation: "We have to go.", note: "noi form — very common." },
+        ],
         examples: [
             { native: "Devo studiare stasera.", translation: "I have to study tonight." },
             { native: "Devi parlare con il professore.", translation: "You should speak with the teacher." },
