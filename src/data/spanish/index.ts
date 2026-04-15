@@ -36,6 +36,7 @@ import { a2Culture } from "./culture/a2"
 import { b1Culture } from "./culture/b1"
 
 import { a1Speaking } from "./speaking/a1"
+import { a1Checkpoints } from "./checkpoints/a1"
 
 import { a1Checkpoints } from "./checkpoints/a1"
 
