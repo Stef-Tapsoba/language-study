@@ -5,56 +5,43 @@ export const foundationsLessons: GrammarLesson[] = [
     id: "es-g-a1-1",
     level: "A1",
     title: "Subject Pronouns",
-    explanation: `Spanish subject pronouns identify who performs the action. Unlike English, they are often omitted because verb endings already show the subject — but they are used for emphasis or clarity.
+    explanation: `In Spanish, subject pronouns identify who performs the action. Unlike English, they are usually dropped — verb endings already show the subject. Use them only for emphasis or contrast.
 
-SINGULAR                          PLURAL
-yo       — I                      nosotros / nosotras  — we
-tú       — you (informal)         vosotros / vosotras  — you all (Spain)
-usted    — you (formal)           ustedes              — you all (formal / Latin America)
-él       — he                     ellos   — they (masc. or mixed group)
-ella     — she                    ellas   — they (fem.)
-
-tú vs. usted: Use tú with friends, family, and peers. Use usted with strangers, elders, or in formal situations. Usted conjugates like él/ella.`,
+tú = informal (friends, family, peers). usted = formal (strangers, elders, professional contexts). In Latin America, ustedes replaces vosotros for all plural "you".`,
     paradigmTable: {
       pronouns: ["singular", "plural"],
       verbs: [
-        { label: "1st person", forms: ["yo — I", "nosotros / nosotras — we"] },
-        { label: "2nd person informal", forms: ["tú — you", "vosotros / vosotras — you all (Spain)"] },
-        { label: "2nd person formal", forms: ["usted — you", "ustedes — you all (LatAm / formal)"] },
-        { label: "3rd person masc.", forms: ["él — he", "ellos — they (masc./mixed)"] },
-        { label: "3rd person fem.", forms: ["ella — she", "ellas — they (fem.)"] },
+        { label: "1st person", forms: ["yo", "nosotros / nosotras"] },
+        { label: "2nd person (informal)", forms: ["tú", "vosotros (Spain)"] },
+        { label: "2nd person (formal)", forms: ["usted", "ustedes"] },
+        { label: "3rd person", forms: ["él / ella", "ellos / ellas"] },
       ],
     },
     rules: [
       {
-        condition: "Deciding whether to include the subject pronoun",
-        result: "Omit it unless you need emphasis or contrast",
+        condition: "Whether to include the subject pronoun",
+        result: "Omit it — unless you need emphasis or contrast",
         examples: [
-          { native: "Hablo español.", translation: "I speak Spanish. (pronoun dropped)" },
-          { native: "Yo hablo español, tú no.", translation: "I speak Spanish, you don't. (contrast → pronoun kept)" },
+          { native: "Hablo español.", translation: "I speak Spanish. (pronoun dropped — natural)" },
+          { native: "Yo hablo español, tú no.", translation: "I speak Spanish, you don't. (contrast → keep it)" },
         ],
       },
       {
         condition: "Choosing between tú and usted",
-        result: "Tú = informal (friends, family, peers). Usted = formal (strangers, elders, professional situations)",
+        result: "tú = informal. usted = formal. When in doubt, use usted.",
         examples: [
-          { native: "¿Cómo te llamas?", translation: "What's your name? (tú — informal)" },
-          { native: "¿Cómo se llama usted?", translation: "What is your name? (usted — formal)" },
+          { native: "¿Cómo te llamas? / ¿Cómo se llama usted?", translation: "What's your name? (informal / formal)" },
         ],
       },
     ],
     notes: [
       {
         type: "tip",
-        content: "Subject pronouns are usually omitted in Spanish because verb endings already identify the person. Say \"Trabajo\" not \"Yo trabajo\" — dropping the pronoun sounds more natural.",
-      },
-      {
-        type: "tip",
-        content: "Usted / ustedes conjugate like él/ella/ellos respectively. This is why you can drop usted and still be understood from the verb form.",
+        content: "Usted and ustedes conjugate like él/ella and ellos/ellas. Drop them and the verb form alone communicates the meaning.",
       },
       {
         type: "culture",
-        content: "In Latin America, vosotros is not used — ustedes serves for both formal and informal \"you all\". This course uses ustedes as the standard plural throughout.",
+        content: "In Latin America, vosotros doesn't exist — ustedes covers all groups. This course uses ustedes as the standard plural throughout.",
       },
     ],
     examples: [
@@ -74,27 +61,9 @@ tú vs. usted: Use tú with friends, family, and peers. Use usted with strangers
     id: "es-g-a1-2",
     level: "A1",
     title: "Ser & Estar — Two Ways to Say 'To Be'",
-    explanation: `Spanish has two verbs for 'to be'. Choosing the right one is the key challenge of A1 Spanish.
+    explanation: `Spanish has two verbs meaning 'to be'. Choosing correctly is the central challenge of A1 Spanish. The conjugation table shows both side by side. The usage table shows when each one applies.
 
-**SER** — identity, permanent or defining traits
-  yo **soy**         nosotros **somos**
-  tú **eres**        vosotros **sois**
-  él/ella **es**     ellos/ellas **son**
-
-**ESTAR** — location, temporary states, and conditions
-  yo **estoy**         nosotros **estamos**
-  tú **estás**         vosotros **estáis**
-  él/ella **está**     ellos/ellas **están**
-
-WHEN TO USE EACH
-
-  SER                                   ESTAR
-  identity / profession                 location (where someone/thing is)
-  origin / nationality                  temporary emotion or feeling
-  permanent traits / appearance         condition that can change
-  time and dates                        ongoing action (estar + gerund)
-
-Quick check: Can the situation change? → ESTAR. Is it a defining fact? → SER.`,
+Quick rule: can the situation change? → ESTAR. Is it a defining fact? → SER.`,
     conjugationTable: {
       pronouns: ["yo", "tú", "él / ella / usted", "nosotros / nosotras", "vosotros / vosotras", "ustedes / ellos / ellas"],
       verbs: [
@@ -105,70 +74,43 @@ Quick check: Can the situation change? → ESTAR. Is it a defining fact? → SER
     paradigmTable: {
       pronouns: ["SER — use for", "ESTAR — use for"],
       verbs: [
-        { label: "identity", forms: ["identity / profession / nationality", "location (where someone/thing is)"] },
-        { label: "traits", forms: ["permanent traits and appearance", "temporary emotions and feelings"] },
-        { label: "origin/time", forms: ["origin / time / dates", "conditions that can change"] },
-        { label: "description", forms: ["material (Es de madera.)", "ongoing action (estar + gerund)"] },
+        { label: "identity", forms: ["identity / profession / nationality", "location"] },
+        { label: "traits", forms: ["permanent traits / appearance", "temporary feelings / states"] },
+        { label: "origin/time", forms: ["origin / time / dates", "changeable conditions"] },
       ],
     },
     rules: [
       {
-        condition: "Describing who someone is (profession, nationality, origin)",
+        condition: "Identity, profession, nationality, origin",
         result: "Use ser",
         examples: [
-          { native: "Soy médico.", translation: "I am a doctor." },
-          { native: "Es española.", translation: "She is Spanish." },
-          { native: "Somos de México.", translation: "We are from Mexico." },
+          { native: "Soy médico. / Es española. / Somos de México.", translation: "I'm a doctor. / She's Spanish. / We're from Mexico." },
         ],
       },
       {
-        condition: "Saying where something is located or how someone feels right now",
+        condition: "Location, temporary state, or changeable condition",
         result: "Use estar",
         examples: [
-          { native: "Estoy en casa.", translation: "I am at home." },
-          { native: "El café está caliente.", translation: "The coffee is hot." },
-          { native: "Estamos cansados.", translation: "We are tired." },
-        ],
-      },
-      {
-        condition: "Describing a permanent trait or quality",
-        result: "Use ser",
-        examples: [
-          { native: "Es inteligente.", translation: "She is intelligent." },
-          { native: "La casa es grande.", translation: "The house is big." },
-          { native: "El agua es fría.", translation: "Water is cold." },
-        ],
-      },
-      {
-        condition: "Describing a changeable condition or state",
-        result: "Use estar",
-        examples: [
-          { native: "Estoy enfermo.", translation: "I am ill." },
-          { native: "La puerta está abierta.", translation: "The door is open." },
-          { native: "Estamos listos.", translation: "We are ready." },
+          { native: "Estoy en casa. / El café está caliente. / Estamos cansados.", translation: "I'm at home. / The coffee is hot. / We're tired." },
         ],
       },
     ],
     notes: [
       {
-        type: "tip",
-        content: "Quick test — can the situation change? → ESTAR. Is it a defining fact about the person/thing? → SER.",
-      },
-      {
         type: "warning",
-        content: "The most common early mistake is using ser for location. Location ALWAYS uses estar: \"El banco está en la calle Mayor\" — never \"El banco es en...\".",
+        content: "Location always uses estar — never ser. \"El banco está en la calle Mayor\" ✓ / \"El banco es en...\" ✗",
       },
       {
         type: "forward-ref",
-        content: "Some adjectives completely change meaning depending on whether you use ser or estar — for example, \"aburrido\" means boring with ser but bored with estar. Full list in lesson es-g-a1-28.",
+        content: "Some adjectives change meaning entirely depending on the verb — aburrido means boring with ser but bored with estar. Full pairs in lesson es-g-a1-28.",
         refId: "es-g-a1-28",
       },
     ],
     fixedPhrases: [
-      { native: "Soy de…", translation: "I'm from…", note: "The most natural way to state your origin." },
-      { native: "Estoy bien, gracias.", translation: "I'm well, thank you.", note: "estar for current state — the standard response to ¿Cómo estás?" },
-      { native: "¿Cómo estás? / ¿Cómo está usted?", translation: "How are you?", note: "Always estar for how someone feels." },
-      { native: "¿De dónde eres?", translation: "Where are you from?", note: "ser for origin — standard first question." },
+      { native: "Soy de…", translation: "I'm from…", note: "ser for origin." },
+      { native: "Estoy bien, gracias.", translation: "I'm well, thank you.", note: "estar for current state." },
+      { native: "¿Cómo estás? / ¿Cómo está usted?", translation: "How are you?", note: "Always estar for feelings." },
+      { native: "¿De dónde eres?", translation: "Where are you from?", note: "ser for origin." },
     ],
     examples: [
       { native: "Soy médico.", translation: "I am a doctor. (profession → ser)" },
@@ -189,17 +131,7 @@ Quick check: Can the situation change? → ESTAR. Is it a defining fact? → SER
     id: "es-g-a1-3",
     level: "A1",
     title: "Present Tense: Regular -ar Verbs",
-    explanation: `Regular -ar verbs are the most common group in Spanish. Remove -ar from the infinitive and add the ending that matches the subject.
-
-HABLAR — to speak (stem: habl-)
-
-  yo hablo          nosotros hablamos
-  tú hablas         vosotros habláis
-  él/ella habla     ellos/ellas hablan
-
-The same endings apply to hundreds of verbs: trabajar, llamar, escuchar, cantar, estudiar, comprar, viajar, visitar, usar, bailar, caminar…
-
-Note: the yo form always ends in -o. This is true for all regular -ar, -er, and -ir verbs.`,
+    explanation: `Regular -ar verbs are the most common group in Spanish. Remove the -ar ending from the infinitive and add the ending for the person you want. Hundreds of verbs follow this exact pattern.`,
     conjugationTable: {
       pronouns: ["yo", "tú", "él / ella / usted", "nosotros / nosotras", "vosotros / vosotras", "ustedes / ellos / ellas"],
       verbs: [
@@ -209,41 +141,29 @@ Note: the yo form always ends in -o. This is true for all regular -ar, -er, and 
     },
     rules: [
       {
-        condition: "Conjugating any regular -ar verb in the present tense",
-        result: "Remove -ar from the infinitive, add: -o / -as / -a / -amos / -áis / -an",
-        heuristic: "hablar → habl- + ending → hablo, hablas, habla, hablamos, habláis, hablan",
+        condition: "Conjugating any regular -ar verb",
+        result: "Remove -ar, add: -o / -as / -a / -amos / -áis / -an",
+        heuristic: "hablar → habl- + ending",
         examples: [
-          { native: "hablar → hablo, hablas, habla…", translation: "to speak → I speak, you speak, he/she speaks…" },
-          { native: "estudiar → estudio, estudias, estudia…", translation: "to study → I study, you study, he/she studies…" },
+          { native: "estudiar → estudio, estudias, estudia, estudiamos, estudiáis, estudian", translation: "to study → I study, you study, he studies…" },
         ],
       },
       {
-        condition: "Recognising the yo form",
-        result: "The yo form always ends in -o for ALL regular verb types",
+        condition: "The yo form of any regular verb",
+        result: "Always ends in -o, regardless of verb type",
         examples: [
-          { native: "hablo / como / vivo", translation: "I speak / I eat / I live (all yo, all -o)" },
-        ],
-      },
-      {
-        condition: "Identifying -ar verbs",
-        result: "Check the infinitive ending — if it ends in -ar, this pattern applies",
-        examples: [
-          { native: "hablar, trabajar, estudiar, llamar, comprar, caminar", translation: "to speak, to work, to study, to call, to buy, to walk" },
+          { native: "hablo / como / vivo", translation: "I speak / I eat / I live (all -o)" },
         ],
       },
     ],
     notes: [
       {
         type: "tip",
-        content: "There are hundreds of -ar verbs in Spanish — it's the most productive verb class. Once you know this pattern, you can produce forms for any new -ar verb you encounter.",
-      },
-      {
-        type: "tip",
-        content: "Nosotros keeps a stress accent only in some verb types. Vosotros always gets an accent in -ar verbs: habláis.",
+        content: "There are hundreds of -ar verbs in Spanish — the most productive class. Know this pattern once and you can use any of them.",
       },
       {
         type: "forward-ref",
-        content: "-er and -ir verbs follow a similar but different pattern — introduced in lessons es-g-a1-7 and es-g-a1-8.",
+        content: "-er and -ir verbs use different endings — introduced in es-g-a1-7 and es-g-a1-8.",
         refId: "es-g-a1-7",
       },
     ],
@@ -271,26 +191,9 @@ Note: the yo form always ends in -o. This is true for all regular -ar, -er, and 
     id: "es-g-a1-4",
     level: "A1",
     title: "Articles & Noun Gender",
-    explanation: `Every Spanish noun has a grammatical gender — masculine or feminine. Articles must match the noun's gender and number.
+    explanation: `Every Spanish noun has a grammatical gender — masculine or feminine. Articles must agree with the noun in gender and number. As a general guide, nouns ending in -o are masculine and nouns ending in -a are feminine, but learn every noun with its article from the start.
 
-DEFINITE ARTICLES (the)
-               Singular    Plural
-  Masculine:    el          los
-  Feminine:     la          las
-
-INDEFINITE ARTICLES (a / some)
-               Singular    Plural
-  Masculine:    un          unos
-  Feminine:     una         unas
-
-GENDER RULES (general patterns)
-  Nouns ending in -o are usually masculine:  libro, teléfono, banco
-  Nouns ending in -a are usually feminine:   casa, mesa, escuela
-  Exceptions exist: el día (day), la mano (hand), el mapa (map)
-
-CONTRACTIONS
-  a + el → al    Voy al banco.            (I'm going to the bank.)
-  de + el → del  El libro del profesor.   (The teacher's book.)`,
+Two contractions are mandatory: a + el = al, de + el = del. Spanish never writes "a el" or "de el".`,
     paradigmTable: {
       pronouns: ["masculine singular", "feminine singular", "masculine plural", "feminine plural"],
       verbs: [
@@ -300,59 +203,32 @@ CONTRACTIONS
     },
     rules: [
       {
-        condition: "Choosing the right article form",
-        result: "Match the article to the noun's gender (masc./fem.) and number (sing./pl.)",
+        condition: "Matching the article to the noun",
+        result: "Use the form that agrees in gender and number",
         examples: [
           { native: "el libro / la casa / los libros / las casas", translation: "the book / the house / the books / the houses" },
         ],
       },
       {
-        condition: "Nouns ending in -o",
-        result: "Usually masculine → use el / un",
+        condition: "Contractions with a and de",
+        result: "a + el = al · de + el = del (mandatory — never write 'a el' or 'de el')",
         examples: [
-          { native: "el libro, el teléfono, el banco, el año", translation: "the book, the telephone, the bank, the year" },
-        ],
-      },
-      {
-        condition: "Nouns ending in -a",
-        result: "Usually feminine → use la / una",
-        examples: [
-          { native: "la casa, la mesa, la escuela, la semana", translation: "the house, the table, the school, the week" },
-        ],
-      },
-      {
-        condition: "Using a + el",
-        result: "Always contract to al — never say 'a el'",
-        examples: [
-          { native: "Voy al banco.", translation: "I'm going to the bank." },
-          { native: "Hablo al médico.", translation: "I'm speaking to the doctor." },
-        ],
-      },
-      {
-        condition: "Using de + el",
-        result: "Always contract to del — never say 'de el'",
-        examples: [
-          { native: "El libro del profesor.", translation: "The teacher's book." },
-          { native: "Vengo del trabajo.", translation: "I'm coming from work." },
+          { native: "Voy al banco. / El libro del profesor.", translation: "I'm going to the bank. / The teacher's book." },
         ],
       },
     ],
     notes: [
       {
-        type: "warning",
-        content: "The gender rule has important exceptions. El día (day), el mapa (map), el problema, el tema, el sistema — all masculine despite ending in -a. Learn these with their articles from the start.",
-      },
-      {
         type: "tip",
-        content: "Learn every new noun with its article. Don't just learn \"mesa\" — learn \"la mesa\". Don't just learn \"libro\" — learn \"el libro\". Building this habit now makes gender automatic.",
+        content: "Learn every new noun with its article. Not just \"mesa\" — \"la mesa\". Not just \"libro\" — \"el libro\". Build this habit now and gender becomes automatic.",
       },
       {
         type: "warning",
-        content: "Nouns ending in -ción, -sión, -dad, -tad, -tud, -umbre are ALWAYS feminine: la canción, la ciudad, la libertad.",
+        content: "Some -a nouns are masculine: el día, el mapa, el problema, el tema. And nouns ending in -ción, -sión, -dad are always feminine: la canción, la ciudad.",
       },
     ],
     fixedPhrases: [
-      { native: "Voy al trabajo.", translation: "I'm going to work.", note: "al = a + el — the most common contraction." },
+      { native: "Voy al trabajo.", translation: "I'm going to work.", note: "al = a + el." },
       { native: "El libro del profesor.", translation: "The teacher's book.", note: "del = de + el." },
     ],
     examples: [
@@ -379,74 +255,55 @@ CONTRACTIONS
     id: "es-g-a1-5",
     level: "A1",
     title: "Negation & Question Formation — Quick Reference",
-    explanation: `NEGATION
-Place no directly before the verb — no other words are needed.
-  No hablo inglés.    (I don't speak English.)
-  No estoy bien.      (I'm not well.)
+    explanation: `NEGATION — place no directly before the verb, nothing else changes.
 
-YES/NO QUESTIONS
-Raise intonation at the end, or invert subject and verb:
-  ¿Hablas español?    (Do you speak Spanish?)
-  ¿Es María médica?   (Is María a doctor?)
+YES/NO QUESTIONS — raise intonation at the end, or invert subject and verb. Always open with ¿.
 
-INFORMATION QUESTIONS — question word + (optional subject) + verb
-  ¿qué?       what        ¿Qué es esto?          (What is this?)
-  ¿dónde?     where       ¿Dónde vives?          (Where do you live?)
-  ¿quién?     who         ¿Quién es él?          (Who is he?)
-  ¿cuándo?    when        ¿Cuándo llegas?        (When do you arrive?)
-  ¿cómo?      how         ¿Cómo estás?           (How are you?)
-  ¿cuánto?    how much    ¿Cuánto cuesta?        (How much does it cost?)
-  ¿cuántos?   how many    ¿Cuántos años tienes?  (How old are you?)
-  ¿por qué?   why         ¿Por qué estudias?     (Why do you study?)
-
-Spanish uses an opening inverted ¿ before every question.`,
+QUESTION WORDS (all carry a written accent):
+¿qué? what · ¿dónde? where · ¿quién? who · ¿cuándo? when · ¿cómo? how · ¿cuánto/a? how much · ¿cuántos/as? how many · ¿por qué? why · ¿cuál? which`,
     rules: [
       {
         condition: "Making a sentence negative",
-        result: "Place no directly before the conjugated verb",
+        result: "Place no directly before the verb",
         examples: [
           { native: "Hablo inglés. → No hablo inglés.", translation: "I speak English. → I don't speak English." },
-          { native: "Tengo coche. → No tengo coche.", translation: "I have a car. → I don't have a car." },
         ],
       },
       {
         condition: "Forming a yes/no question",
-        result: "Raise intonation at the end, or invert subject and verb. Open with ¿",
+        result: "Raise intonation, or invert subject and verb — always open with ¿",
         examples: [
-          { native: "¿Hablas español?", translation: "Do you speak Spanish?" },
-          { native: "¿Es María médica?", translation: "Is María a doctor?" },
+          { native: "¿Hablas español? / ¿Es María médica?", translation: "Do you speak Spanish? / Is María a doctor?" },
         ],
       },
       {
         condition: "Forming an information question",
-        result: "Question word + (optional subject) + verb. All question words carry a written accent",
+        result: "Question word + (optional subject) + verb",
         examples: [
-          { native: "¿Dónde vives?", translation: "Where do you live?" },
-          { native: "¿Cuántos años tienes?", translation: "How old are you?" },
-          { native: "¿Por qué estudias?", translation: "Why do you study?" },
+          { native: "¿Dónde vives? / ¿Cuántos años tienes?", translation: "Where do you live? / How old are you?" },
         ],
       },
     ],
     notes: [
       {
         type: "tip",
-        content: "Spanish is the only language that uses an opening ¿ and ¡. The opening ¿ tells the reader a question is coming before they reach the verb — very helpful for understanding quickly.",
+        content: "Opening ¿ is unique to Spanish — it signals a question before you reach the verb, which helps when reading fast.",
       },
       {
         type: "warning",
-        content: "Question words in Spanish always carry a written accent (¿qué?, ¿dónde?, ¿cómo?) to distinguish them from their non-question uses (que = that, donde = where, como = as/how).",
+        content: "Question words always carry a written accent (¿qué?, ¿dónde?, ¿cómo?) to distinguish them from their non-question uses (que = that, donde = where, como = like/how).",
       },
       {
         type: "forward-ref",
-        content: "A full lesson on negation (including double negation and nunca/nada/nadie) is at es-g-a1-18, and a full question formation lesson at es-g-a1-19.",
+        content: "Full negation lesson (double negation, nunca/nada/nadie) at es-g-a1-18. Full question formation lesson at es-g-a1-19.",
         refId: "es-g-a1-18",
       },
     ],
     fixedPhrases: [
-      { native: "No entiendo.", translation: "I don't understand.", note: "The most useful phrase for a learner — say it and people will slow down." },
-      { native: "¿Cómo se dice…?", translation: "How do you say…?", note: "Useful for asking vocabulary mid-conversation." },
-      { native: "¿Qué significa…?", translation: "What does … mean?", note: "Essential when you don't understand a word." },
-      { native: "No sé.", translation: "I don't know.", note: "Short and honest — used constantly." },
+      { native: "No entiendo.", translation: "I don't understand.", note: "Say it clearly — people will slow down." },
+      { native: "¿Cómo se dice…?", translation: "How do you say…?" },
+      { native: "¿Qué significa…?", translation: "What does … mean?" },
+      { native: "No sé.", translation: "I don't know." },
     ],
     examples: [
       { native: "No hablo inglés.", translation: "I don't speak English." },
@@ -467,109 +324,56 @@ Spanish uses an opening inverted ¿ before every question.`,
     id: "es-g-a1-28",
     level: "A1",
     title: "Ser vs Estar — Adjectives That Change Meaning",
-    explanation: `You already know the core rule: ser for identity/permanent traits, estar for location/temporary states. But some adjectives change meaning entirely depending on which verb they follow. These are among the most common adjective pairs in Spanish and are worth knowing from A1.
-
-THE KEY PAIRS — the four most useful at A1
-
-  Adjective      SER (identity/defining)         ESTAR (state/condition)
-  ──────────────────────────────────────────────────────────────────────
-  aburrido/a     boring (personality)            bored (how you feel right now)
-  malo/a         bad / evil (defining trait)     ill / sick (current condition)
-  bueno/a        good (personality / quality)    tasty / feeling well
-  listo/a        clever / smart                  ready
-
-Note: other pairs (rico, muerto, seguro, vivo) follow the same logic and are introduced at A2.
-
-  ABURRIDO
-    Es muy aburrido.      He is very boring.    (that's his personality)
-    Estoy aburrido.       I am bored.           (right now, this moment)
-
-  MALO
-    Es malo.              He is bad / evil.     (defining character)
-    Está malo.            He is ill / sick.     (temporary condition)
-
-  BUENO
-    Es buena persona.     She is a good person. (character)
-    Está buenísimo.       It tastes amazing.    (food, right now)
-
-  LISTO
-    Es muy lista.         She is very clever.   (personality)
-    ¿Estás listo?         Are you ready?        (current state)
-
-MEMORY TIP: ask yourself whether you are describing what something IS by nature, or what state it is IN at this moment. Nature → ser. State → estar.`,
+    explanation: `Some Spanish adjectives mean something different depending on whether they follow ser or estar. The table below shows the four most important pairs at A1.`,
     paradigmTable: {
-      pronouns: ["Adjective", "With SER (identity / defining)", "With ESTAR (state / condition)"],
+      pronouns: ["Adjective", "With ser", "With estar"],
       verbs: [
-        { label: "aburrido/a", forms: ["aburrido/a", "boring (personality)", "bored (right now)"] },
-        { label: "malo/a", forms: ["malo/a", "bad / evil (character)", "ill / sick (condition)"] },
-        { label: "bueno/a", forms: ["bueno/a", "good (personality / quality)", "tasty / feeling well"] },
-        { label: "listo/a", forms: ["listo/a", "clever / smart", "ready"] },
-        { label: "rico/a", forms: ["rico/a", "rich / wealthy", "delicious (food)"] },
+        { label: "aburrido/a", forms: ["boring (personality)", "bored (right now)"] },
+        { label: "malo/a", forms: ["bad / evil (character)", "ill / sick (condition)"] },
+        { label: "bueno/a", forms: ["good (personality)", "tasty / feeling well"] },
+        { label: "listo/a", forms: ["clever / smart", "ready"] },
+        { label: "rico/a", forms: ["rich / wealthy", "delicious (food)"] },
       ],
     },
     rules: [
       {
-        condition: "Choosing ser or estar with an adjective that changes meaning",
+        condition: "Adjective that changes meaning with ser vs estar",
         result: "Ask: is this describing what the person/thing IS by nature, or what state they are IN right now?",
         examples: [
-          { native: "Es aburrido.", translation: "He IS a boring person. (permanent personality)" },
-          { native: "Estoy aburrido.", translation: "I AM bored right now. (current feeling)" },
-        ],
-      },
-      {
-        condition: "Describing personality, character, or inherent quality",
-        result: "Use ser",
-        examples: [
-          { native: "Es muy lista.", translation: "She's very clever — personality." },
-          { native: "Es buena persona.", translation: "She's a good person." },
-        ],
-      },
-      {
-        condition: "Describing current physical state, temporary feeling, or readiness",
-        result: "Use estar",
-        examples: [
-          { native: "Estoy malo.", translation: "I'm ill." },
-          { native: "¿Estás listo?", translation: "Are you ready?" },
-          { native: "Está buenísimo.", translation: "It tastes amazing." },
+          { native: "Es aburrido. / Estoy aburrido.", translation: "He's boring (personality). / I'm bored (right now)." },
         ],
       },
     ],
     notes: [
       {
         type: "tip",
-        content: "The key question for these adjectives: is the situation permanent and defining, or temporary and changeable? Permanent/defining → ser. Temporary/changeable → estar.",
+        content: "Nature → ser. Temporary state → estar. Run this test for every meaning-changing adjective.",
       },
       {
         type: "culture",
-        content: "\"Está buenísimo\" (with estar) is how Spanish speakers say food is delicious. Using ser for this (\"es bueno\") means it's generically good, not that it tastes amazing right now.",
+        content: "\"Está buenísimo\" (estar) = this tastes amazing. \"Es bueno\" (ser) = it's generically good. The verb choice changes the whole meaning.",
       },
       {
         type: "forward-ref",
-        content: "This lesson builds on the core ser/estar distinction introduced in es-g-a1-2.",
+        content: "This lesson builds on the core ser/estar distinction in es-g-a1-2.",
         refId: "es-g-a1-2",
       },
     ],
     examples: [
-      { native: "Esta película es muy aburrida.", translation: "This film is very boring. (ser — it's just a boring film)" },
-      { native: "Estoy aburrida en casa.", translation: "I am bored at home. (estar — feeling bored right now)" },
-      { native: "Es malo con los animales.", translation: "He is cruel to animals. (ser — character)" },
-      { native: "Mi madre está mala hoy.", translation: "My mother is ill today. (estar — temporary condition)" },
-      { native: "¿Estás listo para salir?", translation: "Are you ready to go out? (estar — current state)" },
+      { native: "Esta película es muy aburrida.", translation: "This film is very boring. (ser — personality)" },
+      { native: "Estoy aburrida en casa.", translation: "I am bored at home. (estar — feeling right now)" },
+      { native: "Mi madre está mala hoy.", translation: "My mother is ill today. (estar — condition)" },
+      { native: "¿Estás listo para salir?", translation: "Are you ready to go out? (estar — readiness)" },
       { native: "Es una chica muy lista.", translation: "She is a very clever girl. (ser — personality)" },
-      { native: "Este postre está riquísimo.", translation: "This dessert is absolutely delicious. (estar — taste)" },
-      { native: "Es rico, tiene tres casas.", translation: "He is wealthy, he has three houses. (ser — defining trait)" },
+      { native: "Este postre está riquísimo.", translation: "This dessert is delicious. (estar — taste)" },
     ],
     inlineVocab: [
       { word: "película", translation: "film / movie" },
       { word: "aburrido", translation: "boring / bored" },
-      { word: "animales", translation: "animals" },
       { word: "madre", translation: "mother" },
       { word: "listo", translation: "clever / ready" },
       { word: "postre", translation: "dessert" },
       { word: "rico", translation: "rich / delicious" },
-      { word: "casas", translation: "houses" },
-      { word: "chica", translation: "girl" },
-      { word: "persona", translation: "person" },
     ]
   },
 ]
