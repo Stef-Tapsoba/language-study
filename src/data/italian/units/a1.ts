@@ -49,7 +49,7 @@ export const a1Units: LessonUnit[] = [
         order: 2,
         title: "Sono… — Who I am",
         description: "Use essere to say who you are, where you're from, and what you do",
-        grammarIds: ["it-g-a1-2"],
+        grammarIds: ["it-g-a1-2", "it-g-a1-21"],
         vocabIds: ["it-v-a1-47", "it-v-a1-48", "it-v-a1-49", "it-v-a1-50", "it-v-a1-51", "it-v-a1-52"],
         verbIds: ["it-vb-a1-1"],
         testQuestions: [
