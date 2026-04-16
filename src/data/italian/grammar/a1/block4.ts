@@ -158,7 +158,7 @@ Note the important distinction:
             },
             {
                 condition: "Non devo vs non posso",
-                result: "'Non devo' = I don't have to (no obligation). 'Non posso' = I can't (no ability/permission).",
+                result: "non devo = don't have to · non posso = can't",
                 examples: [
                     { native: "Non devo lavorare domani.", translation: "I don't have to work tomorrow. (no obligation)" },
                     { native: "Non posso fumare qui.", translation: "I can't smoke here. (not allowed)" },
