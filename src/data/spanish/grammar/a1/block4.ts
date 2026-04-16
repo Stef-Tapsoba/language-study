@@ -18,19 +18,20 @@ ASKING FOR LOCATION
       { native: "¿Dónde está el hospital?", translation: "Where is the hospital?" },
       { native: "El café está entre el banco y la tienda.", translation: "The café is between the bank and the shop." },
     ],
-    paradigmTable: {
-      pronouns: ["Preposition", "Meaning", "Example"],
-      verbs: [
-        { label: "en", forms: ["en", "in / at / on", "Estoy en casa."] },
-        { label: "sobre", forms: ["sobre", "on / on top of", "Está sobre la mesa."] },
-        { label: "debajo de", forms: ["debajo de", "under / underneath", "El gato está debajo de la silla."] },
-        { label: "delante de", forms: ["delante de", "in front of", "El coche está delante del hotel."] },
-        { label: "detrás de", forms: ["detrás de", "behind", "El jardín está detrás de la casa."] },
-        { label: "al lado de", forms: ["al lado de", "next to", "La farmacia está al lado del banco."] },
-        { label: "cerca de", forms: ["cerca de", "near / close to", "Vivimos cerca de la estación."] },
-        { label: "lejos de", forms: ["lejos de", "far from", "El aeropuerto está lejos del centro."] },
-        { label: "entre", forms: ["entre", "between", "El café está entre el banco y la tienda."] },
-        { label: "enfrente de", forms: ["enfrente de", "opposite / facing", "La parada está enfrente del parque."] },
+    referenceTable: {
+      layout: "keyed",
+      headers: ["Spanish", "English"],
+      rows: [
+        { label: "en", cells: ["en", "in / on / at"] },
+        { label: "sobre", cells: ["sobre", "on top of / above"] },
+        { label: "debajo de", cells: ["debajo de", "under / beneath"] },
+        { label: "delante de", cells: ["delante de", "in front of"] },
+        { label: "detrás de", cells: ["detrás de", "behind"] },
+        { label: "al lado de", cells: ["al lado de", "next to / beside"] },
+        { label: "cerca de", cells: ["cerca de", "near / close to"] },
+        { label: "lejos de", cells: ["lejos de", "far from"] },
+        { label: "entre", cells: ["entre", "between / among"] },
+        { label: "enfrente de", cells: ["enfrente de", "opposite / facing"] },
       ],
     },
     rules: [
@@ -390,21 +391,22 @@ NOTE ON YA — three uses to know:
   Ya está.             That's it. / Done.            (= it's done / finished)
   Ya, ya…              Yeah, yeah… / OK, OK…        (= acknowledgement, sometimes sarcastic)
 The meaning of ya shifts with context — listen for the tone.`,
-    paradigmTable: {
-      pronouns: ["Adverb", "Meaning", "Type"],
-      verbs: [
-        { label: "aquí / acá", forms: ["aquí / acá", "here (near me)", "place"] },
-        { label: "ahí", forms: ["ahí", "there (near you)", "place"] },
-        { label: "allí / allá", forms: ["allí / allá", "there / over there (far)", "place"] },
-        { label: "cerca", forms: ["cerca", "nearby / close", "place"] },
-        { label: "lejos", forms: ["lejos", "far away", "place"] },
-        { label: "dentro / fuera", forms: ["dentro / fuera", "inside / outside", "place"] },
-        { label: "arriba / abajo", forms: ["arriba / abajo", "up / down", "place"] },
-        { label: "hoy / ayer / mañana", forms: ["hoy / ayer / mañana", "today / yesterday / tomorrow", "time"] },
-        { label: "ahora / luego", forms: ["ahora / luego", "now / later then", "time"] },
-        { label: "ya", forms: ["ya", "already / right now / done", "time"] },
-        { label: "todavía / aún", forms: ["todavía / aún", "still / yet", "time"] },
-        { label: "pronto / tarde / temprano", forms: ["pronto / tarde / temprano", "soon / late / early", "time"] },
+    referenceTable: {
+      layout: "keyed",
+      headers: ["Adverb", "Meaning", "Type"],
+      rows: [
+        { label: "aquí / acá", cells: ["here (near me)", "place"] },
+        { label: "ahí", cells: ["there (near you)", "place"] },
+        { label: "allí / allá", cells: ["there / over there (far)", "place"] },
+        { label: "cerca", cells: ["nearby / close", "place"] },
+        { label: "lejos", cells: ["far away", "place"] },
+        { label: "dentro / fuera", cells: ["inside / outside", "place"] },
+        { label: "arriba / abajo", cells: ["up / down", "place"] },
+        { label: "hoy / ayer / mañana", cells: ["today / yesterday / tomorrow", "time"] },
+        { label: "ahora / luego", cells: ["now / later", "time"] },
+        { label: "ya", cells: ["already / right now / done", "time"] },
+        { label: "todavía / aún", cells: ["still / yet", "time"] },
+        { label: "pronto / tarde / temprano", cells: ["soon / late / early", "time"] },
       ],
     },
     rules: [
@@ -478,16 +480,17 @@ POSITION
   No llego nunca tarde.       (I never arrive late. — no before verb is optional with nunca)
 
 Note: nunca can go before the verb alone (no no needed) or after the verb with no before it.`,
-    paradigmTable: {
-      pronouns: ["Frequency", "Spanish", "Approximate %"],
-      verbs: [
-        { label: "always", forms: ["siempre", "always", "100%"] },
-        { label: "usually", forms: ["normalmente / generalmente", "usually / normally", "80%"] },
-        { label: "often", forms: ["a menudo / frecuentemente", "often / frequently", "60%"] },
-        { label: "sometimes", forms: ["a veces", "sometimes", "40%"] },
-        { label: "rarely", forms: ["raramente / pocas veces", "rarely / seldom", "20%"] },
-        { label: "hardly ever", forms: ["casi nunca", "hardly ever", "5%"] },
-        { label: "never", forms: ["nunca / jamás", "never / ever", "0%"] },
+    referenceTable: {
+      layout: "keyed",
+      headers: ["Frequency", "Spanish", "%"],
+      rows: [
+        { label: "always", cells: ["siempre", "100%"] },
+        { label: "usually", cells: ["normalmente / generalmente", "80%"] },
+        { label: "often", cells: ["a menudo / frecuentemente", "60%"] },
+        { label: "sometimes", cells: ["a veces", "40%"] },
+        { label: "rarely", cells: ["raramente / pocas veces", "20%"] },
+        { label: "hardly ever", cells: ["casi nunca", "5%"] },
+        { label: "never", cells: ["nunca / jamás", "0%"] },
       ],
     },
     rules: [
@@ -551,20 +554,21 @@ Note: nunca can go before the verb alone (no no needed) or after the verb with n
 COORDINATING — connect equal elements: y (and), o (or), pero (but), sino (but rather)
 SUBORDINATING — introduce a dependent clause: porque (because), que (that), cuando (when), si (if), aunque (although)
 SEQUENCING — order events: primero (first), después/luego (then), finalmente (finally), también (also), además (furthermore)`,
-    paradigmTable: {
-      pronouns: ["Connector", "Meaning", "Type"],
-      verbs: [
-        { label: "y / e", forms: ["y / e", "and", "coordinating (e before i/hi)"] },
-        { label: "o / u", forms: ["o / u", "or", "coordinating (u before o/ho)"] },
-        { label: "pero", forms: ["pero", "but", "coordinating contrast"] },
-        { label: "sino", forms: ["sino", "but rather / but instead", "correcting contrast"] },
-        { label: "porque", forms: ["porque", "because", "subordinating cause"] },
-        { label: "que", forms: ["que", "that", "subordinating"] },
-        { label: "cuando", forms: ["cuando", "when", "subordinating time"] },
-        { label: "si", forms: ["si", "if", "subordinating condition"] },
-        { label: "aunque", forms: ["aunque", "although / even though", "subordinating concession"] },
-        { label: "primero / después / finalmente", forms: ["primero / después / finalmente", "first / then / finally", "sequencing"] },
-        { label: "también / además", forms: ["también / además", "also / furthermore", "addition"] },
+    referenceTable: {
+      layout: "keyed",
+      headers: ["Connector", "Meaning", "Type"],
+      rows: [
+        { label: "y / e", cells: ["and", "coordinating (e before i/hi)"] },
+        { label: "o / u", cells: ["or", "coordinating (u before o/ho)"] },
+        { label: "pero", cells: ["but (contrast)", "coordinating"] },
+        { label: "sino", cells: ["but rather (correction)", "coordinating"] },
+        { label: "porque", cells: ["because", "subordinating cause"] },
+        { label: "que", cells: ["that", "subordinating"] },
+        { label: "cuando", cells: ["when", "subordinating time"] },
+        { label: "si", cells: ["if", "subordinating condition"] },
+        { label: "aunque", cells: ["although", "subordinating"] },
+        { label: "primero / después / finalmente", cells: ["first / then / finally", "sequencing"] },
+        { label: "también / además", cells: ["also / furthermore", "addition"] },
       ],
     },
     rules: [
