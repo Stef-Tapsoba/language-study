@@ -337,7 +337,7 @@ IN CONTEXT
         rules: [
             {
                 condition: "Already — già",
-                result: "già goes after the verb in a simple tense; with passato prossimo it goes between auxiliary and participle",
+                result: "già follows the conjugated verb",
                 examples: [
                     { native: "Ho già mangiato.", translation: "I've already eaten." },
                     { native: "Sei già qui?", translation: "Are you here already?" },
@@ -433,7 +433,7 @@ Note: mai requires non before the verb — like all Italian negatives:
             },
             {
                 condition: "Mai requires non",
-                result: "Mai = never, but it needs non before the verb when it follows the verb",
+                result: "non + verb + mai (both required after the verb)",
                 examples: [
                     { native: "Non mangio mai la carne.", translation: "I never eat meat." },
                     { native: "Non arriva mai in orario.", translation: "He never arrives on time." },
@@ -441,7 +441,7 @@ Note: mai requires non before the verb — like all Italian negatives:
             },
             {
                 condition: "Mai without non (emphatic)",
-                result: "Mai can precede the verb for emphasis — then no non needed",
+                result: "mai before verb = emphatic, no non needed",
                 examples: [
                     { native: "Mai ho detto questo!", translation: "I never said this!" },
                 ],
@@ -530,7 +530,7 @@ EXAMPLE PARAGRAPH
         rules: [
             {
                 condition: "Ma vs però",
-                result: "Both mean 'but' — ma is used mid-sentence; però often starts the second clause or sentence for mild contrast",
+                result: "ma = mid-sentence · però = starts second clause",
                 examples: [
                     { native: "Mi piace la pasta, ma preferisco il risotto.", translation: "I like pasta, but I prefer risotto." },
                     { native: "È caro. Però è buono.", translation: "It's expensive. But it's good." },
@@ -538,7 +538,7 @@ EXAMPLE PARAGRAPH
             },
             {
                 condition: "Perché — two uses",
-                result: "Perché? = why? (question). Perché = because (answer). Same word, different function.",
+                result: "Perché? = why · perché = because (same word)",
                 examples: [
                     { native: "Perché studi?", translation: "Why do you study?" },
                     { native: "Perché mi piace.", translation: "Because I like it." },
@@ -622,7 +622,7 @@ Useful time words: adesso (now), subito (right away), presto (soon), dopo (later
             },
             {
                 condition: "Near future with present tense",
-                result: "Italian very naturally uses present tense for near future plans",
+                result: "present tense also works naturally for near future",
                 examples: [
                     { native: "Domani parto.", translation: "Tomorrow I'm leaving." },
                     { native: "Stasera cucino io.", translation: "Tonight I'm cooking." },
