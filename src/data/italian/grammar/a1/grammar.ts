@@ -283,32 +283,9 @@ Quick examples: al cinema (a + il), dalla stazione (da + la), sul tavolo (su + i
         id: "it-g-a1-23",
         level: "A1",
         title: "Possessive Adjectives",
-        explanation: `Possessive adjectives in Italian agree in gender and number with the noun they describe — not with the owner. They are almost always preceded by a definite article.
+        explanation: `Possessive adjectives agree in gender and number with the noun owned — not the owner. They are almost always preceded by a definite article: il mio libro, la mia macchina, i tuoi amici.
 
-POSSESSIVE ADJECTIVES
-
-  Owner        Masc. Sg.   Fem. Sg.    Masc. Pl.   Fem. Pl.
-  io           mio          mia         miei         mie
-  tu           tuo          tua         tuoi         tue
-  lui / lei    suo          sua         suoi         sue
-  noi          nostro       nostra      nostri       nostre
-  voi          vostro       vostra      vostri       vostre
-  loro         loro         loro        loro         loro    ← invariable
-
-WITH THE DEFINITE ARTICLE — always use il/la/i/le before the possessive:
-  il mio libro        my book
-  la mia macchina     my car
-  i tuoi amici        your friends
-  le sue scarpe       his/her shoes
-
-FAMILY MEMBER EXCEPTION — NO article with singular, unmodified family members:
-  mio padre      (my father)      NOT il mio padre
-  mia sorella    (my sister)      NOT la mia sorella
-  tuo fratello   (your brother)
-  Article returns in three cases:
-  → plurals:    i miei genitori        (my parents)
-  → adjective:  il mio caro padre      (my dear father)
-  → loro:       la loro sorella        (their sister — always takes article)`,
+FAMILY EXCEPTION — drop the article with singular, unmodified family members: mio padre, mia sorella, tuo fratello. The article returns for plurals (i miei genitori), modified nouns (il mio caro padre), and always with loro (la loro sorella).`,
         examples: [
             { native: "il mio libro", translation: "my book (masc. sg.)", speakText: "il mio libro" },
             { native: "la mia macchina", translation: "my car (fem. sg.)", speakText: "la mia macchina" },
