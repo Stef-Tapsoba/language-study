@@ -19,7 +19,7 @@ Common reflexive verbs: chiamarsi (to be called), alzarsi (to get up), svegliars
         rules: [
             {
                 condition: "Forming a reflexive verb",
-                result: "Reflexive pronoun (mi/ti/si/ci/vi/si) goes BEFORE the conjugated verb",
+                result: "reflexive pronoun BEFORE the conjugated verb",
                 examples: [
                     { native: "Mi chiamo Luca.", translation: "My name is Luca." },
                     { native: "Ti alzi tardi.", translation: "You get up late." },
@@ -28,7 +28,7 @@ Common reflexive verbs: chiamarsi (to be called), alzarsi (to get up), svegliars
             },
             {
                 condition: "Infinitive of reflexive verbs",
-                result: "Ends in -si — remove -si, conjugate normally, add matching pronoun before",
+                result: "remove -si, conjugate normally, add pronoun before",
                 examples: [
                     { native: "alzarsi → mi alzo", translation: "to get up → I get up" },
                     { native: "vestirsi → mi visto", translation: "to get dressed → I get dressed" },
@@ -36,7 +36,7 @@ Common reflexive verbs: chiamarsi (to be called), alzarsi (to get up), svegliars
             },
             {
                 condition: "With infinitive",
-                result: "Pronoun attaches to the end of the infinitive OR goes before conjugated verb",
+                result: "attach to infinitive OR go before conjugated verb",
                 examples: [
                     { native: "Voglio alzarmi.", translation: "I want to get up." },
                     { native: "Mi voglio alzare.", translation: "I want to get up. (same meaning)" },
