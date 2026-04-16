@@ -43,7 +43,10 @@ export const foundationsLessons: GrammarLesson[] = [
         explanation: `**Essere** is one of the two key verbs meaning 'to be'. It is used for identity, nationality, profession, origin, and time. Sono serves double duty — it is both the io and the loro form.`,
         conjugationTable: {
             pronouns: ["io", "tu", "lui / lei (+ Lei formale)", "noi", "voi", "loro"],
-            verbs: [{ label: "essere", forms: ["sono", "sei", "è", "siamo", "siete", "sono"] }],
+            verbs: [
+                { label: "essere", forms: ["sono", "sei", "è", "siamo", "siete", "sono"] },
+                { label: "", forms: ["I am", "you are", "he / she is", "we are", "you all are", "they are"] },
+            ],
         },
         rules: [
             {
@@ -108,7 +111,10 @@ export const foundationsLessons: GrammarLesson[] = [
 Key expressions with avere: avere fame (to be hungry), avere sete (to be thirsty), avere N anni (to be N years old), avere freddo/caldo (to be cold/hot).`,
         conjugationTable: {
             pronouns: ["io", "tu", "lui / lei", "noi", "voi", "loro"],
-            verbs: [{ label: "avere", forms: ["ho", "hai", "ha", "abbiamo", "avete", "hanno"] }],
+            verbs: [
+                { label: "avere", forms: ["ho", "hai", "ha", "abbiamo", "avete", "hanno"] },
+                { label: "", forms: ["I have", "you have", "he / she has", "we have", "you all have", "they have"] },
+            ],
         },
         rules: [
             {
