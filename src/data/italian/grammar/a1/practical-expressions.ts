@@ -702,31 +702,7 @@ YEARS
         id: "it-g-a1-22",
         level: "A1",
         title: "Giving & Understanding Directions",
-        explanation: `KEY DIRECTION VERBS
-  girare      → to turn          Gira a destra.     (Turn right.)
-  andare      → to go            Vai dritto.        (Go straight.)
-  continuare  → to continue      Continua dritto.   (Keep going straight.)
-  attraversare → to cross        Attraversa la piazza. (Cross the square.)
-  prendere    → to take (a road) Prendi la prima a sinistra. (Take the first left.)
-
-DIRECTION WORDS
-  a destra        → to the right / on the right
-  a sinistra      → to the left / on the left
-  dritto / sempre dritto → straight ahead
-  in fondo        → at the end (of the road / street)
-  all'angolo      → at the corner
-  di fronte a     → opposite / in front of
-  vicino a        → near / next to
-  lontano da      → far from
-
-USEFUL PHRASES
-  Scusi, dov'è...?              → Excuse me, where is...?
-  Come arrivo a...?             → How do I get to...?
-  È lontano?                    → Is it far?
-  È qui vicino.                 → It is nearby.
-  Sono a piedi. / Sono in macchina. → I'm on foot. / I'm by car.
-  Prenda la prima strada a destra.  → Take the first street on the right.
-  È a cinque minuti a piedi.        → It's five minutes on foot.`,
+        explanation: `Italians give directions using landmarks, not street numbers. The key verbs are girare (turn), andare/continuare (go/keep going), attraversare (cross), and prendere (take — a road or turn). The direction words and useful phrases are in the table below.`,
         examples: [
             { native: "Gira a sinistra al semaforo.", translation: "Turn left at the traffic light." },
             { native: "Vai sempre dritto.", translation: "Go straight ahead." },
@@ -746,18 +722,23 @@ USEFUL PHRASES
             { word: "angolo", translation: "corner" },
         ],
         paradigmTable: {
-            pronouns: ["Phrase", "Italian", "English"],
+            pronouns: ["Italian", "English"],
             verbs: [
-                { label: "go straight", forms: ["Vada dritto / Vai dritto", "Go straight (formal/informal)", ""] },
-                { label: "turn right", forms: ["Giri a destra / Gira a destra", "Turn right", ""] },
-                { label: "turn left", forms: ["Giri a sinistra / Gira a sinistra", "Turn left", ""] },
-                { label: "take the first", forms: ["Prenda / Prendi la prima a destra", "Take the first on the right", ""] },
-                { label: "at the traffic lights", forms: ["Al semaforo", "At the traffic lights", ""] },
-                { label: "it's on the corner", forms: ["È all'angolo", "It's on the corner", ""] },
-                { label: "near / far", forms: ["vicino / lontano", "near / far", ""] },
-                { label: "how long?", forms: ["Quanto ci vuole?", "How long does it take?", ""] },
+                { label: "right / left", forms: ["a destra / a sinistra", "to the right / to the left"] },
+                { label: "straight ahead", forms: ["dritto / sempre dritto", "straight / keep going straight"] },
+                { label: "at the end", forms: ["in fondo", "at the end of the road"] },
+                { label: "at the corner", forms: ["all'angolo", "at the corner"] },
+                { label: "opposite", forms: ["di fronte a", "opposite / in front of"] },
+                { label: "near / far", forms: ["vicino a / lontano da", "near / far from"] },
             ],
         },
+        fixedPhrases: [
+            { native: "Scusi, dov'è...?", translation: "Excuse me, where is...?", note: "Standard way to ask for directions." },
+            { native: "Come arrivo a...?", translation: "How do I get to...?", note: "Alternative opener." },
+            { native: "È lontano? — No, è qui vicino.", translation: "Is it far? — No, it's nearby.", note: "Essential Q&A pair." },
+            { native: "È a cinque minuti a piedi.", translation: "It's five minutes on foot.", note: "Giving a time estimate." },
+            { native: "Prendi la prima a destra.", translation: "Take the first on the right.", note: "Most common direction instruction." },
+        ],
         rules: [
             {
                 condition: "Asking for directions",
