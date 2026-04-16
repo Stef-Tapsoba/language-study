@@ -204,93 +204,6 @@ SEASONS + WEATHER
     ]
   },
   {
-    id: "es-g-a1-15",
-    level: "A1",
-    title: "Possessive Adjectives",
-    explanation: `Possessive adjectives show who something belongs to. They agree in number with the noun they describe — not with the owner.
-
-AGREEMENT WITH THE NOUN
-  mi hermano     (my brother — masc. sg.)
-  mi hermana     (my sister — fem. sg.)
-  mis hermanos   (my siblings — plural)
-
-  nuestro padre   (our father — masc.)
-  nuestra madre   (our mother — fem.)
-
-AMBIGUITY OF SU
-  su casa can mean: his house / her house / your house / their house
-  Context usually makes the meaning clear. To be explicit:
-  la casa de él / la casa de ella / la casa de usted`,
-    paradigmTable: {
-      pronouns: ["Owner", "Singular noun", "Plural noun"],
-      verbs: [
-        { label: "yo (I)", forms: ["yo", "mi", "mis"] },
-        { label: "tú (you)", forms: ["tú", "tu", "tus"] },
-        { label: "él / ella / usted", forms: ["él/ella/usted", "su", "sus"] },
-        { label: "nosotros", forms: ["nosotros", "nuestro / nuestra", "nuestros / nuestras"] },
-        { label: "vosotros", forms: ["vosotros", "vuestro / vuestra", "vuestros / vuestras"] },
-        { label: "ellos / ustedes", forms: ["ellos/ustedes", "su", "sus"] },
-      ],
-    },
-    rules: [
-      {
-        condition: "Possessives agree with the thing owned, not the owner",
-        result: "agree with the NOUN owned, not the owner",
-        examples: [
-          { native: "mi hermano / mi hermana", translation: "my brother / my sister (both mi — same possessive regardless of noun gender)" },
-          { native: "mis hermanos", translation: "my brothers / siblings (plural)" },
-        ],
-      },
-      {
-        condition: "Nuestro / vuestro for mixed or masculine plural",
-        result: "Use -o for masculine, -a for feminine",
-        examples: [
-          { native: "nuestro padre / nuestra madre", translation: "our father / our mother" },
-          { native: "nuestros hijos / nuestras hijas", translation: "our sons / our daughters" },
-        ],
-      },
-      {
-        condition: "Su is ambiguous",
-        result: "context usually clarifies; use de él/de ella/de usted to be explicit",
-        examples: [
-          { native: "su casa → la casa de él", translation: "his house" },
-          { native: "la casa de ella", translation: "her house" },
-        ],
-      },
-    ],
-    notes: [
-      {
-        type: "warning",
-        content: "Unlike English, Spanish possessives do NOT use an apostrophe. \"María's book\" = el libro de María — always use de + owner for possession with a name.",
-      },
-      {
-        type: "tip",
-        content: "Mi and tu have no accent mark. Mí (accent) = the stressed pronoun \"me\" (for me). Tú (accent) = the subject pronoun \"you\". Tu (no accent) = your (possessive). Context and accent make the difference.",
-      },
-    ],
-    fixedPhrases: [
-      { native: "mi madre / mi padre", translation: "my mother / my father", note: "No article needed with possessives." },
-      { native: "Nuestros hijos viven en Madrid.", translation: "Our children live in Madrid.", note: "nuestro agrees with hijos (masc. pl.)." },
-      { native: "¿Cómo se llama tu hermano?", translation: "What is your brother's name?", note: "Very common conversation opener." },
-    ],
-    examples: [
-      { native: "mi madre y mi padre", translation: "my mother and my father" },
-      { native: "¿Cómo se llama tu hermano?", translation: "What is your brother's name?" },
-      { native: "Nuestros hijos viven en Madrid.", translation: "Our children live in Madrid." },
-      { native: "Su casa es muy grande.", translation: "His/her/their house is very big." },
-      { native: "¿Dónde están tus llaves?", translation: "Where are your keys?" },
-    ],
-    inlineVocab: [
-      { word: "madre", translation: "mother" },
-      { word: "padre", translation: "father" },
-      { word: "hermano", translation: "brother" },
-      { word: "hermano", translation: "brother" },
-      { word: "hijos", translation: "children / sons" },
-      { word: "llaves", translation: "keys" },
-      { word: "casa", translation: "house" },
-    ],
-  },
-  {
     id: "es-g-a1-16",
     level: "A1",
     title: "Querer — Stem-Changing Verb (e → ie)",
@@ -368,77 +281,6 @@ ORDERING POLITELY
     ],
   },
   {
-    id: "es-g-a1-10",
-    level: "A1",
-    title: "Ir — To Go",
-    explanation: `**Ir** is highly irregular in the present tense — the forms look nothing like the infinitive.
-
-DESTINATIONS — always use ir + a
-  Voy a la tienda.    (I'm going to the shop.)    a + la → stays a la
-  Voy al banco.       (I'm going to the bank.)    a + el → al (contraction)
-
-ASKING WHERE SOMEONE IS GOING
-  ¿Adónde vas?           (Where are you going? — informal)
-  ¿Adónde va usted?      (Where are you going? — formal)`,
-    examples: [
-      { native: "Voy al trabajo.", translation: "I go to work. (al = a + el)" },
-      { native: "¿Adónde vas?", translation: "Where are you going?" },
-      { native: "Él va a la farmacia.", translation: "He goes to the pharmacy." },
-      { native: "Vamos al parque.", translation: "We go to the park." },
-      { native: "Ellos van a la playa.", translation: "They go to the beach." },
-    ],
-    inlineVocab: [
-      { word: "trabajo", translation: "work / job" },
-      { word: "tienda", translation: "shop / store" },
-      { word: "banco", translation: "bank" },
-      { word: "farmacia", translation: "pharmacy" },
-      { word: "parque", translation: "park" },
-      { word: "playa", translation: "beach" },
-    ],
-    conjugationTable: {
-      pronouns: ["yo", "tú", "él / ella / usted", "nosotros / nosotras", "vosotros / vosotras", "ustedes / ellos / ellas"],
-      verbs: [{ label: "ir", forms: ["voy", "vas", "va", "vamos", "vais", "van"] }],
-    },
-    rules: [
-      {
-        condition: "Going somewhere",
-        result: "ir + a + destination",
-        examples: [
-          { native: "Voy a la tienda.", translation: "I'm going to the shop." },
-          { native: "Ella va al trabajo.", translation: "She's going to work." },
-          { native: "¿Adónde vas?", translation: "Where are you going?" },
-        ],
-      },
-      {
-        condition: "Contraction a + el = al",
-        result: "Never say 'a el' — always contract to al",
-        examples: [
-          { native: "Voy al banco.", translation: "I'm going to the bank." },
-          { native: "Vamos al parque.", translation: "We're going to the park." },
-        ],
-      },
-      {
-        condition: "Going to a feminine place",
-        result: "a + la (no contraction needed)",
-        examples: [
-          { native: "Voy a la farmacia.", translation: "I'm going to the pharmacy." },
-          { native: "Va a la playa.", translation: "She's going to the beach." },
-        ],
-      },
-    ],
-    notes: [
-      { type: "tip", content: "Ir is completely irregular — its forms look nothing like the infinitive. Memorise voy/vas/va/vamos/vais/van as a set." },
-      { type: "culture", content: "¡Vamos! (Let's go!) is one of the most energetic and common Spanish expressions. Used for encouragement in sports, as an exclamation, and literally to suggest going somewhere." },
-      { type: "forward-ref", content: "Ir a + infinitive forms the near future tense — one of the most common future constructions in Spanish. Covered in 'Ir a + Infinitive — Near Future'.", refId: "es-g-a1-12" },
-    ],
-    fixedPhrases: [
-      { native: "Voy al trabajo.", translation: "I'm going to work.", note: "al = a + el — most common use." },
-      { native: "¿Adónde vas?", translation: "Where are you going?", note: "adónde for destination (motion); dónde for location (static)." },
-      { native: "¡Vamos!", translation: "Let's go! / Come on!", note: "Extremely common — used for encouragement and literally." },
-      { native: "Va a llover.", translation: "It's going to rain.", note: "Preview of ir a + infinitive near future." },
-    ],
-  },
-  {
     id: "es-g-a1-12",
     level: "A1",
     title: "Bridge: Ir a + Infinitive — Near Future",
@@ -511,6 +353,89 @@ QUESTIONS
       { native: "¿Qué vas a hacer?", translation: "What are you going to do?", note: "Essential conversation question." },
       { native: "Va a llover.", translation: "It's going to rain.", note: "Weather + near future — very common." },
       { native: "No voy a poder.", translation: "I'm not going to be able to.", note: "Polite refusal of a plan." },
+    ],
+  },
+  {
+    id: "es-g-a1-21",
+    level: "A1",
+    title: "Reflexive Verbs",
+    explanation: `Reflexive verbs express actions done to oneself. They use a reflexive pronoun that matches the subject — placed BEFORE the conjugated verb.
+
+  Me llamo Ana.           (My name is Ana. — lit. I call myself Ana.)
+  Te despiertas tarde.    (You wake up late.)
+  Se ducha por la mañana. (He/she showers in the morning.)
+
+COMMON REFLEXIVE VERBS
+  llamarse       to be called          Me llamo Juan.
+  levantarse     to get up             Me levanto a las siete.
+  acostarse      to go to bed          Me acuesto a las once.
+  despertarse    to wake up            Se despierta temprano.
+  ducharse       to shower             ¿A qué hora te duchas?
+  vestirse       to get dressed        Me visto rápido.
+  sentarse       to sit down           Siéntate aquí.
+
+Note: acostarse (o→ue) and despertarse (e→ie) are also stem-changing.`,
+    examples: [
+      { native: "Me llamo Pablo.", translation: "My name is Pablo." },
+      { native: "Me levanto a las siete.", translation: "I get up at seven." },
+      { native: "Ella se ducha por la mañana.", translation: "She showers in the morning." },
+      { native: "Nos acostamos tarde.", translation: "We go to bed late." },
+      { native: "¿A qué hora te despiertas?", translation: "What time do you wake up?" },
+    ],
+    inlineVocab: [
+      { word: "levantarse", translation: "to get up" },
+      { word: "acostarse", translation: "to go to bed" },
+      { word: "despertarse", translation: "to wake up" },
+      { word: "ducharse", translation: "to shower" },
+      { word: "vestirse", translation: "to get dressed" },
+      { word: "tarde", translation: "late" },
+      { word: "temprano", translation: "early" },
+      { word: "mañana", translation: "morning" },
+    ],
+    conjugationTable: {
+      pronouns: ["yo", "tú", "él / ella / usted", "nosotros / nosotras", "vosotros / vosotras", "ustedes / ellos / ellas"],
+      verbs: [
+        { label: "pronoun", forms: ["me", "te", "se", "nos", "os", "se"] },
+        { label: "levantarse", forms: ["me levanto", "te levantas", "se levanta", "nos levantamos", "os levantáis", "se levantan"] },
+      ],
+    },
+    rules: [
+      {
+        condition: "Forming a reflexive verb",
+        result: "reflexive pronoun BEFORE the conjugated verb",
+        examples: [
+          { native: "Me llamo Pablo.", translation: "My name is Pablo." },
+          { native: "Te levantas tarde.", translation: "You get up late." },
+          { native: "Se ducha por la mañana.", translation: "He/she showers in the morning." },
+        ],
+      },
+      {
+        condition: "Infinitive of a reflexive verb",
+        result: "The infinitive ends in -se: llamarse, levantarse, ducharse",
+        examples: [
+          { native: "llamarse → me llamo", translation: "to be called → my name is" },
+          { native: "levantarse → me levanto", translation: "to get up → I get up" },
+        ],
+      },
+      {
+        condition: "Position of reflexive pronoun with infinitive",
+        result: "attach to infinitive OR go before conjugated verb",
+        examples: [
+          { native: "Quiero levantarme.", translation: "I want to get up." },
+          { native: "Me quiero levantar.", translation: "I want to get up. (same meaning)" },
+        ],
+      },
+    ],
+    notes: [
+      { type: "tip", content: "Me llamo (My name is) is the standard way to give your name in Spanish. Literally \"I call myself.\" It's always reflexive — always me llamo, te llamas, se llama." },
+      { type: "warning", content: "Acostarse and despertarse are also stem-changing. Acostarse (o→ue): me acuesto. Despertarse (e→ie): me despierto. The nosotros/vosotros forms don't change." },
+      { type: "forward-ref", content: "Reflexive verbs also appear in the imperative — the pronoun attaches to the end: ¡Levántate! Covered in 'The Imperative'.", refId: "es-g-a1-30" },
+    ],
+    fixedPhrases: [
+      { native: "Me llamo…", translation: "My name is…", note: "The standard way to give your name." },
+      { native: "¿A qué hora te levantas?", translation: "What time do you get up?", note: "Essential daily routine question." },
+      { native: "Me voy.", translation: "I'm leaving.", note: "Irse (reflexive of ir) — going away." },
+      { native: "¡Siéntate! / ¡Siéntese!", translation: "Sit down!", note: "Reflexive imperative — pronoun attaches." },
     ],
   },
   {

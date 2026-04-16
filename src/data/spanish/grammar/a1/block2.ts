@@ -412,4 +412,268 @@ With a feminine noun: veintiuna:
       { word: "trabajo", translation: "work" },
     ],
   },
+  {
+    id: "es-g-a1-15",
+    level: "A1",
+    title: "Possessive Adjectives",
+    explanation: `Possessive adjectives show who something belongs to. They agree in number with the noun they describe — not with the owner.
+
+AGREEMENT WITH THE NOUN
+  mi hermano     (my brother — masc. sg.)
+  mi hermana     (my sister — fem. sg.)
+  mis hermanos   (my siblings — plural)
+
+  nuestro padre   (our father — masc.)
+  nuestra madre   (our mother — fem.)
+
+AMBIGUITY OF SU
+  su casa can mean: his house / her house / your house / their house
+  Context usually makes the meaning clear. To be explicit:
+  la casa de él / la casa de ella / la casa de usted`,
+    paradigmTable: {
+      pronouns: ["Owner", "Singular noun", "Plural noun"],
+      verbs: [
+        { label: "yo (I)", forms: ["yo", "mi", "mis"] },
+        { label: "tú (you)", forms: ["tú", "tu", "tus"] },
+        { label: "él / ella / usted", forms: ["él/ella/usted", "su", "sus"] },
+        { label: "nosotros", forms: ["nosotros", "nuestro / nuestra", "nuestros / nuestras"] },
+        { label: "vosotros", forms: ["vosotros", "vuestro / vuestra", "vuestros / vuestras"] },
+        { label: "ellos / ustedes", forms: ["ellos/ustedes", "su", "sus"] },
+      ],
+    },
+    rules: [
+      {
+        condition: "Possessives agree with the thing owned, not the owner",
+        result: "agree with the NOUN owned, not the owner",
+        examples: [
+          { native: "mi hermano / mi hermana", translation: "my brother / my sister (both mi — same possessive regardless of noun gender)" },
+          { native: "mis hermanos", translation: "my brothers / siblings (plural)" },
+        ],
+      },
+      {
+        condition: "Nuestro / vuestro for mixed or masculine plural",
+        result: "Use -o for masculine, -a for feminine",
+        examples: [
+          { native: "nuestro padre / nuestra madre", translation: "our father / our mother" },
+          { native: "nuestros hijos / nuestras hijas", translation: "our sons / our daughters" },
+        ],
+      },
+      {
+        condition: "Su is ambiguous",
+        result: "context usually clarifies; use de él/de ella/de usted to be explicit",
+        examples: [
+          { native: "su casa → la casa de él", translation: "his house" },
+          { native: "la casa de ella", translation: "her house" },
+        ],
+      },
+    ],
+    notes: [
+      {
+        type: "warning",
+        content: "Unlike English, Spanish possessives do NOT use an apostrophe. \"María's book\" = el libro de María — always use de + owner for possession with a name.",
+      },
+      {
+        type: "tip",
+        content: "Mi and tu have no accent mark. Mí (accent) = the stressed pronoun \"me\" (for me). Tú (accent) = the subject pronoun \"you\". Tu (no accent) = your (possessive). Context and accent make the difference.",
+      },
+    ],
+    fixedPhrases: [
+      { native: "mi madre / mi padre", translation: "my mother / my father", note: "No article needed with possessives." },
+      { native: "Nuestros hijos viven en Madrid.", translation: "Our children live in Madrid.", note: "nuestro agrees with hijos (masc. pl.)." },
+      { native: "¿Cómo se llama tu hermano?", translation: "What is your brother's name?", note: "Very common conversation opener." },
+    ],
+    examples: [
+      { native: "mi madre y mi padre", translation: "my mother and my father" },
+      { native: "¿Cómo se llama tu hermano?", translation: "What is your brother's name?" },
+      { native: "Nuestros hijos viven en Madrid.", translation: "Our children live in Madrid." },
+      { native: "Su casa es muy grande.", translation: "His/her/their house is very big." },
+      { native: "¿Dónde están tus llaves?", translation: "Where are your keys?" },
+    ],
+    inlineVocab: [
+      { word: "madre", translation: "mother" },
+      { word: "padre", translation: "father" },
+      { word: "hermano", translation: "brother" },
+      { word: "hermano", translation: "brother" },
+      { word: "hijos", translation: "children / sons" },
+      { word: "llaves", translation: "keys" },
+      { word: "casa", translation: "house" },
+    ],
+  },
+  {
+    id: "es-g-a1-22",
+    level: "A1",
+    title: "Gustar — Expressing Likes & Dislikes",
+    explanation: `Gustar does not work like a normal verb. The thing you like is the grammatical subject, and the person who likes it is an indirect object.
+
+STRUCTURE: (indirect object pronoun) + gustar + thing liked
+
+SINGULAR vs PLURAL
+  Me gusta el café.         I like coffee.         (singular → gusta)
+  Me gustan las tapas.      I like tapas.           (plural → gustan)
+
+INTENSIFYING
+  Me gusta mucho.           I like it a lot.
+  No me gusta nada.         I don't like it at all.
+  Me encanta.               I love it. (stronger than gustar)
+
+ASKING ABOUT PREFERENCES
+  ¿Te gusta el fútbol?      Do you like football?
+  ¿Qué te gusta hacer?      What do you like to do?
+
+With an infinitive, always use gusta (singular):
+  Me gusta bailar.          I like dancing.`,
+    paradigmTable: {
+      pronouns: ["yo", "tú", "él / ella / usted", "nosotros", "vosotros", "ustedes / ellos"],
+      verbs: [
+        { label: "gusta (singular / infinitive)", forms: ["me gusta", "te gusta", "le gusta", "nos gusta", "os gusta", "les gusta"] },
+        { label: "gustan (plural)", forms: ["me gustan", "te gustan", "le gustan", "nos gustan", "os gustan", "les gustan"] },
+      ],
+    },
+    rules: [
+      {
+        condition: "Liking a single thing or an infinitive",
+        result: "Use gusta (singular)",
+        examples: [
+          { native: "Me gusta el café.", translation: "I like coffee." },
+          { native: "Me gusta bailar.", translation: "I like dancing." },
+          { native: "¿Te gusta la música?", translation: "Do you like music?" },
+        ],
+      },
+      {
+        condition: "Liking multiple things (plural noun)",
+        result: "Use gustan (plural)",
+        examples: [
+          { native: "Me gustan los libros.", translation: "I like books." },
+          { native: "Le gustan las tapas.", translation: "He/she likes tapas." },
+          { native: "Nos gustan los deportes.", translation: "We like sports." },
+        ],
+      },
+      {
+        condition: "Asking what someone likes",
+        result: "Use ¿Te gusta…? or ¿Qué te gusta…?",
+        examples: [
+          { native: "¿Te gusta el fútbol?", translation: "Do you like football?" },
+          { native: "¿Qué te gusta hacer?", translation: "What do you like to do?" },
+        ],
+      },
+      {
+        condition: "Clarifying who likes something (when le/les is ambiguous)",
+        result: "Add a + person before the indirect object pronoun",
+        examples: [
+          { native: "A María le gusta.", translation: "María likes it." },
+          { native: "A ellos les gusta.", translation: "They like it." },
+          { native: "A mí me gusta mucho.", translation: "I like it a lot." },
+        ],
+      },
+    ],
+    notes: [
+      {
+        type: "warning",
+        content: "The most common gustar mistake: using it like a regular verb. Do NOT say \"Yo gusto el café.\" The thing is the subject — say \"Me gusta el café.\" (Coffee pleases me.)",
+      },
+      {
+        type: "tip",
+        content: "Me encanta (I love it) and me encanta + infinitive work exactly like me gusta — but stronger. Me encanta viajar. No me gusta nada el frío. (I don't like the cold at all.)",
+      },
+      {
+        type: "tip",
+        content: "To disagree or agree with someone's likes: \"A mí también.\" (Me too.) \"A mí tampoco.\" (Me neither.) \"A mí no.\" (Not me.) \"A mí sí.\" (I do / I like it.)",
+      },
+    ],
+    fixedPhrases: [
+      { native: "Me gusta mucho.", translation: "I like it a lot.", note: "Adding mucho strengthens gusta." },
+      { native: "No me gusta nada.", translation: "I don't like it at all.", note: "Nada after the expression = emphatic negation." },
+      { native: "Me encanta.", translation: "I love it.", note: "Stronger than gusta — for your favourite things." },
+      { native: "¿Y a ti? / ¿Y a usted?", translation: "And you?", note: "Natural way to return the question after expressing a preference." },
+      { native: "A mí también.", translation: "Me too.", note: "Agreeing with a like." },
+      { native: "A mí tampoco.", translation: "Me neither.", note: "Agreeing with a dislike." },
+    ],
+    examples: [
+      { native: "Me gusta el español.", translation: "I like Spanish." },
+      { native: "Me gustan los libros.", translation: "I like books." },
+      { native: "¿Te gusta la música?", translation: "Do you like music?" },
+      { native: "No me gusta nada el frío.", translation: "I don't like the cold at all." },
+      { native: "Nos encanta viajar.", translation: "We love travelling." },
+    ],
+    inlineVocab: [
+      { word: "café", translation: "coffee" },
+      { word: "tapas", translation: "tapas (Spanish snacks)" },
+      { word: "música", translation: "music" },
+      { word: "fútbol", translation: "football / soccer" },
+      { word: "bailar", translation: "to dance" },
+      { word: "frío", translation: "cold" },
+      { word: "viajar", translation: "to travel" },
+    ],
+  },
+  {
+    id: "es-g-a1-10",
+    level: "A1",
+    title: "Ir — To Go",
+    explanation: `**Ir** is highly irregular in the present tense — the forms look nothing like the infinitive.
+
+DESTINATIONS — always use ir + a
+  Voy a la tienda.    (I'm going to the shop.)    a + la → stays a la
+  Voy al banco.       (I'm going to the bank.)    a + el → al (contraction)
+
+ASKING WHERE SOMEONE IS GOING
+  ¿Adónde vas?           (Where are you going? — informal)
+  ¿Adónde va usted?      (Where are you going? — formal)`,
+    examples: [
+      { native: "Voy al trabajo.", translation: "I go to work. (al = a + el)" },
+      { native: "¿Adónde vas?", translation: "Where are you going?" },
+      { native: "Él va a la farmacia.", translation: "He goes to the pharmacy." },
+      { native: "Vamos al parque.", translation: "We go to the park." },
+      { native: "Ellos van a la playa.", translation: "They go to the beach." },
+    ],
+    inlineVocab: [
+      { word: "trabajo", translation: "work / job" },
+      { word: "tienda", translation: "shop / store" },
+      { word: "banco", translation: "bank" },
+      { word: "farmacia", translation: "pharmacy" },
+      { word: "parque", translation: "park" },
+      { word: "playa", translation: "beach" },
+    ],
+    conjugationTable: {
+      pronouns: ["yo", "tú", "él / ella / usted", "nosotros / nosotras", "vosotros / vosotras", "ustedes / ellos / ellas"],
+      verbs: [{ label: "ir", forms: ["voy", "vas", "va", "vamos", "vais", "van"] }],
+    },
+    rules: [
+      {
+        condition: "Going somewhere",
+        result: "ir + a + destination",
+        examples: [
+          { native: "Voy a la tienda.", translation: "I'm going to the shop." },
+          { native: "Ella va al trabajo.", translation: "She's going to work." },
+          { native: "¿Adónde vas?", translation: "Where are you going?" },
+        ],
+      },
+      {
+        condition: "Contraction a + el = al",
+        result: "Never say 'a el' — always contract to al",
+        examples: [
+          { native: "Voy al banco.", translation: "I'm going to the bank." },
+          { native: "Vamos al parque.", translation: "We're going to the park." },
+        ],
+      },
+      {
+        condition: "Going to a feminine place",
+        result: "a + la (no contraction needed)",
+        examples: [
+          { native: "Voy a la farmacia.", translation: "I'm going to the pharmacy." },
+          { native: "Va a la playa.", translation: "She's going to the beach." },
+        ],
+      },
+    ],
+    notes: [
+      { type: "tip", content: "Ir is completely irregular — its forms look nothing like the infinitive. Memorise voy/vas/va/vamos/vais/van as a set." },
+      { type: "culture", content: "¡Vamos! (Let's go!) is one of the most energetic and common Spanish expressions. Used for encouragement in sports, as an exclamation, and literally to suggest going somewhere." },
+      { type: "forward-ref", content: "Ir a + infinitive forms the near future tense — one of the most common future constructions in Spanish. Covered in 'Ir a + Infinitive — Near Future'.", refId: "es-g-a1-12" },
+    ],
+    fixedPhrases: [
+      { native: "Voy al trabajo.", translation: "I'm going to work.", note: "al = a + el — most common use." },
+      { native: "¿Adónde vas?", translation: "Where are you going?", note: "adónde for destination (motion); dónde for location (static)." },
+      { native: "¡Vamos!", translation: "Let's go! / Come on!", note: "Extremely common — used for encouragement and literally." },
+      { native: "Va a llover.", translation: "It's going to rain.", note: "Preview of ir a + infinitive near future." },
+    ],
+  },
 ]
