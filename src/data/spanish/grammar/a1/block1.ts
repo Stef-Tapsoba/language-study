@@ -192,7 +192,7 @@ Quick rule: can the situation change? → ESTAR. Is it a defining fact? → SER.
       },
       {
         type: "forward-ref",
-        content: "Some adjectives change meaning entirely depending on the verb — aburrido means boring with ser but bored with estar. Full pairs in lesson es-g-a1-28.",
+        content: "Some adjectives change meaning entirely depending on the verb — aburrido means boring with ser but bored with estar. The full set of pairs is in 'Ser vs Estar — Adjectives That Change Meaning'.",
         refId: "es-g-a1-28",
       },
     ],
@@ -241,7 +241,7 @@ Two contractions are mandatory: a + el = al, de + el = del. Spanish never writes
       },
       {
         condition: "Contractions with a and de",
-        result: "a + el = al · de + el = del (mandatory — never write 'a el' or 'de el')",
+        result: "a + el = al · de + el = del",
         examples: [
           { native: "Voy al banco. / El libro del profesor.", translation: "I'm going to the bank. / The teacher's book." },
         ],
@@ -301,7 +301,7 @@ QUESTION WORDS (all carry a written accent):
       },
       {
         condition: "Forming a yes/no question",
-        result: "Raise intonation, or invert subject and verb — always open with ¿",
+        result: "Raise intonation or invert subject/verb — open with ¿",
         examples: [
           { native: "¿Hablas español? / ¿Es María médica?", translation: "Do you speak Spanish? / Is María a doctor?" },
         ],
@@ -325,7 +325,7 @@ QUESTION WORDS (all carry a written accent):
       },
       {
         type: "forward-ref",
-        content: "Full negation lesson (double negation, nunca/nada/nadie) at es-g-a1-18. Full question formation lesson at es-g-a1-19.",
+        content: "Full negation lesson (double negation, nunca/nada/nadie) in 'Negation'. Full question formation lesson in 'Question Formation'.",
         refId: "es-g-a1-18",
       },
     ],
@@ -386,7 +386,7 @@ QUESTION WORDS (all carry a written accent):
       },
       {
         type: "forward-ref",
-        content: "-er and -ir verbs use different endings — introduced in es-g-a1-7 and es-g-a1-8.",
+        content: "-er and -ir verbs use different endings — introduced in 'Regular -er Verbs' and 'Regular -ir Verbs'.",
         refId: "es-g-a1-7",
       },
     ],
@@ -415,12 +415,6 @@ QUESTION WORDS (all carry a written accent):
     level: "A1",
     title: "Tener — To Have",
     explanation: `**Tener** is an irregular -er verb. Its yo form is **tengo** (not *teno).
-
-TENER — to have
-
-  yo **tengo**          nosotros tenemos
-  tú **tienes**         vosotros tenéis
-  él/ella **tiene**     ellos/ellas **tienen**
 
 USES OF TENER
 
@@ -492,7 +486,7 @@ USES OF TENER
     notes: [
       { type: "warning", content: "Age uses tener, not ser or estar. Never say \"Soy veinte años\" or \"Estoy veinte años\" — always \"Tengo veinte años.\"" },
       { type: "tip", content: "Many physical sensations use tener + noun in Spanish where English uses \"to be\": I'm hungry = Tengo hambre (I have hunger). I'm cold = Tengo frío (I have cold)." },
-      { type: "forward-ref", content: "Tener is also a stem-changing verb (e→ie: tengo/tienes/tiene). Full stem-change lesson at es-g-a1-31.", refId: "es-g-a1-31" },
+      { type: "forward-ref", content: "Tener is also a stem-changing verb (e→ie: tengo/tienes/tiene). The full stem-change system is covered in 'Stem-Changing Verbs'.", refId: "es-g-a1-31" },
     ],
     fixedPhrases: [
       { native: "Tengo hambre.", translation: "I'm hungry.", note: "tener + noun for physical state." },
@@ -506,16 +500,6 @@ USES OF TENER
     level: "A1",
     title: "Adjective Agreement",
     explanation: `In Spanish, adjectives must agree with the noun they describe in both gender (masc./fem.) and number (singular/plural).
-
--o / -a ADJECTIVES (most common pattern)
-                Masculine    Feminine
-  Singular:      alto         alta
-  Plural:        altos        altas
-
-ADJECTIVES ENDING IN -e OR A CONSONANT (no gender change)
-                Masculine    Feminine
-  Singular:      grande       grande
-  Plural:        grandes      grandes
 
 POSITION — adjectives usually come AFTER the noun:
   un libro rojo      (a red book)
@@ -552,7 +536,7 @@ A few common adjectives go BEFORE: bueno/a, malo/a, gran (before noun = great).`
       },
       {
         condition: "Adjective ends in -e or a consonant",
-        result: "Same form for masculine and feminine — only add -s/-es for plural",
+        result: "No gender change — only add -s/-es for plural",
         examples: [
           { native: "un coche grande", translation: "a big car" },
           { native: "una casa grande", translation: "a big house" },
@@ -570,7 +554,7 @@ A few common adjectives go BEFORE: bueno/a, malo/a, gran (before noun = great).`
       },
       {
         condition: "Position of adjective",
-        result: "Most adjectives go AFTER the noun. A few common ones (bueno, malo, gran, nuevo, viejo) can go before.",
+        result: "AFTER the noun (bueno, malo, gran, nuevo, viejo can go before)",
         examples: [
           { native: "un libro interesante", translation: "an interesting book" },
           { native: "un buen libro", translation: "a good book" },

@@ -13,17 +13,7 @@ Raise intonation at the end, or invert the subject and verb. Spanish always uses
   ¿Tienes hermanos?     (Do you have siblings?)
 
 INFORMATION QUESTIONS
-Question word + (optional subject) + verb. All question words carry a written accent:
-
-  ¿qué?       what        ¿Qué es esto?           (What is this?)
-  ¿dónde?     where       ¿Dónde vives?           (Where do you live?)
-  ¿quién?     who         ¿Quién es él?           (Who is he?)
-  ¿cuándo?    when        ¿Cuándo llegas?         (When do you arrive?)
-  ¿cómo?      how         ¿Cómo estás?            (How are you?)
-  ¿cuánto/a?  how much    ¿Cuánto cuesta?         (How much does it cost?)
-  ¿cuántos/as? how many   ¿Cuántos años tienes?   (How old are you?)
-  ¿por qué?   why         ¿Por qué estudias?      (Why do you study?)
-  ¿cuál?      which/what  ¿Cuál es tu nombre?     (What is your name?)
+Question word + (optional subject) + verb. All question words carry a written accent — see the table below.
 
 KEY RULE: ¿ always opens every Spanish question — a visible signal that a question is coming.`,
     paradigmTable: {
@@ -45,7 +35,7 @@ KEY RULE: ¿ always opens every Spanish question — a visible signal that a que
     rules: [
       {
         condition: "Yes/no question from a statement",
-        result: "Raise intonation at the end, or invert subject and verb. Always use ¿ at the start.",
+        result: "Raise intonation or invert subject/verb — always open with ¿",
         examples: [
           { native: "¿Hablas español?", translation: "Do you speak Spanish?" },
           { native: "¿Es María médica?", translation: "Is María a doctor?" },
@@ -53,7 +43,7 @@ KEY RULE: ¿ always opens every Spanish question — a visible signal that a que
       },
       {
         condition: "Information question structure",
-        result: "Question word + (optional subject) + verb + rest of sentence",
+        result: "question word + (subject) + verb",
         examples: [
           { native: "¿Dónde vives?", translation: "Where do you live?" },
           { native: "¿Por qué estudias español?", translation: "Why do you study Spanish?" },
@@ -62,7 +52,7 @@ KEY RULE: ¿ always opens every Spanish question — a visible signal that a que
       },
       {
         condition: "¿Cuál? vs ¿Qué?",
-        result: "¿Cuál? = which/what (choosing from options or a specific item). ¿Qué? = what (open / defining)",
+        result: "¿Cuál? = which (from options) · ¿Qué? = what (open)",
         examples: [
           { native: "¿Cuál es tu número?", translation: "What's your number? (your specific number)" },
           { native: "¿Qué es eso?", translation: "What is that? (what is that thing?)" },
@@ -70,7 +60,7 @@ KEY RULE: ¿ always opens every Spanish question — a visible signal that a que
       },
       {
         condition: "¿Por qué? vs porque",
-        result: "¿Por qué? (two words, accent) = why. Porque (one word, no accent) = because.",
+        result: "¿Por qué? = why · porque = because",
         examples: [
           { native: "¿Por qué estudias? — Porque me gusta.", translation: "Why do you study? — Because I like it." },
         ],
@@ -119,15 +109,7 @@ KEY RULE: ¿ always opens every Spanish question — a visible signal that a que
     id: "es-g-a1-14",
     level: "A1",
     title: "Weather — Hace + Weather Expression",
-    explanation: `To describe the weather in Spanish, use HACER (3rd person: hace) + a weather noun.
-
-COMMON WEATHER EXPRESSIONS
-  Hace calor.           It's hot.        (lit. It makes heat.)
-  Hace frío.            It's cold.       (lit. It makes cold.)
-  Hace sol.             It's sunny.      (lit. It makes sun.)
-  Hace viento.          It's windy.      (lit. It makes wind.)
-  Hace buen tiempo.     The weather is good.
-  Hace mal tiempo.      The weather is bad.
+    explanation: `To describe the weather in Spanish, use HACER (3rd person: hace) + a weather noun — see the table below for all expressions.
 
 TWO SPECIAL VERBS — no hacer needed
   Llueve.    It's raining.    (from llover — stem-changing o→ue)
@@ -173,7 +155,7 @@ SEASONS + WEATHER
       },
       {
         condition: "Rain and snow",
-        result: "Use their own impersonal verbs: llueve (to rain) and nieva (to snow) — no hace needed",
+        result: "llueve / nieva — their own verbs, no hace needed",
         examples: [
           { native: "Llueve mucho en otoño.", translation: "It rains a lot in autumn." },
           { native: "En invierno nieva.", translation: "In winter it snows." },
@@ -227,16 +209,6 @@ SEASONS + WEATHER
     title: "Possessive Adjectives",
     explanation: `Possessive adjectives show who something belongs to. They agree in number with the noun they describe — not with the owner.
 
-POSSESSIVE ADJECTIVES
-
-  Owner              Singular              Plural
-  yo (I)             mi                    mis
-  tú (you)           tu                    tus
-  él / ella / usted  su                    sus
-  nosotros           nuestro / nuestra     nuestros / nuestras
-  vosotros           vuestro / vuestra     vuestros / vuestras
-  ellos / ustedes    su                    sus
-
 AGREEMENT WITH THE NOUN
   mi hermano     (my brother — masc. sg.)
   mi hermana     (my sister — fem. sg.)
@@ -263,7 +235,7 @@ AMBIGUITY OF SU
     rules: [
       {
         condition: "Possessives agree with the thing owned, not the owner",
-        result: "Match the possessive to the gender and number of the NOUN, not the person",
+        result: "agree with the NOUN owned, not the owner",
         examples: [
           { native: "mi hermano / mi hermana", translation: "my brother / my sister (both mi — same possessive regardless of noun gender)" },
           { native: "mis hermanos", translation: "my brothers / siblings (plural)" },
@@ -279,7 +251,7 @@ AMBIGUITY OF SU
       },
       {
         condition: "Su is ambiguous",
-        result: "Su can mean his/her/your/their — context usually clarifies, but you can use 'de él/de ella/de usted' to be explicit",
+        result: "context usually clarifies; use de él/de ella/de usted to be explicit",
         examples: [
           { native: "su casa → la casa de él", translation: "his house" },
           { native: "la casa de ella", translation: "her house" },
@@ -322,15 +294,7 @@ AMBIGUITY OF SU
     id: "es-g-a1-16",
     level: "A1",
     title: "Querer — Stem-Changing Verb (e → ie)",
-    explanation: `**Querer** (to want / to love) is one of the most used verbs in Spanish. It is stem-changing: the stem vowel e changes to ie in all forms except nosotros and vosotros.
-
-QUERER — to want / to love
-
-  yo **quiero**         nosotros queremos   ← no stem change
-  tú **quieres**        vosotros queréis    ← no stem change
-  él/ella **quiere**    ellos/ellas **quieren**
-
-The nosotros/vosotros forms never stem-change — this is true of all stem-changing verbs.
+    explanation: `**Querer** (to want / to love) is one of the most used verbs in Spanish. It is stem-changing: the stem vowel e changes to ie in all forms except nosotros and vosotros — those two forms never stem-change.
 
 USES OF QUERER
   querer + noun          Quiero un café.            (I want a coffee.)
@@ -377,7 +341,7 @@ ORDERING POLITELY
       },
       {
         condition: "The stem change",
-        result: "e changes to ie in yo/tú/él/ellos — but NOT in nosotros/vosotros",
+        result: "e→ie in yo/tú/él/ellos — NOT in nosotros/vosotros",
         examples: [
           { native: "quiero / quieres / quiere (change)", translation: "I want / you want / he wants" },
           { native: "queremos (no change)", translation: "we want" },
@@ -394,7 +358,7 @@ ORDERING POLITELY
     ],
     notes: [
       { type: "tip", content: "Quiero (I want) is used for ordering food and drink — it sounds direct but is perfectly natural: Quiero un café, por favor." },
-      { type: "forward-ref", content: "Querer is the most common e→ie stem-changing verb. The full stem-change lesson (all three patterns) is at es-g-a1-31.", refId: "es-g-a1-31" },
+      { type: "forward-ref", content: "Querer is the most common e→ie stem-changing verb. The full system of stem changes (all three patterns) is in 'Stem-Changing Verbs'.", refId: "es-g-a1-31" },
     ],
     fixedPhrases: [
       { native: "Quiero un café, por favor.", translation: "I'd like a coffee, please.", note: "Natural and polite for ordering." },
@@ -408,12 +372,6 @@ ORDERING POLITELY
     level: "A1",
     title: "Ir — To Go",
     explanation: `**Ir** is highly irregular in the present tense — the forms look nothing like the infinitive.
-
-IR — to go
-
-  yo **voy**        nosotros **vamos**
-  tú **vas**        vosotros **vais**
-  él/ella **va**    ellos/ellas **van**
 
 DESTINATIONS — always use ir + a
   Voy a la tienda.    (I'm going to the shop.)    a + la → stays a la
@@ -471,13 +429,225 @@ ASKING WHERE SOMEONE IS GOING
     notes: [
       { type: "tip", content: "Ir is completely irregular — its forms look nothing like the infinitive. Memorise voy/vas/va/vamos/vais/van as a set." },
       { type: "culture", content: "¡Vamos! (Let's go!) is one of the most energetic and common Spanish expressions. Used for encouragement in sports, as an exclamation, and literally to suggest going somewhere." },
-      { type: "forward-ref", content: "Ir a + infinitive forms the near future tense — one of the most common future constructions in Spanish. See es-g-a1-12.", refId: "es-g-a1-12" },
+      { type: "forward-ref", content: "Ir a + infinitive forms the near future tense — one of the most common future constructions in Spanish. Covered in 'Ir a + Infinitive — Near Future'.", refId: "es-g-a1-12" },
     ],
     fixedPhrases: [
       { native: "Voy al trabajo.", translation: "I'm going to work.", note: "al = a + el — most common use." },
       { native: "¿Adónde vas?", translation: "Where are you going?", note: "adónde for destination (motion); dónde for location (static)." },
       { native: "¡Vamos!", translation: "Let's go! / Come on!", note: "Extremely common — used for encouragement and literally." },
       { native: "Va a llover.", translation: "It's going to rain.", note: "Preview of ir a + infinitive near future." },
+    ],
+  },
+  {
+    id: "es-g-a1-12",
+    level: "A1",
+    title: "Bridge: Ir a + Infinitive — Near Future",
+    explanation: `To talk about plans or intentions in the near future, use:
+
+  ir (present tense) + a + infinitive
+
+  Voy a comer.           (I'm going to eat.)
+  Ella va a estudiar.    (She's going to study.)
+  Vamos a viajar.        (We're going to travel.)
+
+This is far more common than the simple future tense in everyday spoken Spanish. Use it whenever you want to talk about what you plan to do.
+
+NEGATIVE NEAR FUTURE
+  No voy a trabajar mañana.    (I'm not going to work tomorrow.)
+
+QUESTIONS
+  ¿Qué vas a hacer este fin de semana?   (What are you going to do this weekend?)`,
+    examples: [
+      { native: "Voy a comer pizza esta noche.", translation: "I'm going to eat pizza tonight." },
+      { native: "¿Vas a estudiar mañana?", translation: "Are you going to study tomorrow?" },
+      { native: "Ella va a llamar a su madre.", translation: "She is going to call her mother." },
+      { native: "Vamos a visitar a los abuelos.", translation: "We are going to visit the grandparents." },
+    ],
+    inlineVocab: [
+      { word: "noche", translation: "night" },
+      { word: "mañana", translation: "tomorrow / morning" },
+      { word: "madre", translation: "mother" },
+      { word: "abuelos", translation: "grandparents" },
+      { word: "viajar", translation: "to travel" },
+      { word: "trabajar", translation: "to work" },
+      { word: "fin de semana", translation: "weekend" },
+    ],
+    conjugationTable: {
+      pronouns: ["yo", "tú", "él / ella / usted", "nosotros / nosotras", "vosotros / vosotras", "ustedes / ellos / ellas"],
+      verbs: [{ label: "ir a + infinitive", forms: ["voy a…", "vas a…", "va a…", "vamos a…", "vais a…", "van a…"] }],
+    },
+    rules: [
+      {
+        condition: "Near future plan or intention",
+        result: "ir (present, conjugated) + a + infinitive",
+        examples: [
+          { native: "Voy a comer.", translation: "I'm going to eat." },
+          { native: "Ella va a estudiar.", translation: "She's going to study." },
+          { native: "Vamos a viajar.", translation: "We're going to travel." },
+        ],
+      },
+      {
+        condition: "Negative near future",
+        result: "No + ir conjugated + a + infinitive",
+        examples: [
+          { native: "No voy a trabajar mañana.", translation: "I'm not going to work tomorrow." },
+          { native: "No van a venir.", translation: "They're not going to come." },
+        ],
+      },
+      {
+        condition: "Near future question",
+        result: "¿Qué + ir + a + infinitive?",
+        examples: [
+          { native: "¿Qué vas a hacer este fin de semana?", translation: "What are you going to do this weekend?" },
+        ],
+      },
+    ],
+    notes: [
+      { type: "tip", content: "Ir a + infinitive is far more common than the simple future tense in everyday Spanish. Use it for all near-future plans and intentions." },
+      { type: "culture", content: "\"¿Qué vas a hacer este fin de semana?\" (What are you doing this weekend?) is one of the most common questions in Spanish conversation. Master this structure and you can talk about plans naturally." },
+    ],
+    fixedPhrases: [
+      { native: "Voy a…", translation: "I'm going to…", note: "The most useful near-future opener." },
+      { native: "¿Qué vas a hacer?", translation: "What are you going to do?", note: "Essential conversation question." },
+      { native: "Va a llover.", translation: "It's going to rain.", note: "Weather + near future — very common." },
+      { native: "No voy a poder.", translation: "I'm not going to be able to.", note: "Polite refusal of a plan." },
+    ],
+  },
+  {
+    id: "es-g-a1-29",
+    level: "A1",
+    title: "Hay — There Is / There Are",
+    explanation: `HAY is one of the most useful words in Spanish. It means both 'there is' and 'there are' — the same form is used for singular and plural. It never changes and has no subject.
+
+STRUCTURE
+  hay + noun (with indefinite article or number, or no article for general statements)
+
+  Hay un banco cerca de aquí.     There is a bank nearby.
+  Hay tres estudiantes.           There are three students.
+  Hay agua en la botella.         There is water in the bottle.
+
+NEGATIVE — no hay
+Place no directly before hay:
+  Hay leche.                → No hay leche.           There is no milk.
+  Hay una farmacia aquí.    → No hay una farmacia aquí. There is no pharmacy here.
+  Hay problemas.            → No hay problemas.        There are no problems.
+
+QUESTION — ¿hay...?
+Raise intonation or invert punctuation — hay itself does not change:
+  ¿Hay un hotel cerca?            Is there a hotel nearby?
+  ¿Hay asientos libres?           Are there any free seats?
+  ¿Qué hay de comer?              What is there to eat?
+
+HAY vs ESTAR
+This is the most important distinction at A1.
+  hay    → existence or presence (is there something? does something exist?)
+  estar  → location of something already known (where is it?)
+
+  ¿Hay un banco?          Is there a bank? (does one exist nearby?)
+  ¿Dónde está el banco?   Where is the bank? (we know it exists — where?)
+
+  Hay un restaurante en esta calle.    There is a restaurant on this street.
+  El restaurante está en esta calle.   The restaurant is on this street.
+
+COMMON USES
+  Asking what is available:    ¿Qué hay en el menú?      What is on the menu?
+  Describing a place:          En mi ciudad hay un museo. In my city there is a museum.
+  Saying what is needed:       Hay que estudiar.          One must study / You have to study.
+  Expressing absence:          No hay tiempo.             There is no time.
+
+HAY QUE + INFINITIVE
+A very common fixed expression meaning 'one must' or 'you have to' — impersonal obligation:
+  Hay que reservar.             You have to book / One must book.
+  Hay que pagar aquí.           You need to pay here.`,
+    examples: [
+      { native: "¿Hay una farmacia cerca de aquí?", translation: "Is there a pharmacy near here?" },
+      { native: "Sí, hay una a dos minutos.", translation: "Yes, there is one two minutes away." },
+      { native: "No hay habitaciones libres.", translation: "There are no free rooms." },
+      { native: "¿Cuántos estudiantes hay en la clase?", translation: "How many students are there in the class?" },
+      { native: "Hay que reservar con antelación.", translation: "You have to book in advance." },
+      { native: "¿Hay un banco? — Sí. — ¿Dónde está el banco?", translation: "Is there a bank? — Yes. — Where is the bank? (hay = existence, estar = location)", speakText: "¿Hay un banco? Sí. ¿Dónde está el banco?" },
+      { native: "En mi barrio hay un parque muy bonito.", translation: "In my neighbourhood there is a very nice park." },
+      { native: "No hay tiempo.", translation: "There is no time." },
+    ],
+    rules: [
+      {
+        condition: "Existence or presence",
+        result: "Use hay (there is/are) — same form for singular and plural",
+        examples: [
+          { native: "Hay un banco.", translation: "There is a bank." },
+          { native: "Hay tres estudiantes.", translation: "There are three students." },
+          { native: "No hay leche.", translation: "There is no milk." },
+        ],
+      },
+      {
+        condition: "Negative existence",
+        result: "No hay + noun",
+        examples: [
+          { native: "No hay habitaciones libres.", translation: "There are no free rooms." },
+          { native: "No hay tiempo.", translation: "There is no time." },
+          { native: "No hay problema.", translation: "No problem." },
+        ],
+      },
+      {
+        condition: "Existence question",
+        result: "¿Hay + noun?",
+        examples: [
+          { native: "¿Hay una farmacia cerca?", translation: "Is there a pharmacy nearby?" },
+          { native: "¿Hay asientos libres?", translation: "Are there any free seats?" },
+        ],
+      },
+      {
+        condition: "Hay vs estar",
+        result: "Hay = does something exist? Estar = where is it?",
+        examples: [
+          { native: "¿Hay un banco?", translation: "Is there a bank? (does one exist?)" },
+          { native: "¿Dónde está el banco?", translation: "Where is the bank? (we know it exists — where?)" },
+        ],
+      },
+      {
+        condition: "Hay que + infinitive",
+        result: "Impersonal obligation — 'one must / you have to'",
+        examples: [
+          { native: "Hay que reservar.", translation: "You have to book." },
+          { native: "Hay que pagar aquí.", translation: "You need to pay here." },
+          { native: "Hay que estudiar.", translation: "One must study." },
+        ],
+      },
+    ],
+    notes: [
+      {
+        type: "warning",
+        content: "Hay never changes — it's the same for singular and plural. Never say \"han\" or \"están\" instead. Hay un libro. Hay tres libros. (same hay)",
+      },
+      {
+        type: "tip",
+        content: "The hay/estar distinction is one of the most important at A1. Hay introduces something new or asks about existence. Estar locates something already known.",
+      },
+      {
+        type: "tip",
+        content: "Hay is a third tool alongside ser and estar. Ser defines what something is. Estar locates or describes its state. Hay introduces or asks whether something exists.",
+      },
+    ],
+    fixedPhrases: [
+      { native: "¿Hay un/una… cerca?", translation: "Is there a… nearby?", note: "Most natural way to ask for nearby services." },
+      { native: "No hay problema.", translation: "No problem.", note: "Fixed phrase — extremely common." },
+      { native: "No hay tiempo.", translation: "There's no time.", note: "Common time-pressure expression." },
+      { native: "Hay que + infinitive", translation: "One must / You have to", note: "Impersonal — no subject." },
+      { native: "¿Qué hay de comer?", translation: "What is there to eat?", note: "Asking about available food." },
+    ],
+    inlineVocab: [
+      { word: "farmacia", translation: "pharmacy" },
+      { word: "habitaciones", translation: "rooms" },
+      { word: "libres", translation: "free / available" },
+      { word: "estudiantes", translation: "students" },
+      { word: "clase", translation: "class" },
+      { word: "reservar", translation: "to book / reserve" },
+      { word: "barrio", translation: "neighbourhood" },
+      { word: "parque", translation: "park" },
+      { word: "bonito", translation: "nice / pretty" },
+      { word: "botella", translation: "bottle" },
+      { word: "menú", translation: "menu" },
+      { word: "museo", translation: "museum" },
     ],
   },
 ]
