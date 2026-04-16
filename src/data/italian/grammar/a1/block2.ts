@@ -213,7 +213,12 @@ FAMILY EXCEPTION — drop the article with singular, unmodified family members: 
         id: "it-g-a1-4",
         level: "A1",
         title: "Definite Articles",
-        explanation: `Italian definite articles (= 'the') change based on gender, number, and the first letter of the following noun. The key is the FIRST SOUND of the word after the article — not just its spelling. S followed by another consonant (studente, spagnolo, stadio) always triggers lo/gli.`,
+        explanation: `Italian definite articles (= 'the') change based on gender, number, and the first letter of the following noun. The key is the FIRST SOUND of the word after the article — not just its spelling. S followed by another consonant (studente, spagnolo, stadio) always triggers lo/gli.
+
+IMPORTANT — lo/gli only applies to masculine nouns. Feminine nouns starting with s+consonant, z, gn, etc. use the regular la/le:
+  la studentessa (not *lo)    le studentesse (not *gli)
+  la strada                   le strade
+  la zona                     le zone`,
         paradigmTable: {
             pronouns: ["masculine singular", "masculine plural", "feminine singular", "feminine plural"],
             verbs: [
@@ -271,9 +276,20 @@ FAMILY EXCEPTION — drop the article with singular, unmodified family members: 
                     { native: "le ore", translation: "the hours" },
                 ],
             },
+            {
+                condition: "Feminine nouns starting with s+cons, z, gn, etc.",
+                result: "Use la / le — the lo/gli rule is masculine only",
+                examples: [
+                    { native: "la studentessa / le studentesse", translation: "the (female) student / students" },
+                    { native: "la strada / le strade", translation: "the street / streets" },
+                    { native: "la zona / le zone", translation: "the area / areas" },
+                    { native: "la spesa / le spese", translation: "the shopping / expenses" },
+                ],
+            },
         ],
         notes: [
             { type: "tip", content: "The key to choosing the right article is the FIRST SOUND of the following word, not just its spelling. S followed by another consonant (studente, spagnolo, stadio) always triggers lo/gli." },
+            { type: "warning", content: "lo/gli only applies to MASCULINE nouns. Feminine nouns beginning with s+consonant, z, gn, etc. use regular la/le — never lo or gli. La studentessa, la strada, la zona." },
             { type: "warning", content: "Italian has the most complex article system of the Romance languages. The good news: once you know how to choose the definite article, the partitive (del/dello/della...) and contracted prepositions (al/allo/alla...) follow the same pattern automatically." },
             { type: "forward-ref", content: "Contractions with a (al, allo, alla, all', ai, agli, alle) and di (del, dello, della...) follow the same pattern — introduced with prepositions in lesson it-g-a1-14.", refId: "it-g-a1-14" },
         ],
