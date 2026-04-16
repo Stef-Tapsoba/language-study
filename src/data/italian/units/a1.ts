@@ -42,7 +42,6 @@ export const a1Units: LessonUnit[] = [
             { id: "it-uq-a1-1-5", level: "A1", prompt: "Which subject pronoun means 'we'?", options: ["Voi", "Loro", "Noi", "Lei"], answer: "Noi" },
             { id: "it-uq-a1-1-6", level: "A1", prompt: "In Italian, subject pronouns are often omitted because...", options: ["they are considered rude", "the verb ending already identifies the subject", "they are too difficult to remember", "they are only used in writing"], answer: "the verb ending already identifies the subject" },
         ],
-        listeningIds: ["it-l-a1-1"],
     },
     {
         id: "it-a1-u2",
@@ -90,6 +89,7 @@ export const a1Units: LessonUnit[] = [
         vocabIds: ["it-v-a1-141", "it-v-a1-142", "it-v-a1-143", "it-v-a1-144", "it-v-a1-145", "it-v-a1-146", "it-v-a1-147", "it-v-a1-148", "it-v-a1-149", "it-v-a1-150"],
         verbIds: ["it-vb-a1-3", "it-vb-a1-11", "it-vb-a1-13", "it-vb-a1-14", "it-vb-a1-15", "it-vb-a1-16", "it-vb-a1-17"],
         checkpointId: "it-cp-a1-1",
+        listeningIds: ["it-l-a1-1"],
         testQuestions: [
             { id: "it-uq-a1-4-1", level: "A1", prompt: "Complete: 'Tu ___ italiano.' (parlare)", options: ["parlo", "parla", "parli", "parliamo"], answer: "parli" },
             { id: "it-uq-a1-4-2", level: "A1", prompt: "Complete: 'Noi ___ a Roma.' (abitare)", options: ["abiti", "abita", "abitiamo", "abitano"], answer: "abitiamo" },
@@ -348,10 +348,10 @@ export const a1Units: LessonUnit[] = [
     {
         id: "it-a1-u15",
         level: "A1",
-        order: 15,
+        order: 16,
         title: "Mangiare fuori — Food and restaurants",
         description: "Order food, read a menu, and handle a full restaurant interaction",
-        grammarIds: ["it-g-a1-30"],
+        grammarIds: ["it-g-a1-30", "it-g-a1-20"],
         vocabIds: ["it-v-a1-61", "it-v-a1-62", "it-v-a1-63", "it-v-a1-64", "it-v-a1-65", "it-v-a1-66", "it-v-a1-67", "it-v-a1-68", "it-v-a1-69", "it-v-a1-72", "it-v-a1-73", "it-v-a1-74", "it-v-a1-75", "it-v-a1-76", "it-v-a1-77"],
         verbIds: ["it-vb-a1-6", "it-vb-a1-7", "it-vb-a1-8", "it-vb-a1-9"],
         testQuestions: [
@@ -369,7 +369,7 @@ export const a1Units: LessonUnit[] = [
     {
         id: "it-a1-u17",
         level: "A1",
-        order: 16,
+        order: 17,
         title: "In giro per la città — Around the city",
         description: "Ask for directions, navigate transport, and describe a city",
         grammarIds: ["it-g-a1-21"],
@@ -394,7 +394,7 @@ export const a1Units: LessonUnit[] = [
     {
         id: "it-a1-u13",
         level: "A1",
-        order: 17,
+        order: 15,
         title: "Posso, voglio, devo — Modal verbs",
         description: "Express ability, desire, and obligation with Italy's three modal verbs",
         grammarIds: ["it-g-a1-19", "it-g-a1-33"],
