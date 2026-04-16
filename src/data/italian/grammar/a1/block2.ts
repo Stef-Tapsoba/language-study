@@ -503,25 +503,9 @@ Usage: andare + a + place (cities), + in + country, + da + person: andare a Roma
         id: "it-g-a1-14",
         level: "A1",
         title: "Core Prepositions: di, a, in, da, con, su, per",
-        explanation: `Italian prepositions connect nouns to the rest of the sentence. The key ones at A1:
+        explanation: `Five prepositions contract with definite articles: a, di, da, su, in. Con is the only major one that does NOT contract. The contracted forms follow the same il/lo/l'/la pattern as the articles themselves — see the table.
 
-  di  — of, from (origin, possession):  Sono di Roma. Il libro di Maria.
-  a   — to, at (cities, home, school):  Vado a Milano. Sono a casa.
-  in  — in, to (countries, rooms):      Sono in Italia. Vado in treno.
-  da  — from, since, at someone's:      Vengo da Napoli. Vado da Marco.
-  con — with:                           Vivo con la mia famiglia.
-  su  — on, about:                      Il libro è sul tavolo.
-  per — for, in order to:               Questo è per te. Studio per imparare.
-
-CONTRACTIONS — a, di, su merge with definite articles:
-
-  a  + il/lo/la/l'/i/gli/le  =  al / allo / alla / all' / ai / agli / alle
-  di + il/lo/la/l'/i/gli/le  =  del / dello / della / dell' / dei / degli / delle
-  su + il/lo/la/l'/i/gli/le  =  sul / sullo / sulla / sull' / sui / sugli / sulle
-
-Note: in and con do NOT contract.
-
-Quick examples: al cinema (a + il), dalla stazione (da + la), sul tavolo (su + il)`,
+Key uses: di (of/from origin), a (to/at cities), in (in countries/rooms), da (from/at someone's), con (with), su (on), per (for).`,
         examples: [
             { native: "Vado al cinema.", translation: "I'm going to the cinema. (a + il = al)" },
             { native: "Sono di Milano.", translation: "I'm from Milan. (origin)" },
@@ -539,13 +523,13 @@ Quick examples: al cinema (a + il), dalla stazione (da + la), sul tavolo (su + i
             { word: "stazione", translation: "station" },
         ],
         paradigmTable: {
-            pronouns: ["article →", "il", "lo", "l'", "la", "i", "gli", "le"],
+            pronouns: ["masc. singular", "fem. / vowel singular", "masc. plural", "fem. plural"],
             verbs: [
-                { label: "a +", forms: ["al", "allo", "all'", "alla", "ai", "agli", "alle"] },
-                { label: "di +", forms: ["del", "dello", "dell'", "della", "dei", "degli", "delle"] },
-                { label: "su +", forms: ["sul", "sullo", "sull'", "sulla", "sui", "sugli", "sulle"] },
-                { label: "da +", forms: ["dal", "dallo", "dall'", "dalla", "dai", "dagli", "dalle"] },
-                { label: "in +", forms: ["nel", "nello", "nell'", "nella", "nei", "negli", "nelle"] },
+                { label: "a +", forms: ["al", "alla / all'", "ai / agli", "alle"] },
+                { label: "di +", forms: ["del", "della / dell'", "dei / degli", "delle"] },
+                { label: "da +", forms: ["dal", "dalla / dall'", "dai / dagli", "dalle"] },
+                { label: "su +", forms: ["sul", "sulla / sull'", "sui / sugli", "sulle"] },
+                { label: "in +", forms: ["nel", "nella / nell'", "nei / negli", "nelle"] },
             ],
         },
         rules: [
@@ -578,7 +562,7 @@ Quick examples: al cinema (a + il), dalla stazione (da + la), sul tavolo (su + i
             },
             {
                 condition: "Contracted prepositions",
-                result: "a, di, su, da, in contract with definite articles following the same il/lo/l'/la pattern",
+                result: "follows the article pattern — see table",
                 examples: [
                     { native: "al cinema", translation: "to the cinema (a + il)" },
                     { native: "della pasta", translation: "of the pasta (di + la)" },
