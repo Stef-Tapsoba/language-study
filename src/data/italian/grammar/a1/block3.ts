@@ -446,7 +446,7 @@ The 1st always uses primo, not uno: il primo maggio (never il uno maggio). Addin
             },
             {
                 condition: "Double negation required",
-                result: "With mai/niente/nessuno after the verb, keep non before the verb too",
+                result: "keep non before the verb even with mai/niente/nessuno",
                 examples: [
                     { native: "Non mangio mai carne.", translation: "I never eat meat." },
                     { native: "Non capisco niente.", translation: "I don't understand anything." },
