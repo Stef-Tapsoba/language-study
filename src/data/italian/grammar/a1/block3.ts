@@ -251,39 +251,9 @@ Hundreds: cento = 100 (no article). Compounds: duecento, trecento… Thousands: 
         id: "it-g-a1-35",
         level: "A1",
         title: "Telling Dates",
-        explanation: `Italian dates use a simple formula: il + cardinal number + month (+ year).
-No ordinals except for the 1st — use 'primo', not 'uno'.
+        explanation: `Date formula: il + cardinal number + month. Day order is DAY + MONTH — the opposite of English. Days and months are never capitalised.
 
-THE DATE FORMULA
-  il + number + month
-
-  il primo gennaio    = the 1st of January
-  il due febbraio     = the 2nd of February
-  il quindici agosto  = the 15th of August
-  il ventitré marzo   = the 23rd of March
-
-SAYING TODAY'S DATE
-  Oggi è il quattro luglio.   = Today is the 4th of July.
-  Oggi è il primo maggio.     = Today is the 1st of May.
-
-ASKING THE DATE
-  Che giorno è oggi?       → What day is today? (also used for day of week)
-  Quanti ne abbiamo oggi?  → What's today's date? (lit. "how many do we have today?")
-  In che data siamo?       → What is the date?
-
-THE 1st — always 'primo'
-  ✓ il primo ottobre   = the 1st of October
-  ✗ NOT: il uno ottobre
-
-WITH DAY OF WEEK
-  Add the day before the date:
-  lunedì, il tre aprile          = Monday the 3rd of April
-  sabato, il ventisei dicembre   = Saturday the 26th of December
-
-YEARS
-  Attach to the date with no preposition:
-  Sono nato/a il quindici agosto duemilauno.  = I was born on 15th August 2001.
-  duemilaventisei = 2026`,
+The 1st always uses primo, not uno: il primo maggio (never il uno maggio). Adding a day: lunedì, il tre aprile. Adding a year: attach directly — il quindici agosto duemilaventisei. Months are in the tables below.`,
         examples: [
             { native: "Oggi è il tre marzo.", translation: "Today is the 3rd of March." },
             { native: "Il mio compleanno è il primo aprile.", translation: "My birthday is the 1st of April." },
@@ -299,21 +269,30 @@ YEARS
             { word: "la festa", translation: "party / celebration" },
             { word: "oggi", translation: "today" },
             { word: "quanti ne abbiamo?", translation: "what's the date? (informal)" },
+            { word: "lunedì", translation: "Monday" },
+            { word: "martedì", translation: "Tuesday" },
+            { word: "mercoledì", translation: "Wednesday" },
+            { word: "giovedì", translation: "Thursday" },
+            { word: "venerdì", translation: "Friday" },
+            { word: "sabato", translation: "Saturday" },
+            { word: "domenica", translation: "Sunday" },
         ],
-        paradigmTable: {
-            pronouns: ["component", "Italian", "example"],
+        conjugationTable: {
+            pronouns: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
             verbs: [
-                { label: "day of week", forms: ["lunedì/martedì/mercoledì/giovedì/venerdì/sabato/domenica", "Not capitalised", ""] },
-                { label: "date formula", forms: ["il + ordinal + month", "il tre aprile", ""] },
-                { label: "first of month", forms: ["il primo + month", "il primo maggio (NOT il uno)", ""] },
-                { label: "year", forms: ["nel + year", "nel duemilaventisei (2026)", ""] },
-                { label: "months", forms: ["gennaio feb. marzo aprile maggio giugno luglio agosto settembre ottobre novembre dicembre", "Not capitalised", ""] },
+                { label: "", forms: ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno"] },
+            ],
+        },
+        paradigmTable: {
+            pronouns: ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            verbs: [
+                { label: "", forms: ["luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"] },
             ],
         },
         rules: [
             {
                 condition: "Stating a date",
-                result: "il + number + month (no ordinal except primo for the 1st)",
+                result: "il + number + month (primo for the 1st only)",
                 examples: [
                     { native: "Oggi è il tre aprile.", translation: "Today is April 3rd." },
                     { native: "Il ventuno giugno.", translation: "The twenty-first of June." },
