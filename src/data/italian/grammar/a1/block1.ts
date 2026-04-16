@@ -1,6 +1,99 @@
 import { GrammarLesson } from "../../../../types"
 
-export const foundationsLessons: GrammarLesson[] = [
+export const block1Lessons: GrammarLesson[] = [
+    {
+        id: "it-g-a1-17",
+        level: "A1",
+        exerciseType: "dictation" as const,
+        title: "Italian Pronunciation — Key Rules",
+        explanation: `Italian is highly phonetic — almost every letter is pronounced and spelling reflects pronunciation closely. The main challenges are the c/g rules before different vowels, double consonants, and stress patterns.
+
+THE C/G RULE — the most important rule in Italian pronunciation
+
+C before a, o, u → hard k sound: cane, cosa, cuore, amico
+C before e, i → ch sound (like English 'ch' in 'church'): cena, cinema, piacere
+CH (before e, i) → hard k sound: che, chi, perché (the h restores the hard sound)
+
+G before a, o, u → hard g sound: gatto, governo, gusto
+G before e, i → soft j sound (like English 's' in 'measure'): gelato, giro, gentile
+GH (before e, i) → hard g sound: ghetto, spaghetti (the h restores the hard sound)
+GL before i → like the 'lli' in 'million': figlio, aglio, gli
+GN → like the 'ny' in 'canyon': gnocchi, bagno, signore
+
+SC before e, i → sh sound: scena, sciare, pesce
+SC before a, o, u → sk sound: scarpa, scuola, disco
+
+DOUBLE CONSONANTS
+Double consonants are pronounced with noticeably more length than single ones. This distinction changes meaning:
+  pala (shovel) vs palla (ball)
+  nono (ninth) vs nonno (grandfather)
+  casa (house) vs cassa (cash register)
+
+STRESS
+Most Italian words are stressed on the second-to-last syllable: par-LA-re, stu-DEN-te, be-LLO.
+Some are stressed on the third-to-last: MED-i-co, SIM-pa-ti-co, TE-le-fo-no.
+Words with a written accent are always stressed on that syllable: città, caffè, perché.`,
+        examples: [
+            { native: "cane (KA-ne) / cena (CHA-na)", speakText: "cane, cena", translation: "C before a = hard k / C before e = ch sound" },
+            { native: "perché (per-KE) / che (KE)", speakText: "perché, che", translation: "CH before e/i always restores the hard k sound" },
+            { native: "gelato (je-LA-to) / gatto (GA-to)", speakText: "gelato, gatto", translation: "G before e = soft j / G before a = hard g" },
+            { native: "nono vs nonno", speakText: "nono, nonno", translation: "Double consonants matter — they change meaning" },
+            { native: "medico, studente, città", translation: "Stress patterns — accent marks show exceptions" },
+        ],
+        inlineVocab: [
+            { word: "cane", translation: "dog" },
+            { word: "cosa", translation: "thing" },
+            { word: "cuore", translation: "heart" },
+            { word: "cena", translation: "dinner" },
+            { word: "gelato", translation: "ice cream" },
+            { word: "gatto", translation: "cat" },
+            { word: "figlio", translation: "son" },
+            { word: "aglio", translation: "garlic" },
+            { word: "bagno", translation: "bathroom" },
+            { word: "signore", translation: "sir / gentleman" },
+            { word: "scarpa", translation: "shoe" },
+            { word: "pala", translation: "shovel" },
+            { word: "palla", translation: "ball" },
+            { word: "nonno", translation: "grandfather" },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "Italian is one of the most phonetic languages in the world — you pronounce (almost) every letter you see, and you write what you hear. The rules below cover nearly every word you'll encounter.",
+            },
+            {
+                type: "tip",
+                content: "Double consonants are noticeably longer than single consonants — this is a real phonetic distinction that changes meaning. Pala (shovel) vs palla (ball). Anno (year) vs ano (anus). Nono (ninth) vs nonno (grandfather). Practise making the double consonants clearly longer.",
+            },
+            {
+                type: "tip",
+                content: "C before e/i = /tʃ/ (like \"ch\" in \"church\"): ciao, cinema, arrivederci. C before a/o/u = /k/: casa, cotto, cuore. This rule has no exceptions.",
+            },
+            {
+                type: "tip",
+                content: "G before e/i = /dʒ/ (like \"j\" in \"jam\"): gelato, giro, giorno. G before a/o/u = /g/: gatto, gondola, gusto.",
+            },
+            {
+                type: "tip",
+                content: "SC before e/i = /ʃ/ (like \"sh\"): scusi, uscita, lasciare. SC before a/o/u = /sk/: scala, scuola.",
+            },
+            {
+                type: "warning",
+                content: "The letter H is always silent in Italian. Ho, hai, ha, hanno — the H only appears to distinguish these verb forms from o/ai/a/anno. Never pronounce it.",
+            },
+            {
+                type: "culture",
+                content: "Italian vowels are pure and consistently pronounced — no diphthongs or reduced vowels like English. A is always \"ah\", E is always \"eh\", I is always \"ee\", O is always \"oh\", U is always \"oo\". This consistency makes Italian pronunciation very regular once the consonant rules are learned.",
+            },
+        ],
+        fixedPhrases: [
+            { native: "ciao / cinema / arrivederci", translation: "hello / cinema / goodbye", note: "C before e/i = /tʃ/ (ch sound)." },
+            { native: "casa / cotto / cuore", translation: "house / cooked / heart", note: "C before a/o/u = /k/ (hard c)." },
+            { native: "pala / palla", translation: "shovel / ball", note: "Single vs double consonant — different words." },
+            { native: "nonno / nono", translation: "grandfather / ninth", note: "Double n vs single n." },
+            { native: "scusi / scala", translation: "excuse me / staircase", note: "SC before i = /ʃ/ (sh); before a = /sk/." },
+        ],
+    },
     {
         id: "it-g-a1-1",
         level: "A1",
@@ -179,91 +272,6 @@ Key expressions with avere: avere fame (to be hungry), avere sete (to be thirsty
         ]
     },
     {
-        id: "it-g-a1-4",
-        level: "A1",
-        title: "Definite Articles",
-        explanation: `Italian definite articles (= 'the') change based on gender, number, and the first letter of the following noun. The key is the FIRST SOUND of the word after the article — not just its spelling. S followed by another consonant (studente, spagnolo, stadio) always triggers lo/gli.`,
-        paradigmTable: {
-            pronouns: ["masculine singular", "masculine plural", "feminine singular", "feminine plural"],
-            verbs: [
-                { label: "before most consonants", forms: ["il", "i", "la", "le"] },
-                { label: "before s+cons, z, gn, ps, x (masc.)", forms: ["lo", "gli", "—", "—"] },
-                { label: "before vowels", forms: ["l'", "gli", "l'", "le"] },
-            ],
-        },
-        rules: [
-            {
-                condition: "Masculine singular before most consonants",
-                result: "Use il",
-                examples: [
-                    { native: "il libro", translation: "the book" },
-                    { native: "il cane", translation: "the dog" },
-                    { native: "il padre", translation: "the father" },
-                ],
-            },
-            {
-                condition: "Masculine singular before s+consonant, z, gn, ps, x",
-                result: "Use lo",
-                examples: [
-                    { native: "lo studente", translation: "the student" },
-                    { native: "lo zaino", translation: "the backpack" },
-                    { native: "lo zio", translation: "the uncle" },
-                    { native: "lo gnocco", translation: "the gnocco" },
-                ],
-            },
-            {
-                condition: "Before any vowel (masc. or fem. singular)",
-                result: "Use l'",
-                examples: [
-                    { native: "l'amico", translation: "the friend (masc.)" },
-                    { native: "l'amica", translation: "the friend (fem.)" },
-                    { native: "l'uomo", translation: "the man" },
-                    { native: "l'ora", translation: "the hour" },
-                ],
-            },
-            {
-                condition: "Masculine plural: i (of il) or gli (of lo/l')",
-                result: "I libri / gli studenti / gli amici",
-                examples: [
-                    { native: "i cani", translation: "the dogs" },
-                    { native: "i padri", translation: "the fathers" },
-                    { native: "gli zii", translation: "the uncles" },
-                    { native: "gli amici", translation: "the friends (masc.)" },
-                ],
-            },
-            {
-                condition: "Feminine plural",
-                result: "Always le — regardless of initial letter",
-                examples: [
-                    { native: "le case", translation: "the houses" },
-                    { native: "le amiche", translation: "the friends (fem.)" },
-                    { native: "le ore", translation: "the hours" },
-                ],
-            },
-        ],
-        notes: [
-            { type: "tip", content: "The key to choosing the right article is the FIRST SOUND of the following word, not just its spelling. S followed by another consonant (studente, spagnolo, stadio) always triggers lo/gli." },
-            { type: "warning", content: "Italian has the most complex article system of the Romance languages. The good news: once you know how to choose the definite article, the partitive (del/dello/della...) and contracted prepositions (al/allo/alla...) follow the same pattern automatically." },
-            { type: "forward-ref", content: "Contractions with a (al, allo, alla, all', ai, agli, alle) and di (del, dello, della...) follow the same pattern — introduced with prepositions in lesson it-g-a1-14.", refId: "it-g-a1-14" },
-        ],
-        examples: [
-            { native: "il libro", translation: "the book (masc., starts with l)" },
-            { native: "lo studente", translation: "the student (masc., starts with st-)" },
-            { native: "l'amico", translation: "the friend (masc., starts with vowel)" },
-            { native: "la casa", translation: "the house (fem., starts with consonant)" },
-            { native: "gli studenti / le case", translation: "the students / the houses (plurals)" }
-        ],
-        inlineVocab: [
-            { word: "libro", translation: "book" },
-            { word: "studente", translation: "student" },
-            { word: "amico", translation: "friend (masc.)" },
-            { word: "padre", translation: "father" },
-            { word: "madre", translation: "mother" },
-            { word: "uomo", translation: "man" },
-            { word: "ora", translation: "hour / time" },
-        ]
-    },
-    {
         id: "it-g-a1-5",
         level: "A1",
         title: "Indefinite Articles",
@@ -337,81 +345,67 @@ For 'some' (plural), use dei / degli / delle: dei libri, degli amici, delle case
         ]
     },
     {
-        id: "it-g-a1-12",
+        id: "it-g-a1-6",
         level: "A1",
-        title: "Adjective Agreement",
-        explanation: `Italian adjectives must agree with the noun in gender and number. Most follow the 4-form -o/-a/-i/-e pattern; adjectives ending in -e are simpler — same form for both genders, just add -i for plural.
+        title: "Regular -are Verb Conjugation",
+        explanation: `Regular -are verbs are the most common in Italian. Remove the -are ending and add the endings shown in the table. There are hundreds of -are verbs — once you know the pattern for parlare, you can conjugate any of them.
 
-POSITION — adjectives usually come AFTER the noun: un ragazzo alto, una pizza buona. Common short adjectives (bello, vecchio, grande, buono, cattivo, primo) often come BEFORE. Position can shift meaning: un grande uomo = a great man · un uomo grande = a big/tall man.`,
-        paradigmTable: {
-            pronouns: ["masc. singular", "fem. singular", "masc. plural", "fem. plural"],
+Common -are verbs: parlare (speak), lavorare (work), abitare (live), ascoltare (listen), comprare (buy), camminare (walk), mangiare (eat).`,
+        conjugationTable: {
+            pronouns: ["io", "tu", "lui / lei", "noi", "voi", "loro"],
             verbs: [
-                { label: "-o/-a/-i/-e (most adj.)", forms: ["rosso", "rossa", "rossi", "rosse"] },
-                { label: "-e/-i (invariable for gender)", forms: ["interessante", "interessante", "interessanti", "interessanti"] },
-                { label: "bello (pre-noun, mirrors article)", forms: ["bel/bello/bell'", "bella/bell'", "bei/begli", "belle"] },
-                { label: "buono (pre-noun, mirrors indef.)", forms: ["buon/buono", "buona/buon'", "buoni", "buone"] },
+                { label: "parlare", forms: ["parlo", "parli", "parla", "parliamo", "parlate", "parlano"] },
+                { label: "lavorare", forms: ["lavoro", "lavori", "lavora", "lavoriamo", "lavorate", "lavorano"] },
             ],
         },
         rules: [
             {
-                condition: "Adjective ending in -o",
-                result: "Changes: -o (m.sg) / -a (f.sg) / -i (m.pl) / -e (f.pl)",
+                condition: "Conjugating a regular -are verb",
+                result: "Remove -are, add: -o / -i / -a / -iamo / -ate / -ano",
                 examples: [
-                    { native: "rosso / rossa / rossi / rosse", translation: "red (m.sg / f.sg / m.pl / f.pl)" },
-                    { native: "alto / alta / alti / alte", translation: "tall (m.sg / f.sg / m.pl / f.pl)" },
+                    { native: "parlare → parlo, parli, parla…", translation: "to speak → I speak, you speak, he/she speaks…" },
+                    { native: "mangiare → mangio, mangi, mangia…", translation: "to eat → I eat, you eat, he/she eats…" },
                 ],
             },
             {
-                condition: "Adjective ending in -e",
-                result: "Same form for masculine and feminine; add -i for plural",
+                condition: "The io form always ends in -o",
+                result: "Like all Italian verb types, io always ends in -o",
                 examples: [
-                    { native: "interessante → interessanti", translation: "interesting (sg → pl)" },
-                    { native: "grande → grandi", translation: "big/great (sg → pl)" },
+                    { native: "parlo", translation: "I speak (-are)" },
+                    { native: "scrivo", translation: "I write (-ere)" },
+                    { native: "dormo", translation: "I sleep (-ire type 1)" },
+                    { native: "finisco", translation: "I finish (-ire type 2)" },
                 ],
             },
             {
-                condition: "Position: after the noun (default)",
-                result: "Most adjectives follow the noun they describe",
+                condition: "Verbs ending in -iare",
+                result: "The tu form loses the extra -i: mangi (not *mangii)",
                 examples: [
-                    { native: "un ragazzo alto", translation: "a tall boy" },
-                    { native: "una casa grande", translation: "a big house" },
-                    { native: "libri interessanti", translation: "interesting books" },
-                ],
-            },
-            {
-                condition: "Position: before the noun (short common adjectives)",
-                result: "bello, vecchio, grande, buono, cattivo, primo, ultimo can precede",
-                examples: [
-                    { native: "un bel ragazzo", translation: "a handsome boy" },
-                    { native: "una bella giornata", translation: "a beautiful day" },
-                    { native: "un buon vino", translation: "a good wine" },
+                    { native: "mangiare → mangio / mangi / mangia / mangiamo / mangiate / mangiano", translation: "to eat → I eat / you eat / he eats / we eat / you all eat / they eat" },
                 ],
             },
         ],
         notes: [
-            { type: "tip", content: "Adjectives ending in -e are the most learner-friendly — no gender change needed. Only singular → plural: grande → grandi, elegante → eleganti." },
-            { type: "warning", content: "When bello and buono go BEFORE a noun, they change form like the articles (bello mirrors lo/gli/l'...; buono mirrors uno/un...). When they go AFTER the noun, they use regular 4-form agreement: bello/bella/belli/belle." },
-            { type: "forward-ref", content: "Adjective agreement applies to past participles with essere verbs (passato prossimo). Full treatment at A2.", refId: "it-g-a1-2" },
+            { type: "tip", content: "There are hundreds of -are verbs in Italian. The pattern is completely regular — once you know it for parlare, you can conjugate any regular -are verb." },
+            { type: "forward-ref", content: "-ere and -ire verbs (two more conjugation patterns) are in lesson it-g-a1-7.", refId: "it-g-a1-7" },
         ],
         examples: [
-            { native: "un libro interessante / una storia interessante", translation: "an interesting book / an interesting story" },
-            { native: "Il ragazzo alto / La ragazza alta", translation: "The tall boy / The tall girl" },
-            { native: "I libri rossi / Le case rosse", translation: "The red books / The red houses" },
-            { native: "un bel ragazzo / una bella ragazza", translation: "a handsome boy / a beautiful girl (before noun)" },
-            { native: "un grande uomo / un uomo grande", translation: "a great man / a big man (position changes meaning)" }
+            { native: "Io parlo.", translation: "I speak." },
+            { native: "Tu lavori a Milano?", translation: "Do you work in Milan?" },
+            { native: "Lei abita a Firenze.", translation: "She lives in Florence." },
+            { native: "Noi ascoltiamo la musica.", translation: "We listen to music." },
+            { native: "Loro comprano il pane.", translation: "They buy the bread." }
         ],
         inlineVocab: [
-            { word: "rosso", translation: "red" },
-            { word: "storia", translation: "story / history" },
-            { word: "ragazzo", translation: "boy" },
-            { word: "ragazza", translation: "girl" },
-            { word: "alto", translation: "tall" },
-            { word: "interessante", translation: "interesting" },
-            { word: "bello", translation: "beautiful / handsome" },
-            { word: "vecchio", translation: "old" },
-            { word: "grande", translation: "big / great" },
-            { word: "buono", translation: "good" },
-            { word: "cattivo", translation: "bad" },
+            { word: "parlare", translation: "to speak" },
+            { word: "lavorare", translation: "to work" },
+            { word: "abitare", translation: "to live / to reside" },
+            { word: "ascoltare", translation: "to listen" },
+            { word: "comprare", translation: "to buy" },
+            { word: "camminare", translation: "to walk" },
+            { word: "mangiare", translation: "to eat" },
+            { word: "musica", translation: "music" },
+            { word: "pane", translation: "bread" },
         ]
     },
 ]
