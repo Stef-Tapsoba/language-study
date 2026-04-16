@@ -110,7 +110,7 @@ export const a1Units: LessonUnit[] = [
         order: 5,
         title: "Mi piace! — Likes and dislikes",
         description: "Express what you like and don't like — one of the most fundamental structures in Italian",
-        grammarIds: ["it-g-a1-22"],
+        grammarIds: ["it-g-a1-16"],
         vocabIds: [
             "it-v-a1-64", "it-v-a1-65", "it-v-a1-66", "it-v-a1-67",
             "it-v-a1-70", "it-v-a1-71", "it-v-a1-110", "it-v-a1-117", "it-v-a1-122",
