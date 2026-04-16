@@ -7,20 +7,9 @@ export const block2Lessons: GrammarLesson[] = [
     title: "Present Tense: Regular -er Verbs",
     explanation: `Regular -er verbs use their own set of endings. Remove -er and add the ending that matches the subject.
 
-COMER — to eat (stem: com-)
-
-  yo como           nosotros comemos
-  tú comes          vosotros coméis
-  él/ella come      ellos/ellas comen
-
 The same endings apply to: beber, leer, vender, correr, comprender, responder…
 
-Compare -ar vs -er endings:
-             yo   tú    él    nosotros  vosotros  ellos
-  -ar verbs:  -o   -as   -a    -amos     -áis      -an
-  -er verbs:  -o   -es   -e    -emos     -éis      -en
-
-The yo form is -o for both groups.`,
+The key difference from -ar verbs: -er endings use an -e- vowel (comes, comen) where -ar uses -a- (habla, hablan). The yo form ends in -o for both groups.`,
     examples: [
       { native: "Yo como pizza.", translation: "I eat pizza." },
       { native: "Tú bebes agua.", translation: "You drink water." },
@@ -58,7 +47,7 @@ The yo form is -o for both groups.`,
       },
       {
         condition: "Distinguishing -ar and -er endings",
-        result: "The key difference: -ar uses -a- vowel (habla, hablan), -er uses -e- vowel (come, comen)",
+        result: "-ar uses -a- vowel (habla) · -er uses -e- vowel (come)",
         examples: [
           { native: "habla vs come", translation: "he/she speaks vs he/she eats" },
           { native: "hablan vs comen", translation: "they speak vs they eat" },
@@ -67,27 +56,14 @@ The yo form is -o for both groups.`,
     ],
     notes: [
       { type: "tip", content: "Like -ar verbs, yo always ends in -o." },
-      { type: "forward-ref", content: "Regular -ir verbs share almost all -er endings except nosotros (-emos vs -imos) and vosotros (-éis vs -ís). See es-g-a1-8.", refId: "es-g-a1-8" },
+      { type: "forward-ref", content: "Regular -ir verbs share almost all -er endings except nosotros (-emos vs -imos) and vosotros (-éis vs -ís). See 'Regular -ir Verbs'.", refId: "es-g-a1-8" },
     ],
   },
   {
     id: "es-g-a1-8",
     level: "A1",
     title: "Present Tense: Regular -ir Verbs",
-    explanation: `Regular -ir verbs share most endings with -er verbs but differ in the nosotros and vosotros forms.
-
-VIVIR — to live (stem: viv-)
-
-  yo vivo           nosotros vivimos
-  tú vives          vosotros vivís
-  él/ella vive      ellos/ellas viven
-
-Compare -er vs -ir endings:
-             yo   tú    él    nosotros  vosotros  ellos
-  -er verbs:  -o   -es   -e    -emos     -éis      -en
-  -ir verbs:  -o   -es   -e    -imos     -ís       -en
-                                  ↑          ↑
-                              different  different
+    explanation: `Regular -ir verbs share most endings with -er verbs but differ in just two forms: nosotros (-imos not -emos) and vosotros (-ís not -éis). All other forms are identical to -er verbs.
 
 Common -ir verbs: vivir, escribir, abrir, recibir, subir, decidir.`,
     examples: [
@@ -125,7 +101,7 @@ Common -ir verbs: vivir, escribir, abrir, recibir, subir, decidir.`,
     rules: [
       {
         condition: "-ir vs -er",
-        result: "Only nosotros (-imos not -emos) and vosotros (-ís not -éis) differ from -er verbs",
+        result: "nosotros: -imos · vosotros: -ís (only these two differ)",
         examples: [
           { native: "Comemos / Vivimos", translation: "We eat / We live — the nosotros distinction" },
           { native: "Coméis / Vivís", translation: "You all eat / You all live — the vosotros distinction" },
@@ -133,7 +109,7 @@ Common -ir verbs: vivir, escribir, abrir, recibir, subir, decidir.`,
       },
       {
         condition: "Recognising -ir verbs",
-        result: "Check the infinitive ends in -ir: vivir, escribir, abrir, recibir, subir, decidir",
+        result: "infinitive ends in -ir: vivir, escribir, abrir…",
         examples: [
           { native: "Yo vivo.", translation: "I live." },
           { native: "Yo escribo.", translation: "I write." },
@@ -143,7 +119,7 @@ Common -ir verbs: vivir, escribir, abrir, recibir, subir, decidir.`,
     ],
     notes: [
       { type: "tip", content: "Three verb classes, but yo form always ends in -o for all of them. That's the one constant across all regular Spanish verbs." },
-      { type: "forward-ref", content: "Some very common -ir verbs are stem-changing (e→i) — for example pedir, servir, repetir. Full lesson at es-g-a1-31.", refId: "es-g-a1-31" },
+      { type: "forward-ref", content: "Some very common -ir verbs are stem-changing (e→i) — for example pedir, servir, repetir. Full details in 'Stem-Changing Verbs'.", refId: "es-g-a1-31" },
     ],
   },
   {
@@ -186,7 +162,7 @@ TELLING TIME — ¿Qué hora es?
     rules: [
       {
         condition: "Telling the time — singular vs plural",
-        result: "1:00 → Es la una (singular). All other hours → Son las + number.",
+        result: "Es la una (1:00) · Son las dos/tres… (all others)",
         examples: [
           { native: "Es la una.", translation: "It's one o'clock." },
           { native: "Son las dos.", translation: "It's two o'clock." },
@@ -269,22 +245,22 @@ With a feminine noun: veintiuna:
       { native: "Ciento veinte euros.", translation: "One hundred and twenty euros." },
       { native: "Tengo veintiún años.", translation: "I am twenty-one years old." },
     ],
-    paradigmTable: {
-      pronouns: ["Number", "Spanish", "Notes"],
+    conjugationTable: {
+      pronouns: ["20", "30", "40", "50", "60"],
       verbs: [
-        { label: "20", forms: ["20", "veinte", "base"] },
-        { label: "21-29", forms: ["21-29", "veintiuno, veintidós…", "ONE word, accents on 22/23/26"] },
-        { label: "30", forms: ["30", "treinta", ""] },
-        { label: "31+", forms: ["31+", "treinta y uno…", "THREE words with y"] },
-        { label: "40-90", forms: ["40-90", "cuarenta/cincuenta/sesenta/setenta/ochenta/noventa", "tens"] },
-        { label: "100 exactly", forms: ["100", "cien", "use cien for exactly 100"] },
-        { label: "101-199", forms: ["101-199", "ciento uno, ciento veinte…", "ciento (not cien) for 101-199"] },
+        { label: "", forms: ["veinte", "treinta", "cuarenta", "cincuenta", "sesenta"] },
+      ],
+    },
+    paradigmTable: {
+      pronouns: ["70", "80", "90", "100", "101-199"],
+      verbs: [
+        { label: "", forms: ["setenta", "ochenta", "noventa", "cien", "ciento…"] },
       ],
     },
     rules: [
       {
         condition: "Numbers 21-29",
-        result: "Written as ONE word: veintiuno, veintidós, veintitrés… Accents on veintidós, veintitrés, veintiséis.",
+        result: "ONE word: veintiuno…veintiséis (accents on 22, 23, 26)",
         examples: [
           { native: "21 = veintiuno", translation: "twenty-one" },
           { native: "22 = veintidós", translation: "twenty-two" },
@@ -310,7 +286,7 @@ With a feminine noun: veintiuna:
       },
       {
         condition: "Veintiuno before nouns",
-        result: "Drop the -o before masculine nouns: veintiún. Use veintiuna before feminine nouns.",
+        result: "veintiún (masc.) · veintiuna (fem.) before nouns",
         examples: [
           { native: "veintiún años", translation: "twenty-one years" },
           { native: "veintiuna personas", translation: "twenty-one people" },
@@ -370,7 +346,7 @@ With a feminine noun: veintiuna:
     rules: [
       {
         condition: "Basic negation",
-        result: "Place no directly before the conjugated verb. No other changes needed.",
+        result: "Place no directly before the verb — nothing else changes",
         examples: [
           { native: "No hablo inglés.", translation: "I don't speak English." },
           { native: "No tengo coche.", translation: "I don't have a car." },
@@ -379,7 +355,7 @@ With a feminine noun: veintiuna:
       },
       {
         condition: "Double negation",
-        result: "When negative words (nada, nadie, nunca, tampoco) follow the verb, keep no before the verb too",
+        result: "keep no before the verb even with nada/nadie/nunca",
         examples: [
           { native: "No tengo nada.", translation: "I don't have anything." },
           { native: "No viene nunca.", translation: "He never comes." },
@@ -395,7 +371,7 @@ With a feminine noun: veintiuna:
       },
       {
         condition: "Tampoco",
-        result: "Tampoco = neither/not either — used in agreement with a negative statement",
+        result: "tampoco = neither/not either (agreeing with a negative)",
         examples: [
           { native: "No me gusta el frío. — A mí tampoco.", translation: "I don't like the cold. — Me neither." },
           { native: "No tengo coche tampoco.", translation: "I don't have a car either." },
