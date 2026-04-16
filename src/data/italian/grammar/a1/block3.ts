@@ -91,18 +91,7 @@ Common reflexive verbs: chiamarsi (to be called), alzarsi (to get up), svegliars
    9  nove         19  diciannove
   10  dieci        20  venti
 
-TELLING THE TIME
-Use 'Sono le' + number for most times:
-  Sono le tre.              = It's three o'clock.
-  Sono le otto e mezza.     = It's half past eight.
-  Sono le undici e un quarto. = It's quarter past eleven.
-
-Exceptions — singular forms use 'è' not 'sono':
-  È l'una.       = It's one o'clock.
-  È mezzogiorno. = It's noon.
-  È mezzanotte.  = It's midnight.
-
-Useful time phrases: e mezza (half past), e un quarto (quarter past), meno un quarto (quarter to)`,
+Time-telling patterns are in the table below.`,
         examples: [
             { native: "Sono le tre.", translation: "It's three o'clock." },
             { native: "È l'una e mezza.", translation: "It's half past one." },
@@ -131,7 +120,7 @@ Useful time phrases: e mezza (half past), e un quarto (quarter past), meno un qu
         rules: [
             {
                 condition: "1:00 — singular",
-                result: "È l'una (not Sono) — l' + una contracts",
+                result: "È l'una — singular, not Sono le",
                 examples: [
                     { native: "È l'una.", translation: "It's one o'clock." },
                     { native: "È l'una e mezza.", translation: "It's half past one." },
@@ -184,29 +173,11 @@ Useful time phrases: e mezza (half past), e un quarto (quarter past), meno un qu
         level: "A1",
         exerciseType: "dictation" as const,
         title: "Numbers 20-100",
-        explanation: `From 20 onwards, Italian numbers follow a regular pattern. Learn the tens:
+        explanation: `The tens are in the table. Compound numbers attach directly to the ten with no space or hyphen (trentadue, quarantasei).
 
-  venti    20    trenta   30    quaranta  40    cinquanta  50
-  sessanta 60    settanta 70    ottanta   80    novanta    90    cento    100
+Two spelling rules: drop the final vowel of the ten before uno and otto (ventuno, ventotto, trentuno, trentotto); tre at the end takes an accent (ventitré, trentatré).
 
-BUILDING COMPOUND NUMBERS
-Attach the unit directly to the ten (no space, no hyphen):
-  trenta + due  = trentadue (32)
-  quaranta + sei = quarantasei (46)
-  settanta + tre = settantatré (73)
-
-SPELLING RULES — important!
-• Drop the final vowel of the ten before uno and otto:
-    ventuno (21) ✓    NOT ventiuno
-    ventotto (28) ✓   NOT ventiotto
-    trentuno (31) ✓   trentotto (38) ✓
-• Tre at the end takes a written accent:
-    ventitré (23), trentatré (33), quarantatré (43)...
-
-HUNDREDS & THOUSANDS
-  cento = 100 (never 'un cento')
-  duecento = 200 | trecento = 300 | quattrocento = 400...
-  mille = 1,000 | duemila = 2,000 (mila is the plural of mille)`,
+Hundreds: cento = 100 (no article). Compounds: duecento, trecento… Thousands: mille (1,000), duemila (2,000) — note mila is the plural of mille.`,
         examples: [
             { native: "Trenta euro, per favore.", translation: "Thirty euros, please." },
             { native: "Ho quarantadue anni.", translation: "I am forty-two years old." },
@@ -219,23 +190,22 @@ HUNDREDS & THOUSANDS
             { word: "anni", translation: "years" },
             { word: "classe", translation: "class / classroom" },
         ],
-        paradigmTable: {
-            pronouns: ["Number", "Italian", "Notes"],
+        conjugationTable: {
+            pronouns: ["20", "30", "40", "50", "60"],
             verbs: [
-                { label: "20", forms: ["20", "venti", "base"] },
-                { label: "21", forms: ["21", "ventuno", "venti + uno → drops the i"] },
-                { label: "22-29", forms: ["22-29", "ventidue, ventitre…", "venti + unit (drops i before uno/otto)"] },
-                { label: "28", forms: ["28", "ventotto", "venti + otto → drops the i"] },
-                { label: "30-90", forms: ["30-90", "trenta/quaranta/cinquanta/sessanta/settanta/ottanta/novanta", "tens"] },
-                { label: "31+", forms: ["31+", "trentuno, trentadue…", "ten + unit (no 'e')"] },
-                { label: "100", forms: ["100", "cento", "exactly 100 = cento (no article)"] },
-                { label: "101-199", forms: ["101-199", "centouno, centoventi…", "cento + rest"] },
+                { label: "", forms: ["venti", "trenta", "quaranta", "cinquanta", "sessanta"] },
+            ],
+        },
+        paradigmTable: {
+            pronouns: ["70", "80", "90", "100", "101+"],
+            verbs: [
+                { label: "", forms: ["settanta", "ottanta", "novanta", "cento", "cento + rest"] },
             ],
         },
         rules: [
             {
                 condition: "21-29 formation",
-                result: "venti + unit — drop the final vowel of venti before uno/otto",
+                result: "venti + unit · drop vowel before uno / otto",
                 examples: [
                     { native: "ventuno", translation: "21" },
                     { native: "ventotto", translation: "28" },
@@ -245,7 +215,7 @@ HUNDREDS & THOUSANDS
             },
             {
                 condition: "31 and above",
-                result: "tens + unit — no 'e' needed, no dropped vowel",
+                result: "tens + unit directly (no space, no 'e')",
                 examples: [
                     { native: "trentuno", translation: "31" },
                     { native: "quarantadue", translation: "42" },
@@ -254,7 +224,7 @@ HUNDREDS & THOUSANDS
             },
             {
                 condition: "100",
-                result: "Cento (exactly 100). Cento + rest for 101+",
+                result: "cento (exactly 100) · cento + rest for 101+",
                 examples: [
                     { native: "Cento persone.", translation: "One hundred people." },
                     { native: "Centouno euro.", translation: "One hundred and one euros." },
