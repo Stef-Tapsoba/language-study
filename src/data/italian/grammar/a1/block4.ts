@@ -427,13 +427,6 @@ ASKING FOR MORE / ENDING
                 { label: "near / far", forms: ["vicino a / lontano da", "near / far from"] },
             ],
         },
-        fixedPhrases: [
-            { native: "Scusi, dov'è...?", translation: "Excuse me, where is...?", note: "Standard way to ask for directions." },
-            { native: "Come arrivo a...?", translation: "How do I get to...?", note: "Alternative opener." },
-            { native: "È lontano? — No, è qui vicino.", translation: "Is it far? — No, it's nearby.", note: "Essential Q&A pair." },
-            { native: "È a cinque minuti a piedi.", translation: "It's five minutes on foot.", note: "Giving a time estimate." },
-            { native: "Prendi la prima a destra.", translation: "Take the first on the right.", note: "Most common direction instruction." },
-        ],
         rules: [
             {
                 condition: "Asking for directions",
