@@ -277,16 +277,11 @@ The 1st always uses primo, not uno: il primo maggio (never il uno maggio). Addin
             { word: "sabato", translation: "Saturday" },
             { word: "domenica", translation: "Sunday" },
         ],
-        conjugationTable: {
-            pronouns: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-            verbs: [
-                { label: "", forms: ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno"] },
-            ],
-        },
         paradigmTable: {
-            pronouns: ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            pronouns: ["1st", "2nd", "3rd", "4th", "5th", "6th"],
             verbs: [
-                { label: "", forms: ["luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"] },
+                { label: "Jan–Jun", forms: ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno"] },
+                { label: "Jul–Dec", forms: ["luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"] },
             ],
         },
         rules: [
