@@ -122,6 +122,24 @@ export interface GrammarConjugationTable {
 }
 
 /**
+ * A flat reference table for non-paradigm lookups: number strips, month grids,
+ * time patterns, question-word lists, etc. Distinct from GrammarConjugationTable
+ * because it has no pronoun/label agreement axis — rows are just data rows.
+ *
+ * layout hints:
+ *   "strip"  — horizontal enumeration across headers (numbers, months, days)
+ *   "keyed"  — label | value | optional note rows (time patterns, question words)
+ */
+export interface GrammarReferenceTable {
+    headers: string[]
+    rows: Array<{
+        label?: string
+        cells: string[]
+    }>
+    layout: "strip" | "keyed"
+}
+
+/**
  * A short typed callout rendered distinctly from explanation prose.
  * Discriminated union: refId is required on forward-ref notes and absent on all others,
  * so the compiler enforces the coupling rather than relying on convention.
@@ -171,6 +189,11 @@ export interface GrammarLesson {
      * than "Conjugation".
      */
     paradigmTable?: GrammarConjugationTable
+    /**
+     * Flat reference lookup table — for number strips, month grids, time
+     * patterns, question-word lists. Use when there is no agreement axis.
+     */
+    referenceTable?: GrammarReferenceTable
     examples: Array<Example | DialogueExample>
     inlineVocab?: InlineVocabEntry[]
     /**
