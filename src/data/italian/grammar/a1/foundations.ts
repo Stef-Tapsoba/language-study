@@ -40,15 +40,7 @@ export const foundationsLessons: GrammarLesson[] = [
         id: "it-g-a1-2",
         level: "A1",
         title: "Essere (to be)",
-        explanation: `**Essere** is one of the two key verbs meaning 'to be'. It is used for identity, nationality, profession, origin, and time.
-
-Conjugation (present tense):
-  io      → **sono**   (I am)
-  tu      → **sei**    (you are)
-  lui/lei → **è**      (he/she is)
-  noi     → **siamo**  (we are)
-  voi     → **siete**  (you all are)
-  loro    → **sono**   (they are)`,
+        explanation: `**Essere** is one of the two key verbs meaning 'to be'. It is used for identity, nationality, profession, origin, and time. Sono serves double duty — it is both the io and the loro form.`,
         conjugationTable: {
             pronouns: ["io", "tu", "lui / lei (+ Lei formale)", "noi", "voi", "loro"],
             verbs: [{ label: "essere", forms: ["sono", "sei", "è", "siamo", "siete", "sono"] }],
@@ -111,21 +103,9 @@ Conjugation (present tense):
         id: "it-g-a1-3",
         level: "A1",
         title: "Avere (to have)",
-        explanation: `Avere means 'to have' and is used for possession, age, and many expressions. The 'h' is always silent.
+        explanation: `Avere means 'to have' and is used for possession, age, and many expressions. The 'h' is always silent — ho, hai, ha, hanno are spelled with H only to distinguish them from the words o (or), ai (to the), a (to/at), anno (year).
 
-Conjugation (present tense):
-  io      → ho       (I have)
-  tu      → hai      (you have)
-  lui/lei → ha       (he/she has)
-  noi     → abbiamo  (we have)
-  voi     → avete    (you all have)
-  loro    → hanno    (they have)
-
-Common expressions:
-  avere fame         → to be hungry
-  avere sete         → to be thirsty
-  avere N anni       → to be N years old
-  avere freddo/caldo → to be cold/hot`,
+Key expressions with avere: avere fame (to be hungry), avere sete (to be thirsty), avere N anni (to be N years old), avere freddo/caldo (to be cold/hot).`,
         conjugationTable: {
             pronouns: ["io", "tu", "lui / lei", "noi", "voi", "loro"],
             verbs: [{ label: "avere", forms: ["ho", "hai", "ha", "abbiamo", "avete", "hanno"] }],
@@ -196,23 +176,7 @@ Common expressions:
         id: "it-g-a1-4",
         level: "A1",
         title: "Definite Articles",
-        explanation: `Italian definite articles (= 'the') change based on gender, number, and the first letter of the following noun.
-
-MASCULINE SINGULAR
-  il  — before most consonants:           il libro, il cane, il padre
-  lo  — before s+consonant, z, gn, ps, x: lo studente, lo zio, lo zaino
-  l'  — before any vowel:                 l'amico, l'uomo
-
-MASCULINE PLURAL
-  i   — plural of il:                     i libri, i cani
-  gli — plural of lo and l':              gli studenti, gli amici
-
-FEMININE SINGULAR
-  la  — before consonants:                la casa, la madre
-  l'  — before vowels:                    l'amica, l'ora
-
-FEMININE PLURAL
-  le  — plural of both la and l':         le case, le amiche`,
+        explanation: `Italian definite articles (= 'the') change based on gender, number, and the first letter of the following noun. The key is the FIRST SOUND of the word after the article — not just its spelling. S followed by another consonant (studente, spagnolo, stadio) always triggers lo/gli.`,
         paradigmTable: {
             pronouns: ["masculine singular", "masculine plural", "feminine singular", "feminine plural"],
             verbs: [
@@ -297,18 +261,9 @@ FEMININE PLURAL
         id: "it-g-a1-5",
         level: "A1",
         title: "Indefinite Articles",
-        explanation: `Indefinite articles (= 'a' / 'an') change based on gender and the first letter of the following noun.
+        explanation: `Indefinite articles (= 'a' / 'an') follow the same sound-based logic as definite articles. Uno mirrors lo: if a noun takes lo, the indefinite is uno. Un' (feminine before vowel) always has an apostrophe; un (masculine before vowel) does not: un amico (m.) vs un'amica (f.).
 
-MASCULINE
-  un   — before most consonants and vowels:  un libro, un amico
-  uno  — before s+consonant, z, gn, ps, x:  uno studente, uno zaino
-
-FEMININE
-  una  — before consonants:                  una casa, una pizza
-  un'  — before vowels:                      un'amica, un'ora
-
-For 'some' (plural), use dei / degli / delle:
-  dei libri (some books) | degli amici (some friends) | delle case (some houses)`,
+For 'some' (plural), use dei / degli / delle: dei libri, degli amici, delle case.`,
         paradigmTable: {
             pronouns: ["context", "masculine", "feminine"],
             verbs: [
@@ -379,23 +334,9 @@ For 'some' (plural), use dei / degli / delle:
         id: "it-g-a1-12",
         level: "A1",
         title: "Adjective Agreement",
-        explanation: `Italian adjectives must agree with the noun in gender and number.
+        explanation: `Italian adjectives must agree with the noun in gender and number. Most follow the 4-form -o/-a/-i/-e pattern; adjectives ending in -e are simpler — same form for both genders, just add -i for plural.
 
--o / -a / -i / -e pattern (most adjectives):
-  Masc. singular: -o  →  un libro rosso       (a red book)
-  Fem. singular:  -a  →  una casa rossa        (a red house)
-  Masc. plural:   -i  →  i libri rossi         (the red books)
-  Fem. plural:    -e  →  le case rosse         (the red houses)
-
--e / -i pattern (adjectives ending in -e, same for both genders):
-  Singular: -e  →  un libro interessante / una storia interessante
-  Plural:   -i  →  libri interessanti / storie interessanti
-
-POSITION
-• Adjectives usually come AFTER the noun: un ragazzo alto, una pizza buona
-• These common ones usually come BEFORE: bello, vecchio, grande, buono, cattivo, primo
-• Position can change meaning:
-    un grande uomo = a great man  |  un uomo grande = a big/tall man`,
+POSITION — adjectives usually come AFTER the noun: un ragazzo alto, una pizza buona. Common short adjectives (bello, vecchio, grande, buono, cattivo, primo) often come BEFORE. Position can shift meaning: un grande uomo = a great man · un uomo grande = a big/tall man.`,
         paradigmTable: {
             pronouns: ["masc. singular", "fem. singular", "masc. plural", "fem. plural"],
             verbs: [
