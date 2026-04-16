@@ -517,7 +517,7 @@ Common fare compounds: fare colazione (have breakfast), fare sport (play sport /
             },
             {
                 condition: "Cosa fai?",
-                result: "What are you doing? or What do you do? (same question, two readings)",
+                result: "What are you doing? / What do you do? (same form)",
                 examples: [
                     { native: "Cosa fai nel tempo libero?", translation: "What do you do in your free time?" },
                     { native: "Cosa fai adesso?", translation: "What are you doing now?" },
