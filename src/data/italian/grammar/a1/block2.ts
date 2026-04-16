@@ -620,7 +620,7 @@ Key uses: di (of/from origin), a (to/at cities), in (in countries/rooms), da (fr
             },
             {
                 condition: "-ire type 1",
-                result: "Remove -ire, add: -o/-i/-e/-iamo/-ite/-ono (dormire, aprire, partire, sentire)",
+                result: "Remove -ire, add: -o/-i/-e/-iamo/-ite/-ono",
                 examples: [
                     { native: "dormire: dormo, dormi, dorme…", translation: "to sleep: I sleep, you sleep, he/she sleeps…" },
                 ],
