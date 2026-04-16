@@ -256,7 +256,7 @@ ASKING / ANSWERING LOCATION
         rules: [
             {
                 condition: "Three-distance system",
-                result: "qui (here, near me) / lì (there, away from me) — Italian has two distances, not three like Spanish",
+                result: "qui (near me) · lì (away) — two distances, not three",
                 examples: [
                     { native: "Il libro è qui.", translation: "The book is here." },
                     { native: "È lì sul tavolo.", translation: "It's there on the table." },
@@ -264,7 +264,7 @@ ASKING / ANSWERING LOCATION
             },
             {
                 condition: "Adverb vs preposition",
-                result: "Solo (adverb, stands alone) vs vicino a (preposition phrase, needs to)",
+                result: "vicino (alone) · vicino a + noun (preposition)",
                 examples: [
                     { native: "È vicino.", translation: "It's near." },
                     { native: "È vicino alla stazione.", translation: "It's near the station." },
