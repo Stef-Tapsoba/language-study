@@ -372,7 +372,7 @@ export const a1Units: LessonUnit[] = [
         order: 17,
         title: "In giro per la città — Around the city",
         description: "Ask for directions, navigate transport, and describe a city",
-        grammarIds: ["it-g-a1-21"],
+        grammarIds: ["it-g-a1-22"],
         vocabIds: [
             "it-v-a1-108", "it-v-a1-109", "it-v-a1-110", "it-v-a1-114", "it-v-a1-115",
             "it-v-a1-116", "it-v-a1-117", "it-v-a1-119", "it-v-a1-121", "it-v-a1-122",
