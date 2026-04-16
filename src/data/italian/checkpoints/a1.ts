@@ -74,7 +74,7 @@ export const a1Checkpoints: Checkpoint[] = [
       'Order using vorrei and prendo — at least a primo, secondo, and drink (Vorrei le tagliatelle... / Come secondo prendo...)',
       'Use the partitive at least once when ordering (Dell\'acqua naturale, per favore. / Del pane.)',
       'Ask the waiter a relevant question (È incluso il coperto? / Ha qualcosa senza glutine? / Cosa consiglia?)',
-      'Give or ask for directions using at least 3 direction phrases and 2 prepositions of place (Vada dritto... / Giri a sinistra... / È accanto alla farmacia, di fronte alla banca.)',
+      'Give or ask for directions using at least 3 direction phrases and 2 prepositions of place (Deve girare a sinistra... / Può andare dritto... / È accanto alla farmacia, di fronte alla banca.)',
       'Use all three modal verbs in the weekend scenario — posso, voglio (or vorrei), and devo (Devo lavorare... / Posso uscire nel pomeriggio... / Voglio andare al mercato.)',
       'Use questo or quello to point to something (Prendo quello. / Questa borsa è bellissima.)',
     ],
