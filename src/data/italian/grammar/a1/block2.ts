@@ -636,6 +636,7 @@ Key uses: di (of/from origin), a (to/at cities), in (in countries/rooms), da (fr
         notes: [
             { type: "tip", content: "The -isc- only appears in 4 of the 6 forms — NOT in noi and voi. Finiamo and finite are regular (no -isc-). This mirrors the boot/shoe pattern from stem-changing verbs." },
             { type: "tip", content: "Common -isc- verbs to memorise: finire (finish), capire (understand), preferire (prefer), pulire (clean), costruire (build). When you learn a new -ire verb, check if it's -isc- type." },
+            { type: "warning", content: "There is no reliable rule for telling type 1 from type 2 — you must learn each verb's type when you learn the verb. That said, type 2 (-isc-) is the majority. If you are unsure, type 2 is the safer guess. The most important type 1 verbs to memorise: dormire, partire, sentire, aprire, seguire, vestire, servire." },
         ],
         examples: [
             { native: "Scrivo una lettera.", translation: "I write a letter." },
