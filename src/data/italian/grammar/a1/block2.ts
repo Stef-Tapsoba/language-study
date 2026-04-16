@@ -155,7 +155,7 @@ FAMILY EXCEPTION — drop the article with singular, unmodified family members: 
             },
             {
                 condition: "Article before possessives",
-                result: "Always use the definite article before possessives: il/la/i/le + possessive",
+                result: "il/la/i/le + possessive (article always required)",
                 examples: [
                     { native: "il mio libro", translation: "my book" },
                     { native: "la tua casa", translation: "your house" },
