@@ -271,11 +271,11 @@ Key expressions with avere: avere fame (to be hungry), avere sete (to be thirsty
 
 For 'some' (plural), use dei / degli / delle: dei libri, degli amici, delle case.`,
         paradigmTable: {
-            pronouns: ["context", "masculine", "feminine"],
+            pronouns: ["masculine", "feminine"],
             verbs: [
-                { label: "before most consonants", forms: ["un (un libro, un cane)", "una (una casa, una pizza)"] },
-                { label: "before s+cons, z, gn, ps, x (masc.)", forms: ["uno (uno studente, uno zaino)", "—"] },
-                { label: "before vowels", forms: ["un (un amico, un uomo)", "un' (un'amica, un'ora)"] },
+                { label: "before most consonants", forms: ["un", "una"] },
+                { label: "before s+cons, z, gn, ps, x", forms: ["uno", "—"] },
+                { label: "before vowels", forms: ["un", "un'"] },
             ],
         },
         rules: [
