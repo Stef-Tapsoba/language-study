@@ -136,27 +136,24 @@ Common -ir verbs: vivir, escribir, abrir, recibir, subir, decidir.`,
 Numbers 21–100 and compound number rules (veintiuno, treinta y dos…) are in the next lesson: Numbers 20–100 & the Calendar.
 
 TELLING TIME — ¿Qué hora es?
-  Es la una.                   It's one o'clock.     (es — singular)
-  Son las dos.                 It's two o'clock.     (son — plural)
-  Son las tres y media.        It's half past three.
-  Son las cuatro y cuarto.     It's quarter past four.
-  Son las cinco menos cuarto.  It's quarter to five.`,
+Use es la for 1:00 (singular) and son las for all other hours (plural). See the table below for all patterns.`,
     examples: [
       { native: "Son las tres.", translation: "It's three o'clock." },
       { native: "Es la una y media.", translation: "It's half past one." },
       { native: "Son las dos y cuarto.", translation: "It's quarter past two." },
       { native: "Tengo veinte años.", translation: "I am twenty years old." },
     ],
-    paradigmTable: {
-      pronouns: ["Time", "Spanish", "Notes"],
-      verbs: [
-        { label: "1:00", forms: ["1:00", "Es la una.", "singular — es la"] },
-        { label: "2:00+", forms: ["2:00+", "Son las dos / tres…", "plural — son las"] },
-        { label: "X:30", forms: ["X:30", "Son las tres y media.", "y media = half past"] },
-        { label: "X:15", forms: ["X:15", "Son las cuatro y cuarto.", "y cuarto = quarter past"] },
-        { label: "X:45", forms: ["X:45", "Son las cinco menos cuarto.", "menos cuarto = quarter to"] },
-        { label: "12:00", forms: ["12:00", "Es mediodía.", "midday"] },
-        { label: "00:00", forms: ["00:00", "Es medianoche.", "midnight"] },
+    referenceTable: {
+      layout: "keyed",
+      headers: ["Time", "Spanish", "Notes"],
+      rows: [
+        { label: "1:00", cells: ["Es la una.", "singular — es + la"] },
+        { label: "2:00+", cells: ["Son las dos / tres…", "son + las + number"] },
+        { label: "X:30", cells: ["Son las tres y media.", "y media = half past"] },
+        { label: "X:15", cells: ["Son las cuatro y cuarto.", "y cuarto = quarter past"] },
+        { label: "X:45", cells: ["Son las cinco menos cuarto.", "menos cuarto = quarter to"] },
+        { label: "noon", cells: ["Es mediodía.", ""] },
+        { label: "midnight", cells: ["Es medianoche.", ""] },
       ],
     },
     rules: [
@@ -245,16 +242,11 @@ With a feminine noun: veintiuna:
       { native: "Ciento veinte euros.", translation: "One hundred and twenty euros." },
       { native: "Tengo veintiún años.", translation: "I am twenty-one years old." },
     ],
-    conjugationTable: {
-      pronouns: ["20", "30", "40", "50", "60"],
-      verbs: [
-        { label: "", forms: ["veinte", "treinta", "cuarenta", "cincuenta", "sesenta"] },
-      ],
-    },
-    paradigmTable: {
-      pronouns: ["70", "80", "90", "100", "101-199"],
-      verbs: [
-        { label: "", forms: ["setenta", "ochenta", "noventa", "cien", "ciento…"] },
+    referenceTable: {
+      layout: "strip",
+      headers: ["20", "30", "40", "50", "60", "70", "80", "90", "100"],
+      rows: [
+        { cells: ["veinte", "treinta", "cuarenta", "cincuenta", "sesenta", "setenta", "ochenta", "noventa", "cien"] },
       ],
     },
     rules: [

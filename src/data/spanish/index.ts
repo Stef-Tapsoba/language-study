@@ -38,8 +38,6 @@ import { b1Culture } from "./culture/b1"
 import { a1Speaking } from "./speaking/a1"
 import { a1Checkpoints } from "./checkpoints/a1"
 
-import { a1Checkpoints } from "./checkpoints/a1"
-
 export default createLanguageModule({
     langId: "es",
     grammar: [a1Grammar, a2Grammar, b1Grammar],

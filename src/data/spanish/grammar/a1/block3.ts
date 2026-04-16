@@ -16,20 +16,20 @@ INFORMATION QUESTIONS
 Question word + (optional subject) + verb. All question words carry a written accent — see the table below.
 
 KEY RULE: ¿ always opens every Spanish question — a visible signal that a question is coming.`,
-    paradigmTable: {
-      pronouns: ["Question word", "Meaning", "Example"],
-      verbs: [
-        { label: "¿qué?", forms: ["¿qué?", "what", "¿Qué es esto?"] },
-        { label: "¿dónde?", forms: ["¿dónde?", "where", "¿Dónde vives?"] },
-        { label: "¿adónde?", forms: ["¿adónde?", "where to (motion)", "¿Adónde vas?"] },
-        { label: "¿quién? / ¿quiénes?", forms: ["¿quién?/¿quiénes?", "who", "¿Quién es él?"] },
-        { label: "¿cuándo?", forms: ["¿cuándo?", "when", "¿Cuándo llegas?"] },
-        { label: "¿cómo?", forms: ["¿cómo?", "how", "¿Cómo estás?"] },
-        { label: "¿cuánto/a?", forms: ["¿cuánto/a?", "how much", "¿Cuánto cuesta?"] },
-        { label: "¿cuántos/as?", forms: ["¿cuántos/as?", "how many", "¿Cuántos años tienes?"] },
-        { label: "¿por qué?", forms: ["¿por qué?", "why", "¿Por qué estudias?"] },
-        { label: "¿cuál? / ¿cuáles?", forms: ["¿cuál?/¿cuáles?", "which / what", "¿Cuál es tu nombre?"] },
-        { label: "¿de dónde?", forms: ["¿de dónde?", "where from", "¿De dónde eres?"] },
+    referenceTable: {
+      layout: "keyed",
+      headers: ["Question word", "Meaning", "Example"],
+      rows: [
+        { label: "¿qué?", cells: ["what", "¿Qué haces?"] },
+        { label: "¿dónde?", cells: ["where", "¿Dónde vives?"] },
+        { label: "¿quién?", cells: ["who", "¿Quién es?"] },
+        { label: "¿cuándo?", cells: ["when", "¿Cuándo llegas?"] },
+        { label: "¿cómo?", cells: ["how", "¿Cómo estás?"] },
+        { label: "¿cuánto/a?", cells: ["how much", "¿Cuánto cuesta?"] },
+        { label: "¿cuántos/as?", cells: ["how many", "¿Cuántos años tienes?"] },
+        { label: "¿por qué?", cells: ["why", "¿Por qué estudias?"] },
+        { label: "¿cuál/es?", cells: ["which / what", "¿Cuál prefieres?"] },
+        { label: "¿adónde?", cells: ["where to", "¿Adónde vas?"] },
       ],
     },
     rules: [
@@ -129,18 +129,18 @@ SEASONS + WEATHER
       { native: "¿Qué tiempo hace?", translation: "What is the weather like?" },
       { native: "En invierno nieva.", translation: "In winter it snows." },
     ],
-    paradigmTable: {
-      pronouns: ["Expression", "Spanish", "Notes"],
-      verbs: [
-        { label: "hot", forms: ["Hace calor.", "It's hot.", "hace + noun"] },
-        { label: "cold", forms: ["Hace frío.", "It's cold.", "hace + noun"] },
-        { label: "sunny", forms: ["Hace sol.", "It's sunny.", "hace + noun"] },
-        { label: "windy", forms: ["Hace viento.", "It's windy.", "hace + noun"] },
-        { label: "good weather", forms: ["Hace buen tiempo.", "The weather is good.", "hace + adjective + noun"] },
-        { label: "bad weather", forms: ["Hace mal tiempo.", "The weather is bad.", "hace + adjective + noun"] },
-        { label: "raining", forms: ["Llueve.", "It's raining.", "separate verb — no hace"] },
-        { label: "snowing", forms: ["Nieva.", "It's snowing.", "separate verb — no hace"] },
-        { label: "cloudy", forms: ["Está nublado.", "It's cloudy.", "estar + adjective"] },
+    referenceTable: {
+      layout: "keyed",
+      headers: ["Spanish", "English"],
+      rows: [
+        { label: "hace calor", cells: ["hace calor", "it's hot"] },
+        { label: "hace frío", cells: ["hace frío", "it's cold"] },
+        { label: "hace sol", cells: ["hace sol", "it's sunny"] },
+        { label: "hace viento", cells: ["hace viento", "it's windy"] },
+        { label: "hace buen/mal tiempo", cells: ["hace buen/mal tiempo", "the weather is good/bad"] },
+        { label: "llueve", cells: ["llueve", "it's raining"] },
+        { label: "nieva", cells: ["nieva", "it's snowing"] },
+        { label: "está nublado", cells: ["está nublado", "it's cloudy"] },
       ],
     },
     rules: [
