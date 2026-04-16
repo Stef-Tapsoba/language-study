@@ -5,14 +5,7 @@ export const verbsLessons: GrammarLesson[] = [
         id: "it-g-a1-6",
         level: "A1",
         title: "Regular -are Verb Conjugation",
-        explanation: `Regular -are verbs are the most common in Italian. Remove the -are ending and add these endings:
-
-  io      → -o    (parlo — I speak)
-  tu      → -i    (parli — you speak)
-  lui/lei → -a    (parla — he/she speaks)
-  noi     → -iamo (parliamo — we speak)
-  voi     → -ate  (parlate — you all speak)
-  loro    → -ano  (parlano — they speak)
+        explanation: `Regular -are verbs are the most common in Italian. Remove the -are ending and add the endings shown in the table. There are hundreds of -are verbs — once you know the pattern for parlare, you can conjugate any of them.
 
 Common -are verbs: parlare (speak), lavorare (work), abitare (live), ascoltare (listen), comprare (buy), camminare (walk), mangiare (eat).`,
         conjugationTable: {
@@ -76,19 +69,7 @@ Common -are verbs: parlare (speak), lavorare (work), abitare (live), ascoltare (
         id: "it-g-a1-7",
         level: "A1",
         title: "Regular -ere and -ire Verb Conjugation",
-        explanation: `Regular -ere verbs: remove -ere and add:
-  io → -o | tu → -i | lui/lei → -e | noi → -iamo | voi → -ete | loro → -ono
-  Example — scrivere (to write): scrivo, scrivi, scrive, scriviamo, scrivete, scrivono
-
-Regular -ire verbs have TWO patterns:
-
-Type 1 (dormire — to sleep): -o, -i, -e, -iamo, -ite, -ono
-  dormo, dormi, dorme, dormiamo, dormite, dormono
-
-Type 2 (finire — to finish, capire — to understand): add -isc- before the ending for io / tu / lui / loro:
-  finisco, finisci, finisce, finiamo, finite, finiscono
-
-Other Type 2 verbs: preferire (prefer), pulire (clean), costruire (build).`,
+        explanation: `-ere and -ire verbs complete the three Italian conjugation classes. The endings are shown in the table. The key distinction for -ire verbs is the two sub-patterns: Type 1 (dormire, aprire, partire) follows a straightforward pattern; Type 2 (finire, capire, preferire, pulire) inserts -isc- before the io/tu/lui/loro endings — but NOT noi and voi.`,
         conjugationTable: {
             pronouns: ["io", "tu", "lui / lei", "noi", "voi", "loro"],
             verbs: [
@@ -157,18 +138,9 @@ Other Type 2 verbs: preferire (prefer), pulire (clean), costruire (build).`,
         id: "it-g-a1-8",
         level: "A1",
         title: "Andare (to go)",
-        explanation: `**Andare** means 'to go'. Its present tense is highly irregular — memorise it!
+        explanation: `**Andare** means 'to go'. Its present tense is highly irregular — memorise it as a set. The noi/voi forms look regular; the others (vado, vai, va, vanno) do not resemble the infinitive at all.
 
-Conjugation (present tense):
-  io      → **vado**    (I go)
-  tu      → **vai**     (you go)
-  lui/lei → **va**      (he/she goes)
-  noi     → andiamo (we go)
-  voi     → andate  (you all go)
-  loro    → **vanno**   (they go)
-
-Note: noi/voi follow a regular-looking pattern; the other forms are irregular.
-Usage: andare + a + place → andare a scuola, andare al cinema, andare in Italia.`,
+Usage: andare + a + place (cities), + in + country, + da + person: andare a Roma, andare in Italia, andare dal medico.`,
         conjugationTable: {
             pronouns: ["io", "tu", "lui / lei", "noi", "voi", "loro"],
             verbs: [{ label: "andare", forms: ["vado", "vai", "va", "andiamo", "andate", "vanno"] }],
@@ -239,23 +211,9 @@ Usage: andare + a + place → andare a scuola, andare al cinema, andare in Itali
         id: "it-g-a1-9",
         level: "A1",
         title: "Fare (to do / to make)",
-        explanation: `**Fare** means 'to do' or 'to make'. It is highly irregular — memorise it!
+        explanation: `**Fare** means 'to do' or 'to make'. It is highly irregular — memorise it. Fare is extremely versatile and forms dozens of compound expressions that would require different verbs in English.
 
-Conjugation (present tense):
-  io      → **faccio**   (I do/make)
-  tu      → **fai**      (you do/make)
-  lui/lei → **fa**       (he/she does/makes)
-  noi     → **facciamo** (we do/make)
-  voi     → **fate**     (you all do/make)
-  loro    → **fanno**    (they do/make)
-
-Common expressions with fare:
-  fare colazione       → to have breakfast
-  fare sport           → to play sports / exercise
-  fare una domanda     → to ask a question
-  fare la spesa        → to do the grocery shopping
-  fare una passeggiata → to take a walk
-  fare il bagno        → to take a bath`,
+Common fare compounds: fare colazione (have breakfast), fare sport (play sport / exercise), fare una domanda (ask a question), fare la spesa (do the grocery shopping), fare una passeggiata (take a walk), fare il bagno (take a bath).`,
         conjugationTable: {
             pronouns: ["io", "tu", "lui / lei", "noi", "voi", "loro"],
             verbs: [{ label: "fare", forms: ["faccio", "fai", "fa", "facciamo", "fate", "fanno"] }],
@@ -403,32 +361,15 @@ Useful time words: adesso (now), subito (right away), presto (soon), dopo (later
         id: "it-g-a1-19",
         level: "A1",
         title: "Modal Verbs: volere & potere",
-        explanation: `Volere (to want) and potere (to be able to / can) are modal verbs — they are followed directly by an infinitive. No preposition needed between the modal and the infinitive.
+        explanation: `Volere (to want) and potere (to be able to / can) are modal verbs — followed directly by an infinitive with no preposition in between.
 
-Structure: subject + modal verb + infinitive (+ rest of sentence)
+Structure: subject + modal + infinitive
   Voglio mangiare una pizza.   = I want to eat a pizza.
   Puoi parlare italiano?       = Can you speak Italian?
   Non possiamo venire stasera. = We can't come tonight.
 
-VOLERE — to want (to do something):
-  io      → voglio   (I want)
-  tu      → vuoi     (you want)
-  lui/lei → vuole    (he/she wants)
-  noi     → vogliamo (we want)
-  voi     → volete   (you all want)
-  loro    → vogliono (they want)
-
-POTERE — to be able to / can:
-  io      → posso    (I can)
-  tu      → puoi     (you can)
-  lui/lei → può      (he/she can)
-  noi     → possiamo (we can)
-  voi     → potete   (you all can)
-  loro    → possono  (they can)
-
-Important: always use the infinitive after these verbs.
-  ✓ Voglio cucinare.   (I want to cook.)
-  ✗ Voglio cucino.     (WRONG)`,
+Always use the infinitive after these verbs — never a conjugated form:
+  ✓ Voglio cucinare.   ✗ Voglio cucino.`,
         conjugationTable: {
             pronouns: ["io", "tu", "lui / lei", "noi", "voi", "loro"],
             verbs: [
@@ -502,28 +443,9 @@ Important: always use the infinitive after these verbs.
         id: "it-g-a1-25",
         level: "A1",
         title: "Reflexive Verbs",
-        explanation: `Reflexive verbs express actions done to oneself. They use a reflexive pronoun that matches the subject. The pronoun goes BEFORE the conjugated verb.
+        explanation: `Reflexive verbs express actions done to oneself. The reflexive pronoun (shown in the table) goes BEFORE the conjugated verb. The infinitive always ends in -si — remove -si, conjugate normally, add the matching pronoun before.
 
-REFLEXIVE PRONOUNS
-  io      → mi       noi  → ci
-  tu      → ti       voi  → vi
-  lui/lei → si       loro → si
-
-CONJUGATION EXAMPLE — alzarsi (to get up)
-  io mi alzo          noi ci alziamo
-  tu ti alzi          voi vi alzate
-  lui/lei si alza     loro si alzano
-
-COMMON REFLEXIVE VERBS
-  chiamarsi       to be called         Mi chiamo Luca.
-  alzarsi         to get up            Mi alzo alle sette.
-  addormentarsi   to fall asleep       Si addormenta subito.
-  lavarsi         to wash (oneself)    Ti lavi le mani?
-  vestirsi        to get dressed       Mi vesto in fretta.
-  sedersi         to sit down          Siediti qui!
-  svegliarsi      to wake up           Si sveglia presto.
-
-Note: The infinitive always ends in -si. Remove -si, then conjugate the verb normally and add the pronoun before.`,
+Common reflexive verbs: chiamarsi (to be called), alzarsi (to get up), svegliarsi (to wake up), lavarsi (to wash), vestirsi (to get dressed), addormentarsi (to fall asleep), sedersi (to sit down).`,
         conjugationTable: {
             pronouns: ["io", "tu", "lui / lei", "noi", "voi", "loro"],
             verbs: [
@@ -593,75 +515,19 @@ Note: The infinitive always ends in -si. Remove -si, then conjugate the verb nor
         id: "it-g-a1-32",
         level: "A1",
         title: "The Imperative — Giving Instructions & Commands",
-        explanation: `The imperative is used to give instructions, commands, requests, and suggestions. Italian has imperative forms for tu (informal), noi (let's), voi (plural), and Lei (formal singular). This lesson focuses on tu/noi/voi — the forms you will use most at A1. The Lei imperative (aspetti!, scriva!, guardi!) appears in the verb drill tables for awareness; it is covered in depth at A2.
+        explanation: `The imperative gives instructions, commands, requests, and suggestions. This lesson covers tu/noi/voi — the forms you will use most at A1. The Lei imperative is covered at A2.
 
-FORMING THE IMPERATIVE
+KEY RULE for tu: -are verbs get -a (Parla! not *Parli!); -ere and -ire verbs use the same form as the present tense tu (Scrivi!, Dormi!).
 
--ARE VERBS (parlare — to speak):
-  tu    → Parla!       (Speak! — informal singular)
-  noi   → Parliamo!    (Let's speak!)
-  voi   → Parlate!     (Speak! — plural)
+NEGATIVE IMPERATIVE — tu only: use non + infinitive, NOT the imperative form:
+  Non parlare!    Don't speak!    Non mangiare!    Don't eat!
+For noi and voi: non + imperative form: Non parliamo di questo. / Non partite ancora!
 
--ERE VERBS (scrivere — to write):
-  tu    → Scrivi!      (Write!)
-  noi   → Scriviamo!   (Let's write!)
-  voi   → Scrivete!    (Write! — plural)
+REFLEXIVE VERBS — pronoun attaches to the end of affirmative imperatives:
+  Alzati! (tu) · Alziamoci! (noi) · Alzatevi! (voi)
+  Non ti alzare! (tu negative — pronoun goes before the infinitive)
 
--IRE VERBS TYPE 1 (dormire — to sleep):
-  tu    → Dormi!
-  noi   → Dormiamo!
-  voi   → Dormite!
-
--IRE VERBS TYPE 2 (finire — to finish):
-  tu    → Finisci!     (note the -isc- as in present tense — see a1-7)
-  noi   → Finiamo!
-  voi   → Finite!
-
-KEY OBSERVATION: for -ere and -ire verbs, the tu imperative is identical to
-the present tense tu form. For -are verbs, the tu imperative loses the -i:
-  tu parli (present) → Parla! (imperative)
-  tu scrivi (present) → Scrivi! (imperative — same form)
-
-IRREGULAR IMPERATIVES — the most important:
-
-  essere:  Sii paziente!    Siamo pronti!    Siate puntuali!
-  avere:   Abbi pazienza!   Abbiamo fede!    Abbiate cura!
-  andare:  Vai! / Va'!      Andiamo!         Andate!
-  fare:    Fai! / Fa'!      Facciamo!        Fate!
-  venire:  Vieni!           Veniamo!         Venite!
-  dire:    Di'!             Diciamo!         Dite!
-  stare:   Stai! / Sta'!    Stiamo!          State!
-
-The short forms (Va'! Fa'! Di'! Sta'!) are common in informal speech — the
-apostrophe marks the dropped syllable.
-
-NEGATIVE IMPERATIVE
-For tu: non + infinitive (NOT the imperative form — this is unique to tu):
-  Non parlare!        Don't speak! (tu)
-  Non mangiare!       Don't eat! (tu)
-
-For noi and voi: non + imperative form:
-  Non parliamo di questo.   Let's not talk about this.
-  Non partite ancora!       Don't leave yet!
-
-REFLEXIVE VERBS IN THE IMPERATIVE
-The reflexive pronoun attaches to the end of the verb:
-  Alzati!             Get up! (tu — alzarsi)
-  Alziamoci!          Let's get up!
-  Alzatevi!           Get up! (voi)
-  Non ti alzare!      Don't get up! (tu negative — pronoun before infinitive)
-
-See lesson a1-25 for reflexive verbs.
-
-COMMON IMPERATIVE EXPRESSIONS
-  Aspetta! / Aspettate!    Wait!
-  Guarda! / Guardate!      Look!
-  Ascolta! / Ascoltate!    Listen!
-  Vieni qui!               Come here!
-  Andiamo!                 Let's go!
-  Dimmi!                   Tell me! (Di' + mi)
-  Fammi vedere!            Let me see! (Fa' + mi)
-  Stai tranquillo!         Calm down!`,
+Short irregular forms Va', Fa', Di', Sta' have an apostrophe marking the dropped syllable — common in casual speech.`,
         conjugationTable: {
             pronouns: ["tu (informal)", "noi (let's)", "voi (plural)"],
             verbs: [
@@ -749,20 +615,7 @@ COMMON IMPERATIVE EXPRESSIONS
         id: "it-g-a1-33",
         level: "A1",
         title: "Dovere — Must / Have To / Should",
-        explanation: `**Dovere** expresses obligation, necessity, and probability. Along with volere (a1-19) and potere (a1-19), it completes the core modal verb trio in Italian. It is irregular — memorise it.
-
-CONJUGATION (present tense):
-  io      → **devo**     (I must)
-  tu      → **devi**     (you must)
-  lui/lei → **deve**     (he/she must)
-  noi     → **dobbiamo** (we must)
-  voi     → **dovete**   (you must)
-  loro    → **devono**   (they must)
-
-Always followed by an infinitive:
-  Devo partire.          I must leave.
-  Devi mangiare.         You have to eat.
-  Deve lavorare.         He/she has to work.
+        explanation: `**Dovere** expresses obligation, necessity, and probability. Along with volere and potere, it completes the core Italian modal trio. Always followed by an infinitive.
 
 THREE MEANINGS OF DOVERE
 
