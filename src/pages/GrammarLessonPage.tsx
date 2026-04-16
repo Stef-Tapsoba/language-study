@@ -11,7 +11,7 @@ import { VocabTooltip } from "../components/VocabTooltip"
 import { resolvePrimary } from "../utils/localizedText"
 import { renderExplanation, renderInline } from "../utils/renderExplanation"
 import { useVocabTooltip } from "../hooks/useVocabTooltip"
-import type { GrammarNote, GrammarConjugationTable } from "../types"
+import type { GrammarNote, GrammarConjugationTable, GrammarReferenceTable } from "../types"
 import { isDialogueExample } from "../types"
 
 function GrammarTable({ heading, table }: Readonly<{ heading: string; table: GrammarConjugationTable }>) {
@@ -38,6 +38,66 @@ function GrammarTable({ heading, table }: Readonly<{ heading: string; table: Gra
                                 <td key={v.label} className="text-text-pri font-semibold py-1.5 pr-4">
                                     {v.forms[i]}
                                 </td>
+                            ))}
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    )
+}
+
+function ReferenceTable({ table }: Readonly<{ table: GrammarReferenceTable }>) {
+    const { headers, rows, layout } = table
+    if (layout === "strip") {
+        return (
+            <div className="bg-surface-card rounded-2xl border border-border-default p-5 overflow-x-auto">
+                <table className="text-sm border-collapse">
+                    <thead>
+                        <tr>
+                            {rows.some(r => r.label) && (
+                                <th className="text-left text-xs text-text-ter font-medium pb-2 pr-4 w-20"></th>
+                            )}
+                            {headers.map(h => (
+                                <th key={h} className="text-left text-xs font-semibold text-grammar pb-2 pr-4">{h}</th>
+                            ))}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {rows.map((row, i) => (
+                            <tr key={row.label ?? row.cells[0] ?? i} className={i % 2 === 0 ? "bg-surface-elevated rounded" : ""}>
+                                {rows.some(r => r.label) && (
+                                    <td className="text-text-ter text-xs py-1.5 pr-4 font-medium">{row.label ?? ""}</td>
+                                )}
+                                {row.cells.map((cell, j) => (
+                                    <td key={`${cell}-${j}`} className="text-text-pri font-semibold py-1.5 pr-4">{cell}</td>
+                                ))}
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        )
+    }
+    // keyed layout — label | value | optional note
+    return (
+        <div className="bg-surface-card rounded-2xl border border-border-default p-5">
+            <table className="w-full text-sm border-collapse">
+                <thead>
+                    <tr>
+                        {headers.map(h => (
+                            <th key={h} className="text-left text-xs font-semibold text-grammar pb-2 pr-4">{h}</th>
+                        ))}
+                    </tr>
+                </thead>
+                <tbody>
+                    {rows.map((row, i) => (
+                        <tr key={row.label ?? row.cells[0] ?? i} className={i % 2 === 0 ? "bg-surface-elevated rounded" : ""}>
+                            {row.label !== undefined && (
+                                <td className="text-text-ter text-xs py-1.5 pr-4 font-medium w-24">{row.label}</td>
+                            )}
+                            {row.cells.map((cell, j) => (
+                                <td key={`${cell}-${j}`} className={`py-1.5 pr-4 ${j === 0 ? "font-semibold text-text-pri" : "text-text-sec text-xs"}`}>{cell}</td>
                             ))}
                         </tr>
                     ))}
@@ -131,6 +191,11 @@ export function GrammarLessonPage() {
                 {/* Paradigm table — non-verb reference grids (possessives, articles, etc.) */}
                 {lesson.paradigmTable && (
                     <GrammarTable heading="Forms" table={lesson.paradigmTable} />
+                )}
+
+                {/* Reference table — flat lookups: number strips, months, time, question words */}
+                {lesson.referenceTable && (
+                    <ReferenceTable table={lesson.referenceTable} />
                 )}
 
                 {/* Rules */}

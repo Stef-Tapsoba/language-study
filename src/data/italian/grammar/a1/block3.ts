@@ -105,16 +105,17 @@ Time-telling patterns are in the table below.`,
             { word: "mezzanotte", translation: "midnight" },
             { word: "negozio", translation: "shop / store" },
         ],
-        paradigmTable: {
-            pronouns: ["Time", "Italian", "Notes"],
-            verbs: [
-                { label: "1:00", forms: ["1:00", "È l'una.", "è + l'una (singular, l' + una)"] },
-                { label: "2:00+", forms: ["2:00+", "Sono le due / tre…", "sono + le + number"] },
-                { label: "X:30", forms: ["X:30", "Sono le tre e mezza.", "e mezza = half past"] },
-                { label: "X:15", forms: ["X:15", "Sono le quattro e un quarto.", "e un quarto = quarter past"] },
-                { label: "X:45", forms: ["X:45", "Sono le cinque meno un quarto.", "meno un quarto = quarter to"] },
-                { label: "noon", forms: ["12:00", "È mezzogiorno.", ""] },
-                { label: "midnight", forms: ["00:00", "È mezzanotte.", ""] },
+        referenceTable: {
+            layout: "keyed",
+            headers: ["Time", "Italian", "Notes"],
+            rows: [
+                { label: "1:00", cells: ["È l'una.", "singular — è + l'una"] },
+                { label: "2:00+", cells: ["Sono le due / tre…", "sono + le + number"] },
+                { label: "X:30", cells: ["Sono le tre e mezza.", "e mezza = half past"] },
+                { label: "X:15", cells: ["Sono le quattro e un quarto.", "e un quarto = quarter past"] },
+                { label: "X:45", cells: ["Sono le cinque meno un quarto.", "meno un quarto = quarter to"] },
+                { label: "noon", cells: ["È mezzogiorno.", ""] },
+                { label: "midnight", cells: ["È mezzanotte.", ""] },
             ],
         },
         rules: [
@@ -190,16 +191,11 @@ Hundreds: cento = 100 (no article). Compounds: duecento, trecento… Thousands: 
             { word: "anni", translation: "years" },
             { word: "classe", translation: "class / classroom" },
         ],
-        conjugationTable: {
-            pronouns: ["20", "30", "40", "50", "60"],
-            verbs: [
-                { label: "", forms: ["venti", "trenta", "quaranta", "cinquanta", "sessanta"] },
-            ],
-        },
-        paradigmTable: {
-            pronouns: ["70", "80", "90", "100", "101+"],
-            verbs: [
-                { label: "", forms: ["settanta", "ottanta", "novanta", "cento", "cento + rest"] },
+        referenceTable: {
+            layout: "strip",
+            headers: ["20", "30", "40", "50", "60", "70", "80", "90", "100"],
+            rows: [
+                { cells: ["venti", "trenta", "quaranta", "cinquanta", "sessanta", "settanta", "ottanta", "novanta", "cento"] },
             ],
         },
         rules: [
@@ -277,11 +273,12 @@ The 1st always uses primo, not uno: il primo maggio (never il uno maggio). Addin
             { word: "sabato", translation: "Saturday" },
             { word: "domenica", translation: "Sunday" },
         ],
-        paradigmTable: {
-            pronouns: ["1st", "2nd", "3rd", "4th", "5th", "6th"],
-            verbs: [
-                { label: "Jan–Jun", forms: ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno"] },
-                { label: "Jul–Dec", forms: ["luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"] },
+        referenceTable: {
+            layout: "strip",
+            headers: ["1st", "2nd", "3rd", "4th", "5th", "6th"],
+            rows: [
+                { label: "Jan–Jun", cells: ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno"] },
+                { label: "Jul–Dec", cells: ["luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"] },
             ],
         },
         rules: [
@@ -331,20 +328,7 @@ The 1st always uses primo, not uno: il primo maggio (never il uno maggio). Addin
         id: "it-g-a1-11",
         level: "A1",
         title: "Question Formation",
-        explanation: `Yes/no questions are formed by raising your intonation — no word reordering needed.
-  Statement: Parli italiano.  → You speak Italian.
-  Question:  Parli italiano?  → Do you speak Italian? (same words, rising tone)
-
-QUESTION WORDS — always at the start of the sentence:
-  chi           → who         Chi è lui?            (Who is he?)
-  cosa / che cosa → what      Cosa vuoi?            (What do you want?)
-  dove          → where       Dove abiti?           (Where do you live?)
-  quando        → when        Quando arrivi?        (When do you arrive?)
-  come          → how         Come stai?            (How are you?)
-  perché        → why         Perché studi?         (Why do you study?)
-  quanto/a      → how much    Quanto costa?         (How much does it cost?)
-  quanti/e      → how many    Quanti anni hai?      (How old are you?)
-  quale/i       → which       Quale preferisci?     (Which do you prefer?)`,
+        explanation: `Yes/no questions are formed by raising your intonation — no word reordering needed. Statement: Parli italiano. → Question: Parli italiano? (same words, rising tone). Question words and examples are in the table below.`,
         examples: [
             { native: "Parli italiano? (rising intonation)", speakText: "Parli italiano?", translation: "Do you speak Italian?" },
             { native: "Come ti chiami?", translation: "What is your name? (lit. How do you call yourself?)" },
@@ -359,18 +343,19 @@ QUESTION WORDS — always at the start of the sentence:
             { word: "studi", translation: "you study" },
             { word: "costa", translation: "it costs" },
         ],
-        paradigmTable: {
-            pronouns: ["Question word", "Meaning", "Example"],
-            verbs: [
-                { label: "chi", forms: ["chi", "who", "Chi è lui?"] },
-                { label: "cosa / che cosa / che", forms: ["cosa / che cosa / che", "what", "Cosa vuoi?"] },
-                { label: "dove / dov'è", forms: ["dove", "where", "Dove abiti?"] },
-                { label: "quando", forms: ["quando", "when", "Quando arrivi?"] },
-                { label: "come / com'è", forms: ["come", "how", "Come stai?"] },
-                { label: "perché", forms: ["perché", "why / because", "Perché studi?"] },
-                { label: "quanto/a/i/e", forms: ["quanto/a", "how much / many", "Quanto costa?"] },
-                { label: "quale / quali", forms: ["quale/quali", "which", "Quale preferisci?"] },
-                { label: "di dove", forms: ["di dove", "where from", "Di dove sei?"] },
+        referenceTable: {
+            layout: "keyed",
+            headers: ["Question word", "Meaning", "Example"],
+            rows: [
+                { label: "chi", cells: ["who", "Chi è lui?"] },
+                { label: "cosa / che cosa", cells: ["what", "Cosa vuoi?"] },
+                { label: "dove / dov'è", cells: ["where", "Dove abiti?"] },
+                { label: "quando", cells: ["when", "Quando arrivi?"] },
+                { label: "come / com'è", cells: ["how", "Come stai?"] },
+                { label: "perché", cells: ["why / because", "Perché studi?"] },
+                { label: "quanto/a/i/e", cells: ["how much / many", "Quanto costa?"] },
+                { label: "quale / quali", cells: ["which", "Quale preferisci?"] },
+                { label: "di dove", cells: ["where from", "Di dove sei?"] },
             ],
         },
         rules: [
