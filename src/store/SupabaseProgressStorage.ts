@@ -152,6 +152,24 @@ export class SupabaseProgressStorage implements IProgressStorage {
         ).then(({ error }) => { if (error) logError("markLessonComplete", error) })
     }
 
+    async markCheckpointComplete(langId: string, checkpointId: string): Promise<void> {
+        const existing = this.cache.completedCheckpoints?.[langId] ?? []
+        if (!existing.includes(checkpointId)) {
+            this.cache.completedCheckpoints = {
+                ...this.cache.completedCheckpoints,
+                [langId]: [...existing, checkpointId],
+            }
+        }
+        this.sb.from("checkpoint_completions").upsert(
+            { user_id: this.userId!, lang_id: langId, checkpoint_id: checkpointId },
+            { onConflict: "user_id,lang_id,checkpoint_id" }
+        ).then(({ error }) => { if (error) logError("markCheckpointComplete", error) })
+    }
+
+    getCompletedCheckpoints(langId: string): string[] {
+        return this.cache.completedCheckpoints?.[langId] ?? []
+    }
+
     async masterUnit(langId: string, unitId: string): Promise<void> {
         const existing = this.cache.masteredUnits[langId] ?? []
         if (!existing.includes(unitId)) {
