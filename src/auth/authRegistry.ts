@@ -29,3 +29,6 @@ export const authRegistry = {
         _service = service
     },
 }
+
+// Force full page reload on HMR so the singleton guard (_configured) is reset correctly.
+if (import.meta.hot) import.meta.hot.invalidate()

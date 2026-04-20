@@ -65,3 +65,6 @@ export const registry = {
         _configured = false
     },
 }
+
+// Force full page reload on HMR so the singleton guard (_configured) is reset correctly.
+if (import.meta.hot) import.meta.hot.invalidate()

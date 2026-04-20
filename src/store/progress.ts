@@ -16,7 +16,7 @@ const userKey = (userId: string) => `ls:progress:${userId}`
 
 // Bump this whenever a breaking schema change is made (field rename, removal, type change).
 // Add a migration branch in `migrate()` for each version increment.
-const SCHEMA_VERSION = 4
+export const SCHEMA_VERSION = 4
 
 const DEFAULT: UserProgress = {
     schemaVersion: SCHEMA_VERSION,

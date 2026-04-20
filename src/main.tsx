@@ -44,24 +44,27 @@ async function bootstrap() {
         // Wire Supabase auth
         authRegistry.configure(new AuthService(supabaseAuthApi, new LocalStorageAdapter("ls")))
 
-        // When the user logs in, hydrate SRS + stats caches for their account
+        // Restore existing session — set userId and hydrate SRS + stats
         const { data: { session } } = await supabase.auth.getSession()
         if (session?.user.id) {
-            srsStorage.setUserId(session.user.id)
-            statsStorage.setUserId(session.user.id)
-            await Promise.all([
-                srsStorage.hydrate(),
-            ])
+            const uid = session.user.id
+            srsStorage.setUserId(uid)
+            statsStorage.setUserId(uid)
+            // Hydrate SRS and stats eagerly; progress is hydrated by ProgressContext
+            await Promise.all([srsStorage.hydrate(), statsStorage.load()])
         }
 
-        // Keep adapters informed when auth state changes (login/logout)
+        // Keep adapter userIds current on auth state changes.
+        // Progress hydration (initSession) is owned by ProgressContext.initUserSession —
+        // calling it here too would cause a double-hydration race (F-15).
         supabase.auth.onAuthStateChange((_event, newSession) => {
             const uid = newSession?.user.id ?? null
             if (uid) {
                 srsStorage.setUserId(uid)
                 statsStorage.setUserId(uid)
-                progressStorage.initSession(uid).catch(err =>
-                    console.error("[bootstrap] initSession failed", err)
+                // Re-hydrate SRS on login so cards are ready before ProgressContext boots
+                srsStorage.hydrate().catch(err =>
+                    console.error("[bootstrap] srsStorage.hydrate failed", err)
                 )
             }
         })

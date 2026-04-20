@@ -12,6 +12,7 @@ import type { SupabaseClient } from "@supabase/supabase-js"
 import type { CEFRLevel, UserProgress, UnitReinforcementState, GoalId } from "../types"
 import type { IProgressStorage, ContentType } from "./IProgressStorage"
 import { logError } from "../utils/logger"
+import { SCHEMA_VERSION } from "./progress"
 
 // Minimal row shapes returned by Supabase queries
 interface LevelRow { lang_id: string; level: string }
@@ -50,7 +51,7 @@ export class SupabaseProgressStorage implements IProgressStorage {
 
     async initSession(userId: string): Promise<void> {
         this.userId = userId
-        this.cache = { ...EMPTY_PROGRESS, userId, schemaVersion: 3 }
+        this.cache = { ...EMPTY_PROGRESS, userId, schemaVersion: SCHEMA_VERSION }
 
         const [profile, levels, completions, mastered, rgRows, rsRows, checkpoints] = await Promise.all([
             this.sb.from("profiles").select("selected_language, learning_goal").eq("id", userId).single<ProfileRow>(),
@@ -124,11 +125,18 @@ export class SupabaseProgressStorage implements IProgressStorage {
     // ── Writes ────────────────────────────────────────────────────────────────
 
     async save(progress: UserProgress): Promise<void> {
+        const uid = this.userId; if (!uid) return
         this.cache = progress
-        // Bulk save via individual upserts — used for import/restore only
-        // (not a hot path, so fan-out is acceptable)
-        const uid = this.userId
-        if (!uid) return
+        // Bulk upsert — used for import/restore only (not a hot path; fan-out is acceptable)
+        const lessonRows = Object.entries(progress.completedLessons).flatMap(([lang_id, ids]) =>
+            ids.map(content_id => ({ user_id: uid, lang_id, content_type: "lesson" as const, content_id }))
+        )
+        const unitRows = Object.entries(progress.masteredUnits).flatMap(([lang_id, ids]) =>
+            ids.map(unit_id => ({ user_id: uid, lang_id, unit_id }))
+        )
+        const checkpointRows = Object.entries(progress.completedCheckpoints ?? {}).flatMap(([lang_id, ids]) =>
+            ids.map(checkpoint_id => ({ user_id: uid, lang_id, checkpoint_id }))
+        )
         await Promise.all([
             this.sb.from("profiles").upsert({
                 id: uid,
@@ -138,29 +146,39 @@ export class SupabaseProgressStorage implements IProgressStorage {
             ...Object.entries(progress.levels).map(([lang_id, level]) =>
                 this.sb.from("user_language_levels").upsert({ user_id: uid, lang_id, level }, { onConflict: "user_id,lang_id" })
             ),
+            lessonRows.length > 0
+                ? this.sb.from("lesson_completions").upsert(lessonRows, { onConflict: "user_id,lang_id,content_type,content_id" })
+                : Promise.resolve(),
+            unitRows.length > 0
+                ? this.sb.from("mastered_units").upsert(unitRows, { onConflict: "user_id,lang_id,unit_id" })
+                : Promise.resolve(),
+            checkpointRows.length > 0
+                ? this.sb.from("checkpoint_completions").upsert(checkpointRows, { onConflict: "user_id,lang_id,checkpoint_id" })
+                : Promise.resolve(),
         ]).catch(err => logError("SupabaseProgressStorage.save", err))
     }
 
     async setSelectedLanguage(langId: string): Promise<void> {
+        const uid = this.userId; if (!uid) return
         this.cache.selectedLanguage = langId
-        this.sb.from("profiles").update({ selected_language: langId }).eq("id", this.userId!)
+        this.sb.from("profiles").update({ selected_language: langId }).eq("id", uid)
             .then(({ error }) => { if (error) logError("setSelectedLanguage", error) })
     }
 
     async markLessonComplete(langId: string, lessonId: string, contentType: ContentType): Promise<void> {
-        // Update cache
+        const uid = this.userId; if (!uid) return
         const existing = this.cache.completedLessons[langId] ?? []
         if (!existing.includes(lessonId)) {
             this.cache.completedLessons[langId] = [...existing, lessonId]
         }
-        // Upsert to Supabase
         this.sb.from("lesson_completions").upsert(
-            { user_id: this.userId!, lang_id: langId, content_type: contentType, content_id: lessonId },
+            { user_id: uid, lang_id: langId, content_type: contentType, content_id: lessonId },
             { onConflict: "user_id,lang_id,content_type,content_id" }
         ).then(({ error }) => { if (error) logError("markLessonComplete", error) })
     }
 
     async markCheckpointComplete(langId: string, checkpointId: string): Promise<void> {
+        const uid = this.userId; if (!uid) return
         const existing = this.cache.completedCheckpoints?.[langId] ?? []
         if (!existing.includes(checkpointId)) {
             this.cache.completedCheckpoints = {
@@ -169,7 +187,7 @@ export class SupabaseProgressStorage implements IProgressStorage {
             }
         }
         this.sb.from("checkpoint_completions").upsert(
-            { user_id: this.userId!, lang_id: langId, checkpoint_id: checkpointId },
+            { user_id: uid, lang_id: langId, checkpoint_id: checkpointId },
             { onConflict: "user_id,lang_id,checkpoint_id" }
         ).then(({ error }) => { if (error) logError("markCheckpointComplete", error) })
     }
@@ -179,58 +197,66 @@ export class SupabaseProgressStorage implements IProgressStorage {
     }
 
     async masterUnit(langId: string, unitId: string): Promise<void> {
+        const uid = this.userId; if (!uid) return
         const existing = this.cache.masteredUnits[langId] ?? []
         if (!existing.includes(unitId)) {
             this.cache.masteredUnits[langId] = [...existing, unitId]
         }
         this.sb.from("mastered_units").upsert(
-            { user_id: this.userId!, lang_id: langId, unit_id: unitId },
+            { user_id: uid, lang_id: langId, unit_id: unitId },
             { onConflict: "user_id,lang_id,unit_id" }
         ).then(({ error }) => { if (error) logError("masterUnit", error) })
     }
 
     async setLevel(langId: string, level: CEFRLevel): Promise<void> {
+        const uid = this.userId; if (!uid) return
         this.cache.levels[langId] = level
         this.sb.from("user_language_levels").upsert(
-            { user_id: this.userId!, lang_id: langId, level },
+            { user_id: uid, lang_id: langId, level },
             { onConflict: "user_id,lang_id" }
         ).then(({ error }) => { if (error) logError("setLevel", error) })
     }
 
     async setGoal(goalId: GoalId): Promise<void> {
+        const uid = this.userId; if (!uid) return
         this.cache.goal = goalId
-        this.sb.from("profiles").update({ learning_goal: goalId }).eq("id", this.userId!)
+        this.sb.from("profiles").update({ learning_goal: goalId }).eq("id", uid)
             .then(({ error }) => { if (error) logError("setGoal", error) })
     }
 
     async resetLanguage(langId: string): Promise<void> {
-        // Update cache
+        const uid = this.userId; if (!uid) return
         const { [langId]: _, ...levels } = this.cache.levels
         this.cache.levels = { ...levels, [langId]: "A1" }
         delete this.cache.completedLessons[langId]
         delete this.cache.masteredUnits[langId]
         if (this.cache.completedReinforcement) delete this.cache.completedReinforcement[langId]
-        // Atomic DB reset via RPC
-        this.sb.rpc("reset_language_data", { p_user_id: this.userId!, p_lang_id: langId })
-            .then(({ error }) => { if (error) logError("resetLanguage", error) })
+        // Await RPC so caller knows the reset completed before continuing
+        const { error } = await this.sb.rpc("reset_language_data", { p_user_id: uid, p_lang_id: langId })
+        if (error) { logError("resetLanguage", error); return }
+        // Re-insert A1 level row so the language remains visible (not orphaned)
+        this.sb.from("user_language_levels")
+            .upsert({ user_id: uid, lang_id: langId, level: "A1" }, { onConflict: "user_id,lang_id" })
+            .then(({ error: e }) => { if (e) logError("resetLanguage.reinsert", e) })
     }
 
     async removeLanguage(langId: string): Promise<void> {
+        const uid = this.userId; if (!uid) return
         const { [langId]: _, ...levels } = this.cache.levels
         this.cache.levels = levels
         delete this.cache.completedLessons[langId]
         delete this.cache.masteredUnits[langId]
         if (this.cache.completedReinforcement) delete this.cache.completedReinforcement[langId]
-        // resetLanguage cascade handles table deletes
-        this.sb.rpc("reset_language_data", { p_user_id: this.userId!, p_lang_id: langId })
-            .then(({ error }) => { if (error) logError("removeLanguage", error) })
+        // Await RPC so caller knows deletion completed before continuing
+        const { error } = await this.sb.rpc("reset_language_data", { p_user_id: uid, p_lang_id: langId })
+        if (error) logError("removeLanguage", error)
     }
 
     // Overloaded to match IProgressStorage interface
     async markReinforcementDone(langId: string, unitId: string, section: "grammar", grammarLessonId: string): Promise<void>
     async markReinforcementDone(langId: string, unitId: string, section: "vocab" | "verbs"): Promise<void>
     async markReinforcementDone(langId: string, unitId: string, section: string, grammarLessonId?: string): Promise<void> {
-        // Update cache
+        const uid = this.userId; if (!uid) return
         const lang = this.cache.completedReinforcement ?? {}
         const unit = lang[langId] ?? {}
         const state = unit[unitId] ?? { grammarLessonIds: [] }
@@ -245,15 +271,14 @@ export class SupabaseProgressStorage implements IProgressStorage {
         lang[langId] = unit
         this.cache.completedReinforcement = lang
 
-        // Upsert to correct table
         if (section === "grammar" && grammarLessonId) {
             this.sb.from("reinforcement_grammar").upsert(
-                { user_id: this.userId!, lang_id: langId, unit_id: unitId, grammar_lesson_id: grammarLessonId },
+                { user_id: uid, lang_id: langId, unit_id: unitId, grammar_lesson_id: grammarLessonId },
                 { onConflict: "user_id,lang_id,unit_id,grammar_lesson_id" }
             ).then(({ error }) => { if (error) logError("markReinforcementDone.grammar", error) })
         } else if (section !== "grammar") {
             this.sb.from("reinforcement_sections").upsert(
-                { user_id: this.userId!, lang_id: langId, unit_id: unitId, section },
+                { user_id: uid, lang_id: langId, unit_id: unitId, section },
                 { onConflict: "user_id,lang_id,unit_id,section" }
             ).then(({ error }) => { if (error) logError("markReinforcementDone.section", error) })
         }
