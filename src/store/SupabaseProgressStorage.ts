@@ -52,44 +52,48 @@ export class SupabaseProgressStorage implements IProgressStorage {
         this.userId = userId
         this.cache = { ...EMPTY_PROGRESS, userId, schemaVersion: 3 }
 
-        // Fetch all user data in parallel
-        const [profile, levels, completions, mastered, rgRows, rsRows] = await Promise.all([
+        const [profile, levels, completions, mastered, rgRows, rsRows, checkpoints] = await Promise.all([
             this.sb.from("profiles").select("selected_language, learning_goal").eq("id", userId).single<ProfileRow>(),
             this.sb.from("user_language_levels").select("lang_id, level").eq("user_id", userId),
             this.sb.from("lesson_completions").select("lang_id, content_type, content_id").eq("user_id", userId),
             this.sb.from("mastered_units").select("lang_id, unit_id").eq("user_id", userId),
             this.sb.from("reinforcement_grammar").select("lang_id, unit_id, grammar_lesson_id").eq("user_id", userId),
             this.sb.from("reinforcement_sections").select("lang_id, unit_id, section").eq("user_id", userId),
+            this.sb.from("checkpoint_completions").select("lang_id, checkpoint_id").eq("user_id", userId),
         ])
 
-        // Profile
         if (profile.data) {
             this.cache.selectedLanguage = profile.data.selected_language
             this.cache.goal = (profile.data.learning_goal as GoalId | null) ?? undefined
         }
-
-        // Levels
         for (const row of (levels.data ?? []) as LevelRow[]) {
             this.cache.levels[row.lang_id] = row.level as CEFRLevel
         }
+        this.hydrateCompletions((completions.data ?? []) as CompletionRow[])
+        this.hydrateMastered((mastered.data ?? []) as MasteredRow[])
+        this.hydrateReinforcement((rgRows.data ?? []) as RgRow[], (rsRows.data ?? []) as RsRow[])
+        this.hydrateCheckpoints((checkpoints.data ?? []) as { lang_id: string; checkpoint_id: string }[])
+    }
 
-        // Completed lessons (flat array per language)
-        for (const row of (completions.data ?? []) as CompletionRow[]) {
+    private hydrateCompletions(rows: CompletionRow[]): void {
+        for (const row of rows) {
             const list = this.cache.completedLessons[row.lang_id] ?? []
             if (!list.includes(row.content_id)) list.push(row.content_id)
             this.cache.completedLessons[row.lang_id] = list
         }
+    }
 
-        // Mastered units
-        for (const row of (mastered.data ?? []) as MasteredRow[]) {
+    private hydrateMastered(rows: MasteredRow[]): void {
+        for (const row of rows) {
             const list = this.cache.masteredUnits[row.lang_id] ?? []
             if (!list.includes(row.unit_id)) list.push(row.unit_id)
             this.cache.masteredUnits[row.lang_id] = list
         }
+    }
 
-        // Reinforcement — grammar
-        for (const row of (rgRows.data ?? []) as RgRow[]) {
-            const lang = this.cache.completedReinforcement ?? {}
+    private hydrateReinforcement(rgRows: RgRow[], rsRows: RsRow[]): void {
+        const lang = this.cache.completedReinforcement ?? {}
+        for (const row of rgRows) {
             const unit = lang[row.lang_id] ?? {}
             const state = unit[row.unit_id] ?? { grammarLessonIds: [] }
             if (!state.grammarLessonIds.includes(row.grammar_lesson_id)) {
@@ -97,19 +101,23 @@ export class SupabaseProgressStorage implements IProgressStorage {
             }
             unit[row.unit_id] = state
             lang[row.lang_id] = unit
-            this.cache.completedReinforcement = lang
         }
-
-        // Reinforcement — sections
-        for (const row of (rsRows.data ?? []) as RsRow[]) {
-            const lang = this.cache.completedReinforcement ?? {}
+        for (const row of rsRows) {
             const unit = lang[row.lang_id] ?? {}
             const state = unit[row.unit_id] ?? { grammarLessonIds: [] }
             if (row.section === "vocab") state.vocab = true
             if (row.section === "verbs") state.verbs = true
             unit[row.unit_id] = state
             lang[row.lang_id] = unit
-            this.cache.completedReinforcement = lang
+        }
+        this.cache.completedReinforcement = lang
+    }
+
+    private hydrateCheckpoints(rows: { lang_id: string; checkpoint_id: string }[]): void {
+        for (const row of rows) {
+            const list = this.cache.completedCheckpoints?.[row.lang_id] ?? []
+            if (!list.includes(row.checkpoint_id)) list.push(row.checkpoint_id)
+            this.cache.completedCheckpoints = { ...this.cache.completedCheckpoints, [row.lang_id]: list }
         }
     }
 
