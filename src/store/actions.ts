@@ -41,7 +41,6 @@ export async function completeUnit(
         stats.recordQuizAnswer(langId, i < quizScore)
     }
     stats.recordActivity(langId)
-    // Stage 2: await supabase.from("mastered_units").upsert({ user_id, lang_id, unit_id, completed_at })
 }
 
 /**
@@ -52,7 +51,6 @@ export async function completeUnit(
 export async function confirmUnitMastery(langId: string, unitId: string): Promise<void> {
     await registry.progress.masterUnit(langId, unitId)
     useStatsStore.getState().recordActivity(langId)
-    // Stage 2: await supabase.from("mastered_units").upsert({ user_id, lang_id, unit_id, completed_at })
 }
 
 // ---------------------------------------------------------------------------
@@ -69,7 +67,6 @@ export async function completeLessonItem(
     contentType: ContentType
 ): Promise<void> {
     await registry.progress.markLessonComplete(langId, lessonId, contentType)
-    // Stage 2: routed by contentType to the appropriate table
 }
 
 // ---------------------------------------------------------------------------
@@ -87,7 +84,6 @@ export async function completeDrillSession(
     _sessionType: DrillSessionType
 ): Promise<void> {
     useStatsStore.getState().recordActivity(langId)
-    // Stage 2: await supabase.from("drill_sessions").insert({ user_id, lang_id, session_type: _sessionType, completed_at })
 }
 
 // ---------------------------------------------------------------------------
@@ -107,7 +103,6 @@ export async function completeReadingPassage(
     const stats = useStatsStore.getState()
     quizAnswers.forEach(correct => stats.recordQuizAnswer(langId, correct))
     stats.recordActivity(langId)
-    // Stage 2: await supabase.from("reading_completions").upsert({ user_id, lang_id, passage_id, score, completed_at })
 }
 
 // ---------------------------------------------------------------------------
@@ -126,7 +121,6 @@ export async function completeListeningExercise(
     const stats = useStatsStore.getState()
     quizAnswers.forEach(correct => stats.recordQuizAnswer(langId, correct))
     stats.recordActivity(langId)
-    // Stage 2: await supabase.from("listening_completions").upsert({ user_id, lang_id, exercise_id, score, completed_at })
 }
 
 // ---------------------------------------------------------------------------
@@ -142,7 +136,6 @@ export async function completeCultureEpisode(
 ): Promise<void> {
     await registry.progress.markLessonComplete(langId, episodeId, "culture")
     useStatsStore.getState().recordActivity(langId)
-    // Stage 2: await supabase.from("culture_completions").upsert({ user_id, lang_id, episode_id, completed_at })
 }
 
 // ---------------------------------------------------------------------------
@@ -171,7 +164,6 @@ export async function completeReinforcement(
     }
     // Reinforcement exercises are real study activity — count toward streak.
     useStatsStore.getState().recordActivity(langId)
-    // Stage 2: await supabase.from(section === "grammar" ? "reinforcement_grammar" : "reinforcement_sections")
     //   .upsert({ user_id, lang_id, unit_id, ...(section === "grammar" ? { grammar_lesson_id } : { section }) })
 }
 
@@ -188,7 +180,6 @@ export async function resetLanguageData(langId: string): Promise<void> {
     await registry.srs.resetLanguage(langId)
     await registry.stats.resetLanguage(langId)
     useStatsStore.getState().resetStats(langId)
-    // Stage 2: cascade deletes or soft-resets on all per-language tables
 }
 
 // ---------------------------------------------------------------------------
@@ -203,7 +194,6 @@ export async function removeLanguageData(langId: string): Promise<void> {
     await registry.srs.resetLanguage(langId)
     await registry.stats.resetLanguage(langId)
     useStatsStore.getState().resetStats(langId)
-    // Stage 2: delete rows in all per-language tables for this user
 }
 
 // ---------------------------------------------------------------------------
