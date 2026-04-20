@@ -46,11 +46,11 @@ export class SupabaseSRSStorage implements ISRSStorage {
 
     async hydrate(langId?: string): Promise<void> {
         if (!this.userId) return
-        const query = this.sb
+        let query = this.sb
             .from("srs_cards")
             .select("lang_id, vocab_id, ease_factor, review_count, streak, next_review_at, interval_days")
             .eq("user_id", this.userId)
-        if (langId) query.eq("lang_id", langId)
+        if (langId) query = query.eq("lang_id", langId)
 
         const { data, error } = await query
         if (error) { logError("SupabaseSRSStorage.hydrate", error); return }
