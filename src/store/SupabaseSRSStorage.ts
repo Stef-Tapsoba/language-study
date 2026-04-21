@@ -110,6 +110,7 @@ export class SupabaseSRSStorage implements ISRSStorage {
             .from("srs_cards")
             .select("lang_id, vocab_id, ease_factor, review_count, streak, next_review_at, interval_days")
             .eq("user_id", this.userId)
+            .limit(5000)
         if (error) { logError("SupabaseSRSStorage.loadAll", error); return {} }
 
         const result: SrsCache = {}

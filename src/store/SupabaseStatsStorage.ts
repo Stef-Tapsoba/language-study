@@ -40,6 +40,7 @@ export class SupabaseStatsStorage implements IStatsStorage {
             .from("daily_stats")
             .select("lang_id, study_date, reviewed, correct, acts, q_total, q_correct")
             .eq("user_id", this.userId)
+            .limit(5000)
         if (error) { logError("SupabaseStatsStorage.load", error); return {} }
 
         const result: StatsData = {}

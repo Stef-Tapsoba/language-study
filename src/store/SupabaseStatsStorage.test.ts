@@ -44,6 +44,7 @@ function makeBuilder(
     const eqFn = vi.fn().mockReturnValue(builder)
     builder.select = vi.fn().mockReturnValue(builder)
     builder.eq = eqFn
+    builder.limit = vi.fn().mockReturnValue(builder)
 
     // Thenable so `const { data, error } = await query` works
     builder.then = (

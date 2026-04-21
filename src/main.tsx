@@ -62,15 +62,18 @@ async function bootstrap() {
         // LocalStorageAdapter. Both coexist safely because the Supabase SDK drives token
         // refresh (autoRefreshToken: true) and AuthService.refresh() is only called on
         // near-expiry — they don't race in practice (N-10).
-        supabase.auth.onAuthStateChange((_event, newSession) => {
+        supabase.auth.onAuthStateChange((event, newSession) => {
             const uid = newSession?.user.id ?? null
             if (uid) {
                 srsStorage.setUserId(uid)
                 statsStorage.setUserId(uid)
-                // Re-hydrate SRS on login so cards are ready before ProgressContext boots
-                srsStorage.hydrate().catch(err =>
-                    console.error("[bootstrap] srsStorage.hydrate failed", err)
-                )
+                // Only re-hydrate SRS on fresh login — NOT on TOKEN_REFRESHED, which fires
+                // every hour and would overwrite cards reviewed since the last DB commit.
+                if (event === "SIGNED_IN" || event === "INITIAL_SESSION") {
+                    srsStorage.hydrate().catch(err =>
+                        console.error("[bootstrap] srsStorage.hydrate failed", err)
+                    )
+                }
             }
         })
     }

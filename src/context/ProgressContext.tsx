@@ -75,13 +75,18 @@ export function ProgressProvider({ children }: Readonly<{ children: ReactNode }>
     const [hydrateError, setHydrateError] = useState<Error | null>(null)
     const [mutationError, setMutationError] = useState<Error | null>(null)
 
-    const refresh = useCallback(() => setProgress(loadProgress()), [])
+    // In Stage 2 (Supabase), registry.progress.load() reads from the in-memory cache
+    // hydrated by initSession. Using loadProgress() (localStorage) here would return
+    // stale data after any write, making completed lessons appear incomplete until reload.
+    const refresh = useCallback(() => {
+        setProgress(registry.progress.load())
+    }, [])
 
     // initUserSession resets progress when the userId changes (e.g. different
     // user on a shared device) and also clears SRS + stats for the old user,
     // then hydrates the stats store from storage for the new user.
     const initUserSession = useCallback((userId: string) => {
-        const prev = loadProgress()
+        const prev = registry.progress.load()
         setIsHydrating(true)
         setHydrateError(null)
         registry.progress.initSession(userId)
