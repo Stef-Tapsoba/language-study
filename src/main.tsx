@@ -50,13 +50,18 @@ async function bootstrap() {
             const uid = session.user.id
             srsStorage.setUserId(uid)
             statsStorage.setUserId(uid)
-            // Hydrate SRS and stats eagerly; progress is hydrated by ProgressContext
-            await Promise.all([srsStorage.hydrate(), statsStorage.load()])
+            // Hydrate SRS eagerly so cards are ready before ProgressContext boots.
+            // Stats hydration seeds the Zustand store — handled by ProgressContext.initUserSession.
+            await srsStorage.hydrate()
         }
 
         // Keep adapter userIds current on auth state changes.
         // Progress hydration (initSession) is owned by ProgressContext.initUserSession —
         // calling it here too would cause a double-hydration race (F-15).
+        // Note: @myorg/auth-core's AuthService also holds a session reference via its
+        // LocalStorageAdapter. Both coexist safely because the Supabase SDK drives token
+        // refresh (autoRefreshToken: true) and AuthService.refresh() is only called on
+        // near-expiry — they don't race in practice (N-10).
         supabase.auth.onAuthStateChange((_event, newSession) => {
             const uid = newSession?.user.id ?? null
             if (uid) {

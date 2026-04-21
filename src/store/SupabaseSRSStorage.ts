@@ -70,16 +70,15 @@ export class SupabaseSRSStorage implements ISRSStorage {
     // ── Write ─────────────────────────────────────────────────────────────────
 
     async updateCard(langId: string, vocabId: string, quality: 1 | 4): Promise<void> {
+        const uid = this.userId; if (!uid) return
         const current = this.cache[langId]?.[vocabId] ?? { ...INITIAL_STATE }
         const { nextState } = calcNextReview(current, quality)
 
-        // Update cache
         if (!this.cache[langId]) this.cache[langId] = {}
         this.cache[langId][vocabId] = nextState
 
-        // Upsert to Supabase
         this.sb.from("srs_cards").upsert({
-            user_id:        this.userId!,
+            user_id:        uid,
             lang_id:        langId,
             vocab_id:       vocabId,
             ease_factor:    nextState.easeFactor,
@@ -125,11 +124,11 @@ export class SupabaseSRSStorage implements ISRSStorage {
     }
 
     async saveAll(data: SrsCache): Promise<void> {
-        if (!this.userId) return
+        const uid = this.userId; if (!uid) return
         this.cache = data
         const rows = Object.entries(data).flatMap(([lang_id, cards]) =>
             Object.entries(cards).map(([vocab_id, s]) => ({
-                user_id:        this.userId!,
+                user_id:        uid,
                 lang_id,
                 vocab_id,
                 ease_factor:    s.easeFactor,

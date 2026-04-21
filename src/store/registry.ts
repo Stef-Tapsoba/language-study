@@ -66,5 +66,9 @@ export const registry = {
     },
 }
 
-// Force full page reload on HMR so the singleton guard (_configured) is reset correctly.
-if (import.meta.hot) import.meta.hot.invalidate()
+// Preserve the configured flag across HMR updates of this file so configure()
+// isn't called twice if this module is hot-replaced during development.
+if (import.meta.hot) {
+    _configured = (import.meta.hot.data as { configured?: boolean }).configured ?? false
+    import.meta.hot.dispose(data => { (data as { configured?: boolean }).configured = _configured })
+}
