@@ -31,6 +31,6 @@ export const authRegistry = {
 }
 
 if (import.meta.hot) {
-    _configured = (import.meta.hot.data as { configured?: boolean }).configured ?? false
+    _configured = (import.meta.hot.data as { configured?: boolean } | undefined)?.configured ?? false
     import.meta.hot.dispose(data => { (data as { configured?: boolean }).configured = _configured })
 }
