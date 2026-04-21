@@ -23,7 +23,7 @@ interface RsRow { lang_id: string; unit_id: string; section: string }
 interface ProfileRow { selected_language: string | null; learning_goal: string | null }
 
 const EMPTY_PROGRESS: UserProgress = {
-    schemaVersion: 3,
+    schemaVersion: SCHEMA_VERSION,
     selectedLanguage: null,
     levels: {},
     completedLessons: {},
@@ -137,6 +137,19 @@ export class SupabaseProgressStorage implements IProgressStorage {
         const checkpointRows = Object.entries(progress.completedCheckpoints ?? {}).flatMap(([lang_id, ids]) =>
             ids.map(checkpoint_id => ({ user_id: uid, lang_id, checkpoint_id }))
         )
+        const rgRows = Object.entries(progress.completedReinforcement ?? {}).flatMap(([lang_id, units]) =>
+            Object.entries(units).flatMap(([unit_id, state]) =>
+                state.grammarLessonIds.map(grammar_lesson_id =>
+                    ({ user_id: uid, lang_id, unit_id, grammar_lesson_id })
+                )
+            )
+        )
+        const rsRows = Object.entries(progress.completedReinforcement ?? {}).flatMap(([lang_id, units]) =>
+            Object.entries(units).flatMap(([unit_id, state]) => [
+                ...(state.vocab  ? [{ user_id: uid, lang_id, unit_id, section: "vocab"  }] : []),
+                ...(state.verbs  ? [{ user_id: uid, lang_id, unit_id, section: "verbs"  }] : []),
+            ])
+        )
         await Promise.all([
             this.sb.from("profiles").upsert({
                 id: uid,
@@ -154,6 +167,12 @@ export class SupabaseProgressStorage implements IProgressStorage {
                 : Promise.resolve(),
             checkpointRows.length > 0
                 ? this.sb.from("checkpoint_completions").upsert(checkpointRows, { onConflict: "user_id,lang_id,checkpoint_id" })
+                : Promise.resolve(),
+            rgRows.length > 0
+                ? this.sb.from("reinforcement_grammar").upsert(rgRows, { onConflict: "user_id,lang_id,unit_id,grammar_lesson_id" })
+                : Promise.resolve(),
+            rsRows.length > 0
+                ? this.sb.from("reinforcement_sections").upsert(rsRows, { onConflict: "user_id,lang_id,unit_id,section" })
                 : Promise.resolve(),
         ]).catch(err => logError("SupabaseProgressStorage.save", err))
     }

@@ -6,7 +6,7 @@
 CREATE TABLE public.checkpoint_completions (
     id            BIGSERIAL   PRIMARY KEY,
     user_id       UUID        NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
-    lang_id       TEXT        NOT NULL,
+    lang_id       lang_id     NOT NULL,
     checkpoint_id TEXT        NOT NULL,
     completed_at  TIMESTAMPTZ NOT NULL DEFAULT now(),
     CONSTRAINT uq_checkpoint_completion UNIQUE (user_id, lang_id, checkpoint_id)
@@ -29,7 +29,10 @@ CREATE INDEX idx_cc_user_lang
 CREATE OR REPLACE FUNCTION public.reset_language_data(p_user_id UUID, p_lang_id TEXT)
 RETURNS VOID LANGUAGE plpgsql SECURITY DEFINER SET search_path = public AS $$
 BEGIN
-    IF auth.uid() != p_user_id THEN
+    -- auth.uid() returns NULL in server-side contexts; NULL != x evaluates to NULL (not TRUE),
+    -- so the guard only rejects callers with a JWT that belongs to a different user.
+    -- Server-side admin callers (NULL uid) are intentionally permitted.
+    IF auth.uid() IS NOT NULL AND auth.uid() != p_user_id THEN
         RAISE EXCEPTION 'Forbidden';
     END IF;
     DELETE FROM lesson_completions        WHERE user_id = p_user_id AND lang_id = p_lang_id;
