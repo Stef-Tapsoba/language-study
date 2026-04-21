@@ -52,12 +52,31 @@ export class SupabaseProgressStorage implements IProgressStorage {
 
     // ── Session initialisation ────────────────────────────────────────────────
 
+    // Guards against concurrent initSession calls for the same user (e.g. React StrictMode
+    // double-invoke). If called while a hydration is in flight, returns the existing promise.
+    private _hydratingPromise: Promise<void> | null = null
+    private _hydratingUserId: string | null = null
+
     async initSession(userId: string): Promise<void> {
+        if (this._hydratingPromise !== null && this._hydratingUserId === userId) {
+            return this._hydratingPromise
+        }
+        this._hydratingUserId = userId
+        this._hydratingPromise = this._doInitSession(userId).finally(() => {
+            this._hydratingPromise = null
+            this._hydratingUserId = null
+        })
+        return this._hydratingPromise
+    }
+
+    private async _doInitSession(userId: string): Promise<void> {
         this.userId = userId
-        this.cache = { ...makeEmptyProgress(), userId }
+
+        // Build into a local object first — only assign to this.cache atomically on success
+        // so that any writes arriving during hydration don't find an empty cache (EDGE-02).
+        const newCache = { ...makeEmptyProgress(), userId }
 
         // .limit(5000) — Supabase PostgREST silently truncates at 1 000 rows without it.
-        // 5 000 is well above any realistic per-user count at current content scale.
         const [profile, levels, completions, mastered, rgRows, rsRows, checkpoints] = await Promise.all([
             this.sb.from("profiles").select("selected_language, learning_goal").eq("id", userId).single<ProfileRow>(),
             this.sb.from("user_language_levels").select("lang_id, level").eq("user_id", userId).limit(5000),
@@ -69,36 +88,47 @@ export class SupabaseProgressStorage implements IProgressStorage {
         ])
 
         if (profile.data) {
-            this.cache.selectedLanguage = profile.data.selected_language
-            this.cache.goal = (profile.data.learning_goal as GoalId | null) ?? undefined
+            newCache.selectedLanguage = profile.data.selected_language
+            newCache.goal = (profile.data.learning_goal as GoalId | null) ?? undefined
         }
         for (const row of (levels.data ?? []) as LevelRow[]) {
-            this.cache.levels[row.lang_id] = row.level as CEFRLevel
+            newCache.levels[row.lang_id] = row.level as CEFRLevel
         }
-        this.hydrateCompletions((completions.data ?? []) as CompletionRow[])
-        this.hydrateMastered((mastered.data ?? []) as MasteredRow[])
-        this.hydrateReinforcement((rgRows.data ?? []) as RgRow[], (rsRows.data ?? []) as RsRow[])
-        this.hydrateCheckpoints((checkpoints.data ?? []) as { lang_id: string; checkpoint_id: string }[])
+        this.hydrateCompletions(newCache, (completions.data ?? []) as CompletionRow[])
+        this.hydrateMastered(newCache, (mastered.data ?? []) as MasteredRow[])
+        this.hydrateReinforcement(newCache, (rgRows.data ?? []) as RgRow[], (rsRows.data ?? []) as RsRow[])
+        this.hydrateCheckpoints(newCache, (checkpoints.data ?? []) as { lang_id: string; checkpoint_id: string }[])
+        // Atomic assignment — all queries resolved successfully
+        this.cache = newCache
     }
 
-    private hydrateCompletions(rows: CompletionRow[]): void {
+    private hydrateCompletions(cache: UserProgress, rows: CompletionRow[]): void {
         for (const row of rows) {
-            const list = this.cache.completedLessons[row.lang_id] ?? []
-            if (!list.includes(row.content_id)) list.push(row.content_id)
-            this.cache.completedLessons[row.lang_id] = list
+            // Flat list (Stage 1 compat)
+            const flat = cache.completedLessons[row.lang_id] ?? []
+            if (!flat.includes(row.content_id)) flat.push(row.content_id)
+            cache.completedLessons[row.lang_id] = flat
+            // Typed map (Stage 2 — used by save() to preserve content_type on re-export)
+            const byType = cache.completedByType ?? {}
+            const langMap = byType[row.lang_id] ?? {}
+            const typeList = langMap[row.content_type] ?? []
+            if (!typeList.includes(row.content_id)) typeList.push(row.content_id)
+            langMap[row.content_type] = typeList
+            byType[row.lang_id] = langMap
+            cache.completedByType = byType
         }
     }
 
-    private hydrateMastered(rows: MasteredRow[]): void {
+    private hydrateMastered(cache: UserProgress, rows: MasteredRow[]): void {
         for (const row of rows) {
-            const list = this.cache.masteredUnits[row.lang_id] ?? []
+            const list = cache.masteredUnits[row.lang_id] ?? []
             if (!list.includes(row.unit_id)) list.push(row.unit_id)
-            this.cache.masteredUnits[row.lang_id] = list
+            cache.masteredUnits[row.lang_id] = list
         }
     }
 
-    private hydrateReinforcement(rgRows: RgRow[], rsRows: RsRow[]): void {
-        const lang = this.cache.completedReinforcement ?? {}
+    private hydrateReinforcement(cache: UserProgress, rgRows: RgRow[], rsRows: RsRow[]): void {
+        const lang = cache.completedReinforcement ?? {}
         for (const row of rgRows) {
             const unit = lang[row.lang_id] ?? {}
             const state = unit[row.unit_id] ?? { grammarLessonIds: [] }
@@ -116,15 +146,18 @@ export class SupabaseProgressStorage implements IProgressStorage {
             unit[row.unit_id] = state
             lang[row.lang_id] = unit
         }
-        this.cache.completedReinforcement = lang
+        cache.completedReinforcement = lang
     }
 
-    private hydrateCheckpoints(rows: { lang_id: string; checkpoint_id: string }[]): void {
+    private hydrateCheckpoints(cache: UserProgress, rows: { lang_id: string; checkpoint_id: string }[]): void {
+        // Build result object once instead of spreading on every row (EDGE-05)
+        const result: Record<string, string[]> = { ...cache.completedCheckpoints }
         for (const row of rows) {
-            const list = this.cache.completedCheckpoints?.[row.lang_id] ?? []
+            const list = result[row.lang_id] ?? []
             if (!list.includes(row.checkpoint_id)) list.push(row.checkpoint_id)
-            this.cache.completedCheckpoints = { ...this.cache.completedCheckpoints, [row.lang_id]: list }
+            result[row.lang_id] = list
         }
+        cache.completedCheckpoints = result
     }
 
     // ── Writes ────────────────────────────────────────────────────────────────
@@ -290,15 +323,15 @@ export class SupabaseProgressStorage implements IProgressStorage {
         delete this.cache.masteredUnits[langId]
         if (this.cache.completedReinforcement) delete this.cache.completedReinforcement[langId]
         if (this.cache.completedCheckpoints)   delete this.cache.completedCheckpoints[langId]
-        // Re-insert A1 level row so the language remains visible (not orphaned)
-        this.sb.from("user_language_levels")
+        // Await the re-insert — fire-and-forget risks a race if removeLanguage is called
+        // immediately after resetLanguage on the same langId (REG-04)
+        const { error: reErr } = await this.sb.from("user_language_levels")
             .upsert({ user_id: uid, lang_id: langId, level: "A1" }, { onConflict: "user_id,lang_id" })
-            .then(({ error: e }) => { if (e) logError("resetLanguage.reinsert", e) })
+        if (reErr) logError("resetLanguage.reinsert", reErr)
     }
 
     async removeLanguage(langId: string): Promise<void> {
         const uid = this.userId; if (!uid) return
-        // Mutate cache only after DB confirms success
         const { error } = await this.sb.rpc("reset_language_data", { p_user_id: uid, p_lang_id: langId })
         if (error) { logError("removeLanguage", error); return }
         const { [langId]: _, ...levels } = this.cache.levels
@@ -307,6 +340,12 @@ export class SupabaseProgressStorage implements IProgressStorage {
         delete this.cache.masteredUnits[langId]
         if (this.cache.completedReinforcement) delete this.cache.completedReinforcement[langId]
         if (this.cache.completedCheckpoints)   delete this.cache.completedCheckpoints[langId]
+        // Null the active language so the app doesn't try to reload a removed language on next initSession
+        if (this.cache.selectedLanguage === langId) {
+            this.cache.selectedLanguage = null
+            this.sb.from("profiles").update({ selected_language: null }).eq("id", uid)
+                .then(({ error: e }) => { if (e) logError("removeLanguage.clearSelected", e) })
+        }
     }
 
     // Overloaded to match IProgressStorage interface
