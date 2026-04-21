@@ -82,6 +82,10 @@ export function mergeProgress(current: UserProgress, imported: UserProgress): Us
                                       current.completedReinforcement,
                                       imported.completedReinforcement
                                   ),
+        completedCheckpoints:     unionArrays(
+                                      current.completedCheckpoints  ?? {},
+                                      imported.completedCheckpoints ?? {}
+                                  ),
     }
 }
 

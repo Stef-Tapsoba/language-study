@@ -14,7 +14,7 @@ CREATE OR REPLACE FUNCTION public.increment_daily_stat(
     p_q_correct INTEGER DEFAULT 0
 ) RETURNS VOID LANGUAGE plpgsql SECURITY DEFINER SET search_path = public AS $$
 BEGIN
-    IF auth.uid() != p_user_id THEN
+    IF auth.uid() IS NOT NULL AND auth.uid() != p_user_id THEN
         RAISE EXCEPTION 'Forbidden';
     END IF;
     INSERT INTO daily_stats (user_id, lang_id, study_date, reviewed, correct, acts, q_total, q_correct)
