@@ -37,6 +37,11 @@ $$;
 -- full-row replace model but not for the delta model in use.
 -- ============================================================
 
+-- These constraints are incompatible with the additive delta RPC model: each
+-- increment (reviewed, correct) fires as a separate RPC, so the database sees
+-- intermediate states where correct > reviewed. Removing them is correct for
+-- this model. Note: the saveAll (import) path writes full values directly and
+-- should be validated at the application layer before calling save().
 ALTER TABLE public.daily_stats
     DROP CONSTRAINT IF EXISTS chk_correct_lte_reviewed,
     DROP CONSTRAINT IF EXISTS chk_q_correct_lte_q_total;

@@ -174,6 +174,8 @@ export class SupabaseProgressStorage implements IProgressStorage {
             rsRows.length > 0
                 ? this.sb.from("reinforcement_sections").upsert(rsRows, { onConflict: "user_id,lang_id,unit_id,section" })
                 : Promise.resolve(),
+        // Best-effort: log individual table errors but don't re-throw —
+        // save() is used for import/migration, not for hot writes.
         ]).catch(err => logError("SupabaseProgressStorage.save", err))
     }
 
