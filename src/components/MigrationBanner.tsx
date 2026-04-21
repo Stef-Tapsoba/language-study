@@ -66,7 +66,8 @@ export function MigrationBanner() {
                     </Button>
                     <button
                         onClick={handleSkip}
-                        className="text-xs text-violet-500 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-200 transition-colors"
+                        disabled={loading}
+                        className="text-xs text-violet-500 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-200 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                     >
                         Start fresh instead
                     </button>

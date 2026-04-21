@@ -45,8 +45,9 @@ export function AuthProvider({ children }: Readonly<{ children: React.ReactNode 
             //   SIGNED_OUT      — after logout
             // This guarantees the React session state is always in sync with
             // Supabase's token, with zero gaps.
+            let subscription: { unsubscribe: () => void } | null = null
             import("../lib/supabaseClient").then(({ supabase }) => {
-                const { data: { subscription } } = supabase.auth.onAuthStateChange(
+                const { data } = supabase.auth.onAuthStateChange(
                     (_event, sbSession) => {
                         if (sbSession) {
                             setSession({
@@ -61,8 +62,9 @@ export function AuthProvider({ children }: Readonly<{ children: React.ReactNode 
                         setLoading(false)
                     }
                 )
-                return () => subscription.unsubscribe()
+                subscription = data.subscription
             })
+            return () => subscription?.unsubscribe()
         } else {
             // ── Stage 1: @myorg/auth-core + mockAuthApi ───────────────────────
             authService.getSession().then(s => {
