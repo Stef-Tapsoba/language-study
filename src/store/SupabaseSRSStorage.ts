@@ -50,6 +50,7 @@ export class SupabaseSRSStorage implements ISRSStorage {
             .from("srs_cards")
             .select("lang_id, vocab_id, ease_factor, review_count, streak, next_review_at, interval_days")
             .eq("user_id", this.userId)
+            .limit(5000)
         if (langId) query = query.eq("lang_id", langId)
 
         const { data, error } = await query
@@ -96,6 +97,8 @@ export class SupabaseSRSStorage implements ISRSStorage {
     }
 
     async resetAll(): Promise<void> {
+        // In-memory only — DB rows are protected by RLS and cannot be read by any other user.
+        // Full deletion is handled by account deletion CASCADE or reset_language_data RPC.
         this.cache = {}
     }
 

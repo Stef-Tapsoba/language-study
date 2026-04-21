@@ -22,16 +22,19 @@ interface RgRow { lang_id: string; unit_id: string; grammar_lesson_id: string }
 interface RsRow { lang_id: string; unit_id: string; section: string }
 interface ProfileRow { selected_language: string | null; learning_goal: string | null }
 
-const EMPTY_PROGRESS: UserProgress = {
-    schemaVersion: SCHEMA_VERSION,
-    selectedLanguage: null,
-    levels: {},
-    completedLessons: {},
-    masteredUnits: {},
+// Factory — never share the object literal directly; shallow spread copies object references.
+function makeEmptyProgress(): UserProgress {
+    return {
+        schemaVersion: SCHEMA_VERSION,
+        selectedLanguage: null,
+        levels: {},
+        completedLessons: {},
+        masteredUnits: {},
+    }
 }
 
 export class SupabaseProgressStorage implements IProgressStorage {
-    private cache: UserProgress = { ...EMPTY_PROGRESS }
+    private cache: UserProgress = makeEmptyProgress()
     private userId: string | null = null
 
     constructor(private readonly sb: SupabaseClient) {}
@@ -51,16 +54,18 @@ export class SupabaseProgressStorage implements IProgressStorage {
 
     async initSession(userId: string): Promise<void> {
         this.userId = userId
-        this.cache = { ...EMPTY_PROGRESS, userId, schemaVersion: SCHEMA_VERSION }
+        this.cache = { ...makeEmptyProgress(), userId }
 
+        // .limit(5000) — Supabase PostgREST silently truncates at 1 000 rows without it.
+        // 5 000 is well above any realistic per-user count at current content scale.
         const [profile, levels, completions, mastered, rgRows, rsRows, checkpoints] = await Promise.all([
             this.sb.from("profiles").select("selected_language, learning_goal").eq("id", userId).single<ProfileRow>(),
-            this.sb.from("user_language_levels").select("lang_id, level").eq("user_id", userId),
-            this.sb.from("lesson_completions").select("lang_id, content_type, content_id").eq("user_id", userId),
-            this.sb.from("mastered_units").select("lang_id, unit_id").eq("user_id", userId),
-            this.sb.from("reinforcement_grammar").select("lang_id, unit_id, grammar_lesson_id").eq("user_id", userId),
-            this.sb.from("reinforcement_sections").select("lang_id, unit_id, section").eq("user_id", userId),
-            this.sb.from("checkpoint_completions").select("lang_id, checkpoint_id").eq("user_id", userId),
+            this.sb.from("user_language_levels").select("lang_id, level").eq("user_id", userId).limit(5000),
+            this.sb.from("lesson_completions").select("lang_id, content_type, content_id").eq("user_id", userId).limit(5000),
+            this.sb.from("mastered_units").select("lang_id, unit_id").eq("user_id", userId).limit(5000),
+            this.sb.from("reinforcement_grammar").select("lang_id, unit_id, grammar_lesson_id").eq("user_id", userId).limit(5000),
+            this.sb.from("reinforcement_sections").select("lang_id, unit_id, section").eq("user_id", userId).limit(5000),
+            this.sb.from("checkpoint_completions").select("lang_id, checkpoint_id").eq("user_id", userId).limit(5000),
         ])
 
         if (profile.data) {
@@ -124,13 +129,38 @@ export class SupabaseProgressStorage implements IProgressStorage {
 
     // ── Writes ────────────────────────────────────────────────────────────────
 
+    /**
+     * Build lesson_completions rows for save().
+     * Uses completedByType (typed) when available; falls back to completedLessons
+     * with content_type="grammar" for Stage 1 snapshots that lack type information.
+     */
+    private buildLessonRows(uid: string, progress: UserProgress) {
+        return progress.completedByType
+            ? this.lessonRowsFromTyped(uid, progress.completedByType)
+            : this.lessonRowsFromFlat(uid, progress.completedLessons)
+    }
+
+    private lessonRowsFromTyped(uid: string, byType: NonNullable<UserProgress["completedByType"]>) {
+        type Row = { user_id: string; lang_id: string; content_type: ContentType; content_id: string }
+        return Object.entries(byType).flatMap(([lang_id, types]) =>
+            (Object.entries(types) as [ContentType, string[]][]).flatMap(([content_type, ids]) =>
+                (ids ?? []).map<Row>(content_id => ({ user_id: uid, lang_id, content_type, content_id }))
+            )
+        )
+    }
+
+    private lessonRowsFromFlat(uid: string, flat: UserProgress["completedLessons"]) {
+        // Stage 1 snapshots lack content_type — "grammar" is the safest valid fallback
+        return Object.entries(flat).flatMap(([lang_id, ids]) =>
+            ids.map(content_id => ({ user_id: uid, lang_id, content_type: "grammar" as ContentType, content_id }))
+        )
+    }
+
     async save(progress: UserProgress): Promise<void> {
         const uid = this.userId; if (!uid) return
         this.cache = progress
         // Bulk upsert — used for import/restore only (not a hot path; fan-out is acceptable)
-        const lessonRows = Object.entries(progress.completedLessons).flatMap(([lang_id, ids]) =>
-            ids.map(content_id => ({ user_id: uid, lang_id, content_type: "lesson" as const, content_id }))
-        )
+        const lessonRows = this.buildLessonRows(uid, progress)
         const unitRows = Object.entries(progress.masteredUnits).flatMap(([lang_id, ids]) =>
             ids.map(unit_id => ({ user_id: uid, lang_id, unit_id }))
         )
@@ -150,7 +180,7 @@ export class SupabaseProgressStorage implements IProgressStorage {
                 ...(state.verbs  ? [{ user_id: uid, lang_id, unit_id, section: "verbs"  }] : []),
             ])
         )
-        await Promise.all([
+        await Promise.allSettled([
             this.sb.from("profiles").upsert({
                 id: uid,
                 selected_language: progress.selectedLanguage,
@@ -174,9 +204,13 @@ export class SupabaseProgressStorage implements IProgressStorage {
             rsRows.length > 0
                 ? this.sb.from("reinforcement_sections").upsert(rsRows, { onConflict: "user_id,lang_id,unit_id,section" })
                 : Promise.resolve(),
-        // Best-effort: log individual table errors but don't re-throw —
-        // save() is used for import/migration, not for hot writes.
-        ]).catch(err => logError("SupabaseProgressStorage.save", err))
+        // allSettled so every table is attempted even if one fails; partial writes
+        // are logged individually. save() is best-effort for import/migration paths.
+        ]).then(results => {
+            for (const r of results) {
+                if (r.status === "rejected") logError("SupabaseProgressStorage.save", r.reason)
+            }
+        })
     }
 
     async setSelectedLanguage(langId: string): Promise<void> {
@@ -247,14 +281,15 @@ export class SupabaseProgressStorage implements IProgressStorage {
 
     async resetLanguage(langId: string): Promise<void> {
         const uid = this.userId; if (!uid) return
+        // Mutate cache only after DB confirms success — prevents cache/DB divergence on failure
+        const { error } = await this.sb.rpc("reset_language_data", { p_user_id: uid, p_lang_id: langId })
+        if (error) { logError("resetLanguage", error); return }
         const { [langId]: _, ...levels } = this.cache.levels
         this.cache.levels = { ...levels, [langId]: "A1" }
         delete this.cache.completedLessons[langId]
         delete this.cache.masteredUnits[langId]
         if (this.cache.completedReinforcement) delete this.cache.completedReinforcement[langId]
-        // Await RPC so caller knows the reset completed before continuing
-        const { error } = await this.sb.rpc("reset_language_data", { p_user_id: uid, p_lang_id: langId })
-        if (error) { logError("resetLanguage", error); return }
+        if (this.cache.completedCheckpoints)   delete this.cache.completedCheckpoints[langId]
         // Re-insert A1 level row so the language remains visible (not orphaned)
         this.sb.from("user_language_levels")
             .upsert({ user_id: uid, lang_id: langId, level: "A1" }, { onConflict: "user_id,lang_id" })
@@ -263,14 +298,15 @@ export class SupabaseProgressStorage implements IProgressStorage {
 
     async removeLanguage(langId: string): Promise<void> {
         const uid = this.userId; if (!uid) return
+        // Mutate cache only after DB confirms success
+        const { error } = await this.sb.rpc("reset_language_data", { p_user_id: uid, p_lang_id: langId })
+        if (error) { logError("removeLanguage", error); return }
         const { [langId]: _, ...levels } = this.cache.levels
         this.cache.levels = levels
         delete this.cache.completedLessons[langId]
         delete this.cache.masteredUnits[langId]
         if (this.cache.completedReinforcement) delete this.cache.completedReinforcement[langId]
-        // Await RPC so caller knows deletion completed before continuing
-        const { error } = await this.sb.rpc("reset_language_data", { p_user_id: uid, p_lang_id: langId })
-        if (error) logError("removeLanguage", error)
+        if (this.cache.completedCheckpoints)   delete this.cache.completedCheckpoints[langId]
     }
 
     // Overloaded to match IProgressStorage interface
