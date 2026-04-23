@@ -138,7 +138,7 @@ Words with a written accent are always stressed on that syllable: città, caffè
             pronouns: ["io", "tu", "lui / lei (+ Lei formale)", "noi", "voi", "loro"],
             verbs: [
                 { label: "essere", forms: ["sono", "sei", "è", "siamo", "siete", "sono"] },
-                { label: "", forms: ["I am", "you are", "he / she is", "we are", "you all are", "they are"] },
+                { label: "(English)", forms: ["I am", "you are", "he / she is", "we are", "you all are", "they are"] },
             ],
         },
         rules: [
@@ -206,7 +206,7 @@ Key expressions with avere: avere fame (to be hungry), avere sete (to be thirsty
             pronouns: ["io", "tu", "lui / lei", "noi", "voi", "loro"],
             verbs: [
                 { label: "avere", forms: ["ho", "hai", "ha", "abbiamo", "avete", "hanno"] },
-                { label: "", forms: ["I have", "you have", "he / she has", "we have", "you all have", "they have"] },
+                { label: "(English)", forms: ["I have", "you have", "he / she has", "we have", "you all have", "they have"] },
             ],
         },
         rules: [
