@@ -178,4 +178,72 @@ export const b1Verbs: Verb[] = [
             }
         ]
     },
+    {
+        id: "ko-vb-b1-5",
+        level: "B1",
+        infinitive: "말하다",
+        romanized: "malhada",
+        meaning: "to say / to speak / to tell",
+        conjugations: [
+            {
+                tense: "Present & Past (Polite)",
+                forms: [
+                    { pronoun: "polite", form: "말해요", romanized: "malhaeyo" },
+                    { pronoun: "formal", form: "말합니다", romanized: "malham-nida" },
+                    { pronoun: "past polite", form: "말했어요", romanized: "malhaesseoyo" },
+                    { pronoun: "informal", form: "말해", romanized: "malhae" },
+                ]
+            },
+            {
+                tense: "Reported Speech",
+                forms: [
+                    { pronoun: "statement", form: "말한다고 해요", romanized: "malhandago haeyo" },
+                    { pronoun: "past statement", form: "말했다고 해요", romanized: "malhaetdago haeyo" },
+                    { pronoun: "command", form: "말하라고 해요", romanized: "malharago haeyo" },
+                    { pronoun: "question", form: "말하냐고 해요", romanized: "malhanyago haeyo" },
+                ]
+            },
+            {
+                tense: "Obligation & Attempt",
+                forms: [
+                    { pronoun: "must say", form: "말해야 해요", romanized: "malhaeya haeyo" },
+                    { pronoun: "try saying", form: "말해 봐요", romanized: "malhae bwayo" },
+                    { pronoun: "don't have to say", form: "말 안 해도 돼요", romanized: "mal an haedo dwaeyo" },
+                ]
+            }
+        ]
+    },
+    {
+        id: "ko-vb-b1-6",
+        level: "B1",
+        infinitive: "배우다",
+        romanized: "baeuda",
+        meaning: "to learn / to study (a skill)",
+        conjugations: [
+            {
+                tense: "Present & Past (Polite)",
+                forms: [
+                    { pronoun: "polite", form: "배워요", romanized: "baewoeyo" },
+                    { pronoun: "formal", form: "배웁니다", romanized: "baeumnida" },
+                    { pronoun: "past polite", form: "배웠어요", romanized: "baewosseoyo" },
+                    { pronoun: "informal", form: "배워", romanized: "baewo" },
+                ]
+            },
+            {
+                tense: "Obligation & Attempt",
+                forms: [
+                    { pronoun: "must learn", form: "배워야 해요", romanized: "baewoya haeyo" },
+                    { pronoun: "try learning", form: "배워 봐요", romanized: "baewo bwayo" },
+                    { pronoun: "have tried learning", form: "배워 봤어요", romanized: "baewo bwasseoyo" },
+                ]
+            },
+            {
+                tense: "Nominalisation",
+                forms: [
+                    { pronoun: "~기", form: "배우기", romanized: "baeuge" },
+                    { pronoun: "~는 것", form: "배우는 것", romanized: "baeuneun geot" },
+                ]
+            }
+        ]
+    },
 ]
