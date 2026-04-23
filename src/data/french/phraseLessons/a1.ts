@@ -487,17 +487,17 @@ export const a1PhraseLessons: PhraseLesson[] = [
       'Someone asks "Tu as des frères et sœurs ?" — Do you have brothers and sisters? You want to describe your family. Here\'s what you need.',
     phrases: [
       { native: 'le père', translation: 'the father', context: 'Nouns always learned with their article' },
-      { native: 'la mère', translation: 'the mother', context: '' },
-      { native: 'le frère', translation: 'the brother', context: '' },
-      { native: 'la sœur', translation: 'the sister', context: '' },
+      { native: 'la mère', translation: 'the mother', context: 'Nouns always learned with their article' },
+      { native: 'le frère', translation: 'the brother', context: 'Nouns always learned with their article' },
+      { native: 'la sœur', translation: 'the sister', context: 'Nouns always learned with their article' },
       { native: 'le fils', translation: 'the son', context: 'The final s is silent' },
       { native: 'la fille', translation: 'the daughter', context: 'Also means "girl"' },
-      { native: 'le grand-père', translation: 'the grandfather', context: '' },
-      { native: 'la grand-mère', translation: 'the grandmother', context: '' },
+      { native: 'le grand-père', translation: 'the grandfather', context: 'Nouns always learned with their article' },
+      { native: 'la grand-mère', translation: 'the grandmother', context: 'Nouns always learned with their article' },
       { native: "J'ai un frère.", translation: 'I have a brother.', context: 'avoir + family member' },
       { native: "J'ai deux sœurs.", translation: 'I have two sisters.', context: 'Numbers from U3 come in handy here' },
-      { native: 'Je suis fils unique.', translation: "I'm an only child. (male)", context: '' },
-      { native: 'Je suis fille unique.', translation: "I'm an only child. (female)", context: '' },
+      { native: 'Je suis fils unique.', translation: "I'm an only child. (male)", context: 'Use fils unique for male speaker, fille unique for female' },
+      { native: 'Je suis fille unique.', translation: "I'm an only child. (female)", context: 'Use fille unique for female speaker, fils unique for male' },
       { native: "Je n'ai pas de frères.", translation: "I don't have any brothers.", context: "un/une/des → de after ne...pas" },
     ],
     miniDialogue: [
@@ -685,17 +685,17 @@ export const a1PhraseLessons: PhraseLesson[] = [
       {
         native: "J'habite en banlieue.",
         translation: 'I live in the suburbs.',
-        context: '',
+        context: 'en banlieue — no article needed here',
       },
       {
         native: "J'habite à la campagne.",
         translation: 'I live in the countryside.',
-        context: '',
+        context: 'à la campagne — contrast with à la ville (in the city)',
       },
       {
         native: "J'habite en centre-ville.",
         translation: 'I live in the city centre.',
-        context: '',
+        context: 'en centre-ville — common urban expression',
       },
       {
         native: 'Je vais bien, merci.',
@@ -740,22 +740,22 @@ export const a1PhraseLessons: PhraseLesson[] = [
       {
         native: 'une maison',
         translation: 'a house',
-        context: '',
+        context: 'Less common than appartement in cities; more common in suburbs and rural areas',
       },
       {
         native: 'le salon',
         translation: 'the living room',
-        context: '',
+        context: 'Always masculine — le salon',
       },
       {
         native: 'la cuisine',
         translation: 'the kitchen',
-        context: '',
+        context: 'Always feminine — la cuisine',
       },
       {
         native: 'une chambre',
         translation: 'a bedroom',
-        context: '',
+        context: 'une chambre = a bedroom; la chambre = the bedroom',
       },
       {
         native: 'Il y a un salon.',
