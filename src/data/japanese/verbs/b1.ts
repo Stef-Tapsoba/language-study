@@ -162,4 +162,69 @@ export const b1Verbs: Verb[] = [
             }
         ]
     },
+    {
+        id: "ja-vb-b1-5",
+        level: "B1",
+        infinitive: "話す",
+        romanized: "hanasu",
+        meaning: "to speak / to talk",
+        conjugations: [
+            {
+                tense: "Present & Past (Polite)",
+                forms: [
+                    { pronoun: "present", form: "話します", romanized: "hanashimasu" },
+                    { pronoun: "negative", form: "話しません", romanized: "hanashimasen" },
+                    { pronoun: "past", form: "話しました", romanized: "hanashimashita" },
+                ]
+            },
+            {
+                tense: "Conditional Forms",
+                forms: [
+                    { pronoun: "ば-form", form: "話せば", romanized: "hanaseba" },
+                    { pronoun: "たら-form", form: "話したら", romanized: "hanashitara" },
+                    { pronoun: "と-form", form: "話すと", romanized: "hanasu to" },
+                ]
+            },
+            {
+                tense: "Passive",
+                forms: [
+                    { pronoun: "passive plain", form: "話される", romanized: "hanasareru" },
+                    { pronoun: "passive polite", form: "話されます", romanized: "hanasaremasu" },
+                ]
+            }
+        ]
+    },
+    {
+        id: "ja-vb-b1-6",
+        level: "B1",
+        infinitive: "見る",
+        romanized: "miru",
+        meaning: "to see / to look at / to watch",
+        conjugations: [
+            {
+                tense: "Present & Past (Polite)",
+                forms: [
+                    { pronoun: "present", form: "見ます", romanized: "mimasu" },
+                    { pronoun: "negative", form: "見ません", romanized: "mimasen" },
+                    { pronoun: "past", form: "見ました", romanized: "mimashita" },
+                ]
+            },
+            {
+                tense: "Passive",
+                forms: [
+                    { pronoun: "passive plain", form: "見られる", romanized: "mirareru" },
+                    { pronoun: "passive polite", form: "見られます", romanized: "miraremasu" },
+                    { pronoun: "passive past", form: "見られました", romanized: "miraremashita" },
+                ]
+            },
+            {
+                tense: "Conditional Forms",
+                forms: [
+                    { pronoun: "ば-form", form: "見れば", romanized: "mireba" },
+                    { pronoun: "たら-form", form: "見たら", romanized: "mitara" },
+                    { pronoun: "と-form", form: "見ると", romanized: "miru to" },
+                ]
+            }
+        ]
+    },
 ]
