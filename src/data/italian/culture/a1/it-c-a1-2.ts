@@ -11,13 +11,6 @@ export const itCA12: CultureEpisode = {
     },
     subtitle: "Italy only unified as one country in 1861 — and the north-south divide still shapes everything from politics to pasta shapes.",
 
-    video: {
-        youtubeId: "",
-        title: "",
-        channelName: "",
-        captionLang: "it"
-    },
-
     photos: [
         {
             url: "https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=800",

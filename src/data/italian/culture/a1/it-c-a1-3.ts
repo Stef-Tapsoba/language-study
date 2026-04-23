@@ -11,13 +11,6 @@ export const itCA13: CultureEpisode = {
     },
     subtitle: "Italians are famous for talking with their hands — but each gesture has a precise meaning that every visitor should know.",
 
-    video: {
-        youtubeId: "",
-        title: "",
-        channelName: "",
-        captionLang: "it"
-    },
-
     photos: [
         {
             url: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800",
