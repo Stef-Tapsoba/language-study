@@ -11,13 +11,6 @@ export const itCA14: CultureEpisode = {
     },
     subtitle: "Italy has over 350 pasta shapes — and strict unwritten rules about which sauce goes with which pasta. Breaking them is considered almost criminal.",
 
-    video: {
-        youtubeId: "",
-        title: "",
-        channelName: "",
-        captionLang: "it"
-    },
-
     photos: [
         {
             url: "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=800",
