@@ -1,191 +1,179 @@
 // data/spanish/listening/a2.ts
+// Spanish A2 listening exercises — 4 exercises across all blocks.
+// All scripts are TTS-ready Latin American Spanish.
+
 import { ListeningExercise } from "../../../types"
 
 export const a2Listening: ListeningExercise[] = [
-    {
-        id: "es-l-a2-1",
+  {
+    id: "es-l-a2-1",
+    level: "A2",
+    title: "Una noche extraña — past tenses contrast",
+    script: "El sábado por la noche no pude dormir. Era como la una de la mañana y estaba leyendo en el sofá cuando escuché un ruido enorme en la calle. Me asomé a la ventana y vi dos coches parados. Al parecer, se habían chocado. Los conductores estaban de pie, discutiendo. Había gente mirando desde las ventanas de los edificios. Todo duró como una hora. Al final llegó la policía y los conductores se calmaron. Cuando por fin me acosté, eran casi las tres. Al día siguiente estaba agotado.",
+    translation: "On Saturday night I couldn't sleep. It was about one in the morning and I was reading on the sofa when I heard an enormous noise in the street. I looked out of the window and saw two cars stopped. Apparently they had crashed into each other. The drivers were standing up, arguing. There were people watching from the windows of the buildings. The whole thing lasted about an hour. In the end the police arrived and the drivers calmed down. When I finally went to bed, it was nearly three. The next day I was exhausted.",
+    dialogue: [
+      { speaker: "Narrador", text: "El sábado por la noche no pude dormir.", translation: "On Saturday night I couldn't sleep." },
+      { speaker: "Narrador", text: "Era como la una de la mañana y estaba leyendo en el sofá cuando escuché un ruido enorme en la calle.", translation: "It was about one in the morning and I was reading on the sofa when I heard an enormous noise in the street." },
+      { speaker: "Narrador", text: "Me asomé a la ventana y vi dos coches parados. Al parecer, se habían chocado.", translation: "I looked out the window and saw two cars stopped. Apparently they had crashed." },
+      { speaker: "Narrador", text: "Los conductores estaban de pie, discutiendo. Había gente mirando desde las ventanas.", translation: "The drivers were standing up, arguing. There were people watching from the windows." },
+      { speaker: "Narrador", text: "Todo duró como una hora. Al final llegó la policía y los conductores se calmaron.", translation: "The whole thing lasted about an hour. In the end the police arrived and the drivers calmed down." },
+      { speaker: "Narrador", text: "Cuando por fin me acosté, eran casi las tres. Al día siguiente estaba agotado.", translation: "When I finally went to bed, it was nearly three. The next day I was exhausted." },
+    ],
+    questions: [
+      {
+        id: "es-l-a2-1-q1",
         level: "A2",
-        title: "El fin de semana — weekend plans dialogue",
-        script: "Hola, Marcos. ¿Qué vas a hacer este fin de semana? Voy a ir al cine el sábado. Quiero ver la nueva película de acción. ¿Y tú? El sábado por la mañana voy a jugar al fútbol con mis amigos. Por la tarde voy a quedar con mi familia para comer. ¿Qué película quieres ver? La nueva de superhéroes. Dicen que es muy buena. Ah, yo también quiero verla. ¿Vamos juntos? Buena idea. Podemos ir a las seis de la tarde.",
-        translation: "Hi, Marcos. What are you going to do this weekend? I'm going to go to the cinema on Saturday. I want to see the new action film. And you? On Saturday morning I'm going to play football with my friends. In the afternoon I'm going to meet up with my family for lunch. Which film do you want to see? The new superhero one. They say it's very good. Oh, I want to see it too. Shall we go together? Good idea. We can go at six in the afternoon.",
-        dialogue: [
-            { speaker: "Amigo", text: "Hola, Marcos. ¿Qué vas a hacer este fin de semana?", translation: "Hi, Marcos. What are you going to do this weekend?" },
-            { speaker: "Marcos", text: "Voy a ir al cine el sábado. Quiero ver la nueva película de acción. ¿Y tú?", translation: "I'm going to go to the cinema on Saturday. I want to see the new action film. And you?" },
-            { speaker: "Amigo", text: "El sábado por la mañana voy a jugar al fútbol con mis amigos. Por la tarde voy a quedar con mi familia para comer.", translation: "On Saturday morning I'm going to play football with my friends. In the afternoon I'm going to meet up with my family for lunch." },
-            { speaker: "Amigo", text: "¿Qué película quieres ver?", translation: "Which film do you want to see?" },
-            { speaker: "Marcos", text: "La nueva de superhéroes. Dicen que es muy buena.", translation: "The new superhero one. They say it's very good." },
-            { speaker: "Amigo", text: "Ah, yo también quiero verla. ¿Vamos juntos?", translation: "Oh, I want to see it too. Shall we go together?" },
-            { speaker: "Marcos", text: "Buena idea. Podemos ir a las seis de la tarde.", translation: "Good idea. We can go at six in the afternoon." },
-        ],
-        questions: [
-            {
-                id: "es-l-a2-1-q1",
-                level: "A2",
-                prompt: "¿A qué va a ir Marcos el sábado?",
-                options: ["Al cine", "Al fútbol", "A comer con su familia", "De compras"],
-                answer: "Al cine"
-            },
-            {
-                id: "es-l-a2-1-q2",
-                level: "A2",
-                prompt: "¿Qué hace el otro amigo el sábado por la mañana?",
-                options: ["Juega al fútbol", "Va al cine", "Come con su familia", "Trabaja"],
-                answer: "Juega al fútbol"
-            },
-            {
-                id: "es-l-a2-1-q3",
-                level: "A2",
-                prompt: "¿A qué hora van a ir al cine juntos?",
-                options: ["A las seis de la tarde", "A las cinco", "A las siete", "A las ocho"],
-                answer: "A las seis de la tarde"
-            }
-        ]
-    },
-    {
-        id: "es-l-a2-2",
+        prompt: "¿Qué estaba haciendo el narrador cuando escuchó el ruido?",
+        options: ["Durmiendo", "Cocinando", "Leyendo en el sofá", "Mirando la televisión"],
+        answer: "Leyendo en el sofá",
+      },
+      {
+        id: "es-l-a2-1-q2",
         level: "A2",
-        title: "Una receta fácil — simple recipe monologue",
-        script: "Hoy voy a explicar cómo hacer una tortilla española. Necesitas cuatro huevos, dos patatas grandes, una cebolla y aceite de oliva. Primero, pela y corta las patatas y la cebolla en trozos pequeños. Después, fríe las patatas y la cebolla en aceite de oliva a fuego medio durante veinte minutos. Luego, bate los huevos en un bol grande y añade las patatas y la cebolla. Mezcla bien. Por último, cocina la tortilla en una sartén a fuego bajo. Dale la vuelta con un plato. ¡Ya está lista la tortilla!",
-        translation: "Today I'm going to explain how to make a Spanish omelette. You need four eggs, two large potatoes, one onion and olive oil. First, peel and cut the potatoes and onion into small pieces. Then, fry the potatoes and onion in olive oil over medium heat for twenty minutes. Next, beat the eggs in a large bowl and add the potatoes and onion. Mix well. Finally, cook the omelette in a frying pan over low heat. Flip it with a plate. The omelette is ready!",
-        questions: [
-            {
-                id: "es-l-a2-2-q1",
-                level: "A2",
-                prompt: "¿Cuántos huevos necesitas para la tortilla?",
-                options: ["Cuatro", "Tres", "Dos", "Cinco"],
-                answer: "Cuatro"
-            },
-            {
-                id: "es-l-a2-2-q2",
-                level: "A2",
-                prompt: "¿Cuánto tiempo se fríen las patatas?",
-                options: ["Veinte minutos", "Diez minutos", "Treinta minutos", "Cinco minutos"],
-                answer: "Veinte minutos"
-            },
-            {
-                id: "es-l-a2-2-q3",
-                level: "A2",
-                prompt: "¿Cómo se da la vuelta a la tortilla?",
-                options: ["Con un plato", "Con una espátula", "Con una cuchara", "Con las manos"],
-                answer: "Con un plato"
-            }
-        ]
-    },
-    {
-        id: "es-l-a2-3",
+        prompt: "¿Qué pasó en la calle?",
+        options: ["Una fiesta muy ruidosa", "Dos coches se chocaron", "Un incendio", "Una manifestación"],
+        answer: "Dos coches se chocaron",
+      },
+      {
+        id: "es-l-a2-1-q3",
         level: "A2",
-        title: "Las vacaciones — travel conversation",
-        script: "¡Hola, Laura! ¿Dónde fuiste de vacaciones este verano? Fui a las Islas Canarias con mi familia. ¡Qué bien! ¿Cuánto tiempo estuviste allí? Estuve dos semanas. ¿Qué hiciste? Fui a la playa todos los días, visité pueblos bonitos y comí mucha comida típica. También hice senderismo en el Teide. ¿No tuviste miedo? Un poco, porque es un volcán muy grande. Pero el paisaje era increíble. ¿Cuándo volviste? Volví el domingo pasado. Todavía tengo el bronceado.",
-        translation: "Hi, Laura! Where did you go on holiday this summer? I went to the Canary Islands with my family. How great! How long were you there? I was there for two weeks. What did you do? I went to the beach every day, visited pretty villages and ate lots of typical food. I also went hiking on Mount Teide. Weren't you scared? A little, because it's a very big volcano. But the scenery was incredible. When did you get back? I came back last Sunday. I still have my tan.",
-        dialogue: [
-            { speaker: "Amigo", text: "¡Hola, Laura! ¿Dónde fuiste de vacaciones este verano?", translation: "Hi, Laura! Where did you go on holiday this summer?" },
-            { speaker: "Laura", text: "Fui a las Islas Canarias con mi familia.", translation: "I went to the Canary Islands with my family." },
-            { speaker: "Amigo", text: "¡Qué bien! ¿Cuánto tiempo estuviste allí?", translation: "How great! How long were you there?" },
-            { speaker: "Laura", text: "Estuve dos semanas.", translation: "I was there for two weeks." },
-            { speaker: "Amigo", text: "¿Qué hiciste?", translation: "What did you do?" },
-            { speaker: "Laura", text: "Fui a la playa todos los días, visité pueblos bonitos y comí mucha comida típica. También hice senderismo en el Teide.", translation: "I went to the beach every day, visited pretty villages and ate lots of typical food. I also went hiking on Mount Teide." },
-            { speaker: "Amigo", text: "¿No tuviste miedo?", translation: "Weren't you scared?" },
-            { speaker: "Laura", text: "Un poco, porque es un volcán muy grande. Pero el paisaje era increíble.", translation: "A little, because it's a very big volcano. But the scenery was incredible." },
-            { speaker: "Amigo", text: "¿Cuándo volviste?", translation: "When did you get back?" },
-            { speaker: "Laura", text: "Volví el domingo pasado. Todavía tengo el bronceado.", translation: "I came back last Sunday. I still have my tan." },
-        ],
-        questions: [
-            {
-                id: "es-l-a2-3-q1",
-                level: "A2",
-                prompt: "¿Adónde fue Laura de vacaciones?",
-                options: ["A las Islas Canarias", "A la Costa Brava", "A Mallorca", "A Tenerife"],
-                answer: "A las Islas Canarias"
-            },
-            {
-                id: "es-l-a2-3-q2",
-                level: "A2",
-                prompt: "¿Cuánto tiempo estuvo en las islas?",
-                options: ["Dos semanas", "Una semana", "Tres semanas", "Diez días"],
-                answer: "Dos semanas"
-            },
-            {
-                id: "es-l-a2-3-q3",
-                level: "A2",
-                prompt: "¿Dónde hizo senderismo?",
-                options: ["En el Teide", "En los Pirineos", "En Sierra Nevada", "En la playa"],
-                answer: "En el Teide"
-            }
-        ]
-    },
-    {
-        id: "es-l-a2-4",
+        prompt: "¿A qué hora se acostó el narrador?",
+        options: ["A la una", "A las dos", "A las tres", "A las cuatro"],
+        answer: "A las tres",
+      },
+      {
+        id: "es-l-a2-1-q4",
         level: "A2",
-        title: "Noticias del barrio — neighbourhood news",
-        script: "Buenas tardes, vecinos. Tengo noticias importantes del barrio. Primero, van a abrir una nueva panadería en la calle Mayor la semana que viene. Hacen pan artesanal y pasteles muy buenos. Segundo, el parque del barrio va a estar cerrado durante tres semanas para reformas. Van a poner nuevos columpios y bancos. Tercero, el ayuntamiento ha anunciado que van a arreglar las calles del barrio en otoño. Va a haber mucho tráfico esos días. Por favor, usad el transporte público si podéis. ¡Hasta pronto!",
-        translation: "Good afternoon, neighbours. I have important news from the neighbourhood. First, a new bakery is going to open on Calle Mayor next week. They make artisan bread and very good pastries. Second, the neighbourhood park is going to be closed for three weeks for renovations. They are going to install new swings and benches. Third, the town hall has announced that they are going to repair the streets in the neighbourhood in autumn. There is going to be a lot of traffic on those days. Please use public transport if you can. See you soon!",
-        questions: [
-            {
-                id: "es-l-a2-4-q1",
-                level: "A2",
-                prompt: "¿Qué va a abrir en la calle Mayor?",
-                options: ["Una panadería", "Un supermercado", "Un restaurante", "Una cafetería"],
-                answer: "Una panadería"
-            },
-            {
-                id: "es-l-a2-4-q2",
-                level: "A2",
-                prompt: "¿Cuánto tiempo va a estar cerrado el parque?",
-                options: ["Tres semanas", "Una semana", "Un mes", "Dos semanas"],
-                answer: "Tres semanas"
-            },
-            {
-                id: "es-l-a2-4-q3",
-                level: "A2",
-                prompt: "¿Qué recomienda el mensaje para cuando arreglen las calles?",
-                options: ["Usar el transporte público", "No salir de casa", "Ir en bicicleta", "Usar el coche"],
-                answer: "Usar el transporte público"
-            }
-        ]
-    },
-    {
-        id: "es-l-a2-5",
+        prompt: "'Estaba leyendo cuando escuché un ruido.' Which pattern does this use?",
+        options: ["Two completed past events", "Imperfecto interrupted by indefinido", "Two imperfecto verbs", "Imperfecto + future"],
+        answer: "Imperfecto interrupted by indefinido",
+      },
+    ],
+  },
+
+  {
+    id: "es-l-a2-2",
+    level: "A2",
+    title: "¿Buenos Aires o Medellín? — comparing cities",
+    script: "A: Oye, si pudieras vivir en cualquier ciudad de América Latina, ¿dónde elegirías? B: Uf, buena pregunta. Creo que Medellín. Me encantaría vivir allí. A: ¿Por qué Medellín y no Buenos Aires? Buenos Aires es más grande y tiene más cultura. B: Sí, pero para mí el clima es importantísimo. El de Medellín es mejor que el de casi cualquier otra ciudad del continente. Ni muy caliente ni muy frío. Lo llaman la ciudad de la eterna primavera. A: Bueno, eso es verdad. Y la gente es muy amable. B: Exacto. Además, Buenos Aires me parece más cara que Medellín. Tiene sus problemas económicos. A: De acuerdo. Pero para la vida cultural, Buenos Aires no tiene rival. Los teatros, los restaurantes, los museos... B: Tienes razón. Para visitar, Buenos Aires es increíble. Pero para vivir, yo preferiría Medellín sin duda.",
+    translation: "A: Hey, if you could live in any city in Latin America, where would you choose? B: Wow, good question. I think Medellín. I'd love to live there. A: Why Medellín and not Buenos Aires? Buenos Aires is bigger and has more culture. B: Yes, but for me the climate is extremely important. Medellín's is better than almost any other city on the continent. Neither too hot nor too cold. They call it the city of eternal spring. A: Well, that's true. And the people are very friendly. B: Exactly. Besides, Buenos Aires seems more expensive to me than Medellín. It has its economic problems. A: Agreed. But for cultural life, Buenos Aires has no rival. The theatres, the restaurants, the museums... B: You're right. To visit, Buenos Aires is incredible. But to live, I'd prefer Medellín without question.",
+    dialogue: [
+      { speaker: "A", text: "Oye, si pudieras vivir en cualquier ciudad de América Latina, ¿dónde elegirías?", translation: "Hey, if you could live in any city in Latin America, where would you choose?" },
+      { speaker: "B", text: "Uf, buena pregunta. Creo que Medellín. Me encantaría vivir allí.", translation: "Wow, good question. I think Medellín. I'd love to live there." },
+      { speaker: "A", text: "¿Por qué Medellín y no Buenos Aires? Buenos Aires es más grande y tiene más cultura.", translation: "Why Medellín and not Buenos Aires? Buenos Aires is bigger and has more culture." },
+      { speaker: "B", text: "Sí, pero para mí el clima es importantísimo. Lo llaman la ciudad de la eterna primavera.", translation: "Yes, but for me the climate is extremely important. They call it the city of eternal spring." },
+      { speaker: "B", text: "Además, Buenos Aires me parece más cara que Medellín. Tiene sus problemas económicos.", translation: "Besides, Buenos Aires seems more expensive to me than Medellín. It has its economic problems." },
+      { speaker: "A", text: "De acuerdo. Pero para la vida cultural, Buenos Aires no tiene rival.", translation: "Agreed. But for cultural life, Buenos Aires has no rival." },
+      { speaker: "B", text: "Tienes razón. Para visitar, Buenos Aires es increíble. Pero para vivir, yo preferiría Medellín sin duda.", translation: "You're right. To visit, Buenos Aires is incredible. But to live, I'd prefer Medellín without question." },
+    ],
+    questions: [
+      {
+        id: "es-l-a2-2-q1",
         level: "A2",
-        title: "Una llamada para reservar — making a reservation",
-        script: "Restaurante Casa Pepe, buenas tardes. Buenas tardes. ¿Podría hacer una reserva para esta noche? Por supuesto, ¿para cuántas personas? Somos cuatro. ¿Y a qué hora? A las nueve y media, si es posible. Déjeme comprobar... sí, tenemos una mesa disponible. ¿Me podría dar su nombre? Claro, me llamo Martínez, con acento en la i. ¿Tienen alguna preferencia de mesa? Si fuera posible, nos gustaría una mesa en la terraza. La terraza ya está completa, lo siento. ¿Les parecería bien una mesa interior cerca de la ventana? Sí, perfecto, muchas gracias. De nada. Les esperamos a las nueve y media. ¡Hasta luego!",
-        translation: "Restaurant Casa Pepe, good afternoon. Good afternoon. Could I make a reservation for tonight? Of course, for how many people? There are four of us. And at what time? At half past nine, if possible. Let me check... yes, we have a table available. Could you give me your name? Of course, my name is Martínez, with an accent on the i. Do you have any table preference? If it were possible, we would like a table on the terrace. The terrace is already full, I'm sorry. Would a table inside near the window be all right for you? Yes, perfect, thank you very much. You're welcome. We'll see you at half past nine. Goodbye!",
-        dialogue: [
-            { speaker: "Recepcionista", text: "Restaurante Casa Pepe, buenas tardes.", translation: "Restaurant Casa Pepe, good afternoon." },
-            { speaker: "Cliente", text: "Buenas tardes. ¿Podría hacer una reserva para esta noche?", translation: "Good afternoon. Could I make a reservation for tonight?" },
-            { speaker: "Recepcionista", text: "Por supuesto, ¿para cuántas personas?", translation: "Of course, for how many people?" },
-            { speaker: "Cliente", text: "Somos cuatro.", translation: "There are four of us." },
-            { speaker: "Recepcionista", text: "¿Y a qué hora?", translation: "And at what time?" },
-            { speaker: "Cliente", text: "A las nueve y media, si es posible.", translation: "At half past nine, if possible." },
-            { speaker: "Recepcionista", text: "Déjeme comprobar... sí, tenemos una mesa disponible. ¿Me podría dar su nombre?", translation: "Let me check... yes, we have a table available. Could you give me your name?" },
-            { speaker: "Cliente", text: "Claro, me llamo Martínez, con acento en la i.", translation: "Of course, my name is Martínez, with an accent on the i." },
-            { speaker: "Recepcionista", text: "¿Tienen alguna preferencia de mesa?", translation: "Do you have any table preference?" },
-            { speaker: "Cliente", text: "Si fuera posible, nos gustaría una mesa en la terraza.", translation: "If it were possible, we would like a table on the terrace." },
-            { speaker: "Recepcionista", text: "La terraza ya está completa, lo siento. ¿Les parecería bien una mesa interior cerca de la ventana?", translation: "The terrace is already full, I'm sorry. Would a table inside near the window be all right for you?" },
-            { speaker: "Cliente", text: "Sí, perfecto, muchas gracias.", translation: "Yes, perfect, thank you very much." },
-            { speaker: "Recepcionista", text: "De nada. Les esperamos a las nueve y media. ¡Hasta luego!", translation: "You're welcome. We'll see you at half past nine. Goodbye!" },
-        ],
-        questions: [
-            {
-                id: "es-l-a2-5-q1",
-                level: "A2",
-                prompt: "¿Para cuántas personas es la reserva?",
-                options: ["Para cuatro", "Para dos", "Para seis", "Para tres"],
-                answer: "Para cuatro"
-            },
-            {
-                id: "es-l-a2-5-q2",
-                level: "A2",
-                prompt: "¿Por qué no pueden sentarse en la terraza?",
-                options: ["Está completa", "Está cerrada", "Hace demasiado frío", "No aceptan reservas allí"],
-                answer: "Está completa"
-            },
-            {
-                id: "es-l-a2-5-q3",
-                level: "A2",
-                prompt: "¿Qué alternativa ofrece el restaurante?",
-                options: ["Una mesa interior cerca de la ventana", "Una mesa en el jardín", "Una mesa en el sótano", "Una mesa en la barra"],
-                answer: "Una mesa interior cerca de la ventana"
-            }
-        ]
-    }
+        prompt: "¿Qué razón da B para preferir Medellín?",
+        options: ["Es más grande que Buenos Aires.", "Tiene mejor clima.", "Tiene más museos.", "Es más cara."],
+        answer: "Tiene mejor clima.",
+      },
+      {
+        id: "es-l-a2-2-q2",
+        level: "A2",
+        prompt: "¿Qué problema menciona B sobre Buenos Aires?",
+        options: ["El clima es muy frío.", "Tiene problemas económicos.", "No tiene vida cultural.", "La gente no es amable."],
+        answer: "Tiene problemas económicos.",
+      },
+      {
+        id: "es-l-a2-2-q3",
+        level: "A2",
+        prompt: "¿En qué están de acuerdo A y B?",
+        options: ["Los dos prefieren Medellín para vivir.", "Los dos prefieren Buenos Aires para vivir.", "Buenos Aires es mejor para visitar pero Medellín para vivir.", "Medellín es mejor para visitar pero Buenos Aires para vivir."],
+        answer: "Buenos Aires es mejor para visitar pero Medellín para vivir.",
+      },
+    ],
+  },
+
+  {
+    id: "es-l-a2-3",
+    level: "A2",
+    title: "Planes para el futuro — futuro simple y condicional",
+    script: "Hola a todos. Hoy quiero hablarles de mis planes para los próximos meses. Acabo de terminar mi carrera universitaria, así que hay muchos cambios que vendrán. Primero, voy a tomarme unas semanas de descanso. Lo merezco, después de cinco años de estudio. Después, buscaré trabajo en una agencia de comunicación. Tengo ya algunas entrevistas planeadas. Si consigo el trabajo que quiero, me quedaré en Bogotá. Pero si no hay oportunidades aquí, me gustaría irme a vivir a otra ciudad, quizás a Medellín o a Ciudad de México. En el futuro, algún día tendré mi propia empresa. No sé cuándo exactamente, pero lo haré. Cuando tenga suficiente experiencia, daré ese paso. Por ahora, estoy muy ilusionada con lo que viene.",
+    translation: "Hello everyone. Today I want to talk to you about my plans for the next few months. I've just finished my university degree, so there are many changes to come. First, I'm going to take a few weeks' rest. I deserve it, after five years of studying. Afterwards, I'll look for work at a communications agency. I already have some interviews planned. If I get the job I want, I'll stay in Bogotá. But if there are no opportunities here, I'd like to go and live in another city — perhaps Medellín or Mexico City. In the future, one day I'll have my own company. I don't know exactly when, but I'll do it. When I have enough experience, I'll take that step. For now, I'm very excited about what's coming.",
+    dialogue: [
+      { speaker: "Hablante", text: "Acabo de terminar mi carrera universitaria, así que hay muchos cambios que vendrán.", translation: "I've just finished my university degree, so there are many changes to come." },
+      { speaker: "Hablante", text: "Primero, voy a tomarme unas semanas de descanso. Después, buscaré trabajo en una agencia de comunicación.", translation: "First, I'm going to take a few weeks' rest. Afterwards, I'll look for work at a communications agency." },
+      { speaker: "Hablante", text: "Si consigo el trabajo que quiero, me quedaré en Bogotá.", translation: "If I get the job I want, I'll stay in Bogotá." },
+      { speaker: "Hablante", text: "Pero si no hay oportunidades aquí, me gustaría irme a otra ciudad.", translation: "But if there are no opportunities here, I'd like to go to another city." },
+      { speaker: "Hablante", text: "Algún día tendré mi propia empresa. Cuando tenga suficiente experiencia, daré ese paso.", translation: "One day I'll have my own company. When I have enough experience, I'll take that step." },
+    ],
+    questions: [
+      {
+        id: "es-l-a2-3-q1",
+        level: "A2",
+        prompt: "¿Qué acaba de hacer la hablante?",
+        options: ["Conseguir su primer trabajo", "Terminar la carrera universitaria", "Mudarse a Medellín", "Abrir su propia empresa"],
+        answer: "Terminar la carrera universitaria",
+      },
+      {
+        id: "es-l-a2-3-q2",
+        level: "A2",
+        prompt: "¿Qué pasará si no encuentra trabajo en Bogotá?",
+        options: ["Volverá a estudiar.", "Se quedará en Bogotá de todas formas.", "Le gustaría irse a otra ciudad.", "Abrirá su empresa inmediatamente."],
+        answer: "Le gustaría irse a otra ciudad.",
+      },
+      {
+        id: "es-l-a2-3-q3",
+        level: "A2",
+        prompt: "'Cuando tenga suficiente experiencia, daré ese paso.' What does the verb tense after 'cuando' tell us?",
+        options: ["The action is in the past.", "Cuando + future = future meaning with futuro simple.", "Cuando always takes present tense.", "This is a type 1 si clause."],
+        answer: "Cuando + future = future meaning with futuro simple.",
+      },
+    ],
+  },
+
+  {
+    id: "es-l-a2-4",
+    level: "A2",
+    title: "El viaje de Daniela — listening checkpoint",
+    script: "Bueno, te cuento lo que me pasó. Fue el viaje más loco que he tenido en mi vida. Desde hacía años quería hacer ese viaje a Perú — siempre había tenido ganas de ver Machu Picchu. Pero era uno de esos planes que uno va postergando. Hasta que un día decidí: ya, me voy. Reservé el vuelo con tres semanas de antelación. Hacía mucho calor en Bogotá esa semana y yo estaba súper emocionada. Llegué al aeropuerto con dos horas de anticipación. Y ahí empezó todo. En el tablero, mi vuelo aparecía como 'demorado'. Primero una hora. Luego dos. Luego directamente 'indefinido'. Por fin abordé con cinco horas de retraso. Llegué a Lima a la una de la mañana, agotada. Fui a la cinta del equipaje y esperé. Mi maleta no apareció. Todas las maletas aparecieron menos la mía. Me acerqué al mostrador y me dijeron que mi equipaje había quedado en Bogotá. Que lo mandarían en el primer vuelo de la mañana. Al principio quería llorar. Pero entonces una pareja de peruanos que estaba en la misma situación se acercó a mí. Me preguntaron si estaba bien. Valentina dijo: tranquila, te presto lo que necesites para mañana. Me llevaron en taxi, me prestaron ropa, me dieron de comer. Al día siguiente recuperé mi maleta. Al final fue el viaje más memorable de mi vida — no por Machu Picchu, sino por esa pareja que me trató como si fuera de la familia.",
+    translation: "Well, let me tell you what happened to me. It was the craziest trip I've ever had. For years I had wanted to make that trip to Peru — I'd always wanted to see Machu Picchu. But it was one of those plans you keep putting off. Until one day I decided: that's it, I'm going. I booked the flight three weeks in advance. It was very hot in Bogotá that week and I was super excited. I arrived at the airport two hours early. And that's where it all started. On the board, my flight appeared as 'delayed'. First one hour. Then two. Then straight to 'indefinite'. In the end I boarded with a five-hour delay. I arrived in Lima at one in the morning, exhausted. I went to the baggage carousel and waited. My suitcase didn't appear. All the suitcases appeared except mine. I went up to the counter and they told me my luggage had been left in Bogotá. That they would send it on the first flight in the morning. At first I wanted to cry. But then a Peruvian couple who were in the same situation came up to me. They asked if I was OK. Valentina said: don't worry, I'll lend you whatever you need for tomorrow. They took me in a taxi, lent me clothes, gave me food. The next day I got my suitcase back. In the end it was the most memorable trip of my life — not because of Machu Picchu, but because of that couple who treated me as if I were family.",
+    dialogue: [
+      { speaker: "Daniela", text: "Desde hacía años quería hacer ese viaje a Perú.", translation: "For years I had wanted to make that trip to Peru." },
+      { speaker: "Daniela", text: "En el tablero, mi vuelo aparecía como 'demorado'. Por fin abordé con cinco horas de retraso.", translation: "On the board my flight appeared as 'delayed'. In the end I boarded with a five-hour delay." },
+      { speaker: "Daniela", text: "Fui a la cinta del equipaje y esperé. Mi maleta no apareció.", translation: "I went to the baggage carousel and waited. My suitcase didn't appear." },
+      { speaker: "Valentina", text: "Tranquila, te presto lo que necesites para mañana.", translation: "Don't worry, I'll lend you whatever you need for tomorrow." },
+      { speaker: "Daniela", text: "Al final fue el viaje más memorable de mi vida — no por Machu Picchu, sino por esa pareja.", translation: "In the end it was the most memorable trip of my life — not because of Machu Picchu, but because of that couple." },
+    ],
+    questions: [
+      {
+        id: "es-l-a2-4-q1",
+        level: "A2",
+        prompt: "¿Por qué decidió Daniela finalmente hacer el viaje?",
+        options: ["Le regalaron los billetes.", "Había soñado con ir desde hacía años y tomó la decisión.", "Un amigo la invitó.", "Por trabajo."],
+        answer: "Había soñado con ir desde hacía años y tomó la decisión.",
+      },
+      {
+        id: "es-l-a2-4-q2",
+        level: "A2",
+        prompt: "¿Cuánto retraso tuvo el vuelo de Daniela?",
+        options: ["Una hora", "Dos horas", "Cinco horas", "Ocho horas"],
+        answer: "Cinco horas",
+      },
+      {
+        id: "es-l-a2-4-q3",
+        level: "A2",
+        prompt: "¿Qué hizo la pareja peruana por Daniela?",
+        options: ["Le pagaron el vuelo de vuelta.", "Le prestaron ropa, la llevaron en taxi y le dieron de comer.", "Reclamaron el equipaje por ella.", "La llevaron a Machu Picchu."],
+        answer: "Le prestaron ropa, la llevaron en taxi y le dieron de comer.",
+      },
+      {
+        id: "es-l-a2-4-q4",
+        level: "A2",
+        prompt: "'Desde hacía años quería hacer ese viaje.' Why is the imperfecto used?",
+        options: ["Because the wanting was a single completed event.", "Because the desire was an ongoing state in the past.", "Because it will happen in the future.", "Because it is a si clause."],
+        answer: "Because the desire was an ongoing state in the past.",
+      },
+    ],
+  },
 ]
+
+// Alias for backward compatibility
+export const esListeningA2 = a2Listening

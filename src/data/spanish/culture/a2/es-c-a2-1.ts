@@ -1,79 +1,63 @@
-import { CultureEpisode } from "../../../../types";
+import { CultureEpisode } from "../../../../types"
 
 export const esCA21: CultureEpisode = {
   id: "es-c-a2-1",
   language: "es",
   level: "A2",
   category: "daily-life",
-  region: "all-spanish",
+  region: "latin-america",
   title: {
-    native: "Public Transport in Spanish Cities",
-    target: "El transporte público en las ciudades españolas",
+    native: "Health and the Pharmacist in Latin America",
+    target: "La salud y el farmacéutico en Latinoamérica",
   },
-  subtitle:
-    "How metro, bus, and high-speed rail shape everyday life across Spain's cities.",
+  subtitle: "Why the pharmacist is the first stop for healthcare across Latin America.",
   photos: [
     {
-      url: "https://images.unsplash.com/photo-1534080564583-6be75777b70a?w=800",
+      url: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800",
       caption: {
-        native: "The Madrid Metro, one of the largest in Europe",
-        target: "El Metro de Madrid, uno de los más grandes de Europa",
+        native: "A neighbourhood pharmacy in Bogotá",
+        target: "Una farmacia de barrio en Bogotá",
       },
       credit: "Unsplash",
     },
     {
-      url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800",
+      url: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800",
       caption: {
-        native: "A high-speed AVE train at a Spanish station",
-        target: "Un tren de alta velocidad AVE en una estación española",
-      },
-      credit: "Unsplash",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1581262208435-41726149a759?w=800",
-      caption: {
-        native: "Barcelona's iconic yellow city buses",
-        target: "Los icónicos autobuses amarillos de Barcelona",
+        native: "Herbal remedies alongside modern medicine in a Mexican market",
+        target: "Remedios naturales junto a la medicina moderna en un mercado mexicano",
       },
       credit: "Unsplash",
     },
   ],
   body: {
-    target:
-      "En España, el transporte público es una parte esencial de la vida diaria. Las ciudades grandes, como Madrid, Barcelona, Valencia y Sevilla, tienen sistemas muy completos de metro, autobús y tranvía. El metro de Madrid, por ejemplo, tiene más de trescientos kilómetros de líneas y transporta a millones de personas cada día.\n\nEl billete de transporte público en España es generalmente más barato que en otros países de Europa. En muchas ciudades existe un abono mensual, que permite viajar un número ilimitado de veces durante treinta días. Esto es muy conveniente para las personas que van al trabajo todos los días.\n\nEn las ciudades pequeñas y en los pueblos, el autobús interurbano es el medio de transporte más común. Los autobuses conectan los municipios con las ciudades más grandes y son una opción económica para muchos españoles.\n\nPara los viajes entre ciudades, España tiene una red de trenes de alta velocidad llamada AVE (Alta Velocidad Española). Estos trenes pueden viajar a más de trescientos kilómetros por hora. Por ejemplo, el viaje de Madrid a Barcelona en AVE dura solo dos horas y media. El AVE ha cambiado mucho la forma de viajar dentro de España.\n\nEn los últimos años, muchas ciudades también han introducido sistemas de bicicletas compartidas y patinetes eléctricos para completar los desplazamientos cortos. Estos medios de transporte son populares entre los jóvenes y ayudan a reducir la contaminación.",
-    native:
-      "In Spain, public transport is an essential part of daily life. Large cities like Madrid, Barcelona, Valencia, and Seville have very comprehensive metro, bus, and tram systems. The Madrid metro, for example, has more than three hundred kilometers of lines and transports millions of people every day.\n\nPublic transport tickets in Spain are generally cheaper than in other European countries. In many cities there is a monthly pass that allows unlimited travel for thirty days. This is very convenient for people who commute to work every day.\n\nIn small cities and towns, the intercity bus is the most common means of transport. Buses connect municipalities to larger cities and are an affordable option for many Spaniards.\n\nFor travel between cities, Spain has a high-speed train network called AVE (Alta Velocidad Española). These trains can travel at over three hundred kilometers per hour. For example, the journey from Madrid to Barcelona by AVE takes only two and a half hours. The AVE has greatly changed the way people travel within Spain.\n\nIn recent years, many cities have also introduced shared bicycle and electric scooter systems to complete short journeys. These modes of transport are popular among young people and help reduce pollution.",
+    native: "In much of Latin America, the pharmacist — el farmacéutico or la farmacéutica — plays a role that goes far beyond simply dispensing medication. For millions of people, a visit to the local pharmacy is the first and sometimes only point of contact with the healthcare system.\n\nWhen you have a headache, a cough, or a stomach problem, the normal course of action in Mexico, Colombia, Peru, or Argentina is to walk into the nearest farmacia, describe your symptoms, and receive a recommendation on the spot. The pharmacist might suggest over-the-counter medication, or in some cases even prescribe antibiotics that would require a prescription in other countries.\n\nThis reflects a healthcare reality: in many parts of Latin America, public health systems are stretched and private doctor consultations are expensive. The pharmacy fills the gap. Signs like 'Servicio médico' (medical service) outside pharmacies — especially in Mexico — signal that a doctor is actually present on-site at low or no cost.\n\nTraditional remedies (remedios caseros) coexist comfortably with pharmaceutical products throughout the region. Chamomile tea (té de manzanilla) for stomach problems, ginger with lemon and honey for colds, and valerian for nerves are used alongside modern medicine without conflict. This integration of traditional and contemporary approaches to health is a distinctive feature of Latin American daily life.",
+    target: "En gran parte de Latinoamérica, el farmacéutico o la farmacéutica desempeña un papel que va mucho más allá de dispensar medicamentos. Para millones de personas, visitar la farmacia del barrio es el primer — y a veces único — contacto con el sistema de salud.\n\nCuando tienes dolor de cabeza, tos o malestar estomacal, lo normal en México, Colombia, Perú o Argentina es entrar a la farmacia más cercana, describir tus síntomas y recibir una recomendación en el momento. El farmacéutico puede sugerir un medicamento de venta libre, o en algunos casos incluso recomendar antibióticos que en otros países requieren receta médica.\n\nEsto refleja una realidad sanitaria: en muchas partes de Latinoamérica, el sistema de salud público está saturado y las consultas médicas privadas son caras. La farmacia llena ese vacío. Los letreros de 'Servicio médico' en farmacias — especialmente en México — indican que hay un médico disponible en el local a bajo costo o incluso gratis.\n\nLos remedios caseros conviven con los productos farmacéuticos en toda la región. El té de manzanilla para el estómago, el jengibre con limón y miel para el resfriado, y la valeriana para los nervios se usan junto a la medicina moderna sin conflicto. Esta integración de enfoques tradicionales y contemporáneos hacia la salud es una característica distintiva de la vida cotidiana latinoamericana.",
   },
   cultureVocab: [
     {
-      word: "abono mensual",
-      translation: "monthly travel pass",
-      culturalNote:
-        "In Madrid, the monthly Abono Transporte covers all metro, bus, and commuter rail within selected zones — a hugely popular option for residents.",
+      word: "el farmacéutico / la farmacéutica",
+      translation: "pharmacist",
+      culturalNote: "In Latin America, pharmacists are trained health consultants, not just dispensers. Many carry a licenciatura or even a doctorate in pharmacy sciences.",
     },
     {
-      word: "AVE",
-      translation: "high-speed train (Alta Velocidad Española)",
-      culturalNote:
-        "Spain has the longest high-speed rail network in Europe. AVE literally means 'bird' in Spanish, a deliberate double meaning chosen when the service launched in 1992.",
+      word: "venta libre",
+      translation: "over the counter / no prescription needed",
+      culturalNote: "Many medications requiring a prescription in Europe or North America are sold over the counter (de venta libre) across much of Latin America.",
     },
     {
-      word: "tranvía",
-      translation: "tram",
-      culturalNote:
-        "Several Spanish cities, including Seville and Bilbao, have modern tram lines that were built or rebuilt after the 1990s as part of urban sustainability plans.",
+      word: "remedios caseros",
+      translation: "home remedies",
+      culturalNote: "Traditional plant-based remedies passed down through generations. Used by all social classes and taken seriously alongside pharmaceutical treatments.",
     },
     {
-      word: "interurbano",
-      translation: "intercity / between towns",
-      culturalNote:
-        "Spain's extensive coach (autobús interurbano) network reaches villages that trains don't serve, and fares are heavily subsidised to keep rural areas connected.",
+      word: "la manzanilla",
+      translation: "chamomile",
+      culturalNote: "Té de manzanilla (chamomile tea) is the default remedy for stomach problems across the Spanish-speaking world — offered in most homes and restaurants.",
     },
     {
-      word: "patinete eléctrico",
-      translation: "electric scooter",
-      culturalNote:
-        "E-scooter rentals exploded in Spanish cities from around 2018. Most cities now require riders to use cycle lanes and wear helmets following new national regulations.",
+      word: "farmacia de guardia",
+      translation: "duty pharmacy / 24-hour pharmacy",
+      culturalNote: "Most cities have rotating duty pharmacies (farmacias de guardia or farmacias 24 horas) that remain open overnight for emergencies.",
     },
   ],
   questions: [
@@ -81,42 +65,36 @@ export const esCA21: CultureEpisode = {
       id: "es-c-a2-1-q1",
       type: "comprehension",
       prompt: {
-        native: "What does AVE stand for, and what is special about it?",
-        target: "¿Qué significa AVE y qué tiene de especial?",
+        native: "Why do many people in Latin America go to the pharmacy before seeing a doctor?",
+        target: "¿Por qué muchas personas en Latinoamérica van a la farmacia antes que al médico?",
       },
       options: [
-        "A bus network connecting Spanish villages",
-        "Spain's high-speed train that travels over 300 km/h",
-        "A monthly transport pass used in Madrid",
-        "A shared bicycle system in Barcelona",
+        "Because pharmacies are cheaper and more accessible than doctor consultations",
+        "Because doctors don't exist in Latin America",
+        "Because pharmacists are more qualified than doctors",
+        "Because pharmacies are only open at night",
       ],
-      answer: "Spain's high-speed train that travels over 300 km/h",
+      answer: "Because pharmacies are cheaper and more accessible than doctor consultations",
     },
     {
       id: "es-c-a2-1-q2",
       type: "reflection",
       prompt: {
-        native:
-          "How does public transport in your country compare to Spain's system? What would you change about it?",
-        target:
-          "¿Cómo es el transporte público de tu país comparado con el sistema español? ¿Qué cambiarías?",
+        native: "Do you use traditional or home remedies from your own culture? How do they compare to the Latin American remedios caseros described here?",
+        target: "¿Usas remedios tradicionales o caseros de tu propia cultura? ¿Cómo se comparan con los remedios caseros latinoamericanos descritos aquí?",
       },
     },
     {
       id: "es-c-a2-1-q3",
-      type: "reflection",
+      type: "comparison",
       prompt: {
-        native:
-          "Spain has one of the most extensive high-speed rail networks in the world, yet car ownership is also very high. Do you think investing in public transport changes how people live and move in cities? How does transport in your country compare?",
-        target:
-          "España tiene una de las redes ferroviarias de alta velocidad más extensas del mundo, pero el número de coches también es muy alto. ¿Crees que invertir en transporte público cambia la forma en que las personas viven y se desplazan en las ciudades? ¿Cómo es el transporte en tu país en comparación?",
+        native: "How does the role of the pharmacist in Latin America differ from the role in your country? What are the advantages and disadvantages of each approach?",
+        target: "¿Cómo se diferencia el papel del farmacéutico en Latinoamérica del papel en tu país? ¿Cuáles son las ventajas y desventajas de cada enfoque?",
       },
     },
   ],
   didYouKnow: {
-    native:
-      "Spain has the longest high-speed rail network in Europe and the second longest in the world after China, with over 3,600 kilometres of AVE track. Despite this, Spain's car ownership rate is among the highest in the EU. The two coexist because Spain's geography — vast distances between major cities and sparse rural populations — makes both necessary. A Madrid–Barcelona journey that takes 2.5 hours by AVE would take 6 hours by car.",
-    target:
-      "España tiene la red ferroviaria de alta velocidad más larga de Europa y la segunda más larga del mundo después de China, con más de 3.600 kilómetros de vía AVE. A pesar de esto, la tasa de posesión de automóviles en España es una de las más altas de la UE. Ambas realidades coexisten porque la geografía de España —las grandes distancias entre las ciudades principales y una población rural dispersa— hace que ambas sean necesarias. Un viaje de Madrid a Barcelona que dura 2,5 horas en AVE tardaría 6 horas en coche.",
+    native: "Mexico has one of the highest densities of pharmacies per capita in the world. In Mexico City alone, there are more than 17,000 registered pharmacies — roughly one for every 500 residents. Many Pemex (national oil company) petrol stations also have an attached pharmacy. This extraordinary access to medication reflects both the strength of the pharmaceutical industry in Mexico and the practical reality of a fragmented public health system.",
+    target: "México tiene una de las densidades de farmacias per cápita más altas del mundo. Solo en Ciudad de México hay más de 17.000 farmacias registradas — aproximadamente una por cada 500 habitantes. Muchas gasolineras de Pemex (la empresa petrolera nacional) también tienen una farmacia adyacente. Este acceso extraordinario a medicamentos refleja tanto la fortaleza de la industria farmacéutica mexicana como la realidad práctica de un sistema de salud público fragmentado.",
   },
-};
+}
