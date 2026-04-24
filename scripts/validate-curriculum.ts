@@ -111,6 +111,7 @@ const CYRILLIC_RE = /[\u0400-\u04FF]/
  */
 function requireRomanized(val: unknown, field: string) {
     if (typeof val !== "string" || val.trim() === "") return
+    if (currentLang === "ja") return   // Japanese discontinued — skip all script checks
     if (CYRILLIC_RE.test(val)) {
         const flagged = val.replaceAll(/[^\x00-\x7F]/g, c => "[U+" + (c.codePointAt(0) ?? 0).toString(16).toUpperCase() + "]")
         err(`${field} contains Cyrillic characters (likely IME bleed): "${flagged}"`)
@@ -122,11 +123,13 @@ function requireRomanized(val: unknown, field: string) {
 
 /**
  * "native" fields must be in English (no target-language script).
- * Catches Korean/Japanese script bleeding into English fields.
- * For Latin-script languages (FR/ES/IT) we can't auto-detect, but script checks still help.
+ * Catches Korean script bleeding into English fields.
+ * Japanese is excluded entirely — content is discontinued and not validated.
+ * For Latin-script languages (FR/ES/IT) we can't auto-detect, but Cyrillic checks still help.
  */
 function requireNativeIsEnglish(val: unknown, field: string) {
     if (typeof val !== "string" || val.trim() === "") return
+    if (currentLang === "ja") return   // Japanese discontinued — skip all script checks
     if (HANGUL_RE.test(val)) err(`${field} (native/English) contains Korean script — check language direction`)
     if (CJK_KANA_RE.test(val)) err(`${field} (native/English) contains Japanese/CJK script — check language direction`)
     if (CYRILLIC_RE.test(val)) err(`${field} (native/English) contains Cyrillic — check language direction`)
