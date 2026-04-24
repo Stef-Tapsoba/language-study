@@ -105,7 +105,7 @@ export const b1Grammar: GrammarLesson[] = [
             { native: "Les résultats seront annoncés demain.", translation: "The results will be announced tomorrow. (agent omitted)" },
             { native: "Cette loi a été adoptée en 2010.", translation: "This law was adopted in 2010." },
             { native: "On dit que c'est difficile.", translation: "It is said that it's difficult. (on avoids the passive)" },
-            { native: "La ville est connue de tous les touristes.", translation: "The city is known by all tourists. (de with verb of knowledge/state)" },
+            { native: "La ville est connue de tous les touristes.", translation: "The city is known by all tourists.", annotation: "de with verb of knowledge/state" },
         ]
     },
     {
@@ -120,8 +120,8 @@ export const b1Grammar: GrammarLesson[] = [
             { native: "Je te le donne.", translation: "I give it to you. (te before le)" },
             { native: "Il le lui a expliqué.", translation: "He explained it to him/her. (le before lui)" },
             { native: "Elle les leur envoie.", translation: "She sends them to them. (les before leur)" },
-            { native: "Donne-le-moi !", translation: "Give it to me! (affirmative imperative — reversed order)" },
-            { native: "Ne me le dis pas.", translation: "Don't tell me it. (negative imperative — normal pre-verb order)" },
+            { native: "Donne-le-moi !", translation: "Give it to me!", annotation: "affirmative imperative — reversed order" },
+            { native: "Ne me le dis pas.", translation: "Don't tell me it.", annotation: "negative imperative — normal pre-verb order" },
         ]
     },
     {
@@ -149,11 +149,11 @@ export const b1Grammar: GrammarLesson[] = [
             target: "Le discours indirect rapporte ce que quelqu'un a dit sans le citer directement. Quand le verbe introducteur (dire, demander, expliquer, affirmer) est au passé, les temps reculent : présent → imparfait ; passé composé → plus-que-parfait ; futur → conditionnel présent. Les pronoms et les expressions de temps/lieu changent aussi : je → il/elle ; aujourd'hui → ce jour-là ; demain → le lendemain ; ici → là. Les questions oui/non utilisent si ; les questions ouvertes gardent leur mot interrogatif (où, quand, pourquoi). Les impératifs deviennent de + infinitif : « Viens ! » → Il m'a dit de venir. Si le verbe introducteur est au présent, il n'y a pas de changement de temps."
         },
         examples: [
-            { native: "'Je suis fatigué.' → Il a dit qu'il était fatigué.", translation: "'I'm tired.' → He said he was tired. (présent → imparfait)" },
-            { native: "'Est-ce que tu viens ?' → Elle m'a demandé si je venais.", translation: "'Are you coming?' → She asked me if I was coming. (yes/no → si)" },
-            { native: "'Je viendrai demain.' → Il a dit qu'il viendrait le lendemain.", translation: "'I'll come tomorrow.' → He said he'd come the next day. (futur → conditionnel)" },
-            { native: "'Mange plus lentement !' → Elle lui a dit de manger plus lentement.", translation: "'Eat more slowly!' → She told him to eat more slowly. (impératif → de + infinitif)" },
-            { native: "'Où habites-tu ?' → Il m'a demandé où j'habitais.", translation: "'Where do you live?' → He asked me where I lived. (question word retained)" },
+            { native: "'Je suis fatigué.' → Il a dit qu'il était fatigué.", translation: "'I'm tired.' / He said he was tired.", annotation: "présent → imparfait" },
+            { native: "'Est-ce que tu viens ?' → Elle m'a demandé si je venais.", translation: "'Are you coming?' / She asked me if I was coming.", annotation: "yes/no question → si" },
+            { native: "'Je viendrai demain.' → Il a dit qu'il viendrait le lendemain.", translation: "'I'll come tomorrow.' / He said he'd come the next day.", annotation: "futur → conditionnel" },
+            { native: "'Mange plus lentement !' → Elle lui a dit de manger plus lentement.", translation: "'Eat more slowly!' / She told him to eat more slowly.", annotation: "impératif → de + infinitif" },
+            { native: "'Où habites-tu ?' → Il m'a demandé où j'habitais.", translation: "'Where do you live?' / He asked me where I lived.", annotation: "question word retained" },
         ]
     },
     {
@@ -168,8 +168,8 @@ export const b1Grammar: GrammarLesson[] = [
             { native: "Il écoute la radio en conduisant.", translation: "He listens to the radio while driving. (simultaneity)" },
             { native: "Elle a répondu en souriant.", translation: "She answered smiling / with a smile. (manner)" },
             { native: "En travaillant davantage, tu obtiendras de meilleurs résultats.", translation: "By working harder, you will get better results. (condition/cause)" },
-            { native: "C'est en forgeant qu'on devient forgeron.", translation: "Practice makes perfect. (lit.: It's by forging that one becomes a blacksmith — fixed expression)" },
-            { native: "Tout en comprenant ses raisons, je ne suis pas d'accord.", translation: "While understanding his reasons, I disagree. (tout en = concession — even while)" },
+            { native: "C'est en forgeant qu'on devient forgeron.", translation: "Practice makes perfect.", annotation: "lit.: It's by forging that one becomes a blacksmith — fixed expression" },
+            { native: "Tout en comprenant ses raisons, je ne suis pas d'accord.", translation: "While understanding his reasons, I disagree.", annotation: "tout en = concession — even while" },
         ]
     },
     {
@@ -183,9 +183,9 @@ export const b1Grammar: GrammarLesson[] = [
         examples: [
             { native: "Il parle doucement pour que tout le monde comprenne.", translation: "He speaks quietly so that everyone understands. (pour que + subjonctif)" },
             { native: "Bien qu'il soit fatigué, il continue à travailler.", translation: "Although he is tired, he continues to work. (bien que + subjonctif)" },
-            { native: "Pars avant qu'il ne soit trop tard.", translation: "Leave before it's too late. (avant que + subjonctif + ne explétif)" },
+            { native: "Pars avant qu'il ne soit trop tard.", translation: "Leave before it's too late.", annotation: "avant que + subjonctif + ne explétif" },
             { native: "Je sortirai à moins qu'il ne pleuve.", translation: "I'll go out unless it rains. (à moins que + subjonctif)" },
-            { native: "Je resterai jusqu'à ce que tu arrives.", translation: "I'll stay until you arrive. (jusqu'à ce que — always subjunctive)" },
+            { native: "Je resterai jusqu'à ce que tu arrives.", translation: "I'll stay until you arrive.", annotation: "jusqu'à ce que — always subjunctive" },
         ]
     },
     {
@@ -229,11 +229,11 @@ export const b1Grammar: GrammarLesson[] = [
             target: "Le participe passé s'accorde en genre et en nombre dans trois situations. (1) Verbes avec être : le participe s'accorde avec le sujet : « Elle est arrivée. » « Ils sont partis. » (2) Verbes pronominaux : accord avec le pronom réfléchi s'il est complément d'objet direct : « Elle s'est lavée. » Mais pas d'accord si le réfléchi est COI : « Elle s'est lavé les mains » (les mains est le COD, pas se). (3) Verbes avec avoir : le participe s'accorde avec le COD UNIQUEMENT quand le COD est placé AVANT le verbe : « La lettre que j'ai écrite » (que = la lettre, féminin, précède écrit). Pas d'accord si l'objet suit : « J'ai écrit la lettre. » Principaux déclencheurs d'un COD antéposé : pronom relatif que, pronoms COD (la, les, l', m', t'), et combien de."
         },
         examples: [
-            { native: "Elle est arrivée en retard.", translation: "She arrived late. (être verb — agreement with subject, feminine)" },
-            { native: "Ils se sont regardés en silence.", translation: "They looked at each other in silence. (reflexive — se is direct object → agreement)" },
-            { native: "Elle s'est lavé les mains.", translation: "She washed her hands. (reflexive — se is indirect object, les mains is COD → no agreement)" },
-            { native: "La chanson que j'ai entendue était magnifique.", translation: "The song that I heard was magnificent. (que = la chanson, feminine, precedes the verb → agreement)" },
-            { native: "J'ai entendu une chanson magnifique.", translation: "I heard a magnificent song. (COD after verb → no agreement)" },
+            { native: "Elle est arrivée en retard.", translation: "She arrived late.", annotation: "être verb — agreement with subject, feminine" },
+            { native: "Ils se sont regardés en silence.", translation: "They looked at each other in silence.", annotation: "reflexive — se is direct object → agreement" },
+            { native: "Elle s'est lavé les mains.", translation: "She washed her hands.", annotation: "reflexive — se is indirect object, les mains is COD → no agreement" },
+            { native: "La chanson que j'ai entendue était magnifique.", translation: "The song that I heard was magnificent.", annotation: "que = la chanson, feminine, precedes the verb → agreement" },
+            { native: "J'ai entendu une chanson magnifique.", translation: "I heard a magnificent song.", annotation: "COD after verb → no agreement" },
         ]
     },
 ]

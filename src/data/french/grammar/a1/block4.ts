@@ -63,15 +63,15 @@ Think of the partitive as your default when you're talking about food or drink a
                 condition: "Making a general statement about liking something",
                 result: "Use le / la / les (definite article) — not du / de la",
                 examples: [
-                    { native: "J'aime le café. (general) / Je bois du café. (a quantity right now)", translation: "I like coffee. (general) / I'm drinking coffee. (now)" },
+                    { native: "J'aime le café. (general) / Je bois du café. (a quantity right now)", translation: "I like coffee. / I'm drinking coffee.", annotation: "general statement vs. a quantity right now" },
                 ],
             },
             {
                 condition: "After negation",
                 result: "All partitives become de (or d' before a vowel)",
                 examples: [
-                    { native: "Je bois du café. → Je ne bois pas de café.", translation: "I drink coffee. → I don't drink coffee." },
-                    { native: "Il y a de l'eau. → Il n'y a pas d'eau.", translation: "There is water. → There is no water." },
+                    { native: "Je bois du café. → Je ne bois pas de café.", translation: "I drink coffee. / I don't drink coffee.", annotation: "Je bois du café. → Je ne bois pas de café." },
+                    { native: "Il y a de l'eau. → Il n'y a pas d'eau.", translation: "There is water. / There is no water.", annotation: "Il y a de l'eau. → Il n'y a pas d'eau." },
                 ],
             },
         ],
@@ -165,7 +165,7 @@ USEFUL IMPERATIVE PHRASES
                 result: "Use the present-tense tu form without 'tu'; -er verbs drop the final -s",
                 examples: [
                     { native: "Tourne à gauche !", translation: "Turn left! (tu form)" },
-                    { native: "Parle plus lentement !", translation: "Speak more slowly! (parles → parle, no -s)" },
+                    { native: "Parle plus lentement !", translation: "Speak more slowly!", annotation: "parles → parle, no -s" },
                 ],
             },
             {

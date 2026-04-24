@@ -459,7 +459,7 @@ INTRODUCING A RELATIVE CLAUSE — qui
             { native: "En fait, je préfère le thé au café.", translation: "Actually, I prefer tea to coffee." },
             { native: "Euh... je ne sais pas exactement. Voilà.", translation: "Um... I don't know exactly. That's it." },
             { native: "C'est un restaurant qui est très connu dans le quartier.", translation: "It's a restaurant that is very well known in the neighbourhood." },
-            { native: "C'est compliqué, quoi.", translation: "It's complicated, you know. (informal sentence-final filler)" },
+            { native: "C'est compliqué, quoi.", translation: "It's complicated, you know.", annotation: "informal sentence-final filler" },
         ],
         inlineVocab: [
             { word: "d'abord", translation: "first / first of all" },

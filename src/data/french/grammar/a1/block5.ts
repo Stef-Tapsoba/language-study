@@ -70,7 +70,7 @@ You started A1 communicating in the present. Now you can reach into the past too
                 result: "-er → -é | -ir → -i | -re → -u",
                 heuristic: "manger → mang- + é → mangé · finir → fin- + i → fini · vendre → vend- + u → vendu",
                 examples: [
-                    { native: "manger → mangé / finir → fini / vendre → vendu", translation: "eat → eaten / finish → finished / sell → sold" },
+                    { native: "manger → mangé / finir → fini / vendre → vendu", translation: "eat / eaten — finish / finished — sell / sold", annotation: "manger → mangé / finir → fini / vendre → vendu" },
                 ],
             },
             {
@@ -168,8 +168,8 @@ NEGATION — ne...pas wraps around être:
                 condition: "Subject is feminine (with être auxiliary)",
                 result: "Add -e to the past participle",
                 examples: [
-                    { native: "Il est allé. → Elle est allée.", translation: "He went. → She went." },
-                    { native: "Il est parti. → Elle est partie.", translation: "He left. → She left." },
+                    { native: "Il est allé. → Elle est allée.", translation: "He went. / She went.", annotation: "Il est allé. → Elle est allée." },
+                    { native: "Il est parti. → Elle est partie.", translation: "He left. / She left.", annotation: "Il est parti. → Elle est partie." },
                 ],
             },
             {
