@@ -1,184 +1,93 @@
-// data/italian/vocab/a2.ts
 import { VocabItem } from "../../../types"
 
 export const a2Vocab: VocabItem[] = [
-    // --- travel & transport (existing 10 + new) ---
-    { id: "it-v-a2-001", level: "A2", word: "il viaggio", translation: "trip / journey", category: "travel & transport", example: { native: "Il viaggio in treno è stato lungo.", translation: "The train journey was long." } },
-    { id: "it-v-a2-002", level: "A2", word: "prenotare", translation: "to book / to reserve", category: "travel & transport", example: { native: "Voglio prenotare una camera.", translation: "I want to book a room." } },
-    { id: "it-v-a2-003", level: "A2", word: "l'albergo", translation: "hotel", category: "travel & transport", example: { native: "Ci fermiamo in un albergo.", translation: "We're staying in a hotel." } },
-    { id: "it-v-a2-004", level: "A2", word: "la partenza", translation: "departure", category: "travel & transport", example: { native: "La partenza è alle dieci.", translation: "The departure is at ten." } },
-    { id: "it-v-a2-005", level: "A2", word: "l'arrivo", translation: "arrival", category: "travel & transport", example: { native: "L'arrivo previsto è alle dodici.", translation: "The scheduled arrival is at noon." } },
-    { id: "it-v-a2-006", level: "A2", word: "la banca", translation: "bank", category: "travel & transport", example: { native: "Devo andare in banca.", translation: "I need to go to the bank." } },
-    { id: "it-v-a2-007", level: "A2", word: "la farmacia", translation: "pharmacy", category: "travel & transport", example: { native: "C'è una farmacia vicino?", translation: "Is there a pharmacy nearby?" } },
-    { id: "it-v-a2-008", level: "A2", word: "l'ufficio postale", translation: "post office", category: "travel & transport", example: { native: "L'ufficio postale è aperto.", translation: "The post office is open." } },
-    { id: "it-v-a2-009", level: "A2", word: "il supermercato", translation: "supermarket", category: "travel & transport", example: { native: "Faccio la spesa al supermercato.", translation: "I do grocery shopping at the supermarket." } },
-    { id: "it-v-a2-010", level: "A2", word: "la ricevuta", translation: "receipt", category: "travel & transport", example: { native: "Potrei avere la ricevuta?", translation: "Could I have the receipt?" } },
-    { id: "it-v-a2-011", level: "A2", word: "il biglietto", translation: "ticket", category: "travel & transport", example: { native: "Ho comprato un biglietto di andata e ritorno.", translation: "I bought a round-trip ticket." } },
-    { id: "it-v-a2-012", level: "A2", word: "la stazione", translation: "station", category: "travel & transport", example: { native: "La stazione è lontana dal centro.", translation: "The station is far from the city centre." } },
-    { id: "it-v-a2-013", level: "A2", word: "l'aeroporto", translation: "airport", category: "travel & transport", example: { native: "Dobbiamo arrivare all'aeroporto presto.", translation: "We need to arrive at the airport early." } },
-    { id: "it-v-a2-014", level: "A2", word: "il passaporto", translation: "passport", category: "travel & transport", example: { native: "Non dimenticate il passaporto!", translation: "Don't forget your passport!" } },
-    { id: "it-v-a2-015", level: "A2", word: "la valigia", translation: "suitcase", category: "travel & transport", example: { native: "La mia valigia è troppo pesante.", translation: "My suitcase is too heavy." } },
-    { id: "it-v-a2-016", level: "A2", word: "l'autobus", translation: "bus", category: "travel & transport", example: { native: "Prendo l'autobus ogni mattina.", translation: "I take the bus every morning." } },
-    { id: "it-v-a2-017", level: "A2", word: "la metropolitana", translation: "underground / metro", category: "travel & transport", example: { native: "La metropolitana di Roma ha tre linee.", translation: "Rome's metro has three lines." } },
+    // ── Block 1: Past tenses — narrative vocabulary ───────────────────────────
+    { id: "it-v-a2-1", level: "A2", word: "raccontare", translation: "to tell / to recount", category: "Narrating", example: { native: "Mi ha raccontato tutto quello che è successo.", translation: "He told me everything that happened." } },
+    { id: "it-v-a2-2", level: "A2", word: "ricordarsi (di)", translation: "to remember", category: "Narrating", example: { native: "Non mi ricordo dove ho messo le chiavi.", translation: "I don't remember where I put the keys." } },
+    { id: "it-v-a2-3", level: "A2", word: "dimenticare", translation: "to forget", category: "Narrating", example: { native: "Ho dimenticato di chiamarti — mi dispiace.", translation: "I forgot to call you — I'm sorry." } },
+    { id: "it-v-a2-4", level: "A2", word: "divertirsi", translation: "to have fun / enjoy oneself", category: "Narrating", example: { native: "Ci siamo divertiti tantissimo alla festa.", translation: "We had a great time at the party." } },
+    { id: "it-v-a2-5", level: "A2", word: "all'improvviso", translation: "suddenly", category: "Narrating", example: { native: "All'improvviso ha cominciato a piovere.", translation: "Suddenly it started to rain." } },
+    { id: "it-v-a2-6", level: "A2", word: "alla fine", translation: "in the end / finally", category: "Narrating", example: { native: "Alla fine sono arrivati con tre ore di ritardo.", translation: "In the end they arrived three hours late." } },
+    { id: "it-v-a2-7", level: "A2", word: "a quel punto", translation: "at that point", category: "Narrating", example: { native: "A quel punto ho deciso di andarmene.", translation: "At that point I decided to leave." } },
+    { id: "it-v-a2-8", level: "A2", word: "nel frattempo", translation: "meanwhile", category: "Narrating", example: { native: "Nel frattempo ho chiamato l'albergo per avvisarli.", translation: "Meanwhile I called the hotel to let them know." } },
+    { id: "it-v-a2-9", level: "A2", word: "per fortuna", translation: "fortunately / luckily", category: "Narrating", example: { native: "Per fortuna avevo un ombrello con me.", translation: "Fortunately I had an umbrella with me." } },
+    { id: "it-v-a2-10", level: "A2", word: "purtroppo", translation: "unfortunately", category: "Narrating", example: { native: "Purtroppo il ristorante era chiuso.", translation: "Unfortunately the restaurant was closed." } },
+    { id: "it-v-a2-11", level: "A2", word: "l'infanzia", translation: "childhood", category: "Narrating", example: { native: "Ricordo con nostalgia la mia infanzia in Toscana.", translation: "I remember my childhood in Tuscany with nostalgia." } },
+    { id: "it-v-a2-12", level: "A2", word: "il ricordo", translation: "memory / recollection", category: "Narrating", example: { native: "Ho un bellissimo ricordo di quel viaggio.", translation: "I have a wonderful memory of that trip." } },
+    { id: "it-v-a2-13", level: "A2", word: "crescere", translation: "to grow up", category: "Narrating", example: { native: "Sono cresciuto/a in un piccolo paese del Sud.", translation: "I grew up in a small village in the South." } },
+    { id: "it-v-a2-14", level: "A2", word: "capitare", translation: "to happen (unexpectedly)", category: "Narrating", example: { native: "Mi capita spesso di dimenticare le chiavi in casa.", translation: "It often happens that I leave my keys inside." } },
 
-    // --- daily routines ---
-    { id: "it-v-a2-018", level: "A2", word: "svegliarsi", translation: "to wake up", category: "daily routines", example: { native: "Mi sveglio alle sette ogni giorno.", translation: "I wake up at seven every day." } },
-    { id: "it-v-a2-019", level: "A2", word: "lavarsi", translation: "to wash oneself", category: "daily routines", example: { native: "Mi lavo le mani prima di mangiare.", translation: "I wash my hands before eating." } },
-    { id: "it-v-a2-020", level: "A2", word: "vestirsi", translation: "to get dressed", category: "daily routines", example: { native: "Si veste in fretta la mattina.", translation: "He gets dressed quickly in the morning." } },
-    { id: "it-v-a2-021", level: "A2", word: "fare la doccia", translation: "to take a shower", category: "daily routines", example: { native: "Faccio la doccia ogni sera.", translation: "I take a shower every evening." } },
-    { id: "it-v-a2-022", level: "A2", word: "fare colazione", translation: "to have breakfast", category: "daily routines", example: { native: "Faccio colazione alle otto.", translation: "I have breakfast at eight." } },
-    { id: "it-v-a2-023", level: "A2", word: "andare a letto", translation: "to go to bed", category: "daily routines", example: { native: "Di solito vado a letto a mezzanotte.", translation: "I usually go to bed at midnight." } },
-    { id: "it-v-a2-024", level: "A2", word: "la routine", translation: "routine", category: "daily routines", example: { native: "Ho una routine mattutina precisa.", translation: "I have a precise morning routine." } },
-    { id: "it-v-a2-025", level: "A2", word: "cucinare", translation: "to cook", category: "daily routines", example: { native: "Cucino la cena alle sette.", translation: "I cook dinner at seven." } },
-    { id: "it-v-a2-026", level: "A2", word: "fare la spesa", translation: "to do the shopping", category: "daily routines", example: { native: "Faccio la spesa il sabato mattina.", translation: "I do the shopping on Saturday morning." } },
+    // ── Block 2: Comparisons, descriptions, negation ─────────────────────────
+    { id: "it-v-a2-15", level: "A2", word: "confrontare", translation: "to compare", category: "Describing", example: { native: "È difficile confrontare queste due città.", translation: "It's hard to compare these two cities." } },
+    { id: "it-v-a2-16", level: "A2", word: "assomigliare a", translation: "to resemble / look like", category: "Describing", example: { native: "Assomiglia molto a sua madre.", translation: "She looks a lot like her mother." } },
+    { id: "it-v-a2-17", level: "A2", word: "animato/a", translation: "lively / bustling", category: "Describing", example: { native: "Il centro storico è molto animato la sera.", translation: "The historic centre is very lively in the evening." } },
+    { id: "it-v-a2-18", level: "A2", word: "affollato/a", translation: "crowded / packed", category: "Describing", example: { native: "Il treno era affollato — non c'era posto.", translation: "The train was packed — there was no room." } },
+    { id: "it-v-a2-19", level: "A2", word: "efficiente", translation: "efficient", category: "Describing", example: { native: "I trasporti di Milano sono molto efficienti.", translation: "Milan's public transport is very efficient." } },
+    { id: "it-v-a2-20", level: "A2", word: "caotico/a", translation: "chaotic", category: "Describing", example: { native: "Il traffico romano è completamente caotico.", translation: "Roman traffic is completely chaotic." } },
+    { id: "it-v-a2-21", level: "A2", word: "imbattibile", translation: "unbeatable", category: "Describing", example: { native: "La pizza napoletana è imbattibile.", translation: "Neapolitan pizza is unbeatable." } },
+    { id: "it-v-a2-22", level: "A2", word: "il motivo per cui", translation: "the reason why", category: "Describing", example: { native: "Il motivo per cui sono partito era semplice.", translation: "The reason I left was simple." } },
+    { id: "it-v-a2-23", level: "A2", word: "quello che mi piace", translation: "what I like", category: "Describing", example: { native: "Quello che mi piace di Roma è l'atmosfera.", translation: "What I like about Rome is the atmosphere." } },
+    { id: "it-v-a2-24", level: "A2", word: "sparire", translation: "to disappear", category: "Describing", example: { native: "Il portafoglio è sparito — non lo trovo più.", translation: "The wallet has disappeared — I can't find it anymore." } },
+    { id: "it-v-a2-25", level: "A2", word: "non...più", translation: "no longer / not anymore", category: "Negation", example: { native: "Non abita più qui da anni.", translation: "She hasn't lived here for years." } },
+    { id: "it-v-a2-26", level: "A2", word: "neanche / nemmeno", translation: "not even", category: "Negation", example: { native: "Non ha detto nemmeno una parola.", translation: "He didn't say a single word." } },
 
-    // --- shopping & money ---
-    { id: "it-v-a2-027", level: "A2", word: "il negozio", translation: "shop / store", category: "shopping & money", example: { native: "C'è un negozio di scarpe in centro.", translation: "There is a shoe shop in the centre." } },
-    { id: "it-v-a2-028", level: "A2", word: "il prezzo", translation: "price", category: "shopping & money", example: { native: "Qual è il prezzo di questo vestito?", translation: "What is the price of this dress?" } },
-    { id: "it-v-a2-029", level: "A2", word: "lo sconto", translation: "discount", category: "shopping & money", example: { native: "C'è uno sconto del venti per cento.", translation: "There is a twenty percent discount." } },
-    { id: "it-v-a2-030", level: "A2", word: "pagare", translation: "to pay", category: "shopping & money", example: { native: "Posso pagare con la carta?", translation: "Can I pay by card?" } },
-    { id: "it-v-a2-031", level: "A2", word: "il resto", translation: "change (money)", category: "shopping & money", example: { native: "Il cassiere mi ha dato il resto.", translation: "The cashier gave me the change." } },
-    { id: "it-v-a2-032", level: "A2", word: "il mercato", translation: "market", category: "shopping & money", example: { native: "Compro la frutta al mercato locale.", translation: "I buy fruit at the local market." } },
-    { id: "it-v-a2-033", level: "A2", word: "provare", translation: "to try on", category: "shopping & money", example: { native: "Posso provare questa giacca?", translation: "Can I try on this jacket?" } },
-    { id: "it-v-a2-034", level: "A2", word: "la taglia", translation: "size (clothing)", category: "shopping & money", example: { native: "Che taglia porta?", translation: "What size do you take?" } },
-    { id: "it-v-a2-035", level: "A2", word: "costare", translation: "to cost", category: "shopping & money", example: { native: "Quanto costa questo libro?", translation: "How much does this book cost?" } },
+    // ── Block 3: Social communication and pronouns ────────────────────────────
+    { id: "it-v-a2-27", level: "A2", word: "mandare un messaggio", translation: "to send a message", category: "Communication", example: { native: "Gli ho mandato un messaggio ma non ha risposto.", translation: "I sent him a message but he didn't reply." } },
+    { id: "it-v-a2-28", level: "A2", word: "restituire", translation: "to return / give back", category: "Communication", example: { native: "Devo restituire il libro che mi hai prestato.", translation: "I need to return the book you lent me." } },
+    { id: "it-v-a2-29", level: "A2", word: "prestare", translation: "to lend", category: "Communication", example: { native: "Mi presti la tua penna?", translation: "Can you lend me your pen?" } },
+    { id: "it-v-a2-30", level: "A2", word: "avvisare", translation: "to notify / let someone know", category: "Communication", example: { native: "L'ha avvisata del ritardo.", translation: "He let her know about the delay." } },
+    { id: "it-v-a2-31", level: "A2", word: "fare la conoscenza di", translation: "to meet someone (first time)", category: "Communication", example: { native: "Ho fatto la conoscenza del nuovo direttore ieri.", translation: "I met the new director yesterday for the first time." } },
+    { id: "it-v-a2-32", level: "A2", word: "rendersi conto (di)", translation: "to realise", category: "Communication", example: { native: "Mi sono resa conto che era già mezzanotte.", translation: "I realised it was already midnight." } },
+    { id: "it-v-a2-33", level: "A2", word: "venire a sapere", translation: "to find out / come to learn", category: "Communication", example: { native: "Come hai fatto a venire a sapere la notizia?", translation: "How did you find out the news?" } },
+    { id: "it-v-a2-34", level: "A2", word: "mantenere", translation: "to maintain / keep", category: "Communication", example: { native: "Riesce a mantenere la calma in ogni situazione.", translation: "She manages to keep calm in every situation." } },
+    { id: "it-v-a2-35", level: "A2", word: "scegliere tra", translation: "to choose between", category: "Communication", example: { native: "Devo scegliere tra il lavoro e la famiglia.", translation: "I have to choose between work and family." } },
+    { id: "it-v-a2-36", level: "A2", word: "sostenere", translation: "to support / maintain", category: "Communication", example: { native: "Sostiene sempre le sue opinioni con forza.", translation: "He always supports his opinions firmly." } },
 
-    // --- work & professions ---
-    { id: "it-v-a2-036", level: "A2", word: "il lavoro", translation: "work / job", category: "work & professions", example: { native: "Ho trovato un nuovo lavoro.", translation: "I found a new job." } },
-    { id: "it-v-a2-037", level: "A2", word: "l'ufficio", translation: "office", category: "work & professions", example: { native: "Lavoro in un ufficio in centro.", translation: "I work in an office in the city centre." } },
-    { id: "it-v-a2-038", level: "A2", word: "il collega", translation: "colleague", category: "work & professions", example: { native: "Il mio collega è molto gentile.", translation: "My colleague is very kind." } },
-    { id: "it-v-a2-039", level: "A2", word: "il capo", translation: "boss / manager", category: "work & professions", example: { native: "Il mio capo è esigente.", translation: "My boss is demanding." } },
-    { id: "it-v-a2-040", level: "A2", word: "la riunione", translation: "meeting", category: "work & professions", example: { native: "Ho una riunione alle dieci.", translation: "I have a meeting at ten." } },
-    { id: "it-v-a2-041", level: "A2", word: "lo stipendio", translation: "salary", category: "work & professions", example: { native: "Lo stipendio non è molto alto.", translation: "The salary is not very high." } },
-    { id: "it-v-a2-042", level: "A2", word: "l'orario", translation: "schedule / timetable", category: "work & professions", example: { native: "Il mio orario di lavoro è flessibile.", translation: "My work schedule is flexible." } },
-    { id: "it-v-a2-043", level: "A2", word: "il curriculum", translation: "CV / résumé", category: "work & professions", example: { native: "Ho mandato il curriculum all'azienda.", translation: "I sent my CV to the company." } },
+    // ── Block 4: Future, plans, hotel, travel ─────────────────────────────────
+    { id: "it-v-a2-37", level: "A2", word: "sperare (di/che)", translation: "to hope", category: "Future & Plans", example: { native: "Spero di vederti presto.", translation: "I hope to see you soon." } },
+    { id: "it-v-a2-38", level: "A2", word: "avere intenzione di", translation: "to intend to / plan to", category: "Future & Plans", example: { native: "Ho intenzione di imparare il tedesco.", translation: "I intend to learn German." } },
+    { id: "it-v-a2-39", level: "A2", word: "non vedo l'ora di", translation: "I can't wait to", category: "Future & Plans", example: { native: "Non vedo l'ora di tornare in Sicilia.", translation: "I can't wait to go back to Sicily." } },
+    { id: "it-v-a2-40", level: "A2", word: "prenotare", translation: "to book / reserve", category: "Travel", example: { native: "Vorrei prenotare una camera doppia per tre notti.", translation: "I would like to book a double room for three nights." } },
+    { id: "it-v-a2-41", level: "A2", word: "il ritardo", translation: "the delay", category: "Travel", example: { native: "Il treno ha un ritardo di due ore.", translation: "The train has a two-hour delay." } },
+    { id: "it-v-a2-42", level: "A2", word: "in orario", translation: "on time", category: "Travel", example: { native: "Il Frecciarossa è quasi sempre in orario.", translation: "The Frecciarossa is almost always on time." } },
+    { id: "it-v-a2-43", level: "A2", word: "convalidare il biglietto", translation: "to validate the ticket", category: "Travel", example: { native: "Ricordati di convalidare il biglietto prima di salire.", translation: "Remember to validate your ticket before boarding." } },
+    { id: "it-v-a2-44", level: "A2", word: "la coincidenza", translation: "the connection (train/transport)", category: "Travel", example: { native: "Ho perso la coincidenza a causa del ritardo.", translation: "I missed my connection because of the delay." } },
+    { id: "it-v-a2-45", level: "A2", word: "il rimborso", translation: "the refund", category: "Travel", example: { native: "Ho chiesto un rimborso per il volo cancellato.", translation: "I asked for a refund for the cancelled flight." } },
+    { id: "it-v-a2-46", level: "A2", word: "il noleggio auto", translation: "car rental", category: "Travel", example: { native: "Abbiamo preso un noleggio auto all'aeroporto.", translation: "We picked up a rental car at the airport." } },
+    { id: "it-v-a2-47", level: "A2", word: "vorrei", translation: "I would like (polite)", category: "Courtesy", example: { native: "Vorrei un tavolo per due persone, per favore.", translation: "I would like a table for two, please." } },
+    { id: "it-v-a2-48", level: "A2", word: "le dispiacerebbe", translation: "would you mind (polite)", category: "Courtesy", example: { native: "Le dispiacerebbe abbassare la voce?", translation: "Would you mind lowering your voice?" } },
 
-    // --- health & body ---
-    { id: "it-v-a2-044", level: "A2", word: "il medico", translation: "doctor", category: "health & body", example: { native: "Devo andare dal medico.", translation: "I need to go to the doctor." } },
-    { id: "it-v-a2-045", level: "A2", word: "la medicina", translation: "medicine / medication", category: "health & body", example: { native: "Il medico mi ha prescritto una medicina.", translation: "The doctor prescribed me a medication." } },
-    { id: "it-v-a2-046", level: "A2", word: "il mal di testa", translation: "headache", category: "health & body", example: { native: "Ho un forte mal di testa.", translation: "I have a bad headache." } },
-    { id: "it-v-a2-047", level: "A2", word: "la febbre", translation: "fever", category: "health & body", example: { native: "Mia figlia ha la febbre.", translation: "My daughter has a fever." } },
-    { id: "it-v-a2-048", level: "A2", word: "il raffreddore", translation: "cold (illness)", category: "health & body", example: { native: "Ho preso un brutto raffreddore.", translation: "I caught a bad cold." } },
-    { id: "it-v-a2-049", level: "A2", word: "l'ospedale", translation: "hospital", category: "health & body", example: { native: "È stato ricoverato in ospedale.", translation: "He was admitted to hospital." } },
-    { id: "it-v-a2-050", level: "A2", word: "stare bene", translation: "to feel well / to be well", category: "health & body", example: { native: "Come stai? — Sto bene, grazie.", translation: "How are you? — I'm well, thank you." } },
-    { id: "it-v-a2-051", level: "A2", word: "il dolore", translation: "pain / ache", category: "health & body", example: { native: "Sento un dolore alla schiena.", translation: "I feel a pain in my back." } },
-
-    // --- social interactions ---
-    { id: "it-v-a2-052", level: "A2", word: "presentarsi", translation: "to introduce oneself", category: "social interactions", example: { native: "Permettimi di presentarmi.", translation: "Allow me to introduce myself." } },
-    { id: "it-v-a2-053", level: "A2", word: "invitare", translation: "to invite", category: "social interactions", example: { native: "Ti invito a cena sabato.", translation: "I invite you to dinner on Saturday." } },
-    { id: "it-v-a2-054", level: "A2", word: "ringraziare", translation: "to thank", category: "social interactions", example: { native: "Voglio ringraziarti per il tuo aiuto.", translation: "I want to thank you for your help." } },
-    { id: "it-v-a2-055", level: "A2", word: "scusarsi", translation: "to apologise", category: "social interactions", example: { native: "Mi scuso per il ritardo.", translation: "I apologise for the delay." } },
-    { id: "it-v-a2-056", level: "A2", word: "l'appuntamento", translation: "appointment / date", category: "social interactions", example: { native: "Ho un appuntamento alle tre.", translation: "I have an appointment at three." } },
-    { id: "it-v-a2-057", level: "A2", word: "d'accordo", translation: "OK / agreed", category: "social interactions", example: { native: "Ci vediamo alle otto? — D'accordo!", translation: "Shall we meet at eight? — OK!" } },
-    { id: "it-v-a2-058", level: "A2", word: "complimentarsi", translation: "to compliment", category: "social interactions", example: { native: "Si è complimentato con lei per il lavoro.", translation: "He complimented her on her work." } },
-
-    // --- time expressions ---
-    { id: "it-v-a2-059", level: "A2", word: "spesso", translation: "often", category: "time expressions", example: { native: "Vado spesso al cinema.", translation: "I often go to the cinema." } },
-    { id: "it-v-a2-060", level: "A2", word: "raramente", translation: "rarely / seldom", category: "time expressions", example: { native: "Mangio raramente la carne.", translation: "I rarely eat meat." } },
-    { id: "it-v-a2-061", level: "A2", word: "di solito", translation: "usually", category: "time expressions", example: { native: "Di solito pranzo alle tredici.", translation: "I usually have lunch at one." } },
-    { id: "it-v-a2-062", level: "A2", word: "a volte", translation: "sometimes", category: "time expressions", example: { native: "A volte lavoro da casa.", translation: "Sometimes I work from home." } },
-    { id: "it-v-a2-063", level: "A2", word: "ancora", translation: "still / yet / again", category: "time expressions", example: { native: "Non ho ancora finito i compiti.", translation: "I haven't finished my homework yet." } },
-    { id: "it-v-a2-064", level: "A2", word: "già", translation: "already", category: "time expressions", example: { native: "Ho già mangiato.", translation: "I have already eaten." } },
-    { id: "it-v-a2-065", level: "A2", word: "poi", translation: "then / afterwards", category: "time expressions", example: { native: "Prima studio, poi guardo la televisione.", translation: "First I study, then I watch television." } },
-
-    // --- weather ---
-    { id: "it-v-a2-066", level: "A2", word: "la temperatura", translation: "temperature", category: "weather", example: { native: "La temperatura è scesa a zero gradi.", translation: "The temperature dropped to zero degrees." } },
-    { id: "it-v-a2-067", level: "A2", word: "nuvoloso", translation: "cloudy", category: "weather", example: { native: "Oggi è nuvoloso ma non piove.", translation: "Today it's cloudy but it's not raining." } },
-    { id: "it-v-a2-068", level: "A2", word: "la neve", translation: "snow", category: "weather", example: { native: "Ieri ha nevicato tutta la notte.", translation: "Yesterday it snowed all night." } },
-    { id: "it-v-a2-069", level: "A2", word: "il temporale", translation: "thunderstorm", category: "weather", example: { native: "Stasera è previsto un temporale.", translation: "A thunderstorm is forecast this evening." } },
-    { id: "it-v-a2-070", level: "A2", word: "il vento", translation: "wind", category: "weather", example: { native: "Tira molto vento oggi.", translation: "It's very windy today." } },
-    { id: "it-v-a2-071", level: "A2", word: "umido", translation: "humid / damp", category: "weather", example: { native: "L'estate a Roma è molto umida.", translation: "Summer in Rome is very humid." } },
-
-    // --- emotions ---
-    { id: "it-v-a2-072", level: "A2", word: "preoccupato", translation: "worried", category: "emotions", example: { native: "Sono preoccupato per l'esame.", translation: "I'm worried about the exam." } },
-    { id: "it-v-a2-073", level: "A2", word: "sorpreso", translation: "surprised", category: "emotions", example: { native: "Sono rimasto sorpreso dalla notizia.", translation: "I was surprised by the news." } },
-    { id: "it-v-a2-074", level: "A2", word: "arrabbiato", translation: "angry", category: "emotions", example: { native: "Perché sei così arrabbiato?", translation: "Why are you so angry?" } },
-    { id: "it-v-a2-075", level: "A2", word: "deluso", translation: "disappointed", category: "emotions", example: { native: "Sono rimasto deluso dai risultati.", translation: "I was disappointed by the results." } },
-    { id: "it-v-a2-076", level: "A2", word: "annoiato", translation: "bored", category: "emotions", example: { native: "Mi sento annoiato questo pomeriggio.", translation: "I feel bored this afternoon." } },
-    { id: "it-v-a2-077", level: "A2", word: "emozionato", translation: "excited / emotional", category: "emotions", example: { native: "Sono emozionato per la partita di domani.", translation: "I'm excited about tomorrow's match." } },
-
-    // --- food & restaurants ---
-    { id: "it-v-a2-078", level: "A2", word: "il menù", translation: "menu", category: "food & restaurants", example: { native: "Posso vedere il menù, per favore?", translation: "Can I see the menu, please?" } },
-    { id: "it-v-a2-079", level: "A2", word: "il cameriere", translation: "waiter", category: "food & restaurants", example: { native: "Il cameriere ci ha portato l'acqua.", translation: "The waiter brought us water." } },
-    { id: "it-v-a2-080", level: "A2", word: "il conto", translation: "bill (restaurant)", category: "food & restaurants", example: { native: "Possiamo avere il conto?", translation: "Can we have the bill?" } },
-    { id: "it-v-a2-081", level: "A2", word: "ordinare", translation: "to order", category: "food & restaurants", example: { native: "Cosa volete ordinare?", translation: "What would you like to order?" } },
-    { id: "it-v-a2-082", level: "A2", word: "il primo piatto", translation: "first course", category: "food & restaurants", example: { native: "Per primo piatto prendo la pasta.", translation: "For the first course I'll have pasta." } },
-    { id: "it-v-a2-083", level: "A2", word: "il secondo piatto", translation: "second course / main", category: "food & restaurants", example: { native: "Il secondo piatto è carne o pesce.", translation: "The main course is meat or fish." } },
-    { id: "it-v-a2-084", level: "A2", word: "il dolce", translation: "dessert / sweet", category: "food & restaurants", example: { native: "Come dolce abbiamo il tiramisù.", translation: "For dessert we have tiramisu." } },
-
-    // Unit 5 — everyday situations
-    { id: "it-v-a2-085", level: "A2", word: "l'appuntamento", translation: "appointment", category: "health & body", example: { native: "Ho un appuntamento dal dentista alle tre.", translation: "I have a dentist's appointment at three." } },
-    { id: "it-v-a2-086", level: "A2", word: "sempre dritto", translation: "straight ahead", category: "travel & transport", example: { native: "Vada sempre dritto fino al semaforo.", translation: "Go straight ahead until the traffic light." } },
-    { id: "it-v-a2-087", level: "A2", word: "girare a sinistra / a destra", translation: "to turn left / right", category: "travel & transport", example: { native: "Giri a destra alla piazza.", translation: "Turn right at the square." } },
-    { id: "it-v-a2-088", level: "A2", word: "la farmacia", translation: "pharmacy", category: "health & body", example: { native: "C'è una farmacia qui vicino?", translation: "Is there a pharmacy near here?" } },
-    { id: "it-v-a2-089", level: "A2", word: "la ricetta", translation: "prescription / recipe", category: "health & body", example: { native: "Ho bisogno di una ricetta medica.", translation: "I need a medical prescription." } },
-    { id: "it-v-a2-090", level: "A2", word: "il semaforo", translation: "traffic light", category: "travel & transport", example: { native: "Al semaforo, svolta a sinistra.", translation: "At the traffic light, turn left." } },
-
-    // Unit 6 — opinions and preferences
-    { id: "it-v-a2-091", level: "A2", word: "secondo me", translation: "in my opinion", category: "social interactions", example: { native: "Secondo me, questa è la soluzione migliore.", translation: "In my opinion, this is the best solution." } },
-    { id: "it-v-a2-092", level: "A2", word: "preferisco", translation: "I prefer", category: "social interactions", example: { native: "Preferisco il mare alla montagna.", translation: "I prefer the sea to the mountains." } },
-    { id: "it-v-a2-093", level: "A2", word: "sono d'accordo", translation: "I agree", category: "social interactions", example: { native: "Sono d'accordo con te.", translation: "I agree with you." } },
-    { id: "it-v-a2-094", level: "A2", word: "non sono d'accordo", translation: "I disagree", category: "social interactions", example: { native: "Mi dispiace, ma non sono d'accordo.", translation: "I'm sorry, but I disagree." } },
-    { id: "it-v-a2-095", level: "A2", word: "penso che", translation: "I think that", category: "social interactions", example: { native: "Penso che questo film sia noioso.", translation: "I think this film is boring." } },
-
-    // Unit 7 — social writing
-    { id: "it-v-a2-096", level: "A2", word: "caro / cara", translation: "dear (letter opening)", category: "social interactions", example: { native: "Cara Giulia, come stai?", translation: "Dear Giulia, how are you?" } },
-    { id: "it-v-a2-097", level: "A2", word: "un abbraccio", translation: "a hug (letter closing)", category: "social interactions", example: { native: "A presto! Un abbraccio, Marco.", translation: "See you soon! A hug, Marco." } },
-    { id: "it-v-a2-098", level: "A2", word: "mi manchi", translation: "I miss you", category: "emotions", example: { native: "Mi manchi tanto da quando sei partito.", translation: "I miss you so much since you left." } },
-    { id: "it-v-a2-099", level: "A2", word: "auguri", translation: "congratulations / best wishes", category: "social interactions", example: { native: "Auguri per il tuo compleanno!", translation: "Happy birthday! / Best wishes!" } },
-    { id: "it-v-a2-100", level: "A2", word: "mi dispiace", translation: "I'm sorry", category: "social interactions", example: { native: "Mi dispiace tanto per quello che è successo.", translation: "I'm so sorry for what happened." } },
-    { id: "it-v-a2-101", level: "A2", word: "a presto", translation: "see you soon", category: "social interactions", example: { native: "È stato bello vederti. A presto!", translation: "It was lovely to see you. See you soon!" } },
-
-    // ── Gap Fix: narrative time expressions (Unit 8) ──────────────────────────
-    { id: "it-v-a2-102", level: "A2", word: "d'improvviso / all'improvviso", translation: "suddenly", category: "time expressions", example: { native: "D'improvviso, è iniziato a piovere.", translation: "Suddenly, it started to rain." } },
-    { id: "it-v-a2-103", level: "A2", word: "mentre", translation: "while", category: "time expressions", example: { native: "Mentre mangiavo, ha suonato il telefono.", translation: "While I was eating, the phone rang." } },
-    { id: "it-v-a2-104", level: "A2", word: "poi / dopo", translation: "then / afterwards", category: "time expressions", example: { native: "Ho mangiato e poi sono uscito.", translation: "I ate and then went out." } },
-    { id: "it-v-a2-105", level: "A2", word: "alla fine", translation: "in the end / finally", category: "time expressions", example: { native: "Alla fine, abbiamo trovato un taxi.", translation: "In the end, we found a taxi." } },
-    { id: "it-v-a2-106", level: "A2", word: "in quel momento", translation: "at that moment", category: "time expressions", example: { native: "In quel momento, non sapevo cosa fare.", translation: "At that moment, I didn't know what to do." } },
-
-    // ── Conditional & polite expressions (Unit 9) ─────────────────────────────
-    { id: "it-v-a2-107", level: "A2", word: "volentieri", translation: "gladly / willingly", category: "social interactions", example: { native: "Mangerei volentieri una pizza.", translation: "I would gladly eat a pizza." } },
-    { id: "it-v-a2-108", level: "A2", word: "purtroppo", translation: "unfortunately", category: "social interactions", example: { native: "Purtroppo non posso venire.", translation: "Unfortunately I can't come." } },
-    { id: "it-v-a2-109", level: "A2", word: "magari", translation: "maybe / I wish / if only", category: "social interactions", example: { native: "Magari potessimo restare più a lungo!", translation: "If only we could stay longer!" } },
-
-    // ── Real conditionals vocabulary (Unit 11) ────────────────────────────────
-    { id: "it-v-a2-110", level: "A2", word: "in caso di", translation: "in case of", category: "everyday", example: { native: "In caso di pioggia, portiamo l'ombrello.", translation: "In case of rain, we bring the umbrella." } },
-    { id: "it-v-a2-111", level: "A2", word: "a meno che", translation: "unless", category: "everyday", example: { native: "Vengo, a meno che non piova.", translation: "I'll come, unless it rains." } },
-    { id: "it-v-a2-112", level: "A2", word: "purché", translation: "as long as / provided that", category: "everyday", example: { native: "Possiamo uscire, purché faccia bel tempo.", translation: "We can go out, as long as the weather is nice." } },
-
-    // ── Formal register / professional contexts (Unit 12) ─────────────────────
-    { id: "it-v-a2-113", level: "A2", word: "il/la collega", translation: "colleague", category: "work & professions", example: { native: "Il mio collega parla tre lingue.", translation: "My colleague speaks three languages." } },
-    { id: "it-v-a2-114", level: "A2", word: "il modulo", translation: "form (document)", category: "everyday", example: { native: "Deve compilare questo modulo.", translation: "You need to fill in this form. (formal)" } },
-    { id: "it-v-a2-115", level: "A2", word: "gentilmente", translation: "kindly / politely", category: "social interactions", example: { native: "La prego gentilmente di aspettare.", translation: "I kindly ask you to wait. (formal)" } },
-
-    // ── Object pronouns vocabulary (Units 13–14) ──────────────────────────────
-    { id: "it-v-a2-116", level: "A2", word: "restituire", translation: "to return / give back", category: "everyday", example: { native: "Ti restituisco il libro domani.", translation: "I'll give you the book back tomorrow." } },
-    { id: "it-v-a2-117", level: "A2", word: "mandare / inviare", translation: "to send", category: "everyday", example: { native: "Ti ho mandato un messaggio.", translation: "I sent you a message." } },
-    { id: "it-v-a2-118", level: "A2", word: "spiegare", translation: "to explain", category: "everyday", example: { native: "Puoi spiegarmi la regola?", translation: "Can you explain the rule to me?" } },
-    { id: "it-v-a2-119", level: "A2", word: "offrire", translation: "to offer / to treat", category: "social interactions", example: { native: "Ti offro un caffè.", translation: "I'll treat you to a coffee." } },
-
-    // ── Double pronouns vocabulary (Unit 15) ──────────────────────────────────
-    { id: "it-v-a2-120", level: "A2", word: "passare (qualcosa a qualcuno)", translation: "to pass / hand (something to someone)", category: "everyday", example: { native: "Me lo passi, per favore?", translation: "Could you pass it to me, please?" } },
-    { id: "it-v-a2-121", level: "A2", word: "consegnare", translation: "to deliver / hand over", category: "everyday", example: { native: "Glielo consegno domani.", translation: "I'll hand it over to him/her tomorrow." } },
-
-    // ── Ci and Ne vocabulary (Unit 16) ────────────────────────────────────────
-    { id: "it-v-a2-122", level: "A2", word: "tenerci (a qualcosa)", translation: "to care about (something)", category: "social interactions", example: { native: "Ci tengo molto a questa cosa.", translation: "I care a lot about this." } },
-    { id: "it-v-a2-123", level: "A2", word: "fidarsi (di)", translation: "to trust", category: "social interactions", example: { native: "Me ne fido completamente.", translation: "I trust him/her completely." } },
-
-    // ── Adverbs (Unit 17) ─────────────────────────────────────────────────────
-    { id: "it-v-a2-124", level: "A2", word: "abbastanza", translation: "enough / quite / fairly", category: "everyday", example: { native: "Parli abbastanza bene l'italiano.", translation: "You speak Italian quite well." } },
-    { id: "it-v-a2-125", level: "A2", word: "sicuramente / certamente", translation: "certainly / definitely / surely", category: "everyday", example: { native: "Sicuramente verrà anche lui.", translation: "He will certainly come too." } },
-
-    // ── Discourse connectors (Unit 18) ────────────────────────────────────────
-    { id: "it-v-a2-126", level: "A2", word: "tuttavia", translation: "however / nevertheless", category: "everyday", example: { native: "È difficile; tuttavia, ci provo.", translation: "It's difficult; nevertheless, I'll try." } },
-    { id: "it-v-a2-127", level: "A2", word: "inoltre", translation: "furthermore / also / in addition", category: "everyday", example: { native: "È bravo e, inoltre, è simpatico.", translation: "He's good, and furthermore, he's friendly." } },
-    { id: "it-v-a2-128", level: "A2", word: "cioè", translation: "that is / I mean / in other words", category: "everyday", example: { native: "È una persona onesta, cioè di cui mi fido.", translation: "He's an honest person, in other words, someone I trust." } },
-
-    // ── Verbs with prepositions (Unit 19) ─────────────────────────────────────
-    { id: "it-v-a2-129", level: "A2", word: "smettere di", translation: "to stop (doing something)", category: "everyday", example: { native: "Ha smesso di fumare l'anno scorso.", translation: "He stopped smoking last year." } },
-    { id: "it-v-a2-130", level: "A2", word: "avere paura di", translation: "to be afraid of", category: "everyday", example: { native: "Ho paura di volare.", translation: "I'm afraid of flying." } },
-
-    // ── Progressive / stare + gerundio (Unit 20) ──────────────────────────────
-    { id: "it-v-a2-131", level: "A2", word: "nel frattempo", translation: "in the meantime / meanwhile", category: "time expressions", example: { native: "Nel frattempo, stavo preparando la cena.", translation: "In the meantime, I was preparing dinner." } },
-    { id: "it-v-a2-132", level: "A2", word: "ancora", translation: "still / yet / again", category: "everyday", example: { native: "Sta ancora piovendo?", translation: "Is it still raining?" } },
+    // ── Block 5: Health, feelings, fluency ────────────────────────────────────
+    { id: "it-v-a2-49", level: "A2", word: "avere la febbre", translation: "to have a fever", category: "Health", example: { native: "Ho la febbre da ieri sera — trentotto e mezzo.", translation: "I've had a fever since last night — thirty-eight point five." } },
+    { id: "it-v-a2-50", level: "A2", word: "il raffreddore", translation: "a cold", category: "Health", example: { native: "Ho preso il raffreddore la settimana scorsa.", translation: "I caught a cold last week." } },
+    { id: "it-v-a2-51", level: "A2", word: "la tosse", translation: "a cough", category: "Health", example: { native: "Ho la tosse da tre giorni — devo andare dal medico.", translation: "I've had a cough for three days — I should go to the doctor." } },
+    { id: "it-v-a2-52", level: "A2", word: "gli antibiotici", translation: "antibiotics", category: "Health", example: { native: "Il medico mi ha prescritto gli antibiotici per dieci giorni.", translation: "The doctor prescribed antibiotics for ten days." } },
+    { id: "it-v-a2-53", level: "A2", word: "la ricetta", translation: "prescription", category: "Health", example: { native: "Hai bisogno di una ricetta per questo farmaco.", translation: "You need a prescription for this medication." } },
+    { id: "it-v-a2-54", level: "A2", word: "guarire", translation: "to recover / get better", category: "Health", example: { native: "Sono guarita completamente dopo una settimana di riposo.", translation: "I recovered completely after a week of rest." } },
+    { id: "it-v-a2-55", level: "A2", word: "sentirsi a pezzi", translation: "to feel terrible (lit. in pieces)", category: "Health", example: { native: "Mi sento a pezzi oggi — non ho dormito niente.", translation: "I feel terrible today — I didn't sleep at all." } },
+    { id: "it-v-a2-56", level: "A2", word: "diventare + aggettivo", translation: "to become + adjective (change of state)", category: "Feelings", example: { native: "È diventata molto seria quando ha sentito la notizia.", translation: "She became very serious when she heard the news." } },
+    { id: "it-v-a2-57", level: "A2", word: "la delusione", translation: "disappointment", category: "Feelings", example: { native: "Ho provato una grande delusione quando ho perso il lavoro.", translation: "I felt great disappointment when I lost the job." } },
+    { id: "it-v-a2-58", level: "A2", word: "il sollievo", translation: "relief", category: "Feelings", example: { native: "Che sollievo — avevo paura che non arrivasse in tempo.", translation: "What a relief — I was afraid he wouldn't arrive in time." } },
+    { id: "it-v-a2-59", level: "A2", word: "l'ansia", translation: "anxiety", category: "Feelings", example: { native: "Ho molta ansia prima degli esami.", translation: "I feel a lot of anxiety before exams." } },
+    { id: "it-v-a2-60", level: "A2", word: "la nostalgia", translation: "nostalgia / longing", category: "Feelings", example: { native: "Ho tanta nostalgia della mia città.", translation: "I feel a great longing for my city." } },
+    { id: "it-v-a2-61", level: "A2", word: "nonostante tutto", translation: "despite everything", category: "Connectors", example: { native: "Nonostante tutto, è stata una serata bellissima.", translation: "Despite everything, it was a wonderful evening." } },
+    { id: "it-v-a2-62", level: "A2", word: "addirittura", translation: "even / amazingly (intensifier)", category: "Connectors", example: { native: "È arrivato tardi e addirittura non si è nemmeno scusato.", translation: "He arrived late and didn't even apologise." } },
+    { id: "it-v-a2-63", level: "A2", word: "insomma", translation: "basically / in short / well (filler)", category: "Connectors", example: { native: "Insomma, alla fine è andata bene.", translation: "In short, it ended up fine." } },
+    { id: "it-v-a2-64", level: "A2", word: "comunque", translation: "anyway / in any case", category: "Connectors", example: { native: "Comunque, domani vediamo cosa succede.", translation: "Anyway, tomorrow we'll see what happens." } },
+    { id: "it-v-a2-65", level: "A2", word: "tutto sommato", translation: "all things considered", category: "Connectors", example: { native: "Tutto sommato, la vacanza è stata positiva.", translation: "All things considered, the holiday was a positive one." } },
+    { id: "it-v-a2-66", level: "A2", word: "eppure", translation: "and yet / even so", category: "Connectors", example: { native: "Studiava ogni giorno, eppure non riusciva a fare progressi.", translation: "She studied every day, and yet she couldn't make progress." } },
+    { id: "it-v-a2-67", level: "A2", word: "a causa di", translation: "because of", category: "Connectors", example: { native: "Ho perso il treno a causa del traffico.", translation: "I missed the train because of the traffic." } },
+    { id: "it-v-a2-68", level: "A2", word: "grazie a", translation: "thanks to", category: "Connectors", example: { native: "Grazie a te ho trovato questo lavoro.", translation: "Thanks to you I found this job." } },
+    { id: "it-v-a2-69", level: "A2", word: "secondo me", translation: "in my opinion", category: "Opinions", example: { native: "Secondo me, la situazione migliorerà presto.", translation: "In my opinion, the situation will improve soon." } },
+    { id: "it-v-a2-70", level: "A2", word: "trovo che", translation: "I find that / I think that", category: "Opinions", example: { native: "Trovo che questo film è molto interessante.", translation: "I find this film very interesting." } },
+    { id: "it-v-a2-71", level: "A2", word: "sono d'accordo", translation: "I agree", category: "Opinions", example: { native: "Sono d'accordo con quello che hai detto.", translation: "I agree with what you said." } },
+    { id: "it-v-a2-72", level: "A2", word: "la vedo diversamente", translation: "I see it differently", category: "Opinions", example: { native: "Capisco il tuo punto di vista, ma la vedo diversamente.", translation: "I understand your point of view, but I see it differently." } },
+    { id: "it-v-a2-73", level: "A2", word: "meno male", translation: "thank goodness / luckily", category: "Exclamations", example: { native: "Meno male che avevamo prenotato — era tutto pieno.", translation: "Thank goodness we had booked — it was all full." } },
+    { id: "it-v-a2-74", level: "A2", word: "che peccato", translation: "what a shame", category: "Exclamations", example: { native: "Che peccato che non sei venuto/a — era bellissimo.", translation: "What a shame you didn't come — it was wonderful." } },
+    { id: "it-v-a2-75", level: "A2", word: "da quanto tempo", translation: "how long (ongoing)", category: "Time", example: { native: "Da quanto tempo studi italiano?", translation: "How long have you been studying Italian?" } },
+    { id: "it-v-a2-76", level: "A2", word: "da allora", translation: "since then", category: "Time", example: { native: "Da allora non l'ho più sentita.", translation: "Since then I haven't heard from her." } },
+    { id: "it-v-a2-77", level: "A2", word: "ormai", translation: "by now / at this point", category: "Time", example: { native: "Ormai è troppo tardi per cambiare idea.", translation: "By now it's too late to change your mind." } },
+    { id: "it-v-a2-78", level: "A2", word: "non appena", translation: "as soon as", category: "Time", example: { native: "Non appena arrivo, ti mando un messaggio.", translation: "As soon as I arrive, I'll send you a message." } },
+    { id: "it-v-a2-79", level: "A2", word: "l'agriturismo", translation: "rural guesthouse / farm stay", category: "Travel", example: { native: "Abbiamo soggiornato in un agriturismo in Toscana.", translation: "We stayed at a rural guesthouse in Tuscany." } },
+    { id: "it-v-a2-80", level: "A2", word: "il campanilismo", translation: "local pride / parochialism", category: "Culture", example: { native: "Il campanilismo è molto forte in Italia — ogni città è la migliore.", translation: "Local pride is very strong in Italy — every city is the best." } },
 ]

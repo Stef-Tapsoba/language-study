@@ -4,112 +4,108 @@ export const itCA23: CultureEpisode = {
     id: "it-c-a2-3",
     language: "it",
     level: "A2",
-    category: "food",
-    region: "all-italian",
+    category: "daily-life",
+    region: "south-italy",
     title: {
-        native: "La cucina italiana",
-        target: "La cucina italiana — molto più di pasta e pizza"
+        native: "Il mercato del mattino — la vita al Sud",
+        target: "Il mercato del mattino"
     },
-    subtitle: "Italian food culture runs far deeper than its global stereotypes — regional diversity, seasonal ingredients, and the ritual of eating together are what truly define it.",
+    subtitle: "In southern Italy, the morning market is not just commerce — it is the social heart of the neighbourhood, a daily ritual of colour, noise, and belonging.",
     photos: [
         {
-            url: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800",
+            url: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800",
             caption: {
-                native: "A traditional Italian trattoria",
-                target: "Una trattoria italiana tradizionale"
-            },
-            credit: "Unsplash"
+                native: "A traditional Italian outdoor market — the sounds and colours are overwhelming",
+                target: "Un tradizionale mercato all'aperto italiano — i suoni e i colori sono travolgenti"
+            }
         },
         {
-            url: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800",
+            url: "https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=800",
             caption: {
-                native: "Fresh pasta being made by hand",
-                target: "La pasta fresca fatta a mano"
-            },
-            credit: "Unsplash"
-        },
-        {
-            url: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800",
-            caption: {
-                native: "An Italian family lunch on Sunday",
-                target: "Il pranzo domenicale in famiglia"
-            },
-            credit: "Unsplash"
+                native: "Fresh vegetables at the market — the vendor knows each customer by name",
+                target: "Verdure fresche al mercato — il venditore conosce ogni cliente per nome"
+            }
         }
     ],
     body: {
-        target: "Quando le persone pensano alla cucina italiana, pensano alla pasta e alla pizza. Ma la realtà è molto più ricca e complessa. L'Italia è un paese di grandi differenze regionali, e la cucina riflette perfettamente questa diversità.\n\nAl nord, la cucina usa molto il burro, il riso e la polenta. Il risotto alla milanese, la pasta all'uovo, i formaggi stagionati come il Parmigiano Reggiano — questi sono i sapori del nord. Al sud, invece, si cucina con l'olio d'oliva, i pomodori freschi, il pesce e la pasta di semola dura. La mozzarella di bufala campana e il prosciutto di Parma sono esempi di prodotti con il marchio DOP — Denominazione di Origine Protetta — che garantisce che il prodotto viene da una regione specifica e segue metodi di produzione tradizionali. Per gli italiani, questi marchi sono una questione di orgoglio nazionale.\n\nIl pranzo domenicale è il momento più importante della settimana. La famiglia intera si riunisce — nonni, genitori, figli, zii — e si mangia insieme per ore. Si comincia con un antipasto, poi il primo piatto di pasta, poi il secondo di carne o pesce con il contorno, e infine il dolce. La nonna cucina, i bambini giocano, gli adulti parlano. Non c'è fretta. Il pranzo domenicale è un rito quasi sacro.\n\nGli italiani fanno molta attenzione alla stagionalità degli ingredienti. Al mercato locale scelgono i pomodori d'estate, i funghi d'autunno, le arance d'inverno e le fragole di primavera. Comprare frutta o verdura fuori stagione è considerato una scelta di bassa qualità — e spesso anche uno spreco di denaro.\n\nL'aperitivo è un altro rituale fondamentale della vita sociale italiana. Tra le sei e le otto di sera, gli italiani si ritrovano al bar per un cocktail — Aperol Spritz, Campari, o Negroni — con olive, patatine e stuzzichini. A Milano, molti bar offrono un buffet completo incluso nel prezzo della bevanda. È un momento di pausa tra il lavoro e la cena, un tempo per stare insieme senza fretta.\n\nPer gli italiani, cucinare non è solo una necessità: è un atto d'amore. Le ricette si tramandano di generazione in generazione, dalla nonna alla madre, dalla madre ai figli. Cambiare la ricetta originale — aggiungere un ingrediente diverso, modificare le proporzioni — è quasi un sacrilegio. La cucina è identità, memoria e cultura.",
-        native: "When people think of Italian cuisine, they think of pasta and pizza. But the reality is far richer and more complex. Italy is a country of great regional differences, and the food reflects this diversity perfectly.\n\nIn the north, cooking uses a great deal of butter, rice, and polenta. Risotto alla milanese, egg pasta, aged cheeses like Parmigiano Reggiano — these are the flavours of the north. In the south, by contrast, people cook with olive oil, fresh tomatoes, fish, and durum wheat pasta. Buffalo mozzarella from Campania and Parma ham are examples of products carrying the DOP label — Denominazione di Origine Protetta — which guarantees that the product comes from a specific region and follows traditional production methods. For Italians, these labels are a matter of national pride.\n\nSunday lunch is the most important moment of the week. The whole family gathers — grandparents, parents, children, aunts and uncles — and eats together for hours. It begins with a starter, then the first course of pasta, then a meat or fish main with a side dish, and finally dessert. Grandmother cooks, children play, adults talk. There is no hurry. Sunday lunch is an almost sacred ritual.\n\nItalians pay great attention to the seasonality of ingredients. At the local market they choose summer tomatoes, autumn mushrooms, winter oranges, and spring strawberries. Buying fruit or vegetables out of season is considered a poor choice — and often a waste of money too.\n\nAperitivo is another fundamental ritual of Italian social life. Between six and eight in the evening, Italians meet at a bar for a cocktail — Aperol Spritz, Campari, or Negroni — with olives, crisps, and small snacks. In Milan, many bars offer a full buffet included in the price of the drink. It is a moment of pause between work and dinner, a time to be together without rushing.\n\nFor Italians, cooking is not just a necessity: it is an act of love. Recipes are handed down from generation to generation, from grandmother to mother, from mother to children. Changing the original recipe — adding a different ingredient, altering the proportions — is almost a sacrilege. Food is identity, memory, and culture."
+        target: `Al Sud Italia, la mattina inizia al mercato.
+
+Non si tratta solo di comprare frutta e verdura. Il mercato è un rituale sociale, un teatro, un luogo di incontro. Ogni mattina — anche d'inverno, anche quando piove un po' — le bancarelle si aprono, i venditori iniziano a gridare, e la vita del quartiere si organizza intorno a quell'asse rumoroso e colorato.
+
+I venditori al mercato del Sud hanno una tecnica di vendita unica. Non aspettano che il cliente si avvicini in silenzio. Chiamano, invitano, esagerano: "Guarda come sono belle! Signora, questi pomodori li ho raccolti stamattina — non esistono pomodori così da nessun'altra parte!" È teatro. E il cliente lo sa. E continua ad andare.
+
+Il dialetto è protagonista. Al mercato di Napoli, di Palermo, di Bari, si sentono voci che parlano in italiano e in dialetto allo stesso tempo — a volte nella stessa frase. I numeri vengono detti velocissimo, i prezzi si trattano, si scherza. Un forestiero che va al mercato per la prima volta si sente in un mondo completamente diverso.
+
+C'è anche un elemento di fedeltà. Si va dallo stesso venditore per anni — la stessa signora che vende le olive, lo stesso vecchio con le erbe aromatiche. Lui sa il nome tuo, sa che non ti piacciono le arance troppo mature. Lei ti mette da parte un po' di pomodori speciali perché sa che ti piacciono. È una relazione.
+
+Il mercato del mattino è tutto quello che il supermercato non è: rumoroso, imperfetto, caotico, personale. E proprio per questo, insostituibile.`,
+        native: `In southern Italy, the morning begins at the market.
+
+It is not just about buying fruit and vegetables. The market is a social ritual, a theatre, a meeting place. Every morning — even in winter, even when it drizzles a little — the stalls open, the vendors start calling out, and neighbourhood life organises itself around that noisy, colourful axis.
+
+Vendors at southern Italian markets have a unique sales technique. They don't wait for customers to approach in silence. They call, invite, exaggerate: "Look how beautiful they are! Madam, I picked these tomatoes this morning — there are no tomatoes like this anywhere else!" It's theatre. And the customer knows it. And keeps coming back.
+
+Dialect plays a central role. At the markets of Naples, Palermo, and Bari, you hear voices speaking Italian and dialect at the same time — sometimes in the same sentence. Numbers are rattled off at great speed, prices are negotiated, jokes are made. A newcomer going to the market for the first time feels they are in a completely different world.
+
+There is also an element of loyalty. You go to the same vendor for years — the same woman who sells olives, the same old man with the aromatic herbs. He knows your name, knows you don't like overripe oranges. She sets aside some special tomatoes because she knows you like them. It is a relationship.
+
+The morning market is everything a supermarket is not: noisy, imperfect, chaotic, personal. And precisely for that reason, irreplaceable.`
     },
     cultureVocab: [
         {
-            word: "la trattoria",
-            translation: "informal family restaurant",
-            culturalNote: "A step below a ristorante, the trattoria offers simple regional cooking, often a fixed menu and wine by the carafe. Many are family-run across generations."
+            word: "la bancarella",
+            translation: "market stall",
+            culturalNote: "Bancarelle line the streets of Italian markets. Unlike a fixed shop, the stall holder comes each morning and sets everything up from scratch — giving the market its temporary, theatrical quality."
         },
         {
-            word: "il pranzo domenicale",
-            translation: "Sunday lunch",
-            culturalNote: "The sacred meal of the Italian week: multiple courses, the whole family around the table, no hurry. For many Italians, Sunday lunch is the emotional core of family life."
+            word: "trattare il prezzo",
+            translation: "to negotiate the price",
+            culturalNote: "At southern Italian markets, bargaining is part of the culture. A fixed price is a starting point. A regular customer may always pay slightly less. This is not dishonesty — it is relationship."
         },
         {
-            word: "la DOP / la DOC",
-            translation: "Protected Designation of Origin",
-            culturalNote: "EU labels guaranteeing that a product (Parmigiano Reggiano, mozzarella di bufala) comes from a specific region and follows strict production rules. Italians take these labels very seriously."
+            word: "il dialetto",
+            translation: "dialect",
+            culturalNote: "Southern Italian dialects (Neapolitan, Sicilian, Barese) are so distinct from standard Italian that they are sometimes classified as separate languages. In many southern markets, dialect is the default language."
         },
         {
-            word: "l'aperitivo",
-            translation: "pre-dinner drink and snacks",
-            culturalNote: "Typically between 6–8pm, Italians gather at a bar for a cocktail (Aperol Spritz, Negroni) and snacks. In Milan, some bars serve a full buffet with the drink price. It is a social ritual as much as a meal."
+            word: "il forestiero",
+            translation: "outsider / stranger (from another place)",
+            culturalNote: "In Italian, 'forestiero' originally meant someone from a different forest (foresta) — i.e. from outside. It remains in common use in the South to describe anyone not from the immediate community."
         },
-        {
-            word: "la stagionalità",
-            translation: "seasonality",
-            culturalNote: "Shopping and cooking according to the season is deeply embedded in Italian food culture. Eating out-of-season produce is considered poor taste by many Italians."
-        }
     ],
     questions: [
         {
             id: "it-c-a2-3-q1",
             type: "comprehension",
-            prompt: {
-                native: "What is a trattoria?",
-                target: "Cos'è una trattoria?"
-            },
+            prompt: { native: "According to the text, what makes the southern Italian market different from a supermarket?", target: "Secondo il testo, cosa rende il mercato del Sud Italia diverso da un supermercato?" },
             options: [
-                "Un ristorante informale familiare",
-                "Un negozio di alimentari",
-                "Un mercato di prodotti locali",
-                "Un bar con aperitivo"
+                "The prices are much cheaper",
+                "It is open every day of the year",
+                "It is noisy, personal, chaotic, and built on relationships",
+                "It sells only local products"
             ],
-            answer: "Un ristorante informale familiare"
+            answer: "It is noisy, personal, chaotic, and built on relationships"
         },
         {
             id: "it-c-a2-3-q2",
             type: "comprehension",
-            prompt: {
-                native: "What does the DOP label guarantee?",
-                target: "Cosa garantisce il marchio DOP?"
-            },
+            prompt: { native: "What does the author mean when they say the vendor's sales technique is 'theatre'?", target: "Cosa intende l'autore quando dice che la tecnica di vendita del venditore è 'teatro'?" },
             options: [
-                "Che il prodotto viene da una regione specifica con metodi tradizionali",
-                "Che il prodotto è biologico",
-                "Che il prodotto è esportato all'estero",
-                "Che il prodotto costa meno di quelli importati"
+                "The vendors perform formal shows at the market",
+                "Both vendor and customer know the exaggerations are part of a social game — not literally true",
+                "The market is always held near a theatre building",
+                "Vendors are trained actors"
             ],
-            answer: "Che il prodotto viene da una regione specifica con metodi tradizionali"
+            answer: "Both vendor and customer know the exaggerations are part of a social game — not literally true"
         },
         {
             id: "it-c-a2-3-q3",
-            type: "reflection",
-            prompt: {
-                native: "Is there a dish from your family or culture that is never changed — a recipe passed down exactly as it is? What does food mean in your culture?",
-                target: "C'è un piatto della tua famiglia o della tua cultura che non si cambia mai — una ricetta tramandata così com'è? Cosa significa il cibo nella tua cultura?"
-            }
+            type: "comparison",
+            prompt: { native: "Is there a similar market culture in your country or city? What is similar and what is different?", target: "C'è una cultura simile dei mercati nel tuo paese o città? Cosa è simile e cosa è diverso?" }
         }
     ],
     didYouKnow: {
-        native: "Italy has the highest number of UNESCO-recognised traditional food products in the world, with over 300 products holding DOP (Protected Designation of Origin) or IGP (Protected Geographical Indication) status. These include Parmigiano Reggiano, Prosciutto di Parma, mozzarella di bufala campana and aceto balsamico di Modena. The protections mean that these products can only be made in their specific regions using traditional methods — a Parmesan made in Wisconsin cannot legally be sold as 'Parmigiano Reggiano' in Europe.",
-        target: "L'Italia ha il numero più alto al mondo di prodotti alimentari tradizionali riconosciuti dall'UNESCO, con oltre 300 prodotti che detengono la certificazione DOP (Denominazione di Origine Protetta) o IGP (Indicazione Geografica Protetta). Tra questi figurano il Parmigiano Reggiano, il Prosciutto di Parma, la mozzarella di bufala campana e l'aceto balsamico di Modena. Queste protezioni significano che tali prodotti possono essere fabbricati solo nelle loro specifiche regioni con metodi tradizionali — un parmigiano prodotto nel Wisconsin non può essere legalmente venduto come 'Parmigiano Reggiano' in Europa."
+        native: "The Ballarò market in Palermo, Sicily, has been operating continuously for over a thousand years — since the Arab rule of the island in the 9th and 10th centuries. It is one of the oldest continuously operating markets in Europe. Today it still runs every morning, Monday to Saturday, in the same neighbourhood.",
+        target: "Il mercato del Ballarò a Palermo, in Sicilia, è in funzione ininterrottamente da oltre mille anni — dai tempi della dominazione araba dell'isola nel IX e X secolo. È uno dei mercati più antichi d'Europa ancora in attività. Ancora oggi si svolge ogni mattina, dal lunedì al sabato, nello stesso quartiere."
     }
 }
