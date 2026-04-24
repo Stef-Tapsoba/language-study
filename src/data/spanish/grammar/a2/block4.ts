@@ -13,8 +13,8 @@ Regular verbs: add endings directly to the infinitive.
 
 ENDINGS (same for -ar, -er, -ir):
   yo → -é        nosotros → -emos
-  tú → -ás       vosotros → -éis
-  él/ella → -á   ellos/ustedes → -án
+  tú → -ás       ellos/ustedes → -án
+  él/ella → -á
 
 hablar: hablaré / hablarás / hablará / hablaremos / hablarán
 comer:  comeré / comerás / comerá / comeremos / comerán
@@ -45,12 +45,13 @@ USES OF THE FUTURO SIMPLE:
    Tendrá unos cuarenta años.  (He must be about forty.)
    ¿Quién llamará a estas horas?  (Who could be calling at this hour?)
 
-5. CUANDO + FUTURE TENSE — critical rule:
+5. CUANDO + PRESENT SUBJUNCTIVE — critical rule:
    In English: 'when' + present simple for future meaning.
-   In Spanish: cuando + FUTURO SIMPLE for future meaning.
+   In Spanish: cuando + PRESENT SUBJUNCTIVE for future meaning.
    Cuando llegues, llámame.          ✓ (NOT *cuando llegas...)
    Cuando sepa los resultados, te aviso.   ✓
    Cuando tengamos tiempo, lo haremos.     ✓
+   (llegues / sepa / tengamos are present subjunctive, not futuro simple)
 
 CONTRAST WITH IR A + INFINITIVE:
   Ir a + inf. → near future, decided plan, personal commitment, conversational register
@@ -71,7 +72,7 @@ CONTRAST WITH IR A + INFINITIVE:
     rules: [
       {
         condition: "Cuando with future meaning",
-        result: "ALWAYS use futuro simple after cuando — never present tense",
+        result: "Use PRESENT SUBJUNCTIVE after cuando — never present indicative or futuro",
         examples: [
           { native: "Cuando llegues, llámame.", translation: "When you arrive, call me." },
           { native: "Cuando tenga suficiente dinero, viajará a Argentina.", translation: "When he has enough money, he'll travel to Argentina." },
@@ -89,7 +90,7 @@ CONTRAST WITH IR A + INFINITIVE:
     notes: [
       {
         type: "warning",
-        content: "¡Cuando llegues, llámame! — After 'cuando' with future meaning, use futuro simple, NOT present. This is the opposite of English ('when you arrive' uses present in English, future in Spanish).",
+        content: "¡Cuando llegues, llámame! — After 'cuando' with future meaning, use the PRESENT SUBJUNCTIVE (llegues, tenga, sepamos…), NOT the present indicative. The main clause uses future or imperative.",
       },
       {
         type: "culture",
@@ -127,8 +128,8 @@ CONTRAST WITH IR A + INFINITIVE:
 
 ENDINGS (same for all verb groups):
   yo → -ía       nosotros → -íamos
-  tú → -ías      vosotros → -íais
-  él/ella → -ía  ellos/ustedes → -ían
+  tú → -ías      ellos/ustedes → -ían
+  él/ella → -ía
 
 IMPORTANT: These endings are identical to the imperfecto of -er/-ir verbs (comía, comías…).
 If you know the imperfecto endings, you already know the condicional endings.

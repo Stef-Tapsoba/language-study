@@ -86,7 +86,7 @@ export const a2Units: LessonUnit[] = [
         prompt: "What is the correct imperfecto of 'ir' for 'nosotros'?",
         options: ["ibamos", "íbamos", "fuimos", "vamos"],
         answer: "íbamos",
-        hint: "Ir imperfecto: iba, ibas, iba, íbamos, ibais, iban."
+        hint: "Ir imperfecto: iba, ibas, iba, íbamos, iban."
       },
       {
         id: "es-a2-u2-q3", level: "A2",
@@ -175,6 +175,7 @@ export const a2Units: LessonUnit[] = [
     vocabIds: ["es-v-a2-19", "es-v-a2-20", "es-v-a2-21", "es-v-a2-22", "es-v-a2-23", "es-v-a2-24", "es-v-a2-27"],
     verbIds: [],
     readingIds: ["es-r-a2-3"],
+    listeningIds: ["es-l-a2-2"],
     testQuestions: [
       {
         id: "es-a2-u4-q1", level: "A2",
@@ -435,7 +436,7 @@ export const a2Units: LessonUnit[] = [
       {
         id: "es-a2-u9-q3", level: "A2",
         prompt: "What is the correct preterite of 'dormir' for 'él'?",
-        options: ["dormió", "durmió", "dormió", "durmó"],
+        options: ["dormió", "durmió", "durmieron", "durmó"],
         answer: "durmió",
         hint: "Dormir: o→u in 3rd person only: durmió / durmieron."
       },
@@ -481,8 +482,8 @@ export const a2Units: LessonUnit[] = [
         id: "es-a2-u10-q2", level: "A2",
         prompt: "Complete: 'Cuando ___ los resultados, te llamo.' (saber, yo)",
         options: ["sé", "sabré", "supe", "sepa"],
-        answer: "sabré",
-        hint: "Cuando + future meaning → use futuro simple (not present)."
+        answer: "sepa",
+        hint: "Cuando + future meaning → use present subjunctive (sepa), not present indicative or futuro."
       },
       {
         id: "es-a2-u10-q3", level: "A2",
@@ -714,6 +715,7 @@ export const a2Units: LessonUnit[] = [
     vocabIds: ["es-v-a2-74", "es-v-a2-75", "es-v-a2-76", "es-v-a2-77", "es-v-a2-78", "es-v-a2-79", "es-v-a2-80", "es-v-a2-81", "es-v-a2-82", "es-v-a2-87", "es-v-a2-88"],
     verbIds: [],
     cultureIds: ["es-c-a2-3"],
+    checkpointId: "es-cp-a2-5",
     testQuestions: [
       {
         id: "es-a2-u15-q1", level: "A2",
@@ -761,7 +763,7 @@ export const a2Units: LessonUnit[] = [
     grammarIds: ["es-g-a2-17"],
     vocabIds: ["es-v-a2-83", "es-v-a2-84", "es-v-a2-85", "es-v-a2-86", "es-v-a2-89", "es-v-a2-90"],
     verbIds: [],
-    checkpointId: "es-cp-a2-5",
+    checkpointId: "es-cp-a2-6",
     testQuestions: [
       {
         id: "es-a2-u16-q1", level: "A2",
