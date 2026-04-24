@@ -4,112 +4,107 @@ export const itCA22: CultureEpisode = {
     id: "it-c-a2-2",
     language: "it",
     level: "A2",
-    category: "festivals",
+    category: "customs",
     region: "all-italian",
     title: {
-        native: "Le feste italiane",
-        target: "Le feste italiane — tradizioni, famiglia e identità"
+        native: "I treni italiani — un'esperienza nazionale",
+        target: "I treni italiani"
     },
-    subtitle: "Italy's festivals are not just public holidays — they are living traditions that unite communities across generations.",
+    subtitle: "Italian trains range from Europe's fastest to the legendarily delayed — and both experiences are quintessentially Italian.",
     photos: [
         {
-            url: "https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800",
+            url: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800",
             caption: {
-                native: "Carnival masks in Venice",
-                target: "Le maschere del Carnevale a Venezia"
-            },
-            credit: "Unsplash"
+                native: "A Frecciarossa high-speed train — on time, fast, and modern",
+                target: "Un Frecciarossa ad alta velocità — puntuale, veloce, e moderno"
+            }
         },
         {
-            url: "https://images.unsplash.com/photo-1462838720694-8a4c39b7fba1?w=800",
+            url: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800",
             caption: {
-                native: "Italian Easter celebrations",
-                target: "Pasqua italiana"
-            },
-            credit: "Unsplash"
-        },
-        {
-            url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800",
-            caption: {
-                native: "Ferragosto at the beach",
-                target: "Ferragosto al mare"
-            },
-            credit: "Unsplash"
+                native: "A regional train station — the yellow validation machine is essential",
+                target: "Una stazione dei treni regionali — la macchinetta gialla di convalida è essenziale"
+            }
         }
     ],
     body: {
-        target: "Le feste italiane sono molto più di semplici giorni liberi dal lavoro. Sono momenti in cui le famiglie si riuniscono, le comunità celebrano insieme e le tradizioni si tramandano di generazione in generazione.\n\nIl Carnevale si celebra a febbraio, nei giorni prima della Quaresima. In tutta Italia le persone indossano maschere e costumi colorati, e le città organizzano grandi sfilate. Il Carnevale di Venezia è il più famoso nel mondo: le maschere veneziane — come la bauta e la colombina — sono diventate simboli dell'arte e della cultura italiana. Ma anche Viareggio, in Toscana, è famosa per i suoi carri allegorici giganti, e Ivrea, in Piemonte, organizza la straordinaria «battaglia delle arance», dove migliaia di persone si lanciano arance vere per tre giorni, rievocando una rivolta medievale.\n\nLa Pasqua è la festa religiosa più importante dell'anno. La notte del sabato santo molte famiglie partecipano alla messa di mezzanotte. La domenica mattina si fa la colazione pasquale tradizionale: uova sode, salame, formaggi e la colomba, un dolce a forma di colomba con mandorle e glassa di zucchero. A pranzo, l'agnello è il piatto tipico. Le famiglie si riuniscono intorno alla tavola per ore.\n\nIl Ferragosto, il quindici agosto, è la festa dell'estate. Il nome viene dal latino «Feriae Augusti», le vacanze dell'imperatore Augusto. Ancora oggi, le città italiane si svuotano quasi completamente: tutti vanno al mare o in montagna. Il pranzo tradizionale di Ferragosto è il pollo con i peperoni, un piatto semplice ma simbolico. I negozi chiudono, le strade sono silenziose — è un'Italia diversa, quasi sospesa nel tempo.\n\nLa Befana, il sei gennaio, è una festa molto amata dai bambini. Una vecchietta simpatica arriva di notte e riempie le calze appese al camino: dolci per i bambini buoni, carbone — di solito un dolce nero a forma di carbone — per quelli cattivi. In molte regioni del centro e del sud Italia, la Befana è più attesa di Babbo Natale.\n\nInfine, il due giugno è la Festa della Repubblica. A Roma si svolge una grande parata militare sui Fori Imperiali. È un momento di riflessione sull'identità nazionale e sulla storia italiana del dopoguerra.",
-        native: "Italian festivals are much more than simple days off work. They are moments when families reunite, communities celebrate together, and traditions are passed down from generation to generation.\n\nCarnival is celebrated in February, in the days before Lent. Across Italy people wear masks and colourful costumes, and cities organise grand parades. The Venice Carnival is the most famous in the world: Venetian masks — such as the bauta and the colombina — have become symbols of Italian art and culture. But Viareggio in Tuscany is also famous for its giant allegorical floats, and Ivrea in Piedmont organises the extraordinary 'orange battle', where thousands of people throw real oranges at each other for three days, re-enacting a medieval revolt.\n\nEaster is the most important religious festival of the year. On the night of Holy Saturday many families attend midnight Mass. On Sunday morning the traditional Easter breakfast is served: hard-boiled eggs, salami, cheeses, and the colomba — a dove-shaped sweet bread with almonds and sugar glaze. At lunch, lamb is the typical dish. Families gather around the table for hours.\n\nFerragosto, on the fifteenth of August, is the festival of summer. The name comes from the Latin 'Feriae Augusti', the holidays of Emperor Augustus. Even today, Italian cities empty almost completely: everyone goes to the sea or the mountains. The traditional Ferragosto lunch is chicken with peppers, a simple but symbolic dish. Shops close, streets fall silent — it is a different Italy, almost suspended in time.\n\nThe Befana, on the sixth of January, is a festival much loved by children. A friendly old woman arrives at night and fills stockings hung by the fireplace: sweets for well-behaved children, coal — usually a black sweet shaped like coal — for naughty ones. In many regions of central and southern Italy, the Befana is more eagerly awaited than Father Christmas.\n\nFinally, the second of June is the Festa della Repubblica. In Rome a grand military parade takes place along the Imperial Forums. It is a moment of reflection on national identity and Italy's post-war history."
+        target: `In Italia, i treni non sono solo un mezzo di trasporto. Sono un'esperienza culturale.
+
+Il sistema ferroviario italiano è duale. Da un lato, ci sono i treni ad alta velocità: il Frecciarossa, il Frecciargento, il Frecciabianca di Trenitalia, e Italo — il concorrente privato. Questi treni collegano le grandi città — Milano, Bologna, Firenze, Roma, Napoli — a velocità fino a trecento chilometri all'ora. Sono moderni, comodi, e generalmente puntuali. Il Frecciarossa da Milano a Roma impiega circa tre ore. Un tempo impensabile.
+
+Dall'altro lato, ci sono i treni regionali. Qui la situazione è diversa. I ritardi sono frequenti, soprattutto al Sud. Le stazioni sono a volte piccole e poco attrezzate. Ma questi treni costano poco, attraversano paesaggi incredibili, e permettono di raggiungere posti che l'alta velocità non raggiunge.
+
+Una regola fondamentale per il viaggiatore straniero: i biglietti regionali devono essere convalidati prima di salire sul treno. C'è una macchinetta gialla in stazione — non imbarcati senza averla usata. Il biglietto ad alta velocità con prenotazione non richiede convalida separata.
+
+Il viaggiatore italiano affronta il ritardo con una filosofia caratteristica: un misto di rassegnazione, ironia, e imprecazione affettuosa. "In ritardo? Ma dai." Non ci si aspetta la perfezione svizzera. Ci si aspetta di arrivare — prima o poi.
+
+E poi c'è la sociabilità del treno. Italiani che non si conoscono attaccano discorso facilmente — il vicino di posto diventa un interlocutore, si condividono impressioni sulla destinazione, si offre metà del proprio panino. Il treno italiano è uno spazio pubblico informale dove si può parlare, leggere, dormire, e mangiare senza cerimonie.
+
+Un'ultima cosa: se prendi il treno notturno — l'Intercity Notte — preparati a un'esperienza fuori dal tempo. Lento, romantico, e anacronistico in modo delizioso.`,
+        native: `In Italy, trains are not just a means of transport. They are a cultural experience.
+
+The Italian railway system is dual. On one side, there are the high-speed trains: the Frecciarossa, Frecciargento, Frecciabianca from Trenitalia, and Italo — the private competitor. These trains connect the major cities — Milan, Bologna, Florence, Rome, Naples — at speeds of up to three hundred kilometres an hour. They are modern, comfortable, and generally punctual. The Frecciarossa from Milan to Rome takes about three hours. An unthinkable time not long ago.
+
+On the other side, there are the regional trains. Here the situation is different. Delays are frequent, especially in the South. The stations are sometimes small and poorly equipped. But these trains cost little, pass through incredible landscapes, and allow you to reach places that high-speed rail does not serve.
+
+A fundamental rule for the foreign traveller: regional tickets must be validated before boarding the train. There is a yellow machine at the station — do not board without having used it. High-speed tickets with a seat reservation do not require separate validation.
+
+The Italian traveller faces delays with a characteristic philosophy: a mixture of resignation, irony, and affectionate cursing. "Running late? Come on." Swiss-level perfection is not expected. You expect to arrive — sooner or later.
+
+And then there is the sociability of the train. Italians who don't know each other strike up conversation easily — the person next to you becomes a conversation partner, you share impressions about your destination, you offer half your sandwich. The Italian train is an informal public space where you can talk, read, sleep, and eat without ceremony.
+
+One last thing: if you take the night train — the Intercity Notte — prepare yourself for an out-of-time experience. Slow, romantic, and delightfully anachronistic.`
     },
     cultureVocab: [
         {
-            word: "la maschera",
-            translation: "mask",
-            culturalNote: "In Carnival tradition, masks allowed people of all classes to mingle anonymously; the Venetian bauta and colombina are the most iconic."
+            word: "il Frecciarossa",
+            translation: "Red Arrow (Italy's flagship high-speed train)",
+            culturalNote: "The Frecciarossa (Red Arrow) reaches 300km/h and connects Rome to Milan in under 3 hours. It is one of Europe's fastest and most comfortable train services."
         },
         {
-            word: "la calza della Befana",
-            translation: "Befana's stocking",
-            culturalNote: "Children hang stockings on the night of 5 January; sweets for good children, coal (now usually a sweet black candy) for naughty ones. The custom predates Christmas gift-giving in Italy."
+            word: "convalidare il biglietto",
+            translation: "to validate the ticket",
+            culturalNote: "One of the most important things to know about Italian trains. Regional tickets must be stamped in the yellow machine before boarding. Forgetting = fine. High-speed tickets are exempt."
         },
         {
-            word: "il Ferragosto",
-            translation: "the August bank holiday",
-            culturalNote: "Derives from Latin 'Feriae Augusti' (Augustus's rest). Shops close, cities empty, and the traditional meal is pollo con i peperoni (chicken with peppers)."
+            word: "il ritardo",
+            translation: "delay",
+            culturalNote: "Delays on Italian regional trains are a recurring part of life, especially south of Rome. The Italian response — a mix of resignation and dark humour — is itself a cultural phenomenon."
         },
         {
-            word: "la colomba pasquale",
-            translation: "Easter dove cake",
-            culturalNote: "A dove-shaped sweet bread with almonds and sugar glaze, sold everywhere in April. Symbol of peace and spring."
+            word: "l'Intercity Notte",
+            translation: "night train service",
+            culturalNote: "Italy's overnight trains connect major cities at low cost. Slower than high-speed trains, they offer an old-school travel experience that many Italians associate with summer holidays of the past."
         },
-        {
-            word: "la battaglia delle arance",
-            translation: "the orange battle",
-            culturalNote: "Ivrea's extraordinary Carnival tradition: teams throw real oranges at each other in the town square for three days, re-enacting a medieval revolt."
-        }
     ],
     questions: [
         {
             id: "it-c-a2-2-q1",
             type: "comprehension",
-            prompt: {
-                native: "What is the tradition of the Befana?",
-                target: "Qual è la tradizione della Befana?"
-            },
+            prompt: { native: "What is the key rule for regional train tickets in Italy?", target: "Qual è la regola fondamentale per i biglietti dei treni regionali in Italia?" },
             options: [
-                "Portare doni ai bambini nella calza",
-                "Organizzare una sfilata di carnevale",
-                "Preparare la colomba pasquale",
-                "Fare il pranzo in famiglia"
+                "You must book a seat reservation",
+                "You must validate (stamp) the ticket before boarding",
+                "You must show a passport",
+                "You must buy them on the train"
             ],
-            answer: "Portare doni ai bambini nella calza"
+            answer: "You must validate (stamp) the ticket before boarding"
         },
         {
             id: "it-c-a2-2-q2",
             type: "comprehension",
-            prompt: {
-                native: "Where does the name 'Ferragosto' come from?",
-                target: "Da dove deriva il nome 'Ferragosto'?"
-            },
-            options: [
-                "Dal latino 'Feriae Augusti'",
-                "Da una parola francese",
-                "Dal nome di un re medievale",
-                "Da una città del sud Italia"
-            ],
-            answer: "Dal latino 'Feriae Augusti'"
+            prompt: { native: "How long does the Frecciarossa take from Milan to Rome?", target: "Quanto impiega il Frecciarossa da Milano a Roma?" },
+            options: ["One hour", "About three hours", "Five hours", "About two hours"],
+            answer: "About three hours"
         },
         {
             id: "it-c-a2-2-q3",
             type: "reflection",
-            prompt: {
-                native: "Do you have a festival in your country that brings everyone together in a similar way? What makes it special?",
-                target: "Hai una festa nel tuo paese che riunisce tutti in modo simile? Cosa la rende speciale?"
-            }
+            prompt: { native: "How do people in your country handle transport delays? Is the attitude similar to the Italian one described here?", target: "Come reagiscono le persone nel tuo paese ai ritardi nei trasporti? L'atteggiamento è simile a quello italiano descritto qui?" }
         }
     ],
     didYouKnow: {
-        native: "Italy has sixteen national public holidays — one of the highest totals in Europe. Italians call the days between a public holiday and the weekend a 'ponte' (bridge), and it is common practice to take the bridge days off work as well, creating a long weekend. The most famous ponte is the one around Ferragosto (August 15): many Italians take the entire week off, and Italian cities can feel remarkably quiet and empty in the middle of August.",
-        target: "L'Italia ha sedici festività nazionali — uno dei totali più alti in Europa. Gli italiani chiamano i giorni compresi tra una festività e il fine settimana un 'ponte', ed è pratica comune prendere anche i giorni del ponte, creando così un lungo fine settimana. Il ponte più famoso è quello attorno al Ferragosto (15 agosto): molti italiani prendono l'intera settimana di ferie, e le città italiane possono sembrare straordinariamente silenziose e vuote nel mezzo di agosto."
+        native: "In 2022, Italy launched the Frecciarossa 1000, reaching a test speed of 393 km/h — making it one of the fastest trains ever tested in Europe. Yet on the same day, a regional train in Calabria arrived 47 minutes late. This is the dual reality of Italian railways.",
+        target: "Nel 2022, l'Italia ha lanciato il Frecciarossa 1000, che ha raggiunto una velocità di test di 393 km/h — rendendolo uno dei treni più veloci mai testati in Europa. Eppure lo stesso giorno, un treno regionale in Calabria è arrivato con 47 minuti di ritardo. Questa è la doppia realtà delle ferrovie italiane."
     }
 }

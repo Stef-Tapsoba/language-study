@@ -7,109 +7,95 @@ export const itCA21: CultureEpisode = {
     category: "food",
     region: "all-italian",
     title: {
-        native: "Il caffè italiano",
-        target: "Il caffè italiano — rituale, regole e vita sociale"
+        native: "Il campanilismo — la competizione tra campanili",
+        target: "Il campanilismo italiano"
     },
-    subtitle: "In Italy, coffee is not just a drink — it is a social institution with unwritten rules that every Italian knows by heart.",
+    subtitle: "In Italy, every city believes its food, dialect, and traditions are the best in the world — and they'll argue about it passionately.",
     photos: [
         {
-            url: "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=800",
+            url: "https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=800",
             caption: {
-                native: "A freshly pulled espresso at an Italian bar counter",
-                target: "Un espresso appena estratto al bancone di un bar italiano"
-            },
-            credit: "Unsplash"
+                native: "A campanile (bell tower) — the symbol of local identity in Italy",
+                target: "Un campanile — il simbolo dell'identità locale in Italia"
+            }
         },
         {
-            url: "https://images.unsplash.com/photo-1485808191679-5f86510bd9d4?w=800",
+            url: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800",
             caption: {
-                native: "Cappuccino — only acceptable before 11am in Italian culture",
-                target: "Cappuccino — accettabile solo prima delle undici nella cultura italiana"
-            },
-            credit: "Unsplash"
-        },
-        {
-            url: "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=800",
-            caption: {
-                native: "The Italian bar — the beating heart of neighbourhood social life",
-                target: "Il bar italiano — il cuore pulsante della vita sociale del quartiere"
-            },
-            credit: "Unsplash"
+                native: "Every Italian region has dishes it considers superior to all others",
+                target: "Ogni regione italiana ha piatti che considera superiori a tutti gli altri"
+            }
         }
     ],
     body: {
-        target: "In Italia, il caffè è molto più di una bevanda. È un rituale quotidiano con regole precise che ogni italiano conosce fin da bambino.\n\nIl caffè italiano per eccellenza è l'espresso: una piccola tazza di circa venticinque millilitri, intensa e densa. Si ordina semplicemente dicendo «un caffè», e il barista sa cosa fare. Lo si beve in piedi al bancone in uno o due minuti, poi si va al lavoro. Sedersi a un tavolo per un espresso è possibile, ma costa di più.\n\nLa regola più famosa riguarda il cappuccino: si beve solo al mattino, prima delle undici. Mai dopo pranzo, mai dopo cena. Gli italiani credono che il latte nel cappuccino sia troppo pesante per lo stomaco dopo un pasto. Se un turista ordina un cappuccino alle tre del pomeriggio, il barista lo serve — ma con una certa sorpresa.\n\nIl bar italiano non è come un pub inglese o un caffè americano. Apre molto presto, spesso alle sei del mattino, e serve colazione, caffè, pranzo veloce e dolci. È un punto di incontro sociale: le persone parlano con il barista, leggono il giornale, si trovano con gli amici.\n\nA Napoli, il caffè ha una dimensione quasi spirituale. La tradizione del «caffè sospeso» — pagare in anticipo un caffè per una persona sconosciuta che non può permetterselo — è un gesto di solidarietà tipicamente napoletano che si è diffuso in tutto il mondo.",
-        native: "In Italy, coffee is much more than a drink. It is a daily ritual with precise rules that every Italian knows from childhood.\n\nThe Italian coffee par excellence is espresso: a small cup of about twenty-five millilitres, intense and dense. It is ordered simply by saying 'un caffè', and the barista knows what to do. You drink it standing at the counter in one or two minutes, then go to work. Sitting at a table for an espresso is possible, but costs more.\n\nThe most famous rule concerns cappuccino: it is only drunk in the morning, before eleven o'clock. Never after lunch, never after dinner. Italians believe that the milk in cappuccino is too heavy on the stomach after a meal. If a tourist orders a cappuccino at three in the afternoon, the barista serves it — but with a certain surprise.\n\nThe Italian bar is not like an English pub or an American coffee shop. It opens very early, often at six in the morning, and serves breakfast, coffee, a quick lunch and pastries. It is a social meeting point: people chat with the barista, read the newspaper, meet friends.\n\nIn Naples, coffee has an almost spiritual dimension. The tradition of 'caffè sospeso' — paying in advance for a coffee for an unknown person who cannot afford it — is a typically Neapolitan gesture of solidarity that has spread around the world."
+        target: `In Italia, ogni città ha il suo campanile. E ogni campanile è, ovviamente, il più bello d'Italia.
+
+Il "campanilismo" — la parola stessa viene da "campanile" — è uno dei fenomeni sociali più caratteristici del paese. Significa orgoglio locale portato all'estremo: il mio quartiere, la mia città, la mia regione sono meglio degli altri. Non è un'idea nuova. In Italia, l'unificazione nazionale è avvenuta solo nel 1861 — prima, c'erano decine di stati, comuni, ducati, e repubbliche. Ogni entità aveva la propria cultura, dialetto, e tradizione culinaria. Questa frammentazione storica si sente ancora oggi.
+
+Le rivalità più celebri? Roma contro Milano, naturalmente. Ma anche: Bologna contro Modena (chi fa la pasta migliore?), Napoli contro tutto il resto (la pizza napoletana è l'unica vera pizza), Firenze contro Roma (chi ha più arte?), Venezia contro Verona (chi ha la storia più bella?).
+
+Il cibo è il territorio del campanilismo per eccellenza. Chiedi a un bolognese la ricetta del ragù: il burro è obbligatorio, mai l'aglio, e chi mette il pomodoro non sa cosa fa. Chiedi a un napoletano la pizza perfetta: solo acqua di Napoli, solo forno a legna, solo San Marzano.
+
+Il campanilismo italiano non è solo nazionalismo localizzato — è un modo di preservare l'identità culturale in un paese dove la diversità è enorme. È affettuoso, ironico, e profondamente radicato. E quando un italiano discute di campanilismo, lo fa con la stessa serietà con cui discuterebbe di qualsiasi altra questione importante.
+
+Bene o male? È ciò che rende l'Italia — l'Italia.`,
+        native: `In Italy, every city has its campanile (bell tower). And every campanile is, obviously, the most beautiful in Italy.
+
+"Campanilismo" — the word itself comes from "campanile" — is one of the most characteristic social phenomena of the country. It means local pride taken to the extreme: my neighbourhood, my city, my region are better than the others. It's not a new idea. Italy was unified only in 1861 — before that, there were dozens of states, communes, duchies, and republics. Each had its own culture, dialect, and culinary tradition. This historical fragmentation is still felt today.
+
+The most famous rivalries? Rome against Milan, of course. But also: Bologna against Modena (who makes the best pasta?), Naples against everyone else (Neapolitan pizza is the only real pizza), Florence against Rome (who has more art?), Venice against Verona (who has the most beautiful history?).
+
+Food is the territory of campanilismo par excellence. Ask a Bolognese for their ragù recipe: butter is obligatory, never garlic, and anyone who adds tomato doesn't know what they're doing. Ask a Neapolitan for the perfect pizza: only Naples water, only wood-fired oven, only San Marzano tomatoes.
+
+Italian campanilismo is not just localised nationalism — it is a way of preserving cultural identity in a country where diversity is enormous. It is affectionate, ironic, and deeply rooted. And when an Italian argues about campanilismo, they do so with the same seriousness they would apply to any other important issue.
+
+Good or bad? It's what makes Italy — Italy.`
     },
     cultureVocab: [
         {
-            word: "il caffè / l'espresso",
-            translation: "coffee / espresso",
-            culturalNote: "In Italy, 'un caffè' always means an espresso. Asking for 'un espresso' is slightly redundant but perfectly understood. Americano, lungo, and macchiato are variations on the espresso, not separate traditions."
+            word: "il campanile",
+            translation: "bell tower",
+            culturalNote: "The campanile is the central feature of every Italian piazza — and the symbol of local identity. The word 'campanilismo' literally means 'bell-towerism'."
         },
         {
-            word: "il bar",
-            translation: "café, coffee bar",
-            culturalNote: "The Italian 'bar' is open from early morning and serves coffee, pastries, sandwiches, and alcohol. It is the social hub of any Italian neighbourhood — nothing like a British pub."
+            word: "il campanilismo",
+            translation: "intense local pride / parochialism",
+            culturalNote: "A fundamental aspect of Italian identity. It is both a source of cultural richness (preserving local traditions) and occasional conflict."
         },
         {
-            word: "il cappuccino",
-            translation: "espresso with steamed milk and foam",
-            culturalNote: "Named after the Capuchin friars, whose habits matched the warm brown colour. The strict morning-only rule is so deeply cultural that even young children learn it early."
+            word: "il ragù bolognese",
+            translation: "Bolognese meat sauce",
+            culturalNote: "The official recipe, registered with the Bologna Chamber of Commerce in 1982, contains beef, pork, onion, carrot, celery, tomato paste, white wine, and milk — never garlic, never cream."
         },
         {
-            word: "al bancone",
-            translation: "at the counter (standing)",
-            culturalNote: "Drinking 'al bancone' is cheaper than sitting at a table — a legally permitted two-tier price system that has existed for decades. Most Italians drink their daily espresso this way."
+            word: "la pizza napoletana",
+            translation: "Neapolitan pizza",
+            culturalNote: "Protected by international UNESCO recognition since 2017 as intangible cultural heritage. In Naples, the rules are strict: hand-kneaded dough, wood-fired oven, specific tomatoes."
         },
-        {
-            word: "il caffè sospeso",
-            translation: "suspended coffee (a prepaid coffee for someone in need)",
-            culturalNote: "A Neapolitan tradition of anonymous generosity: you pay for an extra coffee that a stranger can later claim. The custom has spread to cafés in dozens of countries worldwide."
-        }
     ],
     questions: [
         {
             id: "it-c-a2-1-q1",
             type: "comprehension",
-            prompt: {
-                native: "According to Italian coffee culture, when should you NOT drink a cappuccino?",
-                target: "Secondo la cultura del caffè italiana, quando NON si dovrebbe bere un cappuccino?"
-            },
-            options: [
-                "In the morning before work",
-                "After lunch or dinner",
-                "At the bar counter",
-                "With a pastry"
-            ],
-            answer: "After lunch or dinner"
+            prompt: { native: "What does 'campanilismo' literally come from?", target: "Da dove viene letteralmente la parola 'campanilismo'?" },
+            options: ["From 'campagna' (countryside)", "From 'campanile' (bell tower)", "From 'campo' (field)", "From 'campana' (bell)"],
+            answer: "From 'campanile' (bell tower)"
         },
         {
             id: "it-c-a2-1-q2",
             type: "comprehension",
-            prompt: {
-                native: "What is a 'caffè sospeso'?",
-                target: "Che cos'è un 'caffè sospeso'?"
-            },
-            options: [
-                "A very strong double espresso",
-                "A coffee served cold over ice",
-                "A coffee paid for in advance for someone who cannot afford it",
-                "A coffee made with suspended coffee grounds"
-            ],
-            answer: "A coffee paid for in advance for someone who cannot afford it"
+            prompt: { native: "When did Italy unify as a single nation?", target: "Quando si è unificata l'Italia come nazione unica?" },
+            options: ["1789", "1815", "1861", "1946"],
+            answer: "1861"
         },
         {
             id: "it-c-a2-1-q3",
             type: "reflection",
-            prompt: {
-                native: "Do you have a daily ritual involving food or drink in your culture? How does it compare to the Italian coffee ritual?",
-                target: "Hai un rituale quotidiano legato al cibo o alle bevande nella tua cultura? Come si confronta con il rituale del caffè italiano?"
-            }
+            prompt: { native: "Does your own country have something similar to 'campanilismo'? What are the main regional rivalries?", target: "Il tuo paese ha qualcosa di simile al campanilismo? Quali sono le principali rivalità regionali?" }
         }
     ],
     didYouKnow: {
-        native: "Italy consumes around six billion espressos per year — roughly 100 per person. The price of an espresso at the bar counter (al bancone) is one of the most politically sensitive consumer prices in Italy: when bar owners try to raise it above the €1–1.20 range, it makes national news. In Naples, the espresso is typically cheaper than anywhere else in Italy and is considered a point of civic pride. The Neapolitan caffè sospeso — a prepaid coffee for a stranger — has spread to other cities and even other countries as a symbol of solidarity.",
-        target: "L'Italia consuma circa sei miliardi di espressi all'anno — circa cento a persona. Il prezzo di un espresso al bancone è uno dei prezzi al consumo politicamente più sensibili in Italia: quando i titolari di bar cercano di portarlo oltre la soglia di 1–1,20 euro, la notizia finisce sui giornali nazionali. A Napoli, l'espresso è in genere più economico che in qualsiasi altra città italiana ed è considerato un motivo di orgoglio civico. Il caffè sospeso napoletano — un caffè pagato in anticipo per uno sconosciuto — si è diffuso in altre città e persino in altri paesi come simbolo di solidarietà."
+        native: "The city of Modena and the city of Bologna are only 40 kilometres apart — yet their rivalry over pasta, cars, and opera is legendary. Modena claims Ferrari and Luciano Pavarotti; Bologna claims the world's oldest university (founded 1088) and the finest pasta in Italy. Locals in both cities will tell you, with complete conviction, that the other city's food is inferior.",
+        target: "La città di Modena e la città di Bologna distano solo quaranta chilometri — eppure la loro rivalità su pasta, macchine e opera è leggendaria. Modena rivendica Ferrari e Luciano Pavarotti; Bologna rivendica la più antica università del mondo (fondata nel 1088) e la pasta più buona d'Italia. I locali di entrambe le città ti diranno, con assoluta convinzione, che il cibo dell'altra città è inferiore."
     }
 }
