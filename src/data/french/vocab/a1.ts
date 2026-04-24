@@ -310,7 +310,7 @@ export const a1Vocab: VocabItem[] = [
 
     // --- Emergency & Urgent Phrases (5) ---
     { id: "fr-v-a1-256", level: "A1", word: "Au secours!", translation: "Help!", category: "Health", example: { native: "Au secours! Quelqu'un a besoin d'aide!", translation: "Help! Someone needs help!" } },
-    { id: "fr-v-a1-257", level: "A1", word: "Appelez le SAMU / les pompiers / la police", translation: "Call the ambulance (15) / fire brigade (18) / police (17)", category: "Health", example: { native: "Appelez le SAMU, s'il vous plaît — c'est urgent!", translation: "Call an ambulance, please — it's urgent!" } },
+    { id: "fr-v-a1-257", level: "A1", word: "Appelez le SAMU / les pompiers / la police", translation: "Call the ambulance / fire brigade / police", annotation: "emergency numbers: SAMU 15, pompiers 18, police 17", category: "Health", example: { native: "Appelez le SAMU, s'il vous plaît — c'est urgent!", translation: "Call an ambulance, please — it's urgent!" } },
     { id: "fr-v-a1-258", level: "A1", word: "j'ai besoin d'aide", translation: "I need help", category: "Health", example: { native: "Excusez-moi, j'ai besoin d'aide — je suis perdu(e).", translation: "Excuse me, I need help — I'm lost." } },
     { id: "fr-v-a1-259", level: "A1", word: "j'ai perdu mon passeport / portefeuille", translation: "I've lost my passport / wallet", category: "Health", example: { native: "J'ai perdu mon passeport — où est le commissariat?", translation: "I've lost my passport — where is the police station?" } },
     { id: "fr-v-a1-260", level: "A1", word: "C'est urgent!", translation: "It's urgent!", category: "Health", example: { native: "C'est urgent — appelez un médecin!", translation: "It's urgent — call a doctor!" } },

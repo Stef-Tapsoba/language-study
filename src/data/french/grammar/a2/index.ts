@@ -17,7 +17,7 @@ export const a2Grammar: GrammarLesson[] = [
         },
         examples: [
             { native: "J'ai mangé une pomme.", translation: "I ate an apple." },
-            { native: "Elle est arrivée en retard.", translation: "She arrived late. (être → agreement)" },
+            { native: "Elle est arrivée en retard.", translation: "She arrived late.", annotation: "être verb → agreement with subject" },
             { native: "Nous avons vu un film.", translation: "We watched a film." },
             { native: "Ils sont partis ce matin.", translation: "They left this morning." },
             { native: "Tu as fini tes devoirs?", translation: "Did you finish your homework?" },
@@ -177,7 +177,7 @@ export const a2Grammar: GrammarLesson[] = [
         },
         examples: [
             { native: "La fille qui parle est ma sœur.", translation: "The girl who is speaking is my sister. (qui = subject)" },
-            { native: "Le livre que tu lis est très bon.", translation: "The book (that) you are reading is very good. (que = object)" },
+            { native: "Le livre que tu lis est très bon.", translation: "The book (that) you are reading is very good.", annotation: "que = direct object" },
             { native: "J'ai un ami qui habite à Lyon.", translation: "I have a friend who lives in Lyon." },
             { native: "C'est le film qu'on a vu hier.", translation: "It's the film (that) we saw yesterday." },
             { native: "La personne que j'aime le plus, c'est ma mère.", translation: "The person I love the most is my mother." },
@@ -320,7 +320,7 @@ export const a2Grammar: GrammarLesson[] = [
             { native: "Tu sais où il habite ?", translation: "Do you know where he lives? (savoir + clause = fact)" },
             { native: "Je connais bien Lyon.", translation: "I know Lyon well. (connaître + place)" },
             { native: "Tu connais ce film ?", translation: "Do you know this film? (connaître = familiar with)" },
-            { native: "Elle sait qu'il a menti.", translation: "She knows (that) he lied. (savoir + que = fact)" },
+            { native: "Elle sait qu'il a menti.", translation: "She knows (that) he lied.", annotation: "savoir + que = fact" },
         ],
         inlineVocab: [
             { word: "nager", translation: "to swim" },
@@ -384,10 +384,10 @@ export const a2Grammar: GrammarLesson[] = [
             target: "Villes : toujours à. Pays féminins (la plupart se terminent en -e) : en. Pays masculins : au. Pays pluriels : aux. Exceptions : au Mexique, au Mozambique. Continents : en Europe, en Asie, en Afrique, en Amérique du Sud."
         },
         examples: [
-            { native: "Je vis à Paris.", translation: "I live in Paris. (city → à)" },
-            { native: "Elle habite en France.", translation: "She lives in France. (feminine country → en)" },
-            { native: "Il travaille au Japon.", translation: "He works in Japan. (masculine country → au)" },
-            { native: "Ils voyagent aux États-Unis.", translation: "They are travelling in the United States. (plural → aux)" },
+            { native: "Je vis à Paris.", translation: "I live in Paris.", annotation: "city → à" },
+            { native: "Elle habite en France.", translation: "She lives in France.", annotation: "feminine country → en" },
+            { native: "Il travaille au Japon.", translation: "He works in Japan.", annotation: "masculine country → au" },
+            { native: "Ils voyagent aux États-Unis.", translation: "They are travelling in the United States.", annotation: "plural → aux" },
             { native: "Nous partons en vacances en Espagne.", translation: "We are going on holiday to Spain." },
         ],
         inlineVocab: [
@@ -521,10 +521,10 @@ export const a2Grammar: GrammarLesson[] = [
             target: "La plupart des adjectifs français se placent après le nom. Mais un groupe d'adjectifs courts courants se placent AVANT le nom : beauté (beau, joli), âge (jeune, vieux, nouveau), bonté (bon, mauvais, gentil), taille (grand, petit, gros, long). Certains changent de sens selon leur position : un grand homme / un homme grand."
         },
         examples: [
-            { native: "C'est une jolie maison.", translation: "It's a pretty house. (Beauty → before)" },
-            { native: "C'est un vieux quartier.", translation: "It's an old neighbourhood. (Age → before)" },
-            { native: "C'est un bon restaurant.", translation: "It's a good restaurant. (Goodness → before)" },
-            { native: "C'est une grande ville.", translation: "It's a big city. (Size → before)" },
+            { native: "C'est une jolie maison.", translation: "It's a pretty house.", annotation: "Beauty → before noun" },
+            { native: "C'est un vieux quartier.", translation: "It's an old neighbourhood.", annotation: "Age → before noun" },
+            { native: "C'est un bon restaurant.", translation: "It's a good restaurant.", annotation: "Goodness → before noun" },
+            { native: "C'est une grande ville.", translation: "It's a big city.", annotation: "Size → before noun" },
             { native: "C'est un homme grand et un grand homme.", translation: "He is a tall man and a great man. (position changes meaning)" },
         ],
         inlineVocab: [
@@ -544,11 +544,11 @@ export const a2Grammar: GrammarLesson[] = [
             target: "Passé composé : événements ponctuels complétés, séquences d'événements, actions avec durée définie. Imparfait : descriptions de fond, actions passées habituelles, états en cours interrompus par un événement, émotions/états mentaux dans le passé. Clé : le PC dit CE QUI S'EST PASSÉ ; l'imparfait dit COMMENT C'ÉTAIT."
         },
         examples: [
-            { native: "Il faisait beau quand nous sommes arrivés.", translation: "It was nice weather when we arrived. (background → imparfait; event → PC)" },
-            { native: "Je lisais quand le téléphone a sonné.", translation: "I was reading when the phone rang. (ongoing → imparfait; interruption → PC)" },
-            { native: "Tous les ans, on allait à la mer.", translation: "Every year, we used to go to the seaside. (habit → imparfait)" },
-            { native: "Soudain, elle a crié.", translation: "Suddenly, she cried out. (sudden single event → PC)" },
-            { native: "J'étais fatigué, donc je me suis couché tôt.", translation: "I was tired, so I went to bed early. (state → imparfait; decision → PC)" },
+            { native: "Il faisait beau quand nous sommes arrivés.", translation: "It was nice weather when we arrived.", annotation: "background → imparfait; event → PC" },
+            { native: "Je lisais quand le téléphone a sonné.", translation: "I was reading when the phone rang.", annotation: "ongoing → imparfait; interruption → PC" },
+            { native: "Tous les ans, on allait à la mer.", translation: "Every year, we used to go to the seaside.", annotation: "habit → imparfait" },
+            { native: "Soudain, elle a crié.", translation: "Suddenly, she cried out.", annotation: "sudden single event → PC" },
+            { native: "J'étais fatigué, donc je me suis couché tôt.", translation: "I was tired, so I went to bed early.", annotation: "state → imparfait; decision → PC" },
         ],
         inlineVocab: [
             { word: "arriver", translation: "to arrive" },

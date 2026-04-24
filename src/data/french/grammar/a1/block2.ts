@@ -162,9 +162,9 @@ When spoken, masculine and feminine forms often sound the same (grand/grande sou
                 condition: "Describing a feminine noun or person",
                 result: "Add -e to the masculine form (if it doesn't already end in -e)",
                 examples: [
-                    { native: "Il est grand. → Elle est grande.", translation: "He is tall. → She is tall." },
-                    { native: "Il est intelligent. → Elle est intelligente.", translation: "He is intelligent. → She is intelligent." },
-                    { native: "Il est sportif. → Elle est sportive.", translation: "He is sporty. → She is sporty. (-f → -ve)" },
+                    { native: "Il est grand. → Elle est grande.", translation: "He is tall. / She is tall.", annotation: "Il est grand. → Elle est grande." },
+                    { native: "Il est intelligent. → Elle est intelligente.", translation: "He is intelligent. / She is intelligent.", annotation: "Il est intelligent. → Elle est intelligente." },
+                    { native: "Il est sportif. → Elle est sportive.", translation: "He is sporty. / She is sporty.", annotation: "Il est sportif. → Elle est sportive. (-f → -ve)" },
                 ],
             },
             {
@@ -290,15 +290,15 @@ The pattern feels mechanical at first, but after a few weeks of exposure it beco
                 condition: "Un / une / des follows a negated verb",
                 result: "Replace with de (or d' before a vowel)",
                 examples: [
-                    { native: "J'ai une voiture. → Je n'ai pas de voiture.", translation: "I have a car. → I don't have a car." },
-                    { native: "Il a des frères. → Il n'a pas de frères.", translation: "He has brothers. → He has no brothers." },
+                    { native: "J'ai une voiture. → Je n'ai pas de voiture.", translation: "I have a car. / I don't have a car.", annotation: "J'ai une voiture. → Je n'ai pas de voiture." },
+                    { native: "Il a des frères. → Il n'a pas de frères.", translation: "He has brothers. / He has no brothers.", annotation: "Il a des frères. → Il n'a pas de frères." },
                 ],
             },
             {
                 condition: "Le / la / les follows a negated verb",
                 result: "The definite article stays unchanged",
                 examples: [
-                    { native: "J'aime le chocolat. → Je n'aime pas le chocolat.", translation: "I like chocolate. → I don't like chocolate." },
+                    { native: "J'aime le chocolat. → Je n'aime pas le chocolat.", translation: "I like chocolate. / I don't like chocolate.", annotation: "J'aime le chocolat. → Je n'aime pas le chocolat." },
                 ],
             },
             {
@@ -472,10 +472,10 @@ THE GOLDEN RULE: Every French noun has a gender — masculine or feminine. Learn
         examples: [
             { native: "J'ai un appartement à Paris.", translation: "I have a flat in Paris. (first mention, one of many)" },
             { native: "L'appartement est au troisième étage.", translation: "The flat is on the third floor. (now specified)" },
-            { native: "J'aime la musique.", translation: "I like music. (general — le/la/les for general statements)" },
+            { native: "J'aime la musique.", translation: "I like music.", annotation: "general — le/la/les for general statements" },
             { native: "Les chats sont indépendants.", translation: "Cats are independent. (general statement)" },
-            { native: "Il n'y a pas de jardin.", translation: "There is no garden. (un/une/des → de after negation)" },
-            { native: "Je mange du pain le matin.", translation: "I eat (some) bread in the morning. (partitive preview)" },
+            { native: "Il n'y a pas de jardin.", translation: "There is no garden.", annotation: "un/une/des → de after negation" },
+            { native: "Je mange du pain le matin.", translation: "I eat (some) bread in the morning.", annotation: "partitive preview" },
         ],
         inlineVocab: [
             { word: "un / une / des", translation: "a / an / some (indefinite articles)" },
@@ -502,7 +502,7 @@ THE GOLDEN RULE: Every French noun has a gender — masculine or feminine. Learn
                 result: "Use le / la / l' / les",
                 examples: [
                     { native: "L'appartement est au troisième étage.", translation: "The flat is on the third floor. (now specific)" },
-                    { native: "J'aime la musique.", translation: "I like music. (general statement — not 'the music')" },
+                    { native: "J'aime la musique.", translation: "I like music.", annotation: "general statement — not 'the music'" },
                     { native: "Les chats sont indépendants.", translation: "Cats are independent. (general truth)" },
                 ],
             },
