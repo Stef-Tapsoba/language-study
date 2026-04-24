@@ -28,12 +28,16 @@
 -- ============================================================
 
 -- Reusable domain for language IDs (es, fr, it, ja, ko — extensible via ALTER DOMAIN)
-CREATE DOMAIN lang_id AS TEXT
-    CHECK (VALUE ~ '^[a-z]{2,5}$');
+DO $$ BEGIN
+    CREATE DOMAIN lang_id AS TEXT CHECK (VALUE ~ '^[a-z]{2,5}$');
+EXCEPTION WHEN duplicate_object THEN NULL;
+END $$;
 
 -- Reusable domain for CEFR levels
-CREATE DOMAIN cefr_level AS TEXT
-    CHECK (VALUE IN ('A1', 'A2', 'B1', 'B2', 'C1', 'C2'));
+DO $$ BEGIN
+    CREATE DOMAIN cefr_level AS TEXT CHECK (VALUE IN ('A1', 'A2', 'B1', 'B2', 'C1', 'C2'));
+EXCEPTION WHEN duplicate_object THEN NULL;
+END $$;
 
 -- ============================================================
 -- SHARED TRIGGER: set_updated_at
