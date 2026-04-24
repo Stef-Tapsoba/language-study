@@ -10,17 +10,17 @@ export const block4Lessons: GrammarLesson[] = [
             {
                 condition: "Destination (moving toward) or static existence (있다/없다)",
                 result: "에",
-                examples: [{ native: "학교에 가요", romanized: "hakgyoe gayo", translation: "I go to school (destination — 에)" }, { native: "집에 있어요", romanized: "jibe isseoyo", translation: "I'm at home (static existence — 에)" }, { native: "서울에 살아요", romanized: "seoure sarayo", translation: "I live in Seoul (static location with 살다 — 에)" }],
+                examples: [{ native: "학교에 가요", romanized: "hakgyoe gayo", translation: "I go to school.", annotation: "destination — 에"}, { native: "집에 있어요", romanized: "jibe isseoyo", translation: "I'm at home.", annotation: "static existence — 에"}, { native: "서울에 살아요", romanized: "seoure sarayo", translation: "I live in Seoul.", annotation: "static location with 살다 — 에"}],
             },
             {
                 condition: "Location where an action takes place",
                 result: "에서",
-                examples: [{ native: "학교에서 공부해요", romanized: "hakgyoeseo gongbuhaeyo", translation: "I study at school (action location — 에서)" }, { native: "집에서 요리해요", romanized: "jibeseo yorihaeyo", translation: "I cook at home (action location — 에서)" }, { native: "카페에서 친구를 만나요", romanized: "kapeeseo chingureul mannayo", translation: "I meet a friend at the café (action location — 에서)" }],
+                examples: [{ native: "학교에서 공부해요", romanized: "hakgyoeseo gongbuhaeyo", translation: "I study at school.", annotation: "action location — 에서"}, { native: "집에서 요리해요", romanized: "jibeseo yorihaeyo", translation: "I cook at home.", annotation: "action location — 에서"}, { native: "카페에서 친구를 만나요", romanized: "kapeeseo chingureul mannayo", translation: "I meet a friend at the café.", annotation: "action location — 에서"}],
             },
             {
                 condition: "Origin — coming FROM a place",
                 result: "에서 (with movement verb pointing away)",
-                examples: [{ native: "어디에서 왔어요?", romanized: "eodieseo wasseoyo?", translation: "Where did you come from? (에서 = origin)" }, { native: "집에서 나왔어요", romanized: "jibeseo nawasseoyo", translation: "I came out from home (에서 = origin/from)" }, { native: "영국에서 왔어요", romanized: "yeonggugeso wasseoyo", translation: "I came from the UK (에서 = from)" }],
+                examples: [{ native: "어디에서 왔어요?", romanized: "eodieseo wasseoyo?", translation: "Where did you come from?", annotation: "에서 = origin"}, { native: "집에서 나왔어요", romanized: "jibeseo nawasseoyo", translation: "I came out from home.", annotation: "에서 = origin/from"}, { native: "영국에서 왔어요", romanized: "yeonggugeso wasseoyo", translation: "I came from the UK.", annotation: "에서 = from"}],
             },
         ],
         notes: [
@@ -30,11 +30,11 @@ export const block4Lessons: GrammarLesson[] = [
             },
         ],
         examples: [
-            { native: "도서관에 가요. 도서관에서 책을 읽어요.", romanized: "Doseogwane gayo. Doseogwaneseo chaegeul ilgeoyo.", translation: "I go to the library. I read books at the library. (에 = destination; 에서 = action location)" },
-            { native: "집에 있어요. 집에서 요리해요.", romanized: "Jibe isseoyo. Jibeseo yorihaeyo.", translation: "I'm at home. I cook at home. (에 = existence; 에서 = action location)" },
+            { native: "도서관에 가요. 도서관에서 책을 읽어요.", romanized: "Doseogwane gayo. Doseogwaneseo chaegeul ilgeoyo.", translation: "I go to the library. I read books at the library.", annotation: "에 = destination; 에서 = action location"},
+            { native: "집에 있어요. 집에서 요리해요.", romanized: "Jibe isseoyo. Jibeseo yorihaeyo.", translation: "I'm at home. I cook at home.", annotation: "에 = existence; 에서 = action location"},
             { native: "카페에 가요. 카페에서 친구를 만나요.", romanized: "Kapee gayo. Kapeeseo chingureul mannayo.", translation: "I go to the café. I meet a friend at the café." },
-            { native: "어디에서 왔어요? — 영국에서 왔어요.", romanized: "Eodieseo wasseoyo? — Yeonggugeso wasseoyo.", translation: "Where did you come from? — I came from the UK. (에서 = from)" },
-            { native: "회사에서 점심을 먹어요.", romanized: "Hwisaeseo jeomsimeul meogeoyo.", translation: "I eat lunch at the office. (에서 = where the eating happens)" },
+            { native: "어디에서 왔어요? — 영국에서 왔어요.", romanized: "Eodieseo wasseoyo? — Yeonggugeso wasseoyo.", translation: "Where did you come from? — I came from the UK.", annotation: "에서 = from"},
+            { native: "회사에서 점심을 먹어요.", romanized: "Hwisaeseo jeomsimeul meogeoyo.", translation: "I eat lunch at the office.", annotation: "에서 = where the eating happens"},
             { native: "저는 서울에 살아요. 홍대에서 일해요.", romanized: "Jeoneun seoure sarayo. Hongdaeseo ilhaeyo.", translation: "I live in Seoul. I work in Hongdae." },
         ],
         inlineVocab: [
@@ -57,12 +57,12 @@ export const block4Lessons: GrammarLesson[] = [
             {
                 condition: "Means of transport (by/via)",
                 result: "(으)로 — 로 after vowel or ㄹ, 으로 after consonant",
-                examples: [{ native: "지하철로 가요", romanized: "jihacheolro gayo", translation: "I go by subway (지하철 ends in ㄹ → 로)" }, { native: "버스로 가요", romanized: "beoseuro gayo", translation: "I go by bus (버스 ends in vowel → 로)" }, { native: "택시로 가요", romanized: "taeksiro gayo", translation: "I go by taxi (택시 ends in vowel → 로)" }],
+                examples: [{ native: "지하철로 가요", romanized: "jihacheolro gayo", translation: "I go by subway.", annotation: "지하철 ends in ㄹ → 로"}, { native: "버스로 가요", romanized: "beoseuro gayo", translation: "I go by bus.", annotation: "버스 ends in vowel → 로"}, { native: "택시로 가요", romanized: "taeksiro gayo", translation: "I go by taxi.", annotation: "택시 ends in vowel → 로"}],
             },
             {
                 condition: "Boarding a vehicle",
                 result: "[vehicle]을/를 타요",
-                examples: [{ native: "지하철을 타요", romanized: "jihacheoleul tayo", translation: "I ride the subway (을/를 + 타다 = board a vehicle)" }, { native: "버스를 타요", romanized: "beoseureul tayo", translation: "I ride the bus" }, { native: "택시를 타요", romanized: "taeksireul tayo", translation: "I take a taxi" }],
+                examples: [{ native: "지하철을 타요", romanized: "jihacheoleul tayo", translation: "I ride the subway.", annotation: "을/를 + 타다 = board a vehicle"}, { native: "버스를 타요", romanized: "beoseureul tayo", translation: "I ride the bus" }, { native: "택시를 타요", romanized: "taeksireul tayo", translation: "I take a taxi" }],
             },
             {
                 condition: "Going on foot",
@@ -112,12 +112,12 @@ export const block4Lessons: GrammarLesson[] = [
             {
                 condition: "하나/둘/셋/넷 before a counter",
                 result: "Shorten to 한/두/세/네",
-                examples: [{ native: "한 잔", romanized: "han jan", translation: "one cup/glass (하나 → 한 before counter)" }, { native: "두 명", romanized: "du myeong", translation: "two people (둘 → 두 before counter)" }, { native: "세 개", romanized: "se gae", translation: "three items (셋 → 세 before counter)" }, { native: "네 그릇", romanized: "ne geureut", translation: "four bowls (넷 → 네 before counter)" }],
+                examples: [{ native: "한 잔", romanized: "han jan", translation: "one cup/glass.", annotation: "하나 → 한 before counter"}, { native: "두 명", romanized: "du myeong", translation: "two people.", annotation: "둘 → 두 before counter"}, { native: "세 개", romanized: "se gae", translation: "three items.", annotation: "셋 → 세 before counter"}, { native: "네 그릇", romanized: "ne geureut", translation: "four bowls.", annotation: "넷 → 네 before counter"}],
             },
             {
                 condition: "다섯 and above before a counter",
                 result: "No change",
-                examples: [{ native: "다섯 잔", romanized: "daseot jan", translation: "five cups (다섯 — no change before counter)" }, { native: "여섯 개", romanized: "yeoseot gae", translation: "six items (여섯 — no change before counter)" }, { native: "일곱 명", romanized: "ilgop myeong", translation: "seven people (일곱 — no change before counter)" }],
+                examples: [{ native: "다섯 잔", romanized: "daseot jan", translation: "five cups.", annotation: "다섯 — no change before counter"}, { native: "여섯 개", romanized: "yeoseot gae", translation: "six items.", annotation: "여섯 — no change before counter"}, { native: "일곱 명", romanized: "ilgop myeong", translation: "seven people.", annotation: "일곱 — no change before counter"}],
             },
         ],
         notes: [
@@ -131,15 +131,15 @@ export const block4Lessons: GrammarLesson[] = [
             },
         ],
         examples: [
-            { native: "만두 세 개 주세요.", romanized: "Mandu se gae juseyo.", translation: "Three dumplings, please. (개 = general objects)" },
-            { native: "커피 두 잔이랑 물 한 잔 주세요.", romanized: "Keopi du jamirang mul han jan juseyo.", translation: "Two coffees and one water, please. (잔 = cups/glasses)" },
+            { native: "만두 세 개 주세요.", romanized: "Mandu se gae juseyo.", translation: "Three dumplings, please.", annotation: "개 = general objects"},
+            { native: "커피 두 잔이랑 물 한 잔 주세요.", romanized: "Keopi du jamirang mul han jan juseyo.", translation: "Two coffees and one water, please.", annotation: "잔 = cups/glasses"},
             { type: "dialogue" as const, exchanges: [
                 { native: "몇 명이세요?", romanized: "Myeot myeongsiseyo?", translation: "How many people?" },
                 { native: "네 명이요.", romanized: "Ne myeongiyeo.", translation: "Four people." },
             ]},
             { native: "라면 두 그릇이랑 소주 한 병 주세요.", romanized: "Ramen du geuteusirang soju han byeong juseyo.", translation: "Two bowls of ramen and one bottle of soju, please." },
-            { native: "사과 다섯 개 살게요.", romanized: "Sagwa daseos gae salgeyo.", translation: "I'll buy five apples. (다섯 — no change before counter)" },
-            { native: "삼겹살 이 인분 주세요.", romanized: "Samgyeopsal i inbun juseyo.", translation: "Two portions of samgyeopsal, please. (인분 uses Sino-Korean: 이 인분)" },
+            { native: "사과 다섯 개 살게요.", romanized: "Sagwa daseos gae salgeyo.", translation: "I'll buy five apples.", annotation: "다섯 — no change before counter"},
+            { native: "삼겹살 이 인분 주세요.", romanized: "Samgyeopsal i inbun juseyo.", translation: "Two portions of samgyeopsal, please.", annotation: "인분 uses Sino-Korean: 이 인분"},
         ],
         inlineVocab: [
             { word: "개", romanized: "gae", translation: "counter — general objects" },
@@ -161,12 +161,12 @@ export const block4Lessons: GrammarLesson[] = [
             {
                 condition: "Hundreds, thousands, ten-thousands",
                 result: "백(100) · 천(1,000) · 만(10,000)",
-                examples: [{ native: "오백 원 (₩500)", romanized: "obaek won", translation: "500 won (오 × 백)" }, { native: "삼천 원 (₩3,000)", romanized: "samcheon won", translation: "3,000 won (삼 × 천)" }, { native: "만 원 (₩10,000)", romanized: "man won", translation: "10,000 won (만 = ten thousand — Korean base unit)" }],
+                examples: [{ native: "오백 원 (₩500)", romanized: "obaek won", translation: "500 won.", annotation: "오 × 백"}, { native: "삼천 원 (₩3,000)", romanized: "samcheon won", translation: "3,000 won.", annotation: "삼 × 천"}, { native: "만 원 (₩10,000)", romanized: "man won", translation: "10,000 won.", annotation: "만 = ten thousand — Korean base unit"}],
             },
             {
                 condition: "Numbers above 10,000 (Korean units of 만)",
                 result: "Stack: [만단위] + 만 + [천/백/십/일]",
-                examples: [{ native: "만 오천 (15,000)", romanized: "man ocheon", translation: "15,000 (만 + 오천)" }, { native: "이만 삼천 (23,000)", romanized: "iman samcheon", translation: "23,000 (이만 + 삼천 — two units of 만)" }, { native: "오십만 (500,000)", romanized: "osiman", translation: "500,000 (오십 × 만)" }],
+                examples: [{ native: "만 오천 (15,000)", romanized: "man ocheon", translation: "15,000.", annotation: "만 + 오천"}, { native: "이만 삼천 (23,000)", romanized: "iman samcheon", translation: "23,000.", annotation: "이만 + 삼천 — two units of 만"}, { native: "오십만 (500,000)", romanized: "osiman", translation: "500,000.", annotation: "오십 × 만"}],
             },
         ],
         notes: [
@@ -215,12 +215,12 @@ export const block4Lessons: GrammarLesson[] = [
             {
                 condition: "Verb stem ends in vowel or ㄹ",
                 result: "~세요",
-                examples: [{ native: "가세요", romanized: "gaseyo", translation: "please go (가 ends in vowel → 세요)" }, { native: "오세요", romanized: "oseyo", translation: "please come (오 ends in vowel → 세요)" }, { native: "보세요", romanized: "boseyo", translation: "please look / please watch (보 ends in vowel → 세요)" }, { native: "주세요", romanized: "juseyo", translation: "please give me (주다 → 주세요 — the most-used 세요 form)" }],
+                examples: [{ native: "가세요", romanized: "gaseyo", translation: "please go.", annotation: "가 ends in vowel → 세요"}, { native: "오세요", romanized: "oseyo", translation: "please come.", annotation: "오 ends in vowel → 세요"}, { native: "보세요", romanized: "boseyo", translation: "please look / please watch.", annotation: "보 ends in vowel → 세요"}, { native: "주세요", romanized: "juseyo", translation: "please give me.", annotation: "주다 → 주세요 — the most-used 세요 form"}],
             },
             {
                 condition: "Verb stem ends in consonant",
                 result: "~으세요",
-                examples: [{ native: "앉으세요", romanized: "anjeuseyo", translation: "please sit down (앉 ends in consonant → 으세요)" }, { native: "읽으세요", romanized: "ilgeuseyo", translation: "please read (읽 ends in consonant → 으세요)" }, { native: "기다리세요", romanized: "gidarieseyo", translation: "please wait (기다리 ends in vowel → 세요)" }],
+                examples: [{ native: "앉으세요", romanized: "anjeuseyo", translation: "please sit down.", annotation: "앉 ends in consonant → 으세요"}, { native: "읽으세요", romanized: "ilgeuseyo", translation: "please read.", annotation: "읽 ends in consonant → 으세요"}, { native: "기다리세요", romanized: "gidarieseyo", translation: "please wait.", annotation: "기다리 ends in vowel → 세요"}],
             },
         ],
         notes: [
@@ -265,7 +265,7 @@ export const block4Lessons: GrammarLesson[] = [
             {
                 condition: "Forming ~아/어 주세요",
                 result: "Present tense form (without 요) + 주세요",
-                examples: [{ native: "말해 주세요 (from 말해요)", romanized: "malhae juseyo", translation: "please say / please speak (말해요 → 말해 + 주세요)" }, { native: "기다려 주세요 (from 기다려요)", romanized: "gidaryeo juseyo", translation: "please wait for me (기다려요 → 기다려 + 주세요)" }, { native: "열어 주세요 (from 열어요)", romanized: "yeoreo juseyo", translation: "please open (열어요 → 열어 + 주세요)" }],
+                examples: [{ native: "말해 주세요 (from 말해요)", romanized: "malhae juseyo", translation: "please say / please speak.", annotation: "말해요 → 말해 + 주세요"}, { native: "기다려 주세요 (from 기다려요)", romanized: "gidaryeo juseyo", translation: "please wait for me.", annotation: "기다려요 → 기다려 + 주세요"}, { native: "열어 주세요 (from 열어요)", romanized: "yeoreo juseyo", translation: "please open.", annotation: "열어요 → 열어 + 주세요"}],
             },
         ],
         notes: [
@@ -311,12 +311,12 @@ export const block4Lessons: GrammarLesson[] = [
             {
                 condition: "Verb stem ends in vowel or ㄹ",
                 result: "~ㄹ까요?",
-                examples: [{ native: "갈까요?", romanized: "galkkayo?", translation: "Shall we go? (가 ends in vowel: 가 + ㄹ까요)" }, { native: "볼까요?", romanized: "bolkkayo?", translation: "Shall we watch? (보 ends in vowel: 보 + ㄹ까요)" }, { native: "만날까요?", romanized: "mannalkkayo?", translation: "Shall we meet? (만나 ends in vowel: 만나 + ㄹ까요)" }],
+                examples: [{ native: "갈까요?", romanized: "galkkayo?", translation: "Shall we go?", annotation: "가 ends in vowel: 가 + ㄹ까요"}, { native: "볼까요?", romanized: "bolkkayo?", translation: "Shall we watch?", annotation: "보 ends in vowel: 보 + ㄹ까요"}, { native: "만날까요?", romanized: "mannalkkayo?", translation: "Shall we meet?", annotation: "만나 ends in vowel: 만나 + ㄹ까요"}],
             },
             {
                 condition: "Verb stem ends in consonant",
                 result: "~을까요?",
-                examples: [{ native: "먹을까요?", romanized: "meogeulkkayo?", translation: "Shall we eat? (먹 ends in consonant: 먹 + 을까요)" }, { native: "앉을까요?", romanized: "anjeulkkayo?", translation: "Shall we sit? (앉 ends in consonant: 앉 + 을까요)" }, { native: "읽을까요?", romanized: "ilgeulkkayo?", translation: "Shall we read? (읽 ends in consonant: 읽 + 을까요)" }],
+                examples: [{ native: "먹을까요?", romanized: "meogeulkkayo?", translation: "Shall we eat?", annotation: "먹 ends in consonant: 먹 + 을까요"}, { native: "앉을까요?", romanized: "anjeulkkayo?", translation: "Shall we sit?", annotation: "앉 ends in consonant: 앉 + 을까요"}, { native: "읽을까요?", romanized: "ilgeulkkayo?", translation: "Shall we read?", annotation: "읽 ends in consonant: 읽 + 을까요"}],
             },
         ],
         notes: [
@@ -370,12 +370,12 @@ export const block4Lessons: GrammarLesson[] = [
             {
                 condition: "First person desire (I want to)",
                 result: "verb stem + 고 싶어요",
-                examples: [{ native: "가고 싶어요", romanized: "gago sipeoyo", translation: "I want to go (가 + 고 싶어요)" }, { native: "먹고 싶어요", romanized: "meokgo sipeoyo", translation: "I want to eat (먹 + 고 싶어요)" }, { native: "배우고 싶어요", romanized: "baeugo sipeoyo", translation: "I want to learn (배우 + 고 싶어요)" }, { native: "쉬고 싶어요", romanized: "swigo sipeoyo", translation: "I want to rest (쉬 + 고 싶어요)" }],
+                examples: [{ native: "가고 싶어요", romanized: "gago sipeoyo", translation: "I want to go.", annotation: "가 + 고 싶어요"}, { native: "먹고 싶어요", romanized: "meokgo sipeoyo", translation: "I want to eat.", annotation: "먹 + 고 싶어요"}, { native: "배우고 싶어요", romanized: "baeugo sipeoyo", translation: "I want to learn.", annotation: "배우 + 고 싶어요"}, { native: "쉬고 싶어요", romanized: "swigo sipeoyo", translation: "I want to rest.", annotation: "쉬 + 고 싶어요"}],
             },
             {
                 condition: "Third person desire (he/she wants to)",
                 result: "verb stem + 고 싶어해요",
-                examples: [{ native: "친구가 가고 싶어해요", romanized: "chinguga gago sipeohaeyeo", translation: "My friend wants to go (third person: 싶어해요)" }, { native: "동생이 사고 싶어해요", romanized: "dongsaengi sago sipeohaeyeo", translation: "My younger sibling wants to buy it (third person: 싶어해요)" }],
+                examples: [{ native: "친구가 가고 싶어해요", romanized: "chinguga gago sipeohaeyeo", translation: "My friend wants to go.", annotation: "third person: 싶어해요"}, { native: "동생이 사고 싶어해요", romanized: "dongsaengi sago sipeohaeyeo", translation: "My younger sibling wants to buy it.", annotation: "third person: 싶어해요"}],
             },
         ],
         notes: [
@@ -387,9 +387,9 @@ export const block4Lessons: GrammarLesson[] = [
         examples: [
             { native: "언젠가 한국에 가고 싶어요.", romanized: "Eonjenga hanguge gago sipeoyo.", translation: "I want to go to Korea someday." },
             { native: "오늘은 삼겹살을 먹고 싶어요!", romanized: "Oneureun samgyeopsareul meokgo sipeoyo!", translation: "I want to eat samgyeopsal today!" },
-            { native: "엄마가 보고 싶어요.", romanized: "Eommaga bogo sipeoyo.", translation: "I miss my mum. (보고 싶어요 = miss someone)" },
+            { native: "엄마가 보고 싶어요.", romanized: "Eommaga bogo sipeoyo.", translation: "I miss my mum.", annotation: "보고 싶어요 = miss someone"},
             { native: "오늘은 그냥 집에서 쉬고 싶어요.", romanized: "Oneureun geunyang jibeseo swigo sipeoyo.", translation: "Today I just want to rest at home." },
-            { native: "친구가 제주도에 가고 싶어해요.", romanized: "Chinguga jejudoe gago sipeohaeyeo.", translation: "My friend wants to go to Jeju. (싶어해요 = third person)" },
+            { native: "친구가 제주도에 가고 싶어해요.", romanized: "Chinguga jejudoe gago sipeohaeyeo.", translation: "My friend wants to go to Jeju.", annotation: "싶어해요 = third person"},
             { type: "dialogue" as const, exchanges: [
                 { native: "뭐 하고 싶어요?", romanized: "Mwo hago sipeoyo?", translation: "What do you want to do?" },
                 { native: "글쎄요, 영화 보고 싶어요.", romanized: "Geulsseoyo, yeonghwa bogo sipeoyo.", translation: "Hmm, I want to watch a movie." },

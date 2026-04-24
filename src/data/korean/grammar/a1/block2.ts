@@ -34,7 +34,7 @@ export const block2Lessons: GrammarLesson[] = [
             },
         ],
         examples: [
-            { native: "저는 부모님이랑 남동생이 있어요.", romanized: "Jeoneun bumonnimirang namdongsaengi isseoyo.", translation: "I have my parents and a younger brother. (이랑 = and/with — casual connector)" },
+            { native: "저는 부모님이랑 남동생이 있어요.", romanized: "Jeoneun bumonnimirang namdongsaengi isseoyo.", translation: "I have my parents and a younger brother.", annotation: "이랑 = and/with — casual connector"},
             { native: "저는 언니가 있어요. 오빠는 없어요.", romanized: "Jeoneun eonniga isseoyo. Oppaneun eopseoyo.", translation: "I have an older sister (female speaking). I don't have an older brother." },
             { native: "가족이 어떻게 돼요? — 저는 가족이 네 명이에요.", romanized: "Gagogi eotteoke dwaeyo? — Jeoneun gagogi ne myeongieyo.", translation: "What's your family like? — My family has four people." },
             { native: "형제가 있어요? — 네, 여동생이 한 명 있어요.", romanized: "Hyeongjega isseoyo? — Ne, yeodongsaengi han myeong isseoyo.", translation: "Do you have siblings? — Yes, I have one younger sister." },
@@ -96,12 +96,12 @@ export const block2Lessons: GrammarLesson[] = [
             {
                 condition: "Object particle — word ends in vowel",
                 result: "를",
-                examples: [{ native: "커피를", romanized: "keopireul", translation: "coffee (object) — 커피 ends in vowel → 를" }, { native: "드라마를", romanized: "deuramareul", translation: "drama (object) — 드라마 ends in vowel → 를" }, { native: "음료를", romanized: "eumryoreul", translation: "drink/beverage (object) — 음료 ends in vowel → 를" }],
+                examples: [{ native: "커피를", romanized: "keopireul", translation: "coffee (object).", annotation: "커피 ends in vowel → 를"}, { native: "드라마를", romanized: "deuramareul", translation: "drama (object).", annotation: "드라마 ends in vowel → 를"}, { native: "음료를", romanized: "eumryoreul", translation: "drink/beverage (object).", annotation: "음료 ends in vowel → 를"}],
             },
             {
                 condition: "Object particle — word ends in consonant",
                 result: "을",
-                examples: [{ native: "음악을", romanized: "eumagul", translation: "music (object) — 음악 ends in consonant ㄱ → 을" }, { native: "밥을", romanized: "bapeul", translation: "rice/meal (object) — 밥 ends in consonant ㅂ → 을" }, { native: "한국 음식을", romanized: "hanguk eumsigul", translation: "Korean food (object) — 음식 ends in consonant ㄱ → 을" }],
+                examples: [{ native: "음악을", romanized: "eumagul", translation: "music (object).", annotation: "음악 ends in consonant ㄱ → 을"}, { native: "밥을", romanized: "bapeul", translation: "rice/meal (object).", annotation: "밥 ends in consonant ㅂ → 을"}, { native: "한국 음식을", romanized: "hanguk eumsigul", translation: "Korean food (object).", annotation: "음식 ends in consonant ㄱ → 을"}],
             },
         ],
         notes: [
@@ -117,7 +117,7 @@ export const block2Lessons: GrammarLesson[] = [
                 { native: "저는 드라마를 좋아해요.", romanized: "Jeoneun deuramareul joahaeyo.", translation: "I like dramas." },
             ]},
             { native: "운동을 별로 안 좋아해요.", romanized: "Undongeul byeolro an joahaeyo.", translation: "I don't really like exercise." },
-            { native: "저는 커피를 좋아해요. 그리고 음악도 좋아해요.", romanized: "Jeoneun keopireul joahaeyo. Geurigo eumagdo joahaeyo.", translation: "I like coffee. And I also like music. (그리고 = and, 도 = also)" },
+            { native: "저는 커피를 좋아해요. 그리고 음악도 좋아해요.", romanized: "Jeoneun keopireul joahaeyo. Geurigo eumagdo joahaeyo.", translation: "I like coffee. And I also like music.", annotation: "그리고 = and, 도 = also"},
             { type: "dialogue" as const, exchanges: [
                 { native: "어떤 음식을 좋아해요?", romanized: "Eotteon eumsigul joahaeyo?", translation: "What kind of food do you like?" },
                 { native: "특히 비빔밥을 좋아해요.", romanized: "Teukhi bibimbapeul joahaeyo.", translation: "I especially like bibimbap." },
@@ -141,12 +141,12 @@ export const block2Lessons: GrammarLesson[] = [
             {
                 condition: "Word ends in vowel",
                 result: "를",
-                examples: [{ native: "커피를", romanized: "keopireul", translation: "coffee (object) — 커피 ends in vowel → 를" }, { native: "드라마를", romanized: "deuramareul", translation: "drama (object) — 드라마 ends in vowel → 를" }, { native: "영화를", romanized: "yeonghwareul", translation: "movie (object) — 영화 ends in vowel → 를" }],
+                examples: [{ native: "커피를", romanized: "keopireul", translation: "coffee (object).", annotation: "커피 ends in vowel → 를"}, { native: "드라마를", romanized: "deuramareul", translation: "drama (object).", annotation: "드라마 ends in vowel → 를"}, { native: "영화를", romanized: "yeonghwareul", translation: "movie (object).", annotation: "영화 ends in vowel → 를"}],
             },
             {
                 condition: "Word ends in consonant",
                 result: "을",
-                examples: [{ native: "음악을", romanized: "eumagul", translation: "music (object) — 음악 ends in consonant ㄱ → 을" }, { native: "밥을", romanized: "bapeul", translation: "rice/meal (object) — 밥 ends in consonant ㅂ → 을" }, { native: "책을", romanized: "chageul", translation: "book (object) — 책 ends in consonant ㄱ → 을" }],
+                examples: [{ native: "음악을", romanized: "eumagul", translation: "music (object).", annotation: "음악 ends in consonant ㄱ → 을"}, { native: "밥을", romanized: "bapeul", translation: "rice/meal (object).", annotation: "밥 ends in consonant ㅂ → 을"}, { native: "책을", romanized: "chageul", translation: "book (object).", annotation: "책 ends in consonant ㄱ → 을"}],
             },
         ],
         notes: [
@@ -194,17 +194,17 @@ export const block2Lessons: GrammarLesson[] = [
             {
                 condition: "Stem last vowel is ㅏ or ㅗ",
                 result: "~아요",
-                examples: [{ native: "가다 → 가요", romanized: "gada → gayo", translation: "go → goes (stem 가: ㅏ vowel → 아요, contracts to 가요)" }, { native: "보다 → 봐요", romanized: "boda → bwayo", translation: "see/watch → watches (stem 보: ㅗ vowel → 아요, contracts to 봐요)" }, { native: "좋다 → 좋아요", romanized: "jota → joayo", translation: "good → is good (stem 좋: ㅗ vowel → 아요)" }],
+                examples: [{ native: "가다 → 가요", romanized: "gada → gayo", translation: "go → goes.", annotation: "stem 가: ㅏ vowel → 아요, contracts to 가요"}, { native: "보다 → 봐요", romanized: "boda → bwayo", translation: "see/watch → watches.", annotation: "stem 보: ㅗ vowel → 아요, contracts to 봐요"}, { native: "좋다 → 좋아요", romanized: "jota → joayo", translation: "good → is good.", annotation: "stem 좋: ㅗ vowel → 아요"}],
             },
             {
                 condition: "Stem has any other vowel",
                 result: "~어요",
-                examples: [{ native: "먹다 → 먹어요", romanized: "meokda → meogeoyo", translation: "eat → eats (stem 먹: ㅓ vowel → 어요)" }, { native: "읽다 → 읽어요", romanized: "ikda → ilgeoyo", translation: "read → reads (stem 읽: ㅣ vowel → 어요)" }, { native: "마시다 → 마셔요", romanized: "masida → masyeoyo", translation: "drink → drinks (stem 마시: ㅣ vowel → 어요, contracts to 마셔요)" }],
+                examples: [{ native: "먹다 → 먹어요", romanized: "meokda → meogeoyo", translation: "eat → eats.", annotation: "stem 먹: ㅓ vowel → 어요"}, { native: "읽다 → 읽어요", romanized: "ikda → ilgeoyo", translation: "read → reads.", annotation: "stem 읽: ㅣ vowel → 어요"}, { native: "마시다 → 마셔요", romanized: "masida → masyeoyo", translation: "drink → drinks.", annotation: "stem 마시: ㅣ vowel → 어요, contracts to 마셔요"}],
             },
             {
                 condition: "하다 verbs (noun + 하다)",
                 result: "~해요 (always)",
-                examples: [{ native: "공부해요", romanized: "gongbuhaeyo", translation: "study (공부하다 → 해요)" }, { native: "운동해요", romanized: "undonghaeyo", translation: "exercise (운동하다 → 해요)" }, { native: "요리해요", romanized: "yorihaeyo", translation: "cook (요리하다 → 해요)" }, { native: "일해요", romanized: "ilhaeyo", translation: "work (일하다 → 해요)" }],
+                examples: [{ native: "공부해요", romanized: "gongbuhaeyo", translation: "study.", annotation: "공부하다 → 해요"}, { native: "운동해요", romanized: "undonghaeyo", translation: "exercise.", annotation: "운동하다 → 해요"}, { native: "요리해요", romanized: "yorihaeyo", translation: "cook.", annotation: "요리하다 → 해요"}, { native: "일해요", romanized: "ilhaeyo", translation: "work.", annotation: "일하다 → 해요"}],
             },
         ],
         notes: [
@@ -219,7 +219,7 @@ export const block2Lessons: GrammarLesson[] = [
         ],
         examples: [
             { native: "저는 아침에 커피를 마셔요.", romanized: "Jeoneun achime keopireul masyeoyo.", translation: "I drink coffee in the morning." },
-            { native: "매일 저녁에 운동해요.", romanized: "Maeil jeonyeoge undonghaeyo.", translation: "I exercise every evening. (운동하다 → 운동해요)" },
+            { native: "매일 저녁에 운동해요.", romanized: "Maeil jeonyeoge undonghaeyo.", translation: "I exercise every evening.", annotation: "운동하다 → 운동해요"},
             { native: "학교에 가요. 수업이 있어요.", romanized: "Hagyeoe gayo. Sueopi isseoyo.", translation: "I go to school. I have class." },
             { native: "뭐 해요? — 책을 읽어요.", romanized: "Mwo haeyo? — Chageul ilgeoyo.", translation: "What are you doing? — I'm reading a book." },
             { native: "저는 집에서 요리해요. 요리를 좋아해요.", romanized: "Jeoneun jibeseo yorihaeyo. Yorireul joahaeyo.", translation: "I cook at home. I like cooking." },
@@ -243,12 +243,12 @@ export const block2Lessons: GrammarLesson[] = [
             {
                 condition: "Specific time (clock, day of week, part of day)",
                 result: "time word + 에",
-                examples: [{ native: "아침에", romanized: "achime", translation: "in the morning (specific time → 에)" }, { native: "일곱 시에", romanized: "ilgop sie", translation: "at seven o'clock (specific clock time → 에)" }, { native: "금요일에", romanized: "geumyoire", translation: "on Friday (named day → 에)" }, { native: "주말에", romanized: "jumare", translation: "on the weekend (named period → 에)" }],
+                examples: [{ native: "아침에", romanized: "achime", translation: "in the morning.", annotation: "specific time → 에"}, { native: "일곱 시에", romanized: "ilgop sie", translation: "at seven o'clock.", annotation: "specific clock time → 에"}, { native: "금요일에", romanized: "geumyoire", translation: "on Friday.", annotation: "named day → 에"}, { native: "주말에", romanized: "jumare", translation: "on the weekend.", annotation: "named period → 에"}],
             },
             {
                 condition: "Relative time reference",
                 result: "no 에 needed",
-                examples: [{ native: "매일", romanized: "maeil", translation: "every day (relative reference — no 에)" }, { native: "오늘", romanized: "oneul", translation: "today (relative reference — no 에)" }, { native: "보통", romanized: "botong", translation: "usually (adverb — no 에)" }, { native: "지금", romanized: "jigeum", translation: "now (relative reference — no 에)" }],
+                examples: [{ native: "매일", romanized: "maeil", translation: "every day.", annotation: "relative reference — no 에"}, { native: "오늘", romanized: "oneul", translation: "today.", annotation: "relative reference — no 에"}, { native: "보통", romanized: "botong", translation: "usually.", annotation: "adverb — no 에"}, { native: "지금", romanized: "jigeum", translation: "now.", annotation: "relative reference — no 에"}],
             },
         ],
         notes: [
@@ -295,12 +295,12 @@ export const block2Lessons: GrammarLesson[] = [
             {
                 condition: "Location where something exists / someone is",
                 result: "[place]에 있어요",
-                examples: [{ native: "카페에 있어요", romanized: "kapeee isseoyo", translation: "I'm at the café (location existence — 에)" }, { native: "2층에 있어요", romanized: "icheonge isseoyo", translation: "It's on the 2nd floor (location existence — 에)" }, { native: "집에 있어요", romanized: "jibe isseoyo", translation: "I'm at home (location existence — 에)" }],
+                examples: [{ native: "카페에 있어요", romanized: "kapeee isseoyo", translation: "I'm at the café.", annotation: "location existence — 에"}, { native: "2층에 있어요", romanized: "icheonge isseoyo", translation: "It's on the 2nd floor.", annotation: "location existence — 에"}, { native: "집에 있어요", romanized: "jibe isseoyo", translation: "I'm at home.", annotation: "location existence — 에"}],
             },
             {
                 condition: "Destination (moving toward a place)",
                 result: "[place]에 가요 / 와요",
-                examples: [{ native: "학교에 가요", romanized: "hakgyoe gayo", translation: "I go to school (destination — 에)" }, { native: "카페에 와요", romanized: "kapeee wayo", translation: "I come to the café (destination — 에)" }, { native: "여기에 오세요", romanized: "yeogieseo oseyo", translation: "Please come here (destination — 에)" }],
+                examples: [{ native: "학교에 가요", romanized: "hakgyoe gayo", translation: "I go to school.", annotation: "destination — 에"}, { native: "카페에 와요", romanized: "kapeee wayo", translation: "I come to the café.", annotation: "destination — 에"}, { native: "여기에 오세요", romanized: "yeogieseo oseyo", translation: "Please come here.", annotation: "destination — 에"}],
             },
         ],
         notes: [
@@ -354,12 +354,12 @@ export const block2Lessons: GrammarLesson[] = [
             {
                 condition: "ㅡ-drop: stem ends in ㅡ",
                 result: "Drop ㅡ, then apply 아요/어요 rule",
-                examples: [{ native: "크다→커요", romanized: "keuda→keoyo", translation: "big → is big (drop ㅡ, ㅓ remains → 어요)" }, { native: "나쁘다→나빠요", romanized: "nappeuda→nappayo", translation: "bad → is bad (drop ㅡ, ㅏ remains → 아요)" }, { native: "예쁘다→예뻐요", romanized: "yeppeuda→yeppeoyo", translation: "pretty → is pretty (drop ㅡ, ㅓ remains → 어요)" }, { native: "바쁘다→바빠요", romanized: "pappeuda→bappayo", translation: "busy → is busy (drop ㅡ, ㅏ remains → 아요)" }],
+                examples: [{ native: "크다→커요", romanized: "keuda→keoyo", translation: "big → is big.", annotation: "drop ㅡ, ㅓ remains → 어요"}, { native: "나쁘다→나빠요", romanized: "nappeuda→nappayo", translation: "bad → is bad.", annotation: "drop ㅡ, ㅏ remains → 아요"}, { native: "예쁘다→예뻐요", romanized: "yeppeuda→yeppeoyo", translation: "pretty → is pretty.", annotation: "drop ㅡ, ㅓ remains → 어요"}, { native: "바쁘다→바빠요", romanized: "pappeuda→bappayo", translation: "busy → is busy.", annotation: "drop ㅡ, ㅏ remains → 아요"}],
             },
             {
                 condition: "ㅂ irregular: stem ends in ㅂ",
                 result: "ㅂ → 워 before a vowel ending",
-                examples: [{ native: "덥다→더워요", romanized: "deodda→deowoyo", translation: "hot → is hot (ㅂ → 워 before vowel ending)" }, { native: "춥다→추워요", romanized: "chupda→chuwoyo", translation: "cold → is cold (ㅂ → 워 before vowel ending)" }, { native: "어렵다→어려워요", romanized: "eoryeopda→eoryeowoyo", translation: "difficult → is difficult (ㅂ → 워 before vowel ending)" }],
+                examples: [{ native: "덥다→더워요", romanized: "deodda→deowoyo", translation: "hot → is hot.", annotation: "ㅂ → 워 before vowel ending"}, { native: "춥다→추워요", romanized: "chupda→chuwoyo", translation: "cold → is cold.", annotation: "ㅂ → 워 before vowel ending"}, { native: "어렵다→어려워요", romanized: "eoryeopda→eoryeowoyo", translation: "difficult → is difficult.", annotation: "ㅂ → 워 before vowel ending"}],
             },
         ],
         notes: [

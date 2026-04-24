@@ -56,7 +56,7 @@ export const koA2AdvancedExpressions: GrammarLesson[] = [
             { native: "이쪽으로 오세요.", romanized: "Ijjogeuro oseyo.", translation: "Please come this way." },
             { native: "안전벨트를 착용하십시오.", romanized: "Anjeonbelteureul chagyonghasipsio.", translation: "Please fasten your seatbelt. (formal announcement)" },
             { native: "천천히 말씀해 주세요.", romanized: "Cheoncheonhi malsseum haejuseyo.", translation: "Please speak slowly." },
-            { native: "음식을 드세요.", romanized: "Eumsiguel deuseyo.", translation: "Please eat. (honorific form of 먹다)" }
+            { native: "음식을 드세요.", romanized: "Eumsiguel deuseyo.", translation: "Please eat.", annotation: "honorific form of 먹다"}
         ],
         inlineVocab: [
             { word: "존댓말 (尊待말)", romanized: "jondaenmal", translation: "honorific / polite speech" },

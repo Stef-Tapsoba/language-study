@@ -102,11 +102,11 @@ export const b1Grammar: GrammarLesson[] = [
             target: "~(으)러 가다/오다는 이동의 목적을 나타냅니다. 모음으로 끝나는 어간 뒤에는 '러', 자음으로 끝나는 어간 뒤에는 '으러'를 붙입니다. 이동동사(가다, 오다, 다니다)에만 사용합니다. 명사화는 동사를 명사처럼 만들어 줍니다. ~기는 특정 동사·형용사와 함께 씁니다: 좋아하다, 싫어하다, 쉽다, 어렵다, 시작하다, 끝나다. 또한 고정 표현에도 씁니다: ~기 전에, ~기 때문에. ~는 것(현재)/~ㄴ 것(과거형 형용사)은 더 광범위하게 주어나 목적어로 쓸 수 있습니다. ~는 것이 중요해요 = ~하는 것이 중요하다."
         },
         examples: [
-            { native: "밥 먹으러 식당에 갔어요.", romanized: "Bap meogeureo sikdange gasseoyo.", translation: "I went to the restaurant to eat. (~으러)" },
-            { native: "운동하기가 싫어요.", romanized: "Undonghagiga sireoyo.", translation: "I hate exercising. (~기 with 싫어하다)" },
-            { native: "한국어를 배우는 것이 재미있어요.", romanized: "Hangugeoreul baeuneun geosi jaemiisseoyo.", translation: "Learning Korean is fun. (~는 것 as subject)" },
-            { native: "숙제를 끝내기 전에 게임을 할 수 없어요.", romanized: "Sukjereul kkeunnaegi jeone geimeul hal su eopseoyo.", translation: "You can't play games before finishing your homework. (~기 전에)" },
-            { native: "책을 읽는 것을 좋아해요.", romanized: "Chaegeul ingneun geoseul joahaeyo.", translation: "I like reading books. (~는 것 as object)" },
+            { native: "밥 먹으러 식당에 갔어요.", romanized: "Bap meogeureo sikdange gasseoyo.", translation: "I went to the restaurant to eat.", annotation: "~으러"},
+            { native: "운동하기가 싫어요.", romanized: "Undonghagiga sireoyo.", translation: "I hate exercising.", annotation: "~기 with 싫어하다"},
+            { native: "한국어를 배우는 것이 재미있어요.", romanized: "Hangugeoreul baeuneun geosi jaemiisseoyo.", translation: "Learning Korean is fun.", annotation: "~는 것 as subject"},
+            { native: "숙제를 끝내기 전에 게임을 할 수 없어요.", romanized: "Sukjereul kkeunnaegi jeone geimeul hal su eopseoyo.", translation: "You can't play games before finishing your homework.", annotation: "~기 전에"},
+            { native: "책을 읽는 것을 좋아해요.", romanized: "Chaegeul ingneun geoseul joahaeyo.", translation: "I like reading books.", annotation: "~는 것 as object"},
         ]
     },
     {
@@ -118,8 +118,8 @@ export const b1Grammar: GrammarLesson[] = [
             target: "~아/어서와 ~기 때문에는 둘 다 '때문에'를 뜻하지만 격식 차이가 큽니다. ~아/어서는 구어체이고 일상적이며 순차적입니다. ~기 때문에는 격식체이고 객관적이며 문어체입니다. 격식적인 글에서 ~아/어서를 쓰면 비공식적으로 들리고, 일상 대화에서 ~기 때문에를 쓰면 딱딱하게 들립니다. B1 담화 표지: 추가(게다가, 또한); 대조(그러나, 반면에); 양보(물론…하지만); 결론(따라서, 결론적으로, 그러므로). 주요 고정 표현: 결정을 내리다, 어쩔 수 없다, 별로예요."
         },
         examples: [
-            { native: "피곤해서 집에 있었어요. (casual)", romanized: "Pigonhaeseo jibe isseosseoyo.", translation: "I was tired so I stayed home. (~아/어서 — casual spoken)" },
-            { native: "환경오염이 심각하기 때문에 대책이 필요합니다. (formal)", romanized: "Hwangyeongoreum i simgakagi ttaemune daechaegi piryohamnida.", translation: "Because environmental pollution is serious, countermeasures are necessary. (~기 때문에 — formal written)" },
+            { native: "피곤해서 집에 있었어요. (casual)", romanized: "Pigonhaeseo jibe isseosseoyo.", translation: "I was tired so I stayed home.", annotation: "~아/어서 — casual spoken"},
+            { native: "환경오염이 심각하기 때문에 대책이 필요합니다. (formal)", romanized: "Hwangyeongoreum i simgakagi ttaemune daechaegi piryohamnida.", translation: "Because environmental pollution is serious, countermeasures are necessary.", annotation: "~기 때문에 — formal written"},
             { native: "게다가, 비용도 줄일 수 있습니다.", romanized: "Gedaga, biyongdo jureul su isseumnida.", translation: "Furthermore, costs can also be reduced." },
             { native: "결론적으로, 이 방법이 가장 효과적입니다.", romanized: "Gyeollonjeok euro, i bangbopi gajang hyogwajeogimnida.", translation: "In conclusion, this method is the most effective." },
             { native: "어쩔 수 없어요. 그냥 받아들여야 해요.", romanized: "Eojjeol su eopseoyo. Geunyang badadeulryeoya haeyo.", translation: "It can't be helped. We just have to accept it." },
