@@ -67,7 +67,7 @@ export const block4Lessons: GrammarLesson[] = [
                 result: "After consonant: 은 | After vowel: 는",
                 examples: [
                     { native: "저는 학생이에요.", romanized: "Jeoneun haksaengieyo.", translation: "As for me, I am a student." },
-                    { native: "오늘은 갈 수 있어요.", romanized: "Oneureun gal su isseoyo.", translation: "Today (at least) I can go. (contrast with other days implied)" },
+                    { native: "오늘은 갈 수 있어요.", romanized: "Oneureun gal su isseoyo.", translation: "Today I can go.", annotation: "은/는 signals contrast with other days" },
                     { native: "이건 알아요. 저건 몰라요.", romanized: "Igeon arayo. Jeogeon mollayo.", translation: "This I know. That I don't. (explicit contrast)" },
                 ]
             },
@@ -76,7 +76,7 @@ export const block4Lessons: GrammarLesson[] = [
                 result: "After consonant: 이 | After vowel: 가",
                 examples: [
                     { native: "어제 친구가 왔어요.", romanized: "Eoje chinguga wasseoyo.", translation: "A friend came yesterday. (friend = new info)" },
-                    { native: "제가 했어요.", romanized: "Jega haesseoyo.", translation: "I did it. (specifically me, identifying who)" },
+                    { native: "제가 했어요.", romanized: "Jega haesseoyo.", translation: "I did it.", annotation: "이/가 identifies specifically who — emphatic subject" },
                     { native: "뭐가 맛있어요?", romanized: "Mwoga massisseoyo?", translation: "What is delicious?" },
                 ]
             },

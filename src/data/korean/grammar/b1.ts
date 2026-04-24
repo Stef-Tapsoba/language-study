@@ -70,10 +70,10 @@ export const b1Grammar: GrammarLesson[] = [
             target: "한국어 간접화법은 말의 종류에 따라 다른 어미를 씁니다. 평서문: 동사/형용사 어간 + ~(ㄴ/는)다고 하다. 동작동사(현재): ~ㄴ/는다고; 상태동사: ~다고; 명사: ~(이)라고. 의문문: 어간 + ~냐고 하다 (또는 내용 질문은 ~는지 묻다). 명령문: 어간 + ~(으)라고 하다. 청유문: 어간 + ~자고 하다. 과거의 말을 전할 때는 '하다'를 '했어요'로 바꿉니다. 주요 표현: ~다고 들었어요, ~다고 하더라고요."
         },
         examples: [
-            { native: "'바빠요.' → 바쁘다고 했어요.", romanized: "'Bappayo.' → Bappeudago haesseoyo.", translation: "'I'm busy.' → He said he was busy." },
-            { native: "'내일 와요?' → 내일 오냐고 물었어요.", romanized: "'Naeil wayo?' → Naeil onyago mureosseoyo.", translation: "'Are you coming tomorrow?' → She asked if I was coming tomorrow." },
-            { native: "'빨리 오세요!' → 빨리 오라고 했어요.", romanized: "'Ppalli oseyo!' → Ppalli orado haesseoyo.", translation: "'Come quickly!' → He told me to come quickly." },
-            { native: "'같이 가요!' → 같이 가자고 했어요.", romanized: "'Gachi gayo!' → Gachi gajago haesseoyo.", translation: "'Let's go together!' → She suggested going together." },
+            { native: "'바빠요.' → 바쁘다고 했어요.", romanized: "'Bappayo.' → Bappeudago haesseoyo.", translation: "He said he was busy.", annotation: "direct: 바빠요 / reported: 바쁘다고 했어요" },
+            { native: "'내일 와요?' → 내일 오냐고 물었어요.", romanized: "'Naeil wayo?' → Naeil onyago mureosseoyo.", translation: "She asked if I was coming tomorrow.", annotation: "direct: 내일 와요? / reported: 오냐고 물었어요" },
+            { native: "'빨리 오세요!' → 빨리 오라고 했어요.", romanized: "'Ppalli oseyo!' → Ppalli orado haesseoyo.", translation: "He told me to come quickly.", annotation: "direct: 빨리 오세요! / reported: 오라고 했어요" },
+            { native: "'같이 가요!' → 같이 가자고 했어요.", romanized: "'Gachi gayo!' → Gachi gajago haesseoyo.", translation: "She suggested going together.", annotation: "direct: 같이 가요! / reported: 가자고 했어요" },
             { native: "비가 온다고 들었어요.", romanized: "Biga ondago deureosseoyo.", translation: "I heard (that) it's going to rain." },
         ]
     },

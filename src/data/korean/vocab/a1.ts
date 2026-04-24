@@ -182,7 +182,7 @@ export const a1Vocab: VocabItem[] = [
     { id: "ko-v-a1-115", level: "A1", word: "보통",           romanized: "botong",              translation: "Usually", category: "Basics", example: { native: "보통 몇 시에 일어나요?", romanized: "Botong myeot sie ireonayo?", translation: "What time do you usually wake up?" } },
 
     // ── BLOCK 3 / U14–U16 — Negation, Questions, Frequency (116–128) ─────────
-    { id: "ko-v-a1-116", level: "A1", word: "안",             romanized: "an",                  translation: "Not (simple negation — before verb/adjective)", category: "Basics", example: { native: "안 먹어요.", romanized: "An meogeoyo.", translation: "I don't eat it." } },
+    { id: "ko-v-a1-116", level: "A1", word: "안",             romanized: "an",                  translation: "not (negation)", category: "Basics", example: { native: "안 먹어요.", romanized: "An meogeoyo.", translation: "I don't eat it." } },
     { id: "ko-v-a1-117", level: "A1", word: "못",             romanized: "mot",                 translation: "Can't (inability negation)", category: "Basics", example: { native: "못 가요. 바빠요.", romanized: "Mot gayo. Bappayo.", translation: "I can't go. I'm busy." } },
     { id: "ko-v-a1-118", level: "A1", word: "뭐",             romanized: "mwo",                 translation: "What (casual)", category: "Basics", example: { native: "뭐 먹어요?", romanized: "Mwo meogeoyo?", translation: "What are you eating?" } },
     { id: "ko-v-a1-119", level: "A1", word: "언제",           romanized: "eonje",               translation: "When", category: "Basics", example: { native: "언제 와요?", romanized: "Eonje wayo?", translation: "When are you coming?" } },
