@@ -8,7 +8,7 @@ export const a2Units: LessonUnit[] = [
         title: "Talking About the Past",
         description: "Form the passato prossimo with avere and essere to describe completed past actions.",
         grammarIds: ["it-g-a2-1"],
-        vocabIds: ["it-v-a2-001", "it-v-a2-004", "it-v-a2-005"],
+        vocabIds: ["it-v-a2-1", "it-v-a2-4", "it-v-a2-5"],
         verbIds: ["it-vb-a2-2"],
         testQuestions: [
             { id: "it-uq-a2-1-1", level: "A2", prompt: "Complete (passato prossimo): 'Ieri lei ___ la pizza.' (mangiare)", options: ["mangiava", "mangia", "ha mangiato", "mangiò"], answer: "ha mangiato" },
@@ -25,7 +25,7 @@ export const a2Units: LessonUnit[] = [
         title: "Describing the Past",
         description: "Use the imperfetto to describe habitual past actions and ongoing states.",
         grammarIds: ["it-g-a2-2"],
-        vocabIds: ["it-v-a2-006", "it-v-a2-007", "it-v-a2-008"],
+        vocabIds: ["it-v-a2-6", "it-v-a2-7", "it-v-a2-8"],
         verbIds: ["it-vb-a2-1"],
         testQuestions: [
             { id: "it-uq-a2-2-1", level: "A2", prompt: "How do you say 'I used to eat pizza every week'?", options: ["Ho mangiato la pizza ogni settimana.", "Mangiavo la pizza ogni settimana.", "Mangio la pizza ogni settimana.", "Mangerò la pizza ogni settimana."], answer: "Mangiavo la pizza ogni settimana." },
@@ -42,7 +42,7 @@ export const a2Units: LessonUnit[] = [
         title: "Reflexive Verbs in the Past",
         description: "Use reflexive verbs in the passato prossimo with essere. Learn reciprocal forms (ci siamo visti) and past agreement rules.",
         grammarIds: ["it-g-a2-3"],
-        vocabIds: ["it-v-a2-009", "it-v-a2-010"],
+        vocabIds: ["it-v-a2-9", "it-v-a2-10"],
         verbIds: [],
         listeningIds: ["it-l-a2-1"],
         testQuestions: [
@@ -60,7 +60,7 @@ export const a2Units: LessonUnit[] = [
         title: "The Simple Future",
         description: "Express future plans and predictions using the futuro semplice, including irregular stems.",
         grammarIds: ["it-g-a2-4"],
-        vocabIds: ["it-v-a2-001", "it-v-a2-002", "it-v-a2-003"],
+        vocabIds: ["it-v-a2-1", "it-v-a2-2", "it-v-a2-3"],
         verbIds: ["it-vb-a2-1"],
         testQuestions: [
             { id: "it-uq-a2-4-1", level: "A2", prompt: "Complete (futuro): 'Domani loro ___.' (partire)", options: ["partono", "partiranno", "sono partiti", "partivano"], answer: "partiranno" },
@@ -77,7 +77,7 @@ export const a2Units: LessonUnit[] = [
         title: "Modal Verbs in the Past",
         description: "Use dovere, potere, and volere in the passato prossimo. Learn when to use avere or essere, and how riuscire a works.",
         grammarIds: ["it-g-a2-5"],
-        vocabIds: ["it-v-a2-085", "it-v-a2-086", "it-v-a2-087", "it-v-a2-088"],
+        vocabIds: ["it-v-a2-85", "it-v-a2-86", "it-v-a2-87", "it-v-a2-88"],
         verbIds: ["it-vb-a2-4"],
         readingIds: ["it-r-a2-1"],
         testQuestions: [
@@ -95,7 +95,7 @@ export const a2Units: LessonUnit[] = [
         title: "Comparatives, Opinions & Preferences",
         description: "Compare people and things using più/meno/tanto...quanto, express preferences with preferire, and give opinions.",
         grammarIds: ["it-g-a2-6"],
-        vocabIds: ["it-v-a2-091", "it-v-a2-092", "it-v-a2-093", "it-v-a2-094", "it-v-a2-095"],
+        vocabIds: ["it-v-a2-91", "it-v-a2-92", "it-v-a2-93", "it-v-a2-94", "it-v-a2-95"],
         verbIds: [],
         testQuestions: [
             { id: "it-uq-a2-6-1", level: "A2", prompt: "How do you say 'Rome is bigger than Florence'?", options: ["Roma è molto grande.", "Roma è più grande di Firenze.", "Roma è grande come Firenze.", "Roma è la più grande."], answer: "Roma è più grande di Firenze." },
@@ -112,7 +112,7 @@ export const a2Units: LessonUnit[] = [
         title: "Relative Clauses",
         description: "Link ideas about the same noun using che and chi. Connect clauses naturally in speech and writing.",
         grammarIds: ["it-g-a2-7"],
-        vocabIds: ["it-v-a2-096", "it-v-a2-097", "it-v-a2-098"],
+        vocabIds: ["it-v-a2-96", "it-v-a2-97", "it-v-a2-98"],
         verbIds: [],
         readingIds: ["it-r-a2-2"],
         testQuestions: [
@@ -130,7 +130,7 @@ export const a2Units: LessonUnit[] = [
         title: "The Future of Probability",
         description: "Use the futuro semplice to make guesses about the present — 'must be', 'I wonder', 'probably'.",
         grammarIds: ["it-g-a2-8"],
-        vocabIds: ["it-v-a2-099", "it-v-a2-100", "it-v-a2-101"],
+        vocabIds: ["it-v-a2-99", "it-v-a2-100", "it-v-a2-101"],
         verbIds: [],
         testQuestions: [
             { id: "it-uq-a2-8-1", level: "A2", prompt: "How do you say 'He must be at the office'?", options: ["È in ufficio.", "Sarà in ufficio.", "Era in ufficio.", "Andrebbe in ufficio."], answer: "Sarà in ufficio." },
