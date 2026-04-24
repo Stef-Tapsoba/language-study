@@ -122,8 +122,8 @@ When learning Korean, understanding nunchi is just as important as language abil
         category: "customs",
         region: "all-korean",
         title: {
-            native: "빨리빨리 문화 — 속도의 나라",
-            target: "The Ppalli-Ppalli Culture — A Nation of Speed"
+            native: "The Ppalli-Ppalli Culture — A Nation of Speed",
+            target: "빨리빨리 문화 — 속도의 나라"
         },
         subtitle: "Korea's 'hurry-hurry' culture runs far deeper than impatience — it is a reflection of a nation that rebuilt itself from near-total destruction in a single generation.",
         photos: [
@@ -167,7 +167,7 @@ Ppalli-ppalli is also Korea's competitive strength. It is no coincidence that Sa
 
 However, ppalli-ppalli culture also has side-effects. Fast decisions are not always good decisions. The Seongsu Bridge and Sampoong Department Store collapses (1994–1995) were the result of rushed construction and inadequate safety inspections. Young people live under fierce competition at school, and workers experience burnout from excessive work stress. The pressure of 'having to do it quickly' can lead to chronic fatigue and anxiety.
 
-In recent years, younger generations are attempting change. The tendency to value work-life balance (워라밸) has grown stronger, and as YOLO culture spreads, the value of 'enjoy this moment right now' has emerged. But ppalli-ppalli remains deeply inscribed in the DNA of Koreans, and it is also the force that makes Korea one of the most dynamic countries in the world.`
+In recent years, younger generations are attempting change. The tendency to value work-life balance (worabael) has grown stronger, and as YOLO culture spreads, the value of 'enjoy this moment right now' has emerged. But ppalli-ppalli remains deeply inscribed in the DNA of Koreans, and it is also the force that makes Korea one of the most dynamic countries in the world.`
         },
         cultureVocab: [
             {
@@ -242,7 +242,7 @@ In recent years, younger generations are attempting change. The tendency to valu
             }
         ],
         didYouKnow: {
-            native: "Korea has the fastest average internet speeds in the world and was the first country to deploy a nationwide 5G network, in April 2019. The Korea Institute for Industrial Economics and Trade found that Korean construction projects are completed at roughly twice the speed of comparable projects in Western Europe. The same urgency applies to food delivery: Korea's average delivery time for food orders is under 30 minutes, compared to 45-60 minutes in most Western countries. The word 빨리빨리 has even entered English-language academic papers on Korean economic development as a term with no direct equivalent.",
+            native: "Korea has the fastest average internet speeds in the world and was the first country to deploy a nationwide 5G network, in April 2019. The Korea Institute for Industrial Economics and Trade found that Korean construction projects are completed at roughly twice the speed of comparable projects in Western Europe. The same urgency applies to food delivery: Korea's average delivery time for food orders is under 30 minutes, compared to 45-60 minutes in most Western countries. The word ppalli-ppalli has even entered English-language academic papers on Korean economic development as a term with no direct equivalent.",
             target: "한국은 세계에서 가장 빠른 평균 인터넷 속도를 자랑하며, 2019년 4월 전국적인 5G 네트워크를 세계 최초로 구축한 나라입니다. 산업연구원(KIET)에 따르면 한국의 건설 프로젝트는 서유럽의 유사 프로젝트보다 약 두 배 빠른 속도로 완공됩니다. 배달 문화에서도 같은 속도감이 나타납니다. 한국의 음식 배달 평균 시간은 30분 이내로, 대부분의 서양 국가의 45~60분과 비교됩니다. '빨리빨리'라는 단어는 한국 경제 발전을 다루는 영어 학술 논문에서도 직접적인 대응어 없이 그대로 사용될 만큼 독보적인 개념으로 자리 잡았습니다."
         },
         relatedIds: ["ko-c-b1-1", "ko-c-a2-1"]
@@ -254,8 +254,8 @@ In recent years, younger generations are attempting change. The tendency to valu
         category: "arts",
         region: "all-korean",
         title: {
-            native: "한류 — 세계를 흔든 한국 문화",
-            target: "Hallyu — The Korean Wave"
+            native: "Hallyu — The Korean Wave",
+            target: "한류 — 세계를 흔든 한국 문화"
         },
         subtitle: "From K-pop to K-drama to K-food — how a small country turned its culture into one of the most powerful soft-power forces in the world.",
         photos: [
@@ -291,7 +291,7 @@ In recent years, younger generations are attempting change. The tendency to valu
 한류는 음악과 드라마를 넘어 확장되었습니다. K-뷰티(한국 화장품), K-푸드(김치, 불고기, 삼겹살, 한국식 치킨), K-패션, 그리고 한국어 학습 열풍까지 이어졌습니다. 한국어 학습자 수는 지난 10년간 폭발적으로 증가했으며, BTS의 팬인 아미(ARMY)들이 한국어를 배우는 것은 전 세계적인 현상이 되었습니다. TOPIK(한국어능력시험) 응시자도 매년 크게 늘고 있습니다.
 
 한국 정부는 한류를 적극적으로 지원하고 있습니다. 문화체육관광부는 한류 콘텐츠 제작에 투자하고, 한국관광공사는 한류를 활용한 관광 마케팅을 진행합니다. 하지만 한류의 성공이 단순히 정부 지원 때문만은 아닙니다. 한국 콘텐츠가 가진 독창성, 완성도, 그리고 보편적 공감을 얻는 이야기들이 세계인의 마음을 움직인 것입니다.`,
-            native: `'Hallyu (韓流)' refers to the phenomenon of Korean cultural content gaining popularity overseas. The term emerged in the late 1990s when Korean dramas and music began gaining popularity in China and Southeast Asia. The '한' in '한류' comes from '한국(韓國)' — Korea — and '류(流)' means 'wave' or 'flow'. The meaning is that the wave of Korean culture spreads out across the entire world.
+            native: `'Hallyu' refers to the phenomenon of Korean cultural content gaining popularity overseas. The term emerged in the late 1990s when Korean dramas and music began gaining popularity in China and Southeast Asia. The 'han' in 'hallyu' comes from 'Hanguk' (Korea) and 'ryu' means 'wave' or 'flow'. The meaning is that the wave of Korean culture spreads out across the entire world.
 
 The first wave of Hallyu was dramas. 'Winter Sonata' (2002) became enormously popular in Japan, and actor Bae Yong-joon was given the nickname 'Yon-sama' and received adoration from Japanese fans. Afterwards, a Korean drama craze swept across Asia — China, Vietnam, Thailand, and beyond. Today, global audiences can watch Korean dramas through Netflix. 'Squid Game' (2021) reached No.1 in 94 countries simultaneously, symbolically demonstrating the globalisation of Hallyu.
 
