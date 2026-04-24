@@ -1,15 +1,14 @@
-import { koA2MotionAbilityPermission } from "./motion-ability-permission"
-import { koA2ProgressiveObligationComparisons } from "./progressive-obligation-comparisons"
-import { koA2OpinionsAndConnectors } from "./opinions-and-connectors"
-import { koA2SimultaneousTime } from "./simultaneous-time"
-import { koA2NominalizationClauses } from "./nominalization-clauses"
-import { koA2AdvancedExpressions } from "./advanced-expressions"
+import { GrammarLesson } from "../../../../types"
+import { block1Lessons } from "./block1"
+import { block2Lessons } from "./block2"
+import { block3Lessons } from "./block3"
+import { block4Lessons } from "./block4"
+import { block5Lessons } from "./block5"
 
-export const a2Grammar = [
-    ...koA2MotionAbilityPermission,
-    ...koA2ProgressiveObligationComparisons,
-    ...koA2OpinionsAndConnectors,
-    ...koA2SimultaneousTime,
-    ...koA2NominalizationClauses,
-    ...koA2AdvancedExpressions,
+export const a2Grammar: GrammarLesson[] = [
+    ...block1Lessons,
+    ...block2Lessons,
+    ...block3Lessons,
+    ...block4Lessons,
+    ...block5Lessons,
 ]

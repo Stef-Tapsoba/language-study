@@ -4,134 +4,112 @@ export const koCA23: CultureEpisode = {
     id: "ko-c-a2-3",
     language: "ko",
     level: "A2",
-    category: "festivals",
-    region: "all-korean",
+    category: "daily-life",
+    region: "seoul",
     title: {
-        native: "Korea's Seasons and Festivals — 계절과 명절",
-        target: "한국의 계절과 명절"
+        native: "빨리빨리 문화 — The culture of speed",
+        target: "빨리빨리 문화 — 속도의 문화"
     },
-    subtitle: "Korea has four distinct seasons and a rich calendar of traditional festivals — each with its own food, rituals, and meaning for Korean families.",
+    subtitle: "빨리빨리 (quickly quickly) is more than a phrase — it is a philosophy that shapes how Korea works, innovates, and lives at a pace unlike anywhere else.",
+
     photos: [
         {
-            url: "https://images.unsplash.com/photo-1522383225653-ed111181a951?w=800",
+            url: "https://images.unsplash.com/photo-1538485399081-7191377e8241?w=800",
             caption: {
-                native: "Cherry blossom",
-                target: "벚꽃"
+                native: "Seoul rush hour — the city that never slows down",
+                target: "서울 러시아워 — 절대 속도를 늦추지 않는 도시"
             }
         },
         {
-            url: "https://images.unsplash.com/photo-1474088436001-4a1a7bb8e52d?w=800",
+            url: "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=800",
             caption: {
-                native: "Autumn leaves",
-                target: "단풍"
-            }
-        },
-        {
-            url: "https://images.unsplash.com/photo-1513415756790-2ac1db1297d0?w=800",
-            caption: {
-                native: "Korean traditional celebration",
-                target: "명절"
+                native: "Korea's high-speed internet infrastructure — built in record time",
+                target: "한국의 초고속 인터넷 인프라 — 기록적인 시간에 구축됨"
             }
         }
     ],
+
     body: {
-        target: `한국은 뚜렷한 사계절을 가진 나라입니다. 각 계절마다 고유한 풍경, 음식, 그리고 문화적 의미가 있습니다.
+        target: `한국에는 '빨리빨리'라는 문화가 있어요. 빨리빨리는 '빨리'를 두 번 반복한 표현으로 '빨리, 빨리!'라는 뜻이에요. 이것은 단순한 말이 아니라 한국 사회의 속도와 역동성을 나타내는 표현이에요.
 
-봄(3~4월)은 벚꽃과 함께 시작됩니다. 서울 여의도와 경남 진해는 벚꽃 명소로 유명하며, 수많은 사람들이 꽃놀이를 즐기기 위해 모여듭니다. 꽃놀이는 나무 아래에서 돗자리를 펴고 음식을 나누며 봄을 맞이하는 문화입니다. 4월 5일 식목일에는 나무를 심는 전통이 있습니다.
+한국에서는 많은 것들이 빠르게 진행돼요. 음식 배달은 보통 30분 이내로 도착해요. 인터넷 속도는 세계 최고 수준이에요. 건물을 짓는 것도 다른 나라보다 훨씬 빨라요. 한국은 1960년대에 세계에서 가장 가난한 나라 중 하나였는데, 불과 반세기 만에 경제 대국이 됐어요. 이것이 가능했던 이유 중 하나가 바로 빨리빨리 정신이에요.
 
-여름(6~8월)은 장마철과 무더위로 특징지어집니다. 6~7월 장마가 끝나면 본격적인 더위가 시작되고, 사람들은 바다나 계곡으로 피서를 떠납니다. 삼복(초복·중복·말복)은 여름 중 가장 더운 기간으로, 이날에는 원기 회복을 위해 삼계탕을 먹는 전통이 있습니다. "이열치열(以熱治熱)"이라는 말처럼, 더위는 뜨거운 음식으로 다스린다는 지혜입니다.
+빨리빨리 문화는 일상생활에서도 볼 수 있어요. 엘리베이터 버튼을 여러 번 누르거나, 문이 닫히기 전에 빨리 들어가려고 하거나, 식당에서 음식이 빨리 나오기를 기대하는 것들이에요.
 
-가을(9~11월)은 단풍으로 물드는 계절입니다. 설악산과 내장산의 단풍은 전국에서 관광객을 불러 모읍니다. 음력 8월 15일 추석은 한국 최대 명절 중 하나입니다. 온 가족이 모여 차례를 지내고 성묘를 하며, 반달 모양의 송편을 빚어 먹습니다. 추석 연휴에는 전국의 도로가 귀성 차량으로 가득 찹니다.
+하지만 빨리빨리 문화에는 단점도 있어요. 너무 빠른 속도 때문에 스트레스를 받거나 실수를 하는 경우도 있어요. 요즘 젊은 세대는 '느리게 살기'나 '슬로우 라이프'에 관심을 갖기 시작했어요.
 
-겨울(12~2월)에는 설날이 찾아옵니다. 음력 1월 1일인 설날은 한 해의 시작을 알리는 가장 중요한 명절입니다. 가족들이 모여 새해 인사를 나누고, 어른들께 세배를 드립니다. 세배를 받은 어른들은 세뱃돈을 건네며 덕담을 전합니다. 설날 아침에는 떡국을 먹는데, 떡국 한 그릇을 먹으면 나이 한 살이 더 는다고 합니다. 강원도의 스키 리조트는 겨울 스포츠를 즐기는 사람들로 북적입니다.
+외국인들은 한국의 빠른 속도에 처음에는 놀라지만, 나중에는 한국의 효율성과 역동성을 높이 평가하는 경우가 많아요.`,
+        native: `Korea has a culture called 빨리빨리 (ppalli ppalli). 빨리빨리 is the word 빨리 (quickly) repeated twice, meaning 'quickly, quickly!'. This is not just a phrase — it is an expression of the speed and dynamism of Korean society.
 
-한국의 계절 음식 문화는 제철 재료를 중심으로 합니다. 삼계탕은 여름 복날의 음식이고, 송편은 추석, 떡국은 설날에 먹습니다. 계절과 명절에 맞는 음식을 먹는 것은 자연과 전통에 연결되는 방식입니다.`,
-        native: `Korea is a country with four distinct seasons. Each season has its own unique scenery, food, and cultural significance.
+In Korea, many things move quickly. Food delivery usually arrives within 30 minutes. Internet speed is among the highest in the world. Building construction is also much faster than in other countries. In the 1960s, Korea was one of the poorest countries in the world, but in just half a century it became an economic powerhouse. One of the reasons this was possible is precisely the 빨리빨리 spirit.
 
-Spring (March–April) arrives with cherry blossoms. Yeouido in Seoul and Jinhae in South Gyeongsang Province are famous cherry blossom spots, drawing crowds of people to enjoy 꽃놀이 (flower viewing). Flower viewing is a culture of spreading a mat under the trees, sharing food, and welcoming spring. On April 5th — Arbour Day (식목일) — there is a tradition of planting trees.
+빨리빨리 culture is also visible in daily life: pressing elevator buttons multiple times, trying to get in before the doors close, expecting food to come out quickly at restaurants.
 
-Summer (June–August) is characterised by the monsoon season and intense heat. When the June–July rainy season ends, the full heat begins, and people head to the coast or mountain valleys to escape it. Sambok — comprising 초복, 중복, and 말복 — are the three hottest periods of the Korean summer. The tradition is to eat 삼계탕 (ginseng chicken soup) on these days to restore energy. As the saying goes, "이열치열" — fight heat with heat.
+But 빨리빨리 culture also has its downsides. The excessive speed can cause stress and mistakes. These days, younger generations are starting to take an interest in 'living slowly' and the slow life.
 
-Autumn (September–November) is the season of turning leaves. The autumn foliage of Seoraksan and Naejangsan draws visitors from across the country. Chuseok, on the 15th day of the 8th lunar month, is one of Korea's greatest traditional holidays. The whole family gathers to perform ancestral rites (차례), visit family graves (성묘), and make and eat 송편 (half-moon shaped rice cakes). During the Chuseok holiday, the nation's roads fill with cars heading home (귀성길).
-
-Winter (December–February) brings Seollal (Lunar New Year). Falling on the first day of the lunar calendar, Seollal is the most important holiday marking the new year. Families gather, exchange new year greetings, and perform the formal deep bow 세배 to elders. The elders give 세뱃돈 (money in envelopes) and offer words of blessing. On the morning of Seollal, 떡국 (rice cake soup) is eaten — it is said that eating a bowl of tteokguk means you have grown one year older. Ski resorts in Gangwon Province are busy with winter sports enthusiasts.
-
-Korea's seasonal food culture centres on seasonal ingredients. Samgyetang is the food of the summer dog days; 송편 belongs to Chuseok; 떡국 to Seollal. Eating the right food for the season and festival is a way of staying connected to nature and tradition.`
+Many foreigners are surprised by Korea's pace at first, but later often come to appreciate the efficiency and dynamism of Korea.`
     },
+
     cultureVocab: [
         {
-            word: "추석 (秋夕)",
-            romanized: "chuseok",
-            translation: "Korean harvest festival (Chuseok)",
-            culturalNote: "Often called 'Korean Thanksgiving', Chuseok falls on the 15th day of the 8th lunar month. Families travel across the country (귀성길) to perform 차례 (ancestral rites) and share 송편 (half-moon rice cakes)."
+            word: "빨리빨리",
+            romanized: "ppalli ppalli",
+            translation: "quickly quickly (Korean cultural concept of speed)",
+            culturalNote: "More than an adverb, 빨리빨리 is a cultural identity. It reflects Korea's post-war drive for rapid modernisation — a collective mindset that helped transform a war-devastated country into a tech and economic powerhouse within a generation. Koreans are often aware of the concept and discuss it themselves."
         },
         {
-            word: "설날",
-            romanized: "seollal",
-            translation: "Korean Lunar New Year",
-            culturalNote: "The most important traditional holiday. Koreans perform 세배 (a deep bow to elders), receive 세뱃돈 (money in envelopes), and eat 떡국 (rice cake soup) — eating it means you become one year older."
+            word: "역동성",
+            romanized: "yeokdongseong",
+            translation: "dynamism, vibrancy, energy",
+            culturalNote: "Koreans often describe their country's character using this word. Korea's culture of constant change — in technology, fashion, food trends, entertainment — is part of the 역동성 that defines modern Korean identity."
         },
         {
-            word: "벚꽃 축제",
-            romanized: "beotkkot chukje",
-            translation: "cherry blossom festival",
-            culturalNote: "Every spring, Koreans celebrate 벚꽃 (cherry blossoms) with picnics under the trees — called 꽃놀이. Major spots include 여의도 in Seoul and 진해 in the south."
+            word: "한강의 기적",
+            romanized: "Hangang-ui gijeok",
+            translation: "Miracle on the Han River (Korea's economic development)",
+            culturalNote: "This phrase refers to South Korea's extraordinary economic transformation from the 1960s to 1990s. Starting from one of the world's poorest countries after the Korean War, Korea became a major industrial economy in a single generation — a feat widely attributed partly to the 빨리빨리 work culture."
         },
         {
-            word: "복날",
-            romanized: "boknal",
-            translation: "the dog days of summer (three hottest days)",
-            culturalNote: "초복, 중복, 말복 are the three hottest periods of the Korean summer. It is traditional to eat 삼계탕 (ginseng chicken soup) on these days to restore energy lost to the heat."
+            word: "슬로우 라이프",
+            romanized: "seullou raipu",
+            translation: "slow life (counter-movement to 빨리빨리)",
+            culturalNote: "A growing movement, especially among younger Koreans, that consciously resists the pressure of constant speed. 슬로우 라이프 enthusiasts value mindful eating, slower travel, and taking time for hobbies. It exists in deliberate tension with 빨리빨리 culture."
         },
         {
-            word: "세뱃돈",
-            romanized: "sebaedon",
-            translation: "New Year's money given to children",
-            culturalNote: "During 설날, younger family members perform the formal bow 세배 to elders, who give 세뱃돈 in small envelopes. The amount varies by age and relationship — it is an important ritual of respect and family bond."
+            word: "배달 문화",
+            romanized: "baedal munhwa",
+            translation: "delivery culture",
+            culturalNote: "Korea's food delivery culture is among the most sophisticated in the world. Almost any type of food can be delivered within 30 minutes, often to parks or public spaces as well as homes. Apps like 배달의민족 (Baemin) and 쿠팡이츠 transformed Korean food culture and reflect the 빨리빨리 expectation of speed and convenience."
         }
     ],
+
     questions: [
         {
             id: "ko-c-a2-3-q1",
             type: "comprehension",
-            prompt: {
-                native: "What do Koreans traditionally eat on 설날?",
-                target: "설날에 한국 사람들이 전통적으로 먹는 음식은 무엇인가요?"
-            },
+            prompt: { native: "What is one area where Korean speed and efficiency is particularly visible?", target: "한국의 속도와 효율성이 특히 두드러지는 분야는 무엇입니까?" },
             options: [
-                "송편",
-                "삼계탕",
-                "떡국",
-                "비빔밥"
+                "Slow and deliberate construction",
+                "Food delivery arriving within 30 minutes",
+                "Low-speed internet connections",
+                "Relaxed workplace culture"
             ],
-            answer: "떡국"
+            answer: "Food delivery arriving within 30 minutes"
         },
         {
             id: "ko-c-a2-3-q2",
-            type: "comprehension",
-            prompt: {
-                native: "What is the purpose of 세배?",
-                target: "세배는 무엇을 위한 것인가요?"
-            },
-            options: [
-                "To receive presents from parents",
-                "A deep bow to show respect to elders at New Year",
-                "A harvest ceremony to thank the gods",
-                "A dance performed at 추석"
-            ],
-            answer: "A deep bow to show respect to elders at New Year"
+            type: "reflection",
+            prompt: { native: "빨리빨리 culture has both strengths (efficiency, innovation) and weaknesses (stress, mistakes). How does your culture balance speed with quality? Is there a similar cultural value or its opposite in your society?", target: "빨리빨리 문화에는 장점(효율성, 혁신)과 단점(스트레스, 실수)이 있어요. 여러분의 문화에서는 속도와 질을 어떻게 균형 잡나요? 비슷하거나 반대되는 문화적 가치가 있나요?" }
         },
         {
             id: "ko-c-a2-3-q3",
-            type: "reflection",
-            prompt: {
-                native: "Does your culture have seasonal festivals or family gathering times similar to 추석 or 설날? What rituals or foods are central to them?",
-                target: "여러분의 문화에도 추석이나 설날과 비슷한 계절 축제나 가족 모임이 있나요? 어떤 의식이나 음식이 중심이 되나요?"
-            }
+            type: "comparison",
+            prompt: { native: "Korea transformed from one of the world's poorest countries to an economic powerhouse in about 50 years. What role do you think 빨리빨리 culture played? Are there downsides to a society built around speed?", target: "Korea transformed from one of the world's poorest countries to an economic powerhouse in about 50 years. What role do you think 빨리빨리 culture played? Are there downsides to a society built around speed?" }
         }
     ],
+
     didYouKnow: {
-        native: "South Korea has one of the highest rates of cosmetic surgery per capita in the world. Seoul's Gangnam district — particularly the area around Apgujeong — is home to hundreds of clinics and has become a global destination for medical tourism. Procedures such as double-eyelid surgery (쌍꺼풀 수술) and jaw reduction are especially common. Korea's cosmetic surgery industry attracts visitors from across Asia, the United States, and beyond, making it a significant part of the country's medical tourism economy.",
-        target: "한국은 세계에서 1인당 성형 수술 비율이 가장 높은 나라 중 하나입니다. 서울의 강남구, 특히 압구정동 일대에는 수백 개의 클리닉이 모여 있어 글로벌 의료 관광지로 자리 잡았습니다. 쌍꺼풀 수술이나 턱 축소 수술이 특히 일반적입니다. 한국의 성형 산업은 아시아 전역과 미국 등지에서 방문객을 끌어들이며, 한국 의료 관광 경제의 중요한 축을 이루고 있습니다."
+        native: "Korea has the fastest average internet speed in the world — a title it has held for many years. This is not an accident: Korea's government invested heavily in nationwide broadband infrastructure from the late 1990s as a national priority. The result is that broadband internet, including high-speed connections in remote areas, is considered a basic utility in Korea — as essential as electricity and water. The 빨리빨리 spirit applied to technology infrastructure created a digital foundation that enabled Korea's gaming, entertainment, and tech industries to flourish.",
+        target: "한국은 세계에서 평균 인터넷 속도가 가장 빠른 나라로 수년째 이 타이틀을 유지하고 있어요. 이것은 우연이 아니에요. 한국 정부는 1990년대 후반부터 전국 광대역 인프라에 집중적으로 투자했어요. 그 결과 한국에서는 광대역 인터넷이 전기, 수도처럼 기본 생활 서비스로 여겨져요. 빨리빨리 정신을 기술 인프라에 적용한 결과, 한국의 게임, 엔터테인먼트, IT 산업이 꽃필 수 있는 디지털 기반이 만들어졌어요."
     }
 }
