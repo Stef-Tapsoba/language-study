@@ -6,7 +6,7 @@ export const itCA13: CultureEpisode = {
     category: "customs",
     region: "all-italian",
     title: {
-        native: "I gesti italiani — comunicare con le mani",
+        native: "Italian Gestures — Communicating with Your Hands",
         target: "I gesti italiani — comunicare con le mani"
     },
     subtitle: "Italians are famous for talking with their hands — but each gesture has a precise meaning that every visitor should know.",

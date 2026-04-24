@@ -499,8 +499,8 @@ POSITION — adjectives usually come AFTER the noun: un ragazzo alto, una pizza 
                 condition: "Adjective ending in -e",
                 result: "Same form for masculine and feminine; add -i for plural",
                 examples: [
-                    { native: "interessante → interessanti", translation: "interesting (sg → pl)" },
-                    { native: "grande → grandi", translation: "big/great (sg → pl)" },
+                    { native: "interessante → interessanti", translation: "interesting (singular to plural)", annotation: "interessante → interessanti" },
+                    { native: "grande → grandi", translation: "big/great (singular to plural)", annotation: "grande → grandi" },
                 ],
             },
             {

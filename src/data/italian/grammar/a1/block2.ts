@@ -26,8 +26,8 @@ To express strong dislike: odiare (regular -are):
 Quick tip: piacere + infinitive = liking an activity:
   Mi piace leggere. (I like reading.) ← always singular, use piace not piacciono`,
         examples: [
-            { native: "Mi piace la pizza.", translation: "I like pizza. (singular → piace)" },
-            { native: "Mi piacciono i gatti.", translation: "I like cats. (plural → piacciono)" },
+            { native: "Mi piace la pizza.", translation: "I like pizza. (singular: piace)", annotation: "singular → piace" },
+            { native: "Mi piacciono i gatti.", translation: "I like cats. (plural: piacciono)", annotation: "plural → piacciono" },
             { native: "Non mi piace il pesce.", translation: "I don't like fish." },
             { native: "Ti piace la musica italiana?", translation: "Do you like Italian music?" },
             { native: "Preferisco il vino rosso.", translation: "I prefer red wine." },

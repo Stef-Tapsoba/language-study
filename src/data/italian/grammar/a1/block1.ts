@@ -363,8 +363,8 @@ Common -are verbs: parlare (speak), lavorare (work), abitare (live), ascoltare (
                 condition: "Conjugating a regular -are verb",
                 result: "Remove -are, add: -o / -i / -a / -iamo / -ate / -ano",
                 examples: [
-                    { native: "parlare → parlo, parli, parla…", translation: "to speak → I speak, you speak, he/she speaks…" },
-                    { native: "mangiare → mangio, mangi, mangia…", translation: "to eat → I eat, you eat, he/she eats…" },
+                    { native: "parlare → parlo, parli, parla…", translation: "to speak: I speak, you speak, he/she speaks…", annotation: "parlare → parlo, parli, parla…" },
+                    { native: "mangiare → mangio, mangi, mangia…", translation: "to eat: I eat, you eat, he/she eats…", annotation: "mangiare → mangio, mangi, mangia…" },
                 ],
             },
             {
@@ -381,7 +381,7 @@ Common -are verbs: parlare (speak), lavorare (work), abitare (live), ascoltare (
                 condition: "Verbs ending in -iare",
                 result: "The tu form loses the extra -i: mangi (not *mangii)",
                 examples: [
-                    { native: "mangiare → mangio / mangi / mangia / mangiamo / mangiate / mangiano", translation: "to eat → I eat / you eat / he eats / we eat / you all eat / they eat" },
+                    { native: "mangiare → mangio / mangi / mangia / mangiamo / mangiate / mangiano", translation: "to eat: I eat / you eat / he eats / we eat / you all eat / they eat", annotation: "mangiare → mangio / mangi / mangia / mangiamo / mangiate / mangiano" },
                 ],
             },
         ],

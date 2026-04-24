@@ -39,7 +39,7 @@ COMMON PROFESSIONS
             { native: "Che lavoro fai?", translation: "What do you do for work?" },
             { native: "Mia madre è medico.", translation: "My mother is a doctor." },
             { native: "Lavoro in un ristorante come cameriere.", translation: "I work in a restaurant as a waiter." },
-            { native: "È un bravo avvocato.", translation: "He is a good lawyer. (adjective → article returns)" }
+            { native: "È un bravo avvocato.", translation: "He is a good lawyer.", annotation: "adjective → article returns" }
         ],
         inlineVocab: [
             { word: "medico", translation: "doctor" },
@@ -132,17 +132,17 @@ Short irregular forms Va', Fa', Di', Sta' have an apostrophe marking the dropped
                 condition: "Tu imperative for -are verbs",
                 result: "Remove -are, add -a (NOT -i)",
                 examples: [
-                    { native: "parlare → Parla!", translation: "to speak → Speak!" },
-                    { native: "comprare → Compra!", translation: "to buy → Buy!" },
-                    { native: "mangiare → Mangia!", translation: "to eat → Eat!" },
+                    { native: "parlare → Parla!", translation: "to speak: Speak!", annotation: "parlare → Parla!" },
+                    { native: "comprare → Compra!", translation: "to buy: Buy!", annotation: "comprare → Compra!" },
+                    { native: "mangiare → Mangia!", translation: "to eat: Eat!", annotation: "mangiare → Mangia!" },
                 ],
             },
             {
                 condition: "Tu imperative for -ere and -ire verbs",
                 result: "Same as tu present tense form",
                 examples: [
-                    { native: "scrivere: tu scrivi → Scrivi!", translation: "to write: you write → Write!" },
-                    { native: "dormire: tu dormi → Dormi!", translation: "to sleep: you sleep → Sleep!" },
+                    { native: "scrivere: tu scrivi → Scrivi!", translation: "to write: you write — Write!", annotation: "scrivi → Scrivi!" },
+                    { native: "dormire: tu dormi → Dormi!", translation: "to sleep: you sleep — Sleep!", annotation: "dormi → Dormi!" },
                 ],
             },
             {
@@ -180,8 +180,8 @@ Short irregular forms Va', Fa', Di', Sta' have an apostrophe marking the dropped
             { native: "Parla più lentamente, per favore.", translation: "Speak more slowly, please. (tu — informal)" },
             { native: "Ascoltate bene!", translation: "Listen carefully! (voi — plural)" },
             { native: "Andiamo!", translation: "Let's go!" },
-            { native: "Non mangiare quello!", translation: "Don't eat that! (tu negative — non + infinitive)" },
-            { native: "Alzati!", translation: "Get up! (reflexive imperative — pronoun attached)" },
+            { native: "Non mangiare quello!", translation: "Don't eat that!", annotation: "tu negative — non + infinitive" },
+            { native: "Alzati!", translation: "Get up!", annotation: "reflexive imperative — pronoun attached" },
             { native: "Fammi vedere.", translation: "Let me see. (Fa' + mi — contracted)" },
         ],
         inlineVocab: [
