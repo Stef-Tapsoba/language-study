@@ -17,7 +17,7 @@ import japaneseModule from "../src/data/japanese"
 import koreanModule from "../src/data/korean"
 import type {
     GrammarLesson, VocabItem, Verb, LessonUnit, ReadingPassage,
-    ListeningExercise, CultureEpisode, SpeakingPrompt, PhraseLesson,
+    ListeningExercise, CultureEpisode, CulturePhoto, SpeakingPrompt, PhraseLesson,
     QuizQuestion, Example, DialogueExample, GrammarRule, GrammarNote,
     GrammarConjugationTable, GrammarReferenceTable, CultureQuestion,
     ConjugationTable, ConjugationForm,
@@ -136,6 +136,77 @@ function requireNativeIsEnglish(val: unknown, field: string) {
 }
 
 // ---------------------------------------------------------------------------
+// Length limits — max chars before content overflows a UI card
+// ---------------------------------------------------------------------------
+
+const MAX = {
+    ruleCondition:      120,  // Rule card header label
+    ruleResult:         120,  // Rule card result label
+    exampleNative:      350,  // Source sentence — Korean can be multi-clause
+    exampleTranslation: 250,  // Should be a clean gloss, not an essay
+    exampleAnnotation:  200,  // Short supplementary note
+    vocabWord:           80,
+    vocabTranslation:   100,
+    fixedPhraseNative:  150,
+    fixedPhraseTranslation: 120,
+} as const
+
+function checkLength(val: unknown, field: string, max: number) {
+    if (typeof val !== "string") return
+    if (val.length > max) {
+        err(`${field} is ${val.length} chars (limit ~${max}) — may overflow card: "${val.slice(0, 50)}…"`)
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Translation purity — translation must not carry annotation content
+// ---------------------------------------------------------------------------
+
+/** Arrows used for grammar derivation notes (belong in annotation, not translation). */
+const ARROW_RE = /→|⇒|←/
+/** Long parenthetical ≥ 30 chars — almost certainly an explanatory note, not a gloss qualifier. */
+const LONG_PARENS_RE = /\((.{30,})\)/
+
+function requireTranslationIsPure(val: unknown, field: string) {
+    if (typeof val !== "string" || val.trim() === "") return
+    if (currentLang === "ja") return
+    // Korean script in a translation field means the annotation migration missed this example
+    if (currentLang === "ko" && HANGUL_RE.test(val)) {
+        err(`${field} contains Korean script — move explanatory Korean to annotation field`)
+    }
+    // Derivation arrows indicate a grammar note, not a translation
+    if (ARROW_RE.test(val)) {
+        err(`${field} contains arrow notation (→/⇒) — move to annotation field`)
+    }
+    // A parenthetical longer than 30 chars is almost never part of a gloss
+    const m = val.match(LONG_PARENS_RE)
+    if (m) {
+        err(`${field} contains long parenthetical "${m[0].slice(0, 45)}" — move explanatory notes to annotation field`)
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Target-language direction — target fields must be in the target language
+// ---------------------------------------------------------------------------
+
+function requireTargetIsTargetLanguage(val: unknown, field: string) {
+    if (typeof val !== "string" || val.trim() === "") return
+    if (currentLang === "ja") return
+    if (currentLang === "ko" && !HANGUL_RE.test(val)) {
+        err(`${field} (target/Korean) contains no Korean script — check language direction`)
+    }
+    // FR/ES/IT use Latin script — can't detect automatically, but still useful to check they're non-empty
+}
+
+/** Catches copy-paste errors where native and target ended up identical. */
+function requireNativeTargetDiffer(native: unknown, target: unknown, field: string) {
+    if (typeof native !== "string" || typeof target !== "string") return
+    if (native.trim() === target.trim()) {
+        err(`${field}: native and target are identical — one of them is wrong`)
+    }
+}
+
+// ---------------------------------------------------------------------------
 // Primitive validators
 // ---------------------------------------------------------------------------
 
@@ -172,7 +243,10 @@ function requireLevel(val: unknown, field = "level") {
 function validateExample(ex: Example, label: string) {
     requireString(ex.native, `${label}.native`)
     requireString(ex.translation, `${label}.translation`)
-    if (currentLang !== "ja") requireNativeIsEnglish(ex.translation, `${label}.translation`)
+    requireTranslationIsPure(ex.translation, `${label}.translation`)
+    checkLength(ex.native, `${label}.native`, MAX.exampleNative)
+    checkLength(ex.translation, `${label}.translation`, MAX.exampleTranslation)
+    if (ex.annotation !== undefined) checkLength(ex.annotation, `${label}.annotation`, MAX.exampleAnnotation)
     if (ex.romanized !== undefined) requireRomanized(ex.romanized, `${label}.romanized`)
 }
 
@@ -256,6 +330,8 @@ function validateReferenceTable(table: GrammarReferenceTable, field: string) {
 function validateGrammarRule(rule: GrammarRule, label: string) {
     requireString(rule.condition, `${label}.condition`)
     requireString(rule.result, `${label}.result`)
+    checkLength(rule.condition, `${label}.condition`, MAX.ruleCondition)
+    checkLength(rule.result, `${label}.result`, MAX.ruleResult)
     if (Array.isArray(rule.examples)) {
         rule.examples.forEach((ex, i) => validateExample(ex, `${label}.examples[${i}]`))
     } else {
@@ -293,6 +369,8 @@ function validateGrammarLesson(g: GrammarLesson) {
     g.fixedPhrases?.forEach((fp, i) => {
         requireString(fp.native, `fixedPhrases[${i}].native`)
         requireString(fp.translation, `fixedPhrases[${i}].translation`)
+        checkLength(fp.native, `fixedPhrases[${i}].native`, MAX.fixedPhraseNative)
+        checkLength(fp.translation, `fixedPhrases[${i}].translation`, MAX.fixedPhraseTranslation)
     })
 
     if (g.conjugationTable) validateConjugationTable(g.conjugationTable, "conjugationTable")
@@ -329,6 +407,9 @@ function validateVocabItem(v: VocabItem) {
     requireString(v.word, "word")
     requireString(v.translation, "translation")
     requireNativeIsEnglish(v.translation, "translation")
+    requireTranslationIsPure(v.translation, "translation")
+    checkLength(v.word, "word", MAX.vocabWord)
+    checkLength(v.translation, "translation", MAX.vocabTranslation)
     requireString(v.category, "category")
     if (v.romanized !== undefined) requireRomanized(v.romanized, "romanized")
 
@@ -453,7 +534,11 @@ function validateReadingPassage(r: ReadingPassage) {
         err("body must be a LocalizedText object")
     } else {
         requireString(r.body.native, "body.native")
-        // body.target is optional
+        requireNativeIsEnglish(r.body.native, "body.native")
+        if (r.body.target !== undefined) {
+            requireTargetIsTargetLanguage(r.body.target, "body.target")
+            requireNativeTargetDiffer(r.body.native, r.body.target, "body")
+        }
     }
 
     if (Array.isArray(r.vocabGloss)) {
@@ -519,44 +604,46 @@ function validateCultureQuestion(q: CultureQuestion, label: string) {
     }
 }
 
+/** Validates a required LocalizedText — native must be English, target (if present) must be target-language. */
+function validateLocalizedText(lt: unknown, field: string, required = true) {
+    if (!lt || typeof lt !== "object") {
+        if (required) err(`${field} must be a LocalizedText object`)
+        return
+    }
+    const { native, target } = lt as { native?: unknown; target?: unknown }
+    requireString(native, `${field}.native`)
+    requireNativeIsEnglish(native, `${field}.native`)
+    if (target !== undefined) {
+        requireTargetIsTargetLanguage(target, `${field}.target`)
+        requireNativeTargetDiffer(native, target, field)
+    }
+}
+
+function validateCulturePhoto(p: CulturePhoto, label: string) {
+    requireString(p.url, `${label}.url`)
+    validateLocalizedText(p.caption, `${label}.caption`)
+}
+
 function validateCultureEpisode(c: CultureEpisode) {
     ctx(currentLang, "culture", c.id ?? "(no id)")
     requireString(c.id, "id")
-    requireString(c.language, "language")   // NOT optional on CultureEpisode
+    requireString(c.language, "language")
     requireLevel(c.level)
     requireEnum(c.category, VALID_CULTURE_CATEGORIES, "category")
     requireEnum(c.region, VALID_CULTURE_REGIONS, "region")
 
-    if (!c.title || typeof c.title !== "object") {
-        err("title must be a LocalizedText object")
-    } else {
-        requireString(c.title.native, "title.native")
-        requireNativeIsEnglish(c.title.native, "title.native")
-    }
-
+    validateLocalizedText(c.title, "title")
     requireString(c.subtitle, "subtitle")
     requireNativeIsEnglish(c.subtitle, "subtitle")
 
     if (Array.isArray(c.photos)) {
-        c.photos.forEach((p, i) => {
-            requireString(p.url, `photos[${i}].url`)
-            if (p.caption && typeof p.caption === "object") {
-                requireString(p.caption.native, `photos[${i}].caption.native`)
-                requireNativeIsEnglish(p.caption.native, `photos[${i}].caption.native`)
-            } else {
-                err(`photos[${i}].caption must be a LocalizedText`)
-            }
-        })
+        c.photos.forEach((p, i) => validateCulturePhoto(p, `photos[${i}]`))
     } else {
         err("photos must be an array")
     }
 
-    if (c.body && typeof c.body === "object") {
-        requireString(c.body.native, "body.native")
-        requireNativeIsEnglish(c.body.native, "body.native")
-    } else {
-        err("body must be a LocalizedText object")
-    }
+    validateLocalizedText(c.body, "body")
+    if (c.didYouKnow) validateLocalizedText(c.didYouKnow, "didYouKnow", false)
 
     if (Array.isArray(c.cultureVocab)) {
         c.cultureVocab.forEach((cv, i) => {
