@@ -1,3 +1,4 @@
+/// <reference types="node" />
 /**
  * scripts/validate-curriculum.ts
  *
@@ -94,6 +95,44 @@ function ctx(lang: string, section: string, id: string) {
 }
 
 // ---------------------------------------------------------------------------
+// Language-direction helpers
+// ---------------------------------------------------------------------------
+
+// Hangul block: U+AC00–U+D7A3, Jamo: U+1100–U+11FF, U+3130–U+318F
+const HANGUL_RE = /[\uAC00-\uD7A3\u1100-\u11FF\u3130-\u318F]/
+// CJK Unified: U+4E00–U+9FFF, Hiragana: U+3041–U+3096, Katakana: U+30A0–U+30FF
+const CJK_KANA_RE = /[\u4E00-\u9FFF\u3041-\u3096\u30A0-\u30FF]/
+// Cyrillic block: U+0400–U+04FF
+const CYRILLIC_RE = /[\u0400-\u04FF]/
+
+/**
+ * Romanized fields must be pure ASCII (letters, digits, hyphens, spaces,
+ * apostrophes, basic punctuation). Flags Cyrillic lookalikes and CJK/Hangul.
+ */
+function requireRomanized(val: unknown, field: string) {
+    if (typeof val !== "string" || val.trim() === "") return
+    if (CYRILLIC_RE.test(val)) {
+        const flagged = val.replaceAll(/[^\x00-\x7F]/g, c => "[U+" + (c.codePointAt(0) ?? 0).toString(16).toUpperCase() + "]")
+        err(`${field} contains Cyrillic characters (likely IME bleed): "${flagged}"`)
+    }
+    if (HANGUL_RE.test(val) || CJK_KANA_RE.test(val)) {
+        err(`${field} contains non-Latin script — should be romanization only`)
+    }
+}
+
+/**
+ * "native" fields must be in English (no target-language script).
+ * Catches Korean/Japanese script bleeding into English fields.
+ * For Latin-script languages (FR/ES/IT) we can't auto-detect, but script checks still help.
+ */
+function requireNativeIsEnglish(val: unknown, field: string) {
+    if (typeof val !== "string" || val.trim() === "") return
+    if (HANGUL_RE.test(val)) err(`${field} (native/English) contains Korean script — check language direction`)
+    if (CJK_KANA_RE.test(val)) err(`${field} (native/English) contains Japanese/CJK script — check language direction`)
+    if (CYRILLIC_RE.test(val)) err(`${field} (native/English) contains Cyrillic — check language direction`)
+}
+
+// ---------------------------------------------------------------------------
 // Primitive validators
 // ---------------------------------------------------------------------------
 
@@ -115,7 +154,7 @@ function requireNonEmptyArray(val: unknown, field: string): boolean {
 
 function requireEnum(val: unknown, validSet: Set<string>, field: string) {
     if (typeof val !== "string" || !validSet.has(val)) {
-        err(`${field} "${val}" is not a valid value (allowed: ${[...validSet].join(", ")})`)
+        err(`${field} "${typeof val === "string" ? val : JSON.stringify(val)}" is not a valid value (allowed: ${[...validSet].join(", ")})`)
     }
 }
 
@@ -130,7 +169,8 @@ function requireLevel(val: unknown, field = "level") {
 function validateExample(ex: Example, label: string) {
     requireString(ex.native, `${label}.native`)
     requireString(ex.translation, `${label}.translation`)
-    // romanized, speakText, annotation, tokens are all optional — no check needed
+    if (currentLang !== "ja") requireNativeIsEnglish(ex.translation, `${label}.translation`)
+    if (ex.romanized !== undefined) requireRomanized(ex.romanized, `${label}.romanized`)
 }
 
 function validateDialogueExample(ex: DialogueExample, label: string) {
@@ -141,6 +181,8 @@ function validateDialogueExample(ex: DialogueExample, label: string) {
     ex.exchanges.forEach((turn, i) => {
         requireString(turn.native, `${label}.exchanges[${i}].native`)
         requireString(turn.translation, `${label}.exchanges[${i}].translation`)
+        if (currentLang !== "ja") requireNativeIsEnglish(turn.translation, `${label}.exchanges[${i}].translation`)
+        if (turn.romanized !== undefined) requireRomanized(turn.romanized, `${label}.exchanges[${i}].romanized`)
     })
 }
 
@@ -148,7 +190,7 @@ function validateExampleOrDialogue(
     ex: Example | DialogueExample, label: string,
 ) {
     if ("type" in ex && ex.type === "dialogue") {
-        validateDialogueExample(ex as DialogueExample, label)
+        validateDialogueExample(ex, label)
     } else {
         validateExample(ex as Example, label)
     }
@@ -164,10 +206,8 @@ function validateQuizQuestion(q: QuizQuestion, label: string) {
     requireString(q.prompt, `${label}.prompt`)
     if (!Array.isArray(q.options) || q.options.length < 2) {
         err(`${label}.options must have at least 2 items`)
-    } else {
-        if (!q.options.includes(q.answer)) {
-            err(`${label}.answer "${q.answer}" not found in options [${q.options.join(", ")}]`)
-        }
+    } else if (!q.options.includes(q.answer)) {
+        err(`${label}.answer "${q.answer}" not found in options [${q.options.join(", ")}]`)
     }
     requireString(q.answer, `${label}.answer`)
 }
@@ -213,10 +253,10 @@ function validateReferenceTable(table: GrammarReferenceTable, field: string) {
 function validateGrammarRule(rule: GrammarRule, label: string) {
     requireString(rule.condition, `${label}.condition`)
     requireString(rule.result, `${label}.result`)
-    if (!Array.isArray(rule.examples)) {
-        err(`${label}.examples must be an array`)
-    } else {
+    if (Array.isArray(rule.examples)) {
         rule.examples.forEach((ex, i) => validateExample(ex, `${label}.examples[${i}]`))
+    } else {
+        err(`${label}.examples must be an array`)
     }
 }
 
@@ -256,10 +296,10 @@ function validateGrammarLesson(g: GrammarLesson) {
     if (g.paradigmTable) validateConjugationTable(g.paradigmTable, "paradigmTable")
     if (g.referenceTable) validateReferenceTable(g.referenceTable, "referenceTable")
 
-    if (!Array.isArray(g.examples)) {
-        err("examples must be an array")
-    } else {
+    if (Array.isArray(g.examples)) {
         g.examples.forEach((ex, i) => validateExampleOrDialogue(ex, `examples[${i}]`))
+    } else {
+        err("examples must be an array")
     }
 
     g.inlineVocab?.forEach((iv, i) => {
@@ -285,7 +325,9 @@ function validateVocabItem(v: VocabItem) {
     requireLevel(v.level)
     requireString(v.word, "word")
     requireString(v.translation, "translation")
+    requireNativeIsEnglish(v.translation, "translation")
     requireString(v.category, "category")
+    if (v.romanized !== undefined) requireRomanized(v.romanized, "romanized")
 
     if (typeof v.example !== "object" || v.example === null) {
         err("example must be an object")
@@ -303,6 +345,7 @@ function validateVocabItem(v: VocabItem) {
 function validateConjugationForm(form: ConjugationForm, label: string) {
     requireString(form.pronoun, `${label}.pronoun`)
     requireString(form.form, `${label}.form`)
+    if (form.romanized !== undefined) requireRomanized(form.romanized, `${label}.romanized`)
 }
 
 function validateConjugationTableVerb(table: ConjugationTable, label: string) {
@@ -327,16 +370,17 @@ function validateVerb(v: Verb) {
 // Units
 // ---------------------------------------------------------------------------
 
-function validateUnit(
-    u: LessonUnit,
-    knownGrammarIds: Set<string>,
-    knownVocabIds: Set<string>,
-    knownVerbIds: Set<string>,
-    knownReadingIds: Set<string>,
-    knownListeningIds: Set<string>,
-    knownCultureIds: Set<string>,
-    knownPhraseIds: Set<string>,
-) {
+interface KnownIds {
+    grammarIds: Set<string>
+    vocabIds: Set<string>
+    verbIds: Set<string>
+    readingIds: Set<string>
+    listeningIds: Set<string>
+    cultureIds: Set<string>
+    phraseIds: Set<string>
+}
+
+function validateUnit(u: LessonUnit, known: KnownIds) {
     ctx(currentLang, "units", u.id ?? "(no id)")
     requireString(u.id, "id")
     requireLevel(u.level)
@@ -360,32 +404,32 @@ function validateUnit(
 
     // Cross-reference checks
     u.grammarIds?.forEach(id => {
-        if (!knownGrammarIds.has(id)) err(`grammarIds references unknown grammar id "${id}"`)
+        if (!known.grammarIds.has(id)) err(`grammarIds references unknown grammar id "${id}"`)
     })
     u.vocabIds?.forEach(id => {
-        if (!knownVocabIds.has(id)) err(`vocabIds references unknown vocab id "${id}"`)
+        if (!known.vocabIds.has(id)) err(`vocabIds references unknown vocab id "${id}"`)
     })
     u.verbIds?.forEach(id => {
-        if (!knownVerbIds.has(id)) err(`verbIds references unknown verb id "${id}"`)
+        if (!known.verbIds.has(id)) err(`verbIds references unknown verb id "${id}"`)
     })
     u.readingIds?.forEach(id => {
-        if (!knownReadingIds.has(id)) err(`readingIds references unknown reading id "${id}"`)
+        if (!known.readingIds.has(id)) err(`readingIds references unknown reading id "${id}"`)
     })
     u.listeningIds?.forEach(id => {
-        if (!knownListeningIds.has(id)) err(`listeningIds references unknown listening id "${id}"`)
+        if (!known.listeningIds.has(id)) err(`listeningIds references unknown listening id "${id}"`)
     })
     u.cultureIds?.forEach(id => {
-        if (!knownCultureIds.has(id)) err(`cultureIds references unknown culture id "${id}"`)
+        if (!known.cultureIds.has(id)) err(`cultureIds references unknown culture id "${id}"`)
     })
     u.phraseLessonIds?.forEach(id => {
-        if (!knownPhraseIds.has(id)) err(`phraseLessonIds references unknown phrase lesson id "${id}"`)
+        if (!known.phraseIds.has(id)) err(`phraseLessonIds references unknown phrase lesson id "${id}"`)
     })
 
     // Test questions
-    if (!Array.isArray(u.testQuestions)) {
-        err("testQuestions must be an array")
-    } else {
+    if (Array.isArray(u.testQuestions)) {
         u.testQuestions.forEach((q, i) => validateQuizQuestion(q, `testQuestions[${i}]`))
+    } else {
+        err("testQuestions must be an array")
     }
 
     u.topicTags?.forEach((tag, i) => requireEnum(tag, VALID_TOPIC_TAGS, `topicTags[${i}]`))
@@ -409,19 +453,21 @@ function validateReadingPassage(r: ReadingPassage) {
         // body.target is optional
     }
 
-    if (!Array.isArray(r.vocabGloss)) {
-        err("vocabGloss must be an array")
-    } else {
+    if (Array.isArray(r.vocabGloss)) {
         r.vocabGloss.forEach((vg, i) => {
             requireString(vg.word, `vocabGloss[${i}].word`)
             requireString(vg.translation, `vocabGloss[${i}].translation`)
+            requireNativeIsEnglish(vg.translation, `vocabGloss[${i}].translation`)
+            if (vg.romanized !== undefined) requireRomanized(vg.romanized, `vocabGloss[${i}].romanized`)
         })
+    } else {
+        err("vocabGloss must be an array")
     }
 
-    if (!Array.isArray(r.questions) || r.questions.length === 0) {
-        err("questions must be a non-empty array")
-    } else {
+    if (Array.isArray(r.questions) && r.questions.length > 0) {
         r.questions.forEach((q, i) => validateQuizQuestion(q, `questions[${i}]`))
+    } else {
+        err("questions must be a non-empty array")
     }
 }
 
@@ -482,42 +528,44 @@ function validateCultureEpisode(c: CultureEpisode) {
         err("title must be a LocalizedText object")
     } else {
         requireString(c.title.native, "title.native")
+        requireNativeIsEnglish(c.title.native, "title.native")
     }
 
     requireString(c.subtitle, "subtitle")
+    requireNativeIsEnglish(c.subtitle, "subtitle")
 
-    if (!Array.isArray(c.photos)) {
-        err("photos must be an array")
-    } else {
+    if (Array.isArray(c.photos)) {
         c.photos.forEach((p, i) => {
             requireString(p.url, `photos[${i}].url`)
-            if (!p.caption || typeof p.caption !== "object") {
-                err(`photos[${i}].caption must be a LocalizedText`)
-            } else {
+            if (p.caption && typeof p.caption === "object") {
                 requireString(p.caption.native, `photos[${i}].caption.native`)
+                requireNativeIsEnglish(p.caption.native, `photos[${i}].caption.native`)
+            } else {
+                err(`photos[${i}].caption must be a LocalizedText`)
             }
         })
+    } else {
+        err("photos must be an array")
     }
 
-    if (!c.body || typeof c.body !== "object") {
-        err("body must be a LocalizedText object")
-    } else {
+    if (c.body && typeof c.body === "object") {
         requireString(c.body.native, "body.native")
+        requireNativeIsEnglish(c.body.native, "body.native")
+    } else {
+        err("body must be a LocalizedText object")
     }
 
-    if (!Array.isArray(c.cultureVocab)) {
-        err("cultureVocab must be an array")
-    } else {
+    if (Array.isArray(c.cultureVocab)) {
         c.cultureVocab.forEach((cv, i) => {
             requireString(cv.word, `cultureVocab[${i}].word`)
             requireString(cv.translation, `cultureVocab[${i}].translation`)
         })
     }
 
-    if (!Array.isArray(c.questions) || c.questions.length === 0) {
-        err("questions must be a non-empty array")
-    } else {
+    if (Array.isArray(c.questions) && c.questions.length > 0) {
         c.questions.forEach((q, i) => validateCultureQuestion(q, `questions[${i}]`))
+    } else {
+        err("questions must be a non-empty array")
     }
 
     if (c.video) {
@@ -651,9 +699,9 @@ function validateModule(langId: string, mod: LanguageModule) {
     mod.grammar.forEach(g => validateGrammarLesson(g))
     mod.vocab.forEach(v => validateVocabItem(v))
     mod.verbs.forEach(v => validateVerb(v))
-    mod.units.forEach(u => validateUnit(
-        u, grammarIds, vocabIds, verbIds, readingIds, listeningIds, cultureIds, phraseIds,
-    ))
+    mod.units.forEach(u => validateUnit(u, {
+        grammarIds, vocabIds, verbIds, readingIds, listeningIds, cultureIds, phraseIds,
+    }))
     mod.readingPassages?.forEach(r => validateReadingPassage(r))
     mod.listeningExercises?.forEach(l => validateListeningExercise(l))
     mod.cultureEpisodes?.forEach(c => validateCultureEpisode(c))
