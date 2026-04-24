@@ -7,8 +7,8 @@ export const frCA21: CultureEpisode = {
     category: "daily-life",
     region: "france",
     title: {
-        native: "La boulangerie française — le cœur du quartier",
-        target: "La boulangerie française"
+        native: "The French Bakery — the heart of the neighbourhood",
+        target: "La boulangerie française — le cœur du quartier"
     },
     subtitle: "Why the French bakery is more than a shop — it is the social heartbeat of every neighbourhood.",
 

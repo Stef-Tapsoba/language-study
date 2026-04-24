@@ -7,8 +7,8 @@ export const frCA23: CultureEpisode = {
     category: "arts",
     region: "france",
     title: {
-        native: "Le cinéma français — une passion nationale",
-        target: "Le cinéma français"
+        native: "French Cinema — a national passion",
+        target: "Le cinéma français — une passion nationale"
     },
     subtitle: "France invented cinema and has never stopped treating it as an art form — not just entertainment.",
 
