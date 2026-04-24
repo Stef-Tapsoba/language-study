@@ -4,130 +4,112 @@ export const koCA22: CultureEpisode = {
     id: "ko-c-a2-2",
     language: "ko",
     level: "A2",
-    category: "arts",
-    region: "all-korean",
+    category: "food",
+    region: "seoul",
     title: {
-        native: "Hallyu — The Global Wave of Korean Culture",
-        target: "한류 — 한국 문화의 세계화"
+        native: "한국의 음식 문화 — The culture of Korean food",
+        target: "한국의 음식 문화 — 한국 음식의 세계"
     },
-    subtitle: "K-pop, K-dramas, and Korean food have conquered the world — but what drives the Korean Wave, and what does it mean for Koreans themselves?",
+    subtitle: "Korean food culture is inseparable from social connection — sharing, trying, and encouraging each other to eat are at the heart of how Koreans build relationships.",
+
     photos: [
         {
-            url: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800",
+            url: "https://images.unsplash.com/photo-1604908177522-6e50d3f00756?w=800",
             caption: {
-                native: "A K-pop concert",
-                target: "케이팝 콘서트"
+                native: "Korean BBQ — samgyeopsal is best shared with friends",
+                target: "한국 BBQ — 삼겹살은 친구들과 함께 먹는 게 제일 맛있어요"
             }
         },
         {
-            url: "https://images.unsplash.com/photo-1598387993441-a364f854cfdd?w=800",
+            url: "https://images.unsplash.com/photo-1534482421-64566f976cfa?w=800",
             caption: {
-                native: "Korean street food",
-                target: "한국 길거리 음식"
-            }
-        },
-        {
-            url: "https://images.unsplash.com/photo-1517697471339-4aa32003c11a?w=800",
-            caption: {
-                native: "A traditional Korean hanbok",
-                target: "한복"
+                native: "Street food markets in Seoul — a culture of trying new things",
+                target: "서울의 길거리 음식 시장 — 새로운 것을 시도하는 문화"
             }
         }
     ],
+
     body: {
-        target: `한류(韓流)는 한국 대중문화가 전 세계로 퍼져나가는 현상을 말합니다. 1990년대 말 아시아 금융위기 이후, 한국 정부는 문화 산업을 국가 전략 산업으로 지정하고 적극적으로 지원하기 시작했습니다. 드라마 '겨울연가'가 일본과 동아시아에서 큰 인기를 끌었고, 가수 보아가 일본 시장에서 성공을 거두면서 한류의 첫 물결이 시작되었습니다.
+        target: `한국의 음식 문화는 단순히 먹는 것 이상의 의미가 있어요. 음식은 관계를 쌓는 방법이에요.
 
-케이팝(K-pop)은 한류의 가장 강력한 엔진입니다. BTS, 블랙핑크를 비롯한 아이돌 그룹들은 미국 빌보드 차트를 석권하고 세계 각지에서 투어 공연을 펼칩니다. 케이팝 팬덤은 단순한 팬 집단이 아닙니다. BTS의 '아미(ARMY)', 블랙핑크의 '블링크(BLINK)' 같은 팬덤은 전 세계에서 동시에 스트리밍 캠페인을 벌이고, 자선 활동을 주도하며, 여러 언어로 콘텐츠를 제작합니다. 칼군무와 화려한 비주얼 퍼포먼스, 철저히 관리된 아이돌 이미지는 서양 팝과 차별화되는 케이팝만의 특징입니다.
+한국에서는 식사를 같이 하는 것이 매우 중요해요. '밥 먹었어요?'라는 질문은 단순히 식사를 했냐는 질문이 아니에요. '잘 지내요?'라는 뜻을 담고 있어요.
 
-케이드라마(K-drama)는 넷플릭스를 통해 전 세계 시청자에게 닿았습니다. 2021년 공개된 '오징어 게임'은 넷플릭스 역사상 비영어권 콘텐츠 중 가장 많이 시청된 작품이 되었습니다. 이 드라마는 경제적 불평등과 생존 경쟁을 다루며 전 세계적 공감을 얻었고, 한국어 학습자가 급증하는 계기가 되었습니다.
+한국 음식 문화의 특징 중 하나는 '한번 먹어봐요'라는 표현이에요. 한국 사람들은 음식을 권할 때 항상 '한번 먹어봐요'라고 해요. 이것은 단순한 권유가 아니라 관심과 배려의 표현이에요.
 
-한식도 세계 무대에 올랐습니다. 김치, 불고기, 비빔밥은 이제 세계인이 아는 음식이 되었고, 한국식 프라이드 치킨과 떡볶이는 길거리 음식을 넘어 글로벌 트렌드가 되었습니다.
+식당에서 음식을 주문할 때 여러 가지 반찬이 함께 나와요. 반찬은 추가로 더 달라고 해도 돼요. 보통 무료예요. 한국에서 식사를 할 때 혼자 다 먹는 것보다 여러 사람이 나눠 먹는 문화가 있어요.
 
-한국인들은 한류에 대해 자부심을 느끼면서도 복잡한 감정을 갖고 있습니다. "우리 문화가 제대로 전달되고 있는가?"라는 질문과 함께, 한복과 김치 등 문화 원조에 대한 논쟁도 벌어지고 있습니다. 한류는 단순한 문화 수출을 넘어, 한국의 역사와 정체성에 대한 깊은 성찰을 불러일으키는 현상이기도 합니다.`,
-        native: `Hallyu (韓流) refers to the phenomenon of Korean popular culture spreading across the world. After the Asian financial crisis of the late 1990s, the South Korean government designated the cultural industry as a national strategic sector and began actively supporting it. The drama Winter Sonata became hugely popular in Japan and across East Asia, and singer BoA achieved major success in the Japanese market — marking the beginning of the first wave of Hallyu.
+요즘 젊은 세대는 혼밥(혼자 먹는 밥)도 즐겨요. 하지만 친구나 가족과 함께 먹는 것이 여전히 한국 음식 문화의 중심이에요.`,
+        native: `Korean food culture means more than simply eating. Food is a way to build relationships.
 
-K-pop is the most powerful engine of Hallyu. Idol groups such as BTS and BLACKPINK have topped the US Billboard charts and tour the world. K-pop fandoms are far more than ordinary fan communities. Groups like BTS's ARMY and BLACKPINK's BLINK run coordinated global streaming campaigns, lead charitable initiatives, and produce multilingual content. The precisely synchronised choreography, spectacular visual performances, and carefully managed idol image set K-pop apart from Western pop.
+In Korea, eating together is very important. The question '밥 먹었어요?' (Have you eaten?) is not simply asking whether you've had a meal. It carries the meaning of 'How are you doing?'
 
-K-dramas reached global audiences through Netflix. The 2021 series Squid Game became the most-watched non-English language content in Netflix history. The show addressed economic inequality and survival competition, resonating with viewers worldwide, and sparked a sharp surge in Korean language learners.
+One characteristic of Korean food culture is the expression '한번 먹어봐요' (Just try it). When Koreans offer food, they always say '한번 먹어봐요'. This is not a simple recommendation — it is an expression of interest and care.
 
-Korean food has also taken the world stage. Kimchi, bulgogi, and bibimbap are now known to people around the globe, and Korean fried chicken and tteokbokki have grown from street food into global trends.
+When ordering food at a restaurant, various side dishes (banchan) come with the meal. You can ask for more side dishes. Usually they are free. When eating in Korea, there is a culture of sharing food among several people rather than everyone eating alone.
 
-Koreans feel pride about Hallyu, but also hold complex emotions. Questions like "Is our culture being communicated accurately?" arise alongside debates over cultural origin — regarding hanbok, kimchi, and other traditions. Hallyu is more than a simple cultural export; it is a phenomenon that invites deep reflection on Korean history and identity.`
+These days younger generations also enjoy 혼밥 (eating alone). But eating with friends or family is still at the centre of Korean food culture.`
     },
+
     cultureVocab: [
         {
-            word: "한류 (韓流)",
-            romanized: "hallyu",
-            translation: "the Korean Wave",
-            culturalNote: "Literally 'Korean flow/wave' — the global spread of Korean popular culture. First coined in China in the late 1990s, it now covers K-pop, K-drama, K-beauty, and Korean food worldwide."
+            word: "밥 먹었어요?",
+            romanized: "bap meogeosseoyo?",
+            translation: "Have you eaten? (social greeting)",
+            culturalNote: "This phrase is used as a general social greeting — not just a literal question about eating. Answering 네, 먹었어요 (Yes, I ate) is perfectly fine even if you haven't. The spirit of the question is 'are you okay?'"
         },
         {
-            word: "아이돌",
-            romanized: "aidol",
-            translation: "idol (K-pop performer)",
-            culturalNote: "Korean idol groups are trained for years in singing, dancing, languages, and image before debut. The idol system is distinct from Western pop — it emphasises group cohesion, fan interaction (팬사인회), and a carefully managed public image."
+            word: "반찬",
+            romanized: "banchan",
+            translation: "side dishes served with a Korean meal",
+            culturalNote: "Side dishes at Korean restaurants are typically refillable and free. Asking for more (더 주세요 — deo juseyo) is expected and normal, not greedy. The variety and quality of banchan is a point of pride."
         },
         {
-            word: "팬덤",
-            romanized: "paendeom",
-            translation: "fandom",
-            culturalNote: "Korean fandoms are famously organized and passionate. Groups like BTS's ARMY (아미) run coordinated streaming campaigns, charity drives, and multilingual fan accounts. Fan culture is a major driver of Hallyu's global reach."
+            word: "혼밥",
+            romanized: "honbap",
+            translation: "eating alone (혼자 + 밥 contraction)",
+            culturalNote: "A relatively modern term reflecting the rise of solo dining. Apps and restaurants specifically designed for 혼밥 are popular in Korean cities. The trend marks a shift from purely communal eating culture, though eating together remains the social ideal."
         },
         {
-            word: "오징어 게임",
-            romanized: "ojingeo geim",
-            translation: "Squid Game",
-            culturalNote: "The 2021 Netflix series became the most-watched non-English show in the platform's history, sparking global curiosity about Korean language, society, and the pressure of economic competition that the show depicts."
+            word: "회식",
+            romanized: "hoesik",
+            translation: "company/team dinner (obligatory group meal)",
+            culturalNote: "회식 is a Korean workplace and social institution — a group dinner that builds team bonds. Attendance is often expected even if informal. Food and shared conversation are the mechanism for relationship-building in Korean professional life."
         },
         {
-            word: "한복",
-            romanized: "hanbok",
-            translation: "traditional Korean clothing",
-            culturalNote: "Worn at 설날 (Lunar New Year) and 추석 (Chuseok), and increasingly in everyday fashion (신한복 neo-hanbok). The question of cultural ownership — particularly with China — has made 한복 a sensitive cultural pride point."
+            word: "한번 먹어봐요",
+            romanized: "hanbeon meogeobwayo",
+            translation: "Just try it! (standard food encouragement)",
+            culturalNote: "This phrase is the quintessential Korean food encouragement. Refusing food without even trying it is mildly awkward. The polite response to food you found too spicy or not to your taste is to frame it personally: 저한테는 좀 매워요 (It's a bit spicy for me) rather than saying the food is bad."
         }
     ],
+
     questions: [
         {
             id: "ko-c-a2-2-q1",
             type: "comprehension",
-            prompt: {
-                native: "What does '한류' literally mean?",
-                target: "한류의 뜻은 무엇인가요?"
-            },
+            prompt: { native: "In Korean culture, what does '밥 먹었어요?' really mean beyond asking about eating?", target: "한국 문화에서 '밥 먹었어요?'는 식사 여부 외에 어떤 의미가 있습니까?" },
             options: [
-                "Korean music",
-                "Korean Wave / Korean flow",
-                "Korean drama",
-                "K-pop idol group"
+                "A question about what you had for breakfast",
+                "A social greeting meaning 'how are you doing?'",
+                "An invitation to eat together",
+                "A polite refusal of food"
             ],
-            answer: "Korean Wave / Korean flow"
+            answer: "A social greeting meaning 'how are you doing?'"
         },
         {
             id: "ko-c-a2-2-q2",
-            type: "comprehension",
-            prompt: {
-                native: "What made Squid Game historically significant?",
-                target: "오징어 게임이 역사적으로 중요한 이유는 무엇인가요?"
-            },
-            options: [
-                "It was the first Korean drama",
-                "It became Netflix's most-watched non-English show",
-                "It won the TOPIK award",
-                "It was filmed entirely in English"
-            ],
-            answer: "It became Netflix's most-watched non-English show"
+            type: "reflection",
+            prompt: { native: "In Korean food culture, sharing and encouraging others to eat is central. How does food function as a social tool in your culture? Are there similar expressions of care through food?", target: "한국 음식 문화에서는 나누고 먹도록 권하는 것이 중심이에요. 여러분의 문화에서 음식은 어떤 사회적 역할을 하나요? 음식을 통한 배려의 표현이 있나요?" }
         },
         {
             id: "ko-c-a2-2-q3",
-            type: "reflection",
-            prompt: {
-                native: "Have you been influenced by the Korean Wave? Which aspect of Korean culture — K-pop, K-drama, food, or language — interests you most, and why?",
-                target: "한류의 영향을 받은 적이 있나요? 케이팝, 드라마, 음식, 언어 중 어떤 부분이 가장 흥미롭고 그 이유는 무엇인가요?"
-            }
+            type: "comparison",
+            prompt: { native: "Korean banchan (side dishes) are refillable and free. How does this compare to dining experiences in your country? What does this practice reveal about Korean hospitality values?", target: "Korean banchan (side dishes) are refillable and free. How does this compare to dining experiences in your country? What does this practice reveal about Korean hospitality values?" }
         }
     ],
+
     didYouKnow: {
-        native: "Chuseok is one of the most significant travel days of the year in Korea. Every year, tens of millions of Koreans travel to their hometowns to celebrate with family — creating traffic jams that can last ten hours or more on major motorways. The mass migration is so large that the government publishes real-time road condition forecasts days in advance. Many Koreans book train tickets months ahead, and the fastest KTX rail tickets sell out within minutes of going on sale.",
-        target: "추석은 한국에서 한 해 중 가장 중요한 이동의 날입니다. 매년 수천만 명의 한국인이 가족과 함께 명절을 보내기 위해 고향으로 향하며, 주요 고속도로에서 10시간 이상 이어지는 교통 체증이 발생합니다. 이 대규모 이동이 워낙 거대해 정부는 며칠 전부터 실시간 도로 상황 예보를 발표합니다. 많은 한국인이 몇 달 전부터 기차표를 예매하며, 가장 빠른 KTX 표는 판매 시작 후 수 분 만에 매진됩니다."
+        native: "The Korean expression 금강산도 식후경 (Geumgangsan-do sikhuggyeong) — literally 'Even a trip to the Diamond Mountains comes after eating' — captures the Korean belief that food is the foundation of everything. No matter how beautiful the destination or how important the event, you should eat first. It's a philosophy, not just an appetite.",
+        target: "한국 속담 '금강산도 식후경'은 말 그대로 '금강산 여행도 식사 후'라는 뜻이에요. 음식이 모든 것의 기초라는 한국의 믿음을 담고 있어요. 목적지가 아무리 아름답거나 행사가 아무리 중요해도 먼저 먹어야 한다는 뜻이에요. 이것은 단순한 식욕이 아니라 하나의 철학이에요."
     }
 }

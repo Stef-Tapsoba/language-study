@@ -44,6 +44,7 @@ import { koB1Culture } from "./culture/b1"
 
 import { a1PhraseLessons } from "./phraseLessons/a1"
 import { a1Checkpoints } from "./checkpoints/a1"
+import { a2Checkpoints } from "./checkpoints/a2"
 
 export default createLanguageModule({
     langId: "ko",
@@ -57,5 +58,5 @@ export default createLanguageModule({
     listeningExercises: [a1Listening, a2Listening, b1Listening],
     cultureEpisodes: [koA1Culture, koA2Culture, koB1Culture],
     phraseLessons: [a1PhraseLessons],
-    checkpoints: [a1Checkpoints],
+    checkpoints: [a1Checkpoints, a2Checkpoints],
 })

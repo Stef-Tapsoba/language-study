@@ -1,204 +1,123 @@
-// src/data/korean/reading/a2.ts
+// src/data/korean/reading/a2.ts — Korean A2 redesign
+// 5 reading passages covering A2 grammar and communicative themes.
+
 import { ReadingPassage } from "../../../types"
 
 export const a2Reading: ReadingPassage[] = [
     {
         id: "ko-r-a2-1",
         level: "A2",
-        category: "culture",
-        title: "한국의 명절 (Korean Holidays)",
+        category: "everyday",
+        title: "요즘 어떻게 지내요? (How are you these days?)",
         body: {
-            target: "한국에는 중요한 명절이 있어요. 설날은 음력 1월 1일이에요. 온 가족이 모여서 떡국을 먹어요. 어른들께 세배를 드리고 세뱃돈을 받아요. 추석은 음력 8월 15일이에요. 한국의 추수감사절이에요. 가족이 모여서 성묘를 가고 송편을 만들어 먹어요. 어린이날은 5월 5일이에요. 아이들이 선물을 받고 가족과 함께 즐거운 시간을 보내요. 한글날은 10월 9일로 한국어를 기념하는 날이에요.",
-            native: "Korea has important holidays. Seollal is the first day of the first month of the lunar calendar. The whole family gathers and eats tteokguk (rice cake soup). They bow to elders and receive New Year's money. Chuseok is the 15th day of the eighth lunar month. It is Korea's Thanksgiving. Families gather, visit ancestral graves and make and eat songpyeon (rice cakes). Children's Day is 5 May. Children receive gifts and spend a happy time with their families. Hangeul Day is 9 October, a day that celebrates the Korean language."
+            target: "저는 요즘 한국어를 열심히 공부하고 있어요. 매일 아침 한 시간씩 공부하기로 했어요. 처음에는 발음하기 어려웠는데, 요즘은 많이 좋아졌어요. 지난주에는 처음으로 한국 친구랑 전화로 이야기했어요. 긴장했는데 생각보다 잘 됐어요. 친구가 천천히 말해 주어서 이해할 수 있었어요. 앞으로도 계속 열심히 하기로 했어요. 한국에 가 보고 싶어서 더 잘하고 싶어요.",
+            native: "These days I'm studying Korean diligently. I decided to study one hour every morning. At first it was hard to pronounce, but lately it's gotten much better. Last week I talked on the phone with a Korean friend for the first time. I was nervous but it went better than expected. My friend spoke slowly for me, so I could understand. I've decided to keep going hard from now on. I want to go to Korea, so I want to get better."
         },
         vocabGloss: [
-            { word: "명절", translation: "traditional holiday", romanized: "myeongjeol" },
-            { word: "설날", translation: "Lunar New Year", romanized: "seollal" },
-            { word: "떡국", translation: "tteokguk (rice cake soup)", romanized: "tteokguk" },
-            { word: "세배", translation: "deep bow (to elders, New Year)", romanized: "sebae" },
-            { word: "세뱃돈", translation: "New Year's money (gift to children)", romanized: "sebaetdon" },
-            { word: "추석", translation: "Chuseok (Korean Thanksgiving)", romanized: "chuseok" },
-            { word: "성묘", translation: "visiting ancestral graves", romanized: "seongmyo" },
-            { word: "송편", translation: "songpyeon (half-moon rice cakes)", romanized: "songpyeon" }
+            { word: "열심히", translation: "diligently, hard", romanized: "yeolsimhi" },
+            { word: "매일", translation: "every day", romanized: "maeil" },
+            { word: "처음에는", translation: "at first", romanized: "cheoeum-eneun" },
+            { word: "생각보다", translation: "more than expected, better than I thought", romanized: "saenggakboda" },
+            { word: "천천히", translation: "slowly", romanized: "cheoncheonhi" },
+            { word: "이해하다", translation: "to understand", romanized: "ihaehada" },
+            { word: "앞으로도", translation: "from now on, going forward", romanized: "apeurodo" },
         ],
         questions: [
-            {
-                id: "ko-r-a2-1-q1",
-                level: "A2",
-                prompt: "What do people eat on Seollal?",
-                options: ["Tteokguk (rice cake soup)", "Songpyeon", "Bibimbap", "Samgyeopsal"],
-                answer: "Tteokguk (rice cake soup)"
-            },
-            {
-                id: "ko-r-a2-1-q2",
-                level: "A2",
-                prompt: "What is Chuseok similar to?",
-                options: ["Thanksgiving", "New Year", "Children's Day", "A language holiday"],
-                answer: "Thanksgiving"
-            },
-            {
-                id: "ko-r-a2-1-q3",
-                level: "A2",
-                prompt: "What is Hangeul Day?",
-                options: ["A day celebrating the Korean language", "Korean New Year", "Children's holiday", "A harvest festival"],
-                answer: "A day celebrating the Korean language"
-            },
-            {
-                id: "ko-r-a2-1-q4",
-                level: "A2",
-                prompt: "What do children receive at Seollal after bowing to elders?",
-                options: ["New Year's money", "Songpyeon", "Tteokguk", "Gifts from parents"],
-                answer: "New Year's money"
-            }
+            { id: "ko-r-a2-1-q1", level: "A2", prompt: "How much does the writer study every morning?", options: ["30 minutes", "One hour", "Two hours", "Three hours"], answer: "One hour" },
+            { id: "ko-r-a2-1-q2", level: "A2", prompt: "What happened last week?", options: ["The writer went to Korea", "The writer talked with a Korean friend on the phone", "The writer passed a test", "The writer met a new teacher"], answer: "The writer talked with a Korean friend on the phone" },
+            { id: "ko-r-a2-1-q3", level: "A2", prompt: "Why could the writer understand the conversation?", options: ["The friend spoke clearly", "The friend spoke slowly", "The friend used simple words", "The friend sent a message"], answer: "The friend spoke slowly" },
         ]
     },
     {
         id: "ko-r-a2-2",
         level: "A2",
-        category: "culture",
-        title: "한국 음식 문화 (Korean Food Culture)",
+        category: "everyday",
+        title: "한국 여행 계획 (Korea Travel Plans)",
         body: {
-            target: "한국 음식은 세계적으로 유명해요. 한국 음식의 특징은 반찬이에요. 밥상에는 밥, 국, 그리고 여러 가지 반찬이 나와요. 김치는 한국의 대표 음식이에요. 배추, 무, 오이 등으로 만들어요. 발효 음식이라서 건강에 좋아요. 한국에서는 밥을 먹을 때 숟가락과 젓가락을 사용해요. 식당에서 물과 반찬은 무료예요. 식사 전에 \"잘 먹겠습니다\"라고 해요. 이것은 음식에 감사하는 표현이에요.",
-            native: "Korean food is famous worldwide. A characteristic of Korean food is banchan (side dishes). A meal includes rice, soup and various side dishes. Kimchi is Korea's representative food. It is made with napa cabbage, radish, cucumber and more. Because it is fermented food, it is good for health. In Korea, a spoon and chopsticks are used when eating rice. At restaurants, water and side dishes are free. Before eating, people say 'jal meokgesseumnida'. This is an expression of thanks for the food."
+            target: "저는 내년 봄에 한국에 갈 예정이에요. 오래전부터 가 보고 싶었는데, 드디어 계획을 세웠어요. 서울에서 3일, 부산에서 2일 있을 생각이에요. 서울에서는 경복궁에 가서 한복을 입어 볼 거예요. 그리고 홍대에서 친구들이랑 맛있는 음식을 먹을 예정이에요. 부산에서는 해운대 해변에 갈 생각이에요. 아직 가 본 적이 없어서 정말 기대돼요. 여행 전에 한국어를 더 공부해야 해서 요즘 매일 공부하고 있어요.",
+            native: "I'm scheduled to go to Korea next spring. I'd been wanting to go for a long time and I've finally made plans. I'm thinking of spending 3 days in Seoul and 2 days in Busan. In Seoul I'm going to go to Gyeongbokgung and try wearing hanbok. And I'm scheduled to eat delicious food in Hongdae with friends. In Busan I'm thinking of going to Haeundae Beach. I've never been there, so I'm really excited. I have to study Korean more before the trip, so I'm studying every day these days."
         },
         vocabGloss: [
-            { word: "특징", translation: "characteristic, feature", romanized: "teukjing" },
-            { word: "반찬", translation: "banchan (side dishes)", romanized: "banchan" },
-            { word: "김치", translation: "kimchi (fermented vegetables)", romanized: "kimchi" },
-            { word: "발효", translation: "fermentation", romanized: "balhyo" },
-            { word: "숟가락", translation: "spoon", romanized: "sutgarak" },
-            { word: "젓가락", translation: "chopsticks", romanized: "jeotgarak" },
-            { word: "무료", translation: "free (of charge)", romanized: "muryo" },
-            { word: "잘 먹겠습니다", translation: "expression said before eating", romanized: "jal meokgesseumnida" }
+            { word: "내년", translation: "next year", romanized: "naenyeon" },
+            { word: "드디어", translation: "finally, at last", romanized: "deudieо" },
+            { word: "계획을 세우다", translation: "to make a plan", romanized: "gyehoekeul seuda" },
+            { word: "한복", translation: "traditional Korean clothing", romanized: "hanbok" },
+            { word: "해운대", translation: "Haeundae (famous beach in Busan)", romanized: "Haeundae" },
+            { word: "기대되다", translation: "to be excited/look forward to", romanized: "gidae-doeda" },
         ],
         questions: [
-            {
-                id: "ko-r-a2-2-q1",
-                level: "A2",
-                prompt: "What are banchan?",
-                options: ["Side dishes", "A type of soup", "A main course", "A type of kimchi"],
-                answer: "Side dishes"
-            },
-            {
-                id: "ko-r-a2-2-q2",
-                level: "A2",
-                prompt: "Why is kimchi considered healthy?",
-                options: ["Because it is fermented food", "Because it contains vegetables", "Because it is spicy", "Because it has vitamins"],
-                answer: "Because it is fermented food"
-            },
-            {
-                id: "ko-r-a2-2-q3",
-                level: "A2",
-                prompt: "What is provided for free at Korean restaurants?",
-                options: ["Water and side dishes", "Rice and soup", "Dessert and tea", "Kimchi only"],
-                answer: "Water and side dishes"
-            },
-            {
-                id: "ko-r-a2-2-q4",
-                level: "A2",
-                prompt: "What does 'jal meokgesseumnida' mean?",
-                options: ["An expression of thanks before eating", "The food is delicious", "I am hungry", "Please give me more"],
-                answer: "An expression of thanks before eating"
-            }
+            { id: "ko-r-a2-2-q1", level: "A2", prompt: "When is the writer planning to go to Korea?", options: ["This summer", "Next spring", "Next autumn", "Next winter"], answer: "Next spring" },
+            { id: "ko-r-a2-2-q2", level: "A2", prompt: "What does the writer want to try in Seoul?", options: ["Eating street food", "Wearing hanbok", "Going to a concert", "Visiting a museum"], answer: "Wearing hanbok" },
+            { id: "ko-r-a2-2-q3", level: "A2", prompt: "Why is the writer studying Korean every day?", options: ["Because Korean is fun", "Because they have a test", "Because they need to study before the trip", "Because they live in Korea"], answer: "Because they need to study before the trip" },
         ]
     },
     {
         id: "ko-r-a2-3",
         level: "A2",
-        category: "culture",
-        title: "서울 관광 (Sightseeing in Seoul)",
+        category: "everyday",
+        title: "달라진 나 (A Changed Me)",
         body: {
-            target: "서울은 대한민국의 수도예요. 오래된 것과 현대적인 것이 공존하는 도시예요. 경복궁은 조선 시대의 왕궁이에요. 아름다운 한국 전통 건축을 볼 수 있어요. 인사동은 전통 공예품, 찻집, 갤러리가 많은 거리예요. 명동은 쇼핑과 음식으로 유명해요. 외국인 관광객이 정말 많아요. 북촌 한옥마을에서는 전통 한옥을 볼 수 있어요. 남산서울타워는 서울 전경을 볼 수 있는 명소예요. 한강 공원에서는 자전거를 타거나 피크닉을 즐길 수 있어요.",
-            native: "Seoul is the capital of South Korea. It is a city where old and modern coexist. Gyeongbokgung is a royal palace from the Joseon Dynasty. You can see beautiful traditional Korean architecture. Insadong is a street with many traditional crafts, tea houses and galleries. Myeongdong is famous for shopping and food. There are really many foreign tourists. In Bukchon Hanok Village you can see traditional hanok houses. Namsan Seoul Tower is a famous spot where you can see a panoramic view of Seoul. At Hangang Park you can ride bicycles or enjoy a picnic."
+            target: "1년 전에 저는 한국 음식을 별로 좋아하지 않았어요. 김치는 먹어 본 적도 없었고, 고추장은 너무 맵다고 생각했어요. 그런데 한국 친구를 사귀게 됐는데, 그 친구가 계속 한국 음식을 소개해 줬어요. 처음에는 억지로 먹어 봤는데, 점점 맛있어졌어요. 지금은 한국 음식을 제일 좋아해요. 삼겹살이랑 된장찌개를 먹어 본 적이 있는데 둘 다 정말 맛있었어요. 이제 한국 요리를 배워 보고 싶어요. 사람마다 입맛이 다르지만, 저는 한국 음식이 제 입맛에 딱 맞는 것 같아요.",
+            native: "A year ago I didn't really like Korean food. I had never tried kimchi, and I thought gochujang was too spicy. But I came to make a Korean friend, and that friend kept introducing me to Korean food. At first I tried eating it reluctantly, but gradually it got more and more delicious. Now I like Korean food the most. I've tried samgyeopsal and doenjang jjigae — both were really delicious. Now I want to try learning Korean cooking. Every person has different tastes, but I think Korean food is a perfect match for mine."
         },
         vocabGloss: [
-            { word: "수도", translation: "capital city", romanized: "sudo" },
-            { word: "공존하다", translation: "to coexist", romanized: "gongjeonhada" },
-            { word: "왕궁", translation: "royal palace", romanized: "wanggung" },
-            { word: "전통", translation: "traditional", romanized: "jeontong" },
-            { word: "공예품", translation: "crafts, handicrafts", romanized: "gong yepum" },
-            { word: "한옥", translation: "hanok (traditional Korean house)", romanized: "hanok" },
-            { word: "전경", translation: "panoramic view", romanized: "jeongyeong" },
-            { word: "명소", translation: "famous spot, attraction", romanized: "myeongso" }
+            { word: "별로", translation: "not really, not particularly (with negative)", romanized: "byeollo" },
+            { word: "사귀다", translation: "to make friends with, befriend", romanized: "saguida" },
+            { word: "억지로", translation: "reluctantly, forcibly", romanized: "eokjiro" },
+            { word: "점점", translation: "gradually, more and more", romanized: "jeomjeom" },
+            { word: "입맛", translation: "taste (in food), palate", romanized: "immmat" },
+            { word: "딱 맞다", translation: "to be a perfect fit/match", romanized: "ttak matda" },
         ],
         questions: [
-            {
-                id: "ko-r-a2-3-q1",
-                level: "A2",
-                prompt: "What is Gyeongbokgung?",
-                options: ["A royal palace from the Joseon Dynasty", "A shopping street", "A traditional village", "A tower"],
-                answer: "A royal palace from the Joseon Dynasty"
-            },
-            {
-                id: "ko-r-a2-3-q2",
-                level: "A2",
-                prompt: "What is Myeongdong famous for?",
-                options: ["Shopping and food", "Traditional crafts", "Palaces and history", "A panoramic view"],
-                answer: "Shopping and food"
-            },
-            {
-                id: "ko-r-a2-3-q3",
-                level: "A2",
-                prompt: "What can you see at Namsan Seoul Tower?",
-                options: ["A panoramic view of Seoul", "Traditional hanok houses", "Royal palace buildings", "A famous street market"],
-                answer: "A panoramic view of Seoul"
-            },
-            {
-                id: "ko-r-a2-3-q4",
-                level: "A2",
-                prompt: "What can you do at Hangang Park?",
-                options: ["Ride bicycles or have a picnic", "See traditional crafts", "Visit a palace", "Go shopping"],
-                answer: "Ride bicycles or have a picnic"
-            }
+            { id: "ko-r-a2-3-q1", level: "A2", prompt: "Why did the writer change their opinion about Korean food?", options: ["They went to Korea", "A Korean friend kept introducing Korean food", "They watched a cooking show", "They took a Korean cooking class"], answer: "A Korean friend kept introducing Korean food" },
+            { id: "ko-r-a2-3-q2", level: "A2", prompt: "What Korean foods has the writer tried? (according to the text)", options: ["Only kimchi", "Samgyeopsal and doenjang jjigae", "Bibimbap and tteokbokki", "Only Korean BBQ"], answer: "Samgyeopsal and doenjang jjigae" },
+            { id: "ko-r-a2-3-q3", level: "A2", prompt: "What does the writer want to do now?", options: ["Open a Korean restaurant", "Move to Korea", "Try learning Korean cooking", "Stop eating Korean food"], answer: "Try learning Korean cooking" },
         ]
     },
     {
         id: "ko-r-a2-4",
         level: "A2",
-        category: "everyday",
-        title: "한국 학교생활 (Korean School Life)",
+        category: "culture",
+        title: "회사 생활 (Office Life in Korea)",
         body: {
-            target: "한국 학교는 보통 3월에 시작해요. 학생들은 교복을 입어요. 수업은 오전 여덟 시 반부터 오후 네 시까지예요. 점심은 급식실에서 먹어요. 반 친구들과 같이 먹어요. 방과 후에는 동아리 활동이 있어요. 축구, 농구, 음악 동아리가 있어요. 한국 학생들은 공부를 많이 해요. 학원에 다니는 학생도 많아요. 한국에서는 학생들이 직접 교실을 청소해요. 이것은 책임감을 키우기 위해서예요.",
-            native: "Korean schools usually start in March. Students wear uniforms. Classes are from eight thirty in the morning to four in the afternoon. Students eat lunch in the cafeteria. They eat with their classmates. After school there are club activities. There are football, basketball and music clubs. Korean students study a lot. Many students also attend private academies. In Korea, students clean the classrooms themselves. This is to build a sense of responsibility."
+            target: "한국 회사 생활은 좀 특별해요. 상사한테서 연락이 오면 빨리 답장해야 해요. 회의가 끝난 다음에는 항상 정리를 해야 하고, 보고서를 제출해야 해요. 퇴근 후에 회식을 하는 것이 일반적이에요. 회식에서는 음식을 먹으면서 같이 이야기를 나눠요. 선배한테 술을 드릴 때는 두 손으로 드려야 해요. 상사가 먼저 드시고 나서 후배들이 먹기 시작해요. 처음에는 어렵게 느껴질 수 있는데, 익숙해지면 괜찮아요.",
+            native: "Office life in Korean companies is a bit special. When you receive a message from your boss, you need to reply quickly. After meetings finish, you always have to do a write-up and submit a report. It is common to have a team dinner after work. At team dinners everyone eats food together and talks. When offering alcohol to a senior, you must do so with both hands. The boss eats first and then the juniors begin to eat. It may feel difficult at first, but once you get used to it, it's fine."
         },
         vocabGloss: [
-            { word: "교복", translation: "school uniform", romanized: "gyobok" },
-            { word: "급식실", translation: "school cafeteria", romanized: "geupsikshil" },
-            { word: "방과 후", translation: "after school", romanized: "banggwa hu" },
-            { word: "동아리", translation: "club (school/hobby)", romanized: "dongari" },
-            { word: "학원", translation: "private academy/cram school", romanized: "hagwon" },
-            { word: "청소", translation: "cleaning", romanized: "cheongso" },
-            { word: "책임감", translation: "sense of responsibility", romanized: "chaeimgam" }
+            { word: "상사", translation: "boss, superior", romanized: "sangsa" },
+            { word: "답장하다", translation: "to reply (to a message)", romanized: "dapjang-hada" },
+            { word: "퇴근 후", translation: "after work, after leaving the office", romanized: "toеgeun hu" },
+            { word: "회식", translation: "company/team dinner", romanized: "hoesik" },
+            { word: "선배", translation: "senior (at school/work)", romanized: "seonbae" },
+            { word: "두 손으로", translation: "with both hands", romanized: "du soneuro" },
+            { word: "익숙해지다", translation: "to get used to, become familiar", romanized: "iksukhae jida" },
         ],
         questions: [
-            {
-                id: "ko-r-a2-4-q1",
-                level: "A2",
-                prompt: "When do Korean schools usually start?",
-                options: ["March", "September", "January", "April"],
-                answer: "March"
-            },
-            {
-                id: "ko-r-a2-4-q2",
-                level: "A2",
-                prompt: "What is a 학원 (hagwon)?",
-                options: ["A private academy/cram school", "A school club", "A school cafeteria", "A type of classroom"],
-                answer: "A private academy/cram school"
-            },
-            {
-                id: "ko-r-a2-4-q3",
-                level: "A2",
-                prompt: "Why do students clean the classrooms themselves?",
-                options: ["To build a sense of responsibility", "Because there are no cleaners", "It is part of the exam", "To save money"],
-                answer: "To build a sense of responsibility"
-            },
-            {
-                id: "ko-r-a2-4-q4",
-                level: "A2",
-                prompt: "What time do classes end?",
-                options: ["Four in the afternoon", "Three in the afternoon", "Five in the afternoon", "Half past three"],
-                answer: "Four in the afternoon"
-            }
+            { id: "ko-r-a2-4-q1", level: "A2", prompt: "What must you do when you receive a message from your boss?", options: ["Call back immediately", "Reply quickly", "Wait and reply the next day", "Ask a colleague first"], answer: "Reply quickly" },
+            { id: "ko-r-a2-4-q2", level: "A2", prompt: "At a Korean team dinner, who eats first?", options: ["The youngest person", "The newest employee", "The boss/senior person", "Everyone at the same time"], answer: "The boss/senior person" },
+            { id: "ko-r-a2-4-q3", level: "A2", prompt: "How should you offer alcohol to a senior person in Korea?", options: ["With your right hand only", "With your left hand only", "With both hands", "With a bow only"], answer: "With both hands" },
         ]
-    }
+    },
+    {
+        id: "ko-r-a2-5",
+        level: "A2",
+        category: "everyday",
+        title: "제 친구 지훈이 (My Friend Jihun)",
+        body: {
+            target: "제 친구 지훈이는 서울에 사는 사람이에요. 대학교 때 처음 만난 친구인데, 지금도 자주 연락하는 사이예요. 지훈이는 요즘 새 직장에 다니기 시작했는데, 일이 많아서 바쁜 것 같아요. 저한테 문자를 보내서 '요즘 회의가 너무 많아서 힘들다'고 했어요. 주말에 만나자고 했는데, 이번 주는 안 된다고 했어요. 그래도 다음 주에는 같이 밥을 먹기로 했어요. 지훈이가 좋아하는 식당에 갈 예정이에요. 오랫동안 못 봤는데 빨리 만나고 싶어요.",
+            native: "My friend Jihun is someone who lives in Seoul. He's a friend I first met during university, and we're still in frequent contact. Jihun has recently started at a new job and it seems like he's busy because there's a lot of work. He sent me a text saying 'there are so many meetings lately, it's tough'. I suggested meeting on the weekend, but he said this week doesn't work. Even so, we've decided to eat together next week. We're planning to go to the restaurant Jihun likes. We haven't seen each other in a long time and I want to meet up soon."
+        },
+        vocabGloss: [
+            { word: "사이", translation: "relationship, terms (between people)", romanized: "sai" },
+            { word: "다니기 시작하다", translation: "to start going (to school/work)", romanized: "danigi sijakhada" },
+            { word: "문자", translation: "text message", romanized: "munja" },
+            { word: "힘들다", translation: "to be tough, hard", romanized: "himdeulda" },
+            { word: "오랫동안", translation: "for a long time", romanized: "oraetdongan" },
+        ],
+        questions: [
+            { id: "ko-r-a2-5-q1", level: "A2", prompt: "Where did the writer first meet Jihun?", options: ["At work", "At high school", "During university", "Through a mutual friend"], answer: "During university" },
+            { id: "ko-r-a2-5-q2", level: "A2", prompt: "What did Jihun say in his text message?", options: ["He wants to meet this week", "There are too many meetings and it's tough", "He started studying Korean", "He changed his phone number"], answer: "There are too many meetings and it's tough" },
+            { id: "ko-r-a2-5-q3", level: "A2", prompt: "What have the writer and Jihun decided to do?", options: ["Meet this weekend", "Eat together next week at Jihun's favourite restaurant", "Study Korean together", "Go on a trip to Busan"], answer: "Eat together next week at Jihun's favourite restaurant" },
+        ]
+    },
 ]
