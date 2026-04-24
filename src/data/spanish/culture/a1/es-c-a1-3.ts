@@ -6,7 +6,7 @@ export const esCA13: CultureEpisode = {
     category: "geography",
     region: "all-spanish",
     title: {
-        native: "El español en el mundo",
+        native: "Spanish Around the World",
         target: "El español en el mundo"
     },
     subtitle: "The second most spoken language on Earth — and why learning it connects you to 500 million people.",

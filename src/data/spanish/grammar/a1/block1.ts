@@ -113,7 +113,7 @@ tú = informal (friends, family, peers). usted = formal (strangers, elders, prof
         result: "Omit it — unless you need emphasis or contrast",
         examples: [
           { native: "Hablo español.", translation: "I speak Spanish. (pronoun dropped — natural)" },
-          { native: "Yo hablo español, tú no.", translation: "I speak Spanish, you don't. (contrast → keep it)" },
+          { native: "Yo hablo español, tú no.", translation: "I speak Spanish, you don't.", annotation: "contrast → keep it" },
         ],
       },
       {
@@ -203,11 +203,11 @@ Quick rule: can the situation change? → ESTAR. Is it a defining fact? → SER.
       { native: "¿De dónde eres?", translation: "Where are you from?", note: "ser for origin." },
     ],
     examples: [
-      { native: "Soy médico.", translation: "I am a doctor. (profession → ser)" },
-      { native: "Soy de México.", translation: "I am from Mexico. (origin → ser)" },
-      { native: "Estoy cansado.", translation: "I am tired. (temporary state → estar)" },
-      { native: "El café está caliente.", translation: "The coffee is hot. (condition → estar)" },
-      { native: "Madrid está en España.", translation: "Madrid is in Spain. (location → estar)" },
+      { native: "Soy médico.", translation: "I am a doctor.", annotation: "profession → ser" },
+      { native: "Soy de México.", translation: "I am from Mexico.", annotation: "origin → ser" },
+      { native: "Estoy cansado.", translation: "I am tired.", annotation: "temporary state → estar" },
+      { native: "El café está caliente.", translation: "The coffee is hot.", annotation: "condition → estar" },
+      { native: "Madrid está en España.", translation: "Madrid is in Spain.", annotation: "location → estar" },
     ],
     inlineVocab: [
       { word: "médico", translation: "doctor" },
@@ -296,7 +296,7 @@ QUESTION WORDS (all carry a written accent):
         condition: "Making a sentence negative",
         result: "Place no directly before the verb",
         examples: [
-          { native: "Hablo inglés. → No hablo inglés.", translation: "I speak English. → I don't speak English." },
+          { native: "Hablo inglés. → No hablo inglés.", translation: "I speak English. / I don't speak English.", annotation: "hablar → negar: place no before the verb" },
         ],
       },
       {
@@ -368,7 +368,7 @@ QUESTION WORDS (all carry a written accent):
         result: "Remove -ar, add: -o / -as / -a / -amos / -áis / -an",
         heuristic: "hablar → habl- + ending",
         examples: [
-          { native: "estudiar → estudio, estudias, estudia, estudiamos, estudiáis, estudian", translation: "to study → I study, you study, he studies…" },
+          { native: "estudiar → estudio, estudias, estudia, estudiamos, estudiáis, estudian", translation: "to study: I study, you study, he studies…", annotation: "estudiar → estudio (drop -ar, add -o for yo)" },
         ],
       },
       {

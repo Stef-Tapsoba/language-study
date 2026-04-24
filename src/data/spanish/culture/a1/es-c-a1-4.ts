@@ -7,7 +7,7 @@ export const esCA14: CultureEpisode = {
     category: "food",
     region: "spain",
     title: {
-        native: "El tapeo — la cultura de las tapas",
+        native: "Tapeo — the Culture of Tapas",
         target: "El tapeo — la cultura de las tapas"
     },
     subtitle: "How a small plate of food became one of Spain's greatest social rituals.",

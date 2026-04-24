@@ -73,10 +73,10 @@ export const b1Grammar: GrammarLesson[] = [
             target: "Tanto por como para pueden traducirse como 'for' en inglés, pero tienen usos distintos. POR se usa para expresar causa o motivo, duración, intercambio, medio de comunicación o transporte, y para actuar en nombre de alguien. PARA expresa finalidad u objetivo, el destinatario de algo, un plazo, un destino, y la opinión personal (para mí).",
         },
         examples: [
-            { native: "Estudié por tres horas.", translation: "I studied for three hours. (duration → por)" },
-            { native: "Este regalo es para ti.", translation: "This gift is for you. (recipient → para)" },
-            { native: "Lo compré por veinte euros.", translation: "I bought it for twenty euros. (exchange → por)" },
-            { native: "Salgo para Madrid mañana.", translation: "I'm leaving for Madrid tomorrow. (destination → para)" }
+            { native: "Estudié por tres horas.", translation: "I studied for three hours.", annotation: "duration → por" },
+            { native: "Este regalo es para ti.", translation: "This gift is for you.", annotation: "recipient → para" },
+            { native: "Lo compré por veinte euros.", translation: "I bought it for twenty euros.", annotation: "exchange → por" },
+            { native: "Salgo para Madrid mañana.", translation: "I'm leaving for Madrid tomorrow.", annotation: "destination → para" }
         ]
     },
     {
@@ -104,11 +104,11 @@ export const b1Grammar: GrammarLesson[] = [
             target: "El estilo indirecto traslada el tiempo verbal del enunciado original cuando el verbo introductor está en pasado. Cambios clave: presente → imperfecto; futuro → condicional; pretérito → pluscuamperfecto; imperativo → imperfecto de subjuntivo. Las referencias de tiempo y lugar también cambian: hoy → ese día, mañana → al día siguiente, aquí → allí. Las preguntas de sí/no usan si; las preguntas de contenido conservan su palabra interrogativa. Verbos introductores: decir que, afirmar que, explicar que, preguntar si/qué/cuándo, añadir que."
         },
         examples: [
-            { native: "'Estoy cansado.' → Dijo que estaba cansado.", translation: "'I am tired.' → He said he was tired." },
-            { native: "'¿Tienes hambre?' → Me preguntó si tenía hambre.", translation: "'Are you hungry?' → She asked me if I was hungry." },
-            { native: "'Vendré mañana.' → Dijo que vendría al día siguiente.", translation: "'I'll come tomorrow.' → He said he'd come the next day." },
-            { native: "'¡Come más despacio!' → Le dijo que comiera más despacio.", translation: "'Eat more slowly!' → She told him to eat more slowly." },
-            { native: "'No sé dónde está.' → Explicó que no sabía dónde estaba.", translation: "'I don't know where it is.' → She explained she didn't know where it was." },
+            { native: "'Estoy cansado.' → Dijo que estaba cansado.", translation: "\"I am tired.\" / He said he was tired.", annotation: "presente → imperfecto in reported speech" },
+            { native: "'¿Tienes hambre?' → Me preguntó si tenía hambre.", translation: "\"Are you hungry?\" / She asked me if I was hungry.", annotation: "yes/no question → si + imperfecto" },
+            { native: "'Vendré mañana.' → Dijo que vendría al día siguiente.", translation: "\"I'll come tomorrow.\" / He said he'd come the next day.", annotation: "futuro → condicional; mañana → al día siguiente" },
+            { native: "'¡Come más despacio!' → Le dijo que comiera más despacio.", translation: "\"Eat more slowly!\" / She told him to eat more slowly.", annotation: "imperativo → imperfecto de subjuntivo" },
+            { native: "'No sé dónde está.' → Explicó que no sabía dónde estaba.", translation: "\"I don't know where it is.\" / She explained she didn't know where it was.", annotation: "presente → imperfecto; backshift in reported speech" },
         ]
     },
     {
@@ -154,9 +154,9 @@ export const b1Grammar: GrammarLesson[] = [
         examples: [
             { native: "Si tuviera más tiempo, aprendería a tocar la guitarra.", translation: "If I had more time, I would learn to play the guitar. (si-clause Type 2)" },
             { native: "Quisiera hablar con el director, por favor.", translation: "I would like to speak with the director, please. (polite request)" },
-            { native: "Me pidió que llegara puntual.", translation: "He asked me to arrive on time. (reported command → que + imperfecto subj.)" },
-            { native: "Ojalá pudiéramos quedarnos más tiempo.", translation: "I wish we could stay longer. (ojalá + imperfecto subj. = unlikely wish)" },
-            { native: "Si fuera tú, no lo haría.", translation: "If I were you, I wouldn't do it. (ser → fueron → fuera)" },
+            { native: "Me pidió que llegara puntual.", translation: "He asked me to arrive on time.", annotation: "reported command → que + imperfecto de subjuntivo" },
+            { native: "Ojalá pudiéramos quedarnos más tiempo.", translation: "I wish we could stay longer.", annotation: "ojalá + imperfecto de subjuntivo = unlikely wish" },
+            { native: "Si fuera tú, no lo haría.", translation: "If I were you, I wouldn't do it.", annotation: "ser: fueron → fuera (imperfecto de subjuntivo)" },
         ]
     },
     {
@@ -169,10 +169,10 @@ export const b1Grammar: GrammarLesson[] = [
         },
         examples: [
             { native: "Busco un apartamento que tenga terraza.", translation: "I'm looking for a flat that has a terrace. (hypothetical — any flat)" },
-            { native: "No hay nadie que sepa la respuesta.", translation: "There is nobody who knows the answer. (negative antecedent → subjunctive)" },
-            { native: "Es posible que llegue tarde.", translation: "It's possible that he will arrive late. (es posible que → subjunctive)" },
-            { native: "Es cierto que el proyecto es difícil.", translation: "It's true that the project is difficult. (es cierto que → indicative — certainty)" },
-            { native: "Necesitamos a alguien que hable chino.", translation: "We need someone who speaks Chinese. (indefinite alguien → subjunctive)" },
+            { native: "No hay nadie que sepa la respuesta.", translation: "There is nobody who knows the answer.", annotation: "negative antecedent → subjunctive" },
+            { native: "Es posible que llegue tarde.", translation: "It's possible that he will arrive late.", annotation: "es posible que → subjunctive" },
+            { native: "Es cierto que el proyecto es difícil.", translation: "It's true that the project is difficult.", annotation: "es cierto que → indicative (certainty, not doubt)" },
+            { native: "Necesitamos a alguien que hable chino.", translation: "We need someone who speaks Chinese.", annotation: "indefinite alguien → subjunctive" },
         ]
     },
     {
@@ -184,11 +184,11 @@ export const b1Grammar: GrammarLesson[] = [
             target: "Las conjunciones temporales (cuando, hasta que, en cuanto, tan pronto como, antes de que) rigen subjuntivo cuando se refieren a un evento futuro o hipotético, e indicativo cuando se refieren a eventos habituales o pasados. Esta es una distinción clave en B1: «Cuando llegué, llamé» (indicativo — hecho pasado) vs. «Cuando llegues, llama» (subjuntivo — instrucción futura). Regla práctica: si el evento todavía no ha ocurrido, usa subjuntivo. Conjunciones de uso siempre subjuntivo: antes de que. Claves: cuando + subj. (futuro); hasta que + subj. (hasta que ocurra); en cuanto / tan pronto como + subj. (en cuanto ocurra). Tras un verbo principal en pasado, antes de que rige siempre imperfecto de subjuntivo."
         },
         examples: [
-            { native: "Cuando llegues a casa, llámame.", translation: "When you get home, call me. (future → subjunctive)" },
-            { native: "Cuando llegué a casa, llamé a mis padres.", translation: "When I got home, I called my parents. (past fact → indicative)" },
-            { native: "Esperaré hasta que termines.", translation: "I'll wait until you finish. (future → subjunctive)" },
-            { native: "En cuanto sepa algo, te aviso.", translation: "As soon as I know something, I'll let you know. (future → subjunctive)" },
-            { native: "Salió antes de que yo llegara.", translation: "She left before I arrived. (before a past event → imperfecto de subjuntivo)" },
+            { native: "Cuando llegues a casa, llámame.", translation: "When you get home, call me.", annotation: "future event → subjunctive with cuando" },
+            { native: "Cuando llegué a casa, llamé a mis padres.", translation: "When I got home, I called my parents.", annotation: "past fact → indicative with cuando" },
+            { native: "Esperaré hasta que termines.", translation: "I'll wait until you finish.", annotation: "future event → subjunctive with hasta que" },
+            { native: "En cuanto sepa algo, te aviso.", translation: "As soon as I know something, I'll let you know.", annotation: "future event → subjunctive with en cuanto" },
+            { native: "Salió antes de que yo llegara.", translation: "She left before I arrived.", annotation: "before a past event → imperfecto de subjuntivo with antes de que" },
         ]
     },
     {
@@ -204,7 +204,7 @@ export const b1Grammar: GrammarLesson[] = [
             { native: "El proyecto ha sido aprobado por el director.", translation: "The project has been approved by the director." },
             { native: "La ciudad fue fundada en el siglo XV.", translation: "The city was founded in the 15th century. (agent omitted)" },
             { native: "Las leyes serán revisadas por el parlamento.", translation: "The laws will be reviewed by parliament." },
-            { native: "La puerta está cerrada. (estado) / La puerta fue cerrada por el guardia. (acción)", translation: "The door is closed. (state) / The door was closed by the guard. (action)" },
+            { native: "La puerta está cerrada. (estado) / La puerta fue cerrada por el guardia. (acción)", translation: "The door is closed. / The door was closed by the guard.", annotation: "estar + participio = resultant state; ser + participio = passive action" },
         ]
     },
     {
@@ -218,7 +218,7 @@ export const b1Grammar: GrammarLesson[] = [
         examples: [
             { native: "Llevo dos horas esperando el autobús.", translation: "I have been waiting for the bus for two hours. (llevar + gerundio)" },
             { native: "Sigue lloviendo aunque son las cuatro de la tarde.", translation: "It's still raining even though it's four in the afternoon. (seguir + gerundio)" },
-            { native: "La situación va mejorando poco a poco.", translation: "The situation is gradually improving. (ir + gerundio = progressive development)" },
+            { native: "La situación va mejorando poco a poco.", translation: "The situation is gradually improving.", annotation: "ir + gerundio = progressive development over time" },
             { native: "Viene quejándose del trabajo desde hace meses.", translation: "He has been complaining about the job for months. (venir + gerundio)" },
             { native: "Entró corriendo y gritando.", translation: "He entered running and shouting. (gerund as adverb of manner)" },
         ]
