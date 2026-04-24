@@ -6,10 +6,10 @@ export const koCA14: CultureEpisode = {
     category: "arts",
     region: "all-korean",
     title: {
-        native: "노래방 — Korea's Karaoke Room Culture",
+        native: "Noraebang — Korea's Karaoke Room Culture",
         target: "노래방 문화 — 함께 노래하는 공간"
     },
-    subtitle: "Noraebang (노래방) are private karaoke rooms where Koreans sing with friends, family, or colleagues — and they are everywhere. Understanding noraebang means understanding something essential about Korean social life.",
+    subtitle: "Noraebang are private karaoke rooms where Koreans sing with friends, family, or colleagues — and they are everywhere. Understanding noraebang means understanding something essential about Korean social life.",
 
     video: {
         youtubeId: "jfKfPfyJRdk",
@@ -45,7 +45,7 @@ export const koCA14: CultureEpisode = {
 노래방에서 중요한 문화적 규칙이 있어요. 친구가 노래할 때 응원해 주세요 — 박수를 치거나 탬버린을 흔들어요. 탬버린은 노래방의 필수품입니다! 노래방에서 핸드폰을 보는 것은 예의 없는 행동이에요. 모두가 참여해야 합니다.
 
 한국어를 배우는 외국인에게도 노래방은 좋은 공간입니다. 한국 노래를 따라 부르면서 발음과 억양을 자연스럽게 연습할 수 있어요. 노래방은 교실이 될 수도 있습니다!`,
-        native: `Noraebang is one of the most popular leisure activities in Korea. Noraebang means 'singing room'. Norae (노래) means 'song' and bang (방) means 'room'. It is similar to Japanese karaoke, but there is an important difference. In Korean noraebang, you sing with friends in a small private room. You do not sing in front of strangers!
+        native: `Noraebang is one of the most popular leisure activities in Korea. Noraebang means 'singing room'. Norae means 'song' and bang means 'room'. It is similar to Japanese karaoke, but there is an important difference. In Korean noraebang, you sing with friends in a small private room. You do not sing in front of strangers!
 
 Noraebang venues are everywhere in Korea. Even small neighbourhoods have several. Prices are usually calculated by the hour. Inside the room there is a microphone, a large screen, and a remote control. The song list includes Korean pop music (including K-pop), pop songs, and classic ballads. You can also order drinks and snacks.
 
@@ -124,7 +124,7 @@ Noraebang is also a great space for foreigners learning Korean. By singing along
     ],
 
     didYouKnow: {
-        native: "There are estimated to be over 35,000 noraebang venues across South Korea — more per capita than almost any other entertainment venue type in the world. During exam season, some students even use noraebang rooms to study alone in a private, air-conditioned space — since many venues are open 24 hours and cheaper than a café. These students are known as '공부방' users (study-room users), a trend the noraebang industry quietly embraced.",
+        native: "There are estimated to be over 35,000 noraebang venues across South Korea — more per capita than almost any other entertainment venue type in the world. During exam season, some students even use noraebang rooms to study alone in a private, air-conditioned space — since many venues are open 24 hours and cheaper than a café. These students are known as 'gongbubang' users (study-room users), a trend the noraebang industry quietly embraced.",
         target: "한국 전역에 노래방이 35,000개 이상 있는 것으로 추산됩니다 — 세계에서 1인당 가장 많은 엔터테인먼트 시설 유형 중 하나입니다. 시험 기간에는 일부 학생들이 노래방 방을 혼자 공부하는 공간으로 사용하기도 합니다 — 많은 노래방이 24시간 운영되고 카페보다 저렴하기 때문입니다. 이런 학생들은 '공부방' 이용자로 알려졌으며, 노래방 업계는 이 트렌드를 조용히 받아들였습니다."
     }
 }

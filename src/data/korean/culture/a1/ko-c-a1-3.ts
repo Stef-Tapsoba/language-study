@@ -6,10 +6,10 @@ export const koCA13: CultureEpisode = {
     category: "customs",
     region: "all-korean",
     title: {
-        native: "빨리빨리 — Korea's 'Hurry Hurry' Culture",
+        native: "Ppalli-ppalli — Korea's 'Hurry Hurry' Culture",
         target: "빨리빨리 문화 — 빠름의 미학"
     },
-    subtitle: "Korea operates at a pace that surprises most visitors. 빨리빨리 ('hurry hurry') is not just a habit — it's a deeply embedded value that has shaped everything from delivery times to national infrastructure.",
+    subtitle: "Korea operates at a pace that surprises most visitors. Ppalli-ppalli ('hurry hurry') is not just a habit — it's a deeply embedded value that has shaped everything from delivery times to national infrastructure.",
 
     video: {
         youtubeId: "BvCHSjkPDIY",
@@ -22,7 +22,7 @@ export const koCA13: CultureEpisode = {
         {
             url: "https://images.unsplash.com/photo-1601042879364-f3947d3f9c16?w=800",
             caption: {
-                native: "Seoul's fast-moving streets — 빨리빨리 keeps the city in constant motion",
+                native: "Seoul's fast-moving streets — ppalli-ppalli keeps the city in constant motion",
                 target: "빠르게 움직이는 서울 거리 — 빨리빨리 문화가 도시를 끊임없이 움직이게 합니다"
             }
         },
