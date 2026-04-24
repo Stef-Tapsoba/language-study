@@ -10,17 +10,17 @@ export const block5Lessons: GrammarLesson[] = [
             {
                 condition: "Verb stem ends in vowel or ㄹ",
                 result: "~ㄹ 거예요",
-                examples: [{ native: "갈 거예요 (가다)", romanized: "gal geoyeyo", translation: "going to go (가 ends in vowel: 가 + ㄹ 거예요)" }, { native: "볼 거예요 (보다)", romanized: "bol geoyeyo", translation: "going to watch/see (보 ends in vowel: 보 + ㄹ 거예요)" }, { native: "만날 거예요 (만나다)", romanized: "mannal geoyeyo", translation: "going to meet (만나 ends in vowel: 만나 + ㄹ 거예요)" }],
+                examples: [{ native: "갈 거예요 (가다)", romanized: "gal geoyeyo", translation: "going to go.", annotation: "가 ends in vowel: 가 + ㄹ 거예요"}, { native: "볼 거예요 (보다)", romanized: "bol geoyeyo", translation: "going to watch/see.", annotation: "보 ends in vowel: 보 + ㄹ 거예요"}, { native: "만날 거예요 (만나다)", romanized: "mannal geoyeyo", translation: "going to meet.", annotation: "만나 ends in vowel: 만나 + ㄹ 거예요"}],
             },
             {
                 condition: "Verb stem ends in consonant",
                 result: "~을 거예요",
-                examples: [{ native: "먹을 거예요 (먹다)", romanized: "meogeul geoyeyo", translation: "going to eat (먹 ends in consonant: 먹 + 을 거예요)" }, { native: "읽을 거예요 (읽다)", romanized: "ilgeul geoyeyo", translation: "going to read (읽 ends in consonant: 읽 + 을 거예요)" }, { native: "앉을 거예요 (앉다)", romanized: "anjeul geoyeyo", translation: "going to sit (앉 ends in consonant: 앉 + 을 거예요)" }],
+                examples: [{ native: "먹을 거예요 (먹다)", romanized: "meogeul geoyeyo", translation: "going to eat.", annotation: "먹 ends in consonant: 먹 + 을 거예요"}, { native: "읽을 거예요 (읽다)", romanized: "ilgeul geoyeyo", translation: "going to read.", annotation: "읽 ends in consonant: 읽 + 을 거예요"}, { native: "앉을 거예요 (앉다)", romanized: "anjeul geoyeyo", translation: "going to sit.", annotation: "앉 ends in consonant: 앉 + 을 거예요"}],
             },
             {
                 condition: "하다 verbs",
                 result: "~할 거예요",
-                examples: [{ native: "공부할 거예요", romanized: "gongbuhal geoyeyo", translation: "going to study (공부하다 → 할 거예요)" }, { native: "운동할 거예요", romanized: "undonghal geoyeyo", translation: "going to exercise (운동하다 → 할 거예요)" }, { native: "요리할 거예요", romanized: "yorihal geoyeyo", translation: "going to cook (요리하다 → 할 거예요)" }],
+                examples: [{ native: "공부할 거예요", romanized: "gongbuhal geoyeyo", translation: "going to study.", annotation: "공부하다 → 할 거예요"}, { native: "운동할 거예요", romanized: "undonghal geoyeyo", translation: "going to exercise.", annotation: "운동하다 → 할 거예요"}, { native: "요리할 거예요", romanized: "yorihal geoyeyo", translation: "going to cook.", annotation: "요리하다 → 할 거예요"}],
             },
         ],
         notes: [
@@ -100,7 +100,7 @@ export const block5Lessons: GrammarLesson[] = [
             { native: "오늘 공부했어요. 그리고 친구도 만났어요.", romanized: "Oneul gongbuhaesseoyo. Geurigo chingudo mannasseoyo.", translation: "I studied today. And I also met a friend." },
             { native: "한국어가 어려워요. 하지만 재미있어요.", romanized: "Hangugeoga eoryeowoyo. Hajiman jaemiisseoyo.", translation: "Korean is difficult. But it's interesting." },
             { native: "비가 왔어요. 그래서 집에 있었어요.", romanized: "Biga wasseoyo. Geuraeseo jibe isseosseoyo.", translation: "It rained. So I stayed at home." },
-            { native: "오늘 바빠요. 그런데 내일은 괜찮아요.", romanized: "Oneul bappayo. Geureonde naeirun gwaenchanayo.", translation: "I'm busy today. But tomorrow is fine. (그런데 = softer contrast)" },
+            { native: "오늘 바빠요. 그런데 내일은 괜찮아요.", romanized: "Oneul bappayo. Geureonde naeirun gwaenchanayo.", translation: "I'm busy today. But tomorrow is fine.", annotation: "그런데 = softer contrast"},
             { native: "내일 시간 있어요? 그럼 같이 밥 먹어요!", romanized: "Naeil sigan isseoyo? Geureum gachi bap meogeoyo!", translation: "Are you free tomorrow? Then let's eat together!" },
             { native: "강남에 갔어요. 그런데 사람이 너무 많았어요. 그래서 일찍 왔어요.", romanized: "Gangname gasseoyo. Geureonde sarami neomu manasseoyo. Geuraeseo iljjik wasseoyo.", translation: "I went to Gangnam. But there were too many people. So I came home early." },
         ],
@@ -124,17 +124,17 @@ export const block5Lessons: GrammarLesson[] = [
             {
                 condition: "~고 (and / and then) — no vowel harmony",
                 result: "verb stem + 고",
-                examples: [{ native: "먹고 가요", romanized: "meokgo gayo", translation: "eat and then go (먹 + 고)" }, { native: "아침을 먹고 학교에 가요", romanized: "achimeul meokgo hakgyoe gayo", translation: "I eat breakfast and then go to school" }, { native: "커피를 마시고 공부해요", romanized: "keopireul masigo gongbuhaeyo", translation: "I drink coffee and then study" }],
+                examples: [{ native: "먹고 가요", romanized: "meokgo gayo", translation: "eat and then go.", annotation: "먹 + 고"}, { native: "아침을 먹고 학교에 가요", romanized: "achimeul meokgo hakgyoe gayo", translation: "I eat breakfast and then go to school" }, { native: "커피를 마시고 공부해요", romanized: "keopireul masigo gongbuhaeyo", translation: "I drink coffee and then study" }],
             },
             {
                 condition: "~지만 (but) — no vowel harmony",
                 result: "verb/adjective stem + 지만",
-                examples: [{ native: "어렵지만 재미있어요", romanized: "eoryeopjiman jaemiisseoyo", translation: "difficult but interesting (어렵 + 지만)" }, { native: "한국어를 좋아하지만 어려워요", romanized: "hangugeoreul joahajiman eoryeowoyo", translation: "I like Korean but it's difficult" }, { native: "맛있지만 너무 매워요", romanized: "masissejiman neomu maeweoyo", translation: "It's delicious but too spicy" }],
+                examples: [{ native: "어렵지만 재미있어요", romanized: "eoryeopjiman jaemiisseoyo", translation: "difficult but interesting.", annotation: "어렵 + 지만"}, { native: "한국어를 좋아하지만 어려워요", romanized: "hangugeoreul joahajiman eoryeowoyo", translation: "I like Korean but it's difficult" }, { native: "맛있지만 너무 매워요", romanized: "masissejiman neomu maeweoyo", translation: "It's delicious but too spicy" }],
             },
             {
                 condition: "~아서/어서 (because/so) — same vowel harmony as present tense",
                 result: "ㅏ/ㅗ stems → 아서, others → 어서, 하다 → 해서",
-                examples: [{ native: "바빠서 못 갔어요", romanized: "bappaseo mot gasseoyo", translation: "I was busy so I couldn't go (바쁘 → 바빠서)" }, { native: "맛있어서 많이 먹었어요", romanized: "masisseo manhi meogeosseoyo", translation: "It was delicious so I ate a lot (맛있 → 맛있어서)" }, { native: "피곤해서 일찍 잤어요", romanized: "pigonhaeseo iljjik jasseoyo", translation: "I was tired so I went to bed early (피곤하 → 피곤해서)" }],
+                examples: [{ native: "바빠서 못 갔어요", romanized: "bappaseo mot gasseoyo", translation: "I was busy so I couldn't go.", annotation: "바쁘 → 바빠서"}, { native: "맛있어서 많이 먹었어요", romanized: "masisseo manhi meogeosseoyo", translation: "It was delicious so I ate a lot.", annotation: "맛있 → 맛있어서"}, { native: "피곤해서 일찍 잤어요", romanized: "pigonhaeseo iljjik jasseoyo", translation: "I was tired so I went to bed early.", annotation: "피곤하 → 피곤해서"}],
             },
         ],
         notes: [
@@ -148,12 +148,12 @@ export const block5Lessons: GrammarLesson[] = [
             },
         ],
         examples: [
-            { native: "아침을 먹고 학교에 가요.", romanized: "Achimeul meokgo hakgyoe gayo.", translation: "I eat breakfast and (then) go to school. (~고 = and/then)" },
-            { native: "한국어를 좋아하지만 어려워요.", romanized: "Hangugeoreul joahajiman eoryeowoyo.", translation: "I like Korean but it's difficult. (~지만 = but)" },
-            { native: "바빠서 못 갔어요.", romanized: "Bappaseo mot gasseoyo.", translation: "I was busy so I couldn't go. (~아서 = because/so)" },
+            { native: "아침을 먹고 학교에 가요.", romanized: "Achimeul meokgo hakgyoe gayo.", translation: "I eat breakfast and (then) go to school.", annotation: "~고 = and/then"},
+            { native: "한국어를 좋아하지만 어려워요.", romanized: "Hangugeoreul joahajiman eoryeowoyo.", translation: "I like Korean but it's difficult.", annotation: "~지만 = but"},
+            { native: "바빠서 못 갔어요.", romanized: "Bappaseo mot gasseoyo.", translation: "I was busy so I couldn't go.", annotation: "~아서 = because/so"},
             { native: "맛있어서 많이 먹었어요!", romanized: "Masisseo manhi meogeosseoyo!", translation: "It was so delicious so I ate a lot!" },
             { native: "비가 오지만 나가고 싶어요.", romanized: "Biga ojiman nagago sipeoyo.", translation: "It's raining but I want to go out." },
-            { native: "피곤해서 일찍 잤어요.", romanized: "Pigonhaeseo iljjik jasseoyo.", translation: "I was tired so I went to bed early. (cause in base form — no 았/었 on 피곤해서)" },
+            { native: "피곤해서 일찍 잤어요.", romanized: "Pigonhaeseo iljjik jasseoyo.", translation: "I was tired so I went to bed early.", annotation: "cause in base form — no 았/었 on 피곤해서"},
         ],
         inlineVocab: [
             { word: "~고", romanized: "~go", translation: "and / and then (clause connector — no vowel harmony)" },
@@ -175,12 +175,12 @@ export const block5Lessons: GrammarLesson[] = [
             {
                 condition: "Verb stem ends in vowel or ㄹ",
                 result: "~면",
-                examples: [{ native: "가면 (if you go)", romanized: "gamyeon", translation: "if you go (가 ends in vowel: 가 + 면)" }, { native: "오면 (if you come)", romanized: "omyeon", translation: "if you come (오 ends in vowel: 오 + 면)" }, { native: "하면 (if you do)", romanized: "hamyeon", translation: "if you do (하 ends in vowel: 하 + 면)" }],
+                examples: [{ native: "가면 (if you go)", romanized: "gamyeon", translation: "if you go.", annotation: "가 ends in vowel: 가 + 면"}, { native: "오면 (if you come)", romanized: "omyeon", translation: "if you come.", annotation: "오 ends in vowel: 오 + 면"}, { native: "하면 (if you do)", romanized: "hamyeon", translation: "if you do.", annotation: "하 ends in vowel: 하 + 면"}],
             },
             {
                 condition: "Verb stem ends in consonant",
                 result: "~으면",
-                examples: [{ native: "먹으면 (if you eat)", romanized: "meogeumyeon", translation: "if you eat (먹 ends in consonant: 먹 + 으면)" }, { native: "있으면 (if there is)", romanized: "isseuomyeon", translation: "if there is / if you have (있 ends in consonant: 있 + 으면)" }, { native: "없으면 (if there isn't)", romanized: "eopseuomyeon", translation: "if there isn't / if you don't have (없 ends in consonant: 없 + 으면)" }],
+                examples: [{ native: "먹으면 (if you eat)", romanized: "meogeumyeon", translation: "if you eat.", annotation: "먹 ends in consonant: 먹 + 으면"}, { native: "있으면 (if there is)", romanized: "isseuomyeon", translation: "if there is / if you have.", annotation: "있 ends in consonant: 있 + 으면"}, { native: "없으면 (if there isn't)", romanized: "eopseuomyeon", translation: "if there isn't / if you don't have.", annotation: "없 ends in consonant: 없 + 으면"}],
             },
         ],
         notes: [
@@ -204,7 +204,7 @@ export const block5Lessons: GrammarLesson[] = [
                 { native: "좋아요! 그러면 카페에서 만나요.", romanized: "Joayo! Geureomyeon kapeeseo mannayo.", translation: "Sure! Then let's meet at the café." },
             ]},
             { native: "피곤하면 쉬세요.", romanized: "Pigonhamyeon swiseyo.", translation: "If you're tired, rest." },
-            { native: "날씨가 맑으면 좋겠어요.", romanized: "Nalssiga malgeuomyeon joketsseoyo.", translation: "I hope the weather is clear. (~(으)면 좋겠어요 = hope/wish)" },
+            { native: "날씨가 맑으면 좋겠어요.", romanized: "Nalssiga malgeuomyeon joketsseoyo.", translation: "I hope the weather is clear. (~( ) = hope/wish)", annotation: "으 / 면 / 좋겠어요"},
             { native: "한국에 가면 흑돼지를 꼭 먹을 거예요!", romanized: "Hanguge gamyeon heukdwaejireul kkok meogeul geoyeyo!", translation: "If I go to Korea, I'll definitely eat black pork!" },
             { native: "모르면 물어보세요. 괜찮아요.", romanized: "Moreumyeon mureobaseyo. Gwaenchanayo.", translation: "If you don't know, please ask. It's okay." },
         ],
@@ -235,12 +235,12 @@ export const block5Lessons: GrammarLesson[] = [
             },
         ],
         examples: [
-            { native: "저는 한국어를 배우고 있어요. 재미있지만 어려워요.", romanized: "Jeoneun hangugeoreul baeugo isseoyo. Jaemiitjiman eoryeowoyo.", translation: "I'm learning Korean. It's interesting but difficult. (~고 있어요 chunk + ~지만)" },
-            { native: "지난주에는 바빠서 공부 못 했어요. 이번 주에는 열심히 할 거예요.", romanized: "Jinan juengeun bappaseo gongbu mot haesseoyo. Ibeon juengeun yeolsimhi hal geoyeyo.", translation: "Last week I was busy so I couldn't study. This week I'm going to work hard. (past + ~아서 + future)" },
-            { native: "시간이 있으면 같이 공부해요. 저도 배우고 싶어요!", romanized: "Sigani isseumyeon gachi gongbuhaeyo. Jeodo baeugo sipeoyo!", translation: "If you have time, let's study together. I want to learn too! (~(으)면 + ~고 싶어요)" },
-            { native: "한국에 가면 경복궁에도 가고 제주도에도 갈 거예요.", romanized: "Hanguge gamyeon Gyeongbokgunge gago jejudoedo gal geoyeyo.", translation: "If I go to Korea, I'll go to Gyeongbokgung and also Jeju Island. (~(으)면 + ~고 + future)" },
-            { native: "날씨가 좋았어요. 그래서 한강에 걸어서 갔어요. 정말 좋았어요!", romanized: "Nalssiga joasseoyo. Geuraeseo hangange georeoseo gasseoyo. Jeongmal joasseoyo!", translation: "The weather was nice. So I walked to the Han River. It was really great! (past + 그래서 + past)" },
-            { native: "모르면 물어보세요. 항상 도와 드릴게요.", romanized: "Moreumyeon mureobaseyo. Hangsang dowa deullilgeyo.", translation: "If you don't know, please ask. I'll always help. (~(으)면 + ~아/어 주다)" },
+            { native: "저는 한국어를 배우고 있어요. 재미있지만 어려워요.", romanized: "Jeoneun hangugeoreul baeugo isseoyo. Jaemiitjiman eoryeowoyo.", translation: "I'm learning Korean. It's interesting but difficult.", annotation: "~고 있어요 chunk + ~지만"},
+            { native: "지난주에는 바빠서 공부 못 했어요. 이번 주에는 열심히 할 거예요.", romanized: "Jinan juengeun bappaseo gongbu mot haesseoyo. Ibeon juengeun yeolsimhi hal geoyeyo.", translation: "Last week I was busy so I couldn't study. This week I'm going to work hard.", annotation: "past + ~아서 + future"},
+            { native: "시간이 있으면 같이 공부해요. 저도 배우고 싶어요!", romanized: "Sigani isseumyeon gachi gongbuhaeyo. Jeodo baeugo sipeoyo!", translation: "If you have time, let's study together. I want to learn too! (~( ) + ~ )", annotation: "으 / 면 / 고 / 싶어요"},
+            { native: "한국에 가면 경복궁에도 가고 제주도에도 갈 거예요.", romanized: "Hanguge gamyeon Gyeongbokgunge gago jejudoedo gal geoyeyo.", translation: "If I go to Korea, I'll go to Gyeongbokgung and also Jeju Island. (~( ) + ~ + future)", annotation: "으 / 면 / 고"},
+            { native: "날씨가 좋았어요. 그래서 한강에 걸어서 갔어요. 정말 좋았어요!", romanized: "Nalssiga joasseoyo. Geuraeseo hangange georeoseo gasseoyo. Jeongmal joasseoyo!", translation: "The weather was nice. So I walked to the Han River. It was really great!", annotation: "past + 그래서 + past"},
+            { native: "모르면 물어보세요. 항상 도와 드릴게요.", romanized: "Moreumyeon mureobaseyo. Hangsang dowa deullilgeyo.", translation: "If you don't know, please ask. I'll always help. (~( ) + ~ / )", annotation: "으 / 면 / 아 / 어 / 주다"},
         ],
         inlineVocab: [
             { word: "~았어요/었어요", romanized: "~asseoyo/eosseoyo", translation: "past tense (vowel harmony — same rule as present)" },

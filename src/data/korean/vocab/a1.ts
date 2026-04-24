@@ -198,7 +198,7 @@ export const a1Vocab: VocabItem[] = [
     // ── BLOCK 3 / U17 — Past Tense Verbs (128–136) ───────────────────────────
     { id: "ko-v-a1-128", level: "A1", word: "먹었어요",       romanized: "meogeosseoyo",        translation: "Ate (past tense)", category: "Verbs", example: { native: "어제 뭐 먹었어요?", romanized: "Eoje mwo meogeosseoyo?", translation: "What did you eat yesterday?" } },
     { id: "ko-v-a1-129", level: "A1", word: "갔어요",         romanized: "gasseoyo",            translation: "Went (past tense)", category: "Verbs", example: { native: "어제 어디 갔어요?", romanized: "Eoje eodi gasseoyo?", translation: "Where did you go yesterday?" } },
-    { id: "ko-v-a1-130", level: "A1", word: "했어요",         romanized: "haesseoyo",           translation: "Did (past tense of 하다)", category: "Verbs", example: { native: "어제 뭐 했어요?", romanized: "Eoje mwo haesseoyo?", translation: "What did you do yesterday?" } },
+    { id: "ko-v-a1-130", level: "A1", word: "했어요",         romanized: "haesseoyo",           translation: "Did (past tense)", category: "Verbs", example: { native: "어제 뭐 했어요?", romanized: "Eoje mwo haesseoyo?", translation: "What did you do yesterday?" } },
     { id: "ko-v-a1-131", level: "A1", word: "봤어요",         romanized: "bwasseoyo",           translation: "Watched / saw (past tense)", category: "Verbs", example: { native: "어제 영화를 봤어요.", romanized: "Eoje yeonghwa-reul bwasseoyo.", translation: "I watched a movie yesterday." } },
 
     // ── BLOCK 4 / U18–U20 — Getting Around & Shopping (132–150) ─────────────

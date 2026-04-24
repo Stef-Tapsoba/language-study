@@ -21,10 +21,10 @@ export const block4Lessons: GrammarLesson[] = [
                 condition: "Irregular honorific verbs — MUST BE MEMORISED",
                 result: "These cannot be derived from regular -(으)시- rules",
                 examples: [
-                    { native: "아버지, 식사 드셨어요?", romanized: "Abeoji, siksa deuasyeosseoyo?", translation: "Dad, have you eaten? (NOT 먹었어요)" },
-                    { native: "어머니께서 거실에 계세요.", romanized: "Eomeoni-kke geosire gyeseyo.", translation: "Mother is in the living room. (NOT 있어요)" },
-                    { native: "잘 주무셨어요?", romanized: "Jal jumusyeosseoyo?", translation: "Did you sleep well? (NOT 잤어요)" },
-                    { native: "선생님, 다시 말씀해 주세요.", romanized: "Seonsaengnim, dasi malsseum-hae juseyo.", translation: "Teacher, please say it again. (NOT 말해)" },
+                    { native: "아버지, 식사 드셨어요?", romanized: "Abeoji, siksa deuasyeosseoyo?", translation: "Dad, have you eaten?", annotation: "NOT 먹었어요"},
+                    { native: "어머니께서 거실에 계세요.", romanized: "Eomeoni-kke geosire gyeseyo.", translation: "Mother is in the living room.", annotation: "NOT 있어요"},
+                    { native: "잘 주무셨어요?", romanized: "Jal jumusyeosseoyo?", translation: "Did you sleep well?", annotation: "NOT 잤어요"},
+                    { native: "선생님, 다시 말씀해 주세요.", romanized: "Seonsaengnim, dasi malsseum-hae juseyo.", translation: "Teacher, please say it again.", annotation: "NOT 말해"},
                 ]
             },
         ],
@@ -98,9 +98,9 @@ export const block4Lessons: GrammarLesson[] = [
         examples: [
             { native: "한국어는 어려워요.", romanized: "Hangugeo-neun eoryeowoyo.", translation: "Korean — it's difficult. (Korean is the topic)" },
             { native: "갑자기 비가 왔어요.", romanized: "Gapjagi bi-ga wasseoyo.", translation: "It suddenly started raining. (rain is new info)" },
-            { native: "누가 했어요? — 제가 했어요.", romanized: "Nuga haesseoyo? — Jega haesseoyo.", translation: "Who did it? — I did. (이/가 in question and answer)" },
+            { native: "누가 했어요? — 제가 했어요.", romanized: "Nuga haesseoyo? — Jega haesseoyo.", translation: "Who did it? — I did.", annotation: "이/가 in question and answer"},
             { native: "저는 커피를 마셔요.", romanized: "Jeoneun keopi-reul masyeoyo.", translation: "I drink coffee. (implied: but maybe not others)" },
-            { native: "고양이가 있어요.", romanized: "Goyangi isseoyo.", translation: "There is a cat. (pure existence — 이/가)" },
+            { native: "고양이가 있어요.", romanized: "Goyangi isseoyo.", translation: "There is a cat.", annotation: "pure existence — 이/가"},
         ],
     },
 

@@ -10,12 +10,12 @@ export const block3Lessons: GrammarLesson[] = [
             {
                 condition: "Specific time (clock, day, part of day)",
                 result: "time word + 에",
-                examples: [{ native: "아침에", romanized: "achime", translation: "in the morning (specific time → 에)" }, { native: "월요일에", romanized: "woryoire", translation: "on Monday (named day → 에)" }, { native: "여섯 시에", romanized: "yeoseot sie", translation: "at six o'clock (specific clock time → 에)" }, { native: "주말에", romanized: "jumare", translation: "on the weekend (named period → 에)" }],
+                examples: [{ native: "아침에", romanized: "achime", translation: "in the morning.", annotation: "specific time → 에"}, { native: "월요일에", romanized: "woryoire", translation: "on Monday.", annotation: "named day → 에"}, { native: "여섯 시에", romanized: "yeoseot sie", translation: "at six o'clock.", annotation: "specific clock time → 에"}, { native: "주말에", romanized: "jumare", translation: "on the weekend.", annotation: "named period → 에"}],
             },
             {
                 condition: "Relative time reference (today, now, every day)",
                 result: "no 에",
-                examples: [{ native: "오늘", romanized: "oneul", translation: "today (relative — no 에)" }, { native: "매일", romanized: "maeil", translation: "every day (relative — no 에)" }, { native: "지금", romanized: "jigeum", translation: "now (relative — no 에)" }, { native: "어제", romanized: "eoje", translation: "yesterday (relative — no 에)" }, { native: "내일", romanized: "naeil", translation: "tomorrow (relative — no 에)" }],
+                examples: [{ native: "오늘", romanized: "oneul", translation: "today.", annotation: "relative — no 에"}, { native: "매일", romanized: "maeil", translation: "every day.", annotation: "relative — no 에"}, { native: "지금", romanized: "jigeum", translation: "now.", annotation: "relative — no 에"}, { native: "어제", romanized: "eoje", translation: "yesterday.", annotation: "relative — no 에"}, { native: "내일", romanized: "naeil", translation: "tomorrow.", annotation: "relative — no 에"}],
             },
         ],
         notes: [
@@ -28,9 +28,9 @@ export const block3Lessons: GrammarLesson[] = [
             { native: "아침에 커피를 마셔요.", romanized: "Achime keopireul masyeoyo.", translation: "I drink coffee in the morning." },
             { native: "금요일에 친구를 만나요.", romanized: "Geumyoire chingureul mannayo.", translation: "I meet a friend on Friday." },
             { native: "저녁에 뭐 해요?", romanized: "Jeonyeoge mwo haeyo?", translation: "What do you do in the evening?" },
-            { native: "오늘 바빠요. 내일 시간 있어요.", romanized: "Oneul bappayo. Naeil sigan isseoyo.", translation: "I'm busy today. I have time tomorrow. (no 에 on 오늘/내일)" },
+            { native: "오늘 바빠요. 내일 시간 있어요.", romanized: "Oneul bappayo. Naeil sigan isseoyo.", translation: "I'm busy today. I have time tomorrow.", annotation: "no 에 on 오늘/내일"},
             { native: "주말에 보통 집에서 쉬어요.", romanized: "Jumare botong jibeseo swieoyo.", translation: "I usually rest at home on weekends." },
-            { native: "매일 한국어를 공부해요.", romanized: "Maeil hangugeoreul gongbuhaeyo.", translation: "I study Korean every day. (no 에 on 매일)" },
+            { native: "매일 한국어를 공부해요.", romanized: "Maeil hangugeoreul gongbuhaeyo.", translation: "I study Korean every day.", annotation: "no 에 on 매일"},
         ],
         inlineVocab: [
             { word: "아침", romanized: "achim", translation: "morning" },
@@ -54,17 +54,17 @@ export const block3Lessons: GrammarLesson[] = [
             {
                 condition: "Hours (시)",
                 result: "Native Korean numbers + 시",
-                examples: [{ native: "한 시 (1:00)", romanized: "han si", translation: "one o'clock (native Korean 하나 → 한 before 시)" }, { native: "세 시 (3:00)", romanized: "se si", translation: "three o'clock (native Korean 셋 → 세 before 시)" }, { native: "열두 시 (12:00)", romanized: "yeoldu si", translation: "twelve o'clock / noon or midnight (열 + 둘 → 두)" }],
+                examples: [{ native: "한 시 (1:00)", romanized: "han si", translation: "one o'clock.", annotation: "native Korean 하나 → 한 before 시"}, { native: "세 시 (3:00)", romanized: "se si", translation: "three o'clock.", annotation: "native Korean 셋 → 세 before 시"}, { native: "열두 시 (12:00)", romanized: "yeoldu si", translation: "twelve o'clock / noon or midnight.", annotation: "열 + 둘 → 두"}],
             },
             {
                 condition: "Minutes (분)",
                 result: "Sino-Korean numbers + 분",
-                examples: [{ native: "십 분 (10 min)", romanized: "sip bun", translation: "ten minutes (Sino-Korean 십)" }, { native: "삼십 분 (30 min)", romanized: "samsip bun", translation: "thirty minutes (Sino-Korean 삼십)" }, { native: "오십오 분 (55 min)", romanized: "osibo bun", translation: "fifty-five minutes (Sino-Korean 오십오)" }],
+                examples: [{ native: "십 분 (10 min)", romanized: "sip bun", translation: "ten minutes.", annotation: "Sino-Korean 십"}, { native: "삼십 분 (30 min)", romanized: "samsip bun", translation: "thirty minutes.", annotation: "Sino-Korean 삼십"}, { native: "오십오 분 (55 min)", romanized: "osibo bun", translation: "fifty-five minutes.", annotation: "Sino-Korean 오십오"}],
             },
             {
                 condition: "Half past",
                 result: "[hour] + 시 반",
-                examples: [{ native: "세 시 반 (3:30)", romanized: "se si ban", translation: "three thirty / half past three (시 반 = o'clock half)" }, { native: "열 시 반 (10:30)", romanized: "yeol si ban", translation: "ten thirty / half past ten" }],
+                examples: [{ native: "세 시 반 (3:30)", romanized: "se si ban", translation: "three thirty / half past three.", annotation: "시 반 = o'clock half"}, { native: "열 시 반 (10:30)", romanized: "yeol si ban", translation: "ten thirty / half past ten" }],
             },
         ],
         notes: [
@@ -117,7 +117,7 @@ export const block3Lessons: GrammarLesson[] = [
             {
                 condition: "하다 compound verbs (noun + 하다)",
                 result: "noun + 안 + 해요",
-                examples: [{ native: "공부 안 해요", romanized: "gongbu an haeyo", translation: "don't study (안 goes between 공부 and 해요)" }, { native: "운동 안 해요", romanized: "undong an haeyo", translation: "don't exercise (하다 compound — 안 between noun and 해요)" }, { native: "요리 안 해요", romanized: "yori an haeyo", translation: "don't cook (하다 compound — 안 between noun and 해요)" }],
+                examples: [{ native: "공부 안 해요", romanized: "gongbu an haeyo", translation: "don't study.", annotation: "안 goes between 공부 and 해요"}, { native: "운동 안 해요", romanized: "undong an haeyo", translation: "don't exercise.", annotation: "하다 compound — 안 between noun and 해요"}, { native: "요리 안 해요", romanized: "yori an haeyo", translation: "don't cook.", annotation: "하다 compound — 안 between noun and 해요"}],
             },
         ],
         notes: [
@@ -135,8 +135,8 @@ export const block3Lessons: GrammarLesson[] = [
             { native: "오늘은 학교에 안 가요.", romanized: "Oneureun hakgyoe an gayo.", translation: "I'm not going to school today." },
             { native: "이 음식은 안 매워요.", romanized: "I eumsigeun an maeweoyo.", translation: "This food is not spicy." },
             { native: "저는 술을 안 마셔요.", romanized: "Jeoneun sureul an masyeoyo.", translation: "I don't drink alcohol." },
-            { native: "공부 안 해요. 오늘은 쉬어요.", romanized: "Gongbu an haeyo. Oneureun swieoyo.", translation: "I'm not studying. I'm resting today. (하다 compound: 안 between noun and 하다)" },
-            { native: "운동 안 해요? 왜요?", romanized: "Undong an haeyo? Waeyo?", translation: "You don't exercise? Why? (하다 compound — same pattern)" },
+            { native: "공부 안 해요. 오늘은 쉬어요.", romanized: "Gongbu an haeyo. Oneureun swieoyo.", translation: "I'm not studying. I'm resting today.", annotation: "하다 compound: 안 between noun and 하다"},
+            { native: "운동 안 해요? 왜요?", romanized: "Undong an haeyo? Waeyo?", translation: "You don't exercise? Why?", annotation: "하다 compound — same pattern"},
         ],
         inlineVocab: [
             { word: "안", romanized: "an", translation: "not / don't (negation — choice or absence)" },
@@ -162,7 +162,7 @@ export const block3Lessons: GrammarLesson[] = [
             {
                 condition: "하다 compound verbs",
                 result: "noun + 못 + 해요",
-                examples: [{ native: "운동 못 해요", romanized: "undong mot haeyo", translation: "can't exercise (하다 compound — 못 between noun and 해요)" }, { native: "공부 못 해요", romanized: "gongbu mot haeyo", translation: "can't study (하다 compound)" }, { native: "요리 못 해요", romanized: "yori mot haeyo", translation: "can't cook (하다 compound)" }],
+                examples: [{ native: "운동 못 해요", romanized: "undong mot haeyo", translation: "can't exercise.", annotation: "하다 compound — 못 between noun and 해요"}, { native: "공부 못 해요", romanized: "gongbu mot haeyo", translation: "can't study.", annotation: "하다 compound"}, { native: "요리 못 해요", romanized: "yori mot haeyo", translation: "can't cook.", annotation: "하다 compound"}],
             },
         ],
         notes: [
@@ -179,7 +179,7 @@ export const block3Lessons: GrammarLesson[] = [
             { native: "저는 새우를 못 먹어요. 알레르기가 있어요.", romanized: "Jeoneun saewureul mot meogeoyo. Allereugie isseoyo.", translation: "I can't eat shrimp. I have an allergy." },
             { native: "오늘 못 가요. 일이 있어요.", romanized: "Oneul mot gayo. Iri isseoyo.", translation: "I can't go today. I have something on." },
             { native: "카페인 때문에 커피를 못 마셔요.", romanized: "Kapeein ttaemune keopireul mot masyeoyo.", translation: "I can't drink coffee because of caffeine." },
-            { native: "너무 바빠서 운동 못 해요.", romanized: "Neomu bappaseo undong mot haeyo.", translation: "I'm too busy so I can't exercise. (하다 compound)" },
+            { native: "너무 바빠서 운동 못 해요.", romanized: "Neomu bappaseo undong mot haeyo.", translation: "I'm too busy so I can't exercise.", annotation: "하다 compound"},
             { native: "어제 못 잤어요. 너무 시끄러웠어요.", romanized: "Eoje mot jasseoyo. Neomu sikkeureowoosseoyo.", translation: "I couldn't sleep yesterday. It was too noisy." },
             { native: "공부 안 해요 vs 공부 못 해요", romanized: "Gongbu an haeyo vs gongbu mot haeyo", translation: "I don't study (by choice) vs I can't study (inability)" },
         ],
@@ -235,12 +235,12 @@ export const block3Lessons: GrammarLesson[] = [
             {
                 condition: "Who as subject (doing the action)",
                 result: "누가",
-                examples: [{ native: "누가 왔어요?", romanized: "nuga wasseoyo?", translation: "Who came? (누구 + 가 fused — subject)" }, { native: "누가 전화했어요?", romanized: "nuga jeonhwahaesseoyo?", translation: "Who called? (누가 = who as subject)" }, { native: "누가 만들었어요?", romanized: "nuga mandeureoosseoyo?", translation: "Who made it? (누가 = who as subject)" }],
+                examples: [{ native: "누가 왔어요?", romanized: "nuga wasseoyo?", translation: "Who came?", annotation: "누구 + 가 fused — subject"}, { native: "누가 전화했어요?", romanized: "nuga jeonhwahaesseoyo?", translation: "Who called?", annotation: "누가 = who as subject"}, { native: "누가 만들었어요?", romanized: "nuga mandeureoosseoyo?", translation: "Who made it?", annotation: "누가 = who as subject"}],
             },
             {
                 condition: "Who in other positions (after 은/는, 랑, 한테 etc.)",
                 result: "누구",
-                examples: [{ native: "이 사람은 누구예요?", romanized: "i sarameun nugueyeo?", translation: "Who is this person? (누구 as complement — not subject)" }, { native: "누구랑 갔어요?", romanized: "nugurang gasseoyo?", translation: "Who did you go with? (누구 + 랑 = with who)" }, { native: "누구한테 줬어요?", romanized: "nuguhante jwosseoyo?", translation: "Who did you give it to? (누구 + 한테 = to who)" }],
+                examples: [{ native: "이 사람은 누구예요?", romanized: "i sarameun nugueyeo?", translation: "Who is this person?", annotation: "누구 as complement — not subject"}, { native: "누구랑 갔어요?", romanized: "nugurang gasseoyo?", translation: "Who did you go with?", annotation: "누구 + 랑 = with who"}, { native: "누구한테 줬어요?", romanized: "nuguhante jwosseoyo?", translation: "Who did you give it to?", annotation: "누구 + 한테 = to who"}],
             },
         ],
         notes: [
@@ -252,10 +252,10 @@ export const block3Lessons: GrammarLesson[] = [
         examples: [
             { native: "누가 왔어요?", romanized: "Nuga wasseoyo?", translation: "Who came?" },
             { native: "누가 전화했어요?", romanized: "Nuga jeonhwahaesseoyo?", translation: "Who called?" },
-            { native: "이 사람은 누구예요?", romanized: "I sarameun nugueyeo?", translation: "Who is this person? (누구 as complement — not the subject)" },
+            { native: "이 사람은 누구예요?", romanized: "I sarameun nugueyeo?", translation: "Who is this person?", annotation: "누구 as complement — not the subject"},
             { native: "누구랑 갔어요?", romanized: "Nugurang gasseoyo?", translation: "Who did you go with?" },
-            { native: "— 어디 가요? — 카페에요.", romanized: "Eodi gayo? — Kapeeyeo.", translation: "— Where are you going? — A café. (short polite answer: key word + 요)" },
-            { native: "— 뭐 먹었어요? — 비빔밥이요.", romanized: "Mwo meogeosseoyo? — Bibimbabiyeo.", translation: "— What did you eat? — Bibimbap. (key word + 요)" },
+            { native: "— 어디 가요? — 카페에요.", romanized: "Eodi gayo? — Kapeeyeo.", translation: "— Where are you going? — A café.", annotation: "short polite answer: key word + 요"},
+            { native: "— 뭐 먹었어요? — 비빔밥이요.", romanized: "Mwo meogeosseoyo? — Bibimbabiyeo.", translation: "— What did you eat? — Bibimbap.", annotation: "key word + 요"},
         ],
         inlineVocab: [
             { word: "누구", romanized: "nugu", translation: "who (not the subject)" },
@@ -282,7 +282,7 @@ export const block3Lessons: GrammarLesson[] = [
             {
                 condition: "별로 · 거의 · 절대로 (inherently negative adverbs)",
                 result: "Must pair with 안 or 못",
-                examples: [{ native: "별로 안 해요", romanized: "byeolro an haeyo", translation: "don't really do it (별로 requires 안)" }, { native: "거의 안 가요", romanized: "geoui an gayo", translation: "hardly ever go (거의 requires 안)" }, { native: "절대로 안 해요", romanized: "jeoldaero an haeyo", translation: "never do it (절대로 requires 안)" }],
+                examples: [{ native: "별로 안 해요", romanized: "byeolro an haeyo", translation: "don't really do it.", annotation: "별로 requires 안"}, { native: "거의 안 가요", romanized: "geoui an gayo", translation: "hardly ever go.", annotation: "거의 requires 안"}, { native: "절대로 안 해요", romanized: "jeoldaero an haeyo", translation: "never do it.", annotation: "절대로 requires 안"}],
             },
         ],
         notes: [
@@ -296,8 +296,8 @@ export const block3Lessons: GrammarLesson[] = [
             { native: "보통 여덟 시에 일어나요.", romanized: "Botong yeodeol sie ireonayo.", translation: "I usually get up at eight." },
             { native: "자주 카페에 가요.", romanized: "Jaju kapee gayo.", translation: "I often go to a café." },
             { native: "가끔 한국 영화를 봐요.", romanized: "Gakkeum hanguk yeonghwareul bwayo.", translation: "I sometimes watch Korean films." },
-            { native: "저는 술을 별로 안 마셔요.", romanized: "Jeoneun sureul byeolro an masyeoyo.", translation: "I don't really drink alcohol. (별로 requires 안)" },
-            { native: "저는 아침을 거의 안 먹어요. 바빠서요.", romanized: "Jeoneun achimeul geoui an meogeoyo. Bappaseoyo.", translation: "I hardly eat breakfast. Because I'm busy. (거의 requires 안)" },
+            { native: "저는 술을 별로 안 마셔요.", romanized: "Jeoneun sureul byeolro an masyeoyo.", translation: "I don't really drink alcohol.", annotation: "별로 requires 안"},
+            { native: "저는 아침을 거의 안 먹어요. 바빠서요.", romanized: "Jeoneun achimeul geoui an meogeoyo. Bappaseoyo.", translation: "I hardly eat breakfast. Because I'm busy.", annotation: "거의 requires 안"},
         ],
         inlineVocab: [
             { word: "항상 / 늘", romanized: "hangsang / neul", translation: "always" },
@@ -319,7 +319,7 @@ export const block3Lessons: GrammarLesson[] = [
             {
                 condition: "절대로 (never / absolutely not)",
                 result: "절대로 + 안/못 + verb",
-                examples: [{ native: "절대로 안 해요", romanized: "jeoldaero an haeyo", translation: "I absolutely never do it (requires 안)" }, { native: "절대로 못 가요", romanized: "jeoldaero mot gayo", translation: "there is absolutely no way I can go (requires 못)" }, { native: "절대로 안 잊을게요", romanized: "jeoldaero an ijeulgeyo", translation: "I will absolutely never forget" }],
+                examples: [{ native: "절대로 안 해요", romanized: "jeoldaero an haeyo", translation: "I absolutely never do it.", annotation: "requires 안"}, { native: "절대로 못 가요", romanized: "jeoldaero mot gayo", translation: "there is absolutely no way I can go.", annotation: "requires 못"}, { native: "절대로 안 잊을게요", romanized: "jeoldaero an ijeulgeyo", translation: "I will absolutely never forget" }],
             },
         ],
         notes: [
@@ -333,7 +333,7 @@ export const block3Lessons: GrammarLesson[] = [
             },
         ],
         examples: [
-            { native: "저는 거짓말을 절대로 안 해요.", romanized: "Jeoneun geojinmareul jeoldaero an haeyo.", translation: "I never lie. (절대로 requires 안)" },
+            { native: "저는 거짓말을 절대로 안 해요.", romanized: "Jeoneun geojinmareul jeoldaero an haeyo.", translation: "I never lie.", annotation: "절대로 requires 안"},
             { native: "그 음식은 절대로 못 먹어요.", romanized: "Geu eumsigeun jeoldaero mot meogeoyo.", translation: "There is absolutely no way I can eat that food." },
             { native: "저는 별로 안 바빠요.", romanized: "Jeoneun byeolro an bappayo.", translation: "I'm not really busy." },
             { native: "주말에는 거의 안 나가요.", romanized: "Jumarengeun geoui an nagayo.", translation: "I hardly ever go out on weekends." },
@@ -360,17 +360,17 @@ export const block3Lessons: GrammarLesson[] = [
             {
                 condition: "Stem last vowel is ㅏ or ㅗ (same as ~아요 verbs)",
                 result: "~았어요",
-                examples: [{ native: "가다 → 갔어요", romanized: "gada → gasseoyo", translation: "go → went (ㅏ stem: 가 + 았어요 → 갔어요)" }, { native: "보다 → 봤어요", romanized: "boda → bwasseoyo", translation: "see → saw (ㅗ stem: 보 + 았어요 → 봤어요)" }, { native: "좋다 → 좋았어요", romanized: "jota → joasseoyo", translation: "good → was good (ㅗ stem: 좋 + 았어요)" }],
+                examples: [{ native: "가다 → 갔어요", romanized: "gada → gasseoyo", translation: "go → went.", annotation: "ㅏ stem: 가 + 았어요 → 갔어요"}, { native: "보다 → 봤어요", romanized: "boda → bwasseoyo", translation: "see → saw.", annotation: "ㅗ stem: 보 + 았어요 → 봤어요"}, { native: "좋다 → 좋았어요", romanized: "jota → joasseoyo", translation: "good → was good.", annotation: "ㅗ stem: 좋 + 았어요"}],
             },
             {
                 condition: "Stem has any other vowel (same as ~어요 verbs)",
                 result: "~었어요",
-                examples: [{ native: "먹다 → 먹었어요", romanized: "meokda → meogeosseoyo", translation: "eat → ate (other vowel: 먹 + 었어요)" }, { native: "마시다 → 마셨어요", romanized: "masida → masyeosseoyo", translation: "drink → drank (other vowel: 마시 + 었어요 → 마셨어요)" }, { native: "오다 → 왔어요", romanized: "oda → wasseoyo", translation: "come → came (special: 오 + 았어요 → 왔어요)" }],
+                examples: [{ native: "먹다 → 먹었어요", romanized: "meokda → meogeosseoyo", translation: "eat → ate.", annotation: "other vowel: 먹 + 었어요"}, { native: "마시다 → 마셨어요", romanized: "masida → masyeosseoyo", translation: "drink → drank.", annotation: "other vowel: 마시 + 었어요 → 마셨어요"}, { native: "오다 → 왔어요", romanized: "oda → wasseoyo", translation: "come → came.", annotation: "special: 오 + 았어요 → 왔어요"}],
             },
             {
                 condition: "하다 verbs",
                 result: "~했어요 (always)",
-                examples: [{ native: "공부했어요", romanized: "gongbuhaesseoyo", translation: "studied (공부하다 → 했어요)" }, { native: "운동했어요", romanized: "undonghaesseoyo", translation: "exercised (운동하다 → 했어요)" }, { native: "일했어요", romanized: "ilhaesseoyo", translation: "worked (일하다 → 했어요)" }],
+                examples: [{ native: "공부했어요", romanized: "gongbuhaesseoyo", translation: "studied.", annotation: "공부하다 → 했어요"}, { native: "운동했어요", romanized: "undonghaesseoyo", translation: "exercised.", annotation: "운동하다 → 했어요"}, { native: "일했어요", romanized: "ilhaesseoyo", translation: "worked.", annotation: "일하다 → 했어요"}],
             },
         ],
         notes: [
@@ -417,17 +417,17 @@ export const block3Lessons: GrammarLesson[] = [
             {
                 condition: "ㅂ-irregular adjectives in past tense",
                 result: "Same as present: ㅂ → 워 before vowel, then + 었어요",
-                examples: [{ native: "춥다→추웠어요", romanized: "chupda→chuwosseoyo", translation: "cold → was cold (ㅂ → 워 + 었어요)" }, { native: "덥다→더웠어요", romanized: "deodda→deowosseoyo", translation: "hot → was hot (ㅂ → 워 + 었어요)" }, { native: "맵다→매웠어요", romanized: "maepda→maewosseoyo", translation: "spicy → was spicy (ㅂ → 워 + 었어요)" }, { native: "즐겁다→즐거웠어요", romanized: "jeulgeodda→jeulgeowosseoyo", translation: "enjoyable → was enjoyable (ㅂ → 워 + 었어요)" }],
+                examples: [{ native: "춥다→추웠어요", romanized: "chupda→chuwosseoyo", translation: "cold → was cold.", annotation: "ㅂ → 워 + 었어요"}, { native: "덥다→더웠어요", romanized: "deodda→deowosseoyo", translation: "hot → was hot.", annotation: "ㅂ → 워 + 었어요"}, { native: "맵다→매웠어요", romanized: "maepda→maewosseoyo", translation: "spicy → was spicy.", annotation: "ㅂ → 워 + 었어요"}, { native: "즐겁다→즐거웠어요", romanized: "jeulgeodda→jeulgeowosseoyo", translation: "enjoyable → was enjoyable.", annotation: "ㅂ → 워 + 었어요"}],
             },
             {
                 condition: "Past copula after consonant",
                 result: "이었어요",
-                examples: [{ native: "학생이었어요 (was a student)", romanized: "haksaengieosseoyo", translation: "was a student (학생 ends in consonant → 이었어요)" }, { native: "회사원이었어요", romanized: "hoesawonieosseoyo", translation: "was an office worker (회사원 ends in consonant ㄴ → 이었어요)" }],
+                examples: [{ native: "학생이었어요 (was a student)", romanized: "haksaengieosseoyo", translation: "was a student.", annotation: "학생 ends in consonant → 이었어요"}, { native: "회사원이었어요", romanized: "hoesawonieosseoyo", translation: "was an office worker.", annotation: "회사원 ends in consonant ㄴ → 이었어요"}],
             },
             {
                 condition: "Past copula after vowel",
                 result: "였어요",
-                examples: [{ native: "의사였어요 (was a doctor)", romanized: "uisayeosseoyo", translation: "was a doctor (의사 ends in vowel → 였어요)" }, { native: "학교였어요", romanized: "hakgyoyeosseoyo", translation: "was a school / it was school (학교 ends in vowel → 였어요)" }],
+                examples: [{ native: "의사였어요 (was a doctor)", romanized: "uisayeosseoyo", translation: "was a doctor.", annotation: "의사 ends in vowel → 였어요"}, { native: "학교였어요", romanized: "hakgyoyeosseoyo", translation: "was a school / it was school.", annotation: "학교 ends in vowel → 였어요"}],
             },
         ],
         notes: [
@@ -437,12 +437,12 @@ export const block3Lessons: GrammarLesson[] = [
             },
         ],
         examples: [
-            { native: "지난주에 날씨가 너무 더웠어요.", romanized: "Jinan jue nalssiga neomu deowosseoyo.", translation: "The weather was too hot last week. (ㅂ-irregular: 덥다 → 더웠어요)" },
-            { native: "그 음식은 정말 매웠어요!", romanized: "Geu eumsigeun jeongmal maewosseoyo!", translation: "That food was really spicy! (ㅂ-irregular: 맵다 → 매웠어요)" },
-            { native: "여행이 정말 즐거웠어요.", romanized: "Yeohaengi jeongmal jeulgeowoosseoyo.", translation: "The trip was really fun. (ㅂ-irregular: 즐겁다 → 즐거웠어요)" },
-            { native: "어제 회사에서 열심히 일했어요.", romanized: "Eoje hwisaeseo yeolsimhi ilhaesseoyo.", translation: "I worked hard at the office yesterday. (하다 → 했어요)" },
-            { native: "지난달에 학생이었어요. 지금은 회사원이에요.", romanized: "Jinan dare haksaengieosseoyo. Jigeumeun hwisawonieyeo.", translation: "Last month I was a student. Now I'm an office worker. (past copula after consonant: 이었어요)" },
-            { native: "정말 즐거운 하루였어요!", romanized: "Jeongmal jeulgeoun haruyeosseoyo!", translation: "It was a really fun day! (past copula after vowel: 였어요)" },
+            { native: "지난주에 날씨가 너무 더웠어요.", romanized: "Jinan jue nalssiga neomu deowosseoyo.", translation: "The weather was too hot last week.", annotation: "ㅂ-irregular: 덥다 → 더웠어요"},
+            { native: "그 음식은 정말 매웠어요!", romanized: "Geu eumsigeun jeongmal maewosseoyo!", translation: "That food was really spicy!", annotation: "ㅂ-irregular: 맵다 → 매웠어요"},
+            { native: "여행이 정말 즐거웠어요.", romanized: "Yeohaengi jeongmal jeulgeowoosseoyo.", translation: "The trip was really fun.", annotation: "ㅂ-irregular: 즐겁다 → 즐거웠어요"},
+            { native: "어제 회사에서 열심히 일했어요.", romanized: "Eoje hwisaeseo yeolsimhi ilhaesseoyo.", translation: "I worked hard at the office yesterday.", annotation: "하다 → 했어요"},
+            { native: "지난달에 학생이었어요. 지금은 회사원이에요.", romanized: "Jinan dare haksaengieosseoyo. Jigeumeun hwisawonieyeo.", translation: "Last month I was a student. Now I'm an office worker.", annotation: "past copula after consonant: 이었어요"},
+            { native: "정말 즐거운 하루였어요!", romanized: "Jeongmal jeulgeoun haruyeosseoyo!", translation: "It was a really fun day!", annotation: "past copula after vowel: 였어요"},
         ],
         inlineVocab: [
             { word: "추웠어요", romanized: "chuwosseoyo", translation: "was cold (ㅂ-irregular past)" },
