@@ -43,16 +43,16 @@ INDIRECT pronouns do NOT cause agreement (see next unit).`,
                 condition: "Present tense with direct object pronoun",
                 result: "Pronoun goes immediately BEFORE the conjugated verb",
                 examples: [
-                    { native: "Guardo la televisione → La guardo.", translation: "I watch television → I watch it." },
-                    { native: "Invito i miei amici → Li invito.", translation: "I invite my friends → I invite them." },
+                    { native: "Guardo la televisione → La guardo.", translation: "I watch television / I watch it.", annotation: "la televisione (fem.) → la" },
+                    { native: "Invito i miei amici → Li invito.", translation: "I invite my friends / I invite them.", annotation: "gli amici (masc.pl.) → li" },
                 ]
             },
             {
                 condition: "Passato prossimo with direct object pronoun",
                 result: "Pronoun before auxiliary; past participle agrees with pronoun",
                 examples: [
-                    { native: "Ho ordinata la pizza → L'ho ordinata.", translation: "I ordered the pizza → I ordered it. (f.)" },
-                    { native: "Ho comprati i biglietti → Li ho comprati.", translation: "I bought the tickets → I bought them. (m.pl.)" },
+                    { native: "Ho ordinata la pizza → L'ho ordinata.", translation: "I ordered the pizza / I ordered it.", annotation: "la pizza (fem.) → la → L' (before vowel); PP agrees: ordinata" },
+                    { native: "Ho comprati i biglietti → Li ho comprati.", translation: "I bought the tickets / I bought them.", annotation: "i biglietti (masc.pl.) → li; PP agrees: comprati" },
                 ]
             },
         ],
@@ -132,15 +132,15 @@ gli/le → glie- fused with second pronoun: glielo, gliela, glieli, gliele, glie
                 condition: "Complement introduced by 'a + person'",
                 result: "Use indirect pronoun (mi/ti/gli/le/ci/vi/gli)",
                 examples: [
-                    { native: "Scrivo ai miei genitori → Gli scrivo.", translation: "I write to my parents → I write to them." },
-                    { native: "Telefono a Maria → Le telefono.", translation: "I call Maria → I call her." },
+                    { native: "Scrivo ai miei genitori → Gli scrivo.", translation: "I write to my parents / I write to them.", annotation: "ai miei genitori (pl.) → gli" },
+                    { native: "Telefono a Maria → Le telefono.", translation: "I call Maria / I call her.", annotation: "a Maria (fem.sg.) → le" },
                 ]
             },
             {
                 condition: "Reference to a place (a/in + location)",
                 result: "Use CI locativo",
                 examples: [
-                    { native: "Vai in palestra? → Ci vai?", translation: "Do you go to the gym? → Do you go (there)?" },
+                    { native: "Vai in palestra? → Ci vai?", translation: "Do you go to the gym? / Do you go there?", annotation: "in palestra → ci" },
                     { native: "Ci siamo stati l'estate scorsa.", translation: "We were there last summer." },
                 ]
             },
@@ -154,7 +154,7 @@ gli/le → glie- fused with second pronoun: glielo, gliela, glieli, gliele, glie
             { native: "Hai parlato a Marco della festa? — Sì, gli ho detto tutto.", translation: "Did you tell Marco about the party? — Yes, I told him everything." },
             { native: "Vai al mercato domani? Ci vado sempre il sabato.", translation: "Are you going to the market tomorrow? I always go (there) on Saturdays." },
             { native: "Ne ha fatto tantissimo — siamo in cinque ma ne è rimasto ancora.", translation: "She made a huge amount — there are five of us but some is still left." },
-            { native: "Ti mando la foto → Te la mando.", translation: "I'll send you the photo → I'll send it to you." },
+            { native: "Ti mando la foto → Te la mando.", translation: "I'll send you the photo / I'll send it to you.", annotation: "ti (to you) + la (photo) → te la" },
             { native: "Glielo spiego adesso.", translation: "I'll explain it to him/her/them right now." },
             { native: "Ce ne dai un po'?", translation: "Will you give us some of it?" },
         ],
