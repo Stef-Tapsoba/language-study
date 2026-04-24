@@ -30,8 +30,8 @@ Common reflexive verbs: chiamarsi (to be called), alzarsi (to get up), svegliars
                 condition: "Infinitive of reflexive verbs",
                 result: "remove -si, conjugate normally, add pronoun before",
                 examples: [
-                    { native: "alzarsi → mi alzo", translation: "to get up → I get up" },
-                    { native: "vestirsi → mi visto", translation: "to get dressed → I get dressed" },
+                    { native: "alzarsi → mi alzo", translation: "to get up: I get up", annotation: "alzarsi → mi alzo" },
+                    { native: "vestirsi → mi visto", translation: "to get dressed: I get dressed", annotation: "vestirsi → mi visto" },
                 ],
             },
             {
@@ -331,7 +331,7 @@ The 1st always uses primo, not uno: il primo maggio (never il uno maggio). Addin
         explanation: `Yes/no questions are formed by raising your intonation — no word reordering needed. Statement: Parli italiano. → Question: Parli italiano? (same words, rising tone). Question words and examples are in the table below.`,
         examples: [
             { native: "Parli italiano? (rising intonation)", speakText: "Parli italiano?", translation: "Do you speak Italian?" },
-            { native: "Come ti chiami?", translation: "What is your name? (lit. How do you call yourself?)" },
+            { native: "Come ti chiami?", translation: "What is your name?", annotation: "lit. How do you call yourself?" },
             { native: "Dove abiti?", translation: "Where do you live?" },
             { native: "Quando arrivi?", translation: "When do you arrive?" },
             { native: "Perché studi l'italiano?", translation: "Why do you study Italian?" }
@@ -363,7 +363,7 @@ The 1st always uses primo, not uno: il primo maggio (never il uno maggio). Addin
                 condition: "Yes/no question",
                 result: "Raise intonation — no word order change needed",
                 examples: [
-                    { native: "Parli italiano?", translation: "Do you speak Italian? (same words as statement, just rising tone)" },
+                    { native: "Parli italiano?", translation: "Do you speak Italian?", annotation: "same words as statement, just rising tone" },
                 ],
             },
             {

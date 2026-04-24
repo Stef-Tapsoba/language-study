@@ -6,7 +6,7 @@ export const itCA14: CultureEpisode = {
     category: "food",
     region: "all-italian",
     title: {
-        native: "La pasta — una tradizione nazionale",
+        native: "Pasta — A National Tradition",
         target: "La pasta — una tradizione nazionale"
     },
     subtitle: "Italy has over 350 pasta shapes — and strict unwritten rules about which sauce goes with which pasta. Breaking them is considered almost criminal.",

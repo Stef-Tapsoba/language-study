@@ -114,11 +114,11 @@ export const b1Grammar: GrammarLesson[] = [
             target: "Il discorso indiretto italiano cambia i tempi verbali quando il verbo reggente è al passato. Cambiamenti principali: presente → imperfetto; futuro → condizionale composto; passato prossimo → trapassato prossimo; imperativo → di + infinito. I riferimenti di tempo cambiano: oggi → quel giorno, domani → l'indomani, ieri → il giorno prima, qui → lì. Le domande sì/no usano se; le domande aperte mantengono la parola interrogativa (dove, come, quando). Verbi reggenti: dire che, chiedere se/cosa, spiegare che, aggiungere che, negare di."
         },
         examples: [
-            { native: "'Sono stanco.' → Ha detto che era stanco.", translation: "'I'm tired.' → He said he was tired." },
-            { native: "'Hai fame?' → Mi ha chiesto se avevo fame.", translation: "'Are you hungry?' → She asked me if I was hungry." },
-            { native: "'Verrò domani.' → Ha detto che sarebbe venuto l'indomani.", translation: "'I'll come tomorrow.' → He said he'd come the next day." },
-            { native: "'Mangia più lentamente!' → Gli ha detto di mangiare più lentamente.", translation: "'Eat more slowly!' → She told him to eat more slowly." },
-            { native: "'Non so dove sia.' → Ha spiegato che non sapeva dove fosse.", translation: "'I don't know where it is.' → She explained she didn't know where it was." },
+            { native: "'Sono stanco.' → Ha detto che era stanco.", translation: "He said he was tired.", annotation: "'I'm tired.' → Ha detto che era stanco." },
+            { native: "'Hai fame?' → Mi ha chiesto se avevo fame.", translation: "She asked me if I was hungry.", annotation: "'Are you hungry?' → Mi ha chiesto se avevo fame." },
+            { native: "'Verrò domani.' → Ha detto che sarebbe venuto l'indomani.", translation: "He said he'd come the next day.", annotation: "'I'll come tomorrow.' → Ha detto che sarebbe venuto l'indomani." },
+            { native: "'Mangia più lentamente!' → Gli ha detto di mangiare più lentamente.", translation: "She told him to eat more slowly.", annotation: "'Eat more slowly!' → Gli ha detto di mangiare più lentamente." },
+            { native: "'Non so dove sia.' → Ha spiegato che non sapeva dove fosse.", translation: "She explained she didn't know where it was.", annotation: "'I don't know where it is.' → Ha spiegato che non sapeva dove fosse." },
         ]
     },
     {
@@ -130,11 +130,11 @@ export const b1Grammar: GrammarLesson[] = [
             target: "Entrambi i tempi descrivono il passato, ma hanno ruoli distinti nella narrazione. Il passato prossimo (ho mangiato, sono andato) racconta un evento completato specifico — fa avanzare il racconto. L'imperfetto (mangiavo, andavo) fornisce lo sfondo: stati continuativi, azioni abituali, descrizioni di come erano le cose, o azioni interrotte. Spesso compaiono nella stessa frase: l'imperfetto prepara la scena, il passato prossimo porta l'evento chiave. Contrasto fondamentale: «Leggevo» (stavo leggendo — in corso) vs. «Ho letto il libro» (ho letto il libro — completato). Segnali per l'imperfetto: sempre, di solito, ogni giorno, mentre, quando (+ azione in corso). Segnali per il passato prossimo: improvvisamente, all'improvviso, un giorno, e la maggior parte delle espressioni di tempo specifiche."
         },
         examples: [
-            { native: "Leggevo quando ha suonato il telefono.", translation: "I was reading when the phone rang. (imperfetto = ongoing; passato prossimo = interrupting event)" },
-            { native: "Faceva bel tempo quando siamo usciti.", translation: "The weather was nice when we went out. (imperfetto = background; passato prossimo = specific action)" },
-            { native: "Da bambino andavo al mare ogni estate.", translation: "As a child I used to go to the sea every summer. (imperfetto = habitual past)" },
-            { native: "Un giorno ho incontrato una persona straordinaria.", translation: "One day I met an extraordinary person. (passato prossimo = single completed event)" },
-            { native: "Era stanca, quindi si è fermata a riposare.", translation: "She was tired, so she stopped to rest. (imperfetto = state; passato prossimo = resulting action)" },
+            { native: "Leggevo quando ha suonato il telefono.", translation: "I was reading when the phone rang.", annotation: "imperfetto = ongoing; passato prossimo = interrupting event" },
+            { native: "Faceva bel tempo quando siamo usciti.", translation: "The weather was nice when we went out.", annotation: "imperfetto = background; passato prossimo = specific action" },
+            { native: "Da bambino andavo al mare ogni estate.", translation: "As a child I used to go to the sea every summer.", annotation: "imperfetto = habitual past" },
+            { native: "Un giorno ho incontrato una persona straordinaria.", translation: "One day I met an extraordinary person.", annotation: "passato prossimo = single completed event" },
+            { native: "Era stanca, quindi si è fermata a riposare.", translation: "She was tired, so she stopped to rest.", annotation: "imperfetto = state; passato prossimo = resulting action" },
         ]
     },
     {
@@ -162,11 +162,11 @@ export const b1Grammar: GrammarLesson[] = [
             target: "Il congiuntivo imperfetto si usa nelle frasi ipotetiche con se, nelle richieste cortesi e dopo certe congiunzioni in contesti passati. Formazione: verbi regolari — si elimina la terminazione dell'infinito e si aggiunge: -assi, -assi, -asse, -assimo, -aste, -assero (verbi in -are: parlare → parlassi); -essi, -essi, -esse, -essimo, -este, -essero (verbi in -ere: credere → credessi); -issi, -issi, -isse, -issimo, -iste, -issero (verbi in -ire: finire → finissi). I verbi irregolari seguono il tema dell'imperfetto indicativo: essere → fossi, avere → avessi, fare → facessi, stare → stessi, dire → dicessi. Usi principali: (1) Frasi ipotetiche con se: se + cong. imperfetto + condizionale. (2) Richieste cortesi: «Volessi un caffè» — più formale di vorrei. (3) Desideri con magari / se solo / speravo: «Magari avessi più tempo!» (4) Dopo benché / sebbene / nonostante in contesti passati."
         },
         examples: [
-            { native: "Se avessi più tempo, viaggerei di più.", translation: "If I had more time, I would travel more. (se + cong. imperfetto + condizionale)" },
-            { native: "Se fossi te, non lo direi a nessuno.", translation: "If I were you, I wouldn't tell anyone. (essere → fossi)" },
-            { native: "Magari potessi restare di più!", translation: "I wish I could stay longer! (magari + cong. imperfetto = unrealisable wish)" },
-            { native: "Benché fosse stanca, ha continuato a lavorare.", translation: "Although she was tired, she kept working. (benché + cong. imperfetto in past context)" },
-            { native: "Speravo che tu venissi alla festa.", translation: "I was hoping you would come to the party. (speravo + che + cong. imperfetto)" },
+            { native: "Se avessi più tempo, viaggerei di più.", translation: "If I had more time, I would travel more.", annotation: "se + cong. imperfetto + condizionale" },
+            { native: "Se fossi te, non lo direi a nessuno.", translation: "If I were you, I wouldn't tell anyone.", annotation: "essere → fossi" },
+            { native: "Magari potessi restare di più!", translation: "I wish I could stay longer!", annotation: "magari + cong. imperfetto = unrealisable wish" },
+            { native: "Benché fosse stanca, ha continuato a lavorare.", translation: "Although she was tired, she kept working.", annotation: "benché + cong. imperfetto in past context" },
+            { native: "Speravo che tu venissi alla festa.", translation: "I was hoping you would come to the party.", annotation: "speravo + che + cong. imperfetto" },
         ]
     },
     {
@@ -178,11 +178,11 @@ export const b1Grammar: GrammarLesson[] = [
             target: "Una distinzione fondamentale del B1: quando il soggetto della frase principale e quello della subordinata sono LO STESSO, l'italiano usa l'infinito. Quando i soggetti sono DIVERSI, si usa che + congiuntivo. Regola: stesso soggetto → infinito; soggetti diversi → che + congiuntivo. Esempi: «Voglio andare» (voglio andare io → stesso soggetto: io/io → infinito) vs. «Voglio che tu vada» (voglio io, vai tu → soggetti diversi → che + congiuntivo). Si applica a: volere, sperare, preferire, desiderare, avere paura, essere contento, essere necessario, e molti altri. Con espressioni impersonali + riferimento generico: «È importante studiare» (verità generale → infinito) vs. «È importante che tu studi» (persona specifica → che + congiuntivo)."
         },
         examples: [
-            { native: "Voglio andare in vacanza. (io / io → infinito)", translation: "I want to go on holiday. (same subject: I want / I go → infinitive)" },
-            { native: "Voglio che Marco vada in vacanza. (io / Marco → che + congiuntivo)", translation: "I want Marco to go on holiday. (different subjects → che + congiuntivo)" },
-            { native: "Spero di farcela. (io spero / io ce la faccio → infinito)", translation: "I hope to make it. (same subject → di + infinitive after sperare)" },
-            { native: "Spero che tu stia bene. (io / tu → che + congiuntivo)", translation: "I hope you are well. (different subjects → che + congiuntivo)" },
-            { native: "È importante studiare ogni giorno. (generale → infinito)", translation: "It's important to study every day. (general truth → infinitive)" },
+            { native: "Voglio andare in vacanza. (io / io → infinito)", translation: "I want to go on holiday.", annotation: "same subject: I want / I go → infinitive" },
+            { native: "Voglio che Marco vada in vacanza. (io / Marco → che + congiuntivo)", translation: "I want Marco to go on holiday.", annotation: "different subjects → che + congiuntivo" },
+            { native: "Spero di farcela. (io spero / io ce la faccio → infinito)", translation: "I hope to make it.", annotation: "same subject → di + infinitive after sperare" },
+            { native: "Spero che tu stia bene. (io / tu → che + congiuntivo)", translation: "I hope you are well.", annotation: "different subjects → che + congiuntivo" },
+            { native: "È importante studiare ogni giorno. (generale → infinito)", translation: "It's important to study every day.", annotation: "general truth → infinitive" },
         ]
     },
     {
@@ -194,11 +194,11 @@ export const b1Grammar: GrammarLesson[] = [
             target: "Come in spagnolo, il congiuntivo italiano appare nelle proposizioni relative quando l'antecedente è sconosciuto, ipotetico o inesistente, a differenza di una persona o cosa specifica e nota. Contrasto: «Cerco il medico che parla inglese» (indicativo — un medico specifico noto) vs. «Cerco un medico che parli inglese» (congiuntivo — qualsiasi medico che parli inglese; potrebbe non esistere). Principali costruzioni che richiedono il congiuntivo nelle relative: nome indefinito o non specifico (un…, qualcuno che…), antecedente negativo (non c'è nessuno che…, non conosco nessuno che…). Espressioni impersonali di certezza → indicativo; di dubbio / emozione / necessità → congiuntivo. Contrasto: «È certo che piove» vs. «È possibile che piova»."
         },
         examples: [
-            { native: "Cerco un lavoro che mi permetta di viaggiare.", translation: "I'm looking for a job that allows me to travel. (hypothetical — doesn't exist yet)" },
-            { native: "Non c'è nessuno che sappia la risposta.", translation: "There is nobody who knows the answer. (negative antecedent → congiuntivo)" },
-            { native: "È possibile che arrivi tardi.", translation: "It's possible that he'll arrive late. (possibility → congiuntivo)" },
-            { native: "È certo che arriverà tardi.", translation: "It's certain that he'll arrive late. (certainty → indicativo)" },
-            { native: "Hai qualcosa che mi possa aiutare?", translation: "Do you have something that could help me? (vague/hypothetical → congiuntivo)" },
+            { native: "Cerco un lavoro che mi permetta di viaggiare.", translation: "I'm looking for a job that allows me to travel.", annotation: "hypothetical — doesn't exist yet" },
+            { native: "Non c'è nessuno che sappia la risposta.", translation: "There is nobody who knows the answer.", annotation: "negative antecedent → congiuntivo" },
+            { native: "È possibile che arrivi tardi.", translation: "It's possible that he'll arrive late.", annotation: "possibility → congiuntivo" },
+            { native: "È certo che arriverà tardi.", translation: "It's certain that he'll arrive late.", annotation: "certainty → indicativo" },
+            { native: "Hai qualcosa che mi possa aiutare?", translation: "Do you have something that could help me?", annotation: "vague/hypothetical → congiuntivo" },
         ]
     },
     {
@@ -211,9 +211,9 @@ export const b1Grammar: GrammarLesson[] = [
         },
         examples: [
             { native: "Il romanzo è stato scritto da Italo Calvino.", translation: "The novel was written by Italo Calvino." },
-            { native: "I risultati verranno annunciati domani.", translation: "The results will be announced tomorrow. (venire in future = announcement tone)" },
+            { native: "I risultati verranno annunciati domani.", translation: "The results will be announced tomorrow.", annotation: "venire in future = announcement tone" },
             { native: "La legge è stata approvata dal parlamento.", translation: "The law has been approved by parliament." },
-            { native: "La città fu fondata dai Romani nel I secolo a.C.", translation: "The city was founded by the Romans in the 1st century BC. (passato remoto in historical writing)" },
+            { native: "La città fu fondata dai Romani nel I secolo a.C.", translation: "The city was founded by the Romans in the 1st century BC.", annotation: "passato remoto in historical writing" },
             { native: "Il progetto viene revisionato ogni anno.", translation: "The project is reviewed every year. (venire = habitual action)" },
         ]
     },
@@ -229,7 +229,7 @@ export const b1Grammar: GrammarLesson[] = [
             { native: "Ha risposto sorridendo.", translation: "He answered smiling. (gerund = manner)" },
             { native: "Leggendo questo libro, ho capito molte cose.", translation: "By reading this book, I understood many things. (gerund = simultaneous cause)" },
             { native: "La situazione va migliorando giorno per giorno.", translation: "The situation is gradually improving day by day. (andare + gerundio)" },
-            { native: "Avendo finito il lavoro, siamo usciti a festeggiare.", translation: "Having finished the work, we went out to celebrate. (compound gerund = prior action)" },
+            { native: "Avendo finito il lavoro, siamo usciti a festeggiare.", translation: "Having finished the work, we went out to celebrate.", annotation: "compound gerund = prior action" },
             { native: "Pur essendo stanca, ha continuato a lavorare.", translation: "Even though she was tired, she kept working. (pur + gerundio = concession)" },
         ]
     },
