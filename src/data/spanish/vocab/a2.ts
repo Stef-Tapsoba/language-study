@@ -1,183 +1,110 @@
 // data/spanish/vocab/a2.ts
+// Spanish A2 vocabulary — 90 items across 5 thematic blocks.
+// LatAm-first: ustedes throughout, LatAm regional vocab noted where relevant.
+
 import { VocabItem } from "../../../types"
 
-// A2 vocabulary — 80 items.
+export const a2Vocab: VocabItem[] = [
+  // ── Block 1: Narrating the past (es-v-a2-1..18) ──────────────────────────
+  { id: "es-v-a2-1",  level: "A2", word: "contar", translation: "to tell / recount", category: "Communication", example: { native: "Me contó todo lo que pasó.", translation: "She told me everything that happened." } },
+  { id: "es-v-a2-2",  level: "A2", word: "recordar", translation: "to remember", category: "Communication", example: { native: "No recuerdo dónde lo puse.", translation: "I don't remember where I put it." } },
+  { id: "es-v-a2-3",  level: "A2", word: "olvidar", translation: "to forget", category: "Communication", example: { native: "Olvidé el paraguas en el taxi.", translation: "I forgot my umbrella in the taxi." } },
+  { id: "es-v-a2-4",  level: "A2", word: "pasarlo bien/mal", translation: "to have a good/bad time", category: "Emotions", example: { native: "¿Lo pasaste bien en la fiesta?", translation: "Did you have a good time at the party?" } },
+  { id: "es-v-a2-5",  level: "A2", word: "darse cuenta (de)", translation: "to realise", category: "Communication", example: { native: "Me di cuenta de que había cometido un error.", translation: "I realised I had made a mistake." } },
+  { id: "es-v-a2-6",  level: "A2", word: "de repente", translation: "suddenly", category: "Time", example: { native: "De repente empezó a llover.", translation: "Suddenly it started to rain." } },
+  { id: "es-v-a2-7",  level: "A2", word: "al final", translation: "in the end", category: "Time", example: { native: "Al final no pudimos ir.", translation: "In the end we couldn't go." } },
+  { id: "es-v-a2-8",  level: "A2", word: "por suerte", translation: "luckily", category: "Opinion", example: { native: "Por suerte, había un autobús.", translation: "Luckily, there was a bus." } },
+  { id: "es-v-a2-9",  level: "A2", word: "la infancia", translation: "childhood", category: "People", example: { native: "Pasé mi infancia en Oaxaca.", translation: "I spent my childhood in Oaxaca." } },
+  { id: "es-v-a2-10", level: "A2", word: "en aquella época", translation: "at that time / back then", category: "Time", example: { native: "En aquella época todo era más barato.", translation: "Back then everything was cheaper." } },
+  { id: "es-v-a2-11", level: "A2", word: "de pequeño/a", translation: "as a child / when little", category: "Time", example: { native: "De pequeño vivía en el campo.", translation: "As a child I lived in the countryside." } },
+  { id: "es-v-a2-12", level: "A2", word: "el recuerdo", translation: "memory / souvenir", category: "People", example: { native: "Tengo muy buenos recuerdos de ese viaje.", translation: "I have very good memories of that trip." } },
+  { id: "es-v-a2-13", level: "A2", word: "mientras tanto", translation: "meanwhile", category: "Time", example: { native: "Mientras tanto, ella preparaba la cena.", translation: "Meanwhile, she was preparing dinner." } },
+  { id: "es-v-a2-14", level: "A2", word: "resultar que", translation: "it turned out that", category: "Communication", example: { native: "Resultó que era su hermano.", translation: "It turned out he was her brother." } },
+  { id: "es-v-a2-15", level: "A2", word: "sin querer", translation: "unintentionally", category: "Communication", example: { native: "Lo rompí sin querer.", translation: "I broke it unintentionally." } },
+  { id: "es-v-a2-16", level: "A2", word: "a propósito", translation: "on purpose", category: "Communication", example: { native: "No lo hice a propósito.", translation: "I didn't do it on purpose." } },
+  { id: "es-v-a2-17", level: "A2", word: "por desgracia", translation: "unfortunately", category: "Opinion", example: { native: "Por desgracia, ya no vendían entradas.", translation: "Unfortunately, they were no longer selling tickets." } },
+  { id: "es-v-a2-18", level: "A2", word: "inesperado/a", translation: "unexpected", category: "Adjectives", example: { native: "Fue un giro completamente inesperado.", translation: "It was a completely unexpected turn." } },
 
-export const esVocabA2: VocabItem[] = [
-    // --- Daily routines (es-v-a2-001..010 kept) ---
-    { id: "es-v-a2-001", level: "A2", word: "supermercado", translation: "supermarket", category: "Places", example: { native: "Fui al supermercado ayer.", translation: "I went to the supermarket yesterday." } },
-    { id: "es-v-a2-002", level: "A2", word: "reunión", translation: "meeting", category: "Work", example: { native: "Tengo una reunión a las diez.", translation: "I have a meeting at ten." } },
-    { id: "es-v-a2-003", level: "A2", word: "tiempo", translation: "time / weather", category: "Daily life", example: { native: "¿Qué tiempo hace hoy?", translation: "What's the weather like today?" } },
-    { id: "es-v-a2-004", level: "A2", word: "viaje", translation: "trip / journey", category: "Travel", example: { native: "El viaje fue largo.", translation: "The trip was long." } },
-    { id: "es-v-a2-005", level: "A2", word: "dinero", translation: "money", category: "Shopping", example: { native: "No tengo dinero.", translation: "I don't have money." } },
-    { id: "es-v-a2-006", level: "A2", word: "semana", translation: "week", category: "Time", example: { native: "La semana pasada fui al cine.", translation: "Last week I went to the cinema." } },
-    { id: "es-v-a2-007", level: "A2", word: "ciudad", translation: "city", category: "Places", example: { native: "Barcelona es una ciudad preciosa.", translation: "Barcelona is a beautiful city." } },
-    { id: "es-v-a2-008", level: "A2", word: "idioma", translation: "language", category: "Learning", example: { native: "Aprendo un nuevo idioma.", translation: "I am learning a new language." } },
-    { id: "es-v-a2-009", level: "A2", word: "problema", translation: "problem", category: "Basics", example: { native: "No hay problema.", translation: "No problem." } },
-    { id: "es-v-a2-010", level: "A2", word: "derecha / izquierda", translation: "right / left", category: "Directions", example: { native: "Gira a la derecha.", translation: "Turn right." } },
+  // ── Block 2: Comparing and describing (es-v-a2-19..34) ───────────────────
+  { id: "es-v-a2-19", level: "A2", word: "comparar", translation: "to compare", category: "Opinion", example: { native: "Es difícil comparar las dos ciudades.", translation: "It's hard to compare the two cities." } },
+  { id: "es-v-a2-20", level: "A2", word: "sin duda", translation: "without doubt", category: "Opinion", example: { native: "Es, sin duda, el mejor restaurante de la ciudad.", translation: "It's without doubt the best restaurant in the city." } },
+  { id: "es-v-a2-21", level: "A2", word: "animado/a", translation: "lively", category: "Adjectives", example: { native: "La Candelaria es un barrio muy animado.", translation: "La Candelaria is a very lively neighbourhood." } },
+  { id: "es-v-a2-22", level: "A2", word: "asequible", translation: "affordable", category: "Shopping", example: { native: "Medellín tiene precios más asequibles que Bogotá.", translation: "Medellín has more affordable prices than Bogotá." } },
+  { id: "es-v-a2-23", level: "A2", word: "céntrico/a", translation: "centrally located", category: "Places", example: { native: "Busco un hotel céntrico.", translation: "I'm looking for a centrally located hotel." } },
+  { id: "es-v-a2-24", level: "A2", word: "contaminado/a", translation: "polluted", category: "Environment", example: { native: "El río está muy contaminado.", translation: "The river is very polluted." } },
+  { id: "es-v-a2-25", level: "A2", word: "lo que más me gusta", translation: "what I like most", category: "Opinion", example: { native: "Lo que más me gusta de Perú es la comida.", translation: "What I like most about Peru is the food." } },
+  { id: "es-v-a2-26", level: "A2", word: "lo que pasa es que", translation: "the thing is that", category: "Communication", example: { native: "Lo que pasa es que no tenía tiempo.", translation: "The thing is that I didn't have time." } },
+  { id: "es-v-a2-27", level: "A2", word: "recomendar", translation: "to recommend", category: "Communication", example: { native: "Te recomiendo el ceviche.", translation: "I recommend the ceviche to you." } },
+  { id: "es-v-a2-28", level: "A2", word: "enganchar", translation: "to hook / captivate", category: "Communication", example: { native: "La serie me enganchó desde el primer episodio.", translation: "The series hooked me from the first episode." } },
+  { id: "es-v-a2-29", level: "A2", word: "ya no", translation: "no longer / not anymore", category: "Time", example: { native: "Ya no vivo en Buenos Aires.", translation: "I no longer live in Buenos Aires." } },
+  { id: "es-v-a2-30", level: "A2", word: "todavía", translation: "still / yet", category: "Time", example: { native: "Todavía no he terminado.", translation: "I haven't finished yet." } },
+  { id: "es-v-a2-31", level: "A2", word: "apenas", translation: "barely / hardly", category: "Quantity", example: { native: "Apenas dormí anoche.", translation: "I barely slept last night." } },
+  { id: "es-v-a2-32", level: "A2", word: "ni siquiera", translation: "not even", category: "Negation", example: { native: "Ni siquiera me llamó.", translation: "He didn't even call me." } },
+  { id: "es-v-a2-33", level: "A2", word: "echar de menos", translation: "to miss (a person or place)", category: "Emotions", example: { native: "Echo de menos a mi familia.", translation: "I miss my family." } },
+  { id: "es-v-a2-34", level: "A2", word: "extrañar", translation: "to miss (LatAm)", category: "Emotions", example: { native: "Extraño mucho la comida de mi mamá.", translation: "I really miss my mom's food." } },
 
-    // --- Daily routines ---
-    { id: "es-v-a2-011", level: "A2", word: "despertarse", translation: "to wake up", category: "Daily routines", example: { native: "Me despierto a las siete.", translation: "I wake up at seven." } },
-    { id: "es-v-a2-012", level: "A2", word: "ducharse", translation: "to shower", category: "Daily routines", example: { native: "Ella se ducha por la mañana.", translation: "She showers in the morning." } },
-    { id: "es-v-a2-013", level: "A2", word: "vestirse", translation: "to get dressed", category: "Daily routines", example: { native: "Los niños se visten solos.", translation: "The children get dressed on their own." } },
-    { id: "es-v-a2-014", level: "A2", word: "acostarse", translation: "to go to bed", category: "Daily routines", example: { native: "Me acuesto a las once.", translation: "I go to bed at eleven." } },
-    { id: "es-v-a2-015", level: "A2", word: "desayuno", translation: "breakfast", category: "Daily routines", example: { native: "Tomo el desayuno a las ocho.", translation: "I have breakfast at eight." } },
-    { id: "es-v-a2-016", level: "A2", word: "almuerzo", translation: "lunch", category: "Daily routines", example: { native: "El almuerzo es a las dos.", translation: "Lunch is at two." } },
-    { id: "es-v-a2-017", level: "A2", word: "cena", translation: "dinner", category: "Daily routines", example: { native: "Preparamos la cena juntos.", translation: "We prepare dinner together." } },
+  // ── Block 3: People and communication (es-v-a2-35..50) ──────────────────
+  { id: "es-v-a2-35", level: "A2", word: "avisar", translation: "to let someone know / warn", category: "Communication", example: { native: "Avísame cuando llegues.", translation: "Let me know when you arrive." } },
+  { id: "es-v-a2-36", level: "A2", word: "entregar", translation: "to hand over / deliver", category: "Communication", example: { native: "Entregaron el paquete ayer.", translation: "They delivered the package yesterday." } },
+  { id: "es-v-a2-37", level: "A2", word: "devolver", translation: "to return / give back", category: "Communication", example: { native: "Tengo que devolverte el libro.", translation: "I need to give your book back." } },
+  { id: "es-v-a2-38", level: "A2", word: "prestar", translation: "to lend", category: "Communication", example: { native: "¿Me prestas tu paraguas?", translation: "Can you lend me your umbrella?" } },
+  { id: "es-v-a2-39", level: "A2", word: "proponer", translation: "to propose / suggest", category: "Communication", example: { native: "Propongo que vayamos al cine.", translation: "I suggest we go to the cinema." } },
+  { id: "es-v-a2-40", level: "A2", word: "enterarse de", translation: "to find out about", category: "Communication", example: { native: "¿Cuándo te enteraste de la noticia?", translation: "When did you find out about the news?" } },
+  { id: "es-v-a2-41", level: "A2", word: "la trama", translation: "the plot", category: "Culture", example: { native: "La trama de esa novela es muy complicada.", translation: "The plot of that novel is very complex." } },
+  { id: "es-v-a2-42", level: "A2", word: "el personaje", translation: "the character", category: "Culture", example: { native: "Mi personaje favorito es el detective.", translation: "My favourite character is the detective." } },
+  { id: "es-v-a2-43", level: "A2", word: "en versión original", translation: "in the original version", category: "Culture", example: { native: "Prefiero ver las películas en versión original.", translation: "I prefer to watch films in the original version." } },
+  { id: "es-v-a2-44", level: "A2", word: "convencer", translation: "to convince", category: "Communication", example: { native: "No pude convencerle de que viniera.", translation: "I couldn't convince him to come." } },
+  { id: "es-v-a2-45", level: "A2", word: "presentar", translation: "to introduce (someone)", category: "Social", example: { native: "Te presento a mi amiga Carolina.", translation: "Let me introduce you to my friend Carolina." } },
+  { id: "es-v-a2-46", level: "A2", word: "compartir", translation: "to share", category: "Social", example: { native: "Compartimos el taxi para ahorrar.", translation: "We shared the taxi to save money." } },
+  { id: "es-v-a2-47", level: "A2", word: "por cierto", translation: "by the way", category: "Communication", example: { native: "Por cierto, ¿ya compraste los boletos?", translation: "By the way, did you already buy the tickets?" } },
+  { id: "es-v-a2-48", level: "A2", word: "la sorpresa", translation: "the surprise", category: "Emotions", example: { native: "Organizamos una fiesta sorpresa para ella.", translation: "We organised a surprise party for her." } },
+  { id: "es-v-a2-49", level: "A2", word: "Vale la pena.", translation: "It's worth it.", category: "Opinion", example: { native: "Aunque es caro, vale la pena.", translation: "Even though it's expensive, it's worth it." } },
+  { id: "es-v-a2-50", level: "A2", word: "No te lo pierdas.", translation: "Don't miss it.", category: "Communication", example: { native: "La exposición es increíble. No te la pierdas.", translation: "The exhibition is incredible. Don't miss it." } },
 
-    // --- Travel & transport ---
-    { id: "es-v-a2-018", level: "A2", word: "aeropuerto", translation: "airport", category: "Travel", example: { native: "El vuelo sale del aeropuerto a las seis.", translation: "The flight leaves from the airport at six." } },
-    { id: "es-v-a2-019", level: "A2", word: "estación", translation: "station", category: "Travel", example: { native: "La estación de tren está cerca.", translation: "The train station is nearby." } },
-    { id: "es-v-a2-020", level: "A2", word: "billete", translation: "ticket", category: "Travel", example: { native: "Compré el billete por internet.", translation: "I bought the ticket online." } },
-    { id: "es-v-a2-021", level: "A2", word: "maleta", translation: "suitcase", category: "Travel", example: { native: "Mi maleta es muy pesada.", translation: "My suitcase is very heavy." } },
-    { id: "es-v-a2-022", level: "A2", word: "pasaporte", translation: "passport", category: "Travel", example: { native: "No olvides el pasaporte.", translation: "Don't forget your passport." } },
-    { id: "es-v-a2-023", level: "A2", word: "autobús", translation: "bus", category: "Travel", example: { native: "Tomo el autobús cada día.", translation: "I take the bus every day." } },
-    { id: "es-v-a2-024", level: "A2", word: "metro", translation: "underground / metro", category: "Travel", example: { native: "El metro es más rápido que el autobús.", translation: "The metro is faster than the bus." } },
+  // ── Block 4: Future and plans (es-v-a2-51..66) ───────────────────────────
+  { id: "es-v-a2-51", level: "A2", word: "algún día", translation: "one day / someday", category: "Time", example: { native: "Algún día visitaré Machu Picchu.", translation: "One day I'll visit Machu Picchu." } },
+  { id: "es-v-a2-52", level: "A2", word: "tarde o temprano", translation: "sooner or later", category: "Time", example: { native: "Tarde o temprano tendrás que decidir.", translation: "Sooner or later you'll have to decide." } },
+  { id: "es-v-a2-53", level: "A2", word: "probablemente", translation: "probably", category: "Opinion", example: { native: "Probablemente llegará tarde.", translation: "He'll probably arrive late." } },
+  { id: "es-v-a2-54", level: "A2", word: "a lo mejor", translation: "maybe (informal)", category: "Opinion", example: { native: "A lo mejor viene mañana.", translation: "Maybe she'll come tomorrow." } },
+  { id: "es-v-a2-55", level: "A2", word: "disponible", translation: "available", category: "Travel", example: { native: "¿Tienen habitaciones disponibles para el sábado?", translation: "Do you have rooms available for Saturday?" } },
+  { id: "es-v-a2-56", level: "A2", word: "reservar", translation: "to book / reserve", category: "Travel", example: { native: "Reservé una mesa para las ocho.", translation: "I booked a table for eight o'clock." } },
+  { id: "es-v-a2-57", level: "A2", word: "la demora / el retraso", translation: "delay", category: "Travel", example: { native: "El vuelo tiene dos horas de demora.", translation: "The flight has a two-hour delay." } },
+  { id: "es-v-a2-58", level: "A2", word: "cancelado/a", translation: "cancelled", category: "Travel", example: { native: "El partido fue cancelado por la lluvia.", translation: "The match was cancelled because of the rain." } },
+  { id: "es-v-a2-59", level: "A2", word: "el boleto / billete", translation: "ticket", category: "Travel", example: { native: "Compré los boletos con mucha anticipación.", translation: "I bought the tickets well in advance." } },
+  { id: "es-v-a2-60", level: "A2", word: "ida y vuelta", translation: "return (round trip)", category: "Travel", example: { native: "Quiero un boleto de ida y vuelta a Lima.", translation: "I want a return ticket to Lima." } },
+  { id: "es-v-a2-61", level: "A2", word: "aprovechar", translation: "to make the most of", category: "Daily life", example: { native: "Aproveché el tiempo libre para leer.", translation: "I made the most of the free time to read." } },
+  { id: "es-v-a2-62", level: "A2", word: "de todas formas", translation: "anyway / regardless", category: "Communication", example: { native: "De todas formas, gracias por intentarlo.", translation: "Anyway, thanks for trying." } },
+  { id: "es-v-a2-63", level: "A2", word: "desde hace", translation: "for (duration, ongoing)", category: "Time", example: { native: "Vivo aquí desde hace tres años.", translation: "I've been living here for three years." } },
+  { id: "es-v-a2-64", level: "A2", word: "acabo de", translation: "I have just (done)", category: "Time", example: { native: "Acabo de llegar al aeropuerto.", translation: "I've just arrived at the airport." } },
+  { id: "es-v-a2-65", level: "A2", word: "comprometerse a", translation: "to commit to", category: "Work", example: { native: "Me comprometí a entregar el informe el viernes.", translation: "I committed to delivering the report on Friday." } },
+  { id: "es-v-a2-66", level: "A2", word: "soñar con", translation: "to dream of", category: "Emotions", example: { native: "Siempre he soñado con vivir en el extranjero.", translation: "I've always dreamed of living abroad." } },
 
-    // --- Shopping & money ---
-    { id: "es-v-a2-025", level: "A2", word: "tienda", translation: "shop / store", category: "Shopping", example: { native: "Hay muchas tiendas en el centro.", translation: "There are many shops in the centre." } },
-    { id: "es-v-a2-026", level: "A2", word: "precio", translation: "price", category: "Shopping", example: { native: "¿Cuál es el precio de este abrigo?", translation: "What is the price of this coat?" } },
-    { id: "es-v-a2-027", level: "A2", word: "caro / barato", translation: "expensive / cheap", category: "Shopping", example: { native: "Este restaurante es caro pero bueno.", translation: "This restaurant is expensive but good." } },
-    { id: "es-v-a2-028", level: "A2", word: "tarjeta de crédito", translation: "credit card", category: "Shopping", example: { native: "¿Puedo pagar con tarjeta de crédito?", translation: "Can I pay by credit card?" } },
-    { id: "es-v-a2-029", level: "A2", word: "descuento", translation: "discount", category: "Shopping", example: { native: "Hay un descuento del diez por ciento.", translation: "There is a ten percent discount." } },
-    { id: "es-v-a2-030", level: "A2", word: "cambio", translation: "change / exchange", category: "Shopping", example: { native: "Me dio el cambio equivocado.", translation: "He gave me the wrong change." } },
-
-    // --- Work & professions ---
-    { id: "es-v-a2-031", level: "A2", word: "trabajo", translation: "job / work", category: "Work", example: { native: "Busco un nuevo trabajo.", translation: "I am looking for a new job." } },
-    { id: "es-v-a2-032", level: "A2", word: "jefe / jefa", translation: "boss", category: "Work", example: { native: "Mi jefa es muy exigente.", translation: "My boss is very demanding." } },
-    { id: "es-v-a2-033", level: "A2", word: "empresa", translation: "company / firm", category: "Work", example: { native: "Trabajo en una empresa pequeña.", translation: "I work in a small company." } },
-    { id: "es-v-a2-034", level: "A2", word: "sueldo", translation: "salary / wage", category: "Work", example: { native: "El sueldo no es muy alto.", translation: "The salary is not very high." } },
-    { id: "es-v-a2-035", level: "A2", word: "médico / médica", translation: "doctor", category: "Professions", example: { native: "La médica llegó enseguida.", translation: "The doctor arrived straight away." } },
-    { id: "es-v-a2-036", level: "A2", word: "enfermero / enfermera", translation: "nurse", category: "Professions", example: { native: "El enfermero me tomó la tensión.", translation: "The nurse took my blood pressure." } },
-    { id: "es-v-a2-037", level: "A2", word: "profesor / profesora", translation: "teacher", category: "Professions", example: { native: "La profesora explicó la lección.", translation: "The teacher explained the lesson." } },
-
-    // --- Health & body ---
-    { id: "es-v-a2-038", level: "A2", word: "cabeza", translation: "head", category: "Body", example: { native: "Me duele la cabeza.", translation: "My head hurts." } },
-    { id: "es-v-a2-039", level: "A2", word: "estómago", translation: "stomach", category: "Body", example: { native: "Tengo dolor de estómago.", translation: "I have a stomach ache." } },
-    { id: "es-v-a2-040", level: "A2", word: "fiebre", translation: "fever", category: "Health", example: { native: "El niño tiene fiebre.", translation: "The child has a fever." } },
-    { id: "es-v-a2-041", level: "A2", word: "farmacia", translation: "pharmacy", category: "Health", example: { native: "Necesito ir a la farmacia.", translation: "I need to go to the pharmacy." } },
-    { id: "es-v-a2-042", level: "A2", word: "medicina", translation: "medicine", category: "Health", example: { native: "Toma la medicina dos veces al día.", translation: "Take the medicine twice a day." } },
-    { id: "es-v-a2-043", level: "A2", word: "cansado / cansada", translation: "tired", category: "Health", example: { native: "Estoy muy cansado hoy.", translation: "I am very tired today." } },
-
-    // --- Social interactions ---
-    { id: "es-v-a2-044", level: "A2", word: "invitar", translation: "to invite", category: "Social", example: { native: "Te invito a cenar el viernes.", translation: "I invite you to dinner on Friday." } },
-    { id: "es-v-a2-045", level: "A2", word: "quedar", translation: "to meet up / to arrange to meet", category: "Social", example: { native: "¿Quedamos el sábado?", translation: "Shall we meet up on Saturday?" } },
-    { id: "es-v-a2-046", level: "A2", word: "disculpe", translation: "excuse me (formal)", category: "Social", example: { native: "Disculpe, ¿dónde está el baño?", translation: "Excuse me, where is the bathroom?" } },
-    { id: "es-v-a2-047", level: "A2", word: "de acuerdo", translation: "agreed / OK", category: "Social", example: { native: "De acuerdo, nos vemos a las tres.", translation: "Agreed, we'll meet at three." } },
-    { id: "es-v-a2-048", level: "A2", word: "fiesta", translation: "party", category: "Social", example: { native: "La fiesta empieza a las nueve.", translation: "The party starts at nine." } },
-
-    // --- Time expressions ---
-    { id: "es-v-a2-049", level: "A2", word: "ayer", translation: "yesterday", category: "Time", example: { native: "Ayer fui al mercado.", translation: "Yesterday I went to the market." } },
-    { id: "es-v-a2-050", level: "A2", word: "anteayer", translation: "the day before yesterday", category: "Time", example: { native: "Anteayer llegaron mis padres.", translation: "My parents arrived the day before yesterday." } },
-    { id: "es-v-a2-051", level: "A2", word: "el año pasado", translation: "last year", category: "Time", example: { native: "El año pasado viajé a Francia.", translation: "Last year I travelled to France." } },
-    { id: "es-v-a2-052", level: "A2", word: "hace + tiempo", translation: "ago (time expression)", category: "Time", example: { native: "Llegué hace dos horas.", translation: "I arrived two hours ago." } },
-    { id: "es-v-a2-053", level: "A2", word: "enseguida", translation: "right away / soon", category: "Time", example: { native: "Vuelvo enseguida.", translation: "I'll be right back." } },
-
-    // --- Weather ---
-    { id: "es-v-a2-054", level: "A2", word: "llover", translation: "to rain", category: "Weather", example: { native: "Ayer llovió mucho.", translation: "Yesterday it rained a lot." } },
-    { id: "es-v-a2-055", level: "A2", word: "nevar", translation: "to snow", category: "Weather", example: { native: "En enero nieva en las montañas.", translation: "In January it snows in the mountains." } },
-    { id: "es-v-a2-056", level: "A2", word: "nublado", translation: "cloudy", category: "Weather", example: { native: "Hoy está nublado y frío.", translation: "Today it is cloudy and cold." } },
-    { id: "es-v-a2-057", level: "A2", word: "sol", translation: "sun / sunshine", category: "Weather", example: { native: "Hace mucho sol en verano.", translation: "There is a lot of sunshine in summer." } },
-    { id: "es-v-a2-058", level: "A2", word: "temperatura", translation: "temperature", category: "Weather", example: { native: "La temperatura sube en julio.", translation: "The temperature rises in July." } },
-
-    // --- Emotions ---
-    { id: "es-v-a2-059", level: "A2", word: "contento / contenta", translation: "happy / pleased", category: "Emotions", example: { native: "Estoy muy contento con el resultado.", translation: "I am very pleased with the result." } },
-    { id: "es-v-a2-060", level: "A2", word: "triste", translation: "sad", category: "Emotions", example: { native: "Ella estaba triste porque llovía.", translation: "She was sad because it was raining." } },
-    { id: "es-v-a2-061", level: "A2", word: "nervioso / nerviosa", translation: "nervous", category: "Emotions", example: { native: "Estoy nervioso antes del examen.", translation: "I am nervous before the exam." } },
-    { id: "es-v-a2-062", level: "A2", word: "sorprendido / sorprendida", translation: "surprised", category: "Emotions", example: { native: "Me quedé sorprendido con la noticia.", translation: "I was surprised by the news." } },
-    { id: "es-v-a2-063", level: "A2", word: "enojado / enojada", translation: "angry", category: "Emotions", example: { native: "Está enojado porque llegaste tarde.", translation: "He is angry because you arrived late." } },
-
-    // --- Food & restaurants ---
-    { id: "es-v-a2-064", level: "A2", word: "menú", translation: "menu", category: "Food", example: { native: "¿Me trae el menú, por favor?", translation: "Can you bring me the menu, please?" } },
-    { id: "es-v-a2-065", level: "A2", word: "camarero / camarera", translation: "waiter / waitress", category: "Food", example: { native: "El camarero trajo la cuenta.", translation: "The waiter brought the bill." } },
-    { id: "es-v-a2-066", level: "A2", word: "cuenta", translation: "bill / check", category: "Food", example: { native: "La cuenta, por favor.", translation: "The bill, please." } },
-    { id: "es-v-a2-067", level: "A2", word: "pedir", translation: "to order (food)", category: "Food", example: { native: "Voy a pedir la ensalada.", translation: "I am going to order the salad." } },
-    { id: "es-v-a2-068", level: "A2", word: "pollo", translation: "chicken", category: "Food", example: { native: "Pedí pollo con patatas.", translation: "I ordered chicken with potatoes." } },
-    { id: "es-v-a2-069", level: "A2", word: "carne", translation: "meat", category: "Food", example: { native: "No como mucha carne roja.", translation: "I don't eat a lot of red meat." } },
-    { id: "es-v-a2-070", level: "A2", word: "pescado", translation: "fish (as food)", category: "Food", example: { native: "El pescado aquí es muy fresco.", translation: "The fish here is very fresh." } },
-
-    // --- City & places ---
-    { id: "es-v-a2-071", level: "A2", word: "banco", translation: "bank", category: "Places", example: { native: "Necesito ir al banco hoy.", translation: "I need to go to the bank today." } },
-    { id: "es-v-a2-072", level: "A2", word: "correos", translation: "post office", category: "Places", example: { native: "Fui a correos a mandar el paquete.", translation: "I went to the post office to send the package." } },
-    { id: "es-v-a2-073", level: "A2", word: "ayuntamiento", translation: "town hall / city hall", category: "Places", example: { native: "El ayuntamiento está en la plaza.", translation: "The town hall is in the square." } },
-    { id: "es-v-a2-074", level: "A2", word: "barrio", translation: "neighbourhood", category: "Places", example: { native: "Vivo en un barrio tranquilo.", translation: "I live in a quiet neighbourhood." } },
-    { id: "es-v-a2-075", level: "A2", word: "calle", translation: "street", category: "Places", example: { native: "Gira a la izquierda en esa calle.", translation: "Turn left at that street." } },
-
-    // --- Comparatives & demonstratives ---
-    { id: "es-v-a2-076", level: "A2", word: "mejor", translation: "better / best", category: "Comparatives", example: { native: "Este hotel es mejor que el otro.", translation: "This hotel is better than the other one." } },
-    { id: "es-v-a2-077", level: "A2", word: "peor", translation: "worse / worst", category: "Comparatives", example: { native: "El tráfico hoy está peor que ayer.", translation: "The traffic today is worse than yesterday." } },
-    { id: "es-v-a2-078", level: "A2", word: "igual de", translation: "just as / equally", category: "Comparatives", example: { native: "Es igual de difícil que antes.", translation: "It is just as difficult as before." } },
-    { id: "es-v-a2-079", level: "A2", word: "este / esta", translation: "this (near speaker)", category: "Demonstratives", example: { native: "Este café está delicioso.", translation: "This coffee is delicious." } },
-    { id: "es-v-a2-080", level: "A2", word: "aquel / aquella", translation: "that (far away)", category: "Demonstratives", example: { native: "Aquella casa es muy antigua.", translation: "That house over there is very old." } },
-
-    // ── Unit 8: Imperfect — habitual past vocabulary ──────────────────────────
-    { id: "es-v-a2-081", level: "A2", word: "antes", translation: "before / in the past", category: "time expressions", example: { native: "Antes vivía en el campo.", translation: "Before, I used to live in the countryside." } },
-    { id: "es-v-a2-082", level: "A2", word: "de niño/a", translation: "as a child / when I was young", category: "time expressions", example: { native: "De niño, jugaba mucho al fútbol.", translation: "As a child, I used to play a lot of football." } },
-    { id: "es-v-a2-083", level: "A2", word: "cada día / todos los días", translation: "every day", category: "time expressions", example: { native: "Comía en casa cada día.", translation: "I used to eat at home every day." } },
-    { id: "es-v-a2-084", level: "A2", word: "siempre", translation: "always", category: "time expressions", example: { native: "Siempre llegaba tarde al trabajo.", translation: "He always used to arrive late to work." } },
-    { id: "es-v-a2-085", level: "A2", word: "mientras", translation: "while / meanwhile", category: "time expressions", example: { native: "Mientras comía, leía el periódico.", translation: "While eating, I used to read the newspaper." } },
-
-    // ── Unit 9: Everyday Situations — appointments, directions ───────────────
-    { id: "es-v-a2-086", level: "A2", word: "la cita", translation: "appointment", category: "health & body", example: { native: "Tengo una cita con el médico mañana.", translation: "I have a doctor's appointment tomorrow." } },
-    { id: "es-v-a2-087", level: "A2", word: "todo recto", translation: "straight ahead", category: "travel & transport", example: { native: "Siga todo recto hasta el semáforo.", translation: "Go straight ahead until the traffic light." } },
-    { id: "es-v-a2-088", level: "A2", word: "girar / doblar a la izquierda", translation: "to turn left", category: "travel & transport", example: { native: "Gire a la izquierda en la próxima calle.", translation: "Turn left at the next street." } },
-    { id: "es-v-a2-089", level: "A2", word: "la farmacia", translation: "pharmacy / chemist", category: "health & body", example: { native: "¿Hay una farmacia cerca de aquí?", translation: "Is there a pharmacy near here?" } },
-    { id: "es-v-a2-090", level: "A2", word: "la receta", translation: "prescription / recipe", category: "health & body", example: { native: "El médico me dio una receta.", translation: "The doctor gave me a prescription." } },
-    { id: "es-v-a2-091", level: "A2", word: "el semáforo", translation: "traffic light", category: "travel & transport", example: { native: "Para en el semáforo.", translation: "Stop at the traffic light." } },
-
-    // ── Unit 10: Opinions, Relative Clauses & Social Writing ─────────────────
-    { id: "es-v-a2-092", level: "A2", word: "en mi opinión", translation: "in my opinion", category: "social interactions", example: { native: "En mi opinión, este restaurante es el mejor.", translation: "In my opinion, this restaurant is the best." } },
-    { id: "es-v-a2-093", level: "A2", word: "creo que", translation: "I think that / I believe that", category: "social interactions", example: { native: "Creo que tienes razón.", translation: "I think you're right." } },
-    { id: "es-v-a2-094", level: "A2", word: "estoy de acuerdo", translation: "I agree", category: "social interactions", example: { native: "Estoy totalmente de acuerdo contigo.", translation: "I completely agree with you." } },
-    { id: "es-v-a2-095", level: "A2", word: "no estoy de acuerdo", translation: "I disagree", category: "social interactions", example: { native: "Lo siento, no estoy de acuerdo.", translation: "I'm sorry, I disagree." } },
-    { id: "es-v-a2-096", level: "A2", word: "querido/a", translation: "dear (letter opening)", category: "social interactions", example: { native: "Querida Ana, ¿cómo estás?", translation: "Dear Ana, how are you?" } },
-    { id: "es-v-a2-097", level: "A2", word: "un abrazo", translation: "a hug (letter closing)", category: "social interactions", example: { native: "Hasta pronto. Un abrazo, Miguel.", translation: "See you soon. A hug, Miguel." } },
-    { id: "es-v-a2-098", level: "A2", word: "felicidades", translation: "congratulations / happy birthday", category: "social interactions", example: { native: "¡Felicidades por tu nuevo trabajo!", translation: "Congratulations on your new job!" } },
-
-    // ── Gap Fix: narrative time expressions (Unit 11) ─────────────────────────
-    { id: "es-v-a2-099", level: "A2", word: "de repente", translation: "suddenly", category: "time expressions", example: { native: "De repente, empezó a llover.", translation: "Suddenly, it started to rain." } },
-    { id: "es-v-a2-100", level: "A2", word: "mientras", translation: "while", category: "time expressions", example: { native: "Mientras comía, sonó el teléfono.", translation: "While I was eating, the phone rang." } },
-    { id: "es-v-a2-101", level: "A2", word: "luego / después", translation: "then / afterwards", category: "time expressions", example: { native: "Comí y luego salí a dar un paseo.", translation: "I ate and then went for a walk." } },
-    { id: "es-v-a2-102", level: "A2", word: "al final", translation: "in the end / finally", category: "time expressions", example: { native: "Al final, encontramos un taxi.", translation: "In the end, we found a taxi." } },
-    { id: "es-v-a2-103", level: "A2", word: "en aquel momento", translation: "at that moment", category: "time expressions", example: { native: "En aquel momento, no sabía qué hacer.", translation: "At that moment, I didn't know what to do." } },
-
-    // ── Media & technology ────────────────────────────────────────────────────
-    { id: "es-v-a2-104", level: "A2", word: "el móvil / el celular", translation: "mobile phone", category: "media & technology", example: { native: "Se me olvidó el móvil en casa.", translation: "I forgot my mobile at home." } },
-    { id: "es-v-a2-105", level: "A2", word: "la red social", translation: "social network", category: "media & technology", example: { native: "Usa las redes sociales cada día.", translation: "She uses social networks every day." } },
-    { id: "es-v-a2-106", level: "A2", word: "el correo electrónico", translation: "email", category: "media & technology", example: { native: "Te mando el documento por correo electrónico.", translation: "I'll send you the document by email." } },
-    { id: "es-v-a2-107", level: "A2", word: "la aplicación / la app", translation: "app, application", category: "media & technology", example: { native: "Descargué una nueva aplicación para estudiar.", translation: "I downloaded a new app to study." } },
-    { id: "es-v-a2-108", level: "A2", word: "buscar en internet", translation: "to search online", category: "media & technology", example: { native: "Si no sabes, búscalo en internet.", translation: "If you don't know, search for it online." } },
-    { id: "es-v-a2-109", level: "A2", word: "la contraseña", translation: "password", category: "media & technology", example: { native: "Olvidé la contraseña de mi correo.", translation: "I forgot the password to my email." } },
-
-    // ── Home & housing ────────────────────────────────────────────────────────
-    { id: "es-v-a2-110", level: "A2", word: "alquilar", translation: "to rent", category: "home & housing", example: { native: "Quiero alquilar un piso en el centro.", translation: "I want to rent a flat in the city centre." } },
-    { id: "es-v-a2-111", level: "A2", word: "el alquiler", translation: "rent (the payment)", category: "home & housing", example: { native: "El alquiler ha subido mucho este año.", translation: "Rent has gone up a lot this year." } },
-    { id: "es-v-a2-112", level: "A2", word: "amueblado", translation: "furnished", category: "home & housing", example: { native: "Busco un piso amueblado.", translation: "I'm looking for a furnished flat." } },
-    { id: "es-v-a2-113", level: "A2", word: "mudarse", translation: "to move house", category: "home & housing", example: { native: "Nos mudamos a un piso más grande.", translation: "We moved to a bigger flat." } },
-    { id: "es-v-a2-114", level: "A2", word: "los muebles", translation: "furniture", category: "home & housing", example: { native: "Necesitamos comprar muebles nuevos.", translation: "We need to buy new furniture." } },
-    { id: "es-v-a2-115", level: "A2", word: "la calefacción", translation: "heating", category: "home & housing", example: { native: "La calefacción no funciona bien.", translation: "The heating doesn't work well." } },
-
-    // ── Nature & environment ──────────────────────────────────────────────────
-    { id: "es-v-a2-116", level: "A2", word: "el medio ambiente", translation: "the environment", category: "nature & environment", example: { native: "Debemos proteger el medio ambiente.", translation: "We must protect the environment." } },
-    { id: "es-v-a2-117", level: "A2", word: "reciclar", translation: "to recycle", category: "nature & environment", example: { native: "En mi ciudad reciclamos el papel y el plástico.", translation: "In my city we recycle paper and plastic." } },
-    { id: "es-v-a2-118", level: "A2", word: "la contaminación", translation: "pollution", category: "nature & environment", example: { native: "La contaminación del aire es un problema grave.", translation: "Air pollution is a serious problem." } },
-    { id: "es-v-a2-119", level: "A2", word: "el paisaje", translation: "landscape, scenery", category: "nature & environment", example: { native: "El paisaje de los Pirineos es impresionante.", translation: "The scenery of the Pyrenees is impressive." } },
-    { id: "es-v-a2-120", level: "A2", word: "la costa", translation: "coast", category: "nature & environment", example: { native: "Pasamos el verano en la costa mediterránea.", translation: "We spent the summer on the Mediterranean coast." } },
-    { id: "es-v-a2-121", level: "A2", word: "el bosque", translation: "forest, wood", category: "nature & environment", example: { native: "Hay un bosque enorme detrás del pueblo.", translation: "There is an enormous forest behind the village." } },
-
-    // ── Personality ───────────────────────────────────────────────────────────
-    { id: "es-v-a2-122", level: "A2", word: "amable", translation: "kind, friendly", category: "personality", example: { native: "La recepcionista fue muy amable.", translation: "The receptionist was very kind." } },
-    { id: "es-v-a2-123", level: "A2", word: "trabajador / trabajadora", translation: "hardworking", category: "personality", example: { native: "Es una persona muy trabajadora.", translation: "She is a very hardworking person." } },
-    { id: "es-v-a2-124", level: "A2", word: "impaciente", translation: "impatient", category: "personality", example: { native: "Se puso impaciente porque el tren llegaba tarde.", translation: "He got impatient because the train was late." } },
-    { id: "es-v-a2-125", level: "A2", word: "generoso / generosa", translation: "generous", category: "personality", example: { native: "Mi abuela es muy generosa con todos.", translation: "My grandmother is very generous with everyone." } },
-    { id: "es-v-a2-126", level: "A2", word: "terco / terca", translation: "stubborn", category: "personality", example: { native: "Es muy terco — no cambia de opinión nunca.", translation: "He is very stubborn — he never changes his mind." } },
-
-    // ── Discourse & connectors ────────────────────────────────────────────────
-    { id: "es-v-a2-127", level: "A2", word: "sin embargo", translation: "however, nevertheless", category: "discourse", example: { native: "Estudié mucho; sin embargo, suspendí.", translation: "I studied a lot; however, I failed." } },
-    { id: "es-v-a2-128", level: "A2", word: "aunque", translation: "although, even though", category: "discourse", example: { native: "Salimos aunque llovía.", translation: "We went out even though it was raining." } },
-    { id: "es-v-a2-129", level: "A2", word: "ya que", translation: "since, given that", category: "discourse", example: { native: "Ya que estás aquí, ayúdame.", translation: "Since you're here, help me." } },
-    { id: "es-v-a2-130", level: "A2", word: "por lo tanto", translation: "therefore, so", category: "discourse", example: { native: "No tenía dinero, por lo tanto no pude ir.", translation: "I had no money, so I couldn't go." } },
+  // ── Block 5: Health, opinions, fluency (es-v-a2-67..90) ─────────────────
+  { id: "es-v-a2-67", level: "A2", word: "me duele", translation: "it hurts me / I have a ... ache", category: "Health", example: { native: "Me duele mucho la cabeza.", translation: "My head hurts a lot." } },
+  { id: "es-v-a2-68", level: "A2", word: "tener fiebre", translation: "to have a fever", category: "Health", example: { native: "Tiene fiebre desde ayer.", translation: "She's had a fever since yesterday." } },
+  { id: "es-v-a2-69", level: "A2", word: "tener tos", translation: "to have a cough", category: "Health", example: { native: "Llevo dos días con tos.", translation: "I've had a cough for two days." } },
+  { id: "es-v-a2-70", level: "A2", word: "estar resfriado/a", translation: "to have a cold", category: "Health", example: { native: "Estoy resfriada — no puedo ir.", translation: "I have a cold — I can't go." } },
+  { id: "es-v-a2-71", level: "A2", word: "el medicamento", translation: "medication", category: "Health", example: { native: "Hay que tomar el medicamento con comida.", translation: "You need to take the medication with food." } },
+  { id: "es-v-a2-72", level: "A2", word: "la receta médica", translation: "medical prescription", category: "Health", example: { native: "Necesito una receta médica para ese antibiótico.", translation: "I need a prescription for that antibiotic." } },
+  { id: "es-v-a2-73", level: "A2", word: "guardar cama", translation: "to stay in bed", category: "Health", example: { native: "El médico me dijo que guardara cama.", translation: "The doctor told me to stay in bed." } },
+  { id: "es-v-a2-74", level: "A2", word: "ponerse nervioso/a", translation: "to get nervous", category: "Emotions", example: { native: "Me pongo nervioso antes de los exámenes.", translation: "I get nervous before exams." } },
+  { id: "es-v-a2-75", level: "A2", word: "sentirse", translation: "to feel (emotional state)", category: "Emotions", example: { native: "Me siento mucho mejor después de hablar contigo.", translation: "I feel much better after talking with you." } },
+  { id: "es-v-a2-76", level: "A2", word: "decepcionado/a", translation: "disappointed", category: "Emotions", example: { native: "Estaba muy decepcionado con el resultado.", translation: "I was very disappointed with the result." } },
+  { id: "es-v-a2-77", level: "A2", word: "aliviado/a", translation: "relieved", category: "Emotions", example: { native: "Me sentí muy aliviado cuando supe la noticia.", translation: "I felt very relieved when I heard the news." } },
+  { id: "es-v-a2-78", level: "A2", word: "orgulloso/a", translation: "proud", category: "Emotions", example: { native: "Estoy muy orgullosa de lo que has conseguido.", translation: "I'm very proud of what you've achieved." } },
+  { id: "es-v-a2-79", level: "A2", word: "tener razón", translation: "to be right", category: "Opinion", example: { native: "Tienes razón — debería haber llamado antes.", translation: "You're right — I should have called earlier." } },
+  { id: "es-v-a2-80", level: "A2", word: "en mi opinión", translation: "in my opinion", category: "Opinion", example: { native: "En mi opinión, es la mejor decisión.", translation: "In my opinion, it's the best decision." } },
+  { id: "es-v-a2-81", level: "A2", word: "creo que", translation: "I think that / I believe that", category: "Opinion", example: { native: "Creo que deberías hablar con él directamente.", translation: "I think you should talk to him directly." } },
+  { id: "es-v-a2-82", level: "A2", word: "me parece que", translation: "it seems to me that / I think", category: "Opinion", example: { native: "Me parece que no hay suficiente información.", translation: "It seems to me there isn't enough information." } },
+  { id: "es-v-a2-83", level: "A2", word: "sin embargo", translation: "however / nevertheless", category: "Communication", example: { native: "Es caro. Sin embargo, vale la pena.", translation: "It's expensive. However, it's worth it." } },
+  { id: "es-v-a2-84", level: "A2", word: "además", translation: "moreover / besides", category: "Communication", example: { native: "Llegó tarde y además no pidió disculpas.", translation: "He arrived late and moreover didn't apologise." } },
+  { id: "es-v-a2-85", level: "A2", word: "así que", translation: "so / and so", category: "Communication", example: { native: "No tenía dinero, así que no pude ir.", translation: "I had no money, so I couldn't go." } },
+  { id: "es-v-a2-86", level: "A2", word: "o sea", translation: "I mean / in other words", category: "Communication", example: { native: "Llegué tarde, o sea, con una hora de retraso.", translation: "I arrived late — I mean, an hour late." } },
+  { id: "es-v-a2-87", level: "A2", word: "harto/a (de)", translation: "fed up (with)", category: "Emotions", example: { native: "Estoy harta de esperar.", translation: "I'm fed up with waiting." } },
+  { id: "es-v-a2-88", level: "A2", word: "ilusionado/a", translation: "excited / looking forward to", category: "Emotions", example: { native: "Estoy muy ilusionada con el viaje.", translation: "I'm really excited about the trip." } },
+  { id: "es-v-a2-89", level: "A2", word: "menos mal", translation: "thank goodness", category: "Opinion", example: { native: "Menos mal que trajiste el paraguas.", translation: "Thank goodness you brought the umbrella." } },
+  { id: "es-v-a2-90", level: "A2", word: "ni modo", translation: "no way around it / too bad (LatAm)", category: "Communication", example: { native: "Se perdió el último bus. Ni modo — tomamos taxi.", translation: "The last bus was missed. Nothing to be done — we'll take a taxi." } },
 ]
 
-// Alias for backward compatibility with index.ts assembler
-export const a2Vocab = esVocabA2
+// Alias for backward compatibility with assembler
+export const esVocabA2 = a2Vocab
