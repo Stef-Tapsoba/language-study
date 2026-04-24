@@ -6,7 +6,7 @@ export const koCA11: CultureEpisode = {
     category: "customs",
     region: "all-korean",
     title: {
-        native: "눈치 — Reading the room, Korean style",
+        native: "Nunchi — Reading the room, Korean style",
         target: "눈치 — 분위기를 읽는 법"
     },
     subtitle: "Nunchi is the Korean art of sensing what others feel without being told — and it's considered one of the most important social skills.",

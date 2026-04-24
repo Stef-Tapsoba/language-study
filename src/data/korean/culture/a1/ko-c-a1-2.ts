@@ -6,7 +6,7 @@ export const koCA12: CultureEpisode = {
     category: "food",
     region: "all-korean",
     title: {
-        native: "한식 — Korean food and the table of sharing",
+        native: "Hansik — Korean food and the table of sharing",
         target: "한식 — 나눔의 식탁"
     },
     subtitle: "Korean food culture is built around the idea that eating is always a communal act — and banchan changes everything.",
@@ -57,7 +57,7 @@ Kimchi is the most famous banchan. It is a fermented food made from napa cabbage
 
 Korean table manners are also important. The eldest person should begin eating first. Spoon and chopsticks are used together — the spoon for rice and soup, chopsticks for banchan. Lifting a bowl to eat from it is considered impolite in Korea — the opposite of Japanese culture.
 
-'Did you eat rice?' — '밥 먹었어요?' — has the same meaning as 'How are you?' in Korean. Rice is not just food, it is life itself.`
+'Did you eat rice?' — 'Bap meogeosseoyo?' — has the same meaning as 'How are you?' in Korean. Rice is not just food, it is life itself.`
     },
 
     simpleTarget: `한국 음식은 맛있고 다양합니다.
