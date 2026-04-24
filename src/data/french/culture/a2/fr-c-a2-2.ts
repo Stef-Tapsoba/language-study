@@ -7,8 +7,8 @@ export const frCA22: CultureEpisode = {
     category: "festivals",
     region: "france",
     title: {
-        native: "Les fêtes françaises — quand la France s'arrête",
-        target: "Les fêtes françaises"
+        native: "French Public Holidays — when France stops",
+        target: "Les fêtes françaises — quand la France s'arrête"
     },
     subtitle: "France has more public holidays than almost any country in Europe — and each one tells a story.",
 
