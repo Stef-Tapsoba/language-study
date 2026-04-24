@@ -12,7 +12,7 @@ export const koA2OpinionsAndConnectors: GrammarLesson[] = [
         examples: [
             { native: "이 영화가 재미있는 것 같아요.", romanized: "I yeongwaga jaemiinneun geot gatayo.", translation: "I think this movie is interesting." },
             { native: "오늘 비가 올 것 같아요.", romanized: "Oneul biga ol geot gatayo.", translation: "I think it will rain today." },
-            { native: "제 생각에는 이게 더 좋은 방법이에요.", romanized: "Je saenggage neun ige deo joeun bangbobieyo.", translation: "In my opinion, this is the better method." },
+            { native: "제 생각에는 이게 더 좋은 방법이에요.", romanized: "Je saenggage neun ige deo joeun bangbeopieyo.", translation: "In my opinion, this is the better method." },
             { native: "그 사람이 친절한 것 같아요.", romanized: "Geu sarami chinjeolhan geot gatayo.", translation: "I think that person is kind." },
             { native: "저는 한국어가 어렵다고 생각해요.", romanized: "Jeoneun hangugeo ga eoryeopda go saenggakhaeyo.", translation: "I think Korean is difficult." }
         ],
@@ -52,8 +52,8 @@ export const koA2OpinionsAndConnectors: GrammarLesson[] = [
             target: "동사/형용사 어간 + -(으)면 = 만약 ~ 면. 결합: 자음 어간 → -으면; 모음/ㄹ 어간 → -면 (ㄹ 탈락). 실제적이고 예측 가능한 조건에 씁니다. 정중한 제안: ~으면 좋겠어요 / ~으면 어때요? 조건절이 결과절 앞에 옵니다."
         },
         examples: [
-            { native: "날씨가 좋으면 공원에 가요.", romanized: "Nalssiga joeuomyeon gongwone gayo.", translation: "If the weather is nice, I go to the park." },
-            { native: "시간이 있으면 같이 커피 마셔요.", romanized: "Sigani isseumyeon gachi keopI masyeoyo.", translation: "If you have time, let's have coffee together." },
+            { native: "날씨가 좋으면 공원에 가요.", romanized: "Nalssiga joeumyeon gongwone gayo.", translation: "If the weather is nice, I go to the park." },
+            { native: "시간이 있으면 같이 커피 마셔요.", romanized: "Sigani isseumyeon gachi keopi masyeoyo.", translation: "If you have time, let's have coffee together." },
             { native: "모르면 물어보세요.", romanized: "Moreumyeon mureoboseyo.", translation: "If you don't know, please ask." },
             { native: "한국에 가면 삼겹살을 드세요.", romanized: "Hanguge gamyeon samgyeopsareul deuseyo.", translation: "If you go to Korea, eat samgyeopsal." },
             { native: "돈이 있으면 좋겠어요.", romanized: "Doni isseumyeon jokesseoyo.", translation: "It would be nice if I had money." }
@@ -82,7 +82,7 @@ export const koA2OpinionsAndConnectors: GrammarLesson[] = [
         inlineVocab: [
             { word: "반면에", romanized: "banmyeon e", translation: "on the other hand" },
             { word: "그렇지만", romanized: "geureojiman", translation: "however / but (sentence-initial)" },
-            { word: "그래도", romanized: "geraedo", translation: "even so / still" }
+            { word: "그래도", romanized: "geuraedo", translation: "even so / still" }
         ]
     },
     {
@@ -101,7 +101,7 @@ export const koA2OpinionsAndConnectors: GrammarLesson[] = [
             { native: "운동하거나 산책하거나 해요.", romanized: "Undonghageona sanchaekhageona haeyo.", translation: "I exercise or take a walk or something like that." }
         ],
         inlineVocab: [
-            { word: "선택 (選擇)", romanized: "seonntaek", translation: "choice / selection" },
+            { word: "선택 (選擇)", romanized: "seontaek", translation: "choice / selection" },
             { word: "또는", romanized: "ttoneun", translation: "or (formal/written)" },
             { word: "아니면", romanized: "animyeon", translation: "or (spoken / in questions)" }
         ]

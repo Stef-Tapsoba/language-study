@@ -55,8 +55,8 @@ export const koA2MotionAbilityPermission: GrammarLesson[] = [
             { native: "여기서 사진을 찍어도 돼요?", romanized: "Yeogiseo sajineul jjigeodo dwaeyo?", translation: "May I take photos here?" },
             { native: "여기서 담배를 피우면 안 돼요.", romanized: "Yeogiseo dambaereul piumyeon an dwaeyo.", translation: "You must not smoke here." },
             { native: "이 의자에 앉아도 돼요? — 네, 돼요.", romanized: "I uijae anjado dwaeyo? — Ne, dwaeyo.", translation: "May I sit in this chair? — Yes, you may." },
-            { native: "도서관에서 전화하면 안 돼요.", romanized: "Doseogwaneseo jeonwahomyeon an dwaeyo.", translation: "You must not make phone calls in the library." },
-            { native: "여기에 주차하면 안 돼요.", romanized: "Yeogie juchahomyeon an dwaeyo.", translation: "You must not park here." }
+            { native: "도서관에서 전화하면 안 돼요.", romanized: "Doseogwaneseo jeonhwahamyeon an dwaeyo.", translation: "You must not make phone calls in the library." },
+            { native: "여기에 주차하면 안 돼요.", romanized: "Yeogie juchahamyeon an dwaeyo.", translation: "You must not park here." }
         ],
         inlineVocab: [
             { word: "허락 (許諾)", romanized: "heorak", translation: "permission" },

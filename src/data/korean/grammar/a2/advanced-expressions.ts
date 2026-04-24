@@ -13,7 +13,7 @@ export const koA2AdvancedExpressions: GrammarLesson[] = [
             { native: "동생이 강아지를 무서워해요.", romanized: "Dongsaengi gangajireul museowohaeyo.", translation: "My younger sibling is afraid of dogs." },
             { native: "친구가 한국 음식을 좋아해요.", romanized: "Chinguga hanguk eumsigul joahaeyo.", translation: "My friend likes Korean food." },
             { native: "그 아이는 혼자 있는 것을 싫어해요.", romanized: "Geu aineun honja inneun geoseul silheohaeyo.", translation: "That child dislikes being alone." },
-            { native: "엄마가 저를 보고 싶어해요.", romanized: "Eommaga jeoreul bogo sipohaeyo.", translation: "My mum wants to see me." },
+            { native: "엄마가 저를 보고 싶어해요.", romanized: "Eommaga jeoreul bogo sipeohaeyo.", translation: "My mum wants to see me." },
             { native: "아이가 배고파해요.", romanized: "Aiga baegopahaeyo.", translation: "The child seems hungry." }
         ],
         inlineVocab: [
@@ -33,7 +33,7 @@ export const koA2AdvancedExpressions: GrammarLesson[] = [
         examples: [
             { native: "제가 할게요!", romanized: "Jega halgeyo!", translation: "I'll do it! (responsive offer)" },
             { native: "조심할게요.", romanized: "Josimhalgeyo.", translation: "I'll be careful. (promise after a warning)" },
-            { native: "내일 전화할게요.", romanized: "Naeil jeonwahaltgeyo.", translation: "I'll call you tomorrow. (commitment)" },
+            { native: "내일 전화할게요.", romanized: "Naeil jeonhwahalgeyo.", translation: "I'll call you tomorrow. (commitment)" },
             { native: "제가 도와드릴게요.", romanized: "Jega dowadeurilgeyo.", translation: "I'll help you. (offer for listener)" },
             { native: "빨리 올게요.", romanized: "Ppalli olgeyo.", translation: "I'll come quickly / I'll be right there." }
         ],
@@ -54,7 +54,7 @@ export const koA2AdvancedExpressions: GrammarLesson[] = [
         examples: [
             { native: "여기에 앉으세요.", romanized: "Yeogie anjeuseyo.", translation: "Please sit here. (polite)" },
             { native: "이쪽으로 오세요.", romanized: "Ijjogeuro oseyo.", translation: "Please come this way." },
-            { native: "안전벨트를 착용하십시오.", romanized: "Anjeonbelteureul chagyonghashipsio.", translation: "Please fasten your seatbelt. (formal announcement)" },
+            { native: "안전벨트를 착용하십시오.", romanized: "Anjeonbelteureul chagyonghasipsio.", translation: "Please fasten your seatbelt. (formal announcement)" },
             { native: "천천히 말씀해 주세요.", romanized: "Cheoncheonhi malsseum haejuseyo.", translation: "Please speak slowly." },
             { native: "음식을 드세요.", romanized: "Eumsiguel deuseyo.", translation: "Please eat. (honorific form of 먹다)" }
         ],
