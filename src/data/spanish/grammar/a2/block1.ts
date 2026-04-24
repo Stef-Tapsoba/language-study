@@ -12,7 +12,7 @@ export const block1Lessons: GrammarLesson[] = [
     explanation: `The pretérito indefinido (simple past) is the time of completed events in Latin American Spanish — yesterday, last year, in 1492. You already know regular forms from A1. This lesson consolidates the irregular families every speaker needs.
 
 GROUP 1 — SER and IR share identical forms (context tells them apart):
-  fui / fuiste / fue / fuimos / fuisteis / fueron
+  fui / fuiste / fue / fuimos / fueron
   "Fui médico tres años." (ser) vs "Fui al mercado." (ir)
 
 GROUP 2 — the -UV- family (tener, estar, poder, poner, saber, andar):
@@ -181,13 +181,13 @@ KEY EXPRESSION: ¿Cómo te fue? is essential — it opens any conversation about
     explanation: `The imperfecto is the most regular tense in Spanish — only three irregular verbs in the entire language. Its endings are predictable and consistent.
 
 FORMATION:
-  -AR verbs: -aba / -abas / -aba / -ábamos / -abais / -aban  (hablaba, trabajabas…)
-  -ER/-IR verbs: -ía / -ías / -ía / -íamos / -íais / -ían  (comía, vivías…)
+  -AR verbs: -aba / -abas / -aba / -ábamos / -aban  (hablaba, trabajabas…)
+  -ER/-IR verbs: -ía / -ías / -ía / -íamos / -ían  (comía, vivías…)
 
 The only three irregular verbs:
-  ser:  era / eras / era / éramos / erais / eran
-  ir:   iba / ibas / iba / íbamos / ibais / iban
-  ver:  veía / veías / veía / veíamos / veíais / veían
+  ser:  era / eras / era / éramos / eran
+  ir:   iba / ibas / iba / íbamos / iban
+  ver:  veía / veías / veía / veíamos / veían
 
 IMPORTANT: Stem-changing verbs (e→ie, o→ue in the present) do NOT change in the imperfecto.
   querer (present: quiero) → imperfecto: quería, querías… (no stem change)

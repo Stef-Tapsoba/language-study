@@ -79,7 +79,7 @@ export const a2Checkpoints: Checkpoint[] = [
       "Part B: use condicional for at least one dream or wish (me gustaría / me encantaría / querría)",
       "Part B: use desde hace or hace... que with a present-tense verb",
       "Part B: use acabar de + infinitive at least once",
-      "Part B: use cuando + futuro simple at least once",
+      "Part B: use cuando + present subjunctive at least once (e.g. cuando llegue, cuando tenga…)",
     ],
   },
 
