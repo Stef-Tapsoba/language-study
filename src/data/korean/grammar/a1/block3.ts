@@ -181,7 +181,7 @@ export const block3Lessons: GrammarLesson[] = [
             { native: "카페인 때문에 커피를 못 마셔요.", romanized: "Kapeein ttaemune keopireul mot masyeoyo.", translation: "I can't drink coffee because of caffeine." },
             { native: "너무 바빠서 운동 못 해요.", romanized: "Neomu bappaseo undong mot haeyo.", translation: "I'm too busy so I can't exercise.", annotation: "하다 compound"},
             { native: "어제 못 잤어요. 너무 시끄러웠어요.", romanized: "Eoje mot jasseoyo. Neomu sikkeureowoosseoyo.", translation: "I couldn't sleep yesterday. It was too noisy." },
-            { native: "공부 안 해요 vs 공부 못 해요", romanized: "Gongbu an haeyo vs gongbu mot haeyo", translation: "I don't study (by choice) vs I can't study (inability)" },
+            { native: "공부 안 해요 vs 공부 못 해요", romanized: "Gongbu an haeyo vs gongbu mot haeyo", translation: "I don't study vs I can't study", annotation: "안 = by choice; 못 = inability" },
         ],
         inlineVocab: [
             { word: "못", romanized: "mot", translation: "can't (inability negation)" },
@@ -338,7 +338,7 @@ export const block3Lessons: GrammarLesson[] = [
             { native: "저는 별로 안 바빠요.", romanized: "Jeoneun byeolro an bappayo.", translation: "I'm not really busy." },
             { native: "주말에는 거의 안 나가요.", romanized: "Jumarengeun geoui an nagayo.", translation: "I hardly ever go out on weekends." },
             { native: "절대로 안 잊을게요!", romanized: "Jeoldaero an ijeulgeyo!", translation: "I will absolutely never forget!" },
-            { native: "항상 가요 → 자주 가요 → 가끔 가요 → 별로 안 가요 → 거의 안 가요 → 절대로 안 가요", romanized: "hangsang gayo → jaju gayo → gakkeum gayo → byeolro an gayo → geoui an gayo → jeoldaero an gayo", translation: "always go → often go → sometimes go → don't really go → hardly go → never go" },
+            { native: "항상 가요 → 자주 가요 → 가끔 가요 → 별로 안 가요 → 거의 안 가요 → 절대로 안 가요", romanized: "hangsang gayo → jaju gayo → gakkeum gayo → byeolro an gayo → geoui an gayo → jeoldaero an gayo", translation: "frequency scale from always to never", annotation: "항상 → 자주 → 가끔 → 별로 안 → 거의 안 → 절대로 안" },
         ],
         inlineVocab: [
             { word: "절대로", romanized: "jeoldaero", translation: "never / absolutely not (requires negative verb)" },
@@ -360,12 +360,12 @@ export const block3Lessons: GrammarLesson[] = [
             {
                 condition: "Stem last vowel is ㅏ or ㅗ (same as ~아요 verbs)",
                 result: "~았어요",
-                examples: [{ native: "가다 → 갔어요", romanized: "gada → gasseoyo", translation: "go → went.", annotation: "ㅏ stem: 가 + 았어요 → 갔어요"}, { native: "보다 → 봤어요", romanized: "boda → bwasseoyo", translation: "see → saw.", annotation: "ㅗ stem: 보 + 았어요 → 봤어요"}, { native: "좋다 → 좋았어요", romanized: "jota → joasseoyo", translation: "good → was good.", annotation: "ㅗ stem: 좋 + 았어요"}],
+                examples: [{ native: "가다 → 갔어요", romanized: "gada → gasseoyo", translation: "to go / went.", annotation: "ㅏ stem: 가 + 았어요 → 갔어요"}, { native: "보다 → 봤어요", romanized: "boda → bwasseoyo", translation: "to see / saw.", annotation: "ㅗ stem: 보 + 았어요 → 봤어요"}, { native: "좋다 → 좋았어요", romanized: "jota → joasseoyo", translation: "good / was good.", annotation: "ㅗ stem: 좋 + 았어요"}],
             },
             {
                 condition: "Stem has any other vowel (same as ~어요 verbs)",
                 result: "~었어요",
-                examples: [{ native: "먹다 → 먹었어요", romanized: "meokda → meogeosseoyo", translation: "eat → ate.", annotation: "other vowel: 먹 + 었어요"}, { native: "마시다 → 마셨어요", romanized: "masida → masyeosseoyo", translation: "drink → drank.", annotation: "other vowel: 마시 + 었어요 → 마셨어요"}, { native: "오다 → 왔어요", romanized: "oda → wasseoyo", translation: "come → came.", annotation: "special: 오 + 았어요 → 왔어요"}],
+                examples: [{ native: "먹다 → 먹었어요", romanized: "meokda → meogeosseoyo", translation: "to eat / ate.", annotation: "other vowel: 먹 + 었어요"}, { native: "마시다 → 마셨어요", romanized: "masida → masyeosseoyo", translation: "to drink / drank.", annotation: "other vowel: 마시 + 었어요 → 마셨어요"}, { native: "오다 → 왔어요", romanized: "oda → wasseoyo", translation: "to come / came.", annotation: "special: 오 + 았어요 → 왔어요"}],
             },
             {
                 condition: "하다 verbs",
@@ -417,7 +417,7 @@ export const block3Lessons: GrammarLesson[] = [
             {
                 condition: "ㅂ-irregular adjectives in past tense",
                 result: "Same as present: ㅂ → 워 before vowel, then + 었어요",
-                examples: [{ native: "춥다→추웠어요", romanized: "chupda→chuwosseoyo", translation: "cold → was cold.", annotation: "ㅂ → 워 + 었어요"}, { native: "덥다→더웠어요", romanized: "deodda→deowosseoyo", translation: "hot → was hot.", annotation: "ㅂ → 워 + 었어요"}, { native: "맵다→매웠어요", romanized: "maepda→maewosseoyo", translation: "spicy → was spicy.", annotation: "ㅂ → 워 + 었어요"}, { native: "즐겁다→즐거웠어요", romanized: "jeulgeodda→jeulgeowosseoyo", translation: "enjoyable → was enjoyable.", annotation: "ㅂ → 워 + 었어요"}],
+                examples: [{ native: "춥다→추웠어요", romanized: "chupda→chuwosseoyo", translation: "cold / was cold.", annotation: "ㅂ → 워 + 었어요"}, { native: "덥다→더웠어요", romanized: "deodda→deowosseoyo", translation: "hot / was hot.", annotation: "ㅂ → 워 + 었어요"}, { native: "맵다→매웠어요", romanized: "maepda→maewosseoyo", translation: "spicy / was spicy.", annotation: "ㅂ → 워 + 었어요"}, { native: "즐겁다→즐거웠어요", romanized: "jeulgeodda→jeulgeowosseoyo", translation: "enjoyable / was enjoyable.", annotation: "ㅂ → 워 + 었어요"}],
             },
             {
                 condition: "Past copula after consonant",

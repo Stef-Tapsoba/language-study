@@ -348,7 +348,7 @@ export const block4Lessons: GrammarLesson[] = [
                 { native: "어디서 만날까요?", romanized: "Eodiseo mannalkkayo?", translation: "Where shall we meet?" },
                 { native: "합정역 앞에서요.", romanized: "Habjeongyeok apeseoyo.", translation: "In front of Hapjeong Station." },
             ]},
-            { native: "음... 뭐 먹을까요? (thinking to self)", romanized: "Eum... mwo meogeulkkayo?", translation: "Hmm... what should I eat? (wondering aloud — same form, different use)" },
+            { native: "음... 뭐 먹을까요? (thinking to self)", romanized: "Eum... mwo meogeulkkayo?", translation: "Hmm... what should I eat?", annotation: "wondering aloud — same form as suggestion, different intonation" },
         ],
         inlineVocab: [
             { word: "~(으)ㄹ까요?", romanized: "(eu)lkkayo?", translation: "shall we / I wonder (suggestion or wondering aloud)" },

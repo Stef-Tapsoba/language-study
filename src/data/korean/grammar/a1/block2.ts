@@ -194,12 +194,12 @@ export const block2Lessons: GrammarLesson[] = [
             {
                 condition: "Stem last vowel is ㅏ or ㅗ",
                 result: "~아요",
-                examples: [{ native: "가다 → 가요", romanized: "gada → gayo", translation: "go → goes.", annotation: "stem 가: ㅏ vowel → 아요, contracts to 가요"}, { native: "보다 → 봐요", romanized: "boda → bwayo", translation: "see/watch → watches.", annotation: "stem 보: ㅗ vowel → 아요, contracts to 봐요"}, { native: "좋다 → 좋아요", romanized: "jota → joayo", translation: "good → is good.", annotation: "stem 좋: ㅗ vowel → 아요"}],
+                examples: [{ native: "가다 → 가요", romanized: "gada → gayo", translation: "to go / goes.", annotation: "stem 가: ㅏ vowel → 아요, contracts to 가요"}, { native: "보다 → 봐요", romanized: "boda → bwayo", translation: "to see / watches.", annotation: "stem 보: ㅗ vowel → 아요, contracts to 봐요"}, { native: "좋다 → 좋아요", romanized: "jota → joayo", translation: "good / is good.", annotation: "stem 좋: ㅗ vowel → 아요"}],
             },
             {
                 condition: "Stem has any other vowel",
                 result: "~어요",
-                examples: [{ native: "먹다 → 먹어요", romanized: "meokda → meogeoyo", translation: "eat → eats.", annotation: "stem 먹: ㅓ vowel → 어요"}, { native: "읽다 → 읽어요", romanized: "ikda → ilgeoyo", translation: "read → reads.", annotation: "stem 읽: ㅣ vowel → 어요"}, { native: "마시다 → 마셔요", romanized: "masida → masyeoyo", translation: "drink → drinks.", annotation: "stem 마시: ㅣ vowel → 어요, contracts to 마셔요"}],
+                examples: [{ native: "먹다 → 먹어요", romanized: "meokda → meogeoyo", translation: "to eat / eats.", annotation: "stem 먹: ㅓ vowel → 어요"}, { native: "읽다 → 읽어요", romanized: "ikda → ilgeoyo", translation: "to read / reads.", annotation: "stem 읽: ㅣ vowel → 어요"}, { native: "마시다 → 마셔요", romanized: "masida → masyeoyo", translation: "to drink / drinks.", annotation: "stem 마시: ㅣ vowel → 어요, contracts to 마셔요"}],
             },
             {
                 condition: "하다 verbs (noun + 하다)",
@@ -354,12 +354,12 @@ export const block2Lessons: GrammarLesson[] = [
             {
                 condition: "ㅡ-drop: stem ends in ㅡ",
                 result: "Drop ㅡ, then apply 아요/어요 rule",
-                examples: [{ native: "크다→커요", romanized: "keuda→keoyo", translation: "big → is big.", annotation: "drop ㅡ, ㅓ remains → 어요"}, { native: "나쁘다→나빠요", romanized: "nappeuda→nappayo", translation: "bad → is bad.", annotation: "drop ㅡ, ㅏ remains → 아요"}, { native: "예쁘다→예뻐요", romanized: "yeppeuda→yeppeoyo", translation: "pretty → is pretty.", annotation: "drop ㅡ, ㅓ remains → 어요"}, { native: "바쁘다→바빠요", romanized: "pappeuda→bappayo", translation: "busy → is busy.", annotation: "drop ㅡ, ㅏ remains → 아요"}],
+                examples: [{ native: "크다→커요", romanized: "keuda→keoyo", translation: "big / is big.", annotation: "drop ㅡ, ㅓ remains → 어요"}, { native: "나쁘다→나빠요", romanized: "nappeuda→nappayo", translation: "bad / is bad.", annotation: "drop ㅡ, ㅏ remains → 아요"}, { native: "예쁘다→예뻐요", romanized: "yeppeuda→yeppeoyo", translation: "pretty / is pretty.", annotation: "drop ㅡ, ㅓ remains → 어요"}, { native: "바쁘다→바빠요", romanized: "pappeuda→bappayo", translation: "busy / is busy.", annotation: "drop ㅡ, ㅏ remains → 아요"}],
             },
             {
                 condition: "ㅂ irregular: stem ends in ㅂ",
                 result: "ㅂ → 워 before a vowel ending",
-                examples: [{ native: "덥다→더워요", romanized: "deodda→deowoyo", translation: "hot → is hot.", annotation: "ㅂ → 워 before vowel ending"}, { native: "춥다→추워요", romanized: "chupda→chuwoyo", translation: "cold → is cold.", annotation: "ㅂ → 워 before vowel ending"}, { native: "어렵다→어려워요", romanized: "eoryeopda→eoryeowoyo", translation: "difficult → is difficult.", annotation: "ㅂ → 워 before vowel ending"}],
+                examples: [{ native: "덥다→더워요", romanized: "deodda→deowoyo", translation: "hot / is hot.", annotation: "ㅂ → 워 before vowel ending"}, { native: "춥다→추워요", romanized: "chupda→chuwoyo", translation: "cold / is cold.", annotation: "ㅂ → 워 before vowel ending"}, { native: "어렵다→어려워요", romanized: "eoryeopda→eoryeowoyo", translation: "difficult / is difficult.", annotation: "ㅂ → 워 before vowel ending"}],
             },
         ],
         notes: [

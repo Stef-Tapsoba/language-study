@@ -428,8 +428,8 @@ export const block1Lessons: GrammarLesson[] = [
                 condition: "Choosing 이 or 가",
                 result: "이 after consonant · 가 after vowel",
                 examples: [
-                    { native: "시간이 있어요", romanized: "sigani isseoyo", translation: "ends in consonant → use", annotation: "시간 / ㄴ / 이"},
-                    { native: "카페가 있어요", romanized: "kafega isseoyo", translation: "ends in vowel → use", annotation: "카페 / 가"},
+                    { native: "시간이 있어요", romanized: "sigani isseoyo", translation: "I have time", annotation: "시간 ends in consonant ㄴ → 이"},
+                    { native: "카페가 있어요", romanized: "kafega isseoyo", translation: "There is a café", annotation: "카페 ends in vowel → 가"},
                 ],
             },
         ],
