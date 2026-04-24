@@ -220,7 +220,7 @@ Doctor: I'll print it for you now. You'll find everything at the pharmacy.`,
             { id: "it-l-a2-4-q1", level: "A2", prompt: "What does the doctor diagnose the patient with?", options: ["Flu and high blood pressure", "A throat and ear infection (angina con otite)", "A cold and stomachache", "Bronchitis"], answer: "A throat and ear infection (angina con otite)" },
             { id: "it-l-a2-4-q2", level: "A2", prompt: "How long must the patient take the antibiotics?", options: ["Five days", "Seven days", "Ten days", "Two weeks"], answer: "Ten days" },
             { id: "it-l-a2-4-q3", level: "A2", prompt: "'Mi fanno male le orecchie' — why is it 'fanno' and not 'fa'?", options: ["Because 'orecchie' is a proper noun.", "Because the ears are plural — the verb agrees with the body part, not the person.", "Because the doctor uses a formal register.", "Because 'fare male' always uses 'fanno'."], answer: "Because the ears are plural — the verb agrees with the body part, not the person." },
-            { id: "it-l-a2-4-q4", level: "A2", prompt: "'Gliela stampo adesso' — what does 'gliela' refer to?", options: ["the antibiotics (to him/her)", "the prescription — to the patient (gli/le = to you; la = the ricetta, f.)", "the pharmacy", "the appointment"], answer: "the prescription — to the patient (gli/le = to you; la = the ricetta, f.)" },
+            { id: "it-l-a2-4-q4", level: "A2", prompt: "'Gliela stampo adesso' — what does 'gliela' refer to?", options: ["the antibiotics (to him/her)", "the prescription — to the patient (gli/le = to you; la = the prescription, f.)", "the pharmacy", "the appointment"], answer: "the prescription — to the patient (gli/le = to you; la = the prescription, f.)" },
         ],
     },
 ]
