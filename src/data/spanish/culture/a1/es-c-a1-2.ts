@@ -6,7 +6,7 @@ export const esCA12: CultureEpisode = {
     category: "geography",
     region: "mexico",
     title: {
-        native: "Los mercados de México",
+        native: "The Markets of Mexico",
         target: "Los mercados de México"
     },
     subtitle: "The beating heart of Mexican daily life — and why a supermarket could never replace it.",

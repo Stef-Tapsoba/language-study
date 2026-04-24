@@ -446,7 +446,7 @@ AMBIGUITY OF SU
         condition: "Possessives agree with the thing owned, not the owner",
         result: "agree with the NOUN owned, not the owner",
         examples: [
-          { native: "mi hermano / mi hermana", translation: "my brother / my sister (both mi — same possessive regardless of noun gender)" },
+          { native: "mi hermano / mi hermana", translation: "my brother / my sister", annotation: "both use mi — possessive agrees with the noun count, not the owner's gender" },
           { native: "mis hermanos", translation: "my brothers / siblings (plural)" },
         ],
       },

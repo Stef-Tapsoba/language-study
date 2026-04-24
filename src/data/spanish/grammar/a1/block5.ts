@@ -165,8 +165,8 @@ COMMON IMPERATIVE EXPRESSIONS
       { native: "¡Escuche, por favor!", translation: "Listen, please! (usted — formal)" },
       { native: "¡Vamos!", translation: "Let's go! (nosotros)" },
       { native: "¡No comas eso!", translation: "Don't eat that! (tú negative)" },
-      { native: "¡Levántate!", translation: "Get up! (reflexive imperative — pronoun attached)" },
-      { native: "¡Ten cuidado!", translation: "Be careful! (tener — irregular tú imperative)" },
+      { native: "¡Levántate!", translation: "Get up!", annotation: "reflexive imperative: pronoun attaches to the end" },
+      { native: "¡Ten cuidado!", translation: "Be careful!", annotation: "tener: irregular tú imperative (ten)" },
     ],
     inlineVocab: [
       { word: "despacio", translation: "slowly" },
@@ -214,18 +214,18 @@ COMMON IMPERATIVE EXPRESSIONS
         condition: "Usted affirmative imperative",
         result: "yo form − o + e (for -ar) or + a (for -er/-ir)",
         examples: [
-          { native: "hablo → hable", translation: "Speak! (formal)" },
-          { native: "como → coma", translation: "Eat! (formal)" },
-          { native: "escribo → escriba", translation: "Write! (formal)" },
+          { native: "hablo → hable", translation: "Speak! (formal)", annotation: "hablo (yo) → drop -o, add -e for usted imperative" },
+          { native: "como → coma", translation: "Eat! (formal)", annotation: "como (yo) → drop -o, add -a for usted imperative" },
+          { native: "escribo → escriba", translation: "Write! (formal)", annotation: "escribo (yo) → drop -o, add -a for usted imperative" },
         ],
       },
       {
         condition: "Negative imperative (tú)",
         result: "no + subjunctive form (learn as fixed patterns at A1)",
         examples: [
-          { native: "Habla → No hables", translation: "Speak → Don't speak!" },
-          { native: "Come → No comas", translation: "Eat → Don't eat!" },
-          { native: "Ve → No vayas", translation: "Go → Don't go!" },
+          { native: "Habla → No hables", translation: "Speak! / Don't speak!", annotation: "Habla (affirmative tú) → No hables (negative: no + subjunctive)" },
+          { native: "Come → No comas", translation: "Eat! / Don't eat!", annotation: "Come (affirmative tú) → No comas (negative: no + subjunctive)" },
+          { native: "Ve → No vayas", translation: "Go! / Don't go!", annotation: "Ve (affirmative tú) → No vayas (negative: no + present subjunctive of ir)" },
         ],
       },
       {
@@ -234,7 +234,7 @@ COMMON IMPERATIVE EXPRESSIONS
         examples: [
           { native: "¡Levántate!", translation: "Get up! (tú)" },
           { native: "¡Siéntese!", translation: "Sit down! (usted)" },
-          { native: "No te levantes.", translation: "Don't get up! (negative — pronoun goes before)" },
+          { native: "No te levantes.", translation: "Don't get up!", annotation: "negative imperative: pronoun goes before the verb (not attached)" },
         ],
       },
     ],
@@ -380,7 +380,7 @@ WITH COMMANDS — attach to affirmative; place before negative:
         condition: "Adjective that changes meaning with ser vs estar",
         result: "nature/defining trait → ser · current state → estar",
         examples: [
-          { native: "Es aburrido. / Estoy aburrido.", translation: "He's boring (personality). / I'm bored (right now)." },
+          { native: "Es aburrido. / Estoy aburrido.", translation: "He's boring. / I'm bored.", annotation: "ser aburrido = boring by nature; estar aburrido = bored right now" },
         ],
       },
     ],
@@ -471,12 +471,12 @@ Can you replace 'know' with 'be acquainted with' or 'have been to'? → conocer
   ¿Conoces el banco de la plaza? Do you know the bank on the square? (familiar with → conocer)`,
     examples: [
       { native: "Sé hablar español un poco.", translation: "I know how to speak a little Spanish. (saber + infinitive)" },
-      { native: "No sé dónde está la estación.", translation: "I don't know where the station is. (fact → saber)" },
-      { native: "Conozco a tu hermana.", translation: "I know your sister. (person → conocer + personal a)" },
-      { native: "¿Conoces Madrid?", translation: "Do you know Madrid? (place → conocer)" },
-      { native: "¿Sabes qué hora es?", translation: "Do you know what time it is? (fact → saber)" },
-      { native: "No conozco a nadie aquí.", translation: "I don't know anyone here. (person → conocer)" },
-      { native: "Sé que tienes razón.", translation: "I know that you are right. (fact → saber)" },
+      { native: "No sé dónde está la estación.", translation: "I don't know where the station is.", annotation: "fact → saber" },
+      { native: "Conozco a tu hermana.", translation: "I know your sister.", annotation: "person → conocer + personal a" },
+      { native: "¿Conoces Madrid?", translation: "Do you know Madrid?", annotation: "place → conocer" },
+      { native: "¿Sabes qué hora es?", translation: "Do you know what time it is?", annotation: "fact → saber" },
+      { native: "No conozco a nadie aquí.", translation: "I don't know anyone here.", annotation: "person → conocer" },
+      { native: "Sé que tienes razón.", translation: "I know that you are right.", annotation: "fact → saber" },
     ],
     inlineVocab: [
       { word: "nadar", translation: "to swim" },

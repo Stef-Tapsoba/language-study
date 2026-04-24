@@ -6,7 +6,7 @@ export const esCA11: CultureEpisode = {
     category: "food",
     region: "spain",
     title: {
-        native: "La hora de comer en España",
+        native: "Mealtimes in Spain",
         target: "La hora de comer en España"
     },
     subtitle: "Why Spanish people eat lunch at 3pm — and why it makes perfect sense.",

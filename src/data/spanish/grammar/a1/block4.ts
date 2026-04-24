@@ -404,7 +404,7 @@ SEQUENCING — order events: primero (first), después/luego (then), finalmente 
         result: "pero = but (contrast) · sino = but rather (correction)",
         examples: [
           { native: "Es caro pero bueno.", translation: "It's expensive but good." },
-          { native: "No es inglés, sino irlandés.", translation: "He's not English, but Irish. (correction — he IS Irish, not English)" },
+          { native: "No es inglés, sino irlandés.", translation: "He's not English, but Irish.", annotation: "sino: correction — the negated claim is replaced with what is actually true" },
         ],
       },
       {
@@ -486,12 +486,12 @@ NOSOTROS/VOSOTROS NEVER CHANGE — this is the key rule:
   ✓ podemos (not *puedemos)
   ✓ pedimos (not *pidimos)`,
     examples: [
-      { native: "¿A qué hora empieza la clase?", translation: "What time does the class begin? (empezar e→ie)" },
-      { native: "No entiendo la pregunta.", translation: "I don't understand the question. (entender e→ie)" },
-      { native: "¿A qué hora vuelves a casa?", translation: "What time do you come home? (volver o→ue)" },
-      { native: "Duermo ocho horas cada noche.", translation: "I sleep eight hours every night. (dormir o→ue)" },
-      { native: "¿Qué pides tú?", translation: "What are you ordering? (pedir e→i — in a restaurant)" },
-      { native: "Los niños juegan en el parque.", translation: "The children play in the park. (jugar u→ue)" },
+      { native: "¿A qué hora empieza la clase?", translation: "What time does the class begin?", annotation: "empezar: e→ie stem change" },
+      { native: "No entiendo la pregunta.", translation: "I don't understand the question.", annotation: "entender: e→ie stem change" },
+      { native: "¿A qué hora vuelves a casa?", translation: "What time do you come home?", annotation: "volver: o→ue stem change" },
+      { native: "Duermo ocho horas cada noche.", translation: "I sleep eight hours every night.", annotation: "dormir: o→ue stem change" },
+      { native: "¿Qué pides tú?", translation: "What are you ordering?", annotation: "pedir: e→i stem change (in a restaurant)" },
+      { native: "Los niños juegan en el parque.", translation: "The children play in the park.", annotation: "jugar: u→ue stem change" },
       { native: "Nosotros volvemos mañana.", translation: "We come back tomorrow. (nosotros — NO stem change)" },
     ],
     inlineVocab: [
@@ -592,13 +592,13 @@ These are among the most frequent verbs in Spanish. You will produce yo forms co
   ¿Qué pones aquí? — Pongo las llaves.  What do you put here? — I put the keys.
   Traigo el vino — ¿tú traes el pan?   I'll bring the wine — will you bring the bread?`,
     examples: [
-      { native: "Hago deporte todos los días.", translation: "I do sport every day. (hacer → hago)" },
-      { native: "Salgo de casa a las ocho.", translation: "I leave home at eight. (salir → salgo)" },
-      { native: "Pongo las llaves aquí siempre.", translation: "I always put the keys here. (poner → pongo)" },
-      { native: "Traigo algo de comer.", translation: "I'm bringing something to eat. (traer → traigo)" },
-      { native: "No oigo bien — ¿puedes repetir?", translation: "I can't hear well — can you repeat? (oír → oigo)" },
-      { native: "Tengo que irme — vengo mañana.", translation: "I have to go — I'll come tomorrow. (tengo / vengo)" },
-      { native: "Veo la televisión por la noche.", translation: "I watch television at night. (ver → veo)" },
+      { native: "Hago deporte todos los días.", translation: "I do sport every day.", annotation: "hacer → hago (yo-go form)" },
+      { native: "Salgo de casa a las ocho.", translation: "I leave home at eight.", annotation: "salir → salgo (yo-go form)" },
+      { native: "Pongo las llaves aquí siempre.", translation: "I always put the keys here.", annotation: "poner → pongo (yo-go form)" },
+      { native: "Traigo algo de comer.", translation: "I'm bringing something to eat.", annotation: "traer → traigo (yo-go form)" },
+      { native: "No oigo bien — ¿puedes repetir?", translation: "I can't hear well — can you repeat?", annotation: "oír → oigo (yo-go form)" },
+      { native: "Tengo que irme — vengo mañana.", translation: "I have to go — I'll come tomorrow.", annotation: "tengo and vengo: both yo-go forms" },
+      { native: "Veo la televisión por la noche.", translation: "I watch television at night.", annotation: "ver → veo (irregular yo form)" },
     ],
     inlineVocab: [
       { word: "deporte", translation: "sport" },
@@ -650,8 +650,8 @@ These are among the most frequent verbs in Spanish. You will produce yo forms co
         condition: "Recognising the pattern",
         result: "If you know the yo form, you know the verb. All other forms are predictable.",
         examples: [
-          { native: "tengo → tienes/tiene/tenemos", translation: "I have → you/he have/we have" },
-          { native: "vengo → vienes/viene/venimos", translation: "I come → you/he come/we come" },
+          { native: "tengo → tienes/tiene/tenemos", translation: "I have / you have / he has / we have", annotation: "tengo is irregular yo; other forms follow e→ie stem-change" },
+          { native: "vengo → vienes/viene/venimos", translation: "I come / you come / he comes / we come", annotation: "vengo is irregular yo; other forms follow e→ie stem-change" },
         ],
       },
     ],
