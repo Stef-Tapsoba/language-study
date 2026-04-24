@@ -14,7 +14,7 @@ export const koA2NominalizationClauses: GrammarLesson[] = [
             { native: "운동하는 것을 좋아해요.", romanized: "Undonghaneun geoseul joahaeyo.", translation: "I like exercising." },
             { native: "어제 먹은 것이 맛있었어요.", romanized: "Eoje meogeun geosi massisseosseoyo.", translation: "What I ate yesterday was delicious." },
             { native: "모르는 것은 물어보세요.", romanized: "Moreuneun geoseun mureoboseyo.", translation: "Please ask about things you don't know." },
-            { native: "중요한 것은 건강이에요.", romanized: "Jungyohan geoseun geongang ieyo.", translation: "What's important is health." }
+            { native: "중요한 것은 건강이에요.", romanized: "Jungyohan geoseun geongangi eyo.", translation: "What's important is health." }
         ],
         inlineVocab: [
             { word: "명사화 (名詞化)", romanized: "myeongsahwa", translation: "nominalization" },
