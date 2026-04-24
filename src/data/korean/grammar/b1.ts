@@ -166,7 +166,7 @@ export const b1Grammar: GrammarLesson[] = [
         examples: [
             { native: "내년에 대학원에 진학하기로 했어요.", romanized: "Naenyeone daehakwone jinhakagi ro haesseoyo.", translation: "I decided to go to graduate school next year." },
             { native: "새 회사에서 일하게 됐어요.", romanized: "Sae hoesaeseo irake dwaesseoyo.", translation: "I came to work at a new company (due to circumstances)." },
-            { native: "다이어트를 시작하기로 결정했어요.", romanized: "Daioteureul sijakagiро gyeoljeonghaesseoyo.", translation: "I decided to start a diet." },
+            { native: "다이어트를 시작하기로 결정했어요.", romanized: "Daioteureul sijakagiro gyeoljeonghaesseoyo.", translation: "I decided to start a diet." },
             { native: "한국에 오게 된 건 정말 우연이에요.", romanized: "Hanguge oge doen geon jeongmal uyeonieyo.", translation: "How I came to Korea was really by chance." }
         ]
     },
