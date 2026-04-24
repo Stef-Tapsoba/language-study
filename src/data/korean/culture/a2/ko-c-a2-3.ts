@@ -7,10 +7,10 @@ export const koCA23: CultureEpisode = {
     category: "daily-life",
     region: "seoul",
     title: {
-        native: "빨리빨리 문화 — The culture of speed",
+        native: "Ppalli-ppalli munhwa — The culture of speed",
         target: "빨리빨리 문화 — 속도의 문화"
     },
-    subtitle: "빨리빨리 (quickly quickly) is more than a phrase — it is a philosophy that shapes how Korea works, innovates, and lives at a pace unlike anywhere else.",
+    subtitle: "Ppalli-ppalli (quickly quickly) is more than a phrase — it is a philosophy that shapes how Korea works, innovates, and lives at a pace unlike anywhere else.",
 
     photos: [
         {
@@ -39,13 +39,13 @@ export const koCA23: CultureEpisode = {
 하지만 빨리빨리 문화에는 단점도 있어요. 너무 빠른 속도 때문에 스트레스를 받거나 실수를 하는 경우도 있어요. 요즘 젊은 세대는 '느리게 살기'나 '슬로우 라이프'에 관심을 갖기 시작했어요.
 
 외국인들은 한국의 빠른 속도에 처음에는 놀라지만, 나중에는 한국의 효율성과 역동성을 높이 평가하는 경우가 많아요.`,
-        native: `Korea has a culture called 빨리빨리 (ppalli ppalli). 빨리빨리 is the word 빨리 (quickly) repeated twice, meaning 'quickly, quickly!'. This is not just a phrase — it is an expression of the speed and dynamism of Korean society.
+        native: `Korea has a culture called ppalli-ppalli. Ppalli-ppalli is the word ppalli (quickly) repeated twice, meaning 'quickly, quickly!'. This is not just a phrase — it is an expression of the speed and dynamism of Korean society.
 
-In Korea, many things move quickly. Food delivery usually arrives within 30 minutes. Internet speed is among the highest in the world. Building construction is also much faster than in other countries. In the 1960s, Korea was one of the poorest countries in the world, but in just half a century it became an economic powerhouse. One of the reasons this was possible is precisely the 빨리빨리 spirit.
+In Korea, many things move quickly. Food delivery usually arrives within 30 minutes. Internet speed is among the highest in the world. Building construction is also much faster than in other countries. In the 1960s, Korea was one of the poorest countries in the world, but in just half a century it became an economic powerhouse. One of the reasons this was possible is precisely the ppalli-ppalli spirit.
 
-빨리빨리 culture is also visible in daily life: pressing elevator buttons multiple times, trying to get in before the doors close, expecting food to come out quickly at restaurants.
+Ppalli-ppalli culture is also visible in daily life: pressing elevator buttons multiple times, trying to get in before the doors close, expecting food to come out quickly at restaurants.
 
-But 빨리빨리 culture also has its downsides. The excessive speed can cause stress and mistakes. These days, younger generations are starting to take an interest in 'living slowly' and the slow life.
+But ppalli-ppalli culture also has its downsides. The excessive speed can cause stress and mistakes. These days, younger generations are starting to take an interest in 'living slowly' and the slow life.
 
 Many foreigners are surprised by Korea's pace at first, but later often come to appreciate the efficiency and dynamism of Korea.`
     },
@@ -109,7 +109,7 @@ Many foreigners are surprised by Korea's pace at first, but later often come to 
     ],
 
     didYouKnow: {
-        native: "Korea has the fastest average internet speed in the world — a title it has held for many years. This is not an accident: Korea's government invested heavily in nationwide broadband infrastructure from the late 1990s as a national priority. The result is that broadband internet, including high-speed connections in remote areas, is considered a basic utility in Korea — as essential as electricity and water. The 빨리빨리 spirit applied to technology infrastructure created a digital foundation that enabled Korea's gaming, entertainment, and tech industries to flourish.",
+        native: "Korea has the fastest average internet speed in the world — a title it has held for many years. This is not an accident: Korea's government invested heavily in nationwide broadband infrastructure from the late 1990s as a national priority. The result is that broadband internet, including high-speed connections in remote areas, is considered a basic utility in Korea — as essential as electricity and water. The ppalli-ppalli spirit applied to technology infrastructure created a digital foundation that enabled Korea's gaming, entertainment, and tech industries to flourish.",
         target: "한국은 세계에서 평균 인터넷 속도가 가장 빠른 나라로 수년째 이 타이틀을 유지하고 있어요. 이것은 우연이 아니에요. 한국 정부는 1990년대 후반부터 전국 광대역 인프라에 집중적으로 투자했어요. 그 결과 한국에서는 광대역 인터넷이 전기, 수도처럼 기본 생활 서비스로 여겨져요. 빨리빨리 정신을 기술 인프라에 적용한 결과, 한국의 게임, 엔터테인먼트, IT 산업이 꽃필 수 있는 디지털 기반이 만들어졌어요."
     }
 }

@@ -7,7 +7,7 @@ export const koCA22: CultureEpisode = {
     category: "food",
     region: "seoul",
     title: {
-        native: "한국의 음식 문화 — The culture of Korean food",
+        native: "Hanguk eumsik munhwa — The culture of Korean food",
         target: "한국의 음식 문화 — 한국 음식의 세계"
     },
     subtitle: "Korean food culture is inseparable from social connection — sharing, trying, and encouraging each other to eat are at the heart of how Koreans build relationships.",
@@ -41,13 +41,13 @@ export const koCA22: CultureEpisode = {
 요즘 젊은 세대는 혼밥(혼자 먹는 밥)도 즐겨요. 하지만 친구나 가족과 함께 먹는 것이 여전히 한국 음식 문화의 중심이에요.`,
         native: `Korean food culture means more than simply eating. Food is a way to build relationships.
 
-In Korea, eating together is very important. The question '밥 먹었어요?' (Have you eaten?) is not simply asking whether you've had a meal. It carries the meaning of 'How are you doing?'
+In Korea, eating together is very important. The question 'Bap meogeosseoyo?' (Have you eaten?) is not simply asking whether you've had a meal. It carries the meaning of 'How are you doing?'
 
-One characteristic of Korean food culture is the expression '한번 먹어봐요' (Just try it). When Koreans offer food, they always say '한번 먹어봐요'. This is not a simple recommendation — it is an expression of interest and care.
+One characteristic of Korean food culture is the expression 'hanbeon meogeobwayo' (Just try it). When Koreans offer food, they always say 'hanbeon meogeobwayo'. This is not a simple recommendation — it is an expression of interest and care.
 
 When ordering food at a restaurant, various side dishes (banchan) come with the meal. You can ask for more side dishes. Usually they are free. When eating in Korea, there is a culture of sharing food among several people rather than everyone eating alone.
 
-These days younger generations also enjoy 혼밥 (eating alone). But eating with friends or family is still at the centre of Korean food culture.`
+These days younger generations also enjoy honbap (eating alone). But eating with friends or family is still at the centre of Korean food culture.`
     },
 
     cultureVocab: [
@@ -87,7 +87,7 @@ These days younger generations also enjoy 혼밥 (eating alone). But eating with
         {
             id: "ko-c-a2-2-q1",
             type: "comprehension",
-            prompt: { native: "In Korean culture, what does '밥 먹었어요?' really mean beyond asking about eating?", target: "한국 문화에서 '밥 먹었어요?'는 식사 여부 외에 어떤 의미가 있습니까?" },
+            prompt: { native: "In Korean culture, what does 'Bap meogeosseoyo?' really mean beyond asking about eating?", target: "한국 문화에서 '밥 먹었어요?'는 식사 여부 외에 어떤 의미가 있습니까?" },
             options: [
                 "A question about what you had for breakfast",
                 "A social greeting meaning 'how are you doing?'",
@@ -109,7 +109,7 @@ These days younger generations also enjoy 혼밥 (eating alone). But eating with
     ],
 
     didYouKnow: {
-        native: "The Korean expression 금강산도 식후경 (Geumgangsan-do sikhuggyeong) — literally 'Even a trip to the Diamond Mountains comes after eating' — captures the Korean belief that food is the foundation of everything. No matter how beautiful the destination or how important the event, you should eat first. It's a philosophy, not just an appetite.",
+        native: "The Korean expression geumgangsan-do sikhuggyeong — literally 'Even a trip to the Diamond Mountains comes after eating' — captures the Korean belief that food is the foundation of everything. No matter how beautiful the destination or how important the event, you should eat first. It's a philosophy, not just an appetite.",
         target: "한국 속담 '금강산도 식후경'은 말 그대로 '금강산 여행도 식사 후'라는 뜻이에요. 음식이 모든 것의 기초라는 한국의 믿음을 담고 있어요. 목적지가 아무리 아름답거나 행사가 아무리 중요해도 먼저 먹어야 한다는 뜻이에요. 이것은 단순한 식욕이 아니라 하나의 철학이에요."
     }
 }

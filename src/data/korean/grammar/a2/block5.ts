@@ -135,8 +135,8 @@ export const block5Lessons: GrammarLesson[] = [
                 result: "그러니까 (clarifying), 사실은 (reframing/honest intro), 뭐랄까 (searching for words), 결국 (concluding)",
                 examples: [
                     { native: "사실은요, 좀 무서웠어요.", romanized: "Sasireunyo, jom museowoasseoyo.", translation: "Actually, I was a bit scared." },
-                    { native: "뭐랄까, 좀 복잡해요.", romanized: "Mworalkkа, jom bokjapaeyo.", translation: "How shall I put it — it's a bit complicated." },
-                    { native: "결국 혼자도 충분히 좋은 하루를 보낼 수 있다는 걸 알게 됐어요.", romanized: "Gyeolguk honjado chungbunhi joheun harureul bonaеl su itdaneun geol alge dwaesseoyo.", translation: "In the end, I came to realise I can have a good day alone." },
+                    { native: "뭐랄까, 좀 복잡해요.", romanized: "Mworalkka, jom bokjapaeyo.", translation: "How shall I put it — it's a bit complicated." },
+                    { native: "결국 혼자도 충분히 좋은 하루를 보낼 수 있다는 걸 알게 됐어요.", romanized: "Gyeolguk honjado chungbunhi joheun harureul bonael su itdaneun geol alge dwaesseoyo.", translation: "In the end, I came to realise I can have a good day alone." },
                 ]
             },
         ],
@@ -158,7 +158,7 @@ export const block5Lessons: GrammarLesson[] = [
             { native: "음... 오늘은 좀 힘들었어요. 사실은 아침부터 회의가 계속 있었는데...", romanized: "Eum... oneureun jom himdeureosseoyo. Sasireum achimbuteo hoeiga gyesok isseonnneunde...", translation: "Um... today was a bit hard. Actually, there were meetings all morning, and..." },
             { native: "그런데 막상 시작하고 나서 생각보다 괜찮았어요.", romanized: "Geureonde maksang sijakago naseo saenggakboda gwaenchanasseoyo.", translation: "But once I actually started, it was better than I thought." },
             { native: "결국 포기했어요.", romanized: "Gyeolguk pogihaesseoyo.", translation: "In the end, I gave up." },
-            { native: "그러니까 제 말은...", romanized: "Geuronikkа je mareun...", translation: "So what I mean is..." },
+            { native: "그러니까 제 말은...", romanized: "Geuronikka je mareun...", translation: "So what I mean is..." },
             { native: "어쨌든 지금은 괜찮아요.", romanized: "Eojjaetdeun jigeumeun gwaenchanayo.", translation: "Regardless, I'm okay now." },
         ],
     },

@@ -21,9 +21,9 @@ export const block3Lessons: GrammarLesson[] = [
                 condition: "-(으)니까: speaker's reasoning to justify a command, suggestion, or decision",
                 result: "Vowel/ㄹ stem + -니까 / Consonant stem + -으니까",
                 examples: [
-                    { native: "배고프니까 드세요.", romanized: "Baegopeunikkа deuseyo.", translation: "Since you're hungry, please eat." },
-                    { native: "날씨가 좋으니까 산책할까요?", romanized: "Nalssiga joeunikkа sanaekhalkkaayo?", translation: "The weather's nice — shall we take a walk?" },
-                    { native: "바쁘니까 나중에 전화할게요.", romanized: "Bappeunikkа najunge jeonhwahalgeyo.", translation: "I'm busy, so I'll call later." },
+                    { native: "배고프니까 드세요.", romanized: "Baegopeunikka deuseyo.", translation: "Since you're hungry, please eat." },
+                    { native: "날씨가 좋으니까 산책할까요?", romanized: "Nalssiga joeunikka sanaekhalkkaayo?", translation: "The weather's nice — shall we take a walk?" },
+                    { native: "바쁘니까 나중에 전화할게요.", romanized: "Bappeunikka najunge jeonhwahalgeyo.", translation: "I'm busy, so I'll call later." },
                 ]
             },
         ],
