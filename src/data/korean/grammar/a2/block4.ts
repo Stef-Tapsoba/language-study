@@ -49,7 +49,7 @@ export const block4Lessons: GrammarLesson[] = [
         examples: [
             { native: "할머니께서 요즘 편찮으세요.", romanized: "Halmeoni-kkeseo yojeum pyeonchaneuseoyo.", translation: "Grandmother has been unwell lately." },
             { native: "교수님, 지금 연구실에 계세요?", romanized: "Gyosunim, jigeum yeon-gusire gyeseyo?", translation: "Professor, are you in your office now?" },
-            { native: "선생님께서 뭐라고 말씀하셨어요?", romanized: "Seonsaengnim-kkeseo mworagо malsseum-hasyeosseoyo?", translation: "What did the teacher say?" },
+            { native: "선생님께서 뭐라고 말씀하셨어요?", romanized: "Seonsaengnim-kkeseo mworago malsseum-hasyeosseoyo?", translation: "What did the teacher say?" },
             { native: "할머니께서 작년에 돌아가셨어요.", romanized: "Halmeoni-kkeseo jaknyeone doragasyeosseoyo.", translation: "Grandmother passed away last year." },
             { native: "연세가 어떻게 되세요?", romanized: "Yeonsega eotteoke doeseyo?", translation: "How old are you? (to an elder)" },
         ],

@@ -18,7 +18,7 @@ export const a2Units: LessonUnit[] = [
         title: "지금 뭐 하고 있어요?",
         description: "Describe actions in progress and ongoing states using -고 있다, including the stative wearing use.",
         grammarIds: ["ko-g-a2-1"],
-        vocabIds: ["ko-v-a2-1", "ko-v-a2-2", "ko-v-a2-3", "ko-v-a2-4", "ko-v-a2-5", "ko-v-a2-6", "ko-v-a2-7", "ko-v-a2-8", "ko-v-a2-9", "ko-v-a2-10"],
+        vocabIds: ["ko-v-a2-001", "ko-v-a2-002", "ko-v-a2-003", "ko-v-a2-004", "ko-v-a2-005", "ko-v-a2-006", "ko-v-a2-007", "ko-v-a2-008", "ko-v-a2-009", "ko-v-a2-010"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a2-1-1", level: "A2", prompt: "How do you say 'I am eating right now' in Korean?", options: ["밥을 먹어요.", "밥을 먹고 있어요.", "밥을 먹었어요.", "밥을 먹을 거예요."], answer: "밥을 먹고 있어요." },
@@ -36,7 +36,7 @@ export const a2Units: LessonUnit[] = [
         title: "할 수 있어요? 해도 돼요?",
         description: "Express ability, permission and prohibition using -(으)ㄹ 수 있다/없다, -아/어도 되다, and -(으)면 안 되다.",
         grammarIds: ["ko-g-a2-2"],
-        vocabIds: ["ko-v-a2-11", "ko-v-a2-12", "ko-v-a2-13", "ko-v-a2-14", "ko-v-a2-15", "ko-v-a2-16", "ko-v-a2-17", "ko-v-a2-18"],
+        vocabIds: ["ko-v-a2-011", "ko-v-a2-012", "ko-v-a2-013", "ko-v-a2-014", "ko-v-a2-015", "ko-v-a2-016", "ko-v-a2-017", "ko-v-a2-018"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a2-2-1", level: "A2", prompt: "Which sentence asks for permission (not ability)?", options: ["사진 찍을 수 있어요?", "사진 찍어도 돼요?", "사진 찍을 수 없어요.", "사진 찍으면 안 돼요."], answer: "사진 찍어도 돼요?" },
@@ -53,7 +53,7 @@ export const a2Units: LessonUnit[] = [
         title: "해야 해요 / 할게요",
         description: "Express obligation with -아/어야 하다/되다 and make first-person decisions and promises with -(으)ㄹ 게요.",
         grammarIds: ["ko-g-a2-3"],
-        vocabIds: ["ko-v-a2-19", "ko-v-a2-20", "ko-v-a2-21", "ko-v-a2-22", "ko-v-a2-23", "ko-v-a2-24"],
+        vocabIds: ["ko-v-a2-019", "ko-v-a2-020", "ko-v-a2-021", "ko-v-a2-022", "ko-v-a2-023", "ko-v-a2-024"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a2-3-1", level: "A2", prompt: "Which sentence means 'I have to study' (obligation)?", options: ["공부하고 싶어요.", "공부해야 해요.", "공부할 거예요.", "공부할게요."], answer: "공부해야 해요." },
@@ -70,7 +70,7 @@ export const a2Units: LessonUnit[] = [
         title: "도와드릴까요?",
         description: "Use -아/어 주다 and -아/어 드리다 to do things for others, and the direction particles 한테, 한테서, and 께.",
         grammarIds: ["ko-g-a2-4"],
-        vocabIds: ["ko-v-a2-25", "ko-v-a2-26", "ko-v-a2-27", "ko-v-a2-28", "ko-v-a2-29", "ko-v-a2-30"],
+        vocabIds: ["ko-v-a2-025", "ko-v-a2-026", "ko-v-a2-027", "ko-v-a2-028", "ko-v-a2-029", "ko-v-a2-030"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a2-4-1", level: "A2", prompt: "When offering help to a teacher, which form is correct?", options: ["제가 도와줄게요.", "제가 도와드릴게요.", "제가 도와줘요.", "제가 도울게요."], answer: "제가 도와드릴게요." },
@@ -90,7 +90,7 @@ export const a2Units: LessonUnit[] = [
         title: "한번 해봤어요?",
         description: "Make suggestions, describe attempts, and ask about experiences using -아/어 보다.",
         grammarIds: ["ko-g-a2-5"],
-        vocabIds: ["ko-v-a2-31", "ko-v-a2-32", "ko-v-a2-33", "ko-v-a2-34", "ko-v-a2-35", "ko-v-a2-36"],
+        vocabIds: ["ko-v-a2-031", "ko-v-a2-032", "ko-v-a2-033", "ko-v-a2-034", "ko-v-a2-035", "ko-v-a2-036"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a2-5-1", level: "A2", prompt: "한번 먹어 봐요! is a:", options: ["Prohibition", "Question about the past", "Suggestion to try something", "Past experience statement"], answer: "Suggestion to try something" },
@@ -107,7 +107,7 @@ export const a2Units: LessonUnit[] = [
         title: "해본 적 있어요?",
         description: "Ask about and describe life experiences using -아/어 본 적이 있다/없다 with life-stage time expressions.",
         grammarIds: ["ko-g-a2-6"],
-        vocabIds: ["ko-v-a2-37", "ko-v-a2-38", "ko-v-a2-39", "ko-v-a2-40", "ko-v-a2-41", "ko-v-a2-42"],
+        vocabIds: ["ko-v-a2-037", "ko-v-a2-038", "ko-v-a2-039", "ko-v-a2-040", "ko-v-a2-041", "ko-v-a2-042"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a2-6-1", level: "A2", prompt: "먹어 본 적이 있어요 most precisely means:", options: ["I tried eating it recently.", "I've eaten it before at some point in my life.", "I want to eat it.", "I'll try eating it."], answer: "I've eaten it before at some point in my life." },
@@ -124,7 +124,7 @@ export const a2Units: LessonUnit[] = [
         title: "더 좋아졌어요",
         description: "Describe changes of state with -아/어지다 and -게 되다, and make comparisons using 보다, 가장/제일, 덜, 훨씬.",
         grammarIds: ["ko-g-a2-7"],
-        vocabIds: ["ko-v-a2-43", "ko-v-a2-44", "ko-v-a2-45", "ko-v-a2-46", "ko-v-a2-47", "ko-v-a2-48", "ko-v-a2-49", "ko-v-a2-50"],
+        vocabIds: ["ko-v-a2-043", "ko-v-a2-044", "ko-v-a2-045", "ko-v-a2-046", "ko-v-a2-047", "ko-v-a2-048", "ko-v-a2-049", "ko-v-a2-050"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a2-7-1", level: "A2", prompt: "한국어 실력이 좋아졌어요 means:", options: ["My Korean skills are good.", "My Korean skills have improved.", "I want my Korean to improve.", "Korean is easier than I thought."], answer: "My Korean skills have improved." },
@@ -141,7 +141,7 @@ export const a2Units: LessonUnit[] = [
         title: "마치 한국 사람 같아요",
         description: "Use 처럼/같이 for similarity, 것 같다 for hedged opinions, and particles 마다/부터/까지/(이)랑 for everyday descriptions.",
         grammarIds: ["ko-g-a2-8"],
-        vocabIds: ["ko-v-a2-51", "ko-v-a2-52", "ko-v-a2-53", "ko-v-a2-54", "ko-v-a2-55", "ko-v-a2-56"],
+        vocabIds: ["ko-v-a2-051", "ko-v-a2-052", "ko-v-a2-053", "ko-v-a2-054", "ko-v-a2-055", "ko-v-a2-056"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a2-8-1", level: "A2", prompt: "한국 사람처럼 말해요 means:", options: ["She speaks about Koreans.", "She speaks like a Korean person.", "She speaks with a Korean person.", "She wants to speak Korean."], answer: "She speaks like a Korean person." },
@@ -161,7 +161,7 @@ export const a2Units: LessonUnit[] = [
         title: "왜 안 왔어요?",
         description: "Master the critical distinction between -아/어서 (natural cause) and -(으)니까 (reason for a decision/command) — and never confuse them again.",
         grammarIds: ["ko-g-a2-9"],
-        vocabIds: ["ko-v-a2-57", "ko-v-a2-58", "ko-v-a2-59", "ko-v-a2-60", "ko-v-a2-61"],
+        vocabIds: ["ko-v-a2-057", "ko-v-a2-058", "ko-v-a2-059", "ko-v-a2-060", "ko-v-a2-061"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a2-9-1", level: "A2", prompt: "Which is correct? (Giving a reason for a command)", options: ["피곤해서 쉬세요.", "피곤하니까 쉬세요.", "피곤해서 쉬어야 해요.", "피곤해서 쉬고 있어요."], answer: "피곤하니까 쉬세요." },
@@ -178,7 +178,7 @@ export const a2Units: LessonUnit[] = [
         title: "좀 바쁜데요...",
         description: "Use -는데 for background context, contrast, and soft trailing statements to sound natural and polite.",
         grammarIds: ["ko-g-a2-10"],
-        vocabIds: ["ko-v-a2-62", "ko-v-a2-63", "ko-v-a2-64", "ko-v-a2-65", "ko-v-a2-66"],
+        vocabIds: ["ko-v-a2-062", "ko-v-a2-063", "ko-v-a2-064", "ko-v-a2-065", "ko-v-a2-066"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a2-10-1", level: "A2", prompt: "지금 바쁜데, 나중에 전화할게요 is an example of -는데 used for:", options: ["Contrast (but)", "Background context (setting up the next point)", "Soft request (trailing)", "Mild reaction"], answer: "Background context (setting up the next point)" },
@@ -195,7 +195,7 @@ export const a2Units: LessonUnit[] = [
         title: "음악을 들으면서 공부해요",
         description: "Describe simultaneous actions with -(으)면서 (same subject) and sequential completed actions with -고 나서.",
         grammarIds: ["ko-g-a2-11"],
-        vocabIds: ["ko-v-a2-67", "ko-v-a2-68", "ko-v-a2-69", "ko-v-a2-70", "ko-v-a2-71", "ko-v-a2-72"],
+        vocabIds: ["ko-v-a2-067", "ko-v-a2-068", "ko-v-a2-069", "ko-v-a2-070", "ko-v-a2-071", "ko-v-a2-072"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a2-11-1", level: "A2", prompt: "음악을 들으면서 공부해요 means:", options: ["I study and then listen to music.", "I study while listening to music.", "I listen to music before studying.", "I listen to music because I study."], answer: "I study while listening to music." },
@@ -212,7 +212,7 @@ export const a2Units: LessonUnit[] = [
         title: "먹을 거 있어요?",
         description: "Use the three noun modifier forms (-는, -(으)ㄴ, -(으)ㄹ) to describe people, places, and things — the structural leap of Korean A2.",
         grammarIds: ["ko-g-a2-12"],
-        vocabIds: ["ko-v-a2-73", "ko-v-a2-74", "ko-v-a2-75", "ko-v-a2-76", "ko-v-a2-77"],
+        vocabIds: ["ko-v-a2-073", "ko-v-a2-074", "ko-v-a2-075", "ko-v-a2-076", "ko-v-a2-077"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a2-12-1", level: "A2", prompt: "What does 아는 사람 mean?", options: ["A famous person", "Someone I know", "A stranger", "A person who is knowing"], answer: "Someone I know" },
@@ -232,7 +232,7 @@ export const a2Units: LessonUnit[] = [
         title: "선생님께서 오셨어요",
         description: "Use -(으)시- to mark respected subjects, and master the irregular honorific verbs: 드시다, 계시다, 주무시다, 말씀하시다.",
         grammarIds: ["ko-g-a2-13"],
-        vocabIds: ["ko-v-a2-78", "ko-v-a2-79", "ko-v-a2-80", "ko-v-a2-81", "ko-v-a2-82", "ko-v-a2-83", "ko-v-a2-84", "ko-v-a2-85", "ko-v-a2-86"],
+        vocabIds: ["ko-v-a2-078", "ko-v-a2-079", "ko-v-a2-080", "ko-v-a2-081", "ko-v-a2-082", "ko-v-a2-083", "ko-v-a2-084", "ko-v-a2-085", "ko-v-a2-086"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a2-13-1", level: "A2", prompt: "How do you say 'The teacher is in the classroom' (honorific)?", options: ["선생님이 교실에 있어요.", "선생님이 교실에 계세요.", "선생님이 교실에 있으세요.", "선생님이 교실에 있으신다."], answer: "선생님이 교실에 계세요." },
@@ -249,7 +249,7 @@ export const a2Units: LessonUnit[] = [
         title: "이건 제 거예요",
         description: "Understand the full logic of 은/는 (topic, contrast, given info) vs 이/가 (new info, subject identification) in Korean.",
         grammarIds: ["ko-g-a2-14"],
-        vocabIds: ["ko-v-a2-87", "ko-v-a2-88", "ko-v-a2-89"],
+        vocabIds: ["ko-v-a2-087", "ko-v-a2-088", "ko-v-a2-089"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a2-14-1", level: "A2", prompt: "In 저는 학생이에요, 은/는 is used because:", options: ["I am new information being introduced", "저 is the topic the sentence is about", "I is the subject doing an action", "저 is receiving something"], answer: "저 is the topic the sentence is about" },
@@ -266,7 +266,7 @@ export const a2Units: LessonUnit[] = [
         title: "뭐라고 했어요?",
         description: "Report what others said, told you to do, and asked, using all four indirect speech patterns.",
         grammarIds: ["ko-g-a2-15"],
-        vocabIds: ["ko-v-a2-90", "ko-v-a2-91", "ko-v-a2-92", "ko-v-a2-93", "ko-v-a2-94"],
+        vocabIds: ["ko-v-a2-090", "ko-v-a2-091", "ko-v-a2-092", "ko-v-a2-093", "ko-v-a2-094"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a2-15-1", level: "A2", prompt: "How do you report 'My friend said they're coming tomorrow'?", options: ["친구가 내일 온다고 했어요.", "친구가 내일 온다는 했어요.", "친구가 내일 온다에 했어요.", "친구가 내일 오라고 했어요."], answer: "친구가 내일 온다고 했어요." },
@@ -286,7 +286,7 @@ export const a2Units: LessonUnit[] = [
         title: "한국어 공부하기가 어렵지 않아요",
         description: "Use the -기 nominalizer to unlock six essential fixed expressions: -기 전에, -기 위해서, -기로 하다, -기 때문에, -기 어렵다/쉽다, -기 좋다.",
         grammarIds: ["ko-g-a2-16"],
-        vocabIds: ["ko-v-a2-95", "ko-v-a2-96", "ko-v-a2-97", "ko-v-a2-98", "ko-v-a2-99"],
+        vocabIds: ["ko-v-a2-095", "ko-v-a2-096", "ko-v-a2-097", "ko-v-a2-098", "ko-v-a2-099"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a2-16-1", level: "A2", prompt: "자기 전에 이를 닦아요 means:", options: ["I brush my teeth after sleeping.", "I brush my teeth before sleeping.", "I brush my teeth while sleeping.", "I have to brush my teeth."], answer: "I brush my teeth before sleeping." },

@@ -7,10 +7,10 @@ export const koCA21: CultureEpisode = {
     category: "customs",
     region: "all-korean",
     title: {
-        native: "존댓말 — The grammar of respect",
+        native: "Jondaemal — The grammar of respect",
         target: "존댓말 — 존경의 문법"
     },
-    subtitle: "Korean honorifics are not just grammar rules — they are a social system that encodes relationship, hierarchy, and care. Understanding 존댓말 is understanding how Korean society works.",
+    subtitle: "Korean honorifics are not just grammar rules — they are a social system that encodes relationship, hierarchy, and care. Understanding jondaemal is understanding how Korean society works.",
 
     photos: [
         {
@@ -39,15 +39,15 @@ export const koCA21: CultureEpisode = {
 한국에서 나이를 묻는 것은 무례한 행동이 아니에요. 오히려 올바른 존댓말을 사용하기 위해 나이를 물어보는 것이 예의 바른 행동이에요. 상대방의 나이를 알아야 어떤 말투를 써야 할지 알 수 있기 때문이에요.
 
 외국인도 존댓말을 올바르게 사용하면 한국 사람들이 매우 감동을 받아요. 특히 어르신께 드리다, 계시다, 주무시다 같은 특별한 경어 동사를 사용하면 문화적 이해가 깊다는 것을 보여줄 수 있어요.`,
-        native: `Korean has a special language system called 존댓말 (jondaemal). Honorifics are not simple grammar rules. They are a way of expressing the relationship between people.
+        native: `Korean has a special language system called jondaemal (jondaemal). Honorifics are not simple grammar rules. They are a way of expressing the relationship between people.
 
 In Korea, the way you speak changes depending on age, position, and social relationship. With someone you meet for the first time, you use honorifics. With close friends, you use informal speech (banmal).
 
-One of the most important parts of honorifics is the -(으)시- ending. Attaching this ending to a verb shows that the subject of the verb is a respected person. For example, in 선생님이 오셨어요 (The teacher came), '셨어요' signals respect for the teacher.
+One of the most important parts of honorifics is the -(eu)si- ending. Attaching this ending to a verb shows that the subject of the verb is a respected person. For example, in Seonsaengnim-i osyeosseoyo (The teacher came), the '-syeosseoyo' form signals respect for the teacher.
 
 Asking someone's age in Korea is not considered rude. On the contrary, asking for age in order to use the correct honorifics is considered polite behaviour. You need to know the other person's age to know what kind of speech to use.
 
-When foreigners use honorifics correctly, Korean people are very moved. Especially when you use special honorific verbs like 드리다 (give), 계시다 (be/location), and 주무시다 (sleep) for elders, it shows a deep cultural understanding.`
+When foreigners use honorifics correctly, Korean people are very moved. Especially when you use special honorific verbs like deurida (give), gyesida (be/location), and jumusida (sleep) for elders, it shows a deep cultural understanding.`
     },
 
     cultureVocab: [
@@ -104,12 +104,12 @@ When foreigners use honorifics correctly, Korean people are very moved. Especial
         {
             id: "ko-c-a2-1-q3",
             type: "comparison",
-            prompt: { native: "Which is harder — learning the grammar rules of -(으)시- or developing the social intuition for when to use them? What do you think would help most?", target: "Which is harder — learning the grammar rules of -(으)시- or developing the social intuition for when to use them? What do you think would help most?" }
+            prompt: { native: "Which is harder — learning the grammar rules of the -(eu)si- ending or developing the social intuition for when to use them? What do you think would help most?", target: "Which is harder — learning the grammar rules of -(으)시- or developing the social intuition for when to use them? What do you think would help most?" }
         }
     ],
 
     didYouKnow: {
-        native: "Korean honorifics are so deeply embedded in the culture that Korean people have a specific concept called '호칭 문제' (title/address problem) — the social difficulty of figuring out what to call someone you've just met. Koreans exchange ages and sometimes business cards precisely to resolve this. For many learners, mastering honorifics is the point at which Korean stops feeling like a foreign language and starts feeling like a real tool for human connection.",
+        native: "Korean honorifics are so deeply embedded in the culture that Korean people have a specific concept called 'hochingmunjae' (title/address problem) — the social difficulty of figuring out what to call someone you've just met. Koreans exchange ages and sometimes business cards precisely to resolve this. For many learners, mastering honorifics is the point at which Korean stops feeling like a foreign language and starts feeling like a real tool for human connection.",
         target: "한국 경어는 문화에 너무 깊이 뿌리내려져 있어서 한국 사람들은 '호칭 문제'라는 개념이 있습니다. 방금 만난 사람을 뭐라고 불러야 할지 결정하는 사회적 어려움이에요. 한국인들은 나이와 때로는 명함을 교환하는 것도 바로 이 문제를 해결하기 위해서예요. 많은 학습자들에게 경어를 마스터하는 것은 한국어가 외국어처럼 느껴지지 않고 진정한 인간 관계의 도구처럼 느껴지기 시작하는 순간이에요."
     }
 }

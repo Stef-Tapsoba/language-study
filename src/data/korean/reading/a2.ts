@@ -39,7 +39,7 @@ export const a2Reading: ReadingPassage[] = [
         },
         vocabGloss: [
             { word: "내년", translation: "next year", romanized: "naenyeon" },
-            { word: "드디어", translation: "finally, at last", romanized: "deudieо" },
+            { word: "드디어", translation: "finally, at last", romanized: "deudieo" },
             { word: "계획을 세우다", translation: "to make a plan", romanized: "gyehoekeul seuda" },
             { word: "한복", translation: "traditional Korean clothing", romanized: "hanbok" },
             { word: "해운대", translation: "Haeundae (famous beach in Busan)", romanized: "Haeundae" },
@@ -86,7 +86,7 @@ export const a2Reading: ReadingPassage[] = [
         vocabGloss: [
             { word: "상사", translation: "boss, superior", romanized: "sangsa" },
             { word: "답장하다", translation: "to reply (to a message)", romanized: "dapjang-hada" },
-            { word: "퇴근 후", translation: "after work, after leaving the office", romanized: "toеgeun hu" },
+            { word: "퇴근 후", translation: "after work, after leaving the office", romanized: "toegeun hu" },
             { word: "회식", translation: "company/team dinner", romanized: "hoesik" },
             { word: "선배", translation: "senior (at school/work)", romanized: "seonbae" },
             { word: "두 손으로", translation: "with both hands", romanized: "du soneuro" },
