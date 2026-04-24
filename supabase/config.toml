@@ -68,7 +68,5 @@ policy = "oneshot"
 [analytics]
 enabled = false
 
-# Link to your hosted Supabase project:
+# To link to your hosted Supabase project, run:
 #   supabase link --project-ref iogtkacntpkmmuhqgpnw
-[project]
-id = "iogtkacntpkmmuhqgpnw"
