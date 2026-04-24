@@ -2,351 +2,227 @@
 import { ReadingPassage } from "../../../types"
 
 export const a2Reading: ReadingPassage[] = [
+    // ── fr-r-a2-1 : Everyday — a weekend story (PC/Imparfait) ─────────────────
     {
         id: "fr-r-a2-1",
         level: "A2",
-        category: "culture",
-        title: "Les fêtes en France",
+        category: "everyday",
+        title: "Un week-end inoubliable",
         body: {
-            target: "La France célèbre de nombreuses fêtes tout au long de l'année. Le 14 juillet est la Fête Nationale. On appelle aussi ce jour le jour de la Bastille. Il y a des feux d'artifice, des défilés militaires et des bals populaires dans toute la France. À Noël, les Français décorent leur maison et préparent un grand repas en famille le soir du 24 décembre. Le 1er mai, la Fête du Travail, est un jour férié où les gens offrent du muguet à leurs proches. À Pâques, les enfants cherchent des œufs en chocolat cachés dans le jardin.",
-            native: "France celebrates many festivals throughout the year. The 14th of July is the National Holiday. This day is also called Bastille Day. There are fireworks, military parades and street dances all over France. At Christmas, the French decorate their homes and prepare a big family meal on the evening of 24 December. On 1st May, Labour Day, it is a public holiday when people give lily of the valley to their loved ones. At Easter, children hunt for chocolate eggs hidden in the garden."
+            target: `C'était un samedi de septembre. Il faisait encore chaud et la ville était calme — la plupart des Parisiens étaient partis en vacances. Lucie avait décidé de profiter de ce week-end pour explorer un quartier qu'elle ne connaissait pas : Belleville.
+
+Elle s'est levée tard, vers dix heures, et a pris un long café sur son balcon. Elle se sentait détendue, sans aucun plan précis. Vers midi, elle a pris le métro jusqu'à Belleville et a commencé à marcher sans destination.
+
+Elle a découvert une petite rue avec des ateliers d'artistes, des galeries et des cafés colorés. Un tableau dans une vitrine a arrêté son regard — une grande huile sur toile représentant un marché africain, plein de couleurs et de vie. Elle a poussé la porte de la galerie.
+
+À l'intérieur, un homme d'une cinquantaine d'années arrangeait des cadres. C'était le peintre lui-même, Amadou. Il parlait doucement, avec un accent léger qu'elle n'a pas pu identifier. Ils ont parlé pendant une heure — de peinture, de Belleville, de leurs enfances respectives.
+
+Quand Lucie est sortie, il faisait presque nuit. Elle avait oublié de manger, mais elle s'en fichait complètement. C'était l'une de ces journées où rien ne s'était passé comme prévu — et c'était exactement pour ça que c'était parfait.`,
+            native: `It was a Saturday in September. It was still warm and the city was quiet — most Parisians had gone on holiday. Lucie had decided to use this weekend to explore a neighbourhood she didn't know: Belleville.
+
+She got up late, around ten, and had a long coffee on her balcony. She felt relaxed, with no specific plans. Around noon, she took the metro to Belleville and started walking without a destination.
+
+She discovered a small street with artists' studios, galleries, and colourful cafés. A painting in a window caught her eye — a large oil on canvas depicting an African market, full of colour and life. She pushed open the gallery door.
+
+Inside, a man in his fifties was arranging frames. It was the painter himself, Amadou. He spoke softly, with a slight accent she couldn't identify. They talked for an hour — about painting, about Belleville, about their respective childhoods.
+
+When Lucie came out, it was nearly dark. She had forgotten to eat, but she didn't care at all. It was one of those days when nothing had gone as planned — and that was exactly why it was perfect.`,
         },
         vocabGloss: [
-            { word: "feux d'artifice", translation: "fireworks" },
-            { word: "défilés militaires", translation: "military parades" },
-            { word: "bals populaires", translation: "street dances / public balls" },
-            { word: "jour férié", translation: "public holiday" },
-            { word: "muguet", translation: "lily of the valley" },
-            { word: "proches", translation: "loved ones, close relatives" },
-            { word: "cachés", translation: "hidden" }
+            { word: "inoubliable", translation: "unforgettable" },
+            { word: "détendue", translation: "relaxed (feminine)" },
+            { word: "une vitrine", translation: "a shop window" },
+            { word: "une huile sur toile", translation: "an oil painting on canvas" },
+            { word: "représentant", translation: "depicting / representing" },
+            { word: "d'une cinquantaine d'années", translation: "in his fifties" },
+            { word: "s'en ficher", translation: "not to care (informal)" },
+            { word: "respectif / respective", translation: "respective" },
         ],
         questions: [
-            {
-                id: "fr-r-a2-1-q1",
-                level: "A2",
-                prompt: "Quel est un autre nom pour le 14 juillet ?",
-                options: ["La Fête Nationale / le jour de la Bastille", "La Fête du Travail", "Noël", "Pâques"],
-                answer: "La Fête Nationale / le jour de la Bastille"
-            },
-            {
-                id: "fr-r-a2-1-q2",
-                level: "A2",
-                prompt: "Que font les Français le 1er mai ?",
-                options: ["Ils offrent du muguet", "Ils cherchent des œufs", "Ils regardent des défilés", "Ils préparent un repas en famille"],
-                answer: "Ils offrent du muguet"
-            },
-            {
-                id: "fr-r-a2-1-q3",
-                level: "A2",
-                prompt: "Quand les Français font-ils le grand repas de Noël ?",
-                options: ["Le 24 décembre le soir", "Le 25 décembre le matin", "Le 31 décembre", "Le 6 janvier"],
-                answer: "Le 24 décembre le soir"
-            },
-            {
-                id: "fr-r-a2-1-q4",
-                level: "A2",
-                prompt: "Qu'est-ce qu'on voit pendant la Fête Nationale ?",
-                options: ["Des défilés et des feux d'artifice", "Des œufs en chocolat", "Du muguet dans les rues", "Des sapins de Noël"],
-                answer: "Des défilés et des feux d'artifice"
-            }
-        ]
+            { id: "fr-r-a2-1-q1", level: "A2", prompt: "Pourquoi la ville était-elle calme ce week-end ?", options: ["La plupart des Parisiens étaient partis en vacances.", "Il y avait une grève.", "C'était un jour férié.", "Il faisait mauvais temps."], answer: "La plupart des Parisiens étaient partis en vacances." },
+            { id: "fr-r-a2-1-q2", level: "A2", prompt: "Qu'est-ce qui a arrêté le regard de Lucie dans la rue ?", options: ["Un tableau dans une vitrine", "Un café coloré", "Un atelier d'artiste", "Un homme qui arrangeait des cadres"], answer: "Un tableau dans une vitrine" },
+            { id: "fr-r-a2-1-q3", level: "A2", prompt: "Pendant combien de temps Lucie a-t-elle parlé avec Amadou ?", options: ["Une heure", "Deux heures", "Vingt minutes", "Toute la soirée"], answer: "Une heure" },
+            { id: "fr-r-a2-1-q4", level: "A2", prompt: "Pourquoi Lucie considère-t-elle que cette journée était parfaite ?", options: ["Parce que rien ne s'était passé comme prévu", "Parce qu'elle avait bien mangé", "Parce qu'elle a acheté un tableau", "Parce que le temps était beau"], answer: "Parce que rien ne s'était passé comme prévu" },
+        ],
     },
+
+    // ── fr-r-a2-2 : Dialogue — comparing two cities ────────────────────────────
     {
         id: "fr-r-a2-2",
         level: "A2",
-        category: "culture",
-        title: "La gastronomie française",
+        category: "dialogue",
+        title: "Paris ou Lyon — le grand débat",
         body: {
-            target: "La cuisine française est célèbre dans le monde entier. Le pain est très important dans la vie quotidienne des Français. Chaque matin, ils achètent une baguette fraîche à la boulangerie. Le repas principal est souvent le déjeuner. Un repas traditionnel comprend une entrée, un plat principal, du fromage et un dessert. La France produit plus de mille variétés de fromage. Parmi les plus connus, on trouve le camembert, le brie et le roquefort. Le vin accompagne souvent les repas. La gastronomie française est classée au patrimoine culturel immatériel de l'UNESCO.",
-            native: "French cuisine is famous worldwide. Bread is very important in the daily life of the French. Every morning, they buy a fresh baguette at the bakery. The main meal is often lunch. A traditional meal includes a starter, a main course, cheese and a dessert. France produces over a thousand varieties of cheese. Among the best known are camembert, brie and roquefort. Wine often accompanies meals. French gastronomy is listed as UNESCO intangible cultural heritage."
+            target: `— Alors, tu t'es installé à Lyon depuis six mois maintenant. Tu regrettes Paris ?
+— Honnêtement ? Pas du tout. Je vis mieux ici.
+— Vraiment ? Mais Paris, c'est quand même la capitale ! Il y a beaucoup plus de choses à faire.
+— C'est vrai dans une certaine mesure. Mais ce que j'aime à Lyon, c'est le rythme de vie. Les gens sont moins stressés. Les appartements sont plus grands et moins chers. Et la cuisine — on dit que Lyon est la capitale gastronomique de France, et c'est mérité.
+— Et pour le travail ? Tu ne trouves pas que les opportunités sont moins nombreuses qu'à Paris ?
+— Pour certains secteurs, oui. Mais moi je travaille à distance depuis deux ans, donc ça ne me pose pas de problème. En revanche, j'arrive au bureau en dix minutes — contre quarante-cinq à Paris. C'est ça qui change la vie.
+— Et le manque de Paris ? Les musées, les restaurants étoilés, l'animation la nuit...
+— Je n'en souffre pas. D'ailleurs, je reviens à Paris deux ou trois fois par an. Je l'apprécie encore mieux maintenant — comme une ville qu'on visite, pas une ville où on survit.
+— Donc pour toi, Lyon est meilleure que Paris ?
+— Pour y habiter ? Oui, sans hésiter. Pour visiter ? Paris est imbattable. Mais ce sont deux choses très différentes.`,
+            native: `— So, you've been settled in Lyon for six months now. Do you miss Paris?
+— Honestly? Not at all. I live better here.
+— Really? But Paris is still the capital! There's much more to do.
+— That's true to a certain extent. But what I love about Lyon is the pace of life. People are less stressed. Flats are bigger and cheaper. And the food — they say Lyon is the gastronomic capital of France, and it's deserved.
+— And for work? Don't you find there are fewer opportunities than in Paris?
+— For some sectors, yes. But I've been working remotely for two years, so it's not a problem for me. On the other hand, I get to the office in ten minutes — versus forty-five in Paris. That's what changes your life.
+— And missing Paris? The museums, the Michelin-starred restaurants, the nightlife...
+— I don't suffer from it. Besides, I come back to Paris two or three times a year. I appreciate it even more now — like a city you visit, not a city where you survive.
+— So for you, Lyon is better than Paris?
+— To live in? Yes, without hesitation. To visit? Paris is unbeatable. But those are two very different things.`,
         },
         vocabGloss: [
-            { word: "quotidienne", translation: "daily" },
-            { word: "boulangerie", translation: "bakery" },
-            { word: "comprend", translation: "includes / comprises" },
-            { word: "entrée", translation: "starter / first course" },
-            { word: "plat principal", translation: "main course" },
-            { word: "produit", translation: "produces" },
-            { word: "patrimoine", translation: "heritage" }
+            { word: "s'installer", translation: "to settle (move to a place)" },
+            { word: "mérité", translation: "deserved" },
+            { word: "à distance", translation: "remotely" },
+            { word: "en revanche", translation: "on the other hand" },
+            { word: "le manque", translation: "the lack / the missing" },
+            { word: "étoilé", translation: "starred (Michelin-starred)" },
+            { word: "survivre", translation: "to survive" },
+            { word: "imbattable", translation: "unbeatable" },
         ],
         questions: [
-            {
-                id: "fr-r-a2-2-q1",
-                level: "A2",
-                prompt: "Où les Français achètent-ils leur pain chaque matin ?",
-                options: ["À la boulangerie", "Au supermarché", "Au marché", "À la pâtisserie"],
-                answer: "À la boulangerie"
-            },
-            {
-                id: "fr-r-a2-2-q2",
-                level: "A2",
-                prompt: "Quel est souvent le repas principal en France ?",
-                options: ["Le déjeuner", "Le dîner", "Le petit-déjeuner", "Le goûter"],
-                answer: "Le déjeuner"
-            },
-            {
-                id: "fr-r-a2-2-q3",
-                level: "A2",
-                prompt: "Combien de variétés de fromage la France produit-elle ?",
-                options: ["Plus de mille", "Plus de cent", "Environ cinquante", "Plus de cinq mille"],
-                answer: "Plus de mille"
-            },
-            {
-                id: "fr-r-a2-2-q4",
-                level: "A2",
-                prompt: "Quel organisme a classé la gastronomie française au patrimoine culturel ?",
-                options: ["L'UNESCO", "L'ONU", "L'UE", "L'OMS"],
-                answer: "L'UNESCO"
-            }
-        ]
+            { id: "fr-r-a2-2-q1", level: "A2", prompt: "Depuis combien de temps l'homme habite-t-il à Lyon ?", options: ["Six mois", "Deux ans", "Un an", "Trois mois"], answer: "Six mois" },
+            { id: "fr-r-a2-2-q2", level: "A2", prompt: "Pourquoi le problème du travail ne le concerne-t-il pas ?", options: ["Il travaille à distance depuis deux ans.", "Il a trouvé un emploi à Lyon.", "Il est à la retraite.", "Il voyage souvent pour le travail."], answer: "Il travaille à distance depuis deux ans." },
+            { id: "fr-r-a2-2-q3", level: "A2", prompt: "Quelle est la différence entre Paris et Lyon pour lui ?", options: ["Lyon pour habiter, Paris pour visiter", "Lyon pour travailler, Paris pour les loisirs", "Paris pour les deux", "Lyon pour les deux"], answer: "Lyon pour habiter, Paris pour visiter" },
+            { id: "fr-r-a2-2-q4", level: "A2", prompt: "Combien de fois par an revient-il à Paris ?", options: ["Deux ou trois fois", "Une fois", "Quatre ou cinq fois", "Chaque mois"], answer: "Deux ou trois fois" },
+        ],
     },
+
+    // ── fr-r-a2-3 : Travel — a delayed train ──────────────────────────────────
     {
         id: "fr-r-a2-3",
         level: "A2",
-        category: "culture",
-        title: "Paris et ses monuments",
+        category: "everyday",
+        title: "Le voyage raté — ou presque",
         body: {
-            target: "Paris est la capitale de la France et l'une des plus belles villes du monde. La tour Eiffel est le monument le plus célèbre. Elle a été construite en 1889 pour l'Exposition Universelle. Le Louvre est l'un des plus grands musées du monde. On peut y admirer la Joconde de Léonard de Vinci. Notre-Dame de Paris est une belle cathédrale gothique sur l'île de la Cité. Après l'incendie de 2019, elle est en cours de restauration. Le musée d'Orsay expose de nombreuses œuvres impressionnistes. Les touristes peuvent aussi se promener sur les Champs-Élysées et visiter le Sacré-Cœur à Montmartre.",
-            native: "Paris is the capital of France and one of the most beautiful cities in the world. The Eiffel Tower is the most famous monument. It was built in 1889 for the Universal Exhibition. The Louvre is one of the largest museums in the world. You can admire the Mona Lisa by Leonardo da Vinci there. Notre-Dame de Paris is a beautiful Gothic cathedral on the Île de la Cité. After the 2019 fire, it is currently being restored. The Musée d'Orsay displays many Impressionist works. Tourists can also walk along the Champs-Élysées and visit the Sacré-Cœur in Montmartre."
+            target: `Je voulais prendre le TGV de seize heures pour rentrer à Bordeaux. J'étais déjà sur le quai, ma valise à mes pieds, quand j'ai vu sur le panneau d'affichage que mon train avait du retard — une heure et demie.
+
+Je suis allé au guichet. La queue était longue et j'ai attendu vingt minutes. L'agent m'a expliqué qu'il y avait un incident technique entre Tours et Poitiers. Elle m'a proposé de prendre le train de dix-sept heures trente — il était direct et arriverait à Bordeaux à vingt heures.
+
+J'ai accepté. J'avais le temps, donc je suis allé dans le café de la gare commander un sandwich et un café. Je me suis installé près de la fenêtre et j'ai regardé les gens passer. Il y avait une femme avec trois valises immenses qui cherchait son quai en courant. Un enfant qui pleurait parce qu'il avait perdu son doudou. Un vieux monsieur qui lisait tranquillement son journal, comme si le temps n'existait pas.
+
+Le train de dix-sept heures trente est parti à l'heure. J'ai dormi presque tout le trajet. Quand je suis arrivé à Bordeaux, il faisait nuit, mais je me sentais étonnamment bien — comme si cette heure et demie d'attente m'avait offert un cadeau inattendu : du temps pour ne rien faire.`,
+            native: `I wanted to take the 4pm TGV to get back to Bordeaux. I was already on the platform, my suitcase at my feet, when I saw on the departure board that my train was delayed — one and a half hours.
+
+I went to the ticket window. The queue was long and I waited twenty minutes. The agent explained that there was a technical incident between Tours and Poitiers. She offered me the option of taking the 5:30pm train — it was direct and would arrive in Bordeaux at 8pm.
+
+I agreed. I had time, so I went to the station café to order a sandwich and a coffee. I settled by the window and watched people go by. There was a woman with three enormous suitcases looking for her platform at a run. A child crying because he had lost his comfort toy. An old gentleman calmly reading his newspaper, as if time didn't exist.
+
+The 5:30 train left on time. I slept for almost the entire journey. When I arrived in Bordeaux, it was night, but I felt surprisingly well — as if that hour and a half of waiting had given me an unexpected gift: time to do nothing.`,
         },
         vocabGloss: [
-            { word: "capitale", translation: "capital city" },
-            { word: "a été construite", translation: "was built" },
-            { word: "admirer", translation: "to admire" },
-            { word: "cathédrale", translation: "cathedral" },
-            { word: "incendie", translation: "fire" },
-            { word: "en cours de restauration", translation: "currently being restored" },
-            { word: "expose", translation: "displays / exhibits" },
-            { word: "œuvres", translation: "works (of art)" }
+            { word: "le panneau d'affichage", translation: "the departure board" },
+            { word: "un incident technique", translation: "a technical incident" },
+            { word: "je me suis installé", translation: "I settled (sat down)" },
+            { word: "un doudou", translation: "a comfort toy / cuddly toy" },
+            { word: "étonnamment", translation: "surprisingly" },
+            { word: "un cadeau inattendu", translation: "an unexpected gift" },
         ],
         questions: [
-            {
-                id: "fr-r-a2-3-q1",
-                level: "A2",
-                prompt: "Quand a été construite la tour Eiffel ?",
-                options: ["En 1889", "En 1900", "En 1850", "En 1920"],
-                answer: "En 1889"
-            },
-            {
-                id: "fr-r-a2-3-q2",
-                level: "A2",
-                prompt: "Quel tableau célèbre peut-on voir au Louvre ?",
-                options: ["La Joconde", "Les Nymphéas", "Le Déjeuner sur l'herbe", "La Liberté guidant le peuple"],
-                answer: "La Joconde"
-            },
-            {
-                id: "fr-r-a2-3-q3",
-                level: "A2",
-                prompt: "Pourquoi Notre-Dame est-elle en cours de restauration ?",
-                options: ["À cause de l'incendie de 2019", "Parce qu'elle est très vieille", "Pour moderniser la cathédrale", "Pour accueillir plus de touristes"],
-                answer: "À cause de l'incendie de 2019"
-            },
-            {
-                id: "fr-r-a2-3-q4",
-                level: "A2",
-                prompt: "Quel type d'art peut-on voir au musée d'Orsay ?",
-                options: ["Des œuvres impressionnistes", "Des sculptures grecques", "Des peintures gothiques", "Des photos modernes"],
-                answer: "Des œuvres impressionnistes"
-            }
-        ]
+            { id: "fr-r-a2-3-q1", level: "A2", prompt: "Pourquoi le train de seize heures avait-il du retard ?", options: ["Un incident technique entre Tours et Poitiers", "Une grève", "Le mauvais temps", "Un problème à la gare"], answer: "Un incident technique entre Tours et Poitiers" },
+            { id: "fr-r-a2-3-q2", level: "A2", prompt: "Qu'est-ce que l'agent lui a proposé ?", options: ["De prendre le train de dix-sept heures trente", "D'attendre son train original", "De prendre un autobus", "De demander un remboursement"], answer: "De prendre le train de dix-sept heures trente" },
+            { id: "fr-r-a2-3-q3", level: "A2", prompt: "Qu'a-t-il fait pendant l'attente ?", options: ["Il est allé au café et a regardé les gens.", "Il a dormi sur le quai.", "Il a appelé sa famille.", "Il a lu son journal."], answer: "Il est allé au café et a regardé les gens." },
+            { id: "fr-r-a2-3-q4", level: "A2", prompt: "Comment s'est-il senti en arrivant à Bordeaux ?", options: ["Étonnamment bien", "Très fatigué", "Très stressé", "Déçu"], answer: "Étonnamment bien" },
+        ],
     },
+
+    // ── fr-r-a2-4 : Culture — the French art of debate ────────────────────────
     {
         id: "fr-r-a2-4",
         level: "A2",
-        category: "everyday",
-        title: "Mon quartier",
+        category: "culture",
+        title: "L'art français du débat",
         body: {
-            target: "J'habite dans un quartier agréable au centre de Bordeaux. Dans mon quartier, il y a beaucoup de commerces. Il y a une boulangerie, une épicerie, une pharmacie et plusieurs cafés. Le marché a lieu tous les mercredis et samedis matin. On y trouve des légumes frais, des fruits et du fromage local. Il y a aussi un joli parc où les enfants jouent et où les gens promènent leurs chiens. Les transports en commun sont pratiques : il y a un arrêt de tramway à deux minutes de chez moi. J'adore mon quartier parce qu'il est vivant et convivial.",
-            native: "I live in a pleasant neighbourhood in the centre of Bordeaux. In my neighbourhood, there are many shops. There is a bakery, a grocery store, a pharmacy and several cafés. The market takes place every Wednesday and Saturday morning. You can find fresh vegetables, fruit and local cheese there. There is also a lovely park where children play and where people walk their dogs. Public transport is convenient: there is a tram stop two minutes from my home. I love my neighbourhood because it is lively and friendly."
+            target: `En France, il est normal — voire attendu — d'avoir des opinions et de les défendre. Lors d'un dîner entre amis, la conversation peut passer, en quelques minutes, des recettes de cuisine à la politique nationale, en passant par la philosophie ou le cinéma. C'est une caractéristique culturelle profonde.
+
+Cette tradition du débat remonte loin dans l'histoire française. Les cafés parisiens du XVIIIe siècle étaient des lieux de discussion intellectuelle intense. Des philosophes comme Voltaire et Rousseau ont contribué à forger une culture où la pensée critique est valorisée.
+
+Mais il ne s'agit pas simplement de parler fort ou d'avoir raison. La façon de débattre compte autant que le contenu. En France, on apprend dès l'école à structurer un argument, à reconnaître la thèse adverse, et à utiliser des connecteurs logiques : certes, cependant, en revanche, toutefois, il n'en reste pas moins que.
+
+Un étranger qui arrive en France peut parfois se sentir agressé par la directness des Français. Mais ce qu'il perçoit comme de l'hostilité est souvent de la stimulation intellectuelle. Si un Français contredit votre opinion, c'est souvent parce qu'il vous prend au sérieux.
+
+La vraie insolence française n'est pas de ne pas être d'accord — c'est de ne pas avoir d'opinion du tout.`,
+            native: `In France, it is normal — even expected — to have opinions and defend them. At a dinner with friends, the conversation can shift, in a few minutes, from cooking recipes to national politics, via philosophy or cinema. It is a deep cultural characteristic.
+
+This tradition of debate goes back a long way in French history. The Parisian cafés of the 18th century were places of intense intellectual discussion. Philosophers like Voltaire and Rousseau helped forge a culture where critical thinking is valued.
+
+But it is not simply a matter of speaking loudly or being right. How you debate matters as much as the content. In France, from school onwards, people learn to structure an argument, acknowledge the opposing thesis, and use logical connectors: certes (admittedly), cependant (however), en revanche (on the other hand), toutefois (nevertheless), il n'en reste pas moins que (the fact remains that).
+
+A foreigner arriving in France may sometimes feel attacked by the directness of French people. But what they perceive as hostility is often intellectual stimulation. If a French person contradicts your opinion, it is often because they are taking you seriously.
+
+The real French insolence is not to disagree — it is to have no opinion at all.`,
         },
         vocabGloss: [
-            { word: "quartier", translation: "neighbourhood" },
-            { word: "commerces", translation: "shops, businesses" },
-            { word: "épicerie", translation: "grocery store" },
-            { word: "a lieu", translation: "takes place" },
-            { word: "transports en commun", translation: "public transport" },
-            { word: "arrêt de tramway", translation: "tram stop" },
-            { word: "vivant", translation: "lively" },
-            { word: "convivial", translation: "friendly, welcoming" }
+            { word: "voire", translation: "even / indeed" },
+            { word: "attendu", translation: "expected" },
+            { word: "remonter", translation: "to go back (in time)" },
+            { word: "forger", translation: "to forge / shape" },
+            { word: "valorisé", translation: "valued / prized" },
+            { word: "la thèse adverse", translation: "the opposing argument" },
+            { word: "contredire", translation: "to contradict" },
+            { word: "prendre au sérieux", translation: "to take seriously" },
         ],
         questions: [
-            {
-                id: "fr-r-a2-4-q1",
-                level: "A2",
-                prompt: "Quand a lieu le marché dans ce quartier ?",
-                options: ["Les mercredis et samedis matin", "Le dimanche matin", "Tous les jours", "Le vendredi soir"],
-                answer: "Les mercredis et samedis matin"
-            },
-            {
-                id: "fr-r-a2-4-q2",
-                level: "A2",
-                prompt: "Quel transport en commun est disponible ?",
-                options: ["Le tramway", "Le métro", "Le bus", "Le train"],
-                answer: "Le tramway"
-            },
-            {
-                id: "fr-r-a2-4-q3",
-                level: "A2",
-                prompt: "Pourquoi la personne aime-t-elle son quartier ?",
-                options: ["Il est vivant et convivial", "Il est calme et tranquille", "Il est proche de la mer", "Il est très moderne"],
-                answer: "Il est vivant et convivial"
-            },
-            {
-                id: "fr-r-a2-4-q4",
-                level: "A2",
-                prompt: "À quelle distance se trouve l'arrêt de tramway ?",
-                options: ["À deux minutes", "À cinq minutes", "À dix minutes", "À une heure"],
-                answer: "À deux minutes"
-            }
-        ]
+            { id: "fr-r-a2-4-q1", level: "A2", prompt: "Qu'est-ce que les cafés parisiens représentaient au XVIIIe siècle ?", options: ["Des lieux de discussion intellectuelle intense", "Des lieux pour boire du café", "Des galeries d'art", "Des écoles philosophiques"], answer: "Des lieux de discussion intellectuelle intense" },
+            { id: "fr-r-a2-4-q2", level: "A2", prompt: "Qu'apprend-on à l'école en France, selon le texte ?", options: ["À structurer un argument et reconnaître la thèse adverse", "À être d'accord avec les autres", "À parler fort pour convaincre", "À éviter les conflits"], answer: "À structurer un argument et reconnaître la thèse adverse" },
+            { id: "fr-r-a2-4-q3", level: "A2", prompt: "Comment un étranger peut-il percevoir la directness française ?", options: ["Comme de l'hostilité, alors que c'est souvent de la stimulation intellectuelle", "Comme de la politesse", "Comme de l'indifférence", "Comme une invitation à changer d'avis"], answer: "Comme de l'hostilité, alors que c'est souvent de la stimulation intellectuelle" },
+            { id: "fr-r-a2-4-q4", level: "A2", prompt: "Quelle est la 'vraie insolence française' selon le texte ?", options: ["Ne pas avoir d'opinion", "Contredire les autres", "Parler trop fort", "Changer d'avis constamment"], answer: "Ne pas avoir d'opinion" },
+        ],
     },
+
+    // ── fr-r-a2-5 : Everyday — a letter about future plans ────────────────────
     {
         id: "fr-r-a2-5",
         level: "A2",
-        category: "dialogue",
-        title: "Un appartement à louer",
-        body: {
-            target: "— Allô, bonjour. Je vous appelle pour l'annonce de l'appartement.\n— Bonjour ! Oui, l'appartement est toujours disponible. Il fait 45 mètres carrés, avec une chambre, un salon et une cuisine équipée.\n— Est-ce que les charges sont comprises dans le loyer ?\n— Non, les charges sont en plus. Le loyer est de 650 euros par mois et les charges de 80 euros.\n— Et l'appartement est au quel étage ?\n— Au troisième étage, sans ascenseur. Mais il y a beaucoup de lumière.\n— Est-ce qu'il est possible de visiter cette semaine ?\n— Bien sûr. Vous êtes libre mercredi après-midi ?\n— Oui, mercredi à 14h, ça me convient parfaitement.\n— Parfait. Je vous donne l'adresse : 12 rue des Lilas, à Lyon.",
-            native: "— Hello, good morning. I'm calling about the flat advertisement.\n— Hello! Yes, the flat is still available. It's 45 square metres, with one bedroom, a living room and a fitted kitchen.\n— Are the service charges included in the rent?\n— No, charges are extra. The rent is 650 euros per month and charges are 80 euros.\n— And what floor is the flat on?\n— On the third floor, without a lift. But there is plenty of light.\n— Is it possible to visit this week?\n— Of course. Are you free Wednesday afternoon?\n— Yes, Wednesday at 2 pm suits me perfectly.\n— Perfect. I'll give you the address: 12 rue des Lilas, in Lyon."
-        },
-        vocabGloss: [
-            { word: "annonce", translation: "advertisement, listing" },
-            { word: "disponible", translation: "available" },
-            { word: "mètres carrés", translation: "square metres" },
-            { word: "cuisine équipée", translation: "fitted kitchen" },
-            { word: "charges", translation: "service charges, utilities" },
-            { word: "comprises", translation: "included" },
-            { word: "loyer", translation: "rent" },
-            { word: "ascenseur", translation: "lift, elevator" },
-            { word: "ça me convient", translation: "that suits me" }
-        ],
-        questions: [
-            {
-                id: "fr-r-a2-5-q1",
-                level: "A2",
-                prompt: "Quelle est la superficie de l'appartement ?",
-                options: ["45 mètres carrés", "55 mètres carrés", "35 mètres carrés", "60 mètres carrés"],
-                answer: "45 mètres carrés"
-            },
-            {
-                id: "fr-r-a2-5-q2",
-                level: "A2",
-                prompt: "Les charges sont-elles incluses dans le loyer ?",
-                options: ["Non, elles sont en plus", "Oui, tout est compris", "Seulement l'eau", "Seulement l'électricité"],
-                answer: "Non, elles sont en plus"
-            },
-            {
-                id: "fr-r-a2-5-q3",
-                level: "A2",
-                prompt: "À quel étage se trouve l'appartement ?",
-                options: ["Au troisième étage", "Au premier étage", "Au deuxième étage", "Au quatrième étage"],
-                answer: "Au troisième étage"
-            },
-            {
-                id: "fr-r-a2-5-q4",
-                level: "A2",
-                prompt: "Quel jour est fixé pour la visite ?",
-                options: ["Mercredi à 14h", "Mardi à 14h", "Jeudi à 14h", "Vendredi matin"],
-                answer: "Mercredi à 14h"
-            }
-        ]
-    },
-    {
-        id: "fr-r-a2-6",
-        level: "A2",
         category: "everyday",
-        title: "Ma journée d'hier",
+        title: "Lettre à une amie — mes projets",
         body: {
-            target: "Hier, j'ai eu une journée très chargée. Le matin, je me suis levé tôt parce que j'avais une réunion importante au travail. Quand je suis arrivé au bureau, mes collègues étaient déjà là. La réunion a duré deux heures. Pendant ce temps, il pleuvait dehors. À midi, j'ai mangé un sandwich dans un petit café près du bureau. L'après-midi, j'ai travaillé sur un rapport. C'était difficile parce que je n'avais pas toutes les informations nécessaires. Le soir, j'étais fatigué, alors je suis rentré à la maison et j'ai regardé un film. Je me suis couché à 22h. C'était une longue journée, mais j'étais content d'avoir terminé le rapport.",
-            native: "Yesterday, I had a very busy day. In the morning, I got up early because I had an important meeting at work. When I arrived at the office, my colleagues were already there. The meeting lasted two hours. Meanwhile, it was raining outside. At noon, I ate a sandwich in a small café near the office. In the afternoon, I worked on a report. It was difficult because I didn't have all the necessary information. In the evening, I was tired, so I went home and watched a film. I went to bed at 10 pm. It was a long day, but I was glad to have finished the report."
+            target: `Chère Inès,
+
+Je t'écris depuis mon appartement à Toulouse où j'habite maintenant depuis trois mois. Le temps passe vite ! Je viens de terminer ma première période d'essai au travail — ça s'est très bien passé et mon responsable m'a dit que je pourrais rester.
+
+Je me sens beaucoup mieux qu'au début. Les premiers semaines, je me sentais un peu perdue — une ville nouvelle, peu d'amis, beaucoup de travail. Mais maintenant je connais quelques personnes sympas dans mon immeuble, et j'ai découvert un marché incroyable tous les dimanches à deux rues de chez moi.
+
+Pour l'avenir proche : la semaine prochaine, j'irai à Paris pour voir mes parents. Je ne les ai pas vus depuis mon déménagement ! Et pour Noël, si j'ai des congés supplémentaires, j'aimerais partir quelques jours en Espagne — je viens de commencer des cours d'espagnol, donc ça serait une bonne occasion de pratiquer.
+
+Dans un monde idéal, d'ici deux ans, je voudrais trouver un appartement plus grand avec un balcon, et peut-être adopter un chat. Ce serait la vie parfaite.
+
+Et toi ? Tu m'as dit que tu envisageais de quitter Paris. C'est vrai ? Raconte-moi tout quand tu peux.
+
+Bises,
+Camille`,
+            native: `Dear Inès,
+
+I'm writing to you from my flat in Toulouse where I've been living for three months now. Time passes quickly! I just finished my probationary period at work — it went very well and my manager told me I could stay.
+
+I feel much better than at the beginning. The first few weeks, I felt a bit lost — a new city, few friends, a lot of work. But now I know a few nice people in my building, and I've discovered an incredible market every Sunday two streets from home.
+
+For the near future: next week, I'll go to Paris to see my parents. I haven't seen them since my move! And for Christmas, if I get extra leave, I'd like to go away for a few days to Spain — I just started Spanish lessons, so it would be a good opportunity to practise.
+
+In an ideal world, within two years, I'd like to find a larger flat with a balcony, and maybe adopt a cat. That would be the perfect life.
+
+And you? You told me you were considering leaving Paris. Is that true? Tell me everything when you can.
+
+Love,
+Camille`,
         },
         vocabGloss: [
-            { word: "chargée", translation: "busy, full (of a day)" },
-            { word: "réunion", translation: "meeting" },
-            { word: "a duré", translation: "lasted" },
-            { word: "rapport", translation: "report" },
-            { word: "nécessaires", translation: "necessary" },
-            { word: "content d'avoir terminé", translation: "glad to have finished" }
+            { word: "une période d'essai", translation: "a probationary period" },
+            { word: "perdue", translation: "lost (feminine)" },
+            { word: "un déménagement", translation: "a move (house)" },
+            { word: "des congés", translation: "leave / holidays" },
+            { word: "adopter", translation: "to adopt" },
+            { word: "envisager de", translation: "to be considering" },
         ],
         questions: [
-            {
-                id: "fr-r-a2-6-q1",
-                level: "A2",
-                prompt: "Pourquoi la personne s'est-elle levée tôt ?",
-                options: ["À cause d'une réunion importante", "Pour aller au marché", "Pour prendre le train", "Parce qu'elle ne dormait pas bien"],
-                answer: "À cause d'une réunion importante"
-            },
-            {
-                id: "fr-r-a2-6-q2",
-                level: "A2",
-                prompt: "Combien de temps a duré la réunion ?",
-                options: ["Deux heures", "Une heure", "Trois heures", "Trente minutes"],
-                answer: "Deux heures"
-            },
-            {
-                id: "fr-r-a2-6-q3",
-                level: "A2",
-                prompt: "Qu'est-ce que la personne a fait le soir ?",
-                options: ["Elle a regardé un film", "Elle a lu un livre", "Elle a cuisiné", "Elle est sortie avec des amis"],
-                answer: "Elle a regardé un film"
-            },
-            {
-                id: "fr-r-a2-6-q4",
-                level: "A2",
-                prompt: "Comment était la journée selon la personne ?",
-                options: ["Longue mais satisfaisante", "Ennuyeuse et facile", "Courte et agréable", "Stressante et inutile"],
-                answer: "Longue mais satisfaisante"
-            }
-        ]
+            { id: "fr-r-a2-5-q1", level: "A2", prompt: "Depuis combien de temps Camille habite-t-elle à Toulouse ?", options: ["Trois mois", "Six mois", "Un an", "Deux mois"], answer: "Trois mois" },
+            { id: "fr-r-a2-5-q2", level: "A2", prompt: "Qu'est-ce qu'elle vient de faire au travail ?", options: ["Terminer sa première période d'essai", "Démissionner", "Commencer un nouveau poste", "Avoir une promotion"], answer: "Terminer sa première période d'essai" },
+            { id: "fr-r-a2-5-q3", level: "A2", prompt: "Quel est son projet pour Noël, si elle a des congés ?", options: ["Partir quelques jours en Espagne", "Aller à Paris", "Rester à Toulouse", "Visiter l'Italie"], answer: "Partir quelques jours en Espagne" },
+            { id: "fr-r-a2-5-q4", level: "A2", prompt: "Dans un monde idéal, que voudrait-elle d'ici deux ans ?", options: ["Un appartement plus grand avec un balcon et peut-être un chat", "Retourner à Paris", "Trouver un autre travail", "Apprendre le japonais"], answer: "Un appartement plus grand avec un balcon et peut-être un chat" },
+        ],
     },
-    {
-        id: "fr-r-a2-7",
-        level: "A2",
-        category: "everyday",
-        title: "Une lettre de vacances",
-        body: {
-            target: "Chère Lucie,\n\nJe t'écris depuis la Bretagne où je passerai tout le mois d'août. C'est vraiment magnifique ici ! Demain, nous irons visiter le Mont-Saint-Michel. Ce sera notre première visite et nous sommes très impatients. La semaine prochaine, nous ferons une randonnée le long de la côte. Il paraît que les paysages sont extraordinaires.\n\nJe mangerai beaucoup de crêpes et de fruits de mer — tu me connais ! Le soir, nous nous promènerons dans les petits villages bretons. Je prendrai beaucoup de photos et je te les montrerai à mon retour.\n\nJ'espère que tu vas bien et que tes vacances se passent bien aussi. On se retrouvera à la rentrée !\n\nGros bisous,\nSophie",
-            native: "Dear Lucie,\n\nI'm writing to you from Brittany where I will be spending the whole month of August. It's truly magnificent here! Tomorrow, we will go and visit Mont-Saint-Michel. It will be our first visit and we are very excited. Next week, we will do a hike along the coast. Apparently the scenery is extraordinary.\n\nI will eat lots of crêpes and seafood — you know me! In the evenings, we will stroll through the small Breton villages. I will take lots of photos and I'll show them to you when I'm back.\n\nI hope you're well and that your holidays are going well too. We'll catch up at the start of term!\n\nLots of love,\nSophie"
-        },
-        vocabGloss: [
-            { word: "impatients", translation: "excited, impatient (eager)" },
-            { word: "randonnée", translation: "hike, walk" },
-            { word: "le long de", translation: "along" },
-            { word: "il paraît que", translation: "apparently, it seems that" },
-            { word: "fruits de mer", translation: "seafood" },
-            { word: "se promènerons", translation: "will stroll, will walk" },
-            { word: "à mon retour", translation: "when I'm back, upon my return" },
-            { word: "la rentrée", translation: "start of the school/work year" }
-        ],
-        questions: [
-            {
-                id: "fr-r-a2-7-q1",
-                level: "A2",
-                prompt: "Où Sophie passe-t-elle ses vacances ?",
-                options: ["En Bretagne", "En Normandie", "En Provence", "En Alsace"],
-                answer: "En Bretagne"
-            },
-            {
-                id: "fr-r-a2-7-q2",
-                level: "A2",
-                prompt: "Que feront-ils le lendemain de la lettre ?",
-                options: ["Visiter le Mont-Saint-Michel", "Faire une randonnée", "Manger des crêpes", "Rentrer à la maison"],
-                answer: "Visiter le Mont-Saint-Michel"
-            },
-            {
-                id: "fr-r-a2-7-q3",
-                level: "A2",
-                prompt: "Que fera Sophie avec ses photos ?",
-                options: ["Elle les montrera à Lucie à son retour", "Elle les postera sur Internet", "Elle les enverra par email", "Elle les imprimera en Bretagne"],
-                answer: "Elle les montrera à Lucie à son retour"
-            },
-            {
-                id: "fr-r-a2-7-q4",
-                level: "A2",
-                prompt: "Quand est-ce que Sophie et Lucie se retrouveront ?",
-                options: ["À la rentrée", "En août", "Pendant les vacances", "Le mois prochain"],
-                answer: "À la rentrée"
-            }
-        ]
-    }
 ]
