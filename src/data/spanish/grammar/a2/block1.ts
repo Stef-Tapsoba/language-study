@@ -322,7 +322,7 @@ But in indefinido they mark a specific moment of change:
         condition: "Common error: state verbs with indefinido",
         result: "State verbs (estar, saber, conocer…) in indefinido signal a change of state — not just the past",
         examples: [
-          { native: "No sabía la verdad. → Supe la verdad el lunes. (I found out)", translation: "I didn't know the truth. → I found out the truth on Monday." },
+          { native: "No sabía la verdad. → Supe la verdad el lunes.", translation: "I didn't know the truth. / I found out the truth on Monday.", annotation: "imperfecto (ongoing state) → indefinido (change of state: found out)" },
           { native: "Ya conocía a algunos invitados. Esa noche conocí a Rodrigo. (first meeting)", translation: "I already knew some guests. That night I met Rodrigo." },
         ],
       },

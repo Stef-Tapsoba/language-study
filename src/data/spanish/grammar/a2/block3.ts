@@ -61,8 +61,8 @@ LatAm note: In Latin America, lo/la/los/las are always used for direct objects �
         condition: "Replacing a direct object noun",
         result: "Match the pronoun to the gender and number of the replaced noun; place BEFORE the conjugated verb",
         examples: [
-          { native: "Compré las entradas. → Las compré.", translation: "I bought the tickets. → I bought them." },
-          { native: "¿Tienes el libro? → ¿Lo tienes?", translation: "Do you have the book? → Do you have it?" },
+          { native: "Compré las entradas. → Las compré.", translation: "I bought the tickets. / I bought them.", annotation: "entradas (fem.pl.) → las" },
+          { native: "¿Tienes el libro? → ¿Lo tienes?", translation: "Do you have the book? / Do you have it?", annotation: "libro (masc.sg.) → lo" },
         ],
       },
       {
@@ -180,8 +180,8 @@ COMPLETE PRONOUN ORDER (for reference):
         condition: "OI + OD in the same sentence: le/les before lo/la/los/las",
         result: "le/les → se (always, no exceptions)",
         examples: [
-          { native: "Le doy el libro. → Se lo doy.", translation: "I give her the book. → I give it to her." },
-          { native: "¿Les explicaste el plan? → ¿Se lo explicaste?", translation: "Did you explain the plan to them? → Did you explain it to them?" },
+          { native: "Le doy el libro. → Se lo doy.", translation: "I give her the book. / I give it to her.", annotation: "le → se (before lo); el libro → lo" },
+          { native: "¿Les explicaste el plan? → ¿Se lo explicaste?", translation: "Did you explain the plan to them? / Did you explain it to them?", annotation: "les → se (before lo); el plan → lo" },
         ],
       },
     ],
