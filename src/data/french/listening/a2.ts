@@ -2,235 +2,104 @@
 import { ListeningExercise } from "../../../types"
 
 export const a2Listening: ListeningExercise[] = [
+    // ── fr-l-a2-1 : PC vs Imparfait — a weekend story ─────────────────────────
     {
         id: "fr-l-a2-1",
         level: "A2",
-        title: "La météo — bulletin météorologique",
-        script: "Bonsoir et bienvenue au bulletin météo. Ce soir, des nuages arrivent par l'ouest. Il va pleuvoir cette nuit dans le nord et l'ouest de la France. Demain matin, il fera froid avec des températures autour de cinq degrés. L'après-midi, le soleil va revenir dans le sud et l'est du pays. Il fera entre quinze et dix-huit degrés. Le week-end, le temps sera variable avec des averses possibles samedi. Dimanche sera la plus belle journée de la semaine avec du soleil partout.",
-        translation: "Good evening and welcome to the weather bulletin. Tonight, clouds are arriving from the west. It will rain tonight in the north and west of France. Tomorrow morning, it will be cold with temperatures around five degrees. In the afternoon, the sun will return in the south and east of the country. It will be between fifteen and eighteen degrees. At the weekend, the weather will be changeable with possible showers on Saturday. Sunday will be the best day of the week with sunshine everywhere.",
+        title: "Le week-end de Thomas",
+        script: "Alors, mon week-end ? C'était assez bizarre, en fait. Samedi matin, il faisait beau, donc j'ai décidé d'aller au marché. J'y vais souvent le samedi — j'aime l'ambiance. J'achetais des légumes quand j'ai rencontré Sophie, une amie que je n'avais pas vue depuis six mois. On a pris un café ensemble. Elle m'a raconté qu'elle venait de revenir d'un voyage au Japon. J'étais vraiment jaloux ! Après, je suis rentré chez moi, j'ai cuisiné, et j'ai regardé un film. Le soir, j'avais prévu de sortir, mais j'étais tellement fatigué que je me suis couché à vingt-deux heures. Pas très excitant, mais ça m'a fait du bien.",
+        translation: "So, my weekend? It was quite strange, actually. Saturday morning, the weather was nice, so I decided to go to the market. I often go on Saturdays — I like the atmosphere. I was buying vegetables when I met Sophie, a friend I hadn't seen for six months. We had a coffee together. She told me she had just come back from a trip to Japan. I was really jealous! Afterwards, I went back home, cooked, and watched a film. In the evening, I had planned to go out, but I was so tired that I went to bed at ten. Not very exciting, but it did me good.",
+        dialogue: [
+            { speaker: "Thomas", text: "Alors, mon week-end ? C'était assez bizarre, en fait.", translation: "So, my weekend? It was quite strange, actually." },
+            { speaker: "Thomas", text: "Samedi matin, il faisait beau, donc j'ai décidé d'aller au marché.", translation: "Saturday morning, the weather was nice, so I decided to go to the market." },
+            { speaker: "Thomas", text: "J'y vais souvent le samedi — j'aime l'ambiance.", translation: "I often go on Saturdays — I like the atmosphere." },
+            { speaker: "Thomas", text: "J'achetais des légumes quand j'ai rencontré Sophie, une amie que je n'avais pas vue depuis six mois.", translation: "I was buying vegetables when I met Sophie, a friend I hadn't seen for six months." },
+            { speaker: "Thomas", text: "On a pris un café ensemble. Elle m'a raconté qu'elle venait de revenir d'un voyage au Japon. J'étais vraiment jaloux !", translation: "We had a coffee together. She told me she had just come back from a trip to Japan. I was really jealous!" },
+            { speaker: "Thomas", text: "Après, je suis rentré chez moi, j'ai cuisiné, et j'ai regardé un film.", translation: "Afterwards, I went home, cooked, and watched a film." },
+            { speaker: "Thomas", text: "Le soir, j'avais prévu de sortir, mais j'étais tellement fatigué que je me suis couché à vingt-deux heures.", translation: "In the evening, I had planned to go out, but I was so tired that I went to bed at ten." },
+        ],
         questions: [
-            {
-                id: "fr-l-a2-1-q1",
-                level: "A2",
-                prompt: "Où va-t-il pleuvoir cette nuit ?",
-                options: ["Dans le nord et l'ouest", "Dans le sud et l'est", "Partout en France", "Seulement à Paris"],
-                answer: "Dans le nord et l'ouest"
-            },
-            {
-                id: "fr-l-a2-1-q2",
-                level: "A2",
-                prompt: "Quelles températures sont prévues l'après-midi ?",
-                options: ["Entre 15 et 18 degrés", "Autour de 5 degrés", "Entre 10 et 12 degrés", "Plus de 20 degrés"],
-                answer: "Entre 15 et 18 degrés"
-            },
-            {
-                id: "fr-l-a2-1-q3",
-                level: "A2",
-                prompt: "Quel est le meilleur jour du week-end selon le bulletin ?",
-                options: ["Dimanche", "Samedi", "Les deux jours", "Ni l'un ni l'autre"],
-                answer: "Dimanche"
-            }
-        ]
+            { id: "fr-l-a2-1-q1", level: "A2", prompt: "Qu'est-ce que Thomas faisait quand il a rencontré Sophie ?", options: ["Il achetait des légumes au marché.", "Il buvait un café.", "Il rentrait chez lui.", "Il regardait un film."], answer: "Il achetait des légumes au marché." },
+            { id: "fr-l-a2-1-q2", level: "A2", prompt: "Depuis combien de temps Thomas n'avait-il pas vu Sophie ?", options: ["Six mois", "Un an", "Trois mois", "Deux semaines"], answer: "Six mois" },
+            { id: "fr-l-a2-1-q3", level: "A2", prompt: "Pourquoi Thomas ne sort-il pas le soir ?", options: ["Il était tellement fatigué.", "Il n'avait pas de plans.", "Il faisait mauvais temps.", "Il devait travailler."], answer: "Il était tellement fatigué." },
+            { id: "fr-l-a2-1-q4", level: "A2", prompt: "Où Sophie venait-elle de revenir ?", options: ["D'un voyage au Japon", "D'un voyage en Italie", "D'une visite à Paris", "D'un voyage en Espagne"], answer: "D'un voyage au Japon" },
+        ],
     },
+
+    // ── fr-l-a2-2 : Comparisons — two friends comparing cities ────────────────
     {
         id: "fr-l-a2-2",
         level: "A2",
-        title: "À la gare — acheter un billet",
-        script: "Bonjour monsieur, je voudrais un billet pour Lyon, s'il vous plaît. Pour quand ? Pour aujourd'hui, le train de quatorze heures trente. En première ou en deuxième classe ? En deuxième classe, s'il vous plaît. Aller simple ou aller-retour ? Aller-retour. Le retour pour quand ? Dimanche prochain, le soir si possible. Il y a un train à dix-neuf heures quinze. Parfait ! Ça coûte combien ? Soixante-douze euros. Vous payez par carte ? Oui, s'il vous plaît. Voici vos billets. Bon voyage !",
-        translation: "Good morning sir, I'd like a ticket for Lyon, please. For when? For today, the two thirty train. First or second class? Second class, please. Single or return? Return. When for the return? Next Sunday, in the evening if possible. There's a train at nineteen fifteen. Perfect! How much is it? Seventy-two euros. Paying by card? Yes, please. Here are your tickets. Have a good trip!",
+        title: "Lyon ou Bordeaux ?",
+        script: "Alors, tu as visité Bordeaux la semaine dernière. C'était comment ? C'était vraiment bien ! La ville est plus petite que Lyon, mais elle est très animée — surtout autour des quais. Je trouve que les gens y sont aussi sympathiques qu'à Lyon. Et la cuisine est meilleure qu'à Paris, sans hésiter. Ah bon ? Tu trouves vraiment ? Absolument. Il y a plus de restaurants gastronomiques que je ne pensais. Et les vins, évidemment — c'est imbattable. Mais il y a moins de transports en commun qu'à Lyon, c'est vrai. Ce qui m'a le plus surpris, c'est l'architecture du centre-ville. C'est vraiment la plus belle ville de France, je crois. Ah, ça c'est discutable ! Pour moi, Lyon reste la meilleure pour y habiter.",
+        translation: "So, you visited Bordeaux last week. How was it? It was really good! The city is smaller than Lyon, but it's very lively — especially around the waterfront. I find that people there are just as friendly as in Lyon. And the food is better than in Paris, without hesitation. Really? You really think so? Absolutely. There are more gourmet restaurants than I expected. And the wines, obviously — that's unbeatable. But there are fewer public transport options than in Lyon, that's true. What surprised me most was the architecture of the city centre. I think it's really the most beautiful city in France. Ah, that's debatable! For me, Lyon remains the best city to live in.",
         dialogue: [
-            { speaker: "Client", text: "Bonjour monsieur, je voudrais un billet pour Lyon, s'il vous plaît.", translation: "Good morning sir, I'd like a ticket for Lyon, please." },
-            { speaker: "Employé", text: "Pour quand ?", translation: "For when?" },
-            { speaker: "Client", text: "Pour aujourd'hui, le train de quatorze heures trente.", translation: "For today, the two thirty train." },
-            { speaker: "Employé", text: "En première ou en deuxième classe ?", translation: "First or second class?" },
-            { speaker: "Client", text: "En deuxième classe, s'il vous plaît.", translation: "Second class, please." },
-            { speaker: "Employé", text: "Aller simple ou aller-retour ?", translation: "Single or return?" },
-            { speaker: "Client", text: "Aller-retour.", translation: "Return." },
-            { speaker: "Employé", text: "Le retour pour quand ?", translation: "When for the return?" },
-            { speaker: "Client", text: "Dimanche prochain, le soir si possible.", translation: "Next Sunday, in the evening if possible." },
-            { speaker: "Employé", text: "Il y a un train à dix-neuf heures quinze.", translation: "There's a train at nineteen fifteen." },
-            { speaker: "Client", text: "Parfait ! Ça coûte combien ?", translation: "Perfect! How much is it?" },
-            { speaker: "Employé", text: "Soixante-douze euros.", translation: "Seventy-two euros." },
-            { speaker: "Employé", text: "Vous payez par carte ?", translation: "Paying by card?" },
-            { speaker: "Client", text: "Oui, s'il vous plaît.", translation: "Yes, please." },
-            { speaker: "Employé", text: "Voici vos billets. Bon voyage !", translation: "Here are your tickets. Have a good trip!" },
+            { speaker: "Amie", text: "Alors, tu as visité Bordeaux la semaine dernière. C'était comment ?", translation: "So, you visited Bordeaux last week. How was it?" },
+            { speaker: "Thomas", text: "C'était vraiment bien ! La ville est plus petite que Lyon, mais elle est très animée.", translation: "It was really good! The city is smaller than Lyon, but it's very lively." },
+            { speaker: "Thomas", text: "Je trouve que les gens y sont aussi sympathiques qu'à Lyon. Et la cuisine est meilleure qu'à Paris, sans hésiter.", translation: "I find that people there are just as friendly as in Lyon. And the food is better than in Paris, without hesitation." },
+            { speaker: "Amie", text: "Ah bon ? Tu trouves vraiment ?", translation: "Really? You really think so?" },
+            { speaker: "Thomas", text: "Absolument. Il y a plus de restaurants gastronomiques que je ne pensais. Et les vins — c'est imbattable.", translation: "Absolutely. There are more gourmet restaurants than I expected. And the wines — that's unbeatable." },
+            { speaker: "Thomas", text: "Mais il y a moins de transports en commun qu'à Lyon, c'est vrai.", translation: "But there are fewer public transport options than in Lyon, that's true." },
+            { speaker: "Thomas", text: "Ce qui m'a le plus surpris, c'est l'architecture. C'est vraiment la plus belle ville de France, je crois.", translation: "What surprised me most was the architecture. I think it's really the most beautiful city in France." },
+            { speaker: "Amie", text: "Ah, ça c'est discutable ! Pour moi, Lyon reste la meilleure pour y habiter.", translation: "Ah, that's debatable! For me, Lyon remains the best city to live in." },
         ],
         questions: [
-            {
-                id: "fr-l-a2-2-q1",
-                level: "A2",
-                prompt: "Où veut aller la personne ?",
-                options: ["À Lyon", "À Paris", "À Bordeaux", "À Marseille"],
-                answer: "À Lyon"
-            },
-            {
-                id: "fr-l-a2-2-q2",
-                level: "A2",
-                prompt: "Quelle classe choisit-elle ?",
-                options: ["Deuxième classe", "Première classe", "Classe affaires", "Classe économique"],
-                answer: "Deuxième classe"
-            },
-            {
-                id: "fr-l-a2-2-q3",
-                level: "A2",
-                prompt: "Combien coûtent les billets ?",
-                options: ["Soixante-douze euros", "Cinquante euros", "Cent euros", "Quatre-vingt-dix euros"],
-                answer: "Soixante-douze euros"
-            }
-        ]
+            { id: "fr-l-a2-2-q1", level: "A2", prompt: "Comment Thomas décrit-il Bordeaux par rapport à Lyon ?", options: ["Plus petite mais très animée", "Plus grande et plus calme", "Moins chère et plus moderne", "Aussi grande mais moins animée"], answer: "Plus petite mais très animée" },
+            { id: "fr-l-a2-2-q2", level: "A2", prompt: "Quel inconvénient de Bordeaux Thomas mentionne-t-il ?", options: ["Moins de transports en commun qu'à Lyon", "La cuisine moins bonne", "Moins de restaurants", "Les gens moins sympathiques"], answer: "Moins de transports en commun qu'à Lyon" },
+            { id: "fr-l-a2-2-q3", level: "A2", prompt: "Qu'est-ce qui a le plus surpris Thomas à Bordeaux ?", options: ["L'architecture du centre-ville", "Les vins", "Les restaurants", "Les gens"], answer: "L'architecture du centre-ville" },
+            { id: "fr-l-a2-2-q4", level: "A2", prompt: "Quelle est l'opinion de l'amie sur la meilleure ville pour habiter ?", options: ["Lyon", "Bordeaux", "Paris", "Elle ne donne pas d'opinion"], answer: "Lyon" },
+        ],
     },
+
+    // ── fr-l-a2-3 : Health — at the doctor's ──────────────────────────────────
     {
         id: "fr-l-a2-3",
         level: "A2",
-        title: "La famille Martin — description",
-        script: "La famille Martin est une famille typique de Lyon. Monsieur Martin a quarante-cinq ans. Il est médecin. Il travaille à l'hôpital six jours par semaine. Madame Martin a quarante-deux ans. Elle est professeure dans un lycée. Ils ont deux enfants : une fille de seize ans qui s'appelle Élise, et un garçon de treize ans qui s'appelle Hugo. Le week-end, la famille aime faire des promenades à la campagne. Ils ont aussi un chien, un labrador qui s'appelle Caramel. Les Martin ont une belle maison avec un grand jardin.",
-        translation: "The Martin family is a typical family from Lyon. Monsieur Martin is forty-five years old. He is a doctor. He works at the hospital six days a week. Madame Martin is forty-two years old. She is a teacher in a secondary school. They have two children: a sixteen-year-old girl named Élise, and a thirteen-year-old boy named Hugo. At the weekend, the family likes going for walks in the country. They also have a dog, a labrador called Caramel. The Martins have a beautiful house with a large garden.",
+        title: "Chez le médecin",
+        script: "Bonjour Monsieur Leclerc. Qu'est-ce qui vous amène aujourd'hui ? Bonjour Docteur. J'ai très mal à la gorge depuis trois jours, et j'ai de la fièvre depuis hier soir. Avez-vous également de la toux ? Oui, un peu. Et j'ai aussi mal aux oreilles — surtout l'oreille droite. D'accord. Depuis quand avez-vous mal aux oreilles ? Depuis hier matin, je crois. La douleur est assez forte. Ouvrez la bouche s'il vous plaît. Oui, la gorge est rouge. Je vais examiner vos oreilles aussi. Voilà — vous avez une angine et une légère infection à l'oreille. Il faut prendre des antibiotiques pendant dix jours. Je vais vous faire une ordonnance. Il ne faut pas arrêter le traitement avant la fin, même si vous vous sentez mieux. D'accord. Est-ce que je peux aller travailler ? Vous devriez vous reposer deux ou trois jours. Buvez beaucoup d'eau et prenez du paracétamol si vous avez encore de la fièvre.",
+        translation: "Good morning Mr Leclerc. What brings you in today? Good morning Doctor. I have had a very sore throat for three days, and I have had a fever since last night. Do you also have a cough? Yes, a little. And I also have earache — mainly in the right ear. OK. Since when have you had earache? Since yesterday morning, I think. The pain is quite strong. Open your mouth please. Yes, the throat is red. I will examine your ears too. There — you have tonsillitis and a slight ear infection. You must take antibiotics for ten days. I will write you a prescription. You must not stop the treatment before the end, even if you feel better. OK. Can I go to work? You should rest for two or three days. Drink plenty of water and take paracetamol if you still have a fever.",
+        dialogue: [
+            { speaker: "Médecin", text: "Bonjour Monsieur Leclerc. Qu'est-ce qui vous amène aujourd'hui ?", translation: "Good morning Mr Leclerc. What brings you in today?" },
+            { speaker: "Patient", text: "J'ai très mal à la gorge depuis trois jours, et j'ai de la fièvre depuis hier soir.", translation: "I have had a very sore throat for three days, and I have had a fever since last night." },
+            { speaker: "Médecin", text: "Avez-vous également de la toux ?", translation: "Do you also have a cough?" },
+            { speaker: "Patient", text: "Oui, un peu. Et j'ai aussi mal aux oreilles — surtout l'oreille droite.", translation: "Yes, a little. And I also have earache — mainly in the right ear." },
+            { speaker: "Médecin", text: "Depuis quand avez-vous mal aux oreilles ?", translation: "Since when have you had earache?" },
+            { speaker: "Patient", text: "Depuis hier matin, je crois. La douleur est assez forte.", translation: "Since yesterday morning, I think. The pain is quite strong." },
+            { speaker: "Médecin", text: "Vous avez une angine et une légère infection à l'oreille. Il faut prendre des antibiotiques pendant dix jours.", translation: "You have tonsillitis and a slight ear infection. You must take antibiotics for ten days." },
+            { speaker: "Médecin", text: "Il ne faut pas arrêter le traitement avant la fin, même si vous vous sentez mieux.", translation: "You must not stop the treatment before the end, even if you feel better." },
+            { speaker: "Patient", text: "Est-ce que je peux aller travailler ?", translation: "Can I go to work?" },
+            { speaker: "Médecin", text: "Vous devriez vous reposer deux ou trois jours. Buvez beaucoup d'eau et prenez du paracétamol si vous avez encore de la fièvre.", translation: "You should rest for two or three days. Drink plenty of water and take paracetamol if you still have a fever." },
+        ],
         questions: [
-            {
-                id: "fr-l-a2-3-q1",
-                level: "A2",
-                prompt: "Quelle est la profession de Monsieur Martin ?",
-                options: ["Médecin", "Professeur", "Avocat", "Ingénieur"],
-                answer: "Médecin"
-            },
-            {
-                id: "fr-l-a2-3-q2",
-                level: "A2",
-                prompt: "Quel âge a Hugo ?",
-                options: ["Treize ans", "Seize ans", "Quinze ans", "Dix ans"],
-                answer: "Treize ans"
-            },
-            {
-                id: "fr-l-a2-3-q3",
-                level: "A2",
-                prompt: "Que fait la famille le week-end ?",
-                options: ["Des promenades à la campagne", "Du sport en ville", "Des voyages à l'étranger", "Des visites culturelles"],
-                answer: "Des promenades à la campagne"
-            }
-        ]
+            { id: "fr-l-a2-3-q1", level: "A2", prompt: "Depuis combien de temps le patient a-t-il mal à la gorge ?", options: ["Trois jours", "Un jour", "Deux jours", "Une semaine"], answer: "Trois jours" },
+            { id: "fr-l-a2-3-q2", level: "A2", prompt: "Quel est le diagnostic du médecin ?", options: ["Une angine et une légère infection à l'oreille", "Un rhume et de la fièvre", "La grippe", "Une infection pulmonaire"], answer: "Une angine et une légère infection à l'oreille" },
+            { id: "fr-l-a2-3-q3", level: "A2", prompt: "Pendant combien de temps le patient doit-il prendre des antibiotiques ?", options: ["Dix jours", "Cinq jours", "Une semaine", "Deux semaines"], answer: "Dix jours" },
+            { id: "fr-l-a2-3-q4", level: "A2", prompt: "Le médecin conseille au patient de...", options: ["Se reposer deux ou trois jours", "Aller travailler normalement", "Aller à l'hôpital", "Prendre de l'ibuprofène"], answer: "Se reposer deux ou trois jours" },
+        ],
     },
+
+    // ── fr-l-a2-4 : Travel — a delayed train (CP5 script) ─────────────────────
     {
         id: "fr-l-a2-4",
         level: "A2",
-        title: "Mon week-end — raconter ses activités",
-        script: "Salut Nathalie ! Tu as passé un bon week-end ? Oui, super ! Samedi matin, j'ai fait du sport avec des amis. On a joué au tennis pendant deux heures. L'après-midi, je suis allée au cinéma. J'ai vu un film français très intéressant. Samedi soir, j'ai dîné dans un bon restaurant avec ma famille. On a mangé des fruits de mer. C'était délicieux ! Dimanche, il a plu toute la journée. Alors je suis restée chez moi et j'ai lu un roman. Et toi, qu'est-ce que tu as fait ?",
-        translation: "Hi Nathalie! Did you have a good weekend? Yes, great! On Saturday morning, I did sport with some friends. We played tennis for two hours. In the afternoon, I went to the cinema. I saw a very interesting French film. Saturday evening, I had dinner at a good restaurant with my family. We ate seafood. It was delicious! On Sunday, it rained all day. So I stayed at home and read a novel. And you, what did you do?",
+        title: "Le voyage raté d'Antoine",
+        script: "Donc Antoine, il m'a raconté ça hier soir — franchement, j'en revenais pas. Ça faisait des semaines qu'il planifiait ce voyage à Toulouse pour voir un concert. Il avait réservé son billet de train depuis un mois, son hôtel depuis deux semaines. Il était super enthousiaste. Alors le jour J, il se lève tôt, il prend ses affaires, et il part à la gare. Mais quand il arrive, il voit sur le panneau que son train est supprimé — à cause d'une grève. Il n'avait pas vérifié ses emails depuis la veille, du coup il ne savait pas. Il va au guichet. La queue était interminable. Il a attendu quarante minutes. L'agent lui dit qu'il y a un autre train, mais deux heures plus tard, et qu'il arriverait à Toulouse juste avant le début du concert. Antoine décide de tenter le coup. Il prend le train suivant. Sauf que ce train, lui aussi, a du retard — une heure de retard. Finalement, il arrive à Toulouse avec une heure de retard sur l'heure prévue. Il court à la salle de concert. Et là — vous allez pas le croire — la salle avait fermé ses portes dix minutes avant. Il a loupé tout le concert. Il s'est retrouvé seul à Toulouse à vingt-deux heures, épuisé, frustré. Il a quand même trouvé un petit restaurant sympa et mangé un cassoulet. Il dit que c'était au moins la meilleure chose de la soirée. Il est rentré le lendemain matin. Il dit qu'il ne prendra plus jamais ce train en période de grève. Et si les chemins de fer font encore grève l'année prochaine, il ira en voiture.",
+        translation: "So Antoine told me this last night — honestly, I couldn't believe it. He had been planning this trip to Toulouse for weeks to see a concert. He had booked his train ticket a month ago, his hotel two weeks ago. He was super enthusiastic. So on the big day, he gets up early, takes his things, and heads to the station. But when he arrives, he sees on the board that his train is cancelled — because of a strike. He hadn't checked his emails since the day before, so he didn't know. He goes to the ticket window. The queue was endless. He waited forty minutes. The agent tells him there is another train, but two hours later, and that he would arrive in Toulouse just before the start of the concert. Antoine decides to go for it. He takes the next train. Except that this train also has a delay — one hour late. In the end, he arrives in Toulouse one hour behind schedule. He runs to the concert venue. And there — you won't believe it — the doors had closed ten minutes earlier. He missed the entire concert. He found himself alone in Toulouse at 10pm, exhausted, frustrated. He still found a nice little restaurant and ate a cassoulet. He says it was at least the best thing about the evening. He came back the next morning. He says he will never take that train again during a strike. And if the railways go on strike again next year, he will go by car.",
         dialogue: [
-            { speaker: "Amie", text: "Salut Nathalie ! Tu as passé un bon week-end ?", translation: "Hi Nathalie! Did you have a good weekend?" },
-            { speaker: "Nathalie", text: "Oui, super ! Samedi matin, j'ai fait du sport avec des amis. On a joué au tennis pendant deux heures. L'après-midi, je suis allée au cinéma. J'ai vu un film français très intéressant. Samedi soir, j'ai dîné dans un bon restaurant avec ma famille. On a mangé des fruits de mer. C'était délicieux ! Dimanche, il a plu toute la journée. Alors je suis restée chez moi et j'ai lu un roman.", translation: "Yes, great! On Saturday morning, I did sport with some friends. We played tennis for two hours. In the afternoon, I went to the cinema. I saw a very interesting French film. Saturday evening, I had dinner at a good restaurant with my family. We ate seafood. It was delicious! On Sunday, it rained all day. So I stayed at home and read a novel." },
-            { speaker: "Nathalie", text: "Et toi, qu'est-ce que tu as fait ?", translation: "And you, what did you do?" },
+            { speaker: "Margaux", text: "Donc Antoine, il m'a raconté ça hier soir — franchement, j'en revenais pas.", translation: "So Antoine told me this last night — honestly, I couldn't believe it." },
+            { speaker: "Margaux", text: "Ça faisait des semaines qu'il planifiait ce voyage à Toulouse pour voir un concert. Il avait réservé son billet depuis un mois.", translation: "He had been planning this trip to Toulouse for weeks to see a concert. He had booked his ticket a month ago." },
+            { speaker: "Margaux", text: "Mais quand il arrive à la gare, son train est supprimé — à cause d'une grève. Il n'avait pas vérifié ses emails.", translation: "But when he gets to the station, his train is cancelled — because of a strike. He hadn't checked his emails." },
+            { speaker: "Margaux", text: "Il a attendu quarante minutes au guichet.", translation: "He waited forty minutes at the ticket window." },
+            { speaker: "Margaux", text: "Il prend le train suivant. Sauf que ce train a aussi du retard — une heure de retard.", translation: "He takes the next train. Except that train is also delayed — one hour late." },
+            { speaker: "Margaux", text: "Finalement, il arrive à Toulouse avec une heure de retard. La salle avait fermé ses portes dix minutes avant. Il a loupé tout le concert.", translation: "In the end, he arrives in Toulouse one hour late. The doors had closed ten minutes earlier. He missed the entire concert." },
+            { speaker: "Margaux", text: "Il a quand même trouvé un restaurant et mangé un cassoulet — il dit que c'était la meilleure chose de la soirée.", translation: "He still found a restaurant and ate a cassoulet — he says it was the best thing about the evening." },
+            { speaker: "Margaux", text: "Il dit que si les chemins de fer font encore grève l'année prochaine, il ira en voiture.", translation: "He says that if the railways go on strike again next year, he'll go by car." },
         ],
         questions: [
-            {
-                id: "fr-l-a2-4-q1",
-                level: "A2",
-                prompt: "Quel sport a fait Nathalie samedi matin ?",
-                options: ["Du tennis", "Du foot", "De la natation", "Du vélo"],
-                answer: "Du tennis"
-            },
-            {
-                id: "fr-l-a2-4-q2",
-                level: "A2",
-                prompt: "Qu'a-t-elle mangé au restaurant samedi soir ?",
-                options: ["Des fruits de mer", "De la viande", "Des pâtes", "Des légumes"],
-                answer: "Des fruits de mer"
-            },
-            {
-                id: "fr-l-a2-4-q3",
-                level: "A2",
-                prompt: "Pourquoi est-elle restée chez elle dimanche ?",
-                options: ["Il a plu toute la journée", "Elle était fatiguée", "Elle devait travailler", "Elle était malade"],
-                answer: "Il a plu toute la journée"
-            }
-        ]
+            { id: "fr-l-a2-4-q1", level: "A2", prompt: "Depuis combien de temps Antoine avait-il réservé son billet de train ?", options: ["Un mois", "Deux semaines", "Une semaine", "Deux mois"], answer: "Un mois" },
+            { id: "fr-l-a2-4-q2", level: "A2", prompt: "Pourquoi le premier train a-t-il été supprimé ?", options: ["À cause d'une grève", "À cause d'un incident technique", "À cause du mauvais temps", "À cause d'un problème en gare"], answer: "À cause d'une grève" },
+            { id: "fr-l-a2-4-q3", level: "A2", prompt: "Combien de temps Antoine a-t-il attendu au guichet ?", options: ["Quarante minutes", "Vingt minutes", "Une heure", "Dix minutes"], answer: "Quarante minutes" },
+            { id: "fr-l-a2-4-q4", level: "A2", prompt: "Qu'est-ce qu'Antoine a trouvé de positif dans cette soirée ?", options: ["Un bon restaurant et un cassoulet délicieux", "Le deuxième train était confortable", "La salle de concert était belle", "Il a rencontré des amis"], answer: "Un bon restaurant et un cassoulet délicieux" },
+        ],
     },
-    {
-        id: "fr-l-a2-5",
-        level: "A2",
-        title: "Au restaurant — passer une commande",
-        script: "Bonsoir, vous avez réservé ? Oui, une table pour deux, au nom de Dupont. Très bien, suivez-moi s'il vous plaît. Voilà votre table. Voici la carte. Vous êtes prêts à commander ? Oui. Je voudrais le menu à vingt-cinq euros. Et pour vous, madame ? Moi, je vais prendre la salade de chèvre chaud en entrée, et le saumon pour le plat principal. Est-ce que le saumon contient du gluten ? Non, il est naturellement sans gluten. Parfait, je suis intolérante au gluten. Et comme boisson ? Une carafe d'eau et une bouteille de vin rouge. Vous désirez un dessert ? Oui, la tarte tatin pour moi. Et pour monsieur ? Je prends une crème brûlée.",
-        translation: "Good evening, do you have a reservation? Yes, a table for two, under the name Dupont. Very well, follow me please. Here is your table. Here is the menu. Are you ready to order? Yes. I'd like the twenty-five euro set menu. And for you, madam? I'll have the warm goat's cheese salad as a starter, and the salmon for the main course. Does the salmon contain gluten? No, it is naturally gluten-free. Perfect, I'm intolerant to gluten. And to drink? A jug of water and a bottle of red wine. Would you like a dessert? Yes, the tarte tatin for me. And for the gentleman? I'll have a crème brûlée.",
-        dialogue: [
-            { speaker: "Serveur", text: "Bonsoir, vous avez réservé ?", translation: "Good evening, do you have a reservation?" },
-            { speaker: "Client", text: "Oui, une table pour deux, au nom de Dupont.", translation: "Yes, a table for two, under the name Dupont." },
-            { speaker: "Serveur", text: "Très bien, suivez-moi s'il vous plaît. Voilà votre table. Voici la carte. Vous êtes prêts à commander ?", translation: "Very well, follow me please. Here is your table. Here is the menu. Are you ready to order?" },
-            { speaker: "Client", text: "Oui. Je voudrais le menu à vingt-cinq euros.", translation: "Yes. I'd like the twenty-five euro set menu." },
-            { speaker: "Serveur", text: "Et pour vous, madame ?", translation: "And for you, madam?" },
-            { speaker: "Client", text: "Moi, je vais prendre la salade de chèvre chaud en entrée, et le saumon pour le plat principal. Est-ce que le saumon contient du gluten ?", translation: "I'll have the warm goat's cheese salad as a starter, and the salmon for the main course. Does the salmon contain gluten?" },
-            { speaker: "Serveur", text: "Non, il est naturellement sans gluten.", translation: "No, it is naturally gluten-free." },
-            { speaker: "Client", text: "Parfait, je suis intolérante au gluten.", translation: "Perfect, I'm intolerant to gluten." },
-            { speaker: "Serveur", text: "Et comme boisson ?", translation: "And to drink?" },
-            { speaker: "Client", text: "Une carafe d'eau et une bouteille de vin rouge.", translation: "A jug of water and a bottle of red wine." },
-            { speaker: "Serveur", text: "Vous désirez un dessert ?", translation: "Would you like a dessert?" },
-            { speaker: "Client", text: "Oui, la tarte tatin pour moi.", translation: "Yes, the tarte tatin for me." },
-            { speaker: "Serveur", text: "Et pour monsieur ?", translation: "And for the gentleman?" },
-            { speaker: "Client", text: "Je prends une crème brûlée.", translation: "I'll have a crème brûlée." },
-        ],
-        questions: [
-            {
-                id: "fr-l-a2-5-q1",
-                level: "A2",
-                prompt: "Quelle est l'allergie de la femme ?",
-                options: ["Elle est intolérante au gluten", "Elle est allergique aux fruits de mer", "Elle ne mange pas de viande", "Elle est intolérante au lactose"],
-                answer: "Elle est intolérante au gluten"
-            },
-            {
-                id: "fr-l-a2-5-q2",
-                level: "A2",
-                prompt: "Que commande la femme comme plat principal ?",
-                options: ["Le saumon", "La salade de chèvre chaud", "La tarte tatin", "La crème brûlée"],
-                answer: "Le saumon"
-            },
-            {
-                id: "fr-l-a2-5-q3",
-                level: "A2",
-                prompt: "Que boivent-ils ?",
-                options: ["Une carafe d'eau et du vin rouge", "Du vin blanc et de l'eau en bouteille", "De la bière et du jus de fruits", "De l'eau minérale seulement"],
-                answer: "Une carafe d'eau et du vin rouge"
-            }
-        ]
-    },
-    {
-        id: "fr-l-a2-6",
-        level: "A2",
-        title: "Chez le médecin — une consultation",
-        script: "Bonjour, asseyez-vous. Qu'est-ce qui vous amène aujourd'hui ? Bonjour docteur. J'ai mal à la gorge depuis trois jours et j'ai de la fièvre. Vous avez pris votre température ? Oui, j'avais trente-huit cinq hier soir. Vous toussez aussi ? Oui, un peu, surtout la nuit. Est-ce que vous avez d'autres symptômes ? J'ai aussi mal à la tête et je suis très fatigué. D'accord, je vais examiner votre gorge. Ouvrez la bouche. Ah, votre gorge est très rouge. C'est une angine bactérienne. Il faut prendre des antibiotiques pendant dix jours. Je vous fais une ordonnance. Vous devez vous reposer et boire beaucoup d'eau. Est-ce que vous êtes allergique à un médicament ? Non, pas à ma connaissance.",
-        translation: "Hello, sit down. What brings you in today? Hello doctor. I've had a sore throat for three days and I have a temperature. Have you taken your temperature? Yes, I had thirty-eight point five yesterday evening. Are you coughing too? Yes, a little, especially at night. Do you have any other symptoms? I also have a headache and I'm very tired. All right, I'll examine your throat. Open your mouth. Ah, your throat is very red. It's a bacterial throat infection. You need to take antibiotics for ten days. I'll write you a prescription. You must rest and drink plenty of water. Are you allergic to any medication? No, not to my knowledge.",
-        dialogue: [
-            { speaker: "Médecin", text: "Bonjour, asseyez-vous. Qu'est-ce qui vous amène aujourd'hui ?", translation: "Hello, sit down. What brings you in today?" },
-            { speaker: "Patient", text: "Bonjour docteur. J'ai mal à la gorge depuis trois jours et j'ai de la fièvre.", translation: "Hello doctor. I've had a sore throat for three days and I have a temperature." },
-            { speaker: "Médecin", text: "Vous avez pris votre température ?", translation: "Have you taken your temperature?" },
-            { speaker: "Patient", text: "Oui, j'avais trente-huit cinq hier soir.", translation: "Yes, I had thirty-eight point five yesterday evening." },
-            { speaker: "Médecin", text: "Vous toussez aussi ?", translation: "Are you coughing too?" },
-            { speaker: "Patient", text: "Oui, un peu, surtout la nuit.", translation: "Yes, a little, especially at night." },
-            { speaker: "Médecin", text: "Est-ce que vous avez d'autres symptômes ?", translation: "Do you have any other symptoms?" },
-            { speaker: "Patient", text: "J'ai aussi mal à la tête et je suis très fatigué.", translation: "I also have a headache and I'm very tired." },
-            { speaker: "Médecin", text: "D'accord, je vais examiner votre gorge. Ouvrez la bouche. Ah, votre gorge est très rouge. C'est une angine bactérienne. Il faut prendre des antibiotiques pendant dix jours. Je vous fais une ordonnance. Vous devez vous reposer et boire beaucoup d'eau.", translation: "All right, I'll examine your throat. Open your mouth. Ah, your throat is very red. It's a bacterial throat infection. You need to take antibiotics for ten days. I'll write you a prescription. You must rest and drink plenty of water." },
-            { speaker: "Médecin", text: "Est-ce que vous êtes allergique à un médicament ?", translation: "Are you allergic to any medication?" },
-            { speaker: "Patient", text: "Non, pas à ma connaissance.", translation: "No, not to my knowledge." },
-        ],
-        questions: [
-            {
-                id: "fr-l-a2-6-q1",
-                level: "A2",
-                prompt: "Depuis combien de temps le patient a-t-il mal à la gorge ?",
-                options: ["Trois jours", "Une semaine", "Deux jours", "Un mois"],
-                answer: "Trois jours"
-            },
-            {
-                id: "fr-l-a2-6-q2",
-                level: "A2",
-                prompt: "Quel est le diagnostic du médecin ?",
-                options: ["Une angine bactérienne", "Un rhume", "Une grippe", "Une allergie"],
-                answer: "Une angine bactérienne"
-            },
-            {
-                id: "fr-l-a2-6-q3",
-                level: "A2",
-                prompt: "Combien de temps doit-il prendre des antibiotiques ?",
-                options: ["Dix jours", "Cinq jours", "Une semaine", "Deux semaines"],
-                answer: "Dix jours"
-            }
-        ]
-    }
 ]

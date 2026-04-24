@@ -1,193 +1,115 @@
-// data/french/vocab/a2.ts
 import { VocabItem } from "../../../types"
 
+// French A2 vocabulary — 90 items across 5 thematic blocks
+// Block 1: Past narration | Block 2: Comparison/description
+// Block 3: Social interaction | Block 4: Future/plans | Block 5: Health/travel/feelings
+
 export const frVocabA2: VocabItem[] = [
-    // ── existing items (kept as-is) ──────────────────────────────────────────
-    { id: "fr-v-a2-001", level: "A2", word: "le voyage", translation: "trip / journey", category: "travel & transport", example: { native: "Le voyage était long.", translation: "The trip was long." } },
-    { id: "fr-v-a2-002", level: "A2", word: "l'argent", translation: "money / silver", category: "shopping & money", example: { native: "Je n'ai pas beaucoup d'argent.", translation: "I don't have much money." } },
-    { id: "fr-v-a2-003", level: "A2", word: "le temps", translation: "time / weather", category: "time expressions", example: { native: "Quel temps fait-il aujourd'hui ?", translation: "What's the weather like today?" } },
-    { id: "fr-v-a2-004", level: "A2", word: "le problème", translation: "problem", category: "daily routines", example: { native: "Il n'y a pas de problème.", translation: "There's no problem." } },
-    { id: "fr-v-a2-005", level: "A2", word: "la langue", translation: "language / tongue", category: "social interactions", example: { native: "J'apprends une nouvelle langue.", translation: "I am learning a new language." } },
-    { id: "fr-v-a2-006", level: "A2", word: "cependant", translation: "however", category: "time expressions", example: { native: "C'est cher ; cependant, c'est beau.", translation: "It's expensive; however, it's beautiful." } },
-    { id: "fr-v-a2-007", level: "A2", word: "pourtant", translation: "yet / nevertheless", category: "time expressions", example: { native: "Il est fatigué, pourtant il travaille.", translation: "He is tired, yet he works." } },
-    { id: "fr-v-a2-008", level: "A2", word: "la réunion", translation: "meeting", category: "work & professions", example: { native: "J'ai une réunion à dix heures.", translation: "I have a meeting at ten o'clock." } },
-    { id: "fr-v-a2-009", level: "A2", word: "le quartier", translation: "neighbourhood / district", category: "daily routines", example: { native: "J'habite dans un beau quartier.", translation: "I live in a nice neighbourhood." } },
-    { id: "fr-v-a2-010", level: "A2", word: "la chance", translation: "luck / chance", category: "emotions", example: { native: "Tu as de la chance !", translation: "You are lucky!" } },
 
-    // ── daily routines ───────────────────────────────────────────────────────
-    { id: "fr-v-a2-011", level: "A2", word: "se lever", translation: "to get up", category: "daily routines", example: { native: "Je me lève à sept heures chaque matin.", translation: "I get up at seven every morning." } },
-    { id: "fr-v-a2-012", level: "A2", word: "se coucher", translation: "to go to bed", category: "daily routines", example: { native: "Elle se couche tard le week-end.", translation: "She goes to bed late on weekends." } },
-    { id: "fr-v-a2-013", level: "A2", word: "prendre une douche", translation: "to take a shower", category: "daily routines", example: { native: "Il prend une douche avant de partir.", translation: "He takes a shower before leaving." } },
-    { id: "fr-v-a2-014", level: "A2", word: "le petit-déjeuner", translation: "breakfast", category: "daily routines", example: { native: "Je prends le petit-déjeuner à la maison.", translation: "I have breakfast at home." } },
-    { id: "fr-v-a2-015", level: "A2", word: "se brosser les dents", translation: "to brush one's teeth", category: "daily routines", example: { native: "Brosse-toi les dents après le repas.", translation: "Brush your teeth after the meal." } },
-    { id: "fr-v-a2-016", level: "A2", word: "s'habiller", translation: "to get dressed", category: "daily routines", example: { native: "Les enfants s'habillent seuls maintenant.", translation: "The children get dressed on their own now." } },
-    { id: "fr-v-a2-017", level: "A2", word: "faire la vaisselle", translation: "to do the dishes", category: "daily routines", example: { native: "C'est ton tour de faire la vaisselle.", translation: "It's your turn to do the dishes." } },
-    { id: "fr-v-a2-018", level: "A2", word: "faire les courses", translation: "to do the grocery shopping", category: "daily routines", example: { native: "Je fais les courses le samedi matin.", translation: "I do the grocery shopping on Saturday morning." } },
+    // ── Block 1: Past narration & time (20 items) ──────────────────────────────
 
-    // ── travel & transport ───────────────────────────────────────────────────
-    { id: "fr-v-a2-019", level: "A2", word: "le billet", translation: "ticket", category: "travel & transport", example: { native: "J'ai acheté un billet de train aller-retour.", translation: "I bought a return train ticket." } },
-    { id: "fr-v-a2-020", level: "A2", word: "la gare", translation: "train station", category: "travel & transport", example: { native: "Le train part de la gare à midi.", translation: "The train leaves from the station at noon." } },
-    { id: "fr-v-a2-021", level: "A2", word: "l'aéroport", translation: "airport", category: "travel & transport", example: { native: "Nous arrivons à l'aéroport deux heures avant.", translation: "We arrive at the airport two hours early." } },
-    { id: "fr-v-a2-022", level: "A2", word: "l'avion", translation: "plane", category: "travel & transport", example: { native: "L'avion décolle à quatorze heures.", translation: "The plane takes off at 2 p.m." } },
-    { id: "fr-v-a2-023", level: "A2", word: "louer", translation: "to rent", category: "travel & transport", example: { native: "Nous allons louer une voiture à Nice.", translation: "We are going to rent a car in Nice." } },
-    { id: "fr-v-a2-024", level: "A2", word: "le passeport", translation: "passport", category: "travel & transport", example: { native: "N'oublie pas ton passeport !", translation: "Don't forget your passport!" } },
-    { id: "fr-v-a2-025", level: "A2", word: "la valise", translation: "suitcase", category: "travel & transport", example: { native: "Ma valise est trop lourde.", translation: "My suitcase is too heavy." } },
-    { id: "fr-v-a2-026", level: "A2", word: "réserver", translation: "to book / reserve", category: "travel & transport", example: { native: "J'ai réservé une chambre d'hôtel.", translation: "I booked a hotel room." } },
+    { id: "fr-v-a2-1",  level: "A2", word: "raconter",         translation: "to tell / recount",          category: "Narration",  example: { native: "Raconte-moi ce qui s'est passé.", translation: "Tell me what happened." } },
+    { id: "fr-v-a2-2",  level: "A2", word: "se souvenir de",   translation: "to remember",                 category: "Narration",  example: { native: "Je me souviens bien de ce jour-là.", translation: "I remember that day well." } },
+    { id: "fr-v-a2-3",  level: "A2", word: "oublier",          translation: "to forget",                  category: "Narration",  example: { native: "J'ai oublié mon parapluie.", translation: "I forgot my umbrella." } },
+    { id: "fr-v-a2-4",  level: "A2", word: "se passer",        translation: "to happen",                  category: "Narration",  example: { native: "Qu'est-ce qui s'est passé ?", translation: "What happened?" } },
+    { id: "fr-v-a2-5",  level: "A2", word: "avoir lieu",       translation: "to take place",              category: "Narration",  example: { native: "La réunion a eu lieu lundi.", translation: "The meeting took place on Monday." } },
+    { id: "fr-v-a2-6",  level: "A2", word: "le lendemain",     translation: "the next day",               category: "Time",       example: { native: "Le lendemain, il faisait beau.", translation: "The next day, the weather was nice." } },
+    { id: "fr-v-a2-7",  level: "A2", word: "la veille",        translation: "the day before",             category: "Time",       example: { native: "La veille de son anniversaire, elle était stressée.", translation: "The day before her birthday, she was stressed." } },
+    { id: "fr-v-a2-8",  level: "A2", word: "soudain",          translation: "suddenly",                   category: "Narration",  example: { native: "Soudain, il a commencé à pleuvoir.", translation: "Suddenly, it started to rain." } },
+    { id: "fr-v-a2-9",  level: "A2", word: "tout à coup",      translation: "all of a sudden",            category: "Narration",  example: { native: "Tout à coup, les lumières se sont éteintes.", translation: "All of a sudden, the lights went out." } },
+    { id: "fr-v-a2-10", level: "A2", word: "à l'époque",       translation: "at the time / back then",    category: "Time",       example: { native: "À l'époque, il n'y avait pas d'internet.", translation: "At the time, there was no internet." } },
+    { id: "fr-v-a2-11", level: "A2", word: "autrefois",        translation: "in the old days",            category: "Time",       example: { native: "Autrefois, on voyageait à cheval.", translation: "In the old days, people travelled on horseback." } },
+    { id: "fr-v-a2-12", level: "A2", word: "finalement",       translation: "finally / in the end",       category: "Narration",  example: { native: "Finalement, on a trouvé une solution.", translation: "In the end, we found a solution." } },
+    { id: "fr-v-a2-13", level: "A2", word: "heureusement",     translation: "fortunately",                category: "Narration",  example: { native: "Heureusement, personne n'a été blessé.", translation: "Fortunately, nobody was hurt." } },
+    { id: "fr-v-a2-14", level: "A2", word: "malheureusement",  translation: "unfortunately",              category: "Narration",  example: { native: "Malheureusement, le train était supprimé.", translation: "Unfortunately, the train was cancelled." } },
+    { id: "fr-v-a2-15", level: "A2", word: "quand même",       translation: "even so / still",            category: "Narration",  example: { native: "C'était difficile, mais on a réussi quand même.", translation: "It was difficult, but we succeeded even so." } },
+    { id: "fr-v-a2-16", level: "A2", word: "être en train de", translation: "to be in the middle of",     category: "Grammar",    example: { native: "Je suis en train de lire.", translation: "I am in the middle of reading." } },
+    { id: "fr-v-a2-17", level: "A2", word: "remarquer",        translation: "to notice",                  category: "Narration",  example: { native: "J'ai remarqué quelque chose d'étrange.", translation: "I noticed something strange." } },
+    { id: "fr-v-a2-18", level: "A2", word: "réaliser",         translation: "to realise",                 category: "Narration",  example: { native: "J'ai réalisé que j'avais oublié mon téléphone.", translation: "I realised I had forgotten my phone." } },
+    { id: "fr-v-a2-19", level: "A2", word: "pendant ce temps", translation: "meanwhile",                  category: "Time",       example: { native: "Pendant ce temps, il attendait dehors.", translation: "Meanwhile, he was waiting outside." } },
+    { id: "fr-v-a2-20", level: "A2", word: "inattendu(e)",     translation: "unexpected",                 category: "Narration",  example: { native: "C'était une rencontre inattendue.", translation: "It was an unexpected encounter." } },
 
-    // ── shopping & money ─────────────────────────────────────────────────────
-    { id: "fr-v-a2-027", level: "A2", word: "les soldes", translation: "sales (seasonal)", category: "shopping & money", example: { native: "Les soldes commencent en janvier.", translation: "The sales start in January." } },
-    { id: "fr-v-a2-028", level: "A2", word: "le reçu", translation: "receipt", category: "shopping & money", example: { native: "Gardez votre reçu pour l'échange.", translation: "Keep your receipt for the exchange." } },
-    { id: "fr-v-a2-029", level: "A2", word: "la caisse", translation: "checkout / cash register", category: "shopping & money", example: { native: "Payez à la caisse, s'il vous plaît.", translation: "Please pay at the checkout." } },
-    { id: "fr-v-a2-030", level: "A2", word: "payer", translation: "to pay", category: "shopping & money", example: { native: "Je préfère payer par carte.", translation: "I prefer to pay by card." } },
-    { id: "fr-v-a2-031", level: "A2", word: "le prix", translation: "price", category: "shopping & money", example: { native: "Le prix de ce manteau est raisonnable.", translation: "The price of this coat is reasonable." } },
-    { id: "fr-v-a2-032", level: "A2", word: "la réduction", translation: "discount / reduction", category: "shopping & money", example: { native: "Il y a une réduction de vingt pour cent.", translation: "There is a twenty percent discount." } },
-    { id: "fr-v-a2-033", level: "A2", word: "gratuit", translation: "free (no charge)", category: "shopping & money", example: { native: "L'entrée est gratuite pour les enfants.", translation: "Admission is free for children." } },
-    { id: "fr-v-a2-034", level: "A2", word: "faire du shopping", translation: "to go shopping", category: "shopping & money", example: { native: "On fait du shopping en centre-ville ?", translation: "Shall we go shopping in the city centre?" } },
+    // ── Block 2: Comparison & description (18 items) ───────────────────────────
 
-    // ── work & professions ───────────────────────────────────────────────────
-    { id: "fr-v-a2-035", level: "A2", word: "le bureau", translation: "office / desk", category: "work & professions", example: { native: "Mon bureau est au troisième étage.", translation: "My office is on the third floor." } },
-    { id: "fr-v-a2-036", level: "A2", word: "le collègue", translation: "colleague", category: "work & professions", example: { native: "Mes collègues sont très sympas.", translation: "My colleagues are very nice." } },
-    { id: "fr-v-a2-037", level: "A2", word: "le patron / la patronne", translation: "boss", category: "work & professions", example: { native: "Le patron arrive toujours tôt.", translation: "The boss always arrives early." } },
-    { id: "fr-v-a2-038", level: "A2", word: "le salaire", translation: "salary / wage", category: "work & professions", example: { native: "Elle a demandé une augmentation de salaire.", translation: "She asked for a salary increase." } },
-    { id: "fr-v-a2-039", level: "A2", word: "travailler à temps plein", translation: "to work full-time", category: "work & professions", example: { native: "Il travaille à temps plein depuis deux ans.", translation: "He has been working full-time for two years." } },
-    { id: "fr-v-a2-040", level: "A2", word: "l'emploi", translation: "job / employment", category: "work & professions", example: { native: "Elle cherche un emploi dans la finance.", translation: "She is looking for a job in finance." } },
-    { id: "fr-v-a2-041", level: "A2", word: "envoyer un e-mail", translation: "to send an email", category: "work & professions", example: { native: "Je t'envoie les documents par e-mail.", translation: "I'll send you the documents by email." } },
+    { id: "fr-v-a2-21", level: "A2", word: "comparer",         translation: "to compare",                 category: "Opinion",    example: { native: "Il est difficile de comparer ces deux villes.", translation: "It is difficult to compare these two cities." } },
+    { id: "fr-v-a2-22", level: "A2", word: "ressembler à",     translation: "to look like / resemble",    category: "Description", example: { native: "Elle ressemble beaucoup à sa mère.", translation: "She looks a lot like her mother." } },
+    { id: "fr-v-a2-23", level: "A2", word: "imbattable",       translation: "unbeatable",                 category: "Opinion",    example: { native: "Pour les transports, Paris est imbattable.", translation: "For transport, Paris is unbeatable." } },
+    { id: "fr-v-a2-24", level: "A2", word: "abordable",        translation: "affordable",                 category: "Shopping",   example: { native: "Ce restaurant est très abordable.", translation: "This restaurant is very affordable." } },
+    { id: "fr-v-a2-25", level: "A2", word: "animé(e)",         translation: "lively",                     category: "Description", example: { native: "Le quartier est très animé le soir.", translation: "The neighbourhood is very lively in the evenings." } },
+    { id: "fr-v-a2-26", level: "A2", word: "bruyant(e)",       translation: "noisy",                      category: "Description", example: { native: "L'appartement est bruyant — je dors mal.", translation: "The flat is noisy — I sleep badly." } },
+    { id: "fr-v-a2-27", level: "A2", word: "calme",            translation: "calm / quiet",               category: "Description", example: { native: "J'aime cette rue calme loin du centre.", translation: "I like this quiet street away from the centre." } },
+    { id: "fr-v-a2-28", level: "A2", word: "bondé(e)",         translation: "packed / crowded",           category: "Travel",     example: { native: "Le métro était bondé ce matin.", translation: "The metro was packed this morning." } },
+    { id: "fr-v-a2-29", level: "A2", word: "pratique",         translation: "practical / convenient",     category: "Description", example: { native: "Cette application est vraiment pratique.", translation: "This app is really convenient." } },
+    { id: "fr-v-a2-30", level: "A2", word: "ce qui m'intéresse", translation: "what interests me",        category: "Opinion",    example: { native: "Ce qui m'intéresse, c'est la culture locale.", translation: "What interests me is the local culture." } },
+    { id: "fr-v-a2-31", level: "A2", word: "ce que je préfère", translation: "what I prefer",             category: "Opinion",    example: { native: "Ce que je préfère, c'est voyager à pied.", translation: "What I prefer is travelling on foot." } },
+    { id: "fr-v-a2-32", level: "A2", word: "l'avantage (m)",  translation: "the advantage",              category: "Opinion",    example: { native: "L'avantage du train, c'est la ponctualité.", translation: "The advantage of the train is punctuality." } },
+    { id: "fr-v-a2-33", level: "A2", word: "l'inconvénient (m)", translation: "the disadvantage",        category: "Opinion",    example: { native: "L'inconvénient, c'est le prix.", translation: "The disadvantage is the price." } },
+    { id: "fr-v-a2-34", level: "A2", word: "dans l'ensemble",  translation: "overall / on the whole",    category: "Opinion",    example: { native: "Dans l'ensemble, c'était une bonne expérience.", translation: "Overall, it was a good experience." } },
+    { id: "fr-v-a2-35", level: "A2", word: "recommander",      translation: "to recommend",               category: "Opinion",    example: { native: "Je vous recommande vivement ce restaurant.", translation: "I strongly recommend this restaurant." } },
+    { id: "fr-v-a2-36", level: "A2", word: "valoir la peine",  translation: "to be worth it",            category: "Opinion",    example: { native: "Ça vaut la peine de visiter ce musée.", translation: "It is worth visiting this museum." } },
+    { id: "fr-v-a2-37", level: "A2", word: "surprendre",       translation: "to surprise",                category: "Feelings",   example: { native: "La fin du film m'a vraiment surpris.", translation: "The end of the film really surprised me." } },
+    { id: "fr-v-a2-38", level: "A2", word: "dans l'ensemble",  translation: "overall",                    category: "Opinion",    example: { native: "Dans l'ensemble, le voyage s'est bien passé.", translation: "Overall, the trip went well." } },
 
-    // ── health & body ────────────────────────────────────────────────────────
-    { id: "fr-v-a2-042", level: "A2", word: "la tête", translation: "head", category: "health & body", example: { native: "J'ai mal à la tête depuis ce matin.", translation: "I've had a headache since this morning." } },
-    { id: "fr-v-a2-043", level: "A2", word: "le bras", translation: "arm", category: "health & body", example: { native: "Il s'est cassé le bras au ski.", translation: "He broke his arm while skiing." } },
-    { id: "fr-v-a2-044", level: "A2", word: "la jambe", translation: "leg", category: "health & body", example: { native: "Elle a mal à la jambe après la course.", translation: "Her leg hurts after the race." } },
-    { id: "fr-v-a2-045", level: "A2", word: "avoir mal à", translation: "to have a pain in / to hurt", category: "health & body", example: { native: "Tu as mal au ventre ?", translation: "Does your stomach hurt?" } },
-    { id: "fr-v-a2-046", level: "A2", word: "le médecin", translation: "doctor", category: "health & body", example: { native: "Je prends rendez-vous chez le médecin.", translation: "I'm making an appointment with the doctor." } },
-    { id: "fr-v-a2-047", level: "A2", word: "la pharmacie", translation: "pharmacy", category: "health & body", example: { native: "Achète ce médicament à la pharmacie.", translation: "Buy this medicine at the pharmacy." } },
-    { id: "fr-v-a2-048", level: "A2", word: "la fièvre", translation: "fever", category: "health & body", example: { native: "L'enfant a de la fièvre depuis hier.", translation: "The child has had a fever since yesterday." } },
-    { id: "fr-v-a2-049", level: "A2", word: "se sentir", translation: "to feel (oneself)", category: "health & body", example: { native: "Je ne me sens pas bien aujourd'hui.", translation: "I don't feel well today." } },
+    // ── Block 3: Social interaction & pronouns (16 items) ──────────────────────
 
-    // ── social interactions ──────────────────────────────────────────────────
-    { id: "fr-v-a2-050", level: "A2", word: "inviter", translation: "to invite", category: "social interactions", example: { native: "Je t'invite à ma fête samedi soir.", translation: "I'm inviting you to my party on Saturday night." } },
-    { id: "fr-v-a2-051", level: "A2", word: "accepter", translation: "to accept", category: "social interactions", example: { native: "Elle a accepté notre invitation avec plaisir.", translation: "She accepted our invitation with pleasure." } },
-    { id: "fr-v-a2-052", level: "A2", word: "refuser", translation: "to refuse / decline", category: "social interactions", example: { native: "Il a refusé d'expliquer pourquoi.", translation: "He refused to explain why." } },
-    { id: "fr-v-a2-053", level: "A2", word: "remercier", translation: "to thank", category: "social interactions", example: { native: "Je te remercie de ton aide.", translation: "I thank you for your help." } },
-    { id: "fr-v-a2-054", level: "A2", word: "présenter", translation: "to introduce / present", category: "social interactions", example: { native: "Permettez-moi de vous présenter mon ami.", translation: "Allow me to introduce my friend to you." } },
-    { id: "fr-v-a2-055", level: "A2", word: "se retrouver", translation: "to meet up", category: "social interactions", example: { native: "On se retrouve devant le cinéma à vingt heures.", translation: "We'll meet up in front of the cinema at 8 p.m." } },
-    { id: "fr-v-a2-056", level: "A2", word: "féliciter", translation: "to congratulate", category: "social interactions", example: { native: "Nous te félicitons pour ton succès !", translation: "We congratulate you on your success!" } },
+    { id: "fr-v-a2-39", level: "A2", word: "envoyer",          translation: "to send",                    category: "Communication", example: { native: "Je lui ai envoyé un message hier soir.", translation: "I sent him a message last night." } },
+    { id: "fr-v-a2-40", level: "A2", word: "prêter",           translation: "to lend",                    category: "Social",     example: { native: "Tu peux me prêter ton stylo ?", translation: "Can you lend me your pen?" } },
+    { id: "fr-v-a2-41", level: "A2", word: "rendre",           translation: "to return / give back",      category: "Social",     example: { native: "Il m'a rendu le livre qu'il avait emprunté.", translation: "He returned the book he had borrowed." } },
+    { id: "fr-v-a2-42", level: "A2", word: "raffoler de",      translation: "to be crazy about",          category: "Feelings",   example: { native: "Elle raffole du chocolat noir.", translation: "She is crazy about dark chocolate." } },
+    { id: "fr-v-a2-43", level: "A2", word: "tenir à",          translation: "to care about / value",      category: "Feelings",   example: { native: "Je tiens beaucoup à mon indépendance.", translation: "I care greatly about my independence." } },
+    { id: "fr-v-a2-44", level: "A2", word: "avoir besoin de",  translation: "to need",                    category: "Social",     example: { native: "J'ai besoin de ton aide pour finir ça.", translation: "I need your help to finish this." } },
+    { id: "fr-v-a2-45", level: "A2", word: "penser à",         translation: "to think about",             category: "Feelings",   example: { native: "Je pense souvent à nos vacances là-bas.", translation: "I often think about our holiday there." } },
+    { id: "fr-v-a2-46", level: "A2", word: "reconnaître",      translation: "to recognise",               category: "Social",     example: { native: "Je t'ai reconnu tout de suite !", translation: "I recognised you straight away!" } },
+    { id: "fr-v-a2-47", level: "A2", word: "être au courant",  translation: "to be aware / up to date",   category: "Communication", example: { native: "Tu es au courant de la nouvelle ?", translation: "Are you aware of the news?" } },
+    { id: "fr-v-a2-48", level: "A2", word: "découvrir",        translation: "to discover",                category: "Social",     example: { native: "On a découvert un quartier magnifique.", translation: "We discovered a wonderful neighbourhood." } },
+    { id: "fr-v-a2-49", level: "A2", word: "promettre",        translation: "to promise",                 category: "Social",     example: { native: "Il a promis de venir à l'heure.", translation: "He promised to come on time." } },
+    { id: "fr-v-a2-50", level: "A2", word: "permettre",        translation: "to allow / permit",          category: "Social",     example: { native: "Ce billet permet d'entrer deux fois.", translation: "This ticket allows entry twice." } },
+    { id: "fr-v-a2-51", level: "A2", word: "s'inscrire",       translation: "to register / sign up",      category: "Social",     example: { native: "Je vais m'inscrire au cours de danse.", translation: "I am going to sign up for the dance class." } },
+    { id: "fr-v-a2-52", level: "A2", word: "se mettre à",      translation: "to start (doing something)", category: "Narration",  example: { native: "Elle s'est mise à apprendre le piano.", translation: "She started learning the piano." } },
+    { id: "fr-v-a2-53", level: "A2", word: "offrir",           translation: "to offer / give as a gift",  category: "Social",     example: { native: "Il m'a offert un livre pour mon anniversaire.", translation: "He gave me a book for my birthday." } },
+    { id: "fr-v-a2-54", level: "A2", word: "se retrouver",     translation: "to meet up",                 category: "Social",     example: { native: "On se retrouve à quelle heure ?", translation: "What time shall we meet up?" } },
 
-    // ── time expressions ─────────────────────────────────────────────────────
-    { id: "fr-v-a2-057", level: "A2", word: "hier", translation: "yesterday", category: "time expressions", example: { native: "Hier, j'ai vu un très bon film.", translation: "Yesterday, I saw a very good film." } },
-    { id: "fr-v-a2-058", level: "A2", word: "demain", translation: "tomorrow", category: "time expressions", example: { native: "Qu'est-ce que tu fais demain ?", translation: "What are you doing tomorrow?" } },
-    { id: "fr-v-a2-059", level: "A2", word: "la semaine prochaine", translation: "next week", category: "time expressions", example: { native: "La réunion est la semaine prochaine.", translation: "The meeting is next week." } },
-    { id: "fr-v-a2-060", level: "A2", word: "depuis", translation: "since / for (time)", category: "time expressions", example: { native: "J'habite ici depuis trois ans.", translation: "I have been living here for three years." } },
-    { id: "fr-v-a2-061", level: "A2", word: "il y a", translation: "ago", category: "time expressions", example: { native: "Nous nous sommes rencontrés il y a deux ans.", translation: "We met two years ago." } },
-    { id: "fr-v-a2-062", level: "A2", word: "tout à l'heure", translation: "a moment ago / in a moment", category: "time expressions", example: { native: "Je t'appelle tout à l'heure.", translation: "I'll call you in a moment." } },
-    { id: "fr-v-a2-063", level: "A2", word: "en ce moment", translation: "at the moment / right now", category: "time expressions", example: { native: "Je suis très occupé en ce moment.", translation: "I'm very busy at the moment." } },
+    // ── Block 4: Future, plans & hypotheticals (18 items) ──────────────────────
 
-    // ── weather ──────────────────────────────────────────────────────────────
-    { id: "fr-v-a2-064", level: "A2", word: "il fait chaud", translation: "it is hot", category: "weather", example: { native: "Il fait très chaud en été dans le sud.", translation: "It is very hot in summer in the south." } },
-    { id: "fr-v-a2-065", level: "A2", word: "il fait froid", translation: "it is cold", category: "weather", example: { native: "Il fait froid ce matin ; mets un manteau.", translation: "It's cold this morning; put on a coat." } },
-    { id: "fr-v-a2-066", level: "A2", word: "le nuage", translation: "cloud", category: "weather", example: { native: "Il y a beaucoup de nuages aujourd'hui.", translation: "There are a lot of clouds today." } },
-    { id: "fr-v-a2-067", level: "A2", word: "la tempête", translation: "storm", category: "weather", example: { native: "Une violente tempête a frappé la côte.", translation: "A violent storm hit the coast." } },
-    { id: "fr-v-a2-068", level: "A2", word: "la neige", translation: "snow", category: "weather", example: { native: "La neige est tombée toute la nuit.", translation: "Snow fell all night long." } },
-    { id: "fr-v-a2-069", level: "A2", word: "le brouillard", translation: "fog", category: "weather", example: { native: "Il y a du brouillard sur l'autoroute.", translation: "There is fog on the motorway." } },
-    { id: "fr-v-a2-070", level: "A2", word: "la météo", translation: "weather forecast", category: "weather", example: { native: "La météo annonce de la pluie pour demain.", translation: "The weather forecast announces rain for tomorrow." } },
+    { id: "fr-v-a2-55", level: "A2", word: "espérer",          translation: "to hope",                    category: "Future",     example: { native: "J'espère qu'il fera beau demain.", translation: "I hope the weather will be nice tomorrow." } },
+    { id: "fr-v-a2-56", level: "A2", word: "prévoir",          translation: "to plan / foresee",          category: "Future",     example: { native: "Qu'est-ce que tu prévois pour ce week-end ?", translation: "What do you have planned for this weekend?" } },
+    { id: "fr-v-a2-57", level: "A2", word: "rêver de",         translation: "to dream of",                category: "Future",     example: { native: "Elle rêve de voyager au Japon.", translation: "She dreams of travelling to Japan." } },
+    { id: "fr-v-a2-58", level: "A2", word: "envisager de",     translation: "to consider (doing)",        category: "Future",     example: { native: "J'envisage de changer de travail.", translation: "I am considering changing jobs." } },
+    { id: "fr-v-a2-59", level: "A2", word: "souhaiter",        translation: "to wish / desire",           category: "Future",     example: { native: "Je souhaite vous remercier chaleureusement.", translation: "I wish to thank you warmly." } },
+    { id: "fr-v-a2-60", level: "A2", word: "idéalement",       translation: "ideally",                    category: "Opinion",    example: { native: "Idéalement, je voudrais partir avant midi.", translation: "Ideally, I would like to leave before noon." } },
+    { id: "fr-v-a2-61", level: "A2", word: "à ta place",       translation: "in your position",           category: "Advice",     example: { native: "À ta place, je lui parlerais franchement.", translation: "In your position, I would speak to her frankly." } },
+    { id: "fr-v-a2-62", level: "A2", word: "venir de + inf",   translation: "to have just (done)",        category: "Grammar",    example: { native: "Je viens de finir — donne-moi cinq minutes.", translation: "I just finished — give me five minutes." } },
+    { id: "fr-v-a2-63", level: "A2", word: "annuler",          translation: "to cancel",                  category: "Travel",     example: { native: "Le concert a été annulé à cause de la pluie.", translation: "The concert was cancelled because of the rain." } },
+    { id: "fr-v-a2-64", level: "A2", word: "confirmer",        translation: "to confirm",                 category: "Travel",     example: { native: "Pourriez-vous confirmer la réservation ?", translation: "Could you confirm the booking?" } },
+    { id: "fr-v-a2-65", level: "A2", word: "sinon",            translation: "otherwise",                  category: "Grammar",    example: { native: "Dépêche-toi, sinon on va rater le train.", translation: "Hurry up, otherwise we will miss the train." } },
+    { id: "fr-v-a2-66", level: "A2", word: "d'ici là",         translation: "by then",                    category: "Time",       example: { native: "D'ici là, j'aurai eu le temps de préparer.", translation: "By then, I will have had time to prepare." } },
+    { id: "fr-v-a2-67", level: "A2", word: "à l'avenir",       translation: "in the future",              category: "Time",       example: { native: "À l'avenir, je ferai plus attention.", translation: "In the future, I will be more careful." } },
+    { id: "fr-v-a2-68", level: "A2", word: "il faudrait",      translation: "one should / it would be necessary", category: "Advice", example: { native: "Il faudrait réserver à l'avance.", translation: "One should book in advance." } },
+    { id: "fr-v-a2-69", level: "A2", word: "il vaudrait mieux", translation: "it would be better",       category: "Advice",     example: { native: "Il vaudrait mieux partir tôt pour éviter les embouteillages.", translation: "It would be better to leave early to avoid traffic." } },
+    { id: "fr-v-a2-70", level: "A2", word: "tant que",         translation: "as long as",                 category: "Grammar",    example: { native: "Je resterai tant que tu auras besoin de moi.", translation: "I will stay as long as you need me." } },
+    { id: "fr-v-a2-71", level: "A2", word: "promettre de",     translation: "to promise to",              category: "Future",     example: { native: "Il m'a promis de rappeler ce soir.", translation: "He promised to call me back tonight." } },
+    { id: "fr-v-a2-72", level: "A2", word: "à moins que",      translation: "unless",                     category: "Grammar",    example: { native: "Je viendrai, à moins qu'il y ait un problème.", translation: "I will come, unless there is a problem." } },
 
-    // ── emotions ─────────────────────────────────────────────────────────────
-    { id: "fr-v-a2-071", level: "A2", word: "content(e)", translation: "happy / pleased", category: "emotions", example: { native: "Je suis content(e) de te revoir.", translation: "I am happy to see you again." } },
-    { id: "fr-v-a2-072", level: "A2", word: "triste", translation: "sad", category: "emotions", example: { native: "Elle est triste depuis la nouvelle.", translation: "She has been sad since the news." } },
-    { id: "fr-v-a2-073", level: "A2", word: "inquiet / inquiète", translation: "worried / anxious", category: "emotions", example: { native: "Je suis inquiet à cause de l'examen.", translation: "I'm worried because of the exam." } },
-    { id: "fr-v-a2-074", level: "A2", word: "surpris(e)", translation: "surprised", category: "emotions", example: { native: "Elle était très surprise par le cadeau.", translation: "She was very surprised by the gift." } },
-    { id: "fr-v-a2-075", level: "A2", word: "fier / fière", translation: "proud", category: "emotions", example: { native: "Ses parents sont fiers de ses résultats.", translation: "His parents are proud of his results." } },
-    { id: "fr-v-a2-076", level: "A2", word: "en colère", translation: "angry", category: "emotions", example: { native: "Il est en colère contre son frère.", translation: "He is angry with his brother." } },
-    { id: "fr-v-a2-077", level: "A2", word: "stressé(e)", translation: "stressed", category: "emotions", example: { native: "Je suis stressé(e) avant les examens.", translation: "I am stressed before exams." } },
+    // ── Block 5: Health, travel & feelings (18 items) ──────────────────────────
 
-    // ── food & restaurants ───────────────────────────────────────────────────
-    { id: "fr-v-a2-078", level: "A2", word: "commander", translation: "to order", category: "food & restaurants", example: { native: "Vous êtes prêts à commander ?", translation: "Are you ready to order?" } },
-    { id: "fr-v-a2-079", level: "A2", word: "l'addition", translation: "the bill", category: "food & restaurants", example: { native: "L'addition, s'il vous plaît !", translation: "The bill, please!" } },
-    { id: "fr-v-a2-080", level: "A2", word: "le plat", translation: "dish / course", category: "food & restaurants", example: { native: "Quel est le plat du jour ?", translation: "What is today's dish?" } },
-    { id: "fr-v-a2-081", level: "A2", word: "la carte", translation: "menu", category: "food & restaurants", example: { native: "Puis-je voir la carte, s'il vous plaît ?", translation: "May I see the menu, please?" } },
-    { id: "fr-v-a2-082", level: "A2", word: "la serveuse / le serveur", translation: "waiter / waitress", category: "food & restaurants", example: { native: "Le serveur nous a apporté le pain.", translation: "The waiter brought us bread." } },
-    { id: "fr-v-a2-083", level: "A2", word: "la réservation", translation: "reservation", category: "food & restaurants", example: { native: "J'ai fait une réservation pour quatre personnes.", translation: "I made a reservation for four people." } },
-    { id: "fr-v-a2-084", level: "A2", word: "sans gluten", translation: "gluten-free", category: "food & restaurants", example: { native: "Avez-vous des plats sans gluten ?", translation: "Do you have any gluten-free dishes?" } },
-    { id: "fr-v-a2-085", level: "A2", word: "délicieux / délicieuse", translation: "delicious", category: "food & restaurants", example: { native: "Ce dessert est absolument délicieux.", translation: "This dessert is absolutely delicious." } },
-
-    // ── Unit 5: Everyday Situations — directions & appointments ──────────────
-    { id: "fr-v-a2-086", level: "A2", word: "le rendez-vous", translation: "appointment / meeting", category: "health & body", example: { native: "J'ai un rendez-vous chez le médecin à quatorze heures.", translation: "I have a doctor's appointment at 2 p.m." } },
-    { id: "fr-v-a2-087", level: "A2", word: "tout droit", translation: "straight ahead", category: "travel & transport", example: { native: "Continuez tout droit jusqu'au feu rouge.", translation: "Continue straight ahead until the traffic light." } },
-    { id: "fr-v-a2-088", level: "A2", word: "tourner à gauche / à droite", translation: "to turn left / right", category: "travel & transport", example: { native: "Tournez à gauche après la boulangerie.", translation: "Turn left after the bakery." } },
-    { id: "fr-v-a2-089", level: "A2", word: "la pharmacie", translation: "pharmacy / chemist", category: "health & body", example: { native: "Il y a une pharmacie au coin de la rue.", translation: "There is a pharmacy on the corner of the street." } },
-    { id: "fr-v-a2-090", level: "A2", word: "l'ordonnance", translation: "prescription", category: "health & body", example: { native: "Le médecin m'a donné une ordonnance.", translation: "The doctor gave me a prescription." } },
-
-    // ── Unit 6: Plans, Preferences & Opinions ────────────────────────────────
-    { id: "fr-v-a2-091", level: "A2", word: "à mon avis", translation: "in my opinion", category: "social interactions", example: { native: "À mon avis, ce film est trop long.", translation: "In my opinion, this film is too long." } },
-    { id: "fr-v-a2-092", level: "A2", word: "je préfère", translation: "I prefer", category: "social interactions", example: { native: "Je préfère le thé au café.", translation: "I prefer tea to coffee." } },
-    { id: "fr-v-a2-093", level: "A2", word: "je suis d'accord", translation: "I agree", category: "social interactions", example: { native: "Je suis d'accord avec toi.", translation: "I agree with you." } },
-    { id: "fr-v-a2-094", level: "A2", word: "je ne suis pas d'accord", translation: "I disagree", category: "social interactions", example: { native: "Désolé, je ne suis pas d'accord.", translation: "Sorry, I disagree." } },
-    { id: "fr-v-a2-095", level: "A2", word: "je trouve que", translation: "I think that / I find that", category: "social interactions", example: { native: "Je trouve que cette idée est bonne.", translation: "I think this idea is good." } },
-
-    // ── Unit 7: Personal Messages & Social Language ───────────────────────────
-    { id: "fr-v-a2-096", level: "A2", word: "cher / chère", translation: "dear (in letters)", category: "social interactions", example: { native: "Chère Sophie, comment tu vas ?", translation: "Dear Sophie, how are you?" } },
-    { id: "fr-v-a2-097", level: "A2", word: "je t'embrasse", translation: "hugs / love (letter closing)", category: "social interactions", example: { native: "À bientôt ! Je t'embrasse.", translation: "See you soon! Hugs." } },
-    { id: "fr-v-a2-098", level: "A2", word: "tu me manques", translation: "I miss you", category: "emotions", example: { native: "Tu me manques beaucoup depuis ton départ.", translation: "I've missed you a lot since you left." } },
-    { id: "fr-v-a2-099", level: "A2", word: "félicitations", translation: "congratulations", category: "social interactions", example: { native: "Félicitations pour ton mariage !", translation: "Congratulations on your wedding!" } },
-    { id: "fr-v-a2-100", level: "A2", word: "bon anniversaire", translation: "happy birthday", category: "social interactions", example: { native: "Bon anniversaire ! Je t'envoie mes meilleurs vœux.", translation: "Happy birthday! I'm sending you my best wishes." } },
-    { id: "fr-v-a2-101", level: "A2", word: "désolé(e)", translation: "sorry / I'm sorry", category: "social interactions", example: { native: "Je suis vraiment désolée d'être en retard.", translation: "I'm really sorry for being late." } },
-    { id: "fr-v-a2-102", level: "A2", word: "avec plaisir", translation: "with pleasure / gladly", category: "social interactions", example: { native: "— Tu peux m'aider ? — Avec plaisir !", translation: "— Can you help me? — Gladly!" } },
-    { id: "fr-v-a2-103", level: "A2", word: "à bientôt", translation: "see you soon", category: "social interactions", example: { native: "C'était super de te voir. À bientôt !", translation: "It was great to see you. See you soon!" } },
-
-    // ── Gap Fix: narrative connectors (Unit 8) ────────────────────────────────
-    { id: "fr-v-a2-104", level: "A2", word: "soudain / tout à coup", translation: "suddenly", category: "time expressions", example: { native: "Tout à coup, il a commencé à pleuvoir.", translation: "Suddenly, it started to rain." } },
-    { id: "fr-v-a2-105", level: "A2", word: "pendant que", translation: "while / during", category: "time expressions", example: { native: "Pendant qu'elle lisait, il cuisinait.", translation: "While she was reading, he was cooking." } },
-    { id: "fr-v-a2-106", level: "A2", word: "ensuite", translation: "then / next", category: "time expressions", example: { native: "J'ai mangé, ensuite je suis sorti.", translation: "I ate, then I went out." } },
-    { id: "fr-v-a2-107", level: "A2", word: "finalement", translation: "finally / eventually", category: "time expressions", example: { native: "Finalement, nous avons trouvé un taxi.", translation: "Finally, we found a taxi." } },
-
-    // ── home & housing ───────────────────────────────────────────────────────
-    { id: "fr-v-a2-108", level: "A2", word: "le loyer", translation: "rent", category: "home & housing", example: { native: "Le loyer de cet appartement est trop cher.", translation: "The rent for this flat is too expensive." } },
-    { id: "fr-v-a2-109", level: "A2", word: "le propriétaire", translation: "landlord / owner", category: "home & housing", example: { native: "Le propriétaire a réparé le chauffage.", translation: "The landlord repaired the heating." } },
-    { id: "fr-v-a2-110", level: "A2", word: "déménager", translation: "to move house", category: "home & housing", example: { native: "Nous allons déménager le mois prochain.", translation: "We are going to move house next month." } },
-    { id: "fr-v-a2-111", level: "A2", word: "les meubles", translation: "furniture", category: "home & housing", example: { native: "L'appartement est livré avec tous les meubles.", translation: "The flat comes with all the furniture." } },
-    { id: "fr-v-a2-112", level: "A2", word: "le chauffage", translation: "heating", category: "home & housing", example: { native: "Le chauffage ne fonctionne pas.", translation: "The heating is not working." } },
-    { id: "fr-v-a2-113", level: "A2", word: "louer", translation: "to rent (as tenant)", category: "home & housing", example: { native: "On loue un appartement au centre-ville.", translation: "We rent a flat in the city centre." } },
-    { id: "fr-v-a2-114", level: "A2", word: "les charges", translation: "service charges / utilities", category: "home & housing", example: { native: "Les charges sont comprises dans le loyer.", translation: "Utilities are included in the rent." } },
-    { id: "fr-v-a2-115", level: "A2", word: "emménager", translation: "to move in", category: "home & housing", example: { native: "Elle a emménagé dans son nouvel appartement hier.", translation: "She moved into her new flat yesterday." } },
-
-    // ── education ────────────────────────────────────────────────────────────
-    { id: "fr-v-a2-116", level: "A2", word: "une matière", translation: "school subject", category: "education", example: { native: "Quelle est ta matière préférée ?", translation: "What is your favourite subject?" } },
-    { id: "fr-v-a2-117", level: "A2", word: "les devoirs", translation: "homework", category: "education", example: { native: "J'ai beaucoup de devoirs ce soir.", translation: "I have a lot of homework tonight." } },
-    { id: "fr-v-a2-118", level: "A2", word: "une note", translation: "grade / mark", category: "education", example: { native: "Elle a eu une très bonne note en maths.", translation: "She got a very good grade in maths." } },
-    { id: "fr-v-a2-119", level: "A2", word: "passer un examen", translation: "to take an exam", category: "education", example: { native: "Je passe mon examen de français demain.", translation: "I am taking my French exam tomorrow." } },
-    { id: "fr-v-a2-120", level: "A2", word: "réussir", translation: "to pass / succeed", category: "education", example: { native: "Il a réussi son bac avec mention.", translation: "He passed his baccalauréat with distinction." } },
-    { id: "fr-v-a2-121", level: "A2", word: "échouer", translation: "to fail", category: "education", example: { native: "Elle a échoué à l'examen mais elle va réessayer.", translation: "She failed the exam but she will try again." } },
-
-    // ── leisure & sport ──────────────────────────────────────────────────────
-    { id: "fr-v-a2-122", level: "A2", word: "s'entraîner", translation: "to train / practise", category: "leisure & sport", example: { native: "Il s'entraîne trois fois par semaine.", translation: "He trains three times a week." } },
-    { id: "fr-v-a2-123", level: "A2", word: "un match", translation: "match / game", category: "leisure & sport", example: { native: "On a regardé le match à la télé.", translation: "We watched the match on TV." } },
-    { id: "fr-v-a2-124", level: "A2", word: "une compétition", translation: "competition", category: "leisure & sport", example: { native: "Elle participe à une compétition nationale.", translation: "She is taking part in a national competition." } },
-    { id: "fr-v-a2-125", level: "A2", word: "un abonnement", translation: "subscription / membership", category: "leisure & sport", example: { native: "J'ai pris un abonnement à la salle de sport.", translation: "I took out a gym membership." } },
-    { id: "fr-v-a2-126", level: "A2", word: "faire de la randonnée", translation: "to go hiking", category: "leisure & sport", example: { native: "On fait de la randonnée en montagne chaque été.", translation: "We go hiking in the mountains every summer." } },
-    { id: "fr-v-a2-127", level: "A2", word: "un spectacle", translation: "show / performance", category: "leisure & sport", example: { native: "Nous sommes allés voir un spectacle de danse.", translation: "We went to see a dance show." } },
-    { id: "fr-v-a2-128", level: "A2", word: "se détendre", translation: "to relax", category: "leisure & sport", example: { native: "Le week-end, j'aime me détendre au bord de la mer.", translation: "At the weekend, I like to relax by the sea." } },
-
-    // ── nature & geography ───────────────────────────────────────────────────
-    { id: "fr-v-a2-129", level: "A2", word: "une colline", translation: "hill", category: "nature & geography", example: { native: "Il y a de jolies collines autour du village.", translation: "There are pretty hills around the village." } },
-    { id: "fr-v-a2-130", level: "A2", word: "un fleuve", translation: "major river (reaching the sea)", category: "nature & geography", example: { native: "La Loire est le plus long fleuve de France.", translation: "The Loire is the longest river in France." } },
-    { id: "fr-v-a2-131", level: "A2", word: "la côte", translation: "coast", category: "nature & geography", example: { native: "La côte bretonne est très sauvage.", translation: "The Brittany coast is very wild." } },
-    { id: "fr-v-a2-132", level: "A2", word: "une forêt", translation: "forest", category: "nature & geography", example: { native: "Nous nous promenons dans la forêt le dimanche.", translation: "We walk in the forest on Sundays." } },
-    { id: "fr-v-a2-133", level: "A2", word: "le paysage", translation: "landscape / scenery", category: "nature & geography", example: { native: "Le paysage est magnifique depuis le sommet.", translation: "The scenery is magnificent from the summit." } },
-    { id: "fr-v-a2-134", level: "A2", word: "une région", translation: "region", category: "nature & geography", example: { native: "La Bretagne est une région très touristique.", translation: "Brittany is a very popular tourist region." } },
-
-    // ── personality & character ──────────────────────────────────────────────
-    { id: "fr-v-a2-135", level: "A2", word: "ambitieux / ambitieuse", translation: "ambitious", category: "personality", example: { native: "Elle est très ambitieuse et travaille dur.", translation: "She is very ambitious and works hard." } },
-    { id: "fr-v-a2-136", level: "A2", word: "paresseux / paresseuse", translation: "lazy", category: "personality", example: { native: "Il est paresseux — il ne finit jamais ses devoirs.", translation: "He is lazy — he never finishes his homework." } },
-    { id: "fr-v-a2-137", level: "A2", word: "bavard / bavarde", translation: "talkative", category: "personality", example: { native: "Ma voisine est très bavarde !", translation: "My neighbour is very talkative!" } },
-    { id: "fr-v-a2-138", level: "A2", word: "honnête", translation: "honest", category: "personality", example: { native: "C'est important d'être honnête avec ses amis.", translation: "It is important to be honest with your friends." } },
-    { id: "fr-v-a2-139", level: "A2", word: "têtu / têtue", translation: "stubborn", category: "personality", example: { native: "Il est têtu — impossible de le faire changer d'avis.", translation: "He is stubborn — impossible to make him change his mind." } },
-
-    // ── cooking at home ──────────────────────────────────────────────────────
-    { id: "fr-v-a2-140", level: "A2", word: "une recette", translation: "recipe", category: "cooking", example: { native: "J'ai trouvé une bonne recette de quiche.", translation: "I found a good quiche recipe." } },
-    { id: "fr-v-a2-141", level: "A2", word: "les ingrédients", translation: "ingredients", category: "cooking", example: { native: "Il faut mélanger tous les ingrédients.", translation: "You need to mix all the ingredients." } },
-    { id: "fr-v-a2-142", level: "A2", word: "faire cuire", translation: "to cook / to bake", category: "cooking", example: { native: "Faites cuire à 180 degrés pendant 30 minutes.", translation: "Cook at 180 degrees for 30 minutes." } },
-    { id: "fr-v-a2-143", level: "A2", word: "mélanger", translation: "to mix", category: "cooking", example: { native: "Mélangez la farine et le beurre.", translation: "Mix the flour and the butter." } },
-    { id: "fr-v-a2-144", level: "A2", word: "un four", translation: "oven", category: "cooking", example: { native: "Préchauffez le four à 200 degrés.", translation: "Preheat the oven to 200 degrees." } },
+    { id: "fr-v-a2-73", level: "A2", word: "avoir mal à",      translation: "to have pain in",            category: "Health",     example: { native: "J'ai mal à la tête depuis ce matin.", translation: "I have had a headache since this morning." } },
+    { id: "fr-v-a2-74", level: "A2", word: "se sentir",        translation: "to feel",                    category: "Health",     example: { native: "Je ne me sens pas très bien aujourd'hui.", translation: "I do not feel very well today." } },
+    { id: "fr-v-a2-75", level: "A2", word: "la fièvre",        translation: "fever",                      category: "Health",     example: { native: "Il a de la fièvre — trente-huit degrés.", translation: "He has a fever — thirty-eight degrees." } },
+    { id: "fr-v-a2-76", level: "A2", word: "la grippe",        translation: "the flu",                    category: "Health",     example: { native: "Elle a la grippe et doit rester au lit.", translation: "She has the flu and must stay in bed." } },
+    { id: "fr-v-a2-77", level: "A2", word: "une ordonnance",   translation: "a prescription",             category: "Health",     example: { native: "Le médecin m'a donné une ordonnance.", translation: "The doctor gave me a prescription." } },
+    { id: "fr-v-a2-78", level: "A2", word: "guérir",           translation: "to recover / cure",          category: "Health",     example: { native: "Il a guéri rapidement grâce aux antibiotiques.", translation: "He recovered quickly thanks to the antibiotics." } },
+    { id: "fr-v-a2-79", level: "A2", word: "le billet",        translation: "ticket",                     category: "Travel",     example: { native: "J'ai perdu mon billet de train.", translation: "I lost my train ticket." } },
+    { id: "fr-v-a2-80", level: "A2", word: "la correspondance", translation: "connection (transport)",    category: "Travel",     example: { native: "J'ai raté ma correspondance à Lyon.", translation: "I missed my connection in Lyon." } },
+    { id: "fr-v-a2-81", level: "A2", word: "en retard",        translation: "late / delayed",             category: "Travel",     example: { native: "Le train est en retard de vingt minutes.", translation: "The train is twenty minutes late." } },
+    { id: "fr-v-a2-82", level: "A2", word: "réclamer",         translation: "to complain / claim",        category: "Travel",     example: { native: "Je voudrais faire une réclamation.", translation: "I would like to make a complaint." } },
+    { id: "fr-v-a2-83", level: "A2", word: "déçu(e)",          translation: "disappointed",               category: "Feelings",   example: { native: "J'étais très déçue par ce film.", translation: "I was very disappointed by this film." } },
+    { id: "fr-v-a2-84", level: "A2", word: "soulagé(e)",       translation: "relieved",                   category: "Feelings",   example: { native: "Je me suis senti soulagé quand j'ai su la vérité.", translation: "I felt relieved when I knew the truth." } },
+    { id: "fr-v-a2-85", level: "A2", word: "fier / fière",     translation: "proud",                      category: "Feelings",   example: { native: "Je suis fière de toi — tu as vraiment travaillé dur.", translation: "I am proud of you — you really worked hard." } },
+    { id: "fr-v-a2-86", level: "A2", word: "anxieux / anxieuse", translation: "anxious",                  category: "Feelings",   example: { native: "Elle se sentait anxieuse avant l'examen.", translation: "She felt anxious before the exam." } },
+    { id: "fr-v-a2-87", level: "A2", word: "à mon avis",       translation: "in my opinion",              category: "Opinion",    example: { native: "À mon avis, c'est la meilleure solution.", translation: "In my opinion, it is the best solution." } },
+    { id: "fr-v-a2-88", level: "A2", word: "cependant",        translation: "however",                    category: "Grammar",    example: { native: "C'est cher. Cependant, la qualité est excellente.", translation: "It is expensive. However, the quality is excellent." } },
+    { id: "fr-v-a2-89", level: "A2", word: "du coup",          translation: "as a result / so (informal)", category: "Grammar",   example: { native: "Il a raté le bus. Du coup, il est en retard.", translation: "He missed the bus. As a result, he is late." } },
+    { id: "fr-v-a2-90", level: "A2", word: "au fond",          translation: "at heart / deep down",       category: "Opinion",    example: { native: "Au fond, je crois qu'il a raison.", translation: "Deep down, I think he is right." } },
 ]
 
-// Re-export under legacy name so existing imports keep working
 export const a2Vocab = frVocabA2
