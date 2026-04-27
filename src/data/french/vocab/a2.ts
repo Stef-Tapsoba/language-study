@@ -48,7 +48,7 @@ export const frVocabA2: VocabItem[] = [
     { id: "fr-v-a2-35", level: "A2", word: "recommander",      translation: "to recommend",               category: "Opinion",    example: { native: "Je vous recommande vivement ce restaurant.", translation: "I strongly recommend this restaurant." } },
     { id: "fr-v-a2-36", level: "A2", word: "valoir la peine",  translation: "to be worth it",            category: "Opinion",    example: { native: "Ça vaut la peine de visiter ce musée.", translation: "It is worth visiting this museum." } },
     { id: "fr-v-a2-37", level: "A2", word: "surprendre",       translation: "to surprise",                category: "Feelings",   example: { native: "La fin du film m'a vraiment surpris.", translation: "The end of the film really surprised me." } },
-    { id: "fr-v-a2-38", level: "A2", word: "dans l'ensemble",  translation: "overall",                    category: "Opinion",    example: { native: "Dans l'ensemble, le voyage s'est bien passé.", translation: "Overall, the trip went well." } },
+    { id: "fr-v-a2-38", level: "A2", word: "notamment",        translation: "notably / in particular",    category: "Opinion",    example: { native: "J'aime cette ville, notamment son architecture.", translation: "I love this city, notably its architecture." } },
 
     // ── Block 3: Social interaction & pronouns (16 items) ──────────────────────
 
@@ -110,6 +110,28 @@ export const frVocabA2: VocabItem[] = [
     { id: "fr-v-a2-88", level: "A2", word: "cependant",        translation: "however",                    category: "Grammar",    example: { native: "C'est cher. Cependant, la qualité est excellente.", translation: "It is expensive. However, the quality is excellent." } },
     { id: "fr-v-a2-89", level: "A2", word: "du coup",          translation: "as a result / so (informal)", category: "Grammar",   example: { native: "Il a raté le bus. Du coup, il est en retard.", translation: "He missed the bus. As a result, he is late." } },
     { id: "fr-v-a2-90", level: "A2", word: "au fond",          translation: "at heart / deep down",       category: "Opinion",    example: { native: "Au fond, je crois qu'il a raison.", translation: "Deep down, I think he is right." } },
+
+    // ── Health (extended) ─────────────────────────────────────────────────────
+    { id: "fr-v-a2-91", level: "A2", word: "le médecin",       translation: "doctor",                     category: "Health",     example: { native: "Je dois prendre rendez-vous chez le médecin.", translation: "I need to make an appointment with the doctor." } },
+    { id: "fr-v-a2-92", level: "A2", word: "la pharmacie",     translation: "pharmacy",                   category: "Health",     example: { native: "Est-ce qu'il y a une pharmacie de garde près d'ici ?", translation: "Is there an all-night pharmacy near here?" } },
+    { id: "fr-v-a2-93", level: "A2", word: "un médicament",    translation: "a medication / medicine",    category: "Health",     example: { native: "Prenez ce médicament trois fois par jour après les repas.", translation: "Take this medication three times a day after meals." } },
+    { id: "fr-v-a2-94", level: "A2", word: "un comprimé",      translation: "a tablet",                   category: "Health",     example: { native: "Le médecin m'a prescrit deux comprimés par jour.", translation: "The doctor prescribed two tablets a day." } },
+    { id: "fr-v-a2-95", level: "A2", word: "le rhume",         translation: "a cold",                     category: "Health",     example: { native: "J'ai attrapé un rhume la semaine dernière.", translation: "I caught a cold last week." } },
+    { id: "fr-v-a2-96", level: "A2", word: "les antibiotiques", translation: "antibiotics",               category: "Health",     example: { native: "Il faut prendre tout le traitement même si on se sent mieux.", translation: "You must complete the full course even if you feel better." } },
+    { id: "fr-v-a2-97", level: "A2", word: "les urgences",     translation: "emergency room / A&E",       category: "Health",     example: { native: "On a dû aller aux urgences — c'était sérieux.", translation: "We had to go to A&E — it was serious." } },
+    { id: "fr-v-a2-98", level: "A2", word: "une allergie",     translation: "an allergy",                 category: "Health",     example: { native: "Je suis allergique aux arachides — c'est une allergie grave.", translation: "I am allergic to peanuts — it is a serious allergy." } },
+    { id: "fr-v-a2-99", level: "A2", word: "se reposer",       translation: "to rest",                    category: "Health",     example: { native: "Le médecin m'a conseillé de me reposer quelques jours.", translation: "The doctor advised me to rest for a few days." } },
+    { id: "fr-v-a2-100", level: "A2", word: "la toux",         translation: "a cough",                    category: "Health",     example: { native: "J'ai une toux persistante depuis une semaine.", translation: "I have had a persistent cough for a week." } },
+
+    // ── Travel (extended) ─────────────────────────────────────────────────────
+    { id: "fr-v-a2-101", level: "A2", word: "le quai",         translation: "platform (train)",           category: "Travel",     example: { native: "Le train pour Lyon part du quai numéro six.", translation: "The train to Lyon leaves from platform six." } },
+    { id: "fr-v-a2-102", level: "A2", word: "le départ",       translation: "departure",                  category: "Travel",     example: { native: "L'heure de départ est 14h30 — ne sois pas en retard.", translation: "The departure time is 14:30 — don't be late." } },
+    { id: "fr-v-a2-103", level: "A2", word: "l'arrivée (f)",   translation: "arrival",                    category: "Travel",     example: { native: "L'arrivée prévue est à 16h00, mais le train a du retard.", translation: "The scheduled arrival is at 16:00, but the train is delayed." } },
+    { id: "fr-v-a2-104", level: "A2", word: "le vol",          translation: "flight",                     category: "Travel",     example: { native: "Notre vol a été annulé à cause des intempéries.", translation: "Our flight was cancelled because of bad weather." } },
+    { id: "fr-v-a2-105", level: "A2", word: "les bagages (m)", translation: "luggage",                    category: "Travel",     example: { native: "J'ai perdu mes bagages — il faut parler au personnel.", translation: "I've lost my luggage — I need to speak to the staff." } },
+    { id: "fr-v-a2-106", level: "A2", word: "l'enregistrement (m)", translation: "check-in",             category: "Travel",     example: { native: "Vous pouvez faire l'enregistrement en ligne jusqu'à 24h avant.", translation: "You can check in online up to 24 hours before." } },
+    { id: "fr-v-a2-107", level: "A2", word: "un aller simple", translation: "a one-way ticket",          category: "Travel",     example: { native: "Un aller simple pour Marseille, s'il vous plaît.", translation: "A one-way ticket to Marseille, please." } },
+    { id: "fr-v-a2-108", level: "A2", word: "demander son chemin", translation: "to ask for directions", category: "Travel",     example: { native: "Excusez-moi, pourriez-vous m'indiquer le chemin pour la gare ?", translation: "Excuse me, could you tell me the way to the station?" } },
 ]
 
 export const a2Vocab = frVocabA2
