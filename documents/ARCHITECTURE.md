@@ -1,7 +1,7 @@
 # Language Study App — Technical Architecture
 
-**Version: 2.4**
-**Last updated: March 2026**
+**Version: 2.6**
+**Last updated: April 2026**
 
 > For product philosophy, learning model, and deployment roadmap see `Language_Study_App_Architecture_Blueprint.md`.
 > For content file naming conventions see `src/data/CONTENT_CONVENTIONS.md`.
@@ -18,7 +18,9 @@
 | Styling | Tailwind CSS v3 | `components.json` for shadcn/ui primitives |
 | Routing | React Router v6 | `createBrowserRouter`, file-per-page |
 | State | Zustand | Reactive selectors; no Redux |
-| Storage (Stage 1) | localStorage | Behind Adapter seam — swappable |
+| Auth | Supabase Auth | Email + password; JWT sessions |
+| Storage (production) | Supabase (PostgreSQL + RLS) | Write-through local cache; adapters swap at bootstrap |
+| Storage (debug/offline) | localStorage | Behind same adapter seam |
 | SRS algorithm | SM-2 | `@myorg/srs` package |
 | TTS | Web Speech API | `@myorg/tts` package |
 | Quiz engine | custom `useDrill` hook | `@myorg/quiz-engine` package |
@@ -33,7 +35,7 @@
 language-study/
   src/
     App.tsx               — Router definition, lazy page imports
-    main.tsx              — React root, no bootstrap side-effects
+    main.tsx              — React root; bootstraps Supabase adapters when env vars present
     global.d.ts           — declare const __APP_VERSION__: string
     index.css             — Tailwind directives + CSS custom properties
     auth/                 — Auth context + guards
@@ -66,7 +68,7 @@ All routes are defined in `src/App.tsx`. Protected routes are wrapped in an auth
 
 Key route groups:
 - `/` — Public landing page
-- `/login`, `/register` — Auth pages
+- `/login`, `/register`, `/forgot-password`, `/reset-password` — Auth pages
 - `/home` — Language picker (authenticated)
 - `/:langId/dashboard` — Per-language progress dashboard (tabs: Path, Study, Stats, Test)
 - `/:langId/unit/:unitId` — Unit lesson + quiz
@@ -191,11 +193,11 @@ Three interfaces define the storage contract:
 
 | Interface | Implementations |
 |---|---|
-| `IProgressStorage` | `LocalStorageProgressStorage` |
-| `ISRSStorage` | `LocalStorageSRSStorage` |
-| `IStatsStorage` | `LocalStorageStatsStorage` |
+| `IProgressStorage` | `LocalStorageProgressStorage` · `SupabaseProgressStorage` |
+| `ISRSStorage` | `LocalStorageSRSStorage` · `SupabaseSRSStorage` |
+| `IStatsStorage` | `LocalStorageStatsStorage` · `SupabaseStatsStorage` |
 
-Stage 2 adds `SupabaseProgressStorage`, `SupabaseSRSStorage`, `SupabaseStatsStorage` without touching any page code.
+`main.tsx` bootstraps the Supabase adapters when `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` are present, then calls `registry.configure(...)` before React renders. In debug mode (`VITE_DEBUG=true`) the localStorage adapters remain active.
 
 **`src/store/registry.ts`** — DI container. Defaults to localStorage. Swap all three at once:
 

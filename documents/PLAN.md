@@ -10,9 +10,9 @@ This document tracks the current stack, types, file structure, routes, and featu
 
 **User choices:**
 - Languages: Spanish, French, Italian, Japanese, Korean
-- Backend: 100% localStorage for prototype; real backend deferred
-- Levels: CEFR — A1 → A2 → B1 → B2 → C1
-- Native language: English only (locked for prototype + early production)
+- Backend: Supabase (production) — auth, progress, SRS, stats; localStorage in debug mode
+- Levels: CEFR — A1 → A2 → B1 → B2 (C1 deferred)
+- Native language: English only
 
 ---
 

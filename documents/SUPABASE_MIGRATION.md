@@ -1,6 +1,8 @@
-# Supabase Migration Plan — Stage 2
+# Supabase Migration — Stage 2 ✅ Complete
 
-*Authors: Backend Engineer Agent + Architect Agent | Last updated: 2026-04-02*
+*Authors: Backend Engineer Agent + Architect Agent | Originally written: 2026-04-02 | Shipped: 2026-04-06*
+
+> **Status:** Stage 2 is live. This document is now a historical reference for the migration design decisions and schema.
 
 > **Complete DDL:** See [`DATABASE_SCHEMA.sql`](./DATABASE_SCHEMA.sql) for the full production-ready schema with all tables, indexes, RLS policies, and helper RPCs.
 

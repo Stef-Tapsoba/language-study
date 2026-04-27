@@ -2,7 +2,7 @@
 
 **Master a language with structure, not streaks.**
 
-A serious alternative to Duolingo — built for long-term fluency, not daily dopamine. Five languages, CEFR-levelled content from A1 to C1, and a UI that progressively switches to your target language as you improve. No backend required — everything runs locally.
+A serious alternative to Duolingo — built for long-term fluency, not daily dopamine. Five languages, CEFR-levelled content from A1 to B2, and a UI that progressively switches to your target language as you improve. Backed by Supabase in production; runs in debug mode locally without an account.
 
 ---
 
@@ -14,7 +14,7 @@ Most language apps optimise for retention loops. This one optimises for retentio
 - **Immersion-aware UI** — grammar explanations and interface strings gradually shift to your target language at A2+. You're not just learning a language — you're being pushed to think in it.
 - **Honest level tests** — pass 12/15 to advance, then review every mistake before you move on. No skipping gaps.
 - **Drill → review → advance loop** — verb conjugation drills, grammar drills, and a missed-items review that closes the loop so nothing falls through.
-- **Local-first** — fast, private, works offline. No account needed to start.
+- **Supabase-backed** — progress, SRS cards, and stats sync across devices. Local cache keeps the UI instant even on slow connections.
 
 ---
 
@@ -58,19 +58,19 @@ Most language apps optimise for retention loops. This one optimises for retentio
 
 | Language | Levels available | Notes |
 |---|---|---|
-| Spanish | A1 · A2 (B1–C1 in progress) | Full grammar + vocab + drills at each level |
-| French | A1 · A2 (B1–C1 in progress) | Full grammar + vocab + drills at each level |
-| Italian | A1 · A2 (B1–C1 in progress) | Full grammar + vocab + drills at each level |
-| Japanese | A1 · A2 (B1–C1 in progress) | JLPT N4 coverage at A2 |
-| Korean | A1 · A2 (B1–C1 in progress) | TOPIK 3 coverage at A2; units being expanded to match other languages |
+| Spanish | A1 · A2 · B1 · B2 | Full grammar + vocab + drills at each level; A2 curriculum redesigned |
+| French | A1 · A2 · B1 · B2 | Full grammar + vocab + drills at each level; A1 + A2 curriculum redesigned |
+| Italian | A1 · A2 · B1 · B2 | Full grammar + vocab + drills at each level; A2 curriculum redesigned |
+| Japanese | A1 · A2 | Content complete at A2; B1+ deferred |
+| Korean | A1 · A2 · B1 · B2 | Full grammar + vocab + drills; A1 + A2 curriculum redesigned |
 
-Each A-level includes 20 grammar lessons, 20 units, 60+ vocabulary items, verb drills, culture episodes, and a CEFR level test.
+Each level includes grammar lessons, units, vocabulary, verb drills, culture episodes, reading and listening passages, and a CEFR level test.
 
 ---
 
 ## How to use the app
 
-1. **Register** (mock auth — no real backend) and pick a language
+1. **Register** with an email and password (Supabase auth) and pick a language
 2. **Take the placement test** to find your level — or skip if you already know
 3. **Pick your learning goal** — Travelling, Making friends, Culture, or Full course
 4. **Work through units** — each one has lessons, paired reinforcement exercises, and a mini-quiz
@@ -97,11 +97,12 @@ npm run typecheck  # tsc --noEmit
 
 ## Roadmap
 
-- **Cloud sync** — optional Supabase backend (preserves local-first default; architecture seam-ready)
-- **Mobile apps** — iOS + Android via Capacitor
-- **B1–C1 content expansion** — reading/listening/culture rolling out across all five languages
+- **Mobile apps** — iOS + Android via Capacitor (Stage 3)
+- **Monetisation** — Stripe (web) + RevenueCat (mobile) freemium model (Stage 4)
+- **C1 content** — deferred; low user reach in the near term
+- **Japanese B1+** — deferred by decision
 - **Writing exercises** — constrained prompts + model answers (EE module)
-- **Daily challenges** — progress ring, reward on completion
+- **LLM features** — under consideration: answer evaluation, conversation partner, smarter SRS
 
 ---
 
@@ -111,7 +112,9 @@ npm run typecheck  # tsc --noEmit
 |---|---|
 | UI | React 18 + TypeScript + Tailwind CSS + shadcn/ui |
 | Routing | React Router v6 |
-| State | `localStorage` (progress, SRS) + Zustand with persist (stats) |
+| State | Supabase (production) · localStorage (debug/offline) · Zustand (stats) |
+| Auth | Supabase Auth (email + password) |
+| Backend | Supabase (PostgreSQL + RLS + PostgREST) |
 | Build | Vite |
 | Tests | Vitest + jsdom + `@testing-library/jest-dom` |
 
