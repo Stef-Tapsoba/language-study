@@ -90,7 +90,7 @@ export const a2Checkpoints: Checkpoint[] = [
         ],
     },
 
-    // ── fr-cp-a2-5 : Block 5 — Listening: a journey that didn't go to plan ─────
+    // ── fr-cp-a2-5 : Block 5 — Listening: a journey that didn't go to plan (after U14) ─
     {
         id: "fr-cp-a2-5",
         level: "A2",
@@ -110,7 +110,7 @@ export const a2Checkpoints: Checkpoint[] = [
         ],
     },
 
-    // ── fr-cp-a2-6 : A2 exit capstone (after U16) ─────────────────────────────
+    // ── fr-cp-a2-6 : A2 exit capstone (after U16) ──────────────────────────────
     {
         id: "fr-cp-a2-6",
         level: "A2",
