@@ -98,7 +98,7 @@ export const a2Checkpoints: Checkpoint[] = [
         listeningId: 'it-l-a2-2',
     },
 
-    // ── it-cp-a2-6 : Capstone A2 — Il tuo italiano in 5 argomenti (after U20) ─
+    // ── it-cp-a2-6 : Capstone A2 — Il tuo italiano in 5 argomenti (after U22) ─
     {
         id: 'it-cp-a2-6',
         level: 'A2',
