@@ -347,13 +347,47 @@ export const a2Units: LessonUnit[] = [
         verbIds: [],
         cultureIds: ["it-c-a2-1", "it-c-a2-2", "it-c-a2-3"],
         listeningIds: ["it-l-a2-3"],
-        checkpointId: "it-cp-a2-6",
         testQuestions: [
             { id: "it-uq-a2-20-1", level: "A2", prompt: "Translate: 'What are you doing? — I'm studying.'", options: ["Che cosa fai? — Studio.", "Cosa stai facendo? — Sto studiando.", "Che cosa hai fatto? — Ho studiato.", "Cosa facevi? — Studiavo."], answer: "Cosa stai facendo? — Sto studiando." },
             { id: "it-uq-a2-20-2", level: "A2", prompt: "What is the gerundio of 'mangiare'?", options: ["mangiando", "mangiante", "mangiato", "mangiare"], answer: "mangiando" },
             { id: "it-uq-a2-20-3", level: "A2", prompt: "Complete: 'Stava ___ quando l'ho chiamato.' (mangiare)", options: ["mangiato", "mangia", "mangiando", "mangiava"], answer: "mangiando" },
             { id: "it-uq-a2-20-4", level: "A2", prompt: "What is the gerundio of 'fare'?", options: ["facendo", "faccendo", "fatto", "fare"], answer: "facendo" },
             { id: "it-uq-a2-20-5", level: "A2", prompt: "Translate: 'Is it still raining?'", options: ["Pioveva ancora?", "Ha piovuto ancora?", "Sta piovendo ancora?", "Pioverà ancora?"], answer: "Sta piovendo ancora?" }
+        ]
+    },
+    {
+        id: "it-a2-u21",
+        level: "A2",
+        order: 21,
+        title: "La Salute — Health and the Doctor",
+        description: "Describe symptoms, navigate a doctor's appointment or pharmacy, and understand medical advice — entirely in Italian. Survival language for any stay.",
+        grammarIds: ["it-g-a2-14"],
+        vocabIds: ["it-v-a2-49", "it-v-a2-50", "it-v-a2-51", "it-v-a2-52", "it-v-a2-53", "it-v-a2-54", "it-v-a2-55", "it-v-a2-81", "it-v-a2-82", "it-v-a2-83", "it-v-a2-84", "it-v-a2-85", "it-v-a2-86", "it-v-a2-87", "it-v-a2-88", "it-v-a2-89", "it-v-a2-90", "it-v-a2-91"],
+        verbIds: [],
+        testQuestions: [
+            { id: "it-uq-a2-21-1", level: "A2", prompt: "How do you say 'My head hurts' using the fare male structure?", options: ["Ho dolore la testa.", "Mi fa male la testa.", "La mia testa fa male.", "Ho mal di testa mia."], answer: "Mi fa male la testa." },
+            { id: "it-uq-a2-21-2", level: "A2", prompt: "Complete: 'Mi ___ le ginocchia quando corro.' (fare male — plural)", options: ["fa male", "fanno male", "fa mal di", "fanno mal di"], answer: "fanno male" },
+            { id: "it-uq-a2-21-3", level: "A2", prompt: "What is the Italian for 'emergency room'?", options: ["la guardia medica", "il pronto soccorso", "la clinica", "il reparto"], answer: "il pronto soccorso" },
+            { id: "it-uq-a2-21-4", level: "A2", prompt: "Which is the gentlest way to give medical advice?", options: ["Devi stare a letto.", "Stai a letto!", "Hay que stare a letto.", "Dovresti stare a letto."], answer: "Dovresti stare a letto." },
+            { id: "it-uq-a2-21-5", level: "A2", prompt: "Translate: 'I've had a cough for three days.'", options: ["Ho tossito per tre giorni.", "Tossivo da tre giorni.", "Ho la tosse da tre giorni.", "Sto avendo la tosse per tre giorni."], answer: "Ho la tosse da tre giorni." }
+        ]
+    },
+    {
+        id: "it-a2-u22",
+        level: "A2",
+        order: 22,
+        title: "In Viaggio — Travel and Getting Around",
+        description: "Book transport and accommodation, navigate stations and airports, ask for directions, and handle the unexpected — all the Italian you need when travelling.",
+        grammarIds: ["it-g-a2-12"],
+        vocabIds: ["it-v-a2-40", "it-v-a2-41", "it-v-a2-42", "it-v-a2-44", "it-v-a2-79", "it-v-a2-92", "it-v-a2-93", "it-v-a2-94", "it-v-a2-95", "it-v-a2-96", "it-v-a2-97", "it-v-a2-98", "it-v-a2-99", "it-v-a2-100", "it-v-a2-101", "it-v-a2-102", "it-v-a2-103"],
+        verbIds: [],
+        checkpointId: "it-cp-a2-6",
+        testQuestions: [
+            { id: "it-uq-a2-22-1", level: "A2", prompt: "What is 'il binario'?", options: ["the departure time", "the platform", "the ticket office", "the waiting room"], answer: "the platform" },
+            { id: "it-uq-a2-22-2", level: "A2", prompt: "How do you politely ask for a return ticket to Florence?", options: ["Voglio un biglietto per Firenze.", "Dammi un biglietto per Firenze.", "Vorrei un biglietto andata e ritorno per Firenze.", "Ho bisogno Firenze."], answer: "Vorrei un biglietto andata e ritorno per Firenze." },
+            { id: "it-uq-a2-22-3", level: "A2", prompt: "Translate: 'Could you give me directions to the station?'", options: ["Dove è la stazione?", "Potrebbe darmi le indicazioni per la stazione?", "Giri alla stazione.", "La stazione è lontana?"], answer: "Potrebbe darmi le indicazioni per la stazione?" },
+            { id: "it-uq-a2-22-4", level: "A2", prompt: "Complete: 'Giri a sinistra al semaforo, poi vada ___ per due isolati.'", options: ["a destra", "a sinistra", "dritto", "indietro"], answer: "dritto" },
+            { id: "it-uq-a2-22-5", level: "A2", prompt: "What does 'la fermata' refer to?", options: ["a train platform", "a bus or tram stop", "a traffic light", "a road junction"], answer: "a bus or tram stop" }
         ]
     },
 ]
