@@ -8,6 +8,8 @@ import React from "react"
 import ReactDOM from "react-dom/client"
 import App from "./App"
 import "./index.css"
+import { DEBUG } from "./auth/debugSession"
+import { initUserSession as initStorageSession } from "./store/progress"
 
 async function bootstrap() {
     if (import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY) {
@@ -78,6 +80,16 @@ async function bootstrap() {
         })
     }
     // Stage 1 (no Supabase URL) — registry already defaults to localStorage adapters
+
+    // In debug mode the session is always "debug-user". Pre-initialise the
+    // localStorage storage key here, before React renders, so ProgressContext's
+    // lazy useState(() => loadProgress()) reads from "ls:progress:debug-user"
+    // on the very first frame. Without this, the key starts as "ls:progress"
+    // (the anonymous key) and selectedLanguage is null until initUserSession
+    // fires in a useEffect — breaking nav links and the language selector.
+    if (DEBUG) {
+        initStorageSession("debug-user")
+    }
 
     ReactDOM.createRoot(document.getElementById("root")!).render(
         <React.StrictMode>
