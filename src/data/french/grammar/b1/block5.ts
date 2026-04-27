@@ -1,7 +1,7 @@
 import { GrammarLesson } from "../../../../types"
 
 // Block 5 — "Le français authentique" (Units 14–17)
-// Grammar: Faire causatif + perception verbs, B1 discourse structure
+// Grammar: Faire causatif + perception verbs, B1 discourse structure, grammar bridge
 
 export const block5Lessons: GrammarLesson[] = [
     // ── fr-g-b1-13 : Faire causatif + verbes de perception ───────────────────
@@ -130,5 +130,70 @@ export const block5Lessons: GrammarLesson[] = [
             { word: "c'est-à-dire", translation: "that is to say / i.e." },
             { word: "en fin de compte", translation: "in the end / all in all" },
         ],
+    },
+
+    // ── fr-g-b1-15 : Grammar bridge — B1 in informal registers ───────────────
+    {
+        id: "fr-g-b1-15",
+        level: "B1",
+        title: "Le pont grammatical — le B1 dans le français parlé",
+        explanation: {
+            target: `Bonne nouvelle : la grammaire que vous avez apprise au B1 ne disparaît pas dans le français parlé — elle se *compresse*. Les structures restent les mêmes ; ce qui change, c'est la vitesse, les sons et les choix lexicaux.
+
+**Ce qui change à l'oral :**
+- *ne* de négation est souvent supprimé : *Je **ne** sais pas* → *J'sais pas*
+- *il* impersonnel tombe : *Il faut que* → *Faut que*
+- Les pronoms se réduisent : *tu as* → *t'as* | *il y a* → *y'a*
+- Les mots fusionnent : *parce que* → *pasque*
+
+**Ce qui reste exactement pareil :**
+Le subjonctif, les phrases en si, l'ordre des pronoms — toutes les structures B1 restent intactes à l'oral informel. Seule la *surface* change.`,
+            native: `Good news: the grammar you've learned at B1 doesn't disappear in spoken French — it *compresses*. The structures stay the same; what changes is speed, sound, and word choices.
+
+**What changes in speech:**
+- *ne* of negation is often dropped: *Je **ne** sais pas* → *J'sais pas*
+- Impersonal *il* drops: *Il faut que* → *Faut que*
+- Pronouns reduce: *tu as* → *t'as* | *il y a* → *y'a*
+- Words fuse: *parce que* → *pasque*
+
+**What stays exactly the same:**
+The subjunctive, si clauses, pronoun order — all B1 structures remain intact in informal speech. Only the *surface* changes.`,
+        },
+        rules: [
+            {
+                condition: "Même grammaire B1 — surface réduite",
+                result: "La structure sous-jacente est intacte ; seule la forme phonologique change",
+                examples: [
+                    { native: "J'pense pas qu'il soit là.", translation: "I don't think he's there. (subjunctive intact: soit)" },
+                    { native: "Si j'avais su, j'aurais fait autrement.", translation: "If I had known, I would have done it differently. (type 3 intact)" },
+                    { native: "Faut que tu finisses avant.", translation: "You need to finish first. (subjunctive intact: finisses)" },
+                    { native: "J'le lui ai dit hier.", translation: "I told it to him yesterday. (double pronoun order intact)" },
+                ],
+            },
+            {
+                condition: "Ne de négation supprimé (très fréquent à l'oral)",
+                result: "Ne disparaît, pas / plus / jamais / rien restent",
+                examples: [
+                    { native: "J'sais pas. / Je sais pas. (← Je ne sais pas.)", speakText: "Je sais pas.", translation: "I don't know." },
+                    { native: "T'inquiète pas. (← Tu ne t'inquiètes pas.)", speakText: "T'inquiète pas.", translation: "Don't worry." },
+                ],
+            },
+        ],
+        notes: [
+            { type: "tip", content: "Le registre informel à l'oral n'est pas du 'mauvais français' — c'est du français compressé. Un locuteur natif qui dit 'j'sais pas' n'a pas oublié le ne ; il choisit de ne pas le prononcer selon le contexte." },
+            { type: "warning", content: "À l'écrit formel et dans les examens, la suppression du ne est toujours incorrecte. Ce registre est strictement oral et informel." },
+        ],
+        examples: [
+            { native: "Franchement, c'est relou — j'aurais pas dû accepter.", translation: "Honestly, it's annoying — I shouldn't have agreed." },
+            { native: "Y'a personne qui sache vraiment ce qui s'est passé.", translation: "Nobody really knows what happened." },
+        ],
+        inlineVocab: [
+            { word: "j'sais pas", translation: "I don't know (spoken)" },
+            { word: "t'as vu", translation: "did you see / you saw (spoken)" },
+            { word: "y'a", translation: "there is/are (spoken)" },
+            { word: "pasque", translation: "because (spoken fusion)" },
+            { word: "faut que", translation: "you/one must (spoken — il dropped)" },
+        ],
+        fnTags: ["fn:narrating"],
     },
 ]
