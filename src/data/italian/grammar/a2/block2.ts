@@ -139,7 +139,7 @@ HIGH-FREQUENCY PATTERNS to automate:
         ],
         examples: [
             { native: "Ho visto un film che era noioso, ma ho aspettato fino alla fine.", translation: "I saw a film that was boring, but I waited until the end." },
-            { native: "La canzone di cui ti parlo la conosce tutti.", translation: "The song I'm telling you about everyone knows." },
+            { native: "La canzone di cui ti parlo la conoscono tutti.", translation: "The song I'm telling you about everyone knows." },
             { native: "C'è un bar dove fanno il miglior cornetto della città.", translation: "There's a bar where they make the best croissant in the city." },
             { native: "Quello che mi piace di questa città è l'atmosfera.", translation: "What I like about this city is the atmosphere." },
             { native: "È la ragazza con cui ho studiato al liceo.", translation: "She's the girl I studied with at secondary school." },
