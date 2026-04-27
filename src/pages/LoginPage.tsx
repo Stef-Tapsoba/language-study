@@ -11,6 +11,7 @@ export function LoginPage() {
     const navigate = useNavigate()
     const location = useLocation()
     const from = (location.state as { from?: { pathname: string } })?.from?.pathname ?? "/home"
+    const passwordReset = (location.state as { passwordReset?: boolean })?.passwordReset ?? false
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -45,6 +46,11 @@ export function LoginPage() {
                 <p className="text-center text-text-sec mb-8">Sign in to continue</p>
 
                 <form onSubmit={handleSubmit} className="bg-surface-card rounded-2xl shadow-md p-6 flex flex-col gap-4">
+                    {passwordReset && (
+                        <p className="text-sm text-grammar bg-grammar-surface border border-grammar-border rounded-lg px-3 py-2">
+                            Password updated — sign in with your new password.
+                        </p>
+                    )}
                     {errors.length > 0 && (
                         <ul className="text-sm text-verbs bg-verbs-surface border border-verbs-border rounded-lg px-3 py-2 flex flex-col gap-1 list-disc list-inside">
                             {errors.map(msg => <li key={msg}>{msg}</li>)}
@@ -75,6 +81,12 @@ export function LoginPage() {
                             autoComplete="current-password"
                             className="text-sm"
                         />
+                    </div>
+
+                    <div className="text-right -mt-2">
+                        <Link to="/forgot-password" className="text-xs text-text-ter hover:text-text-sec">
+                            Forgot password?
+                        </Link>
                     </div>
 
                     <Button
