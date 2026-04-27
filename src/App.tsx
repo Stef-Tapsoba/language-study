@@ -12,8 +12,10 @@ import { AppLayout } from "./components/layout/AppLayout"
 import { useAppBootstrap } from "./hooks/useAppBootstrap"
 
 const LandingPage        = lazy(() => import("./pages/LandingPage").then(m => ({ default: m.LandingPage })))
-const LoginPage          = lazy(() => import("./pages/LoginPage").then(m => ({ default: m.LoginPage })))
-const RegisterPage       = lazy(() => import("./pages/RegisterPage").then(m => ({ default: m.RegisterPage })))
+const LoginPage             = lazy(() => import("./pages/LoginPage").then(m => ({ default: m.LoginPage })))
+const RegisterPage          = lazy(() => import("./pages/RegisterPage").then(m => ({ default: m.RegisterPage })))
+const ForgotPasswordPage    = lazy(() => import("./pages/ForgotPasswordPage").then(m => ({ default: m.ForgotPasswordPage })))
+const ResetPasswordPage     = lazy(() => import("./pages/ResetPasswordPage").then(m => ({ default: m.ResetPasswordPage })))
 const HomePage           = lazy(() => import("./pages/HomePage").then(m => ({ default: m.HomePage })))
 const LanguageSelectPage = lazy(() => import("./pages/LanguageSelectPage").then(m => ({ default: m.LanguageSelectPage })))
 const DashboardPage      = lazy(() => import("./pages/DashboardPage").then(m => ({ default: m.DashboardPage })))
@@ -99,6 +101,8 @@ export default function App() {
                     <Route path="/" element={<LandingPage />} />
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/register" element={<RegisterPage />} />
+                    <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+                    <Route path="/reset-password" element={<ResetPasswordPage />} />
 
                     {/* ── Non-language pages — AppLayout chrome, no LanguageLoader ── */}
                     <Route element={<ProtectedRoute><AppLayout /></ProtectedRoute>}>
