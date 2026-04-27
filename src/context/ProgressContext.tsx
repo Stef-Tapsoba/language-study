@@ -75,11 +75,12 @@ export function ProgressProvider({ children }: Readonly<{ children: ReactNode }>
     const [hydrateError, setHydrateError] = useState<Error | null>(null)
     const [mutationError, setMutationError] = useState<Error | null>(null)
 
-    // In Stage 2 (Supabase), registry.progress.load() reads from the in-memory cache
-    // hydrated by initSession. Using loadProgress() (localStorage) here would return
-    // stale data after any write, making completed lessons appear incomplete until reload.
+    // In Stage 2 (Supabase), registry.progress.load() returns the same cache reference
+    // mutated in place. Spreading ensures React always sees a new object and re-renders.
+    // LocalStorageProgressStorage.load() already returns a fresh object (parsed from JSON),
+    // so the spread is harmless there too.
     const refresh = useCallback(() => {
-        setProgress(registry.progress.load())
+        setProgress({ ...registry.progress.load() })
     }, [])
 
     // initUserSession resets progress when the userId changes (e.g. different
