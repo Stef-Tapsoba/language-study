@@ -3,7 +3,7 @@
 
 import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
-import { useProgress } from "../context/ProgressContext"
+import { useProgress } from "../hooks/useProgress"
 import { StatsTab } from "../components/StatsTab"
 
 export function StatsPage() {

@@ -2,7 +2,7 @@
 import { useParams, useSearchParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getGrammarLesson } from "../data/repo"
-import { useProgress } from "../context/ProgressContext"
+import { useProgress } from "../hooks/useProgress"
 import { NavBar } from "../components/NavBar"
 import { MarkCompleteButton } from "../components/MarkCompleteButton"
 import { LevelBadge } from "../components/LevelBadge"

@@ -15,7 +15,7 @@ import { useNavigate } from "react-router-dom"
 import { Plus } from "lucide-react"
 import { LANGUAGES } from "../data/languages"
 import { Flag } from "./Flag"
-import { useProgress } from "../context/ProgressContext"
+import { useProgress } from "../hooks/useProgress"
 import { computeProgressStats } from "../hooks/useProgressStats"
 
 interface DropdownContentProps {

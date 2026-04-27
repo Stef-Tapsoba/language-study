@@ -13,7 +13,7 @@ import {
     ChevronLeft, ChevronRight, Globe,
     Sun, Moon, Map, BarChart2,
 } from "lucide-react"
-import { useProgress } from "../../context/ProgressContext"
+import { useProgress } from "../../hooks/useProgress"
 import { useGlobalStreak } from "../../hooks/useGlobalStreak"
 import { useDarkMode } from "../../hooks/useDarkMode"
 import { useCurrentUser } from "../../hooks/useCurrentUser"

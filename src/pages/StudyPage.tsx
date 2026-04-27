@@ -5,7 +5,7 @@
 import { memo } from "react"
 import { useParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
-import { useProgress } from "../context/ProgressContext"
+import { useProgress } from "../hooks/useProgress"
 import { useProgressStats } from "../hooks/useProgressStats"
 import { getUI } from "../i18n"
 import { SECTION_CONFIG, type StudySection } from "../data/sectionConfig"

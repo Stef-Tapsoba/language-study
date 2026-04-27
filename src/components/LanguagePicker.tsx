@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { LANGUAGES } from "../data/languages"
 import { Flag } from "./Flag"
-import { useProgress } from "../context/ProgressContext"
+import { useProgress } from "../hooks/useProgress"
 import { computeProgressStats } from "../hooks/useProgressStats"
 
 export function LanguagePicker() {

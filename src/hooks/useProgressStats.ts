@@ -7,7 +7,7 @@
 // Both return ProgressStats. When Supabase lands, only ProgressContext changes.
 
 import { CEFRLevel } from "../types"
-import { useProgress } from "../context/ProgressContext"
+import { useProgress } from "../hooks/useProgress"
 import { getModule } from "../data/modules"
 
 export interface SectionProgress {

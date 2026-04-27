@@ -6,7 +6,7 @@ import { useParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { getDueCount } from "../store/srs"
-import { useProgress } from "../context/ProgressContext"
+import { useProgress } from "../hooks/useProgress"
 
 interface PracticeModeProps {
     emoji: string

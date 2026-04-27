@@ -9,7 +9,7 @@
 import { useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { getModule } from "../data/modules"
-import { useProgress } from "../context/ProgressContext"
+import { useProgress } from "../hooks/useProgress"
 import { NavBar } from "../components/NavBar"
 import { Button } from "../components/ui/button"
 import { DEBUG } from "../auth/debugSession"

@@ -2,7 +2,8 @@
 
 import { render, screen, act } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { ProgressProvider, useProgress } from "./ProgressContext"
+import { ProgressProvider } from "./ProgressContext"
+import { useProgress } from "../hooks/useProgress"
 
 // ── helpers ────────────────────────────────────────────────────────────────────
 

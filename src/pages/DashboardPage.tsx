@@ -13,7 +13,7 @@ import { HydrationErrorBanner } from "../components/HydrationErrorBanner"
 import { MigrationBanner } from "../components/MigrationBanner"
 import { scoreUnitForGoal, USER_GOALS, type GoalId } from "../data/goalConfig"
 
-import { useProgress } from "../context/ProgressContext"
+import { useProgress } from "../hooks/useProgress"
 import { getDueCount } from "../store/srs"
 import { Flag } from "../components/Flag"
 import { LevelBadge } from "../components/LevelBadge"

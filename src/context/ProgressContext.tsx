@@ -6,14 +6,14 @@
 // Optimistic update pattern: local cache is written synchronously (so the UI
 // updates immediately), then the async storage write fires in the background.
 // In Stage 1, LocalStorageProgressStorage resolves synchronously anyway.
-import { createContext, useContext, useState, useCallback, useMemo, ReactNode } from "react"
+import { createContext, useState, useCallback, useMemo, ReactNode } from "react"
 import { loadProgress } from "../store/progress"
 import { registry } from "../store/registry"
 import { useStatsStore } from "../store/useStatsStore"
 import { CEFRLevel, UserProgress } from "../types"
 import type { ContentType } from "../store/IProgressStorage"
 
-interface ProgressContextValue {
+export interface ProgressContextValue {
     progress: UserProgress
 
     /**
@@ -67,7 +67,7 @@ interface ProgressContextValue {
     completeCheckpoint: (langId: string, checkpointId: string) => Promise<void>
 }
 
-const ProgressContext = createContext<ProgressContextValue | null>(null)
+export const ProgressContext = createContext<ProgressContextValue | null>(null)
 
 export function ProgressProvider({ children }: Readonly<{ children: ReactNode }>) {
     const [progress, setProgress] = useState<UserProgress>(() => loadProgress())
@@ -221,8 +221,3 @@ export function ProgressProvider({ children }: Readonly<{ children: ReactNode }>
     )
 }
 
-export function useProgress(): ProgressContextValue {
-    const ctx = useContext(ProgressContext)
-    if (!ctx) throw new Error("useProgress must be used inside <ProgressProvider>")
-    return ctx
-}

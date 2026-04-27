@@ -17,7 +17,7 @@
 
 import { useEffect, useState } from "react"
 import { useAuth } from "../auth/AuthContext"
-import { useProgress } from "../context/ProgressContext"
+import { useProgress } from "../hooks/useProgress"
 
 export function useAppBootstrap(): { isReady: boolean } {
     const { session } = useAuth()

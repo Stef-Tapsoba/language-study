@@ -8,7 +8,7 @@
 
 import { useState, useEffect, useCallback, useMemo, Suspense } from "react"
 import { useParams, useSearchParams, Navigate, Link, useNavigate } from "react-router-dom"
-import { useProgress } from "../context/ProgressContext"
+import { useProgress } from "../hooks/useProgress"
 import { completeLessonItem, completeDrillSession, completeReinforcement } from "../store/actions"
 import { getExerciseType } from "../exerciseTypes/index"
 import { getExerciseConfig, selectItems } from "../domain/exerciseConfig"

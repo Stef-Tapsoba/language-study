@@ -11,7 +11,7 @@ import { useState, useMemo } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getVocabForLevel } from "../data/repo"
-import { useProgress } from "../context/ProgressContext"
+import { useProgress } from "../hooks/useProgress"
 import { getDueCards, updateCard } from "../store/srs"
 import { useBreakDetection } from "../hooks/useBreakDetection"
 

@@ -4,7 +4,7 @@
 // Stage 2: Supabase hydration can fail (network, RLS, token expiry). This banner
 //          gives users a visible retry path rather than silently showing stale data.
 
-import { useProgress } from "../context/ProgressContext"
+import { useProgress } from "../hooks/useProgress"
 import { Button } from "./ui/button"
 
 export function HydrationErrorBanner() {

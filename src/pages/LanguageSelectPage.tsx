@@ -1,7 +1,7 @@
 // pages/LanguageSelectPage.tsx — Language selection screen for new users
 import { useNavigate } from "react-router-dom"
 import { VISIBLE_LANGUAGES } from "../data/languages"
-import { useProgress } from "../context/ProgressContext"
+import { useProgress } from "../hooks/useProgress"
 import { loadModule } from "../data/modules"
 import { NavBar } from "../components/NavBar"
 import { Flag } from "../components/Flag"

@@ -12,7 +12,7 @@ import {
     hasLocalProgressToMigrate,
     migrateLocalStorageToSupabase,
 } from "../store/localStorageMigration"
-import { useProgress } from "../context/ProgressContext"
+import { useProgress } from "../hooks/useProgress"
 
 export function MigrationBanner() {
     const { refreshProgress } = useProgress()
