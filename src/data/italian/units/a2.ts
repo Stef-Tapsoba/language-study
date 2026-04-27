@@ -45,6 +45,7 @@ export const a2Units: LessonUnit[] = [
         vocabIds: ["it-v-a2-9", "it-v-a2-10"],
         verbIds: [],
         listeningIds: ["it-l-a2-1"],
+        checkpointId: "it-cp-a2-1",
         testQuestions: [
             { id: "it-uq-a2-3-1", level: "A2", prompt: "Complete (passato prossimo): 'Stamattina io ___ alle sette.' (svegliarsi)", options: ["svegliavo", "si è svegliato", "mi sono svegliato", "ho svegliato"], answer: "mi sono svegliato" },
             { id: "it-uq-a2-3-2", level: "A2", prompt: "Complete: 'Lei ___ elegantemente.' (vestirsi — passato prossimo)", options: ["si vestiva", "ha vestito", "si è vestita", "si vestirà"], answer: "si è vestita" },
@@ -97,6 +98,7 @@ export const a2Units: LessonUnit[] = [
         grammarIds: ["it-g-a2-5"],
         vocabIds: [],
         verbIds: [],
+        checkpointId: "it-cp-a2-2",
         testQuestions: [
             { id: "it-uq-a2-6-1", level: "A2", prompt: "How do you say 'Rome is bigger than Florence'?", options: ["Roma è molto grande.", "Roma è più grande di Firenze.", "Roma è grande come Firenze.", "Roma è la più grande."], answer: "Roma è più grande di Firenze." },
             { id: "it-uq-a2-6-2", level: "A2", prompt: "How do you say 'as... as' in Italian?", options: ["più ... di", "meno ... di", "tanto ... quanto", "molto ... che"], answer: "tanto ... quanto" },
@@ -149,6 +151,7 @@ export const a2Units: LessonUnit[] = [
         grammarIds: ["it-g-a2-12"],
         vocabIds: [],
         verbIds: [],
+        checkpointId: "it-cp-a2-3",
         testQuestions: [
             { id: "it-uq-a2-9-1", level: "A2", prompt: "How do you politely say 'I would like a coffee'?", options: ["Voglio un caffè.", "Volevo un caffè.", "Vorrei un caffè.", "Vorrò un caffè."], answer: "Vorrei un caffè." },
             { id: "it-uq-a2-9-2", level: "A2", prompt: "How do you say 'Could you open the window?' (polite)?", options: ["Apri la finestra!", "Vuoi aprire la finestra?", "Potresti aprire la finestra?", "Puoi aprire la finestra?"], answer: "Potresti aprire la finestra?" },
@@ -203,6 +206,7 @@ export const a2Units: LessonUnit[] = [
         vocabIds: [],
         verbIds: [],
         listeningIds: ["it-l-a2-2"],
+        checkpointId: "it-cp-a2-4",
         testQuestions: [
             { id: "it-uq-a2-12-1", level: "A2", prompt: "What is the formal Lei imperative of 'parlare'?", options: ["parla!", "parlate!", "parli!", "parlino!"], answer: "parli!" },
             { id: "it-uq-a2-12-2", level: "A2", prompt: "Complete (formal): 'Si ___, prego.' (accomodarsi)", options: ["accomoda", "accomodino", "accomodi", "accomodati"], answer: "accomodi" },
@@ -254,6 +258,7 @@ export const a2Units: LessonUnit[] = [
         grammarIds: ["it-g-a2-9"],
         vocabIds: [],
         verbIds: [],
+        checkpointId: "it-cp-a2-5",
         testQuestions: [
             { id: "it-uq-a2-15-1", level: "A2", prompt: "Replace: 'Ti passo il sale.' → '___ passo subito.'", options: ["Lo ti", "Me lo", "Te lo", "Gli lo"], answer: "Te lo" },
             { id: "it-uq-a2-15-2", level: "A2", prompt: "How does 'mi' change when combined with a direct pronoun?", options: ["stays mi", "becomes me", "becomes mo", "becomes gli"], answer: "becomes me" },
@@ -342,6 +347,7 @@ export const a2Units: LessonUnit[] = [
         verbIds: [],
         cultureIds: ["it-c-a2-1", "it-c-a2-2", "it-c-a2-3"],
         listeningIds: ["it-l-a2-3"],
+        checkpointId: "it-cp-a2-6",
         testQuestions: [
             { id: "it-uq-a2-20-1", level: "A2", prompt: "Translate: 'What are you doing? — I'm studying.'", options: ["Che cosa fai? — Studio.", "Cosa stai facendo? — Sto studiando.", "Che cosa hai fatto? — Ho studiato.", "Cosa facevi? — Studiavo."], answer: "Cosa stai facendo? — Sto studiando." },
             { id: "it-uq-a2-20-2", level: "A2", prompt: "What is the gerundio of 'mangiare'?", options: ["mangiando", "mangiante", "mangiato", "mangiare"], answer: "mangiando" },
