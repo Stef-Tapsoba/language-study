@@ -334,7 +334,7 @@ export const b1Units: LessonUnit[] = [
         order: 17,
         title: "Le français vivant — argot, expressions et accents",
         description: "Bridge from B1 grammar into authentic French — verlan, everyday argot, key idioms, and regional variety (France, Québec, Belgique).",
-        grammarIds: ["fr-g-b1-14"],
+        grammarIds: ["fr-g-b1-15"],
         vocabIds: ["fr-v-b1-006", "fr-v-b1-010", "fr-v-b1-014", "fr-v-b1-017", "fr-v-b1-023"],
         verbIds: [],
         topicTags: ["culture", "social"],
