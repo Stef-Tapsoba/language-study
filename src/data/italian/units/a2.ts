@@ -8,7 +8,7 @@ export const a2Units: LessonUnit[] = [
         title: "Talking About the Past",
         description: "Form the passato prossimo with avere and essere to describe completed past actions.",
         grammarIds: ["it-g-a2-1"],
-        vocabIds: ["it-v-a2-1", "it-v-a2-4", "it-v-a2-5"],
+        vocabIds: ["it-v-a2-1", "it-v-a2-5", "it-v-a2-6", "it-v-a2-7", "it-v-a2-8"],
         verbIds: ["it-vb-a2-2"],
         testQuestions: [
             { id: "it-uq-a2-1-1", level: "A2", prompt: "Complete (passato prossimo): 'Ieri lei ___ la pizza.' (mangiare)", options: ["mangiava", "mangia", "ha mangiato", "mangiò"], answer: "ha mangiato" },
@@ -25,7 +25,7 @@ export const a2Units: LessonUnit[] = [
         title: "Describing the Past",
         description: "Use the imperfetto to describe habitual past actions and ongoing states.",
         grammarIds: ["it-g-a2-3"],
-        vocabIds: ["it-v-a2-6", "it-v-a2-7", "it-v-a2-8"],
+        vocabIds: ["it-v-a2-11", "it-v-a2-12", "it-v-a2-13", "it-v-a2-14"],
         verbIds: ["it-vb-a2-1"],
         testQuestions: [
             { id: "it-uq-a2-2-1", level: "A2", prompt: "How do you say 'I used to eat pizza every week'?", options: ["Ho mangiato la pizza ogni settimana.", "Mangiavo la pizza ogni settimana.", "Mangio la pizza ogni settimana.", "Mangerò la pizza ogni settimana."], answer: "Mangiavo la pizza ogni settimana." },
@@ -42,7 +42,7 @@ export const a2Units: LessonUnit[] = [
         title: "Reflexive Verbs in the Past",
         description: "Use reflexive verbs in the passato prossimo with essere. Learn reciprocal forms (ci siamo visti) and past agreement rules.",
         grammarIds: ["it-g-a2-2"],
-        vocabIds: ["it-v-a2-9", "it-v-a2-10"],
+        vocabIds: ["it-v-a2-4", "it-v-a2-9", "it-v-a2-10"],
         verbIds: [],
         listeningIds: ["it-l-a2-1"],
         checkpointId: "it-cp-a2-1",
@@ -61,7 +61,7 @@ export const a2Units: LessonUnit[] = [
         title: "The Simple Future",
         description: "Express future plans and predictions using the futuro semplice, including irregular stems.",
         grammarIds: ["it-g-a2-11"],
-        vocabIds: ["it-v-a2-1", "it-v-a2-2", "it-v-a2-3"],
+        vocabIds: ["it-v-a2-37", "it-v-a2-38", "it-v-a2-39"],
         verbIds: ["it-vb-a2-1"],
         testQuestions: [
             { id: "it-uq-a2-4-1", level: "A2", prompt: "Complete (futuro): 'Domani loro ___.' (partire)", options: ["partono", "partiranno", "sono partiti", "partivano"], answer: "partiranno" },
@@ -78,7 +78,7 @@ export const a2Units: LessonUnit[] = [
         title: "Modal Verbs in the Past",
         description: "Use dovere, potere, and volere in the passato prossimo. Learn when to use avere or essere, and how riuscire a works.",
         grammarIds: [],
-        vocabIds: [],
+        vocabIds: ["it-v-a2-2", "it-v-a2-3", "it-v-a2-49", "it-v-a2-50", "it-v-a2-54"],
         verbIds: ["it-vb-a2-4"],
         readingIds: ["it-r-a2-1"],
         testQuestions: [
@@ -96,7 +96,7 @@ export const a2Units: LessonUnit[] = [
         title: "Comparatives, Opinions & Preferences",
         description: "Compare people and things using più/meno/tanto...quanto, express preferences with preferire, and give opinions.",
         grammarIds: ["it-g-a2-5"],
-        vocabIds: [],
+        vocabIds: ["it-v-a2-17", "it-v-a2-18", "it-v-a2-19", "it-v-a2-20", "it-v-a2-21"],
         verbIds: [],
         checkpointId: "it-cp-a2-2",
         testQuestions: [
@@ -114,7 +114,7 @@ export const a2Units: LessonUnit[] = [
         title: "Relative Clauses",
         description: "Link ideas about the same noun using che and chi. Connect clauses naturally in speech and writing.",
         grammarIds: ["it-g-a2-6"],
-        vocabIds: [],
+        vocabIds: ["it-v-a2-15", "it-v-a2-16", "it-v-a2-22", "it-v-a2-23", "it-v-a2-24"],
         verbIds: [],
         readingIds: ["it-r-a2-2"],
         testQuestions: [
@@ -132,7 +132,7 @@ export const a2Units: LessonUnit[] = [
         title: "The Future of Probability",
         description: "Use the futuro semplice to make guesses about the present — 'must be', 'I wonder', 'probably'.",
         grammarIds: ["it-g-a2-11"],
-        vocabIds: [],
+        vocabIds: ["it-v-a2-77", "it-v-a2-78"],
         verbIds: [],
         testQuestions: [
             { id: "it-uq-a2-8-1", level: "A2", prompt: "How do you say 'He must be at the office'?", options: ["È in ufficio.", "Sarà in ufficio.", "Era in ufficio.", "Andrebbe in ufficio."], answer: "Sarà in ufficio." },
@@ -149,7 +149,7 @@ export const a2Units: LessonUnit[] = [
         title: "The Conditional — Wishes and Polite Requests",
         description: "Use the condizionale presente to express what you would do, make polite requests, and give suggestions. Essential for natural, courteous Italian.",
         grammarIds: ["it-g-a2-12"],
-        vocabIds: [],
+        vocabIds: ["it-v-a2-47", "it-v-a2-48"],
         verbIds: [],
         checkpointId: "it-cp-a2-3",
         testQuestions: [
@@ -167,7 +167,7 @@ export const a2Units: LessonUnit[] = [
         title: "Passato Prossimo vs Imperfetto in Context",
         description: "Master the contrast between the two past tenses: set the scene with imperfetto, then tell what happened with passato prossimo.",
         grammarIds: ["it-g-a2-4"],
-        vocabIds: [],
+        vocabIds: ["it-v-a2-25", "it-v-a2-26"],
         verbIds: ["it-vb-a2-1", "it-vb-a2-2"],
         readingIds: ["it-r-a2-3"],
         listeningIds: ["it-l-a2-4"],
@@ -186,7 +186,7 @@ export const a2Units: LessonUnit[] = [
         title: "Real Conditionals — If … Then",
         description: "Construct realistic 'if-then' sentences using se + present + future. Handle everyday conditions from weather plans to personal commitments.",
         grammarIds: ["it-g-a2-13"],
-        vocabIds: [],
+        vocabIds: ["it-v-a2-75", "it-v-a2-76"],
         verbIds: [],
         testQuestions: [
             { id: "it-uq-a2-11-1", level: "A2", prompt: "Complete: 'Se ___ (piovere), prenderò l'ombrello.'", options: ["pioverà", "piova", "piove", "pioveva"], answer: "piove" },
@@ -203,7 +203,7 @@ export const a2Units: LessonUnit[] = [
         title: "Formal Italian — The Lei Imperative",
         description: "Switch to formal register using the Lei imperative. Essential for shops, offices, hotels, and professional contexts.",
         grammarIds: [],
-        vocabIds: [],
+        vocabIds: ["it-v-a2-40", "it-v-a2-41", "it-v-a2-42", "it-v-a2-43", "it-v-a2-44"],
         verbIds: [],
         listeningIds: ["it-l-a2-2"],
         checkpointId: "it-cp-a2-4",
@@ -222,7 +222,7 @@ export const a2Units: LessonUnit[] = [
         title: "Direct Object Pronouns",
         description: "Replace direct objects with lo, la, li, le, mi, ti, ci, vi. Learn position rules and past participle agreement with avere.",
         grammarIds: ["it-g-a2-8"],
-        vocabIds: [],
+        vocabIds: ["it-v-a2-27", "it-v-a2-28", "it-v-a2-29", "it-v-a2-30"],
         verbIds: [],
         testQuestions: [
             { id: "it-uq-a2-13-1", level: "A2", prompt: "Replace the object: 'Conosco Marco.' → 'Sì, ___ conosco.'", options: ["la", "li", "lo", "gli"], answer: "lo" },
@@ -239,7 +239,7 @@ export const a2Units: LessonUnit[] = [
         title: "Indirect Object Pronouns",
         description: "Replace indirect objects (to/for someone) with mi, ti, gli, le, ci, vi, gli. Use them with verbs like dare, mandare, spiegare, piacere.",
         grammarIds: ["it-g-a2-9"],
-        vocabIds: [],
+        vocabIds: ["it-v-a2-31", "it-v-a2-32", "it-v-a2-33", "it-v-a2-34"],
         verbIds: [],
         testQuestions: [
             { id: "it-uq-a2-14-1", level: "A2", prompt: "Translate: 'I sent you a message.'", options: ["Ti ho mandato un messaggio.", "Lo ho mandato un messaggio.", "Mi hai mandato un messaggio.", "Gli ho mandato un messaggio."], answer: "Ti ho mandato un messaggio." },
@@ -256,7 +256,7 @@ export const a2Units: LessonUnit[] = [
         title: "Double Object Pronouns",
         description: "Combine direct and indirect pronouns (me lo, te la, glielo, ce li). Simplify complex sentences by replacing both objects at once.",
         grammarIds: ["it-g-a2-9"],
-        vocabIds: [],
+        vocabIds: ["it-v-a2-35", "it-v-a2-36", "it-v-a2-45", "it-v-a2-46"],
         verbIds: [],
         checkpointId: "it-cp-a2-5",
         testQuestions: [
@@ -274,7 +274,7 @@ export const a2Units: LessonUnit[] = [
         title: "Ci and Ne",
         description: "Use ci to replace locations ('there') and with key verbs (pensarci, crederci). Use ne to replace quantities and nouns after di.",
         grammarIds: ["it-g-a2-9"],
-        vocabIds: [],
+        vocabIds: ["it-v-a2-73", "it-v-a2-74"],
         verbIds: [],
         testQuestions: [
             { id: "it-uq-a2-16-1", level: "A2", prompt: "Replace: 'Sono andato a Venezia.' → 'Ci ___ ieri.'", options: ["sono andato", "ho andato", "vado", "andrò"], answer: "sono andato" },
@@ -291,7 +291,7 @@ export const a2Units: LessonUnit[] = [
         title: "Adverbs — Describing How",
         description: "Build adverbs from adjectives using -mente. Learn high-frequency adverbs and their position in the sentence.",
         grammarIds: [],
-        vocabIds: [],
+        vocabIds: ["it-v-a2-75", "it-v-a2-76", "it-v-a2-77", "it-v-a2-78"],
         verbIds: [],
         testQuestions: [
             { id: "it-uq-a2-17-1", level: "A2", prompt: "What is the adverb from 'lento'?", options: ["lentamente", "lentamento", "lentamenta", "lentare"], answer: "lentamente" },
@@ -308,7 +308,7 @@ export const a2Units: LessonUnit[] = [
         title: "Linking Ideas — Discourse Connectors",
         description: "Connect sentences fluently using quindi, però, anche se, invece, anzi, cioè, and insomma. Move beyond basic Italian to natural, flowing speech.",
         grammarIds: ["it-g-a2-16"],
-        vocabIds: [],
+        vocabIds: ["it-v-a2-61", "it-v-a2-62", "it-v-a2-63", "it-v-a2-64", "it-v-a2-65", "it-v-a2-66", "it-v-a2-67", "it-v-a2-68"],
         verbIds: [],
         readingIds: ["it-r-a2-4"],
         testQuestions: [
@@ -326,7 +326,7 @@ export const a2Units: LessonUnit[] = [
         title: "Verbs with Prepositions",
         description: "Learn which verbs take a before an infinitive and which take di. Master essential structures: avere voglia di, riuscire a, cercare di, and more.",
         grammarIds: [],
-        vocabIds: [],
+        vocabIds: ["it-v-a2-69", "it-v-a2-70", "it-v-a2-71", "it-v-a2-72"],
         verbIds: [],
         testQuestions: [
             { id: "it-uq-a2-19-1", level: "A2", prompt: "Complete: 'Ho ___ comprare il latte.' (dimenticarsi)", options: ["dimenticato a", "dimenticato di", "dimenticato per", "dimenticato da"], answer: "dimenticato di" },
@@ -343,7 +343,7 @@ export const a2Units: LessonUnit[] = [
         title: "Actions in Progress — Stare + Gerundio",
         description: "Describe ongoing actions using stare + gerundio. Use the present progressive for right now and the past progressive for what was happening.",
         grammarIds: ["it-g-a2-4"],
-        vocabIds: [],
+        vocabIds: ["it-v-a2-51", "it-v-a2-52", "it-v-a2-53", "it-v-a2-55", "it-v-a2-56", "it-v-a2-57", "it-v-a2-58", "it-v-a2-59", "it-v-a2-60", "it-v-a2-79", "it-v-a2-80"],
         verbIds: [],
         cultureIds: ["it-c-a2-1", "it-c-a2-2", "it-c-a2-3"],
         listeningIds: ["it-l-a2-3"],
