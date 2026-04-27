@@ -8,8 +8,8 @@ import { MarkCompleteButton } from "../components/MarkCompleteButton"
 import { LevelBadge } from "../components/LevelBadge"
 import { SpeakButton } from "../components/SpeakButton"
 import { VocabTooltip } from "../components/VocabTooltip"
-import { resolvePrimary } from "../utils/localizedText"
-import { renderExplanation, renderInline } from "../utils/renderExplanation"
+import { renderInline } from "../utils/renderExplanation"
+import { LocalizedExplanation } from "../components/LocalizedExplanation"
 import { useVocabTooltip } from "../hooks/useVocabTooltip"
 import type { GrammarNote, GrammarConjugationTable, GrammarReferenceTable } from "../types"
 import { isDialogueExample } from "../types"
@@ -158,7 +158,6 @@ export function GrammarLessonPage() {
     }
 
     const isDone = completed.includes(lesson.id)
-    const explanation = resolvePrimary(lesson.explanation, level)
 
     return (
         <div className="min-h-screen bg-surface-app">
@@ -175,10 +174,12 @@ export function GrammarLessonPage() {
                 {/* Explanation */}
                 <div className="bg-surface-card rounded-2xl border border-border-default p-5">
                     <h2 className="text-xs font-semibold uppercase tracking-wide text-text-ter mb-2">Explanation</h2>
-                    {renderExplanation(explanation, {
-                        inlineVocab: lesson.inlineVocab,
-                        onVocabClick: handleVocabClick,
-                    })}
+                    <LocalizedExplanation
+                        text={lesson.explanation}
+                        level={level}
+                        inlineVocab={lesson.inlineVocab}
+                        onVocabClick={handleVocabClick}
+                    />
                 </div>
 
                 <VocabTooltip activeWord={activeWord} onDismiss={dismissTooltip} />
