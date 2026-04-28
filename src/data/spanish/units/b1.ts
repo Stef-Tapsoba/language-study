@@ -1,552 +1,997 @@
 // data/spanish/units/b1.ts
 import { LessonUnit } from "../../../types"
 
-// B1 units — 5 full units with test questions.
+// B1 units — 17 units across 5 blocks, 6 checkpoints
+// Grammar ID scheme: es-g-b1-1 through es-g-b1-16
+// Unit ID scheme: es-b1-u1 through es-b1-u17
+// Checkpoint ID scheme: es-cp-b1-1 through es-cp-b1-6
+// Vocab ID scheme: es-v-b1-001 through es-v-b1-100 (sequential)
 
 export const esUnitsB1: LessonUnit[] = [
-    {
-        id: "es-b1-u1",
+  // ─── BLOCK 1: El pasado con profundidad ───────────────────────────────────
+  {
+    id: "es-b1-u1",
+    level: "B1",
+    order: 1,
+    title: "Ya había comido cuando llegaste",
+    description: "Add a third temporal layer to past narratives with the pluscuamperfecto (pluperfect). Learn formation with haber in imperfecto + participio, including irregular participios, and the key adverbs ya / todavía no / nunca.",
+    grammarIds: ["es-g-b1-1"],
+    vocabIds: ["es-v-b1-001", "es-v-b1-002", "es-v-b1-003", "es-v-b1-004", "es-v-b1-005"],
+    verbIds: [],
+    testQuestions: [
+      {
+        id: "es-b1-u1-q1",
         level: "B1",
-        order: 1,
-        title: "Complex Past Narration — Preterite, Imperfect & Pluperfect",
-        description: "Move beyond isolated tense practice to sustained storytelling. Combine preterite (completed events), imperfect (background and states), and pluperfect (what had already happened) in multi-clause narratives — the full past tense system working together.",
-        grammarIds: ["es-g-b1-2", "es-g-b1-9"],
-        vocabIds: [
-            "es-v-b1-068", "es-v-b1-010", "es-v-b1-076",
-            "es-v-b1-039", "es-v-b1-086", "es-v-b1-084"
+        prompt: "Complete: 'Cuando llegué, ella ya ___ (irse).'",
+        options: ["se fue", "se iba", "se había ido", "se ha ido"],
+        answer: "se había ido",
+        hint: "The departure happened BEFORE the arrival — pluscuamperfecto: había + participio.",
+      },
+      {
+        id: "es-b1-u1-q2",
+        level: "B1",
+        prompt: "Form the pluscuamperfecto of 'hacer' (yo): 'No ___ los deberes.'",
+        options: ["había hecho", "había hacido", "habría hecho", "hube hecho"],
+        answer: "había hecho",
+        hint: "Haber in imperfecto (había) + irregular participio of hacer (hecho).",
+      },
+      {
+        id: "es-b1-u1-q3",
+        level: "B1",
+        prompt: "Which sentence correctly uses 'todavía no' with the pluscuamperfecto?",
+        options: [
+          "Todavía no llegó cuando llamé.",
+          "Todavía no había llegado cuando llamé.",
+          "Todavía no llegaba cuando llamé.",
+          "Todavía no ha llegado cuando llamé."
         ],
-        verbIds: ["es-vb-b1-1", "es-vb-b1-2"],
-        testQuestions: [
-            {
-                id: "es-b1-u1-q1", level: "B1",
-                prompt: "Complete the story: 'Cuando ___ (llegar) a casa, me di cuenta de que ___ (olvidar) las llaves.'",
-                options: [
-                    "llegué / había olvidado",
-                    "llegaba / olvidé",
-                    "llegué / olvidé",
-                    "llegaba / había olvidado"
-                ],
-                answer: "llegué / había olvidado",
-                hint: "Completed arrival event → preterite. The forgotten keys happened BEFORE the arrival → pluperfect (había olvidado)."
-            },
-            {
-                id: "es-b1-u1-q2", level: "B1",
-                prompt: "Complete: 'Mientras ___ (hablar) con mi jefe, sonó el teléfono.'",
-                options: ["hablé", "hablaba", "había hablado", "hablaré"],
-                answer: "hablaba",
-                hint: "Ongoing background action (speaking) → imperfect. The phone ringing is the interrupting event → preterite."
-            },
-            {
-                id: "es-b1-u1-q3", level: "B1",
-                prompt: "Which sentence correctly uses the pluperfect?",
-                options: [
-                    "Cuando llegué, él se fue.",
-                    "Cuando llegué, él ya se había ido.",
-                    "Cuando llegaba, él ya se fue.",
-                    "Cuando llegué, él ya se iba."
-                ],
-                answer: "Cuando llegué, él ya se había ido.",
-                hint: "'Ya se había ido' — the pluperfect signals the departure happened before the arrival. 'Ya' (already) is a strong pluperfect signal."
-            },
-            {
-                id: "es-b1-u1-q4", level: "B1",
-                prompt: "Complete this narrative extract correctly: 'Era una noche oscura. De repente, ___ (sonar) un disparo.'",
-                options: ["sonaba", "sonó", "había sonado", "sonaría"],
-                answer: "sonó",
-                hint: "'Era' sets the background (imperfect). 'De repente' (suddenly) signals a sudden completed event → preterite."
-            },
-            {
-                id: "es-b1-u1-q5", level: "B1",
-                prompt: "Complete: 'No pude entrar porque ___ (perder) mi tarjeta.'",
-                options: ["perdía", "perdí", "había perdido", "perderé"],
-                answer: "había perdido",
-                hint: "The loss happened BEFORE the inability to enter. Earlier completed action → pluperfect."
-            },
-            {
-                id: "es-b1-u1-q6", level: "B1",
-                prompt: "Which tense combination correctly narrates: 'He used to go to that café when he lived in Madrid'?",
-                options: [
-                    "Fue a ese café cuando vivió en Madrid.",
-                    "Iba a ese café cuando vivía en Madrid.",
-                    "Iba a ese café cuando vivió en Madrid.",
-                    "Fue a ese café cuando vivía en Madrid."
-                ],
-                answer: "Iba a ese café cuando vivía en Madrid.",
-                hint: "Both are habitual/ongoing states in the past → both imperfect. Neither is a single completed event."
-            },
-        ]
-    },
-    {
-        id: "es-b1-u2",
+        answer: "Todavía no había llegado cuando llamé.",
+        hint: "'Todavía no' goes between había and the participio in the pluscuamperfecto.",
+      },
+      {
+        id: "es-b1-u1-q4",
         level: "B1",
-        order: 2,
-        title: "Expressing Wishes — Subjunctive",
-        description: "Use the present subjunctive to express wishes, recommendations, emotions, and doubt introduced by trigger phrases like 'quiero que' and 'espero que'.",
-        grammarIds: ["es-g-b1-1"],
-        vocabIds: ["es-v-b1-011", "es-v-b1-013", "es-v-b1-036", "es-v-b1-072", "es-v-b1-077"],
-        verbIds: ["es-vb-b1-1"],
-        listeningIds: ["es-l-b1-1"],
-        testQuestions: [
-            {
-                id: "es-b1-u2-q1",
-                level: "B1",
-                prompt: "Complete: 'Quiero que tú ___ más.' (estudiar)",
-                options: ["estudies", "estudias", "estudiarás", "estudia"],
-                answer: "estudies",
-                hint: "After 'quiero que' use the subjunctive. -ar verbs: -e, -es, -e…"
-            },
-            {
-                id: "es-b1-u2-q2",
-                level: "B1",
-                prompt: "Which phrase triggers the subjunctive?",
-                options: ["Es importante que", "Creo que", "Sé que", "Veo que"],
-                answer: "Es importante que",
-                hint: "Impersonal expressions of obligation/emotion trigger the subjunctive."
-            },
-            {
-                id: "es-b1-u2-q3",
-                level: "B1",
-                prompt: "Complete: 'Espero que todo ___ bien.' (ir)",
-                options: ["vaya", "va", "irá", "fue"],
-                answer: "vaya",
-                hint: "After 'espero que' use the subjunctive. Ir is irregular: vaya."
-            },
-            {
-                id: "es-b1-u2-q4",
-                level: "B1",
-                prompt: "When does Spanish use 'ojalá'?",
-                options: [
-                    "To express a strong wish or hope, followed by subjunctive",
-                    "To make a factual statement",
-                    "To give a direct command",
-                    "To ask a question"
-                ],
-                answer: "To express a strong wish or hope, followed by subjunctive",
-                hint: "Ojalá (= hopefully) is always followed by subjunctive."
-            },
-            {
-                id: "es-b1-u2-q5",
-                level: "B1",
-                prompt: "What is the present subjunctive of 'hablar' for 'nosotros'?",
-                options: ["hablemos", "hablamos", "hablaremos", "hablemos"],
-                answer: "hablemos",
-                hint: "-ar verbs take -e endings in the subjunctive: hable, hables, hable, hablemos…"
-            },
-            {
-                id: "es-b1-u2-q6",
-                level: "B1",
-                prompt: "Complete: 'Te recomiendo que ___ el médico.' (ver)",
-                options: ["veas", "ves", "verás", "ve"],
-                answer: "veas",
-                hint: "After 'te recomiendo que' use the subjunctive. Ver: vea, veas, vea…"
-            }
-        ]
-    },
-    {
-        id: "es-b1-u3",
+        prompt: "Complete: 'No pude entrar porque ___ (olvidar) las llaves en casa.'",
+        options: ["olvidaba", "olvidé", "había olvidado", "olvido"],
+        answer: "había olvidado",
+        hint: "The keys were forgotten BEFORE the inability to enter — pluscuamperfecto explains the prior cause.",
+      },
+      {
+        id: "es-b1-u1-q5",
         level: "B1",
-        order: 3,
-        title: "Future Plans — Simple Future",
-        description: "Talk about what will definitely happen using the futuro simple. Learn regular endings and common irregular stems.",
-        grammarIds: ["es-g-b1-3"],
-        vocabIds: ["es-v-b1-047", "es-v-b1-055", "es-v-b1-057", "es-v-b1-039", "es-v-b1-077"],
-        verbIds: ["es-vb-b1-3"],
-        readingIds: ["es-r-b1-1"],
-        testQuestions: [
-            {
-                id: "es-b1-u3-q1",
-                level: "B1",
-                prompt: "Complete: 'Mañana yo ___ con mi jefe.' (hablar)",
-                options: ["hablaré", "hablo", "hablaría", "hablé"],
-                answer: "hablaré",
-                hint: "Simple future: infinitive + -é, -ás, -á, -emos, -éis, -án."
-            },
-            {
-                id: "es-b1-u3-q2",
-                level: "B1",
-                prompt: "What is the future of 'tener' for 'ellos'?",
-                options: ["tendrán", "tendrían", "tienen", "tuvieron"],
-                answer: "tendrán",
-                hint: "Tener has the irregular stem 'tendr-' in the future."
-            },
-            {
-                id: "es-b1-u3-q3",
-                level: "B1",
-                prompt: "Complete: '¿___ a la fiesta esta noche?' (venir, tú)",
-                options: ["Vendrás", "Vienes", "Viniste", "Vendrías"],
-                answer: "Vendrás",
-                hint: "Venir has the irregular future stem 'vendr-'."
-            },
-            {
-                id: "es-b1-u3-q4",
-                level: "B1",
-                prompt: "Which sentence correctly expresses a future action using the simple future?",
-                options: [
-                    "El año que viene viviremos en Madrid.",
-                    "El año que viene vivimos en Madrid.",
-                    "El año que viene vivíamos en Madrid.",
-                    "El año que viene vivimos en Madrid mañana."
-                ],
-                answer: "El año que viene viviremos en Madrid.",
-                hint: "Vivir future nosotros: viviremos."
-            },
-            {
-                id: "es-b1-u3-q5",
-                level: "B1",
-                prompt: "What is the future stem of 'hacer'?",
-                options: ["har-", "hac-", "hacer-", "hiz-"],
-                answer: "har-",
-                hint: "Hacer → har- (haré, harás, hará, haremos, haréis, harán)."
-            },
-            {
-                id: "es-b1-u3-q6",
-                level: "B1",
-                prompt: "Translate: 'They will have to work on Saturday.'",
-                options: [
-                    "Ellos tendrán que trabajar el sábado.",
-                    "Ellos tienen que trabajar el sábado.",
-                    "Ellos tuvieron que trabajar el sábado.",
-                    "Ellos tendrían que trabajar el sábado."
-                ],
-                answer: "Ellos tendrán que trabajar el sábado.",
-                hint: "Future of tener (tendrán) + que + infinitive."
-            }
-        ]
-    },
-    {
-        id: "es-b1-u4",
+        prompt: "Complete: 'Resultó que ___ (conocerse, ellos) en Madrid tres años antes.'",
+        options: ["se conocían", "se conocieron", "se habían conocido", "se conocerán"],
+        answer: "se habían conocido",
+        hint: "Backstory that happened before the main events — pluscuamperfecto for prior narrative context.",
+      },
+    ],
+  },
+  {
+    id: "es-b1-u2",
+    level: "B1",
+    order: 2,
+    title: "La historia completa — narrar en tres tiempos",
+    description: "Combine indefinido (plot events), imperfecto (background and states), and pluscuamperfecto (backstory) in sustained narrative. The mark of a B1 Spanish speaker.",
+    grammarIds: ["es-g-b1-2"],
+    vocabIds: ["es-v-b1-006", "es-v-b1-007", "es-v-b1-008", "es-v-b1-009", "es-v-b1-010"],
+    verbIds: [],
+    testQuestions: [
+      {
+        id: "es-b1-u2-q1",
         level: "B1",
-        order: 4,
-        title: "Hypotheticals — Conditional",
-        description: "Express what would happen under different circumstances, make polite requests, and report what someone said using the conditional simple.",
-        grammarIds: ["es-g-b1-4"],
-        vocabIds: ["es-v-b1-073", "es-v-b1-074", "es-v-b1-075", "es-v-b1-076", "es-v-b1-042"],
-        verbIds: ["es-vb-b1-2"],
-        testQuestions: [
-            {
-                id: "es-b1-u4-q1",
-                level: "B1",
-                prompt: "Complete: 'Con más dinero, yo ___ por el mundo.' (viajar)",
-                options: ["viajaría", "viajé", "viajo", "viajaré"],
-                answer: "viajaría",
-                hint: "Conditional endings: -ía, -ías, -ía, -íamos, -íais, -ían on the infinitive."
-            },
-            {
-                id: "es-b1-u4-q2",
-                level: "B1",
-                prompt: "Which sentence is a polite request using the conditional?",
-                options: [
-                    "¿Podrías ayudarme con esto?",
-                    "¿Puedes ayudarme con esto?",
-                    "Ayúdame con esto.",
-                    "¿Podías ayudarme con esto?"
-                ],
-                answer: "¿Podrías ayudarme con esto?",
-                hint: "Conditional of poder (podrías) makes requests more polite."
-            },
-            {
-                id: "es-b1-u4-q3",
-                level: "B1",
-                prompt: "Complete: 'Ella dijo que ___ mañana.' (venir)",
-                options: ["vendría", "vendrá", "vino", "viene"],
-                answer: "vendría",
-                hint: "Reported speech about future events in the past uses the conditional."
-            },
-            {
-                id: "es-b1-u4-q4",
-                level: "B1",
-                prompt: "What is the conditional of 'salir' for 'nosotros'?",
-                options: ["saldríamos", "saldremos", "salimos", "saliríamos"],
-                answer: "saldríamos",
-                hint: "Salir has the irregular conditional stem 'saldr-'."
-            },
-            {
-                id: "es-b1-u4-q5",
-                level: "B1",
-                prompt: "Translate: 'In your place, I would study more.'",
-                options: [
-                    "En tu lugar, estudiaría más.",
-                    "En tu lugar, estudiaré más.",
-                    "En tu lugar, estudié más.",
-                    "En tu lugar, estudias más."
-                ],
-                answer: "En tu lugar, estudiaría más.",
-                hint: "'En tu lugar' (in your place) sets up a hypothetical → conditional."
-            },
-            {
-                id: "es-b1-u4-q6",
-                level: "B1",
-                prompt: "The conditional and simple future share the same irregular stems. What is the conditional of 'querer' for 'tú'?",
-                options: ["querrías", "quieres", "querrás", "quisiste"],
-                answer: "querrías",
-                hint: "Querer → querr- (conditional: querría, querrías, querría…)."
-            }
-        ]
-    },
-    {
-        id: "es-b1-u5",
+        prompt: "Which tense belongs in the blank? 'Era tarde. La ciudad ___ (dormir). De repente, oyó un disparo.'",
+        options: ["durmió", "dormía", "había dormido", "dormirá"],
+        answer: "dormía",
+        hint: "Background description / atmosphere → imperfecto. 'De repente' triggers indefinido for the sudden event.",
+      },
+      {
+        id: "es-b1-u2-q2",
         level: "B1",
-        order: 5,
-        title: "Purpose & Reason — Por vs Para",
-        description: "Master the distinction between por (cause, duration, exchange, means) and para (purpose, recipient, deadline, destination, opinion).",
-        grammarIds: ["es-g-b1-5"],
-        vocabIds: ["es-v-b1-065", "es-v-b1-047", "es-v-b1-040", "es-v-b1-077", "es-v-b1-078"],
-        verbIds: [],
-        listeningIds: ["es-l-b1-2"],
-        testQuestions: [
-            {
-                id: "es-b1-u5-q1",
-                level: "B1",
-                prompt: "Choose the correct preposition: 'Estudié ___ tres horas.' (duration)",
-                options: ["por", "para", "en", "de"],
-                answer: "por",
-                hint: "Duration of time → por."
-            },
-            {
-                id: "es-b1-u5-q2",
-                level: "B1",
-                prompt: "Choose the correct preposition: 'Este regalo es ___ ti.' (recipient)",
-                options: ["para", "por", "de", "a"],
-                answer: "para",
-                hint: "Recipient of a gift → para."
-            },
-            {
-                id: "es-b1-u5-q3",
-                level: "B1",
-                prompt: "Complete: 'Salgo ___ Madrid mañana.' (destination)",
-                options: ["para", "por", "en", "hacia"],
-                answer: "para",
-                hint: "Destination of a journey → para."
-            },
-            {
-                id: "es-b1-u5-q4",
-                level: "B1",
-                prompt: "Complete: 'Lo compré ___ veinte euros.' (exchange)",
-                options: ["por", "para", "con", "en"],
-                answer: "por",
-                hint: "Exchange or price paid → por."
-            },
-            {
-                id: "es-b1-u5-q5",
-                level: "B1",
-                prompt: "Translate: 'For me, it is a serious problem.' (expressing an opinion)",
-                options: ["Para mí, es un problema grave.", "Por mí, es un problema grave.", "A mí, es un problema grave.", "Con mí, es un problema grave."],
-                answer: "Para mí, es un problema grave.",
-                hint: "Personal opinion → para mí, para ti, para él…"
-            },
-            {
-                id: "es-b1-u5-q6",
-                level: "B1",
-                prompt: "Which use of 'por' is shown in: 'Lo hice por ti'?",
-                options: ["On behalf of / for the sake of someone", "Duration", "Exchange", "Destination"],
-                answer: "On behalf of / for the sake of someone",
-                hint: "'Por ti' = for your sake / on your behalf."
-            }
-        ]
-    },
-    {
-        id: "es-b1-u6",
+        prompt: "Complete: 'Cuando llegué, ella ___ (preparar) ya la cena — llevaba horas en la cocina.'",
+        options: ["preparó", "preparaba", "había preparado", "prepara"],
+        answer: "había preparado",
+        hint: "The meal was ready BEFORE the arrival — pluscuamperfecto for completed prior action.",
+      },
+      {
+        id: "es-b1-u2-q3",
         level: "B1",
-        order: 6,
-        title: "Si-Clauses — Real & Hypothetical Conditions",
-        description: "Build conditional sentences using si-clauses. Real conditions (si + presente → futuro) vs hypothetical ones (si + imperfecto → condicional). Master the backbone of hypothetical thinking and polite suggestion in Spanish.",
-        grammarIds: ["es-g-b1-6"],
-        vocabIds: ["es-v-b1-081", "es-v-b1-082", "es-v-b1-083", "es-v-b1-084", "es-v-b1-085"],
-        verbIds: ["es-vb-b1-4"],
-        readingIds: ["es-r-b1-2"],
-        testQuestions: [
-            { id: "es-b1-u6-q1", level: "B1", prompt: "Complete (real condition): 'Si ___ (tener, tú) tiempo, llámame.'", options: ["tendrías", "tienes", "tuvieras", "tenías"], answer: "tienes", hint: "Real condition: si + presente → futuro/imperativo. The si-clause takes presente." },
-            { id: "es-b1-u6-q2", level: "B1", prompt: "Complete (hypothetical): 'Si ___ (ganar, yo) la lotería, viajaría por el mundo.'", options: ["gano", "ganaré", "ganara", "ganaría"], answer: "ganara", hint: "Hypothetical: si + imperfecto de subjuntivo → condicional." },
-            { id: "es-b1-u6-q3", level: "B1", prompt: "Which tense NEVER goes directly after 'si' in a conditional?", options: ["presente", "imperfecto de subjuntivo", "condicional", "pretérito indefinido"], answer: "condicional", hint: "Condicional never follows si — it belongs in the result clause only." },
-            { id: "es-b1-u6-q4", level: "B1", prompt: "Translate: 'If I were you, I wouldn't accept.'", options: ["Si soy tú, no acepto.", "Si fuera tú, no aceptaría.", "Si era tú, no aceptaría.", "Si fuera tú, no acepté."], answer: "Si fuera tú, no aceptaría.", hint: "Si fuera (imperfecto subjuntivo) → no aceptaría (condicional)." },
-            { id: "es-b1-u6-q5", level: "B1", prompt: "What does 'a menos que' mean?", options: ["unless", "in case", "provided that", "as long as"], answer: "unless", hint: "A menos que + subjuntivo = unless. Siempre llevo paraguas, a menos que haga sol." },
-            { id: "es-b1-u6-q6", level: "B1", prompt: "Complete: 'Si hubiera estudiado más, ___ (aprobar) el examen.'", options: ["habría aprobado", "aprobaría", "habría aprobado", "aprobé"], answer: "habría aprobado", hint: "Past hypothetical (regret): si + pluscuamperfecto subjuntivo → condicional compuesto." },
-        ]
-    },
-    {
-        id: "es-b1-u7",
+        prompt: "Which tense pair correctly completes: 'Sofía ___ (caminar) rápido porque ___ (perder) el último autobús.'",
+        options: [
+          "caminó / perdió",
+          "caminaba / había perdido",
+          "caminó / había perdido",
+          "caminaba / perdió"
+        ],
+        answer: "caminaba / había perdido",
+        hint: "Caminaba = ongoing background action (imperfecto). Había perdido = prior event explaining the situation (PQP).",
+      },
+      {
+        id: "es-b1-u2-q4",
         level: "B1",
-        order: 7,
-        title: "Reported Speech",
-        description: "Report what someone said, asked, or thought using indirect speech. Master the tense back-shifts that Spanish requires and the key reporting verbs: decir, preguntar, afirmar, explicar.",
-        grammarIds: ["es-g-b1-7"],
-        vocabIds: ["es-v-b1-086", "es-v-b1-087", "es-v-b1-088", "es-v-b1-089"],
-        verbIds: ["es-vb-b1-5"],
-        testQuestions: [
-            { id: "es-b1-u7-q1", level: "B1", prompt: "Transform to reported speech: 'Estoy cansado.' → Él dijo que ___.", options: ["está cansado", "estaba cansado", "estuvo cansado", "estaría cansado"], answer: "estaba cansado", hint: "Presente → imperfecto in reported speech when the reporting verb is in the past." },
-            { id: "es-b1-u7-q2", level: "B1", prompt: "Transform: '¿Tienes hambre?' → Me preguntó si ___.", options: ["tengo hambre", "tenía hambre", "tuve hambre", "tendría hambre"], answer: "tenía hambre", hint: "Yes/no questions in reported speech: si + imperfecto." },
-            { id: "es-b1-u7-q3", level: "B1", prompt: "Transform: 'Vendré mañana.' → Dijo que ___.", options: ["vendrá mañana", "viene mañana", "vendría al día siguiente", "vino al día siguiente"], answer: "vendría al día siguiente", hint: "Futuro → condicional in reported speech. 'Mañana' → 'al día siguiente' (time reference shifts)." },
-            { id: "es-b1-u7-q4", level: "B1", prompt: "Which verb introduces an indirect question?", options: ["decir que", "preguntar si / qué / cuándo", "afirmar que", "explicar que"], answer: "preguntar si / qué / cuándo", hint: "Questions use preguntar + si (yes/no) or a question word (qué, cuándo, dónde)." },
-            { id: "es-b1-u7-q5", level: "B1", prompt: "What does 'según' mean in reported contexts?", options: ["suddenly", "according to", "therefore", "however"], answer: "according to", hint: "Según él/ella = according to him/her — useful for attributing reported ideas." },
-            { id: "es-b1-u7-q6", level: "B1", prompt: "Transform: '¡Come más despacio!' → Le dijo que ___.", options: ["come más despacio", "comiera más despacio", "coma más despacio", "comía más despacio"], answer: "comiera más despacio", hint: "Imperatives in reported speech → imperfecto de subjuntivo." },
-        ]
-    },
-    {
-        id: "es-b1-u8",
+        prompt: "What does 'de repente' signal in a narrative?",
+        options: [
+          "A habitual past action → imperfecto",
+          "A sudden completed event → indefinido",
+          "A prior event → pluscuamperfecto",
+          "A future event → condicional"
+        ],
+        answer: "A sudden completed event → indefinido",
+        hint: "'De repente' (suddenly) introduces a plot event that advances the story — always indefinido.",
+      },
+      {
+        id: "es-b1-u2-q5",
         level: "B1",
-        order: 8,
-        title: "Opinion, Debate & Structured Arguments",
-        description: "Argue a position, express nuanced agreement and disagreement, and structure written and spoken arguments using key discourse markers and the collocations that make Spanish sound natural.",
-        grammarIds: ["es-g-b1-8"],
-        vocabIds: ["es-v-b1-090", "es-v-b1-091", "es-v-b1-092", "es-v-b1-093", "es-v-b1-094"],
-        verbIds: [],
-        listeningIds: ["es-l-b1-3"],
-        testQuestions: [
-            { id: "es-b1-u8-q1", level: "B1", prompt: "How do you express 'on the one hand… on the other hand' in Spanish?", options: ["de más… de menos", "por un lado… por otro lado", "en primer lugar… en segundo lugar", "primero… luego"], answer: "por un lado… por otro lado", hint: "Por un lado / por otro lado structures a two-sided argument." },
-            { id: "es-b1-u8-q2", level: "B1", prompt: "Which phrase introduces a concession ('admittedly / I accept that, but…')?", options: ["sin embargo", "es cierto que…, pero", "en conclusión", "por lo tanto"], answer: "es cierto que…, pero", hint: "Es cierto que… pero / si bien… = conceding a point before countering it." },
-            { id: "es-b1-u8-q3", level: "B1", prompt: "What does 'tomar una decisión' mean?", options: ["to take a position", "to make a decision", "to take action", "to take a risk"], answer: "to make a decision", hint: "Tomar una decisión — tomar (not hacer) is the correct collocation for 'making a decision' in Spanish." },
-            { id: "es-b1-u8-q4", level: "B1", prompt: "How do you politely disagree while acknowledging the other view?", options: ["Estás equivocado.", "Entiendo tu punto, sin embargo…", "No estoy de acuerdo para nada.", "Eso es falso."], answer: "Entiendo tu punto, sin embargo…", hint: "Acknowledge then contrast — sin embargo (however) is the key pivot word." },
-            { id: "es-b1-u8-q5", level: "B1", prompt: "What does 'echar de menos' mean?", options: ["to miss (someone/something)", "to lack", "to put aside", "to run away from"], answer: "to miss (someone/something)", hint: "Echar de menos = to miss. A key collocation — not perder (which means to lose)." },
-            { id: "es-b1-u8-q6", level: "B1", prompt: "Which phrase signals the conclusion of an argument?", options: ["por un lado", "en cambio", "en conclusión / en definitiva", "sin embargo"], answer: "en conclusión / en definitiva", hint: "En conclusión or en definitiva = in conclusion / ultimately — signals the wrap-up." },
-        ]
-    },
-    {
-        id: "es-b1-u9",
+        prompt: "Which connector signals a prior event (before the main story) in narrative?",
+        options: ["de repente", "anteriormente / la víspera", "así que", "mientras tanto"],
+        answer: "anteriormente / la víspera",
+        hint: "Anteriormente (previously) and la víspera (the day/night before) signal PQP-layer backstory.",
+      },
+    ],
+  },
+  {
+    id: "es-b1-u3",
+    level: "B1",
+    order: 3,
+    title: "Fue construido en 1850 — la voz pasiva",
+    description: "Understand and produce passive constructions. Ser + participio (all tenses) for formal passive; se pasiva for everyday use. Master the ser vs estar + participio contrast (action vs resultant state).",
+    grammarIds: ["es-g-b1-3"],
+    vocabIds: ["es-v-b1-011", "es-v-b1-012", "es-v-b1-013", "es-v-b1-014", "es-v-b1-015"],
+    verbIds: [],
+    checkpointId: "es-cp-b1-1",
+    testQuestions: [
+      {
+        id: "es-b1-u3-q1",
         level: "B1",
-        order: 9,
-        title: "Si-Clause Consolidation — All Three Types",
-        description: "Consolidate all three si-clause patterns (real, hypothetical, past regret) and practise the full range of conditional logic in context. Includes high-frequency collocations and B1 discourse skills.",
-        grammarIds: ["es-g-b1-6"],
-        vocabIds: ["es-v-b1-081", "es-v-b1-082", "es-v-b1-083", "es-v-b1-090", "es-v-b1-091", "es-v-b1-092"],
-        verbIds: ["es-vb-b1-4"],
-        readingIds: ["es-r-b1-3"],
-        testQuestions: [
-            { id: "es-b1-u9-q1", level: "B1", prompt: "Identify the si-clause type: 'Si tuviera más tiempo, aprendería japonés.'", options: ["Real condition", "Hypothetical present", "Past regret", "General truth"], answer: "Hypothetical present", hint: "Si + imperfecto subjuntivo (tuviera) → condicional (aprendería) = hypothetical present." },
-            { id: "es-b1-u9-q2", level: "B1", prompt: "Identify the type: 'Si hubiera llegado antes, lo habría visto.'", options: ["Real condition", "Hypothetical present", "Past hypothetical", "Future plan"], answer: "Past hypothetical", hint: "Si + pluscuamperfecto subjuntivo → condicional compuesto = past regret/hypothetical." },
-            { id: "es-b1-u9-q3", level: "B1", prompt: "Complete: 'Si ___ (llover, mañana), nos quedaremos en casa.'", options: ["llueve", "lloviera", "llovería", "ha llovido"], answer: "llueve", hint: "Real future condition: si + presente → futuro (or quedamos)." },
-            { id: "es-b1-u9-q4", level: "B1", prompt: "Which collocation is correct for 'to be aware of'?", options: ["hacer caso de", "darse cuenta de", "tener en cuenta", "echar en falta"], answer: "darse cuenta de", hint: "Darse cuenta de = to realise / be aware of. A key B1 collocation." },
-            { id: "es-b1-u9-q5", level: "B1", prompt: "Complete: 'Si yo fuera el presidente, ___ (cambiar) esta ley.'", options: ["cambio", "cambiaré", "cambiaría", "cambiara"], answer: "cambiaría", hint: "Si + imperfecto subjuntivo → condicional simple (cambiaría)." },
-            { id: "es-b1-u9-q6", level: "B1", prompt: "What does 'tener en cuenta' mean?", options: ["to take into account", "to keep in mind only", "to have a point", "to count on someone"], answer: "to take into account", hint: "Tener en cuenta = to take into account / bear in mind. High-frequency B1 collocation." },
-        ]
-    },
-    {
-        id: "es-b1-u10",
+        prompt: "Transform to passive with ser: 'El gobierno aprobó la ley.' → 'La ley ___ ___ el gobierno.'",
+        options: ["fue aprobada por", "fue aprobado por", "estaba aprobada por", "ha sido aprobado por"],
+        answer: "fue aprobada por",
+        hint: "Passive: fue (pretérito of ser) + aprobada (feminine, agrees with 'la ley') + por + agent.",
+      },
+      {
+        id: "es-b1-u3-q2",
         level: "B1",
-        order: 10,
-        title: "Advanced Subjunctive — Imperfecto, Relative & Temporal Clauses",
-        description: "Master the imperfecto de subjuntivo — the key form behind si-clauses, polite requests, and reported commands. Then extend the subjunctive into two new contexts: relative clauses with an unknown or indefinite antecedent, and temporal clauses (cuando, hasta que, en cuanto) referring to future events.",
-        grammarIds: ["es-g-b1-10", "es-g-b1-11", "es-g-b1-12"],
-        vocabIds: ["es-v-b1-095", "es-v-b1-096", "es-v-b1-097", "es-v-b1-098"],
-        verbIds: ["es-vb-b1-1"],
-        testQuestions: [
-            {
-                id: "es-b1-u10-q1", level: "B1",
-                prompt: "Form the imperfecto de subjuntivo of 'tener' (yo).",
-                options: ["tuviera", "tuvera", "teniera", "tuvara"],
-                answer: "tuviera",
-                hint: "Tener → ellos preterite: tuvieron → drop -ron → tuvie- + -ra = tuviera."
-            },
-            {
-                id: "es-b1-u10-q2", level: "B1",
-                prompt: "Complete: 'Busco un piso que ___ (tener) terraza.' (you don't have one yet)",
-                options: ["tiene", "tenga", "tuviera", "tendrá"],
-                answer: "tenga",
-                hint: "Indefinite/hypothetical antecedent (any flat that has a terrace) → subjunctive (present: tenga)."
-            },
-            {
-                id: "es-b1-u10-q3", level: "B1",
-                prompt: "Complete: 'Cuando ___ (terminar, tú) el informe, mándamelo.'",
-                options: ["terminas", "termines", "terminarás", "terminabas"],
-                answer: "termines",
-                hint: "Future instruction with 'cuando' → subjunctive. The event hasn't happened yet."
-            },
-            {
-                id: "es-b1-u10-q4", level: "B1",
-                prompt: "Which sentence uses the subjunctive correctly?",
-                options: [
-                    "Es cierto que viene mañana.",
-                    "Es posible que venga mañana.",
-                    "Es verdad que viene mañana.",
-                    "Es obvio que viene mañana."
-                ],
-                answer: "Es posible que venga mañana.",
-                hint: "Es posible que → subjunctive (uncertainty). Es cierto/verdad/obvio que → indicative (certainty)."
-            },
-            {
-                id: "es-b1-u10-q5", level: "B1",
-                prompt: "Complete: 'Esperaré hasta que ___ (llegar, ellos).'",
-                options: ["llegan", "llegaron", "lleguen", "llegarían"],
-                answer: "lleguen",
-                hint: "Hasta que + future event → subjunctive."
-            },
-            {
-                id: "es-b1-u10-q6", level: "B1",
-                prompt: "What does 'quisiera' signal in 'Quisiera hablar con el director'?",
-                options: ["A past wish that was not fulfilled", "A polite request using the imperfecto de subjuntivo of querer", "A condition introduced by si", "A reported command"],
-                answer: "A polite request using the imperfecto de subjuntivo of querer",
-                hint: "Quisiera (imperfecto subj. of querer) softens requests more than querría (conditional) — very common in formal and polite register."
-            },
-        ]
-    },
-    {
-        id: "es-b1-u11",
+        prompt: "Choose the correct form: 'Las ventanas ___ rotas por el viento.'",
+        options: ["fueron", "estuvieron", "eran", "estaban"],
+        answer: "fueron",
+        hint: "Passive action (the wind broke the windows — event) → ser + participio (fueron rotas).",
+      },
+      {
+        id: "es-b1-u3-q3",
         level: "B1",
-        order: 11,
-        title: "Passive Voice & Gerundio Constructions",
-        description: "Use the true passive with ser + past participle to report events with an explicit agent — the construction of news, formal writing, and academic Spanish. Then master the gerundio in time-span constructions (llevar, seguir, ir, venir + gerundio) that describe ongoing or developing situations.",
-        grammarIds: ["es-g-b1-13", "es-g-b1-14"],
-        vocabIds: ["es-v-b1-099", "es-v-b1-100", "es-v-b1-076", "es-v-b1-079", "es-v-b1-080"],
-        verbIds: ["es-vb-b1-3"],
-        testQuestions: [
-            {
-                id: "es-b1-u11-q1", level: "B1",
-                prompt: "Transform to passive: 'El gobierno aprobó la ley.' → 'La ley ___ ___ el gobierno.'",
-                options: ["fue aprobada por", "fue aprobado por", "es aprobada de", "ha sido aprobado por"],
-                answer: "fue aprobada por",
-                hint: "Passive with ser: fue (pretérito of ser) + aprobada (feminine, agrees with 'la ley') + por."
-            },
-            {
-                id: "es-b1-u11-q2", level: "B1",
-                prompt: "Which sentence correctly uses 'llevar + gerundio'?",
-                options: [
-                    "Llevo esperando dos horas al autobús.",
-                    "Llevo dos horas esperando al autobús.",
-                    "Llevo dos horas que espero al autobús.",
-                    "Llevo por dos horas esperando."
-                ],
-                answer: "Llevo dos horas esperando al autobús.",
-                hint: "Llevar + time + gerundio — the time expression comes between llevar and the gerundio."
-            },
-            {
-                id: "es-b1-u11-q3", level: "B1",
-                prompt: "What is the difference between 'La puerta está cerrada' and 'La puerta fue cerrada por el guardia'?",
-                options: [
-                    "No difference — both mean the door was closed",
-                    "'Está cerrada' = current state; 'fue cerrada' = the action of closing",
-                    "'Fue cerrada' is more informal than 'está cerrada'",
-                    "'Está cerrada' describes the past; 'fue cerrada' the present"
-                ],
-                answer: "'Está cerrada' = current state; 'fue cerrada' = the action of closing",
-                hint: "Estar + participio = resulting STATE. Ser + participio = the ACTION (passive event)."
-            },
-            {
-                id: "es-b1-u11-q4", level: "B1",
-                prompt: "Complete: 'El proyecto ___ (ir) mejorando semana a semana.'",
-                options: ["está", "va", "lleva", "sigue"],
-                answer: "va",
-                hint: "Ir + gerundio = gradual progressive development — the project is progressively improving."
-            },
-            {
-                id: "es-b1-u11-q5", level: "B1",
-                prompt: "What does 'seguir + gerundio' express?",
-                options: ["An action that happened suddenly", "A continuous action that keeps going / is still happening", "An action that happened before another", "A polite request"],
-                answer: "A continuous action that keeps going / is still happening",
-                hint: "Seguir + gerundio = to keep doing / to still be doing. Sigue lloviendo = it's still raining."
-            },
-            {
-                id: "es-b1-u11-q6", level: "B1",
-                prompt: "Translate: 'The new hospital was inaugurated by the mayor.'",
-                options: [
-                    "El nuevo hospital se inauguró por el alcalde.",
-                    "El nuevo hospital fue inaugurado por el alcalde.",
-                    "El nuevo hospital estaba inaugurado por el alcalde.",
-                    "El nuevo hospital inauguró el alcalde."
-                ],
-                answer: "El nuevo hospital fue inaugurado por el alcalde.",
-                hint: "True passive with ser: fue inaugurado + por + agent."
-            },
-        ]
-    },
+        prompt: "Which sentence correctly uses the se pasiva?",
+        options: [
+          "Se necesita camareros.",
+          "Se necesitan camareros.",
+          "Se necesita a camareros.",
+          "Se necesitaron camareros siempre."
+        ],
+        answer: "Se necesitan camareros.",
+        hint: "Se pasiva: se + verb agreeing with the logical subject (camareros = plural → necesitan).",
+      },
+      {
+        id: "es-b1-u3-q4",
+        level: "B1",
+        prompt: "What is the difference between 'La puerta fue cerrada' and 'La puerta estaba cerrada'?",
+        options: [
+          "No difference — both mean the door was closed",
+          "Fue cerrada = the action of closing; estaba cerrada = the resulting state",
+          "Estaba cerrada describes the past; fue cerrada the present",
+          "Fue cerrada is more informal"
+        ],
+        answer: "Fue cerrada = the action of closing; estaba cerrada = the resulting state",
+        hint: "Ser + participio = the ACTION (passive event). Estar + participio = the resulting STATE.",
+      },
+      {
+        id: "es-b1-u3-q5",
+        level: "B1",
+        prompt: "Complete news headline using se pasiva: '___ tres detenidos en la operación policial.'",
+        options: ["Fueron", "Estaban", "Han sido", "Se detuvieron"],
+        answer: "Se detuvieron",
+        hint: "Se pasiva with the verb agreeing with the subject (tres detenidos = plural → se detuvieron). Also 'Fueron detenidos' is correct formal passive.",
+      },
+    ],
+  },
+
+  // ─── BLOCK 2: Lo que quiero, lo que siento ────────────────────────────────
+  {
+    id: "es-b1-u4",
+    level: "B1",
+    order: 4,
+    title: "Quiero que vengas — el subjuntivo (volición)",
+    description: "Form the present subjunctive (regular and key irregulars). Use it after verbs of wanting, wishing, recommending, and demanding when the subjects differ. Impersonal constructions: es necesario que, hace falta que.",
+    grammarIds: ["es-g-b1-4"],
+    vocabIds: ["es-v-b1-016", "es-v-b1-017", "es-v-b1-018", "es-v-b1-019", "es-v-b1-020"],
+    verbIds: [],
+    testQuestions: [
+      {
+        id: "es-b1-u4-q1",
+        level: "B1",
+        prompt: "Complete: 'Quiero que tú ___ (venir) esta noche.'",
+        options: ["vengas", "vienes", "vendrás", "ven"],
+        answer: "vengas",
+        hint: "Different subjects (yo / tú) + quiero que → subjuntivo. Venir irregular: venga, vengas...",
+      },
+      {
+        id: "es-b1-u4-q2",
+        level: "B1",
+        prompt: "Same subject → infinitive or subjuntivo? 'Prefiero ___ (salir) más tarde.'",
+        options: ["salga", "salir", "salgo", "saldré"],
+        answer: "salir",
+        hint: "Same subject (yo wants yo to leave) → use infinitive, NOT subjuntivo.",
+      },
+      {
+        id: "es-b1-u4-q3",
+        level: "B1",
+        prompt: "What is the subjuntivo of 'ser' (nosotros)?",
+        options: ["seamos", "somos", "éramos", "fuimos"],
+        answer: "seamos",
+        hint: "Ser is a fully irregular subjuntivo: sea, seas, sea, seamos, seáis, sean.",
+      },
+      {
+        id: "es-b1-u4-q4",
+        level: "B1",
+        prompt: "Complete: 'Es importante que todos ___ (llegar) a tiempo.'",
+        options: ["lleguen", "llegan", "llegarán", "llegaron"],
+        answer: "lleguen",
+        hint: "Es importante que = impersonal expression of necessity → subjuntivo. -ar verbs: -en in 3rd plural.",
+      },
+      {
+        id: "es-b1-u4-q5",
+        level: "B1",
+        prompt: "Complete: 'El médico recomienda que ___ (hacer, tú) ejercicio.'",
+        options: ["hagas", "haces", "harás", "haga"],
+        answer: "hagas",
+        hint: "recomendar que (different subjects) → subjuntivo. Hacer yo-form: hago → hag- + as = hagas.",
+      },
+    ],
+  },
+  {
+    id: "es-b1-u5",
+    level: "B1",
+    order: 5,
+    title: "Me alegra que estés aquí — subjuntivo (emoción y duda)",
+    description: "Use the subjuntivo after verbs of emotion and doubt. Master the certainty/uncertainty divide: creo que + indicativo vs no creo que + subjuntivo. Impersonal expressions: es una pena que, es posible que.",
+    grammarIds: ["es-g-b1-5"],
+    vocabIds: ["es-v-b1-021", "es-v-b1-022", "es-v-b1-023", "es-v-b1-024", "es-v-b1-025"],
+    verbIds: [],
+    testQuestions: [
+      {
+        id: "es-b1-u5-q1",
+        level: "B1",
+        prompt: "Complete: 'Me alegra que ___ (estar, tú) aquí.'",
+        options: ["estés", "estás", "estarás", "estuviste"],
+        answer: "estés",
+        hint: "Alegrarse de que = emotion verb → subjuntivo. Estar irregular subjuntivo: esté, estés, esté...",
+      },
+      {
+        id: "es-b1-u5-q2",
+        level: "B1",
+        prompt: "Which sentence uses indicativo correctly?",
+        options: [
+          "Dudo que sea verdad.",
+          "Creo que es verdad.",
+          "Es posible que sea verdad.",
+          "Me parece mal que sea verdad."
+        ],
+        answer: "Creo que es verdad.",
+        hint: "Creer que (affirmative) = certainty → indicativo. All others express doubt or emotion → subjuntivo.",
+      },
+      {
+        id: "es-b1-u5-q3",
+        level: "B1",
+        prompt: "Complete: 'No creo que él ___ (tener) razón.'",
+        options: ["tenga", "tiene", "tendrá", "tenía"],
+        answer: "tenga",
+        hint: "No creer que = negated belief verb → shifts to doubt → subjuntivo. Tener subjuntivo: tenga.",
+      },
+      {
+        id: "es-b1-u5-q4",
+        level: "B1",
+        prompt: "Complete: 'Es posible que ___ (haber) un problema con el vuelo.'",
+        options: ["haya", "hay", "habrá", "hubo"],
+        answer: "haya",
+        hint: "Es posible que = possibility expression → subjuntivo. Haber irregular subjuntivo: haya.",
+      },
+      {
+        id: "es-b1-u5-q5",
+        level: "B1",
+        prompt: "Identify the correct pattern: 'Temo que no ___ a tiempo.' (llegar, ellos)",
+        options: ["llegan", "lleguen", "llegarán", "llegarían"],
+        answer: "lleguen",
+        hint: "Temer que = fear = emotion verb → subjuntivo. -ar 3rd plural subjuntivo: -en → lleguen.",
+      },
+    ],
+  },
+  {
+    id: "es-b1-u6",
+    level: "B1",
+    order: 6,
+    title: "Para que lo entiendas / aunque sea difícil — subjuntivo con conjunciones",
+    description: "Use the subjuntivo after purpose conjunctions (para que, a fin de que) and concession/condition conjunctions (aunque, a menos que, antes de que, hasta que, en cuanto). Master the aunque indicativo/subjuntivo contrast.",
+    grammarIds: ["es-g-b1-6"],
+    vocabIds: ["es-v-b1-026", "es-v-b1-027", "es-v-b1-028", "es-v-b1-029", "es-v-b1-030"],
+    verbIds: [],
+    testQuestions: [
+      {
+        id: "es-b1-u6-q1",
+        level: "B1",
+        prompt: "Complete: 'Te lo explico para que ___ (entender, tú) la situación.'",
+        options: ["entiendas", "entiendes", "entenderás", "entendas"],
+        answer: "entiendas",
+        hint: "Para que (different subjects, purpose) → always subjuntivo. Entender subjuntivo (tú): entiendas.",
+      },
+      {
+        id: "es-b1-u6-q2",
+        level: "B1",
+        prompt: "'Aunque ___ cansado, fui.' — This means the speaker WAS tired (accepted as fact). Which is correct?",
+        options: ["esté", "estaba", "está", "estuviera"],
+        answer: "estaba",
+        hint: "Aunque + indicativo = accepted fact ('I was tired — I know it'). Imperfecto estaba fits the past context.",
+      },
+      {
+        id: "es-b1-u6-q3",
+        level: "B1",
+        prompt: "'Aunque ___ difícil, lo intentaré.' — The difficulty is UNCERTAIN (hypothetical). Which is correct?",
+        options: ["es", "era", "sea", "fue"],
+        answer: "sea",
+        hint: "Aunque + subjuntivo = hypothetical ('even if it's difficult — I don't know yet'). Sea = subjuntivo of ser.",
+      },
+      {
+        id: "es-b1-u6-q4",
+        level: "B1",
+        prompt: "Complete: 'Llámame cuando ___ (llegar, tú).' (future instruction)",
+        options: ["llegues", "llegas", "llegarás", "llegaste"],
+        answer: "llegues",
+        hint: "Cuando + future event → subjuntivo. -ar 2nd singular subjuntivo: -es → llegues.",
+      },
+      {
+        id: "es-b1-u6-q5",
+        level: "B1",
+        prompt: "Which conjunction ALWAYS takes the subjuntivo?",
+        options: ["cuando (with past/habitual events)", "antes de que", "aunque (with known facts)", "porque"],
+        answer: "antes de que",
+        hint: "Antes de que always takes subjuntivo — it's always forward-looking (before something happens).",
+      },
+    ],
+  },
+  {
+    id: "es-b1-u7",
+    level: "B1",
+    order: 7,
+    title: "Es el mejor lugar que conozca — subjuntivo con superlativo y relativa incierta",
+    description: "Use the subjuntivo after superlatives (el mejor que, el único que) and in relative clauses with uncertain/non-existent referents (busco algo que sea...). Full B1 subjuntivo trigger review.",
+    grammarIds: ["es-g-b1-7"],
+    vocabIds: ["es-v-b1-031", "es-v-b1-032", "es-v-b1-033", "es-v-b1-034", "es-v-b1-035"],
+    verbIds: [],
+    checkpointId: "es-cp-b1-2",
+    testQuestions: [
+      {
+        id: "es-b1-u7-q1",
+        level: "B1",
+        prompt: "Complete: 'Es la mejor película que ___ (ver, yo) en años.'",
+        options: ["haya visto", "he visto", "había visto", "vería"],
+        answer: "haya visto",
+        hint: "Superlative + relative clause → subjuntivo. Haya visto = present perfect subjuntivo (haya + visto).",
+      },
+      {
+        id: "es-b1-u7-q2",
+        level: "B1",
+        prompt: "Choose: 'Busco un piso que ___ (tener) terraza.' (you don't have one yet)",
+        options: ["tiene", "tenga", "tenía", "tendrá"],
+        answer: "tenga",
+        hint: "Searching for something uncertain/non-existent → subjuntivo. Tener subjuntivo: tenga.",
+      },
+      {
+        id: "es-b1-u7-q3",
+        level: "B1",
+        prompt: "Choose: 'Encontré un piso que ___ (tener) terraza.' (you found it — it exists)",
+        options: ["tenga", "tenga", "tiene", "tuviera"],
+        answer: "tiene",
+        hint: "Known/existing referent (found it = it exists) → indicativo. Tiene = present indicativo.",
+      },
+      {
+        id: "es-b1-u7-q4",
+        level: "B1",
+        prompt: "Complete: 'Es el único restaurante donde me ___ (sentir) de verdad en casa.'",
+        options: ["siento", "sienta", "sentiría", "sentía"],
+        answer: "sienta",
+        hint: "El único + relative clause → subjuntivo. Sentir subjuntivo (yo): sienta.",
+      },
+      {
+        id: "es-b1-u7-q5",
+        level: "B1",
+        prompt: "Which trigger category requires INDICATIVO?",
+        options: ["Es posible que...", "Dudo que...", "Es cierto que...", "Me alegra que..."],
+        answer: "Es cierto que...",
+        hint: "Es cierto que = certainty → indicativo. All doubt/emotion expressions → subjuntivo.",
+      },
+    ],
+  },
+
+  // ─── BLOCK 3: Y si... / Lo que podría haber sido ─────────────────────────
+  {
+    id: "es-b1-u8",
+    level: "B1",
+    order: 8,
+    title: "Si tuviera tiempo... — hipótesis tipo 2 y tipo 3",
+    description: "Express hypothetical present situations (si + imperfecto subjuntivo + condicional) and counterfactual past regrets (si + pluscuamperfecto subjuntivo + condicional compuesto). Formation of the imperfecto de subjuntivo and condicional compuesto.",
+    grammarIds: ["es-g-b1-8"],
+    vocabIds: ["es-v-b1-036", "es-v-b1-037", "es-v-b1-038", "es-v-b1-039", "es-v-b1-040"],
+    verbIds: [],
+    testQuestions: [
+      {
+        id: "es-b1-u8-q1",
+        level: "B1",
+        prompt: "Complete (Type 2 — hypothetical): 'Si ___ (tener, yo) más tiempo, viajaría más.'",
+        options: ["tuviera", "tengo", "tendría", "tuve"],
+        answer: "tuviera",
+        hint: "Type 2: si + imperfecto de subjuntivo + condicional. Tener: tuvieron → tuviera.",
+      },
+      {
+        id: "es-b1-u8-q2",
+        level: "B1",
+        prompt: "Complete (Type 3 — counterfactual past): 'Si ___ (llegar, yo) antes, lo habría visto.'",
+        options: ["llego", "llegara", "hubiera llegado", "habría llegado"],
+        answer: "hubiera llegado",
+        hint: "Type 3: si + pluscuamperfecto de subjuntivo (hubiera llegado) + condicional compuesto.",
+      },
+      {
+        id: "es-b1-u8-q3",
+        level: "B1",
+        prompt: "Which form is NEVER correct immediately after 'si' in a conditional?",
+        options: ["imperfecto de subjuntivo", "presente", "pluscuamperfecto de subjuntivo", "condicional simple"],
+        answer: "condicional simple",
+        hint: "Critical rule: condicional NEVER follows si — it goes in the result clause only.",
+      },
+      {
+        id: "es-b1-u8-q4",
+        level: "B1",
+        prompt: "Form the imperfecto de subjuntivo of 'ser/ir' (yo).",
+        options: ["fuera", "sería", "era", "fue"],
+        answer: "fuera",
+        hint: "Ser/ir: ellos indefinido = fueron → drop -ron → fue- + -ra = fuera.",
+      },
+      {
+        id: "es-b1-u8-q5",
+        level: "B1",
+        prompt: "Complete: 'Si hubiera sabido eso, ___ (actuar, yo) de otra manera.'",
+        options: ["habría actuado", "actuaría", "actuara", "actúo"],
+        answer: "habría actuado",
+        hint: "Type 3 result clause: condicional compuesto = habría + participio (actuado).",
+      },
+    ],
+  },
+  {
+    id: "es-b1-u9",
+    level: "B1",
+    order: 9,
+    title: "¿Se lo has dicho? — combinaciones de pronombres",
+    description: "Combine direct and indirect object pronouns fluently. Master the le→se rule, correct OI+OD order, double pronouns in compound tenses, and imperative + double pronoun combinations.",
+    grammarIds: ["es-g-b1-9"],
+    vocabIds: ["es-v-b1-041", "es-v-b1-042", "es-v-b1-043", "es-v-b1-044", "es-v-b1-045"],
+    verbIds: [],
+    testQuestions: [
+      {
+        id: "es-b1-u9-q1",
+        level: "B1",
+        prompt: "Apply the le→se rule: 'Quiero dar el libro a María.' → 'Quiero ___.'",
+        options: ["le lo dar", "se lo dar", "dárselo", "lo le dar"],
+        answer: "dárselo",
+        hint: "Le (= a María) + lo (= el libro) → le→se rule → se lo. Attached to infinitive: dárselo.",
+      },
+      {
+        id: "es-b1-u9-q2",
+        level: "B1",
+        prompt: "Complete: '___ dije la verdad.' (I told HER the truth)",
+        options: ["Le la", "Se la", "La le", "Se lo"],
+        answer: "Se la",
+        hint: "OI le (= a ella) + OD la (= la verdad) → le→se rule → se la. Se la dije.",
+      },
+      {
+        id: "es-b1-u9-q3",
+        level: "B1",
+        prompt: "Form the affirmative imperative: 'Give it (m.) to me' — using dar.",
+        options: ["Dame lo.", "Me lo da.", "Dámelo.", "Da lo me."],
+        answer: "Dámelo.",
+        hint: "Affirmative imperative + double pronoun: attach in OI+OD order. da + me + lo → dámelo (accent added).",
+      },
+      {
+        id: "es-b1-u9-q4",
+        level: "B1",
+        prompt: "What does the 'se' refer to in: 'Se lo expliqué a mi hermana'?",
+        options: ["Reflexive action", "Replaces 'le' (a mi hermana) before 'lo'", "Passive se", "Impersonal se"],
+        answer: "Replaces 'le' (a mi hermana) before 'lo'",
+        hint: "This se is NOT reflexive — it replaced le (= a mi hermana) because le cannot directly precede lo.",
+      },
+      {
+        id: "es-b1-u9-q5",
+        level: "B1",
+        prompt: "Negative imperative: 'Don't tell it to him.' → 'No ___.'",
+        options: ["díselo", "se lo digas", "lo se digas", "digas se lo"],
+        answer: "se lo digas",
+        hint: "Negative imperatives: pronouns go BEFORE the verb, separated: No se lo digas.",
+      },
+    ],
+  },
+  {
+    id: "es-b1-u10",
+    level: "B1",
+    order: 10,
+    title: "La persona de quien te hablé — relativos avanzados",
+    description: "Connect complex sentences using cuyo/a/os/as (whose), lo que / lo cual (abstract reference), quien/quienes after prepositions, and el cual / la cual in formal writing.",
+    grammarIds: ["es-g-b1-10"],
+    vocabIds: ["es-v-b1-046", "es-v-b1-047", "es-v-b1-048", "es-v-b1-049", "es-v-b1-050"],
+    verbIds: [],
+    checkpointId: "es-cp-b1-3",
+    testQuestions: [
+      {
+        id: "es-b1-u10-q1",
+        level: "B1",
+        prompt: "Complete: 'Es un colega ___ hermana trabaja en la ONU.' (whose)",
+        options: ["cuya", "cuyo", "cuyos", "que su"],
+        answer: "cuyo",
+        hint: "Cuyo agrees with the THING POSSESSED: hermana = f.sg., but wait — cuyo agrees with 'hermana' → cuya. Actually: hermano = m. → cuyo. Check: hermana f.sg. → cuya.",
+      },
+      {
+        id: "es-b1-u10-q2",
+        level: "B1",
+        prompt: "Complete: '___ más me preocupa es la falta de comunicación.' (what)",
+        options: ["Lo que", "Lo cual", "Que", "El que"],
+        answer: "Lo que",
+        hint: "Lo que = what (opening a new clause, referring to an abstract thing). Lo cual refers BACK to a stated idea.",
+      },
+      {
+        id: "es-b1-u10-q3",
+        level: "B1",
+        prompt: "Complete: 'El proyecto fue aprobado, ___ nos alegró mucho.' (which — back-reference)",
+        options: ["lo que", "lo cual", "que", "quien"],
+        answer: "lo cual",
+        hint: "Lo cual refers back to the whole previous clause (formal). Lo que would also work here but lo cual is more formal.",
+      },
+      {
+        id: "es-b1-u10-q4",
+        level: "B1",
+        prompt: "Complete: 'Es la persona ___ más admiro en el mundo.' (whom — after implied preposition a)",
+        options: ["que", "a quien", "cuya", "lo que"],
+        answer: "a quien",
+        hint: "After a preposition referring to people → a quien/quienes, not a que.",
+      },
+      {
+        id: "es-b1-u10-q5",
+        level: "B1",
+        prompt: "Complete: 'Conocí a gente ___ influencia en mí fue enorme.'",
+        options: ["cuya", "cuyo", "cuyos", "cuyas"],
+        answer: "cuya",
+        hint: "Cuyo agrees with the possessed noun: influencia = f.sg. → cuya.",
+      },
+    ],
+  },
+
+  // ─── BLOCK 4: Contar, matizar, explicar ───────────────────────────────────
+  {
+    id: "es-b1-u11",
+    level: "B1",
+    order: 11,
+    title: "Me dijo que vendría — el estilo indirecto",
+    description: "Report what someone said, asked, or commanded. Master tense backshift (presente→imperfecto, futuro→condicional, indefinido→pluscuamperfecto), time expression changes, indirect questions with si and question words, and indirect commands with que + imperfecto de subjuntivo.",
+    grammarIds: ["es-g-b1-11"],
+    vocabIds: ["es-v-b1-051", "es-v-b1-052", "es-v-b1-053", "es-v-b1-054", "es-v-b1-055"],
+    verbIds: [],
+    testQuestions: [
+      {
+        id: "es-b1-u11-q1",
+        level: "B1",
+        prompt: "Transform to indirect speech: '\"Estoy cansado.\"' → Dijo que ___.",
+        options: ["está cansado", "estaba cansado", "estuvo cansado", "estaría cansado"],
+        answer: "estaba cansado",
+        hint: "Reporting verb in past → backshift. Presente (estoy) → Imperfecto (estaba).",
+      },
+      {
+        id: "es-b1-u11-q2",
+        level: "B1",
+        prompt: "Transform: '\"Vendré mañana.\"' → Dijo que ___.",
+        options: ["vendrá mañana", "viene al día siguiente", "vendría al día siguiente", "vino al día siguiente"],
+        answer: "vendría al día siguiente",
+        hint: "Futuro → Condicional in indirect speech. 'Mañana' → 'al día siguiente' (time expression changes).",
+      },
+      {
+        id: "es-b1-u11-q3",
+        level: "B1",
+        prompt: "Transform indirect question: '\"¿Tienes hambre?\"' → Me preguntó ___.",
+        options: ["si tengo hambre", "si tenía hambre", "qué tenía hambre", "si tuviera hambre"],
+        answer: "si tenía hambre",
+        hint: "Yes/no indirect question → si + backshifted clause. Presente tengo → Imperfecto tenía.",
+      },
+      {
+        id: "es-b1-u11-q4",
+        level: "B1",
+        prompt: "Transform indirect command: '\"¡Llega puntual!\"' → Me pidió que ___.",
+        options: ["llegue puntual", "llegara puntual", "llegar puntual", "llegué puntual"],
+        answer: "llegara puntual",
+        hint: "Reported commands: que + imperfecto de subjuntivo. Llegar: llegaron → llegara.",
+      },
+      {
+        id: "es-b1-u11-q5",
+        level: "B1",
+        prompt: "No backshift needed when: 'Dice que ___ (estar) cansado.'",
+        options: ["estaba", "está", "estuvo", "estuviera"],
+        answer: "está",
+        hint: "When the reporting verb is in PRESENT (dice), no tense backshift is needed.",
+      },
+    ],
+  },
+  {
+    id: "es-b1-u12",
+    level: "B1",
+    order: 12,
+    title: "Llevo tres años estudiando español — perífrasis verbales B1",
+    description: "Express duration (llevar + gerundio), continuation (seguir/continuar + gerundio), stopping (dejar de + infinitivo), sudden start (ponerse a + infinitivo), repetition (volver a + infinitivo), and eventual outcome (acabar por + infinitivo).",
+    grammarIds: ["es-g-b1-12"],
+    vocabIds: ["es-v-b1-056", "es-v-b1-057", "es-v-b1-058", "es-v-b1-059", "es-v-b1-060"],
+    verbIds: [],
+    testQuestions: [
+      {
+        id: "es-b1-u12-q1",
+        level: "B1",
+        prompt: "Complete: 'Llevo ___ estudiando para el examen.'",
+        options: ["dos horas", "por dos horas", "de dos horas", "hace dos horas"],
+        answer: "dos horas",
+        hint: "Llevar + time (no preposition) + gerundio. The time expression goes between llevar and the gerundio.",
+      },
+      {
+        id: "es-b1-u12-q2",
+        level: "B1",
+        prompt: "What does 'dejó de fumar' mean?",
+        options: ["He started smoking", "He stopped smoking", "He kept smoking", "He smoked again"],
+        answer: "He stopped smoking",
+        hint: "Dejar de + infinitivo = to stop doing something.",
+      },
+      {
+        id: "es-b1-u12-q3",
+        level: "B1",
+        prompt: "Complete: 'Cuando le dijeron la noticia, ___ (ponerse a) llorar.'",
+        options: ["se puso a", "empezó a", "volvió a", "dejó de"],
+        answer: "se puso a",
+        hint: "Ponerse a + infinitivo = sudden / spontaneous start of an action, often triggered by something.",
+      },
+      {
+        id: "es-b1-u12-q4",
+        level: "B1",
+        prompt: "Complete: 'Después de un año de pausa, ___ (volver a) estudiar francés.'",
+        options: ["volví a", "empecé a", "acabé por", "dejé de"],
+        answer: "volví a",
+        hint: "Volver a + infinitivo = to do something AGAIN. After a pause = doing it again.",
+      },
+      {
+        id: "es-b1-u12-q5",
+        level: "B1",
+        prompt: "Which periphrase expresses an EVENTUAL OUTCOME after a long process?",
+        options: ["llevar + gerundio", "ponerse a + infinitivo", "acabar por + infinitivo", "seguir + gerundio"],
+        answer: "acabar por + infinitivo",
+        hint: "Acabar por = to end up doing — after a process, effort, or time. Acabé por entenderlo.",
+      },
+    ],
+  },
+  {
+    id: "es-b1-u13",
+    level: "B1",
+    order: 13,
+    title: "Por eso / sin embargo — conectores lógicos B1",
+    description: "Articulate cause (ya que, puesto que, dado que, a causa de), consequence (por eso, por lo tanto, de ahí que), concession (sin embargo, a pesar de que, si bien), and opposition (mientras que, en cambio, por el contrario) with B1 precision.",
+    grammarIds: ["es-g-b1-13"],
+    vocabIds: ["es-v-b1-061", "es-v-b1-062", "es-v-b1-063", "es-v-b1-064", "es-v-b1-065"],
+    verbIds: [],
+    checkpointId: "es-cp-b1-4",
+    testQuestions: [
+      {
+        id: "es-b1-u13-q1",
+        level: "B1",
+        prompt: "Which connector introduces a cause that is SHARED KNOWLEDGE between speaker and listener?",
+        options: ["porque", "ya que / puesto que", "por eso", "a pesar de"],
+        answer: "ya que / puesto que",
+        hint: "Ya que and puesto que are used when the reason is already known — unlike porque, which can introduce new information.",
+      },
+      {
+        id: "es-b1-u13-q2",
+        level: "B1",
+        prompt: "Complete: 'Estaba enfermo. ___ no vino a la reunión.'",
+        options: ["Sin embargo", "A pesar de que", "Por eso", "Mientras que"],
+        answer: "Por eso",
+        hint: "Por eso = that is why / therefore. Most common consequence connector in Spanish.",
+      },
+      {
+        id: "es-b1-u13-q3",
+        level: "B1",
+        prompt: "Complete: 'El norte es industrial, ___ el sur es turístico.'",
+        options: ["por eso", "sin embargo", "mientras que", "dado que"],
+        answer: "mientras que",
+        hint: "Mientras que = whereas — contrasts two parallel but different situations.",
+      },
+      {
+        id: "es-b1-u13-q4",
+        level: "B1",
+        prompt: "Which connector is followed by a CLAUSE (not just a noun)?",
+        options: ["a causa de", "debido a", "a pesar de que", "frente a"],
+        answer: "a pesar de que",
+        hint: "A pesar de que + clause. A causa de / debido a / frente a are followed by noun phrases, not full clauses.",
+      },
+      {
+        id: "es-b1-u13-q5",
+        level: "B1",
+        prompt: "Choose the most formal consequence connector: 'No hay acuerdo. ___, no puede avanzarse.'",
+        options: ["Así que", "Por eso", "Por lo tanto", "Entonces"],
+        answer: "Por lo tanto",
+        hint: "Por lo tanto = therefore — more formal than así que or por eso. Typical of written argument.",
+      },
+    ],
+  },
+
+  // ─── BLOCK 5: El español auténtico ───────────────────────────────────────
+  {
+    id: "es-b1-u14",
+    level: "B1",
+    order: 14,
+    title: "La oigo cantar / hacer hacer — verbos de percepción y causativo",
+    description: "Use perception verbs (ver, oír, sentir, escuchar) + direct object + infinitive/gerundio. Express having something done or making someone do something with hacer causativo + infinitivo. Dejar + infinitivo for allowing.",
+    grammarIds: ["es-g-b1-14"],
+    vocabIds: ["es-v-b1-066", "es-v-b1-067", "es-v-b1-068", "es-v-b1-069", "es-v-b1-070"],
+    verbIds: [],
+    testQuestions: [
+      {
+        id: "es-b1-u14-q1",
+        level: "B1",
+        prompt: "Complete: '___ (ver, yo) a los niños ___ (jugar) en el parque.'",
+        options: ["Vi / jugar", "Los vi / jugar", "Vi / jugaban", "Los vi / jugaron"],
+        answer: "Los vi / jugar",
+        hint: "Perception verb + pronoun before verb + infinitive: Los vi jugar. Pronoun goes before the perception verb.",
+      },
+      {
+        id: "es-b1-u14-q2",
+        level: "B1",
+        prompt: "Complete: '¿Has ___ reparar la ventana ya?' (have you had the window repaired?)",
+        options: ["hecho", "dejado", "puesto", "mandado"],
+        answer: "hecho",
+        hint: "Hacer causativo: hacer + infinitivo = to have something done. Has hecho reparar la ventana.",
+      },
+      {
+        id: "es-b1-u14-q3",
+        level: "B1",
+        prompt: "Where does the pronoun go in: 'I heard her singing' → '___ oí cantar'?",
+        options: ["La oí cantar.", "Oí la cantar.", "Oí cantarla.", "Oí cantar a ella."],
+        answer: "La oí cantar.",
+        hint: "Object pronoun goes BEFORE the perception verb: la oí, not oí la.",
+      },
+      {
+        id: "es-b1-u14-q4",
+        level: "B1",
+        prompt: "Complete: '¡___ (dejar) hablar! No me interrumpas.' (Let me speak!)",
+        options: ["Déjame", "Me dejas", "Dejando", "Deja a mí"],
+        answer: "Déjame",
+        hint: "Dejar + pronoun + infinitivo. Affirmative imperative: déjame hablar.",
+      },
+      {
+        id: "es-b1-u14-q5",
+        level: "B1",
+        prompt: "Which is correct? 'That film made me cry.'",
+        options: [
+          "Esa película me hizo llorar.",
+          "Esa película hizo llorar a mí.",
+          "Esa película me lloraba.",
+          "Esa película hizo que llorara yo."
+        ],
+        answer: "Esa película me hizo llorar.",
+        hint: "Hacer causativo with pronoun: me (object pronoun before hacer) + hizo + llorar (infinitive).",
+      },
+    ],
+  },
+  {
+    id: "es-b1-u15",
+    level: "B1",
+    order: 15,
+    title: "Ordenar las ideas — discurso B1",
+    description: "Structure spoken and written argument with hedging expressions, sequencing markers, concession strategies, reformulation tools, and closing phrases. The full B1 discourse toolkit.",
+    grammarIds: ["es-g-b1-15"],
+    vocabIds: ["es-v-b1-071", "es-v-b1-072", "es-v-b1-073", "es-v-b1-074", "es-v-b1-075"],
+    verbIds: [],
+    testQuestions: [
+      {
+        id: "es-b1-u15-q1",
+        level: "B1",
+        prompt: "Which phrase structures a two-sided argument?",
+        options: ["En cuanto a...", "Por un lado... por otro (lado)...", "O sea...", "Que yo sepa..."],
+        answer: "Por un lado... por otro (lado)...",
+        hint: "Por un lado / por otro (lado) = on one hand... on the other hand — the classic two-sided structure.",
+      },
+      {
+        id: "es-b1-u15-q2",
+        level: "B1",
+        prompt: "Which phrase is used to HEDGE (qualify a statement, avoid sounding too certain)?",
+        options: ["No cabe duda de que", "Es evidente que", "Me parece que / hasta cierto punto", "Está claro que"],
+        answer: "Me parece que / hasta cierto punto",
+        hint: "Hedging = softening a statement. Me parece que / hasta cierto punto introduce qualification.",
+      },
+      {
+        id: "es-b1-u15-q3",
+        level: "B1",
+        prompt: "What does 'o sea' signal in conversation?",
+        options: ["A formal conclusion", "An informal reformulation / clarification", "A cause connector", "A contrast marker"],
+        answer: "An informal reformulation / clarification",
+        hint: "O sea = I mean / in other words — very common in spoken Spanish for reformulation and self-correction.",
+      },
+      {
+        id: "es-b1-u15-q4",
+        level: "B1",
+        prompt: "Which phrase signals the CONCLUSION of an argument?",
+        options: ["Por un lado", "En cuanto a", "En definitiva / al fin y al cabo", "Hay que reconocer que"],
+        answer: "En definitiva / al fin y al cabo",
+        hint: "En definitiva / al fin y al cabo = ultimately / all in all — signals the wrap-up of an argument.",
+      },
+      {
+        id: "es-b1-u15-q5",
+        level: "B1",
+        prompt: "How do you concede a point before countering it?",
+        options: [
+          "En definitiva, es cierto.",
+          "Es cierto que... sin embargo...",
+          "O sea, no estoy de acuerdo.",
+          "Por lo tanto, tienes razón."
+        ],
+        answer: "Es cierto que... sin embargo...",
+        hint: "Es cierto que... (concede) + sin embargo... (counter). The classic concession-counter pattern.",
+      },
+    ],
+  },
+  {
+    id: "es-b1-u16",
+    level: "B1",
+    order: 16,
+    title: "Mi español, mi voz — consolidación B1",
+    description: "Full B1 consolidation — no new grammar. Self-audit across all 15 grammar lessons, identification of personal gaps and strengths, integrated practice tasks combining all B1 structures, and review of fossilisation traps.",
+    grammarIds: [],
+    vocabIds: ["es-v-b1-076", "es-v-b1-077", "es-v-b1-078", "es-v-b1-079", "es-v-b1-080"],
+    verbIds: [],
+    checkpointId: "es-cp-b1-5",
+    testQuestions: [
+      {
+        id: "es-b1-u16-q1",
+        level: "B1",
+        prompt: "Identify the error: 'Quiero que venir contigo.'",
+        options: [
+          "Venir should be vengas — different subjects require subjuntivo",
+          "Quiero should be quisiera",
+          "Contigo should be con ti",
+          "No error"
+        ],
+        answer: "Venir should be vengas — different subjects require subjuntivo",
+        hint: "Different subjects (yo / tú) + quiero que → subjuntivo: quiero que vengas, NOT quiero que venir.",
+      },
+      {
+        id: "es-b1-u16-q2",
+        level: "B1",
+        prompt: "Identify the error: 'Aunque es difícil, lo hago aunque sea posible también.'",
+        options: [
+          "Although this is grammatically valid, the double 'aunque' is redundant",
+          "Aunque es difícil should be aunque esté difícil",
+          "Sea should be es — it's a known fact",
+          "No error"
+        ],
+        answer: "Although this is grammatically valid, the double 'aunque' is redundant",
+        hint: "The sentence is grammatically valid (aunque es + aunque sea both possible), but redundant. Aunque es difícil = accepted fact. Aunque sea posible = hypothetical.",
+      },
+      {
+        id: "es-b1-u16-q3",
+        level: "B1",
+        prompt: "Which sentence correctly uses the pluscuamperfecto?",
+        options: [
+          "Ya comí cuando llegaste.",
+          "Ya había comido cuando llegaste.",
+          "Ya comía cuando llegaste.",
+          "Ya comeré cuando llegaste."
+        ],
+        answer: "Ya había comido cuando llegaste.",
+        hint: "Pluscuamperfecto for the prior event: había comido (PQP) + llegaste (indefinido) — classic PQP pattern.",
+      },
+      {
+        id: "es-b1-u16-q4",
+        level: "B1",
+        prompt: "Which sentence correctly uses 'se lo' instead of 'le lo'?",
+        options: [
+          "Le lo di ayer.",
+          "Se lo di ayer.",
+          "Lo le di ayer.",
+          "Le lo di ayer — both are correct."
+        ],
+        answer: "Se lo di ayer.",
+        hint: "Le→se rule: le + lo → se lo. 'Le lo' is always wrong in Spanish.",
+      },
+      {
+        id: "es-b1-u16-q5",
+        level: "B1",
+        prompt: "Which type 3 si-clause is correctly formed?",
+        options: [
+          "Si habría llegado antes, lo habría visto.",
+          "Si hubiera llegado antes, lo habría visto.",
+          "Si llegara antes, lo habría visto.",
+          "Si llegué antes, lo habría visto."
+        ],
+        answer: "Si hubiera llegado antes, lo habría visto.",
+        hint: "Type 3: si + pluscuamperfecto de subjuntivo (hubiera llegado) + condicional compuesto (lo habría visto).",
+      },
+    ],
+  },
+  {
+    id: "es-b1-u17",
+    level: "B1",
+    order: 17,
+    title: "El español que se habla — jerga, modismos y variedades regionales",
+    description: "Understand colloquial Spanish across major varieties (Mexico, Colombia, Argentina, Spain). Recognise discourse fillers (muletillas), regional slang, register shifts, and key idioms. Learn when your B1 grammar 'compresses' in real spoken Spanish.",
+    grammarIds: ["es-g-b1-16"],
+    vocabIds: ["es-v-b1-081", "es-v-b1-082", "es-v-b1-083", "es-v-b1-084", "es-v-b1-085"],
+    verbIds: [],
+    checkpointId: "es-cp-b1-6",
+    testQuestions: [
+      {
+        id: "es-b1-u17-q1",
+        level: "B1",
+        prompt: "What does 'ahorita' typically mean in Mexican Spanish?",
+        options: [
+          "Exactly now (precise)",
+          "Context-dependent: right now / soon / later / maybe",
+          "Never / impossible",
+          "Yesterday"
+        ],
+        answer: "Context-dependent: right now / soon / later / maybe",
+        hint: "'Ahorita' is famously untranslatable — its meaning depends entirely on context and tone. It can mean anything from immediate to indefinitely later.",
+      },
+      {
+        id: "es-b1-u17-q2",
+        level: "B1",
+        prompt: "What is 'o sea' used for in spoken Spanish?",
+        options: [
+          "To introduce a formal conclusion",
+          "As a reformulation / clarification filler (I mean / like)",
+          "To express surprise",
+          "To disagree politely"
+        ],
+        answer: "As a reformulation / clarification filler (I mean / like)",
+        hint: "O sea is the universal spoken reformulation tool — equivalent to 'I mean' or 'like' in English.",
+      },
+      {
+        id: "es-b1-u17-q3",
+        level: "B1",
+        prompt: "In Argentina/Uruguay, 'vos hablás' is used instead of:",
+        options: ["usted habla", "nosotros hablamos", "tú hablas", "él habla"],
+        answer: "tú hablas",
+        hint: "Voseo: vos replaces tú in Argentina, Uruguay, and parts of Central America. Vos hablás = tú hablas.",
+      },
+      {
+        id: "es-b1-u17-q4",
+        level: "B1",
+        prompt: "What does 'meter la pata' mean?",
+        options: [
+          "To cost a fortune",
+          "To put your foot in it (make an embarrassing mistake)",
+          "To get your act together",
+          "To beat around the bush"
+        ],
+        answer: "To put your foot in it (make an embarrassing mistake)",
+        hint: "Meter la pata (literally: put the foot in the dish) = to make an embarrassing blunder.",
+      },
+      {
+        id: "es-b1-u17-q5",
+        level: "B1",
+        prompt: "Which is the key difference between Latin American and Peninsular Spanish in this course?",
+        options: [
+          "LatAm uses the pretérito perfecto as the everyday past; Peninsular uses indefinido",
+          "LatAm uses ustedes for plural; Peninsular uses vosotros",
+          "There is no grammatical difference at all",
+          "LatAm uses the subjuntivo; Peninsular does not"
+        ],
+        answer: "LatAm uses ustedes for plural; Peninsular uses vosotros",
+        hint: "This course uses LatAm Spanish: ustedes (not vosotros) for plural, indefinido as the everyday past tense, and seseo throughout.",
+      },
+    ],
+  },
 ]
 
 // Alias for backward compatibility with index.ts assembler
