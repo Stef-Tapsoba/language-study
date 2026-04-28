@@ -244,6 +244,14 @@ CONTRAST IN CONTEXT:
   Esa noche conocí a Rodrigo por primera vez.
   (already knew some → continuous; met Rodrigo → first-time event)
 
+IRREGULAR PRETERITE REVIEW — spiralling back from Unit 1:
+The -UV- and other irregular families (introduced in U1) appear naturally in narrative here.
+Quick reference:
+  tuve / estuve / pude / puse / supe / anduve  (-UV- family)
+  vine / quise / hice / dije / traje  (-IN-/-IS- family)
+  fui / fue (ser/ir shared)
+These forms now appear in contexts requiring saber/conocer contrast and story narration — practise them actively as you tell stories.
+
 STEM-CHANGING PRETERITES — 3rd person only:
 Verbs that stem-change in the present (-ir verbs only!) also change in the preterite,
 but ONLY in 3rd person singular and plural.
@@ -257,7 +265,9 @@ but ONLY in 3rd person singular and plural.
     sentir:  sintió / sintieron
     preferir: prefirió / prefirieron
     seguir:  siguió  / siguieron
-    reír:    rio    / rieron
+    repetir: repitió / repitieron
+    vestirse: se vistió / se vistieron
+    reír:    rió    / rieron
 
 The other persons are completely regular:
   pedí / pediste / pidió / pedimos / pedisteis / pidieron

@@ -57,10 +57,10 @@ export const a2Units: LessonUnit[] = [
       },
       {
         id: "es-a2-u1-q5", level: "A2",
-        prompt: "Choose the correct form: 'Ayer ___ la noticia.' (saber, yo)",
-        options: ["sabía", "sé", "supe", "sabré"],
-        answer: "supe",
-        hint: "Saber in indefinido = 'I found out' — a specific moment of discovery."
+        prompt: "Choose the correct yo form: 'Ayer ___ a las ocho.' (llegar)",
+        options: ["llegé", "llegué", "llegé", "llego"],
+        answer: "llegué",
+        hint: "-GAR verbs: g + e → gu to preserve the hard-g sound. llegué, pagué, etc."
       },
     ],
   },
@@ -104,10 +104,10 @@ export const a2Units: LessonUnit[] = [
       },
       {
         id: "es-a2-u2-q5", level: "A2",
-        prompt: "Translate: 'It was very cold that morning.'",
-        options: ["Fue mucho frío esa mañana.", "Hacía mucho frío esa mañana.", "Hay mucho frío esa mañana.", "Tendrá frío esa mañana."],
-        answer: "Hacía mucho frío esa mañana.",
-        hint: "Background weather/temperature in the past = imperfecto (hacía)."
+        prompt: "'No sabía que estabas aquí.' — Which use of the imperfecto is this?",
+        options: ["Habitual past action", "Background weather description", "Reported thought / mental state in the past", "Interrupted action"],
+        answer: "Reported thought / mental state in the past",
+        hint: "Imperfecto use 4: reporting a mental state (knowing, thinking, believing) at a past moment. Not a habit, not a scene — a state of mind."
       },
     ],
   },
@@ -483,7 +483,7 @@ export const a2Units: LessonUnit[] = [
         prompt: "Complete: 'Cuando ___ los resultados, te llamo.' (saber, yo)",
         options: ["sé", "sabré", "supe", "sepa"],
         answer: "sepa",
-        hint: "Cuando + future meaning → use present subjunctive (sepa), not present indicative or futuro."
+        hint: "Cuando + future meaning → use the special future form (sepa), not present indicative (sé) or futuro simple (sabré). You will study this form as the 'subjunctive' at B1."
       },
       {
         id: "es-a2-u10-q3", level: "A2",

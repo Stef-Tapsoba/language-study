@@ -49,7 +49,24 @@ IRREGULAR COMPARATIVES (must be memorised):
   Physical size always uses regular form: más grande / más pequeño
 
   Mi hermana es mayor que yo. (age — irregular)
-  Mi apartamento es más grande que el tuyo. (physical size — regular)`,
+  Mi apartamento es más grande que el tuyo. (physical size — regular)
+
+COMPARING ACTIONS (VERBS) DIRECTLY:
+  trabaja más que yo          → she works more than me
+  duerme menos que antes      → he sleeps less than before
+  comes tanto como siempre    → you eat as much as ever
+  No study as much as I should. → No estudio tanto como debería.
+
+TONIC PRONOUNS AFTER QUE:
+  After que in comparisons, use TONIC (stressed) pronouns: yo, tú, él, ella, nosotros, ellos — NOT me, te, le.
+  Es más alta que yo.     ✓ (NOT que me)
+  Trabaja más que él.     ✓ (NOT que le)
+  Llega antes que tú.     ✓ (NOT que te)
+
+SUPERLATIVE POSITION:
+  el/la + noun + más/menos + adj: La ciudad más grande. La novela menos conocida.
+  el/la + mejor/peor + noun: El mejor restaurante. La peor idea.
+  Note: mejor/peor precede the noun; más/menos constructions follow it.`,
     paradigmTable: {
       pronouns: ["Adjective/base", "Comparative", "Superlative"],
       verbs: [

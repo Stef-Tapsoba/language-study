@@ -22,7 +22,7 @@ vivir:  viviré / vivirás / vivirá / viviremos / vivirán
 
 IRREGULAR STEMS — 12 high-frequency verbs (same endings, different stem):
 GROUP 1 — vowel drops (sincopated):
-  haber: habr-   poder: podr-   querer: querr-   saber: sabr-
+  haber: habr-   poder: podr-   querer: querr-   saber: sabr-   caber: cabr-
 GROUP 2 — -d- added (epenthetic):
   tener: tendr-  poner: pondr-  venir: vendr-  salir: saldr-  valer: valdr-
 GROUP 3 — unique root:
@@ -45,13 +45,13 @@ USES OF THE FUTURO SIMPLE:
    Tendrá unos cuarenta años.  (He must be about forty.)
    ¿Quién llamará a estas horas?  (Who could be calling at this hour?)
 
-5. CUANDO + PRESENT SUBJUNCTIVE — critical rule:
+5. CUANDO + FUTURE FORMS — critical rule:
    In English: 'when' + present simple for future meaning.
-   In Spanish: cuando + PRESENT SUBJUNCTIVE for future meaning.
+   In Spanish: cuando + a special future-meaning verb form.
    Cuando llegues, llámame.          ✓ (NOT *cuando llegas...)
    Cuando sepa los resultados, te aviso.   ✓
    Cuando tengamos tiempo, lo haremos.     ✓
-   (llegues / sepa / tengamos are present subjunctive, not futuro simple)
+   Note: these verb forms (llegues, sepa, tengamos) will be studied fully at B1 as the subjunctive mood. At A2, treat them as required forms after cuando with future meaning — and memorise the pattern.
 
 CONTRAST WITH IR A + INFINITIVE:
   Ir a + inf. → near future, decided plan, personal commitment, conversational register
@@ -72,7 +72,7 @@ CONTRAST WITH IR A + INFINITIVE:
     rules: [
       {
         condition: "Cuando with future meaning",
-        result: "Use PRESENT SUBJUNCTIVE after cuando — never present indicative or futuro",
+        result: "Use the special future form after cuando — never present indicative (llegas) nor futuro simple (llegarás)",
         examples: [
           { native: "Cuando llegues, llámame.", translation: "When you arrive, call me." },
           { native: "Cuando tenga suficiente dinero, viajará a Argentina.", translation: "When he has enough money, he'll travel to Argentina." },
@@ -90,7 +90,7 @@ CONTRAST WITH IR A + INFINITIVE:
     notes: [
       {
         type: "warning",
-        content: "¡Cuando llegues, llámame! — After 'cuando' with future meaning, use the PRESENT SUBJUNCTIVE (llegues, tenga, sepamos…), NOT the present indicative. The main clause uses future or imperative.",
+        content: "¡Cuando llegues, llámame! — After 'cuando' with future meaning, use the special future form (llegues, tenga, sepamos…), NOT the present indicative (llegas) or futuro simple (llegarás). The main clause uses future or imperative. You will study these forms fully as the 'subjunctive' at B1.",
       },
       {
         type: "culture",
@@ -135,7 +135,7 @@ IMPORTANT: These endings are identical to the imperfecto of -er/-ir verbs (comí
 If you know the imperfecto endings, you already know the condicional endings.
 
 hablar: hablaría / hablarías / hablaría / hablaríamos / hablarían
-Same irregulars as futuro: tendría / podría / querría / haría / diría / vendría / saldría...
+Same irregulars as futuro: tendría / podría / querría / haría / diría / vendría / saldría / cabría...
 
 THREE MAIN USES AT A2:
 

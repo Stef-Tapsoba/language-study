@@ -10,6 +10,13 @@ export const block5Lessons: GrammarLesson[] = [
     title: "Salud — doler (like gustar), tener + noun, hay que/deberías",
     explanation: `Health language is survival Spanish. After this lesson you can describe any symptom, understand a doctor's instructions, and navigate a pharmacy — entirely in Spanish.
 
+BODY PARTS — the essential vocabulary:
+Head/face: la cabeza (head), la frente (forehead), el ojo/los ojos (eye/eyes), la oreja/el oído (ear: oreja = outer ear; oído = inner ear — me duele el oído = inner ear pain), la nariz (nose), la boca (mouth), la garganta (throat), los dientes (teeth/back), las muelas (back teeth)
+Torso: el pecho (chest), la espalda (back), el estómago (stomach), el vientre (belly), el cuello (neck)
+Limbs: el brazo/los brazos (arm/s), la mano/las manos (hand/s), la pierna/las piernas (leg/s), el pie/los pies (foot/feet), la rodilla (knee), el tobillo (ankle)
+
+Important distinction: oído (inner ear — me duele el oído → earache) vs. oreja (outer ear — me duele la oreja → ear lobe pain). Learners consistently confuse these.
+
 DOLER — works exactly like gustar:
 The body part is the grammatical subject; the person uses an indirect object pronoun.
   Pattern: pronombre OI + duele (singular) / duelen (plural) + parte del cuerpo
@@ -51,7 +58,14 @@ HAY QUE / TIENES QUE / DEBERÍAS — register distinctions in medical context:
   hay que + inf.     = impersonal advice — Hay que descansar mucho.
   tienes que + inf.  = direct obligation — Tienes que terminar el tratamiento.
   deberías + inf.    = soft recommendation — Deberías beber más agua.
-  te recomiendo + inf.  = professional advice — Te recomiendo guardar cama.`,
+  te recomiendo + inf.  = professional advice — Te recomiendo guardar cama.
+
+EN LA FARMACIA — key phrases:
+  Requesting: Necesito algo para el dolor de cabeza. / ¿Tiene algo para la tos?
+  Pharmacist responses: ¿Tiene receta? / Es con receta. / Lo puede comprar sin receta. / Le recomiendo este jarabe.
+  Describing duration: Llevo tres días con fiebre. / Me duele desde ayer.
+  Asking for format: ¿En pastillas o en jarabe? / ¿Cada cuántas horas?
+  Essential vocabulary: la receta (prescription), sin receta / de venta libre (over the counter), el jarabe (syrup), las pastillas/las píldoras (pills), los comprimidos (tablets), la crema (cream), el descanso (rest), el efecto secundario (side effect), alérgico/a a... (allergic to...)`,
     rules: [
       {
         condition: "Doler — expressing pain",
@@ -216,6 +230,14 @@ EXPRESSING OPINIONS (A2 verbs of opinion + que + INDICATIVE — NOT subjunctive 
   En mi opinión...   A mi modo de ver...   Para mí...
   Según yo...  (very common in LatAm informal speech — 'in my opinion')
 
+EXPRESSING THE CAUSE OF A FEELING:
+  porque + clause: Estoy contento/a porque me dieron el trabajo.
+  de + noun: Estoy muerto/a de cansancio. / Me muero de vergüenza.
+  cuando + clause: Me pongo nervioso/a cuando hablo en público.
+  hace + expression: Me siento bien hace unos días.
+  con + noun: Con este frío me siento fatal. / Se alegró con la noticia.
+  Pattern: ponerse/sentirse + adjective + [cause expression]
+
 AGREEING AND DISAGREEING:
   Full agreement: Tienes (toda la) razón. / Estoy de acuerdo. / Exactamente. / Comparto tu punto de vista.
   Partial agreement: Sí, pero... / En parte sí, pero... / Entiendo lo que dices, aunque...
@@ -355,6 +377,10 @@ FIVE-STEP STORY STRUCTURE (use with all past content):
       {
         type: "culture",
         content: "Native Spanish speakers value communicating naturally over speaking 'correctly'. Using muletillas like 'o sea', 'pues', 'bueno' makes you sound connected to the language — more than any grammatical perfection.",
+      },
+      {
+        type: "tip",
+        content: "A2 GRAMMAR REVIEW MAP — self-audit before the exit capstone:\n• Indefinido irregulars (ser/ir, -UV- family, hacer/decir/venir/traer) ✓/✗\n• Imperfecto (4 uses: habit, background, interrupted action, reported thought) ✓/✗\n• Indefinido vs. imperfecto contrast + stative verbs ✓/✗\n• Comparativos/superlativos (más/menos/tan...que, mejor/peor, mayor/menor) ✓/✗\n• Pronombres relativos (que, donde, quien, lo que) ✓/✗\n• Negación ampliada (ya no, ningún, apenas, ni siquiera) ✓/✗\n• OD pronouns (lo/la/los/las + me/te/nos) ✓/✗\n• OI pronouns (le/les → se before lo/la) ✓/✗\n• Saber/conocer en el pasado + pretéritos vocálicos ✓/✗\n• Futuro simple (irregulars, probabilidad, cuando + future form) ✓/✗\n• Condicional simple (courtesy, wishes, advice) ✓/✗\n• Si tipo 1 + acabar de + desde hace ✓/✗\n• Doler + tener/estar en salud + hay que/deberías ✓/✗\n• Ponerse/sentirse + opinión + acuerdo/desacuerdo ✓/✗\n• Conectores (contrast, addition, cause, consequence) ✓/✗",
       },
     ],
     examples: [
