@@ -278,6 +278,15 @@ Alternative: *Ça **fait** six mois **que** j'apprends le français.* (same mean
 *Depuis* = for/since (still ongoing): *Il **habite** ici **depuis** deux ans.* (still here)`,
         rules: [
             {
+                condition: "Three duration words — the key contrast",
+                result: "depuis (ongoing now) | il y a (completed ago) | pendant (completed duration)",
+                examples: [
+                    { native: "J'habite ici depuis deux ans. (still living here — ongoing → présent + depuis)", speakText: "J'habite ici depuis deux ans.", translation: "I have been living here for two years. (still here)" },
+                    { native: "Il a quitté Paris il y a deux ans. (left — done → PC + il y a)", speakText: "Il a quitté Paris il y a deux ans.", translation: "He left Paris two years ago. (no longer there)" },
+                    { native: "J'ai attendu pendant une heure. (waiting — done and over → PC + pendant)", speakText: "J'ai attendu pendant une heure.", translation: "I waited for an hour. (waiting is finished)" },
+                ],
+            },
+            {
                 condition: "Real/possible condition (if X, then Y will happen)",
                 result: "Si + présent → futur simple (NEVER futur after si)",
                 examples: [
