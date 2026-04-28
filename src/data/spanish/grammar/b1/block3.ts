@@ -9,7 +9,17 @@ export const block3Lessons: GrammarLesson[] = [
     level: "B1",
     title: "Si Clauses — Types 2 and 3 (Hypothetical and Counterfactual)",
     explanation: {
-      native: `Spanish has three types of si-clause. Type 1 (real) was A2. Types 2 and 3 are new at B1.
+      native: `PREREQUISITE CHECK:
+The imperfecto de subjuntivo is built entirely on the ellos indefinido — which means irregular indefinidos matter. Can you produce these from memory?
+  tener → tuvieron | hacer → hicieron | ser/ir → fueron | poder → pudieron
+  querer → quisieron | saber → supieron | venir → vinieron | decir → dijeron
+If any of these feel uncertain, spend five minutes reviewing A2 indefinido irregulars before continuing — the si-clause system will click much faster.
+
+FOR LAPSED LEARNERS: If you studied Spanish at school, you almost certainly learned Type 2 (si + imperfecto subj. → condicional). That's correct — and it's still Type 2 here. Type 3 (si + pluscuamperfecto subj. → condicional compuesto) is almost never taught in school curricula. It is genuinely new territory for most lapsed learners — not something you've forgotten, something you were never taught.
+
+---
+
+Spanish has three types of si-clause. Type 1 (real) was A2. Types 2 and 3 are new at B1.
 
 TYPE 1 — REAL (known from A2):
   si + presente → futuro / presente
