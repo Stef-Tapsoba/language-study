@@ -21,6 +21,7 @@ GROUP 2 — the -UV- family (tener, estar, poder, poner, saber, andar):
   poder: pude / pudiste / pudo / pudimos / pudieron
   poner: puse / pusiste / puso / pusimos / pusieron
   saber: supe / supiste / supo / supimos / supieron
+  andar: anduve / anduviste / anduvo / anduvimos / anduvieron
   The stem carries -uv- and the endings are the same for all: -e / -iste / -o / -imos / -ieron.
 
 GROUP 3 — -IN-/-IS- family and others:
@@ -30,12 +31,12 @@ GROUP 3 — -IN-/-IS- family and others:
   decir: dije / dijiste / dijo / dijimos / dijeron  (3rd pl: dijeron, not dijieron)
   traer: traje / trajiste / trajo / trajimos / trajeron
 
-GROUP 4 — spelling-change yo forms:
-  dar: di / diste / dio / dimos / dieron  (uses -er/-ir endings; no written accent)
-  ver: vi / viste / vio / vimos / vieron
-  llegar → llegué  (g + e → gu to keep the hard-g sound)
-  buscar → busqué  (c + e → qu)
-  empezar → empecé  (z + e → c, standard spelling)
+GROUP 4 — special/spelling-change yo forms:
+  dar: di / diste / dio / dimos / dieron  (uses -er/-ir endings; no written accent — unique!)
+  ver: vi / viste / vio / vimos / vieron  (also no written accent — unique!)
+  -GAR verbs: llegar → llegué / pagar → pagué  (g + e → gu to keep hard-g sound)
+  -CAR verbs: buscar → busqué  (c + e → qu)
+  -ZAR verbs: empezar → empecé  (z + e → c, standard spelling)
 
 LatAm note: In Latin America the indefinido is the universal past tense for completed actions — including today's events. This course follows that norm throughout.`,
     conjugationTable: {
@@ -247,6 +248,10 @@ FOUR USES:
         type: "warning",
         content: "Stem-changing verbs (querer, poder, tener) do NOT stem-change in the imperfecto. Querer → quería (not *quería with ie). Follow the infinitive, not the present.",
       },
+      {
+        type: "tip",
+        content: "The -aba ending is the same for yo, él, ella, and usted. 'Trabajaba' can mean I worked, he worked, she worked, or you worked. Context and subject pronouns clarify; be aware of this ambiguity in listening.",
+      },
     ],
     examples: [
       { native: "Siempre íbamos a casa de mis abuelos en Oaxaca. Vivían en una casa grande con un patio enorme.", translation: "We always went to my grandparents' house in Oaxaca. They lived in a big house with an enormous patio." },
@@ -270,7 +275,17 @@ FOUR USES:
     id: "es-g-a2-4",
     level: "A2",
     title: "Indefinido vs. Imperfecto — The Core Contrast",
-    explanation: `The contrast between indefinido and imperfecto is the most important conceptual leap in A2 Spanish. Both refer to the past, but they frame time differently.
+    explanation: `ENCOUNTER THE PROBLEM FIRST — read and answer before seeing the rule:
+
+Read this mini-story and choose: indefinido (IND) or imperfecto (IMP)?
+  Era tarde. La ciudad [dormía/durmió]. Caminaba por la calle cuando de repente [veía/vi] una figura extraña. [Corría/Corrí] sin mirar atrás.
+
+Check: dormía (IMP — background state), vi (IND — sudden event), corrí (IND — plot event).
+This is the key contrast you are about to study.
+
+---
+
+The contrast between indefinido and imperfecto is the most important conceptual leap in A2 Spanish. Both refer to the past, but they frame time differently.
 
 THE FILM METAPHOR:
   Indefinido = the plot advancing. Something happens. A door opens. Someone arrives. The story moves forward. Click. Click. Click — like photographs.
@@ -335,6 +350,10 @@ But in indefinido they mark a specific moment of change:
       {
         type: "warning",
         content: "Error: 'Estuve cansado todo el día.' — Being tired all day is an ongoing state, not a completed event. Use imperfecto: 'Estaba cansado todo el día.'",
+      },
+      {
+        type: "tip",
+        content: "Estar + gerundio (estaba durmiendo, estaban hablando) is an expressive way to make the interrupted-action pattern vivid: 'Estaba durmiendo cuando sonó el teléfono' — more colourful than 'Dormía cuando sonó'. Both are correct; the estar+gerundio form emphasises that the action was very much in progress.",
       },
       {
         type: "warning",
