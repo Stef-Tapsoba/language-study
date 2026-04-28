@@ -216,4 +216,152 @@ Contractions: *à + lequel → auquel | à + lesquels → auxquels | de + lequel
             { word: "ce qui m'intéresse", translation: "what interests me" },
         ],
     },
+
+    // ── fr-g-b1-19 : Futur antérieur ─────────────────────────────────────────
+    {
+        id: "fr-g-b1-19",
+        level: "B1",
+        title: "Le futur antérieur",
+        explanation: {
+            target: `Le futur antérieur exprime une action qui sera **accomplie avant** un autre moment futur — ou une **supposition** sur un événement passé.
+
+**Formation :** avoir / être au **futur simple** + participe passé
+(Même règle d'auxiliaire que le passé composé.)
+
+**Emploi 1 — Action future accomplie avant une autre**
+Après *quand, dès que, lorsque, aussitôt que*, le français exige le futur antérieur (pas le présent, pas le subjonctif) :
+*Quand tu **auras fini**, tu pourras sortir.*
+*Dès qu'il **sera arrivé**, on commencera.*
+
+⚠️ L'anglais utilise ici le present perfect : "when you *have* finished". En français → futur antérieur.
+
+**Emploi 2 — Supposition sur le passé**
+*Il n'est pas là — il **aura oublié**. (Il a dû oublier.)*`,
+            native: `The futur antérieur expresses an action that will be **completed before** another future moment — or a **supposition** about a past event.
+
+**Formation:** avoir / être in the **futur simple** + past participle
+(Same auxiliary rule as passé composé.)
+
+**Use 1 — Future action completed before another**
+After *quand, dès que, lorsque, aussitôt que*, French requires the futur antérieur (not the present, not the subjunctive):
+*Quand tu **auras fini**, tu pourras sortir.*
+*Dès qu'il **sera arrivé**, on commencera.*
+
+⚠️ English uses present perfect here: "when you *have* finished". French → futur antérieur.
+
+**Use 2 — Supposition about the past**
+*Il n'est pas là — il **aura oublié**. (He must have forgotten.)*`,
+        },
+        conjugationTable: {
+            pronouns: ["j'/je", "tu", "il/elle", "nous", "vous", "ils/elles"],
+            verbs: [
+                { label: "finir (avoir)", forms: ["aurai fini", "auras fini", "aura fini", "aurons fini", "aurez fini", "auront fini"] },
+                { label: "partir (être)", forms: ["serai parti(e)", "seras parti(e)", "sera parti(e)", "serons parti(e)s", "serez parti(e)(s)", "seront parti(e)s"] },
+            ],
+        },
+        rules: [
+            {
+                condition: "Quand / dès que / lorsque / aussitôt que + futur",
+                result: "Action à compléter AVANT l'autre → futur antérieur (pas présent, pas subjonctif)",
+                examples: [
+                    { native: "Appelle-moi dès que tu seras arrivé(e).", translation: "Call me as soon as you've arrived." },
+                    { native: "Je t'enverrai le rapport quand j'aurai eu les résultats.", translation: "I'll send you the report once I've received the results." },
+                ],
+            },
+            {
+                condition: "Supposition sur le passé récent",
+                result: "Futur antérieur = 'he must have...' / 'she's probably...'",
+                examples: [
+                    { native: "Elle ne répond pas — elle sera partie.", translation: "She's not answering — she must have left." },
+                    { native: "Il aura oublié notre rendez-vous.", translation: "He must have forgotten our appointment." },
+                ],
+            },
+        ],
+        notes: [
+            { type: "tip", content: "Contraste à retenir : si + PQP → conditionnel passé (contrefactuel) vs quand + futur antérieur → futur simple (séquence future réelle)." },
+            { type: "warning", content: "Ne mettez jamais le présent après quand/dès que pour une action future qui précède une autre. 'Quand tu finiras' ✗ → 'Quand tu auras fini' ✓ (si l'action doit être accomplie avant)." },
+        ],
+        examples: [
+            { native: "Quand j'aurai fini mes études, je voyagerai.", translation: "When I've finished my studies, I'll travel." },
+            { native: "Dès qu'il sera sorti, nous pourrons parler.", translation: "As soon as he's gone, we'll be able to talk." },
+            { native: "Tu auras oublié tout ça dans six mois.", translation: "You'll have forgotten all this in six months." },
+        ],
+        inlineVocab: [
+            { word: "dès que", translation: "as soon as" },
+            { word: "lorsque", translation: "when (formal)" },
+            { word: "aussitôt que", translation: "as soon as" },
+            { word: "une fois que", translation: "once / when (completed)" },
+        ],
+    },
+
+    // ── fr-g-b1-20 : Mise en relief (c'est...qui / c'est...que) ──────────────
+    {
+        id: "fr-g-b1-20",
+        level: "B1",
+        title: "La mise en relief — c'est…qui / c'est…que",
+        explanation: {
+            target: `La mise en relief (ou phrase clivée) permet de mettre l'accent sur un élément de la phrase en le déplaçant en tête.
+
+**c'est + [élément mis en relief] + qui** → on met l'accent sur le **sujet**
+*C'est **lui** qui l'a fait.* (pas quelqu'un d'autre — lui)
+
+**c'est + [élément mis en relief] + que** → on met l'accent sur le **complément** (objet, temps, lieu)
+*C'est **toi** que j'attendais.* | *C'est **en mars** qu'il est arrivé.*
+
+**Lien avec ce qui / ce que (fr-g-b1-9) :**
+- *Ce qui* et *ce que* → référent abstrait (une idée) : *Ce qui m'inquiète, c'est l'échéance.*
+- *C'est...qui/que* → référent concret mis en valeur : *C'est l'échéance qui m'inquiète.*`,
+            native: `The cleft sentence (*phrase clivée*) emphasises one element of a sentence by fronting it.
+
+**c'est + [element] + qui** → emphasises the **subject**
+*C'est **lui** qui l'a fait.* (not someone else — him)
+
+**c'est + [element] + que** → emphasises the **object, time, or place**
+*C'est **toi** que j'attendais.* | *C'est **en mars** qu'il est arrivé.*
+
+**Link to ce qui / ce que (fr-g-b1-9):**
+- *Ce qui / ce que* → abstract referent (a whole idea): *Ce qui m'inquiète, c'est l'échéance.*
+- *C'est...qui/que* → concrete element foregrounded: *C'est l'échéance qui m'inquiète.*`,
+        },
+        rules: [
+            {
+                condition: "C'est + sujet mis en valeur + qui",
+                result: "Le pronom / nom mis en relief est le sujet de la relative qui suit",
+                examples: [
+                    { native: "C'est Paul qui a tout organisé. (← Paul a organisé)", speakText: "C'est Paul qui a tout organisé.", translation: "It's Paul who organised everything." },
+                    { native: "C'est ça qui m'inquiète.", translation: "It's that which worries me." },
+                ],
+            },
+            {
+                condition: "C'est + complément mis en valeur + que",
+                result: "COD, lieu, temps — tout complément (sauf sujet) → que",
+                examples: [
+                    { native: "C'est toi que j'attendais depuis le début.", speakText: "C'est toi que j'attendais.", translation: "You are the one I've been waiting for." },
+                    { native: "C'est en France qu'il a appris le métier.", translation: "It's in France that he learned the trade." },
+                ],
+            },
+            {
+                condition: "Pluriel et négation",
+                result: "Ce sont + pluriel | Ce n'est pas + singulier",
+                examples: [
+                    { native: "Ce sont eux qui ont décidé.", translation: "It's them who decided." },
+                    { native: "Ce n'est pas moi qui l'ai dit.", translation: "It wasn't me who said it." },
+                ],
+            },
+        ],
+        notes: [
+            { type: "tip", content: "Test rapide pour choisir entre qui et que : reformulez sans mise en relief. Si l'élément est sujet → qui. S'il est objet/complément → que. 'LUI a fait' → sujet → c'est lui QUI. 'J'attendais TOI' → objet → c'est toi QUE." },
+        ],
+        examples: [
+            { native: "C'est ce voyage qui a tout changé pour moi.", translation: "It's this trip that changed everything for me." },
+            { native: "C'est la flexibilité que je recherche.", translation: "It's flexibility that I'm looking for." },
+            { native: "Ce n'est pas le prix qui me dérange, c'est le principe.", translation: "It's not the price that bothers me, it's the principle." },
+        ],
+        inlineVocab: [
+            { word: "c'est...qui", translation: "it is...who/that (subject emphasis)" },
+            { word: "c'est...que", translation: "it is...that (object emphasis)" },
+            { word: "ce sont...qui", translation: "it is (pl.)...who" },
+            { word: "ce n'est pas...qui", translation: "it is not...who" },
+        ],
+    },
 ]
