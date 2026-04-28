@@ -2,7 +2,7 @@ import { createLanguageModule } from "../moduleFactory"
 
 import { a1Grammar } from "./grammar/a1"
 import { a2Grammar } from "./grammar/a2"
-import { b1Grammar } from "./grammar/b1"
+import { b1Grammar } from "./grammar/b1/index"
 import { a1Vocab } from "./vocab/a1"
 import { a2Vocab } from "./vocab/a2"
 import { b1Vocab } from "./vocab/b1"
