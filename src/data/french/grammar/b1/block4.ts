@@ -207,4 +207,89 @@ Irregular: être → *en étant* | avoir → *en ayant* | savoir → *en sachant
             { word: "alors que", translation: "whereas / while" },
         ],
     },
+
+    // ── fr-g-b1-21 : Infinitif passé ─────────────────────────────────────────
+    {
+        id: "fr-g-b1-21",
+        level: "B1",
+        title: "L'infinitif passé (après avoir / après être)",
+        explanation: {
+            target: `L'infinitif passé exprime une action **antérieure et accomplie** par le même sujet que la proposition principale.
+
+**Formation :** avoir / être à l'**infinitif** + participe passé
+*avoir fini | être parti(e) | s'être levé(e)*
+
+**Emploi 1 — après *après*** (le plus fréquent)
+*Après **avoir fini** son travail, il est sorti.*
+*Après **être arrivée**, elle a appelé sa mère.*
+*Après **s'être levé**, il a préparé le café.*
+
+**Emploi 2 — après *sans avoir / sans être***
+*Il est parti **sans avoir dit** au revoir.*
+
+**Emploi 3 — après *pour avoir / pour être*** (cause)
+*Il a été sanctionné **pour avoir triché**.*
+
+**Règle du même sujet :** obligatoire — le sujet de l'infinitif passé = sujet de la principale.
+✓ *Après avoir mangé, je suis allé me coucher.*
+✗ *Après avoir mangé, le film a commencé.* → *Après que le film a commencé...*
+
+**Accord du PP :** même règles que le PC (être → accord avec sujet ; avoir → accord avec COD précédent).`,
+            native: `The infinitif passé expresses a **prior completed action** by the same subject as the main clause.
+
+**Formation:** avoir / être in the **infinitive** + past participle
+*avoir fini | être parti(e) | s'être levé(e)*
+
+**Use 1 — after *après*** (most common)
+*Après **avoir fini** son travail, il est sorti.*
+*Après **être arrivée**, elle a appelé sa mère.*
+*Après **s'être levé**, il a préparé le café.*
+
+**Use 2 — after *sans avoir / sans être***
+*Il est parti **sans avoir dit** au revoir.*
+
+**Use 3 — after *pour avoir / pour être*** (cause)
+*Il a été sanctionné **pour avoir triché**.*
+
+**Same-subject rule:** mandatory — the infinitif passé subject must equal the main clause subject.
+✓ *Après avoir mangé, je suis allé me coucher.*
+✗ *Après avoir mangé, le film a commencé.* → *Après que le film a commencé...*
+
+**PP agreement:** same rules as PC (être → agrees with subject; avoir → agrees with preceding COD).`,
+        },
+        rules: [
+            {
+                condition: "Après + infinitif passé — séquence d'actions",
+                result: "Action accomplie AVANT → infinitif passé | Même sujet obligatoire",
+                heuristic: "après avoir + PP (verbes avoir) | après être + PP (verbes être) | après s'être + PP (réfléchis)",
+                examples: [
+                    { native: "Après avoir pris sa douche, elle s'est habillée.", speakText: "Après avoir pris sa douche, elle s'est habillée.", translation: "After taking a shower, she got dressed." },
+                    { native: "Après être sortis, ils ont réalisé qu'il pleuvait.", translation: "After going out, they realised it was raining." },
+                ],
+            },
+            {
+                condition: "Gérondif (simultanéité) vs infinitif passé (antériorité)",
+                result: "En + -ant = simultané | Après avoir + PP = accompli avant",
+                examples: [
+                    { native: "En sortant, il a croisé Paul. (pendant qu'il sortait)", translation: "While going out, he ran into Paul. (simultaneous)" },
+                    { native: "Après être sorti, il a croisé Paul. (une fois sorti)", translation: "After going out, he ran into Paul. (prior action)" },
+                ],
+            },
+        ],
+        notes: [
+            { type: "warning", content: "Erreur fréquente : sujets différents. 'Après avoir mangé, le film a commencé.' ✗ Le film ne mange pas. Utilisez 'Après que nous avons mangé, le film a commencé.' ✓" },
+            { type: "tip", content: "L'infinitif passé se forme exactement comme le passé composé — mais avec l'infinitif de l'auxiliaire (avoir / être) plutôt que sa forme conjuguée." },
+        ],
+        examples: [
+            { native: "Après avoir réfléchi, j'ai décidé d'accepter l'offre.", translation: "After thinking it over, I decided to accept the offer." },
+            { native: "Elle m'a remercié pour avoir aidé.", translation: "She thanked me for helping." },
+            { native: "Il est parti sans s'être excusé.", translation: "He left without having apologised." },
+        ],
+        inlineVocab: [
+            { word: "après avoir + PP", translation: "after having done (avoir verbs)" },
+            { word: "après être + PP", translation: "after having gone/come/... (être verbs)" },
+            { word: "sans avoir + PP", translation: "without having done" },
+            { word: "pour avoir + PP", translation: "for having done" },
+        ],
+    },
 ]

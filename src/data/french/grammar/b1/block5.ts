@@ -71,6 +71,80 @@ export const block5Lessons: GrammarLesson[] = [
         ],
     },
 
+    // ── fr-g-b1-22 : Se faire + infinitif ────────────────────────────────────
+    {
+        id: "fr-g-b1-22",
+        level: "B1",
+        title: "Se faire + infinitif (causatif réfléchi)",
+        explanation: {
+            target: `*Se faire + infinitif* exprime le fait de **faire faire quelque chose à/pour soi-même** — l'un des causatifs les plus fréquents dans la conversation courante.
+
+*Je me suis **fait couper** les cheveux.* (I got a haircut.)
+*Il s'est **fait renvoyer**.* (He got fired.)
+*Elle s'est **fait opérer**.* (She had surgery.)
+
+**Contraste avec *faire* causatif :**
+- *Faire* causatif → on fait faire qqch (à un objet ou à quelqu'un d'autre) : *Je **fais réparer** ma voiture.*
+- *Se faire* → on fait faire qqch **à soi** / **pour soi** : *Je **me fais examiner**.*
+
+**Accord du PP : fait est invariable**, comme dans tout causatif.
+*Elle s'est **fait** couper les cheveux.* (pas *faite*)
+
+**Avec un pronom COD :** le pronom se place avant *se faire* :
+*Je me suis fait couper les cheveux. → Je **me les** suis **fait** couper.*`,
+            native: `*Se faire + infinitif* expresses having something done **to or for oneself** — one of the most common causatives in everyday French.
+
+*Je me suis **fait couper** les cheveux.* (I got a haircut.)
+*Il s'est **fait renvoyer**.* (He got fired.)
+*Elle s'est **fait opérer**.* (She had surgery.)
+
+**Contrast with *faire* causatif:**
+- *Faire* causatif → you have sth done (to an object or by someone): *Je **fais réparer** ma voiture.*
+- *Se faire* → you have sth done **to/for yourself**: *Je **me fais examiner**.*
+
+**PP agreement: fait is invariable**, as in all causative constructions.
+*Elle s'est **fait** couper les cheveux.* (not *faite*)
+
+**With a pronoun COD:** the pronoun goes before *se faire*:
+*Je me suis fait couper les cheveux. → Je **me les** suis **fait** couper.*`,
+        },
+        rules: [
+            {
+                condition: "Se faire + infinitif — action subie par le sujet",
+                result: "Se faire = to get/have sth done to oneself | fait invariable",
+                examples: [
+                    { native: "Je me suis fait couper les cheveux. (= on a coupé mes cheveux, pour moi)", speakText: "Je me suis fait couper les cheveux.", translation: "I had my hair cut. / I got a haircut." },
+                    { native: "Tu devrais te faire examiner.", translation: "You should get (yourself) examined." },
+                ],
+            },
+            {
+                condition: "Se faire dans des contextes négatifs",
+                result: "Très fréquent pour exprimer quelque chose de subi (renvoi, vol, tricherie...)",
+                examples: [
+                    { native: "Il s'est fait renvoyer après trois mois.", translation: "He got fired after three months." },
+                    { native: "On s'est fait avoir.", translation: "We got tricked / had." },
+                    { native: "Ils se sont fait voler leur voiture.", translation: "They had their car stolen." },
+                ],
+            },
+        ],
+        notes: [
+            { type: "warning", content: "PP invariable : elle s'est fait couper les cheveux (PAS faite). La règle : fait est invariable dans TOUTES les constructions causatives, y compris se faire." },
+            { type: "tip", content: "Se faire est plus fréquent à l'oral que faire causatif quand l'action touche le sujet lui-même. 'Je vais me faire couper les cheveux' est naturel ; 'Je vais faire couper mes cheveux' est plus formel." },
+        ],
+        examples: [
+            { native: "Je vais me faire faire un tatouage.", translation: "I'm going to get a tattoo done." },
+            { native: "Elle s'est fait attendre une heure.", translation: "She kept people waiting for an hour." },
+            { native: "Il s'est fait construire une belle maison.", translation: "He had a beautiful house built for himself." },
+        ],
+        inlineVocab: [
+            { word: "se faire couper les cheveux", translation: "to get a haircut" },
+            { word: "se faire renvoyer", translation: "to get fired" },
+            { word: "se faire opérer", translation: "to have surgery" },
+            { word: "se faire avoir", translation: "to get tricked / be had" },
+            { word: "se faire attendre", translation: "to keep people waiting" },
+        ],
+    },
+
     // ── fr-g-b1-14 : Discours B1 ─────────────────────────────────────────────
     {
         id: "fr-g-b1-14",
@@ -132,67 +206,100 @@ export const block5Lessons: GrammarLesson[] = [
         ],
     },
 
-    // ── fr-g-b1-15 : Grammar bridge — B1 in informal registers ───────────────
+    // ── fr-g-b1-15 : Le français vivant — argot, verlan, fillers, registres ───
     {
         id: "fr-g-b1-15",
         level: "B1",
-        title: "Le pont grammatical — le B1 dans le français parlé",
+        title: "Le français vivant — argot, verlan, fillers et registres",
         explanation: {
-            target: `Bonne nouvelle : la grammaire que vous avez apprise au B1 ne disparaît pas dans le français parlé — elle se *compresse*. Les structures restent les mêmes ; ce qui change, c'est la vitesse, les sons et les choix lexicaux.
+            target: `Le B1 vous donne la grammaire. Cette unité vous donne le *français réel* — ce que vous entendez dans les films, la musique, les conversations de rue.
 
-**Ce qui change à l'oral :**
-- *ne* de négation est souvent supprimé : *Je **ne** sais pas* → *J'sais pas*
-- *il* impersonnel tombe : *Il faut que* → *Faut que*
-- Les pronoms se réduisent : *tu as* → *t'as* | *il y a* → *y'a*
-- Les mots fusionnent : *parce que* → *pasque*
+**Le verlan** (*l'envers* → verlan) : mots à syllabes inversées, né dans la culture banlieue des années 80, aujourd'hui mainstream.
+*fou → ouf | bizarre → zarbi | lourd → relou | femme → meuf | mec → keum | louche → chelou*
 
-**Ce qui reste exactement pareil :**
-Le subjonctif, les phrases en si, l'ordre des pronoms — toutes les structures B1 restent intactes à l'oral informel. Seule la *surface* change.`,
-            native: `Good news: the grammar you've learned at B1 doesn't disappear in spoken French — it *compresses*. The structures stay the same; what changes is speed, sound, and word choices.
+**L'argot courant :**
+*le fric* (l'argent) | *le boulot* (le travail) | *la bouffe* (la nourriture) | *bosser* (travailler) | *rigoler* (rire) | *kiffer* (aimer beaucoup) | *se barrer* (partir) | *c'est nul* (c'est mauvais)
 
-**What changes in speech:**
-- *ne* of negation is often dropped: *Je **ne** sais pas* → *J'sais pas*
-- Impersonal *il* drops: *Il faut que* → *Faut que*
-- Pronouns reduce: *tu as* → *t'as* | *il y a* → *y'a*
-- Words fuse: *parce que* → *pasque*
+**Les fillers (marqueurs du discours oral) :**
+*genre* (sort of / like) | *carrément* (totally) | *vachement* (really) | *franchement* (honestly) | *bref* (anyway) | *du coup* (so) | *en fait* (actually) | *quand même* (still / even so) | *c'est dingue* (it's crazy) | *ça craint* (it sucks)
 
-**What stays exactly the same:**
-The subjunctive, si clauses, pronoun order — all B1 structures remain intact in informal speech. Only the *surface* changes.`,
+**La grammaire B1 ne disparaît pas — elle se compresse :**
+*Je ne sais pas* → *J'sais pas* | *Il faut que* → *Faut que* | *tu as* → *t'as* | *il y a* → *y'a* | *parce que* → *pasque*
+
+**Registres régionaux (compréhension réceptive) :**
+Québec : *c'est le boutte* (c'est super) | *magasiner* (faire du shopping) | *un char* (une voiture) | *pantoute* (pas du tout)
+Belgique : *septante* (70) | *nonante* (90) | *déjeuner* = petit-déjeuner`,
+            native: `B1 gives you the grammar. This unit gives you *real French* — what you hear in films, music, and street conversations.
+
+**Verlan** (*l'envers* → verlan): words with reversed syllables, born in 80s banlieue culture, now mainstream.
+*fou → ouf | bizarre → zarbi | lourd → relou | femme → meuf | mec → keum | louche → chelou*
+
+**Common argot:**
+*le fric* (money) | *le boulot* (work) | *la bouffe* (food) | *bosser* (to work hard) | *rigoler* (to laugh) | *kiffer* (to love/really like) | *se barrer* (to leave) | *c'est nul* (it's rubbish)
+
+**Fillers (spoken discourse markers):**
+*genre* (sort of / like) | *carrément* (totally) | *vachement* (really) | *franchement* (honestly) | *bref* (anyway) | *du coup* (so) | *en fait* (actually) | *quand même* (still / even so) | *c'est dingue* (it's crazy) | *ça craint* (it sucks)
+
+**B1 grammar doesn't disappear — it compresses:**
+*Je ne sais pas* → *J'sais pas* | *Il faut que* → *Faut que* | *tu as* → *t'as* | *il y a* → *y'a* | *parce que* → *pasque*
+
+**Regional varieties (receptive awareness):**
+Québec: *c'est le boutte* (great) | *magasiner* (to shop) | *un char* (a car) | *pantoute* (not at all)
+Belgium: *septante* (70) | *nonante* (90) | *déjeuner* = breakfast`,
         },
         rules: [
             {
-                condition: "Même grammaire B1 — surface réduite",
-                result: "La structure sous-jacente est intacte ; seule la forme phonologique change",
+                condition: "Verlan — inversion syllabique",
+                result: "Réception prioritaire ; production facultative",
                 examples: [
-                    { native: "J'pense pas qu'il soit là.", translation: "I don't think he's there. (subjunctive intact: soit)" },
-                    { native: "Si j'avais su, j'aurais fait autrement.", translation: "If I had known, I would have done it differently. (type 3 intact)" },
-                    { native: "Faut que tu finisses avant.", translation: "You need to finish first. (subjunctive intact: finisses)" },
-                    { native: "J'le lui ai dit hier.", translation: "I told it to him yesterday. (double pronoun order intact)" },
+                    { native: "C'est chelou, ce type. (← louche)", speakText: "C'est chelou, ce type.", translation: "That guy's weird / shady." },
+                    { native: "C'est relou, quand même. (← lourd)", speakText: "C'est relou, quand même.", translation: "That's annoying, seriously." },
+                    { native: "Ouf ! J'ai eu peur. (← fou, ici exclamatif)", speakText: "Ouf ! J'ai eu peur.", translation: "Phew! That scared me." },
                 ],
             },
             {
-                condition: "Ne de négation supprimé (très fréquent à l'oral)",
-                result: "Ne disparaît, pas / plus / jamais / rien restent",
+                condition: "Fillers — marqueurs du discours oral",
+                result: "Rendent le discours naturel ; à placer en début/milieu de phrase",
                 examples: [
-                    { native: "J'sais pas. / Je sais pas. (← Je ne sais pas.)", speakText: "Je sais pas.", translation: "I don't know." },
-                    { native: "T'inquiète pas. (← Tu ne t'inquiètes pas.)", speakText: "T'inquiète pas.", translation: "Don't worry." },
+                    { native: "Franchement, c'était dingue. On a bossé genre quinze heures, carrément.", speakText: "Franchement, c'était dingue.", translation: "Honestly, it was crazy. We worked like fifteen hours, literally." },
+                    { native: "En fait, le truc c'est que... du coup, j'ai dû tout refaire.", speakText: "En fait, le truc c'est que du coup j'ai dû tout refaire.", translation: "Actually, the thing is... so I had to redo everything." },
+                ],
+            },
+            {
+                condition: "Grammaire B1 compressée — structures intactes",
+                result: "Ne disparaît, pas / plus / jamais / rien restent | structure sous-jacente préservée",
+                examples: [
+                    { native: "J'pense pas qu'il soit là. (subjonctif intact)", speakText: "J'pense pas qu'il soit là.", translation: "I don't think he's there." },
+                    { native: "Faut que tu finisses avant. (subjonctif intact)", speakText: "Faut que tu finisses avant.", translation: "You need to finish first." },
                 ],
             },
         ],
         notes: [
-            { type: "tip", content: "Le registre informel à l'oral n'est pas du 'mauvais français' — c'est du français compressé. Un locuteur natif qui dit 'j'sais pas' n'a pas oublié le ne ; il choisit de ne pas le prononcer selon le contexte." },
-            { type: "warning", content: "À l'écrit formel et dans les examens, la suppression du ne est toujours incorrecte. Ce registre est strictement oral et informel." },
+            { type: "culture", content: "Le verlan est né dans les banlieues françaises dans les années 1980 et s'est propagé via le hip-hop et le cinéma. Des mots comme 'chelou', 'relou' et 'ouf' figurent maintenant dans les dictionnaires français officiels." },
+            { type: "tip", content: "Réception avant production. L'objectif est de comprendre le verlan et l'argot dans les films, les chansons et les conversations — vous n'avez pas besoin de les produire activement." },
+            { type: "warning", content: "Registre : le verlan et l'argot sont très familiers. Évitez-les dans les contextes professionnels et formels. Les fillers (genre, carrément, du coup) sont moins marqués — on les entend même dans les médias." },
+            { type: "culture", content: "Le français est parlé par plus de 300 millions de personnes sur cinq continents. Le Québec, la Belgique et l'Afrique francophone ont leurs propres vocabulaires et accents — les comprendre, c'est accéder à toute la diversité du français." },
         ],
         examples: [
-            { native: "Franchement, c'est relou — j'aurais pas dû accepter.", translation: "Honestly, it's annoying — I shouldn't have agreed." },
-            { native: "Y'a personne qui sache vraiment ce qui s'est passé.", translation: "Nobody really knows what happened." },
+            { native: "Il s'est barré sans prévenir — c'est nul.", translation: "He left without warning — that's rubbish." },
+            { native: "Je kiffe vachement ce film.", translation: "I really love this film." },
+            { native: "T'as vu le boulot qu'il a abattu ? C'est ouf.", translation: "Did you see the work he put in? That's insane." },
         ],
         inlineVocab: [
-            { word: "j'sais pas", translation: "I don't know (spoken)" },
-            { word: "t'as vu", translation: "did you see / you saw (spoken)" },
-            { word: "y'a", translation: "there is/are (spoken)" },
-            { word: "pasque", translation: "because (spoken fusion)" },
-            { word: "faut que", translation: "you/one must (spoken — il dropped)" },
+            { word: "le fric", translation: "money (argot)" },
+            { word: "le boulot", translation: "work/job (argot)" },
+            { word: "bosser", translation: "to work hard (argot)" },
+            { word: "kiffer", translation: "to love / really like (argot)" },
+            { word: "ouf", translation: "crazy/wild (verlan ← fou)" },
+            { word: "chelou", translation: "weird/shady (verlan ← louche)" },
+            { word: "relou", translation: "annoying/heavy (verlan ← lourd)" },
+            { word: "genre", translation: "like / sort of (filler)" },
+            { word: "carrément", translation: "totally / completely (filler)" },
+            { word: "du coup", translation: "so / as a result (filler)" },
+            { word: "en fait", translation: "actually / in fact (filler)" },
+            { word: "franchement", translation: "honestly (filler)" },
+            { word: "c'est dingue", translation: "it's crazy / unbelievable" },
+            { word: "ça craint", translation: "it sucks / it's bad" },
         ],
         fnTags: ["fn:narrating"],
     },

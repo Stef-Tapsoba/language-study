@@ -270,4 +270,80 @@ Certainty | Facts | Affirmative belief verbs → **indicatif**`,
             { word: "il m'est possible de", translation: "it is possible for me to" },
         ],
     },
+
+    // ── fr-g-b1-18 : Subjonctif passé ────────────────────────────────────────
+    {
+        id: "fr-g-b1-18",
+        level: "B1",
+        title: "Le subjonctif passé",
+        explanation: {
+            target: `Le subjonctif passé s'utilise quand l'action de la proposition subordonnée s'est produite **avant** l'action de la principale. C'est le subjonctif composé.
+
+**Formation :** avoir / être au **subjonctif présent** + participe passé
+(Même règle d'auxiliaire que le passé composé.)
+
+| Auxiliaire | Exemple |
+|---|---|
+| avoir | que j'**aie fini**, que tu **aies vu**, qu'il **ait dit** |
+| être | que je **sois parti(e)**, qu'elle **soit venue**, qu'ils **soient restés** |
+
+**Contraste essentiel :**
+- *Je suis content qu'il **vienne**.* → subjonctif présent (il vient maintenant / viendra)
+- *Je suis content qu'il **soit venu**.* → subjonctif passé (il est venu — c'est dans le passé)`,
+            native: `The subjonctif passé is used when the subordinate clause action happened **before** the main clause action. It is the compound subjunctive.
+
+**Formation:** avoir / être in the **subjonctif présent** + past participle
+(Same auxiliary rule as passé composé.)
+
+| Auxiliary | Example |
+|---|---|
+| avoir | que j'**aie fini**, que tu **aies vu**, qu'il **ait dit** |
+| être | que je **sois parti(e)**, qu'elle **soit venue**, qu'ils **soient restés** |
+
+**Key contrast:**
+- *Je suis content qu'il **vienne**.* → subjonctif présent (he's coming now / will come)
+- *Je suis content qu'il **soit venu**.* → subjonctif passé (he came — it's in the past)`,
+        },
+        conjugationTable: {
+            pronouns: ["que je/j'", "que tu", "qu'il/elle", "que nous", "que vous", "qu'ils/elles"],
+            verbs: [
+                { label: "finir (avoir)", forms: ["aie fini", "aies fini", "ait fini", "ayons fini", "ayez fini", "aient fini"] },
+                { label: "partir (être)", forms: ["sois parti(e)", "sois parti(e)", "soit parti(e)", "soyons parti(e)s", "soyez parti(e)(s)", "soient parti(e)s"] },
+            ],
+        },
+        rules: [
+            {
+                condition: "Verbes d'émotion + événement passé → subjonctif passé",
+                result: "L'action de la subordonnée précède celle de la principale",
+                examples: [
+                    { native: "Je suis content qu'il soit venu. (← il est venu — c'est passé)", speakText: "Je suis content qu'il soit venu.", translation: "I'm glad he came." },
+                    { native: "Je regrette que tu n'aies pas pu venir.", translation: "I'm sorry you weren't able to come." },
+                    { native: "C'est dommage qu'elle soit partie sans nous dire au revoir.", translation: "It's a shame she left without saying goodbye." },
+                ],
+            },
+            {
+                condition: "Bien que / à moins que + action antérieure",
+                result: "Subjonctif passé quand l'action de la subordonnée est déjà accomplie",
+                examples: [
+                    { native: "Bien qu'il ait beaucoup travaillé, il n'a pas réussi.", translation: "Although he worked hard, he didn't succeed." },
+                    { native: "Je doute qu'il ait vraiment dit ça.", translation: "I doubt he really said that." },
+                ],
+            },
+        ],
+        notes: [
+            { type: "tip", content: "Test rapide : si vous pouvez remplacer que + subjonctif par 'il semble que X SOIT DÉJÀ ARRIVÉ', utilisez le subjonctif passé. C'est content qu'il SOIT VENU (déjà arrivé) ✓." },
+            { type: "warning", content: "Pour les apprenants ayant étudié le français à l'école : le subjonctif passé est rarement enseigné dans les programmes scolaires. C'est du nouveau contenu, pas une révision." },
+        ],
+        examples: [
+            { native: "Elle est surprise qu'il ait réussi si vite.", translation: "She's surprised he succeeded so quickly." },
+            { native: "Il est possible qu'elle soit déjà arrivée.", translation: "It's possible she's already arrived." },
+            { native: "Je suis soulagé que tout se soit bien passé.", translation: "I'm relieved everything went well." },
+        ],
+        inlineVocab: [
+            { word: "que j'aie fait", translation: "that I have done (subj. passé)" },
+            { word: "que tu sois venu(e)", translation: "that you came (subj. passé)" },
+            { word: "être soulagé(e) que", translation: "to be relieved that" },
+            { word: "il est possible que", translation: "it is possible that" },
+        ],
+    },
 ]
