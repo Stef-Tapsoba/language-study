@@ -98,12 +98,13 @@ Key adjectives for diventare:
 nervoso/a, arrabbiato/a, triste, felice, contento/a, ansioso/a,
 emozionato/a, commosso/a, imbarazzato/a, sorpreso/a, deluso/a, sollevato/a
 
-EXPRESSING OPINIONS — indicativo (NOT congiuntivo at A2)
-All these take indicativo at A2:
-• Penso che hai ragione. ✓ (NOT: penso che tu abbia — B1)
+EXPRESSING OPINIONS — indicativo at A2
+At A2, use the indicativo after opinion verbs. The congiuntivo (penso che tu abbia) is the standard educated form — but it is B1 content. At A2, the indicativo is correct and natural:
+• Penso che hai ragione. ✓ (A2 — indicativo)
 • Trovo che questo posto è bellissimo. ✓
 • Mi sembra che c'è un errore. ✓
 • Credo che è troppo tardi. ✓
+Note: Both indicativo (informal spoken) and congiuntivo (standard) exist in Italian — at A2, use indicativo confidently.
 
 Opinion markers:
 Secondo me... (most spoken) / A mio avviso... (slightly formal) /

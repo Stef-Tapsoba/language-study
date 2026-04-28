@@ -101,10 +101,10 @@ export const a2Units: LessonUnit[] = [
         checkpointId: "it-cp-a2-2",
         testQuestions: [
             { id: "it-uq-a2-6-1", level: "A2", prompt: "How do you say 'Rome is bigger than Florence'?", options: ["Roma è molto grande.", "Roma è più grande di Firenze.", "Roma è grande come Firenze.", "Roma è la più grande."], answer: "Roma è più grande di Firenze." },
-            { id: "it-uq-a2-6-2", level: "A2", prompt: "How do you say 'as... as' in Italian?", options: ["più ... di", "meno ... di", "tanto ... quanto", "molto ... che"], answer: "tanto ... quanto" },
-            { id: "it-uq-a2-6-3", level: "A2", prompt: "What does 'secondo me' mean?", options: ["in my opinion", "at the moment", "according to the rules", "I'm second"], answer: "in my opinion" },
-            { id: "it-uq-a2-6-4", level: "A2", prompt: "How do you say 'I prefer coffee to tea'?", options: ["Preferisco il caffè al tè.", "Mi piace il caffè più del tè.", "Voglio il caffè e il tè.", "Il caffè è migliore del tè."], answer: "Preferisco il caffè al tè." },
-            { id: "it-uq-a2-6-5", level: "A2", prompt: "What is the superlative of 'buono'?", options: ["il più buono / il migliore", "il molto buono", "il buonissimo solo", "il bene"], answer: "il più buono / il migliore" }
+            { id: "it-uq-a2-6-2", level: "A2", prompt: "Complete: 'È più intelligente ___ bella.' (comparing two qualities of the same person)", options: ["di", "che", "quanto", "come"], answer: "che" },
+            { id: "it-uq-a2-6-3", level: "A2", prompt: "Complete: 'Parla ___ di lui.' (she speaks better — adverb)", options: ["migliore", "meglio", "buono", "ottima"], answer: "meglio" },
+            { id: "it-uq-a2-6-4", level: "A2", prompt: "Complete: 'È la ___ pizzeria della città.' (the best — adjective)", options: ["meglio", "miglior", "bene", "ottima"], answer: "miglior" },
+            { id: "it-uq-a2-6-5", level: "A2", prompt: "What is the superlative absolute of 'stanco'?", options: ["stanchissimo", "stancoissimo", "il più stanco", "stanchevole"], answer: "stanchissimo" }
         ]
     },
     {
@@ -112,17 +112,17 @@ export const a2Units: LessonUnit[] = [
         level: "A2",
         order: 7,
         title: "Quello che mi piace — relative pronouns",
-        description: "Link ideas about the same noun using che and chi. Connect clauses naturally in speech and writing.",
+        description: "Link ideas using che (subject/object), cui (after prepositions: di cui, con cui, per cui), dove (relative of place), and quello che / ciò che (abstract 'what'). Connect clauses naturally in speech and writing.",
         grammarIds: ["it-g-a2-6"],
         vocabIds: ["it-v-a2-15", "it-v-a2-16", "it-v-a2-22", "it-v-a2-23", "it-v-a2-24"],
         verbIds: [],
         readingIds: ["it-r-a2-2"],
         testQuestions: [
             { id: "it-uq-a2-7-1", level: "A2", prompt: "Fill in the relative pronoun: 'Il libro ___ ho letto è bellissimo.'", options: ["chi", "che", "cui", "quale"], answer: "che" },
-            { id: "it-uq-a2-7-2", level: "A2", prompt: "Translate: 'Those who study will pass the exam.'", options: ["Che studia passerà.", "Chi studia passerà l'esame.", "Quello che studia passerà.", "Chi studia hanno passato."], answer: "Chi studia passerà l'esame." },
-            { id: "it-uq-a2-7-3", level: "A2", prompt: "Can 'che' be omitted in Italian relative clauses?", options: ["Yes, always", "Yes, when it's an object", "No, never", "Only in formal writing"], answer: "No, never" },
-            { id: "it-uq-a2-7-4", level: "A2", prompt: "Complete: 'La ragazza ___ lavora qui è mia cugina.'", options: ["chi", "che", "cui", "quale"], answer: "che" },
-            { id: "it-uq-a2-7-5", level: "A2", prompt: "When do you use 'chi' rather than 'che'?", options: ["Only with things", "Only with people meaning 'whoever/those who'", "Before all adjectives", "After 'non'"], answer: "Only with people meaning 'whoever/those who'" }
+            { id: "it-uq-a2-7-2", level: "A2", prompt: "Complete: 'È la persona ___ ti ho parlato.' (preposition + relative)", options: ["che", "di che", "di cui", "quale"], answer: "di cui" },
+            { id: "it-uq-a2-7-3", level: "A2", prompt: "Which relative pronoun ALWAYS follows a preposition (a, di, con, per...)?", options: ["che", "chi", "cui", "dove"], answer: "cui" },
+            { id: "it-uq-a2-7-4", level: "A2", prompt: "Complete: '___ mi piace di questa città è l'atmosfera.'", options: ["Ciò", "Quello che", "Chi", "Dove"], answer: "Quello che" },
+            { id: "it-uq-a2-7-5", level: "A2", prompt: "Complete: 'C'è un caffè ___ fanno il miglior cornetto della città.'", options: ["chi", "che", "dove", "cui"], answer: "dove" }
         ]
     },
     {
@@ -305,9 +305,9 @@ export const a2Units: LessonUnit[] = [
         id: "it-a2-u18",
         level: "A2",
         order: 18,
-        title: "Quindi, però, addirittura — discourse connectors",
-        description: "Connect sentences fluently using quindi, però, anche se, invece, anzi, cioè, and insomma. Move beyond basic Italian to natural, flowing speech.",
-        grammarIds: ["it-g-a2-16"],
+        title: "Quindi, però, non...più — connectors and expanded negation",
+        description: "Connect sentences fluently using quindi, però, anche se, invece, anzi, cioè, and insomma. Also expand the negation toolkit: non...più (no longer), non...affatto/per niente (not at all), non...neanche/nemmeno (not even), and the restriction solo/non...che.",
+        grammarIds: ["it-g-a2-16", "it-g-a2-7"],
         vocabIds: ["it-v-a2-61", "it-v-a2-62", "it-v-a2-63", "it-v-a2-64", "it-v-a2-65", "it-v-a2-66", "it-v-a2-67", "it-v-a2-68"],
         verbIds: [],
         readingIds: ["it-r-a2-4"],
@@ -315,8 +315,8 @@ export const a2Units: LessonUnit[] = [
             { id: "it-uq-a2-18-1", level: "A2", prompt: "Translate: 'I was tired, so I went to bed early.'", options: ["Ero stanco, però sono andato a letto presto.", "Ero stanco, quindi sono andato a letto presto.", "Ero stanco, invece sono andato a letto presto.", "Ero stanco, anzi sono andato a letto presto."], answer: "Ero stanco, quindi sono andato a letto presto." },
             { id: "it-uq-a2-18-2", level: "A2", prompt: "What does 'anzi' mean?", options: ["however", "so", "on the contrary / in fact", "even if"], answer: "on the contrary / in fact" },
             { id: "it-uq-a2-18-3", level: "A2", prompt: "Complete: '___ piove, voglio uscire lo stesso.'", options: ["Però", "Quindi", "Anche se", "Invece"], answer: "Anche se" },
-            { id: "it-uq-a2-18-4", level: "A2", prompt: "What does 'insomma' mean?", options: ["furthermore", "in short / basically", "on the other hand", "even though"], answer: "in short / basically" },
-            { id: "it-uq-a2-18-5", level: "A2", prompt: "Complete: 'Lui studia il francese; io ___ studio il tedesco.'", options: ["anzi", "invece", "quindi", "cioè"], answer: "invece" }
+            { id: "it-uq-a2-18-4", level: "A2", prompt: "In passato prossimo, where does 'più' go in 'Non ho ___ mangiato lì'?", options: ["before non", "between auxiliary and participle", "after the participle", "at the end"], answer: "between auxiliary and participle" },
+            { id: "it-uq-a2-18-5", level: "A2", prompt: "What does 'non...neanche' mean?", options: ["not anymore", "not at all (formal)", "not even", "nobody"], answer: "not even" }
         ]
     },
     {

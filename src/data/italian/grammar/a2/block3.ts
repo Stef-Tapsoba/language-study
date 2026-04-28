@@ -51,8 +51,8 @@ INDIRECT pronouns do NOT cause agreement (see next unit).`,
                 condition: "Passato prossimo with direct object pronoun",
                 result: "Pronoun before auxiliary; past participle agrees with pronoun",
                 examples: [
-                    { native: "Ho ordinata la pizza → L'ho ordinata.", translation: "I ordered the pizza / I ordered it.", annotation: "la pizza (fem.) → la → L' (before vowel); PP agrees: ordinata" },
-                    { native: "Ho comprati i biglietti → Li ho comprati.", translation: "I bought the tickets / I bought them.", annotation: "i biglietti (masc.pl.) → li; PP agrees: comprati" },
+                    { native: "Ho ordinato la pizza → L'ho ordinata.", translation: "I ordered the pizza / I ordered it.", annotation: "la pizza (fem.) → la → L' (before vowel); PP agrees with preceding pronoun: ordinata" },
+                    { native: "Ho comprato i biglietti → Li ho comprati.", translation: "I bought the tickets / I bought them.", annotation: "i biglietti (masc.pl.) → li; PP agrees with preceding pronoun: comprati" },
                 ]
             },
         ],
