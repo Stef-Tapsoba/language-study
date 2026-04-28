@@ -102,6 +102,81 @@ The **contraction rules** (essential — recycled from A1):
         ],
     },
 
+    // ── fr-g-a2-17 : L'impératif ─────────────────────────────────────────────
+    {
+        id: "fr-g-a2-17",
+        level: "A2",
+        title: "L'impératif — commands, instructions, and advice",
+        explanation: `The imperative is used for instructions, commands, advice, and recipes — and it appears everywhere at A2: doctor's visits, travel directions, recipes, and social situations.
+
+**Formation:** Take the tu / nous / vous form of the present tense and drop the subject pronoun.
+
+| Verb | Tu | Nous | Vous |
+|---|---|---|---|
+| parler | parle* | parlons | parlez |
+| finir | finis | finissons | finissez |
+| prendre | prends | prenons | prenez |
+| être | sois | soyons | soyez |
+| avoir | aie | ayons | ayez |
+
+*Important: -er verbs (and *ouvrir* family) drop the -s in the **tu** form:
+*Tu parles → **Parle** !* | *Tu manges → **Mange** !* | *Tu ouvres → **Ouvre** !*
+(Keep the -s before *y* and *en*: *Vas-y !* / *Manges-en !*)
+
+**Negative imperative:** ne + imperative form + pas / plus / rien / jamais
+*Ne partez pas ! / Ne touche à rien. / Ne prends plus de sel.*
+
+**High-frequency imperatives at A2:**
+- Health: *Ouvrez la bouche. Respirez. Prenez ces comprimés. Reposez-vous.*
+- Travel: *Composez votre billet. Suivez les indications. Tournez à gauche.*
+- Social: *Écoute, j'ai quelque chose à te dire. Dis-moi tout. Viens !*`,
+        rules: [
+            {
+                condition: "Regular imperative (tu / nous / vous)",
+                result: "Drop the subject; -er tu form loses -s",
+                heuristic: "parler → parle/parlons/parlez | finir → finis/finissons/finissez | prendre → prends/prenons/prenez",
+                examples: [
+                    { native: "Parle plus lentement, s'il te plaît.", translation: "Speak more slowly, please." },
+                    { native: "Prenez ces antibiotiques deux fois par jour.", translation: "Take these antibiotics twice a day." },
+                    { native: "Finissons ce travail avant de partir.", translation: "Let's finish this work before leaving." },
+                ],
+            },
+            {
+                condition: "Negative imperative",
+                result: "ne + imperative form + pas / plus / rien / jamais",
+                examples: [
+                    { native: "Ne touchez pas à ça !", translation: "Don't touch that!" },
+                    { native: "Ne prends pas d'alcool avec ce médicament.", translation: "Don't take alcohol with this medication." },
+                    { native: "Ne partez pas sans votre passeport.", translation: "Don't leave without your passport." },
+                ],
+            },
+        ],
+        notes: [
+            { type: "warning", content: "The -er tu form drops its -s: 'parle' not 'parles'. Exception: keep -s before y or en — 'Vas-y !' not 'Va-y !' and 'Manges-en !' not 'Mange-en !'." },
+            { type: "tip", content: "'Veuillez + infinitif' is the formal written imperative: 'Veuillez vous asseoir / Veuillez trouver ci-joint...' — used in formal letters and announcements." },
+        ],
+        examples: [
+            { native: "Ouvrez la bouche — je vais vous examiner.", translation: "Open your mouth — I'm going to examine you." },
+            { native: "Repose-toi et bois beaucoup d'eau.", translation: "Rest and drink lots of water." },
+            { native: "Composez votre billet avant de monter dans le train.", translation: "Validate your ticket before boarding the train." },
+            { native: "Ne stresse pas — tout va bien se passer.", translation: "Don't stress — everything will be fine." },
+            {
+                type: "dialogue",
+                exchanges: [
+                    { native: "Docteur, j'ai très mal à la gorge depuis trois jours.", translation: "Doctor, my throat has been hurting for three days." },
+                    { native: "Ouvrez la bouche. Bien. Prenez ces antibiotiques deux fois par jour pendant dix jours. Ne buvez pas d'alcool et reposez-vous.", translation: "Open your mouth. Good. Take these antibiotics twice a day for ten days. Don't drink alcohol and rest." },
+                ],
+            },
+        ],
+        inlineVocab: [
+            { word: "composez votre billet", translation: "validate your ticket" },
+            { word: "veuillez + inf.", translation: "please (formal written)" },
+            { word: "remplissez ce formulaire", translation: "fill in this form" },
+            { word: "suivez les indications", translation: "follow the signs/directions" },
+            { word: "attendez votre tour", translation: "wait your turn" },
+        ],
+    },
+
     // ── fr-g-a2-15 : Feelings and opinions with que + indicative ─────────────
     {
         id: "fr-g-a2-15",

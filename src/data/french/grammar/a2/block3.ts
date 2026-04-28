@@ -141,6 +141,18 @@ Position: before the conjugated verb (same as COD).
 
 Both *y* and *en* go before the conjugated verb (same rule as COD/COI).
 
+**COI pronouns — 1st and 2nd person:**
+The forms *me, te, nous, vous* also function as COI pronouns (not just reflexive pronouns). They follow the same placement rule as *lui/leur* — before the conjugated verb:
+
+| | COI (to me / to you...) |
+|---|---|
+| me (to me) | Il **me** parle. / Elle **m'**a écrit. |
+| te (to you) | Je **te** dis la vérité. |
+| nous (to us) | Il **nous** a envoyé un message. |
+| vous (to you pl./formal) | Je **vous** répondrai demain. |
+
+These are the same forms you know from reflexive verbs (*me lever, te coucher*) — now used as COI.
+
 **Full pronoun order (reference):** me/te/se/nous/vous → le/la/les → lui/leur → y → en
 (Stacking at A2 is not required — use one pronoun at a time.)`,
         rules: [
