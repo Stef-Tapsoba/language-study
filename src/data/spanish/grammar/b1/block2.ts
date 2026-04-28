@@ -9,7 +9,23 @@ export const block2Lessons: GrammarLesson[] = [
     level: "B1",
     title: "Subjuntivo Presente — Formation and Volition",
     explanation: {
-      native: `The subjuntivo is the single most important B1 grammar step in Spanish. It is a MOOD (not a tense) — it expresses wishes, doubts, emotions, purpose, and hypotheticals. It is triggered by certain verbs and constructions when the speaker adds subjectivity to the message.
+      native: `PRE-GRAMMAR — hear it first:
+
+Read this exchange. Notice the verb forms in bold:
+  — Quiero que **vengas** esta noche. Mi madre quiere que **estemos** todos.
+  — Bueno. ¿Hace falta que **llegue** antes de las ocho?
+  — Sí, y ella pide que **traigas** algo para picar.
+
+Vengas, estemos, llegue, traigas — these forms look different from the normal present tense (vienes, estamos, llegas, traes). This new mood is called the SUBJUNTIVO, and it is what this unit is about.
+
+---
+
+CURRICULUM NOTE (LatAm Spanish):
+This course uses Latin American Spanish throughout. The vosotros form (habléis, comáis, etc.) is not practiced here — ustedes is used for all plural contexts. The subjuntivo grammar is identical regardless of variety; only the vosotros form is omitted.
+
+---
+
+The subjuntivo is the single most important B1 grammar step in Spanish. It is a MOOD (not a tense) — it expresses wishes, doubts, emotions, purpose, and hypotheticals. It is triggered by certain verbs and constructions when the speaker adds subjectivity to the message.
 
 FORMATION — regular verbs:
 Take the YO form of present indicative, remove the -o, add subjunctive endings:
@@ -93,6 +109,10 @@ Sujetos diferentes → que + subjuntivo: Quiero que salgas.`,
       {
         type: "warning",
         content: "The irregular subjunctives of ser (sea), estar (esté), ir (vaya), haber (haya), and saber (sepa) are extremely high frequency — they appear in almost every subjunctive context. Memorise them first.",
+      },
+      {
+        type: "tip",
+        content: "For learners who studied Spanish at school: if you learned the subjuntivo, you were probably taught a list of trigger verbs without the underlying logic. The key concept is: SAME SUBJECT → infinitive / DIFFERENT SUBJECTS → que + subjuntivo. This rule was rarely taught explicitly in school curricula — it is the single most valuable thing to understand about the subjuntivo.",
       },
     ],
     examples: [
@@ -195,6 +215,10 @@ CONTRASTE CRÍTICO:
         type: "tip",
         content: "The contrast creo que + indicative vs no creo que + subjuntivo is one of the most tested B1/B2 contrasts. Practice it explicitly with minimal pairs.",
       },
+      {
+        type: "tip",
+        content: "For learners who studied Spanish at school: if you learned the subjuntivo, you were probably taught trigger verbs as a list without the underlying certainty/subjectivity logic. Critically, the AFFIRMATIVE vs NEGATIVE belief verb contrast (creo que → indicativo / no creo que → subjuntivo) is almost never taught in school curricula. It is new content even for lapsed learners.",
+      },
     ],
     examples: [
       { native: "Me sorprende que haga tan buen tiempo en enero.", translation: "It surprises me that the weather is so good in January." },
@@ -234,6 +258,13 @@ PURPOSE: para que / a fin de que (so that)
   A fin de que is more formal: Lo hemos organizado a fin de que todo salga bien.
 
 CONCESSION: aunque — unique in Spanish
+
+Hear the difference first:
+  Speaker A: "Aunque llueve, voy al parque." → It IS raining — A sees it, accepts it as fact.
+  Speaker B: "Aunque llueva, iré al parque." → It MAY rain — B doesn't know yet; treating it as hypothetical.
+
+Same conjunction, two different moods — the speaker's stance changes the grammar.
+
   aunque + INDICATIVE = although (fact — speaker accepts it as true)
     Aunque estoy cansado, voy. (I AM tired — I accept this as fact)
   aunque + SUBJUNTIVO = even if (hypothetical — uncertain or not confirmed)

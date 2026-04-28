@@ -187,7 +187,7 @@ export const esUnitsB1: LessonUnit[] = [
         prompt: "Complete news headline using se pasiva: '___ tres detenidos en la operación policial.'",
         options: ["Fueron", "Estaban", "Han sido", "Se detuvieron"],
         answer: "Se detuvieron",
-        hint: "Se pasiva with the verb agreeing with the subject (tres detenidos = plural → se detuvieron). Also 'Fueron detenidos' is correct formal passive.",
+        hint: "Se pasiva: se + verb agreeing with the logical subject (tres detenidos = plural → se detuvieron). This is the natural spoken/written LatAm construction. 'Fueron detenidos' is the formal ser-passive equivalent.",
       },
     ],
   },
@@ -529,8 +529,8 @@ export const esUnitsB1: LessonUnit[] = [
         level: "B1",
         prompt: "Complete: 'Es un colega ___ hermana trabaja en la ONU.' (whose)",
         options: ["cuya", "cuyo", "cuyos", "que su"],
-        answer: "cuyo",
-        hint: "Cuyo agrees with the THING POSSESSED: hermana = f.sg., but wait — cuyo agrees with 'hermana' → cuya. Actually: hermano = m. → cuyo. Check: hermana f.sg. → cuya.",
+        answer: "cuya",
+        hint: "Cuyo/a/os/as agrees with the THING POSSESSED, not the owner. Hermana = feminine singular → cuya.",
       },
       {
         id: "es-b1-u10-q2",
@@ -749,7 +749,7 @@ export const esUnitsB1: LessonUnit[] = [
         id: "es-b1-u14-q2",
         level: "B1",
         prompt: "Complete: '¿Has ___ reparar la ventana ya?' (have you had the window repaired?)",
-        options: ["hecho", "dejado", "puesto", "mandado"],
+        options: ["hecho", "dejado", "puesto", "ordenado"],
         answer: "hecho",
         hint: "Hacer causativo: hacer + infinitivo = to have something done. Has hecho reparar la ventana.",
       },
@@ -868,15 +868,15 @@ export const esUnitsB1: LessonUnit[] = [
       {
         id: "es-b1-u16-q2",
         level: "B1",
-        prompt: "Identify the error: 'Aunque es difícil, lo hago aunque sea posible también.'",
+        prompt: "Identify the error: 'Aunque es tarde, salgamos aunque llueva.'",
         options: [
-          "Although this is grammatically valid, the double 'aunque' is redundant",
-          "Aunque es difícil should be aunque esté difícil",
-          "Sea should be es — it's a known fact",
-          "No error"
+          "Es late should be sea tarde — it's a hypothetical",
+          "Both are correct — aunque es (accepted fact) and aunque llueva (hypothetical) used in same sentence is valid",
+          "Llueva should be llueve — the speaker doesn't know if it's raining",
+          "No error — although the sentence is stylistically awkward"
         ],
-        answer: "Although this is grammatically valid, the double 'aunque' is redundant",
-        hint: "The sentence is grammatically valid (aunque es + aunque sea both possible), but redundant. Aunque es difícil = accepted fact. Aunque sea posible = hypothetical.",
+        answer: "Both are correct — aunque es (accepted fact) and aunque llueva (hypothetical) used in same sentence is valid",
+        hint: "Aunque es tarde = speaker accepts it's late (fact → indicativo). Aunque llueva = speaker doesn't know if it will rain (uncertain → subjuntivo). Two different stances, both valid.",
       },
       {
         id: "es-b1-u16-q3",
@@ -980,15 +980,15 @@ export const esUnitsB1: LessonUnit[] = [
       {
         id: "es-b1-u17-q5",
         level: "B1",
-        prompt: "Which is the key difference between Latin American and Peninsular Spanish in this course?",
+        prompt: "This course uses LatAm Spanish. Which TWO features distinguish it from Peninsular Spanish in this curriculum?",
         options: [
-          "LatAm uses the pretérito perfecto as the everyday past; Peninsular uses indefinido",
-          "LatAm uses ustedes for plural; Peninsular uses vosotros",
-          "There is no grammatical difference at all",
-          "LatAm uses the subjuntivo; Peninsular does not"
+          "Ustedes (not vosotros) for plural + indefinido as the everyday past tense (not pretérito perfecto)",
+          "No subjuntivo + ustedes instead of vosotros",
+          "Voseo throughout + no pretérito indefinido",
+          "Pretérito perfecto as everyday past + vosotros for plural"
         ],
-        answer: "LatAm uses ustedes for plural; Peninsular uses vosotros",
-        hint: "This course uses LatAm Spanish: ustedes (not vosotros) for plural, indefinido as the everyday past tense, and seseo throughout.",
+        answer: "Ustedes (not vosotros) for plural + indefinido as the everyday past tense (not pretérito perfecto)",
+        hint: "LatAm: ustedes for all plural contexts; indefinido (comí, fui) for the everyday completed past. Peninsular: vosotros for informal plural; pretérito perfecto (he comido, he ido) more common for recent past.",
       },
     ],
   },

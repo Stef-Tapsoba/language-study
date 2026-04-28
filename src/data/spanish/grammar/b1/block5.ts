@@ -338,6 +338,10 @@ MODISMOS CLAVE:
         type: "tip",
         content: "Receptive comprehension of regional slang is the goal — producing it accurately is a bonus. Focus on recognising these forms in listening rather than actively reproducing them.",
       },
+      {
+        type: "tip",
+        content: "VOSEO: Recognising vos forms (vos hablás, vos tenés, vos sos) is the B1 goal. Producing voseo correctly — with the right verb forms, pronoun usage, and regional authenticity — is B2 content. At B1, if you encounter voseo in Argentine or Uruguayan content, you now have enough to understand it.",
+      },
     ],
     examples: [
       { native: "— Oye, ¿cómo estuvo la peli? — ¡Re buena! O sea, la verdad es que no esperaba tanto. — ¡Qué chido! (México) / ¡Qué guay! (España)", translation: "Hey, how was the film? — Really good! I mean, honestly, I wasn't expecting that much. — How cool! (Mexico) / How cool! (Spain)" },

@@ -16,7 +16,7 @@ Formation: haber in imperfecto + participio
 
 The participios are the same as the pretérito perfecto — irregular ones too:
   hacer → hecho, ver → visto, decir → dicho, poner → puesto,
-  volver → vuelto, escribir → escrito, abrir → abierto, romper → roto
+  volver → vuelto, escribir → escrito, abrir → abierto, romper → roto, morir → muerto
 
 Key adverbs slot between había and the participio:
   ya había comido (had already eaten)
@@ -35,7 +35,7 @@ Formación: haber en imperfecto + participio
 
 Los participios son los mismos que en el pretérito perfecto — también los irregulares:
   hacer → hecho, ver → visto, decir → dicho, poner → puesto,
-  volver → vuelto, escribir → escrito, abrir → abierto, romper → roto
+  volver → vuelto, escribir → escrito, abrir → abierto, romper → roto, morir → muerto
 
 Los adverbios clave van entre había y el participio:
   ya había comido / todavía no había llegado / nunca había visto eso
