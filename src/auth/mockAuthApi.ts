@@ -1,6 +1,10 @@
 // auth/mockAuthApi.ts
 // Implements @myorg/auth-core AuthApi using localStorage as the user store.
 // No real backend required for prototype 1.
+//
+// ⚠️  DEVELOPMENT ONLY — passwords are stored in plaintext.
+// This file must NEVER be used in production. Supabase Auth (supabaseAuthApi.ts)
+// handles all authentication in Stage 2+ deployments.
 
 import { AuthApi, Session } from "@myorg/auth-core"
 

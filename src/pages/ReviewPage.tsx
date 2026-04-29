@@ -8,6 +8,7 @@
 //   critical (28+ days)   → 20 items
 
 import { useState, useMemo } from "react"
+import { logError } from "../utils/logger"
 import { useParams, useNavigate } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getVocabForLevel } from "../data/repo"
@@ -57,7 +58,7 @@ export function ReviewPage() {
 
     function handleAnswer(knew: boolean) {
         const quality: 1 | 4 = knew ? 4 : 1
-        updateCard(langId, item.id, quality).catch(console.error)
+        updateCard(langId, item.id, quality).catch(err => logError("ReviewPage.updateCard", err))
         useStatsStore.getState().recordQuizAnswer(langId, knew)
         if (knew) setCorrect(c => c + 1)
         const next = index + 1

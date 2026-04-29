@@ -126,7 +126,7 @@ function PhotoEssay({ photos }: { photos: CultureEpisode["photos"] }) {
                                 }`}
                             style={{ paddingTop: "25%" }}
                         >
-                            <img src={p.url} alt="" className="w-full h-full object-cover -mt-[25%]" />
+                            <img src={p.url} alt={`Thumbnail ${i + 1}`} className="w-full h-full object-cover -mt-[25%]" />
                         </button>
                     ))}
                 </div>

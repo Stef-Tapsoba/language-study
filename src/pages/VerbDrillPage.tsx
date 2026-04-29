@@ -4,6 +4,7 @@ import { useParams, Link } from "react-router-dom"
 import { Button } from "../components/ui/button"
 import { getLanguage } from "../data/languages"
 import { getVerbsForLevel, getUnitsForLevel } from "../data/repo"
+import { logError } from "../utils/logger"
 import { useProgress } from "../context/ProgressContext"
 import { completeDrillSession } from "../store/actions"
 import { NavBar } from "../components/NavBar"
@@ -85,7 +86,7 @@ export function VerbDrillPage() {
 
     const drill = useDrill(questions)
 
-    useEffect(() => { if (drill.done) completeDrillSession(langId, "verb").catch(console.error) }, [drill.done, langId])
+    useEffect(() => { if (drill.done) completeDrillSession(langId, "verb").catch(err => logError("VerbDrillPage.complete", err)) }, [drill.done, langId])
 
     if (!language) return null
 
