@@ -91,7 +91,8 @@ const UnitRow = memo(function UnitRow({ unit, langId, level, mastered, allUnits,
                 )}
             </div>
             {!unlocked && (() => {
-                const prevUnit = allUnits.find(u => u.order === unit.order - 1)
+                const idx = allUnits.findIndex(u => u.id === unit.id)
+                const prevUnit = idx > 0 ? allUnits[idx - 1] : null
                 const tipText = prevUnit
                     ? `Complete "${prevUnit.title}" to unlock`
                     : "Complete the previous unit to unlock"
@@ -392,7 +393,7 @@ export function DashboardPage() {
                                                     langId={langId}
                                                     level={level}
                                                     mastered={mastered}
-                                                    allUnits={levelUnits}
+                                                    allUnits={sortedLevelUnits}
                                                     completed={completed}
                                                     goalScore={scoreUnitForGoal(unit.topicTags, goalId)}
                                                     completedCheckpoints={completedCheckpoints}

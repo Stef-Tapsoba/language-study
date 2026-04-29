@@ -195,7 +195,7 @@ describe("isUnitUnlocked", () => {
         expect(isUnitUnlocked("u-unknown", units, [])).toBe(false)
     })
 
-    it("always unlocks the first unit (order === 1)", () => {
+    it("always unlocks the first unit in the array", () => {
         expect(isUnitUnlocked("u1", units, [])).toBe(true)
     })
 
@@ -233,15 +233,23 @@ describe("isUnitUnlocked", () => {
         expect(isUnitUnlocked("u4", gapped, getMasteredUnits("es"))).toBe(true)
     })
 
-    it("works correctly when units are passed in unsorted order", () => {
-        const unsorted = [
+    it("respects array order for goal-based reordering", () => {
+        // Simulate goal sort: u3 is first, u1 is second, u2 is third
+        const goalSorted = [
             { id: "u3", order: 3 },
             { id: "u1", order: 1 },
             { id: "u2", order: 2 },
         ]
+        // u3 is first in array → always unlocked
+        expect(isUnitUnlocked("u3", goalSorted, [])).toBe(true)
+        // u1 is second → locked until u3 (its predecessor in array) is mastered
+        expect(isUnitUnlocked("u1", goalSorted, [])).toBe(false)
+        masterUnit("es", "u3")
+        expect(isUnitUnlocked("u1", goalSorted, getMasteredUnits("es"))).toBe(true)
+        // u2 is third → locked until u1 is mastered
+        expect(isUnitUnlocked("u2", goalSorted, getMasteredUnits("es"))).toBe(false)
         masterUnit("es", "u1")
-        masterUnit("es", "u2")
-        expect(isUnitUnlocked("u3", unsorted, getMasteredUnits("es"))).toBe(true)
+        expect(isUnitUnlocked("u2", goalSorted, getMasteredUnits("es"))).toBe(true)
     })
 
     // Checkpoint gate tests

@@ -14,6 +14,8 @@ import { useCurrentUser } from "../hooks/useCurrentUser"
 import { useGlobalStreak } from "../hooks/useGlobalStreak"
 import { VISIBLE_LANGUAGES, getLanguage } from "../data/languages"
 import { getModule, loadModule } from "../data/modules"
+import { getUnitsForGoal } from "../data/repo"
+import { getGoal } from "../store/preferences"
 import { getReinforcementState } from "../store/progress"
 import { useProgress } from "../context/ProgressContext"
 import { useStatsStore, getTotalReviews } from "../store/useStatsStore"
@@ -190,9 +192,8 @@ interface UpcomingUnitsProps {
 }
 
 function UpcomingUnits({ langId, currentUnit, levelUnits, mastered, completedCheckpoints }: Readonly<UpcomingUnitsProps>) {
-    const after = currentUnit
-        ? levelUnits.filter(u => u.order > currentUnit.order).slice(0, 3)
-        : []
+    const currentIdx = currentUnit ? levelUnits.findIndex(u => u.id === currentUnit.id) : -1
+    const after = currentIdx >= 0 ? levelUnits.slice(currentIdx + 1, currentIdx + 4) : []
     if (after.length === 0) return null
 
     return (
@@ -451,16 +452,17 @@ function ReturningHome({ firstName, langId }: Readonly<{ firstName: string; lang
     if (!mod) return null
 
     const levelUnits = mod.units.filter(u => u.level === level).sort((a, b) => a.order - b.order)
+    const goalSortedUnits = getUnitsForGoal(langId, level, getGoal())
     const levelCheckpoints = (mod.checkpoints ?? []).filter(cp => cp.level === level)
     const masteredCount = levelUnits.filter(u => mastered.includes(u.id)).length
     const allLevelMastered = levelUnits.length > 0 && levelUnits.every(u => mastered.includes(u.id))
 
     const currentUnit = allLevelMastered
         ? null
-        : levelUnits.find(u =>
+        : goalSortedUnits.find(u =>
             !mastered.includes(u.id) &&
-            isUnitUnlocked(u.id, levelUnits, [...mastered], [...completedCheckpoints])
-          ) ?? levelUnits[levelUnits.length - 1]
+            isUnitUnlocked(u.id, goalSortedUnits, [...mastered], [...completedCheckpoints])
+          ) ?? goalSortedUnits[goalSortedUnits.length - 1]
 
     const upcomingCheckpoint = mod.checkpoints?.find(cp =>
         cp.level === level && !completedCheckpoints.includes(cp.id)
@@ -515,7 +517,7 @@ function ReturningHome({ firstName, langId }: Readonly<{ firstName: string; lang
                         <UpcomingUnits
                             langId={langId}
                             currentUnit={currentUnit}
-                            levelUnits={levelUnits}
+                            levelUnits={goalSortedUnits}
                             mastered={mastered}
                             completedCheckpoints={completedCheckpoints}
                         />
