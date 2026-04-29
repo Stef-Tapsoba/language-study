@@ -13,7 +13,6 @@ export const b1Units: LessonUnit[] = [
         grammarIds: ["ko-g-b1-1"],
         vocabIds: ["ko-v-b1-001", "ko-v-b1-002", "ko-v-b1-003", "ko-v-b1-004", "ko-v-b1-005"],
         verbIds: [],
-        checkpointId: "ko-cp-b1-1",
         testQuestions: [
             {
                 id: "ko-b1-u1-q1", level: "B1",
@@ -125,7 +124,6 @@ export const b1Units: LessonUnit[] = [
         grammarIds: ["ko-g-b1-3"],
         vocabIds: ["ko-v-b1-011", "ko-v-b1-012", "ko-v-b1-013", "ko-v-b1-014", "ko-v-b1-015"],
         verbIds: [],
-        checkpointId: "ko-cp-b1-1",
         testQuestions: [
             {
                 id: "ko-b1-u3-q1", level: "B1",
@@ -184,6 +182,7 @@ export const b1Units: LessonUnit[] = [
         grammarIds: ["ko-g-b1-4"],
         vocabIds: ["ko-v-b1-016", "ko-v-b1-017", "ko-v-b1-018", "ko-v-b1-019", "ko-v-b1-020"],
         verbIds: [],
+        checkpointId: "ko-cp-b1-1",
         testQuestions: [
             {
                 id: "ko-b1-u4-q1", level: "B1",
@@ -238,7 +237,6 @@ export const b1Units: LessonUnit[] = [
         grammarIds: ["ko-g-b1-5"],
         vocabIds: ["ko-v-b1-021", "ko-v-b1-022", "ko-v-b1-023", "ko-v-b1-024", "ko-v-b1-025"],
         verbIds: [],
-        checkpointId: "ko-cp-b1-2",
         testQuestions: [
             {
                 id: "ko-b1-u5-q1", level: "B1",
@@ -393,6 +391,7 @@ export const b1Units: LessonUnit[] = [
         grammarIds: ["ko-g-b1-8"],
         vocabIds: ["ko-v-b1-036", "ko-v-b1-037", "ko-v-b1-038", "ko-v-b1-039", "ko-v-b1-040"],
         verbIds: [],
+        checkpointId: "ko-cp-b1-2",
         testQuestions: [
             {
                 id: "ko-b1-u8-q1", level: "B1",
@@ -447,7 +446,6 @@ export const b1Units: LessonUnit[] = [
         grammarIds: ["ko-g-b1-9"],
         vocabIds: ["ko-v-b1-041", "ko-v-b1-042", "ko-v-b1-043", "ko-v-b1-044", "ko-v-b1-045"],
         verbIds: [],
-        checkpointId: "ko-cp-b1-3",
         testQuestions: [
             {
                 id: "ko-b1-u9-q1", level: "B1",
@@ -607,6 +605,7 @@ export const b1Units: LessonUnit[] = [
         grammarIds: ["ko-g-b1-12"],
         vocabIds: ["ko-v-b1-056", "ko-v-b1-057", "ko-v-b1-058", "ko-v-b1-059", "ko-v-b1-060"],
         verbIds: [],
+        checkpointId: "ko-cp-b1-3",
         testQuestions: [
             {
                 id: "ko-b1-u12-q1", level: "B1",
@@ -656,7 +655,6 @@ export const b1Units: LessonUnit[] = [
         grammarIds: ["ko-g-b1-13"],
         vocabIds: ["ko-v-b1-061", "ko-v-b1-062", "ko-v-b1-063", "ko-v-b1-064", "ko-v-b1-065"],
         verbIds: [],
-        checkpointId: "ko-cp-b1-4",
         testQuestions: [
             {
                 id: "ko-b1-u13-q1", level: "B1",
@@ -768,6 +766,7 @@ export const b1Units: LessonUnit[] = [
         grammarIds: ["ko-g-b1-15"],
         vocabIds: ["ko-v-b1-071", "ko-v-b1-072", "ko-v-b1-073", "ko-v-b1-074", "ko-v-b1-075"],
         verbIds: [],
+        checkpointId: "ko-cp-b1-4",
         testQuestions: [
             {
                 id: "ko-b1-u15-q1", level: "B1",
