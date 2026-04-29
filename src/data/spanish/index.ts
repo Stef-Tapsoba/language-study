@@ -38,6 +38,7 @@ import { b1Culture } from "./culture/b1"
 import { a1Speaking } from "./speaking/a1"
 import { a1Checkpoints } from "./checkpoints/a1"
 import { a2Checkpoints } from "./checkpoints/a2"
+import { b1Checkpoints } from "./checkpoints/b1"
 
 export default createLanguageModule({
     langId: "es",
@@ -51,5 +52,5 @@ export default createLanguageModule({
     listeningExercises: [a1Listening, a2Listening, b1Listening],
     cultureEpisodes: [a1Culture, a2Culture, b1Culture],
     speakingPrompts: [a1Speaking],
-    checkpoints: [a1Checkpoints, a2Checkpoints],
+    checkpoints: [a1Checkpoints, a2Checkpoints, b1Checkpoints],
 })
