@@ -12,17 +12,18 @@ import { getModule } from "../data/modules"
 import { useProgress } from "../context/ProgressContext"
 import { NavBar } from "../components/NavBar"
 import { Button } from "../components/ui/button"
-import { DEBUG } from "../auth/debugSession"
+import { useDebugUnlock } from "../auth/debugSession"
 
 export function CheckpointPage() {
     const { langId = "", checkpointId = "" } = useParams()
     const navigate = useNavigate()
+    const debugUnlock = useDebugUnlock()
     const mod = getModule(langId)
     const { completeCheckpoint, completedCheckpoints: getCompletedCheckpoints } = useProgress()
     const [phase, setPhase] = useState<"idle" | "confirming" | "practised">("idle")
 
     const checkpoint = mod?.checkpoints?.find(cp => cp.id === checkpointId)
-    const alreadyDone = DEBUG || getCompletedCheckpoints(langId).includes(checkpointId)
+    const alreadyDone = debugUnlock || getCompletedCheckpoints(langId).includes(checkpointId)
 
     if (!checkpoint) {
         return (

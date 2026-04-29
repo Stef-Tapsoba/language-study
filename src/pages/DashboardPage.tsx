@@ -5,7 +5,7 @@ import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { getUnitsForLevel, getUnitsForGoal } from "../data/repo"
 import { isUnitUnlocked } from "../domain/unitUnlock"
-import { DEBUG } from "../auth/debugSession"
+import { useDebugUnlock } from "../auth/debugSession"
 import { isOnboardingVisible, dismissOnboarding, getGoal, getNewLevel, clearNewLevel } from "../store/preferences"
 import { useBreakDetection } from "../hooks/useBreakDetection"
 import { ReviewPromptCard } from "../components/ReviewPromptCard"
@@ -35,8 +35,9 @@ const UnitRow = memo(function UnitRow({ unit, langId, level, mastered, allUnits,
     mastered: string[]; allUnits: LessonUnit[]; completed: ReadonlySet<string>
     goalScore: number; completedCheckpoints: string[]
 }>) {
+    const debugUnlock = useDebugUnlock()
     const isMastered = mastered.includes(unit.id)
-    const unlocked = DEBUG || isUnitUnlocked(unit.id, allUnits, mastered, completedCheckpoints)
+    const unlocked = debugUnlock || isUnitUnlocked(unit.id, allUnits, mastered, completedCheckpoints)
 
     let rowState = "border-border-subtle border-l-4 border-l-border-default bg-surface-elevated opacity-50 cursor-default"
     if (isMastered) rowState = "border-grammar-border border-l-4 border-l-grammar bg-grammar-surface/40 hover:border-grammar"
@@ -189,6 +190,7 @@ function levelName(level: CEFRLevel, ui: UIStrings): string {
 export function DashboardPage() {
     const { langId = "" } = useParams()
     const navigate = useNavigate()
+    const debugUnlock = useDebugUnlock()
     const language = getLanguage(langId)
     const mod = getModule(langId)
     const { level: getLevel, mastered: getMastered, completedCheckpoints: getCompletedCheckpoints } = useProgress()
@@ -402,7 +404,7 @@ export function DashboardPage() {
                                                     <CheckpointRow
                                                         checkpoint={checkpoint}
                                                         langId={langId}
-                                                        gatePassed={DEBUG || mastered.includes(unit.id)}
+                                                        gatePassed={debugUnlock || mastered.includes(unit.id)}
                                                         isDone={completedCheckpoints.includes(checkpoint.id)}
                                                     />
                                                 )}

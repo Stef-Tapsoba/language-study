@@ -4,7 +4,7 @@ import { useParams, useNavigate, useSearchParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { isUnitUnlocked } from "../domain/unitUnlock"
-import { DEBUG } from "../auth/debugSession"
+import { useDebugUnlock } from "../auth/debugSession"
 import { useProgress } from "../context/ProgressContext"
 import { useStatsStore } from "../store/useStatsStore"
 import { confirmUnitMastery } from "../store/actions"
@@ -749,6 +749,7 @@ export function UnitPage() {
     const { langId = "", unitId = "" } = useParams()
     const [searchParams, setSearchParams] = useSearchParams()
     const navigate = useNavigate()
+    const debugUnlock = useDebugUnlock()
 
     const language = getLanguage(langId)
     const mod = getModule(langId)
@@ -828,7 +829,7 @@ export function UnitPage() {
     const isMastered = mastered.includes(unit.id)
     const levelUnits = units.filter(u => u.level === unit.level).sort((a, b) => a.order - b.order)
     const goalSortedUnits = getUnitsForGoal(langId, unit.level, getGoal())
-    const isLocked = !DEBUG && !isUnitUnlocked(unit.id, goalSortedUnits, mastered, completedCheckpoints)
+    const isLocked = !debugUnlock && !isUnitUnlocked(unit.id, goalSortedUnits, mastered, completedCheckpoints)
     const totalUnits = levelUnits.length
     const isLastUnit = unit.order === totalUnits
     const nextUnit = levelUnits.find(u => u.order === unit.order + 1) ?? null
