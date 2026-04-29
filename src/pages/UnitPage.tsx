@@ -19,7 +19,8 @@ import { GrammarLesson, LessonUnit, VocabItem, Verb, CEFRLevel, CultureEpisode, 
 import { getUI, fmt, UIStrings } from "../i18n"
 import { resolvePrimary } from "../utils/localizedText"
 import { getGrammarExerciseType, getExerciseLabel, getVocabUnlockThreshold, isVocabExerciseUnlocked } from "../domain/reinforcementMapping"
-import { getPhraseLessonsForUnit } from "../data/repo"
+import { getPhraseLessonsForUnit, getUnitsForGoal } from "../data/repo"
+import { getGoal } from "../store/preferences"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "../components/ui/tabs"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion"
 
@@ -826,7 +827,8 @@ export function UnitPage() {
 
     const isMastered = mastered.includes(unit.id)
     const levelUnits = units.filter(u => u.level === unit.level).sort((a, b) => a.order - b.order)
-    const isLocked = !DEBUG && !isUnitUnlocked(unit.id, levelUnits, mastered, completedCheckpoints)
+    const goalSortedUnits = getUnitsForGoal(langId, unit.level, getGoal())
+    const isLocked = !DEBUG && !isUnitUnlocked(unit.id, goalSortedUnits, mastered, completedCheckpoints)
     const totalUnits = levelUnits.length
     const isLastUnit = unit.order === totalUnits
     const nextUnit = levelUnits.find(u => u.order === unit.order + 1) ?? null
