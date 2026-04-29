@@ -9,7 +9,13 @@ const pkg = (name: string) =>
 
 const appVersion = JSON.parse(readFileSync("./package.json", "utf-8")).version as string
 
-export default defineConfig({
+export default defineConfig(({ mode }) => {
+    // Fail the production build if VITE_DEBUG is accidentally left enabled.
+    if (mode === "production" && process.env.VITE_DEBUG === "true") {
+        throw new Error("VITE_DEBUG=true is not allowed in production builds. Check your .env files.")
+    }
+
+    return {
     define: {
         __APP_VERSION__: JSON.stringify(appVersion),
     },
@@ -52,4 +58,4 @@ export default defineConfig({
             "@myorg/srs":         pkg("srs"),
         }
     }
-})
+}})

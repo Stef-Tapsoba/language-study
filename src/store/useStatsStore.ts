@@ -8,6 +8,7 @@
 // is established (done inside ProgressContext.initUserSession).
 
 import { create } from "zustand"
+import { logError } from "../utils/logger"
 import { registry } from "./registry"
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -75,7 +76,7 @@ export const useStatsStore = create<StatsState>()((set, get) => ({  // 'get' use
                 qCorrect: (e?.qCorrect ?? 0) + (correct ? 1 : 0),
             } } } }
         })
-        registry.stats.recordReview(langId, date, correct).catch(console.error)
+        registry.stats.recordReview(langId, date, correct).catch(err => logError("useStatsStore", err))
     },
 
     recordQuizAnswer(langId, correct) {
@@ -91,7 +92,7 @@ export const useStatsStore = create<StatsState>()((set, get) => ({  // 'get' use
                 qCorrect: (e?.qCorrect ?? 0) + (correct ? 1 : 0),
             } } } }
         })
-        registry.stats.recordQuizAnswer(langId, date, correct).catch(console.error)
+        registry.stats.recordQuizAnswer(langId, date, correct).catch(err => logError("useStatsStore", err))
     },
 
     recordActivity(langId) {
@@ -107,7 +108,7 @@ export const useStatsStore = create<StatsState>()((set, get) => ({  // 'get' use
                 qCorrect: e?.qCorrect ?? 0,
             } } } }
         })
-        registry.stats.recordActivity(langId, date).catch(console.error)
+        registry.stats.recordActivity(langId, date).catch(err => logError("useStatsStore", err))
     },
 
     resetStats(langId) {
@@ -116,7 +117,7 @@ export const useStatsStore = create<StatsState>()((set, get) => ({  // 'get' use
             delete next[langId]
             return { data: next }
         })
-        registry.stats.resetLanguage(langId).catch(console.error)
+        registry.stats.resetLanguage(langId).catch(err => logError("useStatsStore", err))
     },
 
     async resetAllStats() {

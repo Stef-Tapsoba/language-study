@@ -20,6 +20,7 @@ import { getUI, fmt, UIStrings } from "../i18n"
 import { resolvePrimary } from "../utils/localizedText"
 import { getGrammarExerciseType, getExerciseLabel, getVocabUnlockThreshold, isVocabExerciseUnlocked } from "../domain/reinforcementMapping"
 import { getPhraseLessonsForUnit, getUnitsForGoal } from "../data/repo"
+import { logError } from "../utils/logger"
 import { getGoal } from "../store/preferences"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "../components/ui/tabs"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion"
@@ -606,7 +607,7 @@ function TestOutTab({ unit, langId, isMastered, nextUnit, isLastUnit, ui, conten
     }
 
     function handleComplete() {
-        confirmUnitMastery(langId, unit.id).catch(console.error)
+        confirmUnitMastery(langId, unit.id).catch(err => logError("UnitPage.confirmMastery", err))
         onMastered()
         setDidComplete(true)
     }

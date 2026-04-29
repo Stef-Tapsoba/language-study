@@ -2,6 +2,7 @@
 import { useState, useEffect, lazy, Suspense } from "react"
 import { BrowserRouter, Routes, Route, Navigate, Outlet, useParams } from "react-router-dom"
 import { AuthProvider } from "./auth/AuthContext"
+import { ErrorBoundary } from "./components/ErrorBoundary"
 import { ExerciseShell } from "./components/ExerciseShell"
 import { DebugBadge } from "./components/DebugBadge"
 import { TooltipProvider } from "./components/ui/tooltip"
@@ -87,6 +88,7 @@ function LanguageLoader() {
 
 export default function App() {
     return (
+        <ErrorBoundary>
         <AuthProvider>
             <TooltipProvider>
             <ProgressProvider>
@@ -159,5 +161,6 @@ export default function App() {
             </ProgressProvider>
             </TooltipProvider>
         </AuthProvider>
+        </ErrorBoundary>
     )
 }

@@ -134,7 +134,9 @@ export class SupabaseStatsStorage implements IStatsStorage {
             p_q_correct: delta.q_correct,
         }).then(({ error }) => {
             if (error) {
-                // Fallback: client-side read-modify-write (less ideal but functional)
+                // Fallback: client-side read-modify-write — vulnerable to lost-update
+                // race if multiple tabs are open. Deploy the increment_daily_stat RPC
+                // (see DATABASE_SCHEMA.sql) to eliminate this fallback in production.
                 logError("SupabaseStatsStorage.upsertDelta (RPC missing — run DATABASE_SCHEMA.sql)", error)
                 this.fallbackUpsert(langId, date, delta)
             }

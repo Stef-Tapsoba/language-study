@@ -8,6 +8,7 @@ import { LANGUAGES } from "../data/languages"
 import { loadModule } from "../data/modules"
 import { useProgress } from "../context/ProgressContext"
 import { resetLanguageData, removeLanguageData, exportProgressSnapshot, importProgressSnapshot } from "../store/actions"
+import { logError } from "../utils/logger"
 import { useGlobalStreak } from "../hooks/useGlobalStreak"
 import { StreakChip } from "../components/StreakChip"
 import { Flag } from "../components/Flag"
@@ -27,13 +28,13 @@ function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: (
     if (!lang) return null
 
     function handleReset() {
-        resetLanguageData(langId).catch(console.error)
+        resetLanguageData(langId).catch(err => logError("ProfilePage.resetLanguage", err))
         setManageOpen(false)
         onChanged()
     }
 
     function handleRemove() {
-        removeLanguageData(langId).catch(console.error)
+        removeLanguageData(langId).catch(err => logError("ProfilePage.removeLanguage", err))
         onChanged()
     }
 
@@ -330,7 +331,7 @@ export function ProfilePage() {
                         </Alert>
                         {/* Export button */}
                         <button
-                            onClick={() => exportProgress().catch(console.error)}
+                            onClick={() => exportProgress().catch(err => logError("ProfilePage.exportProgress", err))}
                             className="w-full flex items-center justify-between px-5 py-4 text-sm
                                        text-text-sec hover:bg-surface-elevated transition-colors border-b border-border-subtle"
                         >

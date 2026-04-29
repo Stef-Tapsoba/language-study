@@ -1,4 +1,4 @@
-// data/unitTags.ts — Topic tag assignments for all A1 + A2 units (all 5 languages).
+// data/unitTags.ts — Topic tag assignments for all A1 + A2 + B1 + B2 units (all active languages).
 //
 // Keeping tags in a separate lookup avoids cluttering the unit data files and
 // makes it easy to add/revise tags without touching content.
@@ -268,6 +268,11 @@ export const UNIT_TAGS: Record<string, TopicTag[]> = {
     "fr-b1-u10": ["social", "work"],
     "fr-b1-u11": ["culture", "work"],
     "fr-b1-u12": ["work", "culture"],
+    "fr-b1-u13": ["social", "work"],
+    "fr-b1-u14": ["social", "work"],
+    "fr-b1-u15": ["social", "work"],
+    "fr-b1-u16": ["social", "culture"],
+    "fr-b1-u17": ["culture", "social"],
 
     // ── Spanish B1 ─────────────────────────────────────────────────────────────
     "es-b1-u1":  ["social", "culture"],
@@ -281,6 +286,12 @@ export const UNIT_TAGS: Record<string, TopicTag[]> = {
     "es-b1-u9":  ["social", "culture"],
     "es-b1-u10": ["work", "social"],
     "es-b1-u11": ["work", "culture"],
+    "es-b1-u12": ["work", "social"],
+    "es-b1-u13": ["social", "work"],
+    "es-b1-u14": ["social", "work"],
+    "es-b1-u15": ["social", "work"],
+    "es-b1-u16": ["social", "culture"],
+    "es-b1-u17": ["culture", "social"],
 
     // ── Italian B1 ─────────────────────────────────────────────────────────────
     "it-b1-u1":  ["social", "culture"],
@@ -294,6 +305,12 @@ export const UNIT_TAGS: Record<string, TopicTag[]> = {
     "it-b1-u9":  ["culture", "social"],
     "it-b1-u10": ["social", "work"],
     "it-b1-u11": ["work", "culture"],
+    "it-b1-u12": ["social", "work"],
+    "it-b1-u13": ["social", "work"],
+    "it-b1-u14": ["social", "work"],
+    "it-b1-u15": ["social", "work"],
+    "it-b1-u16": ["social", "culture"],
+    "it-b1-u17": ["culture", "social"],
 
     // ── Korean B1 ──────────────────────────────────────────────────────────────
     "ko-b1-u1":  ["social", "work"],
@@ -308,6 +325,13 @@ export const UNIT_TAGS: Record<string, TopicTag[]> = {
     "ko-b1-u10": ["social", "identity"],
     "ko-b1-u11": ["work", "social"],
     "ko-b1-u12": ["work", "culture"],
+    "ko-b1-u13": ["work", "social"],
+    "ko-b1-u14": ["social", "work"],
+    "ko-b1-u15": ["work", "social"],
+    "ko-b1-u16": ["social", "culture"],
+    "ko-b1-u17": ["social", "culture"],
+    "ko-b1-u18": ["culture", "social"],
+    "ko-b1-u19": ["culture", "social"],
 
     // ── French B2 ──────────────────────────────────────────────────────────────
     "fr-b2-u1":  ["social", "culture"],
