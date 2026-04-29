@@ -710,7 +710,7 @@ export const b1Units: LessonUnit[] = [
         order: 17,
         title: "L'italiano vivo — gergo, espressioni e accenti regionali",
         description: "Understand colloquial Italian, use idioms and discourse particles naturally (boh, dai, mica, eppure), and recognise regional variety: Roma, Napoli, Milano, Sicilia. This is where Italian stops being a school subject and becomes a living language.",
-        grammarIds: [],
+        grammarIds: ["it-g-b1-16"],
         vocabIds: ["it-v-b1-081", "it-v-b1-082", "it-v-b1-083", "it-v-b1-084", "it-v-b1-085"],
         verbIds: [],
         checkpointId: "it-cp-b1-6",

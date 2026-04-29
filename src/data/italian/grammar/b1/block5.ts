@@ -218,4 +218,108 @@ NOTA: cioè è il connettore di chiarimento più frequente nell'italiano parlato
             { word: "non si tratta di... ma di", translation: "it's not about... but about" },
         ],
     },
+
+    // ── it-g-b1-16 — L'italiano vivo: gergo, intercalari e varietà regionali ─
+    {
+        id: "it-g-b1-16",
+        level: "B1",
+        title: "L'Italiano Vivo — Gergo, Intercalari e Varietà Regionali",
+        explanation: {
+            target: `Il B1 ti dà la grammatica. Questa unità ti dà l'italiano reale — quello che senti nei film, nella musica e nelle conversazioni quotidiane.
+
+**Gergo comune:**
+*figata / figo/a* (cosa/persona fantastica) | *sbattimento* (fatica/seccatura) | *boh* (non lo so) | *mah* (chi sa/vabbè) | *meno male* (per fortuna) | *dai* (su, andiamo) | *mica* (per niente) | *roba* (cose) | *mito* (persona leggendaria)
+
+**Intercalari (fillers):**
+*cioè* (chiarimento — "I mean") | *tipo* (approssimazione — "like") | *beh* (transizione — "well") | *praticamente* (sintesi — "basically") | *insomma* (riassunto — "well / so") | *ecco* (conferma — "exactly") | *magari* (forse/speriamo — "maybe / if only")
+
+**Grammatica B1 nel parlato — rimane intatta, si comprime:**
+*Non penso che venga.* → identico nel parlato | *Se avessi saputo...* → identico | *Glielo ho detto.* → identico
+L'italiano colloquiale non è grammatica sbagliata — è grammatica compressa. Cambia il ritmo, non la struttura.
+
+**Varietà regionali (consapevolezza ricettiva):**
+Nord (Milano/Torino/Venezia): accento piatto, ritmo rapido, influenze germaniche | Roma/centro: Romanesco — *aò!, ammazza!, 'na cifra, famo* | Sud/Napoli: accento melodico, *jammo!, uagliò* | Sicilia: influenze arabe e spagnole nel vocabolario`,
+            native: `B1 gives you the grammar. This unit gives you real Italian — what you hear in films, music, and everyday conversations.
+
+**Everyday slang:**
+*figata / figo/a* (awesome thing / cool person) | *sbattimento* (hassle) | *boh* (dunno) | *mah* (who knows / whatever) | *meno male* (thank goodness) | *dai* (come on) | *mica* (not at all) | *roba* (stuff) | *mito* (legend / cool person)
+
+**Intercalari (fillers):**
+*cioè* (clarification — "I mean") | *tipo* (approximation — "like") | *beh* (transition — "well") | *praticamente* (summary — "basically") | *insomma* (hedge — "well / so / all in all") | *ecco* (confirmation — "exactly") | *magari* (possibility — "maybe / if only")
+
+**B1 grammar in spoken Italian — intact, compressed:**
+*Non penso che venga.* → identical in speech | *Se avessi saputo...* → identical | *Glielo ho detto.* → identical
+Colloquial Italian is not broken grammar — it is compressed grammar. The rhythm changes, not the structure.
+
+**Regional varieties (receptive awareness):**
+North (Milan/Turin/Venice): flat accent, faster pace, Germanic loanwords | Rome/centre: Romanesco — aò!, ammazza!, 'na cifra, famo | South/Naples: melodic accent, jammo!, uagliò | Sicily: Arabic and Spanish influence on vocabulary`,
+        },
+        rules: [
+            {
+                condition: "Intercalari — discourse fillers in natural speech",
+                result: "Place at the start or mid-sentence; mark thinking, clarification, or emphasis",
+                examples: [
+                    { native: "Cioè, non intendevo offenderti.", translation: "I mean, I didn't mean to offend you." },
+                    { native: "Era tipo le tre di notte.", translation: "It was like three in the morning." },
+                    { native: "Praticamente non avevo capito niente.", translation: "Basically I hadn't understood anything." },
+                    { native: "Beh, dipende dalla situazione.", translation: "Well, it depends on the situation." },
+                    { native: "Ecco, questo è esattamente il problema.", translation: "Exactly, that's precisely the problem." },
+                ],
+            },
+            {
+                condition: "Key idioms — fare figura and essential fixed expressions",
+                result: "Non-literal meanings — receptive comprehension and active production both valuable",
+                examples: [
+                    { native: "Ho fatto una brutta figura davanti a tutti.", translation: "I made a bad impression in front of everyone." },
+                    { native: "Costa un occhio della testa.", translation: "It costs a fortune." },
+                    { native: "Non mi va di uscire stasera.", translation: "I don't feel like going out tonight." },
+                    { native: "Abbiamo preso due piccioni con una fava.", translation: "We killed two birds with one stone." },
+                    { native: "In bocca al lupo! — Crepi!", translation: "Good luck! — Thanks! (lit. may the wolf die!)" },
+                ],
+            },
+        ],
+        notes: [
+            {
+                type: "culture",
+                content: "Italy achieved political unification only in 1861 — and linguistic unification has never been complete. Regional languages and dialects (Neapolitan, Sicilian, Venetian, Sardinian) are still spoken by millions. A learner who can navigate both the formal congiuntivo and the Roman ammazza! has truly arrived at B1. The richness of Italian comes from this extraordinary plurality.",
+            },
+            {
+                type: "tip",
+                content: "Fare una figura is one of the most culturally loaded Italian expressions. Bella figura (making a good impression) is a core cultural value — in dress, speech, hospitality, and professional conduct. Brutta figura is socially dreaded. Use this idiom freely — Italians will immediately know you understand something deep about the culture.",
+            },
+            {
+                type: "warning",
+                content: "Register: gergo and slang are informal. Avoid in professional or formal contexts. Intercalari like cioè, beh, and praticamente are less marked — you'll hear them even in media and educated conversation.",
+            },
+        ],
+        examples: [
+            { native: "Beh, praticamente stavo tipo aspettando da ore, cioè, non avevo capito l'orario.", translation: "Well, basically I was like waiting for hours, I mean, I hadn't understood the time." },
+            { native: "È una figata! Andiamo assolutamente.", translation: "It's awesome! We're absolutely going." },
+            { native: "Non mi va proprio. Che sbattimento.", translation: "I really don't feel like it. What a hassle." },
+            {
+                type: "dialogue",
+                exchanges: [
+                    { native: "Allora, com'è andata? Pensavo fossi sparito/a!", translation: "So, how did it go? I thought you'd vanished!" },
+                    { native: "Beh, praticamente stavo tipo aspettando da ore, cioè, non avevo capito l'orario. Boh, dai, alla fine è andata bene — è stata una figata, insomma. Meno male!", translation: "Well, basically I was like waiting for hours, I mean, I hadn't understood the time. Dunno, come on, in the end it was fine — it was awesome, all in all. Thank goodness!" },
+                ],
+            },
+        ],
+        inlineVocab: [
+            { word: "figata / figo/a", translation: "something awesome / a cool person (slang)" },
+            { word: "sbattimento", translation: "hassle / effort (slang)" },
+            { word: "boh", translation: "dunno (hesitation marker)" },
+            { word: "meno male", translation: "thank goodness / luckily" },
+            { word: "dai", translation: "come on / okay (encouragement)" },
+            { word: "cioè", translation: "I mean / like (clarification filler)" },
+            { word: "tipo", translation: "like / kind of (approximation filler, informal)" },
+            { word: "praticamente", translation: "basically / pretty much (summary filler)" },
+            { word: "insomma", translation: "well / so / all in all (hedging filler)" },
+            { word: "beh", translation: "well (transition filler)" },
+            { word: "fare una figura (bella/brutta)", translation: "to make a (good/bad) impression" },
+            { word: "costare un occhio della testa", translation: "to cost a fortune" },
+            { word: "non mi va", translation: "I don't feel like it" },
+            { word: "in bocca al lupo / crepi", translation: "good luck / thanks (fixed pair)" },
+            { word: "prendere due piccioni con una fava", translation: "to kill two birds with one stone" },
+        ],
+    },
 ]
