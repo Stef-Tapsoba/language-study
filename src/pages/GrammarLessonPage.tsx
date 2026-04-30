@@ -205,17 +205,15 @@ export function GrammarLessonPage() {
                         <h2 className="text-xs font-semibold uppercase tracking-wide text-text-ter mb-3">Rules</h2>
                         <div className="flex flex-col gap-3">
                             {lesson.rules.map((rule) => (
-                                <div key={rule.condition} className="bg-surface-elevated rounded-xl p-4">
-                                    <div className="flex items-baseline gap-2 mb-2">
-                                        <span className="text-sm text-text-sec flex-1">{rule.condition}</span>
-                                        <span className="text-sm font-bold text-grammar shrink-0">{rule.result}</span>
-                                    </div>
+                                <div key={rule.condition} className="bg-surface-elevated rounded-xl p-4 border-l-4 border-l-grammar-border">
+                                    <p className="text-xs font-medium text-text-ter mb-1">{rule.condition}</p>
+                                    <p className="text-sm font-bold text-grammar mb-2.5">{rule.result}</p>
                                     {rule.heuristic && (
                                         <p className="text-xs font-mono text-text-sec bg-surface-app rounded-lg px-3 py-1.5 mb-2">{rule.heuristic}</p>
                                     )}
                                     <div className="flex flex-wrap gap-1.5">
                                         {rule.examples.map((ex) => (
-                                            <span key={ex.native} className="text-xs bg-grammar-surface text-grammar px-2 py-1 rounded-lg font-medium">{ex.native}</span>
+                                            <span key={ex.native} className="text-xs bg-grammar-surface text-grammar px-2 py-1 rounded-lg">{ex.native}</span>
                                         ))}
                                     </div>
                                 </div>
