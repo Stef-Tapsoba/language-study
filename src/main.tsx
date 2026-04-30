@@ -17,6 +17,7 @@ async function bootstrap() {
             { SupabaseProgressStorage },
             { SupabaseSRSStorage },
             { SupabaseStatsStorage },
+            { SupabasePreferencesStorage },
             { supabaseAuthApi },
             { AuthService },
             { LocalStorageAdapter },
@@ -27,6 +28,7 @@ async function bootstrap() {
             import("./store/SupabaseProgressStorage"),
             import("./store/SupabaseSRSStorage"),
             import("./store/SupabaseStatsStorage"),
+            import("./store/SupabasePreferencesStorage"),
             import("./auth/supabaseAuthApi"),
             import("@myorg/auth-core"),
             import("@myorg/storage"),
@@ -34,12 +36,13 @@ async function bootstrap() {
             import("./store/registry"),
         ])
 
-        const progressStorage = new SupabaseProgressStorage(supabase)
-        const srsStorage      = new SupabaseSRSStorage(supabase)
-        const statsStorage    = new SupabaseStatsStorage(supabase)
+        const progressStorage    = new SupabaseProgressStorage(supabase)
+        const srsStorage         = new SupabaseSRSStorage(supabase)
+        const statsStorage       = new SupabaseStatsStorage(supabase)
+        const preferencesStorage = new SupabasePreferencesStorage(supabase)
 
         // Wire the adapters into the registry
-        registry.configure({ progress: progressStorage, srs: srsStorage, stats: statsStorage })
+        registry.configure({ progress: progressStorage, srs: srsStorage, stats: statsStorage, preferences: preferencesStorage })
 
         // Wire Supabase auth
         authRegistry.configure(new AuthService(supabaseAuthApi, new LocalStorageAdapter("ls")))
@@ -52,7 +55,11 @@ async function bootstrap() {
             statsStorage.setUserId(uid)
             // Hydrate SRS eagerly so cards are ready before ProgressContext boots.
             // Stats hydration seeds the Zustand store — handled by ProgressContext.initUserSession.
-            await srsStorage.hydrate()
+            // Preferences hydrate in parallel — they're needed before any page renders.
+            await Promise.all([
+                srsStorage.hydrate(),
+                preferencesStorage.initSession(uid),
+            ])
         }
 
         // Keep adapter userIds current on auth state changes.
@@ -72,6 +79,9 @@ async function bootstrap() {
                 if (event === "SIGNED_IN" || event === "INITIAL_SESSION") {
                     srsStorage.hydrate().catch(err =>
                         console.error("[bootstrap] srsStorage.hydrate failed", err)
+                    )
+                    preferencesStorage.initSession(uid).catch(err =>
+                        console.error("[bootstrap] preferencesStorage.initSession failed", err)
                     )
                 }
             }

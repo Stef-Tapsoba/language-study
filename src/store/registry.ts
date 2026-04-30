@@ -16,28 +16,33 @@
 import type { IProgressStorage } from "./IProgressStorage"
 import type { ISRSStorage } from "./ISRSStorage"
 import type { IStatsStorage } from "./IStatsStorage"
+import type { IPreferencesStorage } from "./IPreferencesStorage"
 import { LocalStorageProgressStorage } from "./LocalStorageProgressStorage"
 import { LocalStorageSRSStorage } from "./LocalStorageSRSStorage"
 import { LocalStorageStatsStorage } from "./LocalStorageStatsStorage"
+import { LocalStoragePreferencesStorage } from "./LocalStoragePreferencesStorage"
 
 interface StorageAdapters {
-    progress: IProgressStorage
-    srs: ISRSStorage
-    stats: IStatsStorage
+    progress:    IProgressStorage
+    srs:         ISRSStorage
+    stats:       IStatsStorage
+    preferences: IPreferencesStorage
 }
 
 let _adapters: StorageAdapters = {
-    progress: new LocalStorageProgressStorage(),
-    srs:      new LocalStorageSRSStorage(),
-    stats:    new LocalStorageStatsStorage(),
+    progress:    new LocalStorageProgressStorage(),
+    srs:         new LocalStorageSRSStorage(),
+    stats:       new LocalStorageStatsStorage(),
+    preferences: new LocalStoragePreferencesStorage(),
 }
 
 let _configured = false
 
 export const registry = {
-    get progress(): IProgressStorage { return _adapters.progress },
-    get srs():      ISRSStorage      { return _adapters.srs },
-    get stats():    IStatsStorage    { return _adapters.stats },
+    get progress():    IProgressStorage    { return _adapters.progress },
+    get srs():         ISRSStorage         { return _adapters.srs },
+    get stats():       IStatsStorage       { return _adapters.stats },
+    get preferences(): IPreferencesStorage { return _adapters.preferences },
 
     /** Replace one or more storage adapters. Call once during app bootstrap. */
     configure(adapters: Partial<StorageAdapters>): void {
@@ -58,9 +63,10 @@ export const registry = {
     _resetForTests(): void {
         if (import.meta.env.PROD) throw new Error("[registry] _resetForTests() must not be called in production")
         _adapters = {
-            progress: new LocalStorageProgressStorage(),
-            srs:      new LocalStorageSRSStorage(),
-            stats:    new LocalStorageStatsStorage(),
+            progress:    new LocalStorageProgressStorage(),
+            srs:         new LocalStorageSRSStorage(),
+            stats:       new LocalStorageStatsStorage(),
+            preferences: new LocalStoragePreferencesStorage(),
         }
         _configured = false
     },
