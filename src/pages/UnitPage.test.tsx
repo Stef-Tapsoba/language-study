@@ -61,16 +61,16 @@ vi.mock("../store/useStatsStore", () => {
 vi.mock("../hooks/useGlobalStreak", () => ({ useGlobalStreak: () => 0 }))
 
 // ---------------------------------------------------------------------------
-// Mock store/progress getReinforcementState — return empty reinforcement
+// Mock registry — getReinforcementState is now read via registry.progress
 // ---------------------------------------------------------------------------
 
-vi.mock("../store/progress", async (importOriginal) => {
-    const real = await importOriginal<typeof import("../store/progress")>()
-    return {
-        ...real,
-        getReinforcementState: () => ({ grammarLessonIds: [] }),
-    }
-})
+vi.mock("../store/registry", () => ({
+    registry: {
+        progress: {
+            getReinforcementState: () => ({ grammarLessonIds: [] }),
+        },
+    },
+}))
 
 // ---------------------------------------------------------------------------
 // Mock debugSession — no debug unlock by default

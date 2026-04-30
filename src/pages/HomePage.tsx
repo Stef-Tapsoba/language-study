@@ -16,7 +16,7 @@ import { VISIBLE_LANGUAGES, getLanguage } from "../data/languages"
 import { getModule, loadModule } from "../data/modules"
 import { getUnitsForGoal } from "../data/repo"
 import { getGoal } from "../store/preferences"
-import { getReinforcementState } from "../store/progress"
+import { registry } from "../store/registry"
 import { useProgress } from "../context/ProgressContext"
 import { useStatsStore, getTotalReviews } from "../store/useStatsStore"
 import { isUnitUnlocked } from "../domain/unitUnlock"
@@ -122,7 +122,7 @@ interface UnitCardProps {
 }
 
 function CurrentUnitCard({ unit, langId, level, completed, mastered }: Readonly<UnitCardProps>) {
-    const reinforcement = getReinforcementState(langId, unit.id)
+    const reinforcement = registry.progress.getReinforcementState(langId, unit.id)
     const phases = computeUnitPhases(unit, completed, reinforcement, mastered)
     const activePhase = phases.find(p => p.status === "active")
     let ctaLabel: string
