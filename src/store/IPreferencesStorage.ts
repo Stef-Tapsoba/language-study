@@ -9,15 +9,11 @@
 // LocalStoragePreferencesStorage returns Promise.resolve() immediately after each
 // synchronous write — Stage 1 callers see no observable delay.
 //
-// Supabase table (run once in DATABASE_SCHEMA.sql):
-//   create table user_preferences (
-//     user_id            uuid primary key references auth.users(id) on delete cascade,
-//     tts_autoplay       boolean  not null default true,
-//     onboarded_languages text[]  not null default '{}'
-//   );
-//   alter table user_preferences enable row level security;
-//   create policy "users manage own preferences" on user_preferences
-//     for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
+// Supabase table: user_preferences (already in initial migration)
+//   user_id     UUID PRIMARY KEY
+//   preferences JSONB  { tts_autoplay: boolean, onboarded_languages: string[], theme: string }
+//   updated_at  TIMESTAMPTZ
+// RLS policy: owner-all (auth.uid() = user_id)
 
 export interface IPreferencesStorage {
     // ── Synchronous reads (write-through cache) ──────────────────────────────

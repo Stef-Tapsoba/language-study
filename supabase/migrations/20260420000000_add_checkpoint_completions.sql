@@ -1,9 +1,10 @@
 -- ============================================================
 -- Add checkpoint_completions table (F-01 / F-09)
 -- Tracks which speaking checkpoints a user has passed per language.
+-- Idempotent: CREATE TABLE IF NOT EXISTS, policy wrapped in DO block.
 -- ============================================================
 
-CREATE TABLE public.checkpoint_completions (
+CREATE TABLE IF NOT EXISTS public.checkpoint_completions (
     id            BIGSERIAL   PRIMARY KEY,
     user_id       UUID        NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
     lang_id       lang_id     NOT NULL,
@@ -14,12 +15,15 @@ CREATE TABLE public.checkpoint_completions (
 
 ALTER TABLE public.checkpoint_completions ENABLE ROW LEVEL SECURITY;
 
-CREATE POLICY "checkpoint_completions: owner all"
-    ON public.checkpoint_completions FOR ALL
-    USING  (auth.uid() = user_id)
-    WITH CHECK (auth.uid() = user_id);
+DO $$ BEGIN
+    CREATE POLICY "checkpoint_completions: owner all"
+        ON public.checkpoint_completions FOR ALL
+        USING  (auth.uid() = user_id)
+        WITH CHECK (auth.uid() = user_id);
+EXCEPTION WHEN duplicate_object THEN NULL;
+END $$;
 
-CREATE INDEX idx_cc_user_lang
+CREATE INDEX IF NOT EXISTS idx_cc_user_lang
     ON public.checkpoint_completions (user_id, lang_id);
 
 -- ============================================================
@@ -29,9 +33,6 @@ CREATE INDEX idx_cc_user_lang
 CREATE OR REPLACE FUNCTION public.reset_language_data(p_user_id UUID, p_lang_id TEXT)
 RETURNS VOID LANGUAGE plpgsql SECURITY DEFINER SET search_path = public AS $$
 BEGIN
-    -- auth.uid() returns NULL in server-side contexts; NULL != x evaluates to NULL (not TRUE),
-    -- so the guard only rejects callers with a JWT that belongs to a different user.
-    -- Server-side admin callers (NULL uid) are intentionally permitted.
     IF auth.uid() IS NOT NULL AND auth.uid() != p_user_id THEN
         RAISE EXCEPTION 'Forbidden';
     END IF;
