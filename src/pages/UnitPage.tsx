@@ -8,7 +8,7 @@ import { useDebugUnlock } from "../auth/debugSession"
 import { useProgress } from "../context/ProgressContext"
 import { useStatsStore } from "../store/useStatsStore"
 import { confirmUnitMastery } from "../store/actions"
-import { getReinforcementState } from "../store/progress"
+import { registry } from "../store/registry"
 import { NavBar } from "../components/NavBar"
 import { MarkCompleteButton } from "../components/MarkCompleteButton"
 import { Button } from "../components/ui/button"
@@ -765,7 +765,7 @@ export function UnitPage() {
     const unit = units.find(u => u.id === unitId)
 
     // Reinforcement state — read from write-through cache; fresh on every remount (navigation back from exercise)
-    const reinforcement = unit ? getReinforcementState(langId, unitId) : { grammarLessonIds: [] }
+    const reinforcement = unit ? registry.progress.getReinforcementState(langId, unitId) : { grammarLessonIds: [] }
 
     const phraseLessons = useMemo(() => getPhraseLessonsForUnit(langId, unitId), [langId, unitId])
     const grammar = useMemo(() => mod?.grammar.filter(g => unit?.grammarIds.includes(g.id)) ?? [], [mod, unit])
