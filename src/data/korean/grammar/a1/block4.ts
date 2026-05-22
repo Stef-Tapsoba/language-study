@@ -33,7 +33,10 @@ export const block4Lessons: GrammarLesson[] = [
             { native: "도서관에 가요. 도서관에서 책을 읽어요.", romanized: "Doseogwane gayo. Doseogwaneseo chaegeul ilgeoyo.", translation: "I go to the library. I read books at the library.", annotation: "에 = destination; 에서 = action location"},
             { native: "집에 있어요. 집에서 요리해요.", romanized: "Jibe isseoyo. Jibeseo yorihaeyo.", translation: "I'm at home. I cook at home.", annotation: "에 = existence; 에서 = action location"},
             { native: "카페에 가요. 카페에서 친구를 만나요.", romanized: "Kapee gayo. Kapeeseo chingureul mannayo.", translation: "I go to the café. I meet a friend at the café." },
-            { native: "어디에서 왔어요? — 영국에서 왔어요.", romanized: "Eodieseo wasseoyo? — Yeonggugeso wasseoyo.", translation: "Where did you come from? — I came from the UK.", annotation: "에서 = from"},
+            { type: "dialogue", exchanges: [
+                { native: "어디에서 왔어요?", romanized: "Eodieseo wasseoyo?", translation: "Where did you come from?" },
+                { native: "영국에서 왔어요.", romanized: "Yeonggugeso wasseoyo.", translation: "I came from the UK.", annotation: "에서 = from"},
+            ]},
             { native: "회사에서 점심을 먹어요.", romanized: "Hwisaeseo jeomsimeul meogeoyo.", translation: "I eat lunch at the office.", annotation: "에서 = where the eating happens"},
             { native: "저는 서울에 살아요. 홍대에서 일해요.", romanized: "Jeoneun seoure sarayo. Hongdaeseo ilhaeyo.", translation: "I live in Seoul. I work in Hongdae." },
         ],

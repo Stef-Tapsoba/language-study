@@ -36,9 +36,18 @@ export const block2Lessons: GrammarLesson[] = [
         examples: [
             { native: "저는 부모님이랑 남동생이 있어요.", romanized: "Jeoneun bumonnimirang namdongsaengi isseoyo.", translation: "I have my parents and a younger brother.", annotation: "이랑 = and/with — casual connector"},
             { native: "저는 언니가 있어요. 오빠는 없어요.", romanized: "Jeoneun eonniga isseoyo. Oppaneun eopseoyo.", translation: "I have an older sister (female speaking). I don't have an older brother." },
-            { native: "가족이 어떻게 돼요? — 저는 가족이 네 명이에요.", romanized: "Gagogi eotteoke dwaeyo? — Jeoneun gagogi ne myeongieyo.", translation: "What's your family like? — My family has four people." },
-            { native: "형제가 있어요? — 네, 여동생이 한 명 있어요.", romanized: "Hyeongjega isseoyo? — Ne, yeodongsaengi han myeong isseoyo.", translation: "Do you have siblings? — Yes, I have one younger sister." },
-            { native: "막내예요? — 네, 저는 막내예요!", romanized: "Maknaeyeyo? — Ne, jeoneun maknaeyeyo!", translation: "Are you the youngest? — Yes, I'm the youngest!" },
+            { type: "dialogue", exchanges: [
+                { native: "가족이 어떻게 돼요?", romanized: "Gajogi eotteoke dwaeyo?", translation: "What's your family like?" },
+                { native: "저는 가족이 네 명이에요.", romanized: "Jeoneun gajogi ne myeongieyo.", translation: "My family has four people." },
+            ]},
+            { type: "dialogue", exchanges: [
+                { native: "형제가 있어요?", romanized: "Hyeongjega isseoyo?", translation: "Do you have siblings?" },
+                { native: "네, 여동생이 한 명 있어요.", romanized: "Ne, yeodongsaengi han myeong isseoyo.", translation: "Yes, I have one younger sister." },
+            ]},
+            { type: "dialogue", exchanges: [
+                { native: "막내예요?", romanized: "Maknaeyeyo?", translation: "Are you the youngest?" },
+                { native: "네, 저는 막내예요!", romanized: "Ne, jeoneun maknaeyeyo!", translation: "Yes, I'm the youngest!" },
+            ]},
         ],
         inlineVocab: [
             { word: "저는 남동생이 있어요", romanized: "Jeoneun namdongsaengi isseoyo", translation: "I have a younger brother." },
@@ -70,8 +79,14 @@ export const block2Lessons: GrammarLesson[] = [
         examples: [
             { native: "제 어머니는 선생님이에요. 정말 멋있어요!", romanized: "Je eomeonineun seonsaengnimieyo. Jeongmal meositsseoyo!", translation: "My mother is a teacher. She's really cool!" },
             { native: "아버지는 의사예요. 병원에서 일해요.", romanized: "Abeojineun uisayeyo. Byeongoneseo ilhaeyo.", translation: "My father is a doctor. He works at a hospital." },
-            { native: "동생이 몇 살이에요? — 스물두 살이에요.", romanized: "Dongsaengi myeot sarieyo? — Seumudu sarieyo.", translation: "How old is your sibling? — They're 22." },
-            { native: "언니는 뭐 해요? — 언니는 디자이너예요.", romanized: "Eonnineun mwo haeyo? — Eonnineun dijaineoeyeo.", translation: "What does your older sister do? — My older sister is a designer." },
+            { type: "dialogue", exchanges: [
+                { native: "동생이 몇 살이에요? ", romanized: "Dongsaengi myeot sarieyo?", translation: "How old is your sibling?" },
+                { native: "스물두 살이에요.", romanized: "Seumudu sarieyo.", translation: "They're 22 years old." },
+            ]},
+            { type: "dialogue", exchanges: [
+                { native: "언니는 뭐 해요?.", romanized: "Eonnineun mwo haeyo?", translation: "What does your older sister do? — My older sister is a designer." },
+                { native: "언니는 디자이너예요.", romanized: "Eonnineun dijaineoeyeo.", translation: "My older sister is a designer." },
+            ]},
             { native: "저는 가족이 다섯 명이에요. 부모님이랑 형이랑 저예요.", romanized: "Jeoneun gagogi daseos myeongieyo. Bumonnimirang hyeongirang jeoyeyo.", translation: "My family has five people. My parents, my older brother, and me." },
         ],
         inlineVocab: [
@@ -221,7 +236,10 @@ export const block2Lessons: GrammarLesson[] = [
             { native: "저는 아침에 커피를 마셔요.", romanized: "Jeoneun achime keopireul masyeoyo.", translation: "I drink coffee in the morning." },
             { native: "매일 저녁에 운동해요.", romanized: "Maeil jeonyeoge undonghaeyo.", translation: "I exercise every evening.", annotation: "운동하다 → 운동해요"},
             { native: "학교에 가요. 수업이 있어요.", romanized: "Hagyeoe gayo. Sueopi isseoyo.", translation: "I go to school. I have class." },
-            { native: "뭐 해요? — 책을 읽어요.", romanized: "Mwo haeyo? — Chageul ilgeoyo.", translation: "What are you doing? — I'm reading a book." },
+            { type: "dialogue", exchanges: [
+                { native: "뭐 해요?", romanized: "Mwo haeyo?", translation: "What are you doing?" },
+                { native: "책을 읽어요.", romanized: "Chaegeul ilgeoyo.", translation: "I'm reading a book." },
+            ]},
             { native: "저는 집에서 요리해요. 요리를 좋아해요.", romanized: "Jeoneun jibeseo yorihaeyo. Yorireul joahaeyo.", translation: "I cook at home. I like cooking." },
             { native: "친구를 만나요. 같이 밥을 먹어요.", romanized: "Chingureul mannayo. Gachi bapeul meogeoyo.", translation: "I meet a friend. We eat together." },
         ],

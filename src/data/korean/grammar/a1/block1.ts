@@ -193,10 +193,16 @@ export const block1Lessons: GrammarLesson[] = [
         ],
         examples: [
             { native: "저는 영국 사람이에요.", romanized: "Jeoneun yeongguk saramieyo.", translation: "I'm British." },
-            { native: "어디에서 왔어요? — 한국에서 왔어요.", romanized: "Eodieseo wasseoyo? — Hangugeso wasseoyo.", translation: "Where are you from? — I'm from Korea." },
+            { type: "dialogue", exchanges: [
+                { native: "어디에서 왔어요?", romanized: "Eodieseo wasseoyo?", translation: "Where are you from?" },
+                {native: "한국에서 왔어요.", romanized: "Hangugeso wasseoyo.", translation: "I'm from Korea." },
+            ]},
             { native: "저는 서울에서 왔어요.", romanized: "Jeoneun seoureseo wasseoyo.", translation: "I'm from Seoul." },
             { native: "민준씨는 어디에서 왔어요?", romanized: "Minjunssineun eodieseo wasseoyo?", translation: "Minjun-ssi, where are you from?" },
-            { native: "한국 사람이에요? 아니요, 저는 일본 사람이에요.", romanized: "Hanguk saramieyo? Aniyo, jeoneun ilbon saramieyo.", translation: "Are you Korean? No, I'm Japanese." },
+            { type: "dialogue", exchanges: [
+                { native: "한국 사람이에요?", romanized: "Hanguk saramieyo?", translation: "Are you Korean?" },
+                { native: "아니요, 저는 일본 사람이에요.", romanized: "Aniyo, jeoneun ilbon saramieyo.", translation: "No, I'm Japanese." },
+            ]},
             { native: "저는 소피예요. 영국 사람이에요. 런던에서 왔어요.", romanized: "Jeoneun sopiyeyo. Yeongguk saramieyo. Reondoeseo wasseoyo.", translation: "I'm Sophie. I'm British. I'm from London." },
         ],
         inlineVocab: [
@@ -253,11 +259,26 @@ export const block1Lessons: GrammarLesson[] = [
         ],
         examples: [
             { native: "일, 이, 삼, 사, 오, 육, 칠, 팔, 구, 십,", romanized: "il, i, sam, sa, o, yuk, chil, pal, gu, sip", translation: "1 2 3 4 5 6 7 8 9 10 (Sino-Korean)" },
-            { native: "전화번호가 뭐예요? — 010-오-삼이-칠육이에요.", romanized: "Jeonhwabeonhoga mwoyeyo?", translation: "What's your phone number? — 010-5-32-76", annotation: "Sino-Korean for all phone digits" },
-            { native: "몇 층이에요? — 삼 층이에요.", romanized: "Myeot cheungieyo? — Sam cheungieyo.", translation: "Which floor? — Third floor." },
-            { native: "얼마예요? — 이천오백 원이에요.", romanized: "Eolmayeyo? — Icheonobaekg wonieyo.", translation: "How much? — 2,500 won." },
-            { native: "지금 몇 월이에요? — 십이 월이에요.", romanized: "Jigeum myeot worieyo? — Sibi worieyo.", translation: "What month is it? — December.", annotation: "십이 = 12 (Sino-Korean)" },
-            { native: "이십이에요? — 아니요, 십팔이에요.", romanized: "Isibieyo? — Aniyo, sipparieyo.", translation: "Is it 20? — No, it's 18." },
+            { type: "dialogue", exchanges: [
+                { native: "전화번호가 뭐예요?", romanized: "Jeonhwabeonhoga mwoyeyo?", translation: "What's your phone number?" },
+                { native: "010-오-삼이-칠육이에요.", romanized: "010-5-32-76", translation: "010-5-32-76" },
+            ]},
+            { type: "dialogue", exchanges: [
+                { native: "몇 층이에요?", romanized: "Myeot cheungieyo?", translation: "Which floor is it?" },
+                { native: "삼 층이에요.", romanized: "Sam cheungieyo.", translation: "Third floor." },
+            ]},
+            { type: "dialogue", exchanges: [
+                { native: "얼마예요?", romanized: "Eolmayeyo?", translation: "How much is it?" },
+                { native: "이천오백 원이에요.", romanized: "Icheonobaek wonieyo.", translation: "2,500 won." },
+            ]},
+            { type: "dialogue", exchanges: [
+                { native: "지금 몇 월이에요?", romanized: "Jigeum myeot worieyo?", translation: "What month is it?" },
+                { native: "십이 월이에요.", romanized: "Sibi worieyo.", translation: "December." },
+            ]},
+            { type: "dialogue", exchanges: [
+                { native: "이십이에요?", romanized: "Isibieyo?", translation: "Is it 20?" },
+                { native: "아니요, 십팔이에요.", romanized: "Aniyo, sipparieyo.", translation: "No, it's 18." },
+            ]},
         ],
         inlineVocab: [
             { word: "일 이 삼 사 오 육 칠 팔 구 십", romanized: "il i sam sa o yuk chil pal gu sip", translation: "1 2 3 4 5 6 7 8 9 10 (Sino-Korean)" },
@@ -342,7 +363,10 @@ export const block1Lessons: GrammarLesson[] = [
             { native: "하나, 둘, 셋, 넷, 다섯, 여섯, 일곱, 여덟, 아홉, 열", romanized: "hana, dul, set, net, daseot, yeoseot, ilgop, yeodeol, ahop, yeol", translation: "1 2 3 4 5 6 7 8 9 10 (native Korean)" },
             { native: "스물, 서른, 마흔, 쉰, 예순, 일흔", romanized: "seumul, seoreun, maheun, swin, yesun, ilheun", translation: "20, 30, 40, 50, 60, 70 (native Korean decades)" },
             { native: "저는 스물여섯 살이에요.", romanized: "Jeoneun seumulyeoseot sarieyo.", translation: "I'm 26 years old.", annotation: "스물(20) + 여섯(6) = 26" },
-            { native: "몇 살이에요? — 서른두 살이에요.", romanized: "Myeot sarieyo? — Seoreundu sarieyo.", translation: "How old are you? — I'm 32.", annotation: "서른(30) + 둘(2) = 32" },
+            { type: "dialogue", exchanges: [
+                { native: "몇 살이에요?", romanized: "Myeot sarieyo?", translation: "How old are you?" },
+                { native: "서른두 살이에요.", romanized: "Seoreundu sarieyo.", translation: "I'm 32." },
+            ]},
             { native: "열아홉 살이에요.", romanized: "Yeolaraheop sarieyo.", translation: "I'm 19 years old.", annotation: "열(10) + 아홉(9) = 19" },
             { native: "저는 마흔 살이에요.", romanized: "Jeoneun maheun sarieyo.", translation: "I'm 40 years old." },
             { native: "한 살이에요.", romanized: "Han sarieyo.", translation: "They're 1 year old.", annotation: "하나 → 한 before 살" },
@@ -389,7 +413,10 @@ export const block1Lessons: GrammarLesson[] = [
             { native: "저는 회사원이에요. ___씨는요?", romanized: "Jeoneun hoesawonieyo. Ssineunyo?", translation: "I'm an office worker. What about you?" },
             { native: "저는 대학생이에요. 한국어를 공부해요.", romanized: "Jeoneun daehaksaengieyo. Hangugeoreul gongbuhaeyo.", translation: "I'm a university student. I study Korean." },
             { native: "저도 학생이에요!", romanized: "Jeodo haksaengieyo!", translation: "I'm a student too!" },
-            { native: "무슨 일 해요? — 저는 디자이너예요.", romanized: "Museun il haeyo? — Jeoneun dijaineoeyeo.", translation: "What kind of work do you do? — I'm a designer." },
+            { type: "dialogue", exchanges: [
+                { native: "무슨 일 해요?", romanized: "Museun il haeyo?", translation: "What kind of work do you do?" },
+                { native: "저는 디자이너예요.", romanized: "Jeoneun dijaineoeyeo.", translation: "I'm a designer." }
+            ]},
             { native: "아, 그래요? 어디에서 일해요?", romanized: "A, geuraeyo? Eodieseo ilhaeyo?", translation: "Oh really? Where do you work?" },
         ],
         inlineVocab: [
@@ -447,7 +474,10 @@ export const block1Lessons: GrammarLesson[] = [
         examples: [
             { native: "저는 여동생이 있어요.", romanized: "Jeoneun yeodongsaengi isseoyo.", translation: "I have a younger sister." },
             { native: "저는 형이 없어요.", romanized: "Jeoneun hyeongi eopseoyo.", translation: "I don't have an older brother." },
-            { native: "시간이 있어요? — 네, 있어요!", romanized: "Sigani isseoyo? — Ne, isseoyo!", translation: "Do you have time? — Yes, I do!" },
+            { type: "dialogue", exchanges: [
+                { native: "시간이 있어요?", romanized: "Sigani isseoyo?", translation: "Do you have time?" },
+                { native: "네, 있어요!", romanized: "Ne, isseoyo!", translation: "Yes, I do!" }
+            ]},
             { native: "화장실이 어디에 있어요?", romanized: "Hwajangsiri eodie isseoyo?", translation: "Where is the bathroom?", annotation: "있어요 = is located (existence use)" },
             { native: "근처에 카페가 있어요.", romanized: "Geuncheoe kafega isseoyo.", translation: "There's a café nearby." },
             { native: "오늘 약속이 없어요.", romanized: "Oneul yaksogi eopseoyo.", translation: "I have no plans today." },

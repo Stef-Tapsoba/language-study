@@ -209,7 +209,10 @@ export const block3Lessons: GrammarLesson[] = [
             { native: "뭐 먹어요?", romanized: "Mwo meogeoyo?", translation: "What are you eating?" },
             { native: "어디에 가요?", romanized: "Eodie gayo?", translation: "Where are you going?" },
             { native: "언제 와요?", romanized: "Eonje wayo?", translation: "When are you coming?" },
-            { native: "어떻게 가요? — 지하철로 가요.", romanized: "Eotteoke gayo? — Jihacheolro gayo.", translation: "How do you go? — I go by subway." },
+            { type: "dialogue", exchanges: [
+                { native: "어떻게 가요?", romanized: "Eotteoke gayo?", translation: "How do you go?" },
+                { native: "지하철로 가요.", romanized: "Jihacheolro gayo.", translation: "I go by subway." }
+            ]},
             { native: "왜 안 와요?", romanized: "Wae an wayo?", translation: "Why aren't you coming?" },
             { native: "어떤 음악을 좋아해요?", romanized: "Eotteon eumageul joahaeyo?", translation: "What kind of music do you like?" },
         ],
@@ -254,8 +257,14 @@ export const block3Lessons: GrammarLesson[] = [
             { native: "누가 전화했어요?", romanized: "Nuga jeonhwahaesseoyo?", translation: "Who called?" },
             { native: "이 사람은 누구예요?", romanized: "I sarameun nugueyeo?", translation: "Who is this person?", annotation: "누구 as complement — not the subject"},
             { native: "누구랑 갔어요?", romanized: "Nugurang gasseoyo?", translation: "Who did you go with?" },
-            { native: "— 어디 가요? — 카페에요.", romanized: "Eodi gayo? — Kapeeyeo.", translation: "— Where are you going? — A café.", annotation: "short polite answer: key word + 요"},
-            { native: "— 뭐 먹었어요? — 비빔밥이요.", romanized: "Mwo meogeosseoyo? — Bibimbabiyeo.", translation: "— What did you eat? — Bibimbap.", annotation: "key word + 요"},
+            { type: "dialogue", exchanges: [
+                { native: "어디 가요?", romanized: "Eodi gayo?", translation: "Where are you going?" },
+                { native: "카페에요.", romanized: "Kapeeyeo.", translation: "A café." },
+            ]},
+            { type: "dialogue", exchanges: [
+                { native: "뭐 먹었어요?", romanized: "Mwo meogeosseoyo?", translation: "What did you eat?" },
+                { native: "비빔밥이요.", romanized: "Bibimbabiyeo.", translation: "Bibimbap." },
+            ]},
         ],
         inlineVocab: [
             { word: "누구", romanized: "nugu", translation: "who (not the subject)" },
