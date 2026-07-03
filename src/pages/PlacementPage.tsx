@@ -7,18 +7,38 @@ import { useProgress } from "../context/ProgressContext"
 import { NavBar } from "../components/NavBar"
 import { QuizCard } from "../components/QuizCard"
 import { LevelBadge } from "../components/LevelBadge"
-import { CEFRLevel, CEFR_LEVELS } from "../types"
+import { CEFRLevel, CEFR_LEVELS, QuizQuestion } from "../types"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "../components/ui/tabs"
 import { Button } from "../components/ui/button"
 import { isGoalSet } from "../store/preferences"
 
 type Tab = "test" | "manual"
 
-function scoreToLevel(score: number): CEFRLevel {
-    if (score >= 9) return "B2"
-    if (score >= 7) return "B1"
-    if (score >= 5) return "A2"
-    return "A1"
+// NEW: Gated Threshold Algorithm
+function calculatePlacementLevel(questions: QuizQuestion[], userAnswers: Record<string, string>): CEFRLevel {
+    const PASS_THRESHOLD = 3
+
+    for (const level of CEFR_LEVELS) {
+        // 1. Isolate the questions for the current level
+        const levelQuestions = questions.filter(q => q.level === level)
+        if (levelQuestions.length === 0) continue
+
+        // 2. Count how many the user got right in this specific level
+        let correctCount = 0
+        for (const question of levelQuestions) {
+            if (userAnswers[question.id] === question.answer) {
+                correctCount++
+            }
+        }
+
+        // 3. If they fail to meet the threshold, place them in this level
+        if (correctCount < PASS_THRESHOLD) {
+            return level
+        }
+    }
+
+    // If they pass all thresholds, place them at C1
+    return "C1"
 }
 
 export function PlacementPage() {
@@ -32,7 +52,10 @@ export function PlacementPage() {
     const [current, setCurrent] = useState(0)
     const [selected, setSelected] = useState<string | null>(null)
     const [revealed, setRevealed] = useState(false)
-    const [score, setScore] = useState(0)
+
+    // NEW: Track answers instead of a flat score
+    const [userAnswers, setUserAnswers] = useState<Record<string, string>>({})
+
     const [done, setDone] = useState(false)
     const [suggested, setSuggested] = useState<CEFRLevel>("A1")
 
@@ -46,14 +69,18 @@ export function PlacementPage() {
     }
 
     function handleNext() {
-        const newScore = score + (selected === questions[current].answer ? 1 : 0)
+        const q = questions[current]
+
+        // Save the user's answer
+        const updatedAnswers = { ...userAnswers, [q.id]: selected! }
+        setUserAnswers(updatedAnswers)
+
         if (current + 1 >= questions.length) {
-            const level = scoreToLevel(newScore)
+            // Calculate level using the strict threshold logic
+            const level = calculatePlacementLevel(questions, updatedAnswers)
             setSuggested(level)
-            setScore(newScore)
             setDone(true)
         } else {
-            setScore(newScore)
             setCurrent(c => c + 1)
             setSelected(null)
             setRevealed(false)
@@ -102,6 +129,9 @@ export function PlacementPage() {
     }
 
     if (done) {
+        // Calculate the total flat score just for the UI display
+        const totalCorrect = questions.filter(q => userAnswers[q.id] === q.answer).length
+
         return (
             <div className="min-h-screen bg-surface-app">
                 <NavBar title={language.name} backTo="/home" />
@@ -109,7 +139,7 @@ export function PlacementPage() {
                     <div className="text-5xl">🎉</div>
                     <h2 className="text-2xl font-bold text-text-pri">Placement complete!</h2>
                     <p className="text-text-sec">
-                        You answered <strong>{score}</strong> out of <strong>{questions.length}</strong> correctly.
+                        You answered <strong>{totalCorrect}</strong> out of <strong>{questions.length}</strong> correctly.
                     </p>
                     <div className="bg-surface-card rounded-2xl border border-border-default p-5 w-full">
                         <p className="text-sm text-text-sec mb-3">Suggested level</p>
