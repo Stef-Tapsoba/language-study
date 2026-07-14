@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom"
 import { Button } from "../components/ui/button"
 import { getLanguage } from "../data/languages"
 import { getGrammarForLevel } from "../data/repo"
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { GrammarLesson } from "../types"
@@ -45,7 +45,8 @@ function LessonCard({
 export function GrammarPage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
-    const { level: getLevel, completed: getCompleted } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { level: getLevel, completed: getCompleted } = progressHelpers(progress)
     const level = getLevel(langId)
     const completed = getCompleted(langId)
     const ui = getUI(langId, level)

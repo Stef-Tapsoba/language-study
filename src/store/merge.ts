@@ -59,6 +59,25 @@ function mergeReinforcement(
 }
 
 /**
+ * Merge completedByType maps — nested union (lang → contentType → ids).
+ * Tolerates undefined on either side (pre-v5 snapshots lack the field).
+ */
+function mergeCompletedByType(
+    current: UserProgress["completedByType"],
+    imported: UserProgress["completedByType"]
+): NonNullable<UserProgress["completedByType"]> {
+    const result: NonNullable<UserProgress["completedByType"]> = {}
+    const langs = new Set([...Object.keys(current ?? {}), ...Object.keys(imported ?? {})])
+    for (const lang of langs) {
+        result[lang] = unionArrays(
+            (current?.[lang] ?? {}) as Record<string, string[]>,
+            (imported?.[lang] ?? {}) as Record<string, string[]>
+        )
+    }
+    return result
+}
+
+/**
  * Merge an imported UserProgress into the current one.
  * - CEFR levels: current wins for any language already started; imported fills gaps.
  * - completedLessons / masteredUnits / completedReinforcement: union (append-only, no downgrades).
@@ -77,6 +96,7 @@ export function mergeProgress(current: UserProgress, imported: UserProgress): Us
         goal:                     current.goal ?? imported.goal,
         levels,
         completedLessons:         unionArrays(current.completedLessons, imported.completedLessons),
+        completedByType:          mergeCompletedByType(current.completedByType, imported.completedByType),
         masteredUnits:            unionArrays(current.masteredUnits,    imported.masteredUnits),
         completedReinforcement:   mergeReinforcement(
                                       current.completedReinforcement,

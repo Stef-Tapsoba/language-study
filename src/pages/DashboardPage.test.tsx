@@ -2,7 +2,7 @@
 
 import { render, screen } from "@testing-library/react"
 import { MemoryRouter, Routes, Route } from "react-router-dom"
-import { ProgressProvider } from "../context/ProgressContext"
+import { _resetProgressStoreForTests, useProgressStore } from "../store/useProgressStore"
 import { TooltipProvider } from "../components/ui/tooltip"
 import { DashboardPage } from "./DashboardPage"
 import { resetProgress, masterUnit } from "../store/progress"
@@ -154,7 +154,7 @@ function buildModule(): Partial<LanguageModule> {
 function renderDashboard(langId = "es") {
     mockModuleStore[langId] = buildModule()
     return render(
-        <ProgressProvider>
+        <>
             <TooltipProvider>
                 <MemoryRouter initialEntries={[`/learn/${langId}`]}>
                     <Routes>
@@ -162,7 +162,7 @@ function renderDashboard(langId = "es") {
                     </Routes>
                 </MemoryRouter>
             </TooltipProvider>
-        </ProgressProvider>
+        </>
     )
 }
 
@@ -172,6 +172,7 @@ function renderDashboard(langId = "es") {
 
 beforeEach(() => {
     resetProgress()
+    _resetProgressStoreForTests()
     Object.keys(mockModuleStore).forEach(k => delete mockModuleStore[k])
 })
 
@@ -218,6 +219,7 @@ describe("DashboardPage — learning path unit rows", () => {
 
     it("second unit is unlocked when first unit is mastered", () => {
         masterUnit("es", "es-a1-u1")
+        useProgressStore.getState().refreshProgress()
         renderDashboard()
         const link = screen.getByRole("link", { name: /At the Restaurant/i })
         expect(link).toBeInTheDocument()
@@ -228,6 +230,7 @@ describe("DashboardPage — learning path unit rows", () => {
 describe("DashboardPage — mastered units", () => {
     it("shows a checkmark for mastered units", () => {
         masterUnit("es", "es-a1-u1")
+        useProgressStore.getState().refreshProgress()
         renderDashboard()
         // The mastered unit badge shows a checkmark instead of the order number
         const badges = screen.getAllByText("✓")
@@ -247,7 +250,7 @@ describe("DashboardPage — goal-sorted path", () => {
         setGoal("traveller")
 
         render(
-            <ProgressProvider>
+            <>
                 <TooltipProvider>
                     <MemoryRouter initialEntries={["/learn/es"]}>
                         <Routes>
@@ -255,7 +258,7 @@ describe("DashboardPage — goal-sorted path", () => {
                         </Routes>
                     </MemoryRouter>
                 </TooltipProvider>
-            </ProgressProvider>
+            </>
         )
 
         // u3 "Getting Around" should be sorted first (score 3) and be unlocked

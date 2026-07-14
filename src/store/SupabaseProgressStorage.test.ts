@@ -3,6 +3,7 @@
 import { describe, it, expect, beforeEach, vi } from "vitest"
 import { SupabaseProgressStorage } from "./SupabaseProgressStorage"
 import { SCHEMA_VERSION } from "./progress"
+import { outbox } from "./outbox"
 
 // ---------------------------------------------------------------------------
 // Mock Supabase client
@@ -96,6 +97,8 @@ function wireInitSession(opts: InitOptions = {}): void {
 beforeEach(() => {
     vi.clearAllMocks()
     mockRpc.mockResolvedValue({ error: null })
+    outbox._resetForTests()
+    outbox.setUser("user-1")
 })
 
 // ── initSession ─────────────────────────────────────────────────────────────
@@ -215,6 +218,47 @@ describe("markLessonComplete", () => {
         // No initSession → userId remains null
         await storage.markLessonComplete("es", "lesson-1", "grammar")
         expect(mockFrom).not.toHaveBeenCalled()
+    })
+
+    it("maintains completedByType in the cache", async () => {
+        wireInitSession()
+        const storage = new SupabaseProgressStorage(mockSb)
+        await storage.initSession("user-1")
+        mockFrom.mockReturnValue(makeBuilder({ data: null, error: null }))
+
+        await storage.markLessonComplete("pt", "pt-g-a1-1", "grammar")
+        await storage.markLessonComplete("pt", "pt-v-a1-2", "vocab")
+
+        expect(storage.load().completedByType?.pt).toEqual({
+            grammar: ["pt-g-a1-1"],
+            vocab:   ["pt-v-a1-2"],
+        })
+    })
+
+    it("rejects AND queues the op in the outbox when the upsert fails", async () => {
+        wireInitSession()
+        const storage = new SupabaseProgressStorage(mockSb)
+        await storage.initSession("user-1")
+
+        const builder = makeBuilder({ data: null, error: null })
+        builder.upsert = vi.fn().mockResolvedValue({ error: new Error("offline") })
+        mockFrom.mockReturnValue(builder)
+
+        await expect(storage.markLessonComplete("de", "de-g-a1-1", "grammar"))
+            .rejects.toThrow("offline")
+        // Optimistic cache retained, failed write queued for replay
+        expect(storage.load().completedLessons["de"]).toContain("de-g-a1-1")
+        expect(outbox.size()).toBe(1)
+    })
+
+    it("queues nothing when the upsert succeeds", async () => {
+        wireInitSession()
+        const storage = new SupabaseProgressStorage(mockSb)
+        await storage.initSession("user-1")
+        mockFrom.mockReturnValue(makeBuilder({ data: null, error: null }))
+
+        await storage.markLessonComplete("de", "de-g-a1-2", "grammar")
+        expect(outbox.size()).toBe(0)
     })
 })
 
@@ -397,6 +441,41 @@ describe("save", () => {
             masteredUnits: {},
         })
         expect(mockFrom).not.toHaveBeenCalled()
+    })
+
+    it("infers content_type from the id convention for flat-only snapshots", async () => {
+        wireInitSession()
+        const storage = new SupabaseProgressStorage(mockSb)
+        await storage.initSession("user-1")
+
+        let lessonRows: Array<{ content_type: string; content_id: string }> = []
+        mockFrom.mockImplementation((table: string) => {
+            const builder = makeBuilder({ data: null, error: null })
+            if (table === "lesson_completions") {
+                builder.upsert = vi.fn((rows: typeof lessonRows) => {
+                    lessonRows = rows
+                    return Promise.resolve({ error: null })
+                })
+            }
+            return builder
+        })
+
+        // No completedByType → falls back to id inference
+        await storage.save({
+            schemaVersion: SCHEMA_VERSION,
+            userId: "user-1",
+            selectedLanguage: null,
+            levels: {},
+            completedLessons: { nl: ["nl-g-a1-1", "nl-v-a1-2", "nl-r-a1-1", "mystery"] },
+            masteredUnits: {},
+        })
+
+        expect(lessonRows.map(r => [r.content_id, r.content_type])).toEqual([
+            ["nl-g-a1-1", "grammar"],
+            ["nl-v-a1-2", "vocab"],
+            ["nl-r-a1-1", "reading"],
+            ["mystery",   "grammar"],
+        ])
     })
 
     it("skips optional upserts when there are no rows to write", async () => {

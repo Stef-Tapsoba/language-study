@@ -10,13 +10,14 @@
 
 import { CEFRLevel, UserProgress, UnitReinforcementState, GoalId } from "../types"
 import type { ContentType, ReinforcementSection } from "./IProgressStorage"
+import { inferContentTypeFromId } from "./contentType"
 
 const LEGACY_KEY = "ls:progress"
 const userKey = (userId: string) => `ls:progress:${userId}`
 
 // Bump this whenever a breaking schema change is made (field rename, removal, type change).
 // Add a migration branch in `migrate()` for each version increment.
-export const SCHEMA_VERSION = 4
+export const SCHEMA_VERSION = 5
 
 const DEFAULT: UserProgress = {
     schemaVersion: SCHEMA_VERSION,
@@ -47,6 +48,23 @@ function migrate(raw: Record<string, unknown>): UserProgress {
     // the field is optional; absent = falls back to ls:goal for migration compat.
     // v3 → v4: completedCheckpoints introduced. No field migration needed —
     // absent key = no checkpoints done yet, which is the correct default.
+
+    // v4 → v5: completedByType introduced. Backfill it from the flat
+    // completedLessons list using the content-ID naming convention so
+    // Stage 2 uploads carry real content types for pre-v5 completions.
+    if (version < 5 && !raw.completedByType && raw.completedLessons && typeof raw.completedLessons === "object") {
+        const byType: NonNullable<UserProgress["completedByType"]> = {}
+        for (const [langId, ids] of Object.entries(raw.completedLessons as Record<string, string[]>)) {
+            if (!Array.isArray(ids)) continue
+            const langMap: Partial<Record<string, string[]>> = {}
+            for (const id of ids) {
+                const type = inferContentTypeFromId(id)
+                ;(langMap[type] ??= []).push(id)
+            }
+            byType[langId] = langMap
+        }
+        raw = { ...raw, completedByType: byType }
+    }
 
     return { ...DEFAULT, ...raw, schemaVersion: SCHEMA_VERSION }
 }
@@ -136,14 +154,17 @@ export function markLessonComplete(langId: string, lessonId: string, contentType
     const p = loadProgress()
     const existing = p.completedLessons[langId] ?? []
     if (existing.includes(lessonId)) return
-    // contentType is intentionally not written to completedByType here.
-    // Stage 2 (Supabase): SupabaseProgressStorage.markLessonComplete() routes writes
-    // to the lesson_completions table by content_type column — the flat
-    // completedLessons array is the sole Stage 1 store.
-    void contentType
+    // Maintain completedByType in parallel with the flat list so exported
+    // snapshots and Stage 2 uploads carry the real content_type.
+    const langMap = p.completedByType?.[langId] ?? {}
+    const typeList = langMap[contentType] ?? []
     save({
         ...p,
         completedLessons: { ...p.completedLessons, [langId]: [...existing, lessonId] },
+        completedByType: {
+            ...p.completedByType,
+            [langId]: { ...langMap, [contentType]: [...typeList, lessonId] },
+        },
     })
 }
 
@@ -164,15 +185,18 @@ export function resetLanguageProgress(langId: string): void {
     const completedLessons = { ...p.completedLessons }
     const masteredUnits = { ...p.masteredUnits }
     const completedCheckpoints = { ...p.completedCheckpoints }
+    const completedByType = { ...p.completedByType }
     delete completedLessons[langId]
     delete masteredUnits[langId]
     delete completedCheckpoints[langId]
+    delete completedByType[langId]
     save({
         ...p,
         levels: { ...p.levels, [langId]: "A1" },
         completedLessons,
         masteredUnits,
         completedCheckpoints,
+        completedByType,
     })
 }
 
@@ -183,12 +207,14 @@ export function removeLanguage(langId: string): void {
     const completedLessons = { ...p.completedLessons }
     const masteredUnits = { ...p.masteredUnits }
     const completedCheckpoints = { ...p.completedCheckpoints }
+    const completedByType = { ...p.completedByType }
     delete levels[langId]
     delete completedLessons[langId]
     delete masteredUnits[langId]
     delete completedCheckpoints[langId]
+    delete completedByType[langId]
     const selectedLanguage = p.selectedLanguage === langId ? null : p.selectedLanguage
-    save({ ...p, selectedLanguage, levels, completedLessons, masteredUnits, completedCheckpoints })
+    save({ ...p, selectedLanguage, levels, completedLessons, masteredUnits, completedCheckpoints, completedByType })
 }
 
 // ---------------------------------------------------------------------------

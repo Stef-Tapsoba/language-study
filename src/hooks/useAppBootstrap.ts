@@ -6,22 +6,23 @@
 //
 // isReady is derived from two flags:
 //   initialized  — the useEffect has run (session was processed)
-//   !isHydrating — the async hydration chain in ProgressContext has settled
+//   !isHydrating — the async hydration chain in useProgressStore has settled
 //
 // This prevents a one-render window where isReady would be true before
 // initUserSession had a chance to fire (the effect runs after the first render).
 //
 // Stage 2: this hook is the single place to add Supabase hydration await logic.
-// No page code needs to change — they all read from ProgressContext / useStatsStore
+// No page code needs to change — they all read from useProgressStore / useStatsStore
 // after bootstrap completes.
 
 import { useEffect, useState } from "react"
 import { useAuth } from "../auth/AuthContext"
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore } from "../store/useProgressStore"
 
 export function useAppBootstrap(): { isReady: boolean } {
     const { session } = useAuth()
-    const { initUserSession, isHydrating } = useProgress()
+    const initUserSession = useProgressStore(s => s.initUserSession)
+    const isHydrating = useProgressStore(s => s.isHydrating)
     const [initialized, setInitialized] = useState(false)
 
     useEffect(() => {

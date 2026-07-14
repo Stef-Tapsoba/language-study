@@ -6,7 +6,7 @@ import { useParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { getDueCount } from "../store/srs"
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 
 interface PracticeModeProps {
     emoji: string
@@ -41,7 +41,8 @@ export function PracticePage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
     const mod = getModule(langId)
-    const { level: getLevel } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { level: getLevel } = progressHelpers(progress)
     const level = getLevel(langId)
 
     const dueCount = useMemo(

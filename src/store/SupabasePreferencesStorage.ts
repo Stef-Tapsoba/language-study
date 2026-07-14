@@ -13,6 +13,7 @@
 import type { SupabaseClient } from "@supabase/supabase-js"
 import { IPreferencesStorage } from "./IPreferencesStorage"
 import { logError } from "../utils/logger"
+import { syncOrQueue } from "./outbox"
 
 interface PrefsJson {
     tts_autoplay?: boolean
@@ -48,13 +49,13 @@ export class SupabasePreferencesStorage implements IPreferencesStorage {
 
     async setTtsAutoplay(enabled: boolean): Promise<void> {
         this.cache.tts_autoplay = enabled
-        this.upsert()
+        await this.upsert()
     }
 
     async setOnboarded(langId: string): Promise<void> {
         if (this.cache.onboarded_languages.includes(langId)) return
         this.cache.onboarded_languages = [...this.cache.onboarded_languages, langId]
-        this.upsert()
+        await this.upsert()
     }
 
     // ── Session lifecycle ─────────────────────────────────────────────────────
@@ -82,13 +83,14 @@ export class SupabasePreferencesStorage implements IPreferencesStorage {
 
     // ── Private ───────────────────────────────────────────────────────────────
 
-    private upsert(): void {
+    private async upsert(): Promise<void> {
         if (!this.userId) return
-        this.sb.from("user_preferences")
-            .upsert(
-                { user_id: this.userId, preferences: { ...this.cache } },
-                { onConflict: "user_id" }
-            )
-            .then(({ error }) => { if (error) logError("SupabasePreferencesStorage.upsert", error) })
+        // Single-row LWW: a queued preferences write is always superseded by a newer one.
+        await syncOrQueue(this.sb, {
+            kind: "upsert", table: "user_preferences",
+            payload: { user_id: this.userId, preferences: { ...this.cache } },
+            onConflict: "user_id",
+            key: `user_preferences|${this.userId}`,
+        })
     }
 }

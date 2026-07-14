@@ -5,7 +5,7 @@
 import { memo } from "react"
 import { useParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { useProgressStats } from "../hooks/useProgressStats"
 import { getUI } from "../i18n"
 import { SECTION_CONFIG, type StudySection } from "../data/sectionConfig"
@@ -58,7 +58,8 @@ const StudyCard = memo(function StudyCard({ section, title, countDesc, done, tot
 export function StudyPage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
-    const { level: getLevel } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { level: getLevel } = progressHelpers(progress)
     const level = getLevel(langId)
     const ui = getUI(langId, level)
     const { grammar, vocab, verbs, reading, listening } = useProgressStats(langId, level)

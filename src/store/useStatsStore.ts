@@ -5,7 +5,7 @@
 // storage backend, making it trivial to swap localStorage for Supabase at Stage 2.
 //
 // Hydration: call useStatsStore.getState().hydrate() once after the user session
-// is established (done inside ProgressContext.initUserSession).
+// is established (done inside useProgressStore.initUserSession).
 
 import { create } from "zustand"
 import { logError } from "../utils/logger"

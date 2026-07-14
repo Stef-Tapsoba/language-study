@@ -3,7 +3,7 @@
 import { render, screen } from "@testing-library/react"
 import { MemoryRouter } from "react-router-dom"
 import { StatsTab } from "./StatsTab"
-import { ProgressProvider } from "../context/ProgressContext"
+import { _resetProgressStoreForTests } from "../store/useProgressStore"
 import { useStatsStore } from "../store/useStatsStore"
 import { act } from "@testing-library/react"
 
@@ -12,9 +12,9 @@ import { act } from "@testing-library/react"
 function renderTab(langId = "es", level: "A1" | "A2" | "B1" = "A1") {
     return render(
         <MemoryRouter>
-            <ProgressProvider>
+            <>
                 <StatsTab langId={langId} level={level} />
-            </ProgressProvider>
+            </>
         </MemoryRouter>
     )
 }
@@ -22,6 +22,7 @@ function renderTab(langId = "es", level: "A1" | "A2" | "B1" = "A1") {
 // Reset the Zustand store before each test so stats don't bleed between tests.
 beforeEach(() => {
     useStatsStore.setState({ data: {} })
+    _resetProgressStoreForTests()
 })
 
 // ── basic rendering ────────────────────────────────────────────────────────────

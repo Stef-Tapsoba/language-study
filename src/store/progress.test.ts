@@ -376,10 +376,10 @@ describe("resetProgress", () => {
 // ─── Schema migration (BUG-005) ───────────────────────────────────────────────
 
 describe("schema migration", () => {
-    it("stamps schemaVersion=4 on a fresh write", () => {
+    it("stamps schemaVersion=5 on a fresh write", () => {
         setSelectedLanguage("es")
         const p = loadProgress()
-        expect(p.schemaVersion).toBe(4)
+        expect(p.schemaVersion).toBe(5)
     })
 
     it("migrates v0 data: adds missing masteredUnits", () => {
@@ -391,7 +391,7 @@ describe("schema migration", () => {
         }))
         const p = loadProgress()
         expect(p.masteredUnits).toEqual({})
-        expect(p.schemaVersion).toBe(4)
+        expect(p.schemaVersion).toBe(5)
         // Original data preserved
         expect(p.selectedLanguage).toBe("es")
         expect(p.levels.es).toBe("A2")
@@ -418,8 +418,68 @@ describe("schema migration", () => {
             masteredUnits: {},
         }))
         const p = loadProgress()
-        expect(p.schemaVersion).toBe(4)
+        expect(p.schemaVersion).toBe(5)
         expect(p.selectedLanguage).toBe("ja")
+    })
+
+    it("v4 → v5: backfills completedByType from completedLessons via id inference", () => {
+        localStorage.setItem("ls:progress", JSON.stringify({
+            schemaVersion: 4,
+            selectedLanguage: "fr",
+            levels: { fr: "A2" },
+            completedLessons: { fr: ["fr-g-a1-1", "fr-v-a1-3", "fr-r-a1-1", "unknown-id"] },
+            masteredUnits: {},
+        }))
+        const p = loadProgress()
+        expect(p.schemaVersion).toBe(5)
+        expect(p.completedByType?.fr).toEqual({
+            grammar: ["fr-g-a1-1", "unknown-id"],
+            vocab:   ["fr-v-a1-3"],
+            reading: ["fr-r-a1-1"],
+        })
+    })
+
+    it("v4 → v5: does not overwrite an existing completedByType", () => {
+        localStorage.setItem("ls:progress", JSON.stringify({
+            schemaVersion: 4,
+            selectedLanguage: "fr",
+            levels: {},
+            completedLessons: { fr: ["fr-g-a1-1"] },
+            completedByType: { fr: { vocab: ["fr-v-a1-9"] } },
+            masteredUnits: {},
+        }))
+        const p = loadProgress()
+        expect(p.completedByType?.fr).toEqual({ vocab: ["fr-v-a1-9"] })
+    })
+})
+
+// ─── completedByType maintenance ─────────────────────────────────────────────
+
+describe("markLessonComplete completedByType", () => {
+    it("records the lesson under its content type", () => {
+        markLessonComplete("es", "es-g-a1-1", "grammar")
+        markLessonComplete("es", "es-v-a1-2", "vocab")
+        const p = loadProgress()
+        expect(p.completedByType?.es).toEqual({
+            grammar: ["es-g-a1-1"],
+            vocab:   ["es-v-a1-2"],
+        })
+    })
+
+    it("resetLanguageProgress clears the language's typed map", () => {
+        markLessonComplete("es", "es-g-a1-1", "grammar")
+        markLessonComplete("fr", "fr-g-a1-1", "grammar")
+        resetLanguageProgress("es")
+        const p = loadProgress()
+        expect(p.completedByType?.es).toBeUndefined()
+        expect(p.completedByType?.fr).toEqual({ grammar: ["fr-g-a1-1"] })
+    })
+
+    it("removeLanguage clears the language's typed map", () => {
+        markLessonComplete("es", "es-g-a1-1", "grammar")
+        removeLanguage("es")
+        const p = loadProgress()
+        expect(p.completedByType?.es).toBeUndefined()
     })
 })
 
@@ -496,7 +556,7 @@ describe("schema migration — v3 data without completedCheckpoints", () => {
             // no completedCheckpoints field — simulates pre-v4 save
         }))
         const p = loadProgress()
-        expect(p.schemaVersion).toBe(4)
+        expect(p.schemaVersion).toBe(5)
         expect(getCompletedCheckpoints("ko")).toEqual([])
     })
 })

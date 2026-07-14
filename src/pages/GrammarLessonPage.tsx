@@ -2,7 +2,7 @@
 import { useParams, useSearchParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getGrammarLesson } from "../data/repo"
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { NavBar } from "../components/NavBar"
 import { MarkCompleteButton } from "../components/MarkCompleteButton"
 import { LevelBadge } from "../components/LevelBadge"
@@ -136,7 +136,9 @@ export function GrammarLessonPage() {
     // When navigated from a UnitPage, returnTo brings the back button back to that unit.
     const grammarBack = searchParams.get("returnTo") ?? `/learn/${langId}/grammar`
     const language = getLanguage(langId)
-    const { level: getLevel, completed: getCompleted, markLessonComplete } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { level: getLevel, completed: getCompleted } = progressHelpers(progress)
+    const markLessonComplete = useProgressStore(s => s.markLessonComplete)
     const level = getLevel(langId)
     const completed = getCompleted(langId)
     const { activeWord, handleVocabClick, dismissTooltip } = useVocabTooltip(langId)

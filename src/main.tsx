@@ -44,6 +44,10 @@ async function bootstrap() {
         // Wire the adapters into the registry
         registry.configure({ progress: progressStorage, srs: srsStorage, stats: statsStorage, preferences: preferencesStorage })
 
+        // Wire the offline write queue — replays failed writes on 'online' and on login.
+        const { outbox } = await import("./store/outbox")
+        outbox.configure(supabase)
+
         // Wire Supabase auth
         authRegistry.configure(new AuthService(supabaseAuthApi, new LocalStorageAdapter("ls")))
 
@@ -53,8 +57,8 @@ async function bootstrap() {
             const uid = session.user.id
             srsStorage.setUserId(uid)
             statsStorage.setUserId(uid)
-            // Hydrate SRS eagerly so cards are ready before ProgressContext boots.
-            // Stats hydration seeds the Zustand store — handled by ProgressContext.initUserSession.
+            // Hydrate SRS eagerly so cards are ready before useProgressStore hydrates.
+            // Stats hydration seeds the Zustand store — handled by useProgressStore.initUserSession.
             // Preferences hydrate in parallel — they're needed before any page renders.
             await Promise.all([
                 srsStorage.hydrate(),
@@ -63,7 +67,7 @@ async function bootstrap() {
         }
 
         // Keep adapter userIds current on auth state changes.
-        // Progress hydration (initSession) is owned by ProgressContext.initUserSession —
+        // Progress hydration (initSession) is owned by useProgressStore.initUserSession —
         // calling it here too would cause a double-hydration race (F-15).
         // Note: @myorg/auth-core's AuthService also holds a session reference via its
         // LocalStorageAdapter. Both coexist safely because the Supabase SDK drives token

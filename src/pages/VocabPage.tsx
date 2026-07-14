@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useParams, Link } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getVocabForLevel } from "../data/repo"
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { NavBar } from "../components/NavBar"
 import { MarkCompleteButton } from "../components/MarkCompleteButton"
 import { LevelBadge } from "../components/LevelBadge"
@@ -73,7 +73,9 @@ function VocabCard({
 export function VocabPage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
-    const { level: getLevel, completed: getCompleted, markLessonComplete } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { level: getLevel, completed: getCompleted } = progressHelpers(progress)
+    const markLessonComplete = useProgressStore(s => s.markLessonComplete)
     const level = getLevel(langId)
     const ui = getUI(langId, level)
     const completed = getCompleted(langId)

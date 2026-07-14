@@ -3,7 +3,7 @@
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { MemoryRouter, Routes, Route } from "react-router-dom"
-import { ProgressProvider } from "../context/ProgressContext"
+import { _resetProgressStoreForTests } from "../store/useProgressStore"
 import { TooltipProvider } from "../components/ui/tooltip"
 import { PhraseLessonPage } from "./PhraseLessonPage"
 import { resetProgress } from "../store/progress"
@@ -57,7 +57,7 @@ const LESSON: PhraseLesson = {
 function renderPage(phraseLessonId = LESSON.id, langId = "ko") {
     mockModuleStore[langId] = { phraseLessons: [LESSON] }
     return render(
-        <ProgressProvider>
+        <>
             <TooltipProvider>
                 <MemoryRouter initialEntries={[`/learn/${langId}/phrases/${phraseLessonId}`]}>
                     <Routes>
@@ -68,12 +68,13 @@ function renderPage(phraseLessonId = LESSON.id, langId = "ko") {
                     </Routes>
                 </MemoryRouter>
             </TooltipProvider>
-        </ProgressProvider>
+        </>
     )
 }
 
 beforeEach(() => {
     resetProgress()
+    _resetProgressStoreForTests()
     Object.keys(mockModuleStore).forEach(k => delete mockModuleStore[k])
 })
 
@@ -85,13 +86,13 @@ describe("PhraseLessonPage — not found", () => {
     it("renders not-found when lesson id does not match", () => {
         mockModuleStore["ko"] = { phraseLessons: [LESSON] }
         render(
-            <ProgressProvider><TooltipProvider>
+            <><TooltipProvider>
                 <MemoryRouter initialEntries={["/learn/ko/phrases/nonexistent"]}>
                     <Routes>
                         <Route path="/learn/:langId/phrases/:phraseLessonId" element={<PhraseLessonPage />} />
                     </Routes>
                 </MemoryRouter>
-            </TooltipProvider></ProgressProvider>
+            </TooltipProvider></>
         )
         expect(screen.getByText("Lesson not found")).toBeInTheDocument()
     })
@@ -99,13 +100,13 @@ describe("PhraseLessonPage — not found", () => {
     it("renders not-found when module has no phraseLessons", () => {
         mockModuleStore["ko"] = {}
         render(
-            <ProgressProvider><TooltipProvider>
+            <><TooltipProvider>
                 <MemoryRouter initialEntries={["/learn/ko/phrases/ko-pl-a1-1"]}>
                     <Routes>
                         <Route path="/learn/:langId/phrases/:phraseLessonId" element={<PhraseLessonPage />} />
                     </Routes>
                 </MemoryRouter>
-            </TooltipProvider></ProgressProvider>
+            </TooltipProvider></>
         )
         expect(screen.getByText("Lesson not found")).toBeInTheDocument()
     })

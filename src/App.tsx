@@ -7,7 +7,7 @@ import { ExerciseShell } from "./components/ExerciseShell"
 import { DebugBadge } from "./components/DebugBadge"
 import { TooltipProvider } from "./components/ui/tooltip"
 import { ProtectedRoute } from "./auth/ProtectedRoute"
-import { ProgressProvider, useProgress } from "./context/ProgressContext"
+import { useProgressStore, progressHelpers } from "./store/useProgressStore"
 import { getModule, loadModule, loadAdvancedModule, isAdvancedLoaded } from "./data/modules"
 import { AppLayout } from "./components/layout/AppLayout"
 import { useAppBootstrap } from "./hooks/useAppBootstrap"
@@ -49,7 +49,9 @@ const StatsPage             = lazy(() => import("./pages/StatsPage").then(m => (
 // so components always receive complete data for the active level.
 function LanguageLoader() {
     const { langId } = useParams<{ langId: string }>()
-    const { level: getLevel, setSelectedLanguage } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { level: getLevel } = progressHelpers(progress)
+    const setSelectedLanguage = useProgressStore(s => s.setSelectedLanguage)
     useAppBootstrap()
 
     const isFullyLoaded = (id: string) => {
@@ -91,7 +93,6 @@ export default function App() {
         <ErrorBoundary>
         <AuthProvider>
             <TooltipProvider>
-            <ProgressProvider>
             <BrowserRouter>
                 <Suspense fallback={
                     <div className="flex items-center justify-center min-h-screen">
@@ -158,7 +159,6 @@ export default function App() {
                 </Suspense>
                 <DebugBadge />
             </BrowserRouter>
-            </ProgressProvider>
             </TooltipProvider>
         </AuthProvider>
         </ErrorBoundary>

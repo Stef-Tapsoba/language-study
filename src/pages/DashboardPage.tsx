@@ -13,7 +13,7 @@ import { HydrationErrorBanner } from "../components/HydrationErrorBanner"
 import { MigrationBanner } from "../components/MigrationBanner"
 import { scoreUnitForGoal, USER_GOALS, type GoalId } from "../data/goalConfig"
 
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { getDueCount } from "../store/srs"
 import { Flag } from "../components/Flag"
 import { LevelBadge } from "../components/LevelBadge"
@@ -193,7 +193,8 @@ export function DashboardPage() {
     const debugUnlock = useDebugUnlock()
     const language = getLanguage(langId)
     const mod = getModule(langId)
-    const { level: getLevel, mastered: getMastered, completedCheckpoints: getCompletedCheckpoints } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { level: getLevel, mastered: getMastered, completedCheckpoints: getCompletedCheckpoints } = progressHelpers(progress)
     const level = getLevel(langId)
     const ui = getUI(langId, level)
     const mastered = getMastered(langId)

@@ -12,7 +12,7 @@ import { logError } from "../utils/logger"
 import { useParams, useNavigate } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getVocabForLevel } from "../data/repo"
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { getDueCards, updateCard } from "../store/srs"
 import { useBreakDetection } from "../hooks/useBreakDetection"
 
@@ -32,7 +32,8 @@ export function ReviewPage() {
     const { langId = "" } = useParams()
     const navigate = useNavigate()
     const language = getLanguage(langId)
-    const { level: getLevel } = useProgress()
+    const userProgress = useProgressStore(s => s.progress)
+    const { level: getLevel } = progressHelpers(userProgress)
     const level = getLevel(langId)
     const { tier } = useBreakDetection(langId)
 

@@ -8,7 +8,7 @@
 
 import { useState, useEffect, useCallback, useMemo, Suspense } from "react"
 import { useParams, useSearchParams, Navigate, Link, useNavigate } from "react-router-dom"
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { completeLessonItem, completeDrillSession, completeReinforcement } from "../store/actions"
 import { getExerciseType } from "../exerciseTypes/index"
 import { getExerciseConfig, selectItems } from "../domain/exerciseConfig"
@@ -48,7 +48,8 @@ export function ExerciseShell() {
     const { langId = "", exerciseTypeId = "" } = useParams()
     const [searchParams] = useSearchParams()
     const navigate = useNavigate()
-    const { level: getLevel, completed: getCompleted, mastered: getMastered } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { level: getLevel, completed: getCompleted, mastered: getMastered } = progressHelpers(progress)
     const level = getLevel(langId)
     const completedIds = getCompleted(langId)
     const mastered = getMastered(langId)

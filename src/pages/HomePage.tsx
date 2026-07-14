@@ -17,7 +17,7 @@ import { getModule, loadModule } from "../data/modules"
 import { getUnitsForGoal } from "../data/repo"
 import { getGoal } from "../store/preferences"
 import { registry } from "../store/registry"
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { useStatsStore, getTotalReviews } from "../store/useStatsStore"
 import { isUnitUnlocked } from "../domain/unitUnlock"
 import { Flag } from "../components/Flag"
@@ -434,7 +434,8 @@ function SidebarPanel({
 // ─── Returning-user home ─────────────────────────────────────────────────────
 
 function ReturningHome({ firstName, langId }: Readonly<{ firstName: string; langId: string }>) {
-    const { level: getLevel, completed: getCompleted, mastered: getMastered, completedCheckpoints: getCompletedCheckpoints } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { level: getLevel, completed: getCompleted, mastered: getMastered, completedCheckpoints: getCompletedCheckpoints } = progressHelpers(progress)
     const level = getLevel(langId)
     const completedArr = getCompleted(langId)
     const mastered = getMastered(langId)
@@ -577,7 +578,9 @@ export function HomePage() {
     useAppBootstrap()
     const navigate = useNavigate()
     const { firstName } = useCurrentUser()
-    const { startedLanguages, selectedLanguage, setSelectedLanguage } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { startedLanguages, selectedLanguage } = progressHelpers(progress)
+    const setSelectedLanguage = useProgressStore(s => s.setSelectedLanguage)
 
     function handlePick(langId: string) {
         setSelectedLanguage(langId)

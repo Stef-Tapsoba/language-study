@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 import { Button } from "../components/ui/button"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { QuizCard } from "../components/QuizCard"
@@ -248,7 +248,7 @@ function CategoryRead({ passage, langId, level, label, completed, theme, ui }: R
     const [translationShown, setTranslationShown] = useState(level === "A1")
     const [vocabShown, setVocabShown] = useState(true)
     const [markedRead, setMarkedRead] = useState(completed.includes(passage.id))
-    const { markLessonComplete } = useProgress()
+    const markLessonComplete = useProgressStore(s => s.markLessonComplete)
 
     function handleMarkRead() {
         markLessonComplete(langId, passage.id, "reading")
@@ -348,7 +348,8 @@ export function CategoryReadingPage() {
     const { langId = "", category = "" } = useParams()
     const language = getLanguage(langId)
     const mod = getModule(langId)
-    const { level: getLevel, completed: getCompleted } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { level: getLevel, completed: getCompleted } = progressHelpers(progress)
     const level = getLevel(langId)
     const ui = getUI(langId, level)
 

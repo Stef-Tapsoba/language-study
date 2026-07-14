@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { LANGUAGES } from "../data/languages"
 import { Flag } from "./Flag"
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { computeProgressStats } from "../hooks/useProgressStats"
 
 export function LanguagePicker() {
@@ -11,14 +11,9 @@ export function LanguagePicker() {
     const [open, setOpen] = useState(false)
     const ref = useRef<HTMLDivElement>(null)
 
-    const {
-        startedLanguages: started,
-        selectedLanguage,
-        level: getLevel,
-        completed: getCompleted,
-        mastered: getMastered,
-        setSelectedLanguage,
-    } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { startedLanguages: started, selectedLanguage, level: getLevel, completed: getCompleted, mastered: getMastered } = progressHelpers(progress)
+    const setSelectedLanguage = useProgressStore(s => s.setSelectedLanguage)
 
     const selectedId = selectedLanguage ?? started[0] ?? ""
     const current = LANGUAGES.find(l => l.id === selectedId)

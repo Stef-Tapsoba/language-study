@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getLevelQuestions } from "../data/repo"
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { NavBar } from "../components/NavBar"
 import { QuizCard } from "../components/QuizCard"
 import { LevelBadge } from "../components/LevelBadge"
@@ -109,7 +109,7 @@ function ResultsActions({ passed, nextLevel, langId, ui, onRetry }: Readonly<{
     onRetry: () => void
 }>) {
     const navigate = useNavigate()
-    const { setCurrentLevel } = useProgress()
+    const setCurrentLevel = useProgressStore(s => s.setCurrentLevel)
     const [showOverlay, setShowOverlay] = useState(false)
 
     function handleAdvance() {
@@ -177,7 +177,8 @@ function ResultsActions({ passed, nextLevel, langId, ui, onRetry }: Readonly<{
 export function LevelTestPage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
-    const { level: getLevel } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { level: getLevel } = progressHelpers(progress)
     const level = getLevel(langId)
     const ui = getUI(langId, level)
 
