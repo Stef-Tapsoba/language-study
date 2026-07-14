@@ -27,6 +27,8 @@ registerExerciseType<GrammarLesson>({
     // Full-sentence reconstruction — dictation mode (no slash-alternative splitting).
     matchMode: "dictation",
 
+    display: { emoji: "🔧", description: "Find and fix the grammar mistake" },
+
     fetchItems: async ({ langId, level }) =>
         Promise.resolve(getGrammarForLevel(langId, level)),
 

@@ -3,14 +3,14 @@
 // A1/A2: Show the English meaning → pick the correct target-language sentence.
 // B1+:   Show the target-language sentence → pick the correct English meaning.
 //        This shifts the exercise from production-cued to comprehension-cued.
+// Registered exercise type (see exerciseTypes/grammarDrill.ts) rendered by
+// ExerciseShell: items arrive pre-fetched and pre-selected; session completion
+// is reported through onSessionDone. Question building and the MC/fill-in
+// mode chooser live entirely in this component.
 import { useMemo, useEffect, useState } from "react"
-import { useParams, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { Button } from "../components/ui/button"
 import { getLanguage } from "../data/languages"
-import { getGrammarForLevel, getUnitsForLevel } from "../data/repo"
-import { logError } from "../utils/logger"
-import { useProgressStore, progressHelpers } from "../store/useProgressStore"
-import { completeDrillSession } from "../store/actions"
 import { shuffle } from "../utils/arrayUtils"
 import { NavBar } from "../components/NavBar"
 import { QuizCard } from "../components/QuizCard"
@@ -21,6 +21,7 @@ import { answerMatches } from "../utils/answerMatch"
 import { GrammarLesson } from "../types"
 import type { Example } from "../types"
 import { isDialogueExample } from "../types"
+import type { ExerciseComponentProps } from "../exerciseTypes/registry"
 
 interface DrillQuestion {
     prompt: string    // displayed in the amber banner
@@ -300,30 +301,17 @@ function MultipleChoiceMode({ langId, question, isFlipped, ui, drill, questionsL
 
 // ── Page ─────────────────────────────────────────────────────────────────────
 
-export function GrammarDrillPage() {
-    const { langId = "" } = useParams()
+export default function GrammarDrillPage({
+    items, langId, level, onSessionDone,
+}: Readonly<ExerciseComponentProps<GrammarLesson>>) {
+    // Language name is only needed for the fill-in placeholder text.
     const language = getLanguage(langId)
-    const progress = useProgressStore(s => s.progress)
-    const { level: getLevel, mastered: getMastered } = progressHelpers(progress)
-    const level = getLevel(langId)
-    const masteredIds = getMastered(langId)
     const ui = getUI(langId, level)
     const isFlipped = level !== "A1" && level !== "A2"
 
-    const questions = useMemo(() => {
-        const allGrammar = getGrammarForLevel(langId, level)
-        const units = getUnitsForLevel(langId, level)
-        // Covered units: first unit is always unlocked; subsequent unlock when previous is mastered
-        const coveredGrammarIds = new Set(
-            units
-                .filter((_, i) => i === 0 || masteredIds.includes(units[i - 1].id))
-                .flatMap(u => u.grammarIds)
-        )
-        const covered = allGrammar.filter(g => coveredGrammarIds.has(g.id))
-        // Need ≥4 distinct examples to build questions; fall back to all if pool is too small
-        const source = covered.flatMap(g => g.examples).length >= 4 ? covered : allGrammar
-        return buildQuestions(source, level)
-    }, [langId, level, masteredIds])
+    // Pool gating and selection happen upstream (grammarDrill.ts fetchItems +
+    // ExerciseShell selectItems); this component builds 10 questions from items.
+    const questions = useMemo(() => buildQuestions(items, level), [items, level])
 
     const drill = useDrill(questions)
 
@@ -347,7 +335,7 @@ export function GrammarDrillPage() {
         drill.handleSelect(isCorrect ? current.correct : fillInput)
     }
 
-    useEffect(() => { if (drill.done) completeDrillSession(langId, "grammar").catch(err => logError("GrammarDrillPage.complete", err)) }, [drill.done, langId])
+    useEffect(() => { if (drill.done) onSessionDone() }, [drill.done, onSessionDone])
 
     if (!language) return null
 

@@ -34,7 +34,10 @@
 // Everything else — component, matchMode, contentType, route — stays unchanged.
 
 // ── Registered exercise types ────────────────────────────────────────────────
+// Order matters: PracticePage renders cards in registration order.
 
+import "./verbDrill"
+import "./grammarDrill"
 import "./sentenceScramble"
 import "./vocabMatching"
 import "./cloze"

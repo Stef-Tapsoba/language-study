@@ -23,6 +23,8 @@ registerExerciseType<ReadingPassage>({
     // Multiple-choice only.
     matchMode: null,
 
+    display: { emoji: "🔍", description: "Guess meaning from a passage" },
+
     fetchItems: async ({ langId, level }) =>
         Promise.resolve(getReadingPassagesForLevel(langId, level)),
 

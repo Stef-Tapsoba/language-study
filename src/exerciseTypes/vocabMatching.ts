@@ -24,6 +24,8 @@ registerExerciseType<VocabItem>({
     // Multiple-choice pairing — no typed input.
     matchMode: null,
 
+    display: { emoji: "🎯", description: "Match words with their translations" },
+
     // Vocab exercises always scope to the full unit vocab — a single-lesson
     // scope makes no sense for word matching (too few items for meaningful rounds).
     fetchItems: async ({ langId, level, unitId }) => {

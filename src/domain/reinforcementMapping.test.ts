@@ -159,16 +159,16 @@ describe("getGrammarExerciseType", () => {
 // ---------------------------------------------------------------------------
 
 describe("getExerciseLabel", () => {
-    it("returns 'Sentence scramble' for 'sentence-scramble'", () => {
-        expect(getExerciseLabel("sentence-scramble")).toBe("Sentence scramble")
+    it("returns the registry label 'Sentence Scramble' for 'sentence-scramble'", () => {
+        expect(getExerciseLabel("sentence-scramble")).toBe("Sentence Scramble")
     })
 
     it("returns 'Dictation' for 'dictation'", () => {
         expect(getExerciseLabel("dictation")).toBe("Dictation")
     })
 
-    it("returns 'Vocab in context' for 'vocab-in-context'", () => {
-        expect(getExerciseLabel("vocab-in-context")).toBe("Vocab in context")
+    it("returns the registry label 'Vocabulary in Context' for 'vocab-in-context'", () => {
+        expect(getExerciseLabel("vocab-in-context")).toBe("Vocabulary in Context")
     })
 
     it("returns 'Flashcards' for 'flashcards'", () => {

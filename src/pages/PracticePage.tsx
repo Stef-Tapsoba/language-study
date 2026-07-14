@@ -7,6 +7,7 @@ import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { getDueCount } from "../store/srs"
 import { useProgressStore, progressHelpers } from "../store/useProgressStore"
+import { getAllExerciseTypes } from "../exerciseTypes"
 
 interface PracticeModeProps {
     emoji: string
@@ -75,22 +76,21 @@ export function PracticePage() {
                 />
             </div>
 
-            {/* Drills */}
+            {/* Drills — driven by the exercise-type registry: registering a new
+                type in exerciseTypes/index.ts adds its card here automatically. */}
             <p className="text-[10px] text-text-ter uppercase tracking-widest mb-2">Drills</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
-                <PracticeCard emoji="🔡" title="Verb Drill"     description="Conjugate verbs in context"                    href={`/learn/${langId}/verb-drill`} />
-                <PracticeCard emoji="✏️" title="Grammar Drill"  description="Answer grammar questions at your level"         href={`/learn/${langId}/grammar-drill`} />
-                <PracticeCard emoji="🔀" title="Sentence Scramble" description="Put shuffled words back in the right order" href={`/learn/${langId}/exercise/sentence-scramble`} />
-                <PracticeCard emoji="🎯" title="Vocab Matching"  description="Match words with their translations"           href={`/learn/${langId}/exercise/vocab-matching`} />
-                <PracticeCard emoji="📖" title="Cloze"           description="Fill in the missing word from a passage"       href={`/learn/${langId}/exercise/cloze`} />
-                <PracticeCard emoji="🎧" title="Dictation"       description="Listen and type what you hear"                 href={`/learn/${langId}/exercise/dictation`} />
-                <PracticeCard emoji="💬" title="Dialogue Completion" description="Choose the missing line in a conversation" href={`/learn/${langId}/exercise/dialogue-completion`} />
-                <PracticeCard emoji="🔍" title="Vocab in Context" description="Guess meaning from a passage"                href={`/learn/${langId}/exercise/vocab-in-context`} />
-                <PracticeCard emoji="🔧" title="Error Correction" description="Find and fix the grammar mistake"            href={`/learn/${langId}/exercise/error-correction`} />
-                <PracticeCard emoji="🎤" title="Speaking"         description="Hear a phrase, then say it aloud"             href={`/learn/${langId}/exercise/speaking`} />
-                {isNonLatin && (
-                    <PracticeCard emoji="🈳" title="Script Reading" description="Identify the correct reading of a word"    href={`/learn/${langId}/exercise/script-reading`} />
-                )}
+                {getAllExerciseTypes()
+                    .filter(def => !def.display?.nonLatinOnly || isNonLatin)
+                    .map(def => (
+                        <PracticeCard
+                            key={def.id}
+                            emoji={def.display?.emoji ?? "🎲"}
+                            title={def.label}
+                            description={def.display?.description ?? ""}
+                            href={`/learn/${langId}/exercise/${def.id}`}
+                        />
+                    ))}
             </div>
         </div>
     )

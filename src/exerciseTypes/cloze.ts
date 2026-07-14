@@ -23,6 +23,8 @@ registerExerciseType<ReadingPassage>({
     // Target-language fill-in.
     matchMode: "strict",
 
+    display: { emoji: "📖", description: "Fill in the missing word from a passage" },
+
     fetchItems: async ({ langId, level }) =>
         Promise.resolve(getReadingPassagesForLevel(langId, level)),
 

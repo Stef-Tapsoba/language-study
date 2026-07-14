@@ -224,24 +224,31 @@ describe("mutationError", () => {
         expect(useProgressStore.getState().mutationError).toBeNull()
     })
 
-    it("a failing storage write sets mutationError and keeps optimistic progress", async () => {
+    it("a failing storage write sets mutationError and still shows optimistic progress", async () => {
         const { registry } = await import("./registry")
+        const { masterUnit: storeMasterUnit } = await import("./progress")
         registry._resetForTests()
+        let rejectWrite: (err: Error) => void = () => {}
         const failing = Object.create(registry.progress) as typeof registry.progress
-        failing.masterUnit = async (langId: string, unitId: string) => {
-            // Optimistic local write succeeded (Supabase pattern: cache first)…
-            const { masterUnit } = await import("./progress")
-            masterUnit(langId, unitId)
-            // …then the network write fails.
-            throw new Error("network down")
+        failing.masterUnit = (langId: string, unitId: string) => {
+            // Supabase pattern: cache written synchronously, network settles later
+            storeMasterUnit(langId, unitId)
+            return new Promise<void>((_, reject) => { rejectWrite = reject })
         }
         registry.configure({ progress: failing })
 
-        await useProgressStore.getState().masterUnit("es", "unit-net")
+        const pending = useProgressStore.getState().masterUnit("es", "unit-net")
 
+        // Optimistic: visible immediately, BEFORE the network write settles —
+        // regression test for the mark-complete button not updating until navigation.
+        expect(useProgressStore.getState().progress.masteredUnits["es"]).toContain("unit-net")
+        expect(useProgressStore.getState().mutationError).toBeNull()
+
+        rejectWrite(new Error("network down"))
+        await pending
+
+        // Failure surfaces, optimistic progress is kept (outbox replays it later)
         expect(useProgressStore.getState().mutationError?.message).toBe("network down")
-        // refresh() is skipped on error, but a manual refresh shows the optimistic write
-        useProgressStore.getState().refreshProgress()
         expect(useProgressStore.getState().progress.masteredUnits["es"]).toContain("unit-net")
 
         registry._resetForTests()

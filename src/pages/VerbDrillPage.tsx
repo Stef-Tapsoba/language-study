@@ -1,12 +1,12 @@
 // pages/VerbDrillPage.tsx — Conjugation fill-in-the-blank drill
+//
+// Registered exercise type (see exerciseTypes/verbDrill.ts) rendered by
+// ExerciseShell: items arrive pre-fetched and pre-selected; session completion
+// is reported through onSessionDone. This component builds its own MCQ
+// questions from the received verb pool.
 import { useMemo, useEffect } from "react"
-import { useParams, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { Button } from "../components/ui/button"
-import { getLanguage } from "../data/languages"
-import { getVerbsForLevel, getUnitsForLevel } from "../data/repo"
-import { logError } from "../utils/logger"
-import { useProgressStore, progressHelpers } from "../store/useProgressStore"
-import { completeDrillSession } from "../store/actions"
 import { NavBar } from "../components/NavBar"
 import { QuizCard } from "../components/QuizCard"
 import { LevelBadge } from "../components/LevelBadge"
@@ -15,6 +15,7 @@ import { useDrill } from "../hooks/useDrill"
 import { Verb } from "../types"
 import { getUI, fmt } from "../i18n"
 import { shuffle } from "../utils/arrayUtils"
+import type { ExerciseComponentProps } from "../exerciseTypes/registry"
 
 interface DrillQuestion {
     verb: Verb
@@ -59,37 +60,21 @@ function progressDotClass(i: number, index: number): string {
     return "bg-border-default"
 }
 
-export function VerbDrillPage() {
-    const { langId = "" } = useParams()
-    const language = getLanguage(langId)
-    const progress = useProgressStore(s => s.progress)
-    const { level: getLevel, mastered: getMastered } = progressHelpers(progress)
-    const level = getLevel(langId)
-    const masteredIds = getMastered(langId)
+export default function VerbDrillPage({
+    items, langId, level, onSessionDone,
+}: Readonly<ExerciseComponentProps<Verb>>) {
     const ui = getUI(langId, level)
 
     // At B1+, hide the English meaning — learner should rely on the verb form alone
     const showMeaning = level === "A1" || level === "A2"
 
-    const questions = useMemo(() => {
-        const allVerbs = getVerbsForLevel(langId, level)
-        const units = getUnitsForLevel(langId, level)
-        const coveredVerbIds = new Set(
-            units
-                .filter((_, i) => i === 0 || masteredIds.includes(units[i - 1].id))
-                .flatMap(u => u.verbIds)
-        )
-        const covered = allVerbs.filter(v => coveredVerbIds.has(v.id))
-        // Need ≥2 verbs for meaningful distractors; fall back to all if pool is too small
-        const source = covered.length >= 2 ? covered : allVerbs
-        return buildQuestions(source)
-    }, [langId, level, masteredIds])
+    // Pool gating and selection happen upstream (verbDrill.ts fetchItems +
+    // ExerciseShell selectItems); this component just builds 10 MCQs from items.
+    const questions = useMemo(() => buildQuestions(items), [items])
 
     const drill = useDrill(questions)
 
-    useEffect(() => { if (drill.done) completeDrillSession(langId, "verb").catch(err => logError("VerbDrillPage.complete", err)) }, [drill.done, langId])
-
-    if (!language) return null
+    useEffect(() => { if (drill.done) onSessionDone() }, [drill.done, onSessionDone])
 
     if (questions.length === 0) {
         const prevLevelMap: Record<string, string> = { A2: "A1", B1: "A2", B2: "B1", C1: "B2" }

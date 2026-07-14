@@ -23,6 +23,8 @@ registerExerciseType<ListeningExercise>({
     // Verbatim reproduction.
     matchMode: "dictation",
 
+    display: { emoji: "🎧", description: "Listen and type what you hear" },
+
     fetchItems: async ({ langId, level, unitId }) => {
         if (unitId) return getListeningForUnit(langId, unitId)
         return getListeningForLevel(langId, level)

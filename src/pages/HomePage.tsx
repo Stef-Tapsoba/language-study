@@ -405,7 +405,7 @@ function SidebarPanel({
                         </div>
                         <ChevronRight size={14} className="text-text-ter shrink-0" />
                     </Link>
-                    <Link to={`/learn/${langId}/verb-drill`} className="flex items-center gap-3 px-4 py-3 hover:bg-surface-elevated transition-colors">
+                    <Link to={`/learn/${langId}/exercise/verb-drill`} className="flex items-center gap-3 px-4 py-3 hover:bg-surface-elevated transition-colors">
                         <div className="w-8 h-8 bg-listening-surface rounded-lg flex items-center justify-center shrink-0">
                             <VerbDrillIcon />
                         </div>
@@ -415,7 +415,7 @@ function SidebarPanel({
                         </div>
                         <ChevronRight size={14} className="text-text-ter shrink-0" />
                     </Link>
-                    <Link to={`/learn/${langId}/grammar-drill`} className="flex items-center gap-3 px-4 py-3 hover:bg-surface-elevated transition-colors">
+                    <Link to={`/learn/${langId}/exercise/grammar-drill`} className="flex items-center gap-3 px-4 py-3 hover:bg-surface-elevated transition-colors">
                         <div className="w-8 h-8 bg-reading-surface rounded-lg flex items-center justify-center shrink-0">
                             <GrammarDrillIcon />
                         </div>
@@ -538,13 +538,13 @@ function ReturningHome({ firstName, langId }: Readonly<{ firstName: string; lang
                             />
                             <QuickPracticeCard
                                 label="Verb drill"
-                                href={`/learn/${langId}/verb-drill`}
+                                href={`/learn/${langId}/exercise/verb-drill`}
                                 iconBg="bg-listening-surface"
                                 icon={<VerbDrillIcon />}
                             />
                             <QuickPracticeCard
                                 label="Grammar drill"
-                                href={`/learn/${langId}/grammar-drill`}
+                                href={`/learn/${langId}/exercise/grammar-drill`}
                                 iconBg="bg-reading-surface"
                                 icon={<GrammarDrillIcon />}
                             />

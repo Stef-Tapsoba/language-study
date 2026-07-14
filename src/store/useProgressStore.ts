@@ -97,12 +97,27 @@ export const useProgressStore = create<ProgressState>((set, get) => {
     const handleMutationError = (err: unknown) =>
         set({ mutationError: err instanceof Error ? err : new Error(String(err)) })
 
-    /** Shared wrapper: await the storage write, refresh state, surface failures. */
+    /**
+     * Shared mutation wrapper.
+     *
+     * Adapters update their local cache synchronously before the network write
+     * settles, so refresh immediately — the UI must reflect the optimistic
+     * write without waiting a network round-trip (and even if it fails, the
+     * cache keeps the change and the outbox replays it later).
+     *
+     * Refresh again after settling: destructive ops (resetLanguage,
+     * removeLanguage) only mutate the cache after the server confirms.
+     */
     const mutate = async (write: () => Promise<void>): Promise<void> => {
+        const pending = write()
+        refresh()
         try {
-            await write()
+            await pending
+        } catch (err) {
+            handleMutationError(err)
+        } finally {
             refresh()
-        } catch (err) { handleMutationError(err) }
+        }
     }
 
     return {
