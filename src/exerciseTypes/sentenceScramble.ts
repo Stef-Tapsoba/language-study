@@ -26,6 +26,8 @@ registerExerciseType<GrammarLesson>({
     // "strict": splits " / " alternatives, keeps parentheticals, accent-tolerant.
     matchMode: "strict",
 
+    display: { emoji: "🔀", description: "Put shuffled words back in the right order" },
+
     // ── Content fetcher ───────────────────────────────────────────────────────
     // Stage 1: wraps the synchronous repo.ts call.
     // Stage 2 (Supabase): replace body only:

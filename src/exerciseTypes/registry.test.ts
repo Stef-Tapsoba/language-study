@@ -2,7 +2,7 @@
 
 import { describe, it, expect } from "vitest"
 
-// Side-effect import: registers all 9 exercise types
+// Side-effect import: registers all exercise types
 import "./index"
 
 import { getExerciseType, getAllExerciseTypes } from "./registry"
@@ -12,6 +12,8 @@ import { getExerciseType, getAllExerciseTypes } from "./registry"
 // ---------------------------------------------------------------------------
 
 const EXPECTED_IDS = [
+    "verb-drill",
+    "grammar-drill",
     "sentence-scramble",
     "vocab-matching",
     "cloze",
@@ -28,9 +30,9 @@ const EXPECTED_IDS = [
 // ---------------------------------------------------------------------------
 
 describe("getAllExerciseTypes", () => {
-    it("returns all 9 registered exercise types", () => {
+    it("returns all 11 registered exercise types", () => {
         const all = getAllExerciseTypes()
-        expect(all).toHaveLength(9)
+        expect(all).toHaveLength(11)
     })
 
     it("contains every expected exercise type id", () => {
@@ -89,5 +91,11 @@ describe("exercise type definitions have required fields", () => {
         const def = getExerciseType(id)!
         expect(typeof def.sessionType).toBe("string")
         expect(def.sessionType.length).toBeGreaterThan(0)
+    })
+
+    it.each(EXPECTED_IDS)("'%s' has display metadata for the Practice page", (id) => {
+        const def = getExerciseType(id)!
+        expect(def.display?.emoji).toBeTruthy()
+        expect(def.display?.description).toBeTruthy()
     })
 })

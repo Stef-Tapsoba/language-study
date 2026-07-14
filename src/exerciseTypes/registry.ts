@@ -43,12 +43,21 @@
 // The component, matchMode, contentType, and route stay identical.
 // IProgressStorage already handles the write side of the same migration.
 //
-// EXISTING EXERCISES
-// ------------------
-// Flashcards, VerbDrill, GrammarDrill, Reading, Listening, Culture are NOT
-// registered here yet — they predate the registry and continue working via
-// their own pages. Migrate them incrementally if/when needed. Register all
-// NEW exercise types here from the start.
+// WHAT BELONGS HERE — AND WHAT DELIBERATELY DOESN'T
+// --------------------------------------------------
+// The registry owns every LINEAR PRACTICE SESSION: a pool of items is fetched,
+// selected, and drilled front-to-back in one sitting. All drills live here.
+//
+// Two kinds of experience are deliberately OUTSIDE the registry — do not
+// migrate them, their shape conflicts with the ExerciseShell contract:
+//   - Flashcards (pages/FlashcardsPage) — an SRS engine: builds its own
+//     due+new deck and records per-card SM-2 grades. The shell's coarse
+//     onComplete cannot express card grading.
+//   - Content browsers (Reading, Listening, Culture pages) — list → detail
+//     navigation with sub-routes, embedded comprehension quizzes, and
+//     per-question stats. They are study surfaces, not linear sessions.
+//
+// Register all NEW linear exercise types here from the start.
 
 import type { LazyExoticComponent, ComponentType } from "react"
 import type { CEFRLevel } from "../types"
@@ -164,6 +173,17 @@ export interface ExerciseTypeDef<TItem = unknown> {
      *   component: lazy(() => import("../pages/SentenceScramblePage"))
      */
     component: LazyExoticComponent<ComponentType<ExerciseComponentProps<TItem>>>
+
+    /**
+     * Display metadata for surfaces that enumerate exercise types
+     * (PracticePage cards). Card order = registration order in index.ts.
+     */
+    display?: {
+        emoji: string
+        description: string
+        /** Only show for languages with a non-Latin script (e.g. script-reading). */
+        nonLatinOnly?: boolean
+    }
 }
 
 // ---------------------------------------------------------------------------

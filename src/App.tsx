@@ -27,8 +27,6 @@ const VerbsPage          = lazy(() => import("./pages/VerbsPage").then(m => ({ d
 const LevelTestPage      = lazy(() => import("./pages/LevelTestPage").then(m => ({ default: m.LevelTestPage })))
 const ProfilePage        = lazy(() => import("./pages/ProfilePage").then(m => ({ default: m.ProfilePage })))
 const FlashcardsPage     = lazy(() => import("./pages/FlashcardsPage").then(m => ({ default: m.FlashcardsPage })))
-const VerbDrillPage      = lazy(() => import("./pages/VerbDrillPage").then(m => ({ default: m.VerbDrillPage })))
-const GrammarDrillPage   = lazy(() => import("./pages/GrammarDrillPage").then(m => ({ default: m.GrammarDrillPage })))
 const UnitPage           = lazy(() => import("./pages/UnitPage").then(m => ({ default: m.UnitPage })))
 const ReadingPage        = lazy(() => import("./pages/ReadingPage").then(m => ({ default: m.ReadingPage })))
 const ListeningPage      = lazy(() => import("./pages/ListeningPage").then(m => ({ default: m.ListeningPage })))
@@ -139,8 +137,9 @@ export default function App() {
                         <Route path="verbs" element={<VerbsPage />} />
                         <Route path="level-test" element={<LevelTestPage />} />
                         <Route path="flashcards" element={<FlashcardsPage />} />
-                        <Route path="verb-drill" element={<VerbDrillPage />} />
-                        <Route path="grammar-drill" element={<GrammarDrillPage />} />
+                        {/* Old drill URLs — the drills are registry types now; keep bookmarks working */}
+                        <Route path="verb-drill" element={<Navigate to="../exercise/verb-drill" replace relative="path" />} />
+                        <Route path="grammar-drill" element={<Navigate to="../exercise/grammar-drill" replace relative="path" />} />
                         <Route path="units/:unitId" element={<UnitPage />} />
                         <Route path="reading" element={<ReadingPage />} />
                         <Route path="reading/:category" element={<CategoryReadingPage />} />

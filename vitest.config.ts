@@ -11,6 +11,10 @@ export default defineConfig({
         setupFiles: ["./src/test/setup.ts"],
     },
     resolve: {
+        // The @myorg/* aliases point outside the project root, where a second
+        // React copy is reachable (../node_modules). Dedupe so hooks in those
+        // packages (e.g. quiz-engine's useDrill) share this project's React.
+        dedupe: ["react", "react-dom"],
         alias: {
             "@":              path.resolve(__dirname, "./src"),
             "@myorg/auth-core":   pkg("auth-core"),

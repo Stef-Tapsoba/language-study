@@ -24,6 +24,8 @@ registerExerciseType<SpeakingPrompt>({
     // Evaluation is speech-based, handled inside the component.
     matchMode: null,
 
+    display: { emoji: "🎤", description: "Hear a phrase, then say it aloud" },
+
     fetchItems: async ({ langId, level }) =>
         Promise.resolve(getSpeakingForLevel(langId, level)),
 

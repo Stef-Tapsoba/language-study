@@ -102,7 +102,7 @@ export function VerbsPage() {
                         </p>
                         <div className="flex flex-col gap-2 w-full max-w-xs mt-2">
                             <Button asChild className="w-full rounded-lg">
-                                <Link to={`/learn/${langId}/verb-drill`}>Go to Verb Drill</Link>
+                                <Link to={`/learn/${langId}/exercise/verb-drill`}>Go to Verb Drill</Link>
                             </Button>
                             <Link
                                 to={`/learn/${langId}`}

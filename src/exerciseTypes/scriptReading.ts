@@ -24,6 +24,8 @@ registerExerciseType<VocabItem>({
     // Multiple-choice only.
     matchMode: null,
 
+    display: { emoji: "🈳", description: "Identify the correct reading of a word", nonLatinOnly: true },
+
     fetchItems: async ({ langId, level, unitId }) => {
         if (unitId) return getVocabForUnit(langId, unitId)
         return getVocabForLevel(langId, level)

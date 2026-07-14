@@ -4,6 +4,9 @@
 // called from both UnitPage (UI) and ExerciseShell (routing) without risk.
 
 import type { GrammarLesson, GrammarExerciseType, LessonUnit } from "../types"
+// Import via the index (not registry.ts directly) so all exercise-type
+// definitions are guaranteed registered before labels are looked up.
+import { getExerciseType } from "../exerciseTypes/index"
 
 // ---------------------------------------------------------------------------
 // Vocab unlock threshold
@@ -52,13 +55,15 @@ export function getGrammarExerciseType(lesson: GrammarLesson): GrammarExerciseTy
 // Human-readable exercise labels (shown in the unit page rows)
 // ---------------------------------------------------------------------------
 
-const EXERCISE_LABELS: Record<string, string> = {
-    "sentence-scramble": "Sentence scramble",
-    "dictation":         "Dictation",
-    "vocab-in-context":  "Vocab in context",
-    "flashcards":        "Flashcards",
+// Labels come from the exercise-type registry (single source of truth).
+// Fallbacks cover ids that are deliberately NOT registered — flashcards is an
+// SRS engine outside the registry (see exerciseTypes/registry.ts header).
+const FALLBACK_LABELS: Record<string, string> = {
+    "flashcards": "Flashcards",
 }
 
 export function getExerciseLabel(exerciseTypeId: string): string {
-    return EXERCISE_LABELS[exerciseTypeId] ?? exerciseTypeId
+    return getExerciseType(exerciseTypeId)?.label
+        ?? FALLBACK_LABELS[exerciseTypeId]
+        ?? exerciseTypeId
 }

@@ -128,6 +128,14 @@ export function getPhraseLessonsForUnit(langId: string, unitId: string): PhraseL
     return unit.phraseLessonIds.map(id => phraseLessons.find(p => p.id === id)).filter(Boolean) as PhraseLesson[]
 }
 
+/** Returns only the verbs that belong to the given unit. */
+export function getVerbsForUnit(langId: string, unitId: string): Verb[] {
+    const unit = getUnit(langId, unitId)
+    if (!unit) return []
+    const verbs = getModule(langId)?.verbs ?? []
+    return unit.verbIds.map(id => verbs.find(v => v.id === id)).filter(Boolean) as Verb[]
+}
+
 /** Returns only the vocab items that belong to the given unit. */
 export function getVocabForUnit(langId: string, unitId: string): VocabItem[] {
     const unit = getUnit(langId, unitId)
