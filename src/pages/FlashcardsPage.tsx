@@ -3,7 +3,7 @@ import { useState, useMemo, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getVocabForLevel } from "../data/repo"
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { getDueCards, updateCard, getNextDueDate } from "../store/srs"
 import { useStatsStore } from "../store/useStatsStore"
 import { NavBar } from "../components/NavBar"
@@ -11,6 +11,7 @@ import { LevelBadge } from "../components/LevelBadge"
 import { SpeakButton } from "../components/SpeakButton"
 import { VocabItem } from "../types"
 import { getUI, fmt, UIStrings } from "../i18n"
+import { logError } from "../utils/logger"
 import { speak } from "../utils/tts"
 import { answerMatches } from "../utils/answerMatch"
 import { adaptiveMessage } from "../utils/adaptiveMessage"
@@ -237,7 +238,9 @@ function FlipCard({ item, flipped, onClick, translationMode, translationShown, u
 export function FlashcardsPage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
-    const { level: getLevel, isHydrating } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { level: getLevel } = progressHelpers(progress)
+    const isHydrating = useProgressStore(s => s.isHydrating)
     const level = getLevel(langId)
     const ui = getUI(langId, level)
     const translationMode = getTranslationMode(level)
@@ -435,6 +438,7 @@ export function FlashcardsPage() {
         // Persist SRS rating (skip in review mode and studyAll mode)
         if (!reviewMode && !studyAll) {
             updateCard(langId, deck[index].id, r === "correct" ? 4 : 1)
+                .catch(err => logError("FlashcardsPage.updateCard", err))   // queued in outbox — silent-but-reliable
         }
         useStatsStore.getState().recordReview(langId, r === "correct")
 

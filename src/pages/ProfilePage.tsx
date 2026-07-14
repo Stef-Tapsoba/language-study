@@ -6,7 +6,7 @@ import { useCurrentUser } from "../hooks/useCurrentUser"
 import { useProgressStats, computeProgressStats } from "../hooks/useProgressStats"
 import { LANGUAGES } from "../data/languages"
 import { loadModule } from "../data/modules"
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { resetLanguageData, removeLanguageData, exportProgressSnapshot, importProgressSnapshot } from "../store/actions"
 import { logError } from "../utils/logger"
 import { useGlobalStreak } from "../hooks/useGlobalStreak"
@@ -22,7 +22,8 @@ import { Alert, AlertDescription } from "../components/ui/alert"
 function LangCard({ langId, onChanged }: Readonly<{ langId: string; onChanged: () => void }>) {
     const [manageOpen, setManageOpen] = useState(false)
     const lang = LANGUAGES.find(l => l.id === langId)
-    const { level: getLevel } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { level: getLevel } = progressHelpers(progress)
     const level = getLevel(langId)
     const { grammar, vocab, verbs, reading, listening, overallPct } = useProgressStats(langId, level)
     if (!lang) return null
@@ -204,7 +205,9 @@ export function ProfilePage() {
     const { logout } = useAuth()
     const navigate = useNavigate()
     const { displayName, email, initials } = useCurrentUser()
-    const { startedLanguages: startedIds, level: getLevel, completed: getCompleted, mastered: getMastered, refreshProgress } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { startedLanguages: startedIds, level: getLevel, completed: getCompleted, mastered: getMastered } = progressHelpers(progress)
+    const refreshProgress = useProgressStore(s => s.refreshProgress)
     const [tick, setTick] = useState(0)   // force re-render after module loads
     // Load any unloaded language modules so progress bars show real numbers
     useEffect(() => {

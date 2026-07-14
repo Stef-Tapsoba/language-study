@@ -1,14 +1,16 @@
 // pages/LanguageSelectPage.tsx — Language selection screen for new users
 import { useNavigate } from "react-router-dom"
 import { VISIBLE_LANGUAGES } from "../data/languages"
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { loadModule } from "../data/modules"
 import { NavBar } from "../components/NavBar"
 import { Flag } from "../components/Flag"
 
 export function LanguageSelectPage() {
     const navigate = useNavigate()
-    const { selectedLanguage, startedLanguages, setSelectedLanguage } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { selectedLanguage, startedLanguages } = progressHelpers(progress)
+    const setSelectedLanguage = useProgressStore(s => s.setSelectedLanguage)
     const existingLang = selectedLanguage
     const isReturning = Boolean(existingLang)
 

@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useParams, Link, useSearchParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { useStatsStore } from "../store/useStatsStore"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
@@ -105,7 +105,7 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
     const [quizScore, setQuizScore] = useState(0)
     const [quizDone, setQuizDone] = useState(false)
     const [markedRead, setMarkedRead] = useState(completed.includes(passage.id))
-    const { markLessonComplete } = useProgress()
+    const markLessonComplete = useProgressStore(s => s.markLessonComplete)
 
     function handleMarkRead() {
         markLessonComplete(langId, passage.id, "reading")
@@ -281,7 +281,8 @@ export function ReadingPage() {
     const [searchParams] = useSearchParams()
     const language = getLanguage(langId)
     const mod = getModule(langId)
-    const { level: getLevel, completed: getCompleted } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { level: getLevel, completed: getCompleted } = progressHelpers(progress)
     const level = getLevel(langId)
     const ui = getUI(langId, level)
     const completed = getCompleted(langId)

@@ -1,7 +1,9 @@
 // store/SupabaseStatsStorage.ts — IStatsStorage backed by Supabase daily_stats table.
 //
-// Write strategy: fire-and-forget upserts using atomic SQL increments.
-// Reads hydrate a local cache on login; in-memory Zustand store handles reactivity.
+// Write strategy: awaited atomic SQL increments; on failure the delta is queued
+// in the outbox (deltas for the same lang+date are summed) and replayed on
+// reconnect. Reads hydrate a local cache on login; the Zustand store handles
+// reactivity and swallows rejections (stats are silent-but-reliable).
 //
 // Atomic increment pattern avoids lost-update races when multiple tabs are open:
 //   INSERT ... ON CONFLICT DO UPDATE SET reviewed = daily_stats.reviewed + EXCLUDED.reviewed
@@ -12,6 +14,7 @@ import type { SupabaseClient } from "@supabase/supabase-js"
 import type { StatsData, DayStats } from "./useStatsStore"
 import type { IStatsStorage } from "./IStatsStorage"
 import { logError } from "../utils/logger"
+import { outbox, type IncrementDailyStatArgs } from "./outbox"
 
 interface StatRow {
     lang_id: string
@@ -60,7 +63,7 @@ export class SupabaseStatsStorage implements IStatsStorage {
     // ── Writes (atomic upsert increments) ─────────────────────────────────────
 
     async recordReview(langId: string, date: string, correct: boolean): Promise<void> {
-        this.upsertDelta(langId, date, {
+        await this.upsertDelta(langId, date, {
             reviewed: 1,
             correct:  correct ? 1 : 0,
             acts:     0,
@@ -70,7 +73,7 @@ export class SupabaseStatsStorage implements IStatsStorage {
     }
 
     async recordQuizAnswer(langId: string, date: string, correct: boolean): Promise<void> {
-        this.upsertDelta(langId, date, {
+        await this.upsertDelta(langId, date, {
             reviewed: 0,
             correct:  0,
             acts:     0,
@@ -80,7 +83,7 @@ export class SupabaseStatsStorage implements IStatsStorage {
     }
 
     async recordActivity(langId: string, date: string): Promise<void> {
-        this.upsertDelta(langId, date, {
+        await this.upsertDelta(langId, date, {
             reviewed: 0, correct: 0, acts: 1, q_total: 0, q_correct: 0,
         })
     }
@@ -111,19 +114,21 @@ export class SupabaseStatsStorage implements IStatsStorage {
         // Handled by reset_language_data() RPC in SupabaseProgressStorage.resetLanguage
     }
 
-    /** flush() is a no-op — all writes are fire-and-forget on each event. */
-    async flush(): Promise<void> {}
+    /** flush() drains the shared outbox (queued stat deltas included). */
+    async flush(): Promise<void> {
+        await outbox.flush()
+    }
 
     // ── Private helpers ───────────────────────────────────────────────────────
 
-    private upsertDelta(langId: string, date: string, delta: {
+    private async upsertDelta(langId: string, date: string, delta: {
         reviewed: number; correct: number; acts: number; q_total: number; q_correct: number
-    }): void {
+    }): Promise<void> {
         if (!this.userId) return
         // Upsert with increment: insert if new row, add delta if existing.
         // Supabase upsert sets the full value on conflict, so we use a raw SQL approach
         // via the rpc if available, otherwise fetch-then-upsert.
-        this.sb.rpc("increment_daily_stat", {
+        const args: IncrementDailyStatArgs = {
             p_user_id:   this.userId,
             p_lang_id:   langId,
             p_date:      date,
@@ -132,15 +137,21 @@ export class SupabaseStatsStorage implements IStatsStorage {
             p_acts:      delta.acts,
             p_q_total:   delta.q_total,
             p_q_correct: delta.q_correct,
-        }).then(({ error }) => {
-            if (error) {
-                // Fallback: client-side read-modify-write — vulnerable to lost-update
-                // race if multiple tabs are open. Deploy the increment_daily_stat RPC
-                // (see DATABASE_SCHEMA.sql) to eliminate this fallback in production.
-                logError("SupabaseStatsStorage.upsertDelta (RPC missing — run DATABASE_SCHEMA.sql)", error)
-                this.fallbackUpsert(langId, date, delta)
-            }
-        })
+        }
+        const { error } = await this.sb.rpc("increment_daily_stat", args)
+        if (!error) return
+
+        // Fallback: client-side read-modify-write — covers a missing RPC.
+        // Vulnerable to lost-update race if multiple tabs are open; deploy the
+        // increment_daily_stat RPC (see DATABASE_SCHEMA.sql) in production.
+        try {
+            await this.fallbackUpsert(langId, date, delta)
+        } catch (fallbackErr) {
+            // Both paths failed (likely offline) — queue the delta for replay.
+            // Same-key deltas are summed in the outbox, so the queue stays small.
+            outbox.enqueue({ kind: "rpc-stat", args, key: `stats|${langId}|${date}` })
+            throw fallbackErr
+        }
     }
 
     private async fallbackUpsert(langId: string, date: string, delta: {
@@ -163,6 +174,9 @@ export class SupabaseStatsStorage implements IStatsStorage {
             q_total:   current.q_total   + delta.q_total,
             q_correct: current.q_correct + delta.q_correct,
         }, { onConflict: "user_id,lang_id,study_date" })
-        if (error) logError("SupabaseStatsStorage.fallbackUpsert", error)
+        if (error) {
+            logError("SupabaseStatsStorage.fallbackUpsert", error)
+            throw error
+        }
     }
 }

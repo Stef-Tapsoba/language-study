@@ -12,10 +12,10 @@ import {
     hasLocalProgressToMigrate,
     migrateLocalStorageToSupabase,
 } from "../store/localStorageMigration"
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore } from "../store/useProgressStore"
 
 export function MigrationBanner() {
-    const { refreshProgress } = useProgress()
+    const refreshProgress = useProgressStore(s => s.refreshProgress)
     const [visible, setVisible] = useState(() => hasLocalProgressToMigrate())
     const [loading, setLoading] = useState(false)
     const [error, setError]   = useState<string | null>(null)

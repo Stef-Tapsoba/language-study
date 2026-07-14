@@ -6,7 +6,7 @@ import { useMemo } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { getModule } from "../data/modules"
 import { getDueCount } from "../store/srs"
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { useBreakDetection } from "../hooks/useBreakDetection"
 import { StreakChip } from "../components/StreakChip"
 import { useGlobalStreak } from "../hooks/useGlobalStreak"
@@ -14,7 +14,8 @@ import { useGlobalStreak } from "../hooks/useGlobalStreak"
 export function ReviewLandingPage() {
     const { langId = "" } = useParams()
     const navigate = useNavigate()
-    const { level: getLevel } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { level: getLevel } = progressHelpers(progress)
     const level = getLevel(langId)
     const mod = getModule(langId)
     const { tier, daysSince } = useBreakDetection(langId)

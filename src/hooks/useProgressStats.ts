@@ -2,12 +2,12 @@
 //
 // Exports both:
 //   computeProgressStats(langId, level, completed, masteredUnitIds) — plain function, safe outside React
-//   useProgressStats(langId, level)                                 — React hook, reads from ProgressContext
+//   useProgressStats(langId, level)                                 — React hook, reads from useProgressStore
 //
-// Both return ProgressStats. When Supabase lands, only ProgressContext changes.
+// Both return ProgressStats. When Supabase lands, only the storage adapters change.
 
 import { CEFRLevel } from "../types"
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { getModule } from "../data/modules"
 
 export interface SectionProgress {
@@ -32,7 +32,7 @@ export interface ProgressStats {
 /**
  * Pure function — computes content progress for langId at the given level.
  * Accepts completed lesson IDs and mastered unit IDs so it can be called
- * from both the React hook (ProgressContext) and non-hook contexts (ProfilePage reduce).
+ * from both the React hook (useProgressStore) and non-hook contexts (ProfilePage reduce).
  */
 export function computeProgressStats(
     langId: string,
@@ -74,10 +74,11 @@ export function computeProgressStats(
 }
 
 /**
- * React hook — reads completed/mastered from ProgressContext, then delegates to computeProgressStats.
+ * React hook — reads completed/mastered from useProgressStore, then delegates to computeProgressStats.
  * Reactively re-computes whenever progress state changes (e.g. after markLessonComplete).
  */
 export function useProgressStats(langId: string, level: CEFRLevel): ProgressStats {
-    const { completed, mastered } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { completed, mastered } = progressHelpers(progress)
     return computeProgressStats(langId, level, completed(langId), mastered(langId))
 }

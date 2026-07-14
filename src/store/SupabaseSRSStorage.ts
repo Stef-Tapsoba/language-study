@@ -10,6 +10,7 @@ import type { SRSCardState } from "@myorg/srs"
 import { calcNextReview, INITIAL_STATE } from "@myorg/srs"
 import type { ISRSStorage } from "./ISRSStorage"
 import { logError } from "../utils/logger"
+import { syncOrQueue } from "./outbox"
 
 // Row shape returned from srs_cards table
 interface SrsRow {
@@ -78,17 +79,23 @@ export class SupabaseSRSStorage implements ISRSStorage {
         if (!this.cache[langId]) this.cache[langId] = {}
         this.cache[langId][vocabId] = nextState
 
-        this.sb.from("srs_cards").upsert({
-            user_id:        uid,
-            lang_id:        langId,
-            vocab_id:       vocabId,
-            ease_factor:    nextState.easeFactor,
-            review_count:   nextState.reviewCount,
-            streak:         nextState.streak,
-            next_review_at: nextState.nextReviewAt,
-            interval_days:  nextState.intervalDays,
-        }, { onConflict: "user_id,lang_id,vocab_id" })
-            .then(({ error }) => { if (error) logError("SupabaseSRSStorage.updateCard", error) })
+        // LWW replay is exactly right here: a re-review before the queue drains
+        // coalesces to the newest card state.
+        await syncOrQueue(this.sb, {
+            kind: "upsert", table: "srs_cards",
+            payload: {
+                user_id:        uid,
+                lang_id:        langId,
+                vocab_id:       vocabId,
+                ease_factor:    nextState.easeFactor,
+                review_count:   nextState.reviewCount,
+                streak:         nextState.streak,
+                next_review_at: nextState.nextReviewAt,
+                interval_days:  nextState.intervalDays,
+            },
+            onConflict: "user_id,lang_id,vocab_id",
+            key: `srs_cards|${langId}|${vocabId}`,
+        })
     }
 
     async resetLanguage(langId: string): Promise<void> {

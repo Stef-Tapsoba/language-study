@@ -13,7 +13,7 @@ import {
     ChevronLeft, ChevronRight, Globe,
     Sun, Moon, Map, BarChart2,
 } from "lucide-react"
-import { useProgress } from "../../context/ProgressContext"
+import { useProgressStore, progressHelpers } from "../../store/useProgressStore"
 import { useGlobalStreak } from "../../hooks/useGlobalStreak"
 import { useDarkMode } from "../../hooks/useDarkMode"
 import { useCurrentUser } from "../../hooks/useCurrentUser"
@@ -342,7 +342,8 @@ function MobileTopBar({ selectedLanguage, currentLangName, currentLevel, streak,
 
 export function AppLayout() {
     const [collapsed, setCollapsed] = useState(readCollapsed)
-    const { selectedLanguage, level: getLevel } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { selectedLanguage, level: getLevel } = progressHelpers(progress)
     const streak = useGlobalStreak()
     const [dark, toggleDark] = useDarkMode()
     const { firstName } = useCurrentUser()

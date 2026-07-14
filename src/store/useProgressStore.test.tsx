@@ -1,68 +1,75 @@
-// context/ProgressContext.test.tsx
+// store/useProgressStore.test.tsx — ported from context/ProgressContext.test.tsx
+//
+// Exercises the Zustand store through rendered components using the documented
+// consumption pattern (subscribe to s.progress, derive via progressHelpers) so
+// the reactivity model is covered, not just getState() plumbing.
 
 import { render, screen, act } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { ProgressProvider, useProgress } from "./ProgressContext"
+import { useProgressStore, progressHelpers, _resetProgressStoreForTests } from "./useProgressStore"
+import { resetProgress } from "./progress"
 
 // ── helpers ────────────────────────────────────────────────────────────────────
 
 function TestConsumer() {
-    const ctx = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { level, startedLanguages, selectedLanguage } = progressHelpers(progress)
     return (
         <div>
-            <span data-testid="selected">{ctx.selectedLanguage ?? "none"}</span>
-            <span data-testid="level-es">{ctx.level("es")}</span>
-            <span data-testid="started">{ctx.startedLanguages.join(",")}</span>
+            <span data-testid="selected">{selectedLanguage ?? "none"}</span>
+            <span data-testid="level-es">{level("es")}</span>
+            <span data-testid="started">{startedLanguages.join(",")}</span>
         </div>
     )
 }
 
 function MutationConsumer() {
-    const ctx = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { level, completed, mastered, selectedLanguage } = progressHelpers(progress)
+    const setSelectedLanguage = useProgressStore(s => s.setSelectedLanguage)
+    const setCurrentLevel = useProgressStore(s => s.setCurrentLevel)
+    const markLessonComplete = useProgressStore(s => s.markLessonComplete)
+    const masterUnit = useProgressStore(s => s.masterUnit)
+    const resetLanguage = useProgressStore(s => s.resetLanguage)
+    const removeLanguage = useProgressStore(s => s.removeLanguage)
     return (
         <div>
-            <span data-testid="selected">{ctx.selectedLanguage ?? "none"}</span>
-            <span data-testid="level-es">{ctx.level("es")}</span>
-            <span data-testid="completed-es">{ctx.completed("es").join(",")}</span>
-            <span data-testid="mastered-es">{ctx.mastered("es").join(",")}</span>
-            <button onClick={() => ctx.setSelectedLanguage("es")}>set-lang</button>
-            <button onClick={() => ctx.setCurrentLevel("es", "B1")}>set-level</button>
-            <button onClick={() => ctx.markLessonComplete("es", "lesson-1", "grammar")}>mark-lesson</button>
-            <button onClick={() => ctx.masterUnit("es", "unit-1")}>master-unit</button>
-            <button onClick={() => ctx.resetLanguage("es")}>reset-lang</button>
-            <button onClick={() => ctx.removeLanguage("es")}>remove-lang</button>
+            <span data-testid="selected">{selectedLanguage ?? "none"}</span>
+            <span data-testid="level-es">{level("es")}</span>
+            <span data-testid="completed-es">{completed("es").join(",")}</span>
+            <span data-testid="mastered-es">{mastered("es").join(",")}</span>
+            <button onClick={() => setSelectedLanguage("es")}>set-lang</button>
+            <button onClick={() => setCurrentLevel("es", "B1")}>set-level</button>
+            <button onClick={() => markLessonComplete("es", "lesson-1", "grammar")}>mark-lesson</button>
+            <button onClick={() => masterUnit("es", "unit-1")}>master-unit</button>
+            <button onClick={() => resetLanguage("es")}>reset-lang</button>
+            <button onClick={() => removeLanguage("es")}>remove-lang</button>
         </div>
     )
 }
 
-// ── provider renders children ──────────────────────────────────────────────────
-
-describe("ProgressProvider", () => {
-    it("renders children", () => {
-        render(
-            <ProgressProvider>
-                <div data-testid="child">content</div>
-            </ProgressProvider>
-        )
-        expect(screen.getByTestId("child")).toBeInTheDocument()
-    })
+beforeEach(() => {
+    // Clear the progress.ts module cache (localStorage itself is reset by
+    // src/test/setup.ts), then re-seed the store from the clean slate.
+    resetProgress()
+    _resetProgressStoreForTests()
 })
 
 // ── initial values ─────────────────────────────────────────────────────────────
 
-describe("useProgress initial values", () => {
+describe("useProgressStore initial values", () => {
     it("selectedLanguage is null initially", () => {
-        render(<ProgressProvider><TestConsumer /></ProgressProvider>)
+        render(<TestConsumer />)
         expect(screen.getByTestId("selected")).toHaveTextContent("none")
     })
 
     it("level defaults to A1 for unknown language", () => {
-        render(<ProgressProvider><TestConsumer /></ProgressProvider>)
+        render(<TestConsumer />)
         expect(screen.getByTestId("level-es")).toHaveTextContent("A1")
     })
 
     it("startedLanguages is empty initially", () => {
-        render(<ProgressProvider><TestConsumer /></ProgressProvider>)
+        render(<TestConsumer />)
         expect(screen.getByTestId("started")).toHaveTextContent("")
     })
 })
@@ -70,8 +77,8 @@ describe("useProgress initial values", () => {
 // ── setSelectedLanguage ────────────────────────────────────────────────────────
 
 describe("setSelectedLanguage", () => {
-    it("updates selectedLanguage in React state", async () => {
-        render(<ProgressProvider><MutationConsumer /></ProgressProvider>)
+    it("updates selectedLanguage reactively", async () => {
+        render(<MutationConsumer />)
         await act(async () => {
             await userEvent.click(screen.getByText("set-lang"))
         })
@@ -82,8 +89,8 @@ describe("setSelectedLanguage", () => {
 // ── setCurrentLevel ────────────────────────────────────────────────────────────
 
 describe("setCurrentLevel", () => {
-    it("updates level in React state", async () => {
-        render(<ProgressProvider><MutationConsumer /></ProgressProvider>)
+    it("updates level reactively", async () => {
+        render(<MutationConsumer />)
         await act(async () => {
             await userEvent.click(screen.getByText("set-level"))
         })
@@ -95,7 +102,7 @@ describe("setCurrentLevel", () => {
 
 describe("markLessonComplete", () => {
     it("adds the lesson to the completed list", async () => {
-        render(<ProgressProvider><MutationConsumer /></ProgressProvider>)
+        render(<MutationConsumer />)
         await act(async () => {
             await userEvent.click(screen.getByText("mark-lesson"))
         })
@@ -107,7 +114,7 @@ describe("markLessonComplete", () => {
 
 describe("masterUnit", () => {
     it("adds the unit to the mastered list", async () => {
-        render(<ProgressProvider><MutationConsumer /></ProgressProvider>)
+        render(<MutationConsumer />)
         await act(async () => {
             await userEvent.click(screen.getByText("master-unit"))
         })
@@ -119,9 +126,8 @@ describe("masterUnit", () => {
 
 describe("resetLanguage", () => {
     it("resets level to A1 and clears lessons/mastered units", async () => {
-        render(<ProgressProvider><MutationConsumer /></ProgressProvider>)
+        render(<MutationConsumer />)
 
-        // First set some data
         await act(async () => {
             await userEvent.click(screen.getByText("set-level"))
         })
@@ -135,7 +141,6 @@ describe("resetLanguage", () => {
         expect(screen.getByTestId("level-es")).toHaveTextContent("B1")
         expect(screen.getByTestId("completed-es")).toHaveTextContent("lesson-1")
 
-        // Now reset
         await act(async () => {
             await userEvent.click(screen.getByText("reset-lang"))
         })
@@ -150,7 +155,7 @@ describe("resetLanguage", () => {
 
 describe("removeLanguage", () => {
     it("removes language and clears selectedLanguage", async () => {
-        render(<ProgressProvider><MutationConsumer /></ProgressProvider>)
+        render(<MutationConsumer />)
 
         await act(async () => {
             await userEvent.click(screen.getByText("set-lang"))
@@ -173,25 +178,22 @@ describe("removeLanguage", () => {
 describe("initUserSession", () => {
     it("wipes progress when called with a different userId", async () => {
         function SessionConsumer() {
-            const ctx = useProgress()
+            const progress = useProgressStore(s => s.progress)
+            const { selectedLanguage } = progressHelpers(progress)
+            const setSelectedLanguage = useProgressStore(s => s.setSelectedLanguage)
+            const initUserSession = useProgressStore(s => s.initUserSession)
             return (
                 <div>
-                    <span data-testid="selected">{ctx.selectedLanguage ?? "none"}</span>
-                    <button onClick={() => ctx.setSelectedLanguage("fr")}>set-fr</button>
-                    <button onClick={() => ctx.initUserSession("user-2")}>switch-user</button>
+                    <span data-testid="selected">{selectedLanguage ?? "none"}</span>
+                    <button onClick={() => setSelectedLanguage("fr")}>set-fr</button>
+                    <button onClick={() => initUserSession("user-2")}>switch-user</button>
                 </div>
             )
         }
 
-        render(<ProgressProvider><SessionConsumer /></ProgressProvider>)
+        render(<SessionConsumer />)
 
-        // Establish user-1 session with progress
-        await act(async () => {
-            const { initUserSession } = useProgress as unknown as { initUserSession: (id: string) => void }
-            void initUserSession
-        })
-
-        // Set language as user-1 (without initUserSession, just set data directly)
+        // Set language as user-1 (no userId on the anonymous progress record)
         await act(async () => {
             await userEvent.click(screen.getByText("set-fr"))
         })
@@ -203,18 +205,45 @@ describe("initUserSession", () => {
         })
         expect(screen.getByTestId("selected")).toHaveTextContent("none")
     })
+
+    it("sets isHydrating false and leaves no hydrateError on success", async () => {
+        await act(async () => {
+            useProgressStore.getState().initUserSession("user-1")
+        })
+        expect(useProgressStore.getState().isHydrating).toBe(false)
+        expect(useProgressStore.getState().hydrateError).toBeNull()
+    })
 })
 
-// ── useProgress outside provider ───────────────────────────────────────────────
+// ── mutationError ──────────────────────────────────────────────────────────────
 
-describe("useProgress outside ProgressProvider", () => {
-    it("throws a descriptive error", () => {
-        function Naked() {
-            useProgress()
-            return null
+describe("mutationError", () => {
+    it("clearMutationError resets the error", () => {
+        useProgressStore.setState({ mutationError: new Error("boom") })
+        useProgressStore.getState().clearMutationError()
+        expect(useProgressStore.getState().mutationError).toBeNull()
+    })
+
+    it("a failing storage write sets mutationError and keeps optimistic progress", async () => {
+        const { registry } = await import("./registry")
+        registry._resetForTests()
+        const failing = Object.create(registry.progress) as typeof registry.progress
+        failing.masterUnit = async (langId: string, unitId: string) => {
+            // Optimistic local write succeeded (Supabase pattern: cache first)…
+            const { masterUnit } = await import("./progress")
+            masterUnit(langId, unitId)
+            // …then the network write fails.
+            throw new Error("network down")
         }
-        const spy = vi.spyOn(console, "error").mockImplementation(() => {})
-        expect(() => render(<Naked />)).toThrow("useProgress must be used inside <ProgressProvider>")
-        spy.mockRestore()
+        registry.configure({ progress: failing })
+
+        await useProgressStore.getState().masterUnit("es", "unit-net")
+
+        expect(useProgressStore.getState().mutationError?.message).toBe("network down")
+        // refresh() is skipped on error, but a manual refresh shows the optimistic write
+        useProgressStore.getState().refreshProgress()
+        expect(useProgressStore.getState().progress.masteredUnits["es"]).toContain("unit-net")
+
+        registry._resetForTests()
     })
 })

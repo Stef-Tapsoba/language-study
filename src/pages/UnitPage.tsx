@@ -5,7 +5,7 @@ import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
 import { isUnitUnlocked } from "../domain/unitUnlock"
 import { useDebugUnlock } from "../auth/debugSession"
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { useStatsStore } from "../store/useStatsStore"
 import { confirmUnitMastery } from "../store/actions"
 import { registry } from "../store/registry"
@@ -334,7 +334,7 @@ function VocabPracticeSection({ unit, langId, completed, vocabExerciseDone, nav 
 function VocabRow({ item, done, langId, ui }: Readonly<{
     item: VocabItem; done: boolean; langId: string; ui: UIStrings
 }>) {
-    const { markLessonComplete } = useProgress()
+    const markLessonComplete = useProgressStore(s => s.markLessonComplete)
     return (
         <Accordion type="single" collapsible>
             <AccordionItem value={item.id} className={`border rounded-2xl px-4 bg-surface-card ${done ? "border-grammar-border" : "border-border-default hover:border-grammar"}`}>
@@ -379,7 +379,7 @@ function VocabRow({ item, done, langId, ui }: Readonly<{
 // VerbCard
 // ---------------------------------------------------------------------------
 function VerbCard({ verb, langId, done, ui }: Readonly<{ verb: Verb; langId: string; done: boolean; ui: UIStrings }>) {
-    const { markLessonComplete } = useProgress()
+    const markLessonComplete = useProgressStore(s => s.markLessonComplete)
     return (
         <Accordion type="single" collapsible>
             <AccordionItem value={verb.id} className={`border rounded-2xl px-5 bg-surface-card ${done ? "border-grammar-border" : "border-border-default"}`}>
@@ -754,7 +754,9 @@ export function UnitPage() {
 
     const language = getLanguage(langId)
     const mod = getModule(langId)
-    const { level: getLevel, completed: getCompleted, mastered: getMastered, masterUnit, completedCheckpoints: getCompletedCheckpoints } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { level: getLevel, completed: getCompleted, mastered: getMastered, completedCheckpoints: getCompletedCheckpoints } = progressHelpers(progress)
+    const masterUnit = useProgressStore(s => s.masterUnit)
     const level = getLevel(langId)
     const ui = getUI(langId, level)
     const completed = getCompleted(langId)

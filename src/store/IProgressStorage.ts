@@ -47,7 +47,7 @@ export interface IProgressStorage {
      *
      * Contract: callers may call load() after every mutation without performance concern.
      * Do NOT call load() to detect whether hydration has completed — use
-     * ProgressContext.isHydrating for that.
+     * useProgressStore isHydrating for that.
      */
     load(): UserProgress
 

@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useParams, useSearchParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { useStatsStore } from "../store/useStatsStore"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
@@ -167,7 +167,7 @@ function ExerciseListen({ exercise, langId, level, completed, onBack, ui }: Read
     const [translationShown, setTranslationShown] = useState(false)
     const [quizOpen, setQuizOpen] = useState(false)
     const [markedListened, setMarkedListened] = useState(completed.includes(exercise.id))
-    const { markLessonComplete } = useProgress()
+    const markLessonComplete = useProgressStore(s => s.markLessonComplete)
 
     function handleMarkListened() {
         markLessonComplete(langId, exercise.id, "listening")
@@ -260,7 +260,8 @@ export function ListeningPage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
     const mod = getModule(langId)
-    const { level: getLevel, completed: getCompleted } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { level: getLevel, completed: getCompleted } = progressHelpers(progress)
     const level = getLevel(langId)
     const ui = getUI(langId, level)
 

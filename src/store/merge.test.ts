@@ -1,10 +1,11 @@
 // store/merge.test.ts
 
 import { describe, it, expect } from "vitest"
-import { mergeSRS, mergeStats } from "./merge"
+import { mergeProgress, mergeSRS, mergeStats } from "./merge"
 import { INITIAL_STATE } from "@myorg/srs"
 import type { SRSCardState } from "@myorg/srs"
 import type { StatsData } from "./useStatsStore"
+import type { UserProgress } from "../types"
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -17,6 +18,49 @@ function makeCard(reviewCount: number, streak = 0): SRSCardState {
 function makeDay(reviewed: number, correct: number, acts = 0, qTotal = 0, qCorrect = 0) {
     return { reviewed, correct, acts, qTotal, qCorrect }
 }
+
+function makeProgress(overrides: Partial<UserProgress> = {}): UserProgress {
+    return {
+        selectedLanguage: null,
+        levels: {},
+        completedLessons: {},
+        masteredUnits: {},
+        ...overrides,
+    }
+}
+
+// ---------------------------------------------------------------------------
+// mergeProgress — completedByType
+// ---------------------------------------------------------------------------
+
+describe("mergeProgress completedByType", () => {
+    it("unions typed completions across langs and types", () => {
+        const current = makeProgress({
+            completedByType: { fr: { grammar: ["fr-g-a1-1"], vocab: ["fr-v-a1-1"] } },
+        })
+        const imported = makeProgress({
+            completedByType: {
+                fr: { grammar: ["fr-g-a1-1", "fr-g-a1-2"] },
+                es: { reading: ["es-r-a1-1"] },
+            },
+        })
+        const result = mergeProgress(current, imported)
+        expect(result.completedByType).toEqual({
+            fr: { grammar: ["fr-g-a1-1", "fr-g-a1-2"], vocab: ["fr-v-a1-1"] },
+            es: { reading: ["es-r-a1-1"] },
+        })
+    })
+
+    it("tolerates completedByType missing on either side", () => {
+        const withTyped = makeProgress({ completedByType: { fr: { grammar: ["fr-g-a1-1"] } } })
+        const without = makeProgress()
+        expect(mergeProgress(withTyped, without).completedByType)
+            .toEqual({ fr: { grammar: ["fr-g-a1-1"] } })
+        expect(mergeProgress(without, withTyped).completedByType)
+            .toEqual({ fr: { grammar: ["fr-g-a1-1"] } })
+        expect(mergeProgress(without, makeProgress()).completedByType).toEqual({})
+    })
+})
 
 // ---------------------------------------------------------------------------
 // mergeSRS

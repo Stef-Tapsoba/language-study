@@ -4,7 +4,7 @@ import { useParams, useSearchParams } from "react-router-dom"
 import { Button } from "../components/ui/button"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { useStatsStore } from "../store/useStatsStore"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
@@ -347,7 +347,7 @@ function CultureEpisodeView({
     const showTranslation = level === "A1" || level === "A2"
     const [translationShown, setTranslationShown] = useState(level === "A1")
     const [markedRead, setMarkedRead] = useState(completed.includes(episode.id))
-    const { markLessonComplete } = useProgress()
+    const markLessonComplete = useProgressStore(s => s.markLessonComplete)
 
     function handleMarkRead() {
         markLessonComplete(langId, episode.id, "culture")
@@ -543,7 +543,8 @@ export function CulturePage() {
     const [searchParams] = useSearchParams()
     const language = getLanguage(langId)
     const mod = getModule(langId)
-    const { level: getLevel, completed: getCompleted } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { level: getLevel, completed: getCompleted } = progressHelpers(progress)
     const level = getLevel(langId)
     const ui = getUI(langId, level)
 

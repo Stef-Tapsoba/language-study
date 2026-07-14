@@ -9,7 +9,7 @@
 import { useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { getModule } from "../data/modules"
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { NavBar } from "../components/NavBar"
 import { Button } from "../components/ui/button"
 import { useDebugUnlock } from "../auth/debugSession"
@@ -19,7 +19,9 @@ export function CheckpointPage() {
     const navigate = useNavigate()
     const debugUnlock = useDebugUnlock()
     const mod = getModule(langId)
-    const { completeCheckpoint, completedCheckpoints: getCompletedCheckpoints } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { completedCheckpoints: getCompletedCheckpoints } = progressHelpers(progress)
+    const completeCheckpoint = useProgressStore(s => s.completeCheckpoint)
     const [phase, setPhase] = useState<"idle" | "confirming" | "practised">("idle")
 
     const checkpoint = mod?.checkpoints?.find(cp => cp.id === checkpointId)

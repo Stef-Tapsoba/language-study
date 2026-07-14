@@ -15,7 +15,7 @@ import { useNavigate } from "react-router-dom"
 import { Plus } from "lucide-react"
 import { LANGUAGES } from "../data/languages"
 import { Flag } from "./Flag"
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { computeProgressStats } from "../hooks/useProgressStats"
 
 interface DropdownContentProps {
@@ -99,14 +99,9 @@ export function LanguagePickerDropdown({
     const dropdownRef = useRef<HTMLDivElement>(null)
     const [portalPos, setPortalPos] = useState<{ top: number; left: number } | null>(null)
 
-    const {
-        startedLanguages: started,
-        selectedLanguage,
-        level: getLevel,
-        completed: getCompleted,
-        mastered: getMastered,
-        setSelectedLanguage,
-    } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { startedLanguages: started, selectedLanguage, level: getLevel, completed: getCompleted, mastered: getMastered } = progressHelpers(progress)
+    const setSelectedLanguage = useProgressStore(s => s.setSelectedLanguage)
 
     // Memoised so computeProgressStats (O(n) per language) only reruns when
     // the enrolled-language list or progress data changes, not on every open/close.

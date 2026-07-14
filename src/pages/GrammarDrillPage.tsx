@@ -9,7 +9,7 @@ import { Button } from "../components/ui/button"
 import { getLanguage } from "../data/languages"
 import { getGrammarForLevel, getUnitsForLevel } from "../data/repo"
 import { logError } from "../utils/logger"
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { completeDrillSession } from "../store/actions"
 import { shuffle } from "../utils/arrayUtils"
 import { NavBar } from "../components/NavBar"
@@ -303,7 +303,8 @@ function MultipleChoiceMode({ langId, question, isFlipped, ui, drill, questionsL
 export function GrammarDrillPage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
-    const { level: getLevel, mastered: getMastered } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { level: getLevel, mastered: getMastered } = progressHelpers(progress)
     const level = getLevel(langId)
     const masteredIds = getMastered(langId)
     const ui = getUI(langId, level)

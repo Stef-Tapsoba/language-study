@@ -2,7 +2,7 @@
 
 import { render, screen } from "@testing-library/react"
 import { MemoryRouter, Routes, Route } from "react-router-dom"
-import { ProgressProvider } from "../context/ProgressContext"
+import { _resetProgressStoreForTests, useProgressStore } from "../store/useProgressStore"
 import { TooltipProvider } from "../components/ui/tooltip"
 import { UnitPage } from "./UnitPage"
 import { resetProgress, masterUnit } from "../store/progress"
@@ -61,16 +61,10 @@ vi.mock("../store/useStatsStore", () => {
 vi.mock("../hooks/useGlobalStreak", () => ({ useGlobalStreak: () => 0 }))
 
 // ---------------------------------------------------------------------------
-// Mock registry — getReinforcementState is now read via registry.progress
+// registry is NOT mocked: useProgressStore routes reads/mutations through
+// registry.progress, and the real localStorage adapter already returns an
+// empty reinforcement state by default.
 // ---------------------------------------------------------------------------
-
-vi.mock("../store/registry", () => ({
-    registry: {
-        progress: {
-            getReinforcementState: () => ({ grammarLessonIds: [] }),
-        },
-    },
-}))
 
 // ---------------------------------------------------------------------------
 // Mock debugSession — no debug unlock by default
@@ -169,7 +163,7 @@ function buildModule(): Partial<LanguageModule> {
 function renderUnit(unitId: string, langId = "es") {
     mockModuleStore[langId] = buildModule()
     return render(
-        <ProgressProvider>
+        <>
             <TooltipProvider>
                 <MemoryRouter initialEntries={[`/learn/${langId}/units/${unitId}`]}>
                     <Routes>
@@ -177,7 +171,7 @@ function renderUnit(unitId: string, langId = "es") {
                     </Routes>
                 </MemoryRouter>
             </TooltipProvider>
-        </ProgressProvider>
+        </>
     )
 }
 
@@ -187,6 +181,7 @@ function renderUnit(unitId: string, langId = "es") {
 
 beforeEach(() => {
     resetProgress()
+    _resetProgressStoreForTests()
     Object.keys(mockModuleStore).forEach(k => delete mockModuleStore[k])
 })
 
@@ -214,6 +209,7 @@ describe("UnitPage — lock gate", () => {
 
     it("unlocks unit 2 once unit 1 is mastered", () => {
         masterUnit("es", "es-a1-u1")
+        useProgressStore.getState().refreshProgress()
         renderUnit("es-a1-u2")
         expect(screen.queryByText("Unit locked")).not.toBeInTheDocument()
         expect(screen.getAllByText("At the Restaurant").length).toBeGreaterThan(0)
@@ -289,6 +285,7 @@ describe("UnitPage — grammar tab", () => {
 describe("UnitPage — mastered state", () => {
     it("shows the Completed badge when the unit is mastered", () => {
         masterUnit("es", "es-a1-u1")
+        useProgressStore.getState().refreshProgress()
         renderUnit("es-a1-u1")
         expect(screen.getByText("✓ Completed")).toBeInTheDocument()
     })

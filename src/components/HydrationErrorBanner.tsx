@@ -1,21 +1,24 @@
-// components/HydrationErrorBanner.tsx — shown when ProgressContext.hydrateError is set.
+// components/HydrationErrorBanner.tsx — shown when useProgressStore hydrateError is set.
 //
 // Stage 1: hydrateError is always null (localStorage never fails to hydrate).
 // Stage 2: Supabase hydration can fail (network, RLS, token expiry). This banner
 //          gives users a visible retry path rather than silently showing stale data.
 
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore } from "../store/useProgressStore"
 import { Button } from "./ui/button"
 
 export function HydrationErrorBanner() {
-    const { hydrateError, mutationError, clearMutationError, refreshProgress } = useProgress()
+    const hydrateError = useProgressStore(s => s.hydrateError)
+    const mutationError = useProgressStore(s => s.mutationError)
+    const clearMutationError = useProgressStore(s => s.clearMutationError)
+    const refreshProgress = useProgressStore(s => s.refreshProgress)
 
     if (mutationError) {
         return (
             <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-xl px-4 py-3 flex items-center gap-3 mb-4">
                 <span className="text-amber-500 shrink-0" aria-hidden="true">⚠️</span>
                 <p className="text-sm text-amber-800 dark:text-amber-300 flex-1">
-                    Couldn't save your latest progress. Check your connection and try again.
+                    Progress saved on this device — it will sync when you're back online.
                 </p>
                 <Button
                     variant="ghost"

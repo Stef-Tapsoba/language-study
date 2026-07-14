@@ -3,13 +3,14 @@
 
 import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { StatsTab } from "../components/StatsTab"
 
 export function StatsPage() {
     const { langId = "" } = useParams()
     const language = getLanguage(langId)
-    const { level: getLevel } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { level: getLevel } = progressHelpers(progress)
     const level = getLevel(langId)
 
     if (!language) return null

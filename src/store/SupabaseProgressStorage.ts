@@ -13,6 +13,8 @@ import type { CEFRLevel, UserProgress, UnitReinforcementState, GoalId } from "..
 import type { IProgressStorage, ContentType } from "./IProgressStorage"
 import { logError } from "../utils/logger"
 import { SCHEMA_VERSION } from "./progress"
+import { inferContentTypeFromId } from "./contentType"
+import { syncOrQueue } from "./outbox"
 
 // Minimal row shapes returned by Supabase queries
 interface LevelRow { lang_id: string; level: string }
@@ -183,9 +185,10 @@ export class SupabaseProgressStorage implements IProgressStorage {
     }
 
     private lessonRowsFromFlat(uid: string, flat: UserProgress["completedLessons"]) {
-        // Stage 1 snapshots lack content_type — "grammar" is the safest valid fallback
+        // Stage 1 snapshots lack content_type — infer it from the content-ID
+        // naming convention ({langId}-{type}-{level}-{n}); see store/contentType.ts.
         return Object.entries(flat).flatMap(([lang_id, ids]) =>
-            ids.map(content_id => ({ user_id: uid, lang_id, content_type: "grammar" as ContentType, content_id }))
+            ids.map(content_id => ({ user_id: uid, lang_id, content_type: inferContentTypeFromId(content_id), content_id }))
         )
     }
 
@@ -249,8 +252,12 @@ export class SupabaseProgressStorage implements IProgressStorage {
     async setSelectedLanguage(langId: string): Promise<void> {
         const uid = this.userId; if (!uid) return
         this.cache.selectedLanguage = langId
-        this.sb.from("profiles").update({ selected_language: langId }).eq("id", uid)
-            .then(({ error }) => { if (error) logError("setSelectedLanguage", error) })
+        await syncOrQueue(this.sb, {
+            kind: "update", table: "profiles",
+            payload: { selected_language: langId },
+            match: { id: uid },
+            key: `profiles|selected_language|${uid}`,
+        })
     }
 
     async markLessonComplete(langId: string, lessonId: string, contentType: ContentType): Promise<void> {
@@ -259,10 +266,17 @@ export class SupabaseProgressStorage implements IProgressStorage {
         if (!existing.includes(lessonId)) {
             this.cache.completedLessons[langId] = [...existing, lessonId]
         }
-        this.sb.from("lesson_completions").upsert(
-            { user_id: uid, lang_id: langId, content_type: contentType, content_id: lessonId },
-            { onConflict: "user_id,lang_id,content_type,content_id" }
-        ).then(({ error }) => { if (error) logError("markLessonComplete", error) })
+        // Keep the typed map in sync so save()/export preserves content types.
+        const byType = this.cache.completedByType ?? (this.cache.completedByType = {})
+        const langMap = byType[langId] ?? (byType[langId] = {})
+        const typeList = langMap[contentType] ?? (langMap[contentType] = [])
+        if (!typeList.includes(lessonId)) typeList.push(lessonId)
+        await syncOrQueue(this.sb, {
+            kind: "upsert", table: "lesson_completions",
+            payload: { user_id: uid, lang_id: langId, content_type: contentType, content_id: lessonId },
+            onConflict: "user_id,lang_id,content_type,content_id",
+            key: `lesson_completions|${langId}|${contentType}|${lessonId}`,
+        })
     }
 
     async markCheckpointComplete(langId: string, checkpointId: string): Promise<void> {
@@ -274,10 +288,12 @@ export class SupabaseProgressStorage implements IProgressStorage {
                 [langId]: [...existing, checkpointId],
             }
         }
-        this.sb.from("checkpoint_completions").upsert(
-            { user_id: uid, lang_id: langId, checkpoint_id: checkpointId },
-            { onConflict: "user_id,lang_id,checkpoint_id" }
-        ).then(({ error }) => { if (error) logError("markCheckpointComplete", error) })
+        await syncOrQueue(this.sb, {
+            kind: "upsert", table: "checkpoint_completions",
+            payload: { user_id: uid, lang_id: langId, checkpoint_id: checkpointId },
+            onConflict: "user_id,lang_id,checkpoint_id",
+            key: `checkpoint_completions|${langId}|${checkpointId}`,
+        })
     }
 
     getCompletedCheckpoints(langId: string): string[] {
@@ -290,26 +306,34 @@ export class SupabaseProgressStorage implements IProgressStorage {
         if (!existing.includes(unitId)) {
             this.cache.masteredUnits[langId] = [...existing, unitId]
         }
-        this.sb.from("mastered_units").upsert(
-            { user_id: uid, lang_id: langId, unit_id: unitId },
-            { onConflict: "user_id,lang_id,unit_id" }
-        ).then(({ error }) => { if (error) logError("masterUnit", error) })
+        await syncOrQueue(this.sb, {
+            kind: "upsert", table: "mastered_units",
+            payload: { user_id: uid, lang_id: langId, unit_id: unitId },
+            onConflict: "user_id,lang_id,unit_id",
+            key: `mastered_units|${langId}|${unitId}`,
+        })
     }
 
     async setLevel(langId: string, level: CEFRLevel): Promise<void> {
         const uid = this.userId; if (!uid) return
         this.cache.levels[langId] = level
-        this.sb.from("user_language_levels").upsert(
-            { user_id: uid, lang_id: langId, level },
-            { onConflict: "user_id,lang_id" }
-        ).then(({ error }) => { if (error) logError("setLevel", error) })
+        await syncOrQueue(this.sb, {
+            kind: "upsert", table: "user_language_levels",
+            payload: { user_id: uid, lang_id: langId, level },
+            onConflict: "user_id,lang_id",
+            key: `user_language_levels|${langId}`,
+        })
     }
 
     async setGoal(goalId: GoalId): Promise<void> {
         const uid = this.userId; if (!uid) return
         this.cache.goal = goalId
-        this.sb.from("profiles").update({ learning_goal: goalId }).eq("id", uid)
-            .then(({ error }) => { if (error) logError("setGoal", error) })
+        await syncOrQueue(this.sb, {
+            kind: "update", table: "profiles",
+            payload: { learning_goal: goalId },
+            match: { id: uid },
+            key: `profiles|learning_goal|${uid}`,
+        })
     }
 
     async resetLanguage(langId: string): Promise<void> {
@@ -343,8 +367,12 @@ export class SupabaseProgressStorage implements IProgressStorage {
         // Null the active language so the app doesn't try to reload a removed language on next initSession
         if (this.cache.selectedLanguage === langId) {
             this.cache.selectedLanguage = null
-            this.sb.from("profiles").update({ selected_language: null }).eq("id", uid)
-                .then(({ error: e }) => { if (e) logError("removeLanguage.clearSelected", e) })
+            await syncOrQueue(this.sb, {
+                kind: "update", table: "profiles",
+                payload: { selected_language: null },
+                match: { id: uid },
+                key: `profiles|selected_language|${uid}`,
+            })
         }
     }
 
@@ -368,15 +396,19 @@ export class SupabaseProgressStorage implements IProgressStorage {
         this.cache.completedReinforcement = lang
 
         if (section === "grammar" && grammarLessonId) {
-            this.sb.from("reinforcement_grammar").upsert(
-                { user_id: uid, lang_id: langId, unit_id: unitId, grammar_lesson_id: grammarLessonId },
-                { onConflict: "user_id,lang_id,unit_id,grammar_lesson_id" }
-            ).then(({ error }) => { if (error) logError("markReinforcementDone.grammar", error) })
+            await syncOrQueue(this.sb, {
+                kind: "upsert", table: "reinforcement_grammar",
+                payload: { user_id: uid, lang_id: langId, unit_id: unitId, grammar_lesson_id: grammarLessonId },
+                onConflict: "user_id,lang_id,unit_id,grammar_lesson_id",
+                key: `reinforcement_grammar|${langId}|${unitId}|${grammarLessonId}`,
+            })
         } else if (section !== "grammar") {
-            this.sb.from("reinforcement_sections").upsert(
-                { user_id: uid, lang_id: langId, unit_id: unitId, section },
-                { onConflict: "user_id,lang_id,unit_id,section" }
-            ).then(({ error }) => { if (error) logError("markReinforcementDone.section", error) })
+            await syncOrQueue(this.sb, {
+                kind: "upsert", table: "reinforcement_sections",
+                payload: { user_id: uid, lang_id: langId, unit_id: unitId, section },
+                onConflict: "user_id,lang_id,unit_id,section",
+                key: `reinforcement_sections|${langId}|${unitId}|${section}`,
+            })
         }
     }
 }

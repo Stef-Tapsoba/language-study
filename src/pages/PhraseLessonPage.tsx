@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useParams, useSearchParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getModule } from "../data/modules"
-import { useProgress } from "../context/ProgressContext"
+import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { NavBar } from "../components/NavBar"
 import { MarkCompleteButton } from "../components/MarkCompleteButton"
 import { LevelBadge } from "../components/LevelBadge"
@@ -14,7 +14,9 @@ export function PhraseLessonPage() {
     const [searchParams] = useSearchParams()
     const returnTo = searchParams.get("returnTo") ?? `/learn/${langId}`
     const language = getLanguage(langId)
-    const { level: getLevel, completed: getCompleted, markLessonComplete } = useProgress()
+    const progress = useProgressStore(s => s.progress)
+    const { level: getLevel, completed: getCompleted } = progressHelpers(progress)
+    const markLessonComplete = useProgressStore(s => s.markLessonComplete)
     const level = getLevel(langId)
     const completed = getCompleted(langId)
 
