@@ -16,6 +16,8 @@ import {
     removeLanguage,
     getStartedLanguages,
     resetProgress,
+    setGoalPlanInProgress,
+    getGoalPlanFromProgress,
 } from "./progress"
 
 const LS_KEY = "ls:progress"
@@ -376,10 +378,10 @@ describe("resetProgress", () => {
 // ─── Schema migration (BUG-005) ───────────────────────────────────────────────
 
 describe("schema migration", () => {
-    it("stamps schemaVersion=5 on a fresh write", () => {
+    it("stamps schemaVersion=6 on a fresh write", () => {
         setSelectedLanguage("es")
         const p = loadProgress()
-        expect(p.schemaVersion).toBe(5)
+        expect(p.schemaVersion).toBe(6)
     })
 
     it("migrates v0 data: adds missing masteredUnits", () => {
@@ -391,7 +393,7 @@ describe("schema migration", () => {
         }))
         const p = loadProgress()
         expect(p.masteredUnits).toEqual({})
-        expect(p.schemaVersion).toBe(5)
+        expect(p.schemaVersion).toBe(6)
         // Original data preserved
         expect(p.selectedLanguage).toBe("es")
         expect(p.levels.es).toBe("A2")
@@ -418,7 +420,7 @@ describe("schema migration", () => {
             masteredUnits: {},
         }))
         const p = loadProgress()
-        expect(p.schemaVersion).toBe(5)
+        expect(p.schemaVersion).toBe(6)
         expect(p.selectedLanguage).toBe("ja")
     })
 
@@ -431,7 +433,7 @@ describe("schema migration", () => {
             masteredUnits: {},
         }))
         const p = loadProgress()
-        expect(p.schemaVersion).toBe(5)
+        expect(p.schemaVersion).toBe(6)
         expect(p.completedByType?.fr).toEqual({
             grammar: ["fr-g-a1-1", "unknown-id"],
             vocab:   ["fr-v-a1-3"],
@@ -480,6 +482,63 @@ describe("markLessonComplete completedByType", () => {
         removeLanguage("es")
         const p = loadProgress()
         expect(p.completedByType?.es).toBeUndefined()
+    })
+})
+
+// ─── v6: unitMasteredAt + goalPlans ──────────────────────────────────────────
+
+describe("unitMasteredAt stamping", () => {
+    const today = new Date().toISOString().slice(0, 10)
+
+    it("stamps today's date when a unit is mastered", () => {
+        masterUnit("es", "unit-1")
+        expect(loadProgress().unitMasteredAt?.es?.["unit-1"]).toBe(today)
+    })
+
+    it("does not restamp an already-mastered unit (early return)", () => {
+        masterUnit("es", "unit-1")
+        const first = loadProgress().unitMasteredAt?.es?.["unit-1"]
+        masterUnit("es", "unit-1")   // idempotent — early return, no rewrite
+        expect(loadProgress().unitMasteredAt?.es?.["unit-1"]).toBe(first)
+        expect(loadProgress().masteredUnits.es).toEqual(["unit-1"])
+    })
+
+    it("preserves an existing (hydrated) date over a new stamp", () => {
+        // Simulates Stage 2: unitMasteredAt hydrated from the server while the
+        // unit is being re-mastered locally — first mastery date wins.
+        localStorage.setItem("ls:progress", JSON.stringify({
+            schemaVersion: 6,
+            selectedLanguage: null,
+            levels: {},
+            completedLessons: {},
+            masteredUnits: {},
+            completedCheckpoints: {},
+            unitMasteredAt: { es: { "unit-1": "2026-01-01" } },
+        }))
+        masterUnit("es", "unit-1")
+        expect(loadProgress().unitMasteredAt?.es?.["unit-1"]).toBe("2026-01-01")
+    })
+
+    it("resetLanguageProgress clears the language's mastery dates and goal plan", () => {
+        masterUnit("es", "unit-1")
+        setGoalPlanInProgress("es", { targetLevel: "B1" })
+        resetLanguageProgress("es")
+        const p = loadProgress()
+        expect(p.unitMasteredAt?.es).toBeUndefined()
+        expect(p.goalPlans?.es).toBeUndefined()
+    })
+})
+
+describe("goal plan helpers", () => {
+    it("sets, reads, and clears a plan per language", () => {
+        setGoalPlanInProgress("fr", { targetLevel: "B1", targetDate: "2026-12-31", minutesPerDay: 20 })
+        expect(getGoalPlanFromProgress("fr")).toEqual({
+            targetLevel: "B1", targetDate: "2026-12-31", minutesPerDay: 20,
+        })
+        expect(getGoalPlanFromProgress("es")).toBeNull()
+
+        setGoalPlanInProgress("fr", null)
+        expect(getGoalPlanFromProgress("fr")).toBeNull()
     })
 })
 
@@ -556,7 +615,7 @@ describe("schema migration — v3 data without completedCheckpoints", () => {
             // no completedCheckpoints field — simulates pre-v4 save
         }))
         const p = loadProgress()
-        expect(p.schemaVersion).toBe(5)
+        expect(p.schemaVersion).toBe(6)
         expect(getCompletedCheckpoints("ko")).toEqual([])
     })
 })

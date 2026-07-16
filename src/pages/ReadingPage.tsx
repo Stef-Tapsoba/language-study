@@ -119,7 +119,7 @@ function PassageRead({ passage, langId, level, completed, onBack, ui }: Readonly
 
     function handleNext() {
         const isCorrect = selected === passage.questions[quizIndex].answer
-        useStatsStore.getState().recordQuizAnswer(langId, isCorrect)
+        useStatsStore.getState().recordQuizAnswer(langId, isCorrect, "CE")
         const newScore = quizScore + (isCorrect ? 1 : 0)
         if (quizIndex + 1 >= passage.questions.length) {
             setQuizScore(newScore)

@@ -25,6 +25,7 @@ import { LevelBadge, levelNames } from "../components/LevelBadge"
 import { PhaseTrack, computeUnitPhases } from "../components/PhaseTrack"
 import { CheckpointStrip } from "../components/CheckpointStrip"
 import { QuickPracticeCard } from "../components/QuickPracticeCard"
+import { GoalTrajectoryChip } from "../components/GoalProgressCard"
 import type { CEFRLevel, Checkpoint, LessonUnit, LanguageModule } from "../types"
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -377,6 +378,7 @@ function SidebarPanel({
                         <p className="text-[11px] text-streak font-medium">🔥 {streak} day streak</p>
                     )}
                 </div>
+                <GoalTrajectoryChip langId={langId} level={level} />
             </div>
 
             {/* Checkpoint timeline */}

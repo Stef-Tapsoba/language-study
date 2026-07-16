@@ -1,10 +1,18 @@
 // components/StatsTab.tsx — Stats tab for the Dashboard
+//
+// Ordering is deliberate (blueprint §6 "dashboard inversion"): retrieval
+// performance (chips, chart, skills) comes BEFORE completion percentages.
 import { useMemo } from "react"
-import { useStatsStore, getHistory, getTotalReviews, getOverallAccuracy } from "../store/useStatsStore"
+import { useStatsStore, getHistory, getTotalReviews, getOverallAccuracy, getSkillAccuracy } from "../store/useStatsStore"
 import { useGlobalStreak } from "../hooks/useGlobalStreak"
 import { CEFRLevel } from "../types"
 import { SECTION_CONFIG } from "../data/sectionConfig"
 import { useProgressStats } from "../hooks/useProgressStats"
+import { SKILLS, SKILL_LABELS, SKILL_ICONS } from "../domain/skills"
+import { GoalProgressCard } from "./GoalProgressCard"
+
+/** Minimum attempts in the window before a skill bar is shown as meaningful. */
+const SKILL_MIN_ATTEMPTS = 5
 
 function BreakdownBar({ label, done, total, color }: Readonly<{
     label: string; done: number; total: number; color: string
@@ -90,6 +98,39 @@ export function StatsTab({ langId, level }: Readonly<{ langId: string; level: CE
                         return (
                             <div key={day.date} className="flex-1 text-center">
                                 {d.getDay() === 1 && <span className="text-xs text-text-ter">M</span>}
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
+
+            {/* Goal trajectory — honest on-track / behind display */}
+            <GoalProgressCard langId={langId} level={level} />
+
+            {/* Skills — CO/CE/EO/EE accuracy over the last 14 days */}
+            <div className="bg-surface-card rounded-2xl border border-border-default p-4">
+                <p className="text-xs font-semibold text-text-ter uppercase tracking-wide mb-1">Skills</p>
+                <p className="text-xs text-text-ter mb-4">Accuracy by competency, last 14 days</p>
+                <div className="flex flex-col gap-3">
+                    {SKILLS.map(skill => {
+                        const acc = getSkillAccuracy(data, langId, skill, 14)
+                        const enough = acc.total >= SKILL_MIN_ATTEMPTS
+                        return (
+                            <div key={skill} className="flex items-center gap-3">
+                                <span className="text-sm text-text-sec w-24 shrink-0">
+                                    {SKILL_ICONS[skill]} {SKILL_LABELS[skill]}
+                                </span>
+                                <div className="flex-1 h-2 bg-surface-elevated rounded-full overflow-hidden">
+                                    {enough && (
+                                        <div
+                                            className="h-full bg-indigo-400 rounded-full transition-[width] duration-700 ease-out"
+                                            style={{ width: `${acc.pct}%` }}
+                                        />
+                                    )}
+                                </div>
+                                <span className="text-xs text-text-sec w-16 text-right shrink-0">
+                                    {enough ? `${acc.pct}% · ${acc.total}` : "not enough data"}
+                                </span>
                             </div>
                         )
                     })}

@@ -25,6 +25,9 @@ registerExerciseType<ListeningExercise>({
 
     display: { emoji: "🎧", description: "Listen and type what you hear" },
 
+    // CO/CE/EO/EE attribution for per-skill stats (domain/skills.ts)
+    skill: "CO",
+
     fetchItems: async ({ langId, level, unitId }) => {
         if (unitId) return getListeningForUnit(langId, unitId)
         return getListeningForLevel(langId, level)

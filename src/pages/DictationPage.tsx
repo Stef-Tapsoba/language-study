@@ -62,7 +62,7 @@ function buildDictationItems(exercises: ListeningExercise[]): { id: string; titl
 
 // ── Main page ─────────────────────────────────────────────────────────────────
 
-export default function DictationPage({ items, langId, level, config: _config, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<ListeningExercise>>) {
+export default function DictationPage({ items, langId, level, config: _config, onComplete, onSessionDone, skill }: Readonly<ExerciseComponentProps<ListeningExercise>>) {
     const ui = getUI(langId, level)
 
     const questions = useMemo(() => buildDictationItems(items), [items])
@@ -127,7 +127,7 @@ export default function DictationPage({ items, langId, level, config: _config, o
         if (submitState !== "idle" || !input.trim()) return
         const correct = answerMatches(input, q.sentence, "dictation")
         setSubmitState(correct ? "correct" : "wrong")
-        useStatsStore.getState().recordQuizAnswer(langId, correct)
+        useStatsStore.getState().recordQuizAnswer(langId, correct, skill)
         if (correct) {
             setScore(s => s + 1)
             // Base exercise id (strip the -s0, -s1 suffix if present)

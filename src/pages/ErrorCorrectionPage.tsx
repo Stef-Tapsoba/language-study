@@ -151,7 +151,7 @@ function buildErrorItems(lessons: GrammarLesson[]): ErrorItem[] {
 
 // ── Main page ─────────────────────────────────────────────────────────────────
 
-export default function ErrorCorrectionPage({ items, langId, level, config: _config, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<GrammarLesson>>) {
+export default function ErrorCorrectionPage({ items, langId, level, config: _config, onComplete, onSessionDone, skill }: Readonly<ExerciseComponentProps<GrammarLesson>>) {
     const ui = getUI(langId, level)
 
     const questions = useMemo(() => buildErrorItems(items), [items])
@@ -212,7 +212,7 @@ export default function ErrorCorrectionPage({ items, langId, level, config: _con
         if (submitState !== "idle" || !input.trim()) return
         const correct = answerMatches(input, q.correct, "dictation")
         setSubmitState(correct ? "correct" : "wrong")
-        useStatsStore.getState().recordQuizAnswer(langId, correct)
+        useStatsStore.getState().recordQuizAnswer(langId, correct, skill)
         if (correct) {
             setScore(s => s + 1)
             onComplete(q.lessonId)

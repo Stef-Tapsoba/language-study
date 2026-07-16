@@ -57,7 +57,7 @@ function evaluateTranscript(
 ): ResultState {
     // "dictation" mode: verbatim, accent/case/punctuation tolerant — correct for ASR output.
     const correct = answerMatches(transcript, item.phrase, "dictation")
-    useStatsStore.getState().recordQuizAnswer(langId, correct)
+    useStatsStore.getState().recordQuizAnswer(langId, correct, "EO")   // module-level helper — skill hardcoded (matches speaking def)
     if (correct) {
         setScore(s => s + 1)
         onComplete(item.id)

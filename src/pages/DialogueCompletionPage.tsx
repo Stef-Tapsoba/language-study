@@ -75,7 +75,7 @@ function buildDialogueItems(passages: ReadingPassage[]): DialogueItem[] {
 
 // ── Main page ─────────────────────────────────────────────────────────────────
 
-export default function DialogueCompletionPage({ items, langId, level, config: _config, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<ReadingPassage>>) {
+export default function DialogueCompletionPage({ items, langId, level, config: _config, onComplete, onSessionDone, skill }: Readonly<ExerciseComponentProps<ReadingPassage>>) {
     const ui = getUI(langId, level)
 
     const questions = useMemo(() => buildDialogueItems(items), [items])
@@ -136,7 +136,7 @@ export default function DialogueCompletionPage({ items, langId, level, config: _
         setSelected(opt)
         setRevealed(true)
         const isCorrect = opt === q.correct
-        useStatsStore.getState().recordQuizAnswer(langId, isCorrect)
+        useStatsStore.getState().recordQuizAnswer(langId, isCorrect, skill)
         if (isCorrect) {
             setScore(s => s + 1)
             onComplete(q.passageId)

@@ -45,7 +45,7 @@ function makeBuilder(resolved: { data: unknown; error: unknown }) {
 // ---------------------------------------------------------------------------
 // initSession mock helper
 //
-// initSession fires 7 from() calls synchronously (in Promise.all):
+// initSession fires 8 from() calls synchronously (in Promise.all):
 //   0 = profiles      (uses .single())
 //   1 = user_language_levels
 //   2 = lesson_completions
@@ -53,6 +53,7 @@ function makeBuilder(resolved: { data: unknown; error: unknown }) {
 //   4 = reinforcement_grammar
 //   5 = reinforcement_sections
 //   6 = checkpoint_completions
+//   7 = goal_plans
 //
 // NOTE: SupabaseProgressStorage's module-level EMPTY_PROGRESS uses a shallow
 // object literal for `levels`, `completedLessons`, etc.  The spread in
@@ -74,6 +75,7 @@ interface InitOptions {
     rgRows?: { data: unknown; error: unknown }
     rsRows?: { data: unknown; error: unknown }
     checkpoints?: { data: unknown; error: unknown }
+    goalPlans?: { data: unknown; error: unknown }
 }
 
 function wireInitSession(opts: InitOptions = {}): void {
@@ -85,6 +87,7 @@ function wireInitSession(opts: InitOptions = {}): void {
         opts.rgRows       ?? { data: [], error: null },
         opts.rsRows       ?? { data: [], error: null },
         opts.checkpoints  ?? { data: [], error: null },
+        opts.goalPlans    ?? { data: [], error: null },
     ]
     let idx = 0
     mockFrom.mockImplementation(() => {
@@ -121,7 +124,7 @@ describe("initSession", () => {
         expect(Object.keys(progress.masteredUnits)).toHaveLength(0)
     })
 
-    it("populates cache from all 7 parallel queries", async () => {
+    it("populates cache from all 8 parallel queries", async () => {
         wireInitSession({
             profile: {
                 data: { selected_language: "es", learning_goal: "traveller" },
@@ -152,8 +155,34 @@ describe("initSession", () => {
         ).toContain("g-lesson-1")
         expect(progress.completedReinforcement?.["es"]?.["unit-1"]?.vocab).toBe(true)
 
-        // Exactly 7 tables queried
-        expect(mockFrom).toHaveBeenCalledTimes(7)
+        // Exactly 8 tables queried
+        expect(mockFrom).toHaveBeenCalledTimes(8)
+    })
+
+    it("hydrates goal plans and mastery dates", async () => {
+        wireInitSession({
+            mastered: {
+                data: [{ lang_id: "pl", unit_id: "unit-1", mastered_at: "2026-06-01T14:30:00.000Z" }],
+                error: null,
+            },
+            goalPlans: {
+                data: [
+                    { lang_id: "pl", target_level: "B1", target_date: "2026-12-31", daily_minutes: 20 },
+                    { lang_id: "sv", target_level: null, target_date: null, daily_minutes: null },   // cleared plan
+                ],
+                error: null,
+            },
+        })
+
+        const storage = new SupabaseProgressStorage(mockSb)
+        await storage.initSession("user-1")
+
+        const progress = storage.load()
+        expect(progress.unitMasteredAt?.pl?.["unit-1"]).toBe("2026-06-01")
+        expect(progress.goalPlans?.pl).toEqual({
+            targetLevel: "B1", targetDate: "2026-12-31", minutesPerDay: 20,
+        })
+        expect(progress.goalPlans?.sv).toBeUndefined()
     })
 
     it("resets userId and picks up new session data on second initSession", async () => {
@@ -259,6 +288,47 @@ describe("markLessonComplete", () => {
 
         await storage.markLessonComplete("de", "de-g-a1-2", "grammar")
         expect(outbox.size()).toBe(0)
+    })
+})
+
+// ── setGoalPlan ──────────────────────────────────────────────────────────────
+
+describe("setGoalPlan", () => {
+    it("updates the cache and upserts to goal_plans", async () => {
+        wireInitSession()
+        const storage = new SupabaseProgressStorage(mockSb)
+        await storage.initSession("user-1")
+
+        let captured: Record<string, unknown> | null = null
+        mockFrom.mockImplementation((table: string) => {
+            const builder = makeBuilder({ data: null, error: null })
+            if (table === "goal_plans") {
+                builder.upsert = vi.fn((payload: Record<string, unknown>) => {
+                    captured = payload
+                    return Promise.resolve({ error: null })
+                })
+            }
+            return builder
+        })
+
+        await storage.setGoalPlan("cs", { targetLevel: "A2", targetDate: "2026-10-01" })
+
+        expect(storage.load().goalPlans?.cs).toEqual({ targetLevel: "A2", targetDate: "2026-10-01" })
+        expect(captured).toEqual({
+            user_id: "user-1", lang_id: "cs",
+            target_level: "A2", target_date: "2026-10-01", daily_minutes: null,
+        })
+    })
+
+    it("clears the plan with nulls when passed null", async () => {
+        wireInitSession()
+        const storage = new SupabaseProgressStorage(mockSb)
+        await storage.initSession("user-1")
+        mockFrom.mockReturnValue(makeBuilder({ data: null, error: null }))
+
+        await storage.setGoalPlan("cs", { targetLevel: "A2" })
+        await storage.setGoalPlan("cs", null)
+        expect(storage.load().goalPlans?.cs).toBeUndefined()
     })
 })
 

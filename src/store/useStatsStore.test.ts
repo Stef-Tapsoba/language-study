@@ -5,6 +5,7 @@ import {
     getHistory,
     getTotalReviews,
     getOverallAccuracy,
+    getSkillAccuracy,
     type StatsData,
 } from "./useStatsStore"
 
@@ -347,5 +348,61 @@ describe("getOverallAccuracy", () => {
         }
         // Only today's 5/10 should count within the 14-day window
         expect(getOverallAccuracy(data, "spanish", 14)).toBe(50)
+    })
+})
+
+// ============================================================================
+// Per-skill tracking
+// ============================================================================
+
+describe("recordQuizAnswer with skill", () => {
+    it("accumulates skills counters alongside aggregates", () => {
+        useStatsStore.getState().recordQuizAnswer("fr", true, "CE")
+        useStatsStore.getState().recordQuizAnswer("fr", false, "CE")
+        useStatsStore.getState().recordQuizAnswer("fr", true, "CO")
+        const day = useStatsStore.getState().data["fr"][today]
+        expect(day.qTotal).toBe(3)
+        expect(day.qCorrect).toBe(2)
+        expect(day.skills).toEqual({
+            CE: { t: 2, c: 1 },
+            CO: { t: 1, c: 1 },
+        })
+    })
+
+    it("leaves skills absent for skill-less answers", () => {
+        useStatsStore.getState().recordQuizAnswer("fr", true)
+        expect(useStatsStore.getState().data["fr"][today].skills).toBeUndefined()
+    })
+
+    it("preserves existing skills when a skill-less answer follows", () => {
+        useStatsStore.getState().recordQuizAnswer("fr", true, "EO")
+        useStatsStore.getState().recordQuizAnswer("fr", true)
+        expect(useStatsStore.getState().data["fr"][today].skills).toEqual({ EO: { t: 1, c: 1 } })
+    })
+})
+
+describe("getSkillAccuracy", () => {
+    it("sums a skill's attempts over the window", () => {
+        const data: StatsData = {
+            fr: {
+                [today]:     { reviewed: 0, correct: 0, acts: 0, qTotal: 0, qCorrect: 0, skills: { CE: { t: 4, c: 3 } } },
+                [yesterday]: { reviewed: 0, correct: 0, acts: 0, qTotal: 0, qCorrect: 0, skills: { CE: { t: 6, c: 3 } } },
+            },
+        }
+        expect(getSkillAccuracy(data, "fr", "CE", 14)).toEqual({ total: 10, correct: 6, pct: 60 })
+    })
+
+    it("returns zeros when the skill has no data", () => {
+        expect(getSkillAccuracy({}, "fr", "EO", 14)).toEqual({ total: 0, correct: 0, pct: 0 })
+    })
+
+    it("ignores days outside the window", () => {
+        const data: StatsData = {
+            fr: {
+                [dateOffset(20)]: { reviewed: 0, correct: 0, acts: 0, qTotal: 0, qCorrect: 0, skills: { CE: { t: 10, c: 10 } } },
+                [today]:          { reviewed: 0, correct: 0, acts: 0, qTotal: 0, qCorrect: 0, skills: { CE: { t: 2, c: 1 } } },
+            },
+        }
+        expect(getSkillAccuracy(data, "fr", "CE", 14)).toEqual({ total: 2, correct: 1, pct: 50 })
     })
 })

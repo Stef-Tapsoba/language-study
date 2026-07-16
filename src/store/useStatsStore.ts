@@ -10,8 +10,13 @@
 import { create } from "zustand"
 import { logError } from "../utils/logger"
 import { registry } from "./registry"
+import type { Skill } from "../domain/skills"
+export type { Skill } from "../domain/skills"
 
 // ─── Types ────────────────────────────────────────────────────────────────────
+
+/** Per-skill attempt counters: t = attempts, c = correct. */
+export type SkillDayStats = Partial<Record<Skill, { t: number; c: number }>>
 
 export type DayStats = {
     reviewed: number    // flashcard cards reviewed
@@ -19,6 +24,12 @@ export type DayStats = {
     acts: number        // any study action (lessons, reading, listening, etc.)
     qTotal: number      // quiz answers across all activity types
     qCorrect: number    // correct quiz answers across all activity types
+    /**
+     * CO/CE/EO/EE breakdown of quiz answers, populated when the answering
+     * exercise is attributable to a single skill (see domain/skills.ts).
+     * Absent for older data and for skill-less (core-knowledge) exercises.
+     */
+    skills?: SkillDayStats
 }
 
 export type StatsData = Record<string, Record<string, DayStats>>
@@ -39,8 +50,12 @@ interface StatsState {
     /** Record one flashcard result for a language */
     recordReview: (langId: string, correct: boolean) => void
 
-    /** Record a quiz answer from any non-flashcard activity */
-    recordQuizAnswer: (langId: string, correct: boolean) => void
+    /**
+     * Record a quiz answer from any non-flashcard activity.
+     * Pass `skill` when the exercise is attributable to CO/CE/EO/EE so the
+     * per-skill breakdown accumulates alongside the aggregate counters.
+     */
+    recordQuizAnswer: (langId: string, correct: boolean, skill?: Skill | null) => void
 
     /** Record any study activity that doesn't produce a quiz result */
     recordActivity: (langId: string) => void
@@ -79,20 +94,30 @@ export const useStatsStore = create<StatsState>()((set, get) => ({  // 'get' use
         registry.stats.recordReview(langId, date, correct).catch(err => logError("useStatsStore", err))
     },
 
-    recordQuizAnswer(langId, correct) {
+    recordQuizAnswer(langId, correct, skill) {
         const date = todayStr()
         set(({ data }) => {
             const lang = data[langId] ?? {}
             const e = lang[date]
-            return { data: { ...data, [langId]: { ...lang, [date]: {
+            const day: DayStats = {
                 reviewed: e?.reviewed ?? 0,
                 correct:  e?.correct  ?? 0,
                 acts:     (e?.acts     ?? 0) + 1,
                 qTotal:   (e?.qTotal   ?? 0) + 1,
                 qCorrect: (e?.qCorrect ?? 0) + (correct ? 1 : 0),
-            } } } }
+                ...(e?.skills ? { skills: e.skills } : {}),
+            }
+            if (skill) {
+                const s = e?.skills?.[skill]
+                day.skills = {
+                    ...e?.skills,
+                    [skill]: { t: (s?.t ?? 0) + 1, c: (s?.c ?? 0) + (correct ? 1 : 0) },
+                }
+            }
+            return { data: { ...data, [langId]: { ...lang, [date]: day } } }
         })
-        registry.stats.recordQuizAnswer(langId, date, correct).catch(err => logError("useStatsStore", err))
+        registry.stats.recordQuizAnswer(langId, date, correct, skill ?? undefined)
+            .catch(err => logError("useStatsStore", err))
     },
 
     recordActivity(langId) {
@@ -199,6 +224,31 @@ export function getLastActivityDate(data: StatsData, langId: string): string | n
         .filter(d => (langDays[d].reviewed ?? 0) + (langDays[d].acts ?? 0) > 0)
         .sort((a, b) => a.localeCompare(b))
     return activeDates.length > 0 ? activeDates[activeDates.length - 1] : null
+}
+
+/**
+ * Per-skill accuracy over the last `days` days.
+ * Returns { total, correct, pct } — pct is 0 when there are no attempts;
+ * check `total` against a volume guard before displaying.
+ */
+export function getSkillAccuracy(
+    data: StatsData,
+    langId: string,
+    skill: Skill,
+    days = 14
+): { total: number; correct: number; pct: number } {
+    const langDays = data[langId] ?? {}
+    let total = 0
+    let correct = 0
+    for (let i = 0; i < days; i++) {
+        const d = new Date()
+        d.setDate(d.getDate() - i)
+        const s = langDays[d.toISOString().slice(0, 10)]?.skills?.[skill]
+        if (!s) continue
+        total += s.t
+        correct += s.c
+    }
+    return { total, correct, pct: total ? Math.round(correct / total * 100) : 0 }
 }
 
 /** Overall accuracy across all quiz types for the last `days` days */

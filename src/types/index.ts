@@ -599,6 +599,31 @@ export interface UserProgress {
      * Stage 2: maps to profiles.learning_goal column.
      */
     goal?: GoalId
+    /**
+     * Optional time-bound target per language ("reach B1 by December").
+     * Drives the honest trajectory-vs-required display (blueprint §2.3).
+     * Stage 2: maps to the goal_plans table keyed (user_id, lang_id).
+     */
+    goalPlans?: Record<string, GoalPlan>
+    /**
+     * Date (YYYY-MM-DD, local) each unit was mastered, keyed lang → unit.
+     * Recorded from schema v6 onward — absent for units mastered earlier
+     * (no backfill; pace is measured from recent data only). Stage 2 hydrates
+     * this from mastered_units.mastered_at, which has full history.
+     */
+    unitMasteredAt?: Record<string, Record<string, string>>
+}
+
+/**
+ * A time-bound learning target for one language.
+ * targetDate/minutesPerDay are optional — a target level alone still enables
+ * progress-toward-target display; the date enables on-track/behind verdicts.
+ */
+export interface GoalPlan {
+    targetLevel: CEFRLevel
+    /** YYYY-MM-DD (local) */
+    targetDate?: string
+    minutesPerDay?: number
 }
 
 // ---------------------------------------------------------------------------

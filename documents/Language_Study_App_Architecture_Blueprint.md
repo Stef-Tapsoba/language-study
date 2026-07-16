@@ -1,7 +1,28 @@
 # Language Study App — Architecture Blueprint
 
-**Version: 2.3**  
-**Last updated: March 2026**
+**Version: 2.4**  
+**Last updated: July 2026**
+
+---
+
+# 0. Current Status (v2.4)
+
+A snapshot of where implementation stands against this blueprint, so the document stays an honest source of truth rather than a wish list.
+
+**Done and exceeded:**
+- Phase 1 (core engine) is complete — and content goes beyond the A1 target: **A1–C1 content for French, Spanish, Italian, and Korean** (Japanese is paused for now). Placement test with early exit and "I don't know" handling.
+- An **exercise-type registry** (not in the original blueprint) hosts 11 linear practice types — drills, scramble, cloze, dictation, dialogue completion, error correction, speaking, script reading — with a shared shell that owns SRS-aware item selection. Checkpoints and phrase lessons also shipped beyond plan.
+- **Deployment Stage 2 (backend) is done**: Supabase Postgres with RLS, email/password auth, cross-device sync via storage adapters behind a DI registry, localStorage → account migration, and an **offline write outbox** with replay on reconnect (delivered early — this was a Stage 3 requirement).
+- Break-return review covers a good part of §2.4 regression handling; the immersion-aware UI (§7) exists via level-driven interface strings, including transcript friction at B1+.
+
+**Biggest open gaps (in rough priority order):**
+1. **Goal system with progress transparency** (§2.3) — goals today are topic profiles that sort units; no target date, no time-per-day, no trajectory-vs-required display.
+2. **Per-skill CO/CE/EO/EE tracking** (§2.1) — stats are daily aggregates, not per-skill; prerequisite for plateau detection and self-assessment calibration.
+3. **Plateau detection & interventions** (§2.4) — not started.
+4. **EO model answers + rubrics** (§3.3) and the **EE writing module** (§3.4) — speaking exercises exist but the self-assessment infrastructure does not; no free written production yet.
+5. **Cognitive reinforcement completion** (§6) — weekly free recall, "explain yesterday's rule", the retention-debt gate, and the dashboard inversion (retrieval performance over completion %).
+6. **Pattern Discovery** (§5), tap-to-gloss lookup tracking (§3.2).
+7. **Deployment**: Google/Apple OAuth (Stage 2 leftover, App Store blocker), then Capacitor mobile (Stage 3), then monetisation (Stage 4).
 
 ---
 
@@ -437,31 +458,31 @@ Progress transparency and goal tracking are **free** — they are core to the pr
 
 # 10. Phased Development Strategy
 
-## Phase 1 — Core engine (current: v2.x)
+## Phase 1 — Core engine — ✅ COMPLETE (exceeded)
 
-- Core SRS engine
-- CE + CO modules
-- A1 content for all five languages (French, Spanish, Italian, Japanese, Korean)
-- Grammar, vocabulary, and verb drill system
-- Placement test
-- Culture episodes (A1)
-- Basic writing tasks (controlled, answer-key-based)
+- Core SRS engine ✅
+- CE + CO modules ✅
+- A1 content — shipped A1–C1 for French, Spanish, Italian, Korean (Japanese paused) ✅
+- Grammar, vocabulary, and verb drill system ✅ (now unified under the exercise-type registry)
+- Placement test ✅ (gated thresholds, early exit, "I don't know" option)
+- Culture episodes ✅ (A1–C1)
+- Basic writing tasks (controlled, answer-key-based) ✅ (dictation, cloze, error correction)
 
-## Phase 2 — Production skills + feedback
+## Phase 2 — Production skills + feedback — ← CURRENT PHASE
 
-- Speaking module: guided prompts, model answers, self-assessment rubrics
-- Writing module: paragraph-level tasks with structured feedback
-- Dialect and regional content modules
-- Plateau detection and intervention system
-- Goal system with progress transparency
+- Speaking module: guided prompts ✅ (Web Speech API); model answers + self-assessment rubrics ✗
+- Writing module: paragraph-level tasks with structured feedback ✗
+- Dialect and regional content modules ✗
+- Plateau detection and intervention system ✗ (needs per-skill tracking first — see §2.1)
+- Goal system with progress transparency ✗ (topic-profile goals shipped; target date / pacing / trajectory missing)
 
 ## Phase 3 — Deep adaptation + reinforcement
 
-- Full cognitive reinforcement layer (weekly free recall, cross-skill reinforcement)
-- Advanced adaptive immersion
-- Goal-based dynamic learning paths
-- Pattern Discovery system (inductive grammar for select content)
-- B1+ content for all languages
+- Full cognitive reinforcement layer (weekly free recall, cross-skill reinforcement) — partial: cross-unit review + break-return review shipped
+- Advanced adaptive immersion — partial: level-driven interface strings + transcript friction shipped
+- Goal-based dynamic learning paths — partial: units sorted by goal topic match
+- Pattern Discovery system (inductive grammar for select content) ✗
+- B1+ content for all languages ✅ (shipped early, in Phase 1)
 
 ## Phase 4 — AI/ML integration
 
@@ -493,15 +514,15 @@ These are documented here to ensure they are addressed consciously during implem
 
 ## Context
 
-Solo developer. No backend. localStorage-only data persistence today. Target: web, iOS, and Android. Priority: get an MVP live as quickly as possible, validate with real users, then build toward the full architecture described in this blueprint.
+Solo developer. Target: web, iOS, and Android. **Status (v2.4): Stages 1 and 2 are complete** — the app is live on the web with a Supabase backend, accounts, cross-device sync, and offline write queueing. localStorage remains the anonymous / logged-out mode and the fallback when Supabase env vars are absent.
 
-This section documents a realistic, staged path from the current prototype to a production-ready multi-platform product — without over-engineering before the product has been validated.
+This section documents a realistic, staged path from prototype to a production-ready multi-platform product — without over-engineering before the product has been validated.
 
 ---
 
-## 12.1 The Core Constraint: localStorage
+## 12.1 The Original Core Constraint: localStorage (resolved in Stage 2)
 
-The current data layer is entirely in the browser's localStorage. This works for a prototype but creates hard limits at production:
+The prototype data layer was entirely in the browser's localStorage. This worked for a prototype but created hard limits at production:
 
 - **No cross-device sync** — a user's progress on their phone does not appear on their laptop
 - **No data recovery** — clearing the browser or switching devices loses all progress
@@ -512,7 +533,7 @@ These are not just technical inconveniences — they are user experience blocker
 
 ---
 
-## 12.2 Stage 1 — Web MVP (Deploy Now)
+## 12.2 Stage 1 — Web MVP — ✅ DONE (hosted on Netlify rather than Vercel; same zero-config Git-push model)
 
 **Goal:** Get a real URL with real content in front of real users as quickly as possible. Validate that people find the content and UX compelling before investing in native apps or backend infrastructure.
 
@@ -551,7 +572,9 @@ These will be needed — but building them before validating that users actually
 
 ---
 
-## 12.3 Stage 2 — Backend + Accounts
+## 12.3 Stage 2 — Backend + Accounts — ✅ DONE (except OAuth)
+
+> **v2.4 status:** Supabase backend, email/password auth, RLS, cross-device sync through storage adapters, localStorage migration, and an offline write outbox are live. **Remaining from this stage: Google OAuth and Apple Sign-In** — Apple Sign-In is an App Store requirement and must land before Stage 3 submission.
 
 **Goal:** Replace localStorage with a real data layer, enabling cross-device sync, data recovery, and the foundation for premium features.
 
@@ -629,7 +652,7 @@ A PWA is a reasonable interim step to test mobile UX before App Store submission
 
 **Offline support**
 
-Mobile users expect the app to work without an internet connection. With Capacitor, the app bundle ships with the device. Content data (static TypeScript files) is available offline automatically. The only online dependency is syncing SRS progress to Supabase. This should be queued locally and synced when connectivity returns — not blocked on it.
+Mobile users expect the app to work without an internet connection. With Capacitor, the app bundle ships with the device. Content data (static TypeScript files) is available offline automatically. The only online dependency is syncing SRS progress to Supabase. This should be queued locally and synced when connectivity returns — not blocked on it. **(v2.4: already implemented — the web app's outbox queues failed writes per user and replays them on reconnect and at next login.)**
 
 **Push notifications**
 
@@ -707,12 +730,12 @@ Do not introduce monetisation before:
 
 ## 12.6 Deployment Timeline Summary
 
-| Stage | Milestone | Prerequisite |
+| Stage | Milestone | Status |
 |---|---|---|
-| **1 — Web MVP** | Live URL with A1 content, localStorage | Content complete (in progress) |
-| **2 — Backend** | Accounts, cross-device sync | Stage 1 validated |
-| **3 — Mobile** | iOS + Android in stores | Stage 2 stable |
-| **4 — Monetisation** | Premium tier, billing, in-app purchases | Stage 3 stable + A2 content |
+| **1 — Web MVP** | Live URL with content, localStorage | ✅ Done |
+| **2 — Backend** | Accounts, cross-device sync, offline queue | ✅ Done (OAuth pending) |
+| **3 — Mobile** | iOS + Android in stores | Not started — needs Apple/Google Sign-In first |
+| **4 — Monetisation** | Premium tier, billing, in-app purchases | Not started — after Stage 3 + retention signal |
 
 ---
 

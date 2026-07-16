@@ -29,10 +29,20 @@ export interface IncrementDailyStatArgs {
     p_q_correct: number
 }
 
+export interface IncrementSkillStatArgs {
+    p_user_id: string
+    p_lang_id: string
+    p_date: string
+    p_skill: string
+    p_total: number
+    p_correct: number
+}
+
 export type OutboxOp =
     | { kind: "upsert"; table: string; payload: Record<string, unknown>; onConflict: string; key: string }
     | { kind: "update"; table: string; payload: Record<string, unknown>; match: Record<string, unknown>; key: string }
     | { kind: "rpc-stat"; args: IncrementDailyStatArgs; key: string }
+    | { kind: "rpc-skill-stat"; args: IncrementSkillStatArgs; key: string }
 
 interface QueuedOp {
     op: OutboxOp
@@ -79,8 +89,11 @@ async function execute(sb: SupabaseClient, op: OutboxOp): Promise<void> {
         for (const [col, val] of Object.entries(op.match)) query = query.eq(col, val)
         const { error } = await query
         if (error) throw error
-    } else {
+    } else if (op.kind === "rpc-stat") {
         const { error } = await sb.rpc("increment_daily_stat", op.args)
+        if (error) throw error
+    } else {
+        const { error } = await sb.rpc("increment_skill_stat", op.args)
         if (error) throw error
     }
 }
@@ -124,6 +137,19 @@ export const outbox = {
                             p_acts:      prev.args.p_acts      + op.args.p_acts,
                             p_q_total:   prev.args.p_q_total   + op.args.p_q_total,
                             p_q_correct: prev.args.p_q_correct + op.args.p_q_correct,
+                        },
+                    },
+                }
+            } else if (op.kind === "rpc-skill-stat") {
+                const prev = queue[existing].op as Extract<OutboxOp, { kind: "rpc-skill-stat" }>
+                queue[existing] = {
+                    ...queue[existing],
+                    op: {
+                        ...op,
+                        args: {
+                            ...op.args,
+                            p_total:   prev.args.p_total   + op.args.p_total,
+                            p_correct: prev.args.p_correct + op.args.p_correct,
                         },
                     },
                 }

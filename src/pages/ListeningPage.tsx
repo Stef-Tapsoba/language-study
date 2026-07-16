@@ -224,7 +224,7 @@ function ExerciseListen({ exercise, langId, level, completed, onBack, ui }: Read
 
             {/* Show questions button / comprehension quiz */}
             {quizOpen ? (
-                <ComprehensionQuiz exercise={exercise} onAnswer={c => useStatsStore.getState().recordQuizAnswer(langId, c)} onComplete={() => useStatsStore.getState().recordActivity(langId)} ui={ui} />
+                <ComprehensionQuiz exercise={exercise} onAnswer={c => useStatsStore.getState().recordQuizAnswer(langId, c, "CO")} onComplete={() => useStatsStore.getState().recordActivity(langId)} ui={ui} />
             ) : (
                 <button
                     onClick={() => setQuizOpen(true)}
