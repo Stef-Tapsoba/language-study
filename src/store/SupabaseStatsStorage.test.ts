@@ -103,7 +103,8 @@ describe("load", () => {
                 q_correct:  1,
             },
         ]
-        mockFrom.mockReturnValue(makeBuilder({ data: rows, error: null }))
+        mockFrom.mockImplementation((table: string) =>
+            makeBuilder(table === "daily_stats" ? { data: rows, error: null } : { data: [], error: null }))
 
         const storage = new SupabaseStatsStorage(mockSb)
         storage.setUserId("user-1")

@@ -26,6 +26,9 @@ registerExerciseType<SpeakingPrompt>({
 
     display: { emoji: "🎤", description: "Hear a phrase, then say it aloud" },
 
+    // CO/CE/EO/EE attribution for per-skill stats (domain/skills.ts)
+    skill: "EO",
+
     fetchItems: async ({ langId, level }) =>
         Promise.resolve(getSpeakingForLevel(langId, level)),
 

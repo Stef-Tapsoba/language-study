@@ -65,6 +65,7 @@ import type { MatchMode } from "../utils/answerMatch"
 import type { ContentType } from "../store/IProgressStorage"
 import type { DrillSessionType } from "../store/actions"
 import type { ExerciseConfig, ExerciseContext } from "../domain/exerciseConfig"
+import type { Skill } from "../domain/skills"
 
 // ---------------------------------------------------------------------------
 // Params passed to fetchItems
@@ -111,6 +112,13 @@ export interface ExerciseComponentProps<TItem = unknown> {
      * need to import completeDrillSession directly.
      */
     onSessionDone: () => void
+
+    /**
+     * The CO/CE/EO/EE competency this exercise trains (from the def), or null
+     * for core-knowledge exercises. Pass to recordQuizAnswer(langId, ok, skill)
+     * so per-skill stats accumulate.
+     */
+    skill: Skill | null
 }
 
 // ---------------------------------------------------------------------------
@@ -173,6 +181,14 @@ export interface ExerciseTypeDef<TItem = unknown> {
      *   component: lazy(() => import("../pages/SentenceScramblePage"))
      */
     component: LazyExoticComponent<ComponentType<ExerciseComponentProps<TItem>>>
+
+    /**
+     * The single CO/CE/EO/EE competency this exercise trains, if any.
+     * Drives per-skill stats attribution (blueprint §2.1). Omit for
+     * core-knowledge exercises (vocab/verb/grammar drills) — they feed
+     * all skills and attributing them to one would pollute the signal.
+     */
+    skill?: Skill
 
     /**
      * Display metadata for surfaces that enumerate exercise types

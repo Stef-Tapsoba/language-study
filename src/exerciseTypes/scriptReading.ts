@@ -26,6 +26,9 @@ registerExerciseType<VocabItem>({
 
     display: { emoji: "🈳", description: "Identify the correct reading of a word", nonLatinOnly: true },
 
+    // CO/CE/EO/EE attribution for per-skill stats (domain/skills.ts)
+    skill: "CE",
+
     fetchItems: async ({ langId, level, unitId }) => {
         if (unitId) return getVocabForUnit(langId, unitId)
         return getVocabForLevel(langId, level)

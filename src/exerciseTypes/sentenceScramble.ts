@@ -28,6 +28,9 @@ registerExerciseType<GrammarLesson>({
 
     display: { emoji: "🔀", description: "Put shuffled words back in the right order" },
 
+    // CO/CE/EO/EE attribution for per-skill stats (domain/skills.ts)
+    skill: "EE",
+
     // ── Content fetcher ───────────────────────────────────────────────────────
     // Stage 1: wraps the synchronous repo.ts call.
     // Stage 2 (Supabase): replace body only:

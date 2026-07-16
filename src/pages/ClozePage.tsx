@@ -92,7 +92,7 @@ function buildClozeItems(passages: ReadingPassage[]): ClozeItem[] {
 
 // ── Main page ─────────────────────────────────────────────────────────────────
 
-export default function ClozePage({ items, langId, level, config: _config, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<ReadingPassage>>) {
+export default function ClozePage({ items, langId, level, config: _config, onComplete, onSessionDone, skill }: Readonly<ExerciseComponentProps<ReadingPassage>>) {
     const ui = getUI(langId, level)
 
     // C-4: sessionKey busts the memo on restart so questions are reshuffled each play
@@ -156,7 +156,7 @@ export default function ClozePage({ items, langId, level, config: _config, onCom
         if (submitState !== "idle" || !input.trim()) return
         const correct = answerMatches(input, q.targetWord, "strict")
         setSubmitState(correct ? "correct" : "wrong")
-        useStatsStore.getState().recordQuizAnswer(langId, correct)
+        useStatsStore.getState().recordQuizAnswer(langId, correct, skill)
         if (correct) {
             setScore(s => s + 1)
             onComplete(q.passageId)

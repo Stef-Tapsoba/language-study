@@ -8,7 +8,7 @@
 // the legacy key is migrated forward (copied to the new key then removed) so existing
 // users keep all their progress after upgrading.
 
-import { CEFRLevel, UserProgress, UnitReinforcementState, GoalId } from "../types"
+import { CEFRLevel, UserProgress, UnitReinforcementState, GoalId, GoalPlan } from "../types"
 import type { ContentType, ReinforcementSection } from "./IProgressStorage"
 import { inferContentTypeFromId } from "./contentType"
 
@@ -17,7 +17,7 @@ const userKey = (userId: string) => `ls:progress:${userId}`
 
 // Bump this whenever a breaking schema change is made (field rename, removal, type change).
 // Add a migration branch in `migrate()` for each version increment.
-export const SCHEMA_VERSION = 5
+export const SCHEMA_VERSION = 6
 
 const DEFAULT: UserProgress = {
     schemaVersion: SCHEMA_VERSION,
@@ -65,6 +65,10 @@ function migrate(raw: Record<string, unknown>): UserProgress {
         }
         raw = { ...raw, completedByType: byType }
     }
+
+    // v5 → v6: goalPlans and unitMasteredAt introduced. No field migration —
+    // both are optional; absent = no time-bound goal set / no mastery dates
+    // recorded yet (deliberately no backfill: pace is measured from new data).
 
     return { ...DEFAULT, ...raw, schemaVersion: SCHEMA_VERSION }
 }
@@ -186,10 +190,14 @@ export function resetLanguageProgress(langId: string): void {
     const masteredUnits = { ...p.masteredUnits }
     const completedCheckpoints = { ...p.completedCheckpoints }
     const completedByType = { ...p.completedByType }
+    const unitMasteredAt = { ...p.unitMasteredAt }
+    const goalPlans = { ...p.goalPlans }
     delete completedLessons[langId]
     delete masteredUnits[langId]
     delete completedCheckpoints[langId]
     delete completedByType[langId]
+    delete unitMasteredAt[langId]
+    delete goalPlans[langId]
     save({
         ...p,
         levels: { ...p.levels, [langId]: "A1" },
@@ -197,6 +205,8 @@ export function resetLanguageProgress(langId: string): void {
         masteredUnits,
         completedCheckpoints,
         completedByType,
+        unitMasteredAt,
+        goalPlans,
     })
 }
 
@@ -208,13 +218,17 @@ export function removeLanguage(langId: string): void {
     const masteredUnits = { ...p.masteredUnits }
     const completedCheckpoints = { ...p.completedCheckpoints }
     const completedByType = { ...p.completedByType }
+    const unitMasteredAt = { ...p.unitMasteredAt }
+    const goalPlans = { ...p.goalPlans }
     delete levels[langId]
     delete completedLessons[langId]
     delete masteredUnits[langId]
     delete completedCheckpoints[langId]
     delete completedByType[langId]
+    delete unitMasteredAt[langId]
+    delete goalPlans[langId]
     const selectedLanguage = p.selectedLanguage === langId ? null : p.selectedLanguage
-    save({ ...p, selectedLanguage, levels, completedLessons, masteredUnits, completedCheckpoints, completedByType })
+    save({ ...p, selectedLanguage, levels, completedLessons, masteredUnits, completedCheckpoints, completedByType, unitMasteredAt, goalPlans })
 }
 
 // ---------------------------------------------------------------------------
@@ -231,12 +245,19 @@ export function masterUnit(langId: string, unitId: string): void {
     const p = loadProgress()
     const existing = p.masteredUnits[langId] ?? []
     if (!existing.includes(unitId)) {
+        // Stamp the mastery date (local YYYY-MM-DD) for goal-trajectory pace.
+        // Never overwrite an existing stamp — first mastery wins.
+        const langDates = p.unitMasteredAt?.[langId] ?? {}
         save({
             ...p,
             masteredUnits: {
                 ...p.masteredUnits,
                 [langId]: [...existing, unitId]
-            }
+            },
+            unitMasteredAt: {
+                ...p.unitMasteredAt,
+                [langId]: { [unitId]: new Date().toISOString().slice(0, 10), ...langDates },
+            },
         })
     }
 }
@@ -323,6 +344,24 @@ export function getGoalFromProgress(): GoalId {
 export function setGoalInProgress(goalId: GoalId): void {
     const p = loadProgress()
     save({ ...p, goal: goalId })
+}
+
+// ---------------------------------------------------------------------------
+// Time-bound goal plan helpers (per language)
+// ---------------------------------------------------------------------------
+
+/** Returns the time-bound goal plan for a language, or null if none set. */
+export function getGoalPlanFromProgress(langId: string): GoalPlan | null {
+    return loadProgress().goalPlans?.[langId] ?? null
+}
+
+/** Sets (or clears, with null) the time-bound goal plan for a language. */
+export function setGoalPlanInProgress(langId: string, plan: GoalPlan | null): void {
+    const p = loadProgress()
+    const goalPlans = { ...p.goalPlans }
+    if (plan) goalPlans[langId] = plan
+    else delete goalPlans[langId]
+    save({ ...p, goalPlans })
 }
 
 export { isUnitUnlocked } from "../domain/unitUnlock"

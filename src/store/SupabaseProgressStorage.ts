@@ -9,7 +9,7 @@
 // keeping Supabase as the source of truth.
 
 import type { SupabaseClient } from "@supabase/supabase-js"
-import type { CEFRLevel, UserProgress, UnitReinforcementState, GoalId } from "../types"
+import type { CEFRLevel, UserProgress, UnitReinforcementState, GoalId, GoalPlan } from "../types"
 import type { IProgressStorage, ContentType } from "./IProgressStorage"
 import { logError } from "../utils/logger"
 import { SCHEMA_VERSION } from "./progress"
@@ -19,7 +19,8 @@ import { syncOrQueue } from "./outbox"
 // Minimal row shapes returned by Supabase queries
 interface LevelRow { lang_id: string; level: string }
 interface CompletionRow { lang_id: string; content_type: string; content_id: string }
-interface MasteredRow { lang_id: string; unit_id: string }
+interface MasteredRow { lang_id: string; unit_id: string; mastered_at?: string | null }
+interface GoalPlanRow { lang_id: string; target_level: string | null; target_date: string | null; daily_minutes: number | null }
 interface RgRow { lang_id: string; unit_id: string; grammar_lesson_id: string }
 interface RsRow { lang_id: string; unit_id: string; section: string }
 interface ProfileRow { selected_language: string | null; learning_goal: string | null }
@@ -79,14 +80,15 @@ export class SupabaseProgressStorage implements IProgressStorage {
         const newCache = { ...makeEmptyProgress(), userId }
 
         // .limit(5000) — Supabase PostgREST silently truncates at 1 000 rows without it.
-        const [profile, levels, completions, mastered, rgRows, rsRows, checkpoints] = await Promise.all([
+        const [profile, levels, completions, mastered, rgRows, rsRows, checkpoints, goalPlans] = await Promise.all([
             this.sb.from("profiles").select("selected_language, learning_goal").eq("id", userId).single<ProfileRow>(),
             this.sb.from("user_language_levels").select("lang_id, level").eq("user_id", userId).limit(5000),
             this.sb.from("lesson_completions").select("lang_id, content_type, content_id").eq("user_id", userId).limit(5000),
-            this.sb.from("mastered_units").select("lang_id, unit_id").eq("user_id", userId).limit(5000),
+            this.sb.from("mastered_units").select("lang_id, unit_id, mastered_at").eq("user_id", userId).limit(5000),
             this.sb.from("reinforcement_grammar").select("lang_id, unit_id, grammar_lesson_id").eq("user_id", userId).limit(5000),
             this.sb.from("reinforcement_sections").select("lang_id, unit_id, section").eq("user_id", userId).limit(5000),
             this.sb.from("checkpoint_completions").select("lang_id, checkpoint_id").eq("user_id", userId).limit(5000),
+            this.sb.from("goal_plans").select("lang_id, target_level, target_date, daily_minutes").eq("user_id", userId).limit(100),
         ])
 
         if (profile.data) {
@@ -100,8 +102,21 @@ export class SupabaseProgressStorage implements IProgressStorage {
         this.hydrateMastered(newCache, (mastered.data ?? []) as MasteredRow[])
         this.hydrateReinforcement(newCache, (rgRows.data ?? []) as RgRow[], (rsRows.data ?? []) as RsRow[])
         this.hydrateCheckpoints(newCache, (checkpoints.data ?? []) as { lang_id: string; checkpoint_id: string }[])
+        this.hydrateGoalPlans(newCache, (goalPlans.data ?? []) as GoalPlanRow[])
         // Atomic assignment — all queries resolved successfully
         this.cache = newCache
+    }
+
+    private hydrateGoalPlans(cache: UserProgress, rows: GoalPlanRow[]): void {
+        for (const row of rows) {
+            if (!row.target_level) continue   // row exists but plan was cleared
+            const plans = cache.goalPlans ?? (cache.goalPlans = {})
+            plans[row.lang_id] = {
+                targetLevel: row.target_level as CEFRLevel,
+                ...(row.target_date ? { targetDate: row.target_date } : {}),
+                ...(row.daily_minutes ? { minutesPerDay: row.daily_minutes } : {}),
+            }
+        }
     }
 
     private hydrateCompletions(cache: UserProgress, rows: CompletionRow[]): void {
@@ -126,6 +141,13 @@ export class SupabaseProgressStorage implements IProgressStorage {
             const list = cache.masteredUnits[row.lang_id] ?? []
             if (!list.includes(row.unit_id)) list.push(row.unit_id)
             cache.masteredUnits[row.lang_id] = list
+            // mastered_at gives Stage 2 users full mastery history for
+            // goal-trajectory pace (Stage 1 only records dates from v6 onward).
+            if (row.mastered_at) {
+                const dates = cache.unitMasteredAt ?? (cache.unitMasteredAt = {})
+                const langDates = dates[row.lang_id] ?? (dates[row.lang_id] = {})
+                langDates[row.unit_id] = row.mastered_at.slice(0, 10)
+            }
         }
     }
 
@@ -305,6 +327,11 @@ export class SupabaseProgressStorage implements IProgressStorage {
         const existing = this.cache.masteredUnits[langId] ?? []
         if (!existing.includes(unitId)) {
             this.cache.masteredUnits[langId] = [...existing, unitId]
+            // Stamp locally so goal trajectory sees the event without a refetch;
+            // the server row's mastered_at default records the canonical time.
+            const dates = this.cache.unitMasteredAt ?? (this.cache.unitMasteredAt = {})
+            const langDates = dates[langId] ?? (dates[langId] = {})
+            langDates[unitId] ??= new Date().toISOString().slice(0, 10)
         }
         await syncOrQueue(this.sb, {
             kind: "upsert", table: "mastered_units",
@@ -322,6 +349,28 @@ export class SupabaseProgressStorage implements IProgressStorage {
             payload: { user_id: uid, lang_id: langId, level },
             onConflict: "user_id,lang_id",
             key: `user_language_levels|${langId}`,
+        })
+    }
+
+    async setGoalPlan(langId: string, plan: GoalPlan | null): Promise<void> {
+        const uid = this.userId; if (!uid) return
+        const goalPlans = { ...this.cache.goalPlans }
+        if (plan) goalPlans[langId] = plan
+        else delete goalPlans[langId]
+        this.cache.goalPlans = goalPlans
+        // Clearing keeps the row with nulls — simpler than a delete op, and the
+        // hydrate path skips rows with a null target_level.
+        await syncOrQueue(this.sb, {
+            kind: "upsert", table: "goal_plans",
+            payload: {
+                user_id: uid,
+                lang_id: langId,
+                target_level:  plan?.targetLevel ?? null,
+                target_date:   plan?.targetDate ?? null,
+                daily_minutes: plan?.minutesPerDay ?? null,
+            },
+            onConflict: "user_id,lang_id",
+            key: `goal_plans|${langId}`,
         })
     }
 

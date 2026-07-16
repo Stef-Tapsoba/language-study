@@ -11,7 +11,7 @@
 //   stats    — per-field max (highest value wins — prevents accidental downgrades)
 
 import type { UserProgress, UnitReinforcementState } from "../types"
-import type { StatsData } from "./useStatsStore"
+import type { StatsData, DayStats } from "./useStatsStore"
 import type { SRSCardState } from "@myorg/srs"
 
 // ─── Progress ─────────────────────────────────────────────────────────────────
@@ -78,6 +78,31 @@ function mergeCompletedByType(
 }
 
 /**
+ * Merge unitMasteredAt maps — union; when both sides have a date for the same
+ * unit, the EARLIEST wins (first mastery is the honest pace signal).
+ */
+function mergeUnitMasteredAt(
+    current: UserProgress["unitMasteredAt"],
+    imported: UserProgress["unitMasteredAt"]
+): NonNullable<UserProgress["unitMasteredAt"]> {
+    const result: NonNullable<UserProgress["unitMasteredAt"]> = {}
+    const langs = new Set([...Object.keys(current ?? {}), ...Object.keys(imported ?? {})])
+    for (const lang of langs) {
+        const units = new Set([
+            ...Object.keys(current?.[lang] ?? {}),
+            ...Object.keys(imported?.[lang] ?? {}),
+        ])
+        result[lang] = {}
+        for (const unit of units) {
+            const c = current?.[lang]?.[unit]
+            const i = imported?.[lang]?.[unit]
+            result[lang][unit] = c && i ? (c < i ? c : i) : (c ?? i!)
+        }
+    }
+    return result
+}
+
+/**
  * Merge an imported UserProgress into the current one.
  * - CEFR levels: current wins for any language already started; imported fills gaps.
  * - completedLessons / masteredUnits / completedReinforcement: union (append-only, no downgrades).
@@ -94,6 +119,9 @@ export function mergeProgress(current: UserProgress, imported: UserProgress): Us
         selectedLanguage:         current.selectedLanguage ?? imported.selectedLanguage,
         // Current goal wins — don't override an active session's goal from an old backup
         goal:                     current.goal ?? imported.goal,
+        // Current goal plans win per language; imported fills languages without one
+        goalPlans:                { ...imported.goalPlans, ...current.goalPlans },
+        unitMasteredAt:           mergeUnitMasteredAt(current.unitMasteredAt, imported.unitMasteredAt),
         levels,
         completedLessons:         unionArrays(current.completedLessons, imported.completedLessons),
         completedByType:          mergeCompletedByType(current.completedByType, imported.completedByType),
@@ -152,8 +180,28 @@ export function mergeStats(current: StatsData, imported: StatsData): StatsData {
                 acts:     Math.max(stats.acts,      imp?.acts     ?? 0),
                 qTotal:   Math.max(stats.qTotal,    imp?.qTotal   ?? 0),
                 qCorrect: Math.max(stats.qCorrect,  imp?.qCorrect ?? 0),
+                ...mergeSkillStats(stats.skills, imp?.skills),
             }
         }
     }
     return result
+}
+
+/** Per-skill per-field max; omits the field entirely when neither side has data. */
+function mergeSkillStats(
+    current: DayStats["skills"],
+    imported: DayStats["skills"]
+): { skills?: DayStats["skills"] } {
+    if (!current && !imported) return {}
+    const skills: NonNullable<DayStats["skills"]> = {}
+    const keys = new Set([...Object.keys(current ?? {}), ...Object.keys(imported ?? {})]) as Set<keyof NonNullable<DayStats["skills"]>>
+    for (const k of keys) {
+        const c = current?.[k]
+        const i = imported?.[k]
+        skills[k] = {
+            t: Math.max(c?.t ?? 0, i?.t ?? 0),
+            c: Math.max(c?.c ?? 0, i?.c ?? 0),
+        }
+    }
+    return { skills }
 }

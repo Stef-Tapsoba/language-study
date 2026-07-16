@@ -25,6 +25,9 @@ registerExerciseType<ReadingPassage>({
 
     display: { emoji: "💬", description: "Choose the missing line in a conversation" },
 
+    // CO/CE/EO/EE attribution for per-skill stats (domain/skills.ts)
+    skill: "CE",
+
     fetchItems: async ({ langId, level }) =>
         Promise.resolve(
             getReadingPassagesForLevel(langId, level).filter(p => p.category === "dialogue")

@@ -51,6 +51,30 @@ describe("mergeProgress completedByType", () => {
         })
     })
 
+    it("merges goalPlans current-wins per language, imported fills gaps", () => {
+        const current = makeProgress({ goalPlans: { fr: { targetLevel: "B1", targetDate: "2026-12-01" } } })
+        const imported = makeProgress({
+            goalPlans: {
+                fr: { targetLevel: "A2" },                    // loses to current
+                es: { targetLevel: "B2", minutesPerDay: 20 }, // fills gap
+            },
+        })
+        const result = mergeProgress(current, imported)
+        expect(result.goalPlans).toEqual({
+            fr: { targetLevel: "B1", targetDate: "2026-12-01" },
+            es: { targetLevel: "B2", minutesPerDay: 20 },
+        })
+    })
+
+    it("merges unitMasteredAt with earliest date winning", () => {
+        const current = makeProgress({ unitMasteredAt: { fr: { u1: "2026-06-01", u2: "2026-06-10" } } })
+        const imported = makeProgress({ unitMasteredAt: { fr: { u1: "2026-05-01", u3: "2026-06-20" } } })
+        const result = mergeProgress(current, imported)
+        expect(result.unitMasteredAt).toEqual({
+            fr: { u1: "2026-05-01", u2: "2026-06-10", u3: "2026-06-20" },
+        })
+    })
+
     it("tolerates completedByType missing on either side", () => {
         const withTyped = makeProgress({ completedByType: { fr: { grammar: ["fr-g-a1-1"] } } })
         const without = makeProgress()
@@ -132,6 +156,24 @@ describe("mergeSRS", () => {
 // ---------------------------------------------------------------------------
 // mergeStats
 // ---------------------------------------------------------------------------
+
+describe("mergeStats — per-skill counters", () => {
+    it("takes per-skill per-field max and unions skills", () => {
+        const current = { fr: { "2026-07-01": { ...makeDay(0, 0), skills: { CE: { t: 5, c: 4 } } } } }
+        const imported = { fr: { "2026-07-01": { ...makeDay(0, 0), skills: { CE: { t: 3, c: 5 }, CO: { t: 2, c: 1 } } } } }
+        const result = mergeStats(current, imported)
+        expect(result.fr["2026-07-01"].skills).toEqual({
+            CE: { t: 5, c: 5 },
+            CO: { t: 2, c: 1 },
+        })
+    })
+
+    it("omits skills when neither side has them", () => {
+        const current = { fr: { "2026-07-01": makeDay(1, 1) } }
+        const imported = { fr: { "2026-07-01": makeDay(2, 2) } }
+        expect(mergeStats(current, imported).fr["2026-07-01"].skills).toBeUndefined()
+    })
+})
 
 describe("mergeStats", () => {
     it("keeps current value per-field when current > imported", () => {

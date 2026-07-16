@@ -55,7 +55,7 @@ function buildScriptItems(vocabItems: VocabItem[]): ScriptItem[] {
 
 // ── Main page ─────────────────────────────────────────────────────────────────
 
-export default function ScriptReadingPage({ items, langId, level, config: _config, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<VocabItem>>) {
+export default function ScriptReadingPage({ items, langId, level, config: _config, onComplete, onSessionDone, skill }: Readonly<ExerciseComponentProps<VocabItem>>) {
     const ui = getUI(langId, level)
     const language = getLanguage(langId)
 
@@ -131,7 +131,7 @@ export default function ScriptReadingPage({ items, langId, level, config: _confi
         setSelected(opt)
         setRevealed(true)
         const isCorrect = opt === q.correct
-        useStatsStore.getState().recordQuizAnswer(langId, isCorrect)
+        useStatsStore.getState().recordQuizAnswer(langId, isCorrect, skill)
         if (isCorrect) {
             setScore(s => s + 1)
             onComplete(q.vocabId)

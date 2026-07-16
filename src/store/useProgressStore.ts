@@ -26,7 +26,7 @@ import { registry } from "./registry"
 import { outbox } from "./outbox"
 import { logError } from "../utils/logger"
 import { useStatsStore } from "./useStatsStore"
-import { CEFRLevel, UserProgress } from "../types"
+import { CEFRLevel, UserProgress, GoalPlan } from "../types"
 import type { ContentType } from "./IProgressStorage"
 
 interface ProgressState {
@@ -63,6 +63,7 @@ interface ProgressState {
     resetLanguage: (langId: string) => Promise<void>
     removeLanguage: (langId: string) => Promise<void>
     completeCheckpoint: (langId: string, checkpointId: string) => Promise<void>
+    setGoalPlan: (langId: string, plan: GoalPlan | null) => Promise<void>
 }
 
 const EMPTY: readonly string[] = Object.freeze([])
@@ -78,6 +79,7 @@ export function progressHelpers(progress: UserProgress) {
         completed:            (langId: string): string[] => progress.completedLessons[langId] ?? (EMPTY as string[]),
         mastered:             (langId: string): string[] => progress.masteredUnits[langId] ?? (EMPTY as string[]),
         completedCheckpoints: (langId: string): string[] => progress.completedCheckpoints?.[langId] ?? (EMPTY as string[]),
+        goalPlan:             (langId: string): GoalPlan | null => progress.goalPlans?.[langId] ?? null,
         startedLanguages:     Object.keys(progress.levels),
         selectedLanguage:     progress.selectedLanguage,
     }
@@ -176,6 +178,7 @@ export const useProgressStore = create<ProgressState>((set, get) => {
         removeLanguage:      (langId) => mutate(() => registry.progress.removeLanguage(langId)),
         completeCheckpoint:  (langId, checkpointId) =>
             mutate(() => registry.progress.markCheckpointComplete(langId, checkpointId)),
+        setGoalPlan:         (langId, plan) => mutate(() => registry.progress.setGoalPlan(langId, plan)),
     }
 })
 

@@ -80,6 +80,24 @@ describe("enqueue", () => {
         expect((head.op as Extract<OutboxOp, { kind: "rpc-stat" }>).args.p_reviewed).toBe(3)
     })
 
+    it("sums deltas for same-key rpc-skill-stat ops", () => {
+        const skillOp = (total: number, correct: number): OutboxOp => ({
+            kind: "rpc-skill-stat",
+            key: "skillstats|fr|2026-07-15|CE",
+            args: {
+                p_user_id: "u1", p_lang_id: "fr", p_date: "2026-07-15",
+                p_skill: "CE", p_total: total, p_correct: correct,
+            },
+        })
+        outbox.enqueue(skillOp(1, 1))
+        outbox.enqueue(skillOp(1, 0))
+        expect(outbox.size()).toBe(1)
+        const [head] = queued()
+        const args = (head.op as Extract<OutboxOp, { kind: "rpc-skill-stat" }>).args
+        expect(args.p_total).toBe(2)
+        expect(args.p_correct).toBe(1)
+    })
+
     it("isolates queues per user", () => {
         outbox.enqueue(upsertOp("a"))
         outbox.setUser("u2")

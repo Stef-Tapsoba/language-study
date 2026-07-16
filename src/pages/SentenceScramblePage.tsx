@@ -152,7 +152,7 @@ function TokenButton({ token, onClick, variant, disabled = false }: Readonly<Tok
 
 // ── Main page ─────────────────────────────────────────────────────────────────
 
-export default function SentenceScramblePage({ items, langId, level, config, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<GrammarLesson>>) {
+export default function SentenceScramblePage({ items, langId, level, config, onComplete, onSessionDone, skill }: Readonly<ExerciseComponentProps<GrammarLesson>>) {
     const ui = getUI(langId, level)
 
     // C-4: sessionKey busts the memo on restart so questions are reshuffled each play
@@ -250,7 +250,7 @@ export default function SentenceScramblePage({ items, langId, level, config, onC
         const correct = answerMatches(userAnswer, q.correct, "strict")
         setIsCorrect(correct)
         setSubmitted(true)
-        useStatsStore.getState().recordQuizAnswer(langId, correct)
+        useStatsStore.getState().recordQuizAnswer(langId, correct, skill)
         onComplete(q.lessonId)  // always mark attempted — score tracks correctness separately
         if (correct) {
             playCorrect()

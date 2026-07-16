@@ -6,6 +6,7 @@
 
 import type { StatsData, DayStats } from "./useStatsStore"
 import type { IStatsStorage } from "./IStatsStorage"
+import type { Skill } from "../domain/skills"
 
 const STATS_KEY = "ls:stats"
 const HISTORY_DAYS = 360
@@ -65,7 +66,7 @@ export class LocalStorageStatsStorage implements IStatsStorage {
         saveRaw({ ...data, [langId]: { ...(data[langId] ?? {}), [date]: updated } })
     }
 
-    async recordQuizAnswer(langId: string, date: string, correct: boolean): Promise<void> {
+    async recordQuizAnswer(langId: string, date: string, correct: boolean, skill?: Skill): Promise<void> {
         const data = loadRaw()
         const e = getDay(data, langId, date)
         const updated: DayStats = {
@@ -73,6 +74,13 @@ export class LocalStorageStatsStorage implements IStatsStorage {
             acts:     e.acts     + 1,
             qTotal:   e.qTotal   + 1,
             qCorrect: e.qCorrect + (correct ? 1 : 0),
+        }
+        if (skill) {
+            const s = e.skills?.[skill]
+            updated.skills = {
+                ...e.skills,
+                [skill]: { t: (s?.t ?? 0) + 1, c: (s?.c ?? 0) + (correct ? 1 : 0) },
+            }
         }
         saveRaw({ ...data, [langId]: { ...(data[langId] ?? {}), [date]: updated } })
     }

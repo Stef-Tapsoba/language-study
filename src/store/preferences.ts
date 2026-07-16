@@ -63,6 +63,29 @@ export function dismissReviewPrompt(langId: string): void {
     localStorage.setItem(todayKey(langId), "1")
 }
 
+// ── Plateau prompt dismissal (per ISO week) ───────────────────────────────────
+// Plateaus move on a weekly timescale — a daily re-prompt would nag.
+
+function isoWeekKey(langId: string): string {
+    const d = new Date()
+    // ISO week number (Thursday trick)
+    const t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()))
+    t.setUTCDate(t.getUTCDate() + 4 - (t.getUTCDay() || 7))
+    const yearStart = new Date(Date.UTC(t.getUTCFullYear(), 0, 1))
+    const week = Math.ceil(((t.getTime() - yearStart.getTime()) / 86_400_000 + 1) / 7)
+    return `ls:plateau-dismissed:${langId}:${t.getUTCFullYear()}-W${week}`
+}
+
+/** Returns true if the plateau prompt has been dismissed this ISO week. */
+export function isPlateauPromptDismissed(langId: string): boolean {
+    return !!localStorage.getItem(isoWeekKey(langId))
+}
+
+/** Dismiss the plateau prompt for the rest of the ISO week. */
+export function dismissPlateauPrompt(langId: string): void {
+    localStorage.setItem(isoWeekKey(langId), "1")
+}
+
 // ── Level-up welcome ──────────────────────────────────────────────────────────
 // Ephemeral inter-page signal written by LevelTestPage, cleared by DashboardPage.
 

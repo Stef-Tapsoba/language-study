@@ -9,6 +9,7 @@ import { useDebugUnlock } from "../auth/debugSession"
 import { isOnboardingVisible, dismissOnboarding, getGoal, getNewLevel, clearNewLevel } from "../store/preferences"
 import { useBreakDetection } from "../hooks/useBreakDetection"
 import { ReviewPromptCard } from "../components/ReviewPromptCard"
+import { PlateauCard } from "../components/PlateauCard"
 import { HydrationErrorBanner } from "../components/HydrationErrorBanner"
 import { MigrationBanner } from "../components/MigrationBanner"
 import { scoreUnitForGoal, USER_GOALS, type GoalId } from "../data/goalConfig"
@@ -372,6 +373,7 @@ export function DashboardPage() {
                             daysSince={breakDetection.daysSince}
                             dueCount={dueCount}
                         />
+                        <PlateauCard langId={langId} />
                         {levelUnits.length > 0 ? (
                             <>
                                 {/* Level progress bar */}

@@ -9,6 +9,7 @@
 // corresponding IStatsStorage method to persist the delta.
 
 import type { StatsData } from "./useStatsStore"
+import type { Skill } from "../domain/skills"
 
 export interface IStatsStorage {
     /** Load the full stats history (used to hydrate the in-memory store). */
@@ -17,8 +18,13 @@ export interface IStatsStorage {
     /** Persist one flashcard review result. */
     recordReview(langId: string, date: string, correct: boolean): Promise<void>
 
-    /** Persist one quiz answer from any non-flashcard activity. */
-    recordQuizAnswer(langId: string, date: string, correct: boolean): Promise<void>
+    /**
+     * Persist one quiz answer from any non-flashcard activity.
+     * `skill` attributes the answer to a CO/CE/EO/EE competency when the
+     * exercise maps to exactly one (see domain/skills.ts); omit for
+     * core-knowledge exercises.
+     */
+    recordQuizAnswer(langId: string, date: string, correct: boolean, skill?: Skill): Promise<void>
 
     /** Persist any study activity that doesn't produce a quiz result. */
     recordActivity(langId: string, date: string): Promise<void>

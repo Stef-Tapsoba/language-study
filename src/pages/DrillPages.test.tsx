@@ -57,6 +57,7 @@ function shellProps(onComplete = vi.fn(), onSessionDone = vi.fn()) {
         config: getExerciseConfig("practice", 10),
         onComplete,
         onSessionDone,
+        skill: null,
     }
 }
 

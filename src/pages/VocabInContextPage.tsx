@@ -94,7 +94,7 @@ function HighlightedExcerpt({ excerpt, word }: Readonly<{ excerpt: string; word:
 
 // ── Main page ─────────────────────────────────────────────────────────────────
 
-export default function VocabInContextPage({ items, langId, level, config: _config, onComplete, onSessionDone }: Readonly<ExerciseComponentProps<ReadingPassage>>) {
+export default function VocabInContextPage({ items, langId, level, config: _config, onComplete, onSessionDone, skill }: Readonly<ExerciseComponentProps<ReadingPassage>>) {
     const ui = getUI(langId, level)
 
     const questions = useMemo(() => buildContextItems(items), [items])
@@ -155,7 +155,7 @@ export default function VocabInContextPage({ items, langId, level, config: _conf
         setSelected(opt)
         setRevealed(true)
         const isCorrect = opt === q.correct
-        useStatsStore.getState().recordQuizAnswer(langId, isCorrect)
+        useStatsStore.getState().recordQuizAnswer(langId, isCorrect, skill)
         if (isCorrect) {
             setScore(s => s + 1)
             onComplete(q.passageId)

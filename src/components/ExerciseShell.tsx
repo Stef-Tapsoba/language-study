@@ -201,7 +201,7 @@ export function ExerciseShell() {
                 </main>
             </div>
         }>
-            <Component items={items} langId={langId} level={level} config={config} onComplete={onComplete} onSessionDone={onSessionDone} />
+            <Component items={items} langId={langId} level={level} config={config} onComplete={onComplete} onSessionDone={onSessionDone} skill={def.skill ?? null} />
         </Suspense>
     )
 }

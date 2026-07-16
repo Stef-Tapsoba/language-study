@@ -99,3 +99,28 @@ describe("exercise type definitions have required fields", () => {
         expect(def.display?.description).toBeTruthy()
     })
 })
+
+// ---------------------------------------------------------------------------
+// Per-skill (CO/CE/EO/EE) attribution
+// ---------------------------------------------------------------------------
+
+describe("skill attribution", () => {
+    const EXPECTED_SKILLS: Record<string, string | undefined> = {
+        "cloze":               "EE",
+        "dictation":           "CO",
+        "error-correction":    "EE",
+        "sentence-scramble":   "EE",
+        "dialogue-completion": "CE",
+        "script-reading":      "CE",
+        "vocab-in-context":    "CE",
+        "speaking":            "EO",
+        // core-knowledge exercises — deliberately unattributed
+        "vocab-matching":      undefined,
+        "verb-drill":          undefined,
+        "grammar-drill":       undefined,
+    }
+
+    it.each(Object.entries(EXPECTED_SKILLS))("'%s' has skill %s", (id, skill) => {
+        expect(getExerciseType(id)!.skill).toBe(skill)
+    })
+})

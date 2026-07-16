@@ -25,6 +25,9 @@ registerExerciseType<ReadingPassage>({
 
     display: { emoji: "🔍", description: "Guess meaning from a passage" },
 
+    // CO/CE/EO/EE attribution for per-skill stats (domain/skills.ts)
+    skill: "CE",
+
     fetchItems: async ({ langId, level }) =>
         Promise.resolve(getReadingPassagesForLevel(langId, level)),
 

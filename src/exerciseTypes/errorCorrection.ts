@@ -29,6 +29,9 @@ registerExerciseType<GrammarLesson>({
 
     display: { emoji: "🔧", description: "Find and fix the grammar mistake" },
 
+    // CO/CE/EO/EE attribution for per-skill stats (domain/skills.ts)
+    skill: "EE",
+
     fetchItems: async ({ langId, level }) =>
         Promise.resolve(getGrammarForLevel(langId, level)),
 
