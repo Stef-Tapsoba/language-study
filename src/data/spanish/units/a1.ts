@@ -39,8 +39,6 @@ export const a1Units: LessonUnit[] = [
             "es-v-a1-11", "es-v-a1-12", "es-v-a1-13", "es-v-a1-14", "es-v-a1-15"
         ],
         verbIds: [],
-        readingIds: ["es-r-a1-4"],
-        listeningIds: ["es-l-a1-1"],
         cultureIds: ["es-c-a1-3"],
         testQuestions: [
             { id: "es-uq-a1-1-1", level: "A1", prompt: "What does '¡Hola!' mean?", options: ["Goodbye", "Hello", "Please", "Thank you"], answer: "Hello" },
@@ -63,7 +61,6 @@ export const a1Units: LessonUnit[] = [
             "es-v-a1-26", "es-v-a1-27", "es-v-a1-28", "es-v-a1-29"
         ],
         verbIds: ["es-vb-a1-2"],
-        readingIds: ["es-r-a1-6"],
         testQuestions: [
             { id: "es-uq-a1-2-1", level: "A1", prompt: "Which verb do you use to say your nationality or profession?", options: ["estar", "tener", "ser", "ir"], answer: "ser" },
             { id: "es-uq-a1-2-2", level: "A1", prompt: "Complete: 'Yo ___ de España.'", options: ["estoy", "soy", "tengo", "voy"], answer: "soy" },
@@ -106,6 +103,8 @@ export const a1Units: LessonUnit[] = [
             "es-v-a1-40", "es-v-a1-41"
         ],
         verbIds: ["es-vb-a1-1", "es-vb-a1-11", "es-vb-a1-12"],
+        readingIds: ["es-r-a1-4"],
+        listeningIds: ["es-l-a1-1"],
         checkpointId: "es-cp-a1-1",
         testQuestions: [
             { id: "es-uq-a1-4-1", level: "A1", prompt: "What is the 'yo' form of 'hablar'?", options: ["habla", "hablas", "hablo", "hablamos"], answer: "hablo" },
@@ -202,6 +201,7 @@ export const a1Units: LessonUnit[] = [
             "es-v-a1-136", "es-v-a1-137", "es-v-a1-203"
         ],
         verbIds: ["es-vb-a1-3", "es-vb-a1-5"],
+        readingIds: ["es-r-a1-6"],
         testQuestions: [
             { id: "es-uq-a1-8-1", level: "A1", prompt: "Complete: 'Madrid ___ en España.' (location)", options: ["es", "está", "tiene", "va"], answer: "está" },
             { id: "es-uq-a1-8-2", level: "A1", prompt: "What is the 'yo' form of 'ir'?", options: ["va", "vas", "voy", "vamos"], answer: "voy" },
