@@ -1,10 +1,10 @@
-// data/french/units/a1.ts — French A1 redesign (22 units, 5 blocks)
+// data/french/units/a1.ts — French A1 redesign (26 units, 5 blocks)
 // Functional/communicative syllabus.
 // Block 1 (U1-U4): Who I Am
 // Block 2 (U5-U9): My World
 // Block 3 (U10-U14): Daily Life
-// Block 4 (U15-U19): Out in the World
-// Block 5 (U20-U22): Talking About Time
+// Block 4 (U15-U20): Out in the World
+// Block 5 (U21-U26): Talking About Time
 import { LessonUnit } from "../../../types"
 
 export const a1Units: LessonUnit[] = [
@@ -323,9 +323,25 @@ export const a1Units: LessonUnit[] = [
         ],
     },
     {
-        id: "fr-a1-u19",
+        id: "fr-a1-u23",
         level: "A1",
         order: 19,
+        title: "Talk about the weather",
+        description: "Say what the weather's like, using il fait + adjective and il y a + noun. Essential for small talk and for making the plans from the last unit.",
+        grammarIds: [],
+        vocabIds: ["fr-v-a1-274", "fr-v-a1-275", "fr-v-a1-276", "fr-v-a1-277", "fr-v-a1-278", "fr-v-a1-279", "fr-v-a1-280", "fr-v-a1-281", "fr-v-a1-282", "fr-v-a1-283", "fr-v-a1-284", "fr-v-a1-285"],
+        verbIds: [],
+        testQuestions: [
+            { id: "fr-uq-a1-23-1", level: "A1", prompt: "How do you say 'The weather is nice today'?", options: ["Il y a beau aujourd'hui.", "Il fait beau aujourd'hui.", "Il est beau aujourd'hui.", "Il a beau aujourd'hui."], answer: "Il fait beau aujourd'hui." },
+            { id: "fr-uq-a1-23-2", level: "A1", prompt: "Which sentence means 'It's windy today'?", options: ["Il fait du vent aujourd'hui.", "Il y a du vent aujourd'hui.", "Il vent aujourd'hui.", "Il est du vent aujourd'hui."], answer: "Il y a du vent aujourd'hui." },
+            { id: "fr-uq-a1-23-3", level: "A1", prompt: "'Il pleut' means:", options: ["It's cloudy", "It's raining", "It's snowing", "It's windy"], answer: "It's raining" },
+            { id: "fr-uq-a1-23-4", level: "A1", prompt: "How do you ask about the temperature?", options: ["Quel est le prix?", "Quelle est la température?", "Quel est le degré de vent?", "Combien fait-il?"], answer: "Quelle est la température?" },
+        ],
+    },
+    {
+        id: "fr-a1-u19",
+        level: "A1",
+        order: 20,
         title: "Talk about what you need, want, and can do",
         description: "Three essential modal verbs — vouloir (want), pouvoir (can/be able to), devoir (must/have to). Plus the polite form: je voudrais.",
         grammarIds: ["fr-g-a1-17", "fr-g-a1-18"],
@@ -344,7 +360,7 @@ export const a1Units: LessonUnit[] = [
     {
         id: "fr-a1-u20",
         level: "A1",
-        order: 20,
+        order: 21,
         title: "Talk about what happened",
         description: "Le passé composé with avoir — the landmark of A1. Tell people what you did, ate, saw, and experienced. French finally lets you tell stories.",
         grammarIds: ["fr-g-a1-19"],
@@ -360,7 +376,7 @@ export const a1Units: LessonUnit[] = [
     {
         id: "fr-a1-u21",
         level: "A1",
-        order: 21,
+        order: 22,
         title: "Talk about where you went and what happened",
         description: "Passé composé with être — movement and change verbs use être, not avoir. Agreement with the subject. Reflexive verbs also use être.",
         grammarIds: ["fr-g-a1-20"],
@@ -374,9 +390,57 @@ export const a1Units: LessonUnit[] = [
         ],
     },
     {
+        id: "fr-a1-u24",
+        level: "A1",
+        order: 23,
+        title: "Point things out",
+        description: "Ce, cet, cette, ces — the demonstrative family that lets you say 'this' and 'that' about anything you're describing.",
+        grammarIds: ["fr-g-a1-23"],
+        vocabIds: ["fr-v-a1-83", "fr-v-a1-110", "fr-v-a1-115", "fr-v-a1-121"],
+        verbIds: [],
+        testQuestions: [
+            { id: "fr-uq-a1-24-1", level: "A1", prompt: "Which form goes before 'restaurant' (masculine, consonant start)?", options: ["ce", "cet", "cette", "ces"], answer: "ce" },
+            { id: "fr-uq-a1-24-2", level: "A1", prompt: "Which form goes before 'homme' (masculine, vowel start)?", options: ["ce", "cet", "cette", "ces"], answer: "cet" },
+            { id: "fr-uq-a1-24-3", level: "A1", prompt: "Which form goes before 'ville' (feminine)?", options: ["ce", "cet", "cette", "ces"], answer: "cette" },
+            { id: "fr-uq-a1-24-4", level: "A1", prompt: "Which form goes before 'chaussures' (plural)?", options: ["ce", "cet", "cette", "ces"], answer: "ces" },
+        ],
+    },
+    {
+        id: "fr-a1-u25",
+        level: "A1",
+        order: 24,
+        title: "Say what there is",
+        description: "Il y a — one phrase, no agreement to worry about, for saying what exists somewhere.",
+        grammarIds: ["fr-g-a1-24"],
+        vocabIds: ["fr-v-a1-121", "fr-v-a1-224", "fr-v-a1-115"],
+        verbIds: [],
+        testQuestions: [
+            { id: "fr-uq-a1-25-1", level: "A1", prompt: "How do you say 'There are restaurants here'?", options: ["Il a des restaurants ici.", "Il y a des restaurants ici.", "Il y sont des restaurants ici.", "Ils y a des restaurants ici."], answer: "Il y a des restaurants ici." },
+            { id: "fr-uq-a1-25-2", level: "A1", prompt: "How do you say 'There isn't any bread'?", options: ["Il n'y a pas de pain.", "Il n'y a pas du pain.", "Il n'a pas de pain.", "Il n'y a pas le pain."], answer: "Il n'y a pas de pain." },
+            { id: "fr-uq-a1-25-3", level: "A1", prompt: "How do you ask 'Is there a pharmacy nearby?'", options: ["Il y a une pharmacie près d'ici ?", "Est-ce qu'il y a une pharmacie près d'ici ?", "Est-ce qu'il a une pharmacie près d'ici ?", "Y a-t-il pharmacie près d'ici ?"], answer: "Est-ce qu'il y a une pharmacie près d'ici ?" },
+            { id: "fr-uq-a1-25-4", level: "A1", prompt: "'Il y a' changes form depending on singular/plural.", options: ["True", "False"], answer: "False" },
+        ],
+    },
+    {
+        id: "fr-a1-u26",
+        level: "A1",
+        order: 25,
+        title: "Know facts and know people",
+        description: "Savoir vs connaître — French has two verbs for 'to know', and picking the right one matters.",
+        grammarIds: ["fr-g-a1-25"],
+        vocabIds: ["fr-v-a1-115"],
+        verbIds: ["fr-vb-a1-34", "fr-vb-a1-35"],
+        testQuestions: [
+            { id: "fr-uq-a1-26-1", level: "A1", prompt: "'Je ___ nager.' (I know how to swim)", options: ["sais", "connais", "sait", "connaît"], answer: "sais" },
+            { id: "fr-uq-a1-26-2", level: "A1", prompt: "'Je ___ très bien Paris.' (I'm familiar with Paris)", options: ["sais", "connais", "savons", "connaissons"], answer: "connais" },
+            { id: "fr-uq-a1-26-3", level: "A1", prompt: "Which verb is correct before 'où' (where)?", options: ["savoir", "connaître", "either works", "neither works"], answer: "savoir" },
+            { id: "fr-uq-a1-26-4", level: "A1", prompt: "'Tu ___ mon frère ?' (Do you know my brother?)", options: ["sais", "connais", "sait", "connaît"], answer: "connais" },
+        ],
+    },
+    {
         id: "fr-a1-u22",
         level: "A1",
-        order: 22,
+        order: 26,
         title: "Handle more verbs and connect across time",
         description: "Regular -ir and -re verbs complete your verb toolkit. Then use everything: past, present, future, modals, connectors — in the same conversation.",
         grammarIds: ["fr-g-a1-21", "fr-g-a1-22"],

@@ -115,6 +115,9 @@ export const a1Units: LessonUnit[] = [
             "it-v-a1-64", "it-v-a1-65", "it-v-a1-66", "it-v-a1-67",
             "it-v-a1-70", "it-v-a1-71", "it-v-a1-110", "it-v-a1-117", "it-v-a1-122",
             "it-v-a1-147", "it-v-a1-148", "it-v-a1-149", "it-v-a1-150",
+            "it-v-a1-245", "it-v-a1-246", "it-v-a1-247", "it-v-a1-248",
+            "it-v-a1-249", "it-v-a1-250", "it-v-a1-251", "it-v-a1-252",
+            "it-v-a1-253", "it-v-a1-254", "it-v-a1-255", "it-v-a1-256",
         ],
         verbIds: ["it-vb-a1-24", "it-vb-a1-25", "it-vb-a1-26"],
         testQuestions: [
@@ -346,6 +349,27 @@ export const a1Units: LessonUnit[] = [
     // Can-do goal: I can navigate food, directions, shopping, and requests.
     // ─────────────────────────────────────────────
     {
+        id: "it-a1-u13",
+        level: "A1",
+        order: 15,
+        title: "Posso, voglio, devo — Modal verbs",
+        description: "Express ability, desire, and obligation with Italy's three modal verbs",
+        grammarIds: ["it-g-a1-19", "it-g-a1-33"],
+        vocabIds: [
+            "it-v-a1-61", "it-v-a1-62", "it-v-a1-64", "it-v-a1-66", "it-v-a1-67",
+            "it-v-a1-147", "it-v-a1-148", "it-v-a1-149", "it-v-a1-150",
+        ],
+        verbIds: ["it-vb-a1-6", "it-vb-a1-7", "it-vb-a1-18", "it-vb-a1-19", "it-vb-a1-20", "it-vb-a1-21", "it-vb-a1-27"],
+        testQuestions: [
+            { id: "it-uq-a1-17-1", level: "A1", prompt: "Complete: 'Io ___ un caffè.' (volere)", options: ["vuole", "vuoi", "voglio", "vogliono"], answer: "voglio" },
+            { id: "it-uq-a1-17-2", level: "A1", prompt: "Complete: 'Noi ___ venire.' (potere)", options: ["posso", "puoi", "possiamo", "possono"], answer: "possiamo" },
+            { id: "it-uq-a1-17-3", level: "A1", prompt: "Complete: 'Puoi ___ italiano?' (parlare)", options: ["parlate", "parlano", "parli", "parlare"], answer: "parlare" },
+            { id: "it-uq-a1-17-4", level: "A1", prompt: "Choose the correct form of dovere: 'Noi ___ studiare ogni giorno.'", options: ["devo", "deve", "dobbiamo", "dovete"], answer: "dobbiamo" },
+            { id: "it-uq-a1-17-5", level: "A1", prompt: "Translate: 'You (tu) must eat breakfast.'", options: ["Devi fare colazione.", "Deve fare colazione.", "Dovete fare colazione.", "Devo fare colazione."], answer: "Devi fare colazione." },
+            { id: "it-uq-a1-17-6", level: "A1", prompt: "Translate: 'They must arrive on time.'", options: ["Vogliono arrivare in orario.", "Possono arrivare in orario.", "Arrivano in orario.", "Devono arrivare in orario."], answer: "Devono arrivare in orario." },
+        ],
+    },
+    {
         id: "it-a1-u15",
         level: "A1",
         order: 16,
@@ -390,27 +414,6 @@ export const a1Units: LessonUnit[] = [
             { id: "it-uq-a1-16-6", level: "A1", prompt: "How do you say 'Go straight ahead'?", options: ["Vai dritto.", "Gira a destra.", "Gira a sinistra.", "Fermati qui."], answer: "Vai dritto." },
         ],
         listeningIds: ["it-l-a1-6"],
-    },
-    {
-        id: "it-a1-u13",
-        level: "A1",
-        order: 15,
-        title: "Posso, voglio, devo — Modal verbs",
-        description: "Express ability, desire, and obligation with Italy's three modal verbs",
-        grammarIds: ["it-g-a1-19", "it-g-a1-33"],
-        vocabIds: [
-            "it-v-a1-61", "it-v-a1-62", "it-v-a1-64", "it-v-a1-66", "it-v-a1-67",
-            "it-v-a1-147", "it-v-a1-148", "it-v-a1-149", "it-v-a1-150",
-        ],
-        verbIds: ["it-vb-a1-6", "it-vb-a1-7", "it-vb-a1-18", "it-vb-a1-19", "it-vb-a1-20", "it-vb-a1-21", "it-vb-a1-27"],
-        testQuestions: [
-            { id: "it-uq-a1-17-1", level: "A1", prompt: "Complete: 'Io ___ un caffè.' (volere)", options: ["vuole", "vuoi", "voglio", "vogliono"], answer: "voglio" },
-            { id: "it-uq-a1-17-2", level: "A1", prompt: "Complete: 'Noi ___ venire.' (potere)", options: ["posso", "puoi", "possiamo", "possono"], answer: "possiamo" },
-            { id: "it-uq-a1-17-3", level: "A1", prompt: "Complete: 'Puoi ___ italiano?' (parlare)", options: ["parlate", "parlano", "parli", "parlare"], answer: "parlare" },
-            { id: "it-uq-a1-17-4", level: "A1", prompt: "Choose the correct form of dovere: 'Noi ___ studiare ogni giorno.'", options: ["devo", "deve", "dobbiamo", "dovete"], answer: "dobbiamo" },
-            { id: "it-uq-a1-17-5", level: "A1", prompt: "Translate: 'You (tu) must eat breakfast.'", options: ["Devi fare colazione.", "Deve fare colazione.", "Dovete fare colazione.", "Devo fare colazione."], answer: "Devi fare colazione." },
-            { id: "it-uq-a1-17-6", level: "A1", prompt: "Translate: 'They must arrive on time.'", options: ["Vogliono arrivare in orario.", "Possono arrivare in orario.", "Arrivano in orario.", "Devono arrivare in orario."], answer: "Devono arrivare in orario." },
-        ],
     },
     {
         id: "it-a1-u7",

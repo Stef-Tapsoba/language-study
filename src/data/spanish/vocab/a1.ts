@@ -335,4 +335,26 @@ export const a1Vocab: VocabItem[] = [
     { id: "es-v-a1-277", level: "A1", word: "el recibo", translation: "the receipt", category: "Shopping", example: { native: "¿Me da el recibo, por favor?", translation: "Can you give me the receipt, please?" } },
     { id: "es-v-a1-278", level: "A1", word: "el cambio", translation: "the change (money)", category: "Shopping", example: { native: "Aquí tiene su cambio.", translation: "Here is your change." } },
     { id: "es-v-a1-279", level: "A1", word: "demasiado caro", translation: "too expensive", category: "Shopping", example: { native: "Este abrigo es demasiado caro para mí.", translation: "This coat is too expensive for me." } },
+
+    // ── Animals (280–289) ──────────────────────────────────────────────────────
+    { id: "es-v-a1-280", level: "A1", word: "el perro", translation: "the dog", category: "Animals", example: { native: "Mi perro se llama Rex.", translation: "My dog's name is Rex." } },
+    { id: "es-v-a1-281", level: "A1", word: "el gato", translation: "the cat", category: "Animals", example: { native: "Tengo un gato negro.", translation: "I have a black cat." } },
+    { id: "es-v-a1-282", level: "A1", word: "el pájaro", translation: "the bird", category: "Animals", example: { native: "Hay pájaros en el jardín.", translation: "There are birds in the garden." } },
+    { id: "es-v-a1-283", level: "A1", word: "el pez", translation: "the fish (pet)", category: "Animals", example: { native: "Tiene un pez rojo en una pecera.", translation: "He has a goldfish in a bowl." } },
+    { id: "es-v-a1-284", level: "A1", word: "el conejo", translation: "the rabbit", category: "Animals", example: { native: "Mi hermana tiene un conejo blanco.", translation: "My sister has a white rabbit." } },
+    { id: "es-v-a1-285", level: "A1", word: "el caballo", translation: "the horse", category: "Animals", example: { native: "Hay un caballo en la granja.", translation: "There is a horse on the farm." } },
+    { id: "es-v-a1-286", level: "A1", word: "la vaca", translation: "the cow", category: "Animals", example: { native: "Las vacas comen hierba.", translation: "Cows eat grass." } },
+    { id: "es-v-a1-287", level: "A1", word: "el cerdo", translation: "the pig", category: "Animals", example: { native: "El cerdo está en la granja.", translation: "The pig is on the farm." } },
+    { id: "es-v-a1-288", level: "A1", word: "el ratón", translation: "the mouse", category: "Animals", example: { native: "El gato persigue al ratón.", translation: "The cat chases the mouse." } },
+    { id: "es-v-a1-289", level: "A1", word: "la mascota", translation: "the pet", category: "Animals", example: { native: "Mi mascota favorita es el perro.", translation: "My favourite pet is the dog." } },
+
+    // ── Health & Wellbeing — extended (290–297) ────────────────────────────────
+    { id: "es-v-a1-290", level: "A1", word: "estar enfermo/a", translation: "to be ill / sick", category: "Health", example: { native: "Estoy enfermo — no voy al trabajo.", translation: "I'm ill — I'm not going to work." } },
+    { id: "es-v-a1-291", level: "A1", word: "el médico / la médica", translation: "the doctor", category: "Health", example: { native: "Tengo que ver al médico mañana.", translation: "I need to see the doctor tomorrow." } },
+    { id: "es-v-a1-292", level: "A1", word: "la medicina / el medicamento", translation: "medicine / medication", category: "Health", example: { native: "Tomo medicina para la tos.", translation: "I take medicine for my cough." } },
+    { id: "es-v-a1-293", level: "A1", word: "la farmacia", translation: "the pharmacy", category: "Health", example: { native: "¿Hay una farmacia cerca de aquí?", translation: "Is there a pharmacy near here?" } },
+    { id: "es-v-a1-294", level: "A1", word: "tener frío / tener calor", translation: "to be cold / to be hot (bodily sensation)", category: "Health", example: { native: "Tengo frío — ¿puedes cerrar la ventana?", translation: "I'm cold — can you close the window?" } },
+    { id: "es-v-a1-295", level: "A1", word: "sentirse bien / mal", translation: "to feel well / unwell", category: "Health", example: { native: "No me siento bien hoy.", translation: "I don't feel well today." } },
+    { id: "es-v-a1-296", level: "A1", word: "la fiebre", translation: "fever / temperature", category: "Health", example: { native: "Tiene fiebre — treinta y nueve grados.", translation: "He has a fever — thirty-nine degrees." } },
+    { id: "es-v-a1-297", level: "A1", word: "toser / la tos", translation: "to cough / a cough", category: "Health", example: { native: "Tengo mucha tos esta semana.", translation: "I have a bad cough this week." } },
 ]

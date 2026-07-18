@@ -180,7 +180,8 @@ export const a1Vocab: VocabItem[] = [
     { id: "it-v-a1-152", level: "A1", word: "la sera", translation: "evening", category: "Time", example: { native: "La sera leggo un libro.", translation: "In the evening I read a book." } },
 
     // --- Numbers 21-100 + time expressions (11 items) ---
-    { id: "it-v-a1-153", level: "A1", word: "ventuno / ventidue", translation: "twenty-one / twenty-two", category: "Numbers", example: { native: "Ho ventuno anni.", translation: "I am twenty-one years old." } },
+    { id: "it-v-a1-153", level: "A1", word: "ventuno", translation: "twenty-one", category: "Numbers", example: { native: "Ho ventuno anni.", translation: "I am twenty-one years old." } },
+    { id: "it-v-a1-153b", level: "A1", word: "ventidue", translation: "twenty-two", category: "Numbers", example: { native: "Ho ventuno anni.", translation: "I am twenty-one years old." } },
     { id: "it-v-a1-154", level: "A1", word: "trenta", translation: "thirty", category: "Numbers", example: { native: "Il trenta per cento.", translation: "Thirty percent." } },
     { id: "it-v-a1-155", level: "A1", word: "quaranta", translation: "forty", category: "Numbers", example: { native: "Ho quaranta euro.", translation: "I have forty euros." } },
     { id: "it-v-a1-156", level: "A1", word: "cinquanta", translation: "fifty", category: "Numbers", example: { native: "Costa cinquanta euro.", translation: "It costs fifty euros." } },
@@ -268,4 +269,42 @@ export const a1Vocab: VocabItem[] = [
     { id: "it-v-a1-224", level: "A1", word: "il resto", translation: "change (money)", category: "Shopping", example: { native: "Ecco il resto: due euro.", translation: "Here is your change: two euros." } },
     { id: "it-v-a1-225", level: "A1", word: "troppo caro", translation: "too expensive", category: "Shopping", example: { native: "Questo è troppo caro per me.", translation: "This is too expensive for me." } },
     { id: "it-v-a1-226", level: "A1", word: "quanto costa?", translation: "how much does it cost?", category: "Shopping", example: { native: "Quanto costa questo vestito?", translation: "How much does this dress cost?" } },
+
+    // --- Animals (10 items) ---
+    { id: "it-v-a1-227", level: "A1", word: "il cane", translation: "dog", category: "Animals", example: { native: "Il mio cane si chiama Rex.", translation: "My dog's name is Rex." } },
+    { id: "it-v-a1-228", level: "A1", word: "il gatto", translation: "cat", category: "Animals", example: { native: "Ho un gatto nero.", translation: "I have a black cat." } },
+    { id: "it-v-a1-229", level: "A1", word: "l'uccello", translation: "bird", category: "Animals", example: { native: "Ci sono uccelli in giardino.", translation: "There are birds in the garden." } },
+    { id: "it-v-a1-230", level: "A1", word: "il pesce", translation: "fish (pet)", category: "Animals", example: { native: "Ha un pesce rosso in una boccia.", translation: "He has a goldfish in a bowl." } },
+    { id: "it-v-a1-231", level: "A1", word: "il coniglio", translation: "rabbit", category: "Animals", example: { native: "Mia sorella ha un coniglio bianco.", translation: "My sister has a white rabbit." } },
+    { id: "it-v-a1-232", level: "A1", word: "il cavallo", translation: "horse", category: "Animals", example: { native: "C'è un cavallo nella fattoria.", translation: "There is a horse on the farm." } },
+    { id: "it-v-a1-233", level: "A1", word: "la mucca", translation: "cow", category: "Animals", example: { native: "Le mucche mangiano l'erba.", translation: "Cows eat grass." } },
+    { id: "it-v-a1-234", level: "A1", word: "il maiale", translation: "pig", category: "Animals", example: { native: "Il maiale è nella fattoria.", translation: "The pig is on the farm." } },
+    { id: "it-v-a1-235", level: "A1", word: "il topo", translation: "mouse", category: "Animals", example: { native: "Il gatto insegue il topo.", translation: "The cat chases the mouse." } },
+    { id: "it-v-a1-236", level: "A1", word: "l'animale domestico", translation: "pet", category: "Animals", example: { native: "Il mio animale domestico preferito è il cane.", translation: "My favourite pet is the dog." } },
+
+    // --- Health & Wellbeing — extended (8 items) ---
+    { id: "it-v-a1-237", level: "A1", word: "essere malato/a", translation: "to be ill / sick", category: "Health", example: { native: "Sono malato — non vado al lavoro.", translation: "I'm ill — I'm not going to work." } },
+    { id: "it-v-a1-238", level: "A1", word: "il medico", translation: "the doctor", category: "Health", example: { native: "Devo vedere il medico domani.", translation: "I need to see the doctor tomorrow." } },
+    { id: "it-v-a1-239", level: "A1", word: "la medicina", translation: "medicine / medication", category: "Health", example: { native: "Prendo la medicina per la tosse.", translation: "I take medicine for my cough." } },
+    { id: "it-v-a1-240", level: "A1", word: "avere freddo / avere caldo", translation: "to be cold / to be hot (bodily sensation)", category: "Health", example: { native: "Ho freddo — puoi chiudere la finestra?", translation: "I'm cold — can you close the window?" } },
+    { id: "it-v-a1-241", level: "A1", word: "sentirsi bene / male", translation: "to feel well / unwell", category: "Health", example: { native: "Non mi sento bene oggi.", translation: "I don't feel well today." } },
+    { id: "it-v-a1-242", level: "A1", word: "la febbre", translation: "fever / temperature", category: "Health", example: { native: "Ha la febbre — trentanove gradi.", translation: "He has a fever — thirty-nine degrees." } },
+    { id: "it-v-a1-243", level: "A1", word: "tossire / la tosse", translation: "to cough / a cough", category: "Health", example: { native: "Ho la tosse da tre giorni.", translation: "I've had a cough for three days." } },
+    { id: "it-v-a1-244", level: "A1", word: "il raffreddore", translation: "a cold (illness)", category: "Health", example: { native: "Ho un raffreddore — starnutisco spesso.", translation: "I have a cold — I sneeze often." } },
+
+    // --- Hobbies (12 items) ---
+    { id: "it-v-a1-245", level: "A1", word: "lo sport", translation: "sport / exercise", category: "Hobbies", example: { native: "Faccio sport il fine settimana.", translation: "I do sport at the weekend." } },
+    { id: "it-v-a1-246", level: "A1", word: "la musica", translation: "music", category: "Hobbies", example: { native: "Ascolto la musica tutti i giorni.", translation: "I listen to music every day." } },
+    { id: "it-v-a1-247", level: "A1", word: "il cinema", translation: "cinema / movies", category: "Hobbies", example: { native: "Andiamo al cinema stasera?", translation: "Shall we go to the cinema tonight?" } },
+    { id: "it-v-a1-248", level: "A1", word: "la lettura", translation: "reading", category: "Hobbies", example: { native: "Mi piace la lettura — leggo spesso la sera.", translation: "I like reading — I often read in the evening." } },
+    { id: "it-v-a1-249", level: "A1", word: "il nuoto", translation: "swimming", category: "Hobbies", example: { native: "Faccio nuoto la domenica.", translation: "I go swimming on Sundays." } },
+    { id: "it-v-a1-250", level: "A1", word: "la bicicletta", translation: "cycling / bike", category: "Hobbies", example: { native: "Vado in bicicletta al parco.", translation: "I go cycling in the park." } },
+    { id: "it-v-a1-251", level: "A1", word: "il ballo", translation: "dancing", category: "Hobbies", example: { native: "Le piace il ballo — prende lezioni.", translation: "She loves dancing — she takes lessons." } },
+    { id: "it-v-a1-252", level: "A1", word: "il disegno", translation: "drawing", category: "Hobbies", example: { native: "Mio fratello fa disegno la sera.", translation: "My brother does drawing in the evening." } },
+    { id: "it-v-a1-253", level: "A1", word: "i videogiochi", translation: "video games", category: "Hobbies", example: { native: "Gioca ai videogiochi con gli amici.", translation: "He plays video games with his friends." } },
+    { id: "it-v-a1-254", level: "A1", word: "la passeggiata", translation: "walk / stroll", category: "Hobbies", example: { native: "Facciamo una passeggiata nel parco?", translation: "Shall we go for a walk in the park?" } },
+    { id: "it-v-a1-255", level: "A1", word: "il viaggio", translation: "trip / travel", category: "Hobbies", example: { native: "Adoro viaggiare — visito molti paesi.", translation: "I love travelling — I visit many countries." } },
+    { id: "it-v-a1-256", level: "A1", word: "la fotografia", translation: "photography", category: "Hobbies", example: { native: "Fa fotografia nel fine settimana.", translation: "He does photography at the weekend." } },
+
+    { id: "it-v-a1-257", level: "A1", word: "il fidanzato / la fidanzata", translation: "the boyfriend / the girlfriend", category: "Family", example: { native: "Il mio fidanzato abita a Milano.", translation: "My boyfriend lives in Milan." } },
 ]
