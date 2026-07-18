@@ -324,6 +324,263 @@ THE COMPLETE PICTURE — all three regular families
         },
     },
     {
+        id: "fr-g-a1-23",
+        level: "A1",
+        title: "Demonstratives — ce, cet, cette, ces (this / that)",
+        explanation: `You already point at things constantly in conversation — "this restaurant," "that guy," "these books." French has one small word family for all of it: **ce / cet / cette / ces**. Unlike English, French doesn't normally distinguish "this" from "that" — context (or a gesture) does that work.
+
+THE FORMS
+
+  **ce** — before a masculine singular noun starting with a consonant: **ce restaurant**, **ce livre**
+  **cet** — before a masculine singular noun starting with a vowel or silent h (to avoid the vowel clash): **cet homme**, **cet ami**
+  **cette** — before any feminine singular noun: **cette femme**, **cette école**
+  **ces** — before any plural noun, masculine or feminine: **ces livres**, **ces amies**
+
+Notice the pattern is exactly like mon/ma/mes and le/la/les — French keeps reusing the same masculine/feminine/vowel-clash/plural logic across word families. If you learned possessives, you already understand demonstratives.
+
+BEING MORE PRECISE: -CI AND -LÀ
+If you need to distinguish "this one here" from "that one there," add **-ci** or **-là** to the noun:
+  **ce livre-ci** — this book (here)
+  **ce livre-là** — that book (there)
+This is optional — most everyday French just says "ce livre" and lets context carry the meaning.`,
+        examples: [
+            { native: "Ce restaurant est excellent.", translation: "This restaurant is excellent." },
+            { native: "Cet homme travaille avec moi.", translation: "That man works with me." },
+            { native: "Cette voiture est très chère.", translation: "This car is very expensive." },
+            { native: "Ces chaussures sont jolies.", translation: "These shoes are pretty." },
+            { native: "Je préfère ce livre-ci.", translation: "I prefer this book (here)." },
+            { native: "Tu connais cette chanson ?", translation: "Do you know this song?" },
+        ],
+        inlineVocab: [
+            { word: "ce / cet / cette / ces", translation: "this / that (masc. / masc. before vowel / fem. / plural)" },
+            { word: "-ci / -là", translation: "here / there (attached to a noun for extra precision)" },
+            { word: "le restaurant", translation: "the restaurant" },
+            { word: "la voiture", translation: "the car" },
+            { word: "les chaussures (f)", translation: "the shoes" },
+            { word: "la chanson", translation: "the song" },
+        ],
+        rules: [
+            {
+                condition: "Masculine singular noun starting with a consonant",
+                result: "Use ce",
+                examples: [
+                    { native: "Ce livre est intéressant.", translation: "This book is interesting." },
+                    { native: "Ce quartier est calme.", translation: "This neighbourhood is quiet." },
+                ],
+            },
+            {
+                condition: "Masculine singular noun starting with a vowel or silent h",
+                result: "Use cet (not ce) to avoid the vowel clash",
+                examples: [
+                    { native: "Cet appartement est petit.", translation: "This flat is small." },
+                    { native: "Cet hôtel est complet.", translation: "This hotel is fully booked." },
+                ],
+            },
+            {
+                condition: "Feminine singular noun (any first letter)",
+                result: "Use cette",
+                examples: [
+                    { native: "Cette ville est magnifique.", translation: "This city is magnificent." },
+                    { native: "Cette idée est excellente.", translation: "This idea is excellent." },
+                ],
+            },
+            {
+                condition: "Plural noun (masculine or feminine)",
+                result: "Use ces",
+                examples: [
+                    { native: "Ces enfants sont polis.", translation: "These children are polite." },
+                    { native: "Ces photos sont belles.", translation: "These photos are beautiful." },
+                ],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "The choice between ce/cet/cette/ces follows the same logic you already know from mon/ma/mes and articles: gender of the noun, plus a vowel-clash exception for masculine nouns.",
+            },
+            {
+                type: "tip",
+                content: "French doesn't force a this/that distinction the way English does. 'Ce livre' can mean either 'this book' or 'that book' — only add -ci/-là when you specifically need to contrast two things.",
+            },
+        ],
+        fixedPhrases: [
+            { native: "Ce n'est pas grave.", translation: "It's not a big deal / never mind.", note: "Extremely common filler — not literally about a specific object." },
+            { native: "C'est combien, ce livre ?", translation: "How much is this book?", note: "Classic shopping question." },
+            { native: "Cette semaine, je suis très occupé.", translation: "This week, I'm very busy.", note: "cette + time word is a common way to talk about the present period." },
+        ],
+        paradigmTable: {
+            pronouns: ["masculine", "masculine (vowel/h)", "feminine", "plural"],
+            verbs: [
+                { label: "this / that", forms: ["ce", "cet", "cette", "ces"] },
+            ],
+        },
+    },
+    {
+        id: "fr-g-a1-24",
+        level: "A1",
+        title: "Il y a — There Is, There Are",
+        explanation: `**Il y a** is one of the most useful phrases in French — and one of the easiest, because it never changes form. It means both "there is" and "there are," for singular or plural, masculine or feminine.
+
+THE KEY RULE: **il y a** stays exactly the same no matter what follows it.
+  Il y a un café. — There is a café.
+  Il y a des cafés. — There are (some) cafés.
+  Il y a une pharmacie. — There is a pharmacy.
+
+Unlike English, which switches between "there is" and "there are" depending on number, French speakers never have to think about agreement here — il y a is frozen.
+
+ASKING "IS THERE...?"
+To turn it into a question, just add **est-ce qu'** in front, or flip the intonation up at the end:
+  Est-ce qu'il y a un supermarché près d'ici ? — Is there a supermarket nearby?
+  Il y a des toilettes ici ? — Is there a toilet here? (casual, rising intonation)
+
+SAYING "THERE ISN'T / AREN'T"
+Negate it like any other verb phrase, wrapping ne...pas around the "y a" part:
+  Il n'y a pas de pharmacie ici. — There isn't a pharmacy here.
+Notice: after a negated il y a, the article disappears and becomes simply **de** (or **d'** before a vowel) — the same pattern you've seen with other negated nouns.`,
+        examples: [
+            { native: "Il y a un problème.", translation: "There is a problem." },
+            { native: "Il y a des restaurants dans cette rue.", translation: "There are restaurants on this street." },
+            { native: "Il y a une pharmacie à côté.", translation: "There is a pharmacy next door." },
+            { native: "Est-ce qu'il y a un parking ici ?", translation: "Is there a car park here?" },
+            { native: "Il n'y a pas de lait dans le frigo.", translation: "There isn't any milk in the fridge." },
+            { native: "Il y a beaucoup de monde aujourd'hui.", translation: "There are a lot of people today." },
+        ],
+        inlineVocab: [
+            { word: "il y a", translation: "there is / there are (never changes form)" },
+            { word: "est-ce qu'il y a...?", translation: "is there... / are there...?" },
+            { word: "il n'y a pas de...", translation: "there isn't any... / there aren't any..." },
+            { word: "un problème", translation: "a problem" },
+            { word: "beaucoup de monde", translation: "a lot of people" },
+        ],
+        rules: [
+            {
+                condition: "Stating that something exists (singular or plural)",
+                result: "il y a + noun — never changes form",
+                examples: [
+                    { native: "Il y a un chat dans le jardin.", translation: "There is a cat in the garden." },
+                    { native: "Il y a des chats dans le jardin.", translation: "There are cats in the garden." },
+                ],
+            },
+            {
+                condition: "Asking whether something exists",
+                result: "Est-ce qu'il y a...? or rising intonation on il y a...?",
+                examples: [
+                    { native: "Est-ce qu'il y a des toilettes ?", translation: "Is there a toilet?" },
+                    { native: "Il y a un problème ?", translation: "Is there a problem?" },
+                ],
+            },
+            {
+                condition: "Saying something doesn't exist",
+                result: "Il n'y a pas de + noun (article drops to de/d')",
+                examples: [
+                    { native: "Il n'y a pas de pain.", translation: "There isn't any bread." },
+                    { native: "Il n'y a pas d'eau.", translation: "There isn't any water." },
+                ],
+            },
+        ],
+        notes: [
+            {
+                type: "tip",
+                content: "Il y a is one of the few French verb phrases that truly never conjugates for number — a rare shortcut in a language full of agreement rules. Use it with confidence.",
+            },
+            {
+                type: "warning",
+                content: "Don't confuse il y a (there is/are) with c'est (it is) or il est (he/it is) — il y a is only for saying something exists somewhere, never for identifying or describing.",
+            },
+        ],
+        fixedPhrases: [
+            { native: "Il y a combien de temps ?", translation: "How long ago?", note: "il y a also means 'ago' with time expressions — a second, unrelated use worth recognising." },
+            { native: "Qu'est-ce qu'il y a ?", translation: "What's wrong? / What's the matter?", note: "Extremely common — asked when someone looks upset." },
+            { native: "Il y a du monde !", translation: "It's crowded! / There are a lot of people!", note: "Common exclamation entering a busy place." },
+        ],
+    },
+    {
+        id: "fr-g-a1-25",
+        level: "A1",
+        title: "Savoir vs Connaître — Two Ways to Know",
+        explanation: `French has two verbs for "to know," and English speakers often reach for the wrong one. Getting this right early saves a lot of confusion later.
+
+**SAVOIR** — knowing facts, information, or how to do something.
+  Je sais où est la gare. — I know where the station is. (a fact)
+  Je sais nager. — I know how to swim. (a skill — savoir + infinitive)
+  Tu sais son numéro ? — Do you know his number?
+
+**CONNAÎTRE** — being familiar with a person, place, or thing.
+  Je connais Paris. — I know Paris. (I've been there / I'm familiar with it)
+  Je connais Marie. — I know Marie. (I've met her)
+  Tu connais ce restaurant ? — Do you know this restaurant?
+
+THE QUICK TEST: could you say "I'm familiar with ___" in English instead of "I know ___"? If yes, use connaître. If it's a fact, a piece of information, or a skill, use savoir.
+
+Compare the two directly:
+  Je sais où est ce restaurant. (I know its location — a fact)
+  Je connais ce restaurant. (I've eaten there — I'm familiar with it)
+
+Both verbs are irregular — see the conjugation table below. Note that **connaître** is the one that gives you **reconnaître** (to recognise) later on.`,
+        examples: [
+            { native: "Je sais parler un peu d'espagnol.", translation: "I know how to speak a bit of Spanish." },
+            { native: "Tu sais quelle heure il est ?", translation: "Do you know what time it is?" },
+            { native: "Je connais très bien ce quartier.", translation: "I know this neighbourhood very well." },
+            { native: "Est-ce que tu connais mon frère ?", translation: "Do you know my brother?" },
+            { native: "Je ne sais pas.", translation: "I don't know." },
+            { native: "Nous connaissons un bon restaurant italien.", translation: "We know a good Italian restaurant." },
+        ],
+        inlineVocab: [
+            { word: "savoir", translation: "to know (facts, information, how to do something)" },
+            { word: "connaître", translation: "to know (be familiar with a person, place, thing)" },
+            { word: "je sais / je ne sais pas", translation: "I know / I don't know" },
+            { word: "reconnaître", translation: "to recognise" },
+        ],
+        rules: [
+            {
+                condition: "You mean a fact, piece of information, or a skill (savoir + infinitive)",
+                result: "Use savoir",
+                examples: [
+                    { native: "Je sais son adresse.", translation: "I know his/her address." },
+                    { native: "Elle sait conduire.", translation: "She knows how to drive." },
+                ],
+            },
+            {
+                condition: "You mean familiarity with a person, place, or thing",
+                result: "Use connaître",
+                examples: [
+                    { native: "Je connais ta sœur.", translation: "I know your sister." },
+                    { native: "Il connaît bien la ville.", translation: "He knows the city well." },
+                ],
+            },
+            {
+                condition: "You're not sure which one to use",
+                result: "Ask: could I say 'I'm familiar with' instead of 'I know'? If yes → connaître. If it's a fact/skill → savoir",
+                examples: [
+                    { native: "Je sais que Paris est la capitale.", translation: "I know that Paris is the capital. (fact → savoir)" },
+                    { native: "Je connais Paris.", translation: "I know Paris. (familiarity → connaître)" },
+                ],
+            },
+        ],
+        notes: [
+            {
+                type: "warning",
+                content: "Never use connaître before 'que' (that) or a question word (où, quand, pourquoi...) — those always take savoir: 'je sais que...', 'je sais où...', never 'je connais que...'.",
+            },
+            {
+                type: "tip",
+                content: "Savoir + infinitive means 'to know how to' — je sais nager (I know how to swim). Connaître is never followed directly by an infinitive.",
+            },
+        ],
+        fixedPhrases: [
+            { native: "Je ne sais pas.", translation: "I don't know.", note: "One of the most useful phrases in the language." },
+            { native: "Tu connais ?", translation: "Do you know it/them? (casual)", note: "Short, very common in spoken French." },
+            { native: "On ne sait jamais.", translation: "You never know.", note: "Common idiomatic phrase." },
+        ],
+        conjugationTable: {
+            pronouns: ["je", "tu", "il/elle/on", "nous", "vous", "ils/elles"],
+            verbs: [
+                { label: "savoir", forms: ["sais", "sais", "sait", "savons", "savez", "savent"] },
+                { label: "connaître", forms: ["connais", "connais", "connaît", "connaissons", "connaissez", "connaissent"] },
+            ],
+        },
+    },
+    {
         id: "fr-g-a1-22",
         level: "A1",
         title: "A1 Capstone — Everything You Can Do",

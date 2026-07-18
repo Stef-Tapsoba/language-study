@@ -132,6 +132,21 @@ export const frVocabA2: VocabItem[] = [
     { id: "fr-v-a2-106", level: "A2", word: "l'enregistrement (m)", translation: "check-in",             category: "Travel",     example: { native: "Vous pouvez faire l'enregistrement en ligne jusqu'à 24h avant.", translation: "You can check in online up to 24 hours before." } },
     { id: "fr-v-a2-107", level: "A2", word: "un aller simple", translation: "a one-way ticket",          category: "Travel",     example: { native: "Un aller simple pour Marseille, s'il vous plaît.", translation: "A one-way ticket to Marseille, please." } },
     { id: "fr-v-a2-108", level: "A2", word: "demander son chemin", translation: "to ask for directions", category: "Travel",     example: { native: "Excusez-moi, pourriez-vous m'indiquer le chemin pour la gare ?", translation: "Excuse me, could you tell me the way to the station?" } },
+
+    // ── Family (extended: in-laws, step, half) ─────────────────────────────────
+    { id: "fr-v-a2-109", level: "A2", word: "le beau-père",   translation: "the father-in-law / the stepfather", category: "Family", example: { native: "Mon beau-père est très sympa.", translation: "My father-in-law is very nice." } },
+    { id: "fr-v-a2-110", level: "A2", word: "la belle-mère",  translation: "the mother-in-law / the stepmother", category: "Family", example: { native: "Ma belle-mère est très gentille.", translation: "My mother-in-law is very kind." } },
+    { id: "fr-v-a2-111", level: "A2", word: "le beau-frère",  translation: "the brother-in-law / the stepbrother", category: "Family", example: { native: "Mon beau-frère est très sympa.", translation: "My brother-in-law is very nice." } },
+    { id: "fr-v-a2-112", level: "A2", word: "la belle-sœur",  translation: "the sister-in-law / the stepsister", category: "Family", example: { native: "Ma belle-sœur est très gentille.", translation: "My sister-in-law is very kind." } },
+    { id: "fr-v-a2-113", level: "A2", word: "le demi-frère",  translation: "the half-brother / the stepbrother", category: "Family", example: { native: "Mon demi-frère habite avec sa mère.", translation: "My half-brother lives with his mother." } },
+    { id: "fr-v-a2-114", level: "A2", word: "la demi-sœur",   translation: "the half-sister / the stepsister",   category: "Family", example: { native: "Ma demi-sœur vient nous voir cet été.", translation: "My half-sister is coming to visit us this summer." } },
+
+    // ── Body (extended: joints & extremities) ──────────────────────────────────
+    { id: "fr-v-a2-115", level: "A2", word: "l'épaule (f)",  translation: "the shoulder", category: "Body", example: { native: "J'ai mal à l'épaule.", translation: "My shoulder hurts." } },
+    { id: "fr-v-a2-116", level: "A2", word: "le genou",      translation: "the knee",     category: "Body", example: { native: "J'ai mal au genou.", translation: "My knee hurts." } },
+    { id: "fr-v-a2-117", level: "A2", word: "la cheville",   translation: "the ankle",    category: "Body", example: { native: "Je me suis foulé la cheville.", translation: "I sprained my ankle." } },
+    { id: "fr-v-a2-118", level: "A2", word: "le doigt",      translation: "the finger",   category: "Body", example: { native: "J'ai mal au doigt.", translation: "My finger hurts." } },
+    { id: "fr-v-a2-119", level: "A2", word: "l'orteil (m)",  translation: "the toe",      category: "Body", example: { native: "Je me suis cassé l'orteil.", translation: "I broke my toe." } },
 ]
 
 export const a2Vocab = frVocabA2

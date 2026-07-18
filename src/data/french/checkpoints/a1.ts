@@ -64,7 +64,7 @@ export const a1Checkpoints: Checkpoint[] = [
     ],
   },
 
-  // ── fr-cp-a1-4 : Block 4 — Navigate a day in a French city (after U19) ───
+  // ── fr-cp-a1-4 : Block 4 — Navigate a day in a French city (after U20) ───
   {
     id: 'fr-cp-a1-4',
     level: 'A1',
@@ -86,7 +86,7 @@ export const a1Checkpoints: Checkpoint[] = [
     ],
   },
 
-  // ── fr-cp-a1-5 : Block 5 — The A1 exit checkpoint (after U22) ────────────
+  // ── fr-cp-a1-5 : Block 5 — The A1 exit checkpoint (after U26) ────────────
   {
     id: 'fr-cp-a1-5',
     level: 'A1',

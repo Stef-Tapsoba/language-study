@@ -16,14 +16,27 @@ export const a1Vocab: VocabItem[] = [
     { id: "fr-v-a1-11", level: "A1", word: "Ça va?", translation: "How are you? (informal)", category: "Greetings", example: { native: "Salut, ça va?", translation: "Hi, how are you?" } },
     { id: "fr-v-a1-12", level: "A1", word: "Oui / Non", translation: "Yes / No", category: "Greetings", example: { native: "Oui, je comprends. Non, merci.", translation: "Yes, I understand. No, thank you." } },
 
-    // --- Numbers 0–100 (15) ---
+    // --- Numbers 0–100 (30) ---
     { id: "fr-v-a1-13", level: "A1", word: "zéro", translation: "zero", category: "Numbers", example: { native: "Il fait zéro degré.", translation: "It's zero degrees." } },
     { id: "fr-v-a1-14", level: "A1", word: "un / une", translation: "one", category: "Numbers", example: { native: "J'ai un frère.", translation: "I have one brother." } },
     { id: "fr-v-a1-15", level: "A1", word: "deux", translation: "two", category: "Numbers", example: { native: "J'ai deux sœurs.", translation: "I have two sisters." } },
     { id: "fr-v-a1-16", level: "A1", word: "trois", translation: "three", category: "Numbers", example: { native: "Il est trois heures.", translation: "It is three o'clock." } },
+    { id: "fr-v-a1-174", level: "A1", word: "quatre", translation: "four", category: "Numbers", example: { native: "J'ai quatre frères.", translation: "I have four brothers." } },
     { id: "fr-v-a1-17", level: "A1", word: "cinq", translation: "five", category: "Numbers", example: { native: "J'ai cinq euros.", translation: "I have five euros." } },
+    { id: "fr-v-a1-175", level: "A1", word: "six", translation: "six", category: "Numbers", example: { native: "Il est six heures.", translation: "It is six o'clock." } },
+    { id: "fr-v-a1-176", level: "A1", word: "sept", translation: "seven", category: "Numbers", example: { native: "Il est sept heures du matin.", translation: "It is seven in the morning." } },
+    { id: "fr-v-a1-177", level: "A1", word: "huit", translation: "eight", category: "Numbers", example: { native: "J'ai huit euros.", translation: "I have eight euros." } },
+    { id: "fr-v-a1-178", level: "A1", word: "neuf", translation: "nine", category: "Numbers", example: { native: "Il est neuf heures.", translation: "It is nine o'clock." } },
     { id: "fr-v-a1-18", level: "A1", word: "dix", translation: "ten", category: "Numbers", example: { native: "Il y a dix élèves.", translation: "There are ten students." } },
     { id: "fr-v-a1-19", level: "A1", word: "onze", translation: "eleven", category: "Numbers", example: { native: "Il est onze heures.", translation: "It is eleven o'clock." } },
+    { id: "fr-v-a1-179", level: "A1", word: "douze", translation: "twelve", category: "Numbers", example: { native: "Il est midi — douze heures.", translation: "It's noon — twelve o'clock." } },
+    { id: "fr-v-a1-180", level: "A1", word: "treize", translation: "thirteen", category: "Numbers", example: { native: "J'ai treize ans.", translation: "I am thirteen years old." } },
+    { id: "fr-v-a1-181", level: "A1", word: "quatorze", translation: "fourteen", category: "Numbers", example: { native: "Le quatorze juillet est un jour férié.", translation: "The fourteenth of July is a public holiday." } },
+    { id: "fr-v-a1-182", level: "A1", word: "quinze", translation: "fifteen", category: "Numbers", example: { native: "Il y a quinze élèves.", translation: "There are fifteen students." } },
+    { id: "fr-v-a1-183", level: "A1", word: "seize", translation: "sixteen", category: "Numbers", example: { native: "Elle a seize ans.", translation: "She is sixteen years old." } },
+    { id: "fr-v-a1-184", level: "A1", word: "dix-sept", translation: "seventeen", category: "Numbers", example: { native: "Il est dix-sept heures.", translation: "It is 5pm (seventeen hundred hours)." } },
+    { id: "fr-v-a1-185", level: "A1", word: "dix-huit", translation: "eighteen", category: "Numbers", example: { native: "J'ai dix-huit ans.", translation: "I am eighteen years old." } },
+    { id: "fr-v-a1-186", level: "A1", word: "dix-neuf", translation: "nineteen", category: "Numbers", example: { native: "Il est dix-neuf heures.", translation: "It is 7pm (nineteen hundred hours)." } },
     { id: "fr-v-a1-20", level: "A1", word: "vingt", translation: "twenty", category: "Numbers", example: { native: "J'ai vingt ans.", translation: "I am twenty years old." } },
     { id: "fr-v-a1-21", level: "A1", word: "trente", translation: "thirty", category: "Numbers", example: { native: "Il est trente minutes.", translation: "It is thirty minutes." } },
     { id: "fr-v-a1-22", level: "A1", word: "quarante", translation: "forty", category: "Numbers", example: { native: "Il a quarante ans.", translation: "He is forty years old." } },
@@ -31,8 +44,9 @@ export const a1Vocab: VocabItem[] = [
     { id: "fr-v-a1-24", level: "A1", word: "soixante", translation: "sixty", category: "Numbers", example: { native: "Elle a soixante ans.", translation: "She is sixty years old." } },
     { id: "fr-v-a1-25", level: "A1", word: "soixante-dix", translation: "seventy", category: "Numbers", example: { native: "Il y a soixante-dix personnes.", translation: "There are seventy people." } },
     { id: "fr-v-a1-26", level: "A1", word: "quatre-vingts", translation: "eighty", category: "Numbers", example: { native: "Ça coûte quatre-vingts euros.", translation: "It costs eighty euros." } },
+    { id: "fr-v-a1-187", level: "A1", word: "quatre-vingt-dix", translation: "ninety", category: "Numbers", example: { native: "Ça coûte quatre-vingt-dix euros.", translation: "It costs ninety euros." } },
     { id: "fr-v-a1-27", level: "A1", word: "cent", translation: "one hundred", category: "Numbers", example: { native: "Il y a cent personnes.", translation: "There are one hundred people." } },
-
+    
     // --- Days, Months, Seasons (20) ---
     { id: "fr-v-a1-28", level: "A1", word: "lundi", translation: "Monday", category: "Time", example: { native: "Lundi, j'ai un cours.", translation: "On Monday, I have a class." } },
     { id: "fr-v-a1-29", level: "A1", word: "mardi", translation: "Tuesday", category: "Time", example: { native: "On se voit mardi.", translation: "We see each other on Tuesday." } },
@@ -42,17 +56,17 @@ export const a1Vocab: VocabItem[] = [
     { id: "fr-v-a1-33", level: "A1", word: "samedi", translation: "Saturday", category: "Time", example: { native: "Le samedi, je fais du sport.", translation: "On Saturday, I do sport." } },
     { id: "fr-v-a1-34", level: "A1", word: "dimanche", translation: "Sunday", category: "Time", example: { native: "Le dimanche, je me repose.", translation: "On Sunday, I rest." } },
     { id: "fr-v-a1-35", level: "A1", word: "janvier", translation: "January", category: "Time", example: { native: "Il fait froid en janvier.", translation: "It is cold in January." } },
-    { id: "fr-v-a1-36", level: "A1", word: "juin", translation: "June", category: "Time", example: { native: "En juin, les jours sont longs.", translation: "In June, the days are long." } },
-    { id: "fr-v-a1-37", level: "A1", word: "décembre", translation: "December", category: "Time", example: { native: "Noël est en décembre.", translation: "Christmas is in December." } },
     { id: "fr-v-a1-37b", level: "A1", word: "février",   translation: "February",  category: "Time", example: { native: "Il fait froid en février.",        translation: "It is cold in February." } },
     { id: "fr-v-a1-37c", level: "A1", word: "mars",      translation: "March",     category: "Time", example: { native: "Le printemps commence en mars.",   translation: "Spring begins in March." } },
     { id: "fr-v-a1-37d", level: "A1", word: "avril",     translation: "April",     category: "Time", example: { native: "Il pleut souvent en avril.",        translation: "It often rains in April." } },
     { id: "fr-v-a1-37e", level: "A1", word: "mai",       translation: "May",       category: "Time", example: { native: "Le 1er mai est un jour férié.",     translation: "May 1st is a public holiday." } },
+    { id: "fr-v-a1-36", level: "A1", word: "juin", translation: "June", category: "Time", example: { native: "En juin, les jours sont longs.", translation: "In June, the days are long." } },
     { id: "fr-v-a1-37g", level: "A1", word: "juillet",   translation: "July",      category: "Time", example: { native: "Le 14 juillet est la fête nationale.", translation: "July 14th is the national holiday." } },
     { id: "fr-v-a1-37h", level: "A1", word: "août",      translation: "August",    category: "Time", example: { native: "En août, beaucoup de Français partent en vacances.", translation: "In August, many French people go on holiday." } },
     { id: "fr-v-a1-37i", level: "A1", word: "septembre", translation: "September", category: "Time", example: { native: "La rentrée scolaire est en septembre.", translation: "The start of the school year is in September." } },
     { id: "fr-v-a1-37j", level: "A1", word: "octobre",   translation: "October",   category: "Time", example: { native: "Les feuilles tombent en octobre.",   translation: "The leaves fall in October." } },
     { id: "fr-v-a1-37k", level: "A1", word: "novembre",  translation: "November",  category: "Time", example: { native: "Il fait gris en novembre.",          translation: "It is grey in November." } },
+    { id: "fr-v-a1-37", level: "A1", word: "décembre", translation: "December", category: "Time", example: { native: "Noël est en décembre.", translation: "Christmas is in December." } },
     { id: "fr-v-a1-38", level: "A1", word: "le printemps", translation: "spring", category: "Time", example: { native: "Au printemps, les fleurs poussent.", translation: "In spring, flowers grow." } },
     { id: "fr-v-a1-39", level: "A1", word: "l'été", translation: "summer", category: "Time", example: { native: "En été, il fait chaud.", translation: "In summer, it is hot." } },
     { id: "fr-v-a1-40", level: "A1", word: "l'automne", translation: "autumn / fall", category: "Time", example: { native: "En automne, les feuilles tombent.", translation: "In autumn, the leaves fall." } },
@@ -64,7 +78,7 @@ export const a1Vocab: VocabItem[] = [
     { id: "fr-v-a1-46", level: "A1", word: "ce soir", translation: "this evening / tonight", category: "Time", example: { native: "Qu'est-ce qu'on fait ce soir?", translation: "What are we doing tonight?" } },
     { id: "fr-v-a1-47", level: "A1", word: "la semaine", translation: "the week", category: "Time", example: { native: "La semaine prochaine, je pars.", translation: "Next week, I am leaving." } },
 
-    // --- Family & Relationships (15) ---
+    // --- Family & Relationships ---
     { id: "fr-v-a1-48", level: "A1", word: "la famille", translation: "the family", category: "Family", example: { native: "Ma famille est grande.", translation: "My family is big." } },
     { id: "fr-v-a1-49", level: "A1", word: "le père", translation: "the father", category: "Family", example: { native: "Mon père travaille à Lyon.", translation: "My father works in Lyon." } },
     { id: "fr-v-a1-50", level: "A1", word: "la mère", translation: "the mother", category: "Family", example: { native: "Ma mère est médecin.", translation: "My mother is a doctor." } },
@@ -77,6 +91,11 @@ export const a1Vocab: VocabItem[] = [
     { id: "fr-v-a1-57", level: "A1", word: "les parents", translation: "the parents", category: "Family", example: { native: "Mes parents habitent en province.", translation: "My parents live in the provinces." } },
     { id: "fr-v-a1-58", level: "A1", word: "le grand-père", translation: "the grandfather", category: "Family", example: { native: "Mon grand-père a quatre-vingts ans.", translation: "My grandfather is eighty years old." } },
     { id: "fr-v-a1-59", level: "A1", word: "la grand-mère", translation: "the grandmother", category: "Family", example: { native: "Ma grand-mère fait bien la cuisine.", translation: "My grandmother cooks well." } },
+    { id: "fr-v-a1-59b", level: "A1", word: "le cousin / la cousine", translation: "the cousin", category: "Family", example: { native: "Mon cousin habite à Marseille.", translation: "My cousin lives in Marseille." } },
+    { id: "fr-v-a1-59c", level: "A1", word: "l'oncle", translation: "the uncle", category: "Family", example: { native: "Mon oncle est professeur.", translation: "My uncle is a teacher." } },
+    { id: "fr-v-a1-59d", level: "A1", word: "la tante", translation: "the aunt", category: "Family", example: { native: "Ma tante est médecin.", translation: "My aunt is a doctor." } },
+    { id: "fr-v-a1-59e", level: "A1", word: "le neveu", translation: "the nephew", category: "Family", example: { native: "Mon neveu a cinq ans.", translation: "My nephew is five years old." } },
+    { id: "fr-v-a1-59f", level: "A1", word: "la nièce", translation: "the niece", category: "Family", example: { native: "Ma nièce est très gentille.", translation: "My niece is very nice." } },
     { id: "fr-v-a1-60", level: "A1", word: "l'enfant", translation: "the child", category: "Family", example: { native: "Vous avez des enfants?", translation: "Do you have children?" } },
     { id: "fr-v-a1-61", level: "A1", word: "l'ami / l'amie", translation: "the friend", category: "Family", example: { native: "C'est mon meilleur ami.", translation: "He is my best friend." } },
     { id: "fr-v-a1-62", level: "A1", word: "le voisin / la voisine", translation: "the neighbour", category: "Family", example: { native: "Mon voisin est très sympa.", translation: "My neighbour is very nice." } },
@@ -119,8 +138,10 @@ export const a1Vocab: VocabItem[] = [
     { id: "fr-v-a1-95", level: "A1", word: "la jambe", translation: "the leg", category: "Body", example: { native: "J'ai mal à la jambe.", translation: "My leg hurts." } },
     { id: "fr-v-a1-96", level: "A1", word: "le pied", translation: "the foot", category: "Body", example: { native: "Je me suis blessé au pied.", translation: "I hurt my foot." } },
     { id: "fr-v-a1-97", level: "A1", word: "le dos", translation: "the back", category: "Body", example: { native: "J'ai mal au dos.", translation: "My back hurts." } },
+    { id: "fr-v-a1-97b", level: "A1", word: "le ventre", translation: "the stomach / the belly", category: "Body", example: { native: "J'ai mal au ventre.", translation: "My stomach hurts." } },
+    { id: "fr-v-a1-97c", level: "A1", word: "le cou", translation: "the neck", category: "Body", example: { native: "J'ai mal au cou.", translation: "My neck hurts." } },
 
-    // --- Colors (8) ---
+    // --- Colors (11) ---
     { id: "fr-v-a1-98", level: "A1", word: "rouge", translation: "red", category: "Colors", example: { native: "Elle porte une robe rouge.", translation: "She is wearing a red dress." } },
     { id: "fr-v-a1-99", level: "A1", word: "bleu / bleue", translation: "blue", category: "Colors", example: { native: "Le ciel est bleu aujourd'hui.", translation: "The sky is blue today." } },
     { id: "fr-v-a1-100", level: "A1", word: "vert / verte", translation: "green", category: "Colors", example: { native: "La forêt est verte au printemps.", translation: "The forest is green in spring." } },
@@ -129,6 +150,9 @@ export const a1Vocab: VocabItem[] = [
     { id: "fr-v-a1-103", level: "A1", word: "noir / noire", translation: "black", category: "Colors", example: { native: "J'ai un chat noir.", translation: "I have a black cat." } },
     { id: "fr-v-a1-104", level: "A1", word: "orange", translation: "orange", category: "Colors", example: { native: "Elle aime la couleur orange.", translation: "She likes the color orange." } },
     { id: "fr-v-a1-105", level: "A1", word: "gris / grise", translation: "grey", category: "Colors", example: { native: "Le ciel est gris et nuageux.", translation: "The sky is grey and cloudy." } },
+    { id: "fr-v-a1-105b", level: "A1", word: "rose", translation: "pink", category: "Colors", example: { native: "Elle porte une robe rose.", translation: "She is wearing a pink dress." } },
+    { id: "fr-v-a1-105c", level: "A1", word: "marron", translation: "brown", category: "Colors", example: { native: "J'ai des chaussures marron.", translation: "I have brown shoes." } },
+    { id: "fr-v-a1-105d", level: "A1", word: "violet / violette", translation: "purple", category: "Colors", example: { native: "Elle aime la couleur violette.", translation: "She likes the color purple." } },
 
     // --- Clothing (8) ---
     { id: "fr-v-a1-106", level: "A1", word: "le t-shirt", translation: "t-shirt", category: "Clothing", example: { native: "Je porte un t-shirt blanc.", translation: "I am wearing a white t-shirt." } },
@@ -139,6 +163,11 @@ export const a1Vocab: VocabItem[] = [
     { id: "fr-v-a1-111", level: "A1", word: "le manteau", translation: "coat", category: "Clothing", example: { native: "Mets ton manteau, il neige.", translation: "Put on your coat, it's snowing." } },
     { id: "fr-v-a1-112", level: "A1", word: "la chemise", translation: "shirt", category: "Clothing", example: { native: "Il porte une chemise bleue.", translation: "He is wearing a blue shirt." } },
     { id: "fr-v-a1-113", level: "A1", word: "le pull", translation: "jumper / sweater", category: "Clothing", example: { native: "J'ai froid, je mets mon pull.", translation: "I'm cold, I'll put on my jumper." } },
+    { id: "fr-v-a1-113b", level: "A1", word: "le short", translation: "shorts", category: "Clothing", example: { native: "En été, je porte des shorts.", translation: "In summer, I wear shorts." } },
+    { id: "fr-v-a1-113c", level: "A1", word: "la jupe", translation: "skirt", category: "Clothing", example: { native: "Elle porte une jupe rouge.", translation: "She is wearing a red skirt." } },
+    { id: "fr-v-a1-113d", level: "A1", word: "le chapeau", translation: "hat", category: "Clothing", example: { native: "Il porte un chapeau noir.", translation: "He is wearing a black hat." } },
+    { id: "fr-v-a1-113e", level: "A1", word: "les gants", translation: "gloves", category: "Clothing", example: { native: "En hiver, je porte des gants.", translation: "In winter, I wear gloves." } },
+    { id: "fr-v-a1-113f", level: "A1", word: "l'écharpe", translation: "scarf", category: "Clothing", example: { native: "Il fait froid, mets ton écharpe.", translation: "It's cold, put on your scarf." } },
 
     // --- Places & Locations (15) ---
     { id: "fr-v-a1-114", level: "A1", word: "la maison", translation: "house / home", category: "Places", example: { native: "Ma maison est petite.", translation: "My house is small." } },
@@ -166,6 +195,11 @@ export const a1Vocab: VocabItem[] = [
     { id: "fr-v-a1-134", level: "A1", word: "en face de", translation: "opposite / in front of", category: "Directions", example: { native: "La poste est en face de la mairie.", translation: "The post office is opposite the town hall." } },
     { id: "fr-v-a1-135", level: "A1", word: "à côté de", translation: "next to / beside", category: "Directions", example: { native: "La pharmacie est à côté de la boulangerie.", translation: "The pharmacy is next to the bakery." } },
     { id: "fr-v-a1-136", level: "A1", word: "derrière", translation: "behind", category: "Directions", example: { native: "Le jardin est derrière la maison.", translation: "The garden is behind the house." } },
+    { id: "fr-v-a1-136b", level: "A1", word: "devant", translation: "in front of / before", category: "Directions", example: { native: "Le chat est devant la porte.", translation: "The cat is in front of the door." } },
+    { id: "fr-v-a1-136c", level: "A1", word: "entre", translation: "between", category: "Directions", example: { native: "La boulangerie est entre la pharmacie et le supermarché.", translation: "The bakery is between the pharmacy and the supermarket." } },
+    { id: "fr-v-a1-136d", level: "A1", word: "sur", translation: "on / upon", category: "Directions", example: { native: "Le café est sur la place.", translation: "The café is on the square." } },
+    { id: "fr-v-a1-136e", level: "A1", word: "sous", translation: "under / beneath", category: "Directions", example: { native: "Le chat est sous la table.", translation: "The cat is under the table." } },
+    { id: "fr-v-a1-136f", level: "A1", word: "dans", translation: "inside / within", category: "Directions", example: { native: "Le chat est dans la maison.", translation: "The cat is inside the house." } },
 
     // --- Professions (10) ---
     { id: "fr-v-a1-137", level: "A1", word: "le médecin", translation: "doctor", category: "Professions", example: { native: "Mon père est médecin.", translation: "My father is a doctor." } },
@@ -209,21 +243,6 @@ export const a1Vocab: VocabItem[] = [
     { id: "fr-v-a1-171", level: "A1", word: "fatigué / fatiguée", translation: "tired", category: "Adjectives", example: { native: "Je suis très fatiguée ce soir.", translation: "I am very tired this evening." } },
     { id: "fr-v-a1-172", level: "A1", word: "sympa", translation: "nice / friendly", category: "Adjectives", example: { native: "Ton ami est vraiment sympa.", translation: "Your friend is really nice." } },
     { id: "fr-v-a1-173", level: "A1", word: "occupé / occupée", translation: "busy", category: "Adjectives", example: { native: "Je suis occupé ce week-end.", translation: "I am busy this weekend." } },
-    // Numbers — missing entries filled in
-    { id: "fr-v-a1-174", level: "A1", word: "quatre", translation: "four", category: "Numbers", example: { native: "J'ai quatre frères.", translation: "I have four brothers." } },
-    { id: "fr-v-a1-175", level: "A1", word: "six", translation: "six", category: "Numbers", example: { native: "Il est six heures.", translation: "It is six o'clock." } },
-    { id: "fr-v-a1-176", level: "A1", word: "sept", translation: "seven", category: "Numbers", example: { native: "Il est sept heures du matin.", translation: "It is seven in the morning." } },
-    { id: "fr-v-a1-177", level: "A1", word: "huit", translation: "eight", category: "Numbers", example: { native: "J'ai huit euros.", translation: "I have eight euros." } },
-    { id: "fr-v-a1-178", level: "A1", word: "neuf", translation: "nine", category: "Numbers", example: { native: "Il est neuf heures.", translation: "It is nine o'clock." } },
-    { id: "fr-v-a1-179", level: "A1", word: "douze", translation: "twelve", category: "Numbers", example: { native: "Il est midi — douze heures.", translation: "It's noon — twelve o'clock." } },
-    { id: "fr-v-a1-180", level: "A1", word: "treize", translation: "thirteen", category: "Numbers", example: { native: "J'ai treize ans.", translation: "I am thirteen years old." } },
-    { id: "fr-v-a1-181", level: "A1", word: "quatorze", translation: "fourteen", category: "Numbers", example: { native: "Le quatorze juillet est un jour férié.", translation: "The fourteenth of July is a public holiday." } },
-    { id: "fr-v-a1-182", level: "A1", word: "quinze", translation: "fifteen", category: "Numbers", example: { native: "Il y a quinze élèves.", translation: "There are fifteen students." } },
-    { id: "fr-v-a1-183", level: "A1", word: "seize", translation: "sixteen", category: "Numbers", example: { native: "Elle a seize ans.", translation: "She is sixteen years old." } },
-    { id: "fr-v-a1-184", level: "A1", word: "dix-sept", translation: "seventeen", category: "Numbers", example: { native: "Il est dix-sept heures.", translation: "It is 5pm (seventeen hundred hours)." } },
-    { id: "fr-v-a1-185", level: "A1", word: "dix-huit", translation: "eighteen", category: "Numbers", example: { native: "J'ai dix-huit ans.", translation: "I am eighteen years old." } },
-    { id: "fr-v-a1-186", level: "A1", word: "dix-neuf", translation: "nineteen", category: "Numbers", example: { native: "Il est dix-neuf heures.", translation: "It is 7pm (nineteen hundred hours)." } },
-    { id: "fr-v-a1-187", level: "A1", word: "quatre-vingt-dix", translation: "ninety", category: "Numbers", example: { native: "Ça coûte quatre-vingt-dix euros.", translation: "It costs ninety euros." } },
 
     // --- Home & Rooms (10) ---
     { id: "fr-v-a1-188", level: "A1", word: "le salon", translation: "the living room", category: "Home", example: { native: "Nous regardons la télé dans le salon.", translation: "We watch TV in the living room." } },
@@ -297,8 +316,9 @@ export const a1Vocab: VocabItem[] = [
     { id: "fr-v-a1-245", level: "A1", word: "le beurre", translation: "butter", category: "Food", example: { native: "Je mets du beurre sur ma tartine.", translation: "I put butter on my toast." } },
 
     // --- Transport & Tickets (10) ---
-    { id: "fr-v-a1-246", level: "A1", word: "un billet", translation: "a ticket", category: "Transport", example: { native: "Je voudrais un billet pour Paris, s'il vous plaît.", translation: "I would like a ticket to Paris, please." } },
-    { id: "fr-v-a1-247", level: "A1", word: "aller simple / aller-retour", translation: "one-way / return ticket", category: "Transport", example: { native: "Un aller-retour pour Lyon, c'est combien?", translation: "How much is a return ticket to Lyon?" } },
+    { id: "fr-v-a1-246", level: "A1", word: "le billet", translation: "the ticket", category: "Transport", example: { native: "Je voudrais un billet pour Paris, s'il vous plaît.", translation: "I would like a ticket to Paris, please." } },
+    { id: "fr-v-a1-247", level: "A1", word: "aller simple", translation: "one-way ticket", category: "Transport", example: { native: "Je voudrais un aller simple pour Lyon.", translation: "I would like a one-way ticket to Lyon." } },
+    { id: "fr-v-a1-247b", level: "A1", word: "aller-retour", translation: "return ticket", category: "Transport", example: { native: "Un aller-retour pour Lyon, c'est combien?", translation: "How much is a return ticket to Lyon?" } },
     { id: "fr-v-a1-248", level: "A1", word: "le métro", translation: "the metro / underground", category: "Transport", example: { native: "Je prends le métro pour aller au travail.", translation: "I take the metro to go to work." } },
     { id: "fr-v-a1-249", level: "A1", word: "le bus", translation: "the bus", category: "Transport", example: { native: "Le bus numéro 4 va au centre-ville.", translation: "Bus number 4 goes to the city centre." } },
     { id: "fr-v-a1-250", level: "A1", word: "le train", translation: "the train", category: "Transport", example: { native: "Le train part à neuf heures.", translation: "The train leaves at nine o'clock." } },
@@ -331,4 +351,20 @@ export const a1Vocab: VocabItem[] = [
     { id: "fr-v-a1-271", level: "A1", word: "C'est combien?", translation: "How much is it?", category: "Shopping", example: { native: "C'est combien, la baguette?", translation: "How much is the baguette?" } },
     { id: "fr-v-a1-272", level: "A1", word: "le prix", translation: "the price", category: "Shopping", example: { native: "Le prix est affiché sur l'étiquette.", translation: "The price is shown on the label." } },
     { id: "fr-v-a1-273", level: "A1", word: "la monnaie", translation: "change (coins) / currency", category: "Shopping", example: { native: "Gardez la monnaie!", translation: "Keep the change!" } },
+
+    // --- Weather (12) ---
+    { id: "fr-v-a1-274", level: "A1", word: "il fait chaud", translation: "it's hot (weather)", category: "Weather", example: { native: "En été, il fait très chaud.", translation: "In summer it's very hot." } },
+    { id: "fr-v-a1-275", level: "A1", word: "il fait froid", translation: "it's cold (weather)", category: "Weather", example: { native: "En hiver, il fait froid.", translation: "In winter it's cold." } },
+    { id: "fr-v-a1-276", level: "A1", word: "il fait beau", translation: "the weather is nice", category: "Weather", example: { native: "Il fait beau aujourd'hui — on sort!", translation: "The weather is nice today — let's go out!" } },
+    { id: "fr-v-a1-277", level: "A1", word: "il fait mauvais", translation: "the weather is bad", category: "Weather", example: { native: "Il fait mauvais, je reste à la maison.", translation: "The weather is bad, I'm staying home." } },
+    { id: "fr-v-a1-278", level: "A1", word: "il y a du soleil", translation: "it's sunny", category: "Weather", example: { native: "Il y a du soleil et pas de nuages.", translation: "It's sunny and there are no clouds." } },
+    { id: "fr-v-a1-279", level: "A1", word: "il pleut / la pluie", translation: "it rains / rain", category: "Weather", example: { native: "Il pleut beaucoup en automne.", translation: "It rains a lot in autumn." } },
+    { id: "fr-v-a1-280", level: "A1", word: "il neige / la neige", translation: "it snows / snow", category: "Weather", example: { native: "Il neige en montagne en janvier.", translation: "It snows in the mountains in January." } },
+    { id: "fr-v-a1-281", level: "A1", word: "il y a du vent / le vent", translation: "it's windy / wind", category: "Weather", example: { native: "Il y a du vent fort aujourd'hui.", translation: "There's a strong wind today." } },
+    { id: "fr-v-a1-282", level: "A1", word: "il y a des nuages / nuageux", translation: "it's cloudy", category: "Weather", example: { native: "Le ciel est nuageux et gris.", translation: "The sky is cloudy and grey." } },
+    { id: "fr-v-a1-283", level: "A1", word: "la température", translation: "temperature", category: "Weather", example: { native: "La température aujourd'hui est de vingt degrés.", translation: "The temperature today is twenty degrees." } },
+    { id: "fr-v-a1-284", level: "A1", word: "le degré", translation: "degree (°)", category: "Weather", example: { native: "Il fait trente degrés en août.", translation: "It's thirty degrees in August." } },
+    { id: "fr-v-a1-285", level: "A1", word: "il fait frais", translation: "it's cool/fresh (weather)", category: "Weather", example: { native: "Le soir, il fait frais au printemps.", translation: "In spring the evenings are cool." } },
+
+    { id: "fr-v-a1-286", level: "A1", word: "le petit ami / la petite amie", translation: "the boyfriend / the girlfriend", category: "Family", example: { native: "Mon petit ami habite à Lyon.", translation: "My boyfriend lives in Lyon." } },
 ]
