@@ -8,9 +8,15 @@ import React from "react"
 import ReactDOM from "react-dom/client"
 import App from "./App"
 import "./index.css"
+import { DEBUG } from "./auth/debugSession"
 
 async function bootstrap() {
-    if (import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY) {
+    // Debug mode always uses the localStorage adapters (Stage 1) — the stubbed
+    // "debug-user" session doesn't exist in Supabase, so wiring the Supabase
+    // adapters here would re-query a real project for a nonexistent user on
+    // every remount, get zero rows back, and overwrite local progress with an
+    // empty cache (see debugSession.ts's "stored in localStorage" comment).
+    if (!DEBUG && import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY) {
         // Stage 2 — Supabase adapters
         const [
             { supabase },
