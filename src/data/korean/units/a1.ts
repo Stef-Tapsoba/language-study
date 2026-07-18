@@ -1,11 +1,11 @@
-// data/korean/units/a1.ts — Korean A1 redesign (26 units, 5 blocks + Block 0)
+// data/korean/units/a1.ts — Korean A1 redesign (27 units, 5 blocks + Block 0)
 // Functional/communicative syllabus.
 // Block 0 (U1-U3): Reading Korean (script)
 // Block 1 (U4-U7): Who I am
-// Block 2 (U8-U12): My World
-// Block 3 (U13-U17): Daily Life
-// Block 4 (U18-U22): Out in the World
-// Block 5 (U23-U26): Talking about Time
+// Block 2 (U8-U13): My World
+// Block 3 (U14-U18): Daily Life
+// Block 4 (U19-U23): Out in the World
+// Block 5 (U24-U27): Talking about Time
 import { LessonUnit } from "../../../types"
 
 export const a1Units: LessonUnit[] = [
@@ -138,7 +138,7 @@ export const a1Units: LessonUnit[] = [
         description: "Korean family vocabulary with its speaker-dependent terms, 있어요/없어요 for family possession, and how to describe family members using what you know.",
         grammarIds: ["ko-g-a1-10", "ko-g-a1-11"],
         phraseLessonIds: ["ko-pl-a1-7"],
-        vocabIds: ["ko-v-a1-53", "ko-v-a1-54", "ko-v-a1-55", "ko-v-a1-56", "ko-v-a1-57", "ko-v-a1-58", "ko-v-a1-59", "ko-v-a1-60", "ko-v-a1-61", "ko-v-a1-62", "ko-v-a1-63"],
+        vocabIds: ["ko-v-a1-53", "ko-v-a1-54", "ko-v-a1-55", "ko-v-a1-56", "ko-v-a1-57", "ko-v-a1-58", "ko-v-a1-59", "ko-v-a1-60", "ko-v-a1-61", "ko-v-a1-62", "ko-v-a1-63", "ko-v-a1-233", "ko-v-a1-234", "ko-v-a1-235", "ko-v-a1-236", "ko-v-a1-237", "ko-v-a1-238", "ko-v-a1-239", "ko-v-a1-240"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a1-8-1", level: "A1", prompt: "A female speaker says 오빠. This means:", options: ["Her younger brother", "Her older brother", "Her older sister", "Her younger sister"], answer: "Her older brother" },
@@ -154,7 +154,7 @@ export const a1Units: LessonUnit[] = [
         title: "Things I like",
         description: "좋아해요 — your first action verb. The object particle 을/를 appears and is named. I like/dislike X, really like, don't really like.",
         grammarIds: ["ko-g-a1-12", "ko-g-a1-13"],
-        vocabIds: ["ko-v-a1-64", "ko-v-a1-65", "ko-v-a1-66", "ko-v-a1-67", "ko-v-a1-68", "ko-v-a1-69", "ko-v-a1-70", "ko-v-a1-71", "ko-v-a1-72", "ko-v-a1-73", "ko-v-a1-74"],
+        vocabIds: ["ko-v-a1-64", "ko-v-a1-65", "ko-v-a1-66", "ko-v-a1-67", "ko-v-a1-68", "ko-v-a1-69", "ko-v-a1-70", "ko-v-a1-71", "ko-v-a1-72", "ko-v-a1-73", "ko-v-a1-74", "ko-v-a1-223", "ko-v-a1-224", "ko-v-a1-225", "ko-v-a1-226", "ko-v-a1-227", "ko-v-a1-228", "ko-v-a1-229", "ko-v-a1-230", "ko-v-a1-231", "ko-v-a1-232"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a1-9-1", level: "A1", prompt: "저는 커피를 좋아해요 — which particle follows 커피?", options: ["이", "을", "를", "에"], answer: "를" },
@@ -201,16 +201,32 @@ export const a1Units: LessonUnit[] = [
         level: "A1",
         order: 12,
         title: "Describing things",
-        description: "Adjectives conjugate exactly like verbs in Korean. The ㅡ-drop and ㅂ-irregular patterns. Describe weather, places, and things around you.",
+        description: "Adjectives conjugate exactly like verbs in Korean. The ㅡ-drop and ㅂ-irregular patterns.",
         grammarIds: ["ko-g-a1-17"],
         vocabIds: ["ko-v-a1-96", "ko-v-a1-97", "ko-v-a1-98", "ko-v-a1-99", "ko-v-a1-100", "ko-v-a1-101", "ko-v-a1-102", "ko-v-a1-103", "ko-v-a1-104", "ko-v-a1-105"],
         verbIds: [],
-        checkpointId: "ko-cp-a1-2",
         testQuestions: [
             { id: "ko-uq-a1-12-1", level: "A1", prompt: "크다 (big) in present tense is:", options: ["크아요", "크어요", "커요", "크요"], answer: "커요" },
             { id: "ko-uq-a1-12-2", level: "A1", prompt: "덥다 (hot) is a ㅂ irregular. Its present tense is:", options: ["덥아요", "더워요", "덥어요", "더버요"], answer: "더워요" },
-            { id: "ko-uq-a1-12-3", level: "A1", prompt: "How do you say 'The weather is nice today'?", options: ["오늘 날씨가 좋어요.", "오늘 날씨가 좋아요.", "오늘 날씨가 좋이에요.", "오늘 날씨가 좋해요."], answer: "오늘 날씨가 좋아요." },
+            { id: "ko-uq-a1-12-3", level: "A1", prompt: "How do you say 'This is delicious'?", options: ["이거 맛있어요.", "이거 맛있요.", "이거 맛이어요.", "이거 맛있해요."], answer: "이거 맛있어요." },
             { id: "ko-uq-a1-12-4", level: "A1", prompt: "어렵지만 재미있어요 means:", options: ["It's easy and boring.", "It's difficult but interesting.", "It's not difficult or interesting.", "It's interesting so it's difficult."], answer: "It's difficult but interesting." },
+        ],
+    },
+    {
+        id: "ko-a1-u12b",
+        level: "A1",
+        order: 13,
+        title: "Colors and the weather",
+        description: "Colors as noun modifiers, and weather adjectives for everyday small talk. Reuses the adjective conjugation patterns from the last unit.",
+        grammarIds: ["ko-g-a1-17"],
+        vocabIds: ["ko-v-a1-195", "ko-v-a1-196", "ko-v-a1-197", "ko-v-a1-198", "ko-v-a1-199", "ko-v-a1-200", "ko-v-a1-201", "ko-v-a1-202", "ko-v-a1-247", "ko-v-a1-248", "ko-v-a1-249", "ko-v-a1-250", "ko-v-a1-251", "ko-v-a1-252", "ko-v-a1-253", "ko-v-a1-254", "ko-v-a1-255", "ko-v-a1-256"],
+        verbIds: [],
+        checkpointId: "ko-cp-a1-2",
+        testQuestions: [
+            { id: "ko-uq-a1-12b-1", level: "A1", prompt: "How do you say 'The weather is nice today'?", options: ["오늘 날씨가 좋어요.", "오늘 날씨가 좋아요.", "오늘 날씨가 좋이에요.", "오늘 날씨가 좋해요."], answer: "오늘 날씨가 좋아요." },
+            { id: "ko-uq-a1-12b-2", level: "A1", prompt: "덥다 (hot) is a ㅂ irregular. Its present tense is:", options: ["덥아요", "더워요", "덥어요", "더버요"], answer: "더워요" },
+            { id: "ko-uq-a1-12b-3", level: "A1", prompt: "How do you say 'I like blue'?", options: ["저는 파란색을 좋아해요.", "저는 파란색이 좋아해요.", "저는 파란색 좋아해요.", "파란색은 저를 좋아해요."], answer: "저는 파란색을 좋아해요." },
+            { id: "ko-uq-a1-12b-4", level: "A1", prompt: "비가 와요 means:", options: ["It's snowing.", "It's windy.", "It's raining.", "It's sunny."], answer: "It's raining." },
         ],
     },
 
@@ -218,12 +234,12 @@ export const a1Units: LessonUnit[] = [
     {
         id: "ko-a1-u13",
         level: "A1",
-        order: 13,
+        order: 14,
         title: "My day — time and routine",
         description: "Time expressions, days of the week, telling the time. 에 for specific times vs no 에 for relative words like 오늘, 매일. Build a full daily routine.",
         grammarIds: ["ko-g-a1-20", "ko-g-a1-21"],
         phraseLessonIds: ["ko-pl-a1-9"],
-        vocabIds: ["ko-v-a1-106", "ko-v-a1-107", "ko-v-a1-108", "ko-v-a1-109", "ko-v-a1-110"],
+        vocabIds: ["ko-v-a1-106", "ko-v-a1-107", "ko-v-a1-108", "ko-v-a1-109", "ko-v-a1-110", "ko-v-a1-177", "ko-v-a1-178", "ko-v-a1-179", "ko-v-a1-180", "ko-v-a1-181", "ko-v-a1-182", "ko-v-a1-183", "ko-v-a1-184", "ko-v-a1-185", "ko-v-a1-186", "ko-v-a1-187", "ko-v-a1-188", "ko-v-a1-189", "ko-v-a1-190", "ko-v-a1-191", "ko-v-a1-192", "ko-v-a1-193", "ko-v-a1-194"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a1-13-1", level: "A1", prompt: "아침에 일어나요 — why does 아침 take 에?", options: ["All time words take 에", "아침 is a specific named time period (not relative like 오늘)", "아침 ends in a consonant", "에 is always used with 일어나요"], answer: "아침 is a specific named time period (not relative like 오늘)" },
@@ -235,7 +251,8 @@ export const a1Units: LessonUnit[] = [
     {
         id: "ko-a1-u14",
         level: "A1",
-        order: 14,
+        order: 15,
+
         title: "I like this, I don't like that",
         description: "Negation with 안 (choice) vs 못 (inability). 하다 verb negation rule: 안/못 before 해요. 아니에요 for noun negation.",
         grammarIds: ["ko-g-a1-22", "ko-g-a1-23"],
@@ -251,7 +268,8 @@ export const a1Units: LessonUnit[] = [
     {
         id: "ko-a1-u15",
         level: "A1",
-        order: 15,
+        order: 16,
+
         title: "Asking and answering",
         description: "Question words 뭐/어디/언제/누구/어떻게/왜 in Korean in-situ questions. The 누구→누가 rule. Questions sound like statements — just use rising intonation.",
         grammarIds: ["ko-g-a1-24", "ko-g-a1-25"],
@@ -267,7 +285,8 @@ export const a1Units: LessonUnit[] = [
     {
         id: "ko-a1-u16",
         level: "A1",
-        order: 16,
+        order: 17,
+
         title: "How often?",
         description: "Frequency adverbs: 항상/자주/가끔/별로/거의/절대로. Key rule: 별로, 거의, 절대로 require a negative verb — they cannot stand alone with a positive verb.",
         grammarIds: ["ko-g-a1-26", "ko-g-a1-27"],
@@ -283,7 +302,8 @@ export const a1Units: LessonUnit[] = [
     {
         id: "ko-a1-u17",
         level: "A1",
-        order: 17,
+        order: 18,
+
         title: "What happened?",
         description: "Past tense ~았어요/었어요 — the same vowel harmony rule as present. 하다 → 했어요. Irregular past forms. Telling a simple story in Korean.",
         grammarIds: ["ko-g-a1-28", "ko-g-a1-29"],
@@ -302,7 +322,8 @@ export const a1Units: LessonUnit[] = [
     {
         id: "ko-a1-u18",
         level: "A1",
-        order: 18,
+        order: 19,
+
         title: "Getting around",
         description: "에 vs 에서 explained — the inductive payoff for 7+ units of exposure. Transport vocabulary with ~(으)로 for means. Direction phrases.",
         grammarIds: ["ko-g-a1-30", "ko-g-a1-31"],
@@ -319,7 +340,8 @@ export const a1Units: LessonUnit[] = [
     {
         id: "ko-a1-u19",
         level: "A1",
-        order: 19,
+        order: 20,
+
         title: "Food and ordering",
         description: "Restaurant vocabulary, ordering with 주세요, native Korean counters 개/명/잔/그릇. 잘 먹겠습니다/잘 먹었습니다 — essential meal phrases.",
         grammarIds: ["ko-g-a1-32"],
@@ -336,12 +358,13 @@ export const a1Units: LessonUnit[] = [
     {
         id: "ko-a1-u20",
         level: "A1",
-        order: 20,
+        order: 21,
+
         title: "Shopping and prices",
         description: "Sino-Korean numbers for money (백/천/만 in context). 원 (₩). 이거 얼마예요? The demonstrative set 이거/그거/저거. Reading prices.",
         grammarIds: ["ko-g-a1-33"],
         phraseLessonIds: ["ko-pl-a1-12"],
-        vocabIds: ["ko-v-a1-140", "ko-v-a1-141", "ko-v-a1-142", "ko-v-a1-143"],
+        vocabIds: ["ko-v-a1-140", "ko-v-a1-141", "ko-v-a1-142", "ko-v-a1-143", "ko-v-a1-213", "ko-v-a1-214", "ko-v-a1-215", "ko-v-a1-216", "ko-v-a1-217", "ko-v-a1-218", "ko-v-a1-219", "ko-v-a1-220", "ko-v-a1-221", "ko-v-a1-222"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a1-20-1", level: "A1", prompt: "이만 오천 원 = ₩", options: ["₩2,500", "₩20,500", "₩25,000", "₩250,000"], answer: "₩25,000" },
@@ -353,7 +376,8 @@ export const a1Units: LessonUnit[] = [
     {
         id: "ko-a1-u21",
         level: "A1",
-        order: 21,
+        order: 22,
+
         title: "Asking for things",
         description: "~(으)세요 for polite instructions/invitations. ~아/어 주세요 for requests. The 해요체 register payoff: why you've been saying 요 since Unit 4.",
         grammarIds: ["ko-g-a1-34", "ko-g-a1-35"],
@@ -370,7 +394,8 @@ export const a1Units: LessonUnit[] = [
     {
         id: "ko-a1-u22",
         level: "A1",
-        order: 22,
+        order: 23,
+
         title: "Shall we? Want to?",
         description: "~(으)ㄹ까요? for suggestions and wondering aloud. ~고 싶어요 for desire (I want to). ~고 싶어해요 for third person. 보고 싶어요 = I miss you.",
         grammarIds: ["ko-g-a1-36", "ko-g-a1-37"],
@@ -390,7 +415,8 @@ export const a1Units: LessonUnit[] = [
     {
         id: "ko-a1-u23",
         level: "A1",
-        order: 23,
+        order: 24,
+
         title: "What I'm going to do",
         description: "Future tense ~(으)ㄹ 거예요 for plans and predictions. The full three-tense axis: 먹었어요 / 먹어요 / 먹을 거예요. Time words for the future.",
         grammarIds: ["ko-g-a1-38"],
@@ -406,7 +432,8 @@ export const a1Units: LessonUnit[] = [
     {
         id: "ko-a1-u24",
         level: "A1",
-        order: 24,
+        order: 25,
+
         title: "Connecting ideas",
         description: "Sentence connectors (그리고/하지만/그래서/그런데/그럼) and clause connectors (~고/~지만/~아서/어서). The difference between sentence-level and clause-level linking.",
         grammarIds: ["ko-g-a1-39", "ko-g-a1-40"],
@@ -422,7 +449,8 @@ export const a1Units: LessonUnit[] = [
     {
         id: "ko-a1-u25",
         level: "A1",
-        order: 25,
+        order: 26,
+
         title: "If and when",
         description: "Conditional ~(으)면 — if/when. Simpler than expected: no vowel harmony, just vowel/ㄹ → 면, consonant → 으면. ~(으)면 좋겠어요 for hopes and wishes.",
         grammarIds: ["ko-g-a1-41"],
@@ -438,7 +466,8 @@ export const a1Units: LessonUnit[] = [
     {
         id: "ko-a1-u26",
         level: "A1",
-        order: 26,
+        order: 27,
+
         title: "Putting it all together",
         description: "Capstone unit: all three tenses, connectors, conditionals, and natural discourse working together. A full narrative in Korean. You are ready for A2.",
         grammarIds: ["ko-g-a1-42"],

@@ -35,7 +35,8 @@ export const a1Units: LessonUnit[] = [
         grammarIds: ["fr-g-a1-0", "fr-g-a1-1"],
         phraseLessonIds: ["fr-pl-a1-4", "fr-pl-a1-5"],
         vocabIds: ["fr-v-a1-137", "fr-v-a1-138", "fr-v-a1-139", "fr-v-a1-140", "fr-v-a1-141", "fr-v-a1-142", "fr-v-a1-143", "fr-v-a1-144", "fr-v-a1-145", "fr-v-a1-146"],
-        verbIds: [],
+        verbIds: ["fr-vb-a1-1", "fr-vb-a1-25"],
+        listeningIds: ["fr-l-a1-4"],
         testQuestions: [
             { id: "fr-uq-a1-2-1", level: "A1", prompt: "Which is correct for a female speaker from Madrid?", options: ["Je suis espagnol.", "Je suis de Madrid. Je suis espagnole.", "J'habite espagnole.", "Je suis espagnols."], answer: "Je suis de Madrid. Je suis espagnole." },
             { id: "fr-uq-a1-2-2", level: "A1", prompt: "Fill in the blank: 'Elle ___ américaine.'", options: ["suis", "es", "est", "êtes"], answer: "est" },
@@ -52,7 +53,7 @@ export const a1Units: LessonUnit[] = [
         grammarIds: ["fr-g-a1-2"],
         phraseLessonIds: ["fr-pl-a1-6", "fr-pl-a1-7"],
         vocabIds: ["fr-v-a1-13", "fr-v-a1-14", "fr-v-a1-15", "fr-v-a1-16", "fr-v-a1-17", "fr-v-a1-18", "fr-v-a1-19", "fr-v-a1-20", "fr-v-a1-21", "fr-v-a1-22", "fr-v-a1-23", "fr-v-a1-24", "fr-v-a1-25", "fr-v-a1-26", "fr-v-a1-27"],
-        verbIds: [],
+        verbIds: ["fr-vb-a1-2"],
         testQuestions: [
             { id: "fr-uq-a1-3-1", level: "A1", prompt: "How do you say 'I am 24 years old' in French?", options: ["Je suis vingt-quatre.", "J'ai vingt-quatre.", "J'ai vingt-quatre ans.", "Je suis vingt-quatre ans."], answer: "J'ai vingt-quatre ans." },
             { id: "fr-uq-a1-3-2", level: "A1", prompt: "In French, you say 'j'ai vingt ans' (I have twenty years). Why?", options: ["It's a mistake — you should say je suis", "French uses avoir (to have) for age", "Avoir means to be in some contexts", "French speakers prefer avoir to être"], answer: "French uses avoir (to have) for age" },
@@ -69,7 +70,8 @@ export const a1Units: LessonUnit[] = [
         grammarIds: ["fr-g-a1-3"],
         phraseLessonIds: ["fr-pl-a1-8", "fr-pl-a1-9"],
         vocabIds: ["fr-v-a1-159", "fr-v-a1-160", "fr-v-a1-161", "fr-v-a1-162", "fr-v-a1-163", "fr-v-a1-164", "fr-v-a1-165", "fr-v-a1-166", "fr-v-a1-167", "fr-v-a1-168", "fr-v-a1-169", "fr-v-a1-170"],
-        verbIds: [],
+        verbIds: ["fr-vb-a1-5", "fr-vb-a1-27"],
+        listeningIds: ["fr-l-a1-1"],
         checkpointId: "fr-cp-a1-1",
         testQuestions: [
             { id: "fr-uq-a1-4-1", level: "A1", prompt: "You're male and work as a journalist. How do you say this?", options: ["Je suis un journaliste.", "J'ai journaliste.", "Je suis journaliste.", "Je travaille journaliste."], answer: "Je suis journaliste." },
@@ -90,6 +92,7 @@ export const a1Units: LessonUnit[] = [
         phraseLessonIds: ["fr-pl-a1-10", "fr-pl-a1-11"],
         vocabIds: ["fr-v-a1-48", "fr-v-a1-49", "fr-v-a1-50", "fr-v-a1-51", "fr-v-a1-52", "fr-v-a1-53", "fr-v-a1-54", "fr-v-a1-55", "fr-v-a1-56", "fr-v-a1-57", "fr-v-a1-58", "fr-v-a1-59", "fr-v-a1-60", "fr-v-a1-61", "fr-v-a1-62"],
         verbIds: [],
+        readingIds: ["fr-r-a1-1"],
         testQuestions: [
             { id: "fr-uq-a1-5-1", level: "A1", prompt: "How do you say 'my sister' in French?", options: ["mon sœur", "ma sœur", "mes sœur", "son sœur"], answer: "ma sœur" },
             { id: "fr-uq-a1-5-2", level: "A1", prompt: "Why do you say 'mon amie' (not 'ma amie') even though amie is feminine?", options: ["It's an exception with no rule", "Mon is used before vowel-initial nouns regardless of gender", "Amie is actually masculine", "Both forms are correct"], answer: "Mon is used before vowel-initial nouns regardless of gender" },
@@ -107,6 +110,7 @@ export const a1Units: LessonUnit[] = [
         phraseLessonIds: ["fr-pl-a1-21"],
         vocabIds: ["fr-v-a1-98", "fr-v-a1-99", "fr-v-a1-100", "fr-v-a1-101", "fr-v-a1-102", "fr-v-a1-103", "fr-v-a1-104", "fr-v-a1-105", "fr-v-a1-165", "fr-v-a1-166", "fr-v-a1-167", "fr-v-a1-168", "fr-v-a1-169", "fr-v-a1-170", "fr-v-a1-172"],
         verbIds: [],
+        readingIds: ["fr-r-a1-5"],
         testQuestions: [
             { id: "fr-uq-a1-6-1", level: "A1", prompt: "Your female friend is very active. How do you describe her?", options: ["Elle est actif.", "Elle est actifs.", "Elle est active.", "Elle est actives."], answer: "Elle est active." },
             { id: "fr-uq-a1-6-2", level: "A1", prompt: "Where do most French adjectives go relative to the noun?", options: ["Before the noun", "After the noun", "Either position — no rule", "Before in speech, after in writing"], answer: "After the noun" },
@@ -123,7 +127,7 @@ export const a1Units: LessonUnit[] = [
         grammarIds: ["fr-g-a1-6"],
         phraseLessonIds: ["fr-pl-a1-12"],
         vocabIds: ["fr-v-a1-198", "fr-v-a1-199", "fr-v-a1-200", "fr-v-a1-201", "fr-v-a1-202", "fr-v-a1-203", "fr-v-a1-204", "fr-v-a1-205", "fr-v-a1-206", "fr-v-a1-207", "fr-v-a1-208", "fr-v-a1-209"],
-        verbIds: [],
+        verbIds: ["fr-vb-a1-26", "fr-vb-a1-12"],
         testQuestions: [
             { id: "fr-uq-a1-7-1", level: "A1", prompt: "How do you say 'I don't like sport'?", options: ["Je ne aime pas le sport.", "Je n'aime pas le sport.", "Je n'aime le sport pas.", "Je ne sport pas aime."], answer: "Je n'aime pas le sport." },
             { id: "fr-uq-a1-7-2", level: "A1", prompt: "After negation, 'un/une/des' change to...?", options: ["le/la/les", "de/d'", "du/de la", "mon/ma/mes"], answer: "de/d'" },
@@ -140,7 +144,7 @@ export const a1Units: LessonUnit[] = [
         grammarIds: ["fr-g-a1-7"],
         phraseLessonIds: ["fr-pl-a1-13"],
         vocabIds: ["fr-v-a1-114", "fr-v-a1-115", "fr-v-a1-116", "fr-v-a1-117", "fr-v-a1-118", "fr-v-a1-119", "fr-v-a1-120", "fr-v-a1-121", "fr-v-a1-122", "fr-v-a1-123", "fr-v-a1-124", "fr-v-a1-125"],
-        verbIds: [],
+        verbIds: ["fr-vb-a1-3", "fr-vb-a1-13"],
         testQuestions: [
             { id: "fr-uq-a1-8-1", level: "A1", prompt: "Which preposition do you use with a feminine country? 'Je vais ___ France.'", options: ["à", "au", "en", "aux"], answer: "en" },
             { id: "fr-uq-a1-8-2", level: "A1", prompt: "Which preposition do you use with a masculine country? 'Je vais ___ Japon.'", options: ["à", "au", "en", "aux"], answer: "au" },
@@ -158,6 +162,7 @@ export const a1Units: LessonUnit[] = [
         phraseLessonIds: ["fr-pl-a1-14"],
         vocabIds: ["fr-v-a1-188", "fr-v-a1-189", "fr-v-a1-190", "fr-v-a1-191", "fr-v-a1-192", "fr-v-a1-193", "fr-v-a1-194", "fr-v-a1-195", "fr-v-a1-196", "fr-v-a1-197"],
         verbIds: [],
+        readingIds: ["fr-r-a1-4"],
         checkpointId: "fr-cp-a1-2",
         testQuestions: [
             { id: "fr-uq-a1-9-1", level: "A1", prompt: "'Il y a un parc près de chez moi' means:", options: ["The park is far from my home.", "There is a park near my home.", "I go to the park near my home.", "I like the park near my home."], answer: "There is a park near my home." },
@@ -177,7 +182,8 @@ export const a1Units: LessonUnit[] = [
         grammarIds: ["fr-g-a1-9"],
         phraseLessonIds: ["fr-pl-a1-15"],
         vocabIds: ["fr-v-a1-147", "fr-v-a1-148", "fr-v-a1-149", "fr-v-a1-150", "fr-v-a1-151", "fr-v-a1-152", "fr-v-a1-153", "fr-v-a1-154", "fr-v-a1-155", "fr-v-a1-156", "fr-v-a1-157", "fr-v-a1-158"],
-        verbIds: [],
+        verbIds: ["fr-vb-a1-36", "fr-vb-a1-37", "fr-vb-a1-38", "fr-vb-a1-39"],
+        readingIds: ["fr-r-a1-2"],
         testQuestions: [
             { id: "fr-uq-a1-10-1", level: "A1", prompt: "How do you say 'I get up at 7'?", options: ["Je lève à 7h.", "Je me lever à 7h.", "Je me lève à 7h.", "Je lève moi à 7h."], answer: "Je me lève à 7h." },
             { id: "fr-uq-a1-10-2", level: "A1", prompt: "In 'Je me douche', the 'me' is called a...", options: ["direct object pronoun", "reflexive pronoun", "possessive pronoun", "subject pronoun"], answer: "reflexive pronoun" },
@@ -194,7 +200,8 @@ export const a1Units: LessonUnit[] = [
         grammarIds: [],
         phraseLessonIds: ["fr-pl-a1-16"],
         vocabIds: ["fr-v-a1-28", "fr-v-a1-29", "fr-v-a1-30", "fr-v-a1-31", "fr-v-a1-32", "fr-v-a1-33", "fr-v-a1-34", "fr-v-a1-35", "fr-v-a1-36", "fr-v-a1-37", "fr-v-a1-38", "fr-v-a1-39", "fr-v-a1-40", "fr-v-a1-41", "fr-v-a1-42"],
-        verbIds: [],
+        verbIds: ["fr-vb-a1-30"],
+        listeningIds: ["fr-l-a1-3"],
         testQuestions: [
             { id: "fr-uq-a1-11-1", level: "A1", prompt: "How do you say 'It's half past two'?", options: ["Il est deux et trente.", "Il est deux heures et demie.", "Il est deux heures trente.", "Il est la demie de deux."], answer: "Il est deux heures et demie." },
             { id: "fr-uq-a1-11-2", level: "A1", prompt: "'À quelle heure ?' means:", options: ["How long does it take?", "At what time?", "Since when?", "Until when?"], answer: "At what time?" },
@@ -211,7 +218,7 @@ export const a1Units: LessonUnit[] = [
         grammarIds: ["fr-g-a1-10"],
         phraseLessonIds: ["fr-pl-a1-22"],
         vocabIds: ["fr-v-a1-152", "fr-v-a1-153", "fr-v-a1-154", "fr-v-a1-155", "fr-v-a1-228", "fr-v-a1-229", "fr-v-a1-230", "fr-v-a1-231", "fr-v-a1-232", "fr-v-a1-233", "fr-v-a1-234", "fr-v-a1-235"],
-        verbIds: [],
+        verbIds: ["fr-vb-a1-21", "fr-vb-a1-22"],
         testQuestions: [
             { id: "fr-uq-a1-12-1", level: "A1", prompt: "How do you say 'We speak French'?", options: ["Nous parlez français.", "Nous parlons français.", "Nous parle français.", "Nous parlent français."], answer: "Nous parlons français." },
             { id: "fr-uq-a1-12-2", level: "A1", prompt: "'Je ne mange jamais de viande' means:", options: ["I rarely eat meat.", "I don't eat enough meat.", "I never eat meat.", "I no longer eat meat."], answer: "I never eat meat." },
@@ -263,7 +270,9 @@ export const a1Units: LessonUnit[] = [
         grammarIds: ["fr-g-a1-14"],
         phraseLessonIds: ["fr-pl-a1-17"],
         vocabIds: ["fr-v-a1-63", "fr-v-a1-64", "fr-v-a1-65", "fr-v-a1-66", "fr-v-a1-67", "fr-v-a1-68", "fr-v-a1-69", "fr-v-a1-70", "fr-v-a1-71", "fr-v-a1-72", "fr-v-a1-73", "fr-v-a1-74", "fr-v-a1-75", "fr-v-a1-252", "fr-v-a1-253"],
-        verbIds: [],
+        verbIds: ["fr-vb-a1-8", "fr-vb-a1-9", "fr-vb-a1-11"],
+        readingIds: ["fr-r-a1-3"],
+        listeningIds: ["fr-l-a1-7"],
         testQuestions: [
             { id: "fr-uq-a1-15-1", level: "A1", prompt: "How do you order 'a coffee please' politely?", options: ["Je veux un café.", "Un café, s'il vous plaît.", "Donnez-moi café.", "J'ai un café."], answer: "Un café, s'il vous plaît." },
             { id: "fr-uq-a1-15-2", level: "A1", prompt: "Which sentence means 'I'm drinking [some] water' (partitive)?", options: ["Je bois l'eau.", "Je bois une eau.", "Je bois de l'eau.", "Je bois des eaux."], answer: "Je bois de l'eau." },
@@ -281,6 +290,7 @@ export const a1Units: LessonUnit[] = [
         phraseLessonIds: ["fr-pl-a1-18"],
         vocabIds: ["fr-v-a1-76", "fr-v-a1-77", "fr-v-a1-78", "fr-v-a1-79", "fr-v-a1-80", "fr-v-a1-81", "fr-v-a1-106", "fr-v-a1-107", "fr-v-a1-108", "fr-v-a1-109", "fr-v-a1-110", "fr-v-a1-254", "fr-v-a1-255", "fr-v-a1-256"],
         verbIds: [],
+        listeningIds: ["fr-l-a1-2"],
         testQuestions: [
             { id: "fr-uq-a1-16-1", level: "A1", prompt: "How do you ask 'How much is it?'", options: ["C'est combien ?", "C'est quoi ?", "C'est où ?", "Vous avez ça ?"], answer: "C'est combien ?" },
             { id: "fr-uq-a1-16-2", level: "A1", prompt: "How do you say 'I'm just looking'?", options: ["Je cherche quelque chose.", "Je regarde, merci.", "Non, merci.", "C'est trop cher."], answer: "Je regarde, merci." },
@@ -298,6 +308,8 @@ export const a1Units: LessonUnit[] = [
         phraseLessonIds: ["fr-pl-a1-19"],
         vocabIds: ["fr-v-a1-129", "fr-v-a1-130", "fr-v-a1-131", "fr-v-a1-132", "fr-v-a1-133", "fr-v-a1-134", "fr-v-a1-135", "fr-v-a1-136", "fr-v-a1-230", "fr-v-a1-231", "fr-v-a1-232", "fr-v-a1-233"],
         verbIds: [],
+        readingIds: ["fr-r-a1-6"],
+        listeningIds: ["fr-l-a1-6"],
         testQuestions: [
             { id: "fr-uq-a1-17-1", level: "A1", prompt: "How do you ask 'Is the station far from here?'", options: ["La gare, c'est comment ?", "La gare est loin d'ici ?", "Où est la gare, s'il vous plaît ?", "Comment je vais à la gare ?"], answer: "La gare est loin d'ici ?" },
             { id: "fr-uq-a1-17-2", level: "A1", prompt: "What does 'Tournez à gauche' mean?", options: ["Go straight ahead", "Turn right", "Turn left", "Take the exit"], answer: "Turn left" },
@@ -314,7 +326,7 @@ export const a1Units: LessonUnit[] = [
         grammarIds: ["fr-g-a1-16"],
         phraseLessonIds: ["fr-pl-a1-20"],
         vocabIds: ["fr-v-a1-43", "fr-v-a1-44", "fr-v-a1-45", "fr-v-a1-46", "fr-v-a1-47", "fr-v-a1-246", "fr-v-a1-247", "fr-v-a1-248", "fr-v-a1-249", "fr-v-a1-250"],
-        verbIds: [],
+        verbIds: ["fr-vb-a1-3"],
         testQuestions: [
             { id: "fr-uq-a1-18-1", level: "A1", prompt: "How do you say 'I'm going to visit Paris next week'?", options: ["Je visite Paris la semaine prochaine.", "Je vais visiter Paris la semaine prochaine.", "Je vais Paris visiter la semaine prochaine.", "Je visiterai Paris la semaine prochaine."], answer: "Je vais visiter Paris la semaine prochaine." },
             { id: "fr-uq-a1-18-2", level: "A1", prompt: "How do you invite someone to go to the cinema?", options: ["Est-ce que tu veux aller au cinéma ?", "Vas au cinéma !", "Je vais au cinéma.", "Tu aimes le cinéma ?"], answer: "Est-ce que tu veux aller au cinéma ?" },
@@ -330,7 +342,8 @@ export const a1Units: LessonUnit[] = [
         description: "Say what the weather's like, using il fait + adjective and il y a + noun. Essential for small talk and for making the plans from the last unit.",
         grammarIds: [],
         vocabIds: ["fr-v-a1-274", "fr-v-a1-275", "fr-v-a1-276", "fr-v-a1-277", "fr-v-a1-278", "fr-v-a1-279", "fr-v-a1-280", "fr-v-a1-281", "fr-v-a1-282", "fr-v-a1-283", "fr-v-a1-284", "fr-v-a1-285"],
-        verbIds: [],
+        verbIds: ["fr-vb-a1-4"],
+        listeningIds: ["fr-l-a1-5"],
         testQuestions: [
             { id: "fr-uq-a1-23-1", level: "A1", prompt: "How do you say 'The weather is nice today'?", options: ["Il y a beau aujourd'hui.", "Il fait beau aujourd'hui.", "Il est beau aujourd'hui.", "Il a beau aujourd'hui."], answer: "Il fait beau aujourd'hui." },
             { id: "fr-uq-a1-23-2", level: "A1", prompt: "Which sentence means 'It's windy today'?", options: ["Il fait du vent aujourd'hui.", "Il y a du vent aujourd'hui.", "Il vent aujourd'hui.", "Il est du vent aujourd'hui."], answer: "Il y a du vent aujourd'hui." },
@@ -346,7 +359,7 @@ export const a1Units: LessonUnit[] = [
         description: "Three essential modal verbs — vouloir (want), pouvoir (can/be able to), devoir (must/have to). Plus the polite form: je voudrais.",
         grammarIds: ["fr-g-a1-17", "fr-g-a1-18"],
         vocabIds: ["fr-v-a1-171", "fr-v-a1-172", "fr-v-a1-173", "fr-v-a1-206", "fr-v-a1-207", "fr-v-a1-208", "fr-v-a1-209", "fr-v-a1-266", "fr-v-a1-267", "fr-v-a1-268"],
-        verbIds: [],
+        verbIds: ["fr-vb-a1-6", "fr-vb-a1-7", "fr-vb-a1-20"],
         checkpointId: "fr-cp-a1-4",
         testQuestions: [
             { id: "fr-uq-a1-19-1", level: "A1", prompt: "How do you politely say 'I'd like a glass of water'?", options: ["Je veux de l'eau.", "Je vais boire de l'eau.", "Je voudrais un verre d'eau, s'il vous plaît.", "Je dois avoir de l'eau."], answer: "Je voudrais un verre d'eau, s'il vous plaît." },
@@ -365,7 +378,7 @@ export const a1Units: LessonUnit[] = [
         description: "Le passé composé with avoir — the landmark of A1. Tell people what you did, ate, saw, and experienced. French finally lets you tell stories.",
         grammarIds: ["fr-g-a1-19"],
         vocabIds: ["fr-v-a1-220", "fr-v-a1-221", "fr-v-a1-222", "fr-v-a1-223", "fr-v-a1-224", "fr-v-a1-225", "fr-v-a1-226", "fr-v-a1-227", "fr-v-a1-228", "fr-v-a1-229", "fr-v-a1-82", "fr-v-a1-83"],
-        verbIds: [],
+        verbIds: ["fr-vb-a1-31", "fr-vb-a1-32", "fr-vb-a1-33", "fr-vb-a1-23"],
         testQuestions: [
             { id: "fr-uq-a1-20-1", level: "A1", prompt: "How do you say 'I watched a film last night'?", options: ["Je regardais un film hier soir.", "J'ai regardé un film hier soir.", "J'ai regarder un film hier soir.", "Je vais regarder un film hier soir."], answer: "J'ai regardé un film hier soir." },
             { id: "fr-uq-a1-20-2", level: "A1", prompt: "What is the past participle of 'faire'?", options: ["faié", "faisé", "fait", "fai"], answer: "fait" },
@@ -381,7 +394,8 @@ export const a1Units: LessonUnit[] = [
         description: "Passé composé with être — movement and change verbs use être, not avoir. Agreement with the subject. Reflexive verbs also use être.",
         grammarIds: ["fr-g-a1-20"],
         vocabIds: ["fr-v-a1-234", "fr-v-a1-235", "fr-v-a1-236", "fr-v-a1-237", "fr-v-a1-238", "fr-v-a1-239", "fr-v-a1-84", "fr-v-a1-85", "fr-v-a1-86", "fr-v-a1-87"],
-        verbIds: [],
+        verbIds: ["fr-vb-a1-10", "fr-vb-a1-28", "fr-vb-a1-29", "fr-vb-a1-24"],
+        readingIds: ["fr-r-a1-7"],
         testQuestions: [
             { id: "fr-uq-a1-21-1", level: "A1", prompt: "How do you say 'She went to Lyon'?", options: ["Elle a allé à Lyon.", "Elle est allé à Lyon.", "Elle est allée à Lyon.", "Elle a aller à Lyon."], answer: "Elle est allée à Lyon." },
             { id: "fr-uq-a1-21-2", level: "A1", prompt: "Why does 'allée' have an extra -e in 'Elle est allée'?", options: ["Être verbs always add -e", "The past participle agrees with the subject in gender", "It's a spelling rule for pronunciation", "Allée is a different word from allé"], answer: "The past participle agrees with the subject in gender" },
@@ -445,7 +459,7 @@ export const a1Units: LessonUnit[] = [
         description: "Regular -ir and -re verbs complete your verb toolkit. Then use everything: past, present, future, modals, connectors — in the same conversation.",
         grammarIds: ["fr-g-a1-21", "fr-g-a1-22"],
         vocabIds: ["fr-v-a1-261", "fr-v-a1-262", "fr-v-a1-263", "fr-v-a1-264", "fr-v-a1-265", "fr-v-a1-266", "fr-v-a1-267", "fr-v-a1-268", "fr-v-a1-269", "fr-v-a1-270"],
-        verbIds: [],
+        verbIds: ["fr-vb-a1-14", "fr-vb-a1-15", "fr-vb-a1-16", "fr-vb-a1-17", "fr-vb-a1-18", "fr-vb-a1-19"],
         checkpointId: "fr-cp-a1-5",
         testQuestions: [
             { id: "fr-uq-a1-22-1", level: "A1", prompt: "What is the correct conjugation of 'choisir' for nous?", options: ["nous choisissons", "nous choisons", "nous choisisons", "nous choisissent"], answer: "nous choisissons" },
