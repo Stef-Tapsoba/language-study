@@ -25,7 +25,7 @@ function VerbCard({ verb, langId }: Readonly<{ verb: Verb; langId: string }>) {
                     {verb.romanized && (
                         <span className="text-xs text-indigo-500">{verb.romanized}</span>
                     )}
-                    <SpeakButton text={verb.infinitive} langId={langId} />
+                    <SpeakButton text={verb.infinitive} langId={langId} id={verb.id} variant="verb" />
                     <span className="text-sm text-text-sec">— {verb.meaning}</span>
                 </div>
                 <LevelBadge level={verb.level} />

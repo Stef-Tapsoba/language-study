@@ -344,7 +344,7 @@ function VocabRow({ item, done, langId, ui }: Readonly<{
                         <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-1.5">
                                 <span className="font-semibold text-text-pri whitespace-nowrap">{item.word}</span>
-                                <SpeakButton text={item.word} langId={langId} />
+                                <SpeakButton text={item.word} langId={langId} id={item.id} variant="word" />
                             </div>
                             {item.romanized && <span className="text-xs text-indigo-500">{item.romanized}</span>}
                         </div>
@@ -391,7 +391,7 @@ function VerbCard({ verb, langId, done, ui }: Readonly<{ verb: Verb; langId: str
                             {verb.romanized && <span className="ml-2 text-xs text-indigo-500">{verb.romanized}</span>}
                             <span className="ml-2 text-sm text-text-sec">— {verb.meaning}</span>
                         </div>
-                        <SpeakButton text={verb.infinitive} langId={langId} />
+                        <SpeakButton text={verb.infinitive} langId={langId} id={verb.id} variant="verb" />
                     </div>
                 </AccordionTrigger>
                 <AccordionContent>
