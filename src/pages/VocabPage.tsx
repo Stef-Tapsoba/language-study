@@ -39,7 +39,7 @@ function VocabCard({
                 <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-1.5">
                         <span className="font-semibold text-text-pri whitespace-nowrap">{item.word}</span>
-                        <SpeakButton text={item.word} langId={langId} />
+                        <SpeakButton text={item.word} langId={langId} id={item.id} variant="word" />
                     </div>
                     {item.romanized && (
                         <span className="text-xs text-indigo-500">{item.romanized}</span>
@@ -61,7 +61,7 @@ function VocabCard({
                             <p className="text-xs text-indigo-500 mt-0.5">{item.example.romanized}</p>
                         )}
                         <p className="text-xs text-text-sec mt-1">{item.example.translation}</p>
-                        <SpeakButton text={item.example.native} langId={langId} className="absolute top-1.5 right-1.5" />
+                        <SpeakButton text={item.example.native} langId={langId} id={item.id} variant="example" className="absolute top-1.5 right-1.5" />
                     </div>
                     <MarkCompleteButton done={done} onClick={onComplete} label="Mark as learned" />
                 </div>

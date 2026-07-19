@@ -9,7 +9,9 @@ releases/
 .env.local
 .env.*
 !.env.test
+!.env.example
 # .env.test is intentionally committed — no secrets, just clears Supabase vars for CI/tests
+# .env.example is intentionally committed — documents required env vars, no real values
 
 # Local working files
 Conversation-transcript.txt

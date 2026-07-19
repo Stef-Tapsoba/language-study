@@ -1,29 +1,29 @@
-// components/SpeakButton.tsx — Inline speaker icon button that plays text via Web Speech API
+// components/SpeakButton.tsx — Inline speaker icon button that plays text via pre-generated
+// static audio (when available) or the Web Speech API otherwise
 import { useState } from "react"
-import { TTS_LANG_MAP } from "../utils/tts"
+import { speak, SpeakOptions } from "../utils/tts"
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip"
 
 interface SpeakButtonProps {
     text: string
     langId: string
     className?: string
+    /** Content id — when present alongside `variant`, plays pre-generated static audio first. */
+    id?: string
+    variant?: SpeakOptions["variant"]
 }
 
-export function SpeakButton({ text, langId, className = "" }: Readonly<SpeakButtonProps>) {
+export function SpeakButton({ text, langId, className = "", id, variant }: Readonly<SpeakButtonProps>) {
     const [speaking, setSpeaking] = useState(false)
 
-    if (!("speechSynthesis" in globalThis)) return null
-
-    function handleSpeak(e: React.MouseEvent) {
+    async function handleSpeak(e: React.MouseEvent) {
         e.stopPropagation()
-        globalThis.speechSynthesis.cancel()
-        const utt = new SpeechSynthesisUtterance(text)
-        utt.lang = TTS_LANG_MAP[langId] ?? langId
-        utt.rate = 0.9
-        utt.onstart = () => setSpeaking(true)
-        utt.onend = () => setSpeaking(false)
-        utt.onerror = () => setSpeaking(false)
-        globalThis.speechSynthesis.speak(utt)
+        setSpeaking(true)
+        try {
+            await speak(text, langId, 0.9, id && variant ? { id, variant } : undefined)
+        } finally {
+            setSpeaking(false)
+        }
     }
 
     return (

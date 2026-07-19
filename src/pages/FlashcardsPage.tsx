@@ -12,7 +12,7 @@ import { SpeakButton } from "../components/SpeakButton"
 import { VocabItem } from "../types"
 import { getUI, fmt, UIStrings } from "../i18n"
 import { logError } from "../utils/logger"
-import { speak } from "../utils/tts"
+import { speak, cancel } from "../utils/tts"
 import { answerMatches } from "../utils/answerMatch"
 import { adaptiveMessage } from "../utils/adaptiveMessage"
 import { shuffle } from "../utils/arrayUtils"
@@ -158,7 +158,7 @@ function FlipCard({ item, flipped, onClick, translationMode, translationShown, u
                     <div className="flex items-start justify-center gap-2 w-full min-w-0">
                         <p className="text-3xl font-bold text-text-pri text-center break-words flex-1 min-w-0">{item.word}</p>
                         <div className="shrink-0 pt-1">
-                            <SpeakButton text={item.word} langId={langId} />
+                            <SpeakButton text={item.word} langId={langId} id={item.id} variant="word" />
                         </div>
                     </div>
                     {item.romanized && (
@@ -217,7 +217,7 @@ function FlipCard({ item, flipped, onClick, translationMode, translationShown, u
                         {translationMode !== "hidden" && (
                             <p className="text-xs text-text-ter mt-0.5">{item.example.translation}</p>
                         )}
-                        <SpeakButton text={item.example.native} langId={langId} className="absolute top-1 right-1" />
+                        <SpeakButton text={item.example.native} langId={langId} id={item.id} variant="example" className="absolute top-1 right-1" />
                     </div>
 
                     {/* B1: translation secondary, below example */}
@@ -296,17 +296,17 @@ export function FlashcardsPage() {
     // Auto-play word when a new card appears
     useEffect(() => {
         if (deck.length === 0 || !ttsEnabled) return
-        speak(deck[index].word, langId)
+        speak(deck[index].word, langId, 0.9, { id: deck[index].id, variant: "word" })
     }, [index, deck, langId, ttsEnabled])
 
     // Auto-play example sentence when the card is flipped
     useEffect(() => {
         if (!flipped || deck.length === 0 || !ttsEnabled) return
-        speak(deck[index].example.native, langId)
+        speak(deck[index].example.native, langId, 0.9, { id: deck[index].id, variant: "example" })
     }, [flipped, index, deck, langId, ttsEnabled])
 
-    // Cancel any ongoing speech when leaving the page
-    useEffect(() => () => { globalThis.speechSynthesis?.cancel() }, [])
+    // Cancel any ongoing speech (static audio or live TTS) when leaving the page
+    useEffect(() => () => { cancel() }, [])
 
     if (!language) return null
 

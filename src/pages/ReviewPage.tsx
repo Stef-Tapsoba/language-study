@@ -152,7 +152,7 @@ export function ReviewPage() {
                         <CardContent className="p-6 flex flex-col items-center justify-center gap-3 text-center min-h-[180px]">
                             <div className="flex items-center gap-2">
                                 <p className="text-lg font-semibold text-text-pri">{item.word}</p>
-                                <SpeakButton text={item.word} langId={langId} />
+                                <SpeakButton text={item.word} langId={langId} id={item.id} variant="word" />
                             </div>
                             {item.romanized && (
                                 <p className="text-xs text-indigo-500 dark:text-indigo-400 italic">{item.romanized}</p>
