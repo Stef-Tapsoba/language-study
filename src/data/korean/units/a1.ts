@@ -101,7 +101,7 @@ export const a1Units: LessonUnit[] = [
         description: "Complete personal introduction: name phrases, origin with ___에서 왔어요, and age with 살. Covers both number systems: Sino-Korean 1–20 and native Korean numbers for age.",
         grammarIds: ["ko-g-a1-6", "ko-g-a1-7", "ko-g-a1-7b"],
         phraseLessonIds: ["ko-pl-a1-4", "ko-pl-a1-5"],
-        vocabIds: ["ko-v-a1-26", "ko-v-a1-27", "ko-v-a1-28", "ko-v-a1-29", "ko-v-a1-30", "ko-v-a1-31", "ko-v-a1-32", "ko-v-a1-33", "ko-v-a1-34", "ko-v-a1-35", "ko-v-a1-36", "ko-v-a1-37", "ko-v-a1-38"],
+        vocabIds: ["ko-v-a1-26", "ko-v-a1-27", "ko-v-a1-28", "ko-v-a1-29", "ko-v-a1-30", "ko-v-a1-31", "ko-v-a1-32", "ko-v-a1-33", "ko-v-a1-34", "ko-v-a1-35", "ko-v-a1-36", "ko-v-a1-37", "ko-v-a1-38", "ko-v-a1-257", "ko-v-a1-258", "ko-v-a1-259", "ko-v-a1-260"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a1-6-1", level: "A1", prompt: "How do you say 'I'm from the UK'?", options: ["저는 영국이에요.", "저는 영국에서 왔어요.", "저를 영국 왔어요.", "영국에서 나왔어요."], answer: "저는 영국에서 왔어요." },
@@ -119,7 +119,7 @@ export const a1Units: LessonUnit[] = [
         grammarIds: ["ko-g-a1-8", "ko-g-a1-9"],
         phraseLessonIds: ["ko-pl-a1-6"],
         vocabIds: ["ko-v-a1-39", "ko-v-a1-40", "ko-v-a1-41", "ko-v-a1-42", "ko-v-a1-43", "ko-v-a1-44", "ko-v-a1-45", "ko-v-a1-46", "ko-v-a1-47", "ko-v-a1-48", "ko-v-a1-49", "ko-v-a1-50", "ko-v-a1-51", "ko-v-a1-52", "ko-v-a1-169", "ko-v-a1-170", "ko-v-a1-171", "ko-v-a1-172", "ko-v-a1-173", "ko-v-a1-174", "ko-v-a1-175", "ko-v-a1-176"],
-        verbIds: [],
+        verbIds: ["ko-vb-a1-5", "ko-vb-a1-6"],
         checkpointId: "ko-cp-a1-1",
         testQuestions: [
             { id: "ko-uq-a1-7-1", level: "A1", prompt: "저는 여동생이 있어요 means:", options: ["My younger sister is a student.", "I have a younger sister.", "My younger sister is here.", "I want a younger sister."], answer: "I have a younger sister." },
@@ -138,7 +138,7 @@ export const a1Units: LessonUnit[] = [
         description: "Korean family vocabulary with its speaker-dependent terms, 있어요/없어요 for family possession, and how to describe family members using what you know.",
         grammarIds: ["ko-g-a1-10", "ko-g-a1-11"],
         phraseLessonIds: ["ko-pl-a1-7"],
-        vocabIds: ["ko-v-a1-53", "ko-v-a1-54", "ko-v-a1-55", "ko-v-a1-56", "ko-v-a1-57", "ko-v-a1-58", "ko-v-a1-59", "ko-v-a1-60", "ko-v-a1-61", "ko-v-a1-62", "ko-v-a1-63", "ko-v-a1-233", "ko-v-a1-234", "ko-v-a1-235", "ko-v-a1-236", "ko-v-a1-237", "ko-v-a1-238", "ko-v-a1-239", "ko-v-a1-240"],
+        vocabIds: ["ko-v-a1-53", "ko-v-a1-54", "ko-v-a1-55", "ko-v-a1-56", "ko-v-a1-57", "ko-v-a1-58", "ko-v-a1-59", "ko-v-a1-60", "ko-v-a1-61", "ko-v-a1-62", "ko-v-a1-63", "ko-v-a1-233", "ko-v-a1-234", "ko-v-a1-235", "ko-v-a1-236", "ko-v-a1-237", "ko-v-a1-238", "ko-v-a1-239", "ko-v-a1-240", "ko-v-a1-261"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a1-8-1", level: "A1", prompt: "A female speaker says 오빠. This means:", options: ["Her younger brother", "Her older brother", "Her older sister", "Her younger sister"], answer: "Her older brother" },
@@ -154,8 +154,8 @@ export const a1Units: LessonUnit[] = [
         title: "Things I like",
         description: "좋아해요 — your first action verb. The object particle 을/를 appears and is named. I like/dislike X, really like, don't really like.",
         grammarIds: ["ko-g-a1-12", "ko-g-a1-13"],
-        vocabIds: ["ko-v-a1-64", "ko-v-a1-65", "ko-v-a1-66", "ko-v-a1-67", "ko-v-a1-68", "ko-v-a1-69", "ko-v-a1-70", "ko-v-a1-71", "ko-v-a1-72", "ko-v-a1-73", "ko-v-a1-74", "ko-v-a1-223", "ko-v-a1-224", "ko-v-a1-225", "ko-v-a1-226", "ko-v-a1-227", "ko-v-a1-228", "ko-v-a1-229", "ko-v-a1-230", "ko-v-a1-231", "ko-v-a1-232"],
-        verbIds: [],
+        vocabIds: ["ko-v-a1-64", "ko-v-a1-65", "ko-v-a1-66", "ko-v-a1-67", "ko-v-a1-68", "ko-v-a1-69", "ko-v-a1-70", "ko-v-a1-71", "ko-v-a1-72", "ko-v-a1-73", "ko-v-a1-74", "ko-v-a1-223", "ko-v-a1-224", "ko-v-a1-225", "ko-v-a1-226", "ko-v-a1-227", "ko-v-a1-228", "ko-v-a1-229", "ko-v-a1-230", "ko-v-a1-231", "ko-v-a1-232", "ko-v-a1-262"],
+        verbIds: ["ko-vb-a1-8"],
         testQuestions: [
             { id: "ko-uq-a1-9-1", level: "A1", prompt: "저는 커피를 좋아해요 — which particle follows 커피?", options: ["이", "을", "를", "에"], answer: "를" },
             { id: "ko-uq-a1-9-2", level: "A1", prompt: "저는 음악을 좋아해요. Why 을 after 음악?", options: ["음악 ends in a vowel", "음악 ends in a consonant", "Random choice", "음악 is a place"], answer: "음악 ends in a consonant" },
@@ -170,8 +170,8 @@ export const a1Units: LessonUnit[] = [
         title: "What I do every day",
         description: "The Korean verb system revealed: ~아요/어요 present tense, verb-final word order, 하다 verbs, and the contractions you'll use constantly (가요, 와요, 봐요, 마셔요).",
         grammarIds: ["ko-g-a1-14"],
-        vocabIds: ["ko-v-a1-75", "ko-v-a1-76", "ko-v-a1-77", "ko-v-a1-78", "ko-v-a1-79", "ko-v-a1-80", "ko-v-a1-81", "ko-v-a1-82", "ko-v-a1-83", "ko-v-a1-84", "ko-v-a1-85"],
-        verbIds: [],
+        vocabIds: ["ko-v-a1-75", "ko-v-a1-76", "ko-v-a1-77", "ko-v-a1-78", "ko-v-a1-79", "ko-v-a1-80", "ko-v-a1-81", "ko-v-a1-82", "ko-v-a1-83", "ko-v-a1-84", "ko-v-a1-85", "ko-v-a1-263"],
+        verbIds: ["ko-vb-a1-1", "ko-vb-a1-2", "ko-vb-a1-3", "ko-vb-a1-4", "ko-vb-a1-16", "ko-vb-a1-10", "ko-vb-a1-11"],
         testQuestions: [
             { id: "ko-uq-a1-10-1", level: "A1", prompt: "What is the present tense of 먹다 (eat)?", options: ["먹아요", "먹어요", "먹해요", "먹요"], answer: "먹어요" },
             { id: "ko-uq-a1-10-2", level: "A1", prompt: "Where does the verb go in a Korean sentence?", options: ["At the beginning", "In the middle", "At the end — always", "After the subject"], answer: "At the end — always" },
@@ -187,8 +187,8 @@ export const a1Units: LessonUnit[] = [
         description: "Practice the verb pattern from the last unit on daily-routine verbs (including the ㄷ-irregular 듣다/걷다), then 있어요 for location, the 에 particle for place (named here after inductive exposure), and essential location vocabulary. 어디에 있어요?",
         grammarIds: ["ko-g-a1-15", "ko-g-a1-16"],
         phraseLessonIds: ["ko-pl-a1-8"],
-        vocabIds: ["ko-v-a1-86", "ko-v-a1-87", "ko-v-a1-88", "ko-v-a1-89", "ko-v-a1-90", "ko-v-a1-91", "ko-v-a1-92", "ko-v-a1-93", "ko-v-a1-94", "ko-v-a1-95"],
-        verbIds: [],
+        vocabIds: ["ko-v-a1-86", "ko-v-a1-87", "ko-v-a1-88", "ko-v-a1-89", "ko-v-a1-90", "ko-v-a1-91", "ko-v-a1-92", "ko-v-a1-93", "ko-v-a1-94", "ko-v-a1-95", "ko-v-a1-264", "ko-v-a1-265", "ko-v-a1-266", "ko-v-a1-267", "ko-v-a1-268", "ko-v-a1-269", "ko-v-a1-270", "ko-v-a1-271"],
+        verbIds: ["ko-vb-a1-15", "ko-vb-a1-12", "ko-vb-a1-14", "ko-vb-a1-18", "ko-vb-a1-19", "ko-vb-a1-7"],
         testQuestions: [
             { id: "ko-uq-a1-11-1", level: "A1", prompt: "화장실이 어디에 있어요? means:", options: ["Is there a bathroom?", "Where is the bathroom?", "The bathroom is here.", "I need a bathroom."], answer: "Where is the bathroom?" },
             { id: "ko-uq-a1-11-2", level: "A1", prompt: "카페에 있어요 uses 에 because:", options: ["카페 ends in a vowel", "에 marks the location where something exists", "에 marks the object", "에 is always used with 있어요"], answer: "에 marks the location where something exists" },
@@ -205,7 +205,7 @@ export const a1Units: LessonUnit[] = [
         title: "Describing things",
         description: "Adjectives conjugate exactly like verbs — the same ~아요/어요 rule you already know, applied to how things look, feel, and seem. No new mechanics, just a new kind of word.",
         grammarIds: ["ko-g-a1-17"],
-        vocabIds: ["ko-v-a1-96", "ko-v-a1-97", "ko-v-a1-98", "ko-v-a1-99", "ko-v-a1-100", "ko-v-a1-101", "ko-v-a1-102", "ko-v-a1-103", "ko-v-a1-104", "ko-v-a1-105"],
+        vocabIds: ["ko-v-a1-96", "ko-v-a1-97", "ko-v-a1-98", "ko-v-a1-99", "ko-v-a1-100", "ko-v-a1-101", "ko-v-a1-102", "ko-v-a1-103", "ko-v-a1-104", "ko-v-a1-105", "ko-v-a1-272", "ko-v-a1-273"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a1-12-1", level: "A1", prompt: "좋다 (good) in present tense is:", options: ["좋아요", "좋어요", "좋해요", "좋요"], answer: "좋아요" },
@@ -221,7 +221,7 @@ export const a1Units: LessonUnit[] = [
         title: "Colors and the weather",
         description: "Colors as noun modifiers, then the two adjective irregulars (ㅡ-drop, ㅂ-irregular) using natural weather and feelings vocabulary — a short, self-contained exceptions list.",
         grammarIds: ["ko-g-a1-17b"],
-        vocabIds: ["ko-v-a1-195", "ko-v-a1-196", "ko-v-a1-197", "ko-v-a1-198", "ko-v-a1-199", "ko-v-a1-200", "ko-v-a1-201", "ko-v-a1-202", "ko-v-a1-247", "ko-v-a1-248", "ko-v-a1-249", "ko-v-a1-250", "ko-v-a1-251", "ko-v-a1-252", "ko-v-a1-253", "ko-v-a1-254", "ko-v-a1-255", "ko-v-a1-256"],
+        vocabIds: ["ko-v-a1-195", "ko-v-a1-196", "ko-v-a1-197", "ko-v-a1-198", "ko-v-a1-199", "ko-v-a1-200", "ko-v-a1-201", "ko-v-a1-202", "ko-v-a1-247", "ko-v-a1-248", "ko-v-a1-249", "ko-v-a1-250", "ko-v-a1-251", "ko-v-a1-252", "ko-v-a1-253", "ko-v-a1-254", "ko-v-a1-255", "ko-v-a1-256", "ko-v-a1-274"],
         verbIds: [],
         checkpointId: "ko-cp-a1-2",
         testQuestions: [
@@ -333,7 +333,7 @@ export const a1Units: LessonUnit[] = [
         grammarIds: ["ko-g-a1-30", "ko-g-a1-31"],
         phraseLessonIds: ["ko-pl-a1-10"],
         vocabIds: ["ko-v-a1-132", "ko-v-a1-133", "ko-v-a1-134", "ko-v-a1-135"],
-        verbIds: [],
+        verbIds: ["ko-vb-a1-9"],
         testQuestions: [
             { id: "ko-uq-a1-18-1", level: "A1", prompt: "도서관**에** 가요 vs 도서관**에서** 공부해요 — what is the difference?", options: ["에 = location of action, 에서 = destination", "에 = destination/existence, 에서 = location of action", "They mean the same thing", "에서 is more formal"], answer: "에 = destination/existence, 에서 = location of action" },
             { id: "ko-uq-a1-18-2", level: "A1", prompt: "지하철로 가요 uses 로 because:", options: ["지하철 ends in ㄹ", "로/으로 marks means or direction", "Both — the 로 form is used after ㄹ and it marks the method of transport", "지하철 is a place"], answer: "Both — the 로 form is used after ㄹ and it marks the method of transport" },
@@ -369,7 +369,7 @@ export const a1Units: LessonUnit[] = [
         grammarIds: ["ko-g-a1-33"],
         phraseLessonIds: ["ko-pl-a1-12"],
         vocabIds: ["ko-v-a1-140", "ko-v-a1-141", "ko-v-a1-142", "ko-v-a1-143", "ko-v-a1-213", "ko-v-a1-214", "ko-v-a1-215", "ko-v-a1-216", "ko-v-a1-217", "ko-v-a1-218", "ko-v-a1-219", "ko-v-a1-220", "ko-v-a1-221", "ko-v-a1-222"],
-        verbIds: [],
+        verbIds: ["ko-vb-a1-13"],
         testQuestions: [
             { id: "ko-uq-a1-20-1", level: "A1", prompt: "이만 오천 원 = ₩", options: ["₩2,500", "₩20,500", "₩25,000", "₩250,000"], answer: "₩25,000" },
             { id: "ko-uq-a1-20-2", level: "A1", prompt: "이거 얼마예요? means:", options: ["Is this good?", "Do you have this?", "How much is this?", "Can I have this?"], answer: "How much is this?" },
@@ -387,7 +387,7 @@ export const a1Units: LessonUnit[] = [
         grammarIds: ["ko-g-a1-34", "ko-g-a1-35"],
         phraseLessonIds: ["ko-pl-a1-13"],
         vocabIds: ["ko-v-a1-144", "ko-v-a1-145", "ko-v-a1-146", "ko-v-a1-147"],
-        verbIds: [],
+        verbIds: ["ko-vb-a1-17", "ko-vb-a1-20", "ko-vb-a1-21"],
         testQuestions: [
             { id: "ko-uq-a1-21-1", level: "A1", prompt: "앉으세요 means:", options: ["Please eat", "Please sit", "Please go", "Please wait"], answer: "Please sit" },
             { id: "ko-uq-a1-21-2", level: "A1", prompt: "한 번 더 말해 주세요 means:", options: ["Please write it down", "Please say it slowly", "Please say it one more time", "Please help me"], answer: "Please say it one more time" },
