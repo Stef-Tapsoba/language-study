@@ -13,6 +13,7 @@ import { getModule } from "./modules"
 import {
     CEFRLevel,
     GrammarLesson,
+    GrammarRule,
     VocabItem,
     Verb,
     LessonUnit,
@@ -36,6 +37,11 @@ export function getGrammarForLevel(langId: string, level: CEFRLevel): GrammarLes
 
 export function getGrammarLesson(langId: string, lessonId: string): GrammarLesson | null {
     return getModule(langId)?.grammar.find(g => g.id === lessonId) ?? null
+}
+
+/** Resolves a rule id from the language's shared rules pool (GrammarLesson.ruleIds). */
+export function getGrammarRule(langId: string, ruleId: string): GrammarRule | null {
+    return getModule(langId)?.rules?.find(r => r.id === ruleId) ?? null
 }
 
 // ---------------------------------------------------------------------------

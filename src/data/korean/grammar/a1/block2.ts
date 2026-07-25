@@ -6,23 +6,7 @@ export const block2Lessons: GrammarLesson[] = [
         level: "A1",
         title: "Family vocabulary + 있어요/없어요 for family members",
         explanation: `Korean family terms encode the speaker's gender directly — the same biological relationship has different words depending on who is speaking. 있어요/없어요 states who you have: 저는 남동생이 있어요 (I have a younger brother).`,
-        rules: [
-            {
-                condition: "Female speaker",
-                result: "오빠 (older brother) · 언니 (older sister)",
-                examples: [{ native: "오빠가 있어요", romanized: "oppaga isseoyo", translation: "I have an older brother (female speaker)" }, { native: "언니는 선생님이에요", romanized: "eonnineun seonsaengnimieyo", translation: "My older sister is a teacher (female speaker)" }, { native: "언니는 스물아홉 살이에요", romanized: "eonnineun seumulahop sarieyo", translation: "My older sister is 29 years old (female speaker)" }],
-            },
-            {
-                condition: "Male speaker",
-                result: "형 (older brother) · 누나 (older sister)",
-                examples: [{ native: "형이 있어요", romanized: "hyeongi isseoyo", translation: "I have an older brother (male speaker)" }, { native: "누나는 의사예요", romanized: "nunaneun uisayeyo", translation: "My older sister is a doctor (male speaker)" }, { native: "형은 회사원이에요", romanized: "hyeongeun hoesawonieyo", translation: "My older brother is an office worker (male speaker)" }],
-            },
-            {
-                condition: "Any speaker — younger siblings",
-                result: "동생 · 남동생 · 여동생",
-                examples: [{ native: "남동생이 한 명 있어요", romanized: "namdongsaengi han myeong isseoyo", translation: "I have one younger brother" }, { native: "여동생이 없어요", romanized: "yeodongsaengi eopseoyo", translation: "I don't have a younger sister" }, { native: "동생이 있어요?", romanized: "dongsaengi isseoyo?", translation: "Do you have a younger sibling?" }],
-            },
-        ],
+        ruleIds: ["ko-r-a1-10-1", "ko-r-a1-10-2", "ko-r-a1-10-3"],
         notes: [
             {
                 type: "culture",
@@ -68,7 +52,7 @@ export const block2Lessons: GrammarLesson[] = [
             },
             {
                 type: "tip",
-                content: "은/는 after a family member marks them as the topic: 제 어머니는, 아버지는, 남동생은. Topic marker 은/는 (은 after consonant, 는 after vowel) is explained fully in Block 3.",
+                content: "은/는 marks the topic — what you're about to talk about: 제 어머니는 (as for my mother...), 아버지는, 남동생은. 은 follows a consonant, 는 follows a vowel. That's all you need to use it correctly now — Block 3 adds more ways to use it.",
             },
         ],
         fixedPhrases: [
@@ -102,23 +86,7 @@ export const block2Lessons: GrammarLesson[] = [
         level: "A1",
         title: "좋아해요 / 싫어해요 — likes and dislikes + first sight of 을/를",
         explanation: `Your first real action verb: 좋아해요 (I like). You perform liking something — and the thing you like gets marked with the object particle 를/을.`,
-        rules: [
-            {
-                condition: "Expressing a like or dislike",
-                result: "저는 ___를/을 좋아해요 / 싫어해요",
-                examples: [{ native: "커피를 좋아해요", romanized: "keopireul joahaeyo", translation: "I like coffee" }, { native: "한국 음식을 좋아해요", romanized: "hanguk eumsigul joahaeyo", translation: "I like Korean food" }, { native: "운동을 별로 안 좋아해요", romanized: "undongeul byeolro an joahaeyo", translation: "I don't really like exercise" }],
-            },
-            {
-                condition: "Object particle — word ends in vowel",
-                result: "를",
-                examples: [{ native: "커피를", romanized: "keopireul", translation: "coffee (object).", annotation: "커피 ends in vowel → 를"}, { native: "드라마를", romanized: "deuramareul", translation: "drama (object).", annotation: "드라마 ends in vowel → 를"}, { native: "음료를", romanized: "eumryoreul", translation: "drink/beverage (object).", annotation: "음료 ends in vowel → 를"}],
-            },
-            {
-                condition: "Object particle — word ends in consonant",
-                result: "을",
-                examples: [{ native: "음악을", romanized: "eumagul", translation: "music (object).", annotation: "음악 ends in consonant ㄱ → 을"}, { native: "밥을", romanized: "bapeul", translation: "rice/meal (object).", annotation: "밥 ends in consonant ㅂ → 을"}, { native: "한국 음식을", romanized: "hanguk eumsigul", translation: "Korean food (object).", annotation: "음식 ends in consonant ㄱ → 을"}],
-            },
-        ],
+        ruleIds: ["ko-r-a1-12-1", "ko-r-a1-12-2", "ko-r-a1-12-3"],
         notes: [
             {
                 type: "tip",
@@ -150,20 +118,9 @@ export const block2Lessons: GrammarLesson[] = [
     {
         id: "ko-g-a1-13",
         level: "A1",
-        title: "을/를 fully named + the object particle in action",
-        explanation: `을/를 is the object particle — it marks the direct object of an action verb. It works with any action verb: 먹다, 마시다, 듣다, 보다, 읽다.`,
-        rules: [
-            {
-                condition: "Word ends in vowel",
-                result: "를",
-                examples: [{ native: "커피를", romanized: "keopireul", translation: "coffee (object).", annotation: "커피 ends in vowel → 를"}, { native: "드라마를", romanized: "deuramareul", translation: "drama (object).", annotation: "드라마 ends in vowel → 를"}, { native: "영화를", romanized: "yeonghwareul", translation: "movie (object).", annotation: "영화 ends in vowel → 를"}],
-            },
-            {
-                condition: "Word ends in consonant",
-                result: "을",
-                examples: [{ native: "음악을", romanized: "eumagul", translation: "music (object).", annotation: "음악 ends in consonant ㄱ → 을"}, { native: "밥을", romanized: "bapeul", translation: "rice/meal (object).", annotation: "밥 ends in consonant ㅂ → 을"}, { native: "책을", romanized: "chageul", translation: "book (object).", annotation: "책 ends in consonant ㄱ → 을"}],
-            },
-        ],
+        title: "을/를 - the object particle in action",
+        explanation: `을/를 is the object particle — it marks the direct object of an action verb. It works with any action verb: 먹다, 마시다, 듣다, 보다, 읽다. Same rule you saw last lesson, applied more broadly.`,
+        ruleIds: ["ko-r-a1-12-2", "ko-r-a1-12-3"],
         notes: [
             {
                 type: "tip",
@@ -204,24 +161,8 @@ export const block2Lessons: GrammarLesson[] = [
         id: "ko-g-a1-14",
         level: "A1",
         title: "Present tense ~아요/어요 — the Korean verb system revealed",
-        explanation: `Every Korean present tense verb ends in ~요. The vowel before ~요 follows a simple harmony rule based on the verb stem.`,
-        rules: [
-            {
-                condition: "Stem last vowel is ㅏ or ㅗ",
-                result: "~아요",
-                examples: [{ native: "가다 → 가요", romanized: "gada → gayo", translation: "to go / goes.", annotation: "stem 가: ㅏ vowel → 아요, contracts to 가요"}, { native: "보다 → 봐요", romanized: "boda → bwayo", translation: "to see / watches.", annotation: "stem 보: ㅗ vowel → 아요, contracts to 봐요"}, { native: "좋다 → 좋아요", romanized: "jota → joayo", translation: "good / is good.", annotation: "stem 좋: ㅗ vowel → 아요"}],
-            },
-            {
-                condition: "Stem has any other vowel",
-                result: "~어요",
-                examples: [{ native: "먹다 → 먹어요", romanized: "meokda → meogeoyo", translation: "to eat / eats.", annotation: "stem 먹: ㅓ vowel → 어요"}, { native: "읽다 → 읽어요", romanized: "ikda → ilgeoyo", translation: "to read / reads.", annotation: "stem 읽: ㅣ vowel → 어요"}, { native: "마시다 → 마셔요", romanized: "masida → masyeoyo", translation: "to drink / drinks.", annotation: "stem 마시: ㅣ vowel → 어요, contracts to 마셔요"}],
-            },
-            {
-                condition: "하다 verbs (noun + 하다)",
-                result: "~해요 (always)",
-                examples: [{ native: "공부해요", romanized: "gongbuhaeyo", translation: "study.", annotation: "공부하다 → 해요"}, { native: "운동해요", romanized: "undonghaeyo", translation: "exercise.", annotation: "운동하다 → 해요"}, { native: "요리해요", romanized: "yorihaeyo", translation: "cook.", annotation: "요리하다 → 해요"}, { native: "일해요", romanized: "ilhaeyo", translation: "work.", annotation: "일하다 → 해요"}],
-            },
-        ],
+        explanation: `Every Korean present tense verb ends in ~요. Which vowel comes right before it — 아 or 어 — depends on the last vowel in the verb stem. There are only two cases to learn, plus one fixed rule for 하다 verbs.`,
+        ruleIds: ["ko-r-a1-14-1", "ko-r-a1-14-2", "ko-r-a1-14-3"],
         notes: [
             {
                 type: "tip",
@@ -257,18 +198,7 @@ export const block2Lessons: GrammarLesson[] = [
         level: "A1",
         title: "Daily routine verbs + present tense in context",
         explanation: `The present tense pattern now fills with daily life verbs. These are the verbs you need for talking about your routine — learn them as stems, the ~아요/어요 ending follows automatically.`,
-        rules: [
-            {
-                condition: "Specific time (clock, day of week, part of day)",
-                result: "time word + 에",
-                examples: [{ native: "아침에", romanized: "achime", translation: "in the morning.", annotation: "specific time → 에"}, { native: "일곱 시에", romanized: "ilgop sie", translation: "at seven o'clock.", annotation: "specific clock time → 에"}, { native: "금요일에", romanized: "geumyoire", translation: "on Friday.", annotation: "named day → 에"}, { native: "주말에", romanized: "jumare", translation: "on the weekend.", annotation: "named period → 에"}],
-            },
-            {
-                condition: "Relative time reference",
-                result: "no 에 needed",
-                examples: [{ native: "매일", romanized: "maeil", translation: "every day.", annotation: "relative reference — no 에"}, { native: "오늘", romanized: "oneul", translation: "today.", annotation: "relative reference — no 에"}, { native: "보통", romanized: "botong", translation: "usually.", annotation: "adverb — no 에"}, { native: "지금", romanized: "jigeum", translation: "now.", annotation: "relative reference — no 에"}],
-            },
-        ],
+        ruleIds: ["ko-r-a1-20-1", "ko-r-a1-20-2"],
         notes: [
             {
                 type: "warning",
@@ -276,7 +206,7 @@ export const block2Lessons: GrammarLesson[] = [
             },
             {
                 type: "tip",
-                content: "이/가 is the subject marker: 수업이 있어요 (I have class), 친구가 와요 (a friend is coming). 이 after consonant, 가 after vowel. It's explained fully in Block 3.",
+                content: "이/가 is the subject marker: 수업이 있어요 (I have class), 친구가 와요 (a friend is coming). 이 after consonant, 가 after vowel. That's enough to recognize and use it here — Block 3 builds on it.",
             },
         ],
         examples: [
@@ -309,22 +239,11 @@ export const block2Lessons: GrammarLesson[] = [
         level: "A1",
         title: "있어요 for location + 에 particle for place",
         explanation: `있어요 does three jobs: possession, existence, and location. When paired with 에, it expresses where something IS — as distinct from 에서 which is for where actions happen.`,
-        rules: [
-            {
-                condition: "Location where something exists / someone is",
-                result: "[place]에 있어요",
-                examples: [{ native: "카페에 있어요", romanized: "kapeee isseoyo", translation: "I'm at the café.", annotation: "location existence — 에"}, { native: "2층에 있어요", romanized: "icheonge isseoyo", translation: "It's on the 2nd floor.", annotation: "location existence — 에"}, { native: "집에 있어요", romanized: "jibe isseoyo", translation: "I'm at home.", annotation: "location existence — 에"}],
-            },
-            {
-                condition: "Destination (moving toward a place)",
-                result: "[place]에 가요 / 와요",
-                examples: [{ native: "학교에 가요", romanized: "hakgyoe gayo", translation: "I go to school.", annotation: "destination — 에"}, { native: "카페에 와요", romanized: "kapeee wayo", translation: "I come to the café.", annotation: "destination — 에"}, { native: "여기에 오세요", romanized: "yeogieseo oseyo", translation: "Please come here.", annotation: "destination — 에"}],
-            },
-        ],
+        ruleIds: ["ko-r-a1-16-1", "ko-r-a1-16-2"],
         notes: [
             {
                 type: "tip",
-                content: "에 vs 에서: 에 is for where something IS or where you're GOING TO. 에서 is for where an action TAKES PLACE (카페에서 공부해요). The full distinction is explained in Block 4.",
+                content: "에 vs 에서: 에 is for where something IS or where you're GOING TO. 에서 is for where an action TAKES PLACE (카페에서 공부해요). That's enough to tell them apart now — Block 4 gives you more practice with 에서.",
             },
         ],
         fixedPhrases: [
@@ -367,19 +286,41 @@ export const block2Lessons: GrammarLesson[] = [
         id: "ko-g-a1-17",
         level: "A1",
         title: "Adjective conjugation — adjectives work like verbs",
-        explanation: `Korean adjectives conjugate exactly like action verbs — they take the same ~아요/어요 endings. Two irregular patterns affect many common adjectives.`,
-        rules: [
+        explanation: `Good news: Korean adjectives conjugate with the exact same ~아요/어요 rule you already learned for verbs. There's nothing new to memorize here — just the pattern you know, applied to a new kind of word.`,
+        ruleIds: ["ko-r-a1-14-1", "ko-r-a1-14-2"],
+        notes: [
             {
-                condition: "ㅡ-drop: stem ends in ㅡ",
-                result: "Drop ㅡ, then apply 아요/어요 rule",
-                examples: [{ native: "크다→커요", romanized: "keuda→keoyo", translation: "big / is big.", annotation: "drop ㅡ, ㅓ remains → 어요"}, { native: "나쁘다→나빠요", romanized: "nappeuda→nappayo", translation: "bad / is bad.", annotation: "drop ㅡ, ㅏ remains → 아요"}, { native: "예쁘다→예뻐요", romanized: "yeppeuda→yeppeoyo", translation: "pretty / is pretty.", annotation: "drop ㅡ, ㅓ remains → 어요"}, { native: "바쁘다→바빠요", romanized: "pappeuda→bappayo", translation: "busy / is busy.", annotation: "drop ㅡ, ㅏ remains → 아요"}],
+                type: "tip",
+                content: "너무 (too / excessively) is a common intensifier with adjectives: 너무 비싸요 = too expensive.",
             },
             {
-                condition: "ㅂ irregular: stem ends in ㅂ",
-                result: "ㅂ → 워 before a vowel ending",
-                examples: [{ native: "덥다→더워요", romanized: "deodda→deowoyo", translation: "hot / is hot.", annotation: "ㅂ → 워 before vowel ending"}, { native: "춥다→추워요", romanized: "chupda→chuwoyo", translation: "cold / is cold.", annotation: "ㅂ → 워 before vowel ending"}, { native: "어렵다→어려워요", romanized: "eoryeopda→eoryeowoyo", translation: "difficult / is difficult.", annotation: "ㅂ → 워 before vowel ending"}],
+                type: "tip",
+                content: "A few common adjectives don't follow this regular pattern — the next lesson covers those as a short, separate list. You don't need them to use today's pattern correctly.",
             },
         ],
+        examples: [
+            { native: "가방이 너무 비싸요. 작은 거 있어요?", romanized: "Gabangi neomu bissayo. Jageun geo isseoyo?", translation: "The bag is too expensive. Do you have a smaller one?" },
+            { native: "날씨가 좋아요! 같이 산책할까요?", romanized: "Nalssiga joayo! Gachi sanchaekhalkayo?", translation: "The weather is nice! Shall we take a walk together?" },
+            { native: "이거 맛있어요.", romanized: "Igeo masisseoyo.", translation: "This is delicious." },
+            { type: "dialogue" as const, exchanges: [
+                { native: "가방이 많아요?", romanized: "Gabangi manayo?", translation: "Do you have a lot of bags?" },
+                { native: "아니요, 별로 안 많아요.", romanized: "Aniyo, byeolro an manayo.", translation: "No, not really." },
+            ]},
+        ],
+        inlineVocab: [
+            { word: "좋다 → 좋아요", romanized: "jota → joayo", translation: "good → is good" },
+            { word: "작다 → 작아요", romanized: "jakda → jagayo", translation: "small → is small" },
+            { word: "많다 → 많아요", romanized: "manta → manayo", translation: "a lot / many → is a lot" },
+            { word: "비싸다 → 비싸요", romanized: "bissada → bissayo", translation: "expensive → is expensive" },
+            { word: "너무", romanized: "neomu", translation: "too / excessively (너무 비싸요 = too expensive)" },
+        ],
+    },
+    {
+        id: "ko-g-a1-17b",
+        level: "A1",
+        title: "Irregular adjectives — ㅡ-drop and ㅂ irregular",
+        explanation: `You already have the adjective rule from the last lesson. This lesson is a short, self-contained list of exceptions — two patterns that show up constantly in weather and feelings words. Learn them as fixed chunks, the same way you learned the contractions for verbs.`,
+        ruleIds: ["ko-r-a1-17b-1", "ko-r-a1-17b-2"],
         notes: [
             {
                 type: "tip",
@@ -387,7 +328,7 @@ export const block2Lessons: GrammarLesson[] = [
             },
             {
                 type: "tip",
-                content: "~지만 (but) connects two clauses: 조금 어렵지만 재미있어요 = A little difficult but interesting. This clause connector is explained fully in Block 5.",
+                content: "~지만 (but) connects two clauses: 조금 어렵지만 재미있어요 = A little difficult but interesting. You'll get a full clause-connector lesson in Block 5 — for now just recognize ~지만 as 'but' in the middle of a sentence.",
             },
         ],
         examples: [
@@ -403,17 +344,14 @@ export const block2Lessons: GrammarLesson[] = [
                 { native: "저 카페 어때요?", romanized: "Jeo kape eottaeyo?", translation: "How's that café?" },
                 { native: "분위기가 예뻐요!", romanized: "Bunwigiga yeppeoyo!", translation: "The atmosphere is pretty!" },
             ]},
-            { native: "가방이 너무 비싸요. 작은 거 있어요?", romanized: "Gabangi neomu bissayo. Jageun geo isseoyo?", translation: "The bag is too expensive. Do you have a smaller one?" },
-            { native: "날씨가 좋아요! 같이 산책할까요?", romanized: "Nalssiga joayo! Gachi sanchaekhalkayo?", translation: "The weather is nice! Shall we take a walk together?" },
         ],
         inlineVocab: [
-            { word: "크다 → 커요 / 작다 → 작아요", romanized: "keuda → keoyo / jakda → jagayo", translation: "big → is big / small → is small" },
-            { word: "좋다 → 좋아요 / 나쁘다 → 나빠요", romanized: "jota → joayo / nappeuda → nappayo", translation: "good → is good / bad → is bad (ㅡ drop)" },
+            { word: "크다 → 커요 / 작다 → 작아요", romanized: "keuda → keoyo / jakda → jagayo", translation: "big → is big / small → is small (커요 is ㅡ-drop, 작아요 is regular — contrast pair)" },
+            { word: "나쁘다 → 나빠요 / 예쁘다 → 예뻐요", romanized: "nappeuda → nappayo / yeppeuda → yeppeoyo", translation: "bad → is bad / pretty → is pretty (ㅡ drop)" },
             { word: "덥다 → 더워요 / 춥다 → 추워요", romanized: "deodda → deowoyo / chupda → chuwoyo", translation: "hot → is hot / cold → is cold (ㅂ irregular)" },
             { word: "어렵다 → 어려워요 / 재미있어요", romanized: "eoryeopda → eoryeowoyo / jaemiisseoyo", translation: "difficult → is difficult / is interesting/fun" },
             { word: "분위기", romanized: "bunwigi", translation: "atmosphere / vibe" },
-            { word: "~지만", romanized: "~jiman", translation: "but (first clause connector — fully explained in Block 5)" },
-            { word: "너무", romanized: "neomu", translation: "too / excessively (너무 비싸요 = too expensive)" },
+            { word: "~지만", romanized: "~jiman", translation: "but (first clause connector — full lesson in Block 5)" },
         ],
     },
 ]

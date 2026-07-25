@@ -6,23 +6,7 @@ export const block4Lessons: GrammarLesson[] = [
         level: "A1",
         title: "에 vs 에서 fully explained — destination/existence vs action location",
         explanation: `에 and 에서 have been in your sentences since Block 2. Here is the complete rule: 에 marks destinations and static locations; 에서 marks where actions take place. A third use of 에서 — meaning "from" — covers the direction away from a place.`,
-        rules: [
-            {
-                condition: "Destination (moving toward) or static existence (있다/없다)",
-                result: "에",
-                examples: [{ native: "학교에 가요", romanized: "hakgyoe gayo", translation: "I go to school.", annotation: "destination — 에"}, { native: "집에 있어요", romanized: "jibe isseoyo", translation: "I'm at home.", annotation: "static existence — 에"}, { native: "서울에 살아요", romanized: "seoure sarayo", translation: "I live in Seoul.", annotation: "static location with 살다 — 에"}],
-            },
-            {
-                condition: "Location where an action takes place",
-                result: "에서",
-                examples: [{ native: "학교에서 공부해요", romanized: "hakgyoeseo gongbuhaeyo", translation: "I study at school.", annotation: "action location — 에서"}, { native: "집에서 요리해요", romanized: "jibeseo yorihaeyo", translation: "I cook at home.", annotation: "action location — 에서"}, { native: "카페에서 친구를 만나요", romanized: "kapeeseo chingureul mannayo", translation: "I meet a friend at the café.", annotation: "action location — 에서"}],
-            },
-            {
-                condition: "Origin — coming FROM a place",
-                result: "에서 (with movement verb pointing away)",
-                examples: [{ native: "어디에서 왔어요?", romanized: "eodieseo wasseoyo?", translation: "Where did you come from?", annotation: "에서 = origin"}, { native: "집에서 나왔어요", romanized: "jibeseo nawasseoyo", translation: "I came out from home.", annotation: "에서 = origin/from"}, { native: "영국에서 왔어요", romanized: "yeonggugeso wasseoyo", translation: "I came from the UK.", annotation: "에서 = from"}],
-            },
-        ],
+        ruleIds: ["ko-r-a1-16-1", "ko-r-a1-16-2", "ko-r-a1-30-2", "ko-r-a1-30-3"],
         notes: [
             {
                 type: "tip",
@@ -56,23 +40,7 @@ export const block4Lessons: GrammarLesson[] = [
         level: "A1",
         title: "Transport vocabulary: 타다/걷다/가다 with particles",
         explanation: `Korean transport uses three core verbs: 타다 (board), 내리다 (get off), 걷다 (walk). The particle (으)로 marks the means of transport — the "by" of how you travel.`,
-        rules: [
-            {
-                condition: "Means of transport (by/via)",
-                result: "(으)로 — 로 after vowel or ㄹ, 으로 after consonant",
-                examples: [{ native: "지하철로 가요", romanized: "jihacheolro gayo", translation: "I go by subway.", annotation: "지하철 ends in ㄹ → 로"}, { native: "버스로 가요", romanized: "beoseuro gayo", translation: "I go by bus.", annotation: "버스 ends in vowel → 로"}, { native: "택시로 가요", romanized: "taeksiro gayo", translation: "I go by taxi.", annotation: "택시 ends in vowel → 로"}],
-            },
-            {
-                condition: "Boarding a vehicle",
-                result: "[vehicle]을/를 타요",
-                examples: [{ native: "지하철을 타요", romanized: "jihacheoleul tayo", translation: "I ride the subway.", annotation: "을/를 + 타다 = board a vehicle"}, { native: "버스를 타요", romanized: "beoseureul tayo", translation: "I ride the bus" }, { native: "택시를 타요", romanized: "taeksireul tayo", translation: "I take a taxi" }],
-            },
-            {
-                condition: "Going on foot",
-                result: "걸어서 가요",
-                examples: [{ native: "걸어서 가요", romanized: "georeoseo gayo", translation: "I go on foot / I walk there" }, { native: "걸어서 10분이에요", romanized: "georeoseo sip bunieyo", translation: "It's 10 minutes on foot" }, { native: "가까워서 걸어서 가요", romanized: "gakkaweoseo georeoseo gayo", translation: "It's close so I walk there" }],
-            },
-        ],
+        ruleIds: ["ko-r-a1-31-1", "ko-r-a1-31-2", "ko-r-a1-31-3"],
         notes: [
             {
                 type: "tip",
@@ -111,18 +79,7 @@ export const block4Lessons: GrammarLesson[] = [
         level: "A1",
         title: "Native Korean numbers in context: counters 개/명/잔/그릇",
         explanation: `Native Korean numbers pair with most everyday counters for people, objects, and drinks. Before a counter, the first four numbers change form: 하나/둘/셋/넷 → 한/두/세/네.`,
-        rules: [
-            {
-                condition: "하나/둘/셋/넷 before a counter",
-                result: "Shorten to 한/두/세/네",
-                examples: [{ native: "한 잔", romanized: "han jan", translation: "one cup/glass.", annotation: "하나 → 한 before counter"}, { native: "두 명", romanized: "du myeong", translation: "two people.", annotation: "둘 → 두 before counter"}, { native: "세 개", romanized: "se gae", translation: "three items.", annotation: "셋 → 세 before counter"}, { native: "네 그릇", romanized: "ne geureut", translation: "four bowls.", annotation: "넷 → 네 before counter"}],
-            },
-            {
-                condition: "다섯 and above before a counter",
-                result: "No change",
-                examples: [{ native: "다섯 잔", romanized: "daseot jan", translation: "five cups.", annotation: "다섯 — no change before counter"}, { native: "여섯 개", romanized: "yeoseot gae", translation: "six items.", annotation: "여섯 — no change before counter"}, { native: "일곱 명", romanized: "ilgop myeong", translation: "seven people.", annotation: "일곱 — no change before counter"}],
-            },
-        ],
+        ruleIds: ["ko-r-a1-32-1", "ko-r-a1-32-2"],
         notes: [
             {
                 type: "tip",
@@ -160,18 +117,7 @@ export const block4Lessons: GrammarLesson[] = [
         level: "A1",
         title: "Sino-Korean numbers for money + 원; reading prices",
         explanation: `Sino-Korean numbers handle all prices in Korean. The system is fully regular — you already know 일 through 십. Now add 백 (100), 천 (1,000), and 만 (10,000).`,
-        rules: [
-            {
-                condition: "Hundreds, thousands, ten-thousands",
-                result: "백(100) · 천(1,000) · 만(10,000)",
-                examples: [{ native: "오백 원 (₩500)", romanized: "obaek won", translation: "500 won.", annotation: "오 × 백"}, { native: "삼천 원 (₩3,000)", romanized: "samcheon won", translation: "3,000 won.", annotation: "삼 × 천"}, { native: "만 원 (₩10,000)", romanized: "man won", translation: "10,000 won.", annotation: "만 = ten thousand — Korean base unit"}],
-            },
-            {
-                condition: "Numbers above 10,000 (Korean units of 만)",
-                result: "Stack: [만단위] + 만 + [천/백/십/일]",
-                examples: [{ native: "만 오천 (15,000)", romanized: "man ocheon", translation: "15,000.", annotation: "만 + 오천"}, { native: "이만 삼천 (23,000)", romanized: "iman samcheon", translation: "23,000.", annotation: "이만 + 삼천 — two units of 만"}, { native: "오십만 (500,000)", romanized: "osiman", translation: "500,000.", annotation: "오십 × 만"}],
-            },
-        ],
+        ruleIds: ["ko-r-a1-33-1", "ko-r-a1-33-2"],
         notes: [
             {
                 type: "tip",
@@ -214,18 +160,7 @@ export const block4Lessons: GrammarLesson[] = [
         level: "A1",
         title: "Polite instruction ~(으)세요 (please do / do this)",
         explanation: `~(으)세요 is the polite instruction/invitation form. You have been hearing it throughout the course — in directions (직진하세요), at restaurants (앉으세요), and requests (기다리세요).`,
-        rules: [
-            {
-                condition: "Verb stem ends in vowel or ㄹ",
-                result: "~세요",
-                examples: [{ native: "가세요", romanized: "gaseyo", translation: "please go.", annotation: "가 ends in vowel → 세요"}, { native: "오세요", romanized: "oseyo", translation: "please come.", annotation: "오 ends in vowel → 세요"}, { native: "보세요", romanized: "boseyo", translation: "please look / please watch.", annotation: "보 ends in vowel → 세요"}, { native: "주세요", romanized: "juseyo", translation: "please give me.", annotation: "주다 → 주세요 — the most-used 세요 form"}],
-            },
-            {
-                condition: "Verb stem ends in consonant",
-                result: "~으세요",
-                examples: [{ native: "앉으세요", romanized: "anjeuseyo", translation: "please sit down.", annotation: "앉 ends in consonant → 으세요"}, { native: "읽으세요", romanized: "ilgeuseyo", translation: "please read.", annotation: "읽 ends in consonant → 으세요"}, { native: "기다리세요", romanized: "gidarieseyo", translation: "please wait.", annotation: "기다리 ends in vowel → 세요"}],
-            },
-        ],
+        ruleIds: ["ko-r-a1-34-1", "ko-r-a1-34-2"],
         notes: [
             {
                 type: "tip",
@@ -264,13 +199,7 @@ export const block4Lessons: GrammarLesson[] = [
         level: "A1",
         title: "~아/어 주세요 (please do this for me) + the 해요체 register payoff",
         explanation: `~아/어 주세요 asks someone to do something for you. You have been using it since the restaurant unit (주세요, 기다려 주세요) — here is the full pattern.`,
-        rules: [
-            {
-                condition: "Forming ~아/어 주세요",
-                result: "Present tense form (without 요) + 주세요",
-                examples: [{ native: "말해 주세요 (from 말해요)", romanized: "malhae juseyo", translation: "please say / please speak.", annotation: "말해요 → 말해 + 주세요"}, { native: "기다려 주세요 (from 기다려요)", romanized: "gidaryeo juseyo", translation: "please wait for me.", annotation: "기다려요 → 기다려 + 주세요"}, { native: "열어 주세요 (from 열어요)", romanized: "yeoreo juseyo", translation: "please open.", annotation: "열어요 → 열어 + 주세요"}],
-            },
-        ],
+        ruleIds: ["ko-r-a1-35-1"],
         notes: [
             {
                 type: "culture",
@@ -310,18 +239,7 @@ export const block4Lessons: GrammarLesson[] = [
         level: "A1",
         title: "~(으)ㄹ까요? — suggestion/question form (Shall we? What do you think?)",
         explanation: `~(으)ㄹ까요? suggests doing something together or wonders aloud. It was already in your ear — in dialogues: 뭐 먹을까요?, 갈까요?`,
-        rules: [
-            {
-                condition: "Verb stem ends in vowel or ㄹ",
-                result: "~ㄹ까요?",
-                examples: [{ native: "갈까요?", romanized: "galkkayo?", translation: "Shall we go?", annotation: "가 ends in vowel: 가 + ㄹ까요"}, { native: "볼까요?", romanized: "bolkkayo?", translation: "Shall we watch?", annotation: "보 ends in vowel: 보 + ㄹ까요"}, { native: "만날까요?", romanized: "mannalkkayo?", translation: "Shall we meet?", annotation: "만나 ends in vowel: 만나 + ㄹ까요"}],
-            },
-            {
-                condition: "Verb stem ends in consonant",
-                result: "~을까요?",
-                examples: [{ native: "먹을까요?", romanized: "meogeulkkayo?", translation: "Shall we eat?", annotation: "먹 ends in consonant: 먹 + 을까요"}, { native: "앉을까요?", romanized: "anjeulkkayo?", translation: "Shall we sit?", annotation: "앉 ends in consonant: 앉 + 을까요"}, { native: "읽을까요?", romanized: "ilgeulkkayo?", translation: "Shall we read?", annotation: "읽 ends in consonant: 읽 + 을까요"}],
-            },
-        ],
+        ruleIds: ["ko-r-a1-36-1", "ko-r-a1-36-2"],
         notes: [
             {
                 type: "tip",
@@ -369,18 +287,7 @@ export const block4Lessons: GrammarLesson[] = [
         level: "A1",
         title: "~고 싶어요 (I want to...) + ~고 싶어해요 (he/she wants to...)",
         explanation: `~고 싶어요 expresses what you want to do. The stem + 고 is the same clause connector as in Block 5; 싶어요 means "want/feel like." For someone else's desire, use ~고 싶어해요.`,
-        rules: [
-            {
-                condition: "First person desire (I want to)",
-                result: "verb stem + 고 싶어요",
-                examples: [{ native: "가고 싶어요", romanized: "gago sipeoyo", translation: "I want to go.", annotation: "가 + 고 싶어요"}, { native: "먹고 싶어요", romanized: "meokgo sipeoyo", translation: "I want to eat.", annotation: "먹 + 고 싶어요"}, { native: "배우고 싶어요", romanized: "baeugo sipeoyo", translation: "I want to learn.", annotation: "배우 + 고 싶어요"}, { native: "쉬고 싶어요", romanized: "swigo sipeoyo", translation: "I want to rest.", annotation: "쉬 + 고 싶어요"}],
-            },
-            {
-                condition: "Third person desire (he/she wants to)",
-                result: "verb stem + 고 싶어해요",
-                examples: [{ native: "친구가 가고 싶어해요", romanized: "chinguga gago sipeohaeyeo", translation: "My friend wants to go.", annotation: "third person: 싶어해요"}, { native: "동생이 사고 싶어해요", romanized: "dongsaengi sago sipeohaeyeo", translation: "My younger sibling wants to buy it.", annotation: "third person: 싶어해요"}],
-            },
-        ],
+        ruleIds: ["ko-r-a1-37-1", "ko-r-a1-37-2"],
         notes: [
             {
                 type: "tip",
