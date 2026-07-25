@@ -1,6 +1,6 @@
 # language-study — Implementation Plan
 
-*Last updated: April 6, 2026 — v2.5.0 (B1+B2 curriculum complete FR/ES/IT/KO, review tab, bundle split, placement test expansion)*
+*Last updated: July 24, 2026 — v3.0.0 (Supabase Stage 2 live, A1/A2 curriculum redesign complete FR/ES/IT/KO, B1 complete KO/ES/FR/IT, Japanese B1-C1 live, checkpoint architecture, goal transparency cluster)*
 
 ## Context
 
