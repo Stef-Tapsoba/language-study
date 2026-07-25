@@ -1,7 +1,7 @@
 // pages/GrammarLessonPage.tsx — Full grammar lesson detail view
-import { useParams, useSearchParams } from "react-router-dom"
+import { Link, useParams, useSearchParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
-import { getGrammarLesson } from "../data/repo"
+import { getGrammarLesson, getGrammarRule } from "../data/repo"
 import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { NavBar } from "../components/NavBar"
 import { MarkCompleteButton } from "../components/MarkCompleteButton"
@@ -11,7 +11,7 @@ import { VocabTooltip } from "../components/VocabTooltip"
 import { renderInline } from "../utils/renderExplanation"
 import { LocalizedExplanation } from "../components/LocalizedExplanation"
 import { useVocabTooltip } from "../hooks/useVocabTooltip"
-import type { GrammarNote, GrammarConjugationTable, GrammarReferenceTable } from "../types"
+import type { GrammarNote, GrammarConjugationTable, GrammarReferenceTable, GrammarRule } from "../types"
 import { isDialogueExample } from "../types"
 
 function GrammarTable({ heading, table }: Readonly<{ heading: string; table: GrammarConjugationTable }>) {
@@ -135,6 +135,12 @@ export function GrammarLessonPage() {
     const [searchParams] = useSearchParams()
     // When navigated from a UnitPage, returnTo brings the back button back to that unit.
     const grammarBack = searchParams.get("returnTo") ?? `/learn/${langId}/grammar`
+    // This lesson's own full URL (including whatever returnTo it was opened with), so links
+    // that jump away from this lesson (e.g. the "you learned this in" rule callback) can carry
+    // it forward as their own returnTo — the back button chains correctly no matter how many
+    // lessons deep the user follows callbacks.
+    const search = searchParams.toString()
+    const thisLessonUrl = `/learn/${langId}/grammar/${lessonId}${search ? `?${search}` : ""}`
     const language = getLanguage(langId)
     const progress = useProgressStore(s => s.progress)
     const { level: getLevel, completed: getCompleted } = progressHelpers(progress)
@@ -160,6 +166,14 @@ export function GrammarLessonPage() {
     }
 
     const isDone = completed.includes(lesson.id)
+
+    // Rules can be authored inline (unique to this lesson) or referenced by id from a
+    // shared per-level rules pool (reused across lessons — e.g. adjective conjugation
+    // reusing the verb present-tense rule). Referenced rules render after inline ones.
+    const referencedRules = (lesson.ruleIds ?? [])
+        .map(id => getGrammarRule(langId, id))
+        .filter((r): r is GrammarRule => r !== null)
+    const allRules = [...(lesson.rules ?? []), ...referencedRules]
 
     return (
         <div className="min-h-screen bg-surface-app">
@@ -201,27 +215,46 @@ export function GrammarLessonPage() {
                     <ReferenceTable table={lesson.referenceTable} />
                 )}
 
-                {/* Rules */}
-                {lesson.rules && lesson.rules.length > 0 && (
+                {/* Rules — inline (lesson.rules) followed by referenced (lesson.ruleIds, resolved above) */}
+                {allRules.length > 0 && (
                     <div className="bg-surface-card rounded-2xl border border-border-default p-5">
                         <h2 className="text-xs font-semibold uppercase tracking-wide text-text-ter mb-3">Rules</h2>
                         <div className="flex flex-col gap-3">
-                            {lesson.rules.map((rule) => (
-                                <div key={rule.condition} className="bg-surface-elevated rounded-xl p-4">
-                                    <div className="flex items-baseline gap-2 mb-2">
-                                        <span className="text-sm text-text-sec flex-1">{rule.condition}</span>
-                                        <span className="text-sm font-bold text-grammar shrink-0">{rule.result}</span>
+                            {allRules.map((rule, i) => {
+                                const fromLesson = rule.lessonId && rule.lessonId !== lesson.id
+                                    ? getGrammarLesson(langId, rule.lessonId)
+                                    : null
+                                return (
+                                    <div key={rule.id ?? `${rule.condition}-${i}`} className="bg-surface-elevated rounded-xl p-4">
+                                        {fromLesson && (
+                                            <Link
+                                                to={`/learn/${langId}/grammar/${fromLesson.id}?returnTo=${encodeURIComponent(thisLessonUrl)}`}
+                                                className="inline-block text-[11px] font-medium text-grammar opacity-70 hover:opacity-100 hover:underline mb-1.5"
+                                            >
+                                                ↩ You learned this in "{fromLesson.title}"
+                                            </Link>
+                                        )}
+                                        <div className="flex items-baseline gap-2 mb-2">
+                                            <span className="text-sm text-text-sec flex-1">{rule.condition}</span>
+                                            <span className="text-sm font-bold text-grammar shrink-0">{rule.result}</span>
+                                        </div>
+                                        {rule.heuristic && (
+                                            <p className="text-xs font-mono text-text-sec bg-surface-app rounded-lg px-3 py-1.5 mb-2">{rule.heuristic}</p>
+                                        )}
+                                        <div className="flex flex-wrap gap-1.5">
+                                            {rule.examples.map((ex) => (
+                                                <div key={ex.native} className="text-xs bg-grammar-surface text-grammar px-2.5 py-1.5 rounded-lg">
+                                                    <p className="font-medium">{ex.native}</p>
+                                                    {ex.romanized && (
+                                                        <p className="text-grammar opacity-70 mt-0.5">{ex.romanized}</p>
+                                                    )}
+                                                    <p className="text-grammar opacity-70 mt-0.5">{ex.translation}</p>
+                                                </div>
+                                            ))}
+                                        </div>
                                     </div>
-                                    {rule.heuristic && (
-                                        <p className="text-xs font-mono text-text-sec bg-surface-app rounded-lg px-3 py-1.5 mb-2">{rule.heuristic}</p>
-                                    )}
-                                    <div className="flex flex-wrap gap-1.5">
-                                        {rule.examples.map((ex) => (
-                                            <span key={ex.native} className="text-xs bg-grammar-surface text-grammar px-2 py-1 rounded-lg font-medium">{ex.native}</span>
-                                        ))}
-                                    </div>
-                                </div>
-                            ))}
+                                )
+                            })}
                         </div>
                     </div>
                 )}

@@ -15,6 +15,7 @@ import { createLanguageModule } from "../moduleFactory"
 import { a1Grammar } from "./grammar/a1"
 import { a2Grammar } from "./grammar/a2"
 import { b1Grammar } from "./grammar/b1"
+import { koreanA1Rules } from "./rules/a1"
 import { a1Vocab } from "./vocab/a1"
 import { a2Vocab } from "./vocab/a2"
 import { b1Vocab } from "./vocab/b1"
@@ -50,6 +51,7 @@ import { b1Checkpoints } from "./checkpoints/b1"
 export default createLanguageModule({
     langId: "ko",
     grammar: [a1Grammar, a2Grammar, b1Grammar],
+    rules: [koreanA1Rules],
     vocab: [a1Vocab, a2Vocab, b1Vocab],
     verbs: [a1Verbs, a2Verbs, b1Verbs],
     units: [a1Units, a2Units, b1Units],

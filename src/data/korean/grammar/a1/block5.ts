@@ -6,23 +6,7 @@ export const block5Lessons: GrammarLesson[] = [
         level: "A1",
         title: "Future ~(으)ㄹ 거예요 — plans and predictions",
         explanation: `~(으)ㄹ 거예요 covers both plans and predictions. The formation follows the same vowel/consonant split as other endings — after a vowel or ㄹ, add ㄹ 거예요; after a consonant, add 을 거예요.`,
-        rules: [
-            {
-                condition: "Verb stem ends in vowel or ㄹ",
-                result: "~ㄹ 거예요",
-                examples: [{ native: "갈 거예요 (가다)", romanized: "gal geoyeyo", translation: "going to go.", annotation: "가 ends in vowel: 가 + ㄹ 거예요"}, { native: "볼 거예요 (보다)", romanized: "bol geoyeyo", translation: "going to watch/see.", annotation: "보 ends in vowel: 보 + ㄹ 거예요"}, { native: "만날 거예요 (만나다)", romanized: "mannal geoyeyo", translation: "going to meet.", annotation: "만나 ends in vowel: 만나 + ㄹ 거예요"}],
-            },
-            {
-                condition: "Verb stem ends in consonant",
-                result: "~을 거예요",
-                examples: [{ native: "먹을 거예요 (먹다)", romanized: "meogeul geoyeyo", translation: "going to eat.", annotation: "먹 ends in consonant: 먹 + 을 거예요"}, { native: "읽을 거예요 (읽다)", romanized: "ilgeul geoyeyo", translation: "going to read.", annotation: "읽 ends in consonant: 읽 + 을 거예요"}, { native: "앉을 거예요 (앉다)", romanized: "anjeul geoyeyo", translation: "going to sit.", annotation: "앉 ends in consonant: 앉 + 을 거예요"}],
-            },
-            {
-                condition: "하다 verbs",
-                result: "~할 거예요",
-                examples: [{ native: "공부할 거예요", romanized: "gongbuhal geoyeyo", translation: "going to study.", annotation: "공부하다 → 할 거예요"}, { native: "운동할 거예요", romanized: "undonghal geoyeyo", translation: "going to exercise.", annotation: "운동하다 → 할 거예요"}, { native: "요리할 거예요", romanized: "yorihal geoyeyo", translation: "going to cook.", annotation: "요리하다 → 할 거예요"}],
-            },
-        ],
+        ruleIds: ["ko-r-a1-38-1", "ko-r-a1-38-2", "ko-r-a1-38-3"],
         notes: [
             {
                 type: "tip",
@@ -63,33 +47,7 @@ export const block5Lessons: GrammarLesson[] = [
         level: "A1",
         title: "Sentence connectors: 그리고, 하지만, 그래서, 그런데",
         explanation: `Sentence connectors link two complete sentences. They stand between sentences independently — not attached to verbs — just like "and," "but," and "so" in English.`,
-        rules: [
-            {
-                condition: "Adding information or narrating sequence",
-                result: "그리고 (and / and then)",
-                examples: [{ native: "오늘 공부했어요. 그리고 운동도 했어요.", romanized: "Oneul gongbuhaesseoyo. Geurigo undongdo haesseoyo.", translation: "I studied today. And I also exercised." }],
-            },
-            {
-                condition: "Strong contrast",
-                result: "하지만 (but / however)",
-                examples: [{ native: "한국어가 어려워요. 하지만 재미있어요.", romanized: "Hangugeoga eoryeowoyo. Hajiman jaemiisseoyo.", translation: "Korean is difficult. But it's interesting." }],
-            },
-            {
-                condition: "Result or consequence",
-                result: "그래서 (so / therefore)",
-                examples: [{ native: "피곤했어요. 그래서 일찍 잤어요.", romanized: "Pigonhaesseoyo. Geuraeseo iljjik jasseoyo.", translation: "I was tired. So I went to bed early." }],
-            },
-            {
-                condition: "Soft contrast or topic shift",
-                result: "그런데 (but / by the way)",
-                examples: [{ native: "오늘 바빠요. 그런데 내일은 괜찮아요.", romanized: "Oneul bappayo. Geureonde naeirun gwaenchanayo.", translation: "I'm busy today. But tomorrow is fine." }],
-            },
-            {
-                condition: "Drawing a logical next step",
-                result: "그러면 / 그럼 (then / in that case)",
-                examples: [{ native: "시간 있어요? 그럼 같이 가요!", romanized: "Sigan isseoyo? Geureum gachi gayo!", translation: "Do you have time? Then let's go together!" }],
-            },
-        ],
+        ruleIds: ["ko-r-a1-39-1", "ko-r-a1-39-2", "ko-r-a1-39-3", "ko-r-a1-39-4", "ko-r-a1-39-5"],
         notes: [
             {
                 type: "tip",
@@ -120,23 +78,7 @@ export const block5Lessons: GrammarLesson[] = [
         level: "A1",
         title: "Clause connectors: ~고 (and/then), ~지만 (but), ~아서/어서 (because/so)",
         explanation: `Clause connectors attach directly to verb stems and join two clauses into one sentence — unlike sentence connectors which stand between complete sentences.`,
-        rules: [
-            {
-                condition: "~고 (and / and then) — no vowel harmony",
-                result: "verb stem + 고",
-                examples: [{ native: "먹고 가요", romanized: "meokgo gayo", translation: "eat and then go.", annotation: "먹 + 고"}, { native: "아침을 먹고 학교에 가요", romanized: "achimeul meokgo hakgyoe gayo", translation: "I eat breakfast and then go to school" }, { native: "커피를 마시고 공부해요", romanized: "keopireul masigo gongbuhaeyo", translation: "I drink coffee and then study" }],
-            },
-            {
-                condition: "~지만 (but) — no vowel harmony",
-                result: "verb/adjective stem + 지만",
-                examples: [{ native: "어렵지만 재미있어요", romanized: "eoryeopjiman jaemiisseoyo", translation: "difficult but interesting.", annotation: "어렵 + 지만"}, { native: "한국어를 좋아하지만 어려워요", romanized: "hangugeoreul joahajiman eoryeowoyo", translation: "I like Korean but it's difficult" }, { native: "맛있지만 너무 매워요", romanized: "masissejiman neomu maeweoyo", translation: "It's delicious but too spicy" }],
-            },
-            {
-                condition: "~아서/어서 (because/so) — same vowel harmony as present tense",
-                result: "ㅏ/ㅗ stems → 아서, others → 어서, 하다 → 해서",
-                examples: [{ native: "바빠서 못 갔어요", romanized: "bappaseo mot gasseoyo", translation: "I was busy so I couldn't go.", annotation: "바쁘 → 바빠서"}, { native: "맛있어서 많이 먹었어요", romanized: "masisseo manhi meogeosseoyo", translation: "It was delicious so I ate a lot.", annotation: "맛있 → 맛있어서"}, { native: "피곤해서 일찍 잤어요", romanized: "pigonhaeseo iljjik jasseoyo", translation: "I was tired so I went to bed early.", annotation: "피곤하 → 피곤해서"}],
-            },
-        ],
+        ruleIds: ["ko-r-a1-40-1", "ko-r-a1-40-2", "ko-r-a1-40-3"],
         notes: [
             {
                 type: "warning",
@@ -171,18 +113,7 @@ export const block5Lessons: GrammarLesson[] = [
         level: "A1",
         title: "Conditional ~(으)면 — if/when: vowel/ㄹ → 면, consonant → 으면",
         explanation: `~(으)면 expresses conditions and hypotheticals. It is one of the simpler patterns in Korean — no vowel harmony on the connector itself. After a vowel or ㄹ: 면. After a consonant: 으면.`,
-        rules: [
-            {
-                condition: "Verb stem ends in vowel or ㄹ",
-                result: "~면",
-                examples: [{ native: "가면 (if you go)", romanized: "gamyeon", translation: "if you go.", annotation: "가 ends in vowel: 가 + 면"}, { native: "오면 (if you come)", romanized: "omyeon", translation: "if you come.", annotation: "오 ends in vowel: 오 + 면"}, { native: "하면 (if you do)", romanized: "hamyeon", translation: "if you do.", annotation: "하 ends in vowel: 하 + 면"}],
-            },
-            {
-                condition: "Verb stem ends in consonant",
-                result: "~으면",
-                examples: [{ native: "먹으면 (if you eat)", romanized: "meogeumyeon", translation: "if you eat.", annotation: "먹 ends in consonant: 먹 + 으면"}, { native: "있으면 (if there is)", romanized: "isseuomyeon", translation: "if there is / if you have.", annotation: "있 ends in consonant: 있 + 으면"}, { native: "없으면 (if there isn't)", romanized: "eopseuomyeon", translation: "if there isn't / if you don't have.", annotation: "없 ends in consonant: 없 + 으면"}],
-            },
-        ],
+        ruleIds: ["ko-r-a1-41-1", "ko-r-a1-41-2"],
         notes: [
             {
                 type: "tip",

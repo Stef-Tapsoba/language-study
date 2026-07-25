@@ -9,6 +9,7 @@
 import type {
     LanguageModule,
     GrammarLesson,
+    GrammarRule,
     VocabItem,
     Verb,
     LessonUnit,
@@ -24,6 +25,8 @@ import type {
 export interface LanguageModuleSlices {
     langId: string
     grammar: GrammarLesson[][]
+    /** Shared, addressable rule pool(s) — resolved against GrammarLesson.ruleIds. */
+    rules?: GrammarRule[][]
     vocab: VocabItem[][]
     verbs: Verb[][]
     units?: LessonUnit[][]
@@ -45,6 +48,7 @@ export function createLanguageModule(slices: LanguageModuleSlices): LanguageModu
     const { langId } = slices
     return {
         grammar: stamp(slices.grammar.flat(), langId),
+        rules: slices.rules ? stamp(slices.rules.flat(), langId) : undefined,
         vocab: stamp(slices.vocab.flat(), langId),
         verbs: stamp(slices.verbs.flat(), langId),
         units: slices.units?.flat() ?? [],

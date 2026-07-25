@@ -92,6 +92,21 @@ export type GrammarExerciseType = "sentence-scramble" | "dictation" | "script-re
 
 /** A single rule card — condition/result pair with quick examples. */
 export interface GrammarRule {
+    /**
+     * Stable identifier. Required for rules that live in a shared per-level
+     * rules pool (e.g. data/korean/rules/a1.ts) so other lessons can reference
+     * them by id via GrammarLesson.ruleIds. Optional on rules still defined
+     * inline on a single lesson's `rules` array — those have no reuse case.
+     */
+    id?: string
+    /** Language tag — stamped by createLanguageModule() on pool rules, like other content types. */
+    language?: string
+    /**
+     * The lesson this rule was first taught in. Set on pool rules so that when
+     * a different lesson references this rule via ruleIds, the UI can show a
+     * "you learned this in [lessonId]" callback instead of re-teaching it.
+     */
+    lessonId?: string
     condition: string
     result: string
     /**
@@ -171,8 +186,15 @@ export interface GrammarLesson {
     level: CEFRLevel
     title: string
     explanation: string | LocalizedText
-    /** Structured rule cards — replaces markdown tables in explanation. */
+    /** Structured rule cards — replaces markdown tables in explanation. Use for rules unique to this lesson. */
     rules?: GrammarRule[]
+    /**
+     * References to rules defined in a shared per-level rules pool (e.g. data/korean/rules/a1.ts),
+     * resolved at render time. Use this instead of `rules` when a rule is shared across lessons —
+     * e.g. adjective conjugation reusing the same ~아요/어요 rule taught for verbs. Rendered after
+     * any inline `rules`, with a callback to the lesson where the rule was first taught.
+     */
+    ruleIds?: string[]
     /** Short typed callouts: tips, warnings, forward references, culture notes. */
     notes?: GrammarNote[]
     /** Phrases to learn as unanalysed chunks at this lesson's level. */
@@ -530,6 +552,8 @@ export interface Checkpoint {
 // ---------------------------------------------------------------------------
 export interface LanguageModule {
     grammar: GrammarLesson[]
+    /** Shared, addressable rule pool — rules referenced by GrammarLesson.ruleIds resolve against this. */
+    rules?: GrammarRule[]
     vocab: VocabItem[]
     verbs: Verb[]
     units: LessonUnit[]                  // always present — norm() in data/modules.ts defaults to []

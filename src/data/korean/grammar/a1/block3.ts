@@ -5,19 +5,8 @@ export const block3Lessons: GrammarLesson[] = [
         id: "ko-g-a1-20",
         level: "A1",
         title: "Time Particle 에: hours, days, and time words",
-        explanation: `에 marks specific points in time, just as it marks locations. Attach 에 to any named time expression — parts of the day, days of the week, clock times.`,
-        rules: [
-            {
-                condition: "Specific time (clock, day, part of day)",
-                result: "time word + 에",
-                examples: [{ native: "아침에", romanized: "achime", translation: "in the morning.", annotation: "specific time → 에"}, { native: "월요일에", romanized: "woryoire", translation: "on Monday.", annotation: "named day → 에"}, { native: "여섯 시에", romanized: "yeoseot sie", translation: "at six o'clock.", annotation: "specific clock time → 에"}, { native: "주말에", romanized: "jumare", translation: "on the weekend.", annotation: "named period → 에"}],
-            },
-            {
-                condition: "Relative time reference (today, now, every day)",
-                result: "no 에",
-                examples: [{ native: "오늘", romanized: "oneul", translation: "today.", annotation: "relative — no 에"}, { native: "매일", romanized: "maeil", translation: "every day.", annotation: "relative — no 에"}, { native: "지금", romanized: "jigeum", translation: "now.", annotation: "relative — no 에"}, { native: "어제", romanized: "eoje", translation: "yesterday.", annotation: "relative — no 에"}, { native: "내일", romanized: "naeil", translation: "tomorrow.", annotation: "relative — no 에"}],
-            },
-        ],
+        explanation: `You already met this rule in Block 2: 에 marks specific points in time, just as it marks locations, while relative time words stand alone. Here it is with the full set of time words — days, clock times, and more.`,
+        ruleIds: ["ko-r-a1-20-1", "ko-r-a1-20-2"],
         notes: [
             {
                 type: "tip",
@@ -50,23 +39,7 @@ export const block3Lessons: GrammarLesson[] = [
         level: "A1",
         title: "Telling the time: 시 (hour) + 분 (minute), 오전/오후",
         explanation: `Telling the time in Korean uses both number systems in a regular pattern: hours use native Korean numbers, minutes use Sino-Korean numbers.`,
-        rules: [
-            {
-                condition: "Hours (시)",
-                result: "Native Korean numbers + 시",
-                examples: [{ native: "한 시 (1:00)", romanized: "han si", translation: "one o'clock.", annotation: "native Korean 하나 → 한 before 시"}, { native: "세 시 (3:00)", romanized: "se si", translation: "three o'clock.", annotation: "native Korean 셋 → 세 before 시"}, { native: "열두 시 (12:00)", romanized: "yeoldu si", translation: "twelve o'clock / noon or midnight.", annotation: "열 + 둘 → 두"}],
-            },
-            {
-                condition: "Minutes (분)",
-                result: "Sino-Korean numbers + 분",
-                examples: [{ native: "십 분 (10 min)", romanized: "sip bun", translation: "ten minutes.", annotation: "Sino-Korean 십"}, { native: "삼십 분 (30 min)", romanized: "samsip bun", translation: "thirty minutes.", annotation: "Sino-Korean 삼십"}, { native: "오십오 분 (55 min)", romanized: "osibo bun", translation: "fifty-five minutes.", annotation: "Sino-Korean 오십오"}],
-            },
-            {
-                condition: "Half past",
-                result: "[hour] + 시 반",
-                examples: [{ native: "세 시 반 (3:30)", romanized: "se si ban", translation: "three thirty / half past three.", annotation: "시 반 = o'clock half"}, { native: "열 시 반 (10:30)", romanized: "yeol si ban", translation: "ten thirty / half past ten" }],
-            },
-        ],
+        ruleIds: ["ko-r-a1-21-1", "ko-r-a1-21-2", "ko-r-a1-21-3"],
         notes: [
             {
                 type: "tip",
@@ -108,18 +81,7 @@ export const block3Lessons: GrammarLesson[] = [
         level: "A1",
         title: "Negation with 안 (simple negation before verb or adjective)",
         explanation: `안 is the straightforward negation word — it means 'don't' or 'not,' and sits directly before the verb or adjective. One exception applies to 하다 compound verbs.`,
-        rules: [
-            {
-                condition: "Most verbs and adjectives",
-                result: "안 + verb/adjective",
-                examples: [{ native: "안 가요", romanized: "an gayo", translation: "don't go / not going" }, { native: "안 먹어요", romanized: "an meogeoyo", translation: "don't eat" }, { native: "안 좋아요", romanized: "an joayo", translation: "not good" }, { native: "안 비싸요", romanized: "an bissayo", translation: "not expensive" }],
-            },
-            {
-                condition: "하다 compound verbs (noun + 하다)",
-                result: "noun + 안 + 해요",
-                examples: [{ native: "공부 안 해요", romanized: "gongbu an haeyo", translation: "don't study.", annotation: "안 goes between 공부 and 해요"}, { native: "운동 안 해요", romanized: "undong an haeyo", translation: "don't exercise.", annotation: "하다 compound — 안 between noun and 해요"}, { native: "요리 안 해요", romanized: "yori an haeyo", translation: "don't cook.", annotation: "하다 compound — 안 between noun and 해요"}],
-            },
-        ],
+        ruleIds: ["ko-r-a1-22-1", "ko-r-a1-22-2"],
         notes: [
             {
                 type: "warning",
@@ -153,18 +115,7 @@ export const block3Lessons: GrammarLesson[] = [
         level: "A1",
         title: "못 (inability negation) + 하다 verbs: 안 해요 vs 못 해요",
         explanation: `Korean has two negation words: 안 for choice or absence, 못 for inability. The position rules are identical — 못 sits directly before the verb, or between noun and 하다 for compound verbs.`,
-        rules: [
-            {
-                condition: "Most verbs",
-                result: "못 + verb",
-                examples: [{ native: "못 가요", romanized: "mot gayo", translation: "can't go" }, { native: "못 자요", romanized: "mot jayo", translation: "can't sleep" }, { native: "못 봐요", romanized: "mot bwayo", translation: "can't see / can't watch" }, { native: "못 먹어요", romanized: "mot meogeoyo", translation: "can't eat" }],
-            },
-            {
-                condition: "하다 compound verbs",
-                result: "noun + 못 + 해요",
-                examples: [{ native: "운동 못 해요", romanized: "undong mot haeyo", translation: "can't exercise.", annotation: "하다 compound — 못 between noun and 해요"}, { native: "공부 못 해요", romanized: "gongbu mot haeyo", translation: "can't study.", annotation: "하다 compound"}, { native: "요리 못 해요", romanized: "yori mot haeyo", translation: "can't cook.", annotation: "하다 compound"}],
-            },
-        ],
+        ruleIds: ["ko-r-a1-23-1", "ko-r-a1-23-2"],
         notes: [
             {
                 type: "warning",
@@ -234,18 +185,7 @@ export const block3Lessons: GrammarLesson[] = [
         level: "A1",
         title: "누구 → 누가 rule; question intonation vs statement",
         explanation: `누구 (who) changes to 누가 when 'who' is the grammatical subject — 누구 + the subject particle 가 fuse into a single word. In other positions, 누구 stays unchanged.`,
-        rules: [
-            {
-                condition: "Who as subject (doing the action)",
-                result: "누가",
-                examples: [{ native: "누가 왔어요?", romanized: "nuga wasseoyo?", translation: "Who came?", annotation: "누구 + 가 fused — subject"}, { native: "누가 전화했어요?", romanized: "nuga jeonhwahaesseoyo?", translation: "Who called?", annotation: "누가 = who as subject"}, { native: "누가 만들었어요?", romanized: "nuga mandeureoosseoyo?", translation: "Who made it?", annotation: "누가 = who as subject"}],
-            },
-            {
-                condition: "Who in other positions (after 은/는, 랑, 한테 etc.)",
-                result: "누구",
-                examples: [{ native: "이 사람은 누구예요?", romanized: "i sarameun nugueyeo?", translation: "Who is this person?", annotation: "누구 as complement — not subject"}, { native: "누구랑 갔어요?", romanized: "nugurang gasseoyo?", translation: "Who did you go with?", annotation: "누구 + 랑 = with who"}, { native: "누구한테 줬어요?", romanized: "nuguhante jwosseoyo?", translation: "Who did you give it to?", annotation: "누구 + 한테 = to who"}],
-            },
-        ],
+        ruleIds: ["ko-r-a1-25-1", "ko-r-a1-25-2"],
         notes: [
             {
                 type: "tip",
@@ -282,18 +222,7 @@ export const block3Lessons: GrammarLesson[] = [
         level: "A1",
         title: "Positive frequency adverbs: 항상, 자주, 가끔, 별로 안, 거의 안",
         explanation: `Korean has a clean frequency scale from always down to never. The top end (항상, 자주, 가끔) pairs naturally with positive verbs. The bottom end (별로, 거의) carries built-in negative meaning and requires 안 or 못.`,
-        rules: [
-            {
-                condition: "항상/늘 → 자주 → 가끔 (positive adverbs)",
-                result: "Place before verb — no special rules",
-                examples: [{ native: "항상 아침을 먹어요", romanized: "hangsang achimeul meogeoyo", translation: "I always eat breakfast" }, { native: "자주 카페에 가요", romanized: "jaju kapee gayo", translation: "I often go to a café" }, { native: "가끔 한국 영화를 봐요", romanized: "gakkeum hanguk yeonghwareul bwayo", translation: "I sometimes watch Korean films" }],
-            },
-            {
-                condition: "별로 · 거의 · 절대로 (inherently negative adverbs)",
-                result: "Must pair with 안 or 못",
-                examples: [{ native: "별로 안 해요", romanized: "byeolro an haeyo", translation: "don't really do it.", annotation: "별로 requires 안"}, { native: "거의 안 가요", romanized: "geoui an gayo", translation: "hardly ever go.", annotation: "거의 requires 안"}, { native: "절대로 안 해요", romanized: "jeoldaero an haeyo", translation: "never do it.", annotation: "절대로 requires 안"}],
-            },
-        ],
+        ruleIds: ["ko-r-a1-26-1", "ko-r-a1-26-2"],
         notes: [
             {
                 type: "warning",
@@ -324,13 +253,7 @@ export const block3Lessons: GrammarLesson[] = [
         level: "A1",
         title: "절대로 안/못 (never) + adverbs that require a negative verb",
         explanation: `절대로 is the strongest frequency adverb — 'never' or 'absolutely not.' Like 별로 and 거의, its inherently negative meaning requires the verb to also be negative.`,
-        rules: [
-            {
-                condition: "절대로 (never / absolutely not)",
-                result: "절대로 + 안/못 + verb",
-                examples: [{ native: "절대로 안 해요", romanized: "jeoldaero an haeyo", translation: "I absolutely never do it.", annotation: "requires 안"}, { native: "절대로 못 가요", romanized: "jeoldaero mot gayo", translation: "there is absolutely no way I can go.", annotation: "requires 못"}, { native: "절대로 안 잊을게요", romanized: "jeoldaero an ijeulgeyo", translation: "I will absolutely never forget" }],
-            },
-        ],
+        ruleIds: ["ko-r-a1-27-1"],
         notes: [
             {
                 type: "warning",
@@ -365,23 +288,7 @@ export const block3Lessons: GrammarLesson[] = [
         level: "A1",
         title: "Past tense ~았어요/었어요 — discovering the pattern",
         explanation: `Past tense uses the same vowel harmony rule as present tense — the only change is adding 았/었 before 어요. If you know the present tense, you already know the rule.`,
-        rules: [
-            {
-                condition: "Stem last vowel is ㅏ or ㅗ (same as ~아요 verbs)",
-                result: "~았어요",
-                examples: [{ native: "가다 → 갔어요", romanized: "gada → gasseoyo", translation: "to go / went.", annotation: "ㅏ stem: 가 + 았어요 → 갔어요"}, { native: "보다 → 봤어요", romanized: "boda → bwasseoyo", translation: "to see / saw.", annotation: "ㅗ stem: 보 + 았어요 → 봤어요"}, { native: "좋다 → 좋았어요", romanized: "jota → joasseoyo", translation: "good / was good.", annotation: "ㅗ stem: 좋 + 았어요"}],
-            },
-            {
-                condition: "Stem has any other vowel (same as ~어요 verbs)",
-                result: "~었어요",
-                examples: [{ native: "먹다 → 먹었어요", romanized: "meokda → meogeosseoyo", translation: "to eat / ate.", annotation: "other vowel: 먹 + 었어요"}, { native: "마시다 → 마셨어요", romanized: "masida → masyeosseoyo", translation: "to drink / drank.", annotation: "other vowel: 마시 + 었어요 → 마셨어요"}, { native: "오다 → 왔어요", romanized: "oda → wasseoyo", translation: "to come / came.", annotation: "special: 오 + 았어요 → 왔어요"}],
-            },
-            {
-                condition: "하다 verbs",
-                result: "~했어요 (always)",
-                examples: [{ native: "공부했어요", romanized: "gongbuhaesseoyo", translation: "studied.", annotation: "공부하다 → 했어요"}, { native: "운동했어요", romanized: "undonghaesseoyo", translation: "exercised.", annotation: "운동하다 → 했어요"}, { native: "일했어요", romanized: "ilhaesseoyo", translation: "worked.", annotation: "일하다 → 했어요"}],
-            },
-        ],
+        ruleIds: ["ko-r-a1-28-1", "ko-r-a1-28-2", "ko-r-a1-28-3"],
         notes: [
             {
                 type: "tip",
@@ -422,23 +329,7 @@ export const block3Lessons: GrammarLesson[] = [
         level: "A1",
         title: "Past tense irregular patterns + 하다 → 했어요",
         explanation: `The ㅂ-irregular pattern from adjective conjugation applies equally in the past tense. The copula (이에요/예요) also has a past form: 이었어요/였어요.`,
-        rules: [
-            {
-                condition: "ㅂ-irregular adjectives in past tense",
-                result: "Same as present: ㅂ → 워 before vowel, then + 었어요",
-                examples: [{ native: "춥다→추웠어요", romanized: "chupda→chuwosseoyo", translation: "cold / was cold.", annotation: "ㅂ → 워 + 었어요"}, { native: "덥다→더웠어요", romanized: "deodda→deowosseoyo", translation: "hot / was hot.", annotation: "ㅂ → 워 + 었어요"}, { native: "맵다→매웠어요", romanized: "maepda→maewosseoyo", translation: "spicy / was spicy.", annotation: "ㅂ → 워 + 었어요"}, { native: "즐겁다→즐거웠어요", romanized: "jeulgeodda→jeulgeowosseoyo", translation: "enjoyable / was enjoyable.", annotation: "ㅂ → 워 + 었어요"}],
-            },
-            {
-                condition: "Past copula after consonant",
-                result: "이었어요",
-                examples: [{ native: "학생이었어요 (was a student)", romanized: "haksaengieosseoyo", translation: "was a student.", annotation: "학생 ends in consonant → 이었어요"}, { native: "회사원이었어요", romanized: "hoesawonieosseoyo", translation: "was an office worker.", annotation: "회사원 ends in consonant ㄴ → 이었어요"}],
-            },
-            {
-                condition: "Past copula after vowel",
-                result: "였어요",
-                examples: [{ native: "의사였어요 (was a doctor)", romanized: "uisayeosseoyo", translation: "was a doctor.", annotation: "의사 ends in vowel → 였어요"}, { native: "학교였어요", romanized: "hakgyoyeosseoyo", translation: "was a school / it was school.", annotation: "학교 ends in vowel → 였어요"}],
-            },
-        ],
+        ruleIds: ["ko-r-a1-29-1", "ko-r-a1-29-2", "ko-r-a1-29-3"],
         notes: [
             {
                 type: "tip",

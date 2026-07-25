@@ -7,45 +7,7 @@ export const block0Lessons: GrammarLesson[] = [
         title: "Korean writing: syllable blocks and the ten basic vowels",
         exerciseType: "script-reading",
         explanation: `Korean is written in syllable blocks — each block is one spoken beat. Every block has at least two parts: a consonant and a vowel. The vowel's position depends on its shape: vertical vowels go to the right of the consonant; horizontal vowels go below it. When a syllable starts with a vowel sound, ㅇ acts as a silent placeholder. Stroke order follows two rules: top to bottom, left to right.`,
-        rules: [
-            {
-                condition: "Vertical vowels (ㅏ ㅓ ㅣ ㅑ ㅕ)",
-                result: "Go to the RIGHT of the consonant",
-                examples: [
-                    { native: "가", romanized: "ga", translation: "vertical vowel sits right of consonant", annotation: "ㄱ+ㅏ"},
-                    { native: "서", romanized: "seo", translation: "vertical vowel sits right of consonant", annotation: "ㅅ+ㅓ"},
-                    { native: "시", romanized: "si", translation: "vertical vowel sits right of consonant", annotation: "ㅅ+ㅣ"},
-                ],
-            },
-            {
-                condition: "Horizontal vowels (ㅗ ㅜ ㅡ ㅛ ㅠ)",
-                result: "Go BELOW the consonant",
-                examples: [
-                    { native: "고", romanized: "go", translation: "horizontal vowel sits below consonant", annotation: "ㄱ+ㅗ"},
-                    { native: "구", romanized: "gu", translation: "horizontal vowel sits below consonant", annotation: "ㄱ+ㅜ"},
-                    { native: "그", romanized: "geu", translation: "horizontal vowel sits below consonant", annotation: "ㄱ+ㅡ"},
-                ],
-            },
-            {
-                condition: "Syllable begins with a vowel sound",
-                result: "Use ㅇ as silent placeholder",
-                examples: [
-                    { native: "아", romanized: "a", translation: "+ — is silent; syllable sounds like 'a'", annotation: "ㅇ / ㅏ / ㅇ"},
-                    { native: "이", romanized: "i", translation: "+ — is silent; syllable sounds like 'i'", annotation: "ㅇ / ㅣ / ㅇ"},
-                    { native: "오", romanized: "o", translation: "+ — is silent; syllable sounds like 'o'", annotation: "ㅇ / ㅗ / ㅇ"},
-                ],
-            },
-            {
-                condition: "The four y-vowels (ㅑ ㅕ ㅛ ㅠ)",
-                result: "Each is the plain counterpart with an extra stroke",
-                examples: [
-                    { native: "ㅑ", romanized: "ya", translation: "adds 'y' glide", annotation: "ㅏ with an extra stroke"},
-                    { native: "ㅕ", romanized: "yeo", translation: "adds 'y' glide", annotation: "ㅓ with an extra stroke"},
-                    { native: "ㅛ", romanized: "yo", translation: "adds 'y' glide", annotation: "ㅗ with an extra stroke"},
-                    { native: "ㅠ", romanized: "yu", translation: "adds 'y' glide", annotation: "ㅜ with an extra stroke"},
-                ],
-            },
-        ],
+        ruleIds: ["ko-r-a1-1-1", "ko-r-a1-1-2", "ko-r-a1-1-3", "ko-r-a1-1-4"],
         notes: [
             {
                 type: "tip",
@@ -81,35 +43,7 @@ export const block0Lessons: GrammarLesson[] = [
         title: "The 14 consonants and building Korean syllables",
         exerciseType: "script-reading",
         explanation: `You have vowels — now add consonants and syllable blocks become real words. The 14 basic consonants fall into three groups by how they sound. Consonant + vertical vowel sits side by side (가 나 다…); consonant + horizontal vowel stacks vertically (고 노 도…).`,
-        rules: [
-            {
-                condition: "Easy sounds (close to English)",
-                result: "ㄴ (n) · ㅁ (m) · ㅅ (s) · ㅎ (h)",
-                examples: [
-                    { native: "나", romanized: "na", translation: "See annotation", annotation: "ㄴ / ㅏ"},
-                    { native: "마", romanized: "ma", translation: "See annotation", annotation: "ㅁ / ㅏ"},
-                    { native: "사", romanized: "sa", translation: "See annotation", annotation: "ㅅ / ㅏ"},
-                ],
-            },
-            {
-                condition: "Familiar sounds, unfamiliar shapes",
-                result: "ㄱ (g/k) · ㄷ (d/t) · ㄹ (r/l) · ㅂ (b/p) · ㅈ (j)",
-                examples: [
-                    { native: "가", romanized: "ga", translation: "See annotation", annotation: "ㄱ / ㅏ"},
-                    { native: "다", romanized: "da", translation: "See annotation", annotation: "ㄷ / ㅏ"},
-                    { native: "바", romanized: "ba", translation: "See annotation", annotation: "ㅂ / ㅏ"},
-                ],
-            },
-            {
-                condition: "Aspirated consonants (strong puff of air)",
-                result: "ㅋ (k) · ㅌ (t) · ㅍ (p) · ㅊ (ch)",
-                examples: [
-                    { native: "카", romanized: "ka", translation: "+ — aspirated", annotation: "ㅋ / ㅏ / ㄱ"},
-                    { native: "타", romanized: "ta", translation: "+ — aspirated", annotation: "ㅌ / ㅏ / ㄷ"},
-                    { native: "파", romanized: "pa", translation: "+ — aspirated", annotation: "ㅍ / ㅏ / ㅂ"},
-                ],
-            },
-        ],
+        ruleIds: ["ko-r-a1-2-1", "ko-r-a1-2-2", "ko-r-a1-2-3"],
         notes: [
             {
                 type: "warning",
@@ -146,64 +80,7 @@ export const block0Lessons: GrammarLesson[] = [
         title: "받침 (final consonants), loanwords, and your first Korean phrases",
         exerciseType: "script-reading",
         explanation: `Most syllable blocks have a final consonant at the bottom — called 받침 (batchim). A three-part syllable has an initial consonant, a vowel, and a 받침 at the base. Final consonants are not released — they close the syllable. Only seven distinct sounds are possible as 받침, regardless of which consonant is written.`,
-        rules: [
-            {
-                condition: "받침 sound: k",
-                result: "Written ㄱ (also ㄲ, ㅋ)",
-                examples: [
-                    { native: "국", romanized: "guk", translation: "soup.", annotation: "ㄱ받침"},
-                    { native: "역", romanized: "yeok", translation: "station.", annotation: "ㄱ받침"},
-                ],
-            },
-            {
-                condition: "받침 sound: n",
-                result: "Written ㄴ",
-                examples: [
-                    { native: "한", romanized: "han", translation: "See annotation", annotation: "ㄴ받침"},
-                    { native: "산", romanized: "san", translation: "mountain.", annotation: "ㄴ받침"},
-                ],
-            },
-            {
-                condition: "받침 sound: t",
-                result: "Written ㄷ, ㅅ, ㅆ, ㅈ, ㅊ, ㅌ, ㅎ",
-                examples: [
-                    { native: "옷", romanized: "ot", translation: "clothes.", annotation: "ㅅ받침 sounds like t"},
-                    { native: "꽃", romanized: "kkot", translation: "flower.", annotation: "ㅊ받침 sounds like t"},
-                ],
-            },
-            {
-                condition: "받침 sound: l",
-                result: "Written ㄹ",
-                examples: [
-                    { native: "글", romanized: "geul", translation: "writing.", annotation: "ㄹ받침"},
-                    { native: "말", romanized: "mal", translation: "speech/language.", annotation: "ㄹ받침"},
-                ],
-            },
-            {
-                condition: "받침 sound: m",
-                result: "Written ㅁ",
-                examples: [
-                    { native: "봄", romanized: "bom", translation: "spring.", annotation: "ㅁ받침"},
-                    { native: "밤", romanized: "bam", translation: "night.", annotation: "ㅁ받침"},
-                ],
-            },
-            {
-                condition: "받침 sound: p",
-                result: "Written ㅂ (also ㅍ)",
-                examples: [
-                    { native: "앞", romanized: "ap", translation: "front.", annotation: "ㅍ받침 sounds like p"},
-                    { native: "입", romanized: "ip", translation: "mouth.", annotation: "ㅂ받침"},
-                ],
-            },
-            {
-                condition: "받침 sound: ng",
-                result: "Written ㅇ",
-                examples: [
-                    { native: "방", romanized: "bang", translation: "room.", annotation: "ㅇ받침 sounds like ng"},
-                    { native: "강", romanized: "gang", translation: "river.", annotation: "ㅇ받침"},
-                ],
-            },
-        ],
+        ruleIds: ["ko-r-a1-3-1", "ko-r-a1-3-2", "ko-r-a1-3-3", "ko-r-a1-3-4", "ko-r-a1-3-5", "ko-r-a1-3-6", "ko-r-a1-3-7"],
         notes: [
             {
                 type: "culture",
