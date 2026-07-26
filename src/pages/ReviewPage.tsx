@@ -17,6 +17,7 @@ import { getDueCards, updateCard } from "../store/srs"
 import { useBreakDetection } from "../hooks/useBreakDetection"
 
 import { SpeakButton } from "../components/SpeakButton"
+import { VocabDetail } from "../components/VocabDetail"
 import { Button } from "../components/ui/button"
 import { Card, CardContent } from "../components/ui/card"
 import { Progress } from "../components/ui/progress"
@@ -158,11 +159,7 @@ export function ReviewPage() {
                                 <p className="text-xs text-indigo-500 dark:text-indigo-400 italic">{item.romanized}</p>
                             )}
                             <p className="text-xl text-text-sec mt-1">{item.translation}</p>
-                            {item.example && (
-                                <p className="text-xs text-text-ter mt-2 italic">
-                                    {item.example.native}
-                                </p>
-                            )}
+                            <VocabDetail item={item} langId={langId} variant="card" />
                         </CardContent>
                     </Card>
                 ) : (

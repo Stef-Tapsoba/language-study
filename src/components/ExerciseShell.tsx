@@ -66,8 +66,14 @@ export function ExerciseShell() {
     const context: ExerciseContext = unitId ? "unit" : "practice"
 
     // Cross-unit review slots — how many prior-unit SRS-due items to inject.
-    // Requires >= 4 mastered units before any review is added (professor recommendation).
-    const reviewSlots = mastered.length < 4 ? 0 : mastered.length < 10 ? 2 : 3
+    // Previously gated behind >= 4 mastered units at a flat 2-3 slots, which meant
+    // early learners (still in Block 1-2) got zero interleaving of earlier vocab in
+    // unit-scoped drills like vocab matching — every session was 100% current-unit
+    // words. Now ramps up starting from the very first mastered unit.
+    const reviewSlots =
+        mastered.length < 1  ? 0 :
+        mastered.length < 4  ? 1 :
+        mastered.length < 10 ? 3 : 4
 
     const [rawItems, setRawItems] = useState<unknown[]>([])
     const [loading, setLoading] = useState(true)

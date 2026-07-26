@@ -9,6 +9,7 @@ import { useStatsStore } from "../store/useStatsStore"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
 import { SpeakButton } from "../components/SpeakButton"
+import { VocabDetail } from "../components/VocabDetail"
 import { VocabItem } from "../types"
 import { getUI, fmt, UIStrings } from "../i18n"
 import { logError } from "../utils/logger"
@@ -207,18 +208,8 @@ function FlipCard({ item, flipped, onClick, translationMode, translationShown, u
                         <p className="text-2xl font-bold text-indigo-900 text-center dark:text-white">{item.translation}</p>
                     )}
 
-                    {/* Example sentence — always shown */}
-                    <div className="bg-surface-card/80 rounded-xl px-4 py-2 text-center relative">
-                        <p className="text-sm text-text-sec">{item.example.native}</p>
-                        {item.example.romanized && (
-                            <p className="text-xs text-indigo-400 mt-0.5">{item.example.romanized}</p>
-                        )}
-                        {/* Example gloss: shown at A1/A2/B1, hidden at B2+ */}
-                        {translationMode !== "hidden" && (
-                            <p className="text-xs text-text-ter mt-0.5">{item.example.translation}</p>
-                        )}
-                        <SpeakButton text={item.example.native} langId={langId} id={item.id} variant="example" className="absolute top-1 right-1" />
-                    </div>
+                    {/* Example sentence + dictionary form — shared with VocabPage/UnitPage/ReviewPage */}
+                    <VocabDetail item={item} langId={langId} variant="card" hideExampleTranslation={translationMode === "hidden"} />
 
                     {/* B1: translation secondary, below example */}
                     {translationMode === "secondary" && (
@@ -271,7 +262,10 @@ export function FlashcardsPage() {
         const newItems = newCardIds
             .map(id => allVocab.find(v => v.id === id))
             .filter((v): v is VocabItem => !!v)
-        return [...dueItems, ...newItems]
+        // Shuffle within each priority group — due cards must stay ahead of new
+        // cards, but the fixed vocab-file order otherwise made every session
+        // present cards in the exact same sequence.
+        return [...shuffle(dueItems), ...shuffle(newItems)]
     }, [due, newCardIds, allVocab])
 
     const shuffleDeck = useMemo(() => shuffle(allVocab), [allVocab, sessionKey]) // eslint-disable-line react-hooks/exhaustive-deps

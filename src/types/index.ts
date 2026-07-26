@@ -244,6 +244,13 @@ export interface VocabItem {
     example: Example
     /** Topic tags — optional, supplements category for goal-based filtering. */
     topicTags?: TopicTag[]
+    /**
+     * Dictionary/citation form — set when `word` itself is a conjugated form
+     * (adjectives are stored pre-conjugated, e.g. word: "커요", dictionaryForm:
+     * "크다 (ㅡ-drop irregular)"). Verbs generally don't need this: the core
+     * verb set has its own dedicated Verb type with a full conjugation table.
+     */
+    dictionaryForm?: string
 }
 
 // ---------------------------------------------------------------------------

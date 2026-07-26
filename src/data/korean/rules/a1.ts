@@ -84,27 +84,29 @@ export const koreanA1Rules: GrammarRule[] = [
         ],
     },
 
-    // ─── from ko-g-a1-14 (present tense ~아요/어요) — reused by ko-g-a1-17 ──
+    // ─── from ko-g-a1-14 (present tense ~아요/어요 — ACTION VERBS) ───────────
+    // Kept verb-only: adjectives get their own parallel rules below (ko-r-a1-17-*)
+    // for ko-g-a1-17, so a single rule card never mixes the two word classes.
     {
         id: "ko-r-a1-14-1",
         lessonId: "ko-g-a1-14",
-        condition: "Stem last vowel is ㅏ or ㅗ",
+        condition: "Verb stem last vowel is ㅏ or ㅗ",
         result: "~아요",
         examples: [
             { native: "가다 → 가요", romanized: "gada → gayo", translation: "to go / goes.", annotation: "stem 가: ㅏ vowel → 아요, contracts to 가요" },
-            { native: "좋다 → 좋아요", romanized: "jota → joayo", translation: "good / is good.", annotation: "stem 좋: ㅗ vowel → 아요 — this same rule governs adjectives too" },
-            { native: "작다 → 작아요", romanized: "jakda → jagayo", translation: "small / is small.", annotation: "stem 작: ㅏ vowel → 아요" },
+            { native: "만나다 → 만나요", romanized: "mannada → mannayo", translation: "to meet / meets.", annotation: "stem 나: ㅏ vowel → 아요" },
+            { native: "놀다 → 놀아요", romanized: "nolda → norayo", translation: "to play/hang out / plays.", annotation: "stem 놀: ㅗ vowel → 아요" },
         ],
     },
     {
         id: "ko-r-a1-14-2",
         lessonId: "ko-g-a1-14",
-        condition: "Stem has any other vowel",
+        condition: "Verb stem has any other vowel",
         result: "~어요",
         examples: [
             { native: "먹다 → 먹어요", romanized: "meokda → meogeoyo", translation: "to eat / eats.", annotation: "stem 먹: ㅓ vowel → 어요" },
             { native: "읽다 → 읽어요", romanized: "ikda → ilgeoyo", translation: "to read / reads.", annotation: "stem 읽: ㅣ vowel → 어요" },
-            { native: "맛있다 → 맛있어요", romanized: "masitda → masisseoyo", translation: "delicious / is delicious.", annotation: "stem 있: ㅣ vowel → 어요 — this same rule governs adjectives too" },
+            { native: "마시다 → 마셔요", romanized: "masida → masyeoyo", translation: "to drink / drinks.", annotation: "stem 시: ㅣ vowel → 어요, contracts to 셔요" },
         ],
     },
     {
@@ -116,6 +118,32 @@ export const koreanA1Rules: GrammarRule[] = [
             { native: "공부해요", romanized: "gongbuhaeyo", translation: "study.", annotation: "공부하다 → 해요" },
             { native: "운동해요", romanized: "undonghaeyo", translation: "exercise.", annotation: "운동하다 → 해요" },
             { native: "일해요", romanized: "ilhaeyo", translation: "work.", annotation: "일하다 → 해요" },
+        ],
+    },
+
+    // ─── from ko-g-a1-17 (adjective conjugation — same rule, ADJECTIVES only) ──
+    // Same ~아요/어요 mechanics as ko-r-a1-14-1/2, but kept as separate rule
+    // cards so a drill never blends a verb example with an adjective example.
+    {
+        id: "ko-r-a1-17-1",
+        lessonId: "ko-g-a1-17",
+        condition: "Adjective stem last vowel is ㅏ or ㅗ",
+        result: "~아요",
+        examples: [
+            { native: "좋다 → 좋아요", romanized: "jota → joayo", translation: "good / is good.", annotation: "stem 좋: ㅗ vowel → 아요" },
+            { native: "작다 → 작아요", romanized: "jakda → jagayo", translation: "small / is small.", annotation: "stem 작: ㅏ vowel → 아요" },
+            { native: "많다 → 많아요", romanized: "manta → manayo", translation: "many/a lot / is a lot.", annotation: "stem 많: ㅏ vowel → 아요" },
+        ],
+    },
+    {
+        id: "ko-r-a1-17-2",
+        lessonId: "ko-g-a1-17",
+        condition: "Adjective stem has any other vowel",
+        result: "~어요",
+        examples: [
+            { native: "맛있다 → 맛있어요", romanized: "masitda → masisseoyo", translation: "delicious / is delicious.", annotation: "stem 있: ㅣ vowel → 어요" },
+            { native: "재미있다 → 재미있어요", romanized: "jaemiitda → jaemiisseoyo", translation: "fun/interesting / is fun.", annotation: "stem 있: ㅣ vowel → 어요" },
+            { native: "없다 → 없어요", romanized: "eopda → eopseoyo", translation: "not have/there isn't / isn't.", annotation: "stem 없: ㅓ vowel → 어요" },
         ],
     },
 
