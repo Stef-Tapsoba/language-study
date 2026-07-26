@@ -5,7 +5,7 @@ export const block3Lessons: GrammarLesson[] = [
         id: "ko-g-a1-20",
         level: "A1",
         title: "Time Particle 에: hours, days, and time words",
-        explanation: `You already met this rule in Block 2: 에 marks specific points in time, just as it marks locations, while relative time words stand alone. Here it is with the full set of time words — days, clock times, and more.`,
+        explanation: `You already met 에 in Block 2 as the particle that marks locations; here the same particle does equivalent work for time, marking a specific point on the calendar or clock, such as 금요일에 ("on Friday") or 아침에 ("in the morning"). Not every time word takes 에, though: relative or self-locating time words, such as 오늘 (today), 내일 (tomorrow), and 매일 (every day), stand alone without the particle, because they already express a fixed reference point relative to the moment of speaking rather than a point on an external calendar. A reliable test is to ask whether the word names a specific, nameable point in time (add 에) or whether it is inherently relative to "now" (leave it bare).`,
         ruleIds: ["ko-r-a1-20-1", "ko-r-a1-20-2"],
         notes: [
             {
@@ -38,7 +38,7 @@ export const block3Lessons: GrammarLesson[] = [
         id: "ko-g-a1-21",
         level: "A1",
         title: "Telling the time: 시 (hour) + 분 (minute), 오전/오후",
-        explanation: `Telling the time in Korean uses both number systems in a regular pattern: hours use native Korean numbers, minutes use Sino-Korean numbers.`,
+        explanation: `Telling time in Korean requires both of the number systems you learned in Block 1, split by a strict and completely regular rule: hours are always counted with native Korean numbers (한 시, 두 시, 세 시...), while minutes are always counted with Sino-Korean numbers (십 분, 이십 분...). This split can feel arbitrary to English speakers, since English uses one number system for both, but it is entirely predictable in Korean and never varies. 오전 (AM) and 오후 (PM) precede the time to disambiguate, and 반 (half) is the natural, idiomatic way to say ":30," used far more often in speech than spelling out 삼십 분.`,
         ruleIds: ["ko-r-a1-21-1", "ko-r-a1-21-2", "ko-r-a1-21-3"],
         notes: [
             {
@@ -80,7 +80,7 @@ export const block3Lessons: GrammarLesson[] = [
         id: "ko-g-a1-22",
         level: "A1",
         title: "Negation with 안 (simple negation before verb or adjective)",
-        explanation: `안 is the straightforward negation word — it means 'don't' or 'not,' and sits directly before the verb or adjective. One exception applies to 하다 compound verbs.`,
+        explanation: `안 is the general-purpose negation word in Korean, corresponding to English "don't," "doesn't," or "not," and its position is simple: it sits directly before the verb or adjective it negates, as in 안 가요 ("I'm not going") or 안 좋아요 ("it's not good"). There is one important structural exception: for compound verbs built on 하다 (to do), such as 공부하다 (to study) or 운동하다 (to exercise), 안 does not go before the whole compound but slots in between the noun and 하다, giving 공부 안 해요 rather than the incorrect 안 공부해요. This exception exists because 하다 verbs are grammatically a noun plus a light verb, and 안 negates the verb 하다 specifically, not the noun in front of it.`,
         ruleIds: ["ko-r-a1-22-1", "ko-r-a1-22-2"],
         notes: [
             {
@@ -114,7 +114,7 @@ export const block3Lessons: GrammarLesson[] = [
         id: "ko-g-a1-23",
         level: "A1",
         title: "못 (inability negation) + 하다 verbs: 안 해요 vs 못 해요",
-        explanation: `Korean has two negation words: 안 for choice or absence, 못 for inability. The position rules are identical — 못 sits directly before the verb, or between noun and 하다 for compound verbs.`,
+        explanation: `Korean grammatically distinguishes two kinds of negation that English collapses into a single word: 안, which you learned in the previous lesson for negation by choice or simple absence, and 못, which specifically marks inability, something you are prevented from doing by circumstance, ability, or obstacle. The positioning rules are identical to 안: 못 sits directly before a simple verb, and for 하다 compound verbs it slots between the noun and 하다, giving 운동 못 해요 ("I can't exercise") rather than 못 운동해요. Choosing correctly between them communicates real information to a Korean listener: 고기를 안 먹어요 suggests a personal choice (perhaps vegetarianism), while 고기를 못 먹어요 suggests an external constraint (perhaps an allergy), so the two are not interchangeable even though both translate loosely as "don't/can't eat meat."`,
         ruleIds: ["ko-r-a1-23-1", "ko-r-a1-23-2"],
         notes: [
             {
@@ -149,7 +149,7 @@ export const block3Lessons: GrammarLesson[] = [
         id: "ko-g-a1-24",
         level: "A1",
         title: "Question words: 뭐/무엇, 어디, 언제, 누구, 어떻게, 왜 — in-situ questions",
-        explanation: `In Korean, question words sit exactly where the answer would go — no word order change. The question word replaces the piece of information you are asking about, and the verb stays at the end.`,
+        explanation: `Korean forms information questions (what, where, when, who, how, why) very differently from English. In English, the question word usually moves to the front of the sentence ("I am going to school" becomes "Where are you going?"). In Korean, the question word stays exactly in the slot where the answer would go, and nothing else in the sentence moves: 저는 학교에 가요 ("I'm going to school") becomes 어디에 가요? ("Where are you going?") simply by swapping 학교 for 어디. This is called an in-situ question, and it follows naturally from the fact that Korean sentence structure is built around particles marking grammatical roles rather than fixed word positions; the verb, as always, remains at the very end.`,
         notes: [
             {
                 type: "tip",
@@ -184,7 +184,7 @@ export const block3Lessons: GrammarLesson[] = [
         id: "ko-g-a1-25",
         level: "A1",
         title: "누구 → 누가 rule; question intonation vs statement",
-        explanation: `누구 (who) changes to 누가 when 'who' is the grammatical subject — 누구 + the subject particle 가 fuse into a single word. In other positions, 누구 stays unchanged.`,
+        explanation: `The question word 누구 ("who") undergoes an irregular fusion when it functions as the grammatical subject of a sentence: instead of the expected 누구가, the question word contracts with the subject particle 가 into the single fused form 누가, so "who came?" is 누가 왔어요?, never 누구가 왔어요?. This is an exception worth memorizing specifically, since no other question word behaves this way. When 누구 plays any other grammatical role, such as an object or a complement after the copula (이 사람은 누구예요?, "who is this person?"), it stays completely unchanged and simply takes whatever particle that role requires.`,
         ruleIds: ["ko-r-a1-25-1", "ko-r-a1-25-2"],
         notes: [
             {
@@ -221,7 +221,7 @@ export const block3Lessons: GrammarLesson[] = [
         id: "ko-g-a1-26",
         level: "A1",
         title: "Positive frequency adverbs: 항상, 자주, 가끔, 별로 안, 거의 안",
-        explanation: `Korean has a clean frequency scale from always down to never. The top end (항상, 자주, 가끔) pairs naturally with positive verbs. The bottom end (별로, 거의) carries built-in negative meaning and requires 안 or 못.`,
+        explanation: `Korean organizes frequency adverbs along a clean, ordered scale running from "always" down to "never," and where an adverb sits on that scale determines what kind of verb it can grammatically pair with. The high-frequency end, 항상 (always), 보통 (usually), 자주 (often), and 가끔 (sometimes), pairs naturally with an ordinary positive verb, just as in English. The low-frequency end is different: 별로 ("not really") and 거의 ("hardly, almost") already carry negative meaning built into the word itself, so Korean grammar requires the verb that follows to also be negative, marked with 안 or 못; a sentence like 별로 해요 is simply ungrammatical, the way "I hardly do exercise" would sound broken in English if "hardly" demanded a negative verb too.`,
         ruleIds: ["ko-r-a1-26-1", "ko-r-a1-26-2"],
         notes: [
             {
@@ -252,7 +252,7 @@ export const block3Lessons: GrammarLesson[] = [
         id: "ko-g-a1-27",
         level: "A1",
         title: "절대로 안/못 (never) + adverbs that require a negative verb",
-        explanation: `절대로 is the strongest frequency adverb — 'never' or 'absolutely not.' Like 별로 and 거의, its inherently negative meaning requires the verb to also be negative.`,
+        explanation: `절대로 sits at the extreme low end of the frequency scale introduced in the previous lesson, meaning "never" or "absolutely not," and it carries the strongest built-in negative force of any frequency adverb in Korean. Exactly like 별로 and 거의, this inherent negativity means the verb that follows must also be marked negative with 안 or 못; 절대로 가요 is grammatically broken in the same way 별로 해요 was in the previous lesson. Viewed together, the full scale (항상, 자주, 가끔 on the positive side; 별로 안, 거의 안, 절대로 안 on the negative side) gives you a single, reusable structural pattern for expressing how often you do anything, from "always" to "never."`,
         ruleIds: ["ko-r-a1-27-1"],
         notes: [
             {
@@ -287,7 +287,7 @@ export const block3Lessons: GrammarLesson[] = [
         id: "ko-g-a1-28",
         level: "A1",
         title: "Past tense ~았어요/었어요 — discovering the pattern",
-        explanation: `Past tense uses the same vowel harmony rule as present tense — the only change is adding 았/었 before 어요. If you know the present tense, you already know the rule.`,
+        explanation: `Korean past tense is built directly on top of the present tense system you already know, using the exact same vowel harmony rule: if the stem's last vowel is ㅏ or ㅗ, insert 았 before the ending; for every other vowel, insert 었. Concretely, the present tense marker 아요/어요 becomes 았어요/었어요 in the past, so 가요 ("I go") becomes 갔어요 ("I went") and 먹어요 ("I eat") becomes 먹었어요 ("I ate"). Because this is the identical vowel-harmony logic from present tense, there is no new rule to learn, only a new tense marker layered onto a pattern you have already internalized, and the same contractions you learned for present tense (가+아요→가요, 오+아요→와요) apply equally to the past (가+았어요→갔어요, 오+았어요→왔어요).`,
         ruleIds: ["ko-r-a1-28-1", "ko-r-a1-28-2", "ko-r-a1-28-3"],
         notes: [
             {
@@ -328,7 +328,7 @@ export const block3Lessons: GrammarLesson[] = [
         id: "ko-g-a1-29",
         level: "A1",
         title: "Past tense irregular patterns + 하다 → 했어요",
-        explanation: `The ㅂ-irregular pattern from adjective conjugation applies equally in the past tense. The copula (이에요/예요) also has a past form: 이었어요/였어요.`,
+        explanation: `The irregular patterns you learned for present-tense adjectives carry over into the past tense without any new logic: the ㅂ-irregular verbs from Block 2, such as 덥다 (hot) and 맵다 (spicy), keep their ㅂ-to-우 change and simply add the past tense marker, giving 더웠어요 and 매웠어요. The copula 이에요/예요, which has appeared throughout this course to mean "am/is/are," also has its own past tense form for saying "was/were": 이었어요 after a consonant-final noun and 였어요 after a vowel-final noun, mirroring the same consonant/vowel split you already use for the present tense copula. And 하다 compound verbs, true to form, always take the past tense 했어요, regardless of the noun in front of them.`,
         ruleIds: ["ko-r-a1-29-1", "ko-r-a1-29-2", "ko-r-a1-29-3"],
         notes: [
             {

@@ -5,7 +5,7 @@ export const block5Lessons: GrammarLesson[] = [
         id: "ko-g-a1-38",
         level: "A1",
         title: "Future ~(으)ㄹ 거예요 — plans and predictions",
-        explanation: `~(으)ㄹ 거예요 covers both plans and predictions. The formation follows the same vowel/consonant split as other endings — after a vowel or ㄹ, add ㄹ 거예요; after a consonant, add 을 거예요.`,
+        explanation: `~(으)ㄹ 거예요 is Korean's main future tense marker, and it covers two meanings that English usually keeps separate: a definite plan (내일 갈 거예요, "I'm going tomorrow," similar to English "going to") and a prediction about something outside your control (비가 올 거예요, "it's going to rain," similar to English "will"). Which meaning applies is usually obvious from context, since plans are about the speaker's own actions and predictions are about events. The formation follows the same vowel/consonant split you have seen across many Korean endings: a stem ending in a vowel or in ㄹ takes ㄹ 거예요 directly (가다 → 갈 거예요), while a stem ending in another consonant needs the connecting vowel 을 first (먹다 → 먹을 거예요). Negating the future works exactly like negating the present, with 안 or 못 placed before the verb: 안 갈 거예요 ("not going to go").`,
         ruleIds: ["ko-r-a1-38-1", "ko-r-a1-38-2", "ko-r-a1-38-3"],
         notes: [
             {
@@ -46,7 +46,7 @@ export const block5Lessons: GrammarLesson[] = [
         id: "ko-g-a1-39",
         level: "A1",
         title: "Sentence connectors: 그리고, 하지만, 그래서, 그런데",
-        explanation: `Sentence connectors link two complete sentences. They stand between sentences independently — not attached to verbs — just like "and," "but," and "so" in English.`,
+        explanation: `Sentence connectors join two complete, independently grammatical sentences, standing on their own between them rather than attaching to a verb ending, functioning much like English "and," "but," and "so." 그리고 adds an additional statement ("and," "and then"); 하지만 introduces a strong contrast ("but," "however"); 그래서 introduces a result ("so," "therefore"); and 그런데 introduces a softer contrast or a topic shift ("but," "by the way"), and is by far the most common of the four in casual conversation because its meaning is flexible enough to fit many situations. Because these words stand between two full sentences rather than being grammatically fused into either one, they contrast structurally with the clause connectors covered in the next lesson, which attach directly onto a verb stem to merge two clauses into a single sentence.`,
         ruleIds: ["ko-r-a1-39-1", "ko-r-a1-39-2", "ko-r-a1-39-3", "ko-r-a1-39-4", "ko-r-a1-39-5"],
         notes: [
             {
@@ -77,7 +77,7 @@ export const block5Lessons: GrammarLesson[] = [
         id: "ko-g-a1-40",
         level: "A1",
         title: "Clause connectors: ~고 (and/then), ~지만 (but), ~아서/어서 (because/so)",
-        explanation: `Clause connectors attach directly to verb stems and join two clauses into one sentence — unlike sentence connectors which stand between complete sentences.`,
+        explanation: `Unlike the sentence connectors from the previous lesson, clause connectors attach directly onto a verb stem, fusing two clauses into a single grammatical sentence rather than standing between two independent ones. ~고 links two actions in sequence, roughly "and" or "and then" (아침을 먹고 학교에 가요, "I eat breakfast and go to school"); ~지만 introduces a contrast within one sentence, "but" (어렵지만 재미있어요, "it's difficult but interesting"); and ~아서/어서 introduces a cause, "because" or "so," using the same vowel harmony rule as present tense (바빠서 못 갔어요, "I was busy so I couldn't go"). One rule is worth memorizing carefully because it causes frequent errors: with ~아서/어서, past tense marking goes only on the second, result clause, never on the cause clause itself, so 바빠서 못 갔어요 is correct while 바빴어서 못 갔어요 is not, since the "because" clause is understood to be simultaneous with, not separate in time from, the result.`,
         ruleIds: ["ko-r-a1-40-1", "ko-r-a1-40-2", "ko-r-a1-40-3"],
         notes: [
             {
@@ -114,7 +114,7 @@ export const block5Lessons: GrammarLesson[] = [
         id: "ko-g-a1-41",
         level: "A1",
         title: "Conditional ~(으)면 — if/when: vowel/ㄹ → 면, consonant → 으면",
-        explanation: `~(으)면 expresses conditions and hypotheticals. It is one of the simpler patterns in Korean — no vowel harmony on the connector itself. After a vowel or ㄹ: 면. After a consonant: 으면.`,
+        explanation: `~(으)면 is the standard way to express a condition or hypothetical in Korean, corresponding to English "if" or "when": 시간이 있으면 같이 가요 means "if you have time, let's go together." It is one of the more approachable patterns in the language because, unlike present and past tense endings, it involves no vowel harmony and no irregular forms to track: a stem ending in a vowel or in ㄹ simply takes 면 (가다 → 가면), while a stem ending in any other consonant takes 으면 (먹다 → 먹으면). A particularly useful extension of this pattern is ~(으)면 좋겠어요, "it would be nice if" or "I hope," which attaches the same conditional form to 좋겠어요 ("would be good") to build one of the most natural ways to express a wish in Korean, as in 날씨가 맑으면 좋겠어요 ("I hope the weather is clear").`,
         ruleIds: ["ko-r-a1-41-1", "ko-r-a1-41-2"],
         notes: [
             {
@@ -156,7 +156,7 @@ export const block5Lessons: GrammarLesson[] = [
         id: "ko-g-a1-42",
         level: "A1",
         title: "Capstone review — consolidating past, present, future, and connectors",
-        explanation: `This is not a new grammar lesson. It is a consolidation — a chance to see everything from A1 working together, and to recognise what A1 fluency looks like.`,
+        explanation: `This lesson introduces no new grammar. It is a consolidation exercise, designed to show every major pattern from A1, the copula, present and past tense, negation, particles, clause and sentence connectors, the conditional, and expressions of desire, working together in connected, natural speech rather than in isolated drills. Producing three or four linked sentences about your own daily life using past, present, and future tense with appropriate connectors is a reasonable benchmark for A1 fluency and readiness to move on to A2. Notably, several A2 grammar points, including ~는데/은데, ~(으)ㄹ 수 있어요 (ability), ~고 있어요 (continuous action), and 반말 (casual speech), have already appeared as memorized chunks throughout this course; A2 will formally explain the grammar behind patterns your ear already recognizes.`,
         notes: [
             {
                 type: "tip",

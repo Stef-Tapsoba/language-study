@@ -5,7 +5,7 @@ export const block1Lessons: GrammarLesson[] = [
         id: "ko-g-a1-4",
         level: "A1",
         title: "저는 ___이에요/예요 — your first Korean sentence",
-        explanation: `Korean self-introduction runs on one sentence frame: 저는 ___ 이에요/예요 (I am ___). Use it now, before analysing it — just fill in the blank with a name or job.`,
+        explanation: `Korean self-introduction runs on a single sentence frame: 저는 ___ 이에요/예요, meaning "I am ___." 저는 means "I" or "as for me" in polite speech, and 이에요/예요 is the copula, the verb that links a noun to its identity (like "am/is/are" in English). Which form you use depends purely on sound: 이에요 follows a noun ending in a consonant, and 예요 follows a noun ending in a vowel, because Korean avoids awkward vowel collisions between words. At this stage, treat the whole frame as a fixed pattern you can fill in with a name or job; the grammar behind 저는 and the copula will be unpacked piece by piece in later lessons.`,
         ruleIds: ["ko-r-a1-4-1", "ko-r-a1-4-2"],
         notes: [
             {
@@ -55,7 +55,7 @@ export const block1Lessons: GrammarLesson[] = [
         id: "ko-g-a1-5",
         level: "A1",
         title: "Asking who someone is + 뭐예요 / 누구예요",
-        explanation: `You can say who you are — now learn to ask. The same 이에요/예요 frame works as a question with rising intonation, and two question words let you ask about identity.`,
+        explanation: `Now that you can state your own identity, the same 이에요/예요 frame lets you ask about someone else's. Korean does not reorder words to form a question the way English does (compare "You are a student" versus "Are you a student?"); instead, a statement becomes a question simply by adding rising intonation, so 학생이에요 (statement) and 학생이에요? (question) are word-for-word identical. Two new question words extend the pattern to identity questions: 뭐 (what) asks about a thing, as in 뭐예요? ("What is it?"), and 누구 (who) asks about a person, as in 누구예요? ("Who is it?"). Both question words end in vowels, so they always combine with 예요, never 이에요.`,
         ruleIds: ["ko-r-a1-5-1", "ko-r-a1-5-2"],
         notes: [
             {
@@ -116,7 +116,7 @@ export const block1Lessons: GrammarLesson[] = [
         id: "ko-g-a1-6",
         level: "A1",
         title: "Nationality, origin, and the ___ 사람이에요 pattern",
-        explanation: `Two fixed patterns give you nationality and origin: [country] + 사람이에요 says what you are; [place] + 에서 왔어요 says where you're from. Both slot directly into the 이에요/예요 frame you already know.`,
+        explanation: `Nationality and origin are expressed with two distinct patterns that build on what you already know. [country] + 사람이에요 states your nationality, since 사람 means "person" and the phrase literally reads "[country] person am/is/are" (e.g. 영국 사람이에요, "I'm British"). [place] + 에서 왔어요 states where you traveled from, using 에서 ("from") plus 왔어요, the past tense of 오다 ("to come"); this is a fixed phrase for now, and both 에서 and past tense get their own full explanations later. Note that 사람이에요 is just another instance of the 이에요/예요 frame from the first lesson in this block, so nothing new is happening structurally, only new vocabulary slotting into a familiar shape.`,
         ruleIds: ["ko-r-a1-6-1", "ko-r-a1-6-2"],
         notes: [
             {
@@ -164,7 +164,7 @@ export const block1Lessons: GrammarLesson[] = [
         id: "ko-g-a1-7",
         level: "A1",
         title: "Sino-Korean numbers 1–20",
-        explanation: `Korean has two separate number systems — Sino-Korean (borrowed from Chinese) and native Korean. This lesson covers Sino-Korean. Use these numbers for prices, phone numbers, floor numbers, and months. The pattern is simple: learn 1–10, then 11–20 follows automatically.`,
+        explanation: `Korean uniquely maintains two complete, parallel number systems side by side: Sino-Korean numbers, borrowed from Chinese centuries ago, and native Korean numbers, which are original to the language. This lesson covers Sino-Korean, which you will use constantly for prices, phone numbers, floor numbers, dates, and months. The system is fully regular and place-value based, much like Arabic numerals: once you learn 일 through 십 (1 through 10), the numbers 11 through 19 are formed by simply saying 십 (ten) followed by the units digit, so 11 is 십일 (ten-one) and 15 is 십오 (ten-five), with no irregular forms to memorize the way English has "eleven" and "twelve."`,
         ruleIds: ["ko-r-a1-7-1", "ko-r-a1-7-2"],
         notes: [
             {
@@ -216,7 +216,7 @@ export const block1Lessons: GrammarLesson[] = [
         id: "ko-g-a1-7b",
         level: "A1",
         title: "Native Korean numbers + age with 살",
-        explanation: `Native Korean numbers are the other counting system — used for stating age, counting objects with most counters, and everyday quantities up to 99. They are completely different words from Sino-Korean. Learn 1–10 first, then the tens pattern for the ages you'll actually say.`,
+        explanation: `Native Korean numbers form the second half of Korean's dual number system, and they are used for stating age, counting most everyday objects, and general quantities from 1 to 99 (Sino-Korean takes over for 100 and above). These numbers share no roots at all with Sino-Korean, so 하나 (1) and 일 (1) must simply be memorized as separate vocabulary rather than derived from one another. As with Sino-Korean, learn 1 through 10 first, then the ten decade words (스물 20, 서른 30, and so on), which combine with the units the same way Sino-Korean teens do; the choice of system is not optional or stylistic, it is grammatically fixed by context, and age is one of the clearest cases where only native Korean numbers are correct.`,
         ruleIds: ["ko-r-a1-7b-1", "ko-r-a1-7b-2", "ko-r-a1-7b-3", "ko-r-a1-7b-4"],
         notes: [
             {
@@ -266,7 +266,7 @@ export const block1Lessons: GrammarLesson[] = [
         id: "ko-g-a1-8",
         level: "A1",
         title: "Professions and jobs: the 이에요/예요 pattern extended",
-        explanation: `Introduce your job as naturally as your name — professions slot straight into the 저는 ___이에요/예요 frame. You also get your first verb phrases as useful chunks, and three conversation fillers that make interactions feel natural.`,
+        explanation: `Professions are introduced exactly as naturally as your name, because they slot directly into the same 저는 ___ 이에요/예요 frame you already use for identity, and the choice between 이에요 and 예요 still depends only on whether the profession noun ends in a consonant or vowel. This lesson also gives you your first two verb phrases, 공부해요 (I study) and 일해요 (I work), which you can use now as memorized chunks even though the full verb conjugation system is not explained until the present tense lesson. Finally, three small conversational fillers, ___씨는요? ("What about you?"), 저도요 ("Me too"), and 아, 그래요? ("Oh, really?"), are the kind of glue phrases that make an exchange feel like a real conversation rather than a scripted drill.`,
         notes: [
             {
                 type: "culture",
@@ -318,7 +318,7 @@ export const block1Lessons: GrammarLesson[] = [
         id: "ko-g-a1-9",
         level: "A1",
         title: "있어요 / 없어요 — existence, possession, and what you have",
-        explanation: `있어요 and 없어요 are two of the most important verbs in Korean. They do double duty: expressing possession (I have / I don't have) and existence or location (there is / there isn't).`,
+        explanation: `있어요 and 없어요 are among the most frequently used words in Korean, and each does double duty as two different English verbs at once. 있어요 covers both possession ("I have") and existence or location ("there is" / "it's located"), while 없어요 covers the negative of both ("I don't have" and "there isn't"). English speakers often expect separate verbs for "have" and "there is," so it is worth noticing early that Korean treats having something and something existing as the same underlying idea. The noun that is possessed or that exists is marked with the subject particle 이/가 (introduced properly in a later lesson), not the object particle, which reflects that 있어요 behaves grammatically more like "exists" than like a transitive "to have."`,
         ruleIds: ["ko-r-a1-9-1", "ko-r-a1-9-2", "ko-r-a1-9-3"],
         notes: [
             {
