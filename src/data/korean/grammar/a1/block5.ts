@@ -96,6 +96,8 @@ export const block5Lessons: GrammarLesson[] = [
             { native: "맛있어서 많이 먹었어요!", romanized: "Masisseo manhi meogeosseoyo!", translation: "It was so delicious so I ate a lot!" },
             { native: "비가 오지만 나가고 싶어요.", romanized: "Biga ojiman nagago sipeoyo.", translation: "It's raining but I want to go out." },
             { native: "피곤해서 일찍 잤어요.", romanized: "Pigonhaeseo iljjik jasseoyo.", translation: "I was tired so I went to bed early.", annotation: "cause in base form — no 았/었 on 피곤해서"},
+            { native: "머리가 아파서 약국에 갔어요.", romanized: "Meoriga apaseo yakguge gasseoyo.", translation: "My head hurt, so I went to the pharmacy." },
+            { native: "감기에 걸려서 병원에 가야 해요.", romanized: "Gamgie geollyeoseo byeongwone gaya haeyo.", translation: "I caught a cold, so I have to go to the hospital." },
         ],
         inlineVocab: [
             { word: "~고", romanized: "~go", translation: "and / and then (clause connector — no vowel harmony)" },

@@ -11,6 +11,7 @@ import { confirmUnitMastery } from "../store/actions"
 import { registry } from "../store/registry"
 import { NavBar } from "../components/NavBar"
 import { MarkCompleteButton } from "../components/MarkCompleteButton"
+import { VocabAccordionRow } from "../components/VocabAccordionRow"
 import { Button } from "../components/ui/button"
 import { LevelBadge } from "../components/LevelBadge"
 import { QuizCard } from "../components/QuizCard"
@@ -328,52 +329,6 @@ function VocabPracticeSection({ unit, langId, completed, vocabExerciseDone, nav 
     )
 }
 
-// ---------------------------------------------------------------------------
-// VocabRow
-// ---------------------------------------------------------------------------
-function VocabRow({ item, done, langId, ui }: Readonly<{
-    item: VocabItem; done: boolean; langId: string; ui: UIStrings
-}>) {
-    const markLessonComplete = useProgressStore(s => s.markLessonComplete)
-    return (
-        <Accordion type="single" collapsible>
-            <AccordionItem value={item.id} className={`border rounded-2xl px-4 bg-surface-card ${done ? "border-grammar-border" : "border-border-default hover:border-grammar"}`}>
-                <AccordionTrigger className="py-3 hover:no-underline">
-                    <div className="flex items-center gap-3 w-full pr-2">
-                        <span className={`text-base ${done ? "text-grammar" : "text-border-default"}`}>{done ? "✓" : "○"}</span>
-                        <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-1.5">
-                                <span className="font-semibold text-text-pri whitespace-nowrap">{item.word}</span>
-                                <SpeakButton text={item.word} langId={langId} id={item.id} variant="word" />
-                            </div>
-                            {item.romanized && <span className="text-xs text-indigo-500">{item.romanized}</span>}
-                        </div>
-                        <div className="shrink-0 flex flex-col items-end gap-0.5">
-                            <span className="text-sm text-text-sec text-right">{item.translation}</span>
-                            <span className="text-xs bg-surface-inset text-text-sec rounded-full px-2 py-0.5">
-                                {item.category}
-                            </span>
-                        </div>
-                    </div>
-                </AccordionTrigger>
-                <AccordionContent>
-                    <div className="pb-1">
-                        <div className="bg-surface-inset rounded-xl p-3 mb-3">
-                            <p className="text-sm font-medium text-text-pri">{item.example.native}</p>
-                            {item.example.romanized && <p className="text-xs text-indigo-500 mt-0.5">{item.example.romanized}</p>}
-                            <p className="text-xs text-text-sec mt-1">{item.example.translation}</p>
-                        </div>
-                        <MarkCompleteButton
-                            done={done}
-                            onClick={() => markLessonComplete(langId, item.id, "vocab")}
-                            label={ui.markLearned}
-                        />
-                    </div>
-                </AccordionContent>
-            </AccordionItem>
-        </Accordion>
-    )
-}
 
 // ---------------------------------------------------------------------------
 // VerbCard
@@ -757,6 +712,7 @@ export function UnitPage() {
     const progress = useProgressStore(s => s.progress)
     const { level: getLevel, completed: getCompleted, mastered: getMastered, completedCheckpoints: getCompletedCheckpoints } = progressHelpers(progress)
     const masterUnit = useProgressStore(s => s.masterUnit)
+    const markLessonComplete = useProgressStore(s => s.markLessonComplete)
     const level = getLevel(langId)
     const ui = getUI(langId, level)
     const completed = getCompleted(langId)
@@ -954,12 +910,13 @@ export function UnitPage() {
                                     {/* List */}
                                     <div className="flex flex-col gap-2">
                                         {filtered.map(item => (
-                                            <VocabRow
+                                            <VocabAccordionRow
                                                 key={item.id}
                                                 item={item}
                                                 done={completed.includes(item.id)}
                                                 langId={langId}
-                                                ui={ui}
+                                                onComplete={() => markLessonComplete(langId, item.id, "vocab")}
+                                                markLabel={ui.markLearned}
                                             />
                                         ))}
                                     </div>

@@ -205,7 +205,7 @@ export const a1Units: LessonUnit[] = [
         title: "Describing things",
         description: "Adjectives conjugate exactly like verbs — the same ~아요/어요 rule you already know, applied to how things look, feel, and seem. No new mechanics, just a new kind of word.",
         grammarIds: ["ko-g-a1-17"],
-        vocabIds: ["ko-v-a1-96", "ko-v-a1-97", "ko-v-a1-98", "ko-v-a1-99", "ko-v-a1-100", "ko-v-a1-101", "ko-v-a1-102", "ko-v-a1-103", "ko-v-a1-104", "ko-v-a1-105", "ko-v-a1-272", "ko-v-a1-273"],
+        vocabIds: ["ko-v-a1-96", "ko-v-a1-97", "ko-v-a1-98", "ko-v-a1-99", "ko-v-a1-100", "ko-v-a1-101", "ko-v-a1-102", "ko-v-a1-103", "ko-v-a1-104", "ko-v-a1-105", "ko-v-a1-272", "ko-v-a1-273", "ko-v-a1-203", "ko-v-a1-204", "ko-v-a1-205", "ko-v-a1-206", "ko-v-a1-207", "ko-v-a1-208", "ko-v-a1-209", "ko-v-a1-210", "ko-v-a1-211", "ko-v-a1-212"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a1-12-1", level: "A1", prompt: "좋다 (good) in present tense is:", options: ["좋아요", "좋어요", "좋해요", "좋요"], answer: "좋아요" },
@@ -441,7 +441,7 @@ export const a1Units: LessonUnit[] = [
         title: "Connecting ideas",
         description: "Sentence connectors (그리고/하지만/그래서/그런데/그럼) and clause connectors (~고/~지만/~아서/어서). The difference between sentence-level and clause-level linking.",
         grammarIds: ["ko-g-a1-39", "ko-g-a1-40"],
-        vocabIds: ["ko-v-a1-156", "ko-v-a1-157", "ko-v-a1-158", "ko-v-a1-159", "ko-v-a1-160"],
+        vocabIds: ["ko-v-a1-156", "ko-v-a1-157", "ko-v-a1-158", "ko-v-a1-159", "ko-v-a1-160", "ko-v-a1-241", "ko-v-a1-242", "ko-v-a1-243", "ko-v-a1-244", "ko-v-a1-245", "ko-v-a1-246"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a1-24-1", level: "A1", prompt: "비가 왔어요. 그래서 집에 있었어요 — 그래서 means:", options: ["but", "so / therefore", "and", "by the way"], answer: "so / therefore" },

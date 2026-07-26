@@ -48,8 +48,32 @@ export function getGrammarRule(langId: string, ruleId: string): GrammarRule | nu
 // Vocabulary
 // ---------------------------------------------------------------------------
 
+/**
+ * Collapses vocab items that teach the exact same word+meaning twice — e.g. a
+ * Block 0 script-decoding word ("한국" in Script Practice) re-taught later as
+ * real vocabulary ("한국" in Places). Both entries are valid on their own unit
+ * page (getVocabForUnit is untouched), but showing both as separate cards in
+ * a level-wide pool (flashcards, vocab matching) creates two indistinguishable
+ * "한국 → Korea" cards. Matched only on exact (word + translation) — this must
+ * NOT collapse true homonyms like 열 (Ten / Fever) or 개 (counter / Dog), whose
+ * translations differ.
+ */
+function dedupeVocab(items: VocabItem[]): VocabItem[] {
+    const byKey = new Map<string, VocabItem>()
+    for (const item of items) {
+        const key = `${item.word.trim()}|${item.translation.trim().toLowerCase()}`
+        const existing = byKey.get(key)
+        // Prefer the non-"Script Practice" copy when both exist, regardless of order.
+        if (!existing || (existing.category === "Script Practice" && item.category !== "Script Practice")) {
+            byKey.set(key, item)
+        }
+    }
+    return items.filter(item => byKey.get(`${item.word.trim()}|${item.translation.trim().toLowerCase()}`) === item)
+}
+
 export function getVocabForLevel(langId: string, level: CEFRLevel): VocabItem[] {
-    return getModule(langId)?.vocab.filter(v => v.level === level) ?? []
+    const items = getModule(langId)?.vocab.filter(v => v.level === level) ?? []
+    return dedupeVocab(items)
 }
 
 export function getVocabItems(langId: string, ids: string[]): VocabItem[] {

@@ -5,70 +5,10 @@ import { getLanguage } from "../data/languages"
 import { getVocabForLevel } from "../data/repo"
 import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { NavBar } from "../components/NavBar"
-import { MarkCompleteButton } from "../components/MarkCompleteButton"
+import { VocabAccordionRow } from "../components/VocabAccordionRow"
 import { LevelBadge } from "../components/LevelBadge"
-import { SpeakButton } from "../components/SpeakButton"
 import { Button } from "../components/ui/button"
-import { VocabItem } from "../types"
 import { getUI } from "../i18n"
-
-function VocabCard({
-    item,
-    done,
-    langId,
-    onComplete,
-}: {
-    item: VocabItem
-    done: boolean
-    langId: string
-    onComplete: () => void
-}) {
-    const [open, setOpen] = useState(false)
-
-    return (
-        <div
-            className={`bg-surface-card border rounded-2xl overflow-hidden transition-all cursor-pointer
-                ${done ? "border-grammar-border" : "border-border-default hover:border-grammar"}`}
-            onClick={() => setOpen(o => !o)}
-        >
-            <div className="px-4 py-3 flex items-center gap-3">
-                <span className={`text-base ${done ? "text-grammar" : "text-text-ter"}`} aria-hidden="true">
-                    {done ? "✓" : "○"}
-                </span>
-                <span className="sr-only">{done ? "Learned" : "Not yet learned"}</span>
-                <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-1.5">
-                        <span className="font-semibold text-text-pri whitespace-nowrap">{item.word}</span>
-                        <SpeakButton text={item.word} langId={langId} id={item.id} variant="word" />
-                    </div>
-                    {item.romanized && (
-                        <span className="text-xs text-indigo-500">{item.romanized}</span>
-                    )}
-                </div>
-                <div className="shrink-0 flex flex-col items-end gap-0.5">
-                    <span className="text-sm text-text-sec text-right">{item.translation}</span>
-                    <span className="text-xs bg-surface-elevated text-text-sec rounded-full px-2 py-0.5">
-                        {item.category}
-                    </span>
-                </div>
-            </div>
-
-            {open && (
-                <div className="px-4 pb-4 border-t border-border-subtle pt-3" onClick={e => e.stopPropagation()}>
-                    <div className="bg-surface-elevated rounded-xl p-3 mb-3 relative">
-                        <p className="text-sm font-medium text-text-pri">{item.example.native}</p>
-                        {item.example.romanized && (
-                            <p className="text-xs text-indigo-500 mt-0.5">{item.example.romanized}</p>
-                        )}
-                        <p className="text-xs text-text-sec mt-1">{item.example.translation}</p>
-                        <SpeakButton text={item.example.native} langId={langId} id={item.id} variant="example" className="absolute top-1.5 right-1.5" />
-                    </div>
-                    <MarkCompleteButton done={done} onClick={onComplete} label="Mark as learned" />
-                </div>
-            )}
-        </div>
-    )
-}
 
 export function VocabPage() {
     const { langId = "" } = useParams()
@@ -145,7 +85,7 @@ export function VocabPage() {
                 ) : (
                     <div className="flex flex-col gap-2">
                         {filtered.map(item => (
-                            <VocabCard
+                            <VocabAccordionRow
                                 key={item.id}
                                 item={item}
                                 done={completed.includes(item.id)}

@@ -85,12 +85,16 @@ export const block2Lessons: GrammarLesson[] = [
         id: "ko-g-a1-12",
         level: "A1",
         title: "좋아해요 / 싫어해요 — likes and dislikes + first sight of 을/를",
-        explanation: `Your first real action verb: 좋아해요 (I like). You perform liking something — and the thing you like gets marked with the object particle 를/을.`,
+        explanation: `Your first real action verb: 좋아해요 (I like) and its opposite 싫어해요 (I dislike). You perform liking or disliking something — and the thing you like/dislike gets marked with the object particle 를/을.`,
         ruleIds: ["ko-r-a1-12-1", "ko-r-a1-12-2", "ko-r-a1-12-3"],
         notes: [
             {
                 type: "tip",
                 content: "도 (also) replaces 를/을 when adding 'too': 저는 여행도 좋아해요 = I also like travel. 도 replaces the object particle entirely.",
+            },
+            {
+                type: "tip",
+                content: "싫어해요 is the direct opposite of 좋아해요, not just a weaker version. 별로 안 좋아해요 (don't really like) is softer and more common in conversation; 싫어해요 is a stronger, more direct dislike.",
             },
         ],
         examples: [
@@ -100,10 +104,15 @@ export const block2Lessons: GrammarLesson[] = [
                 { native: "저는 드라마를 좋아해요.", romanized: "Jeoneun deuramareul joahaeyo.", translation: "I like dramas." },
             ]},
             { native: "운동을 별로 안 좋아해요.", romanized: "Undongeul byeolro an joahaeyo.", translation: "I don't really like exercise." },
+            { native: "저는 벌레를 싫어해요.", romanized: "Jeoneun beolereul sireohaeyo.", translation: "I dislike bugs.", annotation: "싫어해요 — a direct dislike, stronger than 별로 안 좋아해요" },
+            { type: "dialogue" as const, exchanges: [
+                { native: "매운 음식 좋아해요?", romanized: "Maeun eumsik joahaeyo?", translation: "Do you like spicy food?" },
+                { native: "아니요, 사실 싫어해요.", romanized: "Aniyo, sasil sireohaeyo.", translation: "No, I actually dislike it." },
+            ]},
             { native: "저는 커피를 좋아해요. 그리고 음악도 좋아해요.", romanized: "Jeoneun keopireul joahaeyo. Geurigo eumagdo joahaeyo.", translation: "I like coffee. And I also like music.", annotation: "그리고 = and, 도 = also"},
             { type: "dialogue" as const, exchanges: [
                 { native: "어떤 음식을 좋아해요?", romanized: "Eotteon eumsigul joahaeyo?", translation: "What kind of food do you like?" },
-                { native: "특히 비빔밥을 좋아해요.", romanized: "Teukhi bibimbapeul joahaeyo.", translation: "I especially like bibimbap." },
+                { native: "특히 비빔밥을 좋아해요. 근데 회는 싫어해요.", romanized: "Teukhi bibimbapeul joahaeyo. Geunde hoeneun sireohaeyo.", translation: "I especially like bibimbap. But I dislike raw fish." },
             ]},
         ],
         inlineVocab: [
@@ -287,7 +296,7 @@ export const block2Lessons: GrammarLesson[] = [
         level: "A1",
         title: "Adjective conjugation — adjectives work like verbs",
         explanation: `Good news: Korean adjectives conjugate with the exact same ~아요/어요 rule you already learned for verbs. There's nothing new to memorize here — just the pattern you know, applied to a new kind of word.`,
-        ruleIds: ["ko-r-a1-14-1", "ko-r-a1-14-2"],
+        ruleIds: ["ko-r-a1-17-1", "ko-r-a1-17-2"],
         notes: [
             {
                 type: "tip",
