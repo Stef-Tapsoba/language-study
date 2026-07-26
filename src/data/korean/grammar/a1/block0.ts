@@ -6,7 +6,7 @@ export const block0Lessons: GrammarLesson[] = [
         level: "A1",
         title: "Korean writing: syllable blocks and the ten basic vowels",
         exerciseType: "script-reading",
-        explanation: `Korean is written in syllable blocks — each block is one spoken beat. Every block has at least two parts: a consonant and a vowel. The vowel's position depends on its shape: vertical vowels go to the right of the consonant; horizontal vowels go below it. When a syllable starts with a vowel sound, ㅇ acts as a silent placeholder. Stroke order follows two rules: top to bottom, left to right.`,
+        explanation: `Hangul, the Korean alphabet, was designed in 1443 under King Sejong to be learned quickly, and it shows: every syllable is written as a single block, and every block corresponds to exactly one spoken beat. This is different from English spelling, where letters just run in a line with no grouping. Each block needs at least two elements, a consonant and a vowel, arranged according to the vowel's shape: vowels with a vertical main stroke sit to the right of the consonant, while vowels with a horizontal main stroke sit below it. Because every block must open with a consonant slot even when a syllable actually starts with a vowel sound, Korean uses ㅇ as a silent placeholder in that position. Finally, stroke order is not arbitrary: writing top to bottom and left to right keeps blocks legible and is how Korean speakers learn penmanship from childhood.`,
         ruleIds: ["ko-r-a1-1-1", "ko-r-a1-1-2", "ko-r-a1-1-3", "ko-r-a1-1-4"],
         notes: [
             {
@@ -42,7 +42,7 @@ export const block0Lessons: GrammarLesson[] = [
         level: "A1",
         title: "The 14 consonants and building Korean syllables",
         exerciseType: "script-reading",
-        explanation: `You have vowels — now add consonants and syllable blocks become real words. The 14 basic consonants fall into three groups by how they sound. Consonant + vertical vowel sits side by side (가 나 다…); consonant + horizontal vowel stacks vertically (고 노 도…).`,
+        explanation: `With the ten basic vowels in hand, adding consonants turns syllable blocks into real, pronounceable words. Korean has 14 basic consonants, and they divide into three groups by how they are produced: plain consonants (ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅅ ㅇ ㅈ ㅎ), aspirated consonants pronounced with a burst of air (ㅋ ㅌ ㅍ ㅊ), and, later, tensed consonants. The block layout you learned in the previous lesson now applies consistently: a consonant paired with a vertical vowel sits side by side (가, 나, 다), while a consonant paired with a horizontal vowel stacks with the consonant on top (고, 노, 도). Because Korean spelling maps very closely to pronunciation, once you can read a block, you can say it, which is not true of English.`,
         ruleIds: ["ko-r-a1-2-1", "ko-r-a1-2-2", "ko-r-a1-2-3"],
         notes: [
             {
@@ -79,7 +79,7 @@ export const block0Lessons: GrammarLesson[] = [
         level: "A1",
         title: "받침 (final consonants), loanwords, and your first Korean phrases",
         exerciseType: "script-reading",
-        explanation: `Most syllable blocks have a final consonant at the bottom — called 받침 (batchim). A three-part syllable has an initial consonant, a vowel, and a 받침 at the base. Final consonants are not released — they close the syllable. Only seven distinct sounds are possible as 받침, regardless of which consonant is written.`,
+        explanation: `Many syllable blocks carry a third element beneath the vowel: a final consonant called 받침 (batchim, literally "supporting floor"). A three-part syllable block therefore has an initial consonant, a vowel, and a 받침 stacked at the bottom. Unlike English final consonants, which are often released with a puff of air, Korean 받침 are unreleased: the mouth forms the shape of the consonant and stops there, closing the syllable abruptly. This closing action also has a major simplifying effect on pronunciation: although 16 different consonants can technically appear as 받침 in spelling, they collapse into only seven distinct sounds in speech (roughly the equivalents of k, n, t, l, m, p, and ng). Recognizing 받침 is also the key to reading Korean's many English loanwords, since Korean reshapes borrowed words to fit its own sound system.`,
         ruleIds: ["ko-r-a1-3-1", "ko-r-a1-3-2", "ko-r-a1-3-3", "ko-r-a1-3-4", "ko-r-a1-3-5", "ko-r-a1-3-6", "ko-r-a1-3-7"],
         notes: [
             {

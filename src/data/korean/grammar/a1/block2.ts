@@ -5,7 +5,7 @@ export const block2Lessons: GrammarLesson[] = [
         id: "ko-g-a1-10",
         level: "A1",
         title: "Family vocabulary + 있어요/없어요 for family members",
-        explanation: `Korean family terms encode the speaker's gender directly — the same biological relationship has different words depending on who is speaking. 있어요/없어요 states who you have: 저는 남동생이 있어요 (I have a younger brother).`,
+        explanation: `Korean family vocabulary encodes the speaker's own gender directly into the word: the same biological relationship is described with a completely different term depending on whether the speaker is male or female. A woman calls her older brother 오빠, while a man calls his older brother 형; a woman calls her older sister 언니, while a man calls his older sister 누나. This is a real grammatical fact about the language, not a stylistic choice, so learners must choose the word that matches their own gender when speaking about their own siblings. Once you have the vocabulary, describing your family reuses 있어요/없어요 from the previous block exactly as before: 저는 남동생이 있어요 ("I have a younger brother") simply plugs a family noun into the possession pattern you already know.`,
         ruleIds: ["ko-r-a1-10-1", "ko-r-a1-10-2", "ko-r-a1-10-3"],
         notes: [
             {
@@ -44,7 +44,7 @@ export const block2Lessons: GrammarLesson[] = [
         id: "ko-g-a1-11",
         level: "A1",
         title: "Describing family members — combining what you know",
-        explanation: `You now have the copula, numbers, professions, and age — all of these work with family members using the same frames. 제 (my, polite) + family term + 은/는 is the standard pattern.`,
+        explanation: `This lesson does not introduce new grammar; it shows that everything you have learned so far, the copula 이에요/예요, numbers, professions, and age, applies equally to talking about family members, because Korean grammar does not change based on topic. The standard pattern for describing a relative is 제 (my, polite) + family term + 은/는 (topic marker), as in 제 어머니는 선생님이에요 ("My mother is a teacher"). 제 is the polite spoken contraction of 저의 ("I" + possessive 의"), and native speakers virtually always use the short form 제 in conversation, reserving 저의 for formal writing. 은/는 marks the noun as the topic of the sentence, meaning "as for ___"; the rule for choosing between them is simple for now (은 after a consonant, 는 after a vowel), with more nuanced uses covered in Block 3.`,
         notes: [
             {
                 type: "tip",
@@ -85,7 +85,7 @@ export const block2Lessons: GrammarLesson[] = [
         id: "ko-g-a1-12",
         level: "A1",
         title: "좋아해요 / 싫어해요 — likes and dislikes + first sight of 을/를",
-        explanation: `Your first real action verb: 좋아해요 (I like) and its opposite 싫어해요 (I dislike). You perform liking or disliking something — and the thing you like/dislike gets marked with the object particle 를/을.`,
+        explanation: `This lesson introduces your first true action verbs (as opposed to the copula 이에요/예요, which only links a noun to its identity): 좋아해요 ("I like") and its opposite 싫어해요 ("I dislike"). Because liking or disliking is treated grammatically as an action performed on a thing, the thing being liked or disliked must be marked with the object particle 를/을, which flags it as the target of the verb rather than the subject. 를 attaches after a noun ending in a vowel and 을 after a noun ending in a consonant, following the same consonant/vowel logic you have already seen with 이에요/예요; this particle, and the broader idea of marking objects, is expanded fully in the next lesson.`,
         ruleIds: ["ko-r-a1-12-1", "ko-r-a1-12-2", "ko-r-a1-12-3"],
         notes: [
             {
@@ -128,7 +128,7 @@ export const block2Lessons: GrammarLesson[] = [
         id: "ko-g-a1-13",
         level: "A1",
         title: "을/를 - the object particle in action",
-        explanation: `을/를 is the object particle — it marks the direct object of an action verb. It works with any action verb: 먹다, 마시다, 듣다, 보다, 읽다. Same rule you saw last lesson, applied more broadly.`,
+        explanation: `을/를 is Korean's object particle: it grammatically marks the noun that an action verb acts upon, filling the role that word order alone plays in English (where "I eat rice" and "Rice eats I" mean very different things because of position, whereas Korean relies on particles instead). You met this particle briefly with 좋아해요/싫어해요 in the previous lesson; here it generalizes to any action verb, including 먹다 (to eat), 마시다 (to drink), 듣다 (to listen), 보다 (to watch/see), and 읽다 (to read). The consonant/vowel split is unchanged: 을 follows a consonant-final noun and 를 follows a vowel-final noun. Because Korean marks grammatical roles with particles rather than strict word order, subject, object, and verb can in principle be rearranged without changing meaning, though the verb almost always comes last.`,
         ruleIds: ["ko-r-a1-12-2", "ko-r-a1-12-3"],
         notes: [
             {
@@ -170,7 +170,7 @@ export const block2Lessons: GrammarLesson[] = [
         id: "ko-g-a1-14",
         level: "A1",
         title: "Present tense ~아요/어요 — the Korean verb system revealed",
-        explanation: `Every Korean present tense verb ends in ~요. Which vowel comes right before it — 아 or 어 — depends on the last vowel in the verb stem. There are only two cases to learn, plus one fixed rule for 하다 verbs.`,
+        explanation: `Every Korean present tense verb in polite conversational speech ends in ~요, but the vowel immediately before that 요, either 아 or 어, is not random: it is determined by vowel harmony, a pattern where the ending vowel must match the "brightness" of the last vowel in the verb stem. If the stem's last vowel is ㅏ or ㅗ (considered "bright" vowels), the ending is ~아요; for every other vowel, the ending is ~어요. There is one fixed exception that covers an enormous number of verbs: any verb built on 하다 (to do), such as 공부하다 (to study) or 운동하다 (to exercise), always takes ~해요, never ~하아요. Beyond the rule itself, Korean word order also becomes visible here: the verb always comes at the very end of the sentence, after the subject, object, and any time or place information.`,
         ruleIds: ["ko-r-a1-14-1", "ko-r-a1-14-2", "ko-r-a1-14-3"],
         notes: [
             {
@@ -206,7 +206,7 @@ export const block2Lessons: GrammarLesson[] = [
         id: "ko-g-a1-15",
         level: "A1",
         title: "Daily routine verbs + present tense in context",
-        explanation: `The present tense pattern now fills with daily life verbs. These are the verbs you need for talking about your routine — learn them as stems, the ~아요/어요 ending follows automatically.`,
+        explanation: `With the ~아요/어요 rule established, this lesson fills that pattern with the everyday verbs you need to describe a daily routine, such as 일어나다 (to get up), 자다 (to sleep), and 만나다 (to meet). Because you already know the vowel harmony rule, you only need to learn each verb's dictionary-form stem; the correct ~아요/어요 ending follows automatically. Two of the verbs here, 듣다 (to listen) and 걷다 (to walk), belong to a small irregular class called ㄷ-irregular verbs, where the stem-final ㄷ changes to ㄹ before a vowel-initial ending, producing 들어요 and 걸어요 rather than the expected 듣어요 and 걷어요.`,
         ruleIds: ["ko-r-a1-20-1", "ko-r-a1-20-2"],
         notes: [
             {
@@ -247,7 +247,7 @@ export const block2Lessons: GrammarLesson[] = [
         id: "ko-g-a1-16",
         level: "A1",
         title: "있어요 for location + 에 particle for place",
-        explanation: `있어요 does three jobs: possession, existence, and location. When paired with 에, it expresses where something IS — as distinct from 에서 which is for where actions happen.`,
+        explanation: `있어요 does three related jobs in Korean: expressing possession ("I have"), pure existence ("there is"), and, as this lesson focuses on, location ("something is located at"). When 있어요 is used for location, the place is marked with the particle 에, which indicates a static point in space, the answer to "where is it," rather than an action happening there. This sets up an important distinction covered more fully in Block 4: 에 marks where something simply is or is going, while 에서 marks where an action takes place, so 카페에 있어요 ("I am at the café") uses 에 because being somewhere is a state, not an action.`,
         ruleIds: ["ko-r-a1-16-1", "ko-r-a1-16-2"],
         notes: [
             {
@@ -295,7 +295,7 @@ export const block2Lessons: GrammarLesson[] = [
         id: "ko-g-a1-17",
         level: "A1",
         title: "Adjective conjugation — adjectives work like verbs",
-        explanation: `Good news: Korean adjectives conjugate with the exact same ~아요/어요 rule you already learned for verbs. There's nothing new to memorize here — just the pattern you know, applied to a new kind of word.`,
+        explanation: `Korean does not have a separate category of "to be" plus adjective the way English does (compare "the bag is expensive," where "is" and "expensive" are two words); instead, Korean adjectives are themselves a type of verb, called descriptive verbs, and they conjugate with the exact same ~아요/어요 vowel harmony rule you already learned for action verbs. 비싸다 (to be expensive) becomes 비싸요 exactly the way 가다 (to go) becomes 가요, with no additional rule to memorize. This is one of the more elegant features of Korean grammar: once you understand the present tense pattern, you already know how to conjugate the vast majority of adjectives, and 너무 ("too" or "excessively") is a common intensifier that pairs naturally with them, as in 너무 비싸요 ("it's too expensive").`,
         ruleIds: ["ko-r-a1-17-1", "ko-r-a1-17-2"],
         notes: [
             {
@@ -328,7 +328,7 @@ export const block2Lessons: GrammarLesson[] = [
         id: "ko-g-a1-17b",
         level: "A1",
         title: "Irregular adjectives — ㅡ-drop and ㅂ irregular",
-        explanation: `You already have the adjective rule from the last lesson. This lesson is a short, self-contained list of exceptions — two patterns that show up constantly in weather and feelings words. Learn them as fixed chunks, the same way you learned the contractions for verbs.`,
+        explanation: `Building on the adjective conjugation rule from the previous lesson, this lesson covers two small but very common groups of irregular adjectives that do not follow the regular ~아요/어요 pattern exactly. The first is the ㅡ-drop pattern, where an adjective stem ending in the vowel ㅡ (such as 크다, "to be big," or 예쁘다, "to be pretty") loses that ㅡ and conjugates based on the vowel before it, giving 커요 and 예뻐요. The second is the ㅂ-irregular pattern, common in weather and feeling words like 덥다 (hot) and 춥다 (cold), where the stem-final ㅂ changes to 우 before the ending, giving 더워요 and 추워요 rather than the expected 덥아요. Both patterns recur constantly in everyday Korean, so it is worth memorizing them as fixed forms now rather than trying to derive them from the regular rule each time.`,
         ruleIds: ["ko-r-a1-17b-1", "ko-r-a1-17b-2"],
         notes: [
             {

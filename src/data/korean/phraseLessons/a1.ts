@@ -64,7 +64,7 @@ export const a1PhraseLessons: PhraseLesson[] = [
         miniDialogue: [
             { speaker: "A", native: "실례합니다, 잠깐만요!" },
             { speaker: "B", native: "네?" },
-            { speaker: "A", native: "화장실이 어디에요?" },
+            { speaker: "A", native: "화장실이 어디예요?" },
             { speaker: "B", native: "저쪽이요." },
             { speaker: "A", native: "감사합니다!" },
             { speaker: "B", native: "괜찮아요." },
@@ -131,7 +131,7 @@ export const a1PhraseLessons: PhraseLesson[] = [
         title: "What you do",
         sceneSetter: "뭐 해요? they ask — what do you do? This is one of the first questions in any Korean conversation.",
         phrases: [
-            { native: "저는 학생이에요.", translation: "I'm a student.", context: "직접 identity statement.", pronunciation: "jeo-neun hak-saeng-i-e-yo" },
+            { native: "저는 학생이에요.", translation: "I'm a student.", context: "Direct identity statement.", pronunciation: "jeo-neun hak-saeng-i-e-yo" },
             { native: "저는 회사에서 일해요.", translation: "I work at a company.", context: "일해요 = work. 에서 = at (location of action).", pronunciation: "jeo-neun hoe-sa-e-seo il-hae-yo" },
             { native: "저는 한국어를 공부해요.", translation: "I study Korean.", context: "공부해요 = study. 를 = object particle.", pronunciation: "jeo-neun han-gu-geo-reul gong-bu-hae-yo" },
             { native: "무슨 일 해요?", translation: "What kind of work do you do?", context: "무슨 = what kind of. A natural conversation-starter.", pronunciation: "mu-seun il hae-yo" },
@@ -164,7 +164,7 @@ export const a1PhraseLessons: PhraseLesson[] = [
             { native: "저는 가족이 ___ 명이에요.", translation: "My family has ___ people.", context: "명 = counter for people. 한 명 (1), 두 명 (2), 세 명 (3), 네 명 (4)...", pronunciation: "jeo-neun ga-jo-gi...myeong-i-e-yo" },
             { native: "저는 ___ 이/가 있어요.", translation: "I have a ___.", context: "있어요 for possession. Put any family term above in the blank. 이 after consonant, 가 after vowel: 오빠가 있어요, 남동생이 있어요.", pronunciation: "jeo-neun...i/ga is-seo-yo" },
             { native: "부모님이랑 살아요. / 저는 외동이에요.", translation: "I live with my parents. / I'm an only child.", context: "이랑 = and/with (casual). 외동 = only child.", pronunciation: "bu-mo-ni-mi-rang sa-ra-yo / jeo-neun oe-dong-i-e-yo" },
-            { native: "저는 막내예요. / 저는 장남/장녀예요.", translation: "I'm the youngest. / I'm the eldest son / eldest daughter.", context: "막내 = youngest. 장남 = eldest son, 장녀 = eldest daughter.", pronunciation: "jeo-neun mak-naey-e-yo / jang-nam / jang-nyeo-ye-yo" },
+            { native: "저는 막내예요. / 저는 장남/장녀예요.", translation: "I'm the youngest. / I'm the eldest son / eldest daughter.", context: "막내 = youngest. 장남 = eldest son, 장녀 = eldest daughter.", pronunciation: "jeo-neun mak-nae-ye-yo / jang-nam / jang-nyeo-ye-yo" },
             { native: "아, 그래요?", translation: "Oh really?", context: "Light-surprise reaction. Use constantly — native speakers say this to show engagement.", pronunciation: "a geu-rae-yo" },
         ],
         miniDialogue: [
@@ -303,7 +303,7 @@ export const a1PhraseLessons: PhraseLesson[] = [
             { native: "너무 비싸요. 조금 싸게 해 주세요.", translation: "It's too expensive. Please make it a little cheaper.", context: "Natural in traditional markets (재래시장). Don't use in regular shops.", pronunciation: "neo-mu bis-sa-yo. jo-geum ssa-ge hae ju-se-yo" },
             { native: "살게요.", translation: "I'll buy it.", context: "Decision to purchase. 살게요 = will buy (future intention).", pronunciation: "sal-ge-yo" },
             { native: "카드 돼요? / 현금으로 낼게요.", translation: "Do you take card? / I'll pay cash.", context: "카드 = card. 현금 = cash. 돼요 = works/acceptable.", pronunciation: "ka-deu dwae-yo / hyeon-geu-meu-ro nael-ge-yo" },
-            { native: "봉투 주세요. / 됐어요.", translation: "A bag please. / It's okay / I'm fine.", context: "봉투 = bag. 됐어요 = no need (declining an offer).", pronunciation: "bong-tu ju-se-yo / daet-sseo-yo" },
+            { native: "봉투 주세요. / 됐어요.", translation: "A bag please. / It's okay / I'm fine.", context: "봉투 = bag. 됐어요 = no need (declining an offer).", pronunciation: "bong-tu ju-se-yo / dwaet-sseo-yo" },
         ],
         miniDialogue: [
             { speaker: "A", native: "이거 얼마예요?" },

@@ -5,7 +5,7 @@ export const block4Lessons: GrammarLesson[] = [
         id: "ko-g-a1-30",
         level: "A1",
         title: "에 vs 에서 fully explained — destination/existence vs action location",
-        explanation: `에 and 에서 have been in your sentences since Block 2. Here is the complete rule: 에 marks destinations and static locations; 에서 marks where actions take place. A third use of 에서 — meaning "from" — covers the direction away from a place.`,
+        explanation: `에 and 에서 have both been appearing in your sentences since Block 2, and this lesson states the complete rule that governs them. 에 marks a destination (going TO a place) or a static location (being AT a place with 있다/없다): 도서관에 가요 ("I go to the library") and 도서관에 있어요 ("I am at the library"). 에서 marks the place where an action is actively happening, not just where something sits: 도서관에서 책을 읽어요 ("I read books at the library"), because reading is something you do, not merely a state of being located. A third use of 에서, translating as "from," marks the starting point of a movement away from a place, as in 한국에서 왔어요 ("I came from Korea"), which is really the same "location of an action" logic extended to the action of departing.`,
         ruleIds: ["ko-r-a1-16-1", "ko-r-a1-16-2", "ko-r-a1-30-2", "ko-r-a1-30-3"],
         notes: [
             {
@@ -39,7 +39,7 @@ export const block4Lessons: GrammarLesson[] = [
         id: "ko-g-a1-31",
         level: "A1",
         title: "Transport vocabulary: 타다/걷다/가다 with particles",
-        explanation: `Korean transport uses three core verbs: 타다 (board), 내리다 (get off), 걷다 (walk). The particle (으)로 marks the means of transport — the "by" of how you travel.`,
+        explanation: `Talking about transportation in Korean centers on three core verbs: 타다 ("to board" or "to ride"), 내리다 ("to get off"), and 걷다 ("to walk"). Alongside these verbs, the particle (으)로 marks the means by which you do something, functioning like English "by" or "via": 지하철로 가요 means "I go by subway." This same particle (으)로 reappears in two other common contexts you will notice once you start looking for it, marking direction ("toward," as in 왼쪽으로, "toward the left") and marking a method of payment ("by," as in 카드로, "by card"), which is a good example of how a single Korean particle often covers what English splits into several different prepositions.`,
         ruleIds: ["ko-r-a1-31-1", "ko-r-a1-31-2", "ko-r-a1-31-3"],
         notes: [
             {
@@ -78,7 +78,7 @@ export const block4Lessons: GrammarLesson[] = [
         id: "ko-g-a1-32",
         level: "A1",
         title: "Native Korean numbers in context: counters 개/명/잔/그릇",
-        explanation: `Native Korean numbers pair with most everyday counters for people, objects, and drinks. Before a counter, the first four numbers change form: 하나/둘/셋/넷 → 한/두/세/네.`,
+        explanation: `Korean does not simply place a number in front of a noun the way English does ("three dumplings"); instead, it requires a counter word between the number and the noun, and the correct counter depends on the category of thing being counted, such as 개 (general objects), 명 (people), 잔 (cups or glasses of a drink), and 그릇 (bowls of food). Most counters use native Korean numbers, which is why this lesson matters immediately after learning that system in Block 1. There is one small irregularity to note here: the first four native Korean numbers shorten when placed directly before a counter, so 하나, 둘, 셋, and 넷 become 한, 두, 세, and 네, the same shortened forms you already saw with the age counter 살 (e.g. 한 살, "one year old").`,
         ruleIds: ["ko-r-a1-32-1", "ko-r-a1-32-2"],
         notes: [
             {
@@ -116,7 +116,7 @@ export const block4Lessons: GrammarLesson[] = [
         id: "ko-g-a1-33",
         level: "A1",
         title: "Sino-Korean numbers for money + 원; reading prices",
-        explanation: `Sino-Korean numbers handle all prices in Korean. The system is fully regular — you already know 일 through 십. Now add 백 (100), 천 (1,000), and 만 (10,000).`,
+        explanation: `Every price in Korean is expressed using the Sino-Korean number system you learned in Block 1, and the system stays completely regular as the numbers grow larger: you already know 일 through 십 (1 through 10), and this lesson simply adds three new place-value words, 백 (100), 천 (1,000), and 만 (10,000). The most important adjustment for English speakers is a difference in how large numbers are grouped: English groups numbers in units of a thousand (1,000, 10,000, 100,000), while Korean groups them in units of 만, ten-thousand, so 10,000 is a single word 만 rather than "ten thousand" built from 십 (ten) and 천 (thousand). This is why 50,000 won is simply 오만 원 (five ten-thousands) rather than anything resembling "fifty thousand."`,
         ruleIds: ["ko-r-a1-33-1", "ko-r-a1-33-2"],
         notes: [
             {
@@ -159,7 +159,7 @@ export const block4Lessons: GrammarLesson[] = [
         id: "ko-g-a1-34",
         level: "A1",
         title: "Polite instruction ~(으)세요 (please do / do this)",
-        explanation: `~(으)세요 is the polite instruction/invitation form. You have been hearing it throughout the course — in directions (직진하세요), at restaurants (앉으세요), and requests (기다리세요).`,
+        explanation: `~(으)세요 is the polite ending Korean uses for instructions, invitations, and gentle commands, and you have already been hearing it throughout the course without formally analyzing it, in directions (직진하세요, "go straight"), at restaurants (앉으세요, "please sit"), and in requests (기다리세요, "please wait"). Its formation follows the same consonant/vowel logic as many other Korean endings: a verb stem ending in a vowel takes 세요 directly, while a verb stem ending in a consonant needs an extra 으 inserted first, giving 으세요. Despite sometimes being translated as an imperative in English, ~(으)세요 carries a warm, respectful tone rather than a blunt command, closer to "please" than to a bare order, which is why it is entirely appropriate to use with strangers, shopkeepers, and elders alike.`,
         ruleIds: ["ko-r-a1-34-1", "ko-r-a1-34-2"],
         notes: [
             {
@@ -198,7 +198,7 @@ export const block4Lessons: GrammarLesson[] = [
         id: "ko-g-a1-35",
         level: "A1",
         title: "~아/어 주세요 (please do this for me) + the 해요체 register payoff",
-        explanation: `~아/어 주세요 asks someone to do something for you. You have been using it since the restaurant unit (주세요, 기다려 주세요) — here is the full pattern.`,
+        explanation: `~아/어 주세요 is the pattern for asking someone to do something on your behalf, and you have already been using pieces of it since the restaurant lessons (주세요, "please give me"; 기다려 주세요, "please wait for me"). Grammatically, it is built from two parts you already know: the verb in its ~아/어 form (the same present-tense form from earlier in this course, minus the final 요), plus 주세요, the polite instruction form of 주다 ("to give"). So 기다리다 (to wait) becomes 기다려 (present-tense stem) plus 주세요, yielding 기다려 주세요, literally "give me the favor of waiting." This lesson also names the speech level you have been using throughout the entire course: 해요체, the polite-informal register appropriate for the vast majority of everyday interactions with strangers, shopkeepers, and coworkers alike.`,
         ruleIds: ["ko-r-a1-35-1"],
         notes: [
             {
@@ -238,7 +238,7 @@ export const block4Lessons: GrammarLesson[] = [
         id: "ko-g-a1-36",
         level: "A1",
         title: "~(으)ㄹ까요? — suggestion/question form (Shall we? What do you think?)",
-        explanation: `~(으)ㄹ까요? suggests doing something together or wonders aloud. It was already in your ear — in dialogues: 뭐 먹을까요?, 갈까요?`,
+        explanation: `~(으)ㄹ까요? is a versatile ending that either proposes doing something together, like English "shall we?", or expresses wondering aloud to yourself, like English "I wonder..."; the same grammatical form covers both meanings, and context and intonation tell you which is intended. You have already heard it in dialogue throughout this course, in phrases like 뭐 먹을까요? ("What shall we eat?") and 갈까요? ("Shall we go?"). Its formation follows the familiar vowel/consonant split: a vowel-final or ㄹ-final stem takes ㄹ까요 directly (가다 → 갈까요), while a consonant-final stem needs an inserted 으 first (먹다 → 먹을까요), the same pattern that appears across many Korean verb endings once you start to notice it.`,
         ruleIds: ["ko-r-a1-36-1", "ko-r-a1-36-2"],
         notes: [
             {
@@ -286,7 +286,7 @@ export const block4Lessons: GrammarLesson[] = [
         id: "ko-g-a1-37",
         level: "A1",
         title: "~고 싶어요 (I want to...) + ~고 싶어해요 (he/she wants to...)",
-        explanation: `~고 싶어요 expresses what you want to do. The stem + 고 is the same clause connector as in Block 5; 싶어요 means "want/feel like." For someone else's desire, use ~고 싶어해요.`,
+        explanation: `~고 싶어요 expresses what the speaker wants to do, built from two components: the verb stem plus the connector ~고 (the same clause connector meaning "and" or "and then," fully explained in Block 5), followed by 싶어요, meaning "want to" or "feel like." So 가다 (to go) plus this pattern gives 가고 싶어요, "I want to go." Korean grammar makes an important distinction English does not: ~고 싶어요 can only describe the speaker's own desire (or, in a question, the listener's), because directly stating that a third person "wants" something is considered presumptuous in Korean; describing someone else's desire instead requires the related but distinct form ~고 싶어해요, literally "acts as if wanting to." One especially important idiomatic use to remember is 보고 싶어요, which literally means "I want to see (you)" but functions as the standard way to say "I miss you."`,
         ruleIds: ["ko-r-a1-37-1", "ko-r-a1-37-2"],
         notes: [
             {
