@@ -14,6 +14,7 @@
 // The hook is pure read — no side effects, no writes.
 
 import { useStatsStore, getLastActivityDate } from "../store/useStatsStore"
+import { localDateStr } from "../utils/date"
 
 export type BreakTier = "none" | "light" | "medium" | "heavy" | "critical"
 
@@ -54,7 +55,7 @@ export function useBreakDetection(langId: string): BreakDetectionResult {
         return { tier: "none", daysSince: -1, lastActivityDate: null }
     }
 
-    const today = new Date().toISOString().slice(0, 10)
+    const today = localDateStr()
     const daysSince = daysBetween(lastActivityDate, today)
     return { tier: calcTier(daysSince), daysSince, lastActivityDate }
 }

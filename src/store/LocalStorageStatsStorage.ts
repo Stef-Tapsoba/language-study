@@ -7,6 +7,7 @@
 import type { StatsData, DayStats } from "./useStatsStore"
 import type { IStatsStorage } from "./IStatsStorage"
 import type { Skill } from "../domain/skills"
+import { localDateStr } from "../utils/date"
 
 const STATS_KEY = "ls:stats"
 const HISTORY_DAYS = 360
@@ -14,7 +15,7 @@ const HISTORY_DAYS = 360
 function pruneData(data: StatsData): StatsData {
     const cutoff = new Date()
     cutoff.setDate(cutoff.getDate() - HISTORY_DAYS)
-    const cutoffStr = cutoff.toISOString().slice(0, 10)
+    const cutoffStr = localDateStr(cutoff)
     const pruned: StatsData = {}
     for (const [lang, days] of Object.entries(data)) {
         const kept: Record<string, DayStats> = {}

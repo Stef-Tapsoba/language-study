@@ -9,6 +9,7 @@
 
 import { create } from "zustand"
 import { logError } from "../utils/logger"
+import { localDateStr } from "../utils/date"
 import { registry } from "./registry"
 import type { Skill } from "../domain/skills"
 export type { Skill } from "../domain/skills"
@@ -36,7 +37,7 @@ export type StatsData = Record<string, Record<string, DayStats>>
 
 // ─── Internal helpers ─────────────────────────────────────────────────────────
 
-export function todayStr(): string { return new Date().toISOString().slice(0, 10) }
+export function todayStr(): string { return localDateStr() }
 
 // ─── Store shape ─────────────────────────────────────────────────────────────
 
@@ -167,7 +168,7 @@ export function getHistory(
     return Array.from({ length: days }, (_, i) => {
         const d = new Date()
         d.setDate(d.getDate() - (days - 1 - i))
-        const date = d.toISOString().slice(0, 10)
+        const date = localDateStr(d)
         const { reviewed = 0, correct = 0 } = langDays[date] ?? {}
         return { date, reviewed, correct }
     })
@@ -187,17 +188,17 @@ export function getGlobalStreak(data: StatsData): number {
     }
 
     const d = new Date()
-    const todayStr = d.toISOString().slice(0, 10)
+    const todayLocal = localDateStr(d)
 
     // If the user hasn't studied today, start counting from yesterday so the
     // streak is not broken until they miss a full calendar day.
-    if (!hasActivityOn(todayStr)) {
+    if (!hasActivityOn(todayLocal)) {
         d.setDate(d.getDate() - 1)
     }
 
     let streak = 0
     for (let i = 0; i < 365; i++) {
-        const dateStr = d.toISOString().slice(0, 10)
+        const dateStr = localDateStr(d)
         if (!hasActivityOn(dateStr)) break
         streak++
         d.setDate(d.getDate() - 1)
@@ -243,7 +244,7 @@ export function getSkillAccuracy(
     for (let i = 0; i < days; i++) {
         const d = new Date()
         d.setDate(d.getDate() - i)
-        const s = langDays[d.toISOString().slice(0, 10)]?.skills?.[skill]
+        const s = langDays[localDateStr(d)]?.skills?.[skill]
         if (!s) continue
         total += s.t
         correct += s.c
@@ -259,7 +260,7 @@ export function getOverallAccuracy(data: StatsData, langId: string, days = 14): 
     Array.from({ length: days }, (_, i) => {
         const d = new Date()
         d.setDate(d.getDate() - (days - 1 - i))
-        return d.toISOString().slice(0, 10)
+        return localDateStr(d)
     }).forEach(date => {
         const day = langDays[date]
         if (!day) return

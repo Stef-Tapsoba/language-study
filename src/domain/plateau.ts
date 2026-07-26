@@ -13,6 +13,7 @@
 import type { StatsData } from "../store/useStatsStore"
 import type { Skill } from "./skills"
 import { SKILLS } from "./skills"
+import { localDateStr } from "../utils/date"
 
 export type SkillTrend = "stagnant" | "declining"
 export type PlateauTier = "none" | "notice" | "concern"
@@ -53,7 +54,7 @@ function sumWindow(data: StatsData, langId: string, today: string, startOffset: 
     for (let i = startOffset; i < startOffset + WINDOW_DAYS; i++) {
         const d = new Date(today + "T00:00:00")
         d.setDate(d.getDate() - i)
-        const day = langDays[d.toISOString().slice(0, 10)]
+        const day = langDays[localDateStr(d)]
         if (!day) continue
         totals.reviewed += day.reviewed
         totals.correct += day.correct

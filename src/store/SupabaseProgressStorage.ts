@@ -15,6 +15,7 @@ import { logError } from "../utils/logger"
 import { SCHEMA_VERSION } from "./progress"
 import { inferContentTypeFromId } from "./contentType"
 import { syncOrQueue } from "./outbox"
+import { localDateStr } from "../utils/date"
 
 // Minimal row shapes returned by Supabase queries
 interface LevelRow { lang_id: string; level: string }
@@ -331,7 +332,7 @@ export class SupabaseProgressStorage implements IProgressStorage {
             // the server row's mastered_at default records the canonical time.
             const dates = this.cache.unitMasteredAt ?? (this.cache.unitMasteredAt = {})
             const langDates = dates[langId] ?? (dates[langId] = {})
-            langDates[unitId] ??= new Date().toISOString().slice(0, 10)
+            langDates[unitId] ??= localDateStr()
         }
         await syncOrQueue(this.sb, {
             kind: "upsert", table: "mastered_units",
