@@ -17,6 +17,7 @@
 //
 import { registry } from "./registry"
 import { logError } from "../utils/logger"
+import { localDateStr } from "../utils/date"
 import type { GoalId } from "../types"
 
 // ── Onboarding ────────────────────────────────────────────────────────────────
@@ -50,7 +51,7 @@ export function setTtsAutoplay(enabled: boolean): void {
 // each new day. Transient — no cross-device sync needed.
 
 function todayKey(langId: string): string {
-    return `ls:review-dismissed:${langId}:${new Date().toISOString().slice(0, 10)}`
+    return `ls:review-dismissed:${langId}:${localDateStr()}`
 }
 
 /** Returns true if the review prompt has been dismissed today for this language. */

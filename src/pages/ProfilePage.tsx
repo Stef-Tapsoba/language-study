@@ -9,6 +9,7 @@ import { loadModule } from "../data/modules"
 import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { resetLanguageData, removeLanguageData, exportProgressSnapshot, importProgressSnapshot } from "../store/actions"
 import { logError } from "../utils/logger"
+import { localDateStr } from "../utils/date"
 import { useGlobalStreak } from "../hooks/useGlobalStreak"
 import { StreakChip } from "../components/StreakChip"
 import { Flag } from "../components/Flag"
@@ -184,7 +185,7 @@ async function exportProgress(): Promise<void> {
     const url = URL.createObjectURL(blob)
     const a = document.createElement("a")
     a.href = url
-    a.download = `language-study-backup-${new Date().toISOString().slice(0, 10)}.json`
+    a.download = `language-study-backup-${localDateStr()}.json`
     a.click()
     URL.revokeObjectURL(url)
 }

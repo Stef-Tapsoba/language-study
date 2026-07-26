@@ -5,6 +5,7 @@
 // Pure: all inputs (including `today`) are passed in; no clock or module reads.
 
 import { CEFRLevel, CEFR_LEVELS, GoalPlan } from "../types"
+import { localDateStr } from "../utils/date"
 
 export type TrajectoryStatus =
     | "no-plan"            // no goal plan set
@@ -97,7 +98,7 @@ export function computeTrajectory(input: TrajectoryInput): Trajectory {
     // Observed pace: mastery events inside the trailing window.
     const windowStart = new Date(today + "T00:00:00")
     windowStart.setDate(windowStart.getDate() - PACE_WINDOW_DAYS)
-    const windowStartStr = windowStart.toISOString().slice(0, 10)
+    const windowStartStr = localDateStr(windowStart)
     const recentEvents = Object.values(masteredDates)
         .filter(d => d > windowStartStr && d <= today).length
 

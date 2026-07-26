@@ -11,6 +11,7 @@ import { useNavigate, useParams, useSearchParams } from "react-router-dom"
 import { NavBar } from "../components/NavBar"
 import { Button } from "../components/ui/button"
 import { getGoal, setGoal } from "../store/preferences"
+import { localDateStr } from "../utils/date"
 import { GOAL_LIST, type GoalId } from "../data/goalConfig"
 import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { CEFRLevel, CEFR_LEVELS, LEVEL_LABELS } from "../types"
@@ -58,7 +59,7 @@ export function GoalPickerPage() {
         navigate(returnTo, { replace: true })
     }
 
-    const todayYmd = new Date().toISOString().slice(0, 10)
+    const todayYmd = localDateStr()
 
     if (step === 2) {
         return (

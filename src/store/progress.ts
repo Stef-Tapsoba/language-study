@@ -11,6 +11,7 @@
 import { CEFRLevel, UserProgress, UnitReinforcementState, GoalId, GoalPlan } from "../types"
 import type { ContentType, ReinforcementSection } from "./IProgressStorage"
 import { inferContentTypeFromId } from "./contentType"
+import { localDateStr } from "../utils/date"
 
 const LEGACY_KEY = "ls:progress"
 const userKey = (userId: string) => `ls:progress:${userId}`
@@ -256,7 +257,7 @@ export function masterUnit(langId: string, unitId: string): void {
             },
             unitMasteredAt: {
                 ...p.unitMasteredAt,
-                [langId]: { [unitId]: new Date().toISOString().slice(0, 10), ...langDates },
+                [langId]: { [unitId]: localDateStr(), ...langDates },
             },
         })
     }
