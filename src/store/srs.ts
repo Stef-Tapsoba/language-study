@@ -44,20 +44,21 @@ export function getSRSStates(langId: string): Record<string, SRSCardState> {
 }
 
 /**
- * Split a vocab list into:
+ * Split a card-id list (vocab, grammar, or verb-form ids all work — this
+ * operates on opaque string ids) into:
  *   due      — cards with a stored state where nextReviewAt <= now
  *   newCards — cards with no stored state yet (never reviewed)
  */
 export function getDueCards(
     langId: string,
-    allVocabIds: string[]
+    allCardIds: string[]
 ): { due: string[]; newCards: string[] } {
     const states = getSRSStates(langId)
     const now = Date.now()
     const due: string[] = []
     const newCards: string[] = []
 
-    for (const id of allVocabIds) {
+    for (const id of allCardIds) {
         const state = states[id]
         if (!state || state.nextReviewAt === 0) {
             newCards.push(id)
@@ -70,8 +71,8 @@ export function getDueCards(
 }
 
 /** Count of cards available to study — due cards plus capped new cards. */
-export function getDueCount(langId: string, allVocabIds: string[]): number {
-    const { due, newCards } = getDueCards(langId, allVocabIds)
+export function getDueCount(langId: string, allCardIds: string[]): number {
+    const { due, newCards } = getDueCards(langId, allCardIds)
     return due.length + newCards.length
 }
 
@@ -94,8 +95,8 @@ export function getNextDueDate(langId: string): number | null {
  *   quality 4 = Got It (pass)
  *   quality 1 = Not Yet (fail)
  */
-export function updateCard(langId: string, vocabId: string, quality: 1 | 4): Promise<void> {
-    return registry.srs.updateCard(langId, vocabId, quality)
+export function updateCard(langId: string, cardId: string, quality: 1 | 4): Promise<void> {
+    return registry.srs.updateCard(langId, cardId, quality)
 }
 
 /** Clear all SRS state for a language (called on language progress reset). */
