@@ -10,7 +10,7 @@ A serious alternative to Duolingo — built for long-term fluency, not daily dop
 
 Most language apps optimise for retention loops. This one optimises for retention:
 
-- **Spaced repetition + structured curriculum** — most apps do one or the other. This does both: SM-2 scheduling shows you words exactly when you're about to forget them, inside a curriculum that builds skills in the right order.
+- **Spaced repetition + structured curriculum** — most apps do one or the other. This does both: SM-2 scheduling resurfaces vocab, verb conjugations, and grammar points exactly when you're about to forget them, inside a curriculum that builds skills in the right order.
 - **Immersion-aware UI** — grammar explanations and interface strings gradually shift to your target language at A2+. You're not just learning a language — you're being pushed to think in it.
 - **Honest level tests** — pass 12/15 to advance, then review every mistake before you move on. No skipping gaps.
 - **Drill → review → advance loop** — verb conjugation drills, grammar drills, and a missed-items review that closes the loop so nothing falls through.
@@ -36,10 +36,10 @@ Most language apps optimise for retention loops. This one optimises for retentio
 | Smart exercise sizing | Short focused sets in units; full corpus in free practice |
 | SRS-aware item selection | Struggling items appear first; fresh items fill the rest |
 | Cross-unit review | Prior vocab resurfaces when due — spaced retrieval in context |
-| Break-return review | Come back after a week and get a targeted refresher |
+| Break-return review | Come back after a week and get a targeted refresher across vocab, verbs, and grammar |
 | Personalized goal paths | Travelling, social, culture, or full course — units sorted for you |
 | Sentence scramble + vocab matching | Active retrieval, not passive reading |
-| Flashcards (SM-2 SRS) | Review words exactly when you're about to forget them |
+| Flashcards (SM-2 SRS) | Review vocab, verb conjugations, and grammar points exactly when you're about to forget them, scoped to what you've actually been taught |
 | Auto-TTS pronunciation | Hear every word in the right accent, automatically |
 | Speaking exercises | Speak the phrase, Web Speech API evaluates |
 | Typed recall mode | Prove you actually know a word — not just recognise it |
