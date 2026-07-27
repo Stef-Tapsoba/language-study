@@ -1,7 +1,8 @@
-// pages/ReviewPage.tsx — Break-return review session at /learn/:langId/review
+// pages/ReviewPage.tsx — Break-return review session at /learn/:langId/review/session
 //
-// Shows a capped set of SRS-due vocab items in a simple flip-card format.
-// Updates SM-2 state on each card so the session feeds back into spaced repetition.
+// Shows a capped set of SRS-due cards — vocab, grammar points, and verb
+// conjugation forms — in a simple flip-card format. Updates SM-2 state on
+// each card so the session feeds back into spaced repetition.
 // Cap is driven by the learner's break tier:
 //   medium   (7–13 days)  → 10 items
 //   heavy    (14–27 days) → 15 items
@@ -11,10 +12,11 @@ import { useState, useMemo } from "react"
 import { logError } from "../utils/logger"
 import { useParams, useNavigate } from "react-router-dom"
 import { getLanguage } from "../data/languages"
-import { getVocabForLevel } from "../data/repo"
 import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { getDueCards, updateCard } from "../store/srs"
 import { useBreakDetection } from "../hooks/useBreakDetection"
+import { getReviewPool, ReviewCard } from "../domain/reviewPool"
+import { resolvePrimary } from "../utils/localizedText"
 
 import { SpeakButton } from "../components/SpeakButton"
 import { VocabDetail } from "../components/VocabDetail"
@@ -29,38 +31,44 @@ const TIER_CAP: Record<string, number> = {
     critical: 20,
 }
 
+/** First sentence of a (possibly localized) explanation, used as a short memory anchor on grammar cards. */
+function firstSentence(text: string): string {
+    const cut = text.indexOf(". ")
+    return cut === -1 ? text : text.slice(0, cut + 1)
+}
+
 export function ReviewPage() {
     const { langId = "" } = useParams()
     const navigate = useNavigate()
     const language = getLanguage(langId)
     const userProgress = useProgressStore(s => s.progress)
-    const { level: getLevel } = progressHelpers(userProgress)
+    const { level: getLevel, mastered } = progressHelpers(userProgress)
     const level = getLevel(langId)
+    const masteredIds = mastered(langId)
     const { tier } = useBreakDetection(langId)
 
     const cap = TIER_CAP[tier] ?? 10
 
-    // Build the review pool: SRS-due vocab from the current level, capped by tier
+    // Build the review pool — vocab, grammar, and verb-form cards from
+    // unlocked units — then cap by tier, preferring truly overdue cards.
     const reviewItems = useMemo(() => {
-        const allVocab = getVocabForLevel(langId, level)
-        const allIds   = allVocab.map(v => v.id)
-        const { due, newCards } = getDueCards(langId, allIds)
-        // Prefer truly overdue cards; fill remainder with never-reviewed
+        const pool = getReviewPool(langId, level, masteredIds)
+        const cardMap = new Map(pool.map(c => [c.id, c]))
+        const { due, newCards } = getDueCards(langId, pool.map(c => c.id))
         const selectedIds = [...due, ...newCards].slice(0, cap)
-        const vocabMap = new Map(allVocab.map(v => [v.id, v]))
-        return selectedIds.map(id => vocabMap.get(id)!).filter(Boolean)
-    }, [langId, level, cap])
+        return selectedIds.map(id => cardMap.get(id)!).filter(Boolean)
+    }, [langId, level, masteredIds, cap])
 
     const [index, setIndex]     = useState(0)
     const [flipped, setFlipped] = useState(false)
     const [correct, setCorrect] = useState(0)
     const [done, setDone]       = useState(false)
 
-    const item = reviewItems[index]
+    const card = reviewItems[index]
 
     function handleAnswer(knew: boolean) {
         const quality: 1 | 4 = knew ? 4 : 1
-        updateCard(langId, item.id, quality).catch(err => logError("ReviewPage.updateCard", err))
+        updateCard(langId, card.id, quality).catch(err => logError("ReviewPage.updateCard", err))
         useStatsStore.getState().recordQuizAnswer(langId, knew)
         if (knew) setCorrect(c => c + 1)
         const next = index + 1
@@ -79,11 +87,11 @@ export function ReviewPage() {
     if (reviewItems.length === 0) {
         return (
             <div className="bg-surface-app">
-                
+
                 <main className="max-w-md mx-auto px-4 py-16 text-center flex flex-col items-center gap-4">
                     <p className="text-5xl">🎉</p>
                     <h2 className="text-xl font-bold text-text-pri">You're all caught up!</h2>
-                    <p className="text-sm text-text-sec">No cards are due for review right now.</p>
+                    <p className="text-sm text-text-sec">Nothing is due for review right now.</p>
                     <Button onClick={() => navigate(`/learn/${langId}/review`)} className="mt-2 rounded-xl px-6 py-2.5 text-sm font-semibold">
                         Back to lessons
                     </Button>
@@ -100,7 +108,7 @@ export function ReviewPage() {
         else if (pct >= 50) resultEmoji = "👍"
         return (
             <div className="bg-surface-app">
-                
+
                 <main className="max-w-md mx-auto px-4 py-16 text-center flex flex-col items-center gap-4">
                     <p className="text-5xl">{resultEmoji}</p>
                     <h2 className="text-xl font-bold text-text-pri">Review complete!</h2>
@@ -151,15 +159,7 @@ export function ReviewPage() {
                 {flipped ? (
                     <Card className="min-h-[180px] shadow-sm">
                         <CardContent className="p-6 flex flex-col items-center justify-center gap-3 text-center min-h-[180px]">
-                            <div className="flex items-center gap-2">
-                                <p className="text-lg font-semibold text-text-pri">{item.word}</p>
-                                <SpeakButton text={item.word} langId={langId} id={item.id} variant="word" />
-                            </div>
-                            {item.romanized && (
-                                <p className="text-xs text-indigo-500 dark:text-indigo-400 italic">{item.romanized}</p>
-                            )}
-                            <p className="text-xl text-text-sec mt-1">{item.translation}</p>
-                            <VocabDetail item={item} langId={langId} variant="card" />
+                            <ReviewCardBack card={card} langId={langId} level={level} />
                         </CardContent>
                     </Card>
                 ) : (
@@ -167,10 +167,7 @@ export function ReviewPage() {
                         onClick={() => setFlipped(true)}
                         className="w-full bg-surface-card border border-border-default rounded-2xl px-6 py-8 text-center shadow-sm select-none min-h-[180px] flex flex-col items-center justify-center gap-3 transition-colors hover:border-grammar"
                     >
-                        <p className="text-2xl font-bold text-text-pri">{item.word}</p>
-                        {item.romanized && (
-                            <p className="text-sm text-indigo-500 dark:text-indigo-400 italic">{item.romanized}</p>
-                        )}
+                        <ReviewCardFront card={card} />
                         <p className="text-xs text-text-ter mt-2">Tap to reveal</p>
                     </button>
                 )}
@@ -197,10 +194,91 @@ export function ReviewPage() {
 
                 {!flipped && (
                     <p className="text-center text-xs text-text-ter">
-                        Tap the card to reveal the translation
+                        Tap the card to reveal the answer
                     </p>
                 )}
             </main>
         </div>
+    )
+}
+
+function ReviewCardFront({ card }: Readonly<{ card: ReviewCard }>) {
+    if (card.kind === "vocab") {
+        return (
+            <>
+                <p className="text-2xl font-bold text-text-pri">{card.item.word}</p>
+                {card.item.romanized && (
+                    <p className="text-sm text-indigo-500 dark:text-indigo-400 italic">{card.item.romanized}</p>
+                )}
+            </>
+        )
+    }
+    if (card.kind === "grammar") {
+        return (
+            <>
+                <p className="text-lg font-semibold text-text-pri">{card.example.translation}</p>
+                <p className="text-xs text-text-sec">How would you say this in Korean?</p>
+            </>
+        )
+    }
+    // verb
+    return (
+        <>
+            <p className="text-lg font-semibold text-text-pri">
+                {card.verb.infinitive} <span className="text-text-sec font-normal">({card.verb.meaning})</span>
+            </p>
+            <p className="text-sm text-text-sec">{card.tense} · {card.form.pronoun}</p>
+            <p className="text-2xl font-bold text-text-pri">___</p>
+        </>
+    )
+}
+
+function ReviewCardBack({ card, langId, level }: Readonly<{ card: ReviewCard; langId: string; level: import("../types").CEFRLevel }>) {
+    if (card.kind === "vocab") {
+        return (
+            <>
+                <div className="flex items-center gap-2">
+                    <p className="text-lg font-semibold text-text-pri">{card.item.word}</p>
+                    <SpeakButton text={card.item.word} langId={langId} id={card.item.id} variant="word" />
+                </div>
+                {card.item.romanized && (
+                    <p className="text-xs text-indigo-500 dark:text-indigo-400 italic">{card.item.romanized}</p>
+                )}
+                <p className="text-xl text-text-sec mt-1">{card.item.translation}</p>
+                <VocabDetail item={card.item} langId={langId} variant="card" />
+            </>
+        )
+    }
+    if (card.kind === "grammar") {
+        return (
+            <>
+                <div className="flex items-center gap-2">
+                    <p className="text-lg font-semibold text-text-pri">{card.example.native}</p>
+                    <SpeakButton text={card.example.native} langId={langId} />
+                </div>
+                {card.example.romanized && (
+                    <p className="text-xs text-indigo-500 dark:text-indigo-400 italic">{card.example.romanized}</p>
+                )}
+                <p className="text-sm text-text-sec mt-1">{card.example.translation}</p>
+                <div className="mt-2 pt-2 border-t border-border-subtle w-full">
+                    <p className="text-xs font-semibold text-text-pri">{card.lesson.title}</p>
+                    <p className="text-xs text-text-ter mt-1">{firstSentence(resolvePrimary(card.lesson.explanation, level))}</p>
+                </div>
+            </>
+        )
+    }
+    // verb
+    return (
+        <>
+            <div className="flex items-center gap-2">
+                <p className="text-2xl font-bold text-text-pri">{card.form.form}</p>
+                <SpeakButton text={card.form.form} langId={langId} />
+            </div>
+            {card.form.romanized && (
+                <p className="text-xs text-indigo-500 dark:text-indigo-400 italic">{card.form.romanized}</p>
+            )}
+            <p className="text-sm text-text-sec mt-1">{card.verb.infinitive} — {card.verb.meaning}</p>
+            <p className="text-xs text-text-ter">{card.tense} · {card.form.pronoun}</p>
+        </>
     )
 }

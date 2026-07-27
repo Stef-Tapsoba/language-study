@@ -4,10 +4,10 @@
 
 import { useMemo } from "react"
 import { useParams, useNavigate } from "react-router-dom"
-import { getModule } from "../data/modules"
 import { getDueCount } from "../store/srs"
 import { useProgressStore, progressHelpers } from "../store/useProgressStore"
 import { useBreakDetection } from "../hooks/useBreakDetection"
+import { getReviewPool } from "../domain/reviewPool"
 import { StreakChip } from "../components/StreakChip"
 import { useGlobalStreak } from "../hooks/useGlobalStreak"
 
@@ -15,15 +15,19 @@ export function ReviewLandingPage() {
     const { langId = "" } = useParams()
     const navigate = useNavigate()
     const progress = useProgressStore(s => s.progress)
-    const { level: getLevel } = progressHelpers(progress)
+    const { level: getLevel, mastered } = progressHelpers(progress)
     const level = getLevel(langId)
-    const mod = getModule(langId)
+    const masteredIds = mastered(langId)
     const { tier, daysSince } = useBreakDetection(langId)
     const streak = useGlobalStreak()
 
+    const pool = useMemo(
+        () => getReviewPool(langId, level, masteredIds),
+        [langId, level, masteredIds]
+    )
     const dueCount = useMemo(
-        () => mod ? getDueCount(langId, mod.vocab.filter(v => v.level === level).map(v => v.id)) : 0,
-        [langId, mod, level]
+        () => getDueCount(langId, pool.map(c => c.id)),
+        [langId, pool]
     )
 
     const hasDue = dueCount > 0
@@ -32,7 +36,7 @@ export function ReviewLandingPage() {
         <div className="max-w-md mx-auto px-4 py-6 flex flex-col gap-4">
             <div>
                 <h1 className="text-lg font-semibold text-text-pri">Review</h1>
-                <p className="text-xs text-text-sec mt-0.5">Spaced repetition keeps vocabulary fresh</p>
+                <p className="text-xs text-text-sec mt-0.5">Spaced repetition keeps your vocab, verbs, and grammar fresh</p>
             </div>
 
             {/* Due items card */}
@@ -60,7 +64,7 @@ export function ReviewLandingPage() {
                             <>
                                 <p className="font-semibold text-text-pri">All caught up!</p>
                                 <p className="text-xs text-text-sec mt-0.5">
-                                    No vocabulary due for review right now. Keep studying to build your queue.
+                                    Nothing due for review right now. Keep studying to build your queue.
                                 </p>
                             </>
                         )}
