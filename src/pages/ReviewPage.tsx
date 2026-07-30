@@ -13,9 +13,9 @@ import { logError } from "../utils/logger"
 import { useParams, useNavigate } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { useProgressStore, progressHelpers } from "../store/useProgressStore"
-import { getDueCards, updateCard } from "../store/srs"
+import { updateCard } from "../store/srs"
 import { useBreakDetection } from "../hooks/useBreakDetection"
-import { getReviewPool, ReviewCard } from "../domain/reviewPool"
+import { getReviewPool, selectReviewSession, ReviewCard } from "../domain/reviewPool"
 import { resolvePrimary } from "../utils/localizedText"
 
 import { SpeakButton } from "../components/SpeakButton"
@@ -50,13 +50,10 @@ export function ReviewPage() {
     const cap = TIER_CAP[tier] ?? 10
 
     // Build the review pool — vocab, grammar, and verb-form cards from
-    // unlocked units — then cap by tier, preferring truly overdue cards.
+    // unlocked units — then pick an even mix across kinds, capped by tier.
     const reviewItems = useMemo(() => {
         const pool = getReviewPool(langId, level, masteredIds)
-        const cardMap = new Map(pool.map(c => [c.id, c]))
-        const { due, newCards } = getDueCards(langId, pool.map(c => c.id))
-        const selectedIds = [...due, ...newCards].slice(0, cap)
-        return selectedIds.map(id => cardMap.get(id)!).filter(Boolean)
+        return selectReviewSession(langId, pool, cap)
     }, [langId, level, masteredIds, cap])
 
     const [index, setIndex]     = useState(0)
