@@ -139,6 +139,12 @@ export const a1Listening: ListeningExercise[] = [
         title: "In classe — presentazione",
         script: "Buongiorno a tutti! Mi chiamo Professor Bianchi. Sono il vostro insegnante d'italiano. Siete al primo anno. In questa classe impareremo il vocabolario di base, la grammatica e la pronuncia. Tutti capiscono? Sì, professore! Bene. Adesso presentatevi al compagno vicino. Dite il vostro nome, la vostra età e da dove venite.",
         translation: "Good morning everyone! My name is Professor Bianchi. I am your Italian teacher. You are in first year. In this class we will learn basic vocabulary, grammar and pronunciation. Does everyone understand? Yes, professor! Good. Now introduce yourselves to the person next to you. Say your name, your age and where you are from.",
+        dialogue: [
+            { speaker: "Professore", text: "Buongiorno a tutti! Mi chiamo Professor Bianchi. Sono il vostro insegnante d'italiano. Siete al primo anno.", translation: "Good morning everyone! My name is Professor Bianchi. I am your Italian teacher. You are in first year." },
+            { speaker: "Professore", text: "In questa classe impareremo il vocabolario di base, la grammatica e la pronuncia. Tutti capiscono?", translation: "In this class we will learn basic vocabulary, grammar and pronunciation. Does everyone understand?" },
+            { speaker: "Studenti", text: "Sì, professore!", translation: "Yes, professor!" },
+            { speaker: "Professore", text: "Bene. Adesso presentatevi al compagno vicino. Dite il vostro nome, la vostra età e da dove venite.", translation: "Good. Now introduce yourselves to the person next to you. Say your name, your age and where you are from." }
+        ],
         questions: [
             {
                 id: "it-l-a1-4-q1",

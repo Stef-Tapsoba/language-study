@@ -32,8 +32,11 @@ registerExerciseType<GrammarLesson>({
     // CO/CE/EO/EE attribution for per-skill stats (domain/skills.ts)
     skill: "EE",
 
+    // Script-reading lessons (e.g. Hangul/kana intros) teach reading a
+    // writing system — their "examples" are letter/syllable lists, not
+    // sentences, so there's no grammatical error to introduce or correct.
     fetchItems: async ({ langId, level }) =>
-        Promise.resolve(getGrammarForLevel(langId, level)),
+        Promise.resolve(getGrammarForLevel(langId, level).filter(g => g.exerciseType !== "script-reading")),
 
     component: ErrorCorrectionPage,
 })

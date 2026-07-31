@@ -44,13 +44,16 @@ registerExerciseType<GrammarLesson>({
     //       return data ?? []
     //   }
     //
+    // Script-reading lessons (e.g. Hangul/kana intros) teach reading a
+    // writing system — their "examples" are letter/syllable lists, not
+    // sentences, so there's nothing meaningful to scramble and reassemble.
     fetchItems: async ({ langId, level, unitId, lessonId }) => {
         if (lessonId) {
             const lesson = getGrammarLesson(langId, lessonId)
-            return lesson ? [lesson] : []
+            return lesson && lesson.exerciseType !== "script-reading" ? [lesson] : []
         }
-        if (unitId) return getGrammarForUnit(langId, unitId)
-        return getGrammarForLevel(langId, level)
+        if (unitId) return getGrammarForUnit(langId, unitId).filter(g => g.exerciseType !== "script-reading")
+        return getGrammarForLevel(langId, level).filter(g => g.exerciseType !== "script-reading")
     },
 
     component: SentenceScramblePage,

@@ -81,6 +81,16 @@ Student: It's hard to balance classes and work. Especially during exam periods, 
 Interviewer: Is there anything you're glad about from doing part-time work?
 
 Student: I've come to understand the value of money much better. Also, I feel like my communication skills have improved through customer service. I think it'll also help me sell myself during job-hunting.`,
+        dialogue: [
+            { speaker: "Interviewer", text: "今日はアルバイトについて聞かせてください。どんなアルバイトをしていますか？", translation: "Please tell me about your part-time work today. What kind of part-time job do you do?" },
+            { speaker: "Student", text: "はい。週に三回、駅の近くのコンビニでアルバイトをしています。主にレジの担当と品出しをしています。", translation: "Yes. I work part-time at a convenience store near the station three times a week. I mainly work the cash register and stock shelves." },
+            { speaker: "Interviewer", text: "なぜアルバイトを始めたんですか？", translation: "Why did you start working part-time?" },
+            { speaker: "Student", text: "親からの仕送りだけでは生活費が足りないので、自分で稼ぐことにしました。あと、社会経験を積みたいという気持ちもありました。", translation: "The allowance from my parents wasn't enough for living expenses, so I decided to earn money myself. I also wanted to gain social experience." },
+            { speaker: "Interviewer", text: "大変なことはありますか？", translation: "Is there anything difficult about it?" },
+            { speaker: "Student", text: "授業とアルバイトの両立が難しいですね。特に試験期間はシフトを減らしてもらうよう店長にお願いしています。あと、深夜のシフトは体力的にきついですね。", translation: "It's hard to balance classes and work. Especially during exam periods, I ask my manager to reduce my shifts. Also, the late-night shifts are physically tough." },
+            { speaker: "Interviewer", text: "アルバイトをして良かったと思うことはありますか？", translation: "Is there anything you're glad about from doing part-time work?" },
+            { speaker: "Student", text: "お金の大切さをよく理解できるようになりました。それから、接客を通じてコミュニケーション能力が上がった気がします。就職活動でも自己PRになると思っています。", translation: "I've come to understand the value of money much better. Also, I feel like my communication skills have improved through customer service. I think it'll also help me sell myself during job-hunting." }
+        ],
         questions: [
             {
                 id: "ja-l-b1-2-q1",

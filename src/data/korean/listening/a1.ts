@@ -8,6 +8,15 @@ export const a1Listening: ListeningExercise[] = [
         title: "처음 뵙겠습니다 — greeting dialogue",
         script: "안녕하세요. 저는 최지호예요. 만나서 반가워요. 안녕하세요. 저는 윤소연이에요. 저도 반가워요. 지호 씨는 어디 출신이에요? 저는 인천 출신이에요. 소연 씨는요? 저는 대전 출신이에요. 지호 씨 직업이 뭐예요? 저는 대학생이에요. 소연 씨는요? 저는 선생님이에요.",
         translation: "Hello. I am Choi Jiho. Nice to meet you. Hello. I am Yoon Soyeon. Nice to meet you too. Where are you from, Jiho? I am from Incheon. What about you, Soyeon? I am from Daejeon. What is your job, Jiho? I am a university student. What about you, Soyeon? I am a teacher.",
+        dialogue: [
+            { speaker: "지호", text: "안녕하세요. 저는 최지호예요. 만나서 반가워요.", translation: "Hello. I am Choi Jiho. Nice to meet you." },
+            { speaker: "소연", text: "안녕하세요. 저는 윤소연이에요. 저도 반가워요.", translation: "Hello. I am Yoon Soyeon. Nice to meet you too." },
+            { speaker: "소연", text: "지호 씨는 어디 출신이에요?", translation: "Where are you from, Jiho?" },
+            { speaker: "지호", text: "저는 인천 출신이에요. 소연 씨는요?", translation: "I am from Incheon. What about you, Soyeon?" },
+            { speaker: "소연", text: "저는 대전 출신이에요. 지호 씨 직업이 뭐예요?", translation: "I am from Daejeon. What is your job, Jiho?" },
+            { speaker: "지호", text: "저는 대학생이에요. 소연 씨는요?", translation: "I am a university student. What about you, Soyeon?" },
+            { speaker: "소연", text: "저는 선생님이에요.", translation: "I am a teacher." },
+        ],
         questions: [
             {
                 id: "ko-l-a1-1-q1",
@@ -38,6 +47,20 @@ export const a1Listening: ListeningExercise[] = [
         title: "마트에서 — at the supermarket",
         script: "어서 오세요. 사과는 얼마예요? 사과는 한 개에 오백 원이에요. 그럼 세 개 주세요. 그리고 이 오렌지 주스는 얼마예요? 오렌지 주스는 이천오백 원이에요. 사과 세 개랑 오렌지 주스 하나요? 네. 합계 사천 원이에요. 오천 원 드릴게요. 천 원 거슬러 드릴게요. 감사합니다. 또 오세요.",
         translation: "Welcome. How much are the apples? Apples are five hundred won each. Then please give me three. And how much is this orange juice? Orange juice is two thousand five hundred won. Three apples and one orange juice? Yes. The total is four thousand won. I'll give you five thousand won. I'll give you one thousand won in change. Thank you. Please come again.",
+        dialogue: [
+            { speaker: "직원", speakerLabel: "Clerk", text: "어서 오세요.", translation: "Welcome." },
+            { speaker: "손님", speakerLabel: "Customer", text: "사과는 얼마예요?", translation: "How much are the apples?" },
+            { speaker: "직원", speakerLabel: "Clerk", text: "사과는 한 개에 오백 원이에요.", translation: "Apples are five hundred won each." },
+            { speaker: "손님", speakerLabel: "Customer", text: "그럼 세 개 주세요. 그리고 이 오렌지 주스는 얼마예요?", translation: "Then please give me three. And how much is this orange juice?" },
+            { speaker: "직원", speakerLabel: "Clerk", text: "오렌지 주스는 이천오백 원이에요.", translation: "Orange juice is two thousand five hundred won." },
+            { speaker: "직원", speakerLabel: "Clerk", text: "사과 세 개랑 오렌지 주스 하나요?", translation: "Three apples and one orange juice?" },
+            { speaker: "손님", speakerLabel: "Customer", text: "네.", translation: "Yes." },
+            { speaker: "직원", speakerLabel: "Clerk", text: "합계 사천 원이에요.", translation: "The total is four thousand won." },
+            { speaker: "손님", speakerLabel: "Customer", text: "오천 원 드릴게요.", translation: "I'll give you five thousand won." },
+            { speaker: "직원", speakerLabel: "Clerk", text: "천 원 거슬러 드릴게요.", translation: "I'll give you one thousand won in change." },
+            { speaker: "손님", speakerLabel: "Customer", text: "감사합니다.", translation: "Thank you." },
+            { speaker: "직원", speakerLabel: "Clerk", text: "또 오세요.", translation: "Please come again." },
+        ],
         questions: [
             {
                 id: "ko-l-a1-2-q1",
@@ -68,6 +91,17 @@ export const a1Listening: ListeningExercise[] = [
         title: "지금 몇 시예요? — telling the time",
         script: "실례합니다, 지금 몇 시예요? 지금 오전 아홉 시 반이에요. 감사합니다. 수업은 몇 시부터예요? 열 시부터예요. 그럼 삼십 분 남았네요. 맞아요. 빨리 가야겠어요. 버스가 몇 시예요? 다음 버스는 구 시 사십오 분이에요. 지금부터 십 분이면 탈 수 있어요. 다행이다! 고마워요.",
         translation: "Excuse me, what time is it now? It is now nine thirty in the morning. Thank you. What time does class start? It starts at ten o'clock. So there are thirty minutes left. That's right. I need to go quickly. What time is the bus? The next bus is at nine forty-five. You can catch it in ten minutes from now. That's a relief! Thank you.",
+        dialogue: [
+            { speaker: "학생", speakerLabel: "Student", text: "실례합니다, 지금 몇 시예요?", translation: "Excuse me, what time is it now?" },
+            { speaker: "행인", speakerLabel: "Passerby", text: "지금 오전 아홉 시 반이에요.", translation: "It is now nine thirty in the morning." },
+            { speaker: "학생", speakerLabel: "Student", text: "감사합니다. 수업은 몇 시부터예요?", translation: "Thank you. What time does class start?" },
+            { speaker: "행인", speakerLabel: "Passerby", text: "열 시부터예요.", translation: "It starts at ten o'clock." },
+            { speaker: "학생", speakerLabel: "Student", text: "그럼 삼십 분 남았네요.", translation: "So there are thirty minutes left." },
+            { speaker: "행인", speakerLabel: "Passerby", text: "맞아요.", translation: "That's right." },
+            { speaker: "학생", speakerLabel: "Student", text: "빨리 가야겠어요. 버스가 몇 시예요?", translation: "I need to go quickly. What time is the bus?" },
+            { speaker: "행인", speakerLabel: "Passerby", text: "다음 버스는 구 시 사십오 분이에요. 지금부터 십 분이면 탈 수 있어요.", translation: "The next bus is at nine forty-five. You can catch it in ten minutes from now." },
+            { speaker: "학생", speakerLabel: "Student", text: "다행이다! 고마워요.", translation: "That's a relief! Thank you." },
+        ],
         questions: [
             {
                 id: "ko-l-a1-3-q1",
@@ -128,6 +162,19 @@ export const a1Listening: ListeningExercise[] = [
         title: "카페에서 — at a café",
         script: "어서 오세요! 주문하시겠어요? 네, 아이스 아메리카노 한 잔이랑 카페라테 한 잔 주세요. 사이즈는 어떻게 해 드릴까요? 둘 다 레귤러로 주세요. 따뜻하게 드릴까요, 차갑게 드릴까요? 아메리카노는 아이스로 주시고, 라테는 따뜻하게 주세요. 알겠습니다. 이름이 어떻게 되세요? 민지예요. 합계 구천 원이에요. 카드로 계산할게요. 잠깐만 기다려 주세요. 민지 손님, 주문 나왔습니다!",
         translation: "Welcome! Would you like to order? Yes, please give me one iced americano and one café latte. What size would you like? Regular for both, please. Shall I make them hot or cold? Please make the americano iced, and the latte hot. Understood. What is your name? It's Minji. The total is nine thousand won. I'll pay by card. Please wait a moment. Customer Minji, your order is ready!",
+        dialogue: [
+            { speaker: "직원", speakerLabel: "Clerk", text: "어서 오세요! 주문하시겠어요?", translation: "Welcome! Would you like to order?" },
+            { speaker: "민지", text: "네, 아이스 아메리카노 한 잔이랑 카페라테 한 잔 주세요.", translation: "Yes, please give me one iced americano and one café latte." },
+            { speaker: "직원", speakerLabel: "Clerk", text: "사이즈는 어떻게 해 드릴까요?", translation: "What size would you like?" },
+            { speaker: "민지", text: "둘 다 레귤러로 주세요.", translation: "Regular for both, please." },
+            { speaker: "직원", speakerLabel: "Clerk", text: "따뜻하게 드릴까요, 차갑게 드릴까요?", translation: "Shall I make them hot or cold?" },
+            { speaker: "민지", text: "아메리카노는 아이스로 주시고, 라테는 따뜻하게 주세요.", translation: "Please make the americano iced, and the latte hot." },
+            { speaker: "직원", speakerLabel: "Clerk", text: "알겠습니다. 이름이 어떻게 되세요?", translation: "Understood. What is your name?" },
+            { speaker: "민지", text: "민지예요.", translation: "It's Minji." },
+            { speaker: "직원", speakerLabel: "Clerk", text: "합계 구천 원이에요.", translation: "The total is nine thousand won." },
+            { speaker: "민지", text: "카드로 계산할게요.", translation: "I'll pay by card." },
+            { speaker: "직원", speakerLabel: "Clerk", text: "잠깐만 기다려 주세요. 민지 손님, 주문 나왔습니다!", translation: "Please wait a moment. Customer Minji, your order is ready!" },
+        ],
         questions: [
             {
                 id: "ko-l-a1-5-q1",
@@ -158,6 +205,15 @@ export const a1Listening: ListeningExercise[] = [
         title: "길 안내 — asking for and giving directions",
         script: "실례합니다. 이 근처에 편의점이 있어요? 네, 있어요. 이쪽으로 쭉 가세요. 그다음 사거리에서 오른쪽으로 도세요. 편의점은 은행 옆에 있어요. 걸어서 얼마나 걸려요? 오 분쯤 걸려요. 멀지 않아요. 감사합니다. 그런데 지하철역은 어디에 있어요? 지하철역은 좀 멀어요. 버스를 타세요. 삼십이번 버스가 역까지 가요. 정류장은 저쪽에 있어요. 정말 감사합니다!",
         translation: "Excuse me. Is there a convenience store near here? Yes, there is. Go straight this way. Then turn right at the intersection. The convenience store is next to the bank. How long does it take on foot? It takes about five minutes. It's not far. Thank you. By the way, where is the subway station? The subway station is a bit far. Take the bus. Bus number 32 goes to the station. The bus stop is over there. Thank you so much!",
+        dialogue: [
+            { speaker: "관광객", speakerLabel: "Tourist", text: "실례합니다. 이 근처에 편의점이 있어요?", translation: "Excuse me. Is there a convenience store near here?" },
+            { speaker: "행인", speakerLabel: "Passerby", text: "네, 있어요. 이쪽으로 쭉 가세요. 그다음 사거리에서 오른쪽으로 도세요. 편의점은 은행 옆에 있어요.", translation: "Yes, there is. Go straight this way. Then turn right at the intersection. The convenience store is next to the bank." },
+            { speaker: "관광객", speakerLabel: "Tourist", text: "걸어서 얼마나 걸려요?", translation: "How long does it take on foot?" },
+            { speaker: "행인", speakerLabel: "Passerby", text: "오 분쯤 걸려요. 멀지 않아요.", translation: "It takes about five minutes. It's not far." },
+            { speaker: "관광객", speakerLabel: "Tourist", text: "감사합니다. 그런데 지하철역은 어디에 있어요?", translation: "Thank you. By the way, where is the subway station?" },
+            { speaker: "행인", speakerLabel: "Passerby", text: "지하철역은 좀 멀어요. 버스를 타세요. 삼십이번 버스가 역까지 가요. 정류장은 저쪽에 있어요.", translation: "The subway station is a bit far. Take the bus. Bus number 32 goes to the station. The bus stop is over there." },
+            { speaker: "관광객", speakerLabel: "Tourist", text: "정말 감사합니다!", translation: "Thank you so much!" },
+        ],
         questions: [
             {
                 id: "ko-l-a1-6-q1",
@@ -188,6 +244,21 @@ export const a1Listening: ListeningExercise[] = [
         title: "병원에서 — at the doctor's office",
         script: "안녕하세요. 어디가 불편하세요? 어제부터 배가 많이 아파요. 그리고 열도 있어요. 언제부터 열이 났어요? 어젯밤부터요. 지금 열이 몇 도예요? 삼십팔 도예요. 다른 증상이 있어요? 네, 구역질도 나요. 식사는 잘 하고 있어요? 아니요, 어제 저녁부터 아무것도 못 먹었어요. 알겠어요. 진찰해 볼게요. 배에 손을 대면 아파요? 네, 많이 아파요. 장염인 것 같아요. 오늘은 죽만 드세요. 약을 드릴게요. 이틀 후에 다시 오세요.",
         translation: "Hello. Where are you uncomfortable? My stomach has been hurting a lot since yesterday. And I also have a fever. Since when did the fever start? Since last night. What is your temperature now? It's 38 degrees. Do you have any other symptoms? Yes, I also feel nauseous. Are you eating well? No, I haven't been able to eat anything since yesterday evening. I see. Let me examine you. Does it hurt when I press your stomach? Yes, it hurts a lot. It seems like gastroenteritis. Eat only porridge today. I'll give you medicine. Come back in two days.",
+        dialogue: [
+            { speaker: "의사", speakerLabel: "Doctor", text: "안녕하세요. 어디가 불편하세요?", translation: "Hello. Where are you uncomfortable?" },
+            { speaker: "환자", speakerLabel: "Patient", text: "어제부터 배가 많이 아파요. 그리고 열도 있어요.", translation: "My stomach has been hurting a lot since yesterday. And I also have a fever." },
+            { speaker: "의사", speakerLabel: "Doctor", text: "언제부터 열이 났어요?", translation: "Since when did the fever start?" },
+            { speaker: "환자", speakerLabel: "Patient", text: "어젯밤부터요.", translation: "Since last night." },
+            { speaker: "의사", speakerLabel: "Doctor", text: "지금 열이 몇 도예요?", translation: "What is your temperature now?" },
+            { speaker: "환자", speakerLabel: "Patient", text: "삼십팔 도예요.", translation: "It's 38 degrees." },
+            { speaker: "의사", speakerLabel: "Doctor", text: "다른 증상이 있어요?", translation: "Do you have any other symptoms?" },
+            { speaker: "환자", speakerLabel: "Patient", text: "네, 구역질도 나요.", translation: "Yes, I also feel nauseous." },
+            { speaker: "의사", speakerLabel: "Doctor", text: "식사는 잘 하고 있어요?", translation: "Are you eating well?" },
+            { speaker: "환자", speakerLabel: "Patient", text: "아니요, 어제 저녁부터 아무것도 못 먹었어요.", translation: "No, I haven't been able to eat anything since yesterday evening." },
+            { speaker: "의사", speakerLabel: "Doctor", text: "알겠어요. 진찰해 볼게요. 배에 손을 대면 아파요?", translation: "I see. Let me examine you. Does it hurt when I press your stomach?" },
+            { speaker: "환자", speakerLabel: "Patient", text: "네, 많이 아파요.", translation: "Yes, it hurts a lot." },
+            { speaker: "의사", speakerLabel: "Doctor", text: "장염인 것 같아요. 오늘은 죽만 드세요. 약을 드릴게요. 이틀 후에 다시 오세요.", translation: "It seems like gastroenteritis. Eat only porridge today. I'll give you medicine. Come back in two days." },
+        ],
         questions: [
             {
                 id: "ko-l-a1-7-q1",

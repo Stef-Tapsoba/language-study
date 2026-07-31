@@ -431,6 +431,13 @@ export interface DialogueLine {
     speaker: string
     text: string
     translation?: string  // English gloss for this line (optional)
+    /**
+     * English rendering of `speaker`, shown in the translated transcript view.
+     * Only needed when `speaker` is a native-language role word (e.g. Korean
+     * 손님/직원 "customer"/"clerk") rather than a proper name — proper names
+     * (Luc, 지호) are reused as-is and don't need this.
+     */
+    speakerLabel?: string
 }
 
 export interface ListeningExercise {
