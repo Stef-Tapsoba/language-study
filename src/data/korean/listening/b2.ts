@@ -102,31 +102,37 @@ export const b2Listening: ListeningExercise[] = [
         dialogue: [
             {
                 speaker: "진행자",
+                speakerLabel: "Host",
                 text: "오늘은 한국 사회의 세대 갈등에 대해 전문가와 이야기 나눠 보겠습니다. 교수님, 요즘 MZ세대와 기성세대 사이의 갈등이 심각하다는 이야기가 많은데, 어떻게 보십니까?",
                 translation: "Today we will talk with an expert about generational conflict in Korean society. Professor, there is a lot of talk these days about serious conflict between the MZ generation and the older generation — what is your view?"
             },
             {
                 speaker: "교수",
+                speakerLabel: "Professor",
                 text: "핵심적인 문제는 경제적 불평등에서 비롯됩니다. 집값이 너무 올라서 젊은 세대는 아무리 열심히 일해도 내 집 마련이 거의 불가능하다고 느낍니다. 반면 기성세대는 그 시절에 집을 살 수 있었으니 서로 출발선 자체가 다른 거죠.",
                 translation: "The core problem stems from economic inequality. Housing prices have risen so much that the younger generation feels it is nearly impossible to buy a home no matter how hard they work. The older generation, on the other hand, was able to buy homes in their time, so the starting lines are simply different."
             },
             {
                 speaker: "진행자",
+                speakerLabel: "Host",
                 text: "그렇다면 일하는 방식에서도 차이가 크지 않나요?",
                 translation: "Are there also big differences in work culture?"
             },
             {
                 speaker: "교수",
+                speakerLabel: "Professor",
                 text: "맞습니다. 기성세대는 야근을 당연하게 여기고 조직에 헌신하는 문화 속에서 성장했습니다. 반면 MZ세대는 주 52시간 근무제를 지지하며 일과 삶의 균형, 이른바 '워라밸'을 중시합니다. 이 두 가지 가치관은 직장 내에서 자주 충돌합니다.",
                 translation: "That's right. The older generation grew up in a culture of taking overtime for granted and devoting themselves to the organisation. The MZ generation, in contrast, supports the 52-hour work week and values work-life balance — the so-called 'worabel'. These two sets of values frequently clash in the workplace."
             },
             {
                 speaker: "진행자",
+                speakerLabel: "Host",
                 text: "그렇다면 이 갈등은 피할 수 없는 건가요, 아니면 해결책이 있을까요?",
                 translation: "So is this conflict inevitable, or are there solutions?"
             },
             {
                 speaker: "교수",
+                speakerLabel: "Professor",
                 text: "갈등 자체는 어느 사회에나 존재합니다. 중요한 것은 서로의 경험과 가치를 이해하려는 노력입니다. 기성세대는 젊은 세대의 현실적 어려움을 인정하고, 젊은 세대도 기성세대의 경험에서 배울 점이 있습니다. 소통과 상호 존중이 해결의 열쇠라고 생각합니다.",
                 translation: "Conflict itself exists in every society. What matters is the effort to understand each other's experiences and values. The older generation needs to acknowledge the real difficulties faced by the younger generation, and the younger generation also has things to learn from the older generation's experience. I think communication and mutual respect are the key to resolution."
             }

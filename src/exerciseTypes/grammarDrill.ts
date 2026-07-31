@@ -28,13 +28,16 @@ registerExerciseType<GrammarLesson>({
     display: { emoji: "✏️", description: "Answer grammar questions at your level" },
 
     fetchItems: async ({ langId, level, unitId, lessonId }) => {
+        // Script-reading lessons (e.g. Hangul/kana intros) teach reading a
+        // writing system, not a translatable sentence — they have no place
+        // in a translation-style multiple-choice/fill-in drill.
         if (lessonId) {
             const lesson = getGrammarLesson(langId, lessonId)
-            return lesson ? [lesson] : []
+            return lesson && lesson.exerciseType !== "script-reading" ? [lesson] : []
         }
-        if (unitId) return getGrammarForUnit(langId, unitId)
+        if (unitId) return getGrammarForUnit(langId, unitId).filter(g => g.exerciseType !== "script-reading")
 
-        const allGrammar = getGrammarForLevel(langId, level)
+        const allGrammar = getGrammarForLevel(langId, level).filter(g => g.exerciseType !== "script-reading")
         const units = getUnitsForLevel(langId, level)
         const masteredIds = progressHelpers(useProgressStore.getState().progress).mastered(langId)
         const unlockedIds = getUnlockedContentIds(units, masteredIds, u => u.grammarIds)

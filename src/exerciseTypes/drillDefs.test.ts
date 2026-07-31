@@ -21,6 +21,8 @@ import { useProgressStore } from "../store/useProgressStore"
 import { getExerciseType } from "./registry"
 import "./verbDrill"
 import "./grammarDrill"
+import "./errorCorrection"
+import "./sentenceScramble"
 
 const mocked = vi.mocked(repo)
 
@@ -28,9 +30,10 @@ function verb(id: string): Verb {
     return { id, level: "A1", infinitive: id, meaning: id, conjugations: [] } as unknown as Verb
 }
 
-function lesson(id: string, exampleCount: number): GrammarLesson {
+function lesson(id: string, exampleCount: number, exerciseType?: string): GrammarLesson {
     return {
         id, level: "A1", title: id,
+        exerciseType,
         examples: Array.from({ length: exampleCount }, (_, i) => ({
             native: `${id}-native-${i}`, translation: `${id}-translation-${i}`,
         })),
@@ -149,5 +152,70 @@ describe("grammar-drill fetchItems", () => {
         ])
         const items = await def().fetchItems({ langId: "fr", level: "A1" })
         expect(items).toHaveLength(2)
+    })
+
+    it("excludes script-reading lessons from the level-wide pool", async () => {
+        const g1 = lesson("g1", 5)
+        const script = lesson("script", 5, "script-reading")
+        mocked.getGrammarForLevel.mockReturnValue([g1, script])
+        mocked.getUnitsForLevel.mockReturnValue([
+            unit("u1", [], ["g1", "script"]),
+        ])
+        const items = await def().fetchItems({ langId: "fr", level: "A1" })
+        expect((items as GrammarLesson[]).map(g => g.id)).toEqual(["g1"])
+    })
+
+    it("excludes script-reading lessons when scoped to a unit", async () => {
+        mocked.getGrammarForUnit.mockReturnValue([lesson("g1", 5), lesson("script", 5, "script-reading")])
+        const items = await def().fetchItems({ langId: "fr", level: "A1", unitId: "u1" })
+        expect((items as GrammarLesson[]).map(g => g.id)).toEqual(["g1"])
+    })
+
+    it("returns empty when scoped directly to a script-reading lesson", async () => {
+        mocked.getGrammarLesson.mockReturnValue(lesson("script", 5, "script-reading"))
+        const items = await def().fetchItems({ langId: "fr", level: "A1", lessonId: "script" })
+        expect(items).toEqual([])
+    })
+})
+
+// ── error-correction ─────────────────────────────────────────────────────────
+
+describe("error-correction fetchItems", () => {
+    const def = () => getExerciseType("error-correction")!
+
+    it("excludes script-reading lessons from the level pool", async () => {
+        mocked.getGrammarForLevel.mockReturnValue([lesson("g1", 5), lesson("script", 5, "script-reading")])
+        const items = await def().fetchItems({ langId: "fr", level: "A1" })
+        expect((items as GrammarLesson[]).map(g => g.id)).toEqual(["g1"])
+    })
+})
+
+// ── sentence-scramble ─────────────────────────────────────────────────────────
+
+describe("sentence-scramble fetchItems", () => {
+    const def = () => getExerciseType("sentence-scramble")!
+
+    it("scopes to a single lesson when lessonId is provided", async () => {
+        mocked.getGrammarLesson.mockReturnValue(lesson("g1", 4))
+        const items = await def().fetchItems({ langId: "fr", level: "A1", lessonId: "g1" })
+        expect(items).toHaveLength(1)
+    })
+
+    it("returns empty when scoped directly to a script-reading lesson", async () => {
+        mocked.getGrammarLesson.mockReturnValue(lesson("script", 5, "script-reading"))
+        const items = await def().fetchItems({ langId: "fr", level: "A1", lessonId: "script" })
+        expect(items).toEqual([])
+    })
+
+    it("excludes script-reading lessons when scoped to a unit", async () => {
+        mocked.getGrammarForUnit.mockReturnValue([lesson("g1", 4), lesson("script", 5, "script-reading")])
+        const items = await def().fetchItems({ langId: "fr", level: "A1", unitId: "u1" })
+        expect((items as GrammarLesson[]).map(g => g.id)).toEqual(["g1"])
+    })
+
+    it("excludes script-reading lessons from the level-wide pool", async () => {
+        mocked.getGrammarForLevel.mockReturnValue([lesson("g1", 4), lesson("script", 5, "script-reading")])
+        const items = await def().fetchItems({ langId: "fr", level: "A1" })
+        expect((items as GrammarLesson[]).map(g => g.id)).toEqual(["g1"])
     })
 })

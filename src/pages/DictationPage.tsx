@@ -21,40 +21,53 @@ import type { ListeningExercise } from "../types"
 
 type SubmitState = "idle" | "correct" | "wrong"
 
+interface DictationItem { id: string; title: string; sentence: string; translation: string }
+
 // ── Build items ───────────────────────────────────────────────────────────────
+
+/** At A1, a full sentence is too much to transcribe verbatim from audio alone — cap phrases at this many words. */
+const A1_MAX_WORDS_PER_PHRASE = 3
+
+/** Splits a sentence into consecutive word-groups of at most `maxWords`. Returns the sentence unchanged if it's already short enough. */
+export function chunkIntoPhrases(sentence: string, maxWords: number): string[] {
+    const words = sentence.trim().split(/\s+/).filter(Boolean)
+    if (words.length <= maxWords) return [sentence]
+    const chunks: string[] = []
+    for (let i = 0; i < words.length; i += maxWords) {
+        chunks.push(words.slice(i, i + maxWords).join(" "))
+    }
+    return chunks
+}
 
 /**
  * For dictation we want short, self-contained sentences.
  * We take the script, split on sentence-ending punctuation, and use each
  * sentence as a separate dictation item. Fall back to using the full script
- * when there is only one sentence.
+ * when there is only one sentence. At A1, sentences are further chunked into
+ * 2-3 word phrases — full sentences are too long to transcribe by ear alone
+ * this early on.
  */
-function buildDictationItems(exercises: ListeningExercise[]): { id: string; title: string; sentence: string; translation: string }[] {
-    const items: { id: string; title: string; sentence: string; translation: string }[] = []
+export function buildDictationItems(exercises: ListeningExercise[], level: string): DictationItem[] {
+    const items: DictationItem[] = []
 
     for (const ex of exercises) {
         const sentences = ex.script
             .split(/(?<=[.!?。！？])\s+/)
             .map(s => s.trim())
             .filter(s => s.length > 4)
+        const sentenceList = sentences.length <= 1 ? [ex.script] : sentences.slice(0, 3)
 
-        if (sentences.length <= 1) {
-            items.push({
-                id: ex.id,
-                title: ex.title,
-                sentence: ex.script,
-                translation: ex.translation,
-            })
-        } else {
-            sentences.slice(0, 3).forEach((sentence, i) => {
+        sentenceList.forEach((sentence, i) => {
+            const phrases = level === "A1" ? chunkIntoPhrases(sentence, A1_MAX_WORDS_PER_PHRASE) : [sentence]
+            phrases.forEach((phrase, j) => {
                 items.push({
-                    id: `${ex.id}-s${i}`,
+                    id: `${ex.id}-s${i}-p${j}`,
                     title: ex.title,
-                    sentence,
-                    translation: "",
+                    sentence: phrase,
+                    translation: sentenceList.length === 1 && phrases.length === 1 ? ex.translation : "",
                 })
             })
-        }
+        })
     }
 
     return shuffle(items).slice(0, 8)
@@ -65,7 +78,7 @@ function buildDictationItems(exercises: ListeningExercise[]): { id: string; titl
 export default function DictationPage({ items, langId, level, config: _config, onComplete, onSessionDone, skill }: Readonly<ExerciseComponentProps<ListeningExercise>>) {
     const ui = getUI(langId, level)
 
-    const questions = useMemo(() => buildDictationItems(items), [items])
+    const questions = useMemo(() => buildDictationItems(items, level), [items, level])
 
     const [index, setIndex] = useState(0)
     const [score, setScore] = useState(0)
@@ -130,8 +143,8 @@ export default function DictationPage({ items, langId, level, config: _config, o
         useStatsStore.getState().recordQuizAnswer(langId, correct, skill)
         if (correct) {
             setScore(s => s + 1)
-            // Base exercise id (strip the -s0, -s1 suffix if present)
-            const baseId = q.id.replace(/-s\d+$/, "")
+            // Base exercise id (strip the -s0-p0 sentence/phrase suffix)
+            const baseId = q.id.replace(/-s\d+-p\d+$/, "")
             onComplete(baseId)
         } else {
             setMissed(prev => [...prev, {

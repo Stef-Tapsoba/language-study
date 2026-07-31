@@ -89,6 +89,31 @@ function TranscriptContent({ exercise }: Readonly<{ exercise: ListeningExercise 
 }
 
 // ---------------------------------------------------------------------------
+// TranslationContent — dialogue turns or flat translation
+// ---------------------------------------------------------------------------
+function TranslationContent({ exercise }: Readonly<{ exercise: ListeningExercise }>) {
+    if (exercise.dialogue) {
+        return (
+            <div className="px-5 pb-4 flex flex-col gap-2.5">
+                {exercise.dialogue.map((line) => (
+                    <div key={`${line.speaker}-${line.text.slice(0, 20)}`} className="flex gap-3 text-sm">
+                        <span className="font-semibold text-grammar shrink-0 w-14 pt-0.5 text-right">
+                            {line.speakerLabel ?? line.speaker}
+                        </span>
+                        <p className="flex-1 text-text-sec">{line.translation ?? line.text}</p>
+                    </div>
+                ))}
+            </div>
+        )
+    }
+    return (
+        <p className="px-5 pb-4 text-sm text-text-sec leading-relaxed">
+            {exercise.translation}
+        </p>
+    )
+}
+
+// ---------------------------------------------------------------------------
 // ComprehensionQuiz — in-exercise quiz state machine
 // ---------------------------------------------------------------------------
 function ComprehensionQuiz({ exercise, onAnswer, onComplete, ui }: Readonly<{
@@ -214,11 +239,7 @@ function ExerciseListen({ exercise, langId, level, completed, onBack, ui }: Read
                         <span>{translationShown ? ui.hideEnglish : ui.showEnglish}</span>
                         <span className="text-text-ter">{translationShown ? "▲" : "▼"}</span>
                     </button>
-                    {translationShown && (
-                        <p className="px-5 pb-4 text-sm text-text-sec leading-relaxed">
-                            {exercise.translation}
-                        </p>
-                    )}
+                    {translationShown && <TranslationContent exercise={exercise} />}
                 </div>
             )}
 

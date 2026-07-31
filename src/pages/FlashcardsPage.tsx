@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 import { getLanguage } from "../data/languages"
 import { getVocabForLevel } from "../data/repo"
 import { useProgressStore, progressHelpers } from "../store/useProgressStore"
-import { getDueCards, updateCard, getNextDueDate } from "../store/srs"
+import { getDueCards, getSRSStates, updateCard, getNextDueDate } from "../store/srs"
 import { useStatsStore } from "../store/useStatsStore"
 import { NavBar } from "../components/NavBar"
 import { LevelBadge } from "../components/LevelBadge"
@@ -262,11 +262,22 @@ export function FlashcardsPage() {
         const newItems = newCardIds
             .map(id => allVocab.find(v => v.id === id))
             .filter((v): v is VocabItem => !!v)
-        // Shuffle within each priority group — due cards must stay ahead of new
-        // cards, but the fixed vocab-file order otherwise made every session
-        // present cards in the exact same sequence.
-        return [...shuffle(dueItems), ...shuffle(newItems)]
-    }, [due, newCardIds, allVocab])
+
+        // Split due cards into "struggling" (streak 0 — the last answer was a
+        // miss, so this is the "not yet" pile) vs "mastered" (streak > 0 —
+        // due again only because enough time passed, not because it's hard).
+        // Struggling + brand-new cards lead the deck; mastered cards, which
+        // the learner already knows well, come last.
+        const states = getSRSStates(langId)
+        const strugglingDue = dueItems.filter(v => (states[v.id]?.streak ?? 0) === 0)
+        const masteredDue = dueItems.filter(v => (states[v.id]?.streak ?? 0) > 0)
+
+        const priority = shuffle([...strugglingDue, ...newItems])
+        const mastered = shuffle(masteredDue)
+            .sort((a, b) => (states[a.id]?.streak ?? 0) - (states[b.id]?.streak ?? 0))
+
+        return [...priority, ...mastered]
+    }, [due, newCardIds, allVocab, langId])
 
     const shuffleDeck = useMemo(() => shuffle(allVocab), [allVocab, sessionKey]) // eslint-disable-line react-hooks/exhaustive-deps
 

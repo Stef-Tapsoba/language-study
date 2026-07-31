@@ -8,6 +8,15 @@ export const a1Listening: ListeningExercise[] = [
         title: "はじめまして — greeting dialogue",
         script: "はじめまして。わたしはさとうけいこです。よろしくおねがいします。はじめまして。わたしはたなかひろしです。こちらこそよろしくおねがいします。たなかさんはどちらからですか。わたしはおおさかからです。さとうさんは？わたしはとうきょうからです。たなかさんはおしごとはなんですか。わたしはがくせいです。さとうさんは？わたしはかいしゃいんです。",
         translation: "How do you do. I am Sato Keiko. Nice to meet you. How do you do. I am Tanaka Hiroshi. Nice to meet you too. Where are you from, Tanaka-san? I am from Osaka. What about you, Sato-san? I am from Tokyo. What is your occupation, Tanaka-san? I am a student. What about you, Sato-san? I am a company employee.",
+        dialogue: [
+            { speaker: "Sato",   text: "はじめまして。わたしはさとうけいこです。よろしくおねがいします。", translation: "How do you do. I am Sato Keiko. Nice to meet you." },
+            { speaker: "Tanaka", text: "はじめまして。わたしはたなかひろしです。こちらこそよろしくおねがいします。", translation: "How do you do. I am Tanaka Hiroshi. Nice to meet you too." },
+            { speaker: "Sato",   text: "たなかさんはどちらからですか。", translation: "Where are you from, Tanaka-san?" },
+            { speaker: "Tanaka", text: "わたしはおおさかからです。さとうさんは？", translation: "I am from Osaka. What about you, Sato-san?" },
+            { speaker: "Sato",   text: "わたしはとうきょうからです。たなかさんはおしごとはなんですか。", translation: "I am from Tokyo. What is your occupation, Tanaka-san?" },
+            { speaker: "Tanaka", text: "わたしはがくせいです。さとうさんは？", translation: "I am a student. What about you, Sato-san?" },
+            { speaker: "Sato",   text: "わたしはかいしゃいんです。", translation: "I am a company employee." }
+        ],
         questions: [
             {
                 id: "ja-l-a1-1-q1",
@@ -38,6 +47,15 @@ export const a1Listening: ListeningExercise[] = [
         title: "スーパーで — at the supermarket",
         script: "いらっしゃいませ。りんごはいくらですか。ひとつひゃくえんです。じゃあ、みっつください。それからこのおちゃはいくらですか。そのおちゃはにひゃくごじゅうえんです。りんごみっつとおちゃいっぽんで、ごひゃくごじゅうえんになります。はい、せんえんです。おつりはよんひゃくごじゅうえんです。ありがとうございました。またどうぞ。",
         translation: "Welcome. How much are the apples? They are one hundred yen each. Then I'll take three please. Also, how much is this green tea? That tea is two hundred and fifty yen. Three apples and one tea comes to five hundred and fifty yen. Here is one thousand yen. Your change is four hundred and fifty yen. Thank you very much. Please come again.",
+        dialogue: [
+            { speaker: "Clerk",    text: "いらっしゃいませ。", translation: "Welcome." },
+            { speaker: "Customer", text: "りんごはいくらですか。", translation: "How much are the apples?" },
+            { speaker: "Clerk",    text: "ひとつひゃくえんです。", translation: "They are one hundred yen each." },
+            { speaker: "Customer", text: "じゃあ、みっつください。それからこのおちゃはいくらですか。", translation: "Then I'll take three please. Also, how much is this green tea?" },
+            { speaker: "Clerk",    text: "そのおちゃはにひゃくごじゅうえんです。りんごみっつとおちゃいっぽんで、ごひゃくごじゅうえんになります。", translation: "That tea is two hundred and fifty yen. Three apples and one tea comes to five hundred and fifty yen." },
+            { speaker: "Customer", text: "はい、せんえんです。", translation: "Here is one thousand yen." },
+            { speaker: "Clerk",    text: "おつりはよんひゃくごじゅうえんです。ありがとうございました。またどうぞ。", translation: "Your change is four hundred and fifty yen. Thank you very much. Please come again." }
+        ],
         questions: [
             {
                 id: "ja-l-a1-2-q1",
@@ -68,6 +86,17 @@ export const a1Listening: ListeningExercise[] = [
         title: "いまなんじですか — telling the time",
         script: "すみません、いまなんじですか。いまごぜんくじはんです。ありがとうございます。がっこうはなんじからですか。じゅうじからです。じゃあ、あとさんじゅっぷんありますね。そうですね。はやくいかないと。でんしゃはなんじですか。つぎのでんしゃはくじよんじゅうごふんです。いまから十分で乗れますよ。よかった！ありがとう。",
         translation: "Excuse me, what time is it now? It is now nine thirty in the morning. Thank you. What time does school start? It starts at ten o'clock. So there are thirty minutes left. That's right. I need to go quickly. What time is the train? The next train is at nine forty-five. You can catch it in ten minutes from now. Great! Thank you.",
+        dialogue: [
+            { speaker: "Student",   text: "すみません、いまなんじですか。", translation: "Excuse me, what time is it now?" },
+            { speaker: "Stranger",  text: "いまごぜんくじはんです。", translation: "It is now nine thirty in the morning." },
+            { speaker: "Student",   text: "ありがとうございます。がっこうはなんじからですか。", translation: "Thank you. What time does school start?" },
+            { speaker: "Stranger",  text: "じゅうじからです。", translation: "It starts at ten o'clock." },
+            { speaker: "Student",   text: "じゃあ、あとさんじゅっぷんありますね。", translation: "So there are thirty minutes left." },
+            { speaker: "Stranger",  text: "そうですね。はやくいかないと。", translation: "That's right. I need to go quickly." },
+            { speaker: "Student",   text: "でんしゃはなんじですか。", translation: "What time is the train?" },
+            { speaker: "Stranger",  text: "つぎのでんしゃはくじよんじゅうごふんです。いまから十分で乗れますよ。", translation: "The next train is at nine forty-five. You can catch it in ten minutes from now." },
+            { speaker: "Student",   text: "よかった！ありがとう。", translation: "Great! Thank you." }
+        ],
         questions: [
             {
                 id: "ja-l-a1-3-q1",
