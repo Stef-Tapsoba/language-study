@@ -146,6 +146,37 @@ export const block3Lessons: GrammarLesson[] = [
         ],
     },
     {
+        id: "ko-g-a1-23b",
+        level: "A1",
+        title: "Noun negation with 이/가 아니에요",
+        explanation: `안 and 못, which you just learned, negate verbs and adjectives — but they cannot negate a noun. To say "X is not a Y," Korean uses a completely different construction: mark the noun with the subject particle 이/가 and follow it with 아니에요 ("is not"), the negative counterpart to the copula 이에요/예요. So "I am a student" (저는 학생이에요) becomes "I am not a student" (저는 학생이 아니에요) — note that the particle after 학생 switches from 이에요 straight onto the noun to 이/가 plus a separate word 아니에요. As with the copula, 이 attaches after a consonant-final noun and 가 after a vowel-final noun: 학생이 아니에요 (student, consonant-final) vs 친구가 아니에요 (friend, vowel-final).`,
+        notes: [
+            {
+                type: "warning",
+                content: "안/못 negate verbs and adjectives, not nouns. Never say 안 학생이에요 — nouns are negated with 이/가 아니에요 instead.",
+            },
+            {
+                type: "tip",
+                content: "Think of 아니에요 as the negative twin of 이에요/예요, with the same consonant/vowel-final particle rule: 이 아니에요 after a consonant, 가 아니에요 after a vowel.",
+            },
+        ],
+        examples: [
+            { native: "저는 학생이 아니에요. 회사원이에요.", romanized: "Jeoneun haksaengi anieyo. Hoesawonieyo.", translation: "I'm not a student. I'm an office worker." },
+            { native: "이거는 제 가방이 아니에요.", romanized: "Igeoneun je gabangi anieyo.", translation: "This is not my bag." },
+            { native: "저 사람은 제 친구가 아니에요.", romanized: "Jeo sarameun je chinguga anieyo.", translation: "That person is not my friend." },
+            { type: "dialogue" as const, exchanges: [
+                { native: "이거 커피예요?", romanized: "Igeo keopiyeyo?", translation: "Is this coffee?" },
+                { native: "아니요, 커피가 아니에요. 차예요.", romanized: "Aniyo, keopiga anieyo. Chayeyo.", translation: "No, it's not coffee. It's tea." },
+            ]},
+        ],
+        inlineVocab: [
+            { word: "아니에요", romanized: "anieyo", translation: "is not (negative counterpart of 이에요/예요)" },
+            { word: "이 아니에요", romanized: "i anieyo", translation: "is not (after a consonant-final noun)" },
+            { word: "가 아니에요", romanized: "ga anieyo", translation: "is not (after a vowel-final noun)" },
+            { word: "아니요", romanized: "aniyo", translation: "no (in answer to a yes/no question)" },
+        ],
+    },
+    {
         id: "ko-g-a1-24",
         level: "A1",
         title: "Question words: 뭐/무엇, 어디, 언제, 누구, 어떻게, 왜 — in-situ questions",
@@ -183,38 +214,19 @@ export const block3Lessons: GrammarLesson[] = [
     {
         id: "ko-g-a1-25",
         level: "A1",
-        title: "누구 → 누가 rule; question intonation vs statement",
+        title: "누구 → 누가 rule",
         explanation: `The question word 누구 ("who") undergoes an irregular fusion when it functions as the grammatical subject of a sentence: instead of the expected 누구가, the question word contracts with the subject particle 가 into the single fused form 누가, so "who came?" is 누가 왔어요?, never 누구가 왔어요?. This is an exception worth memorizing specifically, since no other question word behaves this way. When 누구 plays any other grammatical role, such as an object or a complement after the copula (이 사람은 누구예요?, "who is this person?"), it stays completely unchanged and simply takes whatever particle that role requires.`,
         ruleIds: ["ko-r-a1-25-1", "ko-r-a1-25-2"],
-        notes: [
-            {
-                type: "tip",
-                content: "Adding 요 alone to a key word makes a complete, polite short answer: 어디에 가요? → 도서관에요. (To the library.) This is one of the most natural features of Korean conversation.",
-            },
-        ],
         examples: [
             { native: "누가 왔어요?", romanized: "Nuga wasseoyo?", translation: "Who came?" },
             { native: "누가 전화했어요?", romanized: "Nuga jeonhwahaesseoyo?", translation: "Who called?" },
             { native: "이 사람은 누구예요?", romanized: "I sarameun nugueyeo?", translation: "Who is this person?", annotation: "누구 as complement — not the subject"},
             { native: "누구랑 갔어요?", romanized: "Nugurang gasseoyo?", translation: "Who did you go with?" },
-            { type: "dialogue", exchanges: [
-                { native: "어디 가요?", romanized: "Eodi gayo?", translation: "Where are you going?" },
-                { native: "카페에요.", romanized: "Kapeeyeo.", translation: "A café." },
-            ]},
-            { type: "dialogue", exchanges: [
-                { native: "뭐 먹었어요?", romanized: "Mwo meogeosseoyo?", translation: "What did you eat?" },
-                { native: "비빔밥이요.", romanized: "Bibimbabiyeo.", translation: "Bibimbap." },
-            ]},
         ],
         inlineVocab: [
             { word: "누구", romanized: "nugu", translation: "who (not the subject)" },
             { word: "누가", romanized: "nuga", translation: "who (as subject — 누구 + 가 fused)" },
             { word: "이/가", romanized: "i/ga", translation: "subject particle — marks who or what is doing the action" },
-            { word: "요즘", romanized: "yojeum", translation: "lately / these days" },
-            { word: "잘 지내요", romanized: "jal jinaeyo", translation: "I'm doing well" },
-            { word: "어떻게 지내요?", romanized: "Eotteoke jinaeyo?", translation: "How are you doing? (natural greeting after first meeting)" },
-            { word: "열심히", romanized: "yeolsimhi", translation: "hard / diligently" },
-            { word: "언젠가", romanized: "eonjenga", translation: "someday" },
         ],
     },
     {
