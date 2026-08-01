@@ -461,6 +461,57 @@ export const a1Verbs: Verb[] = [
         }]
     },
     {
+        id: "fr-vb-a1-40",
+        level: "A1",
+        infinitive: "adorer",
+        meaning: "to love / to adore",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "adore" },
+                { pronoun: "tu", form: "adores" },
+                { pronoun: "il/elle", form: "adore" },
+                { pronoun: "nous", form: "adorons" },
+                { pronoun: "vous", form: "adorez" },
+                { pronoun: "ils/elles", form: "adorent" },
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-41",
+        level: "A1",
+        infinitive: "détester",
+        meaning: "to hate",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "déteste" },
+                { pronoun: "tu", form: "détestes" },
+                { pronoun: "il/elle", form: "déteste" },
+                { pronoun: "nous", form: "détestons" },
+                { pronoun: "vous", form: "détestez" },
+                { pronoun: "ils/elles", form: "détestent" },
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-42",
+        level: "A1",
+        infinitive: "préférer",
+        meaning: "to prefer",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "préfère" },
+                { pronoun: "tu", form: "préfères" },
+                { pronoun: "il/elle", form: "préfère" },
+                { pronoun: "nous", form: "préférons" },
+                { pronoun: "vous", form: "préférez" },
+                { pronoun: "ils/elles", form: "préfèrent" },
+            ]
+        }]
+    },
+    {
         id: "fr-vb-a1-27",
         level: "A1",
         infinitive: "travailler",
@@ -508,6 +559,91 @@ export const a1Verbs: Verb[] = [
                 { pronoun: "nous", form: "sortons" },
                 { pronoun: "vous", form: "sortez" },
                 { pronoun: "ils/elles", form: "sortent" },
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-46",
+        level: "A1",
+        infinitive: "arriver",
+        meaning: "to arrive",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "arrive" },
+                { pronoun: "tu", form: "arrives" },
+                { pronoun: "il/elle", form: "arrive" },
+                { pronoun: "nous", form: "arrivons" },
+                { pronoun: "vous", form: "arrivez" },
+                { pronoun: "ils/elles", form: "arrivent" },
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-47",
+        level: "A1",
+        infinitive: "rester",
+        meaning: "to stay",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "reste" },
+                { pronoun: "tu", form: "restes" },
+                { pronoun: "il/elle", form: "reste" },
+                { pronoun: "nous", form: "restons" },
+                { pronoun: "vous", form: "restez" },
+                { pronoun: "ils/elles", form: "restent" },
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-48",
+        level: "A1",
+        infinitive: "naître",
+        meaning: "to be born",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "nais" },
+                { pronoun: "tu", form: "nais" },
+                { pronoun: "il/elle", form: "naît" },
+                { pronoun: "nous", form: "naissons" },
+                { pronoun: "vous", form: "naissez" },
+                { pronoun: "ils/elles", form: "naissent" },
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-49",
+        level: "A1",
+        infinitive: "tomber",
+        meaning: "to fall",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "tombe" },
+                { pronoun: "tu", form: "tombes" },
+                { pronoun: "il/elle", form: "tombe" },
+                { pronoun: "nous", form: "tombons" },
+                { pronoun: "vous", form: "tombez" },
+                { pronoun: "ils/elles", form: "tombent" },
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-50",
+        level: "A1",
+        infinitive: "rentrer",
+        meaning: "to return home",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "rentre" },
+                { pronoun: "tu", form: "rentres" },
+                { pronoun: "il/elle", form: "rentre" },
+                { pronoun: "nous", form: "rentrons" },
+                { pronoun: "vous", form: "rentrez" },
+                { pronoun: "ils/elles", form: "rentrent" },
             ]
         }]
     },
@@ -678,6 +814,57 @@ export const a1Verbs: Verb[] = [
                 { pronoun: "nous", form: "nous habillons" },
                 { pronoun: "vous", form: "vous habillez" },
                 { pronoun: "ils/elles", form: "s'habillent" },
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-43",
+        level: "A1",
+        infinitive: "se réveiller",
+        meaning: "to wake up",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "me réveille" },
+                { pronoun: "tu", form: "te réveilles" },
+                { pronoun: "il/elle", form: "se réveille" },
+                { pronoun: "nous", form: "nous réveillons" },
+                { pronoun: "vous", form: "vous réveillez" },
+                { pronoun: "ils/elles", form: "se réveillent" },
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-44",
+        level: "A1",
+        infinitive: "se doucher",
+        meaning: "to shower",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "me douche" },
+                { pronoun: "tu", form: "te douches" },
+                { pronoun: "il/elle", form: "se douche" },
+                { pronoun: "nous", form: "nous douchons" },
+                { pronoun: "vous", form: "vous douchez" },
+                { pronoun: "ils/elles", form: "se douchent" },
+            ]
+        }]
+    },
+    {
+        id: "fr-vb-a1-45",
+        level: "A1",
+        infinitive: "se reposer",
+        meaning: "to rest / relax",
+        conjugations: [{
+            tense: "Present",
+            forms: [
+                { pronoun: "je", form: "me repose" },
+                { pronoun: "tu", form: "te reposes" },
+                { pronoun: "il/elle", form: "se repose" },
+                { pronoun: "nous", form: "nous reposons" },
+                { pronoun: "vous", form: "vous reposez" },
+                { pronoun: "ils/elles", form: "se reposent" },
             ]
         }]
     },
