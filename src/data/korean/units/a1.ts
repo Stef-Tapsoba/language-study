@@ -243,7 +243,7 @@ export const a1Units: LessonUnit[] = [
         description: "Time expressions, days of the week, telling the time. 에 for specific times vs no 에 for relative words like 오늘, 매일. Build a full daily routine.",
         grammarIds: ["ko-g-a1-20", "ko-g-a1-21"],
         phraseLessonIds: ["ko-pl-a1-9"],
-        vocabIds: ["ko-v-a1-106", "ko-v-a1-107", "ko-v-a1-108", "ko-v-a1-109", "ko-v-a1-110", "ko-v-a1-177", "ko-v-a1-178", "ko-v-a1-179", "ko-v-a1-180", "ko-v-a1-181", "ko-v-a1-182", "ko-v-a1-183", "ko-v-a1-184", "ko-v-a1-185", "ko-v-a1-186", "ko-v-a1-187", "ko-v-a1-188", "ko-v-a1-189", "ko-v-a1-190", "ko-v-a1-191", "ko-v-a1-192", "ko-v-a1-193", "ko-v-a1-194"],
+        vocabIds: ["ko-v-a1-106", "ko-v-a1-107", "ko-v-a1-108", "ko-v-a1-109", "ko-v-a1-110", "ko-v-a1-111", "ko-v-a1-112", "ko-v-a1-113", "ko-v-a1-114", "ko-v-a1-115", "ko-v-a1-177", "ko-v-a1-178", "ko-v-a1-179", "ko-v-a1-180", "ko-v-a1-181", "ko-v-a1-182", "ko-v-a1-183", "ko-v-a1-184", "ko-v-a1-185", "ko-v-a1-186", "ko-v-a1-187", "ko-v-a1-188", "ko-v-a1-189", "ko-v-a1-190", "ko-v-a1-191", "ko-v-a1-192", "ko-v-a1-193", "ko-v-a1-194"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a1-13-1", level: "A1", prompt: "아침에 일어나요 — why does 아침 take 에?", options: ["All time words take 에", "아침 is a specific named time period (not relative like 오늘)", "아침 ends in a consonant", "에 is always used with 일어나요"], answer: "아침 is a specific named time period (not relative like 오늘)" },
@@ -257,10 +257,10 @@ export const a1Units: LessonUnit[] = [
         level: "A1",
         order: 15,
 
-        title: "I like this, I don't like that",
+        title: "I don't do this, I can't do that",
         description: "Negation with 안 (choice) vs 못 (inability). 하다 verb negation rule: 안/못 before 해요. 아니에요 for noun negation.",
-        grammarIds: ["ko-g-a1-22", "ko-g-a1-23"],
-        vocabIds: ["ko-v-a1-111", "ko-v-a1-112", "ko-v-a1-113", "ko-v-a1-114", "ko-v-a1-115"],
+        grammarIds: ["ko-g-a1-22", "ko-g-a1-23", "ko-g-a1-23b"],
+        vocabIds: ["ko-v-a1-116", "ko-v-a1-117", "ko-v-a1-275"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a1-14-1", level: "A1", prompt: "운동을 안 해요 means:", options: ["I can't exercise.", "I don't exercise (by choice).", "I don't like exercise.", "Exercise is not good."], answer: "I don't exercise (by choice)." },
@@ -275,9 +275,10 @@ export const a1Units: LessonUnit[] = [
         order: 16,
 
         title: "Asking and answering",
-        description: "Question words 뭐/어디/언제/누구/어떻게/왜 in Korean in-situ questions. The 누구→누가 rule. Questions sound like statements — just use rising intonation.",
+        description: "Question words 뭐/어디/언제/누구/어떻게/왜/몇/얼마나/어떤 in Korean in-situ questions. The 누구→누가 rule. Questions sound like statements — just use rising intonation.",
         grammarIds: ["ko-g-a1-24", "ko-g-a1-25"],
-        vocabIds: ["ko-v-a1-116", "ko-v-a1-117", "ko-v-a1-118", "ko-v-a1-119", "ko-v-a1-120"],
+        phraseLessonIds: ["ko-pl-a1-15"],
+        vocabIds: ["ko-v-a1-118", "ko-v-a1-94", "ko-v-a1-119", "ko-v-a1-120", "ko-v-a1-121", "ko-v-a1-122", "ko-v-a1-257", "ko-v-a1-276", "ko-v-a1-277", "ko-v-a1-278"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a1-15-1", level: "A1", prompt: "How do you ask 'What are you doing?'", options: ["뭐를 해요?", "뭐 해요?", "어디 해요?", "언제 해요?"], answer: "뭐 해요?" },
@@ -294,7 +295,7 @@ export const a1Units: LessonUnit[] = [
         title: "How often?",
         description: "Frequency adverbs: 항상/자주/가끔/별로/거의/절대로. Key rule: 별로, 거의, 절대로 require a negative verb — they cannot stand alone with a positive verb.",
         grammarIds: ["ko-g-a1-26", "ko-g-a1-27"],
-        vocabIds: ["ko-v-a1-121", "ko-v-a1-122", "ko-v-a1-123", "ko-v-a1-124", "ko-v-a1-125"],
+        vocabIds: ["ko-v-a1-123", "ko-v-a1-124", "ko-v-a1-125", "ko-v-a1-126", "ko-v-a1-127"],
         verbIds: [],
         testQuestions: [
             { id: "ko-uq-a1-16-1", level: "A1", prompt: "Which sentence is correct?", options: ["저는 별로 운동해요.", "저는 별로 안 운동해요.", "저는 별로 운동 안을 해요.", "저는 운동을 별로 안 해요."], answer: "저는 운동을 별로 안 해요." },
@@ -311,7 +312,7 @@ export const a1Units: LessonUnit[] = [
         title: "What happened?",
         description: "Past tense ~았어요/었어요 — the same vowel harmony rule as present. 하다 → 했어요. Irregular past forms. Telling a simple story in Korean.",
         grammarIds: ["ko-g-a1-28", "ko-g-a1-29"],
-        vocabIds: ["ko-v-a1-126", "ko-v-a1-127", "ko-v-a1-128", "ko-v-a1-129", "ko-v-a1-130", "ko-v-a1-131"],
+        vocabIds: ["ko-v-a1-128", "ko-v-a1-129", "ko-v-a1-130", "ko-v-a1-131"],
         verbIds: [],
         checkpointId: "ko-cp-a1-3",
         testQuestions: [
