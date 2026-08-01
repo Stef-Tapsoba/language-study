@@ -2,7 +2,7 @@
 //
 // Use SECTION_CONFIG instead of local color maps in DashboardPage, StatsTab, ProfilePage, etc.
 
-export type StudySection = "grammar" | "vocab" | "verbs" | "reading" | "listening" | "culture"
+export type StudySection = "grammar" | "vocab" | "verbs" | "reading" | "listening" | "culture" | "script"
 
 export interface SectionMeta {
     /** Tailwind bg-* class for flat fills and accent strips. */
@@ -26,4 +26,5 @@ export const SECTION_CONFIG: Record<StudySection, SectionMeta> = {
     reading:   { color: "bg-blue-500",   gradient: "bg-gradient-to-r from-blue-400 to-blue-600",     textColor: "text-blue-600",   iconBg: "bg-blue-100",   iconText: "text-blue-700",   emoji: "📗", label: "Reading"     },
     listening: { color: "bg-slate-400",  gradient: "bg-gradient-to-r from-slate-400 to-slate-600",   textColor: "text-slate-600",  iconBg: "bg-slate-100",  iconText: "text-slate-700",  emoji: "🎧", label: "Listening"   },
     culture:   { color: "bg-teal-500",   gradient: "bg-gradient-to-r from-teal-400 to-teal-600",     textColor: "text-teal-600",   iconBg: "bg-teal-100",   iconText: "text-teal-700",   emoji: "🌍", label: "Culture"     },
+    script:    { color: "bg-indigo-500", gradient: "bg-gradient-to-r from-indigo-400 to-indigo-600", textColor: "text-indigo-600", iconBg: "bg-indigo-100", iconText: "text-indigo-700", emoji: "🈴", label: "Script"      },
 }

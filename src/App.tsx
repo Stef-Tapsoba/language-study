@@ -31,6 +31,7 @@ const UnitPage           = lazy(() => import("./pages/UnitPage").then(m => ({ de
 const ReadingPage        = lazy(() => import("./pages/ReadingPage").then(m => ({ default: m.ReadingPage })))
 const ListeningPage      = lazy(() => import("./pages/ListeningPage").then(m => ({ default: m.ListeningPage })))
 const CulturePage        = lazy(() => import("./pages/CulturePage").then(m => ({ default: m.CulturePage })))
+const ScriptPage         = lazy(() => import("./pages/ScriptPage").then(m => ({ default: m.ScriptPage })))
 const CategoryReadingPage = lazy(() => import("./pages/CategoryReadingPage").then(m => ({ default: m.CategoryReadingPage })))
 const GrammarLessonPage  = lazy(() => import("./pages/GrammarLessonPage").then(m => ({ default: m.GrammarLessonPage })))
 const ReviewPage         = lazy(() => import("./pages/ReviewPage").then(m => ({ default: m.ReviewPage })))
@@ -145,6 +146,7 @@ export default function App() {
                         <Route path="reading/:category" element={<CategoryReadingPage />} />
                         <Route path="listening" element={<ListeningPage />} />
                         <Route path="culture" element={<CulturePage />} />
+                        <Route path="script" element={<ScriptPage />} />
                         <Route path="exercise/:exerciseTypeId" element={<ExerciseShell />} />
                         <Route path="review/session" element={<ReviewPage />} />
                         <Route path="goal" element={<GoalPickerPage />} />
