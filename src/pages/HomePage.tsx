@@ -67,6 +67,11 @@ const GrammarDrillIcon = () => (
         <path d="M6 8l1.5 1.5L10 6" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" className="text-reading" />
     </svg>
 )
+const HangulIcon = () => (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M3 3v10M3 8h4M9 3v10M9 5h4M9 11h4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" className="text-culture" />
+    </svg>
+)
 
 /** Groups level units into checkpoint blocks using the gate-unit pattern. */
 function computeBlocks(levelUnits: LessonUnit[], checkpoints: Checkpoint[]) {
@@ -354,6 +359,7 @@ function SidebarPanel({
     levelCheckpoints, levelUnits, mastered, completedCheckpoints,
 }: Readonly<SidebarPanelProps>) {
     const pct = totalUnits > 0 ? Math.round(masteredCount / totalUnits * 100) : 0
+    const language = getLanguage(langId)
 
     return (
         <div className="flex flex-col gap-4">
@@ -427,6 +433,18 @@ function SidebarPanel({
                         </div>
                         <ChevronRight size={14} className="text-text-ter shrink-0" />
                     </Link>
+                    {language?.script === "hangul" && (
+                        <Link to={`/learn/${langId}/script`} className="flex items-center gap-3 px-4 py-3 hover:bg-surface-elevated transition-colors">
+                            <div className="w-8 h-8 bg-culture-surface rounded-lg flex items-center justify-center shrink-0">
+                                <HangulIcon />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                                <p className="text-sm font-medium text-text-pri">Hangul Reference</p>
+                                <p className="text-xs text-text-sec">Full syllable chart</p>
+                            </div>
+                            <ChevronRight size={14} className="text-text-ter shrink-0" />
+                        </Link>
+                    )}
                 </div>
             </div>
         </div>
@@ -436,6 +454,7 @@ function SidebarPanel({
 // ─── Returning-user home ─────────────────────────────────────────────────────
 
 function ReturningHome({ firstName, langId }: Readonly<{ firstName: string; langId: string }>) {
+    const language = getLanguage(langId)
     const progress = useProgressStore(s => s.progress)
     const { level: getLevel, completed: getCompleted, mastered: getMastered, completedCheckpoints: getCompletedCheckpoints } = progressHelpers(progress)
     const level = getLevel(langId)
@@ -550,6 +569,14 @@ function ReturningHome({ firstName, langId }: Readonly<{ firstName: string; lang
                                 iconBg="bg-reading-surface"
                                 icon={<GrammarDrillIcon />}
                             />
+                            {language?.script === "hangul" && (
+                                <QuickPracticeCard
+                                    label="Hangul"
+                                    href={`/learn/${langId}/script`}
+                                    iconBg="bg-culture-surface"
+                                    icon={<HangulIcon />}
+                                />
+                            )}
                         </div>
                     </div>
                 </div>

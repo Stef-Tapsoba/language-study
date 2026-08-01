@@ -124,6 +124,14 @@ export function StudyPage() {
                     countDesc={ui.sectionCultureDesc}
                     to={`/learn/${langId}/culture`}
                 />
+                {language.script === "hangul" && (
+                    <StudyCard
+                        section="script"
+                        title="Hangul Reference"
+                        countDesc="Full syllable chart"
+                        to={`/learn/${langId}/script`}
+                    />
+                )}
             </div>
         </div>
     )
