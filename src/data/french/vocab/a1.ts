@@ -78,6 +78,37 @@ export const a1Vocab: VocabItem[] = [
     { id: "fr-v-a1-46", level: "A1", word: "ce soir", translation: "this evening / tonight", category: "Time", example: { native: "Qu'est-ce qu'on fait ce soir?", translation: "What are we doing tonight?" } },
     { id: "fr-v-a1-47", level: "A1", word: "la semaine", translation: "the week", category: "Time", example: { native: "La semaine prochaine, je pars.", translation: "Next week, I am leaving." } },
 
+    // --- Telling the Time (8) ---
+    { id: "fr-v-a1-312", level: "A1", word: "l'heure (f)", translation: "hour / o'clock / time", category: "Time", example: { native: "Quelle heure est-il ?", translation: "What time is it?" } },
+    { id: "fr-v-a1-313", level: "A1", word: "midi", translation: "noon / midday", category: "Time", example: { native: "Il est midi.", translation: "It's noon." } },
+    { id: "fr-v-a1-314", level: "A1", word: "minuit", translation: "midnight", category: "Time", example: { native: "Je me couche avant minuit.", translation: "I go to bed before midnight." } },
+    { id: "fr-v-a1-315", level: "A1", word: "et quart", translation: "quarter past", category: "Time", example: { native: "Il est huit heures et quart.", translation: "It's quarter past eight." } },
+    { id: "fr-v-a1-316", level: "A1", word: "et demie", translation: "half past", category: "Time", example: { native: "Il est deux heures et demie.", translation: "It's half past two." } },
+    { id: "fr-v-a1-317", level: "A1", word: "moins le quart", translation: "quarter to", category: "Time", example: { native: "Il est neuf heures moins le quart.", translation: "It's quarter to nine." } },
+    { id: "fr-v-a1-318", level: "A1", word: "vers", translation: "around / about (time)", category: "Time", example: { native: "On se voit vers dix-neuf heures ?", translation: "Shall we meet around 7pm?" } },
+    { id: "fr-v-a1-319", level: "A1", word: "jusqu'à", translation: "until", category: "Time", example: { native: "Je travaille jusqu'à dix-huit heures.", translation: "I work until 6pm." } },
+
+    // --- Question Words (8) ---
+    { id: "fr-v-a1-320", level: "A1", word: "qui", translation: "who", category: "Questions", example: { native: "Qui est-ce ?", translation: "Who is it?" } },
+    { id: "fr-v-a1-321", level: "A1", word: "où", translation: "where", category: "Questions", example: { native: "Où est-ce que tu habites ?", translation: "Where do you live?" } },
+    { id: "fr-v-a1-322", level: "A1", word: "quand", translation: "when", category: "Questions", example: { native: "Quand est-ce qu'il arrive ?", translation: "When does he arrive?" } },
+    { id: "fr-v-a1-323", level: "A1", word: "pourquoi", translation: "why", category: "Questions", example: { native: "Pourquoi tu pars si tôt ?", translation: "Why are you leaving so early?" } },
+    { id: "fr-v-a1-324", level: "A1", word: "comment", translation: "how", category: "Questions", example: { native: "Comment tu t'appelles ?", translation: "What's your name?" } },
+    { id: "fr-v-a1-325", level: "A1", word: "combien", translation: "how much / how many", category: "Questions", example: { native: "Combien ça coûte ?", translation: "How much does it cost?" } },
+    { id: "fr-v-a1-326", level: "A1", word: "quel / quelle", translation: "which / what (agrees with noun)", category: "Questions", example: { native: "Quel âge tu as ?", translation: "How old are you?" } },
+    { id: "fr-v-a1-327", level: "A1", word: "qu'est-ce que", translation: "what (as object of the verb)", category: "Questions", example: { native: "Qu'est-ce que tu fais ce soir ?", translation: "What are you doing tonight?" } },
+
+    // --- Connectors & Discourse Markers (9) ---
+    { id: "fr-v-a1-328", level: "A1", word: "mais", translation: "but", category: "Connectors", example: { native: "Je veux venir, mais je ne peux pas.", translation: "I want to come, but I can't." } },
+    { id: "fr-v-a1-329", level: "A1", word: "donc", translation: "so / therefore", category: "Connectors", example: { native: "Il pleut, donc je reste à la maison.", translation: "It's raining, so I'm staying home." } },
+    { id: "fr-v-a1-330", level: "A1", word: "alors", translation: "so / then", category: "Connectors", example: { native: "Je suis fatigué, alors je vais me coucher.", translation: "I'm tired, so I'm going to bed." } },
+    { id: "fr-v-a1-331", level: "A1", word: "parce que", translation: "because", category: "Connectors", example: { native: "J'aime Paris parce que c'est une belle ville.", translation: "I like Paris because it's a beautiful city." } },
+    { id: "fr-v-a1-332", level: "A1", word: "puis", translation: "then (in a sequence)", category: "Connectors", example: { native: "Je prends un café, puis je pars.", translation: "I have a coffee, then I leave." } },
+    { id: "fr-v-a1-333", level: "A1", word: "d'abord", translation: "first", category: "Connectors", example: { native: "D'abord, je me lève.", translation: "First, I get up." } },
+    { id: "fr-v-a1-334", level: "A1", word: "ensuite", translation: "then / next", category: "Connectors", example: { native: "Ensuite, je prends un café.", translation: "Then, I have a coffee." } },
+    { id: "fr-v-a1-335", level: "A1", word: "enfin", translation: "finally", category: "Connectors", example: { native: "Enfin, je me couche vers minuit.", translation: "Finally, I go to bed around midnight." } },
+    { id: "fr-v-a1-336", level: "A1", word: "voilà", translation: "there you go / that's it", category: "Connectors", example: { native: "Euh... je ne sais pas exactement. Voilà.", translation: "Um... I don't know exactly. That's it." } },
+
     // --- Family & Relationships ---
     { id: "fr-v-a1-48", level: "A1", word: "la famille", translation: "the family", category: "Family", example: { native: "Ma famille est grande.", translation: "My family is big." } },
     { id: "fr-v-a1-49", level: "A1", word: "le père", translation: "the father", category: "Family", example: { native: "Mon père travaille à Lyon.", translation: "My father works in Lyon." } },
@@ -212,6 +243,37 @@ export const a1Vocab: VocabItem[] = [
     { id: "fr-v-a1-144", level: "A1", word: "l'artiste", translation: "artist", category: "Professions", example: { native: "C'est une artiste connue.", translation: "She is a well-known artist." } },
     { id: "fr-v-a1-145", level: "A1", word: "le cuisinier / la cuisinière", translation: "cook / chef", category: "Professions", example: { native: "Le cuisinier prépare un bon repas.", translation: "The cook prepares a good meal." } },
     { id: "fr-v-a1-146", level: "A1", word: "le journaliste", translation: "journalist", category: "Professions", example: { native: "Elle est journaliste pour Le Monde.", translation: "She is a journalist for Le Monde." } },
+
+    // --- Nationalities (6) ---
+    { id: "fr-v-a1-287", level: "A1", word: "français / française", translation: "French", category: "Nationalities", example: { native: "Il est français, elle est française aussi.", translation: "He is French, she is French too." } },
+    { id: "fr-v-a1-288", level: "A1", word: "anglais / anglaise", translation: "English", category: "Nationalities", example: { native: "Je suis anglaise. Et toi ?", translation: "I'm English. And you?" } },
+    { id: "fr-v-a1-289", level: "A1", word: "américain / américaine", translation: "American", category: "Nationalities", example: { native: "Elle est américaine, de New York.", translation: "She's American, from New York." } },
+    { id: "fr-v-a1-290", level: "A1", word: "canadien / canadienne", translation: "Canadian", category: "Nationalities", example: { native: "Ils sont canadiens.", translation: "They are Canadian." } },
+    { id: "fr-v-a1-291", level: "A1", word: "italien / italienne", translation: "Italian", category: "Nationalities", example: { native: "Elle est italienne, de Rome.", translation: "She's Italian, from Rome." } },
+    { id: "fr-v-a1-292", level: "A1", word: "espagnol / espagnole", translation: "Spanish", category: "Nationalities", example: { native: "Tu es espagnol ou espagnole ?", translation: "Are you Spanish? (male or female)" } },
+
+    // --- Personality & Physical Description (11) ---
+    { id: "fr-v-a1-293", level: "A1", word: "intelligent / intelligente", translation: "intelligent", category: "Adjectives", example: { native: "Elle est très intelligente.", translation: "She is very intelligent." } },
+    { id: "fr-v-a1-294", level: "A1", word: "sportif / sportive", translation: "sporty / athletic", category: "Adjectives", example: { native: "Mon frère est sportif, il fait du vélo tous les jours.", translation: "My brother is sporty, he cycles every day." } },
+    { id: "fr-v-a1-295", level: "A1", word: "gentil / gentille", translation: "kind", category: "Adjectives", example: { native: "Ta sœur est vraiment gentille.", translation: "Your sister is really kind." } },
+    { id: "fr-v-a1-296", level: "A1", word: "mince", translation: "slim", category: "Adjectives", example: { native: "Elle est grande et mince.", translation: "She is tall and slim." } },
+    { id: "fr-v-a1-297", level: "A1", word: "costaud / costaude", translation: "stocky / sturdily built", category: "Adjectives", example: { native: "Son frère est costaud.", translation: "Her brother is stocky." } },
+    { id: "fr-v-a1-298", level: "A1", word: "mignon / mignonne", translation: "cute", category: "Adjectives", example: { native: "Leur chat est trop mignon !", translation: "Their cat is so cute!" } },
+    { id: "fr-v-a1-299", level: "A1", word: "drôle", translation: "funny", category: "Adjectives", example: { native: "Mon ami est très drôle.", translation: "My friend is very funny." } },
+    { id: "fr-v-a1-300", level: "A1", word: "bavard / bavarde", translation: "talkative", category: "Adjectives", example: { native: "Ma grand-mère est un peu bavarde.", translation: "My grandmother is a bit talkative." } },
+    { id: "fr-v-a1-301", level: "A1", word: "timide", translation: "shy", category: "Adjectives", example: { native: "Il est timide avec les inconnus.", translation: "He is shy with strangers." } },
+    { id: "fr-v-a1-302", level: "A1", word: "sérieux / sérieuse", translation: "serious", category: "Adjectives", example: { native: "Notre professeur est sérieux mais sympa.", translation: "Our teacher is serious but nice." } },
+    { id: "fr-v-a1-303", level: "A1", word: "travailleur / travailleuse", translation: "hardworking", category: "Adjectives", example: { native: "Elle est très travailleuse à l'école.", translation: "She is very hardworking at school." } },
+
+    // --- Countries (8) ---
+    { id: "fr-v-a1-304", level: "A1", word: "la France", translation: "France", category: "Countries", example: { native: "J'habite en France.", translation: "I live in France." } },
+    { id: "fr-v-a1-305", level: "A1", word: "l'Angleterre (f)", translation: "England", category: "Countries", example: { native: "Elle vient d'Angleterre.", translation: "She comes from England." } },
+    { id: "fr-v-a1-306", level: "A1", word: "les États-Unis (m pl)", translation: "the United States", category: "Countries", example: { native: "Ils habitent aux États-Unis.", translation: "They live in the United States." } },
+    { id: "fr-v-a1-307", level: "A1", word: "le Canada", translation: "Canada", category: "Countries", example: { native: "Nous allons au Canada cet été.", translation: "We're going to Canada this summer." } },
+    { id: "fr-v-a1-308", level: "A1", word: "le Japon", translation: "Japan", category: "Countries", example: { native: "Il habite au Japon depuis deux ans.", translation: "He has lived in Japan for two years." } },
+    { id: "fr-v-a1-309", level: "A1", word: "l'Espagne (f)", translation: "Spain", category: "Countries", example: { native: "On part en Espagne en vacances.", translation: "We're going to Spain on holiday." } },
+    { id: "fr-v-a1-310", level: "A1", word: "l'Italie (f)", translation: "Italy", category: "Countries", example: { native: "Elle étudie en Italie.", translation: "She studies in Italy." } },
+    { id: "fr-v-a1-311", level: "A1", word: "la Belgique", translation: "Belgium", category: "Countries", example: { native: "Mon collègue habite en Belgique.", translation: "My colleague lives in Belgium." } },
 
     // --- Time Expressions (12) ---
     { id: "fr-v-a1-147", level: "A1", word: "le matin", translation: "the morning", category: "Time", example: { native: "Je me lève tôt le matin.", translation: "I get up early in the morning." } },
@@ -352,6 +414,12 @@ export const a1Vocab: VocabItem[] = [
     { id: "fr-v-a1-272", level: "A1", word: "le prix", translation: "the price", category: "Shopping", example: { native: "Le prix est affiché sur l'étiquette.", translation: "The price is shown on the label." } },
     { id: "fr-v-a1-273", level: "A1", word: "la monnaie", translation: "change (coins) / currency", category: "Shopping", example: { native: "Gardez la monnaie!", translation: "Keep the change!" } },
 
+    // --- Needs and Requests (4) ---
+    { id: "fr-v-a1-337", level: "A1", word: "il faut", translation: "it's necessary / one must", category: "Modals", example: { native: "Il faut réserver à l'avance.", translation: "You have to book in advance." } },
+    { id: "fr-v-a1-338", level: "A1", word: "avoir besoin de", translation: "to need", category: "Modals", example: { native: "J'ai besoin d'aide, s'il vous plaît.", translation: "I need help, please." } },
+    { id: "fr-v-a1-339", level: "A1", word: "réserver", translation: "to book / to reserve", category: "Modals", example: { native: "Je voudrais réserver une table pour deux.", translation: "I'd like to reserve a table for two." } },
+    { id: "fr-v-a1-340", level: "A1", word: "confirmer", translation: "to confirm", category: "Modals", example: { native: "Vous devez confirmer la réservation.", translation: "You must confirm the booking." } },
+
     // --- Weather (12) ---
     { id: "fr-v-a1-274", level: "A1", word: "il fait chaud", translation: "it's hot (weather)", category: "Weather", example: { native: "En été, il fait très chaud.", translation: "In summer it's very hot." } },
     { id: "fr-v-a1-275", level: "A1", word: "il fait froid", translation: "it's cold (weather)", category: "Weather", example: { native: "En hiver, il fait froid.", translation: "In winter it's cold." } },
@@ -367,4 +435,19 @@ export const a1Vocab: VocabItem[] = [
     { id: "fr-v-a1-285", level: "A1", word: "il fait frais", translation: "it's cool/fresh (weather)", category: "Weather", example: { native: "Le soir, il fait frais au printemps.", translation: "In spring the evenings are cool." } },
 
     { id: "fr-v-a1-286", level: "A1", word: "le petit ami / la petite amie", translation: "the boyfriend / the girlfriend", category: "Family", example: { native: "Mon petit ami habite à Lyon.", translation: "My boyfriend lives in Lyon." } },
+
+    // --- Past Time Markers (2) ---
+    { id: "fr-v-a1-341", level: "A1", word: "récemment", translation: "recently", category: "Time", example: { native: "J'ai déménagé récemment.", translation: "I moved recently." } },
+    { id: "fr-v-a1-342", level: "A1", word: "la semaine dernière", translation: "last week", category: "Time", example: { native: "La semaine dernière, j'ai vu ce film.", translation: "Last week, I saw that film." } },
+
+    // --- Demonstratives support (1) ---
+    { id: "fr-v-a1-343", level: "A1", word: "un appartement", translation: "a flat / an apartment", category: "Places", example: { native: "Cet appartement est petit mais confortable.", translation: "This flat is small but comfortable." } },
+
+    // --- Il y a support (2) ---
+    { id: "fr-v-a1-344", level: "A1", word: "un problème", translation: "a problem", category: "Basics", example: { native: "Il y a un problème avec la commande.", translation: "There's a problem with the order." } },
+    { id: "fr-v-a1-345", level: "A1", word: "beaucoup de monde", translation: "a lot of people / crowded", category: "Basics", example: { native: "Il y a beaucoup de monde aujourd'hui.", translation: "There are a lot of people today." } },
+
+    // --- Savoir/Connaître support (2) ---
+    { id: "fr-v-a1-346", level: "A1", word: "l'adresse (f)", translation: "the address", category: "Basics", example: { native: "Je sais son adresse par cœur.", translation: "I know his/her address by heart." } },
+    { id: "fr-v-a1-347", level: "A1", word: "le numéro (de téléphone)", translation: "the (phone) number", category: "Basics", example: { native: "Tu sais son numéro de téléphone ?", translation: "Do you know his/her phone number?" } },
 ]
